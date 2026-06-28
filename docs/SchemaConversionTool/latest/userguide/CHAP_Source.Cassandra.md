@@ -43,5 +43,4 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **Store password** | AWS SCT creates a secure vault to store SSL certificates and database passwords.<br>By turning this option on, you can store the database password and connect quickly<br>to the database without having to enter the password. |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.

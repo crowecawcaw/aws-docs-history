@@ -84,11 +84,11 @@ datasets**.
 - To define the template to use for the schema names in the converted code. For
   **Schema name generation template**, choose one of the following options:
 
-  - **<source_db>** – Uses the SQL Server database name
+  - **<source\_db>** – Uses the SQL Server database name
     as a schema name in PostgreSQL.
-  - **<source_schema>** – Uses the SQL Server schema name
+  - **<source\_schema>** – Uses the SQL Server schema name
     as a schema name in PostgreSQL.
-  - **<source_db>\_<schema>** – Uses a combination
+  - **<source\_db>\_<schema>** – Uses a combination
     of the SQL Server database and schema names as a schema name in PostgreSQL.
 
 - To keep the letter case of your source object names.
@@ -144,7 +144,7 @@ you the option to generate unique index names if your index names are not
 unique. To do this, choose the option **Generate unique
 index names** in the project properties. By default, this
 option is enabled. If this option is enabled, unique index names are created
-using the format IX_table_name_index_name. If this option is disabled, index
+using the format IX\_table\_name\_index\_name. If this option is disabled, index
 names aren’t changed.
 
 - A GOTO statement and a label can be used to change the order that statements are run in. Any
@@ -157,11 +157,11 @@ contains a GOTO statement, it converts the statement to use a BEGIN…END or
 LOOP…END LOOP statement. You can find examples of how AWS SCT converts GOTO
 statements in the table following.
 
-| SQL Server GOTO statements and the converted PostgreSQL statements                                                                                    | SQL Server statement                                                                                                                                                                           | PostgreSQL statement |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>GOTO label1;<br>statement2;<br>....<br>label1:<br>Statement3;<br>....<br>END<br>`                        | `<br>BEGIN<br>label1:<br>BEGIN<br>....<br>statement1;<br>....<br>EXIT label1;<br>statement2;<br>....<br>END;<br>Statement3;<br>....<br>END<br>`                                                |
+SQL Server GOTO statements and the converted PostgreSQL statements| SQL Server statement | PostgreSQL statement |
+| --- | --- |
+| `<br>BEGIN<br>....<br>statement1;<br>....<br>GOTO label1;<br>statement2;<br>....<br>label1:<br>Statement3;<br>....<br>END<br>` | `<br>BEGIN<br>label1:<br>BEGIN<br>....<br>statement1;<br>....<br>EXIT label1;<br>statement2;<br>....<br>END;<br>Statement3;<br>....<br>END<br>` |
 | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>GOTO label1;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>LOOP<br>statement2;<br>....<br>CONTINUE label1;<br>EXIT label1;<br>END LOOP;<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` |
-| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END<br>`                 | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>BEGIN<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END;<br>END<br>`                                         |
+| `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END<br>` | `<br>BEGIN<br>....<br>statement1;<br>....<br>label1:<br>BEGIN<br>statement2;<br>....<br>statement3;<br>....<br>statement4;<br>....<br>END;<br>END<br>` |
 
 - PostgreSQL doesn't support a MERGE statement. AWS SCT emulates the behavior of
   a MERGE statement in the following ways:
@@ -178,14 +178,14 @@ statements in the table following.
   You can use these temporary, memory-resident tables to test the effects of certain data modifications and to set
   conditions for DML trigger actions. AWS SCT can convert the usage of these tables inside DML trigger statements.
 - AWS SCT can add linked servers to the object tree when Amazon RDS is the target.
-- When migrating from Microsoft SQL Server to PostgreSQL, the built-in SUSER_SNAME function is
+- When migrating from Microsoft SQL Server to PostgreSQL, the built-in SUSER\_SNAME function is
   converted as follows:
 
-  - SUSER_SNAME – Returns the login name associated with a security identification number
+  - SUSER\_SNAME – Returns the login name associated with a security identification number
     (SID).
-  - SUSER_SNAME(<server_user_sid>) – Not supported.
-  - SUSER_SNAME() CURRENT_USER – Returns the user name of the current execution context.
-  - SUSER_SNAME(NULL) – Returns NULL.
+  - SUSER\_SNAME(<server\_user\_sid>) – Not supported.
+  - SUSER\_SNAME() CURRENT\_USER – Returns the user name of the current execution context.
+  - SUSER\_SNAME(NULL) – Returns NULL.
 
 - Converting table-valued functions is supported. Table-valued functions return a table and can
   take the place of a table in a query.
@@ -193,8 +193,8 @@ statements in the table following.
   a specified expression on all valid text and character data types. It returns
   zeros if the pattern is not found. When converting from SQL Server to Amazon RDS
   for PostgreSQL, AWS SCT replaces application code that uses PATINDEX with
-  aws_sqlserver_ext.patindex(<pattern character>, <expression character
-  varying>) .
+  aws\_sqlserver\_ext.patindex(<pattern character>, <expression character
+   varying>) .
 - In SQL Server, a user-defined table type is a type that represents the
   definition of a table structure. You use a user-defined table type to declare
   table-value parameters for stored procedures or functions. You can also use a
@@ -206,38 +206,38 @@ When converting from SQL Server to PostgreSQL, AWS SCT converts SQL Server syste
 objects into recognizable objects in PostgreSQL. The following table shows how the system
 objects are converted.
 
-| MS SQL Server use cases                    | PostgreSQL substitution                                      |
-| ------------------------------------------ | ------------------------------------------------------------ |
-| SYS.SCHEMAS                                | AWS_SQLSERVER_EXT.SYS_SCHEMAS                                |
-| SYS.TABLES                                 | AWS_SQLSERVER_EXT.SYS_TABLES                                 |
-| SYS.VIEWS                                  | AWS_SQLSERVER_EXT.SYS_VIEWS                                  |
-| SYS.ALL_VIEWS                              | AWS_SQLSERVER_EXT.SYS_ALL_VIEWS                              |
-| SYS.TYPES                                  | AWS_SQLSERVER_EXT.SYS_TYPES                                  |
-| SYS.COLUMNS                                | AWS_SQLSERVER_EXT.SYS_COLUMNS                                |
-| SYS.ALL_COLUMNS                            | AWS_SQLSERVER_EXT.SYS_ALL_COLUMNS                            |
-| SYS.FOREIGN_KEYS                           | AWS_SQLSERVER_EXT.SYS_FOREIGN_KEYS                           |
-| SYS.SYSFOREIGNKEYS                         | AWS_SQLSERVER_EXT.SYS_SYSFOREIGNKEYS                         |
-| SYS.FOREIGN_KEY_COLUMNS                    | AWS_SQLSERVER_EXT.SYS_FOREIGN_KEY_COLUMNS                    |
-| SYS.KEY_CONSTRAINTS                        | AWS_SQLSERVER_EXT.SYS_KEY_CONSTRAINTS                        |
-| SYS.IDENTITY_COLUMNS                       | AWS_SQLSERVER_EXT.SYS_IDENTITY_COLUMNS                       |
-| SYS.PROCEDURES                             | AWS_SQLSERVER_EXT.SYS_PROCEDURES                             |
-| SYS.INDEXES                                | AWS_SQLSERVER_EXT.SYS_INDEXES                                |
-| SYS.SYSINDEXES                             | AWS_SQLSERVER_EXT.SYS_SYSINDEXES                             |
-| SYS.OBJECTS                                | AWS_SQLSERVER_EXT.SYS_OBJECTS                                |
-| SYS.ALL_OBJECTS                            | AWS_SQLSERVER_EXT.SYS_ALL_OBJECTS                            |
-| SYS.SYSOBJECTS                             | AWS_SQLSERVER_EXT.SYS_SYSOBJECTS                             |
-| SYS.SQL_MODULES                            | AWS_SQLSERVER_EXT.SYS_SQL_MODULES                            |
-| SYS.DATABASES                              | AWS_SQLSERVER_EXT.SYS_DATABASES                              |
-| INFORMATION_SCHEMA.SCHEMATA                | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_SCHEMATA                |
-| INFORMATION_SCHEMA.VIEWS                   | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_VIEWS                   |
-| INFORMATION_SCHEMA.TABLES                  | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_TABLES                  |
-| INFORMATION_SCHEMA.COLUMNS                 | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_COLUMNS                 |
-| INFORMATION_SCHEMA.CHECK_CONSTRAINTS       | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_CHECK_CONSTRAINTS       |
-| INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_REFERENTIAL_CONSTRAINTS |
-| INFORMATION_SCHEMA.TABLE_CONSTRAINTS       | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_TABLE_CONSTRAINTS       |
-| INFORMATION_SCHEMA.KEY_COLUMN_USAGE        | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_KEY_COLUMN_USAGE        |
-| INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE  | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_CONSTRAINT_TABLE_USAGE  |
-| INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_CONSTRAINT_COLUMN_USAGE |
-| INFORMATION_SCHEMA.ROUTINES                | AWS_SQLSERVER_EXT.INFORMATION_SCHEMA_ROUTINES                |
-| SYS.SYSPROCESSES                           | AWS_SQLSERVER_EXT.SYS_SYSPROCESSES                           |
-| sys.system_objects                         | AWS_SQLSERVER_EXT.SYS_SYSTEM_OBJECTS                         |
+| MS SQL Server use cases                       | PostgreSQL substitution                                            |
+| --------------------------------------------- | ------------------------------------------------------------------ |
+| SYS.SCHEMAS                                   | AWS\_SQLSERVER\_EXT.SYS\_SCHEMAS                                   |
+| SYS.TABLES                                    | AWS\_SQLSERVER\_EXT.SYS\_TABLES                                    |
+| SYS.VIEWS                                     | AWS\_SQLSERVER\_EXT.SYS\_VIEWS                                     |
+| SYS.ALL\_VIEWS                                | AWS\_SQLSERVER\_EXT.SYS\_ALL\_VIEWS                                |
+| SYS.TYPES                                     | AWS\_SQLSERVER\_EXT.SYS\_TYPES                                     |
+| SYS.COLUMNS                                   | AWS\_SQLSERVER\_EXT.SYS\_COLUMNS                                   |
+| SYS.ALL\_COLUMNS                              | AWS\_SQLSERVER\_EXT.SYS\_ALL\_COLUMNS                              |
+| SYS.FOREIGN\_KEYS                             | AWS\_SQLSERVER\_EXT.SYS\_FOREIGN\_KEYS                             |
+| SYS.SYSFOREIGNKEYS                            | AWS\_SQLSERVER\_EXT.SYS\_SYSFOREIGNKEYS                            |
+| SYS.FOREIGN\_KEY\_COLUMNS                     | AWS\_SQLSERVER\_EXT.SYS\_FOREIGN\_KEY\_COLUMNS                     |
+| SYS.KEY\_CONSTRAINTS                          | AWS\_SQLSERVER\_EXT.SYS\_KEY\_CONSTRAINTS                          |
+| SYS.IDENTITY\_COLUMNS                         | AWS\_SQLSERVER\_EXT.SYS\_IDENTITY\_COLUMNS                         |
+| SYS.PROCEDURES                                | AWS\_SQLSERVER\_EXT.SYS\_PROCEDURES                                |
+| SYS.INDEXES                                   | AWS\_SQLSERVER\_EXT.SYS\_INDEXES                                   |
+| SYS.SYSINDEXES                                | AWS\_SQLSERVER\_EXT.SYS\_SYSINDEXES                                |
+| SYS.OBJECTS                                   | AWS\_SQLSERVER\_EXT.SYS\_OBJECTS                                   |
+| SYS.ALL\_OBJECTS                              | AWS\_SQLSERVER\_EXT.SYS\_ALL\_OBJECTS                              |
+| SYS.SYSOBJECTS                                | AWS\_SQLSERVER\_EXT.SYS\_SYSOBJECTS                                |
+| SYS.SQL\_MODULES                              | AWS\_SQLSERVER\_EXT.SYS\_SQL\_MODULES                              |
+| SYS.DATABASES                                 | AWS\_SQLSERVER\_EXT.SYS\_DATABASES                                 |
+| INFORMATION\_SCHEMA.SCHEMATA                  | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_SCHEMATA                  |
+| INFORMATION\_SCHEMA.VIEWS                     | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_VIEWS                     |
+| INFORMATION\_SCHEMA.TABLES                    | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_TABLES                    |
+| INFORMATION\_SCHEMA.COLUMNS                   | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_COLUMNS                   |
+| INFORMATION\_SCHEMA.CHECK\_CONSTRAINTS        | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_CHECK\_CONSTRAINTS        |
+| INFORMATION\_SCHEMA.REFERENTIAL\_CONSTRAINTS  | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_REFERENTIAL\_CONSTRAINTS  |
+| INFORMATION\_SCHEMA.TABLE\_CONSTRAINTS        | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_TABLE\_CONSTRAINTS        |
+| INFORMATION\_SCHEMA.KEY\_COLUMN\_USAGE        | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_KEY\_COLUMN\_USAGE        |
+| INFORMATION\_SCHEMA.CONSTRAINT\_TABLE\_USAGE  | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_CONSTRAINT\_TABLE\_USAGE  |
+| INFORMATION\_SCHEMA.CONSTRAINT\_COLUMN\_USAGE | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_CONSTRAINT\_COLUMN\_USAGE |
+| INFORMATION\_SCHEMA.ROUTINES                  | AWS\_SQLSERVER\_EXT.INFORMATION\_SCHEMA\_ROUTINES                  |
+| SYS.SYSPROCESSES                              | AWS\_SQLSERVER\_EXT.SYS\_SYSPROCESSES                              |
+| sys.system\_objects                           | AWS\_SQLSERVER\_EXT.SYS\_SYSTEM\_OBJECTS                           |

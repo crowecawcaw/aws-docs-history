@@ -28,13 +28,13 @@ The privileges required for MySQL as a target are as follows:
 - ALTER ROUTINE ON \*.\*
 - EXECUTE ON \*.\*
 - CREATE TEMPORARY TABLES ON \*.\*
-- AWS_LAMBDA_ACCESS
-- INSERT, UPDATE ON AWS_ORACLE_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_ORACLE_EXT_DATA.\*
+- AWS\_LAMBDA\_ACCESS
+- INSERT, UPDATE ON AWS\_ORACLE\_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS\_ORACLE\_EXT\_DATA.\*
 
 If you use a MySQL database version 5.7 or lower as a target, then grant the INVOKE LAMBDA \*.\*
-permission instead of AWS_LAMBDA_ACCESS. For MySQL databases version 8.0 and higher, grant
-the AWS_LAMBDA_ACCESS permission.
+permission instead of AWS\_LAMBDA\_ACCESS. For MySQL databases version 8.0 and higher, grant
+the AWS\_LAMBDA\_ACCESS permission.
 
 You can use the following code example to create a database user and grant the privileges.
 
@@ -149,9 +149,9 @@ the table following.
 
 ## Converting the WITH statement in Oracle to RDS for MySQL or Amazon Aurora MySQL
 
-You use the WITH clause (subquery_factoring) in Oracle to assign a name
-(query_name) to a subquery block. You can then reference the subquery block multiple
-places in the query by specifying query_name. If a subquery block doesn't contain
+You use the WITH clause (subquery\_factoring) in Oracle to assign a name
+(query\_name) to a subquery block. You can then reference the subquery block multiple
+places in the query by specifying query\_name. If a subquery block doesn't contain
 links or parameters (local, procedure, function, package), then AWS SCT converts the
 clause to a view or a temporary table.
 

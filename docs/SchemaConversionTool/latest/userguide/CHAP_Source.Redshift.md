@@ -11,13 +11,13 @@ The following privileges are required for using Amazon Redshift as a source:
 
 - USAGE ON SCHEMA `<schema_name>`
 - SELECT ON ALL TABLES IN SCHEMA `<schema_name>`
-- SELECT ON PG_CATALOG.PG_STATISTIC
-- SELECT ON SVV_TABLE_INFO
-- SELECT ON TABLE STV_BLOCKLIST
-- SELECT ON TABLE STV_TBL_PERM
-- SELECT ON SYS_SERVERLESS_USAGE
-- SELECT ON PG_DATABASE_INFO
-- SELECT ON PG_STATISTIC
+- SELECT ON PG\_CATALOG.PG\_STATISTIC
+- SELECT ON SVV\_TABLE\_INFO
+- SELECT ON TABLE STV\_BLOCKLIST
+- SELECT ON TABLE STV\_TBL\_PERM
+- SELECT ON SYS\_SERVERLESS\_USAGE
+- SELECT ON PG\_DATABASE\_INFO
+- SELECT ON PG\_STATISTIC
 
 In the preceding examples, replace the
 `<schema_name>` placeholder with the name of
@@ -64,8 +64,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **Redshift driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see<br>[Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.
 
 ## Amazon Redshift optimization settings
 

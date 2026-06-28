@@ -70,67 +70,65 @@ share them with AWS Support or AWS SCT developers for troubleshooting.
 
 ###### To change logging settings
 
-1.  On the **Settings** menu, choose
-    **Global settings**, and then choose
-    **Logging**.
-2.  For **Log folder path**, enter the folder to store logs
-    from the user interface.
-3.  For **Console log folder path**, enter the folder to store
-    logs of the AWS SCT command line interface (CLI).
-4.  For **Maximum log file size (MB)**, enter the size, in MB,
-    of a single log file. After your file reaches this limit, AWS SCT creates a new
-    log file.
-5.  For **Maximum number of log files**, enter the number of log
-    files to store. After the number of log files in the folder reaches this limit,
-    AWS SCT deletes the oldest log file.
-6.  For **Extractors log download path**, enter the folder
-    to store data extraction agents logs.
-7.  For **Cassandra extractor log path**, enter the folder
-    to store Apache Cassandra data extraction agents logs.
-8.  Select **Ask for a path before loading** to make sure
-    that AWS SCT asks where to store logs every time you use data extraction
-    agents.
-9.  For **Debug mode**, choose **True**. Use this option
-    to log additional information when standard AWS SCT logs don't include any issues.
+1. On the **Settings** menu, choose
+   **Global settings**, and then choose
+   **Logging**.
+2. For **Log folder path**, enter the folder to store logs
+   from the user interface.
+3. For **Console log folder path**, enter the folder to store
+   logs of the AWS SCT command line interface (CLI).
+4. For **Maximum log file size (MB)**, enter the size, in MB,
+   of a single log file. After your file reaches this limit, AWS SCT creates a new
+   log file.
+5. For **Maximum number of log files**, enter the number of log
+   files to store. After the number of log files in the folder reaches this limit,
+   AWS SCT deletes the oldest log file.
+6. For **Extractors log download path**, enter the folder
+   to store data extraction agents logs.
+7. For **Cassandra extractor log path**, enter the folder
+   to store Apache Cassandra data extraction agents logs.
+8. Select **Ask for a path before loading** to make sure
+   that AWS SCT asks where to store logs every time you use data extraction
+   agents.
+9. For **Debug mode**, choose **True**. Use this option
+   to log additional information when standard AWS SCT logs don't include any issues.
 10. Choose key application modules to increase the logging information.
     You can increase the logging information for the following application
     modules:
 
-        * **General**
-        * **Loader**
-        * **Parser**
-        * **Printer**
-        * **Resolver**
-        * **Telemetry**
-        * **Converter**
-        * **Type mapping**
-        * **User interface**
-        * **Controller**
-        * **Compare schema**
-        * **Clone data center**
-        * **Application analyzer**
+    - **General**
+    - **Loader**
+    - **Parser**
+    - **Printer**
+    - **Resolver**
+    - **Telemetry**
+    - **Converter**
+    - **Type mapping**
+    - **User interface**
+    - **Controller**
+    - **Compare schema**
+    - **Clone data center**
+    - **Application analyzer**
+      For each of the preceding application modules, choose one of the following
+      logging levels:
 
-    For each of the preceding application modules, choose one of the following
-    logging levels:
-
-        * Trace –
-         Most detailed information.
-        * Debug – Detailed information on the flow through the
-         system.
-        * Info – Runtime events, such as startup or
-         shutdown.
-        * Warning –
-         Use of deprecated APIs, poor use of API, other runtime situations
-         that are undesirable or unexpected.
-        * Error –
-         Runtime errors or unexpected conditions.
-        * Critical – Errors that lead to the application shutting
-         down.
-        * Mandatory –
-         The highest possible level of errors.
-
-    By default, after you turn on **Debug mode**, AWS SCT sets
-    the **Info** logging level for all application modules.
+    - Trace –
+      Most detailed information.
+    - Debug – Detailed information on the flow through the
+      system.
+    - Info – Runtime events, such as startup or
+      shutdown.
+    - Warning –
+      Use of deprecated APIs, poor use of API, other runtime situations
+      that are undesirable or unexpected.
+    - Error –
+      Runtime errors or unexpected conditions.
+    - Critical – Errors that lead to the application shutting
+      down.
+    - Mandatory –
+      The highest possible level of errors.
+      By default, after you turn on **Debug mode**, AWS SCT sets
+      the **Info** logging level for all application modules.
 
 For example, to help with key problem areas during conversion,
 set **Parser**, **Type mapping**, and

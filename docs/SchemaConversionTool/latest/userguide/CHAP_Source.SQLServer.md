@@ -102,7 +102,7 @@ Mixed Mode enables both Windows Authentication and SQL Server Authentication. Wi
 Authentication is always available and cannot be disabled. For more information about Windows
 Authentication, see the Microsoft Windows documentation.
 
-The possible example for creating a user in TEST_DB is shown following.
+The possible example for creating a user in TEST\_DB is shown following.
 
 ```
 USE [TEST_DB]
@@ -164,11 +164,11 @@ actions:
   sqljdbc\*.jar files from that folder (or copy them to another folder). If you
   are adding the driver as part of your program, ensure that you add only
   SQLJDBC4.jar as the driver to use.
-- Copy sqljdbc_auth.dll the file in the folder with your application.
+- Copy sqljdbc\_auth.dll the file in the folder with your application.
 
 ###### Note
 
-If you are running a 32-bit Java Virtual Machine (JVM), use the sqljdbc_auth.dll file in the x86 folder, even if the operating system is the x64 version. If you are running a 64-bit JVM on a x64 processor, use the sqljdbc_auth.dll file in the x64 folder.
+If you are running a 32-bit Java Virtual Machine (JVM), use the sqljdbc\_auth.dll file in the x86 folder, even if the operating system is the x64 version. If you are running a 64-bit JVM on a x64 processor, use the sqljdbc\_auth.dll file in the x64 folder.
 
 When you connect to a SQL Server database, you can choose either
 **Windows Authentication** or **SQL Server
@@ -219,5 +219,4 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **Windows Authentication library** | Enter the path to the `sqljdbc_auth.dll` file.<br>By default, this file is installed in the following location:<br>``<installation directory of the JDBC<br>driver>`sqljdbc_`<version>`\`<language>`\auth\` |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.

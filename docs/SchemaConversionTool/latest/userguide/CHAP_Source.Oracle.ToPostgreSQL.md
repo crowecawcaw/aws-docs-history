@@ -16,8 +16,8 @@ following.
 
 | Oracle system<br>object | Description                                                                   | Converted PostgreSQL<br>object |
 | ----------------------- | ----------------------------------------------------------------------------- | ------------------------------ |
-| V$VERSION               | Displays version numbers of core library<br>components in the Oracle Database | aws_oracle_ext.v$version       |
-| V$INSTANCE              | A view that shows the state of the current<br>instance.                       | aws_oracle_ext.v$instance      |
+| V$VERSION               | Displays version numbers of core library<br>components in the Oracle Database | aws\_oracle\_ext.v$version     |
+| V$INSTANCE              | A view that shows the state of the current<br>instance.                       | aws\_oracle\_ext.v$instance    |
 
 You can use AWS SCT to convert Oracle SQL\*Plus files to psql, which is a
 terminal-based front-end to PostgreSQL. For more information, see [Converting application SQL using AWS SCT](CHAP_Converting.App.md "CHAP_Converting.App.md").
@@ -195,7 +195,7 @@ with the `character varying` data type.
 ## Converting Oracle dynamic SQL
 
 Oracle provides two ways to implement dynamic SQL: using an EXECUTE IMMEDIATE statement
-or calling procedures in the DBMS_SQL package. If your source Oracle database includes
+or calling procedures in the DBMS\_SQL package. If your source Oracle database includes
 objects with dynamic SQL, use AWS SCT to convert Oracle dynamic SQL statements to PostgreSQL.
 
 ###### To convert Oracle dynamic SQL to PostgreSQL

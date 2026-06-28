@@ -96,8 +96,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **SAP ASE driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see<br>[Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.
 
 ## Privileges for MySQL as a target database
 
@@ -115,8 +114,8 @@ The privileges required for MySQL as a target are as follows:
 - CREATE ROUTINE ON \*.\*
 - ALTER ROUTINE ON \*.\*
 - EXECUTE ON \*.\*
-- INSERT, UPDATE ON AWS_SAPASE_EXT.\*
-- CREATE TEMPORARY TABLES ON AWS_SAPASE_EXT.\*
+- INSERT, UPDATE ON AWS\_SAPASE\_EXT.\*
+- CREATE TEMPORARY TABLES ON AWS\_SAPASE\_EXT.\*
 
 You can use the following code example to create a database user and grant the privileges.
 
@@ -232,11 +231,11 @@ converted code, choose **All messages**.
 - To define the template to use for the schema names in the converted code. For
   **Schema name generation template**, choose one of the following options:
 
-  - **<source_db>** – Uses the SAP ASE database name
+  - **<source\_db>** – Uses the SAP ASE database name
     as a schema name in PostgreSQL.
-  - **<source_schema>** – Uses the SAP ASE schema name
+  - **<source\_schema>** – Uses the SAP ASE schema name
     as a schema name in PostgreSQL.
-  - **<source_db>\_<schema>** – Uses a combination
+  - **<source\_db>\_<schema>** – Uses a combination
     of the SAP ASE database and schema names as a schema name in PostgreSQL.
 
 - To use the exact names of the source database objects in the converted code.

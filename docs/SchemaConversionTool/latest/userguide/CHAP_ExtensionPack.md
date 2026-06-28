@@ -164,8 +164,8 @@ The extension pack wizard appears. 2. Read the **Welcome** page, and then choose
      a different profile with your AWS SCT project. For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.Profiles.md "CHAP_UserInterface.Profiles.md").
 
 4. If you are uploading a new library, then choose **I need to upload a library**
-   on the **Library upload** page. Use this step only when you convert OLAP databases
-   or ETL scripts. Next, provide the Amazon S3 path, and then choose **Upload library to S3**.
+on the **Library upload** page. Use this step only when you convert OLAP databases
+or ETL scripts. Next, provide the Amazon S3 path, and then choose **Upload library to S3**.
 
 If you have already uploaded the library, then choose **I already have libraries uploaded,
 use my existing S3 bucket** on the **Library upload** page.
@@ -277,28 +277,28 @@ and then choose **Next**. 3. On the **AWS profile settings** page, do the follow
      For more information, see [Managing Profiles in the AWS Schema Conversion Tool](CHAP_UserInterface.Profiles.md "CHAP_UserInterface.Profiles.md").
 
 4. On the **Email Sending Service** page,
-   do the following:
+do the following:
 
-   - If you are reinstalling the extension pack schema only, choose
+    * If you are reinstalling the extension pack schema only, choose
      **Skip this step for now**, and then choose
      **Next**.
-   - If you are installing AWS services and you have an existing Lambda
+    * If you are installing AWS services and you have an existing Lambda
      function, you can provide it. Otherwise, the wizard creates it for you.
      When you are done, choose **Next**.
 
 5. On the **Job Emulation Service** page,
-   do the following:
+do the following:
 
-   - If you are reinstalling the extension pack schema only, choose
+    * If you are reinstalling the extension pack schema only, choose
      **Skip this step for now**, and then choose
      **Next**.
-   - If you are installing AWS services and you have an existing Lambda
+    * If you are installing AWS services and you have an existing Lambda
      function, you can provide it. Otherwise, the wizard creates it for you.
      When you are done, choose **Next**.
 
 6. On the **Function emulation** page, choose **Create
-   extension pack**. Messages appear with the status of the extension
-   pack operations.
+extension pack**. Messages appear with the status of the extension
+pack operations.
 
 When you are done, choose **Finish**.
 

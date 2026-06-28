@@ -50,7 +50,7 @@ in the following AWS Regions:
     * US West (Oregon) Region
 
 5. Choose **Test connection**
-   to verify that your credentials are correct and active.
+to verify that your credentials are correct and active.
 
 The **Test connection** dialog box appears.
 You can see the status for each of the services connected to your profile.

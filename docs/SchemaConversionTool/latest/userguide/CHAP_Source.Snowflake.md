@@ -105,8 +105,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **Snowflake driver path** | Enter the path to the driver to use to connect to the<br>source database. For more information,<br>see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see<br>[Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.
 
 ## Limitations for Snowflake as a source
 
@@ -163,8 +162,8 @@ when using AWS SCT and the default mapping to an Amazon Redshift target.
 | DATE                                                                                  | DATE                                                                                                                                           |
 | TIME<br>Time values between 00:00:00 and<br>23:59:59.999999999.                       | VARCHAR(18)                                                                                                                                    |
 | TIME(f)<br>Time values between 00:00:00 and 23:59:59.9(f).                            | VARCHAR(n) – 9 + dt-attr-1                                                                                                                     |
-| TIMESTAMP_NTZ                                                                         | TIMESTAMP                                                                                                                                      |
-| TIMESTAMP_TZ                                                                          | TIMESTAMPTZ                                                                                                                                    |
+| TIMESTAMP\_NTZ                                                                        | TIMESTAMP                                                                                                                                      |
+| TIMESTAMP\_TZ                                                                         | TIMESTAMPTZ                                                                                                                                    |
 
 ## Snowflake to Amazon Redshift conversion settings
 

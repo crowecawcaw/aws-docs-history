@@ -68,9 +68,9 @@ The permissions required for Amazon Redshift as a target are listed following:
 - CREATE ON SCHEMA – allows to create objects in the database schema.
 - GRANT USAGE ON LANGUAGE – allows to create new functions and procedures
   in the database.
-- GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog – provides the user with
+- GRANT SELECT ON ALL TABLES IN SCHEMA pg\_catalog – provides the user with
   system information about the Amazon Redshift cluster.
-- GRANT SELECT ON pg_class_info – provides the user with information
+- GRANT SELECT ON pg\_class\_info – provides the user with information
   about tables distribution style.
 
 You can use the following code example to create a database user and grant the permissions.
@@ -110,45 +110,44 @@ you can adjust your rules or change your strategy to get the results you want.
 
 ###### To choose your optimization strategies and rules
 
-1.  Choose **Settings**, and then choose **Project Settings**.
-    The **Current project settings** dialog box appears.
-2.  In the left pane, choose **Optimization Strategies**.
-    The optimization strategies appear in the right pane with the defaults selected.
-3.  For **Strategy Sector**, choose the optimization strategy you want to use.
-    You can choose from the following:
+1. Choose **Settings**, and then choose **Project Settings**.
+   The **Current project settings** dialog box appears.
+2. In the left pane, choose **Optimization Strategies**.
+   The optimization strategies appear in the right pane with the defaults selected.
+3. For **Strategy Sector**, choose the optimization strategy you want to use.
+   You can choose from the following:
 
-    - **Use metadata, ignore statistical information** –
-      In this strategy, only information from the metadata
-      is used for optimization decisions.
-      For example, if there is more than one index on a source table,
-      the source database sort order is used, and the first index becomes a distribution key.
-    - **Ignore metadata, use statistical information** –
-      In this strategy, optimization decisions are derived
-      from statistical information only.
-      This strategy applies only to tables and columns for which statistics are provided.
-      For more information, see
-      [Collecting or uploading statistics for AWS SCT](#CHAP_Converting.DW.Statistics "#CHAP_Converting.DW.Statistics").
-    - **Use metadata and use statistical information** –
-      In this strategy, both metadata and statistics are used for optimization decisions.
+   - **Use metadata, ignore statistical information** –
+     In this strategy, only information from the metadata
+     is used for optimization decisions.
+     For example, if there is more than one index on a source table,
+     the source database sort order is used, and the first index becomes a distribution key.
+   - **Ignore metadata, use statistical information** –
+     In this strategy, optimization decisions are derived
+     from statistical information only.
+     This strategy applies only to tables and columns for which statistics are provided.
+     For more information, see
+     [Collecting or uploading statistics for AWS SCT](#CHAP_Converting.DW.Statistics "#CHAP_Converting.DW.Statistics").
+   - **Use metadata and use statistical information** –
+     In this strategy, both metadata and statistics are used for optimization decisions.
 
-4.  After you choose your optimization strategy,
-    you can choose the rules you want to use.
-    You can choose from the following:
+4. After you choose your optimization strategy,
+   you can choose the rules you want to use.
+   You can choose from the following:
 
-        * **Choose Distribution Key and Sort Keys using metadata**
-        * **Choose fact table and appropriate dimension for collation**
-        * **Analyze cardinality of indexes' columns**
-        * **Find the most used tables and columns from the query log table**
-
-    For each rule, you can enter a weight for the sort key
-    and a weight for the distribution key.
-    AWS SCT uses the weights you choose when
-    it converts your schema.
-    Later, when you review the suggested keys,
-    if you are not satisfied with the results,
-    you can return here and change your settings.
-    For more information, see
-    [Managing and customizing keys in AWS SCT](#CHAP_Converting.DW.Keys "#CHAP_Converting.DW.Keys").
+   - **Choose Distribution Key and Sort Keys using metadata**
+   - **Choose fact table and appropriate dimension for collation**
+   - **Analyze cardinality of indexes' columns**
+   - **Find the most used tables and columns from the query log table**
+     For each rule, you can enter a weight for the sort key
+     and a weight for the distribution key.
+     AWS SCT uses the weights you choose when
+     it converts your schema.
+     Later, when you review the suggested keys,
+     if you are not satisfied with the results,
+     you can return here and change your settings.
+     For more information, see
+     [Managing and customizing keys in AWS SCT](#CHAP_Converting.DW.Keys "#CHAP_Converting.DW.Keys").
 
 ## Collecting or uploading statistics for AWS SCT
 
@@ -425,7 +424,7 @@ Use the following procedure to create a database migration assessment report.
    (right-click) menu for the object, and then choose **Create
    Report**.
 
-![Create database migration assessment report](/images/SchemaConversionTool/latest/userguide/images/create_assessment_report.png)
+![Create database migration assessment report](images/create_assessment_report.png)
 
 ### Assessment report summary
 

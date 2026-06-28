@@ -5,7 +5,7 @@ Oracle:
 
 - AWS SCT can add directory objects to the object tree. _Directory objects_ are logical structures that each represent a
   physical directory on the server's file system. You can use directory objects
-  with packages such as DBMS_LOB, UTL_FILE, DBMS_FILE_TRANSFER, the DATAPUMP
+  with packages such as DBMS\_LOB, UTL\_FILE, DBMS\_FILE\_TRANSFER, the DATAPUMP
   utility, and so on.
 - AWS SCT supports converting Oracle tablespaces to an Amazon RDS for Oracle DB
   instance. Oracle stores data logically in tablespaces and physically in data
@@ -20,15 +20,14 @@ Oracle:
   following privileges are not available for the DBA role on an Amazon RDS DB
   instance using the Oracle engine:
 
-      + Alter database
-      + Alter system
-      + Create any directory
-      + Grant any privilege
-      + Grant any role
-      + Create external job
-
-  You can grant all other privileges to an Amazon RDS for Oracle user role,
-  including advanced filtering and column privileges.
+  - Alter database
+  - Alter system
+  - Create any directory
+  - Grant any privilege
+  - Grant any role
+  - Create external job
+    You can grant all other privileges to an Amazon RDS for Oracle user role,
+    including advanced filtering and column privileges.
 
 - AWS SCT supports converting Oracle jobs into jobs that can run on Amazon RDS
   for Oracle. There are a few limitations to the conversion, including the
@@ -95,7 +94,7 @@ instance is synchronously replicated across Availability Zones to a standby
 replica. This functionality provides data redundancy, eliminates I/O freezes,
 and minimizes latency spikes during system backups.
 
-- AWS SCT supports converting Oracle DBMS_SCHEDULER objects when migrating to
+- AWS SCT supports converting Oracle DBMS\_SCHEDULER objects when migrating to
   Amazon RDS for Oracle. The AWS SCT assessment report indicates if a schedule
   object can be converted. For more information on using schedule objects with
   Amazon RDS, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.System.md#Appendix.Oracle.CommonDBATasks.ModifyScheduler "../../../AmazonRDS/latest/UserGuide/Appendix.Oracle.CommonDBATasks.System.md#Appendix.Oracle.CommonDBATasks.ModifyScheduler").
@@ -276,16 +275,15 @@ Oracle:
   following privileges are not available for the DBA role on an Amazon RDS DB
   instance using the Oracle engine:
 
-      + Alter database
-      + Alter system
-      + Create any directory
-      + Grant any privilege
-      + Grant any role
-      + Create external job
-
-  You can grant all other privileges to an Oracle RDS user role.
+  - Alter database
+  - Alter system
+  - Create any directory
+  - Grant any privilege
+  - Grant any role
+  - Create external job
+    You can grant all other privileges to an Oracle RDS user role.
 
 - Amazon RDS for Oracle supports traditional auditing, fine-grained auditing
-  using the DBMS_FGA package, and Oracle Unified Auditing.
+  using the DBMS\_FGA package, and Oracle Unified Auditing.
 - Amazon RDS for Oracle doesn’t support change data capture (CDC). To do CDC
   during and after a database migration, use AWS Database Migration Service.

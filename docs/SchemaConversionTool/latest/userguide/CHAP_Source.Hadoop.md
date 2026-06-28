@@ -40,12 +40,11 @@ CLI.
   protocol. To do so, set the `fs.s3a.aws.credentials.provider` parameter to one of the
   following values.
 
-      + `org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider`
-      + `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider`
-      + `org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider`
-      + `org.apache.hadoop.fs.s3a.auth.AssumedRoleCredentialProvider`
-
-  You can add the following code example into the `core-site.xml` file.
+  - `org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider`
+  - `org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider`
+  - `org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider`
+  - `org.apache.hadoop.fs.s3a.auth.AssumedRoleCredentialProvider`
+    You can add the following code example into the `core-site.xml` file.
 
 ```
 <property>

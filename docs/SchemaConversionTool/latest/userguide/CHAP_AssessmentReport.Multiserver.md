@@ -151,9 +151,9 @@ in the input file.
 - **Source Engine** – The type of your source database.
   Use one of the following values:
 
-  - **AZURE_MSSQL** for an Azure SQL Database.
-  - **AZURE_SYNAPSE** for an Azure Synapse Analytics database.
-  - **GOOGLE_BIGQUERY** for a BigQuery database.
+  - **AZURE\_MSSQL** for an Azure SQL Database.
+  - **AZURE\_SYNAPSE** for an Azure Synapse Analytics database.
+  - **GOOGLE\_BIGQUERY** for a BigQuery database.
   - **DB2ZOS** for an IBM Db2 for z/OS database.
   - **DB2LUW** for an IBM Db2 LUW database.
   - **GREENPLUM** for a Greenplum database.
@@ -164,7 +164,7 @@ in the input file.
   - **POSTGRESQL** for a PostgreSQL database.
   - **REDSHIFT** for an Amazon Redshift database.
   - **SNOWFLAKE** for a Snowflake database.
-  - **SYBASE_ASE** for an SAP ASE database.
+  - **SYBASE\_ASE** for an SAP ASE database.
   - **TERADATA** for a Teradata database.
   - **VERTICA** for a Vertica database.
 
@@ -213,19 +213,18 @@ assessment report.
 - **Target Engines** – The target database platforms. Use the following
   values to specify one or more targets in the assessment report:
 
-      + **AURORA\_MYSQL** for an Aurora MySQL-Compatible database.
-      + **AURORA\_POSTGRESQL** for an Aurora PostgreSQL-Compatible database.
-      + **BABELFISH** for a Babelfish for Aurora PostgreSQL database.
-      + **MARIA\_DB** for a MariaDB database.
-      + **MSSQL** for a Microsoft SQL Server database.
-      + **MYSQL** for a MySQL database.
-      + **ORACLE** for an Oracle database.
-      + **POSTGRESQL** for a PostgreSQL database.
-      + **REDSHIFT** for an Amazon Redshift database.
-
-  Separate multiple targets by using semicolons like this:
-  `MYSQL;MARIA_DB`. The number of targets affects the time it
-  takes to run the assessment.
+  - **AURORA\_MYSQL** for an Aurora MySQL-Compatible database.
+  - **AURORA\_POSTGRESQL** for an Aurora PostgreSQL-Compatible database.
+  - **BABELFISH** for a Babelfish for Aurora PostgreSQL database.
+  - **MARIA\_DB** for a MariaDB database.
+  - **MSSQL** for a Microsoft SQL Server database.
+  - **MYSQL** for a MySQL database.
+  - **ORACLE** for an Oracle database.
+  - **POSTGRESQL** for a PostgreSQL database.
+  - **REDSHIFT** for an Amazon Redshift database.
+    Separate multiple targets by using semicolons like this:
+    `MYSQL;MARIA_DB`. The number of targets affects the time it
+    takes to run the assessment.
 
 ## Locating and viewing reports
 
@@ -268,13 +267,13 @@ the following columns:
 - `Database name`
 - `Schema name`
 - `Code object conversion % for
-`target_database``
+ `target_database``
 - `Storage object conversion % for
-`target_database``
+ `target_database``
 - `Syntax elements conversion % for
-`target_database``
+ `target_database``
 - `Conversion complexity for 
-`target_database``
+ `target_database``
 
 To gather information, AWS SCT runs full assessment reports and then aggregates reports by schemas.
 

@@ -82,24 +82,23 @@ Following, find how to convert BTEQ ETL scripts to Amazon Redshift RSQL using AW
 
 ###### To convert a Teradata BTEQ script to Amazon Redshift RSQL
 
-1.  Add your BTEQ scripts to your AWS SCT project. For more information, see [Adding BTEQ scripts to your AWS SCT project](#CHAP-converting-bteq-rsql-create "#CHAP-converting-bteq-rsql-create").
-2.  Configure the substitution variables. For more information, see [Configuring substitution variables in BTEQ scripts](#CHAP-converting-bteq-rsql-variables "#CHAP-converting-bteq-rsql-variables").
-3.  In the left panel, expand the **Scripts** node.
-4.  Do one of the following:
+1. Add your BTEQ scripts to your AWS SCT project. For more information, see [Adding BTEQ scripts to your AWS SCT project](#CHAP-converting-bteq-rsql-create "#CHAP-converting-bteq-rsql-create").
+2. Configure the substitution variables. For more information, see [Configuring substitution variables in BTEQ scripts](#CHAP-converting-bteq-rsql-variables "#CHAP-converting-bteq-rsql-variables").
+3. In the left panel, expand the **Scripts** node.
+4. Do one of the following:
 
-        * To convert a single BTEQ script, expand the **BTEQ scripts**
-         node, choose the script to convert, and then
-         choose **Convert to RSQL** from the context (right-click) menu.
-        * To covert multiple scripts, make sure that you select all scripts to convert. Then
-         choose **BTEQ scripts**, open the context
-         (right-click) menu, and then choose **Convert to
-         RSQL** under **Convert script**.
+   - To convert a single BTEQ script, expand the **BTEQ scripts**
+     node, choose the script to convert, and then
+     choose **Convert to RSQL** from the context (right-click) menu.
+   - To covert multiple scripts, make sure that you select all scripts to convert. Then
+     choose **BTEQ scripts**, open the context
+     (right-click) menu, and then choose **Convert to
+     RSQL** under **Convert script**.
+     AWS SCT converts all your selected Teradata BTEQ scripts to a format compatible
+     with Amazon Redshift RSQL. Find your converted scripts in the **Scripts**
+     node in the target database panel.
 
-    AWS SCT converts all your selected Teradata BTEQ scripts to a format compatible
-    with Amazon Redshift RSQL. Find your converted scripts in the **Scripts**
-    node in the target database panel.
-
-5.  Edit your converted Amazon Redshift RSQL scripts, or save them. For more information, see [Editing and saving your converted BTEQ scripts](#CHAP-converting-bteq-rsql-save "#CHAP-converting-bteq-rsql-save").
+5. Edit your converted Amazon Redshift RSQL scripts, or save them. For more information, see [Editing and saving your converted BTEQ scripts](#CHAP-converting-bteq-rsql-save "#CHAP-converting-bteq-rsql-save").
 
 ## Managing BTEQ scripts with AWS SCT
 

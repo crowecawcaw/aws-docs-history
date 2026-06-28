@@ -6,9 +6,9 @@ You can use AWS SCT to convert schemas, code objects, and application code from 
 
 The following privileges are required for using Netezza as a source:
 
-- select on system.definition_schema.system view
-- select on system.definition_schema.system table
-- select on system.definition_schema.management table
+- select on system.definition\_schema.system view
+- select on system.definition\_schema.system table
+- select on system.definition\_schema.management table
 - list on `<database_name>`
 - list on `<schema_name>`
 - list on `<database_name>`.all.table
@@ -32,51 +32,51 @@ access to these objects instead of granting access to
 `system.definition_schema.system view` and
 `system.definition_schema.system tables` in the preceding list.
 
-- select on system.definition_schema.\_t_aggregate
-- select on system.definition_schema.\_t_class
-- select on system.definition_schema.\_t_constraint
-- select on system.definition_schema.\_t_const_relattr
-- select on system.definition_schema.\_t_database
-- select on system.definition_schema.\_t_grpobj_priv
-- select on system.definition_schema.\_t_grpusr
-- select on system.definition_schema.\_t_hist_config
-- select on system.definition_schema.\_t_object
-- select on system.definition_schema.\_t_object_classes
-- select on system.definition_schema.\_t_proc
-- select on system.definition_schema.\_t_type
-- select on system.definition_schema.\_t_user
-- select on system.definition_schema.\_t_usrobj_priv
-- select on system.definition_schema.\_vt_sequence
-- select on system.definition_schema.\_v_aggregate
-- select on system.definition_schema.\_v_constraint_depends
-- select on system.definition_schema.\_v_database
-- select on system.definition_schema.\_v_datatype
-- select on system.definition_schema.\_v_dslice
-- select on system.definition_schema.\_v_function
-- select on system.definition_schema.\_v_group
-- select on system.definition_schema.\_v_obj_relation
-- select on system.definition_schema.\_v_obj_relation_xdb
-- select on system.definition_schema.\_v_procedure
-- select on system.definition_schema.\_v_relation_column
-- select on system.definition_schema.\_v_relation_keydata
-- select on system.definition_schema.\_v_relobjclasses
-- select on system.definition_schema.\_v_schema_xdb
-- select on system.definition_schema.\_v_sequence
-- select on system.definition_schema.\_v_synonym
-- select on system.definition_schema.\_v_system_info
-- select on system.definition_schema.\_v_sys_constraint
-- select on system.definition_schema.\_v_sys_object_dslice_info
-- select on system.definition_schema.\_v_sys_user
-- select on system.definition_schema.\_v_table
-- select on system.definition_schema.\_v_table_constraint
-- select on system.definition_schema.\_v_table_dist_map
-- select on system.definition_schema.\_v_table_organize_column
-- select on system.definition_schema.\_v_table_storage_stat
-- select on system.definition_schema.\_v_user
-- select on system.definition_schema.\_v_view
-- select on system.information_schema.\_v_relation_column
-- select on system.information_schema.\_v_table
-- select on $hist_column_access\_\*
+- select on system.definition\_schema.\_t\_aggregate
+- select on system.definition\_schema.\_t\_class
+- select on system.definition\_schema.\_t\_constraint
+- select on system.definition\_schema.\_t\_const\_relattr
+- select on system.definition\_schema.\_t\_database
+- select on system.definition\_schema.\_t\_grpobj\_priv
+- select on system.definition\_schema.\_t\_grpusr
+- select on system.definition\_schema.\_t\_hist\_config
+- select on system.definition\_schema.\_t\_object
+- select on system.definition\_schema.\_t\_object\_classes
+- select on system.definition\_schema.\_t\_proc
+- select on system.definition\_schema.\_t\_type
+- select on system.definition\_schema.\_t\_user
+- select on system.definition\_schema.\_t\_usrobj\_priv
+- select on system.definition\_schema.\_vt\_sequence
+- select on system.definition\_schema.\_v\_aggregate
+- select on system.definition\_schema.\_v\_constraint\_depends
+- select on system.definition\_schema.\_v\_database
+- select on system.definition\_schema.\_v\_datatype
+- select on system.definition\_schema.\_v\_dslice
+- select on system.definition\_schema.\_v\_function
+- select on system.definition\_schema.\_v\_group
+- select on system.definition\_schema.\_v\_obj\_relation
+- select on system.definition\_schema.\_v\_obj\_relation\_xdb
+- select on system.definition\_schema.\_v\_procedure
+- select on system.definition\_schema.\_v\_relation\_column
+- select on system.definition\_schema.\_v\_relation\_keydata
+- select on system.definition\_schema.\_v\_relobjclasses
+- select on system.definition\_schema.\_v\_schema\_xdb
+- select on system.definition\_schema.\_v\_sequence
+- select on system.definition\_schema.\_v\_synonym
+- select on system.definition\_schema.\_v\_system\_info
+- select on system.definition\_schema.\_v\_sys\_constraint
+- select on system.definition\_schema.\_v\_sys\_object\_dslice\_info
+- select on system.definition\_schema.\_v\_sys\_user
+- select on system.definition\_schema.\_v\_table
+- select on system.definition\_schema.\_v\_table\_constraint
+- select on system.definition\_schema.\_v\_table\_dist\_map
+- select on system.definition\_schema.\_v\_table\_organize\_column
+- select on system.definition\_schema.\_v\_table\_storage\_stat
+- select on system.definition\_schema.\_v\_user
+- select on system.definition\_schema.\_v\_view
+- select on system.information\_schema.\_v\_relation\_column
+- select on system.information\_schema.\_v\_table
+- select on $hist\_column\_access\_\*
 
 ## Connecting to Netezza as a source
 
@@ -118,8 +118,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **Netezza driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see<br>[Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.
 
 ## Configuring ongoing data replication
 
@@ -213,8 +212,8 @@ CDC session and use a single transaction point for all subtasks. 7. Register you
      and choose **Start**.
 
 9. The AWS SCT task maintains transactional consistency on the target
-   database. The data extraction agent replicates transactions from the
-   source in transaction ID order.
+database. The data extraction agent replicates transactions from the
+source in transaction ID order.
 
 If you stop any of the migration sessions or if it fails, then the CDC
 processing also stops.

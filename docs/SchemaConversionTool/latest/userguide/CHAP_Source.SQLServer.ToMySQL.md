@@ -26,9 +26,9 @@ The privileges required for MySQL as a target are as follows:
 - CREATE ROUTINE ON \*.\*
 - ALTER ROUTINE ON \*.\*
 - EXECUTE ON \*.\*
-- INSERT, UPDATE ON AWS_SQLSERVER_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_SQLSERVER_EXT_DATA.\*
-- CREATE TEMPORARY TABLES ON AWS_SQLSERVER_EXT_DATA.\*
+- INSERT, UPDATE ON AWS\_SQLSERVER\_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS\_SQLSERVER\_EXT\_DATA.\*
+- CREATE TEMPORARY TABLES ON AWS\_SQLSERVER\_EXT\_DATA.\*
 
 You can use the following code example to create a database user and grant the privileges.
 
@@ -104,8 +104,8 @@ Consider these things when migrating a SQL Server schema to MySQL:
 
 - MySQL doesn’t support the `MERGE` statement. However, AWS SCT can emulate the
   `MERGE` statement during conversion by using the `INSERT
-ON DUPLICATE KEY` clause and the `UPDATE FROM and DELETE
-FROM` statements.
+ ON DUPLICATE KEY` clause and the `UPDATE FROM and DELETE
+ FROM` statements.
 
 For correct emulation using `INSERT ON DUPLICATE KEY`, make sure that a unique
 constraint or primary key exists on the target MySQL database.

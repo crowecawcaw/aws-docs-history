@@ -114,54 +114,54 @@ Stores the information about the runs of scheduled jobs.
 
 To emulate SQL Server Agent, the extension pack uses the following procedures:
 
-**sp_add_job**
+**sp\_add\_job**
 Adds a new job.
 
-**sp_add_jobstep**
+**sp\_add\_jobstep**
 Adds a step to a job.
 
-**sp_add_schedule**
+**sp\_add\_schedule**
 Creates a new schedule rule in Amazon CloudWatch. You can use this schedule with any number of
 jobs.
 
-**sp_attach_schedule**
+**sp\_attach\_schedule**
 Sets a schedule for the selected job.
 
-**sp_add_jobschedule**
+**sp\_add\_jobschedule**
 Creates a schedule rule for a job in Amazon CloudWatch and sets
 the target for this rule.
 
-**sp_update_job**
+**sp\_update\_job**
 Updates the attributes of the previously created job.
 
-**sp_update_jobstep**
+**sp\_update\_jobstep**
 Updates the attributes of the step in a job.
 
-**sp_update_schedule**
+**sp\_update\_schedule**
 Updates the attributes of a schedule rule in Amazon CloudWatch.
 
-**sp_update_jobschedule**
+**sp\_update\_jobschedule**
 Updates the attributes of the schedule for the specified job.
 
-**sp_delete_job**
+**sp\_delete\_job**
 Deletes a job.
 
-**sp_delete_jobstep**
+**sp\_delete\_jobstep**
 Deletes a job step from a job.
 
-**sp_delete_schedule**
+**sp\_delete\_schedule**
 Deletes a schedule.
 
-**sp_delete_jobschedule**
+**sp\_delete\_jobschedule**
 Deletes the schedule rule for the specified job from Amazon CloudWatch.
 
-**sp_detach_schedule**
+**sp\_detach\_schedule**
 Removes an association between a schedule and a job.
 
-**get_jobs, update_job**
+**get\_jobs, update\_job**
 Internal procedures that interact with AWS Elastic Beanstalk.
 
-**sp_verify_job_date, sp_verify_job_time, sp_verify_job, sp_verify_jobstep, sp_verify_schedule, sp_verify_job_identifiers, sp_verify_schedule_identifiers**
+**sp\_verify\_job\_date, sp\_verify\_job\_time, sp\_verify\_job, sp\_verify\_jobstep, sp\_verify\_schedule, sp\_verify\_job\_identifiers, sp\_verify\_schedule\_identifiers**
 Internal procedures that check settings.
 
 ## Syntax for procedures that emulate SQL Server Agent in PostgreSQL

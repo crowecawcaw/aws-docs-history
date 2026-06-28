@@ -55,25 +55,25 @@ extension pack uses the following tables, views, and procedures.
 
 To emulate SQL Server Database Mail, the extension pack uses the following tables:
 
-**sysmail_account**
+**sysmail\_account**
 Stores the information about the email accounts.
 
-**sysmail_profile**
+**sysmail\_profile**
 Stores the information about the user profiles.
 
-**sysmail_server**
+**sysmail\_server**
 Stores the information about the email servers.
 
-**sysmail_mailitems**
+**sysmail\_mailitems**
 Stores the list of the email messages.
 
-**sysmail_attachments**
+**sysmail\_attachments**
 Contains one row for each email attachment.
 
-**sysmail_log**
+**sysmail\_log**
 Stores the service information about sending email messages.
 
-**sysmail_profileaccount**
+**sysmail\_profileaccount**
 Stores the information about the user profiles and email accounts.
 
 ## Views that emulate SQL Server Database Mail in PostgreSQL
@@ -82,78 +82,78 @@ To emulate SQL Server Database Mail, AWS SCT creates the following views in
 the PostgreSQL database to ensure compatibility. The extension pack doesn't use
 them, but your converted code can query these views.
 
-**sysmail_allitems**
+**sysmail\_allitems**
 Includes a list of all emails.
 
-**sysmail_faileditems**
+**sysmail\_faileditems**
 Includes a list of emails that couldn't be sent.
 
-**sysmail_sentitems**
+**sysmail\_sentitems**
 Includes a list of sent emails.
 
-**sysmail_unsentitems**
+**sysmail\_unsentitems**
 Includes a list of emails that aren't sent yet.
 
-**sysmail_mailattachments**
+**sysmail\_mailattachments**
 Includes a list of attached files.
 
 ## Procedures that emulate SQL Server Database Mail in PostgreSQL
 
 To emulate SQL Server Database Mail, the extension pack uses the following procedures:
 
-**sp_send_dbmail**
+**sp\_send\_dbmail**
 Sends an email to the specified recipients.
 
-**sysmail_add_profile_sp**
+**sysmail\_add\_profile\_sp**
 Creates a new user profile.
 
-**sysmail_add_account_sp**
+**sysmail\_add\_account\_sp**
 Creates a new email account that stores such information
 as Simple Mail Transfer Protocol (SMTP) credentials, and so on.
 
-**sysmail_add_profileaccount_sp**
+**sysmail\_add\_profileaccount\_sp**
 Adds an email account to the specified user profile.
 
-**sysmail_update_profile_sp**
+**sysmail\_update\_profile\_sp**
 Changes the attributes of the user profile such as
 description, name, and so on.
 
-**sysmail_update_account_sp**
+**sysmail\_update\_account\_sp**
 Changes the information in the existing email account.
 
-**sysmail_update_profileaccount_sp**
+**sysmail\_update\_profileaccount\_sp**
 Updates the email account information in the specified user profile.
 
-**sysmail_delete_profileaccount_sp**
+**sysmail\_delete\_profileaccount\_sp**
 Removes an email account from the specified user profile.
 
-**sysmail_delete_account_sp**
+**sysmail\_delete\_account\_sp**
 Deletes the email account.
 
-**sysmail_delete_profile_sp**
+**sysmail\_delete\_profile\_sp**
 Deletes the user profile.
 
-**sysmail_delete_mailitems_sp**
+**sysmail\_delete\_mailitems\_sp**
 Deletes emails from internal tables.
 
-**sysmail_help_profile_sp**
+**sysmail\_help\_profile\_sp**
 Displays information about the user profile.
 
-**sysmail_help_account_sp**
+**sysmail\_help\_account\_sp**
 Displays information about the email account.
 
-**sysmail_help_profileaccount_sp**
+**sysmail\_help\_profileaccount\_sp**
 Displays information about email accounts associated
 with the user profile.
 
-**sysmail_dbmail_json**
+**sysmail\_dbmail\_json**
 An internal procedure that generates JSON requests
 for AWS Lambda functions.
 
-**sysmail_verify_profile_sp, sysmail_verify_account_sp, sysmail_verify_addressparams_sp**
+**sysmail\_verify\_profile\_sp, sysmail\_verify\_account\_sp, sysmail\_verify\_addressparams\_sp**
 Internal procedures that check settings.
 
-**sp_get_dbmail, sp_set_dbmail, sysmail_dbmail_xml**
+**sp\_get\_dbmail, sp\_set\_dbmail, sysmail\_dbmail\_xml**
 Deprecated internal procedures.
 
 ## Syntax for procedures that emulate SQL Server Database Mail in PostgreSQL

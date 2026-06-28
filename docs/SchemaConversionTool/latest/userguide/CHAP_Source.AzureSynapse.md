@@ -52,8 +52,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **Store password** | AWS SCT creates a secure vault to store<br>SSL certificates and database passwords. By<br>turning on this option, you can store the database<br>password and connect quickly to the database<br>without entering the password. |
 
 5. Choose **Test Connection** to verify that AWS SCT
-   can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+can connect to your source database. 6. Choose **Connect** to connect to your source database.
 
 ## Azure Synapse Analytics to Amazon Redshift conversion settings
 

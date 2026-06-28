@@ -8,7 +8,7 @@ Oracle Data Warehouse to Amazon Redshift or Amazon Redshift and AWS Glue used in
 The following privileges are required for using Oracle Data Warehouse as a source:
 
 - connect
-- select_catalog_role
+- select\_catalog\_role
 - select any dictionary
 
 ## Connecting to Oracle Data Warehouse as a source
@@ -51,8 +51,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **Oracle driver path** | Enter the path to the driver to use to connect to the source<br>database. For more information,<br>see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see [Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.
 
 ## Oracle Data Warehouse to Amazon Redshift conversion settings
 

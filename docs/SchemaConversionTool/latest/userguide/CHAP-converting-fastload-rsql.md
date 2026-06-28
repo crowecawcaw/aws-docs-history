@@ -204,9 +204,9 @@ either a PDF file or a comma-separated value (CSV) file:
      of manual effort required to convert the scripts.
 
 5. Choose the **Action items** tab. This tab contains a list of items that
-   require manual conversion to Amazon Redshift RSQL. When you select an action item from
-   the list, AWS SCT highlights the item from your source FastLoad job script
-   that the action item applies to.
+require manual conversion to Amazon Redshift RSQL. When you select an action item from
+the list, AWS SCT highlights the item from your source FastLoad job script
+that the action item applies to.
 
 ## Editing and saving your converted Teradata FastLoad job scripts with AWS SCT
 

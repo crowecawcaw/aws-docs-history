@@ -56,6 +56,6 @@ To create the report, do the following:
      information.
 
 6. To apply suggested optimizations to your database,
-   choose an object in the right panel of your project.
-   Open the context (right-click) menu for the object,
-   and then choose **Apply to database**.
+choose an object in the right panel of your project.
+Open the context (right-click) menu for the object,
+and then choose **Apply to database**.

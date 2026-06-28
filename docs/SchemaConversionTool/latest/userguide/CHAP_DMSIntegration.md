@@ -39,35 +39,34 @@ manually create a project.
 
 ###### To increase logging levels when using AWS SCT with AWS DMS
 
-1.  On the **Settings** menu, choose **Global
-    settings**.
-2.  In the **Global settings** window, choose
-    **Logging**.
-3.  For **Debug mode**, choose **True**.
-4.  From the **Message level** section, you can modify the
-    following types of logs:
+1. On the **Settings** menu, choose **Global
+   settings**.
+2. In the **Global settings** window, choose
+   **Logging**.
+3. For **Debug mode**, choose **True**.
+4. From the **Message level** section, you can modify the
+   following types of logs:
 
-        * General
-        * Loader
-        * Parser
-        * Printer
-        * Resolver
-        * Telemetry
-        * Converter
+   - General
+   - Loader
+   - Parser
+   - Printer
+   - Resolver
+   - Telemetry
+   - Converter
+     By default, all message levels are set to **Info**.
 
-    By default, all message levels are set to **Info**.
+5. Choose a level of logging for any message level types that you want to
+   change:
 
-5.  Choose a level of logging for any message level types that you want to
-    change:
+   - Trace (most detailed logging)
+   - Debug
+   - Info
+   - Warning
+   - Error (least detailed logging)
+   - Critical
+   - Mandatory
 
-    - Trace (most detailed logging)
-    - Debug
-    - Info
-    - Warning
-    - Error (least detailed logging)
-    - Critical
-    - Mandatory
-
-6.  Choose **Apply** to modify settings for your project.
-7.  Choose **OK** to close the **Global
-    settings** window.
+6. Choose **Apply** to modify settings for your project.
+7. Choose **OK** to close the **Global
+   settings** window.

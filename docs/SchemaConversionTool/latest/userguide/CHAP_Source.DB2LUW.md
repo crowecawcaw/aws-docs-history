@@ -25,16 +25,16 @@ privileges and read schema metadata for a source are as follows:
 
 - Privileges needed to get instance-level information:
 
-  - EXECUTE ON FUNCTION SYSPROC.ENV_GET_INST_INFO
-  - SELECT ON SYSIBMADM.ENV_INST_INFO
-  - SELECT ON SYSIBMADM.ENV_SYS_INFO
+  - EXECUTE ON FUNCTION SYSPROC.ENV\_GET\_INST\_INFO
+  - SELECT ON SYSIBMADM.ENV\_INST\_INFO
+  - SELECT ON SYSIBMADM.ENV\_SYS\_INFO
 
 - Privileges needed to check privileges granted through roles, groups, and
   authorities:
 
-  - EXECUTE ON FUNCTION SYSPROC.AUTH_LIST_AUTHORITIES_FOR_AUTHID
-  - EXECUTE ON FUNCTION SYSPROC.AUTH_LIST_GROUPS_FOR_AUTHID
-  - EXECUTE ON FUNCTION SYSPROC.AUTH_LIST_ROLES_FOR_AUTHID
+  - EXECUTE ON FUNCTION SYSPROC.AUTH\_LIST\_AUTHORITIES\_FOR\_AUTHID
+  - EXECUTE ON FUNCTION SYSPROC.AUTH\_LIST\_GROUPS\_FOR\_AUTHID
+  - EXECUTE ON FUNCTION SYSPROC.AUTH\_LIST\_ROLES\_FOR\_AUTHID
   - SELECT ON SYSIBMADM.PRIVILEGES
 
 - Privileges needed on system catalogs and tables:
@@ -158,5 +158,4 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **Db2 LUW driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings, the driver path<br>doesn't appear on the connection dialog box. For more information, see [Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.

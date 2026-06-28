@@ -65,8 +65,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **PostgreSQL driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings, the driver<br>path doesn't appear on the connection dialog box. For more information, see<br>[Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.
 
 ## Privileges for MySQL as a target database
 
@@ -84,9 +83,9 @@ The privileges required for MySQL as a target when you migrate from PostgreSQL a
 - CREATE ROUTINE ON \*.\*
 - ALTER ROUTINE ON \*.\*
 - EXECUTE ON \*.\*
-- INSERT, UPDATE ON AWS_POSTGRESQL_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_POSTGRESQL_EXT_DATA.\*
-- CREATE TEMPORARY TABLES ON AWS_POSTGRESQL_EXT_DATA.\*
+- INSERT, UPDATE ON AWS\_POSTGRESQL\_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS\_POSTGRESQL\_EXT\_DATA.\*
+- CREATE TEMPORARY TABLES ON AWS\_POSTGRESQL\_EXT\_DATA.\*
 
 You can use the following code example to create a database user and grant the privileges.
 

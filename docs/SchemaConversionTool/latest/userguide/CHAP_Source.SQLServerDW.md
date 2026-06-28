@@ -12,7 +12,7 @@ The following privileges are required for using Microsoft SQL Server data wareho
 - SELECT ON SCHEMA :: `<schema_name>`
 
 In the preceding example, replace the `<source_schema>` placeholder with
-the name of the source source_schema.
+the name of the source source\_schema.
 
 Repeat the grant for each database
 whose schema you are converting.
@@ -68,8 +68,7 @@ AWS SCT displays this name in the tree in the left panel. 4. Use database creden
     | **SQL Server driver path** | Enter the path to the driver to use to connect to the source database.<br>For more information, see [Installing JDBC drivers for AWS Schema Conversion Tool](CHAP_Installing.JDBCDrivers.md "CHAP_Installing.JDBCDrivers.md").<br>If you store the driver path in the global project settings,<br>the driver path doesn't appear on the connection dialog box.<br>For more information, see [Storing driver paths in the global settings](CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings "CHAP_Installing.JDBCDrivers.md#CHAP_Installing.JDBCDrivers.Settings"). |
 
 5. Choose **Test Connection** to verify
-   that AWS SCT can connect to your source database.
-6. Choose **Connect** to connect to your source database.
+that AWS SCT can connect to your source database. 6. Choose **Connect** to connect to your source database.
 
 ## SQL Server Data Warehouse to Amazon Redshift conversion settings
 

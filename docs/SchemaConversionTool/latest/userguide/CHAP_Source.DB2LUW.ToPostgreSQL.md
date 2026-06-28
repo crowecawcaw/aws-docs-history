@@ -46,12 +46,12 @@ PostgreSQL:
 - Db2 LUW can use an INCLUSIVE or EXCLUSIVE clause to set range boundary values. PostgreSQL only
   supports INCLUSIVE for a starting boundary and EXCLUSIVE for an ending
   boundary. The converted partition name is in the format
-  <original_table_name>\_<original_partition_name>.
+  <original\_table\_name>\_<original\_partition\_name>.
 - You can create primary or unique keys for partitioned tables in Db2 LUW. PostgreSQL requires
   you to create primary or unique key for each partition directly. Primary
   or unique key constraints must be removed from the parent table. The
   converted key name is in the format
-  <original_key_name>\_<original_partition \_name>.
+  <original\_key\_name>\_<original\_partition \_name>.
 - You can create a foreign key constraint from and to a partitioned table in Db2 LUW. However,
   PostgreSQL doesn’t support foreign keys references in partitioned
   tables. PostgreSQL also doesn’t support foreign key references from a
@@ -59,11 +59,11 @@ PostgreSQL:
 - You can create an index on a partitioned table in Db2 LUW. However, PostgreSQL requires you to
   create an index for each partition directly. Indexes must be removed
   from the parent table. The converted index name is in the format
-  <original_index_name>\_<original_partition_name>.
+  <original\_index\_name>\_<original\_partition\_name>.
 - You must define row triggers on individual partitions, not on the partitioned table. Triggers
   must be removed from the parent table. The converted trigger name is in
   the format
-  <original_trigger_name>\_<original_partition_name>.
+  <original\_trigger\_name>\_<original\_partition\_name>.
 
 ## Privileges for PostgreSQL as a target
 

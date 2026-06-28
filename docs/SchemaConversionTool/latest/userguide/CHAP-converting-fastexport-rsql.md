@@ -100,24 +100,23 @@ to Amazon Redshift RSQL using AWS SCT.
 
 ###### To convert a Teradata FastExport job script to Amazon Redshift RSQL
 
-1.  Add your FastExport job scripts to your AWS SCT project. For more information, see [Adding FastExport job scripts to your AWS SCT project](#CHAP-converting-fastexport-rsql-create "#CHAP-converting-fastexport-rsql-create").
-2.  Configure the substitution variables. For more information, see [Configuring substitution variables in FastExport job scripts](#CHAP-converting-fastexport-rsql-variables "#CHAP-converting-fastexport-rsql-variables").
-3.  In the left panel, expand the **Scripts** node.
-4.  Do one of the following:
+1. Add your FastExport job scripts to your AWS SCT project. For more information, see [Adding FastExport job scripts to your AWS SCT project](#CHAP-converting-fastexport-rsql-create "#CHAP-converting-fastexport-rsql-create").
+2. Configure the substitution variables. For more information, see [Configuring substitution variables in FastExport job scripts](#CHAP-converting-fastexport-rsql-variables "#CHAP-converting-fastexport-rsql-variables").
+3. In the left panel, expand the **Scripts** node.
+4. Do one of the following:
 
-        * To convert a single FastExport job script, expand the **FastExport**
-         node, choose the script to convert, and then
-         choose **Convert script** from the context (right-click) menu.
-        * To covert multiple scripts, make sure that you select all scripts to convert. Then
-         choose **FastExport**, open the context (right-click) menu,
-         and then choose **Convert script**.
+   - To convert a single FastExport job script, expand the **FastExport**
+     node, choose the script to convert, and then
+     choose **Convert script** from the context (right-click) menu.
+   - To covert multiple scripts, make sure that you select all scripts to convert. Then
+     choose **FastExport**, open the context (right-click) menu,
+     and then choose **Convert script**.
+     AWS SCT converts all your selected Teradata FastExport job scripts to a format compatible
+     with Amazon Redshift RSQL. Find your converted scripts in the **Scripts**
+     node in the target database panel.
 
-    AWS SCT converts all your selected Teradata FastExport job scripts to a format compatible
-    with Amazon Redshift RSQL. Find your converted scripts in the **Scripts**
-    node in the target database panel.
-
-5.  Edit your converted Amazon Redshift RSQL scripts or save them. For more information,
-    see [Editing and saving your converted FastExport job scripts](#CHAP-converting-fastexport-rsql-save "#CHAP-converting-fastexport-rsql-save").
+5. Edit your converted Amazon Redshift RSQL scripts or save them. For more information,
+   see [Editing and saving your converted FastExport job scripts](#CHAP-converting-fastexport-rsql-save "#CHAP-converting-fastexport-rsql-save").
 
 ## Managing Teradata FastExport job scripts with AWS SCT
 

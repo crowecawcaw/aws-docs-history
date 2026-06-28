@@ -86,7 +86,7 @@ The parameters used in `create_connection` are as follows:
 - `Name` (UTF-8 string) – required. For Amazon Redshift, the connection name is
   formed as follows:
   `Redshift_`<Endpoint-name>`_`<redshift-database-name>``,
-for example: `Redshift_abcde03_dev`
+  for example: `Redshift_abcde03_dev`
 - `Description` (UTF-8 string) – Your description of the
   connection.
 - `ConnectionType` (UTF-8 string) – Required. The type of connection.

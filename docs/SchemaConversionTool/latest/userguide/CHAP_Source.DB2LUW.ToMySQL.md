@@ -20,9 +20,9 @@ The privileges required for MySQL as a target are as follows:
 - ALTER ROUTINE ON \*.\*
 - EXECUTE ON \*.\*
 - SELECT ON mysql.proc
-- INSERT, UPDATE ON AWS_DB2_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_DB2_EXT_DATA.\*
-- CREATE TEMPORARY TABLES ON AWS_DB2_EXT_DATA.\*
+- INSERT, UPDATE ON AWS\_DB2\_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS\_DB2\_EXT\_DATA.\*
+- CREATE TEMPORARY TABLES ON AWS\_DB2\_EXT\_DATA.\*
 
 You can use the following code example to create a database user and grant the privileges.
 

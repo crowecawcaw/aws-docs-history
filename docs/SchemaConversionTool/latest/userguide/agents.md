@@ -325,22 +325,20 @@ that has an extraction agent installed.
 
 ###### To configure your extraction agent
 
-1.  Launch the configuration setup program:
+1. Launch the configuration setup program:
 
-        * In Windows, AWS SCT launches the configuration setup program automatically
-         during the installation of a data extraction agent.
+   - In Windows, AWS SCT launches the configuration setup program automatically
+     during the installation of a data extraction agent.
 
+   As needed, you can launch the setup program manually. To do so, run the
+   `ConfigAgent.bat` file in Windows. You can find this file in
+   the folder where you installed the agent.
+   - In RHEL and Ubuntu, run the `sct-extractor-setup.sh`
+     file from the location where you installed the agent.
+     The setup program prompts you for information. For each prompt, a default
+     value appears.
 
-        As needed, you can launch the setup program manually. To do so, run the
-         `ConfigAgent.bat` file in Windows. You can find this file in
-         the folder where you installed the agent.
-        * In RHEL and Ubuntu, run the `sct-extractor-setup.sh`
-         file from the location where you installed the agent.
-
-    The setup program prompts you for information. For each prompt, a default
-    value appears.
-
-2.  Accept the default value at each prompt, or enter a new value.
+2. Accept the default value at each prompt, or enter a new value.
 
 Specify the following information:
 
@@ -471,7 +469,7 @@ dialog box:
      to register the agent with your AWS SCT project.
 
 6. Repeat the previous steps to register multiple agents with your
-   AWS SCT project.
+AWS SCT project.
 
 ## Hiding and recovering information for an AWS SCT agent
 
@@ -619,11 +617,11 @@ Use the instructions in the following table to provide the information for
 Use the instructions in the following table to provide the information for
 **Amazon S3 settings**.
 
-| For this parameter                                           | Do this                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Use proxy**                                                | Turn this option on to use a proxy server to upload data to Amazon S3. Then choose the data<br>transfer protocol, enter the host name, port, user name, and<br>password.                                                                                    |
-| **Endpoint type**                                            | Choose **FIPS\*<br>• to use the Federal Information Processing Standard<br>(FIPS) endpoint. Choose **VPCE\*<br>• to use the virtual private cloud (VPC)<br>endpoint. Then for **VPC endpoint**, enter the Domain Name System (DNS) of<br>your VPC endpoint. |
-| **Keep files on Amazon S3 after copying to Amazon Redshift** | Turn this option on to keep extracted files on Amazon S3 after copying these files to Amazon Redshift.                                                                                                                                                      |
+| For this parameter                                           | Do this                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Use proxy**                                                | Turn this option on to use a proxy server to upload data to Amazon S3. Then choose the data<br>transfer protocol, enter the host name, port, user name, and<br>password.                                                                                  |
+| **Endpoint type**                                            | Choose *_FIPS_<br>• to use the Federal Information Processing Standard<br>(FIPS) endpoint. Choose *_VPCE_<br>• to use the virtual private cloud (VPC)<br>endpoint. Then for **VPC endpoint**, enter the Domain Name System (DNS) of<br>your VPC endpoint. |
+| **Keep files on Amazon S3 after copying to Amazon Redshift** | Turn this option on to keep extracted files on Amazon S3 after copying these files to Amazon Redshift.                                                                                                                                                    |
 
 Use the instructions in the following table to provide the information for
 **Copy settings**.
@@ -647,8 +645,8 @@ failure. Also, if you are migrating data to Amazon Redshift and you sort data fi
 insert data into to Amazon Redshift faster.
 
 These benefits have to do with how AWS SCT creates data extraction queries. In some
-cases, AWS SCT uses the DENSE_RANK analytic function in these queries. However,
-DENSE_RANK can use lots of time and server resources to sort the dataset that results
+cases, AWS SCT uses the DENSE\_RANK analytic function in these queries. However,
+DENSE\_RANK can use lots of time and server resources to sort the dataset that results
 from extraction, so if AWS SCT can work without it, it does.
 
 ###### To sort data before migrating using AWS SCT
@@ -660,14 +658,14 @@ from extraction, so if AWS SCT can work without it, it does.
    choose an option:
 
    - **Never use sorting** – The extraction agent
-     doesn't use the DENSE_RANK analytic function and restarts from the beginning if a
+     doesn't use the DENSE\_RANK analytic function and restarts from the beginning if a
      failure occurs.
    - **Use sorting if possible** –
-     The extraction agent uses DENSE_RANK if the table has a primary key or a unique
+     The extraction agent uses DENSE\_RANK if the table has a primary key or a unique
      constraint.
    - **Use sorting after first fail (recommended)** –
-     The extraction agent first tries to get the data without using DENSE_RANK. If the first
-     attempt fails, the extraction agent rebuilds the query using DENSE_RANK and preserves
+     The extraction agent first tries to get the data without using DENSE\_RANK. If the first
+     attempt fails, the extraction agent rebuilds the query using DENSE\_RANK and preserves
      its location in case of failure.
 
 ![The Security tab on the Global Settings dialog box](images/local-task-sorting.png) 4. Set additional parameters as described following, and then choose **Create** to create your data extraction task.
@@ -700,19 +698,18 @@ dialog box opens. 3. For **Task name**, enter a name for the task. 4. For **Migr
 
 5. For **Encryption type**, choose one of the following:
 
-   - **NONE** –
+    * **NONE** –
      Turn off data encryption for the entire data migration process.
-   - **CSE_SK** –
+    * **CSE\_SK** –
      Use client-side encryption with a symmetric key to migrate data.
      AWS SCT automatically generates encryption keys and transmits
      them to data extraction agents using Secure Sockets Layer (SSL).
      AWS SCT doesn't encrypt large objects (LOBs) during data migration.
 
 6. Choose **Extract LOBs** to extract large objects. If you
-   don't need to extract large objects, you can clear the check box. Doing this
-   reduces the amount of data that you extract.
-7. To see detailed information about a task, choose **Enable
-   task logging**. You can use the task log to debug problems.
+don't need to extract large objects, you can clear the check box. Doing this
+reduces the amount of data that you extract. 7. To see detailed information about a task, choose **Enable
+task logging**. You can use the task log to debug problems.
 
 If you enable task logging,
 choose the level of detail that you want to see.
@@ -726,7 +723,7 @@ with each level including all messages from the previous level:
     * `TRACE` – The largest amount of detail.
 
 8. To export data from BigQuery, AWS SCT uses the Google Cloud Storage bucket folder.
-   In this folder, data extraction agents store your source data.
+In this folder, data extraction agents store your source data.
 
 To enter the path to your Google Cloud Storage bucket folder, choose **Advanced**.
 For **Google CS bucket folder**, enter the bucket name and the folder name. 9. To assume a role for your data extraction agent user,
@@ -802,7 +799,7 @@ to export and import data extraction tasks.
    `.xml` file.
 
 AWS SCT creates the task export file with a file name format of
-``TASK-DESCRIPTION`\_`TASK-ID`.xml`. 6. Choose the three vertically aligned dots (ellipsis icon) at lower right under
+``TASK-DESCRIPTION`_`TASK-ID`.xml`. 6. Choose the three vertically aligned dots (ellipsis icon) at lower right under
 the list of tasks. 7. Choose **Import task** from the pop-up menu.
 
 You can import an extraction task to
@@ -1019,7 +1016,7 @@ values. These default partitions catch any data that is less than or greater
 than the specified partition values.
 
 For example, you can create multiple partitions based on a value range that you
-provide. In the following example, the partitioning values for LO_TAX are
+provide. In the following example, the partitioning values for LO\_TAX are
 specified to create multiple partitions.
 
 ```
@@ -1038,13 +1035,13 @@ Partition3: WHERE LO_TAX > 15005.5 AND LO_TAX <= 25005.95
 4. In the **Add virtual partitioning** dialog box, enter the information as
    follows.
 
-| Option             | Action                                                                                                              |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| **Partition type** | Choose **RANGE**. The dialog box UI changes depending on the type<br>you choose.                                    |
-| **Column name**    | Choose the column that you want to partition.                                                                       |
-| **Column type**    | Choose the data type for the values in the column.                                                                  |
-| **Values**         | Add new values by typing each value in the \*_New Value_<br>• box, then choosing<br>the plus sign to add the value. |
-| **Load from file** | (Optional) Enter the name of a .csv file that contains the partition values.                                        |
+| Option             | Action                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| **Partition type** | Choose **RANGE**. The dialog box UI changes depending on the type<br>you choose.                                   |
+| **Column name**    | Choose the column that you want to partition.                                                                      |
+| **Column type**    | Choose the data type for the values in the column.                                                                 |
+| **Values**         | Add new values by typing each value in the *_New Value_<br>• box, then choosing<br>the plus sign to add the value. |
+| **Load from file** | (Optional) Enter the name of a .csv file that contains the partition values.                                       |
 
 5. Choose **OK**.
 
@@ -1058,7 +1055,7 @@ specify a list of values for the partitioned column, use the
 .csv file.
 
 For example, you can create multiple partitions based on a value you provide. In
-the following example, the partitioning values for LO_ORDERKEY are specified to
+the following example, the partitioning values for LO\_ORDERKEY are specified to
 create multiple partitions.
 
 ```

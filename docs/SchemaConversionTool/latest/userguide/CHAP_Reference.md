@@ -206,8 +206,8 @@ Use the following procedure to edit your AWS SCT CLI template.
    **ApplyToTarget -filter**, **SaveTargetSQL**,
    **SaveTargetSQLbyStatement**, and **SaveReportCSV** operations from
    your script.
-3. For **oracle_driver_file** in the **SetGlobalSettings**
-   operation, enter the path to your Oracle driver. Then, for **postgresql_driver_file**,
+3. For **oracle\_driver\_file** in the **SetGlobalSettings**
+   operation, enter the path to your Oracle driver. Then, for **postgresql\_driver\_file**,
    enter the path to your PostgreSQL driver.
 
 If you use other database engines, use appropriate names for the settings. For a full list of
