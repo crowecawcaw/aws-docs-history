@@ -233,7 +233,7 @@ When mapping the fields, use the following guidelines.
 `Name` should match the name of the executable. It accepts up to 64
 characters.
 
-\***\*`Path`\*\***
+****`Path`****
 
 `Path` is the file system path to the process executable. It accepts up to
 512 characters.

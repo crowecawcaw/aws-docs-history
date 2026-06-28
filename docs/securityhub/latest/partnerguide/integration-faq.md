@@ -55,7 +55,7 @@ Security Hub CSPM?**
      slide, video, slick sheet).
 
 5. **What is the process for submitting the partner manifest? And for
-   AWS services to send findings to Security Hub CSPM?**
+AWS services to send findings to Security Hub CSPM?**
 
 To submit the manifest information to the Security Hub CSPM team, use
 `<securityhub-partners@amazon.com>`.
@@ -302,7 +302,7 @@ To receive findings, use one of the following methods.
      characteristics.
 
 26. **What are the requirements for a managed security service provider
-    (MSSP) to become a Security Hub CSPM partner?**
+(MSSP) to become a Security Hub CSPM partner?**
 
 You must demonstrate how Security Hub CSPM is used as part of your service delivery to customers.
 

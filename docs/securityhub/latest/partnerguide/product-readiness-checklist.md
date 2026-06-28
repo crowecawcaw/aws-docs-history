@@ -48,8 +48,8 @@ into a curated field or `Resources.Details.Other`.
 The `FirstObservedAt` timestamp is intended to record the time when a finding
 was observed in the product. Map this field if at all possible.
 
-\***\*Does the partner provide unique values generated for each finding
-identifier, except for findings that they want to update?\*\***
+****Does the partner provide unique values generated for each finding
+identifier, except for findings that they want to update?****
 
 All findings in Security Hub CSPM are indexed on the finding identifier (`Id` attribute).
 This value must always be unique to ensure that findings are not updated accidentally.
@@ -86,8 +86,8 @@ they have network data?**
 If your product captures NetFlow information, map it to the `Network`
 field.
 
-\***\*Does the partner capture process (PID) information in the
-`Process` fields, if they have process data?\*\***
+****Does the partner capture process (PID) information in the
+`Process` fields, if they have process data?****
 
 If your product captures process information, map it to the `Process`
 field.
