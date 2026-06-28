@@ -38,17 +38,16 @@ resources are updated, as described here:
     an `AutoScalingRollingUpdate` policy. These replacement operations occur
     when you make one or more of the following changes:
 
-        - Change the Auto Scaling group's [AWS::AutoScaling::LaunchConfiguration](aws-resource-autoscaling-launchconfiguration.md "aws-resource-autoscaling-launchconfiguration.md").
-        - Change the Auto Scaling group's `VPCZoneIdentifier` property.
-        - Change the Auto Scaling group's `LaunchTemplate` property.
-        - Change the Auto Scaling group's `PlacementGroup` property.
-        - Update an Auto Scaling group that contains instances that don't match the current
-         `LaunchConfiguration`.
-
-    If both the `AutoScalingReplacingUpdate` and
-    `AutoScalingRollingUpdate` policies are specified, setting the
-    `WillReplace` property to `true` gives
-    `AutoScalingReplacingUpdate` precedence.
+    - Change the Auto Scaling group's [AWS::AutoScaling::LaunchConfiguration](aws-resource-autoscaling-launchconfiguration.md "aws-resource-autoscaling-launchconfiguration.md").
+    - Change the Auto Scaling group's `VPCZoneIdentifier` property.
+    - Change the Auto Scaling group's `LaunchTemplate` property.
+    - Change the Auto Scaling group's `PlacementGroup` property.
+    - Update an Auto Scaling group that contains instances that don't match the current
+      `LaunchConfiguration`.
+      If both the `AutoScalingReplacingUpdate` and
+      `AutoScalingRollingUpdate` policies are specified, setting the
+      `WillReplace` property to `true` gives
+      `AutoScalingReplacingUpdate` precedence.
 
   - `AutoScalingScheduledAction` policy
     – This policy applies when you update a stack that includes an Auto Scaling group with

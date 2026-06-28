@@ -185,17 +185,17 @@ Syntax for the short form:
 
 ### Parameters
 
-condition_name
+condition\_name
 
 A reference to a condition in the Conditions section. Use the condition's name to
 reference it.
 
-value_if_true
+value\_if\_true
 
 A value to be returned if the specified condition evaluates to
 true.
 
-value_if_false
+value\_if\_false
 
 A value to be returned if the specified condition evaluates to
 `false`.

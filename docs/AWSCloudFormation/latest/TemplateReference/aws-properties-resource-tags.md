@@ -17,8 +17,9 @@ stack-level tags with the `aws:` prefix:
 
 - `aws:cloudformation:`logical-id``
 - `aws:cloudformation:`stack-id``
-- `aws:cloudformation:`stack-name``The`aws:`prefix is reserved for AWS use. This prefix is case-insensitive. If
- you use this prefix in the`Key`or`Value` property, you can't update
+- `aws:cloudformation:`stack-name``
+  The `aws:` prefix is reserved for AWS use. This prefix is case-insensitive. If
+  you use this prefix in the `Key` or `Value` property, you can't update
   or delete the tag. Tags with this prefix don't count toward the number of tags per
   resource.
 

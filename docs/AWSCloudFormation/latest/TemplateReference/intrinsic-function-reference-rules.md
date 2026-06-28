@@ -98,7 +98,7 @@ strings.
 
 ### Parameters
 
-_list_of_strings_
+_list\_of\_strings_
 
 A list of strings, such as `"A", "B", "C"`.
 
@@ -131,7 +131,7 @@ Returns `true` if a specified string matches all values in a list.
 
 ### Parameters
 
-_list_of_strings_
+_list\_of\_strings_
 
 A list of strings, such as `"A", "B", "C"`.
 
@@ -165,13 +165,13 @@ in a second list of strings.
 
 ### Parameters
 
-_strings_to_check_
+_strings\_to\_check_
 
 A list of strings, such as `"A", "B", "C"`. CloudFormation checks whether
 each member in the `strings_to_check` parameter is in the
 `strings_to_match` parameter.
 
-_strings_to_match_
+_strings\_to\_match_
 
 A list of strings, such as `"A", "B", "C"`. Each member in the
 `strings_to_match` parameter is compared against the members of the
@@ -289,7 +289,7 @@ Returns all values for a specified parameter type.
 
 ### Parameters
 
-_parameter_type_
+_parameter\_type_
 
 An AWS-specific parameter type, such as `AWS::EC2::SecurityGroup::Id`
 or `AWS::EC2::VPC::Id`. For more information, see [Supported AWS-specific parameter types](../UserGuide/cloudformation-supplied-parameter-types.md#aws-specific-parameter-types-supported "../UserGuide/cloudformation-supplied-parameter-types.md#aws-specific-parameter-types-supported") in the
@@ -322,7 +322,7 @@ _attribute_
 The name of an attribute to retrieve a value from. For more information about
 attributes, see [Supported attributes](#rules-parameter-attributes "#rules-parameter-attributes").
 
-_parameter_logical_id_
+_parameter\_logical\_id_
 
 The name of a parameter to retrieve attribute values from. The parameter must be
 declared in the `Parameters` section of the template.
@@ -361,7 +361,7 @@ _attribute_
 The name of an attribute from which you want to retrieve a value. For more
 information about attributes, see [Supported attributes](#rules-parameter-attributes "#rules-parameter-attributes").
 
-_parameter_type_
+_parameter\_type_
 
 An AWS-specific parameter type, such as `AWS::EC2::SecurityGroup::Id`
 or `AWS::EC2::VPC::Id`. For more information, see [Supported AWS-specific parameter types](../UserGuide/cloudformation-supplied-parameter-types.md#aws-specific-parameter-types-supported "../UserGuide/cloudformation-supplied-parameter-types.md#aws-specific-parameter-types-supported") in the

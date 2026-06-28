@@ -98,7 +98,7 @@ considerations](../UserGuide/template-macros-overview.md#template-macros-conside
 - Anyone with access to the Amazon S3 URL can include the snippet in their template.
 - Your template snippets must be valid JSON.
 - Your template snippets must be valid key-value objects, for example, `"KeyName":
-"keyValue"`.
+ "keyValue"`.
 - You can't use `AWS::Include` to reference a template snippet that also uses
   `AWS::Include`.
 - If your snippets change, your stack doesn't automatically pick up those changes. To

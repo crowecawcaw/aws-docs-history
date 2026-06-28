@@ -370,7 +370,7 @@ written to disk in lexicographic order. The following table lists the supported
 keys.
 
 | Key              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `content`        | Either a string or a properly formatted JSON object. If you use a JSON<br>object as your content, the JSON will be written to a file on disk. Any<br>intrinsic functions such as `Fn::GetAtt` or `Ref` are<br>evaluated before the JSON object is written to disk. When you create a<br>symlink, specify the symlink target as the content.<br>NoteIf you create a symlink, the helper script modifies the permissions of<br>the target file. Currently, you can't create a symlink without modifying<br>the permissions of the target file. |
 | `source`         | A URL to load the file from. This option can't be specified with the<br>content key.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `encoding`       | The encoding format. Only used if the content is a string. Encoding isn't<br>applied if you are using a source.<br>Valid values: `plain`                                                                                                                                                                                                                                                                                                                                                                                                     | `base64` |
@@ -420,7 +420,7 @@ files:
     group: "root"
 ```
 
-The full template is available at: [https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance.template](https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance.template "https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance.template").
+The full template is available at: [https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal\_Single\_Instance.template](https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance.template "https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance.template").
 
 The following example snippet creates a symlink `/tmp/myfile2.txt`
 that points at an existing file `/tmp/myfile1.txt`. The permissions
@@ -822,7 +822,7 @@ authentication key in the sources block. Instead, include a buckets key in your
 `S3AccessCreds` block. For more information on Amazon S3 authentication
 credentials, see [AWS::CloudFormation::Authentication](aws-resource-authentication.md "aws-resource-authentication.md").
 
-For an example, see the [https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3Bucket_SourceAuth.template](https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3Bucket_SourceAuth.template "https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3Bucket_SourceAuth.template").
+For an example, see the [https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3Bucket\_SourceAuth.template](https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3Bucket_SourceAuth.template "https://s3.amazonaws.com/cloudformation-templates-us-east-1/S3Bucket_SourceAuth.template").
 
 ##### JSON
 

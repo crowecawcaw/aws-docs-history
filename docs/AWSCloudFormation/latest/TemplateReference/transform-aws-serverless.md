@@ -131,9 +131,9 @@ transforms, referencing resources like `AWS::ApiGateway::Stage` requires special
 syntax when the stage name is passed as a non-`NoEcho` parameter value.
 
 Instead of using the AWS SAM syntax for the reference
-(``MyApi`.Stage`), use `Fn::Sub`to
- generate the logical ID reference. For example,`"Ref": {"Fn::Sub":
-`"${`MyApi`}`${`StageName`}Stage"}`.
+(``MyApi`.Stage`), use `Fn::Sub` to
+generate the logical ID reference. For example, `"Ref": {"Fn::Sub":
+ `"${`MyApi`}`${`StageName`}Stage"}`.
 This builds the correct logical ID at runtime.
 
 The reason for this special format is because these two transforms handle values
