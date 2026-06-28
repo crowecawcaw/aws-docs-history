@@ -39,15 +39,14 @@ for your Outpost:
   or role to create the service-linked role for private connectivity. The IAM entity
   needs permission to access the following actions:
 
-      + `iam:CreateServiceLinkedRole` on
-       `arn:aws:iam::*:role/aws-service-role/outposts.amazonaws.com/AWSServiceRoleForOutposts*`
-      + `iam:PutRolePolicy` on
-       `arn:aws:iam::*:role/aws-service-role/outposts.amazonaws.com/AWSServiceRoleForOutposts*`
-      + `ec2:DescribeVpcs`
-      + `ec2:DescribeSubnets`
-
-  For more information, see [AWS Identity and Access Management for
-  AWS Outposts](identity-access-management.md "identity-access-management.md")
+  - `iam:CreateServiceLinkedRole` on
+    `arn:aws:iam::*:role/aws-service-role/outposts.amazonaws.com/AWSServiceRoleForOutposts*`
+  - `iam:PutRolePolicy` on
+    `arn:aws:iam::*:role/aws-service-role/outposts.amazonaws.com/AWSServiceRoleForOutposts*`
+  - `ec2:DescribeVpcs`
+  - `ec2:DescribeSubnets`
+    For more information, see [AWS Identity and Access Management for
+    AWS Outposts](identity-access-management.md "identity-access-management.md")
 
 - In the same AWS account and Availability Zone as your Outpost, create a VPC for
   the sole purpose of Outpost private connectivity with a subnet /24 or larger that does

@@ -74,7 +74,7 @@ resources:
 "ForAnyValue:StringEquals": { "aws:TagKeys": [ "outposts:private-connectivity-`resourceId`" ] }
 ```
 
-#### AWSOutpostsPrivateConnectivityPolicy_OutpostID
+#### AWSOutpostsPrivateConnectivityPolicy\_OutpostID
 
 The
 `AWSOutpostsPrivateConnectivityPolicy_`OutpostID``

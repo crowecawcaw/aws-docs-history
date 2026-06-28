@@ -133,14 +133,12 @@ the VIF group.
     4. Clear the **Associate VIF group** checkbox.
     5. Choose **Save changes**.
 
-5. Choose **Delete local gateway route table**.
-6. In the confirmation dialog box, type `delete` and then choose
-   **Delete**.
-7. (Optional) Create a local gateway route table with a new mode.
+5. Choose **Delete local gateway route table**. 6. In the confirmation dialog box, type `delete` and then choose
+**Delete**. 7. (Optional) Create a local gateway route table with a new mode.
 
-   1. On the navigation pane, choose **Local gateway route
-      tables**.
-   2. Choose **Create local gateway route table**.
-   3. Configure the local gateway route table using the new mode. For more
-      information, see [Create custom local gateway
-      route tables](#create-lgw-route-table "#create-lgw-route-table").
+    1. On the navigation pane, choose **Local gateway route
+     tables**.
+    2. Choose **Create local gateway route table**.
+    3. Configure the local gateway route table using the new mode. For more
+     information, see [Create custom local gateway
+     route tables](#create-lgw-route-table "#create-lgw-route-table").
