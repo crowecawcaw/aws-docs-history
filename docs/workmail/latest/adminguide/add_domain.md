@@ -41,7 +41,7 @@ sent to these aliases.
   domains, see [Verifying domains](domain_verification.md "domain_verification.md").
 - We recommend that you configure your domain as the `MAIL FROM` domain. To enable
   AutoDiscover for iOS devices, you must configure your domain as the `MAIL
-FROM` domain. You can see the status of your `MAIL FROM`
+ FROM` domain. You can see the status of your `MAIL FROM`
   domain in the **Enhance deliverability** section of the
   console. For more information, see [Configuring a custom MAIL FROM domain](custom-mail-from-domain.md "custom-mail-from-domain.md").
 
@@ -179,5 +179,5 @@ use.
      into your DNS provider.
 
 8. Choose the refresh icon update the **Status** for each
-   record. This verifies domain ownership and proper configuration of your domain
-   with Amazon WorkMail.
+record. This verifies domain ownership and proper configuration of your domain
+with Amazon WorkMail.

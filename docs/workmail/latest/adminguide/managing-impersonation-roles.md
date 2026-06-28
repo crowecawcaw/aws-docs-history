@@ -76,13 +76,12 @@ the organization. 3. Choose **Impersonation roles**, and then choose **Create ro
     * (Optional) **Description** – Enter a description for the impersonation role.
     * **Role type** – Choose **Read only** or **Full access**.
 
-5. Under **Rules**, choose **Add rule**.
-6. The **Add rule** dialog box appears. Enter the following information:
+5. Under **Rules**, choose **Add rule**. 6. The **Add rule** dialog box appears. Enter the following information:
 
-   - **Name** – Enter a unique name for the rule.
-   - (Optional) **Description** – Enter a description for the rule.
-   - Under **Effect**, choose **Allow** or **Deny**. This allows or denies access based on the conditions you select in the following step.
-   - (Optional) Under **This rule:**, choose
+    * **Name** – Enter a unique name for the rule.
+    * (Optional) **Description** – Enter a description for the rule.
+    * Under **Effect**, choose **Allow** or **Deny**. This allows or denies access based on the conditions you select in the following step.
+    * (Optional) Under **This rule:**, choose
      **Matches requests that impersonate the selected users** to include specific
      users. Choose **Matches requests that impersonate users other than the selected users** to add users other than the selected
      users.
@@ -120,22 +119,20 @@ then choose the name of the organization. 3. Choose **Impersonation roles**. 4. 
      access**.
 
 6. Under **Rules**, select the rule that you want to edit
-   and choose **Edit**.
-7. The **Edit rule** dialog box appears. Enter the following
-   information:
+and choose **Edit**. 7. The **Edit rule** dialog box appears. Enter the following
+information:
 
-   - **Name** – Edit the name of the
+    * **Name** – Edit the name of the
      rule.
-   - (Optional) **Description** – Update or
+    * (Optional) **Description** – Update or
      enter a description for the rule.
-   - Under **Effect**, choose **Allow** to allow access when the conditions set in the rules are met. To deny access, choose **Deny**.
-   - (Optional) Under **This rule:**, choose
+    * Under **Effect**, choose **Allow** to allow access when the conditions set in the rules are met. To deny access, choose **Deny**.
+    * (Optional) Under **This rule:**, choose
      **Matches requests that impersonate the selected users** to include specific
      users. Choose **Matches requests that impersonate users other than the selected users** to add users other than the selected
      users.
 
-8. Choose **Save**.
-9. Choose **Save changes**.
+8. Choose **Save**. 9. Choose **Save changes**.
 
 ###### Important
 

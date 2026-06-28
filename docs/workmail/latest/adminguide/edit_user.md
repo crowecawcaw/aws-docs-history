@@ -85,23 +85,22 @@ device clients for Amazon WorkMail](../userguide/mobile-client.md "../userguide/
 
 ###### To edit mailbox permissions
 
-1.  Choose the **Permissions** tab.
-2.  Do one of the following:
+1. Choose the **Permissions** tab.
+2. Do one of the following:
 
-        1. To add permissions, choose **Add
-         permissions**. Open the **Add new
-         permissions** list and choose a user or group,
-         choose the permission settings for the user or group, and
-         then choose **Save**.
-        2. To edit user permissions, choose the button next to
-         the user's name. Choose **Edit**, select
-         the desired options, and then choose
-         **Save**.
+   1. To add permissions, choose **Add
+      permissions**. Open the **Add new
+      permissions** list and choose a user or group,
+      choose the permission settings for the user or group, and
+      then choose **Save**.
+   2. To edit user permissions, choose the button next to
+      the user's name. Choose **Edit**, select
+      the desired options, and then choose
+      **Save**.
+      For more information about the permission options, refer to [Working with mailbox permissions](mail_perms_overview.md "mail_perms_overview.md").
 
-    For more information about the permission options, refer to [Working with mailbox permissions](mail_perms_overview.md "mail_perms_overview.md").
-
-3.  To remove all permissions, choose **Remove**,
-    then confirm the removal.
+3. To remove all permissions, choose **Remove**,
+   then confirm the removal.
 
 ###### To delete personal access tokens
 

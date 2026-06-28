@@ -91,10 +91,10 @@ for you. You can't view a WorkMail directory in AWS Directory Service.
 
 **User**
 
-A user created in the AWS Directory Service. The user can be created in an _USER_ or _REMOTE_USER_ role. When a user is created and enabled with an _USER_ role, they receive their
+A user created in the AWS Directory Service. The user can be created in an _USER_ or _REMOTE\_USER_ role. When a user is created and enabled with an _USER_ role, they receive their
 own mailbox to access. When a user is disabled, they can't access Amazon WorkMail.
 
-User created and enabled with a _REMOTE_USER_ role is listed in the address book but do not get a mailbox in Amazon WorkMail. The _REMOTE_USER_ can have the mailbox
+User created and enabled with a _REMOTE\_USER_ role is listed in the address book but do not get a mailbox in Amazon WorkMail. The _REMOTE\_USER_ can have the mailbox
 hosted outside Amazon WorkMail but will still be listed as any other user with mailbox in the Amazon WorkMail address book and can look up each others calendar to find free or busy information.
 
 **Group**

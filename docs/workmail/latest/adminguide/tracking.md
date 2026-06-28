@@ -62,8 +62,7 @@ settings**. 4. Choose the **Email flow log settings** tab. 5. In the **Email flo
      information, see [Creating a custom log group and IAM role for email event logging](#custom-tracking-role "#custom-tracking-role").
 
 8. Select **I authorize Amazon WorkMail to publish logs in my account using this
-   configuration**.
-9. Choose **Save**.
+configuration**. 9. Choose **Save**.
 
 ## Creating a custom log group and IAM role for email event logging
 

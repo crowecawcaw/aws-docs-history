@@ -112,8 +112,9 @@ applicable pricing, see [Amazon CloudFront pricing](https://aws.amazon.com/cloud
         Europe
       - For **Alternate Domain Names
         (CNAMEs)**, enter
-        `autodiscover.`company.tld`or`company.tld``,
-where `company.tld` is your
+        `autodiscover.`company.tld`   or
+  `company.tld``,
+        where `company.tld` is your
         domain name.
       - **SSL Certificate**: Custom SSL Certificate
         (stored in IAM)
@@ -132,7 +133,7 @@ where `company.tld` is your
         enables logging.
       - For **Comment**, enter
         `AutoDiscover type2 for
-autodiscover.`company.tld``
+  autodiscover.`company.tld``
       - **Distribution State**: choose
         **Enabled**.
 
@@ -195,15 +196,14 @@ steps.
 SSLProxyEngine on ProxyPass /autodiscover/autodiscover.xml https://autodiscover-service.mail.`REGION`.awsapps.com/autodiscover/autodiscover.xml
 ```
 
-2.  As needed, enable the following Apache modules. If you don't know how, refer to the Apache help:
+2. As needed, enable the following Apache modules. If you don't know how, refer to the Apache help:
 
-        * `proxy`
-        * `proxy_http`
-        * `socache_shmcb`
-        * `ssl`
-
-    See the following section for information about testing and troubleshooting
-    AutoDiscover.
+   - `proxy`
+   - `proxy_http`
+   - `socache_shmcb`
+   - `ssl`
+     See the following section for information about testing and troubleshooting
+     AutoDiscover.
 
 ## AutoDiscover phase 2 troubleshooting
 

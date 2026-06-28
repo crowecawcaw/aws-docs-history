@@ -87,7 +87,7 @@ about creating mail flow rules, see [Creating email flow rules](create-email-rul
 To finish creating the synchronous rule, add the Lambda Amazon Resource
 Name (ARN) and configure the following options.
 
-\***\*Fallback action\*\***
+****Fallback action****
 
 The action Amazon WorkMail applies if the Lambda function fails to run.
 This action also applies to any recipients that are omitted from
@@ -95,7 +95,7 @@ the Lambda response if the **allRecipients**
 flag is not set. The **Fallback action** can't
 be another Lambda action.
 
-\***\*Rule timeout** (in minutes)\*\*
+****Rule timeout** (in minutes)**
 
 The time period during which the Lambda function is retried if
 Amazon WorkMail fails to invoke it. The **Fallback
@@ -256,8 +256,8 @@ asynchronous **Run Lambda** actions.
 
 Inbound rule action types include **BOUNCE**,
 **DROP**, **DEFAULT**,
-**BYPASS_SPAM_CHECK**, and
-**MOVE_TO_JUNK**. For more information, see
+**BYPASS\_SPAM\_CHECK**, and
+**MOVE\_TO\_JUNK**. For more information, see
 [Inbound email rule actions](email-flows.md#email-flows-rule-actions "email-flows.md#email-flows-rule-actions").
 
 Outbound rule action types include

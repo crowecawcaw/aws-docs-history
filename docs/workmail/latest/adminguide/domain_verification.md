@@ -137,15 +137,15 @@ dig +short `example.com` txt
 
    **US East (N. Virginia) Region** –
    `10
- inbound-smtp.us-east-1.amazonaws.com`
+  inbound-smtp.us-east-1.amazonaws.com`
 
    **US West (Oregon) Region** –
    `10
- inbound-smtp.us-west-2.amazonaws.com`
+  inbound-smtp.us-west-2.amazonaws.com`
 
    **Europe (Ireland) Region** –
    `10
- inbound-smtp.eu-west-1.amazonaws.com`
+  inbound-smtp.eu-west-1.amazonaws.com`
 
    ###### Note
 

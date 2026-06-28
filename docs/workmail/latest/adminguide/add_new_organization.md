@@ -123,25 +123,23 @@ email addresses in your organization:
      then add a domain to your organization later.
 
 5. (Optional) If your domain is managed through Amazon Route 53, for
-   **Route 53 hosted zone**, select your Route 53 domain.
-6. For **Alias**, enter a unique alias for your
-   organization.
-7. Choose **Advanced settings**, and for **User
-   directory**, select one of the following options:
+**Route 53 hosted zone**, select your Route 53 domain. 6. For **Alias**, enter a unique alias for your
+organization. 7. Choose **Advanced settings**, and for **User
+directory**, select one of the following options:
 
-   - Create new Amazon WorkMail directory –
+    * Create new Amazon WorkMail directory –
      Creates a new directory for adding and managing your users.
-   - Use existing directory –
+    * Use existing directory –
      Uses an existing directory to manage your users, such as an
      on-premises Microsoft Active Directory, AWS Managed Active
      Directory, or Simple AD.
 
 8. For **Encryption**, select one of the following
-   options:
+options:
 
-   - Use an Amazon WorkMail managed key –
+    * Use an Amazon WorkMail managed key –
      Creates a new encryption key in your account.
-   - Use existing KMS key –
+    * Use existing KMS key –
      Uses an existing KMS key that you have already created in
      AWS KMS.
 
