@@ -37,25 +37,16 @@ a production environment. 7. Our workload runs on both AWS and at our local data
      for the local data center.
 
 8. The **Account IDs** box is optional. Do not associate any
-   AWS accounts with this workload.
-9. The **Application** box is optional. Do not enter an
-   Application ARN for this workload.
-10. The **Architectural diagram** box is optional. Do not
-    associate an architectural diagram with this workload.
-11. The **Industry type** and **Industry** boxes
-    are optional and are not specified for this workload.
-12. The **Trusted Advisor** section is optional. Do not **Activate Trusted Advisor
-    Support** for this workload.
-13. The **Jira** section is optional. Do not **Override account level settings** in the Jira section for this workload.
-14. For this example, do not apply any tags to the workload. Choose
-    **Next**.
-15. The **Apply profile** step is optional. Do not apply a
-    profile for this workload. Choose **Next**.
-16. For this example, apply the AWS Well-Architected Framework lens, which is
-    automatically selected. Choose **Define workload** to save
-    these values and define the workload.
-17. After the workload is defined, choose **Start reviewing** to
-    begin documenting the state of the workload.
+AWS accounts with this workload. 9. The **Application** box is optional. Do not enter an
+Application ARN for this workload. 10. The **Architectural diagram** box is optional. Do not
+associate an architectural diagram with this workload. 11. The **Industry type** and **Industry** boxes
+are optional and are not specified for this workload. 12. The **Trusted Advisor** section is optional. Do not **Activate Trusted Advisor
+Support** for this workload. 13. The **Jira** section is optional. Do not **Override account level settings** in the Jira section for this workload. 14. For this example, do not apply any tags to the workload. Choose
+**Next**. 15. The **Apply profile** step is optional. Do not apply a
+profile for this workload. Choose **Next**. 16. For this example, apply the AWS Well-Architected Framework lens, which is
+automatically selected. Choose **Define workload** to save
+these values and define the workload. 17. After the workload is defined, choose **Start reviewing** to
+begin documenting the state of the workload.
 
 ## Step 2: Document the workload state
 

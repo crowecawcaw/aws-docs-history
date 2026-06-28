@@ -50,6 +50,6 @@ process. 2. You are now presented with the first question. For each question:
      question.Repeat these steps for each question in each pillar.
 
 3. Choose **Save and exit** at any time to save your changes and
-   pause documenting your workload.
-   After you've documented your workload, you can return to the questions to continuing
-   reviewing it at anytime. For more information, see [Reviewing a workload with AWS Well-Architected Framework](continue-workflow-review.md "continue-workflow-review.md").
+pause documenting your workload.
+After you've documented your workload, you can return to the questions to continuing
+reviewing it at anytime. For more information, see [Reviewing a workload with AWS Well-Architected Framework](continue-workflow-review.md "continue-workflow-review.md").

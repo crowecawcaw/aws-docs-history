@@ -55,12 +55,12 @@ time of creation, you don't need to run custom tagging scripts after resource cr
 The following table describes the AWS WA Tool resources that can be tagged, and the resources that can be tagged on
 creation.
 
-| Tagging support for AWS WA Tool resources | Resource | Supports tags | Supports tag propagation | Supports tagging on creation (AWS WA Tool API, AWS CLI, AWS SDK) |
-| ----------------------------------------- | -------- | ------------- | ------------------------ | ---------------------------------------------------------------- |
-| AWS WA Tool workloads                     | Yes      | No            | Yes                      |
-| AWS WA Tool custom lenses                 | Yes      | No            | Yes                      |
-| AWS WA Tool profiles                      | Yes      | No            | Yes                      |
-| AWS WA Tool review templates              | Yes      | No            | Yes                      |
+Tagging support for AWS WA Tool resources| Resource | Supports tags | Supports tag propagation | Supports tagging on creation (AWS WA Tool API, AWS CLI, AWS SDK) |
+| --- | --- | --- | --- |
+| AWS WA Tool workloads | Yes | No | Yes |
+| AWS WA Tool custom lenses | Yes | No | Yes |
+| AWS WA Tool profiles | Yes | No | Yes |
+| AWS WA Tool review templates | Yes | No | Yes |
 
 ## Tag restrictions
 
@@ -165,11 +165,11 @@ tab for custom lenses, profiles, and review templates.
 Use the following AWS WA Tool API operations to add, update, list, and delete the tags for your
 resources.
 
-| Tagging support for AWS WA Tool resources | Task                                                                                                           | API action |
-| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------- |
-| Add or overwrite one or more tags.        | [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")                         |
-| Delete one or more tags.                  | [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")                   |
-| List tags for a resource.                 | [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") |
+Tagging support for AWS WA Tool resources| Task | API action |
+| --- | --- |
+| Add or overwrite one or more tags. | [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") |
+| Delete one or more tags. | [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") |
+| List tags for a resource. | [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") |
 
 Some resource-creating actions enable you to specify tags when you create the resource. The following actions
 support tagging on creation.

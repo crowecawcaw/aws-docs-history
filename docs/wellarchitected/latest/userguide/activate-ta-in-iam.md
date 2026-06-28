@@ -174,7 +174,8 @@ JSON
 10. On the **Add permissions** page for the role, select the
     policy name you just created, and select **Next**.
 11. Enter the **Role name**, which must use the following syntax:
-    `WellArchitectedRoleForTrustedAdvisor-`WORKLOAD_OWNER_ACCOUNT_ID`and choose **Create role**. Replace`WORKLOAD_OWNER_ACCOUNT_ID`` with
+    `WellArchitectedRoleForTrustedAdvisor-`WORKLOAD_OWNER_ACCOUNT_ID`  and choose **Create role**. Replace
+ `WORKLOAD_OWNER_ACCOUNT_ID`` with
     the workload owner's account ID.
 
 You should get a success message at the top of the page notifying you that the

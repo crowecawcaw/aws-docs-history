@@ -17,12 +17,12 @@ The **Custom lenses** section is empty if you have not created a custom lens or 
     * **Shared with me** – Shows custom lenses that
      have been shared with you.
 
-4.  Select the custom lens to view in one of the following ways:
+4. Select the custom lens to view in one of the following ways:
 
-        * Choose the name of the lens.
-        * Select the lens and choose **View details**.
+    * Choose the name of the lens.
+    * Select the lens and choose **View details**.
 
-    The [Viewing lens details for a workload in AWS WA Tool](lenses-details.md "lenses-details.md") page is displayed.
+The [Viewing lens details for a workload in AWS WA Tool](lenses-details.md "lenses-details.md") page is displayed.
 
 The **Custom lenses** page has the following fields:
 

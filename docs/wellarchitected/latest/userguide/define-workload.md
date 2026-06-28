@@ -35,17 +35,17 @@ workload:
      pre-production environment.
 
 7. In the **Regions** section, choose the Regions for your
-   workload:
+workload:
 
-   - **AWS Regions** – Choose the AWS Regions where
+    * **AWS Regions** – Choose the AWS Regions where
      your workload runs, one at a time.
-   - **Non-AWS regions** – Enter the names of the
+    * **Non-AWS regions** – Enter the names of the
      Regions outside of AWS where your workload runs. You can specify up to
      five unique Regions, separated by commas.Use both options if appropriate for your workload.
 
 8. (Optional) In the **Account IDs** box, enter the IDs of the
-   AWS accounts associated with your workload. You can specify up to 100 unique
-   account IDs, separated by commas.
+AWS accounts associated with your workload. You can specify up to 100 unique
+account IDs, separated by commas.
 
 If Trusted Advisor is activated, any account IDs specified are used to get data from
 Trusted Advisor. See [Activating AWS Trusted Advisor for a workload](activate-ta-for-workload.md "activate-ta-for-workload.md") to grant AWS WA Tool permissions
