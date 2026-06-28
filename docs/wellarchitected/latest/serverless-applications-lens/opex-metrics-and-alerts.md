@@ -43,19 +43,18 @@ formulate a plan for new and existing applications when it comes to metrics:
 
 - **Operational metrics**
 
-      + Operational metrics are equally important to understand sustainability and
-       maintenance of a given system. These metrics are also crucial to pinpoint how
-       stability progressed or degraded over time.
-      + Examples: Number of tickets (successful and unsuccessful resolutions), number
-       of times people on-call were paged, availability, CI/CD pipeline stats (successful
-       and failed deployments, feedback time, cycle and lead time)
-
-  CloudWatch Alarms should be configured at both individual and aggregated levels. An
-  individual-level example is alarming on the _Duration_ metric from
-  Lambda or `IntegrationLatency` from API Gateway when invoked through API, since
-  different parts of the application likely have different profiles. In this instance, you
-  can quickly identify a bad deployment that makes a function execute for much longer than
-  usual.
+  - Operational metrics are equally important to understand sustainability and
+    maintenance of a given system. These metrics are also crucial to pinpoint how
+    stability progressed or degraded over time.
+  - Examples: Number of tickets (successful and unsuccessful resolutions), number
+    of times people on-call were paged, availability, CI/CD pipeline stats (successful
+    and failed deployments, feedback time, cycle and lead time)
+    CloudWatch Alarms should be configured at both individual and aggregated levels. An
+    individual-level example is alarming on the _Duration_ metric from
+    Lambda or `IntegrationLatency` from API Gateway when invoked through API, since
+    different parts of the application likely have different profiles. In this instance, you
+    can quickly identify a bad deployment that makes a function execute for much longer than
+    usual.
 
 Aggregate-level examples include alarming, but are not limited to the following
 metrics:
@@ -71,7 +70,7 @@ metrics:
   `ExecutionError`.
 - **Application Load Balancer**: `HTTPCode_ELB_5XX_Count`,
   `RejectedConnectionCount`, `HTTPCode_Target_5XX_Count,
-UnHealthyHostCount`, `LambdaInternalError`,
+ UnHealthyHostCount`, `LambdaInternalError`,
   `LambdaUserError`.
 - **AWS AppSync**: `5XX` and `Latency`.
 - **Amazon SQS:**

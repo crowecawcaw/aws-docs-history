@@ -11,7 +11,7 @@ defend against these attacks.
 From an authentication and authorization perspective, there are currently five
 mechanisms to authorize an API call within API Gateway:
 
-- AWS_IAM authorization
+- AWS\_IAM authorization
 - Amazon Cognito user pools
 - API Gateway Lambda authorizer
 - Resource policies
@@ -19,15 +19,15 @@ mechanisms to authorize an API call within API Gateway:
   It is important to understand if, and how, any of these mechanisms are implemented.
   For consumers who are currently located within your AWS environment or have the means
   to retrieve AWS Identity and Access Management (IAM) temporary credentials to access your environment, you can
-  use AWS_IAM authorization and add least-privileged permissions to the respective
+  use AWS\_IAM authorization and add least-privileged permissions to the respective
   IAM role to securely invoke your API.
 
-The following diagram illustrates using AWS_IAM authorization in this
+The following diagram illustrates using AWS\_IAM authorization in this
 context:
 
 ![Diagram showing AWS_IAM authorization](images/aws-iam-authorization.png)
 
-_Figure 13: AWS_IAM authorization_
+_Figure 13: AWS\_IAM authorization_
 
 To add granularity into your IAM authorization you can implement tag-based access
 control, which allows for better API-level control on the resources and actions.
