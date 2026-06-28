@@ -1171,7 +1171,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.16**<br>_64bit Amazon Linux 2 v3.2.16 running Corretto 11_ | 2.0.20220606 | Corretto 11.0.15.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.16**<br>_64bit Amazon Linux 2 v3.2.16 running Corretto 8_   | 2.0.20220606 | Corretto 8.332.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.22**<br>_64bit Amazon Linux 2018.03 v2.11.22 running Java 8_   | 2018.03.0    | Java 1.8.0.312       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.22**<br>_64bit Amazon Linux 2018.03 v2.11.22 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.22**<br>_64bit Amazon Linux 2018.03 v2.11.22 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## June 22, 2022 – June 28, 2022
 
@@ -1182,7 +1182,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.16**<br>_64bit Amazon Linux 2 v3.2.16 running Corretto 11_ | 2.0.20220606 | Corretto 11.0.15.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.16**<br>_64bit Amazon Linux 2 v3.2.16 running Corretto 8_   | 2.0.20220606 | Corretto 8.332.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.22**<br>_64bit Amazon Linux 2018.03 v2.11.22 running Java 8_   | 2018.03.0    | Java 1.8.0.312       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.22**<br>_64bit Amazon Linux 2018.03 v2.11.22 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.22**<br>_64bit Amazon Linux 2018.03 v2.11.22 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## May 26, 2022 – June 21, 2022
 
@@ -1193,7 +1193,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.15**<br>_64bit Amazon Linux 2 v3.2.15 running Corretto 11_ | 2.0.20220426 | Corretto 11.0.15.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.15**<br>_64bit Amazon Linux 2 v3.2.15 running Corretto 8_   | 2.0.20220426 | Corretto 8.332.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.21**<br>_64bit Amazon Linux 2018.03 v2.11.21 running Java 8_   | 2018.03.0    | Java 1.8.0.312       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.21**<br>_64bit Amazon Linux 2018.03 v2.11.21 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.21**<br>_64bit Amazon Linux 2018.03 v2.11.21 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## April 29, 2022 – May 25, 2022
 
@@ -1204,7 +1204,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.14**<br>_64bit Amazon Linux 2 v3.2.14 running Corretto 11_ | 2.0.20220419 | Corretto 11.0.14.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.14**<br>_64bit Amazon Linux 2 v3.2.14 running Corretto 8_   | 2.0.20220419 | Corretto 8.332.08.1   | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.20**<br>_64bit Amazon Linux 2018.03 v2.11.20 running Java 8_   | 2018.03.0    | Java 1.8.0.312        | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.20**<br>_64bit Amazon Linux 2018.03 v2.11.20 running Java 7_   | 2018.03.0    | Java 1.7.0_261        | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.20**<br>_64bit Amazon Linux 2018.03 v2.11.20 running Java 7_   | 2018.03.0    | Java 1.7.0\_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## March 31, 2022 – April 28, 2022
 
@@ -1215,7 +1215,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.13**<br>_64bit Amazon Linux 2 v3.2.13 running Corretto 11_ | 2.0.20220316 | Corretto 11.0.14.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.13**<br>_64bit Amazon Linux 2 v3.2.13 running Corretto 8_   | 2.0.20220316 | Corretto 8.322.06.3   | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.19**<br>_64bit Amazon Linux 2018.03 v2.11.19 running Java 8_   | 2018.03.0    | Java 1.8.0.312        | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.19**<br>_64bit Amazon Linux 2018.03 v2.11.19 running Java 7_   | 2018.03.0    | Java 1.7.0_261        | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.19**<br>_64bit Amazon Linux 2018.03 v2.11.19 running Java 7_   | 2018.03.0    | Java 1.7.0\_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## March 2, 2022 – March 30, 2022
 
@@ -1226,7 +1226,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.12**<br>_64bit Amazon Linux 2 v3.2.12 running Corretto 11_ | 2.0.20220207 | Corretto 11.0.14.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.12**<br>_64bit Amazon Linux 2 v3.2.12 running Corretto 8_   | 2.0.20220207 | Corretto 8.322.06.3   | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.18**<br>_64bit Amazon Linux 2018.03 v2.11.18 running Java 8_   | 2018.03.0    | Java 1.8.0.312        | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.18**<br>_64bit Amazon Linux 2018.03 v2.11.18 running Java 7_   | 2018.03.0    | Java 1.7.0_261        | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.18**<br>_64bit Amazon Linux 2018.03 v2.11.18 running Java 7_   | 2018.03.0    | Java 1.7.0\_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## February 3, 2022 – March 1, 2022
 
@@ -1237,7 +1237,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.11**<br>_64bit Amazon Linux 2 v3.2.11 running Corretto 11_ | 2.0.20220121 | Corretto 11.0.13.8.2 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.11**<br>_64bit Amazon Linux 2 v3.2.11 running Corretto 8_   | 2.0.20220121 | Corretto 8.322.06.3  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.17**<br>_64bit Amazon Linux 2018.03 v2.11.17 running Java 8_   | 2018.03.0    | Java 1.8.0.312       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.17**<br>_64bit Amazon Linux 2018.03 v2.11.17 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.17**<br>_64bit Amazon Linux 2018.03 v2.11.17 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## December 28, 2021 – February 2, 2022
 
@@ -1248,7 +1248,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.10**<br>_64bit Amazon Linux 2 v3.2.10 running Corretto 11_ | 2.0.20211201 | Corretto 11.0.13.8.2 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.10**<br>_64bit Amazon Linux 2 v3.2.10 running Corretto 8_   | 2.0.20211201 | Corretto 8.312.07.2  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.16**<br>_64bit Amazon Linux 2018.03 v2.11.16 running Java 8_   | 2018.03.0    | Java 1.8.0.312       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.16**<br>_64bit Amazon Linux 2018.03 v2.11.16 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.16**<br>_64bit Amazon Linux 2018.03 v2.11.16 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## December 21, 2021 – December 27, 2021
 
@@ -1259,7 +1259,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.9**<br>_64bit Amazon Linux 2 v3.2.9 running Corretto 11_ | 2.0.20211201 | Corretto 11.0.13.8.2 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.9**<br>_64bit Amazon Linux 2 v3.2.9 running Corretto 8_   | 2.0.20211201 | Corretto 8.312.07.2  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.15**<br>_64bit Amazon Linux 2018.03 v2.11.15 running Java 8_ | 2018.03.0    | Java 1.8.0.312       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.15**<br>_64bit Amazon Linux 2018.03 v2.11.15 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.15**<br>_64bit Amazon Linux 2018.03 v2.11.15 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## November 24, 2021 – December 20, 2021
 
@@ -1270,7 +1270,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.8**<br>_64bit Amazon Linux 2 v3.2.8 running Corretto 11_ | 2.0.20211103 | Corretto 11.0.13.8.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.8**<br>_64bit Amazon Linux 2 v3.2.8 running Corretto 8_   | 2.0.20211103 | Corretto 8.312.07.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.14**<br>_64bit Amazon Linux 2018.03 v2.11.14 running Java 8_ | 2018.03.0    | Java 1.8.0.302       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.14**<br>_64bit Amazon Linux 2018.03 v2.11.14 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.14**<br>_64bit Amazon Linux 2018.03 v2.11.14 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## November 19, 2021 – November 23, 2021
 
@@ -1281,7 +1281,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.8**<br>_64bit Amazon Linux 2 v3.2.8 running Corretto 11_ | 2.0.20211103 | Corretto 11.0.13.8.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.8**<br>_64bit Amazon Linux 2 v3.2.8 running Corretto 8_   | 2.0.20211103 | Corretto 8.312.07.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.13**<br>_64bit Amazon Linux 2018.03 v2.11.13 running Java 8_ | 2018.03.0    | Java 1.8.0.302       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.13**<br>_64bit Amazon Linux 2018.03 v2.11.13 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.13**<br>_64bit Amazon Linux 2018.03 v2.11.13 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## October 21, 2021 – November 18, 2021
 
@@ -1292,7 +1292,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.7**<br>_64bit Amazon Linux 2 v3.2.7 running Corretto 11_ | 2.0.20211001 | Corretto 11.0.12.7.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.7**<br>_64bit Amazon Linux 2 v3.2.7 running Corretto 8_   | 2.0.20211001 | Corretto 8.302.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.13**<br>_64bit Amazon Linux 2018.03 v2.11.13 running Java 8_ | 2018.03.0    | Java 1.8.0.302       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.13**<br>_64bit Amazon Linux 2018.03 v2.11.13 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.13**<br>_64bit Amazon Linux 2018.03 v2.11.13 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## October 3, 2021 – October 20, 2021
 
@@ -1303,7 +1303,7 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | **Corretto 11 version 3.2.6**<br>_64bit Amazon Linux 2 v3.2.6 running Corretto 11_ | 2.0.20210813 | Corretto 11.0.12.7.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.6**<br>_64bit Amazon Linux 2 v3.2.6 running Corretto 8_   | 2.0.20210813 | Corretto 8.302.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Java 8 version 2.11.12**<br>_64bit Amazon Linux 2018.03 v2.11.12 running Java 8_ | 2018.03.0    | Java 1.8.0.302       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.12**<br>_64bit Amazon Linux 2018.03 v2.11.12 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.12**<br>_64bit Amazon Linux 2018.03 v2.11.12 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## September 2, 2021 – October 2, 2021
 
@@ -1313,8 +1313,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running Corretto 11_ | 2.0.20210721 | Corretto 11.0.12.7.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running Corretto 8_   | 2.0.20210721 | Corretto 8.302.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
-| **Java 8 version 2.11.11**<br>_64bit Amazon Linux 2018.03 v2.11.11 running Java 8_ | 2018.03.0    | Java 1.8.0_292       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.11**<br>_64bit Amazon Linux 2018.03 v2.11.11 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.11**<br>_64bit Amazon Linux 2018.03 v2.11.11 running Java 8_ | 2018.03.0    | Java 1.8.0\_292      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.11**<br>_64bit Amazon Linux 2018.03 v2.11.11 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## July 30, 2021 – September 1, 2021
 
@@ -1324,8 +1324,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.2.4**<br>_64bit Amazon Linux 2 v3.2.4 running Corretto 11_ | 2.0.20210721 | Corretto 11.0.12.7.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.4**<br>_64bit Amazon Linux 2 v3.2.4 running Corretto 8_   | 2.0.20210721 | Corretto 8.302.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
-| **Java 8 version 2.11.11**<br>_64bit Amazon Linux 2018.03 v2.11.11 running Java 8_ | 2018.03.0    | Java 1.8.0_292       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.11**<br>_64bit Amazon Linux 2018.03 v2.11.11 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.11**<br>_64bit Amazon Linux 2018.03 v2.11.11 running Java 8_ | 2018.03.0    | Java 1.8.0\_292      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.11**<br>_64bit Amazon Linux 2018.03 v2.11.11 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## July 21, 2021 – July 29, 2021
 
@@ -1335,8 +1335,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Corretto 11_ | 2.0.20210701 | Corretto 11.0.11.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.3**<br>_64bit Amazon Linux 2 v3.2.3 running Corretto 8_   | 2.0.20210701 | Corretto 8.292.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
-| **Java 8 version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Java 8_ | 2018.03.0    | Java 1.8.0_292       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Java 8_ | 2018.03.0    | Java 1.8.0\_292      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.10**<br>_64bit Amazon Linux 2018.03 v2.11.10 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## July 8, 2021 – July 20, 2021
 
@@ -1346,8 +1346,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Corretto 11_ | 2.0.20210525 | Corretto 11.0.11.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Corretto 8_   | 2.0.20210525 | Corretto 8.292.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
-| **Java 8 version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.9**<br>_64bit Amazon Linux 2018.03 v2.11.9 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## July 7, 2021 – July 7, 2021
 
@@ -1357,8 +1357,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.2.2**<br>_64bit Amazon Linux 2 v3.2.2 running Corretto 11_ | 2.0.20210617 | Corretto 11.0.11.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.2**<br>_64bit Amazon Linux 2 v3.2.2 running Corretto 8_   | 2.0.20210617 | Corretto 8.292.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
-| **Java 8 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## June 11, 2021 – July 6, 2021
 
@@ -1368,8 +1368,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Corretto 11_ | 2.0.20210525 | Corretto 11.0.11.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.1**<br>_64bit Amazon Linux 2 v3.2.1 running Corretto 8_   | 2.0.20210525 | Corretto 8.292.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
-| **Java 8 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## June 1, 2021 – June 10, 2021
 
@@ -1379,8 +1379,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.2.0**<br>_64bit Amazon Linux 2 v3.2.0 running Corretto 11_ | 2.0.20210427 | Corretto 11.0.11.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
 | **Corretto 8 version 3.2.0**<br>_64bit Amazon Linux 2 v3.2.0 running Corretto 8_   | 2.0.20210427 | Corretto 8.292.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
-| **Java 8 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## May 26, 2021 – May 31, 2021
 
@@ -1390,8 +1390,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.8**<br>_64bit Amazon Linux 2 v3.1.8 running Corretto 11_ | 2.0.20210421 | Corretto 11.0.11.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.8**<br>_64bit Amazon Linux 2 v3.1.8 running Corretto 8_   | 2.0.20210421 | Corretto 8.292.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.8**<br>_64bit Amazon Linux 2018.03 v2.11.8 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## May 3, 2021 – May 25, 2021
 
@@ -1401,8 +1401,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.8**<br>_64bit Amazon Linux 2 v3.1.8 running Corretto 11_ | 2.0.20210421 | Corretto 11.0.11.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.8**<br>_64bit Amazon Linux 2 v3.1.8 running Corretto 8_   | 2.0.20210421 | Corretto 8.292.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## April 21, 2021 – May 2, 2021
 
@@ -1412,8 +1412,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.7**<br>_64bit Amazon Linux 2 v3.1.7 running Corretto 11_ | 2.0.20210326 | Corretto 11.0.10.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.7**<br>_64bit Amazon Linux 2 v3.1.7 running Corretto 8_   | 2.0.20210326 | Corretto 8.282.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.7**<br>_64bit Amazon Linux 2018.03 v2.11.7 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## March 31, 2021 – April 20, 2021
 
@@ -1423,8 +1423,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.7**<br>_64bit Amazon Linux 2 v3.1.7 running Corretto 11_ | 2.0.20210326 | Corretto 11.0.10.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.7**<br>_64bit Amazon Linux 2 v3.1.7 running Corretto 8_   | 2.0.20210326 | Corretto 8.282.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.5**<br>_64bit Amazon Linux 2018.03 v2.11.5 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.5**<br>_64bit Amazon Linux 2018.03 v2.11.5 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.5**<br>_64bit Amazon Linux 2018.03 v2.11.5 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.5**<br>_64bit Amazon Linux 2018.03 v2.11.5 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## March 30, 2021 – March 30, 2021
 
@@ -1434,8 +1434,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.6**<br>_64bit Amazon Linux 2 v3.1.6 running Corretto 11_ | 2.0.20210219 | Corretto 11.0.10.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.6**<br>_64bit Amazon Linux 2 v3.1.6 running Corretto 8_   | 2.0.20210219 | Corretto 8.282.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.5**<br>_64bit Amazon Linux 2018.03 v2.11.5 running Java 8_   | 2018.03.0    | Java 1.8.0_282       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.5**<br>_64bit Amazon Linux 2018.03 v2.11.5 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.5**<br>_64bit Amazon Linux 2018.03 v2.11.5 running Java 8_   | 2018.03.0    | Java 1.8.0\_282      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.5**<br>_64bit Amazon Linux 2018.03 v2.11.5 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## March 1, 2021 – March 29, 2021
 
@@ -1445,8 +1445,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.6**<br>_64bit Amazon Linux 2 v3.1.6 running Corretto 11_ | 2.0.20210219 | Corretto 11.0.10.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.6**<br>_64bit Amazon Linux 2 v3.1.6 running Corretto 8_   | 2.0.20210219 | Corretto 8.282.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Java 8_   | 2018.03.0    | Java 1.8.0_272       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Java 8_   | 2018.03.0    | Java 1.8.0\_272      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.4**<br>_64bit Amazon Linux 2018.03 v2.11.4 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## February 26, 2021 – February 28, 2021
 
@@ -1456,8 +1456,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.6**<br>_64bit Amazon Linux 2 v3.1.6 running Corretto 11_ | 2.0.20210219 | Corretto 11.0.10.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.6**<br>_64bit Amazon Linux 2 v3.1.6 running Corretto 8_   | 2.0.20210219 | Corretto 8.282.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 8_   | 2018.03.0    | Java 1.8.0_272       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 8_   | 2018.03.0    | Java 1.8.0\_272      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## January 29, 2021 – February 25, 2021
 
@@ -1467,8 +1467,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.5**<br>_64bit Amazon Linux 2 v3.1.5 running Corretto 11_ | 2.0.20210126 | Corretto 11.0.10.9.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.5**<br>_64bit Amazon Linux 2 v3.1.5 running Corretto 8_   | 2.0.20210126 | Corretto 8.272.10.3  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 8_   | 2018.03.0    | Java 1.8.0_272       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 8_   | 2018.03.0    | Java 1.8.0\_272      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## January 28, 2021 – January 28, 2021
 
@@ -1478,8 +1478,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.4**<br>_64bit Amazon Linux 2 v3.1.4 running Corretto 11_ | 2.0.20201218 | Corretto 11.0.9.12.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.4**<br>_64bit Amazon Linux 2 v3.1.4 running Corretto 8_   | 2.0.20201218 | Corretto 8.272.10.3  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 8_   | 2018.03.0    | Java 1.8.0_272       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 8_   | 2018.03.0    | Java 1.8.0\_272      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.3**<br>_64bit Amazon Linux 2018.03 v2.11.3 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## December 30, 2020 – January 27, 2021
 
@@ -1489,8 +1489,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.4**<br>_64bit Amazon Linux 2 v3.1.4 running Corretto 11_ | 2.0.20201218 | Corretto 11.0.9.12.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.4**<br>_64bit Amazon Linux 2 v3.1.4 running Corretto 8_   | 2.0.20201218 | Corretto 8.272.10.3  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Java 8_   | 2018.03.0    | Java 1.8.0_265       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Java 8_   | 2018.03.0    | Java 1.8.0\_265      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.2**<br>_64bit Amazon Linux 2018.03 v2.11.2 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## December 29, 2020 – December 29, 2020
 
@@ -1500,8 +1500,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.4**<br>_64bit Amazon Linux 2 v3.1.4 running Corretto 11_ | 2.0.20201218 | Corretto 11.0.9.12.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.4**<br>_64bit Amazon Linux 2 v3.1.4 running Corretto 8_   | 2.0.20201218 | Corretto 8.272.10.3  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Java 8_   | 2018.03.0    | Java 1.8.0_265       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Java 8_   | 2018.03.0    | Java 1.8.0\_265      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## November 11, 2020 – December 28, 2020
 
@@ -1511,8 +1511,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.3**<br>_64bit Amazon Linux 2 v3.1.3 running Corretto 11_ | 2.0.20200917 | Corretto 11.0.9.11.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.3**<br>_64bit Amazon Linux 2 v3.1.3 running Corretto 8_   | 2.0.20200917 | Corretto 8.272.10.3  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Java 8_   | 2018.03.0    | Java 1.8.0_265       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Java 8_   | 2018.03.0    | Java 1.8.0\_265      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.1**<br>_64bit Amazon Linux 2018.03 v2.11.1 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## November 10, 2020 – November 10, 2020
 
@@ -1522,8 +1522,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.3**<br>_64bit Amazon Linux 2 v3.1.3 running Corretto 11_ | 2.0.20200917 | Corretto 11.0.9.11.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.3**<br>_64bit Amazon Linux 2 v3.1.3 running Corretto 8_   | 2.0.20200917 | Corretto 8.272.10.3  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Java 8_   | 2018.03.0    | Java 1.8.0_265       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Java 8_   | 2018.03.0    | Java 1.8.0\_265      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## October 7, 2020 – November 9, 2020
 
@@ -1533,8 +1533,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Corretto 11_ | 2.0.20200928 | Corretto 11.0.8.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Corretto 8_   | 2.0.20200928 | Corretto 8.265.01.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Java 8_   | 2018.03.0    | Java 1.8.0_265       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
-| **Java 7 version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 8 version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Java 8_   | 2018.03.0    | Java 1.8.0\_265      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
+| **Java 7 version 2.11.0**<br>_64bit Amazon Linux 2018.03 v2.11.0 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.18.0 |
 
 ## October 6, 2020 – October 6, 2020
 
@@ -1544,8 +1544,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Corretto 11_ | 2.0.20200928 | Corretto 11.0.8.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.2**<br>_64bit Amazon Linux 2 v3.1.2 running Corretto 8_   | 2.0.20200928 | Corretto 8.265.01.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.10.11**<br>_64bit Amazon Linux 2018.03 v2.10.11 running Java 8_ | 2018.03.0    | Java 1.8.0_252       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.11**<br>_64bit Amazon Linux 2018.03 v2.10.11 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.11**<br>_64bit Amazon Linux 2018.03 v2.10.11 running Java 8_ | 2018.03.0    | Java 1.8.0\_252      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.11**<br>_64bit Amazon Linux 2018.03 v2.10.11 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## September 10, 2020 – October 5, 2020
 
@@ -1555,8 +1555,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Corretto 11_ | 2.0.20200827 | Corretto 11.0.8.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Corretto 8_   | 2.0.20200827 | Corretto 8.265.01.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.10.11**<br>_64bit Amazon Linux 2018.03 v2.10.11 running Java 8_ | 2018.03.0    | Java 1.8.0_252       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.11**<br>_64bit Amazon Linux 2018.03 v2.10.11 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.11**<br>_64bit Amazon Linux 2018.03 v2.10.11 running Java 8_ | 2018.03.0    | Java 1.8.0\_252      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.11**<br>_64bit Amazon Linux 2018.03 v2.10.11 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## September 3, 2020 – September 9, 2020
 
@@ -1566,8 +1566,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Corretto 11_ | 2.0.20200827 | Corretto 11.0.8.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running Corretto 8_   | 2.0.20200827 | Corretto 8.265.01.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.10.10**<br>_64bit Amazon Linux 2018.03 v2.10.10 running Java 8_ | 2018.03.0    | Java 1.8.0_252       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.10**<br>_64bit Amazon Linux 2018.03 v2.10.10 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.10**<br>_64bit Amazon Linux 2018.03 v2.10.10 running Java 8_ | 2018.03.0    | Java 1.8.0\_252      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.10**<br>_64bit Amazon Linux 2018.03 v2.10.10 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## August 7, 2020 – September 2, 2020
 
@@ -1577,8 +1577,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.0.5**<br>_64bit Amazon Linux 2 v3.0.5 running Corretto 11_ | 2.0.20200723 | Corretto 11.0.8.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.0.5**<br>_64bit Amazon Linux 2 v3.0.5 running Corretto 8_   | 2.0.20200723 | Corretto 8.262.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.10.10**<br>_64bit Amazon Linux 2018.03 v2.10.10 running Java 8_ | 2018.03.0    | Java 1.8.0_252       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.10**<br>_64bit Amazon Linux 2018.03 v2.10.10 running Java 7_ | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.10**<br>_64bit Amazon Linux 2018.03 v2.10.10 running Java 8_ | 2018.03.0    | Java 1.8.0\_252      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.10**<br>_64bit Amazon Linux 2018.03 v2.10.10 running Java 7_ | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## August 4, 2020 – August 6, 2020
 
@@ -1588,8 +1588,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.0.5**<br>_64bit Amazon Linux 2 v3.0.5 running Corretto 11_ | 2.0.20200723 | Corretto 11.0.8.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
 | **Corretto 8 version 3.0.5**<br>_64bit Amazon Linux 2 v3.0.5 running Corretto 8_   | 2.0.20200723 | Corretto 8.262.10.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.18.0 |
-| **Java 8 version 2.10.9**<br>_64bit Amazon Linux 2018.03 v2.10.9 running Java 8_   | 2018.03.0    | Java 1.8.0_252       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.9**<br>_64bit Amazon Linux 2018.03 v2.10.9 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.9**<br>_64bit Amazon Linux 2018.03 v2.10.9 running Java 8_   | 2018.03.0    | Java 1.8.0\_252      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.9**<br>_64bit Amazon Linux 2018.03 v2.10.9 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## July 6, 2020 – August 3, 2020
 
@@ -1599,8 +1599,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Corretto 11_ | 2.0.20200603 | Corretto 11.0.7.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
 | **Corretto 8 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Corretto 8_   | 2.0.20200603 | Corretto 8.252.09.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
-| **Java 8 version 2.10.9**<br>_64bit Amazon Linux 2018.03 v2.10.9 running Java 8_   | 2018.03.0    | Java 1.8.0_252       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.9**<br>_64bit Amazon Linux 2018.03 v2.10.9 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.9**<br>_64bit Amazon Linux 2018.03 v2.10.9 running Java 8_   | 2018.03.0    | Java 1.8.0\_252      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.9**<br>_64bit Amazon Linux 2018.03 v2.10.9 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## June 23, 2020 – July 5, 2020
 
@@ -1610,8 +1610,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Corretto 11_ | 2.0.20200603 | Corretto 11.0.7.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
 | **Corretto 8 version 3.0.3**<br>_64bit Amazon Linux 2 v3.0.3 running Corretto 8_   | 2.0.20200603 | Corretto 8.252.09.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
-| **Java 8 version 2.10.8**<br>_64bit Amazon Linux 2018.03 v2.10.8 running Java 8_   | 2018.03.0    | Java 1.8.0_252       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.8**<br>_64bit Amazon Linux 2018.03 v2.10.8 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.8**<br>_64bit Amazon Linux 2018.03 v2.10.8 running Java 8_   | 2018.03.0    | Java 1.8.0\_252      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.8**<br>_64bit Amazon Linux 2018.03 v2.10.8 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## June 5, 2020 – June 22, 2020
 
@@ -1621,8 +1621,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Corretto 11_ | 2.0.20200520 | Corretto 11.0.7.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
 | **Corretto 8 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Corretto 8_   | 2.0.20200520 | Corretto 8.252.09.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
-| **Java 8 version 2.10.8**<br>_64bit Amazon Linux 2018.03 v2.10.8 running Java 8_   | 2018.03.0    | Java 1.8.0_252       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.8**<br>_64bit Amazon Linux 2018.03 v2.10.8 running Java 7_   | 2018.03.0    | Java 1.7.0_261       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.8**<br>_64bit Amazon Linux 2018.03 v2.10.8 running Java 8_   | 2018.03.0    | Java 1.8.0\_252      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.8**<br>_64bit Amazon Linux 2018.03 v2.10.8 running Java 7_   | 2018.03.0    | Java 1.7.0\_261      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## June 3, 2020 – June 4, 2020
 
@@ -1632,8 +1632,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Corretto 11_ | 2.0.20200520 | Corretto 11.0.7.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
 | **Corretto 8 version 3.0.2**<br>_64bit Amazon Linux 2 v3.0.2 running Corretto 8_   | 2.0.20200520 | Corretto 8.252.09.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
-| **Java 8 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 8_   | 2018.03.0    | Java 1.8.0_242       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 7_   | 2018.03.0    | Java 1.7.0_251       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 8_   | 2018.03.0    | Java 1.8.0\_242      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 7_   | 2018.03.0    | Java 1.7.0\_251      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## May 6, 2020 – June 2, 2020
 
@@ -1643,8 +1643,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.0.1**<br>_64bit Amazon Linux 2 v3.0.1 running Corretto 11_ | 2.0.20200430 | Corretto 11.0.7.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
 | **Corretto 8 version 3.0.1**<br>_64bit Amazon Linux 2 v3.0.1 running Corretto 8_   | 2.0.20200430 | Corretto 8.252.09.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
-| **Java 8 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 8_   | 2018.03.0    | Java 1.8.0_242       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 7_   | 2018.03.0    | Java 1.7.0_251       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 8_   | 2018.03.0    | Java 1.8.0\_242      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 7_   | 2018.03.0    | Java 1.7.0\_251      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## May 4, 2020 – May 5, 2020
 
@@ -1654,8 +1654,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
 | **Corretto 11 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Corretto 11_ | 2.0.20200402 | Corretto 11.0.6.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
 | **Corretto 8 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Corretto 8_   | 2.0.20200402 | Corretto 8.232.09.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
-| **Java 8 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 8_   | 2018.03.0    | Java 1.8.0_242       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 7_   | 2018.03.0    | Java 1.7.0_251       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 8_   | 2018.03.0    | Java 1.8.0\_242      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.7**<br>_64bit Amazon Linux 2018.03 v2.10.7 running Java 7_   | 2018.03.0    | Java 1.7.0\_251      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 
 ## April 8, 2020 – May 3, 2020
 
@@ -1663,8 +1663,8 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 
 | Platform Version and _Solution Stack Name_                                         | AMI          | Language             | Tools                                 | AWS X-Ray | Proxy Server |
 | ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
-| **Java 8 version 2.10.4**<br>_64bit Amazon Linux 2018.03 v2.10.4 running Java 8_   | 2018.03.0    | Java 1.8.0_242       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.4**<br>_64bit Amazon Linux 2018.03 v2.10.4 running Java 7_   | 2018.03.0    | Java 1.7.0_251       | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 8 version 2.10.4**<br>_64bit Amazon Linux 2018.03 v2.10.4 running Java 8_   | 2018.03.0    | Java 1.8.0\_242      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.4**<br>_64bit Amazon Linux 2018.03 v2.10.4 running Java 7_   | 2018.03.0    | Java 1.7.0\_251      | Ant 1.9.6, Gradle 2.7, Maven 3.3.3    | 3.1.0     | nginx 1.16.1 |
 | **Corretto 11 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Corretto 11_ | 2.0.20200402 | Corretto 11.0.6.10.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
 | **Corretto 8 version 3.0.0**<br>_64bit Amazon Linux 2 v3.0.0 running Corretto 8_   | 2.0.20200402 | Corretto 8.232.09.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.16.1 |
 
@@ -1672,371 +1672,371 @@ The following Elastic Beanstalk platform versions for Java SE were current betwe
 
 The following Elastic Beanstalk platform versions for Java SE were current between March 27, 2020 and April 7, 2020:
 
-| Platform Version and _Solution Stack Name_                                       | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| -------------------------------------------------------------------------------- | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.10.4**<br>_64bit Amazon Linux 2018.03 v2.10.4 running Java 8_ | 2018.03.0 | Java 1.8.0_242 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.4**<br>_64bit Amazon Linux 2018.03 v2.10.4 running Java 7_ | 2018.03.0 | Java 1.7.0_251 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                       | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.10.4**<br>_64bit Amazon Linux 2018.03 v2.10.4 running Java 8_ | 2018.03.0 | Java 1.8.0\_242 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.4**<br>_64bit Amazon Linux 2018.03 v2.10.4 running Java 7_ | 2018.03.0 | Java 1.7.0\_251 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
 
 ## February 28, 2020 – March 26, 2020
 
 The following Elastic Beanstalk platform versions for Java SE were current between February 28, 2020 and March 26, 2020:
 
-| Platform Version and _Solution Stack Name_                                       | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| -------------------------------------------------------------------------------- | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.10.3**<br>_64bit Amazon Linux 2018.03 v2.10.3 running Java 8_ | 2018.03.0 | Java 1.8.0_232 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.3**<br>_64bit Amazon Linux 2018.03 v2.10.3 running Java 7_ | 2018.03.0 | Java 1.7.0_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                       | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.10.3**<br>_64bit Amazon Linux 2018.03 v2.10.3 running Java 8_ | 2018.03.0 | Java 1.8.0\_232 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.3**<br>_64bit Amazon Linux 2018.03 v2.10.3 running Java 7_ | 2018.03.0 | Java 1.7.0\_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
 
 ## January 21, 2020 – February 27, 2020
 
 The following Elastic Beanstalk platform versions for Java SE were current between January 21, 2020 and February 27, 2020:
 
-| Platform Version and _Solution Stack Name_                                       | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| -------------------------------------------------------------------------------- | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Java 8_ | 2018.03.0 | Java 1.8.0_232 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Java 7_ | 2018.03.0 | Java 1.7.0_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                       | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Java 8_ | 2018.03.0 | Java 1.8.0\_232 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.2**<br>_64bit Amazon Linux 2018.03 v2.10.2 running Java 7_ | 2018.03.0 | Java 1.7.0\_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
 
 ## November 25, 2019 – January 20, 2020
 
 The following Elastic Beanstalk platform versions for Java SE were current between November 25, 2019 and January 20, 2020:
 
-| Platform Version and _Solution Stack Name_                                       | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| -------------------------------------------------------------------------------- | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Java 8_ | 2018.03.0 | Java 1.8.0_222 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Java 7_ | 2018.03.0 | Java 1.7.0_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                       | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Java 8_ | 2018.03.0 | Java 1.8.0\_222 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.1**<br>_64bit Amazon Linux 2018.03 v2.10.1 running Java 7_ | 2018.03.0 | Java 1.7.0\_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
 
 ## October 17, 2019 – November 24, 2019
 
 The following Elastic Beanstalk platform versions for Java SE were current between October 17, 2019 and November 24, 2019:
 
-| Platform Version and _Solution Stack Name_                                       | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| -------------------------------------------------------------------------------- | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.10.0**<br>_64bit Amazon Linux 2018.03 v2.10.0 running Java 8_ | 2018.03.0 | Java 1.8.0_222 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.0**<br>_64bit Amazon Linux 2018.03 v2.10.0 running Java 7_ | 2018.03.0 | Java 1.7.0_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                       | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.10.0**<br>_64bit Amazon Linux 2018.03 v2.10.0 running Java 8_ | 2018.03.0 | Java 1.8.0\_222 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.0**<br>_64bit Amazon Linux 2018.03 v2.10.0 running Java 7_ | 2018.03.0 | Java 1.7.0\_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
 
 ## September 6, 2019 – October 16, 2019
 
 The following Elastic Beanstalk platform versions for Java SE were current between September 6, 2019 and October 16, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Java 8_ | 2018.03.0 | Java 1.8.0_222 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.14.1 |
-| **Java 7 version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Java 7_ | 2018.03.0 | Java 1.7.0_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Java 8_ | 2018.03.0 | Java 1.8.0\_222 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.14.1 |
+| **Java 7 version 2.9.2**<br>_64bit Amazon Linux 2018.03 v2.9.2 running Java 7_ | 2018.03.0 | Java 1.7.0\_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.14.1 |
 
 ## August 8, 2019 – September 5, 2019
 
 The following Elastic Beanstalk platform versions for Java SE were current between August 8, 2019 and September 5, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Java 8_ | 2018.03.0 | Java 1.8.0_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.14.1 |
-| **Java 7 version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Java 7_ | 2018.03.0 | Java 1.7.0_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Java 8_ | 2018.03.0 | Java 1.8.0\_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.14.1 |
+| **Java 7 version 2.9.1**<br>_64bit Amazon Linux 2018.03 v2.9.1 running Java 7_ | 2018.03.0 | Java 1.7.0\_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.14.1 |
 
 ## June 17, 2019 – August 7, 2019
 
 The following Elastic Beanstalk platform versions for Java SE were current between June 17, 2019 and August 7, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Java 8_ | 2018.03.0 | Java 1.8.0_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Java 7_ | 2018.03.0 | Java 1.7.0_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Java 8_ | 2018.03.0 | Java 1.8.0\_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.6**<br>_64bit Amazon Linux 2018.03 v2.8.6 running Java 7_ | 2018.03.0 | Java 1.7.0\_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between June 14, 2019 and June 16, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Java 8_ | 2018.03.0 | Java 1.8.0_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Java 7_ | 2018.03.0 | Java 1.7.0_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Java 8_ | 2018.03.0 | Java 1.8.0\_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Java 7_ | 2018.03.0 | Java 1.7.0\_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between June 7, 2019 and June 13, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Java 8_ | 2018.03.0 | Java 1.8.0_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Java 7_ | 2018.03.0 | Java 1.7.0_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Java 8_ | 2018.03.0 | Java 1.8.0\_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Java 7_ | 2018.03.0 | Java 1.7.0\_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between April 30, 2019 and June 6, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Java 8_ | 2018.03.0 | Java 1.8.0_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Java 7_ | 2018.03.0 | Java 1.7.0_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Java 8_ | 2018.03.0 | Java 1.8.0\_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.3**<br>_64bit Amazon Linux 2018.03 v2.8.3 running Java 7_ | 2018.03.0 | Java 1.7.0\_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between April 2, 2019 and April 29, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Java 8_ | 2018.03.0 | Java 1.8.0_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Java 7_ | 2018.03.0 | Java 1.7.0_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Java 8_ | 2018.03.0 | Java 1.8.0\_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.2**<br>_64bit Amazon Linux 2018.03 v2.8.2 running Java 7_ | 2018.03.0 | Java 1.7.0\_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between February 21, 2019 and April 1, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Java 8_ | 2018.03.0 | Java 1.8.0_191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Java 7_ | 2018.03.0 | Java 1.7.0.201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Java 8_ | 2018.03.0 | Java 1.8.0\_191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.1**<br>_64bit Amazon Linux 2018.03 v2.8.1 running Java 7_ | 2018.03.0 | Java 1.7.0.201  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between January 23, 2019 and February 20, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Java 8_ | 2018.03.0 | Java 1.8.0_191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Java 7_ | 2018.03.0 | Java 1.7.0.201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Java 8_ | 2018.03.0 | Java 1.8.0\_191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Java 7_ | 2018.03.0 | Java 1.7.0.201  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between December 17, 2018 and January 22, 2019:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.8**<br>_64bit Amazon Linux 2018.03 v2.7.8 running Java 8_ | 2018.03.0 | Java 1.8.0_191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.8**<br>_64bit Amazon Linux 2018.03 v2.7.8 running Java 7_ | 2018.03.0 | Java 1.7.0.191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.8**<br>_64bit Amazon Linux 2018.03 v2.7.8 running Java 8_ | 2018.03.0 | Java 1.8.0\_191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.8**<br>_64bit Amazon Linux 2018.03 v2.7.8 running Java 7_ | 2018.03.0 | Java 1.7.0.191  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between November 16, 2018 and December 16, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.7**<br>_64bit Amazon Linux 2018.03 v2.7.7 running Java 8_ | 2018.03.0 | Java 1.8.0_191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.7**<br>_64bit Amazon Linux 2018.03 v2.7.7 running Java 7_ | 2018.03.0 | Java 1.7.0.191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.7**<br>_64bit Amazon Linux 2018.03 v2.7.7 running Java 8_ | 2018.03.0 | Java 1.8.0\_191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.7**<br>_64bit Amazon Linux 2018.03 v2.7.7 running Java 7_ | 2018.03.0 | Java 1.7.0.191  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between October 29, 2018 and November 15, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.6**<br>_64bit Amazon Linux 2018.03 v2.7.6 running Java 8_ | 2018.03.0 | Java 1.8.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.6**<br>_64bit Amazon Linux 2018.03 v2.7.6 running Java 7_ | 2018.03.0 | Java 1.7.0.191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.6**<br>_64bit Amazon Linux 2018.03 v2.7.6 running Java 8_ | 2018.03.0 | Java 1.8.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.6**<br>_64bit Amazon Linux 2018.03 v2.7.6 running Java 7_ | 2018.03.0 | Java 1.7.0.191  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between September 25, 2018 and October 28, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.5**<br>_64bit Amazon Linux 2018.03 v2.7.5 running Java 8_ | 2018.03.0 | Java 1.8.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.5**<br>_64bit Amazon Linux 2018.03 v2.7.5 running Java 7_ | 2018.03.0 | Java 1.7.0.191 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.5**<br>_64bit Amazon Linux 2018.03 v2.7.5 running Java 8_ | 2018.03.0 | Java 1.8.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.5**<br>_64bit Amazon Linux 2018.03 v2.7.5 running Java 7_ | 2018.03.0 | Java 1.7.0.191  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between August 20, 2018 and September 24, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.4**<br>_64bit Amazon Linux 2018.03 v2.7.4 running Java 8_ | 2018.03.0 | Java 1.8.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.4**<br>_64bit Amazon Linux 2018.03 v2.7.4 running Java 7_ | 2018.03.0 | Java 1.7.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.4**<br>_64bit Amazon Linux 2018.03 v2.7.4 running Java 8_ | 2018.03.0 | Java 1.8.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.4**<br>_64bit Amazon Linux 2018.03 v2.7.4 running Java 7_ | 2018.03.0 | Java 1.7.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between August 15, 2018 and August 19, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Java 8_ | 2018.03.0 | Java 1.8.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Java 7_ | 2018.03.0 | Java 1.7.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Java 8_ | 2018.03.0 | Java 1.8.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Java 7_ | 2018.03.0 | Java 1.7.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between June 21, 2018 and August 14, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Java 8_ | 2018.03.0 | Java 1.8.0_171 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Java 7_ | 2018.03.0 | Java 1.7.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Java 8_ | 2018.03.0 | Java 1.8.0\_171 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Java 7_ | 2018.03.0 | Java 1.7.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between May 15, 2018 and June 20, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.1**<br>_64bit Amazon Linux 2018.03 v2.7.1 running Java 8_ | 2018.03.0 | Java 1.8.0_171 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.1**<br>_64bit Amazon Linux 2018.03 v2.7.1 running Java 7_ | 2018.03.0 | Java 1.7.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.1**<br>_64bit Amazon Linux 2018.03 v2.7.1 running Java 8_ | 2018.03.0 | Java 1.8.0\_171 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.1**<br>_64bit Amazon Linux 2018.03 v2.7.1 running Java 7_ | 2018.03.0 | Java 1.7.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between April 2, 2018 and May 14, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.6.8**<br>_64bit Amazon Linux 2017.09 v2.6.8 running Java 8_ | 2017.09.1 | Java 1.8.0_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.6.8**<br>_64bit Amazon Linux 2017.09 v2.6.8 running Java 7_ | 2017.09.1 | Java 1.7.0_171 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.6.8**<br>_64bit Amazon Linux 2017.09 v2.6.8 running Java 8_ | 2017.09.1 | Java 1.8.0\_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.6.8**<br>_64bit Amazon Linux 2017.09 v2.6.8 running Java 7_ | 2017.09.1 | Java 1.7.0\_171 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between February 22, 2018 and April 1, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.6.6**<br>_64bit Amazon Linux 2017.09 v2.6.6 running Java 8_ | 2017.09.1 | Java 1.8.0_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.6.6**<br>_64bit Amazon Linux 2017.09 v2.6.6 running Java 7_ | 2017.09.1 | Java 1.7.0_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.6.6**<br>_64bit Amazon Linux 2017.09 v2.6.6 running Java 8_ | 2017.09.1 | Java 1.8.0\_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.6.6**<br>_64bit Amazon Linux 2017.09 v2.6.6 running Java 7_ | 2017.09.1 | Java 1.7.0\_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between January 31, 2018 and February 21, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Java 8_ | 2017.09.1 | Java 1.8.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Java 7_ | 2017.09.1 | Java 1.7.0_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Java 8_ | 2017.09.1 | Java 1.8.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.6.5**<br>_64bit Amazon Linux 2017.09 v2.6.5 running Java 7_ | 2017.09.1 | Java 1.7.0\_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between January 19, 2018 and January 30, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Java 8_ | 2017.09.1 | Java 1.8.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Java 7_ | 2017.09.1 | Java 1.7.0_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Java 8_ | 2017.09.1 | Java 1.8.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.6.4**<br>_64bit Amazon Linux 2017.09 v2.6.4 running Java 7_ | 2017.09.1 | Java 1.7.0\_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between January 10, 2018 and January 18, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Java 8_ | 2017.09.1 | Java 1.8.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Java 7_ | 2017.09.1 | Java 1.7.0_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Java 8_ | 2017.09.1 | Java 1.8.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.6.3**<br>_64bit Amazon Linux 2017.09 v2.6.3 running Java 7_ | 2017.09.1 | Java 1.7.0\_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between January 6, 2018 and January 9, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Java 8_ | 2017.09.1 | Java 1.8.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Java 7_ | 2017.09.1 | Java 1.7.0_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Java 8_ | 2017.09.1 | Java 1.8.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.6.2**<br>_64bit Amazon Linux 2017.09 v2.6.2 running Java 7_ | 2017.09.1 | Java 1.7.0\_161 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between December 20, 2017 and January 5, 2018:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Java 8_ | 2017.09.1 | Java 1.8.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Java 7_ | 2017.09.1 | Java 1.7.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Java 8_ | 2017.09.1 | Java 1.8.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.6.1**<br>_64bit Amazon Linux 2017.09 v2.6.1 running Java 7_ | 2017.09.1 | Java 1.7.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between November 14, 2017 and December 19, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Java 8_ | 2017.09.1 | Java 1.8.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Java 7_ | 2017.09.1 | Java 1.7.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Java 8_ | 2017.09.1 | Java 1.8.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.6.0**<br>_64bit Amazon Linux 2017.09 v2.6.0 running Java 7_ | 2017.09.1 | Java 1.7.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between September 25, 2017 and November 13, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.5.5**<br>_64bit Amazon Linux 2017.03 v2.5.5 running Java 8_ | 2017.03.1 | Java 1.8.0_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.5.5**<br>_64bit Amazon Linux 2017.03 v2.5.5 running Java 7_ | 2017.03.1 | Java 1.7.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.5.5**<br>_64bit Amazon Linux 2017.03 v2.5.5 running Java 8_ | 2017.03.1 | Java 1.8.0\_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.5.5**<br>_64bit Amazon Linux 2017.03 v2.5.5 running Java 7_ | 2017.03.1 | Java 1.7.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between August 30, 2017 and September 24, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.5.4**<br>_64bit Amazon Linux 2017.03 v2.5.4 running Java 8_ | 2017.03.1 | Java 1.8.0_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
-| **Java 7 version 2.5.4**<br>_64bit Amazon Linux 2017.03 v2.5.4 running Java 7_ | 2017.03.1 | Java 1.7.0_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.5.4**<br>_64bit Amazon Linux 2017.03 v2.5.4 running Java 8_ | 2017.03.1 | Java 1.8.0\_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
+| **Java 7 version 2.5.4**<br>_64bit Amazon Linux 2017.03 v2.5.4 running Java 7_ | 2017.03.1 | Java 1.7.0\_151 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between August 11, 2017 and August 29, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.5.3**<br>_64bit Amazon Linux 2017.03 v2.5.3 running Java 8_ | 2017.03.1 | Java 1.8.0_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
-| **Java 7 version 2.5.3**<br>_64bit Amazon Linux 2017.03 v2.5.3 running Java 7_ | 2017.03.1 | Java 1.7.0_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.5.3**<br>_64bit Amazon Linux 2017.03 v2.5.3 running Java 8_ | 2017.03.1 | Java 1.8.0\_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
+| **Java 7 version 2.5.3**<br>_64bit Amazon Linux 2017.03 v2.5.3 running Java 7_ | 2017.03.1 | Java 1.7.0\_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between July 20, 2017 and August 10, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.5.2**<br>_64bit Amazon Linux 2017.03 v2.5.2 running Java 8_ | 2017.03.1 | Java 1.8.0_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
-| **Java 7 version 2.5.2**<br>_64bit Amazon Linux 2017.03 v2.5.2 running Java 7_ | 2017.03.1 | Java 1.7.0_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.5.2**<br>_64bit Amazon Linux 2017.03 v2.5.2 running Java 8_ | 2017.03.1 | Java 1.8.0\_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
+| **Java 7 version 2.5.2**<br>_64bit Amazon Linux 2017.03 v2.5.2 running Java 7_ | 2017.03.1 | Java 1.7.0\_141 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.3 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between June 27, 2017 and July 19, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.5.1**<br>_64bit Amazon Linux 2017.03 v2.5.1 running Java 8_ | 2017.03.0 | Java 1.8.0_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.2 |
-| **Java 7 version 2.5.1**<br>_64bit Amazon Linux 2017.03 v2.5.1 running Java 7_ | 2017.03.0 | Java 1.7.0_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.2 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.5.1**<br>_64bit Amazon Linux 2017.03 v2.5.1 running Java 8_ | 2017.03.0 | Java 1.8.0\_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.2 |
+| **Java 7 version 2.5.1**<br>_64bit Amazon Linux 2017.03 v2.5.1 running Java 7_ | 2017.03.0 | Java 1.7.0\_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.2 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between May 19, 2017 and June 26, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Java 8_ | 2017.03.0 | Java 1.8.0_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.2 |
-| **Java 7 version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Java 7_ | 2017.03.0 | Java 1.7.0_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.2 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Java 8_ | 2017.03.0 | Java 1.8.0\_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.2 |
+| **Java 7 version 2.5.0**<br>_64bit Amazon Linux 2017.03 v2.5.0 running Java 7_ | 2017.03.0 | Java 1.7.0\_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.10.2 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between April 5, 2017 and May 18, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.4.4**<br>_64bit Amazon Linux 2016.09 v2.4.4 running Java 8_ | 2016.09.0 | Java 1.8.0_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 1.0.0     | nginx 1.10.1 |
-| **Java 7 version 2.4.4**<br>_64bit Amazon Linux 2016.09 v2.4.4 running Java 7_ | 2016.09.0 | Java 1.7.0_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 1.0.0     | nginx 1.10.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.4.4**<br>_64bit Amazon Linux 2016.09 v2.4.4 running Java 8_ | 2016.09.0 | Java 1.8.0\_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 1.0.0     | nginx 1.10.1 |
+| **Java 7 version 2.4.4**<br>_64bit Amazon Linux 2016.09 v2.4.4 running Java 7_ | 2016.09.0 | Java 1.7.0\_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 1.0.0     | nginx 1.10.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between March 8, 2017 and April 4, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.4.3**<br>_64bit Amazon Linux 2016.09 v2.4.3 running Java 8_ | 2016.09.0 | Java 1.8.0_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 1.0.0     | nginx 1.10.1 |
-| **Java 7 version 2.4.3**<br>_64bit Amazon Linux 2016.09 v2.4.3 running Java 7_ | 2016.09.0 | Java 1.7.0_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 1.0.0     | nginx 1.10.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.4.3**<br>_64bit Amazon Linux 2016.09 v2.4.3 running Java 8_ | 2016.09.0 | Java 1.8.0\_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 1.0.0     | nginx 1.10.1 |
+| **Java 7 version 2.4.3**<br>_64bit Amazon Linux 2016.09 v2.4.3 running Java 7_ | 2016.09.0 | Java 1.7.0\_131 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 1.0.0     | nginx 1.10.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between January 28 and March 7, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | Proxy Server | AWS X-Ray |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | ------------ | --------- |
-| **Java 8 version 2.4.1**<br>_64bit Amazon Linux 2016.09 v2.4.1 running Java 8_ | 2016.09.0 | Java 1.8.0_111 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 | 1.0.0     |
-| **Java 7 version 2.4.1**<br>_64bit Amazon Linux 2016.09 v2.4.1 running Java 7_ | 2016.09.0 | Java 1.7.0_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 | 1.1.0     |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | Proxy Server | AWS X-Ray |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | ------------ | --------- |
+| **Java 8 version 2.4.1**<br>_64bit Amazon Linux 2016.09 v2.4.1 running Java 8_ | 2016.09.0 | Java 1.8.0\_111 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 | 1.0.0     |
+| **Java 7 version 2.4.1**<br>_64bit Amazon Linux 2016.09 v2.4.1 running Java 7_ | 2016.09.0 | Java 1.7.0\_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 | 1.1.0     |
 
 The following Elastic Beanstalk platform versions for Java SE were current between December 22, 2016 and January 27, 2017:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | Proxy Server | AWS X-Ray |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | ------------ | --------- |
-| **Java 8 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Java 8_ | 2016.09.0 | Java 1.8.0_111 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 | 1.0.0     |
-| **Java 7 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Java 7_ | 2016.09.0 | Java 1.7.0_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 | 1.1.0     |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | Proxy Server | AWS X-Ray |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | ------------ | --------- |
+| **Java 8 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Java 8_ | 2016.09.0 | Java 1.8.0\_111 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 | 1.0.0     |
+| **Java 7 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Java 7_ | 2016.09.0 | Java 1.7.0\_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 | 1.1.0     |
 
 The following Elastic Beanstalk platform versions for Java SE were current between December 9, 2016 and December 21, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | ------------ |
-| **Java 8 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Java 8_ | 2016.09.0 | Java 1.8.0_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 |
-| **Java 7 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Java 7_ | 2016.09.0 | Java 1.7.0_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | ------------ |
+| **Java 8 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Java 8_ | 2016.09.0 | Java 1.8.0\_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 |
+| **Java 7 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Java 7_ | 2016.09.0 | Java 1.7.0\_121 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between October 28, 2016 and December 8, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | ------------ |
-| **Java 8 version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Java 8_ | 2016.09.0 | Java 1.8.0_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 |
-| **Java 7 version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Java 7_ | 2016.09.0 | Java 1.7.0_111 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | ------------ |
+| **Java 8 version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Java 8_ | 2016.09.0 | Java 1.8.0\_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 |
+| **Java 7 version 2.2.0**<br>_64bit Amazon Linux 2016.09 v2.2.0 running Java 7_ | 2016.09.0 | Java 1.7.0\_111 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.10.1 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between August 24, 2016 and October 27, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | ------------ |
-| **Java 8 version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Java 8_ | 2016.03.3 | Java 1.8.0_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
-| **Java 7 version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Java 7_ | 2016.03.3 | Java 1.7.0_111 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | ------------ |
+| **Java 8 version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Java 8_ | 2016.03.3 | Java 1.8.0\_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
+| **Java 7 version 2.1.6**<br>_64bit Amazon Linux 2016.03 v2.1.6 running Java 7_ | 2016.03.3 | Java 1.7.0\_111 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
 
 The following Elastic Beanstalk platform versions for Java SE were current between June 26, 2016 and August 24, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | ------------ |
-| **Java 8 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Java 8_ | 2016.03.2 | Java 1.8.0_91  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
-| **Java 7 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Java 7_ | 2016.03.2 | Java 1.7.0_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | ------------ |
+| **Java 8 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Java 8_ | 2016.03.2 | Java 1.8.0\_91  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
+| **Java 7 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Java 7_ | 2016.03.2 | Java 1.7.0\_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
 
 The following Elastic Beanstalk platform versions for Java SE were current between May 6, 2016 and June 26, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI     | Language       | Tools                              | Proxy Server |
-| ------------------------------------------------------------------------------ | ------- | -------------- | ---------------------------------- | ------------ |
-| **Java 8 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Java 8_ | 2016.03 | Java 1.8.0_91  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
-| **Java 7 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Java 7_ | 2016.03 | Java 1.7.0_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
+| Platform Version and _Solution Stack Name_                                     | AMI     | Language        | Tools                              | Proxy Server |
+| ------------------------------------------------------------------------------ | ------- | --------------- | ---------------------------------- | ------------ |
+| **Java 8 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Java 8_ | 2016.03 | Java 1.8.0\_91  | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
+| **Java 7 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Java 7_ | 2016.03 | Java 1.7.0\_101 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | nginx 1.8.1  |
 
 The following Elastic Beanstalk platform versions for Java SE were current between and April 7, 2016 and May 6, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI     | Language      | Tools                                  | Proxy Server |
-| ------------------------------------------------------------------------------ | ------- | ------------- | -------------------------------------- | ------------ |
-| **Java 8 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Java 8_ | 2016.03 | Java 1.8.0_71 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.1  |
-| **Java 7 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Java 7_ | 2016.03 | Java 1.7.0_95 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.1  |
+| Platform Version and _Solution Stack Name_                                     | AMI     | Language       | Tools                                  | Proxy Server |
+| ------------------------------------------------------------------------------ | ------- | -------------- | -------------------------------------- | ------------ |
+| **Java 8 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Java 8_ | 2016.03 | Java 1.8.0\_71 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.1  |
+| **Java 7 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Java 7_ | 2016.03 | Java 1.7.0\_95 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.1  |
 
 The following Elastic Beanstalk platform versions for Java SE were current between February 26, 2016 and April 7, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI     | Language      | Tools                                  | Web Server  |
-| ------------------------------------------------------------------------------ | ------- | ------------- | -------------------------------------- | ----------- |
-| **Java 8 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Java 8_ | 2015.09 | Java 1.8.0_71 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
-| **Java 7 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Java 7_ | 2015.09 | Java 1.7.0_95 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
+| Platform Version and _Solution Stack Name_                                     | AMI     | Language       | Tools                                  | Web Server  |
+| ------------------------------------------------------------------------------ | ------- | -------------- | -------------------------------------- | ----------- |
+| **Java 8 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Java 8_ | 2015.09 | Java 1.8.0\_71 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
+| **Java 7 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Java 7_ | 2015.09 | Java 1.7.0\_95 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between February 11, 2016 and February 26, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI     | Language      | Tools                                  | Web Server  |
-| ------------------------------------------------------------------------------ | ------- | ------------- | -------------------------------------- | ----------- |
-| **Java 8 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Java 8_ | 2015.09 | Java 1.8.0_65 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
-| **Java 7 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Java 7_ | 2015.09 | Java 1.7.0_91 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
+| Platform Version and _Solution Stack Name_                                     | AMI     | Language       | Tools                                  | Web Server  |
+| ------------------------------------------------------------------------------ | ------- | -------------- | -------------------------------------- | ----------- |
+| **Java 8 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Java 8_ | 2015.09 | Java 1.8.0\_65 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
+| **Java 7 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Java 7_ | 2015.09 | Java 1.7.0\_91 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between January 11, 2016 and February 11, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI     | Language      | Tools                                  | Web Server  |
-| ------------------------------------------------------------------------------ | ------- | ------------- | -------------------------------------- | ----------- |
-| **Java 8 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Java 8_ | 2015.09 | Java 1.8.0_65 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
-| **Java 7 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Java 7_ | 2015.09 | Java 1.7.0_91 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
+| Platform Version and _Solution Stack Name_                                     | AMI     | Language       | Tools                                  | Web Server  |
+| ------------------------------------------------------------------------------ | ------- | -------------- | -------------------------------------- | ----------- |
+| **Java 8 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Java 8_ | 2015.09 | Java 1.8.0\_65 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
+| **Java 7 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Java 7_ | 2015.09 | Java 1.7.0\_91 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between November 3, 2015 and January 11, 2016:
 
-| Platform Version and _Solution Stack Name_                                     | AMI     | Language      | Tools                                  | Web Server  |
-| ------------------------------------------------------------------------------ | ------- | ------------- | -------------------------------------- | ----------- |
-| **Java 8 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Java 8_ | 2015.09 | Java 1.8.0_65 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
-| **Java 7 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Java 7_ | 2015.09 | Java 1.7.0_91 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
+| Platform Version and _Solution Stack Name_                                     | AMI     | Language       | Tools                                  | Web Server  |
+| ------------------------------------------------------------------------------ | ------- | -------------- | -------------------------------------- | ----------- |
+| **Java 8 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Java 8_ | 2015.09 | Java 1.8.0\_65 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
+| **Java 7 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Java 7_ | 2015.09 | Java 1.7.0\_91 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.8.0 |
 
 The following Elastic Beanstalk platform versions for Java SE were current between September 28, 2015 and November 3, 2015:
 
-| Platform Version and _Solution Stack Name_                                     | AMI     | Language      | Tools                                  | Web Server  |
-| ------------------------------------------------------------------------------ | ------- | ------------- | -------------------------------------- | ----------- |
-| **Java 8 version 2.0.2**<br>_64bit Amazon Linux 2015.03 v2.0.2 running Java 8_ | 2015.03 | Java 1.8.0_51 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.6.2 |
-| **Java 7 version 2.0.2**<br>_64bit Amazon Linux 2015.03 v2.0.2 running Java 7_ | 2015.03 | Java 1.7.0_85 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.6.2 |
+| Platform Version and _Solution Stack Name_                                     | AMI     | Language       | Tools                                  | Web Server  |
+| ------------------------------------------------------------------------------ | ------- | -------------- | -------------------------------------- | ----------- |
+| **Java 8 version 2.0.2**<br>_64bit Amazon Linux 2015.03 v2.0.2 running Java 8_ | 2015.03 | Java 1.8.0\_51 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.6.2 |
+| **Java 7 version 2.0.2**<br>_64bit Amazon Linux 2015.03 v2.0.2 running Java 7_ | 2015.03 | Java 1.7.0\_85 | Ant 1.9.6<br>Gradle 2.7<br>Maven 3.3.3 | nginx 1.6.2 |

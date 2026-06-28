@@ -3724,7 +3724,7 @@ Bulletin Summary for June 2015](https://technet.microsoft.com/en-us/library/secu
 The following Elastic Beanstalk platform versions for .NET were current during this date range:
 
 | **IIS Configurations**                                |
-| ----------------------------------------------------- | ------- | ---------------------------------------------------------- | -------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language**                                               | **Web Server** |
 | 64bit Windows Server 2012 R21 running IIS 8.5         | Custom  | .NET v4.5<br>Also supports 4.0, 3.5, 3.0, 2.0, 1.1 and 1.0 | IIS 8.5        |
 | 64bit Windows Server Core 2012 R21 running IIS<br>8.5 | Custom  | .NET v4.5<br>Also supports 4.0, 3.5, 3.0, 2.0, 1.1 and 1.0 | IIS 8.5        |
@@ -3739,7 +3739,7 @@ Bulletin Summary for May 2015](https://technet.microsoft.com/en-us/library/secur
 The following Elastic Beanstalk platform versions for .NET were current during this date range:
 
 | **IIS Configurations**                                |
-| ----------------------------------------------------- | ------- | ---------------------------------------------------------- | -------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language**                                               | **Web Server** |
 | 64bit Windows Server 2012 R21 running IIS 8.5         | Custom  | .NET v4.5<br>Also supports 4.0, 3.5, 3.0, 2.0, 1.1 and 1.0 | IIS 8.5        |
 | 64bit Windows Server Core 2012 R21 running IIS<br>8.5 | Custom  | .NET v4.5<br>Also supports 4.0, 3.5, 3.0, 2.0, 1.1 and 1.0 | IIS 8.5        |
@@ -3754,7 +3754,7 @@ MS14-066 - Critical](https://technet.microsoft.com/library/security/ms14-066 "ht
 The following Elastic Beanstalk platform versions for .NET were current prior to August 6, 2014:
 
 | **IIS Configurations**                        |
-| --------------------------------------------- | ------- | ---------------------------------------------------------- | -------------- |
+| --------------------------------------------- |
 | **Name**                                      | **AMI** | **Language**                                               | **Web Server** |
 | 64bit Windows Server 20121 running IIS 8      | Custom  | .NET v4.5<br>Also supports 4.0, 3.5, 3.0, 2.0, 1.1 and 1.0 | IIS 8          |
 | 64bit Windows Server 2008 R21 running IIS 7.5 | Custom  | .NET v4.5<br>Also supports 4.0, 3.5, 3.0, 2.0, 1.1 and 1.0 | IIS 7.5        |

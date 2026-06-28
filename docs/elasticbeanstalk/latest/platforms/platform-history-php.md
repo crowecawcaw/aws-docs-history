@@ -2199,7 +2199,7 @@ The following Elastic Beanstalk platform versions for PHP were current between J
 The following Elastic Beanstalk platform versions for PHP were current between May 29, 2015 and June 15, 2015:
 
 | **PHP Configurations**                            |
-| ------------------------------------------------- | ------- | ------------ | -------------- | ------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** | **Composer**  |
 | 64bit Amazon Linux 2015.03 v1.4.2 running PHP 5.6 | 2015.03 | PHP 5.6.8    | Apache 2.4.12  | 1.0.0-alpha10 |
 | 64bit Amazon Linux 2015.03 v1.4.2 running PHP 5.5 | 2015.03 | PHP 5.5.24   | Apache 2.4.12  | 1.0.0-alpha10 |
@@ -2208,7 +2208,7 @@ The following Elastic Beanstalk platform versions for PHP were current between M
 The following Elastic Beanstalk platform versions for PHP were current between May 27, 2015 and May 28, 2015:
 
 | **PHP Container Types**                           |
-| ------------------------------------------------- | ------- | ------------ | -------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** |
 | 64bit Amazon Linux 2015.03 v1.4.1 running PHP 5.6 | 2015.03 | PHP 5.6.8    | Apache 2.4.12  |
 | 64bit Amazon Linux 2015.03 v1.4.1 running PHP 5.5 | 2015.03 | PHP 5.5.24   | Apache 2.4.12  |
@@ -2217,7 +2217,7 @@ The following Elastic Beanstalk platform versions for PHP were current between M
 The following Elastic Beanstalk platform versions for PHP were current between May 1, 2015 and May 26, 2015:
 
 | **PHP Container Types**                           |
-| ------------------------------------------------- | ------- | ------------ | -------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** |
 | 64bit Amazon Linux 2015.03 v1.3.2 running PHP 5.6 | 2015.03 | PHP 5.6.8    | Apache 2.4.12  |
 | 64bit Amazon Linux 2015.03 v1.3.2 running PHP 5.5 | 2015.03 | PHP 5.5.24   | Apache 2.4.12  |
@@ -2226,7 +2226,7 @@ The following Elastic Beanstalk platform versions for PHP were current between M
 The following Elastic Beanstalk platform versions for PHP were current between April 22, 2015 and April 30, 2015:
 
 | **PHP Container Types**                           |
-| ------------------------------------------------- | ------- | ------------ | -------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** |
 | 64bit Amazon Linux 2015.03 v1.3.1 running PHP 5.5 | 2015.03 | PHP 5.5.22   | Apache 2.4.12  |
 | 64bit Amazon Linux 2015.03 v1.3.1 running PHP 5.4 | 2015.03 | PHP 5.4.38   | Apache 2.4.12  |
@@ -2234,7 +2234,7 @@ The following Elastic Beanstalk platform versions for PHP were current between A
 The following Elastic Beanstalk platform versions for PHP were current between April 8, 2015 and April 21, 2015:
 
 | **PHP Container Types**                           |
-| ------------------------------------------------- | ------- | ------------ | -------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** |
 | 64bit Amazon Linux 2015.03 v1.3.0 running PHP 5.5 | 2015.03 | PHP 5.5.22   | Apache 2.4.12  |
 | 64bit Amazon Linux 2015.03 v1.3.0 running PHP 5.4 | 2015.03 | PHP 5.4.38   | Apache 2.4.12  |
@@ -2242,7 +2242,7 @@ The following Elastic Beanstalk platform versions for PHP were current between A
 The following Elastic Beanstalk platform versions for PHP were current between February 17, 2015 and April 7, 2015:
 
 | **PHP Container Types**                           |
-| ------------------------------------------------- | ------- | ------------ | -------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** |
 | 64bit Amazon Linux 2014.09 v1.2.0 running PHP 5.5 | 2014.09 | PHP 5.5.20   | Apache 2.4.10  |
 | 64bit Amazon Linux 2014.09 v1.2.0 running PHP 5.4 | 2014.09 | PHP 5.4.36   | Apache 2.4.10  |
@@ -2250,7 +2250,7 @@ The following Elastic Beanstalk platform versions for PHP were current between F
 The following Elastic Beanstalk platform versions for PHP were current between January 28, 2015 and February 16, 2015:
 
 | **PHP Container Types**                               |
-| ----------------------------------------------------- | ------- | ------------ | -------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Web Server** |
 | 64bit Amazon Linux 2014.09 v1.1.01 running PHP<br>5.5 | 2014.09 | PHP 5.5.7    | Apache 2.4.6   |
 | 64bit Amazon Linux 2014.09 v1.1.01 running PHP<br>5.4 | 2014.09 | PHP 5.4.20   | Apache 2.4.6   |
@@ -2264,7 +2264,7 @@ The following Elastic Beanstalk platform versions for PHP were current between J
 The following Elastic Beanstalk platform versions for PHP were current between October 16, 2014 and January 27, 2015:
 
 | **PHP Container Types**                               |
-| ----------------------------------------------------- | ------- | ------------ | -------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Web Server** |
 | 64bit Amazon Linux 2014.09 v1.0.91 running PHP<br>5.5 | 2014.09 | PHP 5.5.7    | Apache 2.4.6   |
 | 64bit Amazon Linux 2014.09 v1.0.91 running PHP<br>5.4 | 2014.09 | PHP 5.4.20   | Apache 2.4.6   |
@@ -2278,7 +2278,7 @@ The following Elastic Beanstalk platform versions for PHP were current between O
 The following Elastic Beanstalk platform versions for PHP were current between October 9, 2014 and October 15, 2014:
 
 | **PHP Container Types**                           |
-| ------------------------------------------------- | ------- | ------------ | -------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux 2014.09 v1.0.8 running PHP 5.5 | 2014.09 | PHP 5.5.7    | Apache 2.4.6   |
 | 64bit Amazon Linux 2014.09 v1.0.8 running PHP 5.5 | 2014.09 | PHP 5.5.7    | Apache 2.4.6   |
@@ -2288,7 +2288,7 @@ The following Elastic Beanstalk platform versions for PHP were current between O
 The following Elastic Beanstalk platform versions for PHP were current between September 24, 2014 and October 8, 2014:
 
 | **PHP Container Types**                               |
-| ----------------------------------------------------- | ------- | ------------ | -------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux 2014.03 v1.0.71 running PHP<br>5.5 | 2014.03 | PHP 5.5.7    | Apache 2.4.6   |
 | 64bit Amazon Linux 2014.03 v1.0.71 running PHP<br>5.5 | 2014.03 | PHP 5.5.7    | Apache 2.4.6   |
@@ -2301,7 +2301,7 @@ The following Elastic Beanstalk platform versions for PHP were current between S
 The following Elastic Beanstalk platform versions for PHP were current between June 30, 2014 and September 23, 2014:
 
 | **PHP Container Types**                           |
-| ------------------------------------------------- | ------- | ------------ | -------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.5 | 2014.03 | PHP 5.5.7    | Apache 2.4.6   |
 | 64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.4 | 2014.03 | PHP 5.4.20   | Apache 2.4.6   |
@@ -2309,7 +2309,7 @@ The following Elastic Beanstalk platform versions for PHP were current between J
 The following Elastic Beanstalk platform versions for PHP were current between June 5, 2014 and June 29, 2014:
 
 | **PHP Container Types**                               |
-| ----------------------------------------------------- | ------- | ------------ | -------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux 2014.03 v1.0.31 running PHP<br>5.5 | 2014.03 | PHP 5.5.7    | Apache 2.4.6   |
 | 64bit Amazon Linux 2014.03 v1.0.31 running PHP<br>5.5 | 2014.03 | PHP 5.5.7    | Apache 2.4.6   |
@@ -2322,7 +2322,7 @@ The following Elastic Beanstalk platform versions for PHP were current between J
 The following Elastic Beanstalk platform versions for PHP were current between May 5, 2014 and June 4, 2014:
 
 | **PHP Container Types**                           |
-| ------------------------------------------------- | ------- | ------------ | -------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux 2014.03 v1.0.2 running PHP 5.5 | 2014.03 | PHP 5.5.7    | Apache 2.4.6   |
 | 64bit Amazon Linux 2014.03 v1.0.2 running PHP 5.5 | 2014.03 | PHP 5.5.7    | Apache 2.4.6   |
@@ -2332,7 +2332,7 @@ The following Elastic Beanstalk platform versions for PHP were current between M
 The following Elastic Beanstalk platform versions for PHP were current between April 7, 2014 and May 4, 2014:
 
 | **PHP Container Types**                               |
-| ----------------------------------------------------- | ------- | ------------ | -------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux 2014.02 v1.0.11 running PHP<br>5.5 | 2013.09 | PHP 5.5.7    | Apache 2.4.6   |
 | 64bit Amazon Linux 2014.02 v1.0.11 running PHP<br>5.5 | 2013.09 | PHP 5.5.7    | Apache 2.4.6   |
@@ -2351,7 +2351,7 @@ The following Elastic Beanstalk platform versions for PHP were current between A
 The following Elastic Beanstalk platform versions for PHP were current between March 18, 2014 and April 6, 2014:
 
 | **PHP Container Types**                    |
-| ------------------------------------------ | ------- | ------------ | -------------- |
+| ------------------------------------------ |
 | **Name**                                   | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux 2014.02 running PHP 5.5 | 2013.09 | PHP 5.5.7    | Apache 2.2.26  |
 | 64bit Amazon Linux 2014.02 running PHP 5.5 | 2013.09 | PHP 5.5.7    | Apache 2.2.26  |
@@ -2367,7 +2367,7 @@ The following Elastic Beanstalk platform versions for PHP were current between M
 The following Elastic Beanstalk platform versions for PHP were current between October 30, 2013 and March 17, 2014:
 
 | **PHP Container Types**                    |
-| ------------------------------------------ | ------- | ------------ | -------------- |
+| ------------------------------------------ |
 | **Name**                                   | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux 2013.09 running PHP 5.5 | 2013.09 | PHP 5.5      | Apache 2.4.6   |
 | 64bit Amazon Linux 2013.09 running PHP 5.5 | 2013.09 | PHP 5.5      | Apache 2.4.6   |
@@ -2379,7 +2379,7 @@ The following Elastic Beanstalk platform versions for PHP were current between O
 The following Elastic Beanstalk platform versions for PHP were current between August 29, 2013 and October 29, 2013:
 
 | **PHP Container Types**            |
-| ---------------------------------- | ------- | ------------ | -------------- |
+| ---------------------------------- |
 | **Name**                           | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux running PHP 5.4 | 2013.03 | PHP 5.4      | Apache 2.4.6   |
 | 64bit Amazon Linux running PHP 5.4 | 2013.03 | PHP 5.4      | Apache 2.4.6   |
@@ -2387,7 +2387,7 @@ The following Elastic Beanstalk platform versions for PHP were current between A
 The following Elastic Beanstalk platform versions for PHP were current prior to August 29, 2013:
 
 | **PHP Container Types**                    |
-| ------------------------------------------ | ------- | ------------ | -------------- |
+| ------------------------------------------ |
 | **Name**                                   | **AMI** | **Language** | **Web Server** |
 | 32bit Amazon Linux 2012.09 running PHP 5.4 | 2012.09 | PHP 5.4      | Apache 2.4.3   |
 | 64bit Amazon Linux 2012.09 running PHP 5.4 | 2012.09 | PHP 5.4      | Apache 2.4.3   |

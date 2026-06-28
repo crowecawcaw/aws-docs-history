@@ -1781,42 +1781,42 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between May 27, 2015 and June 15, 2015:
 
 | **Node.js Configurations**                        |
-| ------------------------------------------------- | ------- | ------------ | -------------------------------------------------------------------------------- | ---------------------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Node.js Version**                                                              | **Web Server**               |
 | 64bit Amazon Linux 2015.03 v1.4.1 running Node.js | 2015.03 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31<br>0.10.38<br>0.12.0<br>0.12.2 | nginx 1.6.2 or Apache 2.4.12 |
 
 The following Elastic Beanstalk platform versions for Node.js were current between April 22, 2015 and May 26, 2015:
 
 | **Node.js Configurations**                        |
-| ------------------------------------------------- | ------- | ------------ | -------------------------------------------------------------------------------- | ---------------------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Node.js Version**                                                              | **Web Server**               |
 | 64bit Amazon Linux 2015.03 v1.3.1 running Node.js | 2015.03 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31<br>0.10.38<br>0.12.0<br>0.12.2 | nginx 1.6.2 or Apache 2.4.12 |
 
 The following Elastic Beanstalk platform versions for Node.js were current between April 8, 2015 and April 21, 2015:
 
 | **Node.js Configurations**                        |
-| ------------------------------------------------- | ------- | ------------ | -------------------------------------------------------------------------------- | ---------------------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Node.js Version**                                                              | **Web Server**               |
 | 64bit Amazon Linux 2015.03 v1.3.1 running Node.js | 2015.03 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31<br>0.10.38<br>0.12.0<br>0.12.2 | nginx 1.6.2 or Apache 2.4.10 |
 
 The following Elastic Beanstalk platform versions for Node.js were current between March 24, 2015 and April 7, 2015:
 
 | **Node.js Configurations**                        |
-| ------------------------------------------------- | ------- | ------------ | ----------------------------------------------------------- | ---------------------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Node.js Version**                                         | **Web Server**               |
 | 64bit Amazon Linux 2014.09 v1.2.1 running Node.js | 2014.09 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31<br>0.12.0 | nginx 1.6.2 or Apache 2.4.10 |
 
 The following Elastic Beanstalk platform versions for Node.js were current between February 17, 2015 and March 23, 2015:
 
 | **Node.js Configurations**                        |
-| ------------------------------------------------- | ------- | ------------ | ------------------------------------------------- | ---------------------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Node.js Version**                               | **Web Server**               |
 | 64bit Amazon Linux 2014.09 v1.2.0 running Node.js | 2014.09 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31 | nginx 1.6.2 or Apache 2.4.10 |
 
 The following Elastic Beanstalk platform versions for Node.js were current between January 28, 2015 and February 16, 2015:
 
 | **Node.js Configurations**                            |
-| ----------------------------------------------------- | ------- | ------------ | ------------------------------------------------- | ---------------------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Node.js Version**                               | **Web Server**               |
 | 64bit Amazon Linux 2014.09 v1.1.01 running<br>Node.js | 2014.09 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31 | nginx 1.6.2 or Apache 2.4.6  |
 | 32bit Amazon Linux 2014.03 v1.1.01 running<br>Node.js | 2014.03 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31 | nginx 1.4.7 or Apache 2.4.10 |
@@ -1827,7 +1827,7 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between October 16, 2014 and January 27, 2015:
 
 | **Node.js Configurations**                            |
-| ----------------------------------------------------- | ------- | ------------ | ------------------------------------------------- | --------------------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Node.js Version**                               | **Web Server**              |
 | 64bit Amazon Linux 2014.09 v1.0.91 running<br>Node.js | 2014.09 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31 | nginx 1.6.2 or Apache 2.4.6 |
 | 32bit Amazon Linux 2014.03 v1.0.91 running<br>Node.js | 2014.03 | JavaScript   | 0.8.26<br>0.8.28<br>0.10.21<br>0.10.26<br>0.10.31 | nginx 1.6.2 or Apache 2.4.6 |
@@ -1838,14 +1838,14 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between October 9, 2014 and October 15, 2014:
 
 | **Node.js Configurations**                        |
-| ------------------------------------------------- | ------- | ------------ | ------------------------------------------------------------------------- | --------------------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Node.js Version**                                                       | **Web Server**              |
 | 64bit Amazon Linux 2014.09 v1.0.8 running Node.js | 2014.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.7 or Apache 2.4.6 |
 
 The following Elastic Beanstalk platform versions for Node.js were current between September 24, 2014 and October 8, 2014:
 
 | **Node.js Configurations**                            |
-| ----------------------------------------------------- | ------- | ------------ | ------------------------------------------------------------------------- | --------------------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Node.js Version**                                                       | **Web Server**              |
 | 32bit Amazon Linux 2014.03 v1.0.71 running<br>Node.js | 2014.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.7 or Apache 2.4.6 |
 | 64bit Amazon Linux 2014.03 v1.0.71 running<br>Node.js | 2014.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.7 or Apache 2.4.6 |
@@ -1856,14 +1856,14 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between June 30, 2014 and September 23, 2014:
 
 | **Node.js Configurations**                        |
-| ------------------------------------------------- | ------- | ------------ | ------------------------------------------------------------------------- | --------------------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Node.js Version**                                                       | **Web Server**              |
 | 64bit Amazon Linux 2014.03 v1.0.4 running Node.js | 2014.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.7 or Apache 2.4.6 |
 
 The following Elastic Beanstalk platform versions for Node.js were current between June 5, 2014 and June 29, 2014:
 
 | **Node.js Configurations**                            |
-| ----------------------------------------------------- | ------- | ------------ | ------------------------------------------------------------------------- | --------------------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Node.js Version**                                                       | **Web Server**              |
 | 32bit Amazon Linux 2014.03 v1.0.31 running<br>Node.js | 2014.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.7 or Apache 2.4.6 |
 | 64bit Amazon Linux 2014.03 v1.0.31 running<br>Node.js | 2014.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.7 or Apache 2.4.6 |
@@ -1874,7 +1874,7 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between May 5, 2014 and June 4, 2014:
 
 | **Node.js Configurations**                        |
-| ------------------------------------------------- | ------- | ------------ | ------------------------------------------------------------------------- | --------------------------- |
+| ------------------------------------------------- |
 | **Name**                                          | **AMI** | **Language** | **Node.js Version**                                                       | **Web Server**              |
 | 32bit Amazon Linux 2014.03 v1.0.2 running Node.js | 2014.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.7 or Apache 2.4.6 |
 | 64bit Amazon Linux 2014.03 v1.0.2 running Node.js | 2014.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.7 or Apache 2.4.6 |
@@ -1882,7 +1882,7 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between April 7, 2014 and May 4, 2014:
 
 | **Node.js Configurations**                            |
-| ----------------------------------------------------- | ------- | ------------ | ------------------------------------------------------------------------- | --------------------------- |
+| ----------------------------------------------------- |
 | **Name**                                              | **AMI** | **Language** | **Node.js Version**                                                       | **Web Server**              |
 | 32bit Amazon Linux 2014.02 v1.0.11 running<br>Node.js | 2013.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.3 or Apache 2.4.6 |
 | 64bit Amazon Linux 2014.02 v1.0.11 running<br>Node.js | 2013.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.3 or Apache 2.4.6 |
@@ -1895,7 +1895,7 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between March 18, 2014 and April 6, 2014:
 
 | **Node.js Configurations**                 |
-| ------------------------------------------ | ------- | ------------ | ------------------------------------------------------------------------- | --------------------------- |
+| ------------------------------------------ |
 | **Name**                                   | **AMI** | **Language** | **Node.js Version**                                                       | **Web Server**              |
 | 32bit Amazon Linux 2014.02 running Node.js | 2013.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.3 or Apache 2.4.6 |
 | 64bit Amazon Linux 2014.02 running Node.js | 2013.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.8.26<br>0.10.10<br>0.10.21<br>0.10.26 | nginx 1.4.3 or Apache 2.4.6 |
@@ -1905,7 +1905,7 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between October 29, 2013 and March 17, 2014:
 
 | **Node.js Configurations**                 |
-| ------------------------------------------ | ------- | ------------ | ---------------------------------------------------- | --------------------------- |
+| ------------------------------------------ |
 | **Name**                                   | **AMI** | **Language** | **Node.js Version**                                  | **Web Server**              |
 | 32bit Amazon Linux 2013.09 running Node.js | 2013.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.10.10<br>0.10.21 | nginx 1.4.3 or Apache 2.4.6 |
 | 64bit Amazon Linux 2013.09 running Node.js | 2013.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.10.10<br>0.10.21 | nginx 1.4.3 or Apache 2.4.6 |
@@ -1913,7 +1913,7 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current between August 15, 2013 and October 28, 2013:
 
 | **Node.js Configurations**         |
-| ---------------------------------- | ------- | ------------ | ----------------------------------------- | --------------------------- |
+| ---------------------------------- |
 | **Name**                           | **AMI** | **Language** | **Node.js Version**                       | **Web Server**              |
 | 32bit Amazon Linux running Node.js | 2013.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.10.10 | nginx 1.2.9 or Apache 2.4.4 |
 | 64bit Amazon Linux running Node.js | 2013.03 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24<br>0.10.10 | nginx 1.2.9 or Apache 2.4.4 |
@@ -1921,7 +1921,7 @@ The following Elastic Beanstalk platform versions for Node.js were current betwe
 The following Elastic Beanstalk platform versions for Node.js were current prior to August 15, 2013:
 
 | **Node.js Configurations**                 |
-| ------------------------------------------ | ------- | ------------ | ------------------------------ | --------------------------- |
+| ------------------------------------------ |
 | **Name**                                   | **AMI** | **Language** | **Node.js Version**            | **Web Server**              |
 | 32bit Amazon Linux 2012.09 running Node.js | 2012.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24 | nginx 1.2.6 or Apache 2.4.3 |
 | 64bit Amazon Linux 2012.09 running Node.js | 2012.09 | JavaScript   | 0.8.6 through 0.8.21<br>0.8.24 | nginx 1.2.6 or Apache 2.4.3 |

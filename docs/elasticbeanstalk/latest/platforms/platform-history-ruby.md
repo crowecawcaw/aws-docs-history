@@ -2619,7 +2619,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between May 27, 2015 and June 15, 2015:
 
 | **Ruby Configurations**                                                   |
-| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
 | 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.2 (Puma)                 | 2015.03 | Ruby 2.2.2      | Puma 2.10.2 and nginx 1.6.2      |
 | 64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59 and nginx 1.6.2 |
@@ -2632,7 +2632,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between April 22, 2015 and May 26, 2015:
 
 | **Ruby Container Types**                                                  |
-| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
 | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Puma)                 | 2015.03 | Ruby 2.2.2      | Puma 2.10.2 and nginx 1.6.2      |
 | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59 and nginx 1.6.2 |
@@ -2645,7 +2645,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between April 8, 2015 and April 21, 2015:
 
 | **Ruby Container Types**                                                  |
-| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
 | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Puma)                 | 2015.03 | Ruby 2.2.2      | Puma 2.9.1 and nginx 1.6.2       |
 | 64bit Amazon Linux 2015.03 v1.3.1 running Ruby 2.2 (Passenger Standalone) | 2015.03 | Ruby 2.2.2      | Passenger 4.0.59 and nginx 1.6.2 |
@@ -2658,7 +2658,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between March 24, 2015 and April 7, 2015:
 
 | **Ruby Container Types**                                                  |
-| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
 | 64bit Amazon Linux 2014.09 v1.2.1 running Ruby 2.2 (Puma)                 | 2014.09 | Ruby 2.2.0      | Puma 2.9.1 and nginx 1.6.2       |
 | 64bit Amazon Linux 2014.09 v1.2.1 running Ruby 2.2 (Passenger Standalone) | 2014.09 | Ruby 2.2.0      | Passenger 4.0.59 and nginx 1.6.2 |
@@ -2671,7 +2671,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between February 17, 2015 and March 23, 2015:
 
 | **Ruby Container Types**                                                  |
-| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server**       |
 | 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Puma)                 | 2014.09 | Ruby 2.1.5-p273 | Puma 2.9.1 and nginx 1.6.2       |
 | 64bit Amazon Linux 2014.09 v1.2.0 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.5-p273 | Passenger 4.0.53 and nginx 1.6.2 |
@@ -2682,7 +2682,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between January 28, 2015 and February 16, 2015:
 
 | **Ruby Container Types**                                                      |
-| ----------------------------------------------------------------------------- | ------- | --------------- | -------------------------- |
+| ----------------------------------------------------------------------------- |
 | **Name**                                                                      | **AMI** | **Language**    | **Application/Web Server** |
 | 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.1<br>(Puma)                 | 2014.09 | Ruby 2.1.4      | Puma 2.9.1 and nginx 1.6.2 |
 | 64bit Amazon Linux 2014.09 v1.1.01 running Ruby 2.1<br>(Passenger Standalone) | 2014.09 | Ruby 2.1.4      | Passenger 4.0.53           |
@@ -2699,7 +2699,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between October 31, 2014 and January 27, 2015:
 
 | **Ruby Container Types**                                                  |
-| ------------------------------------------------------------------------- | ------- | --------------- | -------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language**    | **Application/Web Server** |
 | 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.1 (Puma)                 | 2014.09 | Ruby 2.1.4      | Puma 2.9.1 and nginx 1.6.2 |
 | 64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.1 (Passenger Standalone) | 2014.09 | Ruby 2.1.4      | Passenger 4.0.53           |
@@ -2710,7 +2710,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between October 16, 2014 and October 30, 2014:
 
 | **Ruby Container Types**                                                      |
-| ----------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| ----------------------------------------------------------------------------- |
 | **Name**                                                                      | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.1<br>(Puma)                 | 2014.03 | Ruby 2.1.2   | Puma 2.8.1 and nginx 1.4.7 |
 | 64bit Amazon Linux 2014.03 v1.0.91 running Ruby 2.1<br>(Passenger Standalone) | 2014.03 | Ruby 2.1.2   | Passenger 4.0.37           |
@@ -2724,7 +2724,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between September 24, 2014 and October 15, 2014:
 
 | **Ruby Container Types**                                                      |
-| ----------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| ----------------------------------------------------------------------------- |
 | **Name**                                                                      | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.1<br>(Puma)                 | 2014.03 | Ruby 2.1.2   | Puma 2.8.1 and nginx 1.4.7 |
 | 64bit Amazon Linux 2014.03 v1.0.71 running Ruby 2.1<br>(Passenger Standalone) | 2014.03 | Ruby 2.1.2   | Passenger 4.0.37           |
@@ -2739,7 +2739,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between August 14, 2014 and September 23, 2014:
 
 | **Ruby Container Types**                                                  |
-| ------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Puma)                 | 2014.03 | Ruby 2.1.2   | Puma 2.8.1 and nginx 1.4.7 |
 | 64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Passenger Standalone) | 2014.03 | Ruby 2.1.2   | Passenger 4.0.37           |
@@ -2750,7 +2750,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between June 30, 2014 and August 13, 2014:
 
 | **Ruby Container Types**                                                  |
-| ------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
 | 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
@@ -2759,7 +2759,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between June 5, 2014 and June 29, 2014:
 
 | **Ruby Container Types**                                                      |
-| ----------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| ----------------------------------------------------------------------------- |
 | **Name**                                                                      | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.41 running Ruby 2.0<br>(Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
 | 64bit Amazon Linux 2014.03 v1.0.31 running Ruby 2.0<br>(Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
@@ -2772,14 +2772,14 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between May 14, 2014 and June 4, 2014:
 
 | **Ruby Container Types**                                  |
-| --------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| --------------------------------------------------------- |
 | **Name**                                                  | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.3 running Ruby 2.0 (Puma) | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
 
 The following Elastic Beanstalk platform versions for Ruby were current between May 5, 2014 and May 13, 2014:
 
 | **Ruby Container Types**                                                  |
-| ------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| ------------------------------------------------------------------------- |
 | **Name**                                                                  | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.2 running Ruby 2.0 (Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
 | 64bit Amazon Linux 2014.03 v1.0.2 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
@@ -2789,7 +2789,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between April 7, 2014 and May 4, 2014:
 
 | **Ruby Container Types**                                                      |
-| ----------------------------------------------------------------------------- | ------- | ------------ | -------------------------- |
+| ----------------------------------------------------------------------------- |
 | **Name**                                                                      | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 v1.0.12 running Ruby 2.0<br>(Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
 | 64bit Amazon Linux 2014.03 v1.0.12 running Ruby 2.0<br>(Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
@@ -2811,7 +2811,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between April 2, 2014 and April 6, 2014:
 
 | **Ruby Container Types**                                           |
-| ------------------------------------------------------------------ | ------- | ------------ | -------------------------- |
+| ------------------------------------------------------------------ |
 | **Name**                                                           | **AMI** | **Language** | **Application/Web Server** |
 | 64bit Amazon Linux 2014.03 running Ruby 2.0 (Puma)                 | 2014.03 | Ruby 2.0.0   | Puma 2.8.1 and nginx 1.4.7 |
 | 64bit Amazon Linux 2014.03 running Ruby 2.0 (Passenger Standalone) | 2014.03 | Ruby 2.0.0   | Passenger 4.0.37           |
@@ -2827,7 +2827,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between March 18, 2014 and April 1, 2014:
 
 | **Ruby Container Types**                      |
-| --------------------------------------------- | ------- | ------------ | -------------------------- |
+| --------------------------------------------- |
 | **Name**                                      | **AMI** | **Language** | **Application/Web Server** |
 | 32bit Amazon Linux 2014.02 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.37           |
 | 64bit Amazon Linux 2014.02 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.37           |
@@ -2841,7 +2841,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current between November 9, 2013 and March 17, 2014:
 
 | **Ruby Container Types**                      |
-| --------------------------------------------- | ------- | ------------ | -------------------------- |
+| --------------------------------------------- |
 | **Name**                                      | **AMI** | **Language** | **Application/Web Server** |
 | 32bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
 | 64bit Amazon Linux 2013.09 running Ruby 1.9.3 | 2013.09 | Ruby 1.9.3   | Passenger 4.0.20           |
@@ -2851,7 +2851,7 @@ The following Elastic Beanstalk platform versions for Ruby were current between 
 The following Elastic Beanstalk platform versions for Ruby were current prior to November 9, 2013:
 
 | **Ruby Container Types**              |
-| ------------------------------------- | ------- | ------------ | -------------------------- |
+| ------------------------------------- |
 | **Name**                              | **AMI** | **Language** | **Application/Web Server** |
 | 32bit Amazon Linux running Ruby 1.9.3 | 2012.09 | Ruby 1.9.3   | Passenger 3.0.17           |
 | 64bit Amazon Linux running Ruby 1.9.3 | 2012.09 | Ruby 1.9.3   | Passenger 3.0.17           |

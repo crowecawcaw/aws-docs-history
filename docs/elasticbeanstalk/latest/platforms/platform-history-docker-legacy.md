@@ -225,36 +225,36 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 
 The following Elastic Beanstalk platform configurations for Docker were current between August 11, 2015 and September 18, 2015:
 
-| Configuration and _Solution Stack Name_                                                                                                | AMI     | Docker Version | Web Server  |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- | ----------- |
-| **Single Container Docker 1.6 version<br>2.0.0\***64bit Amazon Linux 2015.03 v2.0.0 running Docker<br>1.6.2\*                          | 2015.03 | 1.6.2          | nginx 1.6.2 |
-| \*_Multicontainer Docker 1.6 version 2.0.0_<br>• _64bit Amazon Linux 2015.03 v2.0.0 running<br>Multi-container Docker 1.6.2 (Generic)_ | 2015.03 | 1.6.2          | none        |
+| Configuration and _Solution Stack Name_                                                                                               | AMI     | Docker Version | Web Server  |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- | ----------- |
+| **Single Container Docker 1.6 version<br>2.0.0**_64bit Amazon Linux 2015.03 v2.0.0 running Docker<br>1.6.2_                           | 2015.03 | 1.6.2          | nginx 1.6.2 |
+| *_Multicontainer Docker 1.6 version 2.0.0_<br>• _64bit Amazon Linux 2015.03 v2.0.0 running<br>Multi-container Docker 1.6.2 (Generic)_ | 2015.03 | 1.6.2          | none        |
 
 The following Elastic Beanstalk platform configurations for Docker were current between August 3, 2015 and August 11, 2015:
 
-| Configuration and _Solution Stack Name_                                                                                                | AMI     | Docker Version | Web Server  |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- | ----------- |
-| **Single Container Docker 1.6 version<br>1.4.6\***64bit Amazon Linux 2015.03 v1.4.6 running Docker<br>1.6.2\*                          | 2015.03 | 1.6.2          | nginx 1.6.2 |
-| \*_Multicontainer Docker 1.6 version 1.4.6_<br>• _64bit Amazon Linux 2015.03 v1.4.6 running<br>Multi-container Docker 1.6.2 (Generic)_ | 2015.03 | 1.6.2          | none        |
+| Configuration and _Solution Stack Name_                                                                                               | AMI     | Docker Version | Web Server  |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- | ----------- |
+| **Single Container Docker 1.6 version<br>1.4.6**_64bit Amazon Linux 2015.03 v1.4.6 running Docker<br>1.6.2_                           | 2015.03 | 1.6.2          | nginx 1.6.2 |
+| *_Multicontainer Docker 1.6 version 1.4.6_<br>• _64bit Amazon Linux 2015.03 v1.4.6 running<br>Multi-container Docker 1.6.2 (Generic)_ | 2015.03 | 1.6.2          | none        |
 
 The following Elastic Beanstalk platform configurations for Docker were current between July 23, 2015 and August 3, 2015:
 
-| Configuration and _Solution Stack Name_                                                                                                | AMI     | Docker Version | Web Server  |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- | ----------- |
-| **Single Container Docker 1.6 version<br>1.4.3\***64bit Amazon Linux 2015.03 v1.4.3 running Docker<br>1.6.2\*                          | 2015.03 | 1.6.2          | nginx 1.6.2 |
-| \*_Multicontainer Docker 1.6 version 1.4.5_<br>• _64bit Amazon Linux 2015.03 v1.4.5 running<br>Multi-container Docker 1.6.2 (Generic)_ | 2015.03 | 1.6.2          | none        |
+| Configuration and _Solution Stack Name_                                                                                               | AMI     | Docker Version | Web Server  |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- | ----------- |
+| **Single Container Docker 1.6 version<br>1.4.3**_64bit Amazon Linux 2015.03 v1.4.3 running Docker<br>1.6.2_                           | 2015.03 | 1.6.2          | nginx 1.6.2 |
+| *_Multicontainer Docker 1.6 version 1.4.5_<br>• _64bit Amazon Linux 2015.03 v1.4.5 running<br>Multi-container Docker 1.6.2 (Generic)_ | 2015.03 | 1.6.2          | none        |
 
 The following Elastic Beanstalk platform configurations for Docker were current between June 15, 2015 and July 23, 2015:
 
-| Configuration and _Solution Stack Name_                                                                                                | AMI     | Docker Version |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- |
-| **Single Container Docker 1.6 version<br>1.4.3\***64bit Amazon Linux 2015.03 v1.4.3 running Docker<br>1.6.2\*                          | 2015.03 | 1.6.2          |
-| \*_Multicontainer Docker 1.6 version 1.4.3_<br>• _64bit Amazon Linux 2015.03 v1.4.3 running<br>Multi-container Docker 1.6.2 (Generic)_ | 2015.03 | 1.6.2          |
+| Configuration and _Solution Stack Name_                                                                                               | AMI     | Docker Version |
+| ------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- |
+| **Single Container Docker 1.6 version<br>1.4.3**_64bit Amazon Linux 2015.03 v1.4.3 running Docker<br>1.6.2_                           | 2015.03 | 1.6.2          |
+| *_Multicontainer Docker 1.6 version 1.4.3_<br>• _64bit Amazon Linux 2015.03 v1.4.3 running<br>Multi-container Docker 1.6.2 (Generic)_ | 2015.03 | 1.6.2          |
 
 The following Elastic Beanstalk platform configurations for Docker were current between May 27, 2015 and June 15, 2015:
 
 | **Docker Configurations**                                                           |
-| ----------------------------------------------------------------------------------- | ------- | ------------------ |
+| ----------------------------------------------------------------------------------- |
 | **Name**                                                                            | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2015.03 v1.4.1 running Single Container Docker 1.6.0             | 2015.03 | 1.6.0              |
 | 64bit Amazon Linux 2015.03 v1.4.1 running Multi-container Docker 1.6.0<br>(Generic) | 2015.03 | 1.6.0              |
@@ -262,7 +262,7 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between May 8, 2015 and May 26, 2015:
 
 | **Docker Configurations**                                                           |
-| ----------------------------------------------------------------------------------- | ------- | ------------------ |
+| ----------------------------------------------------------------------------------- |
 | **Name**                                                                            | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2015.03 v1.4.0 running Docker<br>1.6.01                          | 2015.03 | 1.6.0              |
 | 64bit Amazon Linux 2015.03 v1.4.0 running Multicontainer Docker 1.6.0<br>(Generic)1 | 2015.03 | 1.6.0              |
@@ -272,7 +272,7 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between April 22, 2015 and May 7, 2015:
 
 | **Docker Configurations**                                                          |
-| ---------------------------------------------------------------------------------- | ------- | ------------------ |
+| ---------------------------------------------------------------------------------- |
 | **Name**                                                                           | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2015.03 v1.3.1 running Docker 1.5.0                             | 2015.03 | 1.5.0              |
 | 64bit Amazon Linux 2014.09 v1.2.1 running Multicontainer Docker 1.3.3<br>(Generic) | 2014.09 | 1.3.3              |
@@ -281,7 +281,7 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between March 24, 2015 and April 21, 2015:
 
 | **Docker Configurations**                                                          |
-| ---------------------------------------------------------------------------------- | ------- | ------------------ |
+| ---------------------------------------------------------------------------------- |
 | **Name**                                                                           | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.09 v1.2.1 running Docker 1.5.0                             | 2014.09 | 1.5.0              |
 | 64bit Amazon Linux 2014.09 v1.2.0 running Multicontainer Docker 1.3.3<br>(Generic) | 2014.09 | 1.3.3              |
@@ -289,14 +289,14 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between February 17, 2015 and March 23, 2015:
 
 | **Docker Configurations**                              |
-| ------------------------------------------------------ | ------- | ------------------ |
+| ------------------------------------------------------ |
 | **Name**                                               | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.09 v1.2.0 running Docker 1.3.3 | 2014.09 | 1.3.3              |
 
 The following Elastic Beanstalk platform configurations for Docker were current between January 28, 2015 and February 16, 2015:
 
 | **Docker Configurations**                                  |
-| ---------------------------------------------------------- | ------- | ------------------ |
+| ---------------------------------------------------------- |
 | **Name**                                                   | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.091 v1.1.0 running Docker<br>1.3.3 | 2014.09 | 1.3.3              |
 
@@ -305,7 +305,7 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between December 13, 2014 and January 27, 2015:
 
 | **Docker Configurations**                                   |
-| ----------------------------------------------------------- | ------- | ------------------ |
+| ----------------------------------------------------------- |
 | **Name**                                                    | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.091 v1.0.11 running Docker<br>1.3.3 | 2014.09 | 1.3.3              |
 
@@ -314,14 +314,14 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between November 26, 2014 and December 12, 2014:
 
 | **Docker Configurations**                               |
-| ------------------------------------------------------- | ------- | ------------------ |
+| ------------------------------------------------------- |
 | **Name**                                                | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.09 v1.0.10 running Docker 1.3.2 | 2014.09 | 1.3.2              |
 
 The following Elastic Beanstalk platform configurations for Docker were current between October 16, 2014 and November 25, 2014:
 
 | **Docker Configurations**                                  |
-| ---------------------------------------------------------- | ------- | ------------------ |
+| ---------------------------------------------------------- |
 | **Name**                                                   | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.09 v1.0.91 running Docker<br>1.2.0 | 2014.09 | 1.2.0              |
 | 64bit Amazon Linux 2014.03 v1.0.91 running Docker<br>1.0.0 | 2014.03 | 1.0.0              |
@@ -331,14 +331,14 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between October 9, 2014 and October 15, 2014:
 
 | **Docker Configurations**                              |
-| ------------------------------------------------------ | ------- | ------------------ |
+| ------------------------------------------------------ |
 | **Name**                                               | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.09 v1.0.8 running Docker 1.2.0 | 2014.09 | 1.2.0              |
 
 The following Elastic Beanstalk platform configurations for Docker were current between September 24, 2014 and October 8, 2014:
 
 | **Docker Configurations**                                  |
-| ---------------------------------------------------------- | ------- | ------------------ |
+| ---------------------------------------------------------- |
 | **Name**                                                   | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.03 v1.0.71 running Docker<br>1.0.0 | 2014.03 | 1.0.0              |
 
@@ -348,21 +348,21 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between June 30, 2014 and September 23, 2014:
 
 | **Docker Configurations**                              |
-| ------------------------------------------------------ | ------- | ------------------ |
+| ------------------------------------------------------ |
 | **Name**                                               | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.03 v1.0.1 running Docker 1.0.0 | 2014.03 | 1.0.0              |
 
 The following Elastic Beanstalk platform configurations for Docker were current between June 16, 2014 and June 29, 2014:
 
 | **Docker Configurations**                              |
-| ------------------------------------------------------ | ------- | ------------------ |
+| ------------------------------------------------------ |
 | **Name**                                               | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.03 v1.0.0 running Docker 1.0.0 | 2014.03 | 1.0.0              |
 
 The following Elastic Beanstalk platform configurations for Docker were current between June 5, 2014 and June 15, 2014:
 
 | **Docker Configurations**                                  |
-| ---------------------------------------------------------- | ------- | ------------------ |
+| ---------------------------------------------------------- |
 | **Name**                                                   | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.03 v1.0.51 running Docker<br>0.9.0 | 2014.03 | 0.9.0              |
 
@@ -372,20 +372,20 @@ The following Elastic Beanstalk platform configurations for Docker were current 
 The following Elastic Beanstalk platform configurations for Docker were current between May 5, 2014 and June 4, 2014:
 
 | **Docker Configurations**                              |
-| ------------------------------------------------------ | ------- | ------------------ |
+| ------------------------------------------------------ |
 | **Name**                                               | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.03 v1.0.4 running Docker 0.9.0 | 2014.03 | 0.9.0              |
 
 The following Elastic Beanstalk platform configurations for Docker were current between April 29, 2014 and May 4, 2014:
 
 | **Docker Configurations**                              |
-| ------------------------------------------------------ | ------- | ------------------ |
+| ------------------------------------------------------ |
 | **Name**                                               | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.03 v1.0.3 running Docker 0.9.0 | 2014.03 | 0.9.0              |
 
 The following Elastic Beanstalk Docker container types were current prior to April 28, 2014:
 
 | **Docker Configurations**                              |
-| ------------------------------------------------------ | ------- | ------------------ |
+| ------------------------------------------------------ |
 | **Name**                                               | **AMI** | **Docker Version** |
 | 64bit Amazon Linux 2014.03 v1.0.2 running Docker 0.9.0 | 2014.03 | 0.9.0              |

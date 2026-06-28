@@ -1177,8 +1177,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | ------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | --------- | ------------------ | ------------------------------------- |
 | **Corretto 11 with Tomcat 8.5 AL2 version 4.2.16**<br>_64bit Amazon Linux 2 v4.2.16 running Tomcat 8.5 Corretto 11_ | 2.0.20220606 | Corretto 11.0.15.9.1 | 3.2.0     | Tomcat 8.5.75      | nginx 1.20.0 (default), Apache 2.4.53 |
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.16**<br>_64bit Amazon Linux 2 v4.2.16 running Tomcat 8.5 Corretto 8_   | 2.0.20220606 | Corretto 8.332.08.1  | 3.2.0     | Tomcat 8.5.75      | nginx 1.20.0 (default), Apache 2.4.53 |
-| **Java 8 with Tomcat 8.5 version 3.4.21**<br>_64bit Amazon Linux 2018.03 v3.4.21 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_312       | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.53 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.21**<br>_64bit Amazon Linux 2018.03 v3.4.21 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.53 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.21**<br>_64bit Amazon Linux 2018.03 v3.4.21 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_312      | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.53 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.21**<br>_64bit Amazon Linux 2018.03 v3.4.21 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.53 (default), Nginx 1.18.0 |
 
 ## June 22, 2022 – June 28, 2022
 
@@ -1190,8 +1190,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.16**<br>_64bit Amazon Linux 2 v4.2.16 running Tomcat 8.5 Corretto 8_   | 2.0.20220606 | Corretto 8.332.08.1  | 3.2.0     | Tomcat 8.5.75      | nginx 1.20.0 (default), Apache 2.4.53 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.16**<br>_64bit Amazon Linux 2 v4.2.16 running Tomcat 7 Corretto 11_     | 2.0.20220606 | Corretto 11.0.15.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.53 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.16**<br>_64bit Amazon Linux 2 v4.2.16 running Tomcat 7 Corretto 8_       | 2.0.20220606 | Corretto 8.332.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.53 |
-| **Java 8 with Tomcat 8.5 version 3.4.21**<br>_64bit Amazon Linux 2018.03 v3.4.21 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_312       | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.53 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.21**<br>_64bit Amazon Linux 2018.03 v3.4.21 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.53 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.21**<br>_64bit Amazon Linux 2018.03 v3.4.21 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_312      | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.53 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.21**<br>_64bit Amazon Linux 2018.03 v3.4.21 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.53 (default), Nginx 1.18.0 |
 
 ## May 26, 2022 – June 21, 2022
 
@@ -1203,8 +1203,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.15**<br>_64bit Amazon Linux 2 v4.2.15 running Tomcat 8.5 Corretto 8_   | 2.0.20220426 | Corretto 8.332.08.1  | 3.2.0     | Tomcat 8.5.75      | nginx 1.20.0 (default), Apache 2.4.53 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.15**<br>_64bit Amazon Linux 2 v4.2.15 running Tomcat 7 Corretto 11_     | 2.0.20220426 | Corretto 11.0.15.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.53 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.15**<br>_64bit Amazon Linux 2 v4.2.15 running Tomcat 7 Corretto 8_       | 2.0.20220426 | Corretto 8.332.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.53 |
-| **Java 8 with Tomcat 8.5 version 3.4.20**<br>_64bit Amazon Linux 2018.03 v3.4.20 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_312       | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.53 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.20**<br>_64bit Amazon Linux 2018.03 v3.4.20 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.53 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.20**<br>_64bit Amazon Linux 2018.03 v3.4.20 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_312      | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.53 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.20**<br>_64bit Amazon Linux 2018.03 v3.4.20 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.53 (default), Nginx 1.18.0 |
 
 ## April 29, 2022 – May 25, 2022
 
@@ -1216,8 +1216,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.14**<br>_64bit Amazon Linux 2 v4.2.14 running Tomcat 8.5 Corretto 8_   | 2.0.20220419 | Corretto 8.332.08.1   | 3.2.0     | Tomcat 8.5.75      | nginx 1.20.0 (default), Apache 2.4.52 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.14**<br>_64bit Amazon Linux 2 v4.2.14 running Tomcat 7 Corretto 11_     | 2.0.20220419 | Corretto 11.0.14.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.52 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.14**<br>_64bit Amazon Linux 2 v4.2.14 running Tomcat 7 Corretto 8_       | 2.0.20220419 | Corretto 8.332.08.1   | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.52 |
-| **Java 8 with Tomcat 8.5 version 3.4.19**<br>_64bit Amazon Linux 2018.03 v3.4.19 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_312        | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.52 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.19**<br>_64bit Amazon Linux 2018.03 v3.4.19 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261        | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.52 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.19**<br>_64bit Amazon Linux 2018.03 v3.4.19 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_312       | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.52 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.19**<br>_64bit Amazon Linux 2018.03 v3.4.19 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.52 (default), Nginx 1.18.0 |
 
 ## March 31, 2022 – April 28, 2022
 
@@ -1229,8 +1229,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.13**<br>_64bit Amazon Linux 2 v4.2.13 running Tomcat 8.5 Corretto 8_   | 2.0.20220316 | Corretto 8.322.06.3   | 3.2.0     | Tomcat 8.5.75      | nginx 1.20.0 (default), Apache 2.4.52 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.13**<br>_64bit Amazon Linux 2 v4.2.13 running Tomcat 7 Corretto 11_     | 2.0.20220316 | Corretto 11.0.14.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.52 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.13**<br>_64bit Amazon Linux 2 v4.2.13 running Tomcat 7 Corretto 8_       | 2.0.20220316 | Corretto 8.322.06.3   | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.52 |
-| **Java 8 with Tomcat 8.5 version 3.4.18**<br>_64bit Amazon Linux 2018.03 v3.4.18 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_312        | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.52 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.18**<br>_64bit Amazon Linux 2018.03 v3.4.18 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261        | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.52 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.18**<br>_64bit Amazon Linux 2018.03 v3.4.18 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_312       | 3.1.0     | Tomcat 8.5.75      | Apache 2.4.52 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.18**<br>_64bit Amazon Linux 2018.03 v3.4.18 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.52 (default), Nginx 1.18.0 |
 
 ## March 2, 2022 – March 30, 2022
 
@@ -1242,8 +1242,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.12**<br>_64bit Amazon Linux 2 v4.2.12 running Tomcat 8.5 Corretto 8_   | 2.0.20220207 | Corretto 8.322.06.3   | 3.2.0     | Tomcat 8.5.72      | nginx 1.20.0 (default), Apache 2.4.52 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.12**<br>_64bit Amazon Linux 2 v4.2.12 running Tomcat 7 Corretto 11_     | 2.0.20220207 | Corretto 11.0.14.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.52 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.12**<br>_64bit Amazon Linux 2 v4.2.12 running Tomcat 7 Corretto 8_       | 2.0.20220207 | Corretto 8.322.06.3   | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.52 |
-| **Java 8 with Tomcat 8.5 version 3.4.17**<br>_64bit Amazon Linux 2018.03 v3.4.17 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_312        | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.52 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.17**<br>_64bit Amazon Linux 2018.03 v3.4.17 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261        | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.52 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.17**<br>_64bit Amazon Linux 2018.03 v3.4.17 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_312       | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.52 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.17**<br>_64bit Amazon Linux 2018.03 v3.4.17 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.52 (default), Nginx 1.18.0 |
 
 ## February 3, 2022 – March 1, 2022
 
@@ -1255,8 +1255,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.11**<br>_64bit Amazon Linux 2 v4.2.11 running Tomcat 8.5 Corretto 8_   | 2.0.20220121 | Corretto 8.322.06.3  | 3.2.0     | Tomcat 8.5.72      | nginx 1.20.0 (default), Apache 2.4.52 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.11**<br>_64bit Amazon Linux 2 v4.2.11 running Tomcat 7 Corretto 11_     | 2.0.20220121 | Corretto 11.0.13.8.2 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.52 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.11**<br>_64bit Amazon Linux 2 v4.2.11 running Tomcat 7 Corretto 8_       | 2.0.20220121 | Corretto 8.322.06.3  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.52 |
-| **Java 8 with Tomcat 8.5 version 3.4.16**<br>_64bit Amazon Linux 2018.03 v3.4.16 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_312       | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.52 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.16**<br>_64bit Amazon Linux 2018.03 v3.4.16 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.52 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.16**<br>_64bit Amazon Linux 2018.03 v3.4.16 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_312      | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.52 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.16**<br>_64bit Amazon Linux 2018.03 v3.4.16 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.52 (default), Nginx 1.18.0 |
 
 ## December 28, 2021 – February 2, 2022
 
@@ -1268,8 +1268,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.10**<br>_64bit Amazon Linux 2 v4.2.10 running Tomcat 8.5 Corretto 8_   | 2.0.20211201 | Corretto 8.312.07.2  | 3.2.0     | Tomcat 8.5.72      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.10**<br>_64bit Amazon Linux 2 v4.2.10 running Tomcat 7 Corretto 11_     | 2.0.20211201 | Corretto 11.0.13.8.2 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.10**<br>_64bit Amazon Linux 2 v4.2.10 running Tomcat 7 Corretto 8_       | 2.0.20211201 | Corretto 8.312.07.2  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
-| **Java 8 with Tomcat 8.5 version 3.4.15**<br>_64bit Amazon Linux 2018.03 v3.4.15 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_312       | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.51 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.15**<br>_64bit Amazon Linux 2018.03 v3.4.15 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.15**<br>_64bit Amazon Linux 2018.03 v3.4.15 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_312      | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.15**<br>_64bit Amazon Linux 2018.03 v3.4.15 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
 
 ## December 21, 2021 – December 27, 2021
 
@@ -1281,8 +1281,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.9**<br>_64bit Amazon Linux 2 v4.2.9 running Tomcat 8.5 Corretto 8_   | 2.0.20211201 | Corretto 8.312.07.2  | 3.2.0     | Tomcat 8.5.72      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.9**<br>_64bit Amazon Linux 2 v4.2.9 running Tomcat 7 Corretto 11_     | 2.0.20211201 | Corretto 11.0.13.8.2 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.9**<br>_64bit Amazon Linux 2 v4.2.9 running Tomcat 7 Corretto 8_       | 2.0.20211201 | Corretto 8.312.07.2  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
-| **Java 8 with Tomcat 8.5 version 3.4.14**<br>_64bit Amazon Linux 2018.03 v3.4.14 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_312       | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.51 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.14**<br>_64bit Amazon Linux 2018.03 v3.4.14 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.14**<br>_64bit Amazon Linux 2018.03 v3.4.14 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_312      | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.14**<br>_64bit Amazon Linux 2018.03 v3.4.14 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
 
 ## November 24, 2021 – December 20, 2021
 
@@ -1294,8 +1294,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.8**<br>_64bit Amazon Linux 2 v4.2.8 running Tomcat 8.5 Corretto 8_   | 2.0.20211103 | Corretto 8.312.07.1  | 3.2.0     | Tomcat 8.5.72      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.8**<br>_64bit Amazon Linux 2 v4.2.8 running Tomcat 7 Corretto 11_     | 2.0.20211103 | Corretto 11.0.13.8.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.8**<br>_64bit Amazon Linux 2 v4.2.8 running Tomcat 7 Corretto 8_       | 2.0.20211103 | Corretto 8.312.07.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
-| **Java 8 with Tomcat 8.5 version 3.4.13**<br>_64bit Amazon Linux 2018.03 v3.4.13 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_302       | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.51 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.13**<br>_64bit Amazon Linux 2018.03 v3.4.13 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.13**<br>_64bit Amazon Linux 2018.03 v3.4.13 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_302      | 3.1.0     | Tomcat 8.5.72      | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.13**<br>_64bit Amazon Linux 2018.03 v3.4.13 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
 
 ## November 19, 2021 – November 23, 2021
 
@@ -1307,8 +1307,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.8**<br>_64bit Amazon Linux 2 v4.2.8 running Tomcat 8.5 Corretto 8_   | 2.0.20211103 | Corretto 8.312.07.1  | 3.2.0     | Tomcat 8.5.72      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.8**<br>_64bit Amazon Linux 2 v4.2.8 running Tomcat 7 Corretto 11_     | 2.0.20211103 | Corretto 11.0.13.8.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.8**<br>_64bit Amazon Linux 2 v4.2.8 running Tomcat 7 Corretto 8_       | 2.0.20211103 | Corretto 8.312.07.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
-| **Java 8 with Tomcat 8.5 version 3.4.12**<br>_64bit Amazon Linux 2018.03 v3.4.12 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_302       | 3.1.0     | Tomcat 8.5.69      | Apache 2.4.51 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.12**<br>_64bit Amazon Linux 2018.03 v3.4.12 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.12**<br>_64bit Amazon Linux 2018.03 v3.4.12 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_302      | 3.1.0     | Tomcat 8.5.69      | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.12**<br>_64bit Amazon Linux 2018.03 v3.4.12 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
 
 ## October 21, 2021 – November 18, 2021
 
@@ -1320,8 +1320,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.7**<br>_64bit Amazon Linux 2 v4.2.7 running Tomcat 8.5 Corretto 8_   | 2.0.20211001 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 8.5.69      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.7**<br>_64bit Amazon Linux 2 v4.2.7 running Tomcat 7 Corretto 11_     | 2.0.20211001 | Corretto 11.0.12.7.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.7**<br>_64bit Amazon Linux 2 v4.2.7 running Tomcat 7 Corretto 8_       | 2.0.20211001 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.51 |
-| **Java 8 with Tomcat 8.5 version 3.4.12**<br>_64bit Amazon Linux 2018.03 v3.4.12 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_302       | 3.1.0     | Tomcat 8.5.69      | Apache 2.4.51 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.12**<br>_64bit Amazon Linux 2018.03 v3.4.12 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.12**<br>_64bit Amazon Linux 2018.03 v3.4.12 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_302      | 3.1.0     | Tomcat 8.5.69      | Apache 2.4.51 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.12**<br>_64bit Amazon Linux 2018.03 v3.4.12 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.51 (default), Nginx 1.18.0 |
 
 ## October 3, 2021 – October 20, 2021
 
@@ -1333,8 +1333,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.6**<br>_64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8_   | 2.0.20210813 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 8.5.69      | nginx 1.20.0 (default), Apache 2.4.48 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.6**<br>_64bit Amazon Linux 2 v4.2.6 running Tomcat 7 Corretto 11_     | 2.0.20210813 | Corretto 11.0.12.7.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.48 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.6**<br>_64bit Amazon Linux 2 v4.2.6 running Tomcat 7 Corretto 8_       | 2.0.20210813 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.48 |
-| **Java 8 with Tomcat 8.5 version 3.4.11**<br>_64bit Amazon Linux 2018.03 v3.4.11 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_302       | 3.1.0     | Tomcat 8.5.69      | Apache 2.4.48 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.11**<br>_64bit Amazon Linux 2018.03 v3.4.11 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.48 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.11**<br>_64bit Amazon Linux 2018.03 v3.4.11 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_302      | 3.1.0     | Tomcat 8.5.69      | Apache 2.4.48 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.11**<br>_64bit Amazon Linux 2018.03 v3.4.11 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.109     | Apache 2.4.48 (default), Nginx 1.18.0 |
 
 ## September 2, 2021 – October 2, 2021
 
@@ -1346,8 +1346,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.5**<br>_64bit Amazon Linux 2 v4.2.5 running Tomcat 8.5 Corretto 8_   | 2.0.20210721 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 8.5.69      | nginx 1.20.0 (default), Apache 2.4.48 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.5**<br>_64bit Amazon Linux 2 v4.2.5 running Tomcat 7 Corretto 11_     | 2.0.20210721 | Corretto 11.0.12.7.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.48 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.5**<br>_64bit Amazon Linux 2 v4.2.5 running Tomcat 7 Corretto 8_       | 2.0.20210721 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.48 |
-| **Java 8 with Tomcat 8.5 version 3.4.10**<br>_64bit Amazon Linux 2018.03 v3.4.10 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_292       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.48 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.10**<br>_64bit Amazon Linux 2018.03 v3.4.10 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.48 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.10**<br>_64bit Amazon Linux 2018.03 v3.4.10 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_292      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.48 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.10**<br>_64bit Amazon Linux 2018.03 v3.4.10 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.48 (default), Nginx 1.18.0 |
 
 ## July 30, 2021 – September 1, 2021
 
@@ -1359,8 +1359,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.4**<br>_64bit Amazon Linux 2 v4.2.4 running Tomcat 8.5 Corretto 8_   | 2.0.20210721 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.48 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.4**<br>_64bit Amazon Linux 2 v4.2.4 running Tomcat 7 Corretto 11_     | 2.0.20210721 | Corretto 11.0.12.7.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.48 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.4**<br>_64bit Amazon Linux 2 v4.2.4 running Tomcat 7 Corretto 8_       | 2.0.20210721 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.48 |
-| **Java 8 with Tomcat 8.5 version 3.4.10**<br>_64bit Amazon Linux 2018.03 v3.4.10 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_292       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.48 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.10**<br>_64bit Amazon Linux 2018.03 v3.4.10 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.48 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.10**<br>_64bit Amazon Linux 2018.03 v3.4.10 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_292      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.48 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.10**<br>_64bit Amazon Linux 2018.03 v3.4.10 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.48 (default), Nginx 1.18.0 |
 
 ## July 21, 2021 – July 29, 2021
 
@@ -1372,8 +1372,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.3**<br>_64bit Amazon Linux 2 v4.2.3 running Tomcat 8.5 Corretto 8_   | 2.0.20210701 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.48 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.3**<br>_64bit Amazon Linux 2 v4.2.3 running Tomcat 7 Corretto 11_     | 2.0.20210701 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.48 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.3**<br>_64bit Amazon Linux 2 v4.2.3 running Tomcat 7 Corretto 8_       | 2.0.20210701 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.48 |
-| **Java 8 with Tomcat 8.5 version 3.4.9**<br>_64bit Amazon Linux 2018.03 v3.4.9 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_292       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.48 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.9**<br>_64bit Amazon Linux 2018.03 v3.4.9 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.48 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.9**<br>_64bit Amazon Linux 2018.03 v3.4.9 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_292      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.48 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.9**<br>_64bit Amazon Linux 2018.03 v3.4.9 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.48 (default), Nginx 1.18.0 |
 
 ## July 8, 2021 – July 20, 2021
 
@@ -1385,8 +1385,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.1**<br>_64bit Amazon Linux 2 v4.2.1 running Tomcat 8.5 Corretto 8_   | 2.0.20210525 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.1**<br>_64bit Amazon Linux 2 v4.2.1 running Tomcat 7 Corretto 11_     | 2.0.20210525 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.1**<br>_64bit Amazon Linux 2 v4.2.1 running Tomcat 7 Corretto 8_       | 2.0.20210525 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.8**<br>_64bit Amazon Linux 2018.03 v3.4.8 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.8**<br>_64bit Amazon Linux 2018.03 v3.4.8 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.8**<br>_64bit Amazon Linux 2018.03 v3.4.8 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.8**<br>_64bit Amazon Linux 2018.03 v3.4.8 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## July 7, 2021 – July 7, 2021
 
@@ -1396,10 +1396,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | ----------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | --------- | ------------------ | ------------------------------------- |
 | **Corretto 11 with Tomcat 8.5 AL2 version 4.2.2**<br>_64bit Amazon Linux 2 v4.2.2 running Tomcat 8.5 Corretto 11_ | 2.0.20210617 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.2**<br>_64bit Amazon Linux 2 v4.2.2 running Tomcat 8.5 Corretto 8_   | 2.0.20210617 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.2**<br>_64bit Amazon Linux 2 v4.2.2 running Tomcat 7 Corretto 11_     | 2.0.20210617 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.2**<br>_64bit Amazon Linux 2 v4.2.2 running Tomcat 7 Corretto 8_       | 2.0.20210617 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.46 |
-| **Java 7 with Tomcat 7 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## June 11, 2021 – July 6, 2021
 
@@ -1409,10 +1409,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | ----------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | --------- | ------------------ | ------------------------------------- |
 | **Corretto 11 with Tomcat 8.5 AL2 version 4.2.1**<br>_64bit Amazon Linux 2 v4.2.1 running Tomcat 8.5 Corretto 11_ | 2.0.20210525 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.1**<br>_64bit Amazon Linux 2 v4.2.1 running Tomcat 8.5 Corretto 8_   | 2.0.20210525 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.1**<br>_64bit Amazon Linux 2 v4.2.1 running Tomcat 7 Corretto 11_     | 2.0.20210525 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.1**<br>_64bit Amazon Linux 2 v4.2.1 running Tomcat 7 Corretto 8_       | 2.0.20210525 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.46 |
-| **Java 7 with Tomcat 7 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## June 1, 2021 – June 10, 2021
 
@@ -1422,10 +1422,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | ----------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | --------- | ------------------ | ------------------------------------- |
 | **Corretto 11 with Tomcat 8.5 AL2 version 4.2.0**<br>_64bit Amazon Linux 2 v4.2.0 running Tomcat 8.5 Corretto 11_ | 2.0.20210427 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.2.0**<br>_64bit Amazon Linux 2 v4.2.0 running Tomcat 8.5 Corretto 8_   | 2.0.20210427 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.20.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.2.0**<br>_64bit Amazon Linux 2 v4.2.0 running Tomcat 7 Corretto 11_     | 2.0.20210427 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.2.0**<br>_64bit Amazon Linux 2 v4.2.0 running Tomcat 7 Corretto 8_       | 2.0.20210427 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.20.0 (default), Apache 2.4.46 |
-| **Java 7 with Tomcat 7 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## May 26, 2021 – May 31, 2021
 
@@ -1435,10 +1435,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | ----------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | --------- | ------------------ | ------------------------------------- |
 | **Corretto 11 with Tomcat 8.5 AL2 version 4.1.8**<br>_64bit Amazon Linux 2 v4.1.8 running Tomcat 8.5 Corretto 11_ | 2.0.20210421 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 8.5.63      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.8**<br>_64bit Amazon Linux 2 v4.1.8 running Tomcat 8.5 Corretto 8_   | 2.0.20210421 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.8**<br>_64bit Amazon Linux 2 v4.1.8 running Tomcat 7 Corretto 11_     | 2.0.20210421 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.8**<br>_64bit Amazon Linux 2 v4.1.8 running Tomcat 7 Corretto 8_       | 2.0.20210421 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 7 with Tomcat 7 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.7**<br>_64bit Amazon Linux 2018.03 v3.4.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## May 3, 2021 – May 25, 2021
 
@@ -1448,10 +1448,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | ----------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | --------- | ------------------ | ------------------------------------- |
 | **Corretto 11 with Tomcat 8.5 AL2 version 4.1.8**<br>_64bit Amazon Linux 2 v4.1.8 running Tomcat 8.5 Corretto 11_ | 2.0.20210421 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 8.5.63      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.8**<br>_64bit Amazon Linux 2 v4.1.8 running Tomcat 8.5 Corretto 8_   | 2.0.20210421 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.6**<br>_64bit Amazon Linux 2018.03 v3.4.6 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.6**<br>_64bit Amazon Linux 2018.03 v3.4.6 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.8**<br>_64bit Amazon Linux 2 v4.1.8 running Tomcat 7 Corretto 11_     | 2.0.20210421 | Corretto 11.0.11.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.8**<br>_64bit Amazon Linux 2 v4.1.8 running Tomcat 7 Corretto 8_       | 2.0.20210421 | Corretto 8.292.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 7 with Tomcat 7 version 3.4.6**<br>_64bit Amazon Linux 2018.03 v3.4.6 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.6**<br>_64bit Amazon Linux 2018.03 v3.4.6 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## April 21, 2021 – May 2, 2021
 
@@ -1463,8 +1463,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.7**<br>_64bit Amazon Linux 2 v4.1.7 running Tomcat 8.5 Corretto 8_   | 2.0.20210326 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.7**<br>_64bit Amazon Linux 2 v4.1.7 running Tomcat 7 Corretto 11_     | 2.0.20210326 | Corretto 11.0.10.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.7**<br>_64bit Amazon Linux 2 v4.1.7 running Tomcat 7 Corretto 8_       | 2.0.20210326 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.6**<br>_64bit Amazon Linux 2018.03 v3.4.6 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.6**<br>_64bit Amazon Linux 2018.03 v3.4.6 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.6**<br>_64bit Amazon Linux 2018.03 v3.4.6 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.6**<br>_64bit Amazon Linux 2018.03 v3.4.6 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.108     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## March 31, 2021 – April 20, 2021
 
@@ -1476,8 +1476,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.7**<br>_64bit Amazon Linux 2 v4.1.7 running Tomcat 8.5 Corretto 8_   | 2.0.20210326 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 8.5.63      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.7**<br>_64bit Amazon Linux 2 v4.1.7 running Tomcat 7 Corretto 11_     | 2.0.20210326 | Corretto 11.0.10.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.7**<br>_64bit Amazon Linux 2 v4.1.7 running Tomcat 7 Corretto 8_       | 2.0.20210326 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.5**<br>_64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.5**<br>_64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.5**<br>_64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.5**<br>_64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## March 30, 2021 – March 30, 2021
 
@@ -1489,8 +1489,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 8.5 Corretto 8_   | 2.0.20210219 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 8.5.60      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 7 Corretto 11_     | 2.0.20210219 | Corretto 11.0.10.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 7 Corretto 8_       | 2.0.20210219 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.5**<br>_64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_282       | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.5**<br>_64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.5**<br>_64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_282      | 3.1.0     | Tomcat 8.5.63      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.5**<br>_64bit Amazon Linux 2018.03 v3.4.5 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## March 1, 2021 – March 29, 2021
 
@@ -1502,8 +1502,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 8.5 Corretto 8_   | 2.0.20210219 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 8.5.60      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 7 Corretto 11_     | 2.0.20210219 | Corretto 11.0.10.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 7 Corretto 8_       | 2.0.20210219 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.4**<br>_64bit Amazon Linux 2018.03 v3.4.4 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_272       | 3.1.0     | Tomcat 8.5.60      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.4**<br>_64bit Amazon Linux 2018.03 v3.4.4 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.4**<br>_64bit Amazon Linux 2018.03 v3.4.4 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_272      | 3.1.0     | Tomcat 8.5.60      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.4**<br>_64bit Amazon Linux 2018.03 v3.4.4 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## February 26, 2021 – February 28, 2021
 
@@ -1515,8 +1515,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 8.5 Corretto 8_   | 2.0.20210219 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 8.5.60      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 7 Corretto 11_     | 2.0.20210219 | Corretto 11.0.10.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.6**<br>_64bit Amazon Linux 2 v4.1.6 running Tomcat 7 Corretto 8_       | 2.0.20210219 | Corretto 8.282.08.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_272       | 3.1.0     | Tomcat 8.5.60      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_272      | 3.1.0     | Tomcat 8.5.60      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## January 29, 2021 – February 25, 2021
 
@@ -1528,8 +1528,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.5**<br>_64bit Amazon Linux 2 v4.1.5 running Tomcat 8.5 Corretto 8_   | 2.0.20210126 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 8.5.60      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.5**<br>_64bit Amazon Linux 2 v4.1.5 running Tomcat 7 Corretto 11_     | 2.0.20210126 | Corretto 11.0.10.9.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.5**<br>_64bit Amazon Linux 2 v4.1.5 running Tomcat 7 Corretto 8_       | 2.0.20210126 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_272       | 3.1.0     | Tomcat 8.5.60      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_272      | 3.1.0     | Tomcat 8.5.60      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## January 28, 2021 – January 28, 2021
 
@@ -1541,8 +1541,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 8.5 Corretto 8_   | 2.0.20201218 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 8.5.58      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 7 Corretto 11_     | 2.0.20201218 | Corretto 11.0.9.12.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 7 Corretto 8_       | 2.0.20201218 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_272       | 3.1.0     | Tomcat 8.5.60      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_272      | 3.1.0     | Tomcat 8.5.60      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.3**<br>_64bit Amazon Linux 2018.03 v3.4.3 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.107     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## December 30, 2020 – January 27, 2021
 
@@ -1554,8 +1554,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 8.5 Corretto 8_   | 2.0.20201218 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 8.5.58      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 7 Corretto 11_     | 2.0.20201218 | Corretto 11.0.9.12.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 7 Corretto 8_       | 2.0.20201218 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.2**<br>_64bit Amazon Linux 2018.03 v3.4.2 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_265       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.2**<br>_64bit Amazon Linux 2018.03 v3.4.2 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.2**<br>_64bit Amazon Linux 2018.03 v3.4.2 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_265      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.2**<br>_64bit Amazon Linux 2018.03 v3.4.2 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## December 29, 2020 – December 29, 2020
 
@@ -1567,8 +1567,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 8.5 Corretto 8_   | 2.0.20201218 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 8.5.58      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 7 Corretto 11_     | 2.0.20201218 | Corretto 11.0.9.12.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.4**<br>_64bit Amazon Linux 2 v4.1.4 running Tomcat 7 Corretto 8_       | 2.0.20201218 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.1**<br>_64bit Amazon Linux 2018.03 v3.4.1 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_265       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.1**<br>_64bit Amazon Linux 2018.03 v3.4.1 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.1**<br>_64bit Amazon Linux 2018.03 v3.4.1 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_265      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.1**<br>_64bit Amazon Linux 2018.03 v3.4.1 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## November 11, 2020 – December 28, 2020
 
@@ -1580,8 +1580,8 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.3**<br>_64bit Amazon Linux 2 v4.1.3 running Tomcat 8.5 Corretto 8_   | 2.0.20200917 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 8.5.58      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.3**<br>_64bit Amazon Linux 2 v4.1.3 running Tomcat 7 Corretto 11_     | 2.0.20200917 | Corretto 11.0.9.11.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.3**<br>_64bit Amazon Linux 2 v4.1.3 running Tomcat 7 Corretto 8_       | 2.0.20200917 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46 |
-| **Java 8 with Tomcat 8.5 version 3.4.1**<br>_64bit Amazon Linux 2018.03 v3.4.1 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_265       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.1**<br>_64bit Amazon Linux 2018.03 v3.4.1 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.1**<br>_64bit Amazon Linux 2018.03 v3.4.1 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_265      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.1**<br>_64bit Amazon Linux 2018.03 v3.4.1 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Nginx 1.18.0 |
 
 ## November 10, 2020 – November 10, 2020
 
@@ -1593,10 +1593,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.3**<br>_64bit Amazon Linux 2 v4.1.3 running Tomcat 8.5 Corretto 8_   | 2.0.20200917 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 8.5.58      | nginx 1.18.0 (default), Apache 2.4.46                |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.3**<br>_64bit Amazon Linux 2 v4.1.3 running Tomcat 7 Corretto 11_     | 2.0.20200917 | Corretto 11.0.9.11.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46                |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.3**<br>_64bit Amazon Linux 2 v4.1.3 running Tomcat 7 Corretto 8_       | 2.0.20200917 | Corretto 8.272.10.3  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46                |
-| **Java 8 with Tomcat 8.5 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_265       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
-| **Java 8 with Tomcat 8 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_265       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
-| **Java 6 with Tomcat 7 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_265      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
+| **Java 8 with Tomcat 8 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_265      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
+| **Java 6 with Tomcat 7 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
 
 ## October 7, 2020 – November 9, 2020
 
@@ -1608,10 +1608,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.2**<br>_64bit Amazon Linux 2 v4.1.2 running Tomcat 8.5 Corretto 8_   | 2.0.20200928 | Corretto 8.265.01.1  | 3.2.0     | Tomcat 8.5.57      | nginx 1.18.0 (default), Apache 2.4.46                |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.2**<br>_64bit Amazon Linux 2 v4.1.2 running Tomcat 7 Corretto 11_     | 2.0.20200928 | Corretto 11.0.8.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46                |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.2**<br>_64bit Amazon Linux 2 v4.1.2 running Tomcat 7 Corretto 8_       | 2.0.20200928 | Corretto 8.265.01.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46                |
-| **Java 8 with Tomcat 8.5 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_265       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
-| **Java 7 with Tomcat 7 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
-| **Java 8 with Tomcat 8 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_265       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
-| **Java 6 with Tomcat 7 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
+| **Java 8 with Tomcat 8.5 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_265      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
+| **Java 7 with Tomcat 7 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
+| **Java 8 with Tomcat 8 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_265      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
+| **Java 6 with Tomcat 7 version 3.4.0**<br>_64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.18.0 |
 
 ## October 6, 2020 – October 6, 2020
 
@@ -1623,10 +1623,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.2**<br>_64bit Amazon Linux 2 v4.1.2 running Tomcat 8.5 Corretto 8_   | 2.0.20200928 | Corretto 8.265.01.1  | 3.2.0     | Tomcat 8.5.57      | nginx 1.18.0 (default), Apache 2.4.46                |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.2**<br>_64bit Amazon Linux 2 v4.1.2 running Tomcat 7 Corretto 11_     | 2.0.20200928 | Corretto 11.0.8.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46                |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.2**<br>_64bit Amazon Linux 2 v4.1.2 running Tomcat 7 Corretto 8_       | 2.0.20200928 | Corretto 8.265.01.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.46                |
-| **Java 8 with Tomcat 8.5 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 8 Java 8_           | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 7 Java 6_           | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 8 Java 8_           | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 7 Java 6_           | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## September 10, 2020 – October 5, 2020
 
@@ -1638,10 +1638,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.1**<br>_64bit Amazon Linux 2 v4.1.1 running Tomcat 8.5 Corretto 8_   | 2.0.20200827 | Corretto 8.265.01.1  | 3.2.0     | Tomcat 8.5.56      | nginx 1.18.0 (default), Apache 2.4.43                |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.1**<br>_64bit Amazon Linux 2 v4.1.1 running Tomcat 7 Corretto 11_     | 2.0.20200827 | Corretto 11.0.8.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.43                |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.1**<br>_64bit Amazon Linux 2 v4.1.1 running Tomcat 7 Corretto 8_       | 2.0.20200827 | Corretto 8.265.01.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.43                |
-| **Java 8 with Tomcat 8.5 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 8 Java 8_           | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 7 Java 6_           | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 8.5 Java 8_       | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 7 Java 7_           | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 8 Java 8_           | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.10**<br>_64bit Amazon Linux 2018.03 v3.3.10 running Tomcat 7 Java 6_           | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.46 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## September 3, 2020 – September 9, 2020
 
@@ -1653,10 +1653,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.1**<br>_64bit Amazon Linux 2 v4.1.1 running Tomcat 8.5 Corretto 8_   | 2.0.20200827 | Corretto 8.265.01.1  | 3.2.0     | Tomcat 8.5.56      | nginx 1.18.0 (default), Apache 2.4.43                |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.1**<br>_64bit Amazon Linux 2 v4.1.1 running Tomcat 7 Corretto 11_     | 2.0.20200827 | Corretto 11.0.8.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.43                |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.1**<br>_64bit Amazon Linux 2 v4.1.1 running Tomcat 7 Corretto 8_       | 2.0.20200827 | Corretto 8.265.01.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.43                |
-| **Java 8 with Tomcat 8.5 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## August 7, 2020 – September 2, 2020
 
@@ -1668,10 +1668,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.0**<br>_64bit Amazon Linux 2 v4.1.0 running Tomcat 8.5 Corretto 8_   | 2.0.20200723 | Corretto 8.262.10.1  | 3.2.0     | Tomcat 8.5.56      | nginx 1.18.0 (default), Apache 2.4.43                |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.0**<br>_64bit Amazon Linux 2 v4.1.0 running Tomcat 7 Corretto 11_     | 2.0.20200723 | Corretto 11.0.8.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.43                |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.0**<br>_64bit Amazon Linux 2 v4.1.0 running Tomcat 7 Corretto 8_       | 2.0.20200723 | Corretto 8.262.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.43                |
-| **Java 8 with Tomcat 8.5 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.5.57      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.9**<br>_64bit Amazon Linux 2018.03 v3.3.9 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## August 4, 2020 – August 6, 2020
 
@@ -1683,10 +1683,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.1.0**<br>_64bit Amazon Linux 2 v4.1.0 running Tomcat 8.5 Corretto 8_   | 2.0.20200723 | Corretto 8.262.10.1  | 3.2.0     | Tomcat 8.5.56      | nginx 1.18.0 (default), Apache 2.4.43                |
 | **Corretto 11 with Tomcat 7 AL2 version 4.1.0**<br>_64bit Amazon Linux 2 v4.1.0 running Tomcat 7 Corretto 11_     | 2.0.20200723 | Corretto 11.0.8.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.43                |
 | **Corretto 8 with Tomcat 7 AL2 version 4.1.0**<br>_64bit Amazon Linux 2 v4.1.0 running Tomcat 7 Corretto 8_       | 2.0.20200723 | Corretto 8.262.10.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.18.0 (default), Apache 2.4.43                |
-| **Java 8 with Tomcat 8.5 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.5.56      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.5.56      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## July 6, 2020 – August 3, 2020
 
@@ -1698,10 +1698,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.0.1**<br>_64bit Amazon Linux 2 v4.0.1 running Tomcat 8.5 Corretto 8_   | 2.0.20200603 | Corretto 8.252.09.1  | 3.2.0     | Tomcat 8.5.51      | nginx 1.16.1                                         |
 | **Corretto 11 with Tomcat 7 AL2 version 4.0.1**<br>_64bit Amazon Linux 2 v4.0.1 running Tomcat 7 Corretto 11_     | 2.0.20200603 | Corretto 11.0.7.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.16.1                                         |
 | **Corretto 8 with Tomcat 7 AL2 version 4.0.1**<br>_64bit Amazon Linux 2 v4.0.1 running Tomcat 7 Corretto 8_       | 2.0.20200603 | Corretto 8.252.09.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.16.1                                         |
-| **Java 8 with Tomcat 8.5 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.5.56      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.5.56      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.8**<br>_64bit Amazon Linux 2018.03 v3.3.8 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.104     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## June 23, 2020 – July 5, 2020
 
@@ -1713,10 +1713,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.0.1**<br>_64bit Amazon Linux 2 v4.0.1 running Tomcat 8.5 Corretto 8_   | 2.0.20200603 | Corretto 8.252.09.1  | 3.2.0     | Tomcat 8.5.51      | nginx 1.16.1                                         |
 | **Corretto 11 with Tomcat 7 AL2 version 4.0.1**<br>_64bit Amazon Linux 2 v4.0.1 running Tomcat 7 Corretto 11_     | 2.0.20200603 | Corretto 11.0.7.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.16.1                                         |
 | **Corretto 8 with Tomcat 7 AL2 version 4.0.1**<br>_64bit Amazon Linux 2 v4.0.1 running Tomcat 7 Corretto 8_       | 2.0.20200603 | Corretto 8.252.09.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.16.1                                         |
-| **Java 8 with Tomcat 8.5 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## June 5, 2020 – June 22, 2020
 
@@ -1728,10 +1728,10 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.0.0**<br>_64bit Amazon Linux 2 v4.0.0 running Tomcat 8.5 Corretto 8_   | 2.0.20200520 | Corretto 8.252.09.1  | 3.2.0     | Tomcat 8.5.51      | nginx 1.16.1                                         |
 | **Corretto 11 with Tomcat 7 AL2 version 4.0.0**<br>_64bit Amazon Linux 2 v4.0.0 running Tomcat 7 Corretto 11_     | 2.0.20200520 | Corretto 11.0.7.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.16.1                                         |
 | **Corretto 8 with Tomcat 7 AL2 version 4.0.0**<br>_64bit Amazon Linux 2 v4.0.0 running Tomcat 7 Corretto 8_       | 2.0.20200520 | Corretto 8.252.09.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.16.1                                         |
-| **Java 8 with Tomcat 8.5 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_261       | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_252       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_261      | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_252      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.7**<br>_64bit Amazon Linux 2018.03 v3.3.7 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.43 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## June 3, 2020 – June 4, 2020
 
@@ -1743,626 +1743,626 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 | **Corretto 8 with Tomcat 8.5 AL2 version 4.0.0**<br>_64bit Amazon Linux 2 v4.0.0 running Tomcat 8.5 Corretto 8_   | 2.0.20200520 | Corretto 8.252.09.1  | 3.2.0     | Tomcat 8.5.51      | nginx 1.16.1                                         |
 | **Corretto 11 with Tomcat 7 AL2 version 4.0.0**<br>_64bit Amazon Linux 2 v4.0.0 running Tomcat 7 Corretto 11_     | 2.0.20200520 | Corretto 11.0.7.10.1 | 3.2.0     | Tomcat 7.0.76      | nginx 1.16.1                                         |
 | **Corretto 8 with Tomcat 7 AL2 version 4.0.0**<br>_64bit Amazon Linux 2 v4.0.0 running Tomcat 7 Corretto 8_       | 2.0.20200520 | Corretto 8.252.09.1  | 3.2.0     | Tomcat 7.0.76      | nginx 1.16.1                                         |
-| **Java 8 with Tomcat 8.5 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0_242       | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0_251       | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0_242       | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0_41        | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8.5 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8.5 Java 8_         | 2018.03.0    | Java 1.8.0\_242      | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 7 Java 7_             | 2018.03.0    | Java 1.7.0\_251      | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8 Java 8_             | 2018.03.0    | Java 1.8.0\_242      | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 7 Java 6_             | 2018.03.0    | Java 1.6.0\_41       | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## May 4, 2020 – June 2, 2020
 
 The following Elastic Beanstalk platform versions for Tomcat were current between May 4, 2020 and June 2, 2020:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_242 | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_251 | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_242 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_242 | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_251 | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_242 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.6**<br>_64bit Amazon Linux 2018.03 v3.3.6 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## March 27, 2020 – May 3, 2020
 
 The following Elastic Beanstalk platform versions for Tomcat were current between March 27, 2020 and May 3, 2020:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.3.4**<br>_64bit Amazon Linux 2018.03 v3.3.4 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_242 | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.4**<br>_64bit Amazon Linux 2018.03 v3.3.4 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_251 | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.4**<br>_64bit Amazon Linux 2018.03 v3.3.4 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_242 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.4**<br>_64bit Amazon Linux 2018.03 v3.3.4 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.3.4**<br>_64bit Amazon Linux 2018.03 v3.3.4 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_242 | 3.1.0     | Tomcat 8.5.51      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.4**<br>_64bit Amazon Linux 2018.03 v3.3.4 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_251 | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.4**<br>_64bit Amazon Linux 2018.03 v3.3.4 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_242 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.4**<br>_64bit Amazon Linux 2018.03 v3.3.4 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.1.0     | Tomcat 7.0.100     | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## February 28, 2020 – March 26, 2020
 
 The following Elastic Beanstalk platform versions for Tomcat were current between February 28, 2020 and March 26, 2020:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_232 | 3.1.0     | Tomcat 8.5.50      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_232 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_232 | 3.1.0     | Tomcat 8.5.50      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_232 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## January 21, 2020 – February 27, 2020
 
 The following Elastic Beanstalk platform versions for Tomcat were current between January 21, 2020 and February 27, 2020:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.3.2**<br>_64bit Amazon Linux 2018.03 v3.3.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_232 | 3.1.0     | Tomcat 8.5.50      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.2**<br>_64bit Amazon Linux 2018.03 v3.3.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.2**<br>_64bit Amazon Linux 2018.03 v3.3.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_232 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.2**<br>_64bit Amazon Linux 2018.03 v3.3.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.3.2**<br>_64bit Amazon Linux 2018.03 v3.3.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_232 | 3.1.0     | Tomcat 8.5.50      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.2**<br>_64bit Amazon Linux 2018.03 v3.3.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.2**<br>_64bit Amazon Linux 2018.03 v3.3.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_232 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.2**<br>_64bit Amazon Linux 2018.03 v3.3.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## November 25, 2019 – January 20, 2020
 
 The following Elastic Beanstalk platform versions for Tomcat were current between November 25, 2019 and January 20, 2020:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.3.1**<br>_64bit Amazon Linux 2018.03 v3.3.1 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_222 | 3.1.0     | Tomcat 8.5.42      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.1**<br>_64bit Amazon Linux 2018.03 v3.3.1 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.1**<br>_64bit Amazon Linux 2018.03 v3.3.1 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_222 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.1**<br>_64bit Amazon Linux 2018.03 v3.3.1 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.3.1**<br>_64bit Amazon Linux 2018.03 v3.3.1 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_222 | 3.1.0     | Tomcat 8.5.42      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.1**<br>_64bit Amazon Linux 2018.03 v3.3.1 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.1**<br>_64bit Amazon Linux 2018.03 v3.3.1 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_222 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.1**<br>_64bit Amazon Linux 2018.03 v3.3.1 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## October 17, 2019 – November 24, 2019
 
 The following Elastic Beanstalk platform versions for Tomcat were current between October 17, 2019 and November 24, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.3.0**<br>_64bit Amazon Linux 2018.03 v3.3.0 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_222 | 3.1.0     | Tomcat 8.5.42      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.0**<br>_64bit Amazon Linux 2018.03 v3.3.0 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 8 with Tomcat 8 version 3.3.0**<br>_64bit Amazon Linux 2018.03 v3.3.0 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_222 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 6 with Tomcat 7 version 3.3.0**<br>_64bit Amazon Linux 2018.03 v3.3.0 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.3.0**<br>_64bit Amazon Linux 2018.03 v3.3.0 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_222 | 3.1.0     | Tomcat 8.5.42      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.0**<br>_64bit Amazon Linux 2018.03 v3.3.0 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 8 with Tomcat 8 version 3.3.0**<br>_64bit Amazon Linux 2018.03 v3.3.0 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_222 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 6 with Tomcat 7 version 3.3.0**<br>_64bit Amazon Linux 2018.03 v3.3.0 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ## September 6, 2019 – October 16, 2019
 
 The following Elastic Beanstalk platform versions for Tomcat were current between September 6, 2019 and October 16, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.2.2**<br>_64bit Amazon Linux 2018.03 v3.2.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_222 | 3.1.0     | Tomcat 8.5.42      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.2.2**<br>_64bit Amazon Linux 2018.03 v3.2.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.2.2**<br>_64bit Amazon Linux 2018.03 v3.2.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_222 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.2.2**<br>_64bit Amazon Linux 2018.03 v3.2.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.2.2**<br>_64bit Amazon Linux 2018.03 v3.2.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_222 | 3.1.0     | Tomcat 8.5.42      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.2.2**<br>_64bit Amazon Linux 2018.03 v3.2.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.2.2**<br>_64bit Amazon Linux 2018.03 v3.2.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_222 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.2.2**<br>_64bit Amazon Linux 2018.03 v3.2.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 ## August 8, 2019 – September 5, 2019
 
 The following Elastic Beanstalk platform versions for Tomcat were current between August 8, 2019 and September 5, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.2.1**<br>_64bit Amazon Linux 2018.03 v3.2.1 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_201 | 3.1.0     | Tomcat 8.5.42      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.2.1**<br>_64bit Amazon Linux 2018.03 v3.2.1 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_211 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.2.1**<br>_64bit Amazon Linux 2018.03 v3.2.1 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_201 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.2.1**<br>_64bit Amazon Linux 2018.03 v3.2.1 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.2.1**<br>_64bit Amazon Linux 2018.03 v3.2.1 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_201 | 3.1.0     | Tomcat 8.5.42      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.2.1**<br>_64bit Amazon Linux 2018.03 v3.2.1 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_211 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.2.1**<br>_64bit Amazon Linux 2018.03 v3.2.1 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_201 | 3.1.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.2.1**<br>_64bit Amazon Linux 2018.03 v3.2.1 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 ## June 17, 2019 – August 7, 2019
 
 The following Elastic Beanstalk platform versions for Tomcat were current between June 17, 2019 and August 7, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.6**<br>_64bit Amazon Linux 2018.03 v3.1.6 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.6**<br>_64bit Amazon Linux 2018.03 v3.1.6 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.1.6**<br>_64bit Amazon Linux 2018.03 v3.1.6 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.1.6**<br>_64bit Amazon Linux 2018.03 v3.1.6 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.6**<br>_64bit Amazon Linux 2018.03 v3.1.6 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.6**<br>_64bit Amazon Linux 2018.03 v3.1.6 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.1.6**<br>_64bit Amazon Linux 2018.03 v3.1.6 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.1.6**<br>_64bit Amazon Linux 2018.03 v3.1.6 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between June 14, 2019 and June 16, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between June 7, 2019 and June 13, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between April 30, 2019 and June 6, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.3**<br>_64bit Amazon Linux 2018.03 v3.1.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.5.32      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.1.3**<br>_64bit Amazon Linux 2018.03 v3.1.3 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.3**<br>_64bit Amazon Linux 2018.03 v3.1.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.1.3**<br>_64bit Amazon Linux 2018.03 v3.1.3 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.3**<br>_64bit Amazon Linux 2018.03 v3.1.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.5.32      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.1.3**<br>_64bit Amazon Linux 2018.03 v3.1.3 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.3**<br>_64bit Amazon Linux 2018.03 v3.1.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.1.3**<br>_64bit Amazon Linux 2018.03 v3.1.3 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between April 2, 2019 and April 29, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.2**<br>_64bit Amazon Linux 2018.03 v3.1.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_191 | 3.0.0     | Tomcat 8.5.32      | Apache 2.4.38 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.1.2**<br>_64bit Amazon Linux 2018.03 v3.1.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_191 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.38 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.2**<br>_64bit Amazon Linux 2018.03 v3.1.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_201 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.38 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.1.2**<br>_64bit Amazon Linux 2018.03 v3.1.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.38 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.2**<br>_64bit Amazon Linux 2018.03 v3.1.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_191 | 3.0.0     | Tomcat 8.5.32      | Apache 2.4.38 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.1.2**<br>_64bit Amazon Linux 2018.03 v3.1.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_191 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.38 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.2**<br>_64bit Amazon Linux 2018.03 v3.1.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_201 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.38 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.1.2**<br>_64bit Amazon Linux 2018.03 v3.1.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.38 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between February 21, 2019 and April 1, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.1**<br>_64bit Amazon Linux 2018.03 v3.1.1 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_191 | 3.0.0     | Tomcat 8.5.32      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.1.1**<br>_64bit Amazon Linux 2018.03 v3.1.1 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_191 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.1**<br>_64bit Amazon Linux 2018.03 v3.1.1 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.201 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.1.1**<br>_64bit Amazon Linux 2018.03 v3.1.1 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.1**<br>_64bit Amazon Linux 2018.03 v3.1.1 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_191 | 3.0.0     | Tomcat 8.5.32      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.1.1**<br>_64bit Amazon Linux 2018.03 v3.1.1 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_191 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.1**<br>_64bit Amazon Linux 2018.03 v3.1.1 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.201  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.1.1**<br>_64bit Amazon Linux 2018.03 v3.1.1 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between January 23, 2019 and February 20, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.0**<br>_64bit Amazon Linux 2018.03 v3.1.0 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_191 | 3.0.0     | Tomcat 8.5.32      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 8 with Tomcat 8 version 3.1.0**<br>_64bit Amazon Linux 2018.03 v3.1.0 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_191 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.0**<br>_64bit Amazon Linux 2018.03 v3.1.0 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.201 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 6 with Tomcat 7 version 3.1.0**<br>_64bit Amazon Linux 2018.03 v3.1.0 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.0**<br>_64bit Amazon Linux 2018.03 v3.1.0 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_191 | 3.0.0     | Tomcat 8.5.32      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 8 with Tomcat 8 version 3.1.0**<br>_64bit Amazon Linux 2018.03 v3.1.0 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_191 | 3.0.0     | Tomcat 8.0.53      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.0**<br>_64bit Amazon Linux 2018.03 v3.1.0 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.201  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 6 with Tomcat 7 version 3.1.0**<br>_64bit Amazon Linux 2018.03 v3.1.0 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.37 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between December 17, 2018 and January 22, 2019:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.7**<br>_64bit Amazon Linux 2018.03 v3.0.7 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_191 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.7**<br>_64bit Amazon Linux 2018.03 v3.0.7 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_191 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.7**<br>_64bit Amazon Linux 2018.03 v3.0.7 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.191 | 2.0.0     | Tomcat 7.0.91      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.7**<br>_64bit Amazon Linux 2018.03 v3.0.7 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.91      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.7**<br>_64bit Amazon Linux 2018.03 v3.0.7 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_191 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.7**<br>_64bit Amazon Linux 2018.03 v3.0.7 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_191 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.7**<br>_64bit Amazon Linux 2018.03 v3.0.7 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.191  | 2.0.0     | Tomcat 7.0.91      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.7**<br>_64bit Amazon Linux 2018.03 v3.0.7 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.91      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between November 16, 2018 and December 16, 2018:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.6**<br>_64bit Amazon Linux 2018.03 v3.0.6 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_191 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.6**<br>_64bit Amazon Linux 2018.03 v3.0.6 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_191 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.6**<br>_64bit Amazon Linux 2018.03 v3.0.6 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.191 | 2.0.0     | Tomcat 7.0.91      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.6**<br>_64bit Amazon Linux 2018.03 v3.0.6 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.91      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.6**<br>_64bit Amazon Linux 2018.03 v3.0.6 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_191 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.6**<br>_64bit Amazon Linux 2018.03 v3.0.6 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_191 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.6**<br>_64bit Amazon Linux 2018.03 v3.0.6 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.191  | 2.0.0     | Tomcat 7.0.91      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.6**<br>_64bit Amazon Linux 2018.03 v3.0.6 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.91      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between October 29, 2018 and November 15, 2018:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.5**<br>_64bit Amazon Linux 2018.03 v3.0.5 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.5**<br>_64bit Amazon Linux 2018.03 v3.0.5 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.5**<br>_64bit Amazon Linux 2018.03 v3.0.5 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.191 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.5**<br>_64bit Amazon Linux 2018.03 v3.0.5 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.5**<br>_64bit Amazon Linux 2018.03 v3.0.5 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.5**<br>_64bit Amazon Linux 2018.03 v3.0.5 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.5**<br>_64bit Amazon Linux 2018.03 v3.0.5 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.191  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.5**<br>_64bit Amazon Linux 2018.03 v3.0.5 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between September 25, 2018 and October 28, 2018:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.4**<br>_64bit Amazon Linux 2018.03 v3.0.4 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.4**<br>_64bit Amazon Linux 2018.03 v3.0.4 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.4**<br>_64bit Amazon Linux 2018.03 v3.0.4 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.191 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.4**<br>_64bit Amazon Linux 2018.03 v3.0.4 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.4**<br>_64bit Amazon Linux 2018.03 v3.0.4 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.4**<br>_64bit Amazon Linux 2018.03 v3.0.4 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.4**<br>_64bit Amazon Linux 2018.03 v3.0.4 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0.191  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.4**<br>_64bit Amazon Linux 2018.03 v3.0.4 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.34 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between August 20, 2018 and September 24, 2018:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_181 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_181 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between August 15, 2018 and August 19, 2018:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_181 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_181 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between June 21, 2018 and August 14, 2018:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.1**<br>_64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_171 | 2.0.0     | Tomcat 8.5.29      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.1**<br>_64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_171 | 2.0.0     | Tomcat 8.0.50      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.1**<br>_64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_181 | 2.0.0     | Tomcat 7.0.85      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.1**<br>_64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.85      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.1**<br>_64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_171 | 2.0.0     | Tomcat 8.5.29      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.1**<br>_64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_171 | 2.0.0     | Tomcat 8.0.50      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.1**<br>_64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_181 | 2.0.0     | Tomcat 7.0.85      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.1**<br>_64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.85      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between May 24, 2018 and June 20, 2018:
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.0**<br>_64bit Amazon Linux 2018.03 v3.0.0 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_171 | 2.0.0     | Tomcat 8.5.29      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.0**<br>_64bit Amazon Linux 2018.03 v3.0.0 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_171 | 2.0.0     | Tomcat 8.0.50      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.0**<br>_64bit Amazon Linux 2018.03 v3.0.0 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_181 | 2.0.0     | Tomcat 7.0.85      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.0**<br>_64bit Amazon Linux 2018.03 v3.0.0 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.85      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.0**<br>_64bit Amazon Linux 2018.03 v3.0.0 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_171 | 2.0.0     | Tomcat 8.5.29      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.0**<br>_64bit Amazon Linux 2018.03 v3.0.0 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_171 | 2.0.0     | Tomcat 8.0.50      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.0**<br>_64bit Amazon Linux 2018.03 v3.0.0 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_181 | 2.0.0     | Tomcat 7.0.85      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.0**<br>_64bit Amazon Linux 2018.03 v3.0.0 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.85      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between May 11, 2018 and May 23, 2018:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Tomcat 8 Java 8_ | 2018.03.0 | Java 1.8.0_171 | 2.0.0     | Tomcat 8.0.50      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Tomcat 7 Java 7_ | 2018.03.0 | Java 1.7.0_171 | 2.0.0     | Tomcat 7.0.85      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Tomcat 7 Java 6_ | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.85      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Tomcat 8 Java 8_ | 2018.03.0 | Java 1.8.0\_171 | 2.0.0     | Tomcat 8.0.50      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Tomcat 7 Java 7_ | 2018.03.0 | Java 1.7.0\_171 | 2.0.0     | Tomcat 7.0.85      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.8.0**<br>_64bit Amazon Linux 2018.03 v2.8.0 running Tomcat 7 Java 6_ | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.85      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between April 2, 2018 and May 10, 2018:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.7.7**<br>_64bit Amazon Linux 2017.09 v2.7.7 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0_161 | 2.0.0     | Tomcat 8.0.50      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.7.7**<br>_64bit Amazon Linux 2017.09 v2.7.7 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0_171 | 2.0.0     | Tomcat 7.0.85      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.7.7**<br>_64bit Amazon Linux 2017.09 v2.7.7 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.85      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.7.7**<br>_64bit Amazon Linux 2017.09 v2.7.7 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0\_161 | 2.0.0     | Tomcat 8.0.50      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.7.7**<br>_64bit Amazon Linux 2017.09 v2.7.7 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0\_171 | 2.0.0     | Tomcat 7.0.85      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.7.7**<br>_64bit Amazon Linux 2017.09 v2.7.7 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.85      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between February 22, 2018 and April 1, 2018:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.7.6**<br>_64bit Amazon Linux 2017.09 v2.7.6 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0_161 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.7.6**<br>_64bit Amazon Linux 2017.09 v2.7.6 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0_161 | 2.0.0     | Tomcat 7.0.84      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.7.6**<br>_64bit Amazon Linux 2017.09 v2.7.6 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.84      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.7.6**<br>_64bit Amazon Linux 2017.09 v2.7.6 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0\_161 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.7.6**<br>_64bit Amazon Linux 2017.09 v2.7.6 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0\_161 | 2.0.0     | Tomcat 7.0.84      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.7.6**<br>_64bit Amazon Linux 2017.09 v2.7.6 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.84      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between January 19, 2018 and February 21, 2018:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.7.5**<br>_64bit Amazon Linux 2017.09 v2.7.5 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.7.5**<br>_64bit Amazon Linux 2017.09 v2.7.5 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0_161 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.7.5**<br>_64bit Amazon Linux 2017.09 v2.7.5 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.7.5**<br>_64bit Amazon Linux 2017.09 v2.7.5 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0\_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.7.5**<br>_64bit Amazon Linux 2017.09 v2.7.5 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0\_161 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.7.5**<br>_64bit Amazon Linux 2017.09 v2.7.5 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between January 10, 2018 and January 18, 2018:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.7.4**<br>_64bit Amazon Linux 2017.09 v2.7.4 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.7.4**<br>_64bit Amazon Linux 2017.09 v2.7.4 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0_161 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.7.4**<br>_64bit Amazon Linux 2017.09 v2.7.4 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.7.4**<br>_64bit Amazon Linux 2017.09 v2.7.4 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0\_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.7.4**<br>_64bit Amazon Linux 2017.09 v2.7.4 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0\_161 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.7.4**<br>_64bit Amazon Linux 2017.09 v2.7.4 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between January 6, 2018 and January 9, 2018:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.7.3**<br>_64bit Amazon Linux 2017.09 v2.7.3 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.7.3**<br>_64bit Amazon Linux 2017.09 v2.7.3 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0_161 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.7.3**<br>_64bit Amazon Linux 2017.09 v2.7.3 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.7.3**<br>_64bit Amazon Linux 2017.09 v2.7.3 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0\_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.7.3**<br>_64bit Amazon Linux 2017.09 v2.7.3 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0\_161 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.7.3**<br>_64bit Amazon Linux 2017.09 v2.7.3 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between December 20, 2017 and January 5, 2018:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0_151 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0\_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0\_151 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.7.2**<br>_64bit Amazon Linux 2017.09 v2.7.2 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between November 20, 2017 and December 19, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0_151 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0\_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0\_151 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.7.1**<br>_64bit Amazon Linux 2017.09 v2.7.1 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between November 14, 2017 and November 19, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.7.0**<br>_64bit Amazon Linux 2017.09 v2.7.0 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.7.0**<br>_64bit Amazon Linux 2017.09 v2.7.0 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0_151 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.7.0**<br>_64bit Amazon Linux 2017.09 v2.7.0 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.7.0**<br>_64bit Amazon Linux 2017.09 v2.7.0 running Tomcat 8 Java 8_ | 2017.09.1 | Java 1.8.0\_151 | 2.0.0     | Tomcat 8.0.47      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.7.0**<br>_64bit Amazon Linux 2017.09 v2.7.0 running Tomcat 7 Java 7_ | 2017.09.1 | Java 1.7.0\_151 | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.7.0**<br>_64bit Amazon Linux 2017.09 v2.7.0 running Tomcat 7 Java 6_ | 2017.09.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.82      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between September 25, 2017 and November 13, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.6.5**<br>_64bit Amazon Linux 2017.03 v2.6.5 running Tomcat 8 Java 8_ | 2017.03.1 | Java 1.8.0_141 | 2.0.0     | Tomcat 8.0.45      | Apache 2.2.34 |
-| **Java 7 with Tomcat 7 version 2.6.5**<br>_64bit Amazon Linux 2017.03 v2.6.5 running Tomcat 7 Java 7_ | 2017.03.1 | Java 1.7.0_151 | 2.0.0     | Tomcat 7.0.79      | Apache 2.2.34 |
-| **Java 6 with Tomcat 7 version 2.6.5**<br>_64bit Amazon Linux 2017.03 v2.6.5 running Tomcat 7 Java 6_ | 2017.03.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.79      | Apache 2.2.34 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.6.5**<br>_64bit Amazon Linux 2017.03 v2.6.5 running Tomcat 8 Java 8_ | 2017.03.1 | Java 1.8.0\_141 | 2.0.0     | Tomcat 8.0.45      | Apache 2.2.34 |
+| **Java 7 with Tomcat 7 version 2.6.5**<br>_64bit Amazon Linux 2017.03 v2.6.5 running Tomcat 7 Java 7_ | 2017.03.1 | Java 1.7.0\_151 | 2.0.0     | Tomcat 7.0.79      | Apache 2.2.34 |
+| **Java 6 with Tomcat 7 version 2.6.5**<br>_64bit Amazon Linux 2017.03 v2.6.5 running Tomcat 7 Java 6_ | 2017.03.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.79      | Apache 2.2.34 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between August 30, 2017 and September 24, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.6.4**<br>_64bit Amazon Linux 2017.03 v2.6.4 running Tomcat 8 Java 8_ | 2017.03.1 | Java 1.8.0_141 | 2.0.0     | Tomcat 8.0.45      | Apache 2.2.32 |
-| **Java 7 with Tomcat 7 version 2.6.4**<br>_64bit Amazon Linux 2017.03 v2.6.4 running Tomcat 7 Java 7_ | 2017.03.1 | Java 1.7.0_151 | 2.0.0     | Tomcat 7.0.79      | Apache 2.2.32 |
-| **Java 6 with Tomcat 7 version 2.6.4**<br>_64bit Amazon Linux 2017.03 v2.6.4 running Tomcat 7 Java 6_ | 2017.03.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.79      | Apache 2.2.32 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.6.4**<br>_64bit Amazon Linux 2017.03 v2.6.4 running Tomcat 8 Java 8_ | 2017.03.1 | Java 1.8.0\_141 | 2.0.0     | Tomcat 8.0.45      | Apache 2.2.32 |
+| **Java 7 with Tomcat 7 version 2.6.4**<br>_64bit Amazon Linux 2017.03 v2.6.4 running Tomcat 7 Java 7_ | 2017.03.1 | Java 1.7.0\_151 | 2.0.0     | Tomcat 7.0.79      | Apache 2.2.32 |
+| **Java 6 with Tomcat 7 version 2.6.4**<br>_64bit Amazon Linux 2017.03 v2.6.4 running Tomcat 7 Java 6_ | 2017.03.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.79      | Apache 2.2.32 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between August 11, 2017 and August 29, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.6.3**<br>_64bit Amazon Linux 2017.03 v2.6.3 running Tomcat 8 Java 8_ | 2017.03.1 | Java 1.8.0_141 | 2.0.0     | Tomcat 8.0.45      | Apache 2.2.32 |
-| **Java 7 with Tomcat 7 version 2.6.3**<br>_64bit Amazon Linux 2017.03 v2.6.3 running Tomcat 7 Java 7_ | 2017.03.1 | Java 1.7.0_141 | 2.0.0     | Tomcat 7.0.78      | Apache 2.2.32 |
-| **Java 6 with Tomcat 7 version 2.6.3**<br>_64bit Amazon Linux 2017.03 v2.6.3 running Tomcat 7 Java 6_ | 2017.03.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.78      | Apache 2.2.32 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.6.3**<br>_64bit Amazon Linux 2017.03 v2.6.3 running Tomcat 8 Java 8_ | 2017.03.1 | Java 1.8.0\_141 | 2.0.0     | Tomcat 8.0.45      | Apache 2.2.32 |
+| **Java 7 with Tomcat 7 version 2.6.3**<br>_64bit Amazon Linux 2017.03 v2.6.3 running Tomcat 7 Java 7_ | 2017.03.1 | Java 1.7.0\_141 | 2.0.0     | Tomcat 7.0.78      | Apache 2.2.32 |
+| **Java 6 with Tomcat 7 version 2.6.3**<br>_64bit Amazon Linux 2017.03 v2.6.3 running Tomcat 7 Java 6_ | 2017.03.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.78      | Apache 2.2.32 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between July 20, 2017 and August 10, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.6.2**<br>_64bit Amazon Linux 2017.03 v2.6.2 running Tomcat 8 Java 8_ | 2017.03.1 | Java 1.8.0_131 | 2.0.0     | Tomcat 8.0.44      | Apache 2.2.32 |
-| **Java 7 with Tomcat 7 version 2.6.2**<br>_64bit Amazon Linux 2017.03 v2.6.2 running Tomcat 7 Java 7_ | 2017.03.1 | Java 1.7.0_141 | 2.0.0     | Tomcat 7.0.78      | Apache 2.2.32 |
-| **Java 6 with Tomcat 7 version 2.6.2**<br>_64bit Amazon Linux 2017.03 v2.6.2 running Tomcat 7 Java 6_ | 2017.03.1 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.78      | Apache 2.2.32 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.6.2**<br>_64bit Amazon Linux 2017.03 v2.6.2 running Tomcat 8 Java 8_ | 2017.03.1 | Java 1.8.0\_131 | 2.0.0     | Tomcat 8.0.44      | Apache 2.2.32 |
+| **Java 7 with Tomcat 7 version 2.6.2**<br>_64bit Amazon Linux 2017.03 v2.6.2 running Tomcat 7 Java 7_ | 2017.03.1 | Java 1.7.0\_141 | 2.0.0     | Tomcat 7.0.78      | Apache 2.2.32 |
+| **Java 6 with Tomcat 7 version 2.6.2**<br>_64bit Amazon Linux 2017.03 v2.6.2 running Tomcat 7 Java 6_ | 2017.03.1 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.78      | Apache 2.2.32 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between June 27, 2017 and July 19, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.6.1**<br>_64bit Amazon Linux 2017.03 v2.6.1 running Tomcat 8 Java 8_ | 2017.03.0 | Java 1.8.0_121 | 2.0.0     | Tomcat 8.0.43      | Apache 2.2.32 |
-| **Java 7 with Tomcat 7 version 2.6.1**<br>_64bit Amazon Linux 2017.03 v2.6.1 running Tomcat 7 Java 7_ | 2017.03.0 | Java 1.7.0_131 | 2.0.0     | Tomcat 7.0.77      | Apache 2.2.32 |
-| **Java 6 with Tomcat 7 version 2.6.1**<br>_64bit Amazon Linux 2017.03 v2.6.1 running Tomcat 7 Java 6_ | 2017.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.77      | Apache 2.2.32 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.6.1**<br>_64bit Amazon Linux 2017.03 v2.6.1 running Tomcat 8 Java 8_ | 2017.03.0 | Java 1.8.0\_121 | 2.0.0     | Tomcat 8.0.43      | Apache 2.2.32 |
+| **Java 7 with Tomcat 7 version 2.6.1**<br>_64bit Amazon Linux 2017.03 v2.6.1 running Tomcat 7 Java 7_ | 2017.03.0 | Java 1.7.0\_131 | 2.0.0     | Tomcat 7.0.77      | Apache 2.2.32 |
+| **Java 6 with Tomcat 7 version 2.6.1**<br>_64bit Amazon Linux 2017.03 v2.6.1 running Tomcat 7 Java 6_ | 2017.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.77      | Apache 2.2.32 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between May 19, 2017 and June 26, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.6.0**<br>_64bit Amazon Linux 2017.03 v2.6.0 running Tomcat 8 Java 8_ | 2017.03.0 | Java 1.8.0_121 | 2.0.0     | Tomcat 8.0.43      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.6.0**<br>_64bit Amazon Linux 2017.03 v2.6.0 running Tomcat 7 Java 7_ | 2017.03.0 | Java 1.7.0_131 | 2.0.0     | Tomcat 7.0.77      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.6.0**<br>_64bit Amazon Linux 2017.03 v2.6.0 running Tomcat 7 Java 6_ | 2017.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.77      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.6.0**<br>_64bit Amazon Linux 2017.03 v2.6.0 running Tomcat 8 Java 8_ | 2017.03.0 | Java 1.8.0\_121 | 2.0.0     | Tomcat 8.0.43      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.6.0**<br>_64bit Amazon Linux 2017.03 v2.6.0 running Tomcat 7 Java 7_ | 2017.03.0 | Java 1.7.0\_131 | 2.0.0     | Tomcat 7.0.77      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.6.0**<br>_64bit Amazon Linux 2017.03 v2.6.0 running Tomcat 7 Java 6_ | 2017.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.77      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between May 2, 2017 and May 18, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.5.5**<br>_64bit Amazon Linux 2016.09 v2.5.5 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0_121 | 1.0.0     | Tomcat 8.0.41      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.5.5**<br>_64bit Amazon Linux 2016.09 v2.5.5 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0_131 | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.5.5**<br>_64bit Amazon Linux 2016.09 v2.5.5 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0_41  | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.5.5**<br>_64bit Amazon Linux 2016.09 v2.5.5 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0\_121 | 1.0.0     | Tomcat 8.0.41      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.5.5**<br>_64bit Amazon Linux 2016.09 v2.5.5 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0\_131 | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.5.5**<br>_64bit Amazon Linux 2016.09 v2.5.5 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0\_41  | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between April 5, 2017 and May 1, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.5.4**<br>_64bit Amazon Linux 2016.09 v2.5.4 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0_121 | 1.0.0     | Tomcat 8.0.41      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.5.4**<br>_64bit Amazon Linux 2016.09 v2.5.4 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0_131 | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.5.4**<br>_64bit Amazon Linux 2016.09 v2.5.4 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0_41  | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.5.4**<br>_64bit Amazon Linux 2016.09 v2.5.4 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0\_121 | 1.0.0     | Tomcat 8.0.41      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.5.4**<br>_64bit Amazon Linux 2016.09 v2.5.4 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0\_131 | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.5.4**<br>_64bit Amazon Linux 2016.09 v2.5.4 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0\_41  | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between March 8, 2017 and April 4, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | AWS X-Ray | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.5.3**<br>_64bit Amazon Linux 2016.09 v2.5.3 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0_121 | 1.0.0     | Tomcat 8.0.41      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.5.3**<br>_64bit Amazon Linux 2016.09 v2.5.3 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0_131 | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.5.3**<br>_64bit Amazon Linux 2016.09 v2.5.3 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0_41  | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | AWS X-Ray | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.5.3**<br>_64bit Amazon Linux 2016.09 v2.5.3 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0\_121 | 1.0.0     | Tomcat 8.0.41      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.5.3**<br>_64bit Amazon Linux 2016.09 v2.5.3 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0\_131 | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.5.3**<br>_64bit Amazon Linux 2016.09 v2.5.3 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0\_41  | 1.0.0     | Tomcat 7.0.75      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between January 28, 2017 and March 7, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | Application Server | Proxy Server  | AWS X-Ray |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------------ | ------------- | --------- |
-| **Java 8 with Tomcat 8 version 2.5.1**<br>_64bit Amazon Linux 2016.09 v2.5.1 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0_111 | Tomcat 8.0.38      | Apache 2.2.31 | 1.1.0     |
-| **Java 7 with Tomcat 7 version 2.5.1**<br>_64bit Amazon Linux 2016.09 v2.5.1 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0_121 | Tomcat 7.0.72      | Apache 2.2.31 | 1.1.0     |
-| **Java 6 with Tomcat 7 version 2.5.1**<br>_64bit Amazon Linux 2016.09 v2.5.1 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0_40  | Tomcat 7.0.72      | Apache 2.2.31 | 1.1.0     |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | Application Server | Proxy Server  | AWS X-Ray |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | ------------------ | ------------- | --------- |
+| **Java 8 with Tomcat 8 version 2.5.1**<br>_64bit Amazon Linux 2016.09 v2.5.1 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0\_111 | Tomcat 8.0.38      | Apache 2.2.31 | 1.1.0     |
+| **Java 7 with Tomcat 7 version 2.5.1**<br>_64bit Amazon Linux 2016.09 v2.5.1 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0\_121 | Tomcat 7.0.72      | Apache 2.2.31 | 1.1.0     |
+| **Java 6 with Tomcat 7 version 2.5.1**<br>_64bit Amazon Linux 2016.09 v2.5.1 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0\_40  | Tomcat 7.0.72      | Apache 2.2.31 | 1.1.0     |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between December 22, 2016 and January 27, 2017:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | Application Server | Proxy Server  | AWS X-Ray |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------------ | ------------- | --------- |
-| **Java 8 with Tomcat 8 version 2.5.0**<br>_64bit Amazon Linux 2016.09 v2.5.0 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0_111 | Tomcat 8.0.38      | Apache 2.2.31 | 1.1.0     |
-| **Java 7 with Tomcat 7 version 2.5.0**<br>_64bit Amazon Linux 2016.09 v2.5.0 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0_121 | Tomcat 7.0.72      | Apache 2.2.31 | 1.1.0     |
-| **Java 6 with Tomcat 7 version 2.5.0**<br>_64bit Amazon Linux 2016.09 v2.5.0 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0_40  | Tomcat 7.0.72      | Apache 2.2.31 | 1.1.0     |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | Application Server | Proxy Server  | AWS X-Ray |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | ------------------ | ------------- | --------- |
+| **Java 8 with Tomcat 8 version 2.5.0**<br>_64bit Amazon Linux 2016.09 v2.5.0 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0\_111 | Tomcat 8.0.38      | Apache 2.2.31 | 1.1.0     |
+| **Java 7 with Tomcat 7 version 2.5.0**<br>_64bit Amazon Linux 2016.09 v2.5.0 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0\_121 | Tomcat 7.0.72      | Apache 2.2.31 | 1.1.0     |
+| **Java 6 with Tomcat 7 version 2.5.0**<br>_64bit Amazon Linux 2016.09 v2.5.0 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0\_40  | Tomcat 7.0.72      | Apache 2.2.31 | 1.1.0     |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between December 9, 2016 and December 21, 2016:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0_111 | Tomcat 8.0.38      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0_121 | Tomcat 7.0.72      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0_40  | Tomcat 7.0.72      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0\_111 | Tomcat 8.0.38      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0\_121 | Tomcat 7.0.72      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.4.0**<br>_64bit Amazon Linux 2016.09 v2.4.0 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0\_40  | Tomcat 7.0.72      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between November 2, 2016 and December 8, 2016:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0_101 | Tomcat 8.0.36      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.3.1**<br>_64bit Amazon Linux 2016.09 v2.3.1 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0\_101 | Tomcat 8.0.36      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between October 28, 2016 and Dec 9, 2016:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------------ | ------------- |
-| **Java 7 with Tomcat 7 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0_111 | Tomcat 7.0.70      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0_39  | Tomcat 7.0.70      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | ------------------ | ------------- |
+| **Java 7 with Tomcat 7 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Tomcat 7 Java 7_ | 2016.09.0 | Java 1.7.0\_111 | Tomcat 7.0.70      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Tomcat 7 Java 6_ | 2016.09.0 | Java 1.6.0\_39  | Tomcat 7.0.70      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between October 28, 2016 and November 2, 2016:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0_101 | Tomcat 8.0.36      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.3.0**<br>_64bit Amazon Linux 2016.09 v2.3.0 running Tomcat 8 Java 8_ | 2016.09.0 | Java 1.8.0\_101 | Tomcat 8.0.36      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between August 24, 2016 and October 27, 2016:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.2.0**<br>_64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8_ | 2016.03.3 | Java 1.8.0_101 | Tomcat 8.0.36      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.2.0**<br>_64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 7 Java 7_ | 2016.03.3 | Java 1.7.0_111 | Tomcat 7.0.70      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.2.0**<br>_64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 7 Java 6_ | 2016.03.3 | Java 1.6.0_39  | Tomcat 7.0.70      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.2.0**<br>_64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 8 Java 8_ | 2016.03.3 | Java 1.8.0\_101 | Tomcat 8.0.36      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.2.0**<br>_64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 7 Java 7_ | 2016.03.3 | Java 1.7.0\_111 | Tomcat 7.0.70      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.2.0**<br>_64bit Amazon Linux 2016.03 v2.2.0 running Tomcat 7 Java 6_ | 2016.03.3 | Java 1.6.0\_39  | Tomcat 7.0.70      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between June 26, 2016 and August 24, 2016:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI       | Language       | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | --------- | -------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Tomcat 8 Java 8_ | 2016.03.2 | Java 1.8.0_91  | Tomcat 8.0.35      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Tomcat 7 Java 7_ | 2016.03.2 | Java 1.7.0_101 | Tomcat 7.0.69      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Tomcat 7 Java 6_ | 2016.03.2 | Java 1.6.0_38  | Tomcat 7.0.69      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI       | Language        | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Tomcat 8 Java 8_ | 2016.03.2 | Java 1.8.0\_91  | Tomcat 8.0.35      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Tomcat 7 Java 7_ | 2016.03.2 | Java 1.7.0\_101 | Tomcat 7.0.69      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.1.3**<br>_64bit Amazon Linux 2016.03 v2.1.3 running Tomcat 7 Java 6_ | 2016.03.2 | Java 1.6.0\_38  | Tomcat 7.0.69      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between May 6, 2016 and June 26, 2016:
 
-| Platform Version and _Solution Stack Name_                                                            | AMI     | Language       | Application Server | Proxy Server  |
-| ----------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Tomcat 8 Java 8_ | 2016.03 | Java 1.8.0_91  | Tomcat 8.0.32      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Tomcat 7 Java 7_ | 2016.03 | Java 1.7.0_101 | Tomcat 7.0.68      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Tomcat 7 Java 6_ | 2016.03 | Java 1.6.0_38  | Tomcat 7.0.68      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                            | AMI     | Language        | Application Server | Proxy Server  |
+| ----------------------------------------------------------------------------------------------------- | ------- | --------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Tomcat 8 Java 8_ | 2016.03 | Java 1.8.0\_91  | Tomcat 8.0.32      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Tomcat 7 Java 7_ | 2016.03 | Java 1.7.0\_101 | Tomcat 7.0.68      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.1.1**<br>_64bit Amazon Linux 2016.03 v2.1.1 running Tomcat 7 Java 6_ | 2016.03 | Java 1.6.0\_38  | Tomcat 7.0.68      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between April 7, 2016 and May 6, 2016:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Proxy Server  |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Tomcat 8 Java<br>8_ | 2016.03 | Java 1.8.0_71 | Tomcat 8.0.30      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Tomcat 7 Java<br>7_ | 2016.03 | Java 1.7.0_95 | Tomcat 7.0.67      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Tomcat 7 Java<br>6_ | 2016.03 | Java 1.6.0_38 | Tomcat 7.0.67      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Proxy Server  |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Tomcat 8 Java<br>8_ | 2016.03 | Java 1.8.0\_71 | Tomcat 8.0.30      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Tomcat 7 Java<br>7_ | 2016.03 | Java 1.7.0\_95 | Tomcat 7.0.67      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.1.0**<br>_64bit Amazon Linux 2016.03 v2.1.0 running Tomcat 7 Java<br>6_ | 2016.03 | Java 1.6.0\_38 | Tomcat 7.0.67      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between February 26, 2016 and April 7, 2016:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Web Server    |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Tomcat 8 Java<br>8_ | 2015.09 | Java 1.8.0_71 | Tomcat 8.0.30      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Tomcat 7 Java<br>7_ | 2015.09 | Java 1.7.0_95 | Tomcat 7.0.67      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Tomcat 7 Java<br>6_ | 2015.09 | Java 1.6.0_38 | Tomcat 7.0.67      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Web Server    |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Tomcat 8 Java<br>8_ | 2015.09 | Java 1.8.0\_71 | Tomcat 8.0.30      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Tomcat 7 Java<br>7_ | 2015.09 | Java 1.7.0\_95 | Tomcat 7.0.67      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.0.8**<br>_64bit Amazon Linux 2015.09 v2.0.8 running Tomcat 7 Java<br>6_ | 2015.09 | Java 1.6.0\_38 | Tomcat 7.0.67      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between January 11, 2016 and February 11, 2016:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Web Server    |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Tomcat 8 Java<br>8_ | 2015.09 | Java 1.8.0_65 | Tomcat 8.0.28      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Tomcat 7 Java<br>7_ | 2015.09 | Java 1.7.0_91 | Tomcat 7.0.65      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Tomcat 7 Java<br>6_ | 2015.09 | Java 1.6.0_37 | Tomcat 7.0.65      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Web Server    |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Tomcat 8 Java<br>8_ | 2015.09 | Java 1.8.0\_65 | Tomcat 8.0.28      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Tomcat 7 Java<br>7_ | 2015.09 | Java 1.7.0\_91 | Tomcat 7.0.65      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.0.7**<br>_64bit Amazon Linux 2015.09 v2.0.7 running Tomcat 7 Java<br>6_ | 2015.09 | Java 1.6.0\_37 | Tomcat 7.0.65      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between February 11, 2016 and February 26, 2016:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Web Server    |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Tomcat 8 Java<br>8_ | 2015.09 | Java 1.8.0_65 | Tomcat 8.0.28      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Tomcat 7 Java<br>7_ | 2015.09 | Java 1.7.0_91 | Tomcat 7.0.65      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Tomcat 7 Java<br>6_ | 2015.09 | Java 1.6.0_37 | Tomcat 7.0.65      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Web Server    |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Tomcat 8 Java<br>8_ | 2015.09 | Java 1.8.0\_65 | Tomcat 8.0.28      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Tomcat 7 Java<br>7_ | 2015.09 | Java 1.7.0\_91 | Tomcat 7.0.65      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.0.6**<br>_64bit Amazon Linux 2015.09 v2.0.6 running Tomcat 7 Java<br>6_ | 2015.09 | Java 1.6.0\_37 | Tomcat 7.0.65      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between November 3, 2015 and January 11, 2016:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Web Server    |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Tomcat 8 Java<br>8_ | 2015.09 | Java 1.8.0_65 | Tomcat 8.0.23      | Apache 2.2.31 |
-| **Java 7 with Tomcat 7 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Tomcat 7 Java<br>7_ | 2015.09 | Java 1.7.0_91 | Tomcat 7.0.62      | Apache 2.2.31 |
-| **Java 6 with Tomcat 7 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Tomcat 7 Java<br>6_ | 2015.09 | Java 1.6.0_36 | Tomcat 7.0.62      | Apache 2.2.31 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Web Server    |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Tomcat 8 Java<br>8_ | 2015.09 | Java 1.8.0\_65 | Tomcat 8.0.23      | Apache 2.2.31 |
+| **Java 7 with Tomcat 7 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Tomcat 7 Java<br>7_ | 2015.09 | Java 1.7.0\_91 | Tomcat 7.0.62      | Apache 2.2.31 |
+| **Java 6 with Tomcat 7 version 2.0.4**<br>_64bit Amazon Linux 2015.09 v2.0.4 running Tomcat 7 Java<br>6_ | 2015.09 | Java 1.6.0\_36 | Tomcat 7.0.62      | Apache 2.2.31 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between September 18, 2015 and November 3, 2015:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Web Server    |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0_51 | Tomcat 8.0.20      | Apache 2.2.29 |
-| **Java 7 with Tomcat 7 version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Tomcat 7 Java<br>7_ | 2015.03 | Java 1.7.0_85 | Tomcat 7.0.62      | Apache 2.2.29 |
-| **Java 6 with Tomcat 7 version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Tomcat 7 Java<br>6_ | 2015.03 | Java 1.6.0_35 | Tomcat 7.0.62      | Apache 2.2.29 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Web Server    |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0\_51 | Tomcat 8.0.20      | Apache 2.2.29 |
+| **Java 7 with Tomcat 7 version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Tomcat 7 Java<br>7_ | 2015.03 | Java 1.7.0\_85 | Tomcat 7.0.62      | Apache 2.2.29 |
+| **Java 6 with Tomcat 7 version 2.0.1**<br>_64bit Amazon Linux 2015.03 v2.0.1 running Tomcat 7 Java<br>6_ | 2015.03 | Java 1.6.0\_35 | Tomcat 7.0.62      | Apache 2.2.29 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between August 11, 2015 and September 18, 2015:
 
-| Platform Version and _Solution Stack Name_                                                                  | AMI     | Language      | Application Server | Web Server    |
-| ----------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version<br>2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0_51 | Tomcat 8.0.20      | Apache 2.2.29 |
-| **Java 7 with Tomcat 7 version 2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 7 Java<br>7_    | 2015.03 | Java 1.7.0_85 | Tomcat 7.0.62      | Apache 2.2.29 |
-| **Java 6 with Tomcat 7 version 2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 7 Java<br>6_    | 2015.03 | Java 1.6.0_35 | Tomcat 7.0.62      | Apache 2.2.29 |
+| Platform Version and _Solution Stack Name_                                                                  | AMI     | Language       | Application Server | Web Server    |
+| ----------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version<br>2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0\_51 | Tomcat 8.0.20      | Apache 2.2.29 |
+| **Java 7 with Tomcat 7 version 2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 7 Java<br>7_    | 2015.03 | Java 1.7.0\_85 | Tomcat 7.0.62      | Apache 2.2.29 |
+| **Java 6 with Tomcat 7 version 2.0.0**<br>_64bit Amazon Linux 2015.03 v2.0.0 running Tomcat 7 Java<br>6_    | 2015.03 | Java 1.6.0\_35 | Tomcat 7.0.62      | Apache 2.2.29 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between July 31, 2015 and August 11, 2015:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Web Server    |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 1.4.5**<br>_64bit Amazon Linux 2015.03 v1.4.5 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0_51 | Tomcat 8.0.20      | Apache 2.2.29 |
-| **Java 7 with Tomcat 7 version 1.4.5**<br>_64bit Amazon Linux 2015.03 v1.4.5 running Tomcat 7 Java<br>7_ | 2015.03 | Java 1.7.0_85 | Tomcat 7.0.62      | Apache 2.2.29 |
-| **Java 6 with Tomcat 7 version 1.4.5**<br>_64bit Amazon Linux 2015.03 v1.4.5 running Tomcat 7 Java<br>6_ | 2015.03 | Java 1.6.0_35 | Tomcat 7.0.62      | Apache 2.2.29 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Web Server    |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 1.4.5**<br>_64bit Amazon Linux 2015.03 v1.4.5 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0\_51 | Tomcat 8.0.20      | Apache 2.2.29 |
+| **Java 7 with Tomcat 7 version 1.4.5**<br>_64bit Amazon Linux 2015.03 v1.4.5 running Tomcat 7 Java<br>7_ | 2015.03 | Java 1.7.0\_85 | Tomcat 7.0.62      | Apache 2.2.29 |
+| **Java 6 with Tomcat 7 version 1.4.5**<br>_64bit Amazon Linux 2015.03 v1.4.5 running Tomcat 7 Java<br>6_ | 2015.03 | Java 1.6.0\_35 | Tomcat 7.0.62      | Apache 2.2.29 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between July 7, 2015 and July 31, 2015:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Web Server    |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 1.4.4**<br>_64bit Amazon Linux 2015.03 v1.4.4 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0_45 | Tomcat 8.0.20      | Apache 2.2.29 |
-| **Java 7 with Tomcat 7 version 1.4.4**<br>_64bit Amazon Linux 2015.03 v1.4.4 running Tomcat 7 Java<br>7_ | 2015.03 | Java 1.7.0_79 | Tomcat 7.0.62      | Apache 2.2.29 |
-| **Java 6 with Tomcat 7 version 1.4.4**<br>_64bit Amazon Linux 2015.03 v1.4.4 running Tomcat 7 Java<br>6_ | 2015.03 | Java 1.6.0_35 | Tomcat 7.0.62      | Apache 2.2.29 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Web Server    |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 1.4.4**<br>_64bit Amazon Linux 2015.03 v1.4.4 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0\_45 | Tomcat 8.0.20      | Apache 2.2.29 |
+| **Java 7 with Tomcat 7 version 1.4.4**<br>_64bit Amazon Linux 2015.03 v1.4.4 running Tomcat 7 Java<br>7_ | 2015.03 | Java 1.7.0\_79 | Tomcat 7.0.62      | Apache 2.2.29 |
+| **Java 6 with Tomcat 7 version 1.4.4**<br>_64bit Amazon Linux 2015.03 v1.4.4 running Tomcat 7 Java<br>6_ | 2015.03 | Java 1.6.0\_35 | Tomcat 7.0.62      | Apache 2.2.29 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between June 15, 2015 and July 7, 2015:
 
-| Platform Version and _Solution Stack Name_                                                               | AMI     | Language      | Application Server | Web Server    |
-| -------------------------------------------------------------------------------------------------------- | ------- | ------------- | ------------------ | ------------- |
-| **Java 8 with Tomcat 8 version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0_45 | Tomcat 8.0.20      | Apache 2.2.29 |
-| **Java 7 with Tomcat 7 version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Tomcat 7 Java<br>7_ | 2015.03 | Java 1.7.0_79 | Tomcat 7.0.62      | Apache 2.2.29 |
-| **Java 6 with Tomcat 7 version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Tomcat 7 Java<br>6_ | 2015.03 | Java 1.6.0_35 | Tomcat 7.0.62      | Apache 2.2.29 |
+| Platform Version and _Solution Stack Name_                                                               | AMI     | Language       | Application Server | Web Server    |
+| -------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------------------ | ------------- |
+| **Java 8 with Tomcat 8 version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Tomcat 8 Java<br>8_ | 2015.03 | Java 1.8.0\_45 | Tomcat 8.0.20      | Apache 2.2.29 |
+| **Java 7 with Tomcat 7 version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Tomcat 7 Java<br>7_ | 2015.03 | Java 1.7.0\_79 | Tomcat 7.0.62      | Apache 2.2.29 |
+| **Java 6 with Tomcat 7 version 1.4.3**<br>_64bit Amazon Linux 2015.03 v1.4.3 running Tomcat 7 Java<br>6_ | 2015.03 | Java 1.6.0\_35 | Tomcat 7.0.62      | Apache 2.2.29 |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between May 27, 2015 and June 15, 2015:
 
 | **Java Configurations**                                   |
-| --------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                  | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 64bit Amazon Linux 2015.03 v1.4.1 running Tomcat 8 Java 8 | 2015.03 | Java 1.8.0_31 | Tomcat 8.0.20          | Apache 2.2.29  |
-| 64bit Amazon Linux 2015.03 v1.4.1 running Tomcat 7 Java 7 | 2015.03 | Java 1.7.0_75 | Tomcat 7.0.59          | Apache 2.2.29  |
-| 64bit Amazon Linux 2015.03 v1.4.1 running Tomcat 7 Java 6 | 2015.03 | Java 1.6.0_34 | Tomcat 7.0.59          | Apache 2.2.29  |
+| --------------------------------------------------------- |
+| **Name**                                                  | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Tomcat 8 Java 8 | 2015.03 | Java 1.8.0\_31 | Tomcat 8.0.20          | Apache 2.2.29  |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Tomcat 7 Java 7 | 2015.03 | Java 1.7.0\_75 | Tomcat 7.0.59          | Apache 2.2.29  |
+| 64bit Amazon Linux 2015.03 v1.4.1 running Tomcat 7 Java 6 | 2015.03 | Java 1.6.0\_34 | Tomcat 7.0.59          | Apache 2.2.29  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between April 22, 2015 and May 26, 2015:
 
 | **Java Configurations**                                   |
-| --------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                  | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Tomcat 8 Java 8 | 2015.03 | Java 1.8.0_31 | Tomcat 8.0.20          | Apache 2.2.29  |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Tomcat 7 Java 7 | 2015.03 | Java 1.7.0_75 | Tomcat 7.0.59          | Apache 2.2.29  |
-| 64bit Amazon Linux 2015.03 v1.3.1 running Tomcat 7 Java 6 | 2015.03 | Java 1.6.0_34 | Tomcat 7.0.59          | Apache 2.2.29  |
+| --------------------------------------------------------- |
+| **Name**                                                  | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Tomcat 8 Java 8 | 2015.03 | Java 1.8.0\_31 | Tomcat 8.0.20          | Apache 2.2.29  |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Tomcat 7 Java 7 | 2015.03 | Java 1.7.0\_75 | Tomcat 7.0.59          | Apache 2.2.29  |
+| 64bit Amazon Linux 2015.03 v1.3.1 running Tomcat 7 Java 6 | 2015.03 | Java 1.6.0\_34 | Tomcat 7.0.59          | Apache 2.2.29  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between April 8, 2015 and April 21, 2015:
 
 | **Java Configurations**                                   |
-| --------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                  | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 64bit Amazon Linux 2015.03 v1.3.0 running Tomcat 8 Java 8 | 2015.03 | Java 1.8.0_31 | Tomcat 8.0.20          | Apache 2.2.29  |
-| 64bit Amazon Linux 2015.03 v1.3.0 running Tomcat 7 Java 7 | 2015.03 | Java 1.7.0_75 | Tomcat 7.0.59          | Apache 2.2.29  |
-| 64bit Amazon Linux 2015.03 v1.3.0 running Tomcat 7 Java 6 | 2015.03 | Java 1.6.0_34 | Tomcat 7.0.59          | Apache 2.2.29  |
+| --------------------------------------------------------- |
+| **Name**                                                  | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 64bit Amazon Linux 2015.03 v1.3.0 running Tomcat 8 Java 8 | 2015.03 | Java 1.8.0\_31 | Tomcat 8.0.20          | Apache 2.2.29  |
+| 64bit Amazon Linux 2015.03 v1.3.0 running Tomcat 7 Java 7 | 2015.03 | Java 1.7.0\_75 | Tomcat 7.0.59          | Apache 2.2.29  |
+| 64bit Amazon Linux 2015.03 v1.3.0 running Tomcat 7 Java 6 | 2015.03 | Java 1.6.0\_34 | Tomcat 7.0.59          | Apache 2.2.29  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between February 17, 2015 and April 7, 2015:
 
 | **Java Configurations**                                       |
-| ------------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                      | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 64bit Amazon Linux 2014.09 v1.2.0 running Tomcat 8 Java 8     | 2014.09 | Java 1.8.0_31 | Tomcat 8.0.15          | Apache 2.2.29  |
-| 64bit Amazon Linux 2014.09 v1.2.0 running Tomcat 7 Java 7     | 2014.09 | Java 1.7.0.75 | Tomcat 7.0.57          | Apache 2.2.29  |
-| 64bit Amazon Linux 2014.09 v1.2.0 running Tomcat 7 Java 6     | 2014.09 | Java 1.6.0_33 | Tomcat 7.0.57          | Apache 2.2.29  |
-| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.55          | Apache 2.2.26  |
+| ------------------------------------------------------------- |
+| **Name**                                                      | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Tomcat 8 Java 8     | 2014.09 | Java 1.8.0\_31 | Tomcat 8.0.15          | Apache 2.2.29  |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Tomcat 7 Java 7     | 2014.09 | Java 1.7.0.75  | Tomcat 7.0.57          | Apache 2.2.29  |
+| 64bit Amazon Linux 2014.09 v1.2.0 running Tomcat 7 Java 6     | 2014.09 | Java 1.6.0\_33 | Tomcat 7.0.57          | Apache 2.2.29  |
+| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.55          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.55          | Apache 2.2.26  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between January 28, 2015 and February 16, 2015:
 
 | **Java Configurations**                                       |
-| ------------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                      | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 64bit Amazon Linux 2014.09 v1.1.01 running Tomcat 8<br>Java 8 | 2014.09 | Java 1.8.0_31 | Tomcat 8               | Apache 2.2.29  |
-| 64bit Amazon Linux 2014.09 v1.1.01 running Tomcat 7<br>Java 7 | 2014.09 | Java 1.7.0.51 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.09 v1.1.01 running Tomcat 7<br>Java 6 | 2014.09 | Java 1.6.0_24 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.1.01 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.71 | Tomcat 7.0.55          | Apache 2.2.29  |
-| 64bit Amazon Linux 2014.03 v1.1.01 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.71 | Tomcat 7.0.55          | Apache 2.2.29  |
-| 32bit Amazon Linux 2014.03 v1.1.01 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_33 | Tomcat 7.0.55          | Apache 2.2.29  |
-| 64bit Amazon Linux 2014.03 v1.1.01 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_33 | Tomcat 7.0.55          | Apache 2.2.29  |
+| ------------------------------------------------------------- |
+| **Name**                                                      | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 64bit Amazon Linux 2014.09 v1.1.01 running Tomcat 8<br>Java 8 | 2014.09 | Java 1.8.0\_31 | Tomcat 8               | Apache 2.2.29  |
+| 64bit Amazon Linux 2014.09 v1.1.01 running Tomcat 7<br>Java 7 | 2014.09 | Java 1.7.0.51  | Tomcat 7.0.55          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.09 v1.1.01 running Tomcat 7<br>Java 6 | 2014.09 | Java 1.6.0\_24 | Tomcat 7.0.55          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.1.01 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.71  | Tomcat 7.0.55          | Apache 2.2.29  |
+| 64bit Amazon Linux 2014.03 v1.1.01 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.71  | Tomcat 7.0.55          | Apache 2.2.29  |
+| 32bit Amazon Linux 2014.03 v1.1.01 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_33 | Tomcat 7.0.55          | Apache 2.2.29  |
+| 64bit Amazon Linux 2014.03 v1.1.01 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_33 | Tomcat 7.0.55          | Apache 2.2.29  |
 
 1[CVE-2015-0235 Advisory (Ghost)](http://aws.amazon.com/security/security-bulletins/cve-2015-0235-advisory--ghost-/ "http://aws.amazon.com/security/security-bulletins/cve-2015-0235-advisory--ghost-/")
 
 The following Elastic Beanstalk platform versions for Tomcat were current between November 6, 2014 and January 27, 2015:
 
 | **Java Configurations**                                       |
-| ------------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                      | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 64bit Amazon Linux 2014.09 v1.0.0 running Tomcat 8 Java 8     | 2014.09 | Java 1.8.0_25 | Tomcat 8               | Apache 2.2.29  |
-| 64bit Amazon Linux 2014.09 v1.0.91 running Tomcat 7<br>Java 7 | 2014.09 | Java 1.7.0.51 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.09 v1.0.91 running Tomcat 7<br>Java 6 | 2014.09 | Java 1.6.0_24 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.55          | Apache 2.2.26  |
+| ------------------------------------------------------------- |
+| **Name**                                                      | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 64bit Amazon Linux 2014.09 v1.0.0 running Tomcat 8 Java 8     | 2014.09 | Java 1.8.0\_25 | Tomcat 8               | Apache 2.2.29  |
+| 64bit Amazon Linux 2014.09 v1.0.91 running Tomcat 7<br>Java 7 | 2014.09 | Java 1.7.0.51  | Tomcat 7.0.55          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.09 v1.0.91 running Tomcat 7<br>Java 6 | 2014.09 | Java 1.6.0\_24 | Tomcat 7.0.55          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.55          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.55          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.55          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.55          | Apache 2.2.26  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between October 16, 2014 and November 5, 2014:
 
 | **Java Configurations**                                       |
-| ------------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                      | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 64bit Amazon Linux 2014.09 v1.0.91 running Tomcat 7<br>Java 7 | 2014.09 | Java 1.7.0.51 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.09 v1.0.91 running Tomcat 7<br>Java 6 | 2014.09 | Java 1.6.0_24 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.55          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.55          | Apache 2.2.26  |
+| ------------------------------------------------------------- |
+| **Name**                                                      | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 64bit Amazon Linux 2014.09 v1.0.91 running Tomcat 7<br>Java 7 | 2014.09 | Java 1.7.0.51  | Tomcat 7.0.55          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.09 v1.0.91 running Tomcat 7<br>Java 6 | 2014.09 | Java 1.6.0\_24 | Tomcat 7.0.55          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.55          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.55          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.55          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.91 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.55          | Apache 2.2.26  |
 
 1[CVE-2014-3566 Advisory](https://aws.amazon.com/security/security-bulletins/CVE-2014-3566-advisory/ "https://aws.amazon.com/security/security-bulletins/CVE-2014-3566-advisory/")
 
 The following Elastic Beanstalk platform versions for Tomcat were current between October 9, 2014 and October 15, 2014:
 
 | **Java Configurations**                                   |
-| --------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                  | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 32bit Amazon Linux 2014.09 v1.0.8 running Tomcat 7 Java 7 | 2014.09 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.09 v1.0.8 running Tomcat 7 Java 7 | 2014.09 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.09 v1.0.8 running Tomcat 7 Java 6 | 2014.09 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.09 v1.0.8 running Tomcat 7 Java 6 | 2014.09 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| --------------------------------------------------------- |
+| **Name**                                                  | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 32bit Amazon Linux 2014.09 v1.0.8 running Tomcat 7 Java 7 | 2014.09 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.09 v1.0.8 running Tomcat 7 Java 7 | 2014.09 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.09 v1.0.8 running Tomcat 7 Java 6 | 2014.09 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.09 v1.0.8 running Tomcat 7 Java 6 | 2014.09 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between September 24, 2014 and October 8, 2014:
 
 | **Java Configurations**                                       |
-| ------------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                      | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 32bit Amazon Linux 2014.03 v1.0.71 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.71 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.0.71 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.71 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| ------------------------------------------------------------- |
+| **Name**                                                      | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 32bit Amazon Linux 2014.03 v1.0.71 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.71 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.0.71 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.71 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
 
 1
 [CVE-2014-6271 Advisory](http://aws.amazon.com/security/security-bulletins/CVE_2014_6271_advisory/ "http://aws.amazon.com/security/security-bulletins/CVE_2014_6271_advisory/") and [ALAS-2014-419](https://alas.aws.amazon.com/ALAS-2014-419.html "https://alas.aws.amazon.com/ALAS-2014-419.html")
@@ -2370,20 +2370,20 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 The following Elastic Beanstalk platform versions for Tomcat were current between June 30, 2014 and September 23, 2014:
 
 | **Java Configurations**                                   |
-| --------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                  | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 64bit Amazon Linux 2014.03 v1.0.4 running Tomcat 7 Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.4 running Tomcat 7 Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| --------------------------------------------------------- |
+| **Name**                                                  | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 64bit Amazon Linux 2014.03 v1.0.4 running Tomcat 7 Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.4 running Tomcat 7 Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between June 5, 2014 and June 29, 2014:
 
 | **Java Configurations**                                       |
-| ------------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                      | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 32bit Amazon Linux 2014.03 v1.0.31 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.31 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.0.31 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.31 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| ------------------------------------------------------------- |
+| **Name**                                                      | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 32bit Amazon Linux 2014.03 v1.0.31 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.31 running Tomcat 7<br>Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.0.31 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.31 running Tomcat 7<br>Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
 
 1
 [OpenSSL Security Advisory](http://aws.amazon.com/security/security-bulletins/openssl-security-advisory/ "http://aws.amazon.com/security/security-bulletins/openssl-security-advisory/")
@@ -2391,28 +2391,28 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 The following Elastic Beanstalk platform versions for Tomcat were current between May 5, 2014 and June 4, 2014:
 
 | **Java Configurations**                                   |
-| --------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                  | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 32bit Amazon Linux 2014.03 v1.0.2 running Tomcat 7 Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.2 running Tomcat 7 Java 7 | 2014.03 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.03 v1.0.2 running Tomcat 7 Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.03 v1.0.2 running Tomcat 7 Java 6 | 2014.03 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| --------------------------------------------------------- |
+| **Name**                                                  | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 32bit Amazon Linux 2014.03 v1.0.2 running Tomcat 7 Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.2 running Tomcat 7 Java 7 | 2014.03 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.03 v1.0.2 running Tomcat 7 Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.03 v1.0.2 running Tomcat 7 Java 6 | 2014.03 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between April 7, 2014 and May 4, 2014:
 
 | **Java Configurations**                                       |
-| ------------------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                                      | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 32bit Amazon Linux 2014.02 v1.0.11 running Tomcat 7<br>Java 7 | 2013.09 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.02 v1.0.11 running Tomcat 7<br>Java 7 | 2013.09 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.02 v1.0.11 running Tomcat 7<br>Java 6 | 2013.09 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.02 v1.0.11 running Tomcat 7<br>Java 6 | 2013.09 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2013.09 v1.0.11 running Tomcat 7<br>Java 7 | 2013.09 | Java 1.7.0_25 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2013.09 v1.0.11 running Tomcat 7<br>Java 7 | 2013.09 | Java 1.7.0_25 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2013.09 v1.0.11 running Tomcat 7<br>Java 6 | 2013.09 | Java 1.6.0_62 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2013.09 v1.0.11 running Tomcat 7<br>Java 6 | 2013.09 | Java 1.6.0_62 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux running Tomcat 6                           | 2012.09 | Java 1.6.0_24 | Tomcat 6.0.35          | Apache 2.2.22  |
-| 64bit Amazon Linux running Tomcat 6                           | 2012.09 | Java 1.6.0_24 | Tomcat 6.0.35          | Apache 2.2.22  |
+| ------------------------------------------------------------- |
+| **Name**                                                      | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 32bit Amazon Linux 2014.02 v1.0.11 running Tomcat 7<br>Java 7 | 2013.09 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.02 v1.0.11 running Tomcat 7<br>Java 7 | 2013.09 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.02 v1.0.11 running Tomcat 7<br>Java 6 | 2013.09 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.02 v1.0.11 running Tomcat 7<br>Java 6 | 2013.09 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2013.09 v1.0.11 running Tomcat 7<br>Java 7 | 2013.09 | Java 1.7.0\_25 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2013.09 v1.0.11 running Tomcat 7<br>Java 7 | 2013.09 | Java 1.7.0\_25 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2013.09 v1.0.11 running Tomcat 7<br>Java 6 | 2013.09 | Java 1.6.0\_62 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2013.09 v1.0.11 running Tomcat 7<br>Java 6 | 2013.09 | Java 1.6.0\_62 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux running Tomcat 6                           | 2012.09 | Java 1.6.0\_24 | Tomcat 6.0.35          | Apache 2.2.22  |
+| 64bit Amazon Linux running Tomcat 6                           | 2012.09 | Java 1.6.0\_24 | Tomcat 6.0.35          | Apache 2.2.22  |
 
 1
 [openssl-1.0.1e-4.58.amzn1](https://forums.aws.amazon.com/message.jspa?messageID=535563#535563 "https://forums.aws.amazon.com/message.jspa?messageID=535563#535563")
@@ -2420,35 +2420,35 @@ The following Elastic Beanstalk platform versions for Tomcat were current betwee
 The following Elastic Beanstalk platform versions for Tomcat were current between March 18, 2014 and April 6, 2014:
 
 | **Java Configurations**                            |
-| -------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                           | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 32bit Amazon Linux 2014.02 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.02 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0.51 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2014.02 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2014.02 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0_24 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2013.09 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0_25 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0_25 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2013.09 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0_62 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2013.09 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0_62 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux running Tomcat 6                | 2012.09 | Java 1.6.0_24 | Tomcat 6.0.35          | Apache 2.2.22  |
-| 64bit Amazon Linux running Tomcat 6                | 2012.09 | Java 1.6.0_24 | Tomcat 6.0.35          | Apache 2.2.22  |
+| -------------------------------------------------- |
+| **Name**                                           | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 32bit Amazon Linux 2014.02 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.02 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0.51  | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2014.02 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2014.02 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0\_24 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2013.09 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0\_25 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0\_25 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2013.09 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0\_62 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2013.09 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0\_62 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux running Tomcat 6                | 2012.09 | Java 1.6.0\_24 | Tomcat 6.0.35          | Apache 2.2.22  |
+| 64bit Amazon Linux running Tomcat 6                | 2012.09 | Java 1.6.0\_24 | Tomcat 6.0.35          | Apache 2.2.22  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current between November 7, 2013 and March 17, 2014:
 
 | **Java Configurations**                            |
-| -------------------------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                                           | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 32bit Amazon Linux 2013.09 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0_25 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0_25 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux 2013.09 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0_62 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 64bit Amazon Linux 2013.09 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0_62 | Tomcat 7.0.47          | Apache 2.2.26  |
-| 32bit Amazon Linux running Tomcat 6                | 2012.09 | Java 1.6.0_24 | Tomcat 6.0.35          | Apache 2.2.22  |
-| 64bit Amazon Linux running Tomcat 6                | 2012.09 | Java 1.6.0_24 | Tomcat 6.0.35          | Apache 2.2.22  |
+| -------------------------------------------------- |
+| **Name**                                           | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 32bit Amazon Linux 2013.09 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0\_25 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2013.09 running Tomcat 7 Java 7 | 2013.09 | Java 1.7.0\_25 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux 2013.09 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0\_62 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 64bit Amazon Linux 2013.09 running Tomcat 7 Java 6 | 2013.09 | Java 1.6.0\_62 | Tomcat 7.0.47          | Apache 2.2.26  |
+| 32bit Amazon Linux running Tomcat 6                | 2012.09 | Java 1.6.0\_24 | Tomcat 6.0.35          | Apache 2.2.22  |
+| 64bit Amazon Linux running Tomcat 6                | 2012.09 | Java 1.6.0\_24 | Tomcat 6.0.35          | Apache 2.2.22  |
 
 The following Elastic Beanstalk platform versions for Tomcat were current prior to November 6, 2013:
 
 | **Java Configurations**             |
-| ----------------------------------- | ------- | ------------- | ---------------------- | -------------- |
-| **Name**                            | **AMI** | **Language**  | **Application Server** | **Web Server** |
-| 32bit Amazon Linux running Tomcat 7 | 2012.09 | Java 1.6.0_24 | Tomcat 7.0.27          | Apache 2.2.22  |
-| 64bit Amazon Linux running Tomcat 7 | 2012.09 | Java 1.6.0_24 | Tomcat 7.0.27          | Apache 2.2.22  |
+| ----------------------------------- |
+| **Name**                            | **AMI** | **Language**   | **Application Server** | **Web Server** |
+| 32bit Amazon Linux running Tomcat 7 | 2012.09 | Java 1.6.0\_24 | Tomcat 7.0.27          | Apache 2.2.22  |
+| 64bit Amazon Linux running Tomcat 7 | 2012.09 | Java 1.6.0\_24 | Tomcat 7.0.27          | Apache 2.2.22  |
