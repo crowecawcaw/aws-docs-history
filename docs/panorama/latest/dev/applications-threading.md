@@ -14,7 +14,7 @@ the main loop of the debug server sample application, which creates an applicati
 three
 threads.
 
-###### Example [packages/123456789012-DEBUG_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – Main loop
+###### Example [packages/123456789012-DEBUG\_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – Main loop
 
 ```
 def main():
@@ -49,7 +49,7 @@ from camera streams. If it receives a signal to stop, it shuts down the debugger
 and can't shut itself down. Each thread must handle its own errors. If an error is not caught and logged, the thread
 exits silently.
 
-###### Example [packages/123456789012-DEBUG_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – Processing loop
+###### Example [packages/123456789012-DEBUG\_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – Processing loop
 
 ```
     # Processing loop
@@ -75,7 +75,7 @@ Threads communicate via the application's `self` object. To restart the applicat
 the debugger thread calls the `stop` method. This method sets a `terminate` attribute, which
 signals the other threads to shut down.
 
-###### Example [packages/123456789012-DEBUG_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – Stop method
+###### Example [packages/123456789012-DEBUG\_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – Stop method
 
 ```
     # Interrupt processing loop

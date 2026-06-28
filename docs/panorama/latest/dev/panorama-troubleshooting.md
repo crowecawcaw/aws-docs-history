@@ -75,7 +75,7 @@ output and error streams are captured in a separate log stream called `console-o
 buffer.
 
 **Error:**
-_You've reached the maximum number of versions for package SAMPLE_CODE. Deregister unused package
+_You've reached the maximum number of versions for package SAMPLE\_CODE. Deregister unused package
 versions and try again._
 
 **Source:** AWS Panorama service

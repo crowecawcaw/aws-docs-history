@@ -105,7 +105,7 @@ Amazon SageMaker AI Developer Guide.
 A model package comprises a descriptor, package configuration, and model archive. Like in an [application image package](applications-image.md "applications-image.md"), the package configuration tells the AWS Panorama service
 where the model and descriptor are stored in Amazon S3.
 
-###### Example [packages/123456789012-SQUEEZENET_PYTORCH-1.0/descriptor.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SQUEEZENET_PYTORCH-1.0/descriptor.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SQUEEZENET_PYTORCH-1.0/descriptor.json")
+###### Example [packages/123456789012-SQUEEZENET\_PYTORCH-1.0/descriptor.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SQUEEZENET_PYTORCH-1.0/descriptor.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SQUEEZENET_PYTORCH-1.0/descriptor.json")
 
 ```
 {

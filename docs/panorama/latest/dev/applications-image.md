@@ -11,7 +11,7 @@ starting point.
 To build an application image, you use Docker and the AWS Panorama Application CLI. The following example from this guide's sample
 application demonstrates these use cases.
 
-###### Example [packages/123456789012-SAMPLE_CODE-1.0/Dockerfile](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/Dockerfile "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/Dockerfile")
+###### Example [packages/123456789012-SAMPLE\_CODE-1.0/Dockerfile](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/Dockerfile "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/Dockerfile")
 
 ```
 FROM public.ecr.aws/panorama/panorama-application
@@ -47,7 +47,7 @@ The following Dockerfile instructions are used.
 `requirements.txt` is a Python requirements file that specifies libraries used by the application.
 The sample application uses Open CV and the AWS SDK for Python (Boto3).
 
-###### Example [packages/123456789012-SAMPLE_CODE-1.0/requirements.txt](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/requirements.txt "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/requirements.txt")
+###### Example [packages/123456789012-SAMPLE\_CODE-1.0/requirements.txt](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/requirements.txt "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/requirements.txt")
 
 ```
 boto3==1.24.*
@@ -93,7 +93,7 @@ The JSON block in the output is an asset definition that the CLI adds to the pac
 (`package.json`) and registers with the AWS Panorama service. The CLI also copies the descriptor file, which
 specifies the path to the application script (the application's entry point).
 
-###### Example [packages/123456789012-SAMPLE_CODE-1.0/descriptor.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/descriptor.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/descriptor.json")
+###### Example [packages/123456789012-SAMPLE\_CODE-1.0/descriptor.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/descriptor.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/descriptor.json")
 
 ```
 {

@@ -247,7 +247,7 @@ The sample application includes a computer vision model. To use your own model, 
 configuration, and use the AWS Panorama Application CLI to import it as an asset.
 
 The following example uses an MXNet SSD ResNet50 model that you can download from this guide's GitHub repo:
-[ssd_512_resnet50_v1_voc.tar.gz](https://github.com/awsdocs/aws-panorama-developer-guide/releases/download/v0.1-preview/ssd_512_resnet50_v1_voc.tar.gz "https://github.com/awsdocs/aws-panorama-developer-guide/releases/download/v0.1-preview/ssd_512_resnet50_v1_voc.tar.gz")
+[ssd\_512\_resnet50\_v1\_voc.tar.gz](https://github.com/awsdocs/aws-panorama-developer-guide/releases/download/v0.1-preview/ssd_512_resnet50_v1_voc.tar.gz "https://github.com/awsdocs/aws-panorama-developer-guide/releases/download/v0.1-preview/ssd_512_resnet50_v1_voc.tar.gz")
 
 ###### To change the sample application's model
 
@@ -263,7 +263,7 @@ The following example uses an MXNet SSD ResNet50 model that you can download fro
      `packages/`123456789012`-`SSD_512_RESNET50_V1_VOC`-1.0/package.json`
 
 3. In the package configuration file (`package.json`). Change the `assets` value to a
-   blank array.
+blank array.
 
 ```
 {

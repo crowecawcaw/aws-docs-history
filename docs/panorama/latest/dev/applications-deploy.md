@@ -119,7 +119,7 @@ In addition to the container archive, the CLI creates an asset for the package d
 original file. The AWS Panorama Application CLI also adds a block to the package configuration that records the names of the two
 assets. These names are used by the appliance during the deployment process.
 
-###### Example [packages/123456789012-SAMPLE_CODE-1.0/package.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/package.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/package.json") – with asset block
+###### Example [packages/123456789012-SAMPLE\_CODE-1.0/package.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/package.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/package.json") – with asset block
 
 ```
 {

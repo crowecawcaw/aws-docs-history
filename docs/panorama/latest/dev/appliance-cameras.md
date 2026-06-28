@@ -31,7 +31,7 @@ secure your video streams, configure your network to allow only RTSP traffic loc
      specify the username and password.
 
 4. Choose **Save**.
-   To register a camera stream with the AWS Panorama API, see [Automate device registration](api-provision.md "api-provision.md").
+To register a camera stream with the AWS Panorama API, see [Automate device registration](api-provision.md "api-provision.md").
 
 For a list of cameras that are compatible with the AWS Panorama Appliance, see [Supported computer vision models and cameras](gettingstarted-compatibility.md "gettingstarted-compatibility.md").
 

@@ -13,7 +13,7 @@ The following example shows a package configuration for a code node with one inp
 input provides access to image data from a camera stream. The output node sends processed images out to a
 display.
 
-###### Example packages/1234567890-SAMPLE_CODE-1.0/package.json
+###### Example packages/1234567890-SAMPLE\_CODE-1.0/package.json
 
 ```
 {

@@ -205,7 +205,7 @@ CloudWatch.
 To view the application's video output, connect the appliance to a monitor with an HDMI cable. By default, the
 application shows any classification result that has more than 20% confidence.
 
-###### Example [squeezenet_classes.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/squeezenet_classes.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/squeezenet_classes.json")
+###### Example [squeezenet\_classes.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/squeezenet_classes.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/squeezenet_classes.json")
 
 ```
 ["tench", "goldfish", "great white shark", "tiger shark",

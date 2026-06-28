@@ -28,7 +28,7 @@ You specify port mappings in three places in your application configuration. The
 `package.json`, you specify the port that the code node listens on in a `network` block.
 The following example declares that the node listens on port 80.
 
-###### Example [packages/123456789012-DEBUG_SERVER-1.0/package.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/package.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/package.json")
+###### Example [packages/123456789012-DEBUG\_SERVER-1.0/package.json](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/package.json "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/package.json")
 
 ```
                 "outputs": [
@@ -119,7 +119,7 @@ vision application code.
 The sample implementation is not secure for production use. To avoid making your appliance vulnerable to
 attacks, you must implement appropriate security controls in your code and network configuration.
 
-###### Example [packages/123456789012-DEBUG_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – HTTP server
+###### Example [packages/123456789012-DEBUG\_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – HTTP server
 
 ```
     # HTTP debug server
@@ -169,7 +169,7 @@ To demonstrate this functionality, the sample application runs an HTTP client on
 calls the `/status` path over the local network shortly after startup, and restarts the application a
 few minutes later.
 
-###### Example [packages/123456789012-DEBUG_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – HTTP client
+###### Example [packages/123456789012-DEBUG\_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – HTTP client
 
 ```
     # HTTP test client
@@ -200,7 +200,7 @@ few minutes later.
 
 The main loop manages the threads and restarts the application when they exit.
 
-###### Example [packages/123456789012-DEBUG_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – Main loop
+###### Example [packages/123456789012-DEBUG\_SERVER-1.0/application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py "https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/debug-server/packages/123456789012-DEBUG_SERVER-1.0/application.py") – Main loop
 
 ```
 def main():
