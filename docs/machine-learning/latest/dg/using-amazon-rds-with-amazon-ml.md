@@ -129,11 +129,11 @@ Machine learning technology works best when input records are presented in rando
 (shuffled). You can easily shuffle the results of your MySQL SQL query by using the
 `rand()` function. For example, let's say that this is the original query:
 
-"SELECT col1, col2, … FROM training_table"
+"SELECT col1, col2, … FROM training\_table"
 
 You can add random shuffling by updating the query like this:
 
-"SELECT col1, col2, … FROM training_table ORDER BY rand()"
+"SELECT col1, col2, … FROM training\_table ORDER BY rand()"
 
 ## S3 Output Location
 

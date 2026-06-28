@@ -26,7 +26,7 @@ You can define groups of variables in order to collectively transform all variab
 within the groups, or to use these variables for machine learning without transforming them.
 By default, Amazon ML creates the following groups for you:
 
-**ALL_TEXT, ALL_NUMERIC, ALL_CATEGORICAL, ALL_BINARY
+**ALL\_TEXT, ALL\_NUMERIC, ALL\_CATEGORICAL, ALL\_BINARY
 –**Type-specific groups based on variables defined in the datasource schema.
 
 ###### Note
@@ -58,9 +58,9 @@ be included in the recipe.
 
 You can assign one or more transformations to an intermediate
 variable, for convenience and readability. For example, if you
-have a text variable named email_subject, and you apply the
+have a text variable named email\_subject, and you apply the
 lowercase transformation to it, you can name the resulting
-variable email_subject_lowercase, making it easy to keep track
+variable email\_subject\_lowercase, making it easy to keep track
 of it elsewhere in the recipe. Assignments can also be chained,
 enabling you to apply multiple transformations in a specified
 order. The following example shows single and chained
@@ -91,7 +91,7 @@ input variables will be used for the learning process, and which
 transformations apply to them. An empty or non-existent output section is an error, because no
 data will be passed to the learning process.
 
-The simplest outputs section simply includes the predefined **ALL_INPUTS** group, instructing Amazon ML to use all of the variables defined in
+The simplest outputs section simply includes the predefined **ALL\_INPUTS** group, instructing Amazon ML to use all of the variables defined in
 the datasource for learning:
 
 ```

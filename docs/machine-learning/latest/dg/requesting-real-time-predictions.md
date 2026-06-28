@@ -99,7 +99,7 @@ To create a real-time endpoint, you must already have an ML model for which you 
 generate real-time predictions. You can create a real-time endpoint by using the
 Amazon ML console or by calling the `CreateRealtimeEndpoint` API. For more
 information on using the `CreateRealtimeEndpoint` API, see
-[https://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateRealtimeEndpoint.html](../APIReference/API_CreateRealtimeEndpoint.md "../APIReference/API_CreateRealtimeEndpoint.md") in the Amazon Machine Learning API Reference.
+[https://docs.aws.amazon.com/machine-learning/latest/APIReference/API\_CreateRealtimeEndpoint.html](../APIReference/API_CreateRealtimeEndpoint.md "../APIReference/API_CreateRealtimeEndpoint.md") in the Amazon Machine Learning API Reference.
 
 ###### To create a real-time endpoint
 
@@ -119,7 +119,7 @@ entered into a queue. The status of the real-time endpoint is **Updating**.
 **Ready**, and Amazon ML displays the endpoint URL. Use the endpoint URL to
 create real-time prediction requests with the `Predict` API. For more
 information about using the `Predict` API, see
-[https://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html](../APIReference/API_Predict.md "../APIReference/API_Predict.md") in the Amazon Machine Learning API Reference.
+[https://docs.aws.amazon.com/machine-learning/latest/APIReference/API\_Predict.html](../APIReference/API_Predict.md "../APIReference/API_Predict.md") in the Amazon Machine Learning API Reference.
 
 ![Real-time endpoint status showing Ready with endpoint URL and 200 requests per second.](images/endpoint-ready.png)
 
@@ -140,7 +140,7 @@ To use the Amazon ML console to find the endpoint URL for an ML model navigate t
 5. The endpoint URL for the model is listed in **Real-time prediction**.
    Use the URL as the **Endpoint Url** URL for your real-time prediction
    calls. For information on how to use the endpoint to generate predictions, see
-   [https://docs.aws.amazon.com/machine-learning/latest/APIReference/API_Predict.html](../APIReference/API_Predict.md "../APIReference/API_Predict.md") in the Amazon Machine Learning API Reference.
+   [https://docs.aws.amazon.com/machine-learning/latest/APIReference/API\_Predict.html](../APIReference/API_Predict.md "../APIReference/API_Predict.md") in the Amazon Machine Learning API Reference.
 
 ## Locating the Real-time Prediction Endpoint (API)
 

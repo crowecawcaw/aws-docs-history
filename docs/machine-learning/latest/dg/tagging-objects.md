@@ -76,7 +76,7 @@ Tag value restrictions:
 - Tag values must be between 0 and 255 Unicode characters in length.
 - Tag values can be blank. Otherwise, they must consist of the following characters:
   Unicode letters, digits, white space, and any of the following special characters: `_
-. / = + - @`.
+ . / = + - @`.
 
 ## Tagging Amazon ML Objects (Console)
 

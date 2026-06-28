@@ -23,8 +23,8 @@ Other examples of common feature processing:
 - Forming Cartesian products of one variable with another. For example, if you have two variables,
   such as population density (urban, suburban, rural) and state (Washington, Oregon, California), there
   might be useful information in the features formed by a Cartesian product of these two variables
-  resulting in features (urban_Washington, suburban_Washington, rural_Washington, urban_Oregon,
-  suburban_Oregon, rural_Oregon, urban_California, suburban_California, rural_California).
+  resulting in features (urban\_Washington, suburban\_Washington, rural\_Washington, urban\_Oregon,
+  suburban\_Oregon, rural\_Oregon, urban\_California, suburban\_California, rural\_California).
 - Non-linear transformations such as binning numeric variables to categories. In many cases, the
   relationship between a numeric feature and the target is not linear (the feature value does not increase
   or decrease monotonically with the target). In such cases, it might be useful to bin the numeric

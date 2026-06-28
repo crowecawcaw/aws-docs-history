@@ -24,7 +24,7 @@ For Amazon ML formatting requirements, see [Understanding the Data Format for Am
 3. Open `banking.csv`. You will see rows and columns of data. The
    _header row_ contains the attribute names for each column. An
    _attribute_ is a unique, named property that describes a particular
-   characteristic of each customer; for example, nr_employed indicates the customer's
+   characteristic of each customer; for example, nr\_employed indicates the customer's
    employment status. Each row represents the collection of observations about a single
    customer.
 

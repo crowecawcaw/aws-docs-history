@@ -35,9 +35,9 @@ your workspace clean.
 
    - The `Banking Data 1` datasource
    - The `Banking Data 1_[percentBegin=0, percentEnd=70,
-strategy=sequential]` datasource
+  strategy=sequential]` datasource
    - The `Banking Data 1_[percentBegin=70, percentEnd=100,
-strategy=sequential]` datasource
+  strategy=sequential]` datasource
    - The `Banking Data 2` datasource
    - The `ML model: Banking Data 1` ML model
    - The `Evaluation: ML model: Banking Data 1`

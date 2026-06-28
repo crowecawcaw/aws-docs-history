@@ -134,7 +134,7 @@ If you want to evaluate the ML model now:
     3. Choose **Review**.
 
 9. On the **Review** page, edit your selections, delete any tags copied
-   from the datasource that you don't want applied to your model and evaluations, and then choose
-   **Finish**.
+from the datasource that you don't want applied to your model and evaluations, and then choose
+**Finish**.
 
 After you have created the model, see [Step 4: Review the ML Model's Predictive Performance and Set a Score Threshold](step-4-review-model-and-set-cutoff.md "step-4-review-model-and-set-cutoff.md").

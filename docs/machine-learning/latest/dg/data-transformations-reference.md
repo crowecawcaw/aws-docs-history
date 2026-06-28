@@ -172,7 +172,7 @@ the hyphen in "seat-belts", are not removed.
 
 To apply punctuation removal to the variable var1:
 
-"no_punct(var1)"
+"no\_punct(var1)"
 
 ## Quantile Binning Transformation
 
@@ -190,7 +190,7 @@ categorical feature representing different ranges of the numeric
 feature. Each categorical feature value (bin) can then be
 modeled as having its own linear relationship with the target.
 For example, let's say you know that the continuous numeric
-feature _account_age_ is not linearly
+feature _account\_age_ is not linearly
 correlated with likelihood to purchase a book. You can bin age
 into categorical features that might be able to capture the
 relationship with the target more accurately.
@@ -213,7 +213,7 @@ for any numeric input variable.
 To following example shows how to compute and use 50 bins in
 place of numeric variable var1:
 
-"quantile_bin(var1, 50)"
+"quantile\_bin(var1, 50)"
 
 ## Normalization Transformation
 
@@ -232,9 +232,9 @@ normalize(var1)
 
 This transformer can also take a user defined group of numeric
 variables or the pre-defined group for all numeric variables
-(ALL_NUMERIC) as input:
+(ALL\_NUMERIC) as input:
 
-normalize(ALL_NUMERIC)
+normalize(ALL\_NUMERIC)
 
 **Note**
 
@@ -277,15 +277,15 @@ target, education, job
 
 If we specify that the Cartesian transformation is to be applied
 to the categorical variables education and job fields, the
-resultant feature education_job_interaction will look like this:
+resultant feature education\_job\_interaction will look like this:
 
-target, education_job_interaction
+target, education\_job\_interaction
 
-0, university.degree_technician
+0, university.degree\_technician
 
-0, high.school_services
+0, high.school\_services
 
-1, university.degree_admin
+1, university.degree\_admin
 
 The Cartesian transformation is even more powerful when it comes
 to working on sequences of tokens, as is the case when one of
@@ -302,11 +302,11 @@ predictive. For a real-world example, the following table shows
 the results of applying the Cartesian processor to the input
 variables binding and title:
 
-| Textbook | Title                                     | Binding   | Cartesian product of no_punct(Title) and Binding                                                                                    |
-| -------- | ----------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| 1        | Economics: Principles, Problems, Policies | Hardcover | {"Economics_Hardcover",<br>"Principles_Hardcover",<br>"Problems_Hardcover",<br>"Policies_Hardcover"}                                |
-| 0        | The Invisible Heart: An Economics Romance | Softcover | {"The_Softcover",<br>"Invisible_Softcover",<br>"Heart_Softcover", "An_Softcover",<br>"Economics_Softcover",<br>"Romance_Softcover"} |
-| 0        | Fun With Problems                         | Softcover | {"Fun_Softcover", "With_Softcover",<br>"Problems_Softcover"}                                                                        |
+| Textbook | Title                                     | Binding   | Cartesian product of no\_punct(Title) and Binding                                                                                         |
+| -------- | ----------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 1        | Economics: Principles, Problems, Policies | Hardcover | {"Economics\_Hardcover",<br>"Principles\_Hardcover",<br>"Problems\_Hardcover",<br>"Policies\_Hardcover"}                                  |
+| 0        | The Invisible Heart: An Economics Romance | Softcover | {"The\_Softcover",<br>"Invisible\_Softcover",<br>"Heart\_Softcover", "An\_Softcover",<br>"Economics\_Softcover",<br>"Romance\_Softcover"} |
+| 0        | Fun With Problems                         | Softcover | {"Fun\_Softcover", "With\_Softcover",<br>"Problems\_Softcover"}                                                                           |
 
 The following example shows how to apply the Cartesian
 transformer to var1 and var2:
