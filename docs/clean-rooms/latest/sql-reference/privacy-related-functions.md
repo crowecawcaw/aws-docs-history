@@ -17,5 +17,5 @@ following specifications.
 
 ###### Topics
 
-- [consent_gpp_v1_decode function](consent_gpp_v1_decode.md "consent_gpp_v1_decode.md")
-- [consent_tcf_v2_decode function](consent_tcf_v2_decode.md "consent_tcf_v2_decode.md")
+- [consent\_gpp\_v1\_decode function](consent_gpp_v1_decode.md "consent_gpp_v1_decode.md")
+- [consent\_tcf\_v2\_decode function](consent_tcf_v2_decode.md "consent_tcf_v2_decode.md")

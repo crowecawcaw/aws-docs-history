@@ -1,10 +1,10 @@
-# HLL_SKETCH_AGG function
+# HLL\_SKETCH\_AGG function
 
-The HLL_SKETCH_AGG aggregate function creates an HLL sketch from the values in the
+The HLL\_SKETCH\_AGG aggregate function creates an HLL sketch from the values in the
 specified column. It returns an HLLSKETCH data type that encapsulates the input expression
 values.
 
-The HLL_SKETCH_AGG aggregate function works with any data type and ignores NULL values.
+The HLL\_SKETCH\_AGG aggregate function works with any data type and ignores NULL values.
 
 When there are no rows in a table or all rows are NULL, the resulting sketch has no
 index-value pairs such as
@@ -18,7 +18,7 @@ HLL_SKETCH_AGG (*aggregate\_expression*[, lgConfigK ] )
 
 ## Argument
 
-_aggregate_expression_
+_aggregate\_expression_
 
 Any expression of type INT, BIGINT, STRING, or BINARY against which unique
 counting will occur. Any `NULL` values are ignored.
@@ -31,7 +31,7 @@ sketch.
 
 ## Return type
 
-The HLL_SKETCH_AGG function returns a non-NULL BINARY buffer containing the
+The HLL\_SKETCH\_AGG function returns a non-NULL BINARY buffer containing the
 HyperLogLog sketch computed because of consuming and aggregating all input values in the
 aggregation group.
 

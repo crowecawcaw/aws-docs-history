@@ -1,6 +1,6 @@
-# TO_NUMBER
+# TO\_NUMBER
 
-TO_NUMBER converts a string to a numeric (decimal) value.
+TO\_NUMBER converts a string to a numeric (decimal) value.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ numeric value. For a list of valid formats, see [Numeric format strings](Numeric
 
 ## Return type
 
-TO_NUMBER returns a DECIMAL number.
+TO\_NUMBER returns a DECIMAL number.
 
 If the conversion to _format_ fails, then an error is returned.
 

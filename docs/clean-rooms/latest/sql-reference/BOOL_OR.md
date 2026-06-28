@@ -1,10 +1,10 @@
-# BOOL_OR function
+# BOOL\_OR function
 
-The BOOL_OR function operates on a single Boolean or integer column or expression. This
-function applies similar logic to the BIT_AND and BIT_OR functions. For this function, the return
+The BOOL\_OR function operates on a single Boolean or integer column or expression. This
+function applies similar logic to the BIT\_AND and BIT\_OR functions. For this function, the return
 type is a Boolean value (`true`, `false`, or `NULL`).
 
-If a value in a set is `true`, the BOOL_OR function returns `true`
+If a value in a set is `true`, the BOOL\_OR function returns `true`
 (`t`). If a value in a set is `false`, the function returns
 `false` (`f`). NULL can be returned if the value is unknown.
 
@@ -33,7 +33,7 @@ You can use the Boolean functions with either Boolean expressions or integer exp
 For example, the following query return results from the standard USERS table in the TICKIT
 database, which has several Boolean columns.
 
-The BOOL_OR function returns `true` for all five rows. At least one user in each
+The BOOL\_OR function returns `true` for all five rows. At least one user in each
 of those states likes sports.
 
 ```

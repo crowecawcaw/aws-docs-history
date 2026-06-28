@@ -140,7 +140,7 @@ these conversions.
 
 ###### Note
 
-Implicit conversions between DATE, TIME, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or
+Implicit conversions between DATE, TIME, TIMESTAMP\_LTZ, TIMESTAMP\_NTZ, or
 character strings use the current session time zone.
 
 The VARBYTE data type can't be implicitly converted to any other data type.

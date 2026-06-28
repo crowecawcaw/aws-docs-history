@@ -1,6 +1,6 @@
-# COLLECT_LIST function
+# COLLECT\_LIST function
 
-The COLLECT_LIST function collects and returns a list of non-unique elements.
+The COLLECT\_LIST function collects and returns a list of non-unique elements.
 
 This type of function is useful when you want to collect multiple values from a set of rows
 into a single array or list data structure.

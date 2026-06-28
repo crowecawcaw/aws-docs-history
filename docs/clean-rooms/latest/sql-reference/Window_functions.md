@@ -36,13 +36,13 @@ Window functions follow a standard syntax, which is as follows.
 Here, _function_ is one of the functions described in this
 section.
 
-The _expr_list_ is as follows.
+The _expr\_list_ is as follows.
 
 ```
 *expression* | *column\_name* [, *expr\_list* ]
 ```
 
-The _order_list_ is as follows.
+The _order\_list_ is as follows.
 
 ```
 *expression* | *column\_name* [ ASC | DESC ]
@@ -50,7 +50,7 @@ The _order_list_ is as follows.
 [, *order\_list* ]
 ```
 
-The _frame_clause_ is as follows.
+The _frame\_clause_ is as follows.
 
 ```
 ROWS
@@ -74,7 +74,7 @@ The clause that defines the window specification. The OVER clause is
 mandatory for window functions, and differentiates window functions from other
 SQL functions.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 (Optional) The PARTITION BY clause subdivides the result set into
 partitions, much like the GROUP BY clause. If a partition clause is present,
@@ -82,7 +82,7 @@ the function is calculated for the rows in each partition. If no partition
 clause is specified, a single partition contains the entire table, and the
 function is computed for that complete table.
 
-The ranking functions DENSE_RANK, NTILE, RANK, and ROW_NUMBER require a
+The ranking functions DENSE\_RANK, NTILE, RANK, and ROW\_NUMBER require a
 global comparison of all the rows in the result set. When a PARTITION BY clause
 is used, the query optimizer can run each aggregation in parallel by spreading
 the workload across multiple slices according to the partitions. If the
@@ -92,12 +92,12 @@ especially for large clusters.
 
 AWS Clean Rooms doesn't support string literals in PARTITION BY clauses.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 (Optional) The window function is applied to the rows within each partition
 sorted according to the order specification in ORDER BY. This ORDER BY clause
 is distinct from and completely unrelated to ORDER BY clauses in the
-_frame_clause_. The ORDER BY clause can be used without
+_frame\_clause_. The ORDER BY clause can be used without
 the PARTITION BY clause.
 
 For ranking functions, the ORDER BY clause identifies the measures for the
@@ -128,7 +128,7 @@ duplicate values (a partial ordering), the return order of those rows might
 vary from one run of AWS Clean Rooms to the next. In turn, window functions might
 return unexpected or inconsistent results. For more information, see [Unique ordering of data for window functions](#Examples_order_by_WF "#Examples_order_by_WF").
 
-_column_name_
+_column\_name_
 
 Name of a column to be partitioned by or ordered by.
 
@@ -148,7 +148,7 @@ Option that specifies whether NULLS should be ordered first, before non-null
 values, or last, after non-null values. By default, NULLS are sorted and ranked
 last in ASC ordering, and sorted and ranked first in DESC ordering.
 
-_frame_clause_
+_frame\_clause_
 
 For aggregate functions, the frame clause further refines the set of rows in
 a function's window when using ORDER BY. It enables you to include or exclude
@@ -289,21 +289,21 @@ AWS Clean Rooms Spark SQL supports two types of window functions: aggregate and 
 
 Following are the supported aggregate functions:
 
-- [CUME_DIST window function](WF_CUME_DIST.md "WF_CUME_DIST.md")
-- [DENSE_RANK window function](WF_DENSE_RANK.md "WF_DENSE_RANK.md")
+- [CUME\_DIST window function](WF_CUME_DIST.md "WF_CUME_DIST.md")
+- [DENSE\_RANK window function](WF_DENSE_RANK.md "WF_DENSE_RANK.md")
 - [FIRST window function](WF_FIRST.md "WF_FIRST.md")
-- [FIRST_VALUE window function](WF_first_value.md "WF_first_value.md")
+- [FIRST\_VALUE window function](WF_first_value.md "WF_first_value.md")
 - [LAG window function](WF_LAG.md "WF_LAG.md")
 - [LAST window function](WF-LAST.md "WF-LAST.md")
-- [LAST_VALUE window function](WF_last_value.md "WF_last_value.md")
+- [LAST\_VALUE window function](WF_last_value.md "WF_last_value.md")
 - [LEAD window function](WF_LEAD.md "WF_LEAD.md")
 
 Following are the supported ranking functions:
 
-- [DENSE_RANK window function](WF_DENSE_RANK.md "WF_DENSE_RANK.md")
-- [PERCENT_RANK window function](WF_PERCENT_RANK.md "WF_PERCENT_RANK.md")
+- [DENSE\_RANK window function](WF_DENSE_RANK.md "WF_DENSE_RANK.md")
+- [PERCENT\_RANK window function](WF_PERCENT_RANK.md "WF_PERCENT_RANK.md")
 - [RANK window function](WF_RANK.md "WF_RANK.md")
-- [ROW_NUMBER window function](WF_ROW_NUMBER.md "WF_ROW_NUMBER.md")
+- [ROW\_NUMBER window function](WF_ROW_NUMBER.md "WF_ROW_NUMBER.md")
 
 ## Sample table for window function examples
 
@@ -311,16 +311,16 @@ You can find specific window function examples with each function description. S
 the examples use a table named WINSALES, which contains 11 rows, as shown in the following
 table.
 
-| SALESID | DATEID     | SELLERID | BUYERID | QTY | QTY_SHIPPED |
-| ------- | ---------- | -------- | ------- | --- | ----------- |
-| 30001   | 8/2/2003   | 3        | B       | 10  | 10          |
-| 10001   | 12/24/2003 | 1        | C       | 10  | 10          |
-| 10005   | 12/24/2003 | 1        | A       | 30  |             |
-| 40001   | 1/9/2004   | 4        | A       | 40  |             |
-| 10006   | 1/18/2004  | 1        | C       | 10  |             |
-| 20001   | 2/12/2004  | 2        | B       | 20  | 20          |
-| 40005   | 2/12/2004  | 4        | A       | 10  | 10          |
-| 20002   | 2/16/2004  | 2        | C       | 20  | 20          |
-| 30003   | 4/18/2004  | 3        | B       | 15  |             |
-| 30004   | 4/18/2004  | 3        | B       | 20  |             |
-| 30007   | 9/7/2004   | 3        | C       | 30  |             |
+| SALESID | DATEID     | SELLERID | BUYERID | QTY | QTY\_SHIPPED |
+| ------- | ---------- | -------- | ------- | --- | ------------ |
+| 30001   | 8/2/2003   | 3        | B       | 10  | 10           |
+| 10001   | 12/24/2003 | 1        | C       | 10  | 10           |
+| 10005   | 12/24/2003 | 1        | A       | 30  |              |
+| 40001   | 1/9/2004   | 4        | A       | 40  |              |
+| 10006   | 1/18/2004  | 1        | C       | 10  |              |
+| 20001   | 2/12/2004  | 2        | B       | 20  | 20           |
+| 40005   | 2/12/2004  | 4        | A       | 10  | 10           |
+| 20002   | 2/16/2004  | 2        | C       | 20  | 20           |
+| 30003   | 4/18/2004  | 3        | B       | 15  |              |
+| 30004   | 4/18/2004  | 3        | B       | 20  |              |
+| 30007   | 9/7/2004   | 3        | C       | 30  |              |

@@ -1,6 +1,6 @@
-# CURRENT_TIMESTAMP function
+# CURRENT\_TIMESTAMP function
 
-CURRENT_TIMESTAMP returns the current date and time, including the date, time, and
+CURRENT\_TIMESTAMP returns the current date and time, including the date, time, and
 (optionally) the milliseconds or microseconds.
 
 This function is useful when you need to get the current date and time, for example, to
@@ -15,7 +15,7 @@ current_timestamp()
 
 ## Return type
 
-The CURRENT_TIMESTAMP function returns a DATE.
+The CURRENT\_TIMESTAMP function returns a DATE.
 
 ## Example
 

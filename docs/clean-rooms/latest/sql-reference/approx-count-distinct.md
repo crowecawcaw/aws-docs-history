@@ -1,6 +1,6 @@
-# APPROX COUNT_DISTINCT function
+# APPROX COUNT\_DISTINCT function
 
-APPROX COUNT_DISTINCT provides an efficient way to estimate the number of unique values in a
+APPROX COUNT\_DISTINCT provides an efficient way to estimate the number of unique values in a
 column or dataset.
 
 ## Syntax

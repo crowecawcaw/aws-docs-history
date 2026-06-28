@@ -1,6 +1,6 @@
-# TO_DATE function
+# TO\_DATE function
 
-TO_DATE converts a date represented by a character string to a DATE data type.
+TO\_DATE converts a date represented by a character string to a DATE data type.
 
 ## Syntax
 
@@ -14,7 +14,7 @@ TO_DATE (*date\_str*, *format*)
 
 ## Arguments
 
-_date_str_
+_date\_str_
 
 A date string or a data type that can be cast into a date string.
 
@@ -25,7 +25,7 @@ patterns, see [Datetime Patterns for Formatting and Parsing](https://spark.apach
 
 ## Return type
 
-TO_DATE returns a DATE, depending on the _format_ value.
+TO\_DATE returns a DATE, depending on the _format_ value.
 
 If the conversion to _format_ fails, then an error is returned.
 

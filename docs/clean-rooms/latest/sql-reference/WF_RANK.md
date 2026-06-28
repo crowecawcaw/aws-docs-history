@@ -7,8 +7,8 @@ criteria receive the same rank. AWS Clean Rooms adds the number of tied rows to 
 calculate the next rank and thus the ranks might not be consecutive numbers. For example,
 if two rows are ranked 1, the next rank is 3.
 
-RANK differs from the [DENSE_RANK window function](WF_DENSE_RANK.md "WF_DENSE_RANK.md") in
-one respect: For DENSE_RANK, if two or more rows tie, there is no gap in the sequence of
+RANK differs from the [DENSE\_RANK window function](WF_DENSE_RANK.md "WF_DENSE_RANK.md") in
+one respect: For DENSE\_RANK, if two or more rows tie, there is no gap in the sequence of
 ranked values. For example, if two rows are ranked 1, the next rank is 2.
 
 You can have ranking functions with different PARTITION BY and ORDER BY clauses in the
@@ -34,11 +34,11 @@ OVER
 
 The window clauses for the RANK function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Optional. One or more expressions that define the window.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Optional. Defines the columns on which the ranking values are based. If no
 PARTITION BY is specified, ORDER BY uses the entire table. If ORDER BY is

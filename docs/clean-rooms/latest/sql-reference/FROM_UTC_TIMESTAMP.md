@@ -1,6 +1,6 @@
-# FROM_UTC_TIMESTAMP function
+# FROM\_UTC\_TIMESTAMP function
 
-The FROM_UTC_TIMESTAMP function converts the input date from UTC (Coordinated Universal
+The FROM\_UTC\_TIMESTAMP function converts the input date from UTC (Coordinated Universal
 Time) to the specified time zone.
 
 This function is useful when you need to convert date and time values from UTC to a
@@ -27,7 +27,7 @@ timestamp should be converted.
 
 ## Returns
 
-The FROM_UTC_TIMESTAMP function returns a TIMESTAMP.
+The FROM\_UTC\_TIMESTAMP function returns a TIMESTAMP.
 
 ## Example
 

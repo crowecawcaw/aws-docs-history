@@ -36,15 +36,15 @@ OVER
 
 Introduces the window clauses for the function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Defines the window for the function in terms of one or more expressions.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Sorts the rows within each partition. If no PARTITION BY clause is
 specified, ORDER BY sorts the entire table. If you specify an ORDER BY clause,
-you must also specify a _frame_clause_.
+you must also specify a _frame\_clause_.
 
 The results depend on the ordering of the data. The results are
 nondeterministic in the following cases:
@@ -54,7 +54,7 @@ nondeterministic in the following cases:
 - When the expression evaluates to different values that correspond to
   the same value in the ORDER BY list.
 
-_frame_clause_
+_frame\_clause_
 
 If an ORDER BY clause is used for an aggregate function, an explicit frame
 clause is required. The frame clause refines the set of rows in a function's

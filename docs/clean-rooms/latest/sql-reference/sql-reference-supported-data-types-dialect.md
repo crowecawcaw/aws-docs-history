@@ -39,13 +39,13 @@ Date and time types handle temporal data, with varying levels of precision and t
 awareness. These types support different formats for storing dates, times, and timestamps,
 with options for including or excluding time zone information.
 
-| Data type         | AWS Clean Rooms SQL | Snowflake SQL            | Spark SQL                | Description                                                       |
-| ----------------- | ------------------- | ------------------------ | ------------------------ | ----------------------------------------------------------------- |
-| Date              | DATE                | DATE                     | DATE                     | Date values (year, month, day) without time zone                  |
-| Time              | TIME                | Not supported            | Not supported            | Time of day in UTC, without time zone                             |
-| Time with TZ      | TIMETZ              | Not supported            | Not supported            | Time of day in UTC, with time zone                                |
-| Timestamp         | TIMESTAMP           | TIMESTAMP, TIMESTAMP_NTZ | TIMESTAMP_NTZ            | Timestamp without time zoneNoteNTZ indicates "No Time Zone"       |
-| Timestamp with TZ | TIMESTAMPTZ         | TIMESTAMP_LTZ            | TIMESTAMP, TIMESTAMP_LTZ | Timestamp with local time zoneNoteLTZ indicates "Local Time Zone" |
+| Data type         | AWS Clean Rooms SQL | Snowflake SQL             | Spark SQL                 | Description                                                       |
+| ----------------- | ------------------- | ------------------------- | ------------------------- | ----------------------------------------------------------------- |
+| Date              | DATE                | DATE                      | DATE                      | Date values (year, month, day) without time zone                  |
+| Time              | TIME                | Not supported             | Not supported             | Time of day in UTC, without time zone                             |
+| Time with TZ      | TIMETZ              | Not supported             | Not supported             | Time of day in UTC, with time zone                                |
+| Timestamp         | TIMESTAMP           | TIMESTAMP, TIMESTAMP\_NTZ | TIMESTAMP\_NTZ            | Timestamp without time zoneNoteNTZ indicates "No Time Zone"       |
+| Timestamp with TZ | TIMESTAMPTZ         | TIMESTAMP\_LTZ            | TIMESTAMP, TIMESTAMP\_LTZ | Timestamp with local time zoneNoteLTZ indicates "Local Time Zone" |
 
 ## Character data types
 

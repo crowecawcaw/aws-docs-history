@@ -1,6 +1,6 @@
-# AES_DECRYPT function
+# AES\_DECRYPT function
 
-The AES_DECRYPT function is used for decrypting data using the Advanced Encryption
+The AES\_DECRYPT function is used for decrypting data using the Advanced Encryption
 Standard (AES) algorithm.
 
 ## Syntax
@@ -51,7 +51,7 @@ mode with padding.
 
 ## Examples
 
-The following example demonstrates how to use the Spark SQL AES_ENCRYPT function to
+The following example demonstrates how to use the Spark SQL AES\_ENCRYPT function to
 securely encrypt a string of data (in this case, the word "Spark") using a specified
 encryption key. The resulting ciphertext is then Base64-encoded to make it easier to
 store or transmit.
@@ -61,7 +61,7 @@ SELECT base64(aes_encrypt('Spark', 'abcdefghijklmnop'));
   4A5jOAh9FNGwoMeuJukfllrLdHEZxA2DyuSQAWz77dfn
 ```
 
-The following example demonstrates how to use the Spark SQL AES_DECRYPT function to
+The following example demonstrates how to use the Spark SQL AES\_DECRYPT function to
 decrypt data that has been previously encrypted and Base64-encoded. The decryption
 process requires the correct encryption key and parameters (encryption mode and padding
 mode) to successfully recover the original plaintext data.

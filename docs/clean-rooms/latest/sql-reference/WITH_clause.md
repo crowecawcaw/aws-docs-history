@@ -1,7 +1,7 @@
 # WITH clause
 
 A WITH clause is an optional clause that precedes the SELECT list in a query. The WITH
-clause defines one or more _common_table_expressions_. Each common table
+clause defines one or more _common\_table\_expressions_. Each common table
 expression (CTE) defines a temporary table, which is similar to a view definition. You can
 reference these temporary tables in the FROM clause. They're used only while the query they
 belong to runs. Each CTE in the WITH clause specifies a table name, an optional list of column
@@ -21,7 +21,7 @@ the WITH clause.)
 [ WITH *common\_table\_expression* [, *common\_table\_expression* , ...] ]
 ```
 
-where _common_table_expression_ can be non-recursive. Following is the
+where _common\_table\_expression_ can be non-recursive. Following is the
 non-recursive form:
 
 ```
@@ -30,12 +30,12 @@ non-recursive form:
 
 ## Parameters
 
-_common_table_expression_
+_common\_table\_expression_
 
 Defines a temporary table that you can reference in the [FROM clause](FROM_clause30.md "FROM_clause30.md") and is used only during the execution of the query to which
 it belongs.
 
-_CTE_table_name_
+_CTE\_table\_name_
 
 A unique name for a temporary table that defines the results of a WITH clause subquery.
 You can't use duplicate names within a single WITH clause. Each subquery must be given a
@@ -102,9 +102,9 @@ v     10 | Pizza Hut Park             | Frisco          | TX         |          
 (10 rows)
 ```
 
-The following example shows a WITH clause that produces two tables, named VENUE_SALES and
-TOP_VENUES. The second WITH query table selects from the first. In turn, the WHERE clause of the
-main query block contains a subquery that constrains the TOP_VENUES table.
+The following example shows a WITH clause that produces two tables, named VENUE\_SALES and
+TOP\_VENUES. The second WITH query table selects from the first. In turn, the WHERE clause of the
+main query block contains a subquery that constrains the TOP\_VENUES table.
 
 ```
 with venue_sales as

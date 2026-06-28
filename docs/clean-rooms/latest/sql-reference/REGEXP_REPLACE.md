@@ -1,13 +1,13 @@
-# REGEXP_REPLACE function
+# REGEXP\_REPLACE function
 
 Searches a string for a regular expression pattern and replaces every occurrence of the
-pattern with the specified string. REGEXP_REPLACE is similar to the [REPLACE function](REPLACE.md "REPLACE.md"), but lets you search a string for a regular expression
+pattern with the specified string. REGEXP\_REPLACE is similar to the [REPLACE function](REPLACE.md "REPLACE.md"), but lets you search a string for a regular expression
 pattern.
 
-REGEXP_REPLACE is similar to the [TRANSLATE function](TRANSLATE.md "TRANSLATE.md")
+REGEXP\_REPLACE is similar to the [TRANSLATE function](TRANSLATE.md "TRANSLATE.md")
 and the [REPLACE function](REPLACE.md "REPLACE.md"), except that TRANSLATE makes
 multiple single-character substitutions and REPLACE substitutes one entire string with
-another string, while REGEXP_REPLACE lets you search a string for a regular expression
+another string, while REGEXP\_REPLACE lets you search a string for a regular expression
 pattern.
 
 ## Syntax
@@ -18,7 +18,7 @@ REGEXP_REPLACE ( *source\_string*, *pattern* [, *replace\_string* [ , *position*
 
 ## Arguments
 
-_source_string_
+_source\_string_
 
 A string expression, such as a column name, to be searched.
 
@@ -26,7 +26,7 @@ _pattern_
 
 A string literal that represents a regular expression pattern.
 
-_replace_string_
+_replace\_string_
 
 A string expression, such as a column name, that will replace each
 occurrence of pattern. The default is an empty string ( "" ).
@@ -34,14 +34,14 @@ occurrence of pattern. The default is an empty string ( "" ).
 _position_
 
 A positive integer that indicates the position within
-_source_string_ to begin searching. The position is based
+_source\_string_ to begin searching. The position is based
 on the number of characters, not bytes, so that multibyte characters are
 counted as single characters. The default is 1. If
 _position_ is less than 1, the search begins at the first
-character of _source_string_. If
+character of _source\_string_. If
 _position_ is greater than the number of characters in
-_source_string_, the result is
-_source_string_.
+_source\_string_, the result is
+_source\_string_.
 
 _parameters_
 
@@ -58,7 +58,7 @@ pattern. The possible values are the following:
 
 VARCHAR
 
-If either _pattern_ or _replace_string_ is
+If either _pattern_ or _replace\_string_ is
 NULL, the return is NULL.
 
 ## Example

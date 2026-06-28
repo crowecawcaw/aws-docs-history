@@ -23,7 +23,7 @@ AWS Clean Rooms supports the following HLL functions.
 
 ###### Topics
 
-- [HLL_SKETCH_AGG function](HLL_SKETCH_AGG.md "HLL_SKETCH_AGG.md")
-- [HLL_SKETCH_ESTIMATE function](HLL_SKETCH_ESTIMATE.md "HLL_SKETCH_ESTIMATE.md")
-- [HLL_UNION function](HLL_UNION.md "HLL_UNION.md")
-- [HLL_UNION_AGG function](HLL_UNION_AGG.md "HLL_UNION_AGG.md")
+- [HLL\_SKETCH\_AGG function](HLL_SKETCH_AGG.md "HLL_SKETCH_AGG.md")
+- [HLL\_SKETCH\_ESTIMATE function](HLL_SKETCH_ESTIMATE.md "HLL_SKETCH_ESTIMATE.md")
+- [HLL\_UNION function](HLL_UNION.md "HLL_UNION.md")
+- [HLL\_UNION\_AGG function](HLL_UNION_AGG.md "HLL_UNION_AGG.md")

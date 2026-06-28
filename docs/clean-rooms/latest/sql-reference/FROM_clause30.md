@@ -17,7 +17,7 @@ specified, the system processes the query as a cross-join (Cartesian product).
 FROM *table\_reference* [, ...]
 ```
 
-where _table_reference_ is one of the following:
+where _table\_reference_ is one of the following:
 
 ```
 with_subquery_table_name | table_name | ( subquery ) [ [ AS ] alias ]
@@ -27,11 +27,11 @@ table_reference [ INNER ] join_type table_reference ON expr
 
 ## Parameters
 
-_with_subquery_table_name_
+_with\_subquery\_table\_name_
 
 A table defined by a subquery in the [WITH clause](WITH_clause.md "WITH_clause.md").
 
-_table_name_
+_table\_name_
 
 Name of a table or view.
 
@@ -56,7 +56,7 @@ For example, if the query is `SELECT "tbl"."col" FROM "tbl" AS "t"`, the
 query would fail because the table name is essentially overridden now. A valid query in this
 case would be `SELECT "t"."col" FROM "tbl" AS "t"`.
 
-_column_alias_
+_column\_alias_
 
 Temporary alternative name for a column in a table or view.
 
@@ -83,7 +83,7 @@ join over their CATID columns.
 If a NATURAL join is specified but no identically named pairs of columns exist in the
 tables to be joined, the query defaults to a cross-join.
 
-_join_type_
+_join\_type_
 
 Specify one of the following types of join:
 
@@ -105,7 +105,7 @@ plus non-matching rows from the "left" table, "right" table, or both tables. The
 is the first-listed table, and the right table is the second-listed table. The non-matching
 rows contain NULL values to fill the gaps in the output columns.
 
-ON _join_condition_
+ON _join\_condition_
 
 Type of join specification where the joining columns are stated as a condition that
 follows the ON keyword. For example:
@@ -115,7 +115,7 @@ sales join listing
 on sales.listid=listing.listid and sales.eventid=listing.eventid
 ```
 
-USING ( _join_column_ [, ...] )
+USING ( _join\_column_ [, ...] )
 
 Type of join specification where the joining columns are listed in parentheses. If
 multiple joining columns are specified, they are delimited by commas. The USING keyword must

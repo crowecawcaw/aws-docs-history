@@ -100,7 +100,7 @@ Scarlett  | Mayer    |
 
 ## Examples with a TIME column
 
-The following example table TIME_TEST has a column TIME_VAL (type TIME) with three values
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three values
 inserted.
 
 ```
@@ -113,7 +113,7 @@ time_val
 00:58:00
 ```
 
-The following example extracts the hours from each timetz_val.
+The following example extracts the hours from each timetz\_val.
 
 ```
 select time_val from time_test where time_val < '3:00';
@@ -134,7 +134,7 @@ select time '18:25:33.123456' = time '18:25:33.123456';
 
 ## Examples with a TIMETZ column
 
-The following example table TIMETZ_TEST has a column TIMETZ_VAL (type TIMETZ) with three
+The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with three
 values inserted.
 
 ```

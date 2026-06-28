@@ -1,4 +1,4 @@
-# SPLIT_PART function
+# SPLIT\_PART function
 
 Splits a string on the specified delimiter and returns the part at the specified
 position.
@@ -28,7 +28,7 @@ _position_
 
 Position of the portion of _string_ to return (counting
 from 1). Must be an integer greater than 0. If _position_ is
-larger than the number of string portions, SPLIT_PART returns an empty string.
+larger than the number of string portions, SPLIT\_PART returns an empty string.
 If _delimiter_ is not found in _string_,
 then the returned value contains the contents of the specified part, which
 might be the entire _string_ or an empty value.

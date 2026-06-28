@@ -1,9 +1,9 @@
-# FIRST_VALUE window function
+# FIRST\_VALUE window function
 
-Given an ordered set of rows, FIRST_VALUE returns the value of the specified expression
+Given an ordered set of rows, FIRST\_VALUE returns the value of the specified expression
 with respect to the first row in the window frame.
 
-For information about selecting the last row in the frame, see [LAST_VALUE window function](WF_last_value.md "WF_last_value.md") .
+For information about selecting the last row in the frame, see [LAST\_VALUE window function](WF_last_value.md "WF_last_value.md") .
 
 ## Syntax
 
@@ -23,7 +23,7 @@ The target column or expression that the function operates on.
 
 IGNORE NULLS
 
-When this option is used with FIRST_VALUE, the function returns the first
+When this option is used with FIRST\_VALUE, the function returns the first
 value in the frame that is not NULL (or NULL if all values are NULL).
 
 RESPECT NULLS
@@ -36,17 +36,17 @@ OVER
 
 Introduces the window clauses for the function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Defines the window for the function in terms of one or more expressions.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Sorts the rows within each partition. If no PARTITION BY clause is
 specified, ORDER BY sorts the entire table. If you specify an ORDER BY clause,
-you must also specify a _frame_clause_.
+you must also specify a _frame\_clause_.
 
-The results of the FIRST_VALUE function depends on the ordering of the data.
+The results of the FIRST\_VALUE function depends on the ordering of the data.
 The results are nondeterministic in the following cases:
 
 - When no ORDER BY clause is specified and a partition contains two
@@ -54,7 +54,7 @@ The results are nondeterministic in the following cases:
 - When the expression evaluates to different values that correspond to
   the same value in the ORDER BY list.
 
-_frame_clause_
+_frame\_clause_
 
 If an ORDER BY clause is used for an aggregate function, an explicit frame
 clause is required. The frame clause refines the set of rows in a function's
@@ -69,7 +69,7 @@ type is the same as the data type of the _expression_.
 ## Examples
 
 The following example returns the seating capacity for each venue in the VENUE table,
-with the results ordered by capacity (high to low). The FIRST_VALUE function is used to
+with the results ordered by capacity (high to low). The FIRST\_VALUE function is used to
 select the name of the venue that corresponds to the first row in the frame: in this
 case, the row with the highest number of seats. The results are partitioned by state, so
 when the VENUESTATE value changes, a new first value is selected. The window frame is

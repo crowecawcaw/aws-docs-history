@@ -1,6 +1,6 @@
-# IS_NOT_NULL expression
+# IS\_NOT\_NULL expression
 
-The IS_NOT_NULL conditional expression is used to check if a value is not
+The IS\_NOT\_NULL conditional expression is used to check if a value is not
 null.
 
 This expression is a synonym for IS NOT NULL.
@@ -19,7 +19,7 @@ An expression of any type.
 
 ## Returns
 
-The IS_NOT_NULL conditional expression returns a Boolean. If
+The IS\_NOT\_NULL conditional expression returns a Boolean. If
 `expr1` is not NULL, returns `true`, otherwise returns
 `false`.
 

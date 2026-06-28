@@ -12,5 +12,5 @@ AWS Clean Rooms supports the following constructor functions:
 ###### Topics
 
 - [MAP constructor function](map_function.md "map_function.md")
-- [NAMED_STRUCT constructor function](named-struct_function.md "named-struct_function.md")
+- [NAMED\_STRUCT constructor function](named-struct_function.md "named-struct_function.md")
 - [STRUCT constructor function](struct_function.md "struct_function.md")

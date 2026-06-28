@@ -8,5 +8,5 @@ AWS Clean Rooms Spark SQL supports the following encryption and decryption funct
 
 ###### Topics
 
-- [AES_ENCRYPT function](AES_ENCRYPT.md "AES_ENCRYPT.md")
-- [AES_DECRYPT function](AES_DECRYPT.md "AES_DECRYPT.md")
+- [AES\_ENCRYPT function](AES_ENCRYPT.md "AES_ENCRYPT.md")
+- [AES\_DECRYPT function](AES_DECRYPT.md "AES_DECRYPT.md")

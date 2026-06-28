@@ -1,8 +1,8 @@
-# REGEXP_INSTR function
+# REGEXP\_INSTR function
 
 Searches a string for a regular expression pattern and returns an integer that indicates
 the beginning position or ending position of the matched substring. If no match is found,
-then the function returns 0. REGEXP_INSTR is similar to the [POSITION](POSITION.md "POSITION.md") function, but lets you search a string for a regular expression
+then the function returns 0. REGEXP\_INSTR is similar to the [POSITION](POSITION.md "POSITION.md") function, but lets you search a string for a regular expression
 pattern.
 
 ## Syntax
@@ -13,7 +13,7 @@ REGEXP_INSTR ( *source\_string*, *pattern* [, *position* [, *occurrence*] [, *op
 
 ## Arguments
 
-_source_string_
+_source\_string_
 
 A string expression, such as a column name, to be searched.
 
@@ -24,20 +24,20 @@ A string literal that represents a regular expression pattern.
 _position_
 
 A positive integer that indicates the position within
-_source_string_ to begin searching. The position is based
+_source\_string_ to begin searching. The position is based
 on the number of characters, not bytes, so that multibyte characters are
 counted as single characters. The default is 1. If
 _position_ is less than 1, the search begins at the first
-character of _source_string_. If
+character of _source\_string_. If
 _position_ is greater than the number of characters in
-_source_string_, the result is 0.
+_source\_string_, the result is 0.
 
 _occurrence_
 
 A positive integer that indicates which occurrence of the pattern to use.
-REGEXP_INSTR skips the first _occurrence_ -1 matches. The
+REGEXP\_INSTR skips the first _occurrence_ -1 matches. The
 default is 1. If _occurrence_ is less than 1 or greater than
-the number of characters in _source_string_, the search is
+the number of characters in _source\_string_, the search is
 ignored and the result is 0.
 
 _option_
@@ -57,11 +57,11 @@ pattern. The possible values are the following:
 - i – Perform case-insensitive matching.
 - e – Extract a substring using a subexpression.
 
-If _pattern_ includes a subexpression, REGEXP_INSTR
+If _pattern_ includes a subexpression, REGEXP\_INSTR
 matches a substring using the first subexpression in
-_pattern_. REGEXP_INSTR considers only the first
+_pattern_. REGEXP\_INSTR considers only the first
 subexpression; additional subexpressions are ignored. If the pattern
-doesn't have a subexpression, REGEXP_INSTR ignores the 'e' parameter.
+doesn't have a subexpression, REGEXP\_INSTR ignores the 'e' parameter.
 
 - p – Interpret the pattern with Perl Compatible Regular
   Expression (PCRE) dialect.

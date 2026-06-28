@@ -11,7 +11,7 @@ LEAST (value [, ...])
 
 ## Parameters
 
-_expression_list_
+_expression\_list_
 
 A comma-separated list of expressions, such as column names. The expressions
 must all be convertible to a common data type. NULL values in the list are

@@ -1,9 +1,9 @@
-# NAMED_STRUCT constructor function
+# NAMED\_STRUCT constructor function
 
-The NAMED_STRUCT constructor function creates a struct with the given field names and
+The NAMED\_STRUCT constructor function creates a struct with the given field names and
 values.
 
-Constructor functions like NAMED_STRUCT are useful when you need to create new data
+Constructor functions like NAMED\_STRUCT are useful when you need to create new data
 structures programmatically within your SQL queries. They allow you to build complex data
 structures, such as structs or records, that can be used in further data processing or
 analysis.
@@ -26,7 +26,7 @@ An expression of any type specifying the value for field 1.
 
 ## Returns
 
-The NAMED_STRUCT function returns a struct with field 1 matching the type of
+The NAMED\_STRUCT function returns a struct with field 1 matching the type of
 _val1_.
 
 ## Examples

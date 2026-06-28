@@ -1,11 +1,11 @@
-# STDDEV_SAMP and STDDEV_POP functions
+# STDDEV\_SAMP and STDDEV\_POP functions
 
-The STDDEV_SAMP and STDDEV_POP functions return the sample and population standard
+The STDDEV\_SAMP and STDDEV\_POP functions return the sample and population standard
 deviation of a set of numeric values (integer, decimal, or floating-point). The result of the
-STDDEV_SAMP function is equivalent to the square root of the sample variance of the same set of
+STDDEV\_SAMP function is equivalent to the square root of the sample variance of the same set of
 values.
 
-STDDEV_SAMP and STDDEV are synonyms for the same function.
+STDDEV\_SAMP and STDDEV are synonyms for the same function.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ slight imprecision.
 
 ## Usage notes
 
-When the sample standard deviation (STDDEV or STDDEV_SAMP) is calculated for an expression
+When the sample standard deviation (STDDEV or STDDEV\_SAMP) is calculated for an expression
 that consists of a single value, the result of the function is NULL not 0.
 
 ## Examples

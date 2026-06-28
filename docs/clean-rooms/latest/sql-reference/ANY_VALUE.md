@@ -1,6 +1,6 @@
-# ANY_VALUE function
+# ANY\_VALUE function
 
-The ANY_VALUE function returns any value from the input expression values
+The ANY\_VALUE function returns any value from the input expression values
 nondeterministically. This function can return NULL if the input expression doesn't result in any
 rows being returned.
 
@@ -28,7 +28,7 @@ Returns the same data type as _expression_.
 
 ## Usage notes
 
-If a statement that specifies the ANY_VALUE function for a column also includes a second
+If a statement that specifies the ANY\_VALUE function for a column also includes a second
 column reference, the second column must appear in a GROUP BY clause or be included in an
 aggregate function.
 

@@ -1,7 +1,7 @@
-# DATE_PART function
+# DATE\_PART function
 
-DATE_PART extracts date part values from an expression. DATE_PART is a synonym of the
-PGDATE_PART function.
+DATE\_PART extracts date part values from an expression. DATE\_PART is a synonym of the
+PGDATE\_PART function.
 
 ## Syntax
 

@@ -49,7 +49,7 @@ Where:
 
 ## Parameters
 
-_cache_table_identifier_
+_cache\_table\_identifier_
 
 The name for the cached table. Can include an optional database name qualifier.
 

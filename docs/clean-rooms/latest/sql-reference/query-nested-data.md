@@ -194,23 +194,23 @@ Nested data type columns support inspection functions that return the type and o
 type information about the value. AWS Clean Rooms supports the following boolean functions
 for nested data columns:
 
-- DECIMAL_PRECISION
-- DECIMAL_SCALE
-- IS_ARRAY
-- IS_BIGINT
-- IS_CHAR
-- IS_DECIMAL
-- IS_FLOAT
-- IS_INTEGER
-- IS_OBJECT
-- IS_SCALAR
-- IS_SMALLINT
-- IS_VARCHAR
-- JSON_TYPEOF
+- DECIMAL\_PRECISION
+- DECIMAL\_SCALE
+- IS\_ARRAY
+- IS\_BIGINT
+- IS\_CHAR
+- IS\_DECIMAL
+- IS\_FLOAT
+- IS\_INTEGER
+- IS\_OBJECT
+- IS\_SCALAR
+- IS\_SMALLINT
+- IS\_VARCHAR
+- JSON\_TYPEOF
 
-All these functions return false if the input value is null. IS_SCALAR, IS_OBJECT, and
-IS_ARRAY are mutually exclusive and cover all possible values except for null. To infer the
-types corresponding to the data, AWS Clean Rooms uses the JSON_TYPEOF function that returns the type
+All these functions return false if the input value is null. IS\_SCALAR, IS\_OBJECT, and
+IS\_ARRAY are mutually exclusive and cover all possible values except for null. To infer the
+types corresponding to the data, AWS Clean Rooms uses the JSON\_TYPEOF function that returns the type
 of (the top level of) the nested data value as shown in the following example:
 
 ```

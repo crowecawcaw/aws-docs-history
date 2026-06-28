@@ -15,7 +15,7 @@ _string_
 
 The input VARCHAR string to be trimmed.
 
-_trim_chars_
+_trim\_chars_
 
 The VARCHAR string containing the characters to be matched.
 
@@ -50,9 +50,9 @@ btrim('xyzaxyzbxyzcxyz', 'xyz') as trim;`
 
 The following example removes the leading and trailing parts from the string
 `'setuphistorycassettes'` that match any of the characters in the
-_trim_chars_ list `'tes'`. Any `t`,
+_trim\_chars_ list `'tes'`. Any `t`,
 `e`, or `s` that occur before another character that is not in
-the _trim_chars_ list at the beginning or ending of the input string
+the _trim\_chars_ list at the beginning or ending of the input string
 are removed.
 
 ```

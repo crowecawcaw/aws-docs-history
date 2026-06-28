@@ -51,5 +51,5 @@ An example is the following: `["first", {"one":1}, "second", 3, null]`
 
 ###### Topics
 
-- [GET_JSON_OBJECT function](GET_JSON_OBJECT.md "GET_JSON_OBJECT.md")
-- [TO_JSON function](TO_JSON.md "TO_JSON.md")
+- [GET\_JSON\_OBJECT function](GET_JSON_OBJECT.md "GET_JSON_OBJECT.md")
+- [TO\_JSON function](TO_JSON.md "TO_JSON.md")

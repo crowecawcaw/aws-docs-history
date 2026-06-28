@@ -1,7 +1,7 @@
-# ARRAY_DISTINCT function
+# ARRAY\_DISTINCT function
 
-The ARRAY_DISTINCT function can be used to remove duplicate values from an array. The
-ARRAY_DISTINCT function is useful when you need to remove duplicates from an array and work
+The ARRAY\_DISTINCT function can be used to remove duplicate values from an array. The
+ARRAY\_DISTINCT function is useful when you need to remove duplicates from an array and work
 with only the unique elements. This can be helpful in scenarios where you want to perform
 operations or analyses on a dataset without the interference of repeated values.
 
@@ -19,7 +19,7 @@ An ARRAY expression.
 
 ## Return type
 
-The ARRAY_DISTINCT function returns an ARRAY that contains only the unique elements
+The ARRAY\_DISTINCT function returns an ARRAY that contains only the unique elements
 from the input array.
 
 ## Examples

@@ -17,9 +17,9 @@ INNER JOIN table2
 ON table1.column = table2.column;
 ```
 
-The following query will return all the rows where there is a matching customer_id value
-between the customers and orders tables. The result set will contain the customer_id, name,
-order_id, and order_date columns.
+The following query will return all the rows where there is a matching customer\_id value
+between the customers and orders tables. The result set will contain the customer\_id, name,
+order\_id, and order\_date columns.
 
 ```
 SELECT customers.customer_id, customers.name, orders.order_id, orders.order_date
@@ -119,7 +119,7 @@ ON table1.column = table2.column;
 
 The following query will return all the rows from the customers table, along with the
 matching rows from the orders table. If a customer has no orders, the result set will still
-include that customer's information, with NULL values for the order_id and order_date
+include that customer's information, with NULL values for the order\_id and order\_date
 columns.
 
 ```
@@ -175,7 +175,7 @@ ON table1.column = table2.column;
 
 The following query will return all the rows from the customers table, along with the
 matching rows from the orders table. If a customer has no orders, the result set will still
-include that customer's information, with NULL values for the order_id and order_date
+include that customer's information, with NULL values for the order\_id and order\_date
 columns.
 
 ```
@@ -227,8 +227,8 @@ ON table1.column = table2.column;
 
 The following query will return all the rows from both the customers and orders tables. If
 a customer has no orders, the result set will still include that customer's information, with
-NULL values for the order_id and order_date columns. If an order has no associated customer,
-the result set will include that order, with NULL values for the customer_id and name
+NULL values for the order\_id and order\_date columns. If an order has no associated customer,
+the result set will include that order, with NULL values for the customer\_id and name
 columns.
 
 ```
@@ -301,7 +301,7 @@ LEFT SEMI JOIN table2
 ON table1.column = table2.column;
 ```
 
-The following query will return only the customer_id and name columns from the customers
+The following query will return only the customer\_id and name columns from the customers
 table, for the customers who have at least one order in the orders table. The result set won't
 include any columns from the orders table.
 
@@ -333,7 +333,7 @@ CROSS JOIN table2;
 ```
 
 The following query will return a result set that contains all possible combinations of
-customer_id, customer_name, product_id, and product_name from the customers and products
+customer\_id, customer\_name, product\_id, and product\_name from the customers and products
 tables. If the customers table has 10 rows and the products table has 20 rows, the result set
 of the CROSS JOIN will contain 10 x 20 = 200 rows.
 

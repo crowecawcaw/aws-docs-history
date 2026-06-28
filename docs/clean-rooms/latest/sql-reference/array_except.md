@@ -1,10 +1,10 @@
-# ARRAY_EXCEPT function
+# ARRAY\_EXCEPT function
 
-The ARRAY_EXCEPT function takes two arrays as arguments and returns a new array that
+The ARRAY\_EXCEPT function takes two arrays as arguments and returns a new array that
 contains only the elements that are present in the first array but not the second
 array.
 
-The ARRAY_EXCEPT is useful when you need to find the elements that are unique to one
+The ARRAY\_EXCEPT is useful when you need to find the elements that are unique to one
 array compared to another. This can be helpful in scenarios where you need to perform
 set-like operations on arrays, such as finding the difference between two sets of
 data.
@@ -28,7 +28,7 @@ _array1_.
 
 ## Return type
 
-The ARRAY_EXCEPT function returns an ARRAY of matching type to _array1_ with no duplicates.
+The ARRAY\_EXCEPT function returns an ARRAY of matching type to _array1_ with no duplicates.
 
 ## Examples
 

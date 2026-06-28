@@ -6,9 +6,9 @@ the values in the `col` column and then finding the value at the specified
 
 The PERCENTILE function is useful when you need to calculate the exact percentile value and
 the computational cost is acceptable for your use case. It provides more accurate results than
-the APPROX_PERCENTILE function, but may be slower, especially for large datasets.
+the APPROX\_PERCENTILE function, but may be slower, especially for large datasets.
 
-In contrast, the APPROX_PERCENTILE function is a more efficient alternative that can provide
+In contrast, the APPROX\_PERCENTILE function is a more efficient alternative that can provide
 an estimate of the percentile value with a specified error tolerance, making it more suitable for
 scenarios where speed is a higher priority than absolute precision.
 

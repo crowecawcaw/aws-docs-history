@@ -11,7 +11,7 @@ TRIM( [ BOTH ] [ *trim\_chars* FROM ] string
 
 ## Arguments
 
-_trim_chars_
+_trim\_chars_
 
 (Optional) The characters to be trimmed from the string. If this parameter
 is omitted, blanks are trimmed.
@@ -51,7 +51,7 @@ The following example removes the double quotation marks that surround the strin
 dog`
 ```
 
-TRIM removes any of the characters in _trim_chars_ when they
+TRIM removes any of the characters in _trim\_chars_ when they
 appear at the beginning of _string_. The following example trims the
 characters 'C', 'D', and 'G' when they appear at the beginning of VENUENAME, which is a
 VARCHAR column.

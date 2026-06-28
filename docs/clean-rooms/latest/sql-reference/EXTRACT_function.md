@@ -32,7 +32,7 @@ TIMESTAMPTZ.
 
 ## Examples with TIME
 
-The following example table TIME_TEST has a column TIME_VAL (type TIME) with three
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three
 values inserted.
 
 ```
@@ -45,7 +45,7 @@ time_val
 00:58:00
 ```
 
-The following example extracts the minutes from each time_val.
+The following example extracts the minutes from each time\_val.
 
 ```
 select extract(minute from time_val) as minutes from time_test;
@@ -57,7 +57,7 @@ minutes
          58
 ```
 
-The following example extracts the hours from each time_val.
+The following example extracts the hours from each time\_val.
 
 ```
 select extract(hour from time_val) as hours from time_test;

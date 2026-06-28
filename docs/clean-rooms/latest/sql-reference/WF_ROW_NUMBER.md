@@ -1,4 +1,4 @@
-# ROW_NUMBER window function
+# ROW\_NUMBER window function
 
 Determines the ordinal number of the current row within a group of rows, counting from
 1, based on the ORDER BY expression in the OVER clause. If the optional PARTITION BY clause
@@ -23,13 +23,13 @@ The function takes no arguments, but the empty parentheses are required.
 
 OVER
 
-The window clauses for the ROW_NUMBER function.
+The window clauses for the ROW\_NUMBER function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
-Optional. One or more expressions that define the ROW_NUMBER function.
+Optional. One or more expressions that define the ROW\_NUMBER function.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Optional. The expression that defines the columns on which the row numbers
 are based. If no PARTITION BY is specified, ORDER BY uses the entire table.

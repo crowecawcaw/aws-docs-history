@@ -1,10 +1,10 @@
-# VAR_SAMP and VAR_POP functions
+# VAR\_SAMP and VAR\_POP functions
 
-The VAR_SAMP and VAR_POP functions return the sample and population variance of a set of
-numeric values (integer, decimal, or floating-point). The result of the VAR_SAMP function is
+The VAR\_SAMP and VAR\_POP functions return the sample and population variance of a set of
+numeric values (integer, decimal, or floating-point). The result of the VAR\_SAMP function is
 equivalent to the squared sample standard deviation of the same set of values.
 
-VAR_SAMP and VARIANCE are synonyms for the same function.
+VAR\_SAMP and VARIANCE are synonyms for the same function.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ configuration of the cluster in each case.
 
 ## Usage notes
 
-When the sample variance (VARIANCE or VAR_SAMP) is calculated for an expression that
+When the sample variance (VARIANCE or VAR\_SAMP) is calculated for an expression that
 consists of a single value, the result of the function is NULL not 0.
 
 ## Examples

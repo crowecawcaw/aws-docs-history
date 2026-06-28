@@ -1,7 +1,7 @@
-# ADD_MONTHS function
+# ADD\_MONTHS function
 
-ADD_MONTHS adds the specified number of months to a date or timestamp value or
-expression. The [DATE_ADD](DATE_ADD_function.md "DATE_ADD_function.md")
+ADD\_MONTHS adds the specified number of months to a date or timestamp value or
+expression. The [DATE\_ADD](DATE_ADD_function.md "DATE_ADD_function.md")
 function provides similar functionality.
 
 ## Syntax
@@ -31,8 +31,8 @@ TIMESTAMP
 
 ## Example
 
-The following query uses the ADD_MONTHS function inside a TRUNC function. The TRUNC
-function removes the time of day from the result of ADD_MONTHS. The ADD_MONTHS function
+The following query uses the ADD\_MONTHS function inside a TRUNC function. The TRUNC
+function removes the time of day from the result of ADD\_MONTHS. The ADD\_MONTHS function
 adds 12 months to each value from the CALDATE column.
 
 ```
@@ -50,7 +50,7 @@ order by 1 asc;
 (365 rows)
 ```
 
-The following examples demonstrate the behavior when the ADD_MONTHS function operates
+The following examples demonstrate the behavior when the ADD\_MONTHS function operates
 on dates with months that have different numbers of days.
 
 ```

@@ -14,15 +14,15 @@ subquery.
 _expression_
 
 A numeric, character, or datetime expression that is evaluated against
-the _expr_list_ or _table_subquery_
+the _expr\_list_ or _table\_subquery_
 and must be compatible with the data type of that list or subquery.
 
-_expr_list_
+_expr\_list_
 
 One or more comma-delimited expressions, or one or more sets of
 comma-delimited expressions bounded by parentheses.
 
-_table_subquery_
+_table\_subquery_
 
 A subquery that evaluates to a table with one or more rows, but is
 limited to only one column in its select list.
@@ -33,8 +33,8 @@ IN returns true if the expression is a member of the expression list
 or query. NOT IN returns true if the expression is not a member. IN and
 NOT IN return NULL and no rows are returned in the following cases: If
 _expression_ yields null; or if there are no
-matching _expr_list_ or
-_table_subquery_ values and at least one of these
+matching _expr\_list_ or
+_table\_subquery_ values and at least one of these
 comparison rows yields null.
 
 ## Examples

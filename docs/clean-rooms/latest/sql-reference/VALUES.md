@@ -30,7 +30,7 @@ _expression_
 An expression that specifies a combination of one or more values, operators and SQL
 functions that results in a value.
 
-_table_alias_
+_table\_alias_
 
 An alias that specifies a temporary name with an optional column name list.
 

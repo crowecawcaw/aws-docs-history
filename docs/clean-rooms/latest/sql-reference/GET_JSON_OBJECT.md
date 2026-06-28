@@ -1,6 +1,6 @@
-# GET_JSON_OBJECT function
+# GET\_JSON\_OBJECT function
 
-The GET_JSON_OBJECT function extracts a json object from `path`.
+The GET\_JSON\_OBJECT function extracts a json object from `path`.
 
 ## Syntax
 
@@ -10,7 +10,7 @@ get_json_object(json_txt, path)
 
 ## Arguments
 
-_json_txt_
+_json\_txt_
 
 A STRING expression containing well formed JSON.
 

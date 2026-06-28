@@ -25,8 +25,8 @@ The following table lists the data types that you can use in AWS Clean Rooms Spa
 | SHORT          | [Numeric types](Numeric_types.md "Numeric_types.md")         | Not applicable           | 2-byte signed integer numbers.                               |
 | SMALLINT       | [Numeric types](Numeric_types.md "Numeric_types.md")         | Not applicable           | Signed two-byte integer                                      |
 | STRUCT         | [Nested type](s_Nested-data-type.md "s_Nested-data-type.md") | Not applicable           | Struct nested data type                                      |
-| TIMESTAMP_LTZ  | [Datetime types](Datetime_types.md "Datetime_types.md")      | Not applicable           | Time of day with local time zone                             |
-| TIMESTAMP_NTZ  | [Datetime types](Datetime_types.md "Datetime_types.md")      | Not applicable           | Time of day without time zone                                |
+| TIMESTAMP\_LTZ | [Datetime types](Datetime_types.md "Datetime_types.md")      | Not applicable           | Time of day with local time zone                             |
+| TIMESTAMP\_NTZ | [Datetime types](Datetime_types.md "Datetime_types.md")      | Not applicable           | Time of day without time zone                                |
 | TINYINT        | [Numeric types](Numeric_types.md "Numeric_types.md")         | Not applicable           | 1-byte signed integer numbers, from -128 to 127              |
 | VARCHAR        | [Character types](Character_types.md "Character_types.md")   | CHARACTER VARYING        | Variable-length character string with a user-defined limit   |
 

@@ -1,6 +1,6 @@
-# TO_TIMESTAMP function
+# TO\_TIMESTAMP function
 
-TO_TIMESTAMP converts a TIMESTAMP string to TIMESTAMPTZ.
+TO\_TIMESTAMP converts a TIMESTAMP string to TIMESTAMPTZ.
 
 ## Syntax
 
@@ -31,7 +31,7 @@ TIMESTAMP
 
 ## Examples
 
-The following example demonstrates using the TO_TIMESTAMP function to convert a
+The following example demonstrates using the TO\_TIMESTAMP function to convert a
 TIMESTAMP string to a TIMESTAMP.
 
 ```
@@ -42,7 +42,7 @@ TIMESTAMP string to a TIMESTAMP.
 2021-04-05 19:27:53.281812 | 2021-04-05 19:27:53+00`
 ```
 
-It's possible to pass TO_TIMESTAMP part of a date. The remaining date parts are set
+It's possible to pass TO\_TIMESTAMP part of a date. The remaining date parts are set
 to default values. The time is included in the output:
 
 ```

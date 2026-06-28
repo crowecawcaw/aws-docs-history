@@ -69,8 +69,8 @@ a TIMETZ.
 
 ### Example
 
-The following example table TIME_TEST has a column
-TIME_VAL (type TIME) with three values inserted.
+The following example table TIME\_TEST has a column
+TIME\_VAL (type TIME) with three values inserted.
 
 ```
 select date '2000-01-02' + time_val as ts from time_test;

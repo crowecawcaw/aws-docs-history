@@ -19,7 +19,7 @@ The CATEGORY table in the database contains the following 11 rows:
 (11 rows)
 ```
 
-Assume that a CATEGORY_STAGE table (a staging table) contains one additional row:
+Assume that a CATEGORY\_STAGE table (a staging table) contains one additional row:
 
 ```
  catid | catgroup |  catname  |                  catdesc
@@ -40,7 +40,7 @@ Assume that a CATEGORY_STAGE table (a staging table) contains one additional row
 ```
 
 Return the difference between the two tables. In other words, return rows that are in the
-CATEGORY_STAGE table but not in the CATEGORY table:
+CATEGORY\_STAGE table but not in the CATEGORY table:
 
 ```
 select * from category_stage

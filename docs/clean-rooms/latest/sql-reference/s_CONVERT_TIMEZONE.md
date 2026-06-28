@@ -1,6 +1,6 @@
-# CONVERT_TIMEZONE function
+# CONVERT\_TIMEZONE function
 
-CONVERT_TIMEZONE converts a timestamp from one time zone to another. The function
+CONVERT\_TIMEZONE converts a timestamp from one time zone to another. The function
 automatically adjusts for daylight saving time.
 
 ## Syntax
@@ -11,11 +11,11 @@ CONVERT_TIMEZONE ( ['*source\_timezone*',] '*target\_timezone*', '*timestamp*')
 
 ## Arguments
 
-_source_timezone_
+_source\_timezone_
 
 (Optional) The time zone of the current timestamp. The default is UTC.
 
-_target_timezone_
+_target\_timezone_
 
 The time zone for the new timestamp.
 
@@ -80,7 +80,7 @@ The following example converts a timestamp string from EST to PST:
 ```
 
 The following example converts a timestamp to US Eastern Standard Time because the
-target time zone uses a time zone name (America/New_York) and the timestamp is within
+target time zone uses a time zone name (America/New\_York) and the timestamp is within
 the standard time period.
 
 ```
@@ -93,7 +93,7 @@ the standard time period.
 ```
 
 The following example converts the timestamp to US Eastern Daylight Time because the
-target time zone uses a time zone name (America/New_York) and the timestamp is within
+target time zone uses a time zone name (America/New\_York) and the timestamp is within
 the daylight time period.
 
 ```

@@ -1,6 +1,6 @@
-# STR_TO_MAP function
+# STR\_TO\_MAP function
 
-The STR_TO_MAP function is a string-to-map conversion function. It converts a string
+The STR\_TO\_MAP function is a string-to-map conversion function. It converts a string
 representation of a map (or dictionary) into an actual map data structure.
 
 This function is useful when you need to work with map data structures in SQL, but the
@@ -31,7 +31,7 @@ pair. It defaults to a colon (`':'`).
 
 ## Return type
 
-The STR_TO_MAP function returns a MAP of STRING for both keys and values. Both
+The STR\_TO\_MAP function returns a MAP of STRING for both keys and values. Both
 _pairDelim_ and _keyValueDelim_ are treated as
 regular expressions.
 
@@ -55,7 +55,7 @@ SELECT str_to_map('a:1,b:2,c:3', ',', ':');
  {"a":"1","b":"2","c":"3"}
 ```
 
-The following example demonstrates that the STR_TO_MAP function expects the input
+The following example demonstrates that the STR\_TO\_MAP function expects the input
 string to be in a specific format, with the key-value pairs delimited correctly. If the
 input string doesn't match the expected format, the function will still attempt to
 create a map, but the resulting values may not be as expected.

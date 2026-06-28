@@ -1,6 +1,6 @@
-# TO_CHAR
+# TO\_CHAR
 
-TO_CHAR converts a timestamp or numeric expression to a character-string data format.
+TO\_CHAR converts a timestamp or numeric expression to a character-string data format.
 
 ## Syntax
 
@@ -10,20 +10,20 @@ TO_CHAR (*timestamp\_expression* | *numeric\_expression* , '*format*')
 
 ## Arguments
 
-_timestamp_expression_
+_timestamp\_expression_
 
 An expression that results in a TIMESTAMP or TIMESTAMPTZ type value or a
 value that can implicitly be coerced to a timestamp.
 
-_numeric_expression_
+_numeric\_expression_
 
 An expression that results in a numeric data type value or a value that can
-implicitly be coerced to a numeric type. For more information, see [Numeric types](Numeric_types.md "Numeric_types.md"). TO_CHAR inserts a
+implicitly be coerced to a numeric type. For more information, see [Numeric types](Numeric_types.md "Numeric_types.md"). TO\_CHAR inserts a
 space to the left of the numeral string.
 
 ###### Note
 
-TO_CHAR doesn't support 128-bit DECIMAL values.
+TO\_CHAR doesn't support 128-bit DECIMAL values.
 
 _format_
 

@@ -57,7 +57,7 @@ to regular timestamp values during query processing.
 | `yesterday`   | Evaluates to the appropriate date and returns a timestamp with<br>zeroes for the time<br>parts.               |
 
 The following examples show how `now` and `today` work with
-the DATE_ADD function.
+the DATE\_ADD function.
 
 ```
 select date_add('today', 1);

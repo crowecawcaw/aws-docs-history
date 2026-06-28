@@ -8,6 +8,6 @@ MEDIAN ( median_expression )
 
 ## Arguments
 
-_median_expression_
+_median\_expression_
 
 The target column or expression that the function operates on.

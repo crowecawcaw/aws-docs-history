@@ -1,6 +1,6 @@
-# COLLECT_SET function
+# COLLECT\_SET function
 
-The COLLECT_SET function collects and returns a set of unique elements.
+The COLLECT\_SET function collects and returns a set of unique elements.
 
 This function is useful when you want to collect all the distinct values from a set of rows
 into a single data structure, without including any duplicates.

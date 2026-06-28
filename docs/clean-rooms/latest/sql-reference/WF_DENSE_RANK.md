@@ -1,9 +1,9 @@
-# DENSE_RANK window function
+# DENSE\_RANK window function
 
-The DENSE_RANK window function determines the rank of a value in a group of values,
+The DENSE\_RANK window function determines the rank of a value in a group of values,
 based on the ORDER BY expression in the OVER clause. If the optional PARTITION BY clause is
 present, the rankings are reset for each group of rows. Rows with equal values for the
-ranking criteria receive the same rank. The DENSE_RANK function differs from RANK in one
+ranking criteria receive the same rank. The DENSE\_RANK function differs from RANK in one
 respect: If two or more rows tie, there is no gap in the sequence of ranked values. For
 example, if two rows are ranked 1, the next rank is 2.
 
@@ -28,13 +28,13 @@ The function takes no arguments, but the empty parentheses are required.
 
 OVER
 
-The window clauses for the DENSE_RANK function.
+The window clauses for the DENSE\_RANK function.
 
-PARTITION BY _expr_list_
+PARTITION BY _expr\_list_
 
 Optional. One or more expressions that define the window.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 Optional. The expression on which the ranking values are based. If no
 PARTITION BY is specified, ORDER BY uses the entire table. If ORDER BY is
@@ -76,7 +76,7 @@ salesid | qty | d_rnk | rnk
 (11 rows)
 ```
 
-Note the difference in rankings assigned to the same set of rows when the DENSE_RANK
+Note the difference in rankings assigned to the same set of rows when the DENSE\_RANK
 and RANK functions are used side by side in the same query. For a description of the
 WINSALES table, see [Sample table for window function examples](Window_functions.md#Window_function_example "Window_functions.md#Window_function_example").
 

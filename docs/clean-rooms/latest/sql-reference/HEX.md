@@ -44,7 +44,7 @@ SELECT hex('Spark_SQL');
  537061726B2053514C
 ```
 
-In this example, the string 'Spark_SQL' is converted as follows:
+In this example, the string 'Spark\_SQL' is converted as follows:
 
 - 'S' -> 53
 - 'p' -> 70

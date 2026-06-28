@@ -37,7 +37,7 @@ the query, uses the UNHEX() function to convert the hexadecimal string
 '537061726B2053514C' to its binary representation. The second part of the query, uses
 the DECODE() function to convert the binary data obtained from the UNHEX() function back
 to a string, using the 'UTF-8' character encoding. The output of the query, is he
-original string 'Spark_SQL' that was converted to hexadecimal and then back to a
+original string 'Spark\_SQL' that was converted to hexadecimal and then back to a
 string.
 
 ```

@@ -24,17 +24,17 @@ column names, and aliases:
 
   A dollar-quoted string constant consists of:
 
-      - a dollar sign ($)
-      - an optional "tag" of zero or more characters
-      - another dollar sign
-      - arbitrary sequence of characters that makes up the string
-       content
-      - a dollar sign ($)
-      - the same tag that began the dollar quote
-      - a dollar sign
+        - a dollar sign ($)
+        - an optional "tag" of zero or more characters
+        - another dollar sign
+        - arbitrary sequence of characters that makes up the string
+         content
+        - a dollar sign ($)
+        - the same tag that began the dollar quote
+        - a dollar sign
 
 
-      For example: `$$invalid$$`
+        For example: `$$invalid$$`
 
 - They can't contain consecutive hyphen (-) characters.
 - They can't begin with any of the following prefixes:
@@ -67,37 +67,37 @@ column names, and aliases:
 
 The following is a list of reserved words in AWS Clean Rooms.
 
-|                        |                    |                   |                      |
-| ---------------------- | ------------------ | ----------------- | -------------------- |
-| AES128                 | DELTA32KDESC       | LEADING           | PRIMARY              |
-| AES256ALL              | DISTINCT           | LEFTLIKE          | RAW                  |
-| ALLOWOVERWRITEANALYSE  | DO                 | LIMIT             | READRATIO            |
-| ANALYZE                | DISABLE            | LOCALTIME         | RECOVERREFERENCES    |
-| AND                    | ELSE               | LOCALTIMESTAMP    | REJECTLOG            |
-| ANY                    | EMPTYASNULLENABLE  | LUN               | RESORT               |
-| ARRAY                  | ENCODE             | LUNS              | RESPECT              |
-| AS                     | ENCRYPT            | LZO               | RESTORE              |
-| ASC                    | ENCRYPTIONEND      | LZOP              | RIGHTSELECT          |
-| AUTHORIZATION          | EXCEPT             | MINUS             | SESSION_USER         |
-| AZ64                   | EXPLICITFALSE      | MOSTLY16          | SIMILAR              |
-| BACKUPBETWEEN          | FOR                | MOSTLY32          | SNAPSHOT             |
-| BINARY                 | FOREIGN            | MOSTLY8NATURAL    | SOME                 |
-| BLANKSASNULLBOTH       | FREEZE             | NEW               | SYSDATESYSTEM        |
-| BYTEDICT               | FROM               | NOT               | TABLE                |
-| BZIP2CASE              | FULL               | NOTNULL           | TAG                  |
-| CAST                   | GLOBALDICT256      | NULL              | TDES                 |
-| CHECK                  | GLOBALDICT64KGRANT | NULLSOFF          | TEXT255              |
-| COLLATE                | GROUP              | OFFLINEOFFSET     | TEXT32KTHEN          |
-| COLUMN                 | GZIPHAVING         | OID               | TIMESTAMP            |
-| CONSTRAINT             | IDENTITY           | OLD               | TO                   |
-| CREATE                 | IGNOREILIKE        | ON                | TOPTRAILING          |
-| CREDENTIALSCROSS       | IN                 | ONLY              | TRUE                 |
-| CURRENT_DATE           | INITIALLY          | OPEN              | TRUNCATECOLUMNSUNION |
-| CURRENT_TIME           | INNER              | OR                | UNIQUE               |
-| CURRENT_TIMESTAMP      | INTERSECT          | ORDER             | UNNEST               |
-| CURRENT_USER           | INTERVAL           | OUTER             | USING                |
-| CURRENT_USER_IDDEFAULT | INTO               | OVERLAPS          | VERBOSE              |
-| DEFERRABLE             | IS                 | PARALLELPARTITION | WALLETWHEN           |
-| DEFLATE                | ISNULL             | PERCENT           | WHERE                |
-| DEFRAG                 | JOIN               | PERMISSIONS       | WITH                 |
-| DELTA                  | LANGUAGE           | PIVOTPLACING      | WITHOUT              |
+|                          |                    |                   |                      |
+| ------------------------ | ------------------ | ----------------- | -------------------- |
+| AES128                   | DELTA32KDESC       | LEADING           | PRIMARY              |
+| AES256ALL                | DISTINCT           | LEFTLIKE          | RAW                  |
+| ALLOWOVERWRITEANALYSE    | DO                 | LIMIT             | READRATIO            |
+| ANALYZE                  | DISABLE            | LOCALTIME         | RECOVERREFERENCES    |
+| AND                      | ELSE               | LOCALTIMESTAMP    | REJECTLOG            |
+| ANY                      | EMPTYASNULLENABLE  | LUN               | RESORT               |
+| ARRAY                    | ENCODE             | LUNS              | RESPECT              |
+| AS                       | ENCRYPT            | LZO               | RESTORE              |
+| ASC                      | ENCRYPTIONEND      | LZOP              | RIGHTSELECT          |
+| AUTHORIZATION            | EXCEPT             | MINUS             | SESSION\_USER        |
+| AZ64                     | EXPLICITFALSE      | MOSTLY16          | SIMILAR              |
+| BACKUPBETWEEN            | FOR                | MOSTLY32          | SNAPSHOT             |
+| BINARY                   | FOREIGN            | MOSTLY8NATURAL    | SOME                 |
+| BLANKSASNULLBOTH         | FREEZE             | NEW               | SYSDATESYSTEM        |
+| BYTEDICT                 | FROM               | NOT               | TABLE                |
+| BZIP2CASE                | FULL               | NOTNULL           | TAG                  |
+| CAST                     | GLOBALDICT256      | NULL              | TDES                 |
+| CHECK                    | GLOBALDICT64KGRANT | NULLSOFF          | TEXT255              |
+| COLLATE                  | GROUP              | OFFLINEOFFSET     | TEXT32KTHEN          |
+| COLUMN                   | GZIPHAVING         | OID               | TIMESTAMP            |
+| CONSTRAINT               | IDENTITY           | OLD               | TO                   |
+| CREATE                   | IGNOREILIKE        | ON                | TOPTRAILING          |
+| CREDENTIALSCROSS         | IN                 | ONLY              | TRUE                 |
+| CURRENT\_DATE            | INITIALLY          | OPEN              | TRUNCATECOLUMNSUNION |
+| CURRENT\_TIME            | INNER              | OR                | UNIQUE               |
+| CURRENT\_TIMESTAMP       | INTERSECT          | ORDER             | UNNEST               |
+| CURRENT\_USER            | INTERVAL           | OUTER             | USING                |
+| CURRENT\_USER\_IDDEFAULT | INTO               | OVERLAPS          | VERBOSE              |
+| DEFERRABLE               | IS                 | PARALLELPARTITION | WALLETWHEN           |
+| DEFLATE                  | ISNULL             | PERCENT           | WHERE                |
+| DEFRAG                   | JOIN               | PERMISSIONS       | WITH                 |
+| DELTA                    | LANGUAGE           | PIVOTPLACING      | WITHOUT              |

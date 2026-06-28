@@ -26,7 +26,7 @@ query. An expression can contain SQL functions. For example:
 coalesce(dimension, 'stringifnull') AS `column_alias`
 ```
 
-AS column_alias
+AS column\_alias
 
 A temporary name for the column that is used in the final result set. The AS
 keyword is optional. For example:

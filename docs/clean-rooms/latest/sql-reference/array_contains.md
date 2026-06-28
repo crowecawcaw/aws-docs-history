@@ -1,7 +1,7 @@
-# ARRAY_CONTAINS function
+# ARRAY\_CONTAINS function
 
-The ARRAY_CONTAINS function can be used to perform basic membership checks on array data
-structures. The ARRAY_CONTAINS function is useful when you need to check if a specific
+The ARRAY\_CONTAINS function can be used to perform basic membership checks on array data
+structures. The ARRAY\_CONTAINS function is useful when you need to check if a specific
 value is present within an array.
 
 ## Syntax
@@ -23,7 +23,7 @@ elements.
 
 ## Return type
 
-The ARRAY_CONTAINS function returns a BOOLEAN.
+The ARRAY\_CONTAINS function returns a BOOLEAN.
 
 If value is NULL, the result is NULL.
 
@@ -34,7 +34,7 @@ other element.
 
 The following example checks if the array `[1, 2, 3]` contains the value
 `4`. Since the array `[1, 2, 3`] doesn't contain the value
-`4`, the array_contains function returns `false`.
+`4`, the array\_contains function returns `false`.
 
 ```
 SELECT array_contains(array(1, 2, 3), 4)
@@ -43,7 +43,7 @@ false
 
 The following example checks if the array `[1, 2, 3]` contains the value
 `2`. Since the array `[1, 2, 3]` does contain the value
-`2`, the array_contains function returns `true`.
+`2`, the array\_contains function returns `true`.
 
 ```
 SELECT array_contains(array(1, 2, 3), 2);

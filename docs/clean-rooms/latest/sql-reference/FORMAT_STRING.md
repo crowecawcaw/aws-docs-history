@@ -1,14 +1,14 @@
-# FORMAT_STRING function
+# FORMAT\_STRING function
 
-The FORMAT_STRING function creates a formatted string by substituting placeholders in a
+The FORMAT\_STRING function creates a formatted string by substituting placeholders in a
 template string with the provided arguments. It returns a formatted string from
 printf-style format strings.
 
-The FORMAT_STRING function works by replacing the placeholders in the template string
+The FORMAT\_STRING function works by replacing the placeholders in the template string
 with the corresponding values passed as arguments. This type of string formatting can be
 useful when you need to dynamically construct strings that include a mix of static text and
 dynamic data, such as when generating output messages, reports, or other types of
-informative text. The FORMAT_STRING function provides a concise and readable way to create
+informative text. The FORMAT\_STRING function provides a concise and readable way to create
 these types of formatted strings, making it easier to maintain and update the code that
 generates the output.
 
@@ -30,7 +30,7 @@ A STRING or numeric expression.
 
 ## Return type
 
-FORMAT_STRING returns a STRING.
+FORMAT\_STRING returns a STRING.
 
 ## Example
 

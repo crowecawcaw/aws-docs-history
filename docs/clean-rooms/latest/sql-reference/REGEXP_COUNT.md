@@ -1,4 +1,4 @@
-# REGEXP_COUNT function
+# REGEXP\_COUNT function
 
 Searches a string for a regular expression pattern and returns an integer that indicates
 the number of times the pattern occurs in the string. If no match is found, then the
@@ -12,7 +12,7 @@ REGEXP_COUNT ( *source\_string*, *pattern* [, *position* [, *parameters* ] ] )
 
 ## Arguments
 
-_source_string_
+_source\_string_
 
 A string expression, such as a column name, to be searched.
 
@@ -23,13 +23,13 @@ A string literal that represents a regular expression pattern.
 _position_
 
 A positive integer that indicates the position within
-_source_string_ to begin searching. The position is based
+_source\_string_ to begin searching. The position is based
 on the number of characters, not bytes, so that multibyte characters are
 counted as single characters. The default is 1. If
 _position_ is less than 1, the search begins at the first
-character of _source_string_. If
+character of _source\_string_. If
 _position_ is greater than the number of characters in
-_source_string_, the result is 0.
+_source\_string_, the result is 0.
 
 _parameters_
 

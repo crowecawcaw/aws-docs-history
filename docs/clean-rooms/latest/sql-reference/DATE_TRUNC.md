@@ -1,6 +1,6 @@
-# DATE_TRUNC function
+# DATE\_TRUNC function
 
-The DATE_TRUNC function truncates a timestamp expression or literal based on the date
+The DATE\_TRUNC function truncates a timestamp expression or literal based on the date
 part that you specify, such as hour, day, or month.
 
 ## Syntax

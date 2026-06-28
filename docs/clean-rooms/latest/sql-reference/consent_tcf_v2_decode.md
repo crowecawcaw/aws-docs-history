@@ -1,4 +1,4 @@
-# consent_tcf_v2_decode function
+# consent\_tcf\_v2\_decode function
 
 The `consent_tcf_v2_decode` function is used to decode Transparency and
 Consent Framework (TCF) v2 consent data. It takes the encoded consent string as input and
@@ -15,7 +15,7 @@ consent_tcf_v2_decode(tcf_string)
 
 ## Arguments
 
-_tcf_string_
+_tcf\_string_
 
 The encoded TCF v2 consent string.
 

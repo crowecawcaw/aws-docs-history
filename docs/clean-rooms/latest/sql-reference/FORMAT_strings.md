@@ -7,17 +7,16 @@ You can use datetime patterns in the following common scenarios:
 - When converting between string types and date or timestamp types using functions
   such as:
 
-      + unix\_timestamp
-      + date\_format
-      + to\_unix\_timestamp
-      + from\_unixtime
-      + to\_date
-      + to\_timestamp
-      + from\_utc\_timestamp
-      + to\_utc\_timestamp
-
-  Use the pattern letters in the following table for date and timestamp parsing and
-  formatting.
+  - unix\_timestamp
+  - date\_format
+  - to\_unix\_timestamp
+  - from\_unixtime
+  - to\_date
+  - to\_timestamp
+  - from\_utc\_timestamp
+  - to\_utc\_timestamp
+    Use the pattern letters in the following table for date and timestamp parsing and
+    formatting.
 
 | Datepart or timepart | Meaning                                                                 | Examples                                                |
 | -------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------- |
@@ -37,7 +36,7 @@ You can use datetime patterns in the following common scenarios:
 | Q/q                  | Quarter<br>of the<br>year, presented as a number (1 to 4)<br>or<br>text | 3<br>03<br>Q3<br>3rd quarter                            |
 | s                    | Second of minute, presented as a 2-digit number                         | 55                                                      |
 | S                    | Fraction of a second, presented as a fraction                           | 978                                                     |
-| V                    | Time zone identifier, presented as a zone-id                            | America/Los_Angeles<br>Z<br>08:30                       |
+| V                    | Time zone identifier, presented as a zone-id                            | America/Los\_Angeles<br>Z<br>08:30                      |
 | x                    | Zone offset from UTC (offset-X)                                         | +0000<br>-08<br>-0830<br>-08:30<br>-083015<br>-08:30:15 |
 | X                    | Zone<br>offset from UTC; where Z is for zero                            | Z<br>-08<br>-0830<br>-08:30<br>-083015<br>-08:30:15     |
 | y                    | Year, presented as a year                                               | 2020<br>20                                              |
@@ -125,20 +124,18 @@ Text Format
 
 - 'LLLL':
 
-      + Shows full month name in standalone form
-      + Use for month-only formatting
-
-  Time Zone Formats
+  - Shows full month name in standalone form
+  - Use for month-only formatting
+    Time Zone Formats
 
 - am-pm: Use 1 letter only
 - Zone ID (V): Use 2 letters only
 - Zone names (z):
 
-      + 1-3 letters: Shows short name
-      + 4 letters: Shows full name
-      + Don't use 5 or more letters
-
-  Offset Formats
+  - 1-3 letters: Shows short name
+  - 4 letters: Shows full name
+  - Don't use 5 or more letters
+    Offset Formats
 
 - X and x:
 
@@ -157,11 +154,10 @@ Text Format
 
 - Z:
 
-      + 1-3 letters: Shows hour-minute without colon (+0130)
-      + 4 letters: Shows full localized form
-      + 5 letters: Shows hour-minute-second with colon
-
-  Optional Sections
+  - 1-3 letters: Shows hour-minute without colon (+0130)
+  - 4 letters: Shows full localized form
+  - 5 letters: Shows hour-minute-second with colon
+    Optional Sections
 
 - Use square brackets [ ] to mark optional content
 - You can nest optional sections
@@ -171,4 +167,4 @@ Text Format
 ###### Note
 
 The symbols 'E', 'F', 'q', and 'Q' work only for datetime formatting (like
-date_format). Don't use them for datetime parsing (like to_timestamp).
+date\_format). Don't use them for datetime parsing (like to\_timestamp).

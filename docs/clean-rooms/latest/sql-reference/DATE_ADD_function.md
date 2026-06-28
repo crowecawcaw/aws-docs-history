@@ -1,6 +1,6 @@
-# DATE_ADD function
+# DATE\_ADD function
 
-Returns the date that is num_days after start_date.
+Returns the date that is num\_days after start\_date.
 
 ## Syntax
 
@@ -10,11 +10,11 @@ date_add(*start\_date*, *num\_days*)
 
 ## Arguments
 
-_start_date_
+_start\_date_
 
 The starting date value.
 
-_num_days_
+_num\_days_
 
 The number of days to add (integer). A positive number adds days, a negative
 number subtracts days.
@@ -47,6 +47,6 @@ Result:
 
 ## Usage notes
 
-This documentation is for Spark SQL's DATE_ADD function, which provides a simpler
+This documentation is for Spark SQL's DATE\_ADD function, which provides a simpler
 interface for adding days to dates compared to some other SQL variants. For adding other
 intervals like months or years, different functions may be required.

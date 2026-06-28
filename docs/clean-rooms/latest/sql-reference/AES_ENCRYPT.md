@@ -1,6 +1,6 @@
-# AES_ENCRYPT function
+# AES\_ENCRYPT function
 
-The AES_ENCRYPT function is used for encrypting data using the Advanced Encryption
+The AES\_ENCRYPT function is used for encrypting data using the Advanced Encryption
 Standard (AES) algorithm.
 
 ## Syntax
@@ -56,11 +56,11 @@ decryption.
 
 ## Return type
 
-The AES_ENCRYPT function returns an encrypted value of _expr_ using AES in given mode with the specified padding.
+The AES\_ENCRYPT function returns an encrypted value of _expr_ using AES in given mode with the specified padding.
 
 ## Examples
 
-The following example demonstrates how to use the Spark SQL AES_ENCRYPT function to
+The following example demonstrates how to use the Spark SQL AES\_ENCRYPT function to
 securely encrypt a string of data (in this case, the word "Spark") using a specified
 encryption key. The resulting ciphertext is then Base64-encoded to make it easier to
 store or transmit.
@@ -71,7 +71,7 @@ SELECT base64(aes_encrypt('Spark', 'abcdefghijklmnop'));
 
 ```
 
-The following example demonstrates how to use the Spark SQL AES_ENCRYPT function to
+The following example demonstrates how to use the Spark SQL AES\_ENCRYPT function to
 securely encrypt a string of data (in this case, the word "Spark") using a specified
 encryption key. The resulting ciphertext is then represented in hexadecimal format,
 which can be useful for tasks such as data storage, transmission, or debugging.
@@ -81,7 +81,7 @@ SELECT hex(aes_encrypt('Spark', '0000111122223333'));
  83F16B2AA704794132802D248E6BFD4E380078182D1544813898AC97E709B28A94
 ```
 
-The following example demonstrates how to use the Spark SQL AES_ENCRYPT function to
+The following example demonstrates how to use the Spark SQL AES\_ENCRYPT function to
 securely encrypt a string of data (in this case, "Spark SQL") using a specified
 encryption key, encryption mode, and padding mode. The resulting ciphertext is then
 Base64-encoded to make it easier to store or transmit.

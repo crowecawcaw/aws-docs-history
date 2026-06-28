@@ -45,7 +45,7 @@ SELECT /*+ REPARTITION(100) */ /*+ COALESCE(500) */ /*+ REPARTITION_BY_RANGE(3, 
 - Hints are embedded directly in SQL query strings for both CreateAnalysisTemplate and StartProtectedQuery APIs.
 - Hints must be placed directly after the SELECT keyword.
 - Named parameters are not supported with hints and will throw an exception.
-- Column names in REPARTITION amd REPARTITION_BY_RANGE hints must exist in the input schema.
+- Column names in REPARTITION amd REPARTITION\_BY\_RANGE hints must exist in the input schema.
 - Column names in REBALANCE hints must appear in the SELECT output list.
 - Numeric parameters must be positive integers between 1 and 2147483647. Scientific notations like _1e1_ are not supported
 - Hints are not supported in Differential Privacy SQL queries.

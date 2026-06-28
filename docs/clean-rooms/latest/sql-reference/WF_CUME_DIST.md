@@ -1,4 +1,4 @@
-# CUME_DIST window function
+# CUME\_DIST window function
 
 Calculates the cumulative distribution of a value within a window or partition. Assuming
 ascending ordering, the cumulative distribution is determined using this formula:
@@ -37,12 +37,12 @@ OVER
 A clause that specifies the window partitioning. The OVER clause cannot
 contain a window frame specification.
 
-PARTITION BY _partition_expression_
+PARTITION BY _partition\_expression_
 
 Optional. An expression that sets the range of records for each group in the
 OVER clause.
 
-ORDER BY _order_list_
+ORDER BY _order\_list_
 
 The expression on which to calculate cumulative distribution. The expression
 must have either a numeric data type or be implicitly convertible to one. If
