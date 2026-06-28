@@ -15,9 +15,7 @@ For example, create a VPC Endpoint with the following configuration:
     * **Subnets**: Select the subnet(s) from which your Windows VMs establish outbound connections
     * **Security groups**: Select or create one that allows inbound TCP port `1688` from your Windows instance’s security group or CIDR
 
-3. Note down the private DNS name of the VPC Endpoint you created.
-4. Connect to the Windows Server VM and open **PowerShell**.
-5. Configure the activation server to use the VPC Endpoint by running the following command:
+3. Note down the private DNS name of the VPC Endpoint you created. 4. Connect to the Windows Server VM and open **PowerShell**. 5. Configure the activation server to use the VPC Endpoint by running the following command:
 
 ```
 cscript C:\Windows\System32\slmgr.vbs /skms `VPC_Endpoint_Private_DNS_Name`:1688

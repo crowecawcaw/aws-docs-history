@@ -57,23 +57,21 @@ Amazon EVS console
 
 AWS CLI
 
-1.  Open a new terminal session.
-2.  Create a new connector.
-    See example command below for reference.
+1. Open a new terminal session.
+2. Create a new connector.
+   See example command below for reference.
 
-        * secret-identifier can be the secret name or ARN
+   - secret-identifier can be the secret name or ARN
 
+   ```
+   aws evs create-environment-connector \
+       --environment-id env-abcde12345 \
+       --type VCENTER \
+       --appliance-fqdn vcenter.example.com \
+       --secret-identifier arn:aws:secretsmanager:us-east-2:123456789012:secret:vcenter-creds-AbCdEf
+   ```
 
-
-        ```
-        aws evs create-environment-connector \
-            --environment-id env-abcde12345 \
-            --type VCENTER \
-            --appliance-fqdn vcenter.example.com \
-            --secret-identifier arn:aws:secretsmanager:us-east-2:123456789012:secret:vcenter-creds-AbCdEf
-        ```
-
-3.  To verify completion, use the **list-environment-connectors** command and check that the connector state is Active and the reachability check result is Passed.
+3. To verify completion, use the **list-environment-connectors** command and check that the connector state is Active and the reachability check result is Passed.
 
 ```
 aws evs list-environment-connectors \

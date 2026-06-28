@@ -111,11 +111,10 @@ aws ec2 create-vpc \
 [source,bash]
 ```
 
-VPC_ID=$(aws ec2 describe-vpcs \
- --filters Name=tag:Name,Values=evs-vpc \
- --query 'Vpcs[0].VpcId' \
- --output text)
-
+VPC\_ID=$(aws ec2 describe-vpcs \
+--filters Name=tag:Name,Values=evs-vpc \
+--query 'Vpcs[0].VpcId' \
+--output text)
 ---
 
 3. Enable DNS hostnames and DNS support.
@@ -763,66 +762,78 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
     Information about your VCF software in Amazon EVS will be shared with Broadcom to verify license compliance.
     7. Choose **Next**.
 
-5.  On the **Specify host details** page, complete the following steps four times to add four hosts to the environment.
-    Amazon EVS environments require four hosts for initial deployment.
+5. On the **Specify host details** page, complete the following steps four times to add four hosts to the environment.
+Amazon EVS environments require four hosts for initial deployment.
 
-        1. Choose **Add host details**.
-        2. For **DNS hostname**, enter the host name for the host.
-        3. For **instance type**, choose the EC2 instance type.
-        4. For **ESX host version**, during environment creation a default ESX version for the chosen VCF version will be used. See [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md "versions-provided.md") for more information.
+    1. Choose **Add host details**.
+    2. For **DNS hostname**, enter the host name for the host.
+    3. For **instance type**, choose the EC2 instance type.
+    4. For **ESX host version**, during environment creation a default ESX version for the chosen VCF version will be used. See [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md "versions-provided.md") for more information.
 
 
-        ###### Important
+    ###### Important
 
-        Do not stop or terminate EC2 instances that Amazon EVS deploys.
-        This action results in data loss.
-        5. For **SSH key pair**, choose an SSH key pair for SSH access into the host.
-        6. Choose **Add host**.
+    Do not stop or terminate EC2 instances that Amazon EVS deploys.
+    This action results in data loss.
+    5. For **SSH key pair**, choose an SSH key pair for SSH access into the host.
+    6. Choose **Add host**.
 
-6.  On the **Configure networks and connectivity** page, do the following.
+6. On the **Configure networks and connectivity** page, do the following.
 
     1. For **HCX connectivity requirements**, select whether you want to use HCX with private connectivity or over the internet.
     2. For **VPC**, choose the VPC that you previously created.
     3. (For HCX internet connectivy only) For **HCX network ACL**, choose which network ACL your HCX VLAN will be associated with.
 
+
     ###### Important
 
     We strongly recommend that you create a custom network ACL dedicated to the HCX VLAN.
-    For more information, see [Configure a network access control list to control Amazon EVS VLAN subnet traffic](evs-env-nacl-cong.md "evs-env-nacl-cong.md"). 4. For **Service access subnet**, choose the private subnet that was created when you created the VPC. 5. For **Security group -_optional_**, you can choose up to two security groups that control communication between the Amazon EVS control plane and VPC.
+    For more information, see [Configure a network access control list to control Amazon EVS VLAN subnet traffic](evs-env-nacl-cong.md "evs-env-nacl-cong.md").
+    4. For **Service access subnet**, choose the private subnet that was created when you created the VPC.
+    5. For **Security group -*optional***, you can choose up to two security groups that control communication between the Amazon EVS control plane and VPC.
     Amazon EVS uses the default security group if no security group is chosen.
+
 
     ###### Note
 
-    Ensure that the security groups that you choose provide connectivity to your DNS servers and Amazon EVS VLAN subnets. 6. Under **Management connectivity**, enter the CIDR blocks to be used for the Amazon EVS VLAN subnets.
+    Ensure that the security groups that you choose provide connectivity to your DNS servers and Amazon EVS VLAN subnets.
+    6. Under **Management connectivity**, enter the CIDR blocks to be used for the Amazon EVS VLAN subnets.
     For **HCX uplink VLAN CIDR block**, if configuring a public HCX VLAN, you must specify a CIDR block with a netmask length of exactly /28.
     Amazon EVS throws a validation error if any other CIDR block size is specified for the public HCX VLAN.
     For a private HCX VLAN and all other VLANs CIDR blocks, the minimum netmask length that you can use is /28 and the maximum is /24.
+
 
     ###### Important
 
     Amazon EVS VLAN subnets can only be created during Amazon EVS environment creation, and cannot be modified after the environment is created.
     You must ensure that the VLAN subnet CIDR blocks are properly sized before creating the environment.
     You will not be able to add VLAN subnets after the environment is deployed.
-    For more information, see [Amazon EVS networking considerations](architecture.md#evs-subnets "architecture.md#evs-subnets"). 7. Under **Expansion VLANs**, enter the CIDR blocks for additional Amazon EVS VLAN subnets that can be used to expand VCF capabilities within Amazon EVS, such as enabling NSX Federation. 8. Under **Workload/VCF connectivity**, enter the CIDR block for the NSX uplink VLAN, and choose two VPC Route Server peer IDs that peer to Route Server endpoints over the NSX uplink.
+    For more information, see [Amazon EVS networking considerations](architecture.md#evs-subnets "architecture.md#evs-subnets").
+    7. Under **Expansion VLANs**, enter the CIDR blocks for additional Amazon EVS VLAN subnets that can be used to expand VCF capabilities within Amazon EVS, such as enabling NSX Federation.
+    8. Under **Workload/VCF connectivity**, enter the CIDR block for the NSX uplink VLAN, and choose two VPC Route Server peer IDs that peer to Route Server endpoints over the NSX uplink.
+
 
     ###### Note
 
     Amazon EVS requires a VPC Route Server instance that is associated with two Route Server endpoints and two Route Server peers prior to EVS deployment.
     This configuration enables dynamic BGP-based routing over the NSX uplink.
-    For more information, see [Set up a VPC Route Server instance with endpoints and peers](#getting-started-create-rs-resources "#getting-started-create-rs-resources"). 9. Choose **Next**.
+    For more information, see [Set up a VPC Route Server instance with endpoints and peers](#getting-started-create-rs-resources "#getting-started-create-rs-resources").
+    9. Choose **Next**.
 
-7.  On the **Specify Management DNS hostnames** page, do the following.
+7. On the **Specify Management DNS hostnames** page, do the following.
 
     1. Under **Management appliance DNS hostnames**, enter the DNS hostnames for the virtual machines to host VCF management appliances. If using Route 53 as your DNS provider, also choose the hosted zone that contains your DNS records.
     2. Under **Credentials**, choose whether you’d like to use the AWS managed KMS key for Secrets Manager or a customer managed KMS key that you provide.
-       This key is used to encrypt the VCF credentials that are required to use SDDC Manager, NSX Manager, and vCenter appliances.
+    This key is used to encrypt the VCF credentials that are required to use SDDC Manager, NSX Manager, and vCenter appliances.
+
 
     ###### Note
 
     There are usage costs associated with customer managed KMS keys.
-    For more information, see the [AWS KMS pricing page](https://aws.amazon.com/kms/pricing "https://aws.amazon.com/kms/pricing"). 3. Choose **Next**.
+    For more information, see the [AWS KMS pricing page](https://aws.amazon.com/kms/pricing "https://aws.amazon.com/kms/pricing").
+    3. Choose **Next**.
 
-8.  (Optional) On the **Add tags** page, add any tags that you would like to be assigned to this environment and choose **Next**.
+8. (Optional) On the **Add tags** page, add any tags that you would like to be assigned to this environment and choose **Next**.
 
 ###### Note
 
@@ -1225,53 +1236,53 @@ Amazon EVS console
 
 AWS CLI
 
-1.  To associate an Elastic IP address with a VLAN, use the example `associate-eip-to-vlan` command.
+1. To associate an Elastic IP address with a VLAN, use the example `associate-eip-to-vlan` command.
 
-    - `environment-id` - The ID of your Amazon EVS environment.
-    - `vlan-name` - The name of the VLAN to associate with the Elastic IP address.
-    - `allocation-id` - The allocation ID of the Elastic IP address.
+   - `environment-id` - The ID of your Amazon EVS environment.
+   - `vlan-name` - The name of the VLAN to associate with the Elastic IP address.
+   - `allocation-id` - The allocation ID of the Elastic IP address.
 
-    ```
-    aws evs associate-eip-to-vlan \
-      --environment-id "env-605uove256" \
-      --vlan-name "hcx" \
-      --allocation-id "eipalloc-0429268f30c4a34f7"
-    ```
+   ```
+   aws evs associate-eip-to-vlan \
+     --environment-id "env-605uove256" \
+     --vlan-name "hcx" \
+     --allocation-id "eipalloc-0429268f30c4a34f7"
+   ```
 
-    The command returns details about the VLAN, including the new EIP association:
+   The command returns details about the VLAN, including the new EIP association:
 
-    ```
-    {
-        "vlan": {
-            "vlanId": 80,
-            "cidr": "18.97.137.0/28",
-            "availabilityZone": "us-east-2c",
-            "functionName": "hcx",
-            "subnetId": "subnet-02f9a4ee9e1208cfc",
-            "createdAt": "2025-08-22T23:42:16.200000+00:00",
-            "modifiedAt": "2025-08-23T13:42:28.155000+00:00",
-            "vlanState": "CREATED",
-            "stateDetails": "VLAN successfully created",
-            "eipAssociations": [
-                {
-                    "associationId": "eipassoc-09e966faad7ecc58a",
-                    "allocationId": "eipalloc-0429268f30c4a34f7",
-                    "ipAddress": "18.97.137.2"
-                }
-            ],
-            "isPublic": true,
-            "networkAclId": "acl-02fa8ab4ad3ddfb00"
-        }
-    }
-    ```
+   ```
+   {
+       "vlan": {
+           "vlanId": 80,
+           "cidr": "18.97.137.0/28",
+           "availabilityZone": "us-east-2c",
+           "functionName": "hcx",
+           "subnetId": "subnet-02f9a4ee9e1208cfc",
+           "createdAt": "2025-08-22T23:42:16.200000+00:00",
+           "modifiedAt": "2025-08-23T13:42:28.155000+00:00",
+           "vlanState": "CREATED",
+           "stateDetails": "VLAN successfully created",
+           "eipAssociations": [
+               {
+                   "associationId": "eipassoc-09e966faad7ecc58a",
+                   "allocationId": "eipalloc-0429268f30c4a34f7",
+                   "ipAddress": "18.97.137.2"
+               }
+           ],
+           "isPublic": true,
+           "networkAclId": "acl-02fa8ab4ad3ddfb00"
+       }
+   }
+   ```
 
-    The `eipAssociations` array shows the new association, including:
+   The `eipAssociations` array shows the new association, including:
 
         + `associationId` - The unique ID for this EIP association, used for disassociation.
         + `allocationId` - The allocation ID of the associated Elastic IP address.
         + `ipAddress` - The IP address assigned to the VLAN.
 
-2.  Repeat the step to associate additional EIPs.
+2. Repeat the step to associate additional EIPs.
 
 If you are configuring on-premises network connectivity using Direct Connect or AWS Site-to-Site VPN with a transit gateway, you must update the transit gateway route tables with the VPC CIDRs created within the Amazon EVS environment.
 For more information, see [Transit gateway route tables in Amazon VPC Transit Gateways](../../../vpc/latest/tgw/tgw-route-tables.md "../../../vpc/latest/tgw/tgw-route-tables.md").
