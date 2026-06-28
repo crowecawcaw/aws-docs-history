@@ -56,7 +56,7 @@ evaluation from multiple perspectives.
 ### Implementation steps
 
 1. Configure AWS Systems Manager Change Calendar with a
-   DEFAULT_CLOSED entry to block changes
+   DEFAULT\_CLOSED entry to block changes
    during regulatory review windows.
 2. Develop AWS Systems Manager Automation documents to automate
    approved changes based on review procedures and findings.
