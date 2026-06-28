@@ -10,13 +10,13 @@ We highly recommend that you follow along using the Amazon sample database. To f
 
 If you’ve used AWS DMS before or you prefer clicking a mouse to reading, you probably want to work with the high-level outline. If you need the details and want a more measured approach (or run into questions), you probably want the step-by-step guide.
 
-| Topic: Migration from On-Premises Oracle to<br>Aurora MySQL or Amazon RDS for MySQL                                                                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Time:**                                                                                                                                                                                                                                                |
-| **Cost:**                                                                                                                                                                                                                                                |
-| \*_Source Database:_<br>• Oracle                                                                                                                                                                                                                         |
-| \*_Target Database:_<br>• Amazon Aurora MySQL/MySQL                                                                                                                                                                                                      |
-| **Restrictions:**<br>**Oracle Edition:\*<br>• Enterprise, Standard, Express and Personal<br>**Oracle Version:_<br>• 10g (10.2 and later), 11g, 12c or higher<br>\*\*MySQL or Related Database Version:_<br>• 5.5, 5.6, 5.7, MariaDB, Amazon Aurora MySQL |
+| Topic: Migration from On-Premises Oracle to<br>Aurora MySQL or Amazon RDS for MySQL                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Time:**                                                                                                                                                                                                                                             |
+| **Cost:**                                                                                                                                                                                                                                             |
+| **Source Database:*<br>• Oracle                                                                                                                                                                                                                       |
+| **Target Database:*<br>• Amazon Aurora MySQL/MySQL                                                                                                                                                                                                    |
+| **Restrictions:**<br>**Oracle Edition:_<br>• Enterprise, Standard, Express and Personal<br>**Oracle Version:_<br>• 10g (10.2 and later), 11g, 12c or higher<br>**MySQL or Related Database Version:*<br>• 5.5, 5.6, 5.7, MariaDB, Amazon Aurora MySQL |
 
 ## Costs
 

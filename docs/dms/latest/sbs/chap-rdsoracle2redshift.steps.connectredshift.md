@@ -4,13 +4,13 @@ Next, test your connection to your Amazon Redshift database.
 
 1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Choose the **Create a new connection profile** icon. Connect to the Amazon Redshift database in SQL Workbench/J by using the information shown following.
 
-| Parameter                 | Action                                                                                                                                         |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| \*_New profile_<br>• name | Enter `RedshiftConnection`.                                                                                                                    |
-| **Driver**                | Choose `Redshift (com.amazon.redshift.jdbc42.Driver)`.                                                                                         |
-| **URL**                   | Use the \*_RedshiftJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
-| **Username**              | Enter `redshiftadmin`.                                                                                                                         |
-| **Password**              | Enter `Redshift#123`.                                                                                                                          |
+| Parameter                | Action                                                                                                                                        |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| *_New profile_<br>• name | Enter `RedshiftConnection`.                                                                                                                   |
+| **Driver**               | Choose `Redshift (com.amazon.redshift.jdbc42.Driver)`.                                                                                        |
+| **URL**                  | Use the *_RedshiftJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
+| **Username**             | Enter `redshiftadmin`.                                                                                                                        |
+| **Password**             | Enter `Redshift#123`.                                                                                                                         |
 
 2. Test the connection by choosing **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.
 

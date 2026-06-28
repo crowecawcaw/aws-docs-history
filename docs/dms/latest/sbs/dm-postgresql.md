@@ -19,12 +19,11 @@ At a high level, this migration includes the following steps:
 
 - Use the AWS DMS console to configure your migration resources:
 
-      + Create a subnet group and an instance profile for your migration project.
-      + Create data providers for your source and target databases.
-      + Create a migration project.
-      + Create and run a data migration.
-
-  Watch [this video](https://www.youtube.com/embed/HOJfrR6lcuU "https://www.youtube.com/embed/HOJfrR6lcuU") to learn how to use homogeneous data migrations in AWS DMS.
+  - Create a subnet group and an instance profile for your migration project.
+  - Create data providers for your source and target databases.
+  - Create a migration project.
+  - Create and run a data migration.
+    Watch [this video](https://www.youtube.com/embed/HOJfrR6lcuU "https://www.youtube.com/embed/HOJfrR6lcuU") to learn how to use homogeneous data migrations in AWS DMS.
 
 This walkthrough takes approximately three hours to complete. Make sure that you delete resources at the end of this walkthrough to avoid additional charges.
 

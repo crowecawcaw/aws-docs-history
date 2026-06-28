@@ -185,7 +185,9 @@ In this section, you create an IAM role for homogeneous data migrations. AWS DMS
 }
 ```
 
-- Replace `your_region` with the name of your Region, such as `us-east-1`.
-  . Choose **Update policy**.
+-
+
+Replace `your_region` with the name of your Region, such as `us-east-1`.
+. Choose **Update policy**.
 
 Use this IAM role when you create your instance profile in [Step 5](dm-postgresql-step-5.md "dm-postgresql-step-5.md") and your migration project in [Step 7](dm-postgresql-step-7.md "dm-postgresql-step-7.md").

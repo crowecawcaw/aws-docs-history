@@ -13,11 +13,10 @@ It is important to understand that AWS DMS and AWS SCT are two different tools a
 - AWS DMS takes a minimalist approach and creates only those objects required to efficiently migrate the data for example tables with primary key. Therefore, we will use DMS to load the tables with data without any foreign keys or constraints. (We can also use the SCT to generate the table scripts and create it on the target before performing the load via DMS).
 - We use AWS SCT:
 
-      + To identify the issues, limitations and actions for the schema conversion
-      + To generate the target schema scripts including foreign key and constraints
-      + To convert code such as procedures and views from source to target and apply it on target
-
-  The size and type of Oracle database migration you want to do greatly determines the tools you should use. For example, a heterogeneous migration, where you are migrating from an Oracle database to a different database engine on AWS, is best accomplished using AWS DMS. A homogeneous migration, where you are migrating from an Oracle database to an Oracle database on AWS, is best accomplished using native Oracle tools.
+  - To identify the issues, limitations and actions for the schema conversion
+  - To generate the target schema scripts including foreign key and constraints
+  - To convert code such as procedures and views from source to target and apply it on target
+    The size and type of Oracle database migration you want to do greatly determines the tools you should use. For example, a heterogeneous migration, where you are migrating from an Oracle database to a different database engine on AWS, is best accomplished using AWS DMS. A homogeneous migration, where you are migrating from an Oracle database to an Oracle database on AWS, is best accomplished using native Oracle tools.
 
 ###### Topics
 

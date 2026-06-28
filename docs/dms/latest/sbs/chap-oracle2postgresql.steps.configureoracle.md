@@ -81,18 +81,22 @@ If your Oracle source is an Amazon RDS database, it will be placed in ARCHIVELOG
 
 4. Use the following command to enable identification key supplemental logging at the database level. AWS DMS requires supplemental key logging at the database level. The exception is if you allow AWS DMS to automatically add supplemental logging as needed or enable key-level supplemental logging at the table level:
 
-   - In Oracle SQL:
+    * In Oracle SQL:
 
-   ```
-   ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
-   ```
-   - In RDS:
 
-   ```
-   exec rdsadmin.rdsadmin_util.alter_supplemental_logging('ADD','PRIMARY KEY');
-   ```
 
-   Your source database incurs a small bit of overhead when key level supplemental logging is enabled. Therefore, if you are migrating only a subset of your tables, then you might want to enable key level supplemental logging at the table level.
+    ```
+    ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY) COLUMNS;
+    ```
+    * In RDS:
+
+
+
+    ```
+    exec rdsadmin.rdsadmin_util.alter_supplemental_logging('ADD','PRIMARY KEY');
+    ```
+
+    Your source database incurs a small bit of overhead when key level supplemental logging is enabled. Therefore, if you are migrating only a subset of your tables, then you might want to enable key level supplemental logging at the table level.
 
 5. To turn on key level supplemental logging at the table level, use the following command.
 

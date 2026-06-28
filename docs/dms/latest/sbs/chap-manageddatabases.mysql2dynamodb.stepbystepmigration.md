@@ -111,7 +111,7 @@ After you complete the network configurations, you can create a source endpoint.
 | Server name                        | Enter the MySQL Database host amazon ec2 instance IP         |
 | Port                               | Enter **3306**.                                              |
 | **Secure Socket Layer (SSL) mode** | Choose **none**.                                             |
-| **User name**                      | Enter **dms_user**.                                          |
+| **User name**                      | Enter **dms\_user**.                                         |
 | Password                           | Enter the password that you created for the `dms_user` user. |
 
 ## Step 4: Configure a Target Amazon DynamoDB table
@@ -158,7 +158,7 @@ To create an Amazon DynamoDB table, do the following.
 
 1. Open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
 2. Choose **Create Table**. In the **Create DynamoDB table** screen, do the following:
-3. On the Table name box, enter the name of the table as “vaccine_drive_stats_tab”.
+3. On the Table name box, enter the name of the table as “vaccine\_drive\_stats\_tab”.
 
 ###### Note
 
@@ -168,11 +168,11 @@ The Dynamo DB sort/partition key for a table should be picked based on the table
 
 For the Primary key, do the following:
 
-DynamoDB query performance depends on the partition key and sort key selection for a table. So, choose a high cardinality column as the partition key to distribute the data across partitions in a DDB table. The sort key is used to sort and order items in a partition internally at the DDB table level. So, choose a sort key that collects related information together in one partition area, so that query performance can be improved. In this use case, we have chosen user_id as the partition key and "area_code" as the sort key to distribute and organize the data based on the application access pattern. Refer [Choosing the Right DynamoDB Partition Key](https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/ "https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/") for more details.
+DynamoDB query performance depends on the partition key and sort key selection for a table. So, choose a high cardinality column as the partition key to distribute the data across partitions in a DDB table. The sort key is used to sort and order items in a partition internally at the DDB table level. So, choose a sort key that collects related information together in one partition area, so that query performance can be improved. In this use case, we have chosen user\_id as the partition key and "area\_code" as the sort key to distribute and organize the data based on the application access pattern. Refer [Choosing the Right DynamoDB Partition Key](https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/ "https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/") for more details.
 
-1. In the Partition key box, enter column name as “user_id” and set the data type to String.
+1. In the Partition key box, enter column name as “user\_id” and set the data type to String.
 2. Choose To add sort key.
-3. In the Sort key box, enter column name as “area_code" and set the data type to String.
+3. In the Sort key box, enter column name as “area\_code" and set the data type to String.
 4. In table settings, choose Customize Settings and then select On-Demand Read/Write capacity
 5. When the settings are as you want them, choose Create.
 
@@ -198,7 +198,7 @@ Before you begin to work with a DynamoDB database as a target for AWS DMS, make 
 }
 ```
 
-DMS creates the control tables “awsdms_apply_exceptions” and “awsdms_full_load_exceptions” on the DynamoDB target to record the failures in loading/applying the records in the migration. So, the role that you use for the migration to DynamoDB must have the following permissions, including for control tables.
+DMS creates the control tables “awsdms\_apply\_exceptions” and “awsdms\_full\_load\_exceptions” on the DynamoDB target to record the failures in loading/applying the records in the migration. So, the role that you use for the migration to DynamoDB must have the following permissions, including for control tables.
 
 ```
 {
@@ -263,7 +263,7 @@ DMS supports parallel load threads for a target DynamoDB endpoint. However, othe
 
 `ParallelLoadBufferSize` – Use this option to specify the maximum number of records to store in the buffer that the parallel load threads use to load data to the DynamoDB target. The default value is 50. The maximum value is 1,000. Use this setting with **ParallelLoadThreads**. **ParallelLoadBufferSize** is valid only when there is more than one thread. `ParallelLoadThreads` related settings responsible for only loading the data to target table using multiple threads. However, it doesn’t help to unload the source data in parallel.
 
-To speed up the full load of large tables such as “vaccine_drive_stats” table in our use case, we can increase the number of parallel load threads in a task.
+To speed up the full load of large tables such as “vaccine\_drive\_stats” table in our use case, we can increase the number of parallel load threads in a task.
 
 #### Transactions per second
 
@@ -347,7 +347,7 @@ For this use case, the source MySQL table contains a composite primary key. Init
 00019374: 2023-03-14T08:48:33 [TASK_MANAGER ]W: Table 'valis'.'vaccine_drive_stats' (subtask 1 thread 1) is suspended (replicationtask.c:2550)
 ```
 
-To mitigate this issue, we created the target table as mentioned in Step 4, and then configured the task with the following object mapping rule. In our case, we used the "map-record-to-record" option to restructure the target table and its data storing method. Refer to the source table "vaccine_drive_stats" definition with the following object mapping for more clarity.
+To mitigate this issue, we created the target table as mentioned in Step 4, and then configured the task with the following object mapping rule. In our case, we used the "map-record-to-record" option to restructure the target table and its data storing method. Refer to the source table "vaccine\_drive\_stats" definition with the following object mapping for more clarity.
 
 ```
 {

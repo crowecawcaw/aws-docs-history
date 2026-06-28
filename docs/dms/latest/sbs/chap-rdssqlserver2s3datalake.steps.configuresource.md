@@ -52,7 +52,7 @@ Then we need to divide tables in the following groups:
 - Tables with a primary key.
 - Tables with a unique index without primary key.
 - Tables without a primary key and unique index.
-  We use the information_schema to identify tables that have a primary key or a unique index without a primary key.
+  We use the information\_schema to identify tables that have a primary key or a unique index without a primary key.
 
 ```
 SELECT a.TABLE_SCHEMA, a.TABLE_NAME, a.CONSTRAINT_TYPE, CONSTRAINT_NAME

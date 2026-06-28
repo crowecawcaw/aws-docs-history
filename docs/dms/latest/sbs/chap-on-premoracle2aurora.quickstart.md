@@ -105,7 +105,7 @@ A migration task tells AWS DMS where and how you want your data migrated. When y
 
 **Enable logging** — To help with debugging migration issues, always enable logging.
 
-**Table mappings** — When migrating from Oracle to Aurora MySQL, we recommend that you convert your schema, table, and column names to lowercase. To do so, create a custom table mapping. The following example migrates the schema DMS_SAMPLE and converts schema, table and column names to lower case.
+**Table mappings** — When migrating from Oracle to Aurora MySQL, we recommend that you convert your schema, table, and column names to lowercase. To do so, create a custom table mapping. The following example migrates the schema DMS\_SAMPLE and converts schema, table and column names to lower case.
 
 ```
 {

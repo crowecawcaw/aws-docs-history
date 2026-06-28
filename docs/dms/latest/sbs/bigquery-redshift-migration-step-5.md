@@ -19,6 +19,4 @@ If you don’t use Secrets Manager, enter your database credentials manually.
     * For **User name**, enter the name of the user that you created in step 2.
     * For **Password**, enter the password for the user that you created in step 2.
 
-9. Turn off **Use AWS Glue** and choose **Connect**.
-10. In the tree in the left panel, choose your BigQuery dataset. In the tree in the right panel, choose your target Amazon Redshift database. Choose **Create mapping**. You can add multiple mapping rules a single AWS SCT project. For more information about mapping rules, see [Creating mapping rules](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md").
-11. Choose **Main view**.
+9. Turn off **Use AWS Glue** and choose **Connect**. 10. In the tree in the left panel, choose your BigQuery dataset. In the tree in the right panel, choose your target Amazon Redshift database. Choose **Create mapping**. You can add multiple mapping rules a single AWS SCT project. For more information about mapping rules, see [Creating mapping rules](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md"). 11. Choose **Main view**.

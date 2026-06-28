@@ -4,13 +4,13 @@ After the AWS CloudFormation stack has been created, test the connection to the 
 
 1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Create a new connection profile using the following information.
 
-| Parameter            | Action                                                                                                                                       |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| **New profile name** | Enter `RDSOracleConnection`.                                                                                                                 |
-| **Driver**           | Choose `Oracle (oracle.jdbc.OracleDriver)`.                                                                                                  |
-| **URL**              | Use the \*_OracleJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
-| **Username**         | Enter `oraadmin`.                                                                                                                            |
-| **Password**         | Enter `oraadmin123`.                                                                                                                         |
+| Parameter            | Action                                                                                                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **New profile name** | Enter `RDSOracleConnection`.                                                                                                                |
+| **Driver**           | Choose `Oracle (oracle.jdbc.OracleDriver)`.                                                                                                 |
+| **URL**              | Use the *_OracleJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
+| **Username**         | Enter `oraadmin`.                                                                                                                           |
+| **Password**         | Enter `oraadmin123`.                                                                                                                        |
 
 2. Test the connection by choosing **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.
 

@@ -6,29 +6,28 @@ First, you create a virtual private cloud (VPC). This VPC is based on the Amazon
 
 **To create a VPC for DMS Schema Conversion**
 
-1.  Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  Choose your AWS Region.
-3.  Choose **Create VPC**.
-4.  On the **Create VPC** page, enter the following settings:
+1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. Choose your AWS Region.
+3. Choose **Create VPC**.
+4. On the **Create VPC** page, enter the following settings:
 
-    - **Resources to create** — **VPC and more**
-    - **Name tag auto-generation** — Choose **Auto-generate** and enter a globally unique name. For example, enter `sc-vpc`.
-    - **IPv4 CIDR block** — `10.0.1.0/24`
-    - **NAT gateways** — **In 1 AZ**
-    - **VPC endpoints** — **None**
+   - **Resources to create** — **VPC and more**
+   - **Name tag auto-generation** — Choose **Auto-generate** and enter a globally unique name. For example, enter `sc-vpc`.
+   - **IPv4 CIDR block** — `10.0.1.0/24`
+   - **NAT gateways** — **In 1 AZ**
+   - **VPC endpoints** — **None**
 
-5.  Keep the rest of the settings as they are, and then choose **Create VPC**.
-6.  Choose **Subnets**.
+5. Keep the rest of the settings as they are, and then choose **Create VPC**.
+6. Choose **Subnets**.
 
-    - For **Filter by VPC**, choose **sc-vpc**.
-    - Take a note of your two private subnet IDs. Private subnet IDs don’t include `Public` in the name.
+   - For **Filter by VPC**, choose **sc-vpc**.
+   - Take a note of your two private subnet IDs. Private subnet IDs don’t include `Public` in the name.
 
-7.  Choose **NAT gateways**.
+7. Choose **NAT gateways**.
 
-        * Choose your **NAT gateway**.
-        * Take a note of your **Elastic IP** address.
-
-    Use this VPC when you create your instance profile in [Step 5](schema-conversion-oracle-aurora-mysql-step-5.md "schema-conversion-oracle-aurora-mysql-step-5.md") and your target Aurora database in [Step 3](schema-conversion-oracle-aurora-mysql-step-3.md "schema-conversion-oracle-aurora-mysql-step-3.md").
+   - Choose your **NAT gateway**.
+   - Take a note of your **Elastic IP** address.
+     Use this VPC when you create your instance profile in [Step 5](schema-conversion-oracle-aurora-mysql-step-5.md "schema-conversion-oracle-aurora-mysql-step-5.md") and your target Aurora database in [Step 3](schema-conversion-oracle-aurora-mysql-step-3.md "schema-conversion-oracle-aurora-mysql-step-3.md").
 
 Next, you create AWS Identity and Access Management (IAM) roles to use in your DMS Schema Conversion migration project. AWS DMS uses this IAM role to access your Amazon S3 bucket and database credentials stored in AWS Secrets Manager.
 

@@ -4,7 +4,7 @@ This walkthrough gets you started with homogeneous database migration from Postg
 
 Customers looking to migrate self-managed PostgreSQL databases to Amazon RDS for PostgreSQL or Aurora PostgreSQL, can use one of the three main approaches.
 
-- Use a native or third-party database migration method such as pg_dump and pg_restore for full load only migrations.
+- Use a native or third-party database migration method such as pg\_dump and pg\_restore for full load only migrations.
 - Use a managed service such as AWS Database Migration Service (AWS DMS) for full load and ongoing replication.
 - Use a native tool for full load and a managed AWS DMS service for ongoing replication. We call this strategy the _hybrid approach_.
   This document describes the hybrid approach. The following diagram shows the components of the hybrid approach.
@@ -28,7 +28,7 @@ The hybrid approach provides the following advantages.
 
 This document describes the hybrid approach for migrating between PostgreSQL databases. We analyzed three options for full load and demonstrated the relative performance of each for a test database.
 
-If you need to create secondary database objects, then pg_dump and pg_restore is the most appropriate option. However, this option incurs a performance tradeoff compared to other options.
+If you need to create secondary database objects, then pg\_dump and pg\_restore is the most appropriate option. However, this option incurs a performance tradeoff compared to other options.
 
 pglogical has a slight performance advantage over publisher and subscriber. However, you need to install the pglogical extension on your source database server.
 

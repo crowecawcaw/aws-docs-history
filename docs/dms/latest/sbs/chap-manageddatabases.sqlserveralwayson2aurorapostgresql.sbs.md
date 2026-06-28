@@ -29,7 +29,7 @@ To create an AWS DMS replication instance, follow the steps below:
 | **Description**         | DMS replication instance         | Helps identify the purpose of the server.                                                                                                                                                                    |
 | **Instance class**      | dms.c5.xlarge                    | c5.xlarge EC2 class provides 2 vCPU, 4 GB RAM, and up to 10 Gbps base network bandwidth. It also provides better performance over a general purpose t3.medium EC2 class with up to 5 Gbps network bandwidth. |
 | **VPC**                 | vpc-08xxxxxxxxxxxxe              | Using the same VPC as the SQL server endpoint since the instance is hosted in the AWS network.                                                                                                               |
-| **Multi-AZ**            | Dev or test workload (Single-AZ) | Testing DMS replication workload. If it’s production data, you will choose \*_Yes_<br>• to create a standby replication server to support Multi-AZ, and to support high availability.                        |
+| **Multi-AZ**            | Dev or test workload (Single-AZ) | Testing DMS replication workload. If it’s production data, you will choose *_Yes_<br>• to create a standby replication server to support Multi-AZ, and to support high availability.                         |
 | **Publicly accessible** | No                               | Publicly accessible is not needed since source and endpoint reside in the AWS network.                                                                                                                       |
 
 1. For the **Advanced** section, specify the following information. For more information, see [Working with an AWS DMS replication instance](../userguide/CHAP_ReplicationInstance.md "../userguide/CHAP_ReplicationInstance.md"). For information about the KMS key, see [Setting an Encryption Key and Specifying KMS Permissions](../userguide/CHAP_Security.EncryptionKey.md "../userguide/CHAP_Security.EncryptionKey.md").
@@ -75,11 +75,11 @@ In this step, you need to configure and verify that the DMS user account has req
 
    1. Log into the Aurora PostgreSQL database.
    2. Create a new sample test table. Example: `create table sample test (num int, description varchar(100));`
-   3. Alter the new sample_test table. Example: `alter table sample_test add primary key (num);`
-   4. Insert a new record into the sample_test table. Example: `insert into sample_test (num, description) values (1, ‘test’);`
-   5. Delete the new record from the sample_test table. Example: `delete sample_test where num = 1;`
-   6. Truncate all records on the sample_test table. Example: `truncate sample_test;`
-   7. Drop the sample_test table. Example: `drop table sample_test;`
+   3. Alter the new sample\_test table. Example: `alter table sample_test add primary key (num);`
+   4. Insert a new record into the sample\_test table. Example: `insert into sample_test (num, description) values (1, ‘test’);`
+   5. Delete the new record from the sample\_test table. Example: `delete sample_test where num = 1;`
+   6. Truncate all records on the sample\_test table. Example: `truncate sample_test;`
+   7. Drop the sample\_test table. Example: `drop table sample_test;`
 
 3. Script out table constraints and triggers to a post-deployment script file which will be used to recreate those objects after the migration is complete.
 4. Drop table constraints (FKs, Check constraints, defaults) and triggers.
@@ -124,7 +124,7 @@ Following, are the three main categories:
 
 ### Special tables
 
-Special tables are tables that do not follow OLTP workload practices. Data loading typically involves truncating the table first, and then reloading all the data from scratch. Due to the nature of how data are loaded to the special table, it is not a good candidate for the “migrate existing data and replicate ongoing changes” DMS task. DMS task will replicate the large bulk workloads in this case using a row-by-row replication mode. Instead, we recommend you to change the replication task type to “migrate existing data”, incorporate the tables into the same DMS task that perform the truncate, and reload data operation. For example, the tbl_LoginErrorLog table is a standalone table. The ETL process can truncate the data in tbl_LoginErrorLog table first, and then reload the entire table.
+Special tables are tables that do not follow OLTP workload practices. Data loading typically involves truncating the table first, and then reloading all the data from scratch. Due to the nature of how data are loaded to the special table, it is not a good candidate for the “migrate existing data and replicate ongoing changes” DMS task. DMS task will replicate the large bulk workloads in this case using a row-by-row replication mode. Instead, we recommend you to change the replication task type to “migrate existing data”, incorporate the tables into the same DMS task that perform the truncate, and reload data operation. For example, the tbl\_LoginErrorLog table is a standalone table. The ETL process can truncate the data in tbl\_LoginErrorLog table first, and then reload the entire table.
 
 ### Large tables
 
@@ -197,7 +197,7 @@ Follow the steps below for each DMS task you need to create. For our walkthrough
 | **Schema name is**      | Choose Enter a schema. | Schema related object                                                                                                          |
 | **Schema name is like** | Type **%**.            | % is a wildcard character in this section, and means all schema names on the source endpoint.                                  |
 | **Table name is like**  | Type **%**.            | % is a wildcard character in this, section and means all tables that are owned by the same schema name on the source endpoint. |
-| **Action**              | Choose Include.        | Include all tables, because we specified \*_%_<br>• for schema name and table name.                                            |
+| **Action**              | Choose Include.        | Include all tables, because we specified **%*<br>• for schema name and table name.                                             |
 
 1. Choose **Create task**. The task starts immediately.
 

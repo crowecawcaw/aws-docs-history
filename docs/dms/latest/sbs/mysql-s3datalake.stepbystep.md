@@ -29,7 +29,7 @@ To use AWS DMS CDC, the following parameters must be set correctly in the parame
 - `binlog_row_image` : "Full"`
 - `binlog_checksum` : "NONE"`
 
-The default **binlog_format** is “Mixed”. AWS DMS requires the “ROW” format, and all columns before and after the imaging. We recommend that **binlog_checksum** set to NONE.
+The default **binlog\_format** is “Mixed”. AWS DMS requires the “ROW” format, and all columns before and after the imaging. We recommend that **binlog\_checksum** set to NONE.
 
 ### Binary logging retention hours
 
@@ -100,7 +100,7 @@ To create a source endpoint, do the following:
 | **Secure Socket Layer (SSL) mode**                                                                         |
 | Choose **none**.                                                                                           |
 | **User name**                                                                                              |
-| Enter **dms_user**.                                                                                        |
+| Enter **dms\_user**.                                                                                       |
 | **Password**                                                                                               |
 | Enter the password that you created for the `dms_user` user.                                               |
 
@@ -123,7 +123,7 @@ To create a source endpoint, do the following:
 | **Secure Socket Layer (SSL) mode**                                                                         |
 | Choose **none**.                                                                                           |
 | **User name**                                                                                              |
-| Enter **dms_user**.                                                                                        |
+| Enter **dms\_user**.                                                                                       |
 | **Password**                                                                                               |
 | Enter the password that you created for the `dms_user` user.                                               |
 
@@ -135,7 +135,7 @@ To create the Amazon S3 bucket, do the following:
 
 1. Open the Amazon S3 console at [https://s3.console.aws.amazon.com/s3/home](https://s3.console.aws.amazon.com/s3/home "https://s3.console.aws.amazon.com/s3/home").
 2. Choose **Create bucket**.
-3. For **Bucket name**, enter \*\*<your-bucket-name>\*\*. Note: The bucket name needs to be unique globally.
+3. For **Bucket name**, enter _\*<your-bucket-name>\*_. Note: The bucket name needs to be unique globally.
 4. For **AWS Region**, choose the region that hosts your AWS DMS replication instance.
 5. Leave the default values in the other fields and choose **Create bucket**.
 
@@ -196,7 +196,7 @@ To create a target endpoint, do the following:
 | --------------------------- | -------------------------------------------------------------------- |
 | **Endpoint type**           | Choose **Target endpoint**, and turn off **Select RDS DB instance**. |
 | **Endpoint identifier**     | Enter **mysql-dms-s3-target.**                                       |
-| **Target engine**           | Choose \*_Amazon S3_<br>• .                                          |
+| **Target engine**           | Choose *_Amazon S3_<br>• .                                           |
 | **Service access role ARN** | Enter the IAM role that can access your Amazon S3 data lake.         |
 | **Bucket name**             | Enter **<your-bucket-name>.**                                        |
 
@@ -339,43 +339,43 @@ create a task that performs both full-load and CDC. To create a database migrati
 
 **Replication task 1:**
 
-|                                                  |                                                                                  |
-| ------------------------------------------------ | -------------------------------------------------------------------------------- |
-| For this parameter                               | Do this                                                                          |
-| **Task identifier**                              | Enter **mysql-dms-s3-task-1**                                                    |
-| **Replication instance**                         | Choose \*_datalake-migration-ri_<br>• (the value that you configured on Step 1). |
-| **Source database endpoint**                     | Choose \*_mysql-dms-s3-source-1_<br>• (the value that you configured on Step 3). |
-| **Target database endpoint**                     | Choose \*_mysql-dms-s3-target_<br>• (the value that you configured on Step 4).   |
-| **Migration type**                               | Choose **Migrate existing data and replicate ongoing changes**.                  |
-| **Editing mode**                                 | Choose **Wizard**.                                                               |
-| **Custom CDC stop mode for source transactions** | Choose **Disable custom CDC stop mode**.                                         |
-| **Target table preparation mode**                | Choose **Drop and create**                                                       |
-| **Stop task after full load completes**          | Choose **Don’t stop**.                                                           |
-| **Include LOB columns in replication**           | Choose **Limited LOB mode**.                                                     |
-| **Maximum LOB size (KB)**                        | Enter **1024**                                                                   |
-| **Enable validation**                            | Enter **1024**                                                                   |
-| **Enable validation**                            | Turn off because Amazon S3 does not support validation.                          |
-| **Enable CloudWatch logs**                       | Turn on.                                                                         |
+|                                                  |                                                                                 |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| For this parameter                               | Do this                                                                         |
+| **Task identifier**                              | Enter **mysql-dms-s3-task-1**                                                   |
+| **Replication instance**                         | Choose *_datalake-migration-ri_<br>• (the value that you configured on Step 1). |
+| **Source database endpoint**                     | Choose *_mysql-dms-s3-source-1_<br>• (the value that you configured on Step 3). |
+| **Target database endpoint**                     | Choose *_mysql-dms-s3-target_<br>• (the value that you configured on Step 4).   |
+| **Migration type**                               | Choose **Migrate existing data and replicate ongoing changes**.                 |
+| **Editing mode**                                 | Choose **Wizard**.                                                              |
+| **Custom CDC stop mode for source transactions** | Choose **Disable custom CDC stop mode**.                                        |
+| **Target table preparation mode**                | Choose **Drop and create**                                                      |
+| **Stop task after full load completes**          | Choose **Don’t stop**.                                                          |
+| **Include LOB columns in replication**           | Choose **Limited LOB mode**.                                                    |
+| **Maximum LOB size (KB)**                        | Enter **1024**                                                                  |
+| **Enable validation**                            | Enter **1024**                                                                  |
+| **Enable validation**                            | Turn off because Amazon S3 does not support validation.                         |
+| **Enable CloudWatch logs**                       | Turn on.                                                                        |
 
 **Replication task 2:**
 
-|                                                  |                                                                                  |
-| ------------------------------------------------ | -------------------------------------------------------------------------------- |
-| For this parameter                               | Do this                                                                          |
-| **Task identifier**                              | Enter **mysql-dms-s3-task-2**                                                    |
-| **Replication instance**                         | Choose \*_datalake-migration-ri_<br>• (the value that you configured on Step 1). |
-| **Source database endpoint**                     | Choose \*_mysql-dms-s3-source-2_<br>• (the value that you configured on Step 3). |
-| **Target database endpoint**                     | Choose \*_mysql-dms-s3-target_<br>• (the value that you configured on Step 4).   |
-| **Migration type**                               | Choose **Migrate existing data and replicate ongoing changes**.                  |
-| **Editing mode**                                 | Choose **Wizard**.                                                               |
-| **Custom CDC stop mode for source transactions** | Choose **Disable custom CDC stop mode**.                                         |
-| **Target table preparation mode**                | Choose **Drop and create**                                                       |
-| **Stop task after full load completes**          | Choose **Don’t stop**.                                                           |
-| **Include LOB columns in replication**           | Choose **Limited LOB mode**.                                                     |
-| **Maximum LOB size (KB)**                        | Enter **1024**                                                                   |
-| **Enable validation**                            | Enter **1024**                                                                   |
-| **Enable validation**                            | Turn off because Amazon S3 does not support validation.                          |
-| **Enable CloudWatch logs**                       | Turn on.                                                                         |
+|                                                  |                                                                                 |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- |
+| For this parameter                               | Do this                                                                         |
+| **Task identifier**                              | Enter **mysql-dms-s3-task-2**                                                   |
+| **Replication instance**                         | Choose *_datalake-migration-ri_<br>• (the value that you configured on Step 1). |
+| **Source database endpoint**                     | Choose *_mysql-dms-s3-source-2_<br>• (the value that you configured on Step 3). |
+| **Target database endpoint**                     | Choose *_mysql-dms-s3-target_<br>• (the value that you configured on Step 4).   |
+| **Migration type**                               | Choose **Migrate existing data and replicate ongoing changes**.                 |
+| **Editing mode**                                 | Choose **Wizard**.                                                              |
+| **Custom CDC stop mode for source transactions** | Choose **Disable custom CDC stop mode**.                                        |
+| **Target table preparation mode**                | Choose **Drop and create**                                                      |
+| **Stop task after full load completes**          | Choose **Don’t stop**.                                                          |
+| **Include LOB columns in replication**           | Choose **Limited LOB mode**.                                                    |
+| **Maximum LOB size (KB)**                        | Enter **1024**                                                                  |
+| **Enable validation**                            | Enter **1024**                                                                  |
+| **Enable validation**                            | Turn off because Amazon S3 does not support validation.                         |
+| **Enable CloudWatch logs**                       | Turn on.                                                                        |
 
 Table mappings:
 

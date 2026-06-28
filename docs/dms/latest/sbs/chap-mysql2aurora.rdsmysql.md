@@ -181,7 +181,6 @@ You can also choose for your new Aurora MySQL DB cluster to be encrypted "at res
 
     ![Migrate a snapshot into Amazon Aurora MySQL](images/AuroraMigrate03.png)
 
-6. Choose **Migrate** to migrate your DB snapshot.
-7. Choose **Instances**, and then choose the arrow icon to show the DB cluster details and monitor the progress of the migration. On the details page, you will find the cluster endpoint used to connect to the primary instance of the DB cluster. For more information about connecting to an Amazon Aurora MySQL DB cluster, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.Connect.md "../../../AmazonRDS/latest/UserGuide/Aurora.Connect.md").
+6. Choose **Migrate** to migrate your DB snapshot. 7. Choose **Instances**, and then choose the arrow icon to show the DB cluster details and monitor the progress of the migration. On the details page, you will find the cluster endpoint used to connect to the primary instance of the DB cluster. For more information about connecting to an Amazon Aurora MySQL DB cluster, see the [Amazon RDS documentation](../../../AmazonRDS/latest/UserGuide/Aurora.Connect.md "../../../AmazonRDS/latest/UserGuide/Aurora.Connect.md").
 
 ![DB Cluster Details](images/AuroraMigrate04.png)

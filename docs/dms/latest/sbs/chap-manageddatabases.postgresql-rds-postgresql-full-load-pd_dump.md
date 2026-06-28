@@ -1,13 +1,13 @@
-# PostgreSQL pg_dump and pg_restore utility
+# PostgreSQL pg\_dump and pg\_restore utility
 
-pg_dump and pg_restore is a native PostgreSQL client utility. You can find this utility as part of the database installation. It produces a set of SQL statements that you can run to reproduce the original database object definitions and table data.
+pg\_dump and pg\_restore is a native PostgreSQL client utility. You can find this utility as part of the database installation. It produces a set of SQL statements that you can run to reproduce the original database object definitions and table data.
 
-The pg_dump and pg_restore utility is suitable for the following use cases if:
+The pg\_dump and pg\_restore utility is suitable for the following use cases if:
 
 - Your database size is less than 100 GB.
 - You plan to migrate database metadata as well as table data.
 - You have a relatively large number of tables to migrate.
-  The pg_dump and pg_restore utility may not be suitable for the following use cases if:
+  The pg\_dump and pg\_restore utility may not be suitable for the following use cases if:
 
 - Your database size is greater than 100 GB.
 - You want to avoid downtime.
@@ -93,8 +93,8 @@ psql -h <hostname> -U <username> -f <dumpfilelocation.sql>
 -f: Dump file path.
 ```
 
-To complete the export and import operations, the pg_dump and pg_restore requires some time. This time depends on the following parameters.
+To complete the export and import operations, the pg\_dump and pg\_restore requires some time. This time depends on the following parameters.
 
 - The size of your source database.
 - The number of jobs.
-- The resources that you provision for your instance used to invoke pg_dump and pg_restore.
+- The resources that you provision for your instance used to invoke pg\_dump and pg\_restore.

@@ -1,6 +1,6 @@
 # Set up MariaDB as a source database
 
-To provision MariaDB as a source database, download [Mariadb_CF.zip with the YAML template](samples/Mariadb_CF.zip.md "samples/Mariadb_CF.zip.md"). This AWS CloudFormation template creates an Amazon RDS for MariaDB instance with the required parameters.
+To provision MariaDB as a source database, download [Mariadb\_CF.zip with the YAML template](samples/Mariadb_CF.zip.md "samples/Mariadb_CF.zip.md"). This AWS CloudFormation template creates an Amazon RDS for MariaDB instance with the required parameters.
 
 1. On the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), under **Services**, choose **CloudFormation**.
 2. Choose **Create stack**, and then choose **With new resources (standard)**.

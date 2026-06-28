@@ -1,6 +1,6 @@
 # Set up Aurora MySQL as a target database
 
-To provision Aurora MySQL as a target database, download the [AuroraMysql_CF.yaml template](https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml "https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml"). This template creates an Aurora MySQL database with required parameters.
+To provision Aurora MySQL as a target database, download the [AuroraMysql\_CF.yaml template](https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml "https://aws-database-blog.s3.amazonaws.com/artifacts/mariadb-to-aurora-mysql-migration/AuroraMysql_CF.yaml"). This template creates an Aurora MySQL database with required parameters.
 
 1. On the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), under **Services**, choose **CloudFormation**.
 2. Choose **Create stack**, and then choose **With new resources (standard)**.

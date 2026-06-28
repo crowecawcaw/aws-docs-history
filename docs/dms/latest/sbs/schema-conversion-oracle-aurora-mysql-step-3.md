@@ -35,9 +35,9 @@ To configure your target database user, create a new user and grant the followin
 - EXECUTE ON **.**
 - CREATE TEMPORARY TABLES ON **.**
 - INVOKE LAMBDA ON **.**
-- INSERT, UPDATE ON AWS_ORACLE_EXT.\*
-- INSERT, UPDATE, DELETE ON AWS_ORACLE_EXT_DATA.\*
-- CREATE TEMPORARY TABLES ON AWS_ORACLE_EXT_DATA.\*
+- INSERT, UPDATE ON AWS\_ORACLE\_EXT.\*
+- INSERT, UPDATE, DELETE ON AWS\_ORACLE\_EXT\_DATA.\*
+- CREATE TEMPORARY TABLES ON AWS\_ORACLE\_EXT\_DATA.\*
   You can use the following code example to create a database user and grant the privileges.
 
 ```

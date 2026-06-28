@@ -93,7 +93,7 @@ To restore your backup, do the following:
 
    1. On the **Option groups** page, choose the option group that you created.
    2. For **Options**, choose **Add option**. The **Add option** page opens.
-   3. For **Option name**, choose **SQLSERVER_BACKUP_RESTORE**.
+   3. For **Option name**, choose **SQLSERVER\_BACKUP\_RESTORE**.
    4. For **IAM role**, choose the `sql-server-backup-restore` role.
 
 3. Modify your Amazon RDS for SQL Server DB instance and attach this option group.

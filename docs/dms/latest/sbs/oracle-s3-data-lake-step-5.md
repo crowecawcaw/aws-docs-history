@@ -93,7 +93,7 @@ For more information about this option, see [Step 6: Create an AWS DMS Task](ora
 | --------------------------- | -------------------------------------------------------------------- |
 | **Endpoint type**           | Choose **Target endpoint**, and turn off **Select RDS DB instance**. |
 | **Endpoint identifier**     | Enter `oracle-datalake-target`.                                      |
-| **Target engine**           | Choose \*_Amazon S3_<br>• .                                          |
+| **Target engine**           | Choose *_Amazon S3_<br>• .                                           |
 | **Service access role ARN** | Enter the IAM role that can access your Amazon S3 data lake.         |
 | **Bucket name**             | Enter `s3-data-lake`.                                                |
 | **Bucket folder**           | Enter `Oracledb`.                                                    |
@@ -109,7 +109,7 @@ For more information about this option, see [Step 6: Create an AWS DMS Task](ora
 | DatePartitionDelimiter | DASH           |
 | DatePartitionEnabled   | TRUE           |
 | DatePartitionSequence  | YYYYMMDD       |
-| ParquetVersion         | PARQUET_2_0    |
+| ParquetVersion         | PARQUET\_2\_0  |
 | TimestampColumnName    | sourcetscolumn |
 
 5. Choose **Create endpoint**.

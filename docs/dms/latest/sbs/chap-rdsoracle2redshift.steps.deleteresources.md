@@ -13,4 +13,4 @@ To delete AWS DMS resources, do the following:
 5. Sign in to the AWS Management Console and open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 
 If you are signed in as an IAM user, you must have the appropriate permissions to access AWS CloudFormation. 2. Choose your AWS CloudFormation stack, `OracletoRedshiftDWusingDMS`. 3. For **Actions**, choose **Delete stack**.
-The status of the stack changes to DELETE_IN_PROGRESS while AWS CloudFormation cleans up the resources associated with the `OracletoRedshiftDWusingDMS` stack. When AWS CloudFormation is finished cleaning up resources, it removes the stack from the list.
+The status of the stack changes to DELETE\_IN\_PROGRESS while AWS CloudFormation cleans up the resources associated with the `OracletoRedshiftDWusingDMS` stack. When AWS CloudFormation is finished cleaning up resources, it removes the stack from the list.

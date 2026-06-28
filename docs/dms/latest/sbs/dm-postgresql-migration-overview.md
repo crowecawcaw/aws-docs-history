@@ -4,9 +4,9 @@ This section provides high-level guidance for customers looking to migrate their
 
 AWS DMS creates a serverless environment for your data migration. Depending on the type of your data migration, AWS DMS automatically chooses an appropriate native PostgreSQL database tool.
 
-For full load migrations, AWS DMS uses pg_dump and pg_restore.
+For full load migrations, AWS DMS uses pg\_dump and pg\_restore.
 
-For full load and change data capture (CDC) migrations, AWS DMS uses pg_dump, pg_restore, and a publisher and subscriber model for logical replication.
+For full load and change data capture (CDC) migrations, AWS DMS uses pg\_dump, pg\_restore, and a publisher and subscriber model for logical replication.
 
 For homogeneous data migrations of the change data capture type, AWS DMS configures the data replication from the start point that you provide in settings.
 

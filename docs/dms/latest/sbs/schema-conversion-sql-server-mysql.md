@@ -20,11 +20,10 @@ At a high level, this migration includes the following steps:
 
 - Use DMS Schema Conversion to do the following:
 
-      + Assess the migration complexity and review the migration action items.
-      + Convert your source database.
-      + Apply the converted code to your target database.
-
-  This walkthrough takes approximately three hours to complete. Make sure that you delete resources at the end of this walkthrough to avoid additional charges.
+  - Assess the migration complexity and review the migration action items.
+  - Convert your source database.
+  - Apply the converted code to your target database.
+    This walkthrough takes approximately three hours to complete. Make sure that you delete resources at the end of this walkthrough to avoid additional charges.
 
 ###### Topics
 

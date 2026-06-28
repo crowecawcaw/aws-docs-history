@@ -80,7 +80,7 @@ To create a source endpoint, do the following:
 | **Server name**                    | Enter the database server name on Amazon RDS.                                                                           |
 | **Port**                           | Enter 5432.                                                                                                             |
 | **Secure Socket Layer (SSL) mode** | Choose **none**.                                                                                                        |
-| **User name**                      | Enter **dms_user**.                                                                                                     |
+| **User name**                      | Enter **dms\_user**.                                                                                                    |
 | **Password**                       | Enter the password that you created for the `dms_user` user.                                                            |
 
 ## Step 4: Configure a target Amazon S3 bucket
@@ -108,7 +108,7 @@ To create a target endpoint, do the following:
 | For this parameter          | Do the following                                                            |
 | **Endpoint type**           | Choose **Target endpoint**, and turn off **Select Amazon RDS DB instance**. |
 | **Endpoint identifier**     | Enter **pg-dms-s3-target.**                                                 |
-| **Target engine**           | Choose \*_Amazon S3_<br>• .                                                 |
+| **Target engine**           | Choose *_Amazon S3_<br>• .                                                  |
 | **Service access role ARN** | Enter the IAM role that can access your Amazon S3 data lake.                |
 | **Bucket name**             | Enter **<your-name>-datalake**.                                             |
 
@@ -122,7 +122,7 @@ When using AWS DMS to migrate data to an Amazon Simple Storage Service (Amazon S
 
 When using Amazon S3 as a target in an AWS DMS task, both full load and change data capture (CDC) data is written to comma-separated value (.csv) format by default. For more compact storage and faster query options, you also have the option to have the data written to Apache Parquet (.parquet) format. Each file format has its own benefits, CSV files are human-readable and when there is not too much data (less than 50 GB per database) being migrated CSV can be a good choice. Data in parquet files is stored in columnar format which is built to support efficient compression and encoding schemes providing storage space savings and performance benefits. In this walkthrough we will be using CSV as the file format for the Athena and Quicksight to consume.
 
-AWS DMS writes data from a single source table into multiple files to the S3 target during full load and CDC as seen below. The size of these files can be modified by setting the extra connection attributes in the following link [https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring](../userguide/CHAP_Target.S3.md#CHAP_Target.S3.Configuring "../userguide/CHAP_Target.S3.md#CHAP_Target.S3.Configuring"). This will make the processing of files easier for the application consuming this data as they will be in multiple smaller chunks.
+AWS DMS writes data from a single source table into multiple files to the S3 target during full load and CDC as seen below. The size of these files can be modified by setting the extra connection attributes in the following link [https://docs.aws.amazon.com/dms/latest/userguide/CHAP\_Target.S3.html#CHAP\_Target.S3.Configuring](../userguide/CHAP_Target.S3.md#CHAP_Target.S3.Configuring "../userguide/CHAP_Target.S3.md#CHAP_Target.S3.Configuring"). This will make the processing of files easier for the application consuming this data as they will be in multiple smaller chunks.
 
 ```
 schema_name/table_name1/LOAD00000001.csv

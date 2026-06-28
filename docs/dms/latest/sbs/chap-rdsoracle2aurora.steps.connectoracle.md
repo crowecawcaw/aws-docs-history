@@ -6,13 +6,13 @@ To test the connection to your Oracle DB instance and create the sample schema, 
 
 1. In SQL Workbench/J, choose **File**, then choose **Connect window**. Create a new connection profile using the following information as shown following
 
-| For This Parameter        | Do This                                                                                                                                      |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| \*_New profile_<br>• name | Enter `RDSOracleConnection`.                                                                                                                 |
-| **Driver**                | Choose `Oracle (oracle.jdbc.OracleDriver)`.                                                                                                  |
-| **URL**                   | Use the \*_OracleJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
-| **Username**              | Enter `oraadmin`.                                                                                                                            |
-| **Password**              | Provide the password for the admin user that you assigned when creating the Oracle DB instance using the AWS CloudFormation template.        |
+| For This Parameter       | Do This                                                                                                                                     |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| *_New profile_<br>• name | Enter `RDSOracleConnection`.                                                                                                                |
+| **Driver**               | Choose `Oracle (oracle.jdbc.OracleDriver)`.                                                                                                 |
+| **URL**                  | Use the *_OracleJDBCConnectionString_<br>• value you recorded when you examined the output details of the DMSdemo stack in a previous step. |
+| **Username**             | Enter `oraadmin`.                                                                                                                           |
+| **Password**             | Provide the password for the admin user that you assigned when creating the Oracle DB instance using the AWS CloudFormation template.       |
 
 2. To test the connection, choose **Test**. Choose **OK** to close the dialog box, then choose **OK** to create the connection profile.
 
@@ -26,9 +26,7 @@ If your connection is unsuccessful, ensure that the IP address you assigned when
     2. Extract the SQL script(`Oracle-HR-Schema-Build.sql`) from the archive.
     3. Copy and paste the `Oracle-HR-Schema-Build.sql` file into your current directory.
 
-4. Open the provided SQL script in a text editor. Copy the entire script.
-5. In SQL Workbench/J, paste the SQL script in the Default.wksp window showing **Statement 1**.
-6. Choose **SQL**, then choose **Execute All**.
+4. Open the provided SQL script in a text editor. Copy the entire script. 5. In SQL Workbench/J, paste the SQL script in the Default.wksp window showing **Statement 1**. 6. Choose **SQL**, then choose **Execute All**.
 
 When you run the script, you will get an error message indicating that user **HR** does not exist. You can ignore this error and run the script. The script drops the user before creating it, which generates the error. 7. Verify the object types and count in **HR** Schema were created successfully by running the following SQL query.
 

@@ -11,5 +11,5 @@ After you have completed this walkthrough, perform the following steps to avoid 
 5. Sign in to the AWS Management Console and open the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
 
 Note that if you are signed in as an AWS Identity and Access Management (IAM) user, you must have the appropriate permissions to access AWS CloudFormation. 2. Choose your AWS CloudFormation stack, `DMSdemo`. 3. For **Actions**, choose **Delete stack**.
-The status of the stack changes to DELETE_IN_PROGRESS while AWS CloudFormation
+The status of the stack changes to DELETE\_IN\_PROGRESS while AWS CloudFormation
 AWS CloudFormation cleans up the resources associated with the `DMSdemo` stack. When AWS CloudFormation is finished cleaning up resources, it removes the stack from the list.

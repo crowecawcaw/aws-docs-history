@@ -143,21 +143,21 @@ To create a database migration task, do the following:
 2. Choose **Database migration tasks**, and then choose **Create task**.
 3. On the **Create database migration task** page, enter the following information.
 
-| For This Parameter                               | Do This                                                                             |
-| ------------------------------------------------ | ----------------------------------------------------------------------------------- |
-| **Task identifier**                              | Enter **AdventureWorks-to-S3-data-lake**.                                           |
-| **Replication instance**                         | Choose \*_datalake-migration-ri_<br>• (the value that you configured on Step 1).    |
-| **Source database endpoint**                     | Choose \*_datalake-source-db_<br>• (the value that you configured on Step 3).       |
-| **Target database endpoint**                     | Choose \*_adventure-works-datalake_<br>• (the value that you configured on Step 4). |
-| **Migration type**                               | Choose **Migrate existing data and replicate ongoing changes**.                     |
-| **Editing mode**                                 | Choose **Wizard**.                                                                  |
-| **Custom CDC stop mode for source transactions** | Choose **Disable custom CDC stop mode**.                                            |
-| **Target table preparation mode**                | Choose **Do nothing**.                                                              |
-| **Stop task after full load completes**          | Choose **Don’t stop**.                                                              |
-| **Include LOB columns in replication**           | Choose **Limited LOB mode**.                                                        |
-| **Maximum LOB size (KB)**                        | Enter **32**.                                                                       |
-| **Enable validation**                            | Turn off because Amazon S3 does not support validation.                             |
-| **Enable CloudWatch logs**                       | Turn on.                                                                            |
+| For This Parameter                               | Do This                                                                            |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| **Task identifier**                              | Enter **AdventureWorks-to-S3-data-lake**.                                          |
+| **Replication instance**                         | Choose *_datalake-migration-ri_<br>• (the value that you configured on Step 1).    |
+| **Source database endpoint**                     | Choose *_datalake-source-db_<br>• (the value that you configured on Step 3).       |
+| **Target database endpoint**                     | Choose *_adventure-works-datalake_<br>• (the value that you configured on Step 4). |
+| **Migration type**                               | Choose **Migrate existing data and replicate ongoing changes**.                    |
+| **Editing mode**                                 | Choose **Wizard**.                                                                 |
+| **Custom CDC stop mode for source transactions** | Choose **Disable custom CDC stop mode**.                                           |
+| **Target table preparation mode**                | Choose **Do nothing**.                                                             |
+| **Stop task after full load completes**          | Choose **Don’t stop**.                                                             |
+| **Include LOB columns in replication**           | Choose **Limited LOB mode**.                                                       |
+| **Maximum LOB size (KB)**                        | Enter **32**.                                                                      |
+| **Enable validation**                            | Turn off because Amazon S3 does not support validation.                            |
+| **Enable CloudWatch logs**                       | Turn on.                                                                           |
 
 4. Leave the default values in the other fields and choose **Create task**.
 5. The task begins immediately. The **Database migration tasks** section shows you the status of the migration task.

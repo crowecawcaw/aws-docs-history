@@ -4,28 +4,28 @@ While your replication instance is being created, you can specify the source and
 
 1. Specify your connection information for the source Oracle database and the target Amazon Aurora MySQL database. The following table describes the source settings.
 
-| For This Parameter      | Do This                                                                                                                                                         |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Endpoint Identifier** | Enter `Orasource` (the Amazon RDS for Oracle endpoint).                                                                                                         |
-| **Source Engine**       | Choose **oracle**.                                                                                                                                              |
-| **Server name**         | Provide the Oracle DB instance name. This is the \*_Server name_<br>• you used for AWS SCT, such as "do1xa4grferti8y.cqiw4tcs0mg7.us-west-2.rds.amazonaws.com". |
-| **Port**                | Enter `1521`.                                                                                                                                                   |
-| **SSL mode**            | Choose **None**.                                                                                                                                                |
-| **Username**            | Enter `oraadmin`.                                                                                                                                               |
-| **Password**            | Provide the password for the Oracle DB instance.                                                                                                                |
-| **SID**                 | Provide the Oracle database name.                                                                                                                               |
+| For This Parameter      | Do This                                                                                                                                                        |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Endpoint Identifier** | Enter `Orasource` (the Amazon RDS for Oracle endpoint).                                                                                                        |
+| **Source Engine**       | Choose **oracle**.                                                                                                                                             |
+| **Server name**         | Provide the Oracle DB instance name. This is the *_Server name_<br>• you used for AWS SCT, such as "do1xa4grferti8y.cqiw4tcs0mg7.us-west-2.rds.amazonaws.com". |
+| **Port**                | Enter `1521`.                                                                                                                                                  |
+| **SSL mode**            | Choose **None**.                                                                                                                                               |
+| **Username**            | Enter `oraadmin`.                                                                                                                                              |
+| **Password**            | Provide the password for the Oracle DB instance.                                                                                                               |
+| **SID**                 | Provide the Oracle database name.                                                                                                                              |
 
 The following table describes the target settings.
 
-| For This Parameter      | Do This                                                                                                                                                                                           |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Endpoint Identifier** | Enter `Aurtarget` (the Amazon Aurora MySQL endpoint).                                                                                                                                             |
-| **Target Engine**       | Choose **aurora**.                                                                                                                                                                                |
-| **Servername**          | Provide the Aurora MySQL DB instance name. This is the \*_Server name_<br>• you used for AWS SCT, such as "dmsdemo-auroracluster-1u1oyqny35jwv.cluster-cqiw4tcs0mg7.us-west-2.rds.amazonaws.com". |
-| **Port**                | Enter `3306`.                                                                                                                                                                                     |
-| **SSL mode**            | Choose **None**.                                                                                                                                                                                  |
-| **Username**            | Enter `auradmin`.                                                                                                                                                                                 |
-| **Password**            | Provide the password for the Aurora MySQL DB instance.                                                                                                                                            |
+| For This Parameter      | Do This                                                                                                                                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Endpoint Identifier** | Enter `Aurtarget` (the Amazon Aurora MySQL endpoint).                                                                                                                                            |
+| **Target Engine**       | Choose **aurora**.                                                                                                                                                                               |
+| **Servername**          | Provide the Aurora MySQL DB instance name. This is the *_Server name_<br>• you used for AWS SCT, such as "dmsdemo-auroracluster-1u1oyqny35jwv.cluster-cqiw4tcs0mg7.us-west-2.rds.amazonaws.com". |
+| **Port**                | Enter `3306`.                                                                                                                                                                                    |
+| **SSL mode**            | Choose **None**.                                                                                                                                                                                 |
+| **Username**            | Enter `auradmin`.                                                                                                                                                                                |
+| **Password**            | Provide the password for the Aurora MySQL DB instance.                                                                                                                                           |
 
 The completed page should look like the following:
 

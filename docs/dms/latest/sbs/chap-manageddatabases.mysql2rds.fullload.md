@@ -97,7 +97,7 @@ For example, the following command prints the binary log (binlog) information af
 MySQL binlog position: filename 'mysql-bin.000001', position '481'
 ```
 
-For example, the following command retrieves the binary log file name and position from the from the xtrabackup_binlog_info file. This file is located in the main backup directory of an uncompressed backup.
+For example, the following command retrieves the binary log file name and position from the from the xtrabackup\_binlog\_info file. This file is located in the main backup directory of an uncompressed backup.
 
 ```
 $ cat </on-premises/backup>/xtrabackup_binlog_info
@@ -166,6 +166,6 @@ SHOW MASTER STATUS:SHOW MASTER STATUS:
 ###### Note
 
 1. To ensure a valid dump file of logical backups in mysqldump and mydumper, don’t run data definition language (DDL) statements while the dump process is running. It is recommended to schedule a maintenance window for these operations. For details, see the [single-transaction documentation](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#option_mysqldump_single-transaction "https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html#option_mysqldump_single-transaction").
-2. While exporting the data with logical backups, it is recommended to exclude MySQL default schemas (mysql, performance_schema, and information_schema), functions, stored procedures, and triggers.
+2. While exporting the data with logical backups, it is recommended to exclude MySQL default schemas (mysql, performance\_schema, and information\_schema), functions, stored procedures, and triggers.
 3. Remove definers from schema files before uploading extracted data to Amazon RDS. For more information, see [How can I resolve definer errors](https://aws.amazon.com/premiumsupport/knowledge-center/definer-error-mysqldump "https://aws.amazon.com/premiumsupport/knowledge-center/definer-error-mysqldump").
 4. Any backup operation acquires a global read lock on all tables (using FLUSH TABLES WITH READ LOCK). As soon as this lock has been acquired, the binary log coordinates are read and the lock is released. For more information, see [Establishing a Backup Policy](https://dev.mysql.com/doc/mysql-backup-excerpt/5.7/en/backup-policy.html "https://dev.mysql.com/doc/mysql-backup-excerpt/5.7/en/backup-policy.html"). For logical backups this step done at the beginning of the logical dump, however for physical backup (Percona XtraBackup) this step done at the end of backup.

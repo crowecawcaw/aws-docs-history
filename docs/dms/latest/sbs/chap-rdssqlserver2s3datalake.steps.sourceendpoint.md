@@ -20,7 +20,7 @@ To create a source endpoint, do the following:
 | **Server name**                    | Enter the database server name on Amazon RDS.                                                                 |
 | **Port**                           | Enter **1433**.                                                                                               |
 | **Secure Socket Layer (SSL) mode** | Choose **none**.                                                                                              |
-| **User name**                      | Enter **dms_user**.                                                                                           |
+| **User name**                      | Enter **dms\_user**.                                                                                          |
 | **Password**                       | Enter the password that you created for the `dms_user` user.                                                  |
 | **Database name**                  | Enter **AdventureWorks**.                                                                                     |
 
