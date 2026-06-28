@@ -14,7 +14,7 @@ Each batch translation job also generates an auxiliary file that contains inform
 the translations performed, such as the total number of characters translated and the number
 of errors encountered. This file, called
 ``target-language-code`.auxiliary-translation-details.json`,
- is generated in the `details` subfolder of your output folder.
+is generated in the `details` subfolder of your output folder.
 
 The following is an example of a batch translation auxiliary file.
 
