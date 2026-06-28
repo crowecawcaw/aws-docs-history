@@ -26,9 +26,9 @@ _VPC-1_) is located in the US West (Oregon)
 (`us-west-2`) Region. The second VPC in this example (referred to as
 _VPC-2_) is in another Region.
 
-| Device Farm VPC cross-Region example | VPC Component | VPC-1         | VPC-2 |
-| ------------------------------------ | ------------- | ------------- | ----- |
-| CIDR                                 | 10.0.0.0/16   | 172.16.0.0/16 |
+Device Farm VPC cross-Region example| VPC Component | VPC-1 | VPC-2 |
+| --- | --- | --- |
+| CIDR | 10.0.0.0/16 | 172.16.0.0/16 |
 
 ###### Important
 
@@ -113,11 +113,11 @@ tables for a VPC peering connection](../../../vpc/latest/peering/vpc-peering-rou
 topic's cross-Region scenario and the _Amazon VPC Peering Guide_, the following example route
 table configuration is created:
 
-| Device Farm VPC route table example | VPC component         | VPC-1                 | VPC-2 |
-| ----------------------------------- | --------------------- | --------------------- | ----- |
-| Route table ID                      | rtb-1234567890abcdefg | rtb-0987654321gfedcba |
-| Local address range                 | 10.0.0.0/16           | 172.16.0.0/16         |
-| Destination address range           | 172.16.0.0/16         | 10.0.0.0/16           |
+Device Farm VPC route table example| VPC component | VPC-1 | VPC-2 |
+| --- | --- | --- |
+| Route table ID | rtb-1234567890abcdefg | rtb-0987654321gfedcba |
+| Local address range | 10.0.0.0/16 | 172.16.0.0/16 |
+| Destination address range | 172.16.0.0/16 | 10.0.0.0/16 |
 
 ## Step 3: Creating a target group
 
@@ -129,17 +129,17 @@ sent.
 
 **To create a target group**
 
-1.  Identify the IP addresses of the service that you want to target in
-    _VPC-2_.
+1. Identify the IP addresses of the service that you want to target in
+   _VPC-2_.
 
-    - These IP addresses must be members of the subnet used in the peering
-      connection.
-    - The targeted IP addresses must be static and immutable. If your
-      service has dynamic IP addresses, consider targeting a static resource
-      (such as a Network Load Balancer) and having that static resource route requests to your
-      true target.
+   - These IP addresses must be members of the subnet used in the peering
+     connection.
+   - The targeted IP addresses must be static and immutable. If your
+     service has dynamic IP addresses, consider targeting a static resource
+     (such as a Network Load Balancer) and having that static resource route requests to your
+     true target.
 
-    ###### Note
+   ###### Note
 
         + If you're targeting one or more stand-alone Amazon Elastic Compute Cloud
          (Amazon EC2) instances, open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2"), then
@@ -157,8 +157,8 @@ sent.
          network interfaces in each **Availability
          Zone**.
 
-2.  Create a target group in _VPC-1_. To do this, see [Create a target group for
-    your Network Load Balancer](../../../elasticloadbalancing/latest/network/create-target-group.md "../../../elasticloadbalancing/latest/network/create-target-group.md") in the _User Guide for Network Load Balancers_.
+2. Create a target group in _VPC-1_. To do this, see [Create a target group for
+   your Network Load Balancer](../../../elasticloadbalancing/latest/network/create-target-group.md "../../../elasticloadbalancing/latest/network/create-target-group.md") in the _User Guide for Network Load Balancers_.
 
 Target groups for services in a different VPC require the following
 configuration:

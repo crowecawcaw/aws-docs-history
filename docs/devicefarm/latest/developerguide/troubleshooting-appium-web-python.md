@@ -3,7 +3,7 @@
 The following topic lists error messages that occur during the upload of Appium Python Web application tests and
 recommends workarounds to resolve each error.
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_UNZIP_FAILED
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -12,7 +12,7 @@ If you see the following message, follow these steps to fix the issue.
 We could not open your Appium test ZIP file. Please verify that the file is valid and try again.
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 
@@ -45,7 +45,7 @@ A valid Appium Python package should produce output like the following:
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_DEPENDENCY_WHEEL_MISSING
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_DEPENDENCY\_WHEEL\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -56,7 +56,7 @@ and then open the wheelhouse directory, verify that at least one wheel file is i
 again.
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 
@@ -90,18 +90,18 @@ dependent file like the highlighted files inside the `wheelhouse` directory.
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_INVALID_PLATFORM
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_INVALID\_PLATFORM
 
 If you see the following message, follow these steps to fix the issue.
 
 ###### Warning
 
 We found at least one wheel file specified a platform that we do not support. Please unzip your test package
-and then open the wheelhouse directory, verify that names of wheel files end with -any.whl or -linux_x86_64.whl,
+and then open the wheelhouse directory, verify that names of wheel files end with -any.whl or -linux\_x86\_64.whl,
 and try again.
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 
@@ -137,7 +137,7 @@ file's name may be different, but it should end with `-any.whl` or
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_TEST_DIR_MISSING
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_TEST\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -147,7 +147,7 @@ We could not find the tests directory inside your test package. Please unzip you
 the tests directory is inside the package, and try again.
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 
@@ -181,7 +181,7 @@ the working directory.
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_INVALID_TEST_FILE_NAME
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_INVALID\_TEST\_FILE\_NAME
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -192,7 +192,7 @@ open the tests directory, verify that at least one file's name starts or ends wi
 again.
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 
@@ -227,7 +227,7 @@ the working directory. The file's name may be different, but it should start wit
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_REQUIREMENTS_TXT_FILE_MISSING
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_REQUIREMENTS\_TXT\_FILE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -237,7 +237,7 @@ We could not find the requirements.txt file inside your test package. Please unz
 that the requirements.txt file is inside the package, and try again.
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 
@@ -271,7 +271,7 @@ inside the working directory.
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_INVALID_PYTEST_VERSION
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_INVALID\_PYTEST\_VERSION
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -281,7 +281,7 @@ We found the pytest version was lower than the minimum version 2.8.0 we support.
 version inside the requirements.txt file, and try again.
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 
@@ -329,7 +329,7 @@ pytest version should be larger than or equal to 2.8.0.
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_INSTALL_DEPENDENCY_WHEELS_FAILED
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_INSTALL\_DEPENDENCY\_WHEELS\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -350,7 +350,7 @@ $ source bin/activate
 ```
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 
@@ -388,7 +388,7 @@ $ deactivate
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_PYTHON_TEST_PACKAGE_PYTEST_COLLECT_FAILED
+## APPIUM\_WEB\_PYTHON\_TEST\_PACKAGE\_PYTEST\_COLLECT\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -409,7 +409,7 @@ $ source bin/activate
 ```
 
 Make sure that you can unzip the test package without errors. In the following example, the package's name is
-**test_bundle.zip**.
+**test\_bundle.zip**.
 
 1. Copy your test package to your working directory, and then run the following command:
 

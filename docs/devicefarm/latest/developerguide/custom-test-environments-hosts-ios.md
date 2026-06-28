@@ -37,7 +37,7 @@ with by the iOS device version.
 | --------------------------- | --------------- | ------------------- |
 | macOS Sonoma (version 14)   | arm64           | iOS 18              |
 | macOS Ventura (version 13)  | arm64           | iOS 17              |
-| macOS Monterey (version 12) | x86_64          | iOS 16 and below    |
+| macOS Monterey (version 12) | x86\_64         | iOS 16 and below    |
 
 In order to select the newer test hosts, see the topic regarding [Migrating your custom test environments to the new iOS test hosts](ios-host-migration.md "ios-host-migration.md").
 

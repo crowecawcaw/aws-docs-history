@@ -3,7 +3,7 @@
 The following topic lists error messages that occur during the upload of Appium Java TestNG Web application
 tests and recommends workarounds to resolve each error.
 
-## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_UNZIP_FAILED
+## APPIUM\_WEB\_JAVA\_TESTNG\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -43,7 +43,7 @@ A valid Appium Java JUnit package should produce output like the following:
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_DEPENDENCY_DIR_MISSING
+## APPIUM\_WEB\_JAVA\_TESTNG\_TEST\_PACKAGE\_DEPENDENCY\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -84,7 +84,7 @@ directory inside the working directory.
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_JAR_MISSING_IN_DEPENDENCY_DIR
+## APPIUM\_WEB\_JAVA\_TESTNG\_TEST\_PACKAGE\_JAR\_MISSING\_IN\_DEPENDENCY\_DIR
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -125,7 +125,7 @@ inside the `dependency-jars` directory.
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_TESTS_JAR_FILE_MISSING
+## APPIUM\_WEB\_JAVA\_TESTNG\_TEST\_PACKAGE\_TESTS\_JAR\_FILE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -167,7 +167,7 @@ be different, but it should end with `–tests.jar`.
 
 For more information, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE_CLASS_FILE_MISSING_IN_TESTS_JAR
+## APPIUM\_WEB\_JAVA\_TESTNG\_TEST\_PACKAGE\_CLASS\_FILE\_MISSING\_IN\_TESTS\_JAR
 
 If you see the following message, follow these steps to fix the issue.
 

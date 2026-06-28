@@ -59,37 +59,35 @@ information, see [Test environments in AWS Device Farm](test-environments.md "te
 
 13. Under **Select devices**, do one of the following:
 
-        * To choose a built-in device pool to run the tests against, for **Device
-         pool**, choose **Top Devices**.
-        * To create your own device pool to run the tests against, follow the instructions in [Creating a device pool](how-to-create-device-pool.md "how-to-create-device-pool.md"), and
-         then return to this page.
-        * If you created your own device pool earlier, for **Device pool**, choose
-         your device pool.
-        * Select **Manually select devices** and choose the desired devices you want
-         to run against. This configuration will not be saved.
+    * To choose a built-in device pool to run the tests against, for **Device
+     pool**, choose **Top Devices**.
+    * To create your own device pool to run the tests against, follow the instructions in [Creating a device pool](how-to-create-device-pool.md "how-to-create-device-pool.md"), and
+     then return to this page.
+    * If you created your own device pool earlier, for **Device pool**, choose
+     your device pool.
+    * Select **Manually select devices** and choose the desired devices you want
+     to run against. This configuration will not be saved.
 
-    For more information, see [Device support in AWS Device Farm](devices.md "devices.md").
+For more information, see [Device support in AWS Device Farm](devices.md "devices.md"). 14. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
+In this section, you can do any of the following:
 
-14. (Optional) To add additional configuration, open the **Additional configuration** dropdown.
-    In this section, you can do any of the following:
-
-    - To provide an execution role ARN, or override one configured on the parent project, use the Exectuion role ARN field.
-    - To provide other data for Device Farm to use during the run, next to **Add extra
-      data**, choose **Choose File**, and then browse to and choose
-      the .zip file that contains the data.
-    - To install an additional app for Device Farm to use during the run, next to **Install
-      other apps**, choose **Choose File**, and then browse to and
-      choose the .apk or .ipa file that contains the app. Repeat this for other apps you want to
-      install. You can change the installation order by dragging and dropping the apps after you
-      upload them.
-    - To specify whether Wi-Fi, Bluetooth, GPS, or NFC is enabled during the run, next to
-      **Set radio states**, select the appropriate boxes.
-    - To preset the device latitude and longitude for the run, next to **Device
-      location**, enter the coordinates.
-    - To preset the device locale for the run, in **Device locale**, choose the
-      locale.
-    - Select **Enable video recording** to record video during testing.
-    - Select **Enable app performance data capture** to capture performance data from the device.
+    * To provide an execution role ARN, or override one configured on the parent project, use the Exectuion role ARN field.
+    * To provide other data for Device Farm to use during the run, next to **Add extra
+     data**, choose **Choose File**, and then browse to and choose
+     the .zip file that contains the data.
+    * To install an additional app for Device Farm to use during the run, next to **Install
+     other apps**, choose **Choose File**, and then browse to and
+     choose the .apk or .ipa file that contains the app. Repeat this for other apps you want to
+     install. You can change the installation order by dragging and dropping the apps after you
+     upload them.
+    * To specify whether Wi-Fi, Bluetooth, GPS, or NFC is enabled during the run, next to
+     **Set radio states**, select the appropriate boxes.
+    * To preset the device latitude and longitude for the run, next to **Device
+     location**, enter the coordinates.
+    * To preset the device locale for the run, in **Device locale**, choose the
+     locale.
+    * Select **Enable video recording** to record video during testing.
+    * Select **Enable app performance data capture** to capture performance data from the device.
 
 ###### Note
 

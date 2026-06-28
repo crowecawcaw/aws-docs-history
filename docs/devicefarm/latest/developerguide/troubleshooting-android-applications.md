@@ -5,9 +5,9 @@ recommends workarounds to resolve each error.
 
 ###### Note
 
-The instructions below are based on Linux x86_64 and Mac.
+The instructions below are based on Linux x86\_64 and Mac.
 
-## ANDROID_APP_UNZIP_FAILED
+## ANDROID\_APP\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -45,7 +45,7 @@ A valid Android application package should produce output like the following:
 
 For more information, see [Android tests in AWS Device Farm](test-types-android-tests.md "test-types-android-tests.md").
 
-## ANDROID_APP_AAPT_DEBUG_BADGING_FAILED
+## ANDROID\_APP\_AAPT\_DEBUG\_BADGING\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -87,7 +87,7 @@ densities: '160' '213' '240' '320' '480' '640'
 
 For more information, see [Android tests in AWS Device Farm](test-types-android-tests.md "test-types-android-tests.md").
 
-## ANDROID_APP_PACKAGE_NAME_VALUE_MISSING
+## ANDROID\_APP\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -118,7 +118,7 @@ package: name='com.amazon.aws.adf.android.referenceapp' versionCode='1' versionN
 
 For more information, see [Android tests in AWS Device Farm](test-types-android-tests.md "test-types-android-tests.md").
 
-## ANDROID_APP_SDK_VERSION_VALUE_MISSING
+## ANDROID\_APP\_SDK\_VERSION\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -148,7 +148,7 @@ sdkVersion:'9'
 
 For more information, see [Android tests in AWS Device Farm](test-types-android-tests.md "test-types-android-tests.md").
 
-## ANDROID_APP_AAPT_DUMP_XMLTREE_FAILED
+## ANDROID\_APP\_AAPT\_DUMP\_XMLTREE\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -193,7 +193,7 @@ N: android=http://schemas.android.com/apk/res/android
 
 For more information, see [Android tests in AWS Device Farm](test-types-android-tests.md "test-types-android-tests.md").
 
-## ANDROID_APP_DEVICE_ADMIN_PERMISSIONS
+## ANDROID\_APP\_DEVICE\_ADMIN\_PERMISSIONS
 
 If you see the following message, follow these steps to fix the issue.
 

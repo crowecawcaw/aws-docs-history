@@ -53,7 +53,7 @@ You can use the Device Farm console, AWS CLI, or API to create a device pool.
    4. For **Operator** (second drop-down list), choose a
       logical operation (EQUALS, CONTAINS, etc.) to include devices based on
       the query. For example, you could choose `Availability
-EQUALS AVAILABLE` to include devices that currently
+  EQUALS AVAILABLE` to include devices that currently
       have the `Available` status.
    5. For **Value** (third drop-down list), enter or choose
       the value you want to specify for the **Field** and

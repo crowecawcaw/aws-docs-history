@@ -223,8 +223,8 @@ Console
 
 3. For running an Appium test from your local IDE, do the following:
 
-   1. Click the "copy" icon next to the text **Appium endpoint URL**
-   2. Paste this URL into your local Appium code wherever you currently specify your remote address or command executor. For language-specific examples, please click one of the tabs in this example window for your language of choice.
+    1. Click the "copy" icon next to the text **Appium endpoint URL**
+    2. Paste this URL into your local Appium code wherever you currently specify your remote address or command executor. For language-specific examples, please click one of the tabs in this example window for your language of choice.
 
 AWS CLI
 First, verify that your AWS CLI version is up-to-date by [downloading and installing the latest version](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").

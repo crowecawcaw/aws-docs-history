@@ -3,7 +3,7 @@
 The following topic lists error messages that occur during the upload of Appium Java JUnit Web application tests
 and recommends workarounds to resolve each error. For more information on using Appium with Device Farm, see [Automatically run Appium tests in Device Farm](test-types-appium.md "test-types-appium.md").
 
-## APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE_UNZIP_FAILED
+## APPIUM\_WEB\_JAVA\_JUNIT\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -41,7 +41,7 @@ A valid Appium Java JUnit package should produce output like the following:
       `— log4j-1.2.14.jar
 ```
 
-## APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE_DEPENDENCY_DIR_MISSING
+## APPIUM\_WEB\_JAVA\_JUNIT\_TEST\_PACKAGE\_DEPENDENCY\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -80,7 +80,7 @@ directory inside the working directory:
       `— log4j-1.2.14.jar
 ```
 
-## APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE_JAR_MISSING_IN_DEPENDENCY_DIR
+## APPIUM\_WEB\_JAVA\_JUNIT\_TEST\_PACKAGE\_JAR\_MISSING\_IN\_DEPENDENCY\_DIR
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -119,7 +119,7 @@ inside the `dependency-jars` directory:
       `— `log4j-1.2.14.jar`
 ```
 
-## APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE_TESTS_JAR_FILE_MISSING
+## APPIUM\_WEB\_JAVA\_JUNIT\_TEST\_PACKAGE\_TESTS\_JAR\_FILE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -159,7 +159,7 @@ be different, but it should end with `–tests.jar`.
       `— log4j-1.2.14.jar
 ```
 
-## APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE_CLASS_FILE_MISSING_IN_TESTS_JAR
+## APPIUM\_WEB\_JAVA\_JUNIT\_TEST\_PACKAGE\_CLASS\_FILE\_MISSING\_IN\_TESTS\_JAR
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -224,7 +224,7 @@ everything built from the ./src/test directory)
       `— log4j-1.2.14.jar
 ```
 
-## APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE_JUNIT_VERSION_VALUE_UNKNOWN
+## APPIUM\_WEB\_JAVA\_JUNIT\_TEST\_PACKAGE\_JUNIT\_VERSION\_VALUE\_UNKNOWN
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -267,7 +267,7 @@ If the Appium Java JUnit package is valid, you will find the JUnit dependency fi
 jar file `junit-4.10.jar` in our example. The name should consist of the keyword
 `junit` and its version number, which in this example is 4.10.
 
-## APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE_INVALID_JUNIT_VERSION
+## APPIUM\_WEB\_JAVA\_JUNIT\_TEST\_PACKAGE\_INVALID\_JUNIT\_VERSION
 
 If you see the following message, follow these steps to fix the issue.
 

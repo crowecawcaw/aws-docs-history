@@ -32,4 +32,4 @@ own:
      ensures identical event sequences.
 
 9. Complete the remaining instructions to select devices and
-   start the run.
+start the run.

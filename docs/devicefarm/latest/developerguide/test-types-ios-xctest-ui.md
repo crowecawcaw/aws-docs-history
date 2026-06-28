@@ -18,7 +18,7 @@ Use the following instructions to integrate Device Farm with the XCTest UI testi
 
 ## Prepare your iOS XCTest UI tests
 
-You can either upload an `.ipa` file or a `.zip` file for your XCTEST_UI test package.
+You can either upload an `.ipa` file or a `.zip` file for your XCTEST\_UI test package.
 
 An `.ipa` file is an application archive containing the iOS Runner app in bundle format. _Additional files cannot be included inside the `.ipa` file._
 
@@ -59,7 +59,7 @@ Device Farm automatically generates a `.xctestrun` file for you for running your
    └── (any other files)
 ```
 
-If you want to run an Xcode test plan for your XCUI tests on Device Farm, you can create a zip containing your _my-project-nameUITest-Runner.app_ **or** _my-project-nameUITest.ipa_ file and xcode source code files required to run XCTEST_UI with test plans, including either a `.xcworkspace` or `.xcodeproj` file.
+If you want to run an Xcode test plan for your XCUI tests on Device Farm, you can create a zip containing your _my-project-nameUITest-Runner.app_ **or** _my-project-nameUITest.ipa_ file and xcode source code files required to run XCTEST\_UI with test plans, including either a `.xcworkspace` or `.xcodeproj` file.
 
 Here is a sample zip using a `.xcodeproj` file:
 

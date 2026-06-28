@@ -5,9 +5,9 @@ tests and recommends workarounds to resolve each error.
 
 ###### Note
 
-The instructions below are based on Linux x86_64 and Mac.
+The instructions below are based on Linux x86\_64 and Mac.
 
-## XCTEST_UI_TEST_PACKAGE_UNZIP_FAILED
+## XCTEST\_UI\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -46,7 +46,7 @@ A valid iOS application package should produce output like the following:
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_PAYLOAD_DIR_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_PAYLOAD\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -87,7 +87,7 @@ the working directory.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_APP_DIR_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_APP\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -130,7 +130,7 @@ directory like `swift-sampleUITests-Runner.app` in our example inside the
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_PLUGINS_DIR_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_PLUGINS\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -173,7 +173,7 @@ directory is called `swift-sampleUITests-Runner.app`.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_XCTEST_DIR_MISSING_IN_PLUGINS_DIR
+## XCTEST\_UI\_TEST\_PACKAGE\_XCTEST\_DIR\_MISSING\_IN\_PLUGINS\_DIR
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -216,7 +216,7 @@ directory is called `swift-sampleUITests.xctest`.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_PLIST_FILE_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_PLIST\_FILE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -260,7 +260,7 @@ called `swift-sampleUITests-Runner.app`.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_PLIST_FILE_MISSING_IN_XCTEST_DIR
+## XCTEST\_UI\_TEST\_PACKAGE\_PLIST\_FILE\_MISSING\_IN\_XCTEST\_DIR
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -304,7 +304,7 @@ called `swift-sampleUITests.xctest`.
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_CPU_ARCHITECTURE_VALUE_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_CPU\_ARCHITECTURE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -369,7 +369,7 @@ A valid XCtest UI package should produce output like the following:
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_PLATFORM_VALUE_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_PLATFORM\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -434,7 +434,7 @@ A valid XCtest UI package should produce output like the following:
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_WRONG_PLATFORM_DEVICE_VALUE
+## XCTEST\_UI\_TEST\_PACKAGE\_WRONG\_PLATFORM\_DEVICE\_VALUE
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -502,7 +502,7 @@ If the XCTest UI package is valid, the value should not contain the keyword `sim
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_FORM_FACTOR_VALUE_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_FORM\_FACTOR\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -567,7 +567,7 @@ A valid XCtest UI package should produce output like the following:
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_PACKAGE_NAME_VALUE_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -632,7 +632,7 @@ com.apple.test.swift-sampleUITests-Runner
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_EXECUTABLE_VALUE_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_EXECUTABLE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -697,7 +697,7 @@ XCTRunner
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_TEST_PACKAGE_NAME_VALUE_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_TEST\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -762,7 +762,7 @@ com.amazon.swift-sampleUITests
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_TEST_EXECUTABLE_VALUE_MISSING
+## XCTEST\_UI\_TEST\_PACKAGE\_TEST\_EXECUTABLE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -827,7 +827,7 @@ swift-sampleUITests
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_MULTIPLE_APP_DIRS
+## XCTEST\_UI\_TEST\_PACKAGE\_MULTIPLE\_APP\_DIRS
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -864,7 +864,7 @@ If the XCTest UI package is valid, you should find only single `.app` directory 
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_MULTIPLE_IPA_DIRS
+## XCTEST\_UI\_TEST\_PACKAGE\_MULTIPLE\_IPA\_DIRS
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -897,7 +897,7 @@ If the XCTest UI package is valid, you should find only single `.ipa` directory 
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_BOTH_APP_AND_IPA_DIR_PRESENT
+## XCTEST\_UI\_TEST\_PACKAGE\_BOTH\_APP\_AND\_IPA\_DIR\_PRESENT
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -917,7 +917,7 @@ $ unzip swift-sample-UI.zip
 $ tree .
 ```
 
-If the XCTest UI package is valid, you should find either `.ipa` directory like `sampleUITests.ipa` or `.app` directory like `swift-sampleUITests-Runner.app` in our example inside the .zip test package. You can refer to an example of valid XCTEST_UI Test package in our documentation on [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
+If the XCTest UI package is valid, you should find either `.ipa` directory like `sampleUITests.ipa` or `.app` directory like `swift-sampleUITests-Runner.app` in our example inside the .zip test package. You can refer to an example of valid XCTEST\_UI Test package in our documentation on [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
 ```
 .
@@ -942,7 +942,7 @@ or
 
 For more information, see [Integrating XCTest UI for iOS with Device Farm](test-types-ios-xctest-ui.md "test-types-ios-xctest-ui.md").
 
-## XCTEST_UI_TEST_PACKAGE_PAYLOAD_DIR_PRESENT_IN_ZIP
+## XCTEST\_UI\_TEST\_PACKAGE\_PAYLOAD\_DIR\_PRESENT\_IN\_ZIP
 
 If you see the following message, follow these steps to fix the issue.
 

@@ -58,9 +58,8 @@ relative to the root of the input artifact for your test. 11. In **Test type**, 
     ![Device Farm test types.](images/codepipeline-test-type.png)
 
 12. In the remaining fields, provide the configuration that is appropriate for your test and
-    application type.
-13. (Optional) In **Advanced**, provide detailed configuration for your test
-    run.
+application type. 13. (Optional) In **Advanced**, provide detailed configuration for your test
+run.
 
 ![Advanced AWS Device Farm configurations.](images/codepipeline-advanced.png) 14. In **Input artifacts**, choose the input artifact that matches the output
 artifact of the stage that comes before the test stage in the pipeline.

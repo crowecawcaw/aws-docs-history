@@ -34,12 +34,12 @@ create the packages so that you can upload them to Device Farm.
 
 1. In the project navigator in Xcode, under **Products**, open the contextual menu
    for the file named ``app-project-name`.app`. Then,
-choose **Show in Finder**. Finder opens a folder named
-`Debug-iphoneos`, which contains the output that Xcode generated for your
-test build. This folder includes your `.app` file.
+   choose **Show in Finder**. Finder opens a folder named
+   `Debug-iphoneos`, which contains the output that Xcode generated for your
+   test build. This folder includes your `.app` file.
 2. In Finder, create a new folder, and name it `Payload`.
-3. Copy the ``app-project-name`.app`file, and paste it
-in the`Payload` folder.
+3. Copy the ``app-project-name`.app` file, and paste it
+   in the `Payload` folder.
 4. Open the contextual menu for the `Payload` folder and choose **Compress
    "Payload"**. A file named `Payload.zip` is created.
 5. Change the file name and extension of `Payload.zip` to
@@ -58,7 +58,7 @@ to move it to another location, such as your desktop. 6. Optionally, you can del
    named ``app-project-name`.xctest`.
 3. Open the contextual menu for this file and choose **Compress
    "``app-project-name`.xctest`"**. A
-   file named ``app-project-name`.xctest.zip` is
+ file named ``app-project-name`.xctest.zip` is
    created.
 
 In a later step, you provide this file to Device Farm. To make the file easier to find, you might want

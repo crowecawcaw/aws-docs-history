@@ -5,9 +5,9 @@ tests and recommends workarounds to resolve each error.
 
 ###### Note
 
-The instructions below are based on Linux x86_64 and Mac.
+The instructions below are based on Linux x86\_64 and Mac.
 
-## IOS_APP_UNZIP_FAILED
+## IOS\_APP\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -44,7 +44,7 @@ A valid iOS application package should produce output like the following:
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_PAYLOAD_DIR_MISSING
+## IOS\_APP\_PAYLOAD\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -83,7 +83,7 @@ the working directory.
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_APP_DIR_MISSING
+## IOS\_APP\_APP\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -123,7 +123,7 @@ If the iOS application package is valid, you will find an `.app` directory like
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_PLIST_FILE_MISSING
+## IOS\_APP\_PLIST\_FILE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -164,7 +164,7 @@ If the iOS application package is valid, you will find the
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_CPU_ARCHITECTURE_VALUE_MISSING
+## IOS\_APP\_CPU\_ARCHITECTURE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -226,7 +226,7 @@ A valid iOS application package should produce output like the following:
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_PLATFORM_VALUE_MISSING
+## IOS\_APP\_PLATFORM\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -288,7 +288,7 @@ A valid iOS application package should produce output like the following:
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_WRONG_PLATFORM_DEVICE_VALUE
+## IOS\_APP\_WRONG\_PLATFORM\_DEVICE\_VALUE
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -354,7 +354,7 @@ should not contain the keyword `simulator`.
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_FORM_FACTOR_VALUE_MISSING
+## IOS\_APP\_FORM\_FACTOR\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -416,7 +416,7 @@ A valid iOS application package should produce output like the following:
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_PACKAGE_NAME_VALUE_MISSING
+## IOS\_APP\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -478,7 +478,7 @@ Amazon.AWSDeviceFarmiOSReferenceApp
 
 For more information, see [iOS tests in AWS Device Farm](test-types-ios-tests.md "test-types-ios-tests.md").
 
-## IOS_APP_EXECUTABLE_VALUE_MISSING
+## IOS\_APP\_EXECUTABLE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 

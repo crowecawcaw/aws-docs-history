@@ -19,10 +19,10 @@ concludes.
 The test hosts are fully managed by Device Farm. The following table lists the currently available
 and supported Device Farm test hosts for custom test environments.
 
-| Device Platform | Test Host      | Operating System           | Architecture(s) | Supported Devices   |
-| --------------- | -------------- | -------------------------- | --------------- | ------------------- |
-| Android         | amazon_linux_2 | Amazon Linux 2             | x86_64          | Android 6 and above |
-| iOS             | macos_sequoia  | macOS Sequoia (version 15) | arm64           | iOS 15 to 26        |
+| Device Platform | Test Host        | Operating System           | Architecture(s) | Supported Devices   |
+| --------------- | ---------------- | -------------------------- | --------------- | ------------------- |
+| Android         | amazon\_linux\_2 | Amazon Linux 2             | x86\_64         | Android 6 and above |
+| iOS             | macos\_sequoia   | macOS Sequoia (version 15) | arm64           | iOS 15 to 26        |
 
 ###### Note
 

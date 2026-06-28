@@ -7,7 +7,7 @@ tests and recommends workarounds to resolve each error.
 
 For important considerations when using Instrumentation tests in AWS Device Farm, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION_TEST_PACKAGE_UNZIP_FAILED
+## INSTRUMENTATION\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -47,7 +47,7 @@ A valid Instrumentation test package will produce output like the following:
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION_TEST_PACKAGE_AAPT_DEBUG_BADGING_FAILED
+## INSTRUMENTATION\_TEST\_PACKAGE\_AAPT\_DEBUG\_BADGING\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -93,7 +93,7 @@ densities: '160'
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION_TEST_PACKAGE_INSTRUMENTATION_RUNNER_VALUE_MISSING
+## INSTRUMENTATION\_TEST\_PACKAGE\_INSTRUMENTATION\_RUNNER\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -135,7 +135,7 @@ E: instrumentation (line=9)
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION_TEST_PACKAGE_AAPT_DUMP_XMLTREE_FAILED
+## INSTRUMENTATION\_TEST\_PACKAGE\_AAPT\_DUMP\_XMLTREE\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -188,7 +188,7 @@ N: android=http://schemas.android.com/apk/res/android
 
 For more information, see [Instrumentation for Android and AWS Device Farm](test-types-android-instrumentation.md "test-types-android-instrumentation.md").
 
-## INSTRUMENTATION_TEST_PACKAGE_TEST_PACKAGE_NAME_VALUE_MISSING
+## INSTRUMENTATION\_TEST\_PACKAGE\_TEST\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 

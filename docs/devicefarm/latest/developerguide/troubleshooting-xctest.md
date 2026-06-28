@@ -7,7 +7,7 @@ to resolve each error.
 
 The instructions below assume you are using MacOS.
 
-## XCTEST_TEST_PACKAGE_UNZIP_FAILED
+## XCTEST\_TEST\_PACKAGE\_UNZIP\_FAILED
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -42,7 +42,7 @@ A valid XCTest package should produce output like the following:
 
 For more information, see [Integrating Device Farm with XCTest for iOS](test-types-ios-xctest.md "test-types-ios-xctest.md").
 
-## XCTEST_TEST_PACKAGE_XCTEST_DIR_MISSING
+## XCTEST\_TEST\_PACKAGE\_XCTEST\_DIR\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -79,7 +79,7 @@ If the XCTest package is valid, you will find a directory with a name similar to
 
 For more information, see [Integrating Device Farm with XCTest for iOS](test-types-ios-xctest.md "test-types-ios-xctest.md").
 
-## XCTEST_TEST_PACKAGE_PLIST_FILE_MISSING
+## XCTEST\_TEST\_PACKAGE\_PLIST\_FILE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -116,7 +116,7 @@ If the XCTest package is valid, you will find the `Info.plist` file inside the
 
 For more information, see [Integrating Device Farm with XCTest for iOS](test-types-ios-xctest.md "test-types-ios-xctest.md").
 
-## XCTEST_TEST_PACKAGE_PACKAGE_NAME_VALUE_MISSING
+## XCTEST\_TEST\_PACKAGE\_PACKAGE\_NAME\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
@@ -175,7 +175,7 @@ com.amazon.kanapka.swiftExampleTests
 
 For more information, see [Integrating Device Farm with XCTest for iOS](test-types-ios-xctest.md "test-types-ios-xctest.md").
 
-## XCTEST_TEST_PACKAGE_EXECUTABLE_VALUE_MISSING
+## XCTEST\_TEST\_PACKAGE\_EXECUTABLE\_VALUE\_MISSING
 
 If you see the following message, follow these steps to fix the issue.
 
