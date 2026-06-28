@@ -8,7 +8,7 @@ mode, which provides durable mitigation against HTTP desync while maintaining th
 availability of your application. You can switch to strictest mode to ensure that your
 application receives only requests that comply with RFC 7230.
 
-The http_desync_guardian library analyzes HTTP requests to prevent HTTP Desync
+The http\_desync\_guardian library analyzes HTTP requests to prevent HTTP Desync
 attacks. For more information, see [HTTP Desync Guardian](https://github.com/aws/http-desync-guardian "https://github.com/aws/http-desync-guardian") on
 github.
 

@@ -18,9 +18,9 @@ When a load balancer receives an HTTP request, it checks for malformed requests
 and for the length of the method. The total method length in an HTTP request to a
 load balancer must not exceed 127 characters. If the HTTP request passes both
 checks, the load balancer sends the request to the EC2 instance. If the
-method field in the request is malformed, the load balancer responds with an [HTTP 400: BAD_REQUEST](#ts-elb-errorcodes-http400 "#ts-elb-errorcodes-http400")
+method field in the request is malformed, the load balancer responds with an [HTTP 400: BAD\_REQUEST](#ts-elb-errorcodes-http400 "#ts-elb-errorcodes-http400")
 error. If the length of the method in the request exceeds 127 characters,
-the load balancer responds with an [HTTP 405: METHOD_NOT_ALLOWED](#ts-elb-errorcodes-http405 "#ts-elb-errorcodes-http405") error.
+the load balancer responds with an [HTTP 405: METHOD\_NOT\_ALLOWED](#ts-elb-errorcodes-http405 "#ts-elb-errorcodes-http405") error.
 
 The EC2 instance processes a valid request by implementing the method
 in the request and sending a response back to the client. Your
@@ -31,14 +31,14 @@ potential causes, and the steps you can take to resolve the issues.
 
 ###### Error Messages
 
-- [HTTP 400: BAD_REQUEST](#ts-elb-errorcodes-http400 "#ts-elb-errorcodes-http400")
-- [HTTP 405: METHOD_NOT_ALLOWED](#ts-elb-errorcodes-http405 "#ts-elb-errorcodes-http405")
+- [HTTP 400: BAD\_REQUEST](#ts-elb-errorcodes-http400 "#ts-elb-errorcodes-http400")
+- [HTTP 405: METHOD\_NOT\_ALLOWED](#ts-elb-errorcodes-http405 "#ts-elb-errorcodes-http405")
 - [HTTP 408: Request timeout](#ts-elb-errorcodes-http408 "#ts-elb-errorcodes-http408")
 - [HTTP 502: Bad gateway](#ts-elb-errorcodes-http502 "#ts-elb-errorcodes-http502")
 - [HTTP 503: Service unavailable](#ts-elb-errorcodes-http503 "#ts-elb-errorcodes-http503")
 - [HTTP 504: Gateway timeout](#ts-elb-errorcodes-http504 "#ts-elb-errorcodes-http504")
 
-## HTTP 400: BAD_REQUEST
+## HTTP 400: BAD\_REQUEST
 
 **Description**: Indicates that the client sent a bad
 request.
@@ -54,7 +54,7 @@ the details of the client request. Review the headers and the URL for malformed
 requests. Verify that the request meets HTTP specifications. Verify that HTTP
 CONNECT is not used.
 
-## HTTP 405: METHOD_NOT_ALLOWED
+## HTTP 405: METHOD\_NOT\_ALLOWED
 
 **Description**: Indicates that the method length is not valid.
 

@@ -148,68 +148,68 @@ If you configured HTTPS/SSL on the back-end connection, you can enable authentic
 
 11. **Health checks**
 
-    1.  In the **Ping target** section, select a **Ping Protocol** and
-        **Ping Port**. Your EC2 instances must accept traffic on the specified ping port.
-    2.  For **Ping Port**, ensure the port is `80`.
-    3.  For **Ping Path**, replace the default alue with a single forward slash, (`/`).
-        This tells Elastic Load Balancing to send health check requests to the default home page for your web server, such as
-        `index.html`.
-    4.  For **Advanced health check settings**, use the default values.
+    1. In the **Ping target** section, select a **Ping Protocol** and
+     **Ping Port**. Your EC2 instances must accept traffic on the specified ping port.
+    2. For **Ping Port**, ensure the port is `80`.
+    3. For **Ping Path**, replace the default alue with a single forward slash, (`/`).
+     This tells Elastic Load Balancing to send health check requests to the default home page for your web server, such as
+     `index.html`.
+    4. For **Advanced health check settings**, use the default values.
 
 12. **Instances**
 
-    1.  Select **Add instances**, to bring up the instance selection screen.
-    2.  Under **Available instances**, you can select from the current instances
-        that are available to the load balancer, based on the network settings selected before.
-    3.  After you're satisfied with your selections, select **Confirm** to add the
-        instances to be registered to the load balancer.
+    1. Select **Add instances**, to bring up the instance selection screen.
+    2. Under **Available instances**, you can select from the current instances
+     that are available to the load balancer, based on the network settings selected before.
+    3. After you're satisfied with your selections, select **Confirm** to add the
+     instances to be registered to the load balancer.
 
 13. **Attributes**
 
-    1.  For **Enable cross-zone load balancing**, **Enable
-        connection draining**, and **Timeout (draining interval)**
-        keep the default values.
+    1. For **Enable cross-zone load balancing**, **Enable
+     connection draining**, and **Timeout (draining interval)**
+     keep the default values.
 
 14. **Load balancer tags (optional)**
 
-    1.  The **Key** field is required.
-    2.  The **Value** field is optional.
-    3.  To add another tag, select **Add new tag** then input your values into the
-        **Key** field, and optionally the **Value**
-        field.
-    4.  To remove an existing tag, select **Remove** next to the tag you want to remove.
+    1. The **Key** field is required.
+    2. The **Value** field is optional.
+    3. To add another tag, select **Add new tag** then input your values into the
+     **Key** field, and optionally the **Value**
+     field.
+    4. To remove an existing tag, select **Remove** next to the tag you want to remove.
 
 15. **Summary and creation**
 
-    1.  If you need to change any settings, select **Edit** next to the setting
-        needing to be changed.
-    2.  After you're satisfied with all the settings shown in the summary, select **Create
-        load balancer** to begin creation of your load balancer.
-    3.  On the final creation page, select **View load balancer** to view your load balancer in the Amazon EC2 console.
+    1. If you need to change any settings, select **Edit** next to the setting
+     needing to be changed.
+    2. After you're satisfied with all the settings shown in the summary, select **Create
+     load balancer** to begin creation of your load balancer.
+    3. On the final creation page, select **View load balancer** to view your load balancer in the Amazon EC2 console.
 
 16. **Verify**
 
-    1.  Select your new load balancer.
-    2.  On the **Target instances** tab, check the **Health status** column. After
-        at least one of your EC2 instances is **In-service**, you can test your load balancer.
-    3.  In the **Details** section, copy the load balancers **DNS name**,
-        which would look similar to `my-load-balancer-1234567890.us-east-1.elb.amazonaws.com`.
-    4.  Paste your load balancers **DNS name** into the address field of a public internet
-        connected web browser. If your load balancer is functioning correctly, you will see the default page
-        of your server.
+    1. Select your new load balancer.
+    2. On the **Target instances** tab, check the **Health status** column. After
+     at least one of your EC2 instances is **In-service**, you can test your load balancer.
+    3. In the **Details** section, copy the load balancers **DNS name**,
+     which would look similar to `my-load-balancer-1234567890.us-east-1.elb.amazonaws.com`.
+    4. Paste your load balancers **DNS name** into the address field of a public internet
+     connected web browser. If your load balancer is functioning correctly, you will see the default page
+     of your server.
 
 17. **Delete (optional)**
 
-    1.  If you have a CNAME record for your domain that points to your load balancer, point it to a new location
-        and wait for the DNS change to take effect before deleting your load balancer.
-    2.  Open the Amazon EC2 console at
-        [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-    3.  Select the load balancer.
-    4.  Choose **Actions**, **Delete load balancer**.
-    5.  When prompted for confirmation, type `confirm` then select **Delete**.
-    6.  After you delete a load balancer, the EC2 instances that were registered with the load balancer continue
-        to run. You will be billed for each partial or full hour that they continue running. When you no longer
-        need an EC2 instance, you can stop or terminate it to prevent incurring additional charges.
+    1. If you have a CNAME record for your domain that points to your load balancer, point it to a new location
+     and wait for the DNS change to take effect before deleting your load balancer.
+    2. Open the Amazon EC2 console at
+     [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+    3. Select the load balancer.
+    4. Choose **Actions**, **Delete load balancer**.
+    5. When prompted for confirmation, type `confirm` then select **Delete**.
+    6. After you delete a load balancer, the EC2 instances that were registered with the load balancer continue
+     to run. You will be billed for each partial or full hour that they continue running. When you no longer
+     need an EC2 instance, you can stop or terminate it to prevent incurring additional charges.
 
 ## Create an HTTPS load balancer using the AWS CLI
 

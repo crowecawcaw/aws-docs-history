@@ -106,7 +106,7 @@ authentication.
 does not match the public key configured on the load balancer. Use the
 `s_client` command to see the list of server certificates
 in the certificate chain. For more information, see
-[s_client](https://www.openssl.org/docs/man1.1.1/man1/openssl-s_client.html "https://www.openssl.org/docs/man1.1.1/man1/openssl-s_client.html")
+[s\_client](https://www.openssl.org/docs/man1.1.1/man1/openssl-s_client.html "https://www.openssl.org/docs/man1.1.1/man1/openssl-s_client.html")
 in the OpenSSL documentation.
 
 **Solution**: Your might need to update your SSL certificate.

@@ -31,7 +31,7 @@ If the load balancer is not receiving requests sent to a custom domain, check fo
 - Confirm what IP address the load balancers DNS name resolves to using a command line interface.
 - Compare the results of the two outputs. The IP addresses need to match.
 
-## HTTPS requests sent to the load balancer return "NET::ERR_CERT_COMMON_NAME_INVALID"
+## HTTPS requests sent to the load balancer return "NET::ERR\_CERT\_COMMON\_NAME\_INVALID"
 
 If HTTPS requests are receiving `NET::ERR_CERT_COMMON_NAME_INVALID` from the load balancer, check the following possible causes:
 
