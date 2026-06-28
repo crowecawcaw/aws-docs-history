@@ -20,38 +20,34 @@ Console
 The following shows you how to respond to an alarm in the AWS IoT Events
 console.
 
-1.  Sign in to the [AWS IoT Events
-    console](https://console.aws.amazon.com/iotevents/ "https://console.aws.amazon.com/iotevents/").
-2.  In the navigation pane, choose **Alarm
-    models**.
-3.  Choose the target alarm model.
-4.  In the **List of alarms** section, choose the
-    target alarm.
-5.  You can choose one of the following options from
-    **Actions**:
+1. Sign in to the [AWS IoT Events
+   console](https://console.aws.amazon.com/iotevents/ "https://console.aws.amazon.com/iotevents/").
+2. In the navigation pane, choose **Alarm
+   models**.
+3. Choose the target alarm model.
+4. In the **List of alarms** section, choose the
+   target alarm.
+5. You can choose one of the following options from
+   **Actions**:
 
-        * **Acknowledge** - The alarm changes to
-         the `ACKNOWLEDGED` state.
-        * **Disable** - The alarm changes to the
-         `DISABLED` state.
-        * **Enable** - The alarm changes to the
-         `NORMAL` state.
-        * **Reset** - The alarm changes to the
-         `NORMAL` state.
-        * **Snooze**, and then do the
-         following:
+   - **Acknowledge** - The alarm changes to
+     the `ACKNOWLEDGED` state.
+   - **Disable** - The alarm changes to the
+     `DISABLED` state.
+   - **Enable** - The alarm changes to the
+     `NORMAL` state.
+   - **Reset** - The alarm changes to the
+     `NORMAL` state.
+   - **Snooze**, and then do the
+     following:
 
-
-
-
-        	1. Choose the **Snooze length** or
-        	 enter a **Custom snooze
-        	 length**.
-        	2. Choose **Save**.
+     1. Choose the **Snooze length** or
+        enter a **Custom snooze
+        length**.
+     2. Choose **Save**.
         The alarm changes to the `SNOOZE_DISABLED`
-         state
-
-    For more information about the alarm states, see [Acknowledge flow](iotevents-alarms.md#acknowledge-flow "iotevents-alarms.md#acknowledge-flow").
+        state
+        For more information about the alarm states, see [Acknowledge flow](iotevents-alarms.md#acknowledge-flow "iotevents-alarms.md#acknowledge-flow").
 
 API
 To respond to one or more alarms, you can use the following AWS IoT Events API

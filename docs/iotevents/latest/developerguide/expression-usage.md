@@ -43,7 +43,7 @@ $input.GreenhouseInput.temperature
 ```
 
 - The following variable references a string, `Greenhouse Temperature
-Table`.
+ Table`.
 
 ```
 $variable.TableName
@@ -56,7 +56,7 @@ be in single quotes. A substitution template can also contain a combination of
 literals, operators, functions, references, and substitution templates.
 
 - The evaluated result of the following expression is a string, `50.018 in
-Fahrenheit`.
+ Fahrenheit`.
 
 ```
 '${$input.GreenhouseInput.temperature * 9 / 5 + 32} in Fahrenheit'
@@ -76,7 +76,7 @@ can also contain a combination of literals, operators, functions, references, an
 substitution templates.
 
 - The evaluated result of the following expression is a string, `Greenhouse
-Temperature Table 2000-01-01`.
+ Temperature Table 2000-01-01`.
 
 ```
 'Greenhouse Temperature Table ' + $input.GreenhouseInput.date

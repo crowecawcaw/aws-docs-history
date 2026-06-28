@@ -30,7 +30,7 @@ Detector model analyses gather the following diagnostic information:
   can use to locate the field in your detector model that the analysis result
   references. A location typically includes the state name, transition event name,
   event name, and expression (for example, `in state TemperatureCheck in onEnter
-in event Init in action setVariable`).
+ in event Init in action setVariable`).
 - **Type** – The type of the analysis result.
   Analysis types fall into the following categories:
 

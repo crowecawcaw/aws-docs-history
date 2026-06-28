@@ -20,7 +20,7 @@ conditional logic evaluates to `true`.
 ###### To create a detector model
 
 1. The first detector state has been created for you. To modify it, select the circle
-   with label **State_1** in the main editing space.
+   with label **State\_1** in the main editing space.
 2. In the **State** pane, enter the **State name** and
    **OnEnter**, choose **Add event**.
 3. On the **Add OnEnter event** page, enter an **Event
@@ -65,23 +65,22 @@ action**. 14. For **Choose an action**, choose **Set variable**.
      `$variable.pressureThresholdBreached + 3`
     4. Choose **Save**.
 
-15. Select the second state **untitled_state_1**.
-16. In the **State** pane, enter the **State name** and
-    for **On Enter**, choose **Add event**.
-17. On the **Add OnEnter event** page, enter the **Event
-    name** and **Event condition**. Choose **Add
-    action**.
-18. For **Choose an action**, choose **Send SNS
-    message**.
+15. Select the second state **untitled\_state\_1**. 16. In the **State** pane, enter the **State name** and
+for **On Enter**, choose **Add event**. 17. On the **Add OnEnter event** page, enter the **Event
+name** and **Event condition**. Choose **Add
+action**. 18. For **Choose an action**, choose **Send SNS
+message**.
 
-    1.  For **SNS topic**, enter the target ARN of your Amazon SNS
-        topic.
-    2.  Choose **Save**.
+    1. For **SNS topic**, enter the target ARN of your Amazon SNS
+     topic.
+    2. Choose **Save**.
 
 19. Continue to add the events in the example.
 
-    1.  For **OnInput**, choose **Add event**, and enter
-        and save the following event information.
+    1. For **OnInput**, choose **Add event**, and enter
+     and save the following event information.
+
+
 
     ```
 
@@ -93,8 +92,10 @@ action**. 14. For **Choose an action**, choose **Set variable**.
           Variable name: pressureThresholdBreached
           Assign value: 3
     ```
-    2.  For **OnInput**, choose **Add event**, and enter
-        and save the following event information.
+    2. For **OnInput**, choose **Add event**, and enter
+     and save the following event information.
+
+
 
     ```
       Event name: Pressure Okay
@@ -104,9 +105,11 @@ action**. 14. For **Choose an action**, choose **Set variable**.
           Variable operation: Decrement
           Variable name: pressureThresholdBreached
     ```
-    3.  For **OnExit**, choose **Add event**, and enter
-        and save the following event information using the ARN of the Amazon SNS topic that you
-        created.
+    3. For **OnExit**, choose **Add event**, and enter
+     and save the following event information using the ARN of the Amazon SNS topic that you
+     created.
+
+
 
     ```
 
@@ -118,12 +121,10 @@ action**. 14. For **Choose an action**, choose **Set variable**.
     ```
 
 20. Pause on the second state (**Dangerous**). An arrow appears on
-    the circumference of the state
-21. Click and drag the arrow from the second state to the first state. A directed line
-    with label **Untitled** appears.
-22. Choose the **Untitled** line and in the **Transition
-    event** pane, enter an **Event name** and **Event
-    trigger logic** using the following information.
+the circumference of the state 21. Click and drag the arrow from the second state to the first state. A directed line
+with label **Untitled** appears. 22. Choose the **Untitled** line and in the **Transition
+event** pane, enter an **Event name** and **Event
+trigger logic** using the following information.
 
 ```
 {
@@ -148,10 +149,9 @@ choose **Publish**. 25. On the **Publish detector model** page, do the following
      as the **Role** here.
 
 26. For **Detector creation key**, choose the name of one of the
-    attributes of the input you defined earlier. The attribute that you choose as the detector
-    creation key must be present in each message input, and must be unique to each device that
-    sends messages. This example uses the **motorid** attribute.
-27. Choose **Save and publish**.
+attributes of the input you defined earlier. The attribute that you choose as the detector
+creation key must be present in each message input, and must be unique to each device that
+sends messages. This example uses the **motorid** attribute. 27. Choose **Save and publish**.
 
 ###### Note
 

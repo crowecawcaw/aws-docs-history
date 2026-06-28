@@ -166,7 +166,7 @@ The status can be one of the following values:
      Try again later.
 
 4. Run the following command to retrieve one or more analysis results of the detector
-   model.
+model.
 
 ###### Note
 

@@ -66,34 +66,40 @@ have created an asset model in AWS IoT SiteWise.
      specified in the key, then the message will fail the ingestion
      in AWS IoT Events.
 
-6.  In the **Threshold definitions** section, you define the
-    input attribute, threshold value, and comparison operator that AWS IoT Events uses to
-    change the state of the alarm.
+6. In the **Threshold definitions** section, you define the
+input attribute, threshold value, and comparison operator that AWS IoT Events uses to
+change the state of the alarm.
 
     1. For **Input attribute**, choose the attribute
-       that you want to monitor.
+     that you want to monitor.
+
 
     Each time that this input attribute receives new data, it's
-    evaluated to determine the state of the alarm. 2. For **Operator**, choose the comparison operator.
-    The operator compares your input attribute with the threshold value
-    for your attribute.
+     evaluated to determine the state of the alarm.
+    2. For **Operator**, choose the comparison operator.
+     The operator compares your input attribute with the threshold value
+     for your attribute.
+
 
     You can choose from these options:
 
-        * **> greater than**
-        * **>= greater than or equal to**
-        * **< less than**
-        * **<= less than or equal to**
-        * **= equal to**
-        * **!= not equal to**
-    3. For threshold **Value**, enter a number or choose
-       an attribute in AWS IoT Events inputs. AWS IoT Events compares this value with the
-       value of the input attribute you choose.
-    4. (Optional) For **Severity**, Use a number that
-       your team understands to reflect the severity of this alarm.
 
-7.  (Optional) In the **Notification settings** section,
-    configure notification settings for the alarm.
+
+
+    	* **> greater than**
+    	* **>= greater than or equal to**
+    	* **< less than**
+    	* **<= less than or equal to**
+    	* **= equal to**
+    	* **!= not equal to**
+    3. For threshold **Value**, enter a number or choose
+     an attribute in AWS IoT Events inputs. AWS IoT Events compares this value with the
+     value of the input attribute you choose.
+    4. (Optional) For **Severity**, Use a number that
+     your team understands to reflect the severity of this alarm.
+
+7. (Optional) In the **Notification settings** section,
+configure notification settings for the alarm.
 
 You can add up to 10 notifications. For **Notification
 1**, do the following:
@@ -128,55 +134,56 @@ You can add up to 10 notifications. For **Notification
      enter a message that describes what the alarm detects and what
      actions the recipients should take.
 
-8.  In the **Instance** section, you can enable or disable
-    all alarm instances that are created based on this alarm model.
-9.  In the **Advanced settings** section, do the
-    following:
+8. In the **Instance** section, you can enable or disable
+all alarm instances that are created based on this alarm model. 9. In the **Advanced settings** section, do the
+following:
 
-    1.  For **Acknowledge flow**, you can enable or
-        disable notifications.
+    1. For **Acknowledge flow**, you can enable or
+     disable notifications.
 
-            * If you choose **Enabled**, you receive a
-             notification when the alarm state changes. You must
-             acknowledge the notification before the alarm state can
-             return to normal.
-            * If you choose **Disabled**, no action is
-             required. The alarm automatically changes to the normal
-             state when the measurement returns to the specified
-             range.
 
-        For more information, see [Acknowledge flow](iotevents-alarms.md#acknowledge-flow "iotevents-alarms.md#acknowledge-flow").
 
-    2.  For **Permissions**, choose one of the following
-        options:
 
-            * You can **Create a new role from AWS policy
-             templates** and AWS IoT Events automatically creates an
-             IAM role for you.
-            * You can **Use an existing IAM role**
-             that allows this alarm model to perform actions and access
-             other AWS resources.
+    	* If you choose **Enabled**, you receive a
+    	 notification when the alarm state changes. You must
+    	 acknowledge the notification before the alarm state can
+    	 return to normal.
+    	* If you choose **Disabled**, no action is
+    	 required. The alarm automatically changes to the normal
+    	 state when the measurement returns to the specified
+    	 range.
+    For more information, see [Acknowledge flow](iotevents-alarms.md#acknowledge-flow "iotevents-alarms.md#acknowledge-flow").
+    2. For **Permissions**, choose one of the following
+     options:
 
-        For more information, see [Identity and access
-        management for AWS IoT Events](security-iam.md "security-iam.md").
 
-    3.  For **Additional notification settings**, you can
-        edit your AWS Lambda function to manage alarm notifications. Choose
-        one of the following options for your AWS Lambda function:
 
-            * **Create a new AWS Lambda function** -
-             AWS IoT Events creates a new AWS Lambda function for you.
-            * **Use an existing AWS Lambda function** -
-             Use an existing AWS Lambda function by choosing an AWS Lambda
-             function name.
 
-        For more information about the possible actions, see [AWS IoT Events working with other AWS services](iotevents-other-aws-services.md "iotevents-other-aws-services.md").
+    	* You can **Create a new role from AWS policy
+    	 templates** and AWS IoT Events automatically creates an
+    	 IAM role for you.
+    	* You can **Use an existing IAM role**
+    	 that allows this alarm model to perform actions and access
+    	 other AWS resources.
+    For more information, see [Identity and access
+     management for AWS IoT Events](security-iam.md "security-iam.md").
+    3. For **Additional notification settings**, you can
+     edit your AWS Lambda function to manage alarm notifications. Choose
+     one of the following options for your AWS Lambda function:
 
-    4.  (Optional) For **Set state action**, you can add
-        one or more AWS IoT Events actions to take when the alarm state
-        changes.
+
+
+
+    	* **Create a new AWS Lambda function** -
+    	 AWS IoT Events creates a new AWS Lambda function for you.
+    	* **Use an existing AWS Lambda function** -
+    	 Use an existing AWS Lambda function by choosing an AWS Lambda
+    	 function name.
+    For more information about the possible actions, see [AWS IoT Events working with other AWS services](iotevents-other-aws-services.md "iotevents-other-aws-services.md").
+    4. (Optional) For **Set state action**, you can add
+     one or more AWS IoT Events actions to take when the alarm state
+     changes.
 
 10. (Optional) You can add **Tags** to manage your alarms.
-    For more information, see [Tagging your AWS IoT Events
-    resources](tagging-iotevents.md "tagging-iotevents.md").
-11. Choose **Create**.
+For more information, see [Tagging your AWS IoT Events
+resources](tagging-iotevents.md "tagging-iotevents.md"). 11. Choose **Create**.

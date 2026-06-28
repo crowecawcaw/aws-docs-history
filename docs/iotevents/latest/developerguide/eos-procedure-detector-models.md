@@ -38,14 +38,14 @@ and output MQTT topics). It introduces Kinesis Data Streams for data partitionin
 Lambda function for state logic. Device states are now stored in a DynamoDB table, and
 an enhanced IAM role manages permissions across these services.
 
-| Purpose                                                                          | Solution                          | Differences                                                                                                                                   |
-| -------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| \*_Data ingestion_<br>• –<br>Receives data from IoT devices                      | AWS IoT Core                      | Now requires two distinct MQTT topics: one for ingesting<br>device data and another for publishing output events                              |
-| \*_Message direction_<br>• –<br>Routes incoming messages to appropriate services | AWS IoT Core message routing rule | Maintains same routing functionality but now directs messages<br>to Kinesis Data Streams instead of AWS IoT Events                            |
-| \*_Data processing_<br>• –<br>Handles and organizes incoming data streams        | Kinesis Data Streams              | Replaces AWS IoT Events input functionality, providing data ingestion<br>with device ID partitioning for message processing                   |
-| \*_Logic evaluation_<br>• –<br>Processes state changes and triggers actions      | Evaluator Lambda                  | Replaces AWS IoT Events detector model, providing customizable state<br>logic evaluation through code instead of visual workflow              |
-| \*_State management_<br>• –<br>Maintains device states                           | DynamoDB table                    | New component that provides persistent storage of device<br>states, replacing internal AWS IoT Events state management                        |
-| \*_Security_<br>• – Manages<br>service permissions                               | IAM role                          | Updated permissions now include access to Kinesis Data Streams, DynamoDB, and<br>EventBridge in addition to existing AWS IoT Core permissions |
+| Purpose                                                                         | Solution                          | Differences                                                                                                                                   |
+| ------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| *_Data ingestion_<br>• –<br>Receives data from IoT devices                      | AWS IoT Core                      | Now requires two distinct MQTT topics: one for ingesting<br>device data and another for publishing output events                              |
+| *_Message direction_<br>• –<br>Routes incoming messages to appropriate services | AWS IoT Core message routing rule | Maintains same routing functionality but now directs messages<br>to Kinesis Data Streams instead of AWS IoT Events                            |
+| *_Data processing_<br>• –<br>Handles and organizes incoming data streams        | Kinesis Data Streams              | Replaces AWS IoT Events input functionality, providing data ingestion<br>with device ID partitioning for message processing                   |
+| *_Logic evaluation_<br>• –<br>Processes state changes and triggers actions      | Evaluator Lambda                  | Replaces AWS IoT Events detector model, providing customizable state<br>logic evaluation through code instead of visual workflow              |
+| *_State management_<br>• –<br>Maintains device states                           | DynamoDB table                    | New component that provides persistent storage of device<br>states, replacing internal AWS IoT Events state management                        |
+| *_Security_<br>• – Manages<br>service permissions                               | IAM role                          | Updated permissions now include access to Kinesis Data Streams, DynamoDB, and<br>EventBridge in addition to existing AWS IoT Core permissions |
 
 ## Step 1: (Optional) export AWS IoT Events detector model configurations
 

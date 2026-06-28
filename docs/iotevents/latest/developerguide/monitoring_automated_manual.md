@@ -39,14 +39,13 @@ the log files on AWS IoT Events.
 
 - The CloudWatch home page shows:
 
-      + Current alarms and status
-      + Graphs of alarms and resources
-      + Service health status
+  - Current alarms and status
+  - Graphs of alarms and resources
+  - Service health status
+    In addition, you can use CloudWatch to do the following:
 
-  In addition, you can use CloudWatch to do the following:
-
-      + Create [Creating a CloudWatch
-       dashboard](../../../AmazonCloudWatch/latest/monitoring/create_dashboard.md "../../../AmazonCloudWatch/latest/monitoring/create_dashboard.md") to monitor the services you care about
-      + Graph metric data to troubleshoot issues and discover trends
-      + Search and browse all your AWS resource metrics
-      + Create and edit alarms to be notified of problems
+  - Create [Creating a CloudWatch
+    dashboard](../../../AmazonCloudWatch/latest/monitoring/create_dashboard.md "../../../AmazonCloudWatch/latest/monitoring/create_dashboard.md") to monitor the services you care about
+  - Graph metric data to troubleshoot issues and discover trends
+  - Search and browse all your AWS resource metrics
+  - Create and edit alarms to be notified of problems

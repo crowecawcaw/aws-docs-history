@@ -411,8 +411,8 @@ unset. For example, you can't assign it the value `null`.
 In references that use identifiers that don't follow the (regular expression) pattern
 `[a-zA-Z][a-zA-Z0-9_]*`, you must enclose those identifiers in backticks
 (```). For example, a reference to an input named `MyInput` with a
- field named `_value` must specify this field as
- `$input.MyInput.`_value``.
+field named `_value` must specify this field as
+`$input.MyInput.`_value``.
 
 When you use references in expressions, check the following:
 

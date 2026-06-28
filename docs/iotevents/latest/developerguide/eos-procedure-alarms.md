@@ -27,12 +27,12 @@ topics, which are then processed by a Lambda function. The function transforms t
 notifications into CloudWatch metrics, enabling alarm monitoring through CloudWatch's alarming
 framework.
 
-| Purpose                                                             | Solution                            | Differences                                                                                                   |
-| ------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| \*_Data source_<br>• – Property<br>data from AWS IoT SiteWise       | AWS IoT SiteWise MQTT notifications | Replaces direct IoT Events integration with MQTT notifications<br>from AWS IoT SiteWise properties            |
-| \*_Data processing_<br>• –<br>Transforms property data              | Lambda function                     | Processes AWS IoT SiteWise property notifications and converts them to<br>CloudWatch metrics                  |
-| \*_Alarm evaluation_<br>• –<br>Monitors metrics and triggers alarms | Amazon CloudWatch alarms            | Replaces AWS IoT Events alarms with CloudWatch alarms, offering additional<br>features like anomaly detection |
-| \*_Integration_<br>• –<br>Connection with AWS IoT SiteWise          | AWS IoT SiteWise external alarms    | Optional capability to import CloudWatch alarms back into AWS IoT SiteWise as<br>external alarms              |
+| Purpose                                                            | Solution                            | Differences                                                                                                   |
+| ------------------------------------------------------------------ | ----------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| *_Data source_<br>• – Property<br>data from AWS IoT SiteWise       | AWS IoT SiteWise MQTT notifications | Replaces direct IoT Events integration with MQTT notifications<br>from AWS IoT SiteWise properties            |
+| *_Data processing_<br>• –<br>Transforms property data              | Lambda function                     | Processes AWS IoT SiteWise property notifications and converts them to<br>CloudWatch metrics                  |
+| *_Alarm evaluation_<br>• –<br>Monitors metrics and triggers alarms | Amazon CloudWatch alarms            | Replaces AWS IoT Events alarms with CloudWatch alarms, offering additional<br>features like anomaly detection |
+| *_Integration_<br>• –<br>Connection with AWS IoT SiteWise          | AWS IoT SiteWise external alarms    | Optional capability to import CloudWatch alarms back into AWS IoT SiteWise as<br>external alarms              |
 
 ## Step 1: Enable MQTT notifications on the asset property
 

@@ -348,7 +348,7 @@ If the specified payload type is a string,
 DynamoDB table as binary data. The DynamoDB console displays the
 data as Base64-encoded text. The `payloadField`
 value is
-``payload-field`\_raw`.
+``payload-field`_raw`.
 You can also specify an expression.
 
 ###### Note

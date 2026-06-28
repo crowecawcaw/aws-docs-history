@@ -155,4 +155,4 @@ payloads.
 
 The message payloads contain information about the state of the detector (instance) at
 the time the message was sent (that is, at the time the SNS action was run). You can use the
-[https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_DescribeDetector.html](../apireference/API_iotevents-data_DescribeDetector.md "../apireference/API_iotevents-data_DescribeDetector.md") operation to get similar information about the state of the detector.
+[https://docs.aws.amazon.com/iotevents/latest/apireference/API\_iotevents-data\_DescribeDetector.html](../apireference/API_iotevents-data_DescribeDetector.md "../apireference/API_iotevents-data_DescribeDetector.md") operation to get similar information about the state of the detector.
