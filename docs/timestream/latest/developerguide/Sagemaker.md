@@ -49,7 +49,7 @@ policies that restrict access to specific resources. 10. When the status of the 
 ###### Note
 
 If you see a pop up with **Kernel not found**, choose
-**conda_python3** and click **Set Kernel**. 13. Modify `DB_NAME`, `TABLE_NAME`, `bucket`, and
+**conda\_python3** and click **Set Kernel**. 13. Modify `DB_NAME`, `TABLE_NAME`, `bucket`, and
 `ENDPOINT` to match the database name, table name, S3 bucket name, and region for
 the training models. 14. Choose the **play** icon to run the individual cells 15. When you get to the cell `Leverage Timestream to find hosts with average CPU
  utilization across the fleet`, ensure that the output returns at least 2 host

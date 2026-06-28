@@ -91,7 +91,7 @@ SELECT temperature as temp, humidity from 'iot/topic'
 
 If you haven't installed the AWS Command Line Interface (AWS CLI), do so from [here](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/").
 
-1. Save the following rule payload in a JSON file called timestream_rule.json. Replace
+1. Save the following rule payload in a JSON file called timestream\_rule.json. Replace
    `arn:aws:iam::123456789012:role/TimestreamRole` with your role arn
    which grants AWS IoT access to store data in Amazon Timestream
 
@@ -135,7 +135,7 @@ aws iot create-topic-rule --rule-name timestream_test --topic-rule-payload file:
 aws iot get-topic-rule --rule-name timestream_test
 ```
 
-4. Save the following message payload in a file called timestream_msg.json
+4. Save the following message payload in a file called timestream\_msg.json
 
 ```
 {

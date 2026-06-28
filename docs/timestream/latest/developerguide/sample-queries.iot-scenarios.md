@@ -16,19 +16,19 @@ functions.
 Timestream enables you to store and analyze IoT sensor data such as the location,
 fuel consumption, speed, and load capacity of one or more fleets of trucks to enable
 effective fleet management. Below is the schema and some of the data of a table
-iot_trucks that stores telemetry such as location, fuel consumption, speed, and load
+iot\_trucks that stores telemetry such as location, fuel consumption, speed, and load
 capacity of trucks.
 
-| Time                          | truck_id  | Make     | Model | Fleet | fuel_capacity | load_capacity | measure_name | measure_value::double | measure_value::varchar               |
-| ----------------------------- | --------- | -------- | ----- | ----- | ------------- | ------------- | ------------ | --------------------- | ------------------------------------ |
-| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100           | 500           | fuel_reading | 65.2                  | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100           | 500           | load         | 400.0                 | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100           | 500           | speed        | 90.2                  | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100           | 500           | location     | null                  | 47.6062 N, 122.3321 W                |
-| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150           | 1000          | fuel_reading | 10.1                  | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150           | 1000          | load         | 950.3                 | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150           | 1000          | speed        | 50.8                  | null                                 |
-| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150           | 1000          | location     | null                  | 40.7128 degrees N, 74.0060 degrees W |
+| Time                          | truck\_id | Make     | Model | Fleet | fuel\_capacity | load\_capacity | measure\_name | measure\_value::double | measure\_value::varchar              |
+| ----------------------------- | --------- | -------- | ----- | ----- | -------------- | -------------- | ------------- | ---------------------- | ------------------------------------ |
+| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100            | 500            | fuel\_reading | 65.2                   | null                                 |
+| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100            | 500            | load          | 400.0                  | null                                 |
+| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100            | 500            | speed         | 90.2                   | null                                 |
+| 2019-12-04 19:00:00.000000000 | 123456781 | GMC      | Astro | Alpha | 100            | 500            | location      | null                   | 47.6062 N, 122.3321 W                |
+| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150            | 1000           | fuel\_reading | 10.1                   | null                                 |
+| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150            | 1000           | load          | 950.3                  | null                                 |
+| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150            | 1000           | speed         | 50.8                   | null                                 |
+| 2019-12-04 19:00:00.000000000 | 123456782 | Kenworth | W900  | Alpha | 150            | 1000           | location      | null                   | 40.7128 degrees N, 74.0060 degrees W |
 
 ## Example queries
 

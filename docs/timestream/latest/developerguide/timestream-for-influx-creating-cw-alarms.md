@@ -76,8 +76,8 @@ page, customize the following fields:
     4. Choose **Next**.
 
 8. On the **Configure actions** page, in the
-   **Notification** section, customize the
-   following settings:
+**Notification** section, customize the
+following settings:
 
 ![The Configure actions page showing a list of six different actions. The Notification section is completed.](images/kronos/configure_actions.png)
 
@@ -90,9 +90,9 @@ page, customize the following fields:
      **Next**.
 
 9. On the **Add name and description** page, enter an
-   **Alarm name** and **Alarm
-   description**. Choose
-   **Next**.
+**Alarm name** and **Alarm
+description**. Choose
+**Next**.
 
 ![The Add name and description page showing fields for alarm name and alarm description.](images/kronos/add_name_desc.png) 10. Review your alarm settings on the
 **Preview and create** page, and then choose

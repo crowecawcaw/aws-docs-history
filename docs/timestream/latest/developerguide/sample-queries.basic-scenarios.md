@@ -38,7 +38,7 @@ SELECT now() AS time_now
 Measure values for multi-measure records are identified by column name. Measure values
 for single-measure records are identified by
 `measure_value::`<data_type>`, where
- `<data_type>``is one of
+ `<data_type>`` is one of
 `double`, `bigint`, `boolean`, or `varchar`
 as described in [Supported data types](supported-data-types.md "supported-data-types.md"). For more information about how measure values are modeled, see [Single table vs. multiple tables](data-modeling.md#data-modeling-multiVsinglerecords "data-modeling.md#data-modeling-multiVsinglerecords").
 

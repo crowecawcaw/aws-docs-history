@@ -26,14 +26,14 @@ Enterprise is designed for production workloads that require high availability a
 
 Choose Core for near real-time monitoring where cost is a priority. Choose Enterprise when you need high availability, compaction, or long-term data analysis.
 
-| Core vs Enterprise Feature Comparison | Feature                        | Core                            | Enterprise |
-| ------------------------------------- | ------------------------------ | ------------------------------- | ---------- |
-| Deployment                            | Single-node                    | Multi-node across AZs           |
-| Compaction                            | Not included                   | Included                        |
-| Read replicas                         | Not available                  | Query-only node scaling         |
-| Historical queries                    | Limited (~3 days)              | Months/years with indexing      |
-| High availability                     | Single node                    | Multi-AZ                        |
-| Best for                              | Dev/test, real-time dashboards | Production, long-term analytics |
+Core vs Enterprise Feature Comparison| Feature | Core | Enterprise |
+| --- | --- | --- |
+| Deployment | Single-node | Multi-node across AZs |
+| Compaction | Not included | Included |
+| Read replicas | Not available | Query-only node scaling |
+| Historical queries | Limited (~3 days) | Months/years with indexing |
+| High availability | Single node | Multi-AZ |
+| Best for | Dev/test, real-time dashboards | Production, long-term analytics |
 
 **Which AWS Regions support Amazon Timestream for InfluxDB 3?**
 

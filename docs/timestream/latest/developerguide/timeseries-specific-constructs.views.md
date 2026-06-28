@@ -8,12 +8,12 @@ Timestream for LiveAnalytics supports the following functions for transforming y
 
 ###### Topics
 
-- [CREATE_TIME_SERIES](#timeseries-specific-constructs.views.CREATE_TIME_SERIES "#timeseries-specific-constructs.views.CREATE_TIME_SERIES")
+- [CREATE\_TIME\_SERIES](#timeseries-specific-constructs.views.CREATE_TIME_SERIES "#timeseries-specific-constructs.views.CREATE_TIME_SERIES")
 - [UNNEST](#timeseries-specific-constructs.views.UNNEST "#timeseries-specific-constructs.views.UNNEST")
 
-## CREATE_TIME_SERIES
+## CREATE\_TIME\_SERIES
 
-**CREATE_TIME_SERIES** is an aggregation function that takes all
+**CREATE\_TIME\_SERIES** is an aggregation function that takes all
 the raw measurements of a time series (time and measure values) and returns a
 timeseries data type. The syntax of this function is as follows:
 
@@ -28,14 +28,14 @@ be null.
 Consider the CPU utilization of EC2 instances stored in a table named
 **metrics** as shown below:
 
-| Time                          | region    | az         | vpc          | instance_id         | measure_name    | measure_value::double |
-| ----------------------------- | --------- | ---------- | ------------ | ------------------- | --------------- | --------------------- |
-| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu_utilization | 35.0                  |
-| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu_utilization | 38.2                  |
-| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu_utilization | 45.3                  |
-| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef1 | cpu_utilization | 54.1                  |
-| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef1 | cpu_utilization | 42.5                  |
-| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef1 | cpu_utilization | 33.7                  |
+| Time                          | region    | az         | vpc          | instance\_id        | measure\_name    | measure\_value::double |
+| ----------------------------- | --------- | ---------- | ------------ | ------------------- | ---------------- | ---------------------- |
+| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu\_utilization | 35.0                   |
+| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu\_utilization | 38.2                   |
+| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu\_utilization | 45.3                   |
+| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef1 | cpu\_utilization | 54.1                   |
+| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef1 | cpu\_utilization | 42.5                   |
+| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef1 | cpu\_utilization | 33.7                   |
 
 Running the query:
 
@@ -48,7 +48,7 @@ SELECT region, az, vpc, instance_id, CREATE_TIME_SERIES(time, measure_value::dou
 will return all series that have `cpu_utilization` as a measure value.
 In this case, we have two series:
 
-| region    | az         | vpc          | instance_id         | cpu_utilization                                                                                                                                                                                                          |
+| region    | az         | vpc          | instance\_id        | cpu\_utilization                                                                                                                                                                                                         |
 | --------- | ---------- | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | [{time: 2019-12-04 19:00:00.000000000, measure\_value::double:<br>35.0}, {time: 2019-12-04 19:00:01.000000000,<br>measure\_value::double: 38.2}, {time: 2019-12-04<br>19:00:02.000000000, measure\_value::double: 45.3}] |
 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef1 | [{time: 2019-12-04 19:00:00.000000000, measure\_value::double:<br>35.1}, {time: 2019-12-04 19:00:01.000000000,<br>measure\_value::double: 38.5}, {time: 2019-12-04<br>19:00:02.000000000, measure\_value::double: 45.7}] |
@@ -74,8 +74,8 @@ For example, consider the scenario where some of the EC2 instances in your fleet
 are configured to emit metrics at a 5 second interval, others emit metrics at a 15
 second interval, and you need the average metrics for all instances at a 10 second
 granularity for the past 6 hours. To get this data, you transform your metrics to
-the time series model using **CREATE_TIME_SERIES**. You can then
-use **INTERPOLATE_LINEAR** to get the missing values at 10 second
+the time series model using **CREATE\_TIME\_SERIES**. You can then
+use **INTERPOLATE\_LINEAR** to get the missing values at 10 second
 granularity. Next, you transform the data back to the flat model using
 **UNNEST**, and then use **AVG** to get the
 average metrics across all instances.

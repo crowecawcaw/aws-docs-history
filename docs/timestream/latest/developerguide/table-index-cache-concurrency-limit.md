@@ -13,12 +13,12 @@ Limits the number of concurrent operations that can access the table index cache
 
 **Recommendations by Instance Size:**
 
-| Instance Size Recommendations | Instance Type | vCPUs      | Recommended Value |
-| ----------------------------- | ------------- | ---------- | ----------------- |
-| db.influx.medium              | 1             | **8–16**   |
-| db.influx.large               | 2             | **16–20**  |
-| db.influx.xlarge              | 4             | **20**     |
-| db.influx.2xlarge             | 8             | **20–24**  |
-| db.influx.4xlarge             | 16            | **24–32**  |
-| db.influx.8xlarge             | 32            | **32–48**  |
-| db.influx.12xlarge+           | 48+           | **48–100** |
+Instance Size Recommendations| Instance Type | vCPUs | Recommended Value |
+| --- | --- | --- |
+| db.influx.medium | 1 | **8–16** |
+| db.influx.large | 2 | **16–20** |
+| db.influx.xlarge | 4 | **20** |
+| db.influx.2xlarge | 8 | **20–24** |
+| db.influx.4xlarge | 16 | **24–32** |
+| db.influx.8xlarge | 32 | **32–48** |
+| db.influx.12xlarge+ | 48+ | **48–100** |

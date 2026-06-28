@@ -45,9 +45,9 @@ Amazon CloudWatch provides detailed metrics for monitoring your Timestream for I
 
 ### Query Execution Metrics
 
-| CloudWatch Metric Name | Dimensions             | Description                                                                                       | Unit  | Recommended Thresholds                                                                                             |
-| ---------------------- | ---------------------- | ------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------ |
-| QueryRequestsTotal     | DbInstanceName, Result | Total count of query requests by result type (success, runtime_error, compile_error, queue_error) | Count | Success rate: > 99%<br>Error rates:<br>• runtime_error: < 0.5%<br>• compile_error: < 0.1%<br>• queue_error: < 0.1% |
+| CloudWatch Metric Name | Dimensions             | Description                                                                                          | Unit  | Recommended Thresholds                                                                                                |
+| ---------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------- |
+| QueryRequestsTotal     | DbInstanceName, Result | Total count of query requests by result type (success, runtime\_error, compile\_error, queue\_error) | Count | Success rate: > 99%<br>Error rates:<br>• runtime\_error: < 0.5%<br>• compile\_error: < 0.1%<br>• queue\_error: < 0.1% |
 
 ### Data Organization Metrics
 
@@ -164,7 +164,7 @@ The following table provides guidance on appropriate instance sizing based on yo
 
 Reducing `query-concurrency` will limit the number of queries that can execute simultaneously, which may increase queued queries and lead to higher query latency during peak periods. Users may experience slower dashboard loads or report timeouts if query demand exceeds the reduced concurrency limit.
 
-Setting protective limits (`influxql-max-select-series`, `influxql-max-select-point`) will cause queries that exceed these thresholds to fail with **compile_error** or **runtime_error** in **QueryRequestsTotal**. While this protects the system from resource exhaustion, it may break existing queries that previously worked.
+Setting protective limits (`influxql-max-select-series`, `influxql-max-select-point`) will cause queries that exceed these thresholds to fail with **compile\_error** or **runtime\_error** in **QueryRequestsTotal**. While this protects the system from resource exhaustion, it may break existing queries that previously worked.
 
 **Best Practice:** Before applying these changes, analyze your query patterns using **QueryResponseVolume** and **QueryRequestsTotal** metrics. Identify and optimize the most expensive queries first - look for queries without time range filters, queries spanning high-cardinality series, or queries requesting excessive data points. Optimizing queries at the application level is always preferable to imposing hard limits that may break functionality.
 
@@ -206,7 +206,7 @@ Setting protective limits (`influxql-max-select-series`, `influxql-max-select-po
 
 While these changes will reduce memory pressure, they will have a direct negative impact on application performance. Reducing `storage-cache-max-memory-size` means less data is cached in memory, forcing more disk reads and increasing query latency - you'll likely see **ReadOpsPerSec** increase and **QueryResponseVolume** response times degrade.
 
-Limiting `query-memory-bytes` will cause memory-intensive queries to fail with **runtime_error** in **QueryRequestsTotal**, particularly queries that aggregate large datasets or return substantial result sets. Users may encounter "out of memory" errors for queries that previously succeeded.
+Limiting `query-memory-bytes` will cause memory-intensive queries to fail with **runtime\_error** in **QueryRequestsTotal**, particularly queries that aggregate large datasets or return substantial result sets. Users may encounter "out of memory" errors for queries that previously succeeded.
 
 Reducing `storage-series-id-set-cache-size` degrades performance for queries against high-cardinality data, as the system must recalculate series results more frequently instead of retrieving them from cache. This particularly impacts dashboards that repeatedly query the same series combinations.
 
@@ -340,7 +340,7 @@ These changes create significant trade-offs between I/O utilization and system p
 - Reducing `storage-max-concurrent-compactions` will slow down compaction operations, causing TSM files to accumulate and **DiskUtilization** to increase more rapidly
 - Lower `storage-compact-throughput-burst` extends compaction duration, keeping the compactor active longer and potentially blocking other operations
 - Slower compaction means query performance degrades over time as the storage engine must read from more, smaller TSM files instead of consolidated ones
-- You may see **QueryRequestsTotal** runtime_error rates increase as queries timeout while waiting for I/O
+- You may see **QueryRequestsTotal** runtime\_error rates increase as queries timeout while waiting for I/O
 
 **Reducing Snapshot Frequency:**
 
@@ -368,7 +368,7 @@ These changes create significant trade-offs between I/O utilization and system p
 - **SeriesCardinality** per bucket and total
 - **MemoryUtilization** (increases with cardinality)
 - **CPUUtilization** (query planning overhead)
-- **QueryRequestsTotal** (runtime_error rate may increase)
+- **QueryRequestsTotal** (runtime\_error rate may increase)
 
 **Configuration Adjustments:**
 
@@ -394,7 +394,7 @@ High series cardinality is fundamentally a data modeling problem, not a configur
 
 Increasing `storage-series-id-set-cache-size` will improve query performance by caching series lookups, but at the cost of increased **MemoryUtilization**. Each cache entry consumes memory, and with millions of series, this can be substantial. Monitor **HeapMemoryUsage** and **ActiveMemoryAllocation** after making this change.
 
-Setting protective limits (`influxql-max-select-series`, `influxql-max-select-buckets`) will cause legitimate queries to fail with **compile_error** in **QueryRequestsTotal** if they exceed these thresholds. Dashboards that previously worked may break, and users will need to modify their queries. This is particularly problematic for:
+Setting protective limits (`influxql-max-select-series`, `influxql-max-select-buckets`) will cause legitimate queries to fail with **compile\_error** in **QueryRequestsTotal** if they exceed these thresholds. Dashboards that previously worked may break, and users will need to modify their queries. This is particularly problematic for:
 
 - Monitoring dashboards that aggregate across many hosts/services
 - Analytics queries that need to compare multiple entities
@@ -409,7 +409,7 @@ When **SeriesCardinality** exceeds 5M, you're approaching the architectural limi
 - Query planning becomes prohibitively expensive (high **CPUUtilization**)
 - Memory requirements grow non-linearly (high **MemoryUtilization**)
 - Index operations dominate I/O (**ReadOpsPerSec**, **WriteOpsPerSec**)
-- **QueryRequestsTotal** runtime_error rates increase as queries timeout or exhaust memory
+- **QueryRequestsTotal** runtime\_error rates increase as queries timeout or exhaust memory
 
 **Best Practice:** Configuration changes are temporary band-aids. You must address the root cause:
 
@@ -430,7 +430,7 @@ When **SeriesCardinality** exceeds 5M, you're approaching the architectural limi
 
 **CloudWatch Metrics to Monitor:**
 
-- **QueryRequestsTotal** by result type (success, runtime_error, compile_error, queue_error)
+- **QueryRequestsTotal** by result type (success, runtime\_error, compile\_error, queue\_error)
 - **APIRequestRate** with Status=500 or Status=499
 - **QueryResponseVolume** (large responses indicate expensive queries)
 
@@ -478,7 +478,7 @@ Increasing `query-queue-size` only delays the problem - it doesn't solve capacit
 - Queries wait longer in queue, increasing end-to-end latency
 - Users perceive the system as slower even though throughput may be unchanged
 - Large queues can mask underlying capacity problems
-- **QueryRequestsTotal** queue_error rate decreases, but user experience may not improve
+- **QueryRequestsTotal** queue\_error rate decreases, but user experience may not improve
 
 Increasing `http-read-timeout` prevents premature query cancellation, but:
 
@@ -492,7 +492,7 @@ Increasing `http-read-timeout` prevents premature query cancellation, but:
 1. **Analyze Query Patterns:**
 
    - Review **QueryResponseVolume** to identify queries returning excessive data (> 1MB)
-   - Check **QueryRequestsTotal** runtime_error patterns - what's causing failures?
+   - Check **QueryRequestsTotal** runtime\_error patterns - what's causing failures?
    - Look for **APIRequestRate** with Status=499 (client timeouts) - queries are too slow
    - Identify frequently executed expensive queries
 
@@ -508,17 +508,17 @@ Common Query Anti-patterns:
 
 3. **Application-Level Solutions:**
 
-   - Implement query result caching (Redis, Memcached)
-   - Use tasks to pre-aggregate common patterns
-   - Add pagination for large result sets
-   - Implement query rate limiting per user/dashboard
-   - Use downsampled data for historical queries
+    * Implement query result caching (Redis, Memcached)
+    * Use tasks to pre-aggregate common patterns
+    * Add pagination for large result sets
+    * Implement query rate limiting per user/dashboard
+    * Use downsampled data for historical queries
 
 4. **Verify Resource Availability:**
 
-   - Check **CPUUtilization** - if already > 70%, increasing concurrency will make things worse
-   - Check **MemoryUtilization** - if already > 70%, allocating more query memory will cause OOM
-   - Verify **TotalIOpsPerSec** has 30% headroom before increasing query load
+    * Check **CPUUtilization** - if already > 70%, increasing concurrency will make things worse
+    * Check **MemoryUtilization** - if already > 70%, allocating more query memory will cause OOM
+    * Verify **TotalIOpsPerSec** has 30% headroom before increasing query load
 
 **Recommended Approach:**
 
@@ -548,7 +548,7 @@ For scenarios requiring multiple pattern matches, restructure your query to use 
 - **WriteTimeouts** (increasing count)
 - **WriteOpsPerSec** and **WriteThroughput**
 - **APIRequestRate** with Status=500 for write endpoints
-- **QueryRequestsTotal** with result=runtime_error during writes
+- **QueryRequestsTotal** with result=runtime\_error during writes
 
 **Configuration Adjustments:**
 
@@ -642,18 +642,18 @@ Common Write Anti-patterns:
 
 3. **Verify I/O Capacity:**
 
-   - Check **TotalIOpsPerSec** - if already > 70%, increasing WAL concurrency will make things worse
-   - Review **WriteOpsPerSec** during peak periods
-   - Ensure 30% IOPS headroom exists before tuning write settings
-   - Consider whether 3K IOPS is sufficient or if 12K IOPS tier is needed
+    * Check **TotalIOpsPerSec** - if already > 70%, increasing WAL concurrency will make things worse
+    * Review **WriteOpsPerSec** during peak periods
+    * Ensure 30% IOPS headroom exists before tuning write settings
+    * Consider whether 3K IOPS is sufficient or if 12K IOPS tier is needed
 
 4. **Application-Level Improvements:**
 
-   - Implement write buffering with configurable batch sizes
-   - Add write retry logic with exponential backoff
-   - Use asynchronous write operations
-   - Implement write rate limiting during peak periods
-   - Monitor write queue depth and apply backpressure
+    * Implement write buffering with configurable batch sizes
+    * Add write retry logic with exponential backoff
+    * Use asynchronous write operations
+    * Implement write rate limiting during peak periods
+    * Monitor write queue depth and apply backpressure
 
 **Recommended Approach:**
 
@@ -728,7 +728,7 @@ Common Write Anti-patterns:
 - Threshold: > 70% of provisioned for 15 minutes
 - Action: review changes in workload or traffic
 
-**QueryRequestsTotal (runtime_error):**
+**QueryRequestsTotal (runtime\_error):**
 
 - Threshold: > 1% of total queries
 - Action: review changes in workload or traffic
@@ -748,7 +748,7 @@ Common Write Anti-patterns:
 **Daily:**
 
 - Review APIRequestRate for error spikes (400, 404, 499, 500)
-- Check QueryRequestsTotal for runtime_error and queue_error rates
+- Check QueryRequestsTotal for runtime\_error and queue\_error rates
 - Verify WriteTimeouts count is minimal
 - Check for any critical alarms
 - Verify EngineUptime (no unexpected restarts)
@@ -792,7 +792,7 @@ Common Write Anti-patterns:
 - **Memory pressure?** → Check MemoryUtilization, HeapMemoryUsage, ActiveMemoryAllocation
 - **IOPS saturation?** → Check TotalIOpsPerSec, ReadOpsPerSec, WriteOpsPerSec
 - **Series cardinality jump?** → Check SeriesCardinality growth
-- **Error rate increase?** → Check QueryRequestsTotal (runtime_error), APIRequestRate (Status=500)
+- **Error rate increase?** → Check QueryRequestsTotal (runtime\_error), APIRequestRate (Status=500)
 - **Unexpected restart?** → Check EngineUptime
 
 **Enable Detailed Logging:**
@@ -819,7 +819,7 @@ Return to log-level: info after investigation
 
 - MemoryUtilization > 90%
 - HeapMemoryUsage approaching maximum
-- QueryRequestsTotal showing runtime_error (out of memory)
+- QueryRequestsTotal showing runtime\_error (out of memory)
 - APIRequestRate showing Status=500
 
 **Resolution Steps:**
@@ -863,7 +863,7 @@ Configuration Changes:
 
 - **SeriesCardinality** > 5M
 - **MemoryUtilization** high
-- **QueryRequestsTotal** showing increased runtime_error
+- **QueryRequestsTotal** showing increased runtime\_error
 - **CPUUtilization** elevated due to query planning overhead
 
 **Investigation Steps:**
@@ -933,7 +933,7 @@ Immediate Configuration Changes:
 
 **Review CloudWatch metrics:**
 
-- **QueryRequestsTotal** with result=queue_error increasing (queries being rejected)
+- **QueryRequestsTotal** with result=queue\_error increasing (queries being rejected)
 - **APIRequestRate** with Status=429 or Status=503 (service unavailable/too many requests)
 - **CPUUtilization** may be elevated (> 70%) indicating resource saturation
 - **MemoryUtilization** may be high (> 70%) limiting query capacity
@@ -945,9 +945,9 @@ Immediate Configuration Changes:
 
 - Review **QueryRequestsTotal** breakdown by result type:
 
-  - High queue_error count indicates queries are being rejected
+  - High queue\_error count indicates queries are being rejected
   - Compare success rate to baseline - is it dropping?
-  - Check for runtime_error increases (queries failing after starting)
+  - Check for runtime\_error increases (queries failing after starting)
 
 - Monitor **APIRequestRate** patterns:
 

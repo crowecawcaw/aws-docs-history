@@ -9,7 +9,7 @@ Depending of how much historical data your source table, you may want to update 
 derived table with aggregates corresponding to the historical data. You can use the
 preceding logic for manual triggers to back-fill the historical aggregates.
 
-For instance, if we consider the derived table per_timeseries_lastpoint_pt1d, then
+For instance, if we consider the derived table per\_timeseries\_lastpoint\_pt1d, then
 the scheduled computation is updated once a day for the past day. If your source
 table has a year of data, you can use the ARN for this scheduled computation and
 trigger it manually for every day up to a year old so that the derived table has all

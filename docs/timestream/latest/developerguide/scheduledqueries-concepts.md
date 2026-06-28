@@ -94,7 +94,7 @@ is expected.
 
 Consider an example where you set a schedule expression: cron(0/5 \* \* \* ? \*) where the
 scheduled query will run at minute 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55 of every
-hour. For the instance that is triggered at 2021-12-01 00:05:00, the @scheduled_runtime
+hour. For the instance that is triggered at 2021-12-01 00:05:00, the @scheduled\_runtime
 parameter is initialized to this value, such that the instance at this time operates on
 data in the range 2021-11-30 23:55:00 to 2021-12-01 00:06:00.
 
@@ -131,7 +131,7 @@ a scheduled query).
 
 You can use the ExecuteScheduledQuery API to manually initiate a specific instance of
 a scheduled query by passing the InvocationTime parameter, which is a value used for the
-@scheduled_runtime parameter. The following are a few important considerations when
+@scheduled\_runtime parameter. The following are a few important considerations when
 using the ExecuteScheduledQuery API:
 
 - If you are triggering multiple of these invocations, you need to make sure
@@ -142,7 +142,7 @@ using the ExecuteScheduledQuery API:
   trigger failures where you might see version conflicts in the error reports for
   these query runs.
 - You can initiate the invocations with any timestamp value for
-  @scheduled_runtime. So it is your responsibility to appropriately set the values
+  @scheduled\_runtime. So it is your responsibility to appropriately set the values
   so the appropriate time ranges are updated in the target table corresponding to
   the ranges where data was updated in the source table.
 - The ExecuteScheduledQuery API operates asynchronously. Upon a successful call,

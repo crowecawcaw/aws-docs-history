@@ -86,12 +86,12 @@ databases.
     For instance, if you have a table storing data from a million
     devices across six continents, if your query has predicates of the
     form `WHERE device_id = 'abcdef'` or `WHERE
-continent = 'North America'`, then queries are only
+   continent = 'North America'`, then queries are only
     charged for data for the device or for the continent.
   - Wherever possible, if you use measure name to separate out data in
     the same table that is not emitted at the same time or not
     frequently queried, then using predicates such as `WHERE
-measure_name = 'cpu'` in your query, not only do you get
+   measure_name = 'cpu'` in your query, not only do you get
     the metering benefits, Timestream for LiveAnalytics can also effectively eliminate partitions
     that do not have the measure name used in your query predicate. This
     enables you to store related data with different measure names in
@@ -114,17 +114,17 @@ the measures stored in the same multi-measure record appear as different columns
 the same row of data.
 
 Consider, for instance, that your application is emitting metrics such as cpu,
-memory, and disk_iops from a device measured at the same time instant. The following is
+memory, and disk\_iops from a device measured at the same time instant. The following is
 an example of such a table where multiple metrics emitted at the same time instant
 are stored in the same row. You will that see two hosts are emitting the metrics
 once every second.
 
-| Hostname   | measure_name | Time                | cpu | Memory | disk_iops |
-| ---------- | ------------ | ------------------- | --- | ------ | --------- |
-| host-24Gju | metrics      | 2021-12-01 19:00:00 | 35  | 54.9   | 38.2      |
-| host-24Gju | metrics      | 2021-12-01 19:00:01 | 36  | 58     | 39        |
-| host-28Gju | metrics      | 2021-12-01 19:00:00 | 15  | 55     | 92        |
-| host-28Gju | metrics      | 2021-12-01 19:00:01 | 16  | 50     | 40        |
+| Hostname   | measure\_name | Time                | cpu | Memory | disk\_iops |
+| ---------- | ------------- | ------------------- | --- | ------ | ---------- |
+| host-24Gju | metrics       | 2021-12-01 19:00:00 | 35  | 54.9   | 38.2       |
+| host-24Gju | metrics       | 2021-12-01 19:00:01 | 36  | 58     | 39         |
+| host-28Gju | metrics       | 2021-12-01 19:00:00 | 15  | 55     | 92         |
+| host-28Gju | metrics       | 2021-12-01 19:00:01 | 16  | 50     | 40         |
 
 **Single-measure records**
 
@@ -137,12 +137,12 @@ which tracks soil temperature and moisture, that emits a record only when it det
 a change from the previous reported entry. The following example provides an example
 of such data being emitted using single measure records.
 
-| device_id     | measure_name | Time                | measure_value::double | measure_value::bigint |
-| ------------- | ------------ | ------------------- | --------------------- | --------------------- |
-| sensor-sea478 | temperature  | 2021-12-01 19:22:32 | 35                    | NULL                  |
-| sensor-sea478 | temperature  | 2021-12-01 18:07:51 | 36                    | NULL                  |
-| sensor-sea478 | moisture     | 2021-12-01 19:05:30 | NULL                  | 21                    |
-| sensor-sea478 | moisture     | 2021-12-01 19:00:01 | NULL                  | 23                    |
+| device\_id    | measure\_name | Time                | measure\_value::double | measure\_value::bigint |
+| ------------- | ------------- | ------------------- | ---------------------- | ---------------------- |
+| sensor-sea478 | temperature   | 2021-12-01 19:22:32 | 35                     | NULL                   |
+| sensor-sea478 | temperature   | 2021-12-01 18:07:51 | 36                     | NULL                   |
+| sensor-sea478 | moisture      | 2021-12-01 19:05:30 | NULL                   | 21                     |
+| sensor-sea478 | moisture      | 2021-12-01 19:00:01 | NULL                   | 23                     |
 
 **Comparing single-measure and multi-measure
 records**
@@ -350,12 +350,12 @@ and value are emitted together, they can be modeled as multi-measure records, as
 shown in the example data below where `device_id` is a dimension, and
 `quality`, `value`, and `unit` are multi-measure attributes:
 
-| device_id     | measure_name | Time                | Quality | Value | Unit |
-| ------------- | ------------ | ------------------- | ------- | ----- | ---- |
-| sensor-sea478 | temperature  | 2021-12-01 19:22:32 | 92      | 35    | c    |
-| sensor-sea478 | temperature  | 2021-12-01 18:07:51 | 93      | 34    | c    |
-| sensor-sea478 | pressure     | 2021-12-01 19:05:30 | 98      | 31    | psi  |
-| sensor-sea478 | pressure     | 2021-12-01 19:00:01 | 24      | 132   | psi  |
+| device\_id    | measure\_name | Time                | Quality | Value | Unit |
+| ------------- | ------------- | ------------------- | ------- | ----- | ---- |
+| sensor-sea478 | temperature   | 2021-12-01 19:22:32 | 92      | 35    | c    |
+| sensor-sea478 | temperature   | 2021-12-01 18:07:51 | 93      | 34    | c    |
+| sensor-sea478 | pressure      | 2021-12-01 19:05:30 | 98      | 31    | psi  |
+| sensor-sea478 | pressure      | 2021-12-01 19:00:01 | 24      | 132   | psi  |
 
 This approach allows you to combine the benefits of multi-measure records along
 with partitioning and pruning data using the values of measure name. If queries
@@ -378,9 +378,9 @@ latency.
 It is also possible to have all of the metrics stored in the same
 multi-measure record if all the metrics are emitted at the same timestamp and/or
 multiple metrics are queried together in the same query. For instance, you can
-construct a multi-measure record with attributes such as temperature_quality,
-temperature_value, temperature_unit, pressure_quality, pressure_value, and
-pressure_unit. Many of the points discussed earlier about modeling data using
+construct a multi-measure record with attributes such as temperature\_quality,
+temperature\_value, temperature\_unit, pressure\_quality, pressure\_value, and
+pressure\_unit. Many of the points discussed earlier about modeling data using
 single-measure vs. multi-measure records apply in your decision of how to model the
 data. Consider your query access patterns and how your data is generated to choose a
 model that optimizes your cost, ingestion and query latency, and ease of writing
@@ -401,10 +401,10 @@ at a different time instant from the metrics are stored with measure name events
 The measure schema for the table (for example, output of `SHOW MEASURES` query)
 is:
 
-| measure_name | data_type | Dimensions                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| events       | multi     | [{"data\_type":"varchar","dimension\_name":"availability\_zone"},{"data\_type":"varchar","dimension\_name":"microservice\_name"},{"data\_type":"varchar","dimension\_name":"instance\_name"},{"data\_type":"varchar","dimension\_name":"process\_name"},{"data\_type":"varchar","dimension\_name":"jdk\_version"},{"data\_type":"varchar","dimension\_name":"cell"},{"data\_type":"varchar","dimension\_name":"region"},{"data\_type":"varchar","dimension\_name":"silo"}] |
-| metrics      | multi     | [{"data\_type":"varchar","dimension\_name":"availability\_zone"},{"data\_type":"varchar","dimension\_name":"microservice\_name"},{"data\_type":"varchar","dimension\_name":"instance\_name"},{"data\_type":"varchar","dimension\_name":"os\_version"},{"data\_type":"varchar","dimension\_name":"cell"},{"data\_type":"varchar","dimension\_name":"region"},{"data\_type":"varchar","dimension\_name":"silo"},{"data\_type":"varchar","dimension\_name":"instance\_type"}] |
+| measure\_name | data\_type | Dimensions                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| events        | multi      | [{"data\_type":"varchar","dimension\_name":"availability\_zone"},{"data\_type":"varchar","dimension\_name":"microservice\_name"},{"data\_type":"varchar","dimension\_name":"instance\_name"},{"data\_type":"varchar","dimension\_name":"process\_name"},{"data\_type":"varchar","dimension\_name":"jdk\_version"},{"data\_type":"varchar","dimension\_name":"cell"},{"data\_type":"varchar","dimension\_name":"region"},{"data\_type":"varchar","dimension\_name":"silo"}] |
+| metrics       | multi      | [{"data\_type":"varchar","dimension\_name":"availability\_zone"},{"data\_type":"varchar","dimension\_name":"microservice\_name"},{"data\_type":"varchar","dimension\_name":"instance\_name"},{"data\_type":"varchar","dimension\_name":"os\_version"},{"data\_type":"varchar","dimension\_name":"cell"},{"data\_type":"varchar","dimension\_name":"region"},{"data\_type":"varchar","dimension\_name":"silo"},{"data\_type":"varchar","dimension\_name":"instance\_type"}] |
 
 In this case, you can see that the events and metrics also have different sets of
 dimensions, where events have different dimensions `jdk_version` and `process_name`
@@ -492,11 +492,13 @@ int getMeasureName(value) {
   example:
 
   - ```
-    SELECT * FROM `your_database.your_table`
-    WHERE host_name = 'Host-1235' time BETWEEN '2022-09-01'
-        AND '2022-09-18'
-        AND measure_name = (SELECT cast(abs(from_big_endian_64(xxhash64(CAST('HOST-1235' AS varbinary))))%8192 AS varchar))
+
     ```
+
+  SELECT * FROM `your_database.your_table`
+  WHERE host_name = 'Host-1235' time BETWEEN '2022-09-01'
+  AND '2022-09-18'
+  AND measure_name = (SELECT cast(abs(from_big_endian_64(xxhash64(CAST('HOST-1235' AS varbinary))))%8192 AS varchar))
 
   ```
   + This will minimize the total number of partitions scanned to get
@@ -508,13 +510,13 @@ schema, the hash needs to be calculated on the client side and passed to Timestr
 static value to the query engine. The preceding example provides a way to validate
 that the generated hash can be resolved by the engine when needed.
 
-| time                            | host_name   | location   | server_type | cpu_usage | available_memory | cpu_temp |
-| ------------------------------- | ----------- | ---------- | ----------- | --------- | ---------------- | -------- |
-| 2022-09-07 21:48:44 .000000000  | host-1235   | us-east1   | 5.8xl       | 55        | 16.2             | 78       |
-| R2022-09-07 21:48:44 .000000000 | host-3587   | us-west1   | 5.8xl       | 62        | 18.1             | 81       |
-| 2022-09-07 21:48:45.000000000   | host-258743 | eu-central | 5.8xl       | 88        | 9.4              | 91       |
-| 2022-09-07 21:48:45 .000000000  | host-35654  | us-east2   | 5.8xl       | 29        | 24               | 54       |
-| R2022-09-07 21:48:45 .000000000 | host-254    | us-west1   | 5.8xl       | 44        | 32               | 48       |
+| time                            | host\_name  | location   | server\_type | cpu\_usage | available\_memory | cpu\_temp |
+| ------------------------------- | ----------- | ---------- | ------------ | ---------- | ----------------- | --------- |
+| 2022-09-07 21:48:44 .000000000  | host-1235   | us-east1   | 5.8xl        | 55         | 16.2              | 78        |
+| R2022-09-07 21:48:44 .000000000 | host-3587   | us-west1   | 5.8xl        | 62         | 18.1              | 81        |
+| 2022-09-07 21:48:45.000000000   | host-258743 | eu-central | 5.8xl        | 88         | 9.4               | 91        |
+| 2022-09-07 21:48:45 .000000000  | host-35654  | us-east2   | 5.8xl        | 29         | 24                | 54        |
+| R2022-09-07 21:48:45 .000000000 | host-254    | us-west1   | 5.8xl        | 44         | 32                | 48        |
 
 To generate the associated `measure_name` following our recommendation,
 there are two paths that depend on your ingestion pattern.
@@ -555,13 +557,13 @@ host-254 - 7051
 
 Resulting dataset
 
-| time                            | host_name   | location   | measure_name | server_type | cpu_usage | available_memory | cpu_temp |
-| ------------------------------- | ----------- | ---------- | ------------ | ----------- | --------- | ---------------- | -------- |
-| 2022-09-07 21:48:44 .000000000  | host-1235   | us-east1   | 6445         | 5.8xl       | 55        | 16.2             | 78       |
-| R2022-09-07 21:48:44 .000000000 | host-3587   | us-west1   | 6399         | 5.8xl       | 62        | 18.1             | 81       |
-| 2022-09-07 21:48:45.000000000   | host-258743 | eu-central | 640          | 5.8xl       | 88        | 9.4              | 91       |
-| 2022-09-07 21:48:45 .000000000  | host-35654  | us-east2   | 2093         | 5.8xl       | 29        | 24               | 54       |
-| R2022-09-07 21:48:45 .000000000 | host-254    | us-west1   | 7051         | 5.8xl       | 44        | 32               | 48       |
+| time                            | host\_name  | location   | measure\_name | server\_type | cpu\_usage | available\_memory | cpu\_temp |
+| ------------------------------- | ----------- | ---------- | ------------- | ------------ | ---------- | ----------------- | --------- |
+| 2022-09-07 21:48:44 .000000000  | host-1235   | us-east1   | 6445          | 5.8xl        | 55         | 16.2              | 78        |
+| R2022-09-07 21:48:44 .000000000 | host-3587   | us-west1   | 6399          | 5.8xl        | 62         | 18.1              | 81        |
+| 2022-09-07 21:48:45.000000000   | host-258743 | eu-central | 640           | 5.8xl        | 88         | 9.4               | 91        |
+| 2022-09-07 21:48:45 .000000000  | host-35654  | us-east2   | 2093          | 5.8xl        | 29         | 24                | 54        |
+| R2022-09-07 21:48:45 .000000000 | host-254    | us-west1   | 7051          | 5.8xl        | 44         | 32                | 48        |
 
 2. _For real-time ingestion_—You need to generate
    the `measure_name` in-flight as data is coming in.

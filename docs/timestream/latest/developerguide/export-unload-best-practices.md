@@ -50,7 +50,7 @@ Following are best practices related to the UNLOAD command.
    structures will use corresponding datatypes supported in Parquet
    format
 
-## Using partition_by clause
+## Using partition\_by clause
 
 - The column used in the `partitioned_by` field should be the
   last column in the select query. If more than one column is used in the

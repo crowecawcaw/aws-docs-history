@@ -117,7 +117,7 @@ This example has the following assumption.
   To restore only select data from a backup, enter and compare values as follows.
 
 1. Determine the earliest timestamp required. For example, assume `December 4, 2021
-0:00:00`.
+ 0:00:00`.
 2. Find the difference between the earliest timestamp required and now.
 
 ```

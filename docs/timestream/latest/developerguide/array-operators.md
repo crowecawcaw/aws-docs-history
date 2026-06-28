@@ -6,6 +6,6 @@ data ingestion and single-digit millisecond query response times for real-time a
 Timestream for LiveAnalytics supports the following array operators.
 
 | Operator | Description                                                      |
-| -------- | ---------------------------------------------------------------- | --- | -------------------------------------------------------------------- |
+| -------- | ---------------------------------------------------------------- |
 | []       | Access an element of an array where the first index starts at 1. |
 |          |                                                                  |     | Concatenate an array with another array or element of the same type. |

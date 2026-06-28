@@ -7,7 +7,7 @@ You may have a use case where you have dashboards which you want to use the uniq
 values of dimensions as variables to drill down on the metrics corresponding to a
 specific slice of data. The snapshot below is an example where the dashboard
 pre-populates the unique values of several dimensions such as region, cell, silo,
-microservice, and availability_zone. Here we show an example of how you can use
+microservice, and availability\_zone. Here we show an example of how you can use
 scheduled queries to significantly speed up computing these distinct values of these
 variables from the metrics you are tracking.
 
@@ -47,7 +47,7 @@ DISTINCT values or columns which you will use in the predicates when computing
 the DISTINCT value.
 
 In this example, you can see that the dashboard is populating distinct values
-for the dimensions region, cell, silo, availability_zone and microservice. So
+for the dimensions region, cell, silo, availability\_zone and microservice. So
 you can use the query below to pre-compute these unique values.
 
 ```
@@ -67,8 +67,8 @@ There are a few important things to note here.
   computation across multiple panels to optimize the number of scheduled
   queries you need to maintain.
 - The unique values of the dimensions isn't inherently time series data.
-  So you convert this to time series using the @scheduled_runtime. By
-  associating this data with the @scheduled_runtime parameter, you can
+  So you convert this to time series using the @scheduled\_runtime. By
+  associating this data with the @scheduled\_runtime parameter, you can
   also track which unique values appeared at a given point in time, thus
   creating time series data out of it.
 - In the previous example, you will see a metric value being tracked.
@@ -143,7 +143,7 @@ schedule expression cron(0/15 \* \* \* ? \*).
 ## Computing the variables from derived table
 
 Once the scheduled computation pre-materializes the unique values in the
-derived table hc_unique_dimensions_pt15m, you can use the derived table to
+derived table hc\_unique\_dimensions\_pt15m, you can use the derived table to
 efficiently compute the unique values of the dimensions. Below are example
 queries for how to compute the unique values, and how you can use other
 variables as predicates in these unique value queries.

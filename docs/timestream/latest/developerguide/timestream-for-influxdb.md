@@ -423,13 +423,12 @@ The following list describes the rules for each VPC option:
 - **DB disk subsystem** — What are your storage
   requirements? Amazon Timestream for InfluxDB provides provides three configurations for it Influx IOPS Included storage type::
 
-      + Influx Io Included 3k IOPS (SSD)
-      + Influx Io Included 12k IOPS (SSD)
-      + Influx Io Included 16k IOPS (SSD)
-
-  For more information on Amazon Timestream for InfluxDB storage, see
-  Amazon Timestream for InfluxDB DB instance storage. When you have the information you need to
-  create the security group and the DB instance, continue to the next step.
+  - Influx Io Included 3k IOPS (SSD)
+  - Influx Io Included 12k IOPS (SSD)
+  - Influx Io Included 16k IOPS (SSD)
+    For more information on Amazon Timestream for InfluxDB storage, see
+    Amazon Timestream for InfluxDB DB instance storage. When you have the information you need to
+    create the security group and the DB instance, continue to the next step.
 
 ### Provide access to your DB instance in your VPC by creating a security group
 
@@ -467,15 +466,14 @@ Make sure you are in the VPC console, not the Amazon Timesteam for InfluxDB cons
   **VPC**, choose the VPC thatyou want to create your DB instance in.
 - In **Inbound rules**, choose **Add rule**.
 
-      + For **Type**, choose **Custom TCP**.
-      + For **Source**, choose a **Security group name** or
-       enter the **IP address range (CIDR value)** from where you access the DB
-       instance. If you choose **My IP**, this allows access to the DB instance
-       from the IP address detected in your browser.
-
-  For Source, choose a security group name or type the IP address range (CIDR value) from
-  where you access the DB instance. If you choose My IP, this allows access to the DB instance
-  from the IP address detected in your browser.
+  - For **Type**, choose **Custom TCP**.
+  - For **Source**, choose a **Security group name** or
+    enter the **IP address range (CIDR value)** from where you access the DB
+    instance. If you choose **My IP**, this allows access to the DB instance
+    from the IP address detected in your browser.
+    For Source, choose a security group name or type the IP address range (CIDR value) from
+    where you access the DB instance. If you choose My IP, this allows access to the DB instance
+    from the IP address detected in your browser.
 
 - (Optional) In **Outbound rules**, add rules for outbound traffic. By
   default, all outbound traffic is allowed.
@@ -531,7 +529,7 @@ measurement,tagA=i,tagB=think,tagC=therefore,tagD=i,tagE=am fieldKey=fieldValue 
 
 - **Use gzip compression:** – Use gzip compression to speed up writes to InfluxDB and reduce network bandwidth. Benchmarks have shown up to a 5x speed improvement when data is compressed.
 
-  - When using Telegraf, in the Influxdb_v2 output plugin configuration in your telegraf.conf, set the content_encoding option to gzip:
+  - When using Telegraf, in the Influxdb\_v2 output plugin configuration in your telegraf.conf, set the content\_encoding option to gzip:
 
   ```
   [[outputs.influxdb_v2]]

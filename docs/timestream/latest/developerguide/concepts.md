@@ -45,13 +45,12 @@ Following are the key concepts of Timestream for LiveAnalytics.
   memory utilization, and the temperature or humidity reading. Measures consist of
   measure names and measure values. Consider the following examples:
 
-      + For a stock price, the measure name is "stock price" and the measure value
-       is the actual stock price at a point in time.
-      + For CPU utilization, the measure name is "CPU utilization" and the measure
-       value is the actual CPU utilization.
-
-  Measures can be modeled in Timestream for LiveAnalytics as multi-measure or single-measure records. For
-  more information, see [Multi-measure records vs. single-measure records](data-modeling.md#data-modeling-multiVsinglerecords "data-modeling.md#data-modeling-multiVsinglerecords").
+  - For a stock price, the measure name is "stock price" and the measure value
+    is the actual stock price at a point in time.
+  - For CPU utilization, the measure name is "CPU utilization" and the measure
+    value is the actual CPU utilization.
+    Measures can be modeled in Timestream for LiveAnalytics as multi-measure or single-measure records. For
+    more information, see [Multi-measure records vs. single-measure records](data-modeling.md#data-modeling-multiVsinglerecords "data-modeling.md#data-modeling-multiVsinglerecords").
 
 - **Timestamp** - _Indicates when a measure
   was collected for a given record._ Timestream for LiveAnalytics supports timestamps with

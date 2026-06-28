@@ -115,10 +115,10 @@ All of the following are reserved keywords:
 - CREATE
 - CROSS
 - CUBE
-- CURRENT_DATE
-- CURRENT_TIME
-- CURRENT_TIMESTAMP
-- CURRENT_USER
+- CURRENT\_DATE
+- CURRENT\_TIME
+- CURRENT\_TIMESTAMP
+- CURRENT\_USER
 - DEALLOCATE
 - DELETE
 - DESCRIBE
@@ -176,9 +176,9 @@ All of the following are reserved keywords:
 
 ## System identifiers
 
-We reserve column names "measure_value", "ts_non_existent_col" and "time" to be Timestream for LiveAnalytics
+We reserve column names "measure\_value", "ts\_non\_existent\_col" and "time" to be Timestream for LiveAnalytics
 system identifiers. Additionally, column names may not start with "ts\_" or
-"measure_name". System identifiers are case sensitive. Identifiers compared using UTF-8
+"measure\_name". System identifiers are case sensitive. Identifiers compared using UTF-8
 binary representation. This means that comparison for identifiers is case sensitive.
 
 ###### Note

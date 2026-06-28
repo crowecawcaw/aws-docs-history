@@ -30,26 +30,26 @@ For this example, we use the following scenario:
 
 The following describes the schema for the base table.
 
-| Column       | Type    | Timestream for LiveAnalytics attribute type |
-| ------------ | ------- | ------------------------------------------- |
-| channel      | varchar | MULTI                                       |
-| description  | varchar | MULTI                                       |
-| event        | varchar | DIMENSION                                   |
-| ip_address   | varchar | DIMENSION                                   |
-| measure_name | varchar | MEASURE_NAME                                |
-| product      | varchar | MULTI                                       |
-| product_id   | varchar | MULTI                                       |
-| quantity     | double  | MULTI                                       |
-| query        | varchar | MULTI                                       |
-| session_id   | varchar | DIMENSION                                   |
-| user_group   | varchar | DIMENSION                                   |
-| user_id      | varchar | DIMENSION                                   |
+| Column        | Type    | Timestream for LiveAnalytics attribute type |
+| ------------- | ------- | ------------------------------------------- |
+| channel       | varchar | MULTI                                       |
+| description   | varchar | MULTI                                       |
+| event         | varchar | DIMENSION                                   |
+| ip\_address   | varchar | DIMENSION                                   |
+| measure\_name | varchar | MEASURE\_NAME                               |
+| product       | varchar | MULTI                                       |
+| product\_id   | varchar | MULTI                                       |
+| quantity      | double  | MULTI                                       |
+| query         | varchar | MULTI                                       |
+| session\_id   | varchar | DIMENSION                                   |
+| user\_group   | varchar | DIMENSION                                   |
+| user\_id      | varchar | DIMENSION                                   |
 
 The following describes the measures for the base table. A _base table_ refers to a table in Timestream that
 scheduled query is run
 on.
 
-- **measure_name**
+- **measure\_name**
   –
   `metrics`
 - **data**

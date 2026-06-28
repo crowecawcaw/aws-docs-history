@@ -32,20 +32,9 @@ Timestream, and select the Timestream datasource. 10. Configure the Auth Provide
     2. Set $\_\_table to the name of your Timestream table (e.g. grafanaTable).
     3. Set $\_\_measure to the most commonly used measure from the table.
 
-12. Click Save and Test.
-13. Click on the Dashboards tab.
-14. Click on Import to import the dashboard.
-15. Double click the Sample Application Dashboard.
-16. Click on the dashboard settings.
-17. Select Variables.
-18. Change dbName and tableName to match the names of the Timestream database and table.
-19. Click Save.
-20. Refresh the dashboard.
-21. To create alerts, follow the instructions described in the Grafana documentation to [Configure Grafana-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-grafana-managed-rule/ "https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-grafana-managed-rule/").
-22. To troubleshoot alerts, follow the instructions described in the Grafana documentation for
-    [Troubleshooting](https://grafana.com/docs/grafana/latest/troubleshooting/ "https://grafana.com/docs/grafana/latest/troubleshooting/").
-23. For additional information, see the [Grafana
-    documentation](https://grafana.com/docs/ "https://grafana.com/docs/").
+12. Click Save and Test. 13. Click on the Dashboards tab. 14. Click on Import to import the dashboard. 15. Double click the Sample Application Dashboard. 16. Click on the dashboard settings. 17. Select Variables. 18. Change dbName and tableName to match the names of the Timestream database and table. 19. Click Save. 20. Refresh the dashboard. 21. To create alerts, follow the instructions described in the Grafana documentation to [Configure Grafana-managed alert rules](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-grafana-managed-rule/ "https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-grafana-managed-rule/"). 22. To troubleshoot alerts, follow the instructions described in the Grafana documentation for
+[Troubleshooting](https://grafana.com/docs/grafana/latest/troubleshooting/ "https://grafana.com/docs/grafana/latest/troubleshooting/"). 23. For additional information, see the [Grafana
+documentation](https://grafana.com/docs/ "https://grafana.com/docs/").
 
 ## Video tutorial
 

@@ -139,7 +139,7 @@ number of records and size of the respective files, and the query metadata
 The metadata file provides additional information about the data set such as
 column name, column type, and schema. The metadata file is available in the
 provided S3 bucket with a file name:
-S3://bucket_name/<queryid>\_<UUID>\_metadata.json
+S3://bucket\_name/<queryid>\_<UUID>\_metadata.json
 
 Following is an example of a metadata file.
 

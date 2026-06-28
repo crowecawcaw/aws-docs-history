@@ -83,7 +83,7 @@ Optimize your pipe's performance with the following configuration settings, whic
   DeadLetterQueue. Recommendation is to configure this at 10. This should be
   able to help address any transient issues and for persistent issues, the
   record will be moved to DeadLetterQueue and unblock the rest of the stream.
-- OnPartialBatchItemFailure: For sources that support partial batch processing, we recommend you to enable this and configure it as AUTOMATIC_BISECT for additional retry of failed records before dropping/sending to DLQ.
+- OnPartialBatchItemFailure: For sources that support partial batch processing, we recommend you to enable this and configure it as AUTOMATIC\_BISECT for additional retry of failed records before dropping/sending to DLQ.
 
 #### Configuration example
 

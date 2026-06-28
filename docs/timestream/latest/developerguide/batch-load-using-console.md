@@ -28,69 +28,68 @@ Follow these steps to access batch load using the AWS Management Console.
 
 Follow these steps to create a batch load task using the AWS Management Console.
 
-1.  Open the [Amazon Timestream
-    console](https://console.aws.amazon.com/timestream "https://console.aws.amazon.com/timestream").
-2.  In the navigation pane, choose **Management Tools**, and
-    then choose **Batch load tasks**.
-3.  Choose **Create batch load task**.
-4.  In **Import destination**, choose the following.
+1. Open the [Amazon Timestream
+   console](https://console.aws.amazon.com/timestream "https://console.aws.amazon.com/timestream").
+2. In the navigation pane, choose **Management Tools**, and
+   then choose **Batch load tasks**.
+3. Choose **Create batch load task**.
+4. In **Import destination**, choose the following.
 
-        * **Target database** – Select the name of
-         the database created in [Create a database](console_timestream.md#console_timestream.db.using-console "console_timestream.md#console_timestream.db.using-console").
-        * **Target table** – Select the name of the
-         table created in [Create a table](console_timestream.md#console_timestream.table.using-console "console_timestream.md#console_timestream.table.using-console").
+   - **Target database** – Select the name of
+     the database created in [Create a database](console_timestream.md#console_timestream.db.using-console "console_timestream.md#console_timestream.db.using-console").
+   - **Target table** – Select the name of the
+     table created in [Create a table](console_timestream.md#console_timestream.table.using-console "console_timestream.md#console_timestream.table.using-console").
+     If necessary, you can add a table from this panel with the
+     **Create new table** button.
 
-    If necessary, you can add a table from this panel with the
-    **Create new table** button.
+5. From **Data source S3 location** in **Data
+   source**, select the S3 bucket where the source data is stored.
+   Use the **Browse S3** button to view S3 resources the
+   active AWS account has access to, or enter the S3 location URL. The data
+   source must be located in the same region.
+6. In **File format settings** (expandable section), you can
+   use the default settings to parse input data. You can also choose
+   **Advanced settings**. From there you can choose
+   **CSV format parameters**, and select parameters to
+   parse input data. For information about these parameters, see [CSV format parameters](batch-load-preparing-data-file.md#batch-load-data-file-options "batch-load-preparing-data-file.md#batch-load-data-file-options").
+7. From **Configure data model mapping**, configure the data
+   model. For additional data model guidance, see [Data model mappings for batch load](batch-load-data-model-mappings.md "batch-load-data-model-mappings.md")
 
-5.  From **Data source S3 location** in **Data
-    source**, select the S3 bucket where the source data is stored.
-    Use the **Browse S3** button to view S3 resources the
-    active AWS account has access to, or enter the S3 location URL. The data
-    source must be located in the same region.
-6.  In **File format settings** (expandable section), you can
-    use the default settings to parse input data. You can also choose
-    **Advanced settings**. From there you can choose
-    **CSV format parameters**, and select parameters to
-    parse input data. For information about these parameters, see [CSV format parameters](batch-load-preparing-data-file.md#batch-load-data-file-options "batch-load-preparing-data-file.md#batch-load-data-file-options").
-7.  From **Configure data model mapping**, configure the data
-    model. For additional data model guidance, see [Data model mappings for batch load](batch-load-data-model-mappings.md "batch-load-data-model-mappings.md")
+   - From **Data model mapping**, choose
+     **Mapping configuration input**, and choose one
+     of the following.
 
-    - From **Data model mapping**, choose
-      **Mapping configuration input**, and choose one
-      of the following.
+     - **Visual builder** – To map data
+       visually, choose **TargetMultiMeasureName**
+       or **MeasureNameColumn**. Then from
+       **Visual builder**, map the
+       columns.
 
-      - **Visual builder** – To map data
-        visually, choose **TargetMultiMeasureName**
-        or **MeasureNameColumn**. Then from
-        **Visual builder**, map the
-        columns.
+     Visual builder automatically detects and loads the source
+     column headers from the data source file when a single CSV
+     file is selected as the data source. Choose the attribute
+     and data type to create your mapping.
 
-      Visual builder automatically detects and loads the source
-      column headers from the data source file when a single CSV
-      file is selected as the data source. Choose the attribute
-      and data type to create your mapping.
+     For information about using the visual builder, see [Using the visual builder](#batch-load-using-visual-builder "#batch-load-using-visual-builder").
+     - **JSON editor** – A freeform JSON
+       editor for configuring your data model. Choose this option
+       if you're familiar with Timestream for LiveAnalytics and want to build advanced data
+       model mappings.
+     - **JSON file from S3** – Select a
+       JSON model file you have stored in S3. Choose this option if
+       you've already configured a data model and want to reuse it
+       for additional batch loads.
 
-      For information about using the visual builder, see [Using the visual builder](#batch-load-using-visual-builder "#batch-load-using-visual-builder").
-      - **JSON editor** – A freeform JSON
-        editor for configuring your data model. Choose this option
-        if you're familiar with Timestream for LiveAnalytics and want to build advanced data
-        model mappings.
-      - **JSON file from S3** – Select a
-        JSON model file you have stored in S3. Choose this option if
-        you've already configured a data model and want to reuse it
-        for additional batch loads.
+8. From **Error logs S3 location** in **Error log
+   report**, select the S3 location that will be used to report
+   errors. For information about how to use this report, see [Using batch load error reports](batch-load-using-error-reports.md "batch-load-using-error-reports.md").
+9. For **Encryption key type**, choose one of the
+   following.
 
-8.  From **Error logs S3 location** in **Error log
-    report**, select the S3 location that will be used to report
-    errors. For information about how to use this report, see [Using batch load error reports](batch-load-using-error-reports.md "batch-load-using-error-reports.md").
-9.  For **Encryption key type**, choose one of the
-    following.
-
-    - **Amazon S3-managed key (SSE-S3)** – An
-      encryption key that Amazon S3 creates, manages, and uses for you.
-    - **AWS KMS key (SSE-KMS)** – An
-      encryption key protected by AWS Key Management Service (AWS KMS).
+   - **Amazon S3-managed key (SSE-S3)** – An
+     encryption key that Amazon S3 creates, manages, and uses for you.
+   - **AWS KMS key (SSE-KMS)** – An
+     encryption key protected by AWS Key Management Service (AWS KMS).
 
 10. Choose **Next**.
 11. On the **Review and create page**, review the settings
@@ -167,7 +166,7 @@ There is also a button to reset mappings.
     represented.
   - **DIMENSION** – Time series
     metadata.
-  - **MEASURE_NAME** – For single-measure
+  - **MEASURE\_NAME** – For single-measure
     records, this is the measure name.
 
 - **Data type** – The type of Timestream column,

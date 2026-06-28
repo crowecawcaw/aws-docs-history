@@ -89,8 +89,8 @@ Availability Zones for high availability. 9. (Optional) Configure additional set
 
 10. Review and create
 
-    - Review all configuration settings.
-    - Choose **Create InfluxDB database**.
+    * Review all configuration settings.
+    * Choose **Create InfluxDB database**.
 
 The cluster creation process typically takes 10-20 minutes. The console will display the
 status as "Creating" and change to "Available" when ready.
@@ -231,14 +231,14 @@ For multi-node clusters, you will receive:
 
 2. **Obtain your operator token:**
 
-   - Your operator token is stored in a secret in your AWS Secrets Manager account. The secret has the
+    * Your operator token is stored in a secret in your AWS Secrets Manager account. The secret has the
      same name as your newly created cluster identifier.
 
 3. (Optional) **Access InfluxDB explorer:**
 
-   - Download the InfluxDB Explorer from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/").
-   - For public clusters: Run the Explorer from any location with internet access.
-   - For private clusters: Run the Explorer from within the same VPC (using an EC2
+    * Download the InfluxDB Explorer from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/").
+    * For public clusters: Run the Explorer from any location with internet access.
+    * For private clusters: Run the Explorer from within the same VPC (using an EC2
      instance, bastion host, or through VPN connection).
 
 4. **Verify connectivity:**

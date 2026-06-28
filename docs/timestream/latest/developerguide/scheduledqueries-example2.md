@@ -20,7 +20,7 @@ scheduled queries.
 The dashboard below provides drill down into more granular and server-level
 statistics within a given deployment. To help you drill down into the different
 parts of your fleet, this dashboard uses variables such as region, cell, silo,
-microservice, and availability_zone. It then shows some aggregate statistics for
+microservice, and availability\_zone. It then shows some aggregate statistics for
 that deployment.
 
 ![Dashboard showing deployment statistics with filters for region, cell, silo, and other parameters.](images/sched_query_ex2_img1.png)

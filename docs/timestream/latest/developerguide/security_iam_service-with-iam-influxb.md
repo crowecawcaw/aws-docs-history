@@ -3,19 +3,19 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 # How Amazon Timestream for InfluxDB works with IAM
 
-| IAM features you can use with Amazon Timestream for InfluxDB                                                                                                                                   | IAM feature | Timestream for InfluxDB support |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------- |
-| [Identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies") | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies-influxb "#security_iam_service-with-iam-resource-based-policies-influxb")                                     | No          |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions-influxb "#security_iam_service-with-iam-id-based-policies-actions-influxb")                                          | Yes         |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources-influxb "#security_iam_service-with-iam-id-based-policies-resources-influxb")                                    | Yes         |
-| [Policy condition<br>keys](#security_iam_service-with-iam-id-based-policies-conditionkeys-influxb "#security_iam_service-with-iam-id-based-policies-conditionkeys-influxb")                    | No          |
-| [ACLs](#security_iam_service-with-iam-acls-influxb "#security_iam_service-with-iam-acls-influxb")                                                                                              | No          |
-| [ABAC (tags in policies)](#security_iam_service-with-iam-tags-influxb "#security_iam_service-with-iam-tags-influxb")                                                                           | Yes         |
-| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds-influxb "#security_iam_service-with-iam-roles-tempcreds-influxb")                                                       | Yes         |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions-influxb "#security_iam_service-with-iam-principal-permissions-influxb")                                           | Yes         |
-| [Service roles](#security_iam_service-with-iam-roles-service-influxb "#security_iam_service-with-iam-roles-service-influxb")                                                                   | No          |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked-influxb "#security_iam_service-with-iam-roles-service-linked-influxb")                                              | Yes         |
+IAM features you can use with Amazon Timestream for InfluxDB| IAM feature | Timestream for InfluxDB support |
+| --- | --- |
+| [Identity-based policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies-influxb "#security_iam_service-with-iam-resource-based-policies-influxb") | No |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions-influxb "#security_iam_service-with-iam-id-based-policies-actions-influxb") | Yes |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources-influxb "#security_iam_service-with-iam-id-based-policies-resources-influxb") | Yes |
+| [Policy condition<br>keys](#security_iam_service-with-iam-id-based-policies-conditionkeys-influxb "#security_iam_service-with-iam-id-based-policies-conditionkeys-influxb") | No |
+| [ACLs](#security_iam_service-with-iam-acls-influxb "#security_iam_service-with-iam-acls-influxb") | No |
+| [ABAC (tags in policies)](#security_iam_service-with-iam-tags-influxb "#security_iam_service-with-iam-tags-influxb") | Yes |
+| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds-influxb "#security_iam_service-with-iam-roles-tempcreds-influxb") | Yes |
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions-influxb "#security_iam_service-with-iam-principal-permissions-influxb") | Yes |
+| [Service roles](#security_iam_service-with-iam-roles-service-influxb "#security_iam_service-with-iam-roles-service-influxb") | No |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked-influxb "#security_iam_service-with-iam-roles-service-linked-influxb") | Yes |
 
 To get a high-level view of how Timestream for InfluxDB and other AWS services work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
 _IAM User Guide_.

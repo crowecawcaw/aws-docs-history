@@ -106,7 +106,7 @@ https://`your-timestream-for-influxdb-endpoint`:8086
      - In **Value**, use the
        `Token` schema and provide your InfluxDB
        API token. For example, `Token
-y0uR5uP3rSecr3tT0k3n`.
+   y0uR5uP3rSecr3tT0k3n`.
 
 3. In the **InfluxDB Details** section, enter the
    following:

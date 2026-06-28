@@ -305,12 +305,12 @@ When writing data, we recommend the following:
 - Error handling
 
   - Implement retry logic for transient failures.
-  - Use accept_partial=true for resilient batch operations.
+  - Use accept\_partial=true for resilient batch operations.
   - Monitor write errors through CloudWatch metrics.
 
 - Performance tuning
 
-  - Use no_sync=true for high-throughput scenarios.
+  - Use no\_sync=true for high-throughput scenarios.
   - Distribute writes across multiple connections.
   - Use the writer/reader endpoint for all write operations.
 

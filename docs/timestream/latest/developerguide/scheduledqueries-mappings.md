@@ -117,9 +117,9 @@ TargetMultiMeasureName property in the TargetConfiguration.TimestreamConfigurati
 ```
 
 The mapping in this example creates one multi-measure record with measure name
-dashboard-metrics and attribute names avgMemCached, min_mem_free_1h,
-max_mem_used_1h, totalDiskWrites, avg_disk_used_1h, avg_disk_free_1h, CpuUserP100,
-min_cpu_idle_1h, CpuSystemP100. Notice the optional use of
+dashboard-metrics and attribute names avgMemCached, min\_mem\_free\_1h,
+max\_mem\_used\_1h, totalDiskWrites, avg\_disk\_used\_1h, avg\_disk\_free\_1h, CpuUserP100,
+min\_cpu\_idle\_1h, CpuSystemP100. Notice the optional use of
 TargetMultiMeasureAttributeName to rename the query output columns to a different
 attribute name used for result materialization.
 
@@ -128,27 +128,27 @@ materialized. As you can see from the Timestream for LiveAnalytics attribute typ
 the results are materialized into a multi-measure record with a single-measure name
 `dashboard-metrics`, as shown in the measure schema.
 
-| Column           | Type      | Timestream for LiveAnalytics attribute type |
-| ---------------- | --------- | ------------------------------------------- |
-| region           | varchar   | DIMENSION                                   |
-| measure_name     | varchar   | MEASURE_NAME                                |
-| time             | timestamp | TIMESTAMP                                   |
-| CpuSystemP100    | double    | MULTI                                       |
-| avgMemCached     | double    | MULTI                                       |
-| min_cpu_idle_1h  | double    | MULTI                                       |
-| avg_disk_free_1h | double    | MULTI                                       |
-| avg_disk_used_1h | double    | MULTI                                       |
-| totalDiskWrites  | double    | MULTI                                       |
-| max_mem_used_1h  | double    | MULTI                                       |
-| min_mem_free_1h  | double    | MULTI                                       |
-| CpuUserP100      | double    | MULTI                                       |
+| Column              | Type      | Timestream for LiveAnalytics attribute type |
+| ------------------- | --------- | ------------------------------------------- |
+| region              | varchar   | DIMENSION                                   |
+| measure\_name       | varchar   | MEASURE\_NAME                               |
+| time                | timestamp | TIMESTAMP                                   |
+| CpuSystemP100       | double    | MULTI                                       |
+| avgMemCached        | double    | MULTI                                       |
+| min\_cpu\_idle\_1h  | double    | MULTI                                       |
+| avg\_disk\_free\_1h | double    | MULTI                                       |
+| avg\_disk\_used\_1h | double    | MULTI                                       |
+| totalDiskWrites     | double    | MULTI                                       |
+| max\_mem\_used\_1h  | double    | MULTI                                       |
+| min\_mem\_free\_1h  | double    | MULTI                                       |
+| CpuUserP100         | double    | MULTI                                       |
 
 The following are the corresponding measures obtained with a SHOW MEASURES
 query.
 
-| measure_name      | data_type | Dimensions                                               |
-| ----------------- | --------- | -------------------------------------------------------- |
-| dashboard-metrics | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| measure\_name     | data\_type | Dimensions                                               |
+| ----------------- | ---------- | -------------------------------------------------------- |
+| dashboard-metrics | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 
 ## Example: Using measure name from scheduled query in multi-measure records
 
@@ -219,12 +219,12 @@ MeasureNameColumn property in TargetConfiguration.TimestreamConfiguration.
 ```
 
 The mapping in this example will create multi-measure records with attributes
-avg_1h, p0_1h, sum_1h, p100_1h and will use the values of the measure_name column in
+avg\_1h, p0\_1h, sum\_1h, p100\_1h and will use the values of the measure\_name column in
 the query result as the measure name for the multi-measure records in the
 destination table. Additionally note that the previous examples optionally use the
 TargetMultiMeasureAttributeName with a subset of the mappings to rename the
-attributes. For instance, min_1h was renamed to p0_1h and max_1h is renamed to
-p100_1h.
+attributes. For instance, min\_1h was renamed to p0\_1h and max\_1h is renamed to
+p100\_1h.
 
 The following is the schema for the destination table once this scheduled query is
 materialized. As you can see from the Timestream for LiveAnalytics attribute type in the following result,
@@ -232,55 +232,55 @@ the results are materialized into a multi-measure record. If you look at the mea
 schema, there were nine different measure names that were ingested which correspond
 to the values seen in the query results.
 
-| Column       | Type      | Timestream for LiveAnalytics attribute type |
-| ------------ | --------- | ------------------------------------------- |
-| region       | varchar   | DIMENSION                                   |
-| measure_name | varchar   | MEASURE_NAME                                |
-| time         | timestamp | TIMESTAMP                                   |
-| sum_1h       | double    | MULTI                                       |
-| p100_1h      | double    | MULTI                                       |
-| p0_1h        | double    | MULTI                                       |
-| avg_1h       | double    | MULTI                                       |
+| Column        | Type      | Timestream for LiveAnalytics attribute type |
+| ------------- | --------- | ------------------------------------------- |
+| region        | varchar   | DIMENSION                                   |
+| measure\_name | varchar   | MEASURE\_NAME                               |
+| time          | timestamp | TIMESTAMP                                   |
+| sum\_1h       | double    | MULTI                                       |
+| p100\_1h      | double    | MULTI                                       |
+| p0\_1h        | double    | MULTI                                       |
+| avg\_1h       | double    | MULTI                                       |
 
 The following are corresponding measures obtained with a SHOW MEASURES
 query.
 
-| measure_name   | data_type | Dimensions                                               |
-| -------------- | --------- | -------------------------------------------------------- |
-| cpu_idle       | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| cpu_system     | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| cpu_user       | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| disk_free      | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| disk_io_writes | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| disk_used      | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| memory_cached  | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| memory_free    | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| memory_free    | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| measure\_name    | data\_type | Dimensions                                               |
+| ---------------- | ---------- | -------------------------------------------------------- |
+| cpu\_idle        | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| cpu\_system      | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| cpu\_user        | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| disk\_free       | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| disk\_io\_writes | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| disk\_used       | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| memory\_cached   | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| memory\_free     | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| memory\_free     | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 
 ## Example: Mapping results to different multi-measure records with different attributes
 
 The following example shows how you can map different columns in your query result
 into different multi-measure records with different measure names. If you see the
 following scheduled query definition, the result of the query has the following
-columns: region, hour, avg_mem_cached_1h, min_mem_free_1h, max_mem_used_1h,
-total_disk_io_writes_1h, avg_disk_used_1h, avg_disk_free_1h, max_cpu_user_1h,
-max_cpu_system_1h, min_cpu_system_1h. `region` is mapped to dimension,
+columns: region, hour, avg\_mem\_cached\_1h, min\_mem\_free\_1h, max\_mem\_used\_1h,
+total\_disk\_io\_writes\_1h, avg\_disk\_used\_1h, avg\_disk\_free\_1h, max\_cpu\_user\_1h,
+max\_cpu\_system\_1h, min\_cpu\_system\_1h. `region` is mapped to dimension,
 and `hour` is mapped to the time column.
 
 The MixedMeasureMappings property in TargetConfiguration.TimestreamConfiguration
 specifies how to map the measures to multi-measure records in the derived table.
 
-In this specific example, avg_mem_cached_1h, min_mem_free_1h, max_mem_used_1h are
-used in one multi-measure record with measure name of mem_aggregates,
-total_disk_io_writes_1h, avg_disk_used_1h, avg_disk_free_1h are used in another
-multi-measure record with measure name of disk_aggregates, and finally
-max_cpu_user_1h, max_cpu_system_1h, min_cpu_system_1h are used in another
-multi-measure record with measure name cpu_aggregates.
+In this specific example, avg\_mem\_cached\_1h, min\_mem\_free\_1h, max\_mem\_used\_1h are
+used in one multi-measure record with measure name of mem\_aggregates,
+total\_disk\_io\_writes\_1h, avg\_disk\_used\_1h, avg\_disk\_free\_1h are used in another
+multi-measure record with measure name of disk\_aggregates, and finally
+max\_cpu\_user\_1h, max\_cpu\_system\_1h, min\_cpu\_system\_1h are used in another
+multi-measure record with measure name cpu\_aggregates.
 
 In these mappings, you can also optionally use TargetMultiMeasureAttributeName to
 rename the query result column to have a different attribute name in the destination
-table. For instance, the result column avg_mem_cached_1h gets renamed to
-avgMemCached, total_disk_io_writes_1h gets renamed to totalIOWrites, etc.
+table. For instance, the result column avg\_mem\_cached\_1h gets renamed to
+avgMemCached, total\_disk\_io\_writes\_1h gets renamed to totalIOWrites, etc.
 
 When you're defining the mappings for multi-measure records, Timestream for LiveAnalytics inspects every
 row in the query results and automatically ignores the column values that have NULL
@@ -288,10 +288,10 @@ values. As a result, in the case of mappings with multiple measures names, if al
 the column values for that group in the mapping are NULL for a given row, then no
 value for that measure name is ingested for that row.
 
-For example, in the following mapping, avg_mem_cached_1h, min_mem_free_1h, and
-max_mem_used_1h are mapped to measure name mem_aggregates. If for a given row of the
+For example, in the following mapping, avg\_mem\_cached\_1h, min\_mem\_free\_1h, and
+max\_mem\_used\_1h are mapped to measure name mem\_aggregates. If for a given row of the
 query result, all these of the column values are NULL, Timestream for LiveAnalytics won't ingest the measure
-mem_aggregates for that row. If all nine columns for a given row are NULL, then you
+mem\_aggregates for that row. If all nine columns for a given row are NULL, then you
 will see an user error reported in your error report.
 
 ```
@@ -393,44 +393,44 @@ will see an user error reported in your error report.
 The following is the schema for the destination table once this scheduled query is
 materialized.
 
-| Column            | Type      | Timestream for LiveAnalytics attribute type |
-| ----------------- | --------- | ------------------------------------------- |
-| region            | varchar   | DIMENSION                                   |
-| measure_name      | varchar   | MEASURE_NAME                                |
-| time              | timestamp | TIMESTAMP                                   |
-| minCpuIdle        | double    | MULTI                                       |
-| max_cpu_system_1h | double    | MULTI                                       |
-| max_cpu_user_1h   | double    | MULTI                                       |
-| avgMemCached      | double    | MULTI                                       |
-| maxMemUsed        | double    | MULTI                                       |
-| min_mem_free_1h   | double    | MULTI                                       |
-| avg_disk_free_1h  | double    | MULTI                                       |
-| avg_disk_used_1h  | double    | MULTI                                       |
-| totalIOWrites     | double    | MULTI                                       |
+| Column               | Type      | Timestream for LiveAnalytics attribute type |
+| -------------------- | --------- | ------------------------------------------- |
+| region               | varchar   | DIMENSION                                   |
+| measure\_name        | varchar   | MEASURE\_NAME                               |
+| time                 | timestamp | TIMESTAMP                                   |
+| minCpuIdle           | double    | MULTI                                       |
+| max\_cpu\_system\_1h | double    | MULTI                                       |
+| max\_cpu\_user\_1h   | double    | MULTI                                       |
+| avgMemCached         | double    | MULTI                                       |
+| maxMemUsed           | double    | MULTI                                       |
+| min\_mem\_free\_1h   | double    | MULTI                                       |
+| avg\_disk\_free\_1h  | double    | MULTI                                       |
+| avg\_disk\_used\_1h  | double    | MULTI                                       |
+| totalIOWrites        | double    | MULTI                                       |
 
 The following are the corresponding measures obtained with a SHOW MEASURES
 query.
 
-| measure_name    | data_type | Dimensions                                               |
-| --------------- | --------- | -------------------------------------------------------- |
-| cpu_aggregates  | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| disk_aggregates | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| mem_aggregates  | multi     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| measure\_name    | data\_type | Dimensions                                               |
+| ---------------- | ---------- | -------------------------------------------------------- |
+| cpu\_aggregates  | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| disk\_aggregates | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| mem\_aggregates  | multi      | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 
 ## Example: Mapping results to single-measure records with measure name from query results
 
 The following is an example of a scheduled query whose results are materialized
-into single-measure records. In this example, the query result has the measure_name
+into single-measure records. In this example, the query result has the measure\_name
 column whose values will be used as measure names in the target table. You use the
 MixedMeasureMappings attribute in the TargetConfiguration.TimestreamConfiguration to
 specify the mapping of the query result column to the scalar measure in the target
 table.
 
 In the following example definition, the query result is expected to nine distinct
-measure_name values. You list out all these measure names in the mapping and specify
+measure\_name values. You list out all these measure names in the mapping and specify
 which column to use for the single-measure value for that measure name. For example,
-in this mapping, if measure name of memory_cached is seen for a given result row,
-then the value in the avg_1h column is used as the value for the measure when the
+in this mapping, if measure name of memory\_cached is seen for a given result row,
+then the value in the avg\_1h column is used as the value for the measure when the
 data is written to the target table. You can optionally use TargetMeasureName to
 provide a new measure name for this value.
 
@@ -527,27 +527,27 @@ materialized. As you can see from the schema, the table is using single-measure
 records. If you list the measure schema for the table, you will see the nine
 measures written to based on the mapping provided in the specification.
 
-| Column                | Type      | Timestream for LiveAnalytics attribute type |
-| --------------------- | --------- | ------------------------------------------- |
-| region                | varchar   | DIMENSION                                   |
-| measure_name          | varchar   | MEASURE_NAME                                |
-| time                  | timestamp | TIMESTAMP                                   |
-| measure_value::double | double    | MEASURE_VALUE                               |
+| Column                 | Type      | Timestream for LiveAnalytics attribute type |
+| ---------------------- | --------- | ------------------------------------------- |
+| region                 | varchar   | DIMENSION                                   |
+| measure\_name          | varchar   | MEASURE\_NAME                               |
+| time                   | timestamp | TIMESTAMP                                   |
+| measure\_value::double | double    | MEASURE\_VALUE                              |
 
 The following are the corresponding measures obtained with a SHOW MEASURES
 query.
 
-| measure_name         | data_type | Dimensions                                               |
-| -------------------- | --------- | -------------------------------------------------------- |
-| AvgMemCached         | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| MinMemFree           | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| cpu_idle             | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| cpu_system           | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| cpu_user             | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| disk_free            | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| disk_used            | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| maxMemUsed           | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| total-disk-io-writes | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| measure\_name        | data\_type | Dimensions                                               |
+| -------------------- | ---------- | -------------------------------------------------------- |
+| AvgMemCached         | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| MinMemFree           | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| cpu\_idle            | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| cpu\_system          | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| cpu\_user            | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| disk\_free           | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| disk\_used           | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| maxMemUsed           | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| total-disk-io-writes | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
 
 ## Example: Mapping results to single-measure records with query result columns as measure names
 
@@ -563,11 +563,11 @@ the query result has nine columns. You use the result columns as measure names a
 the values as the single-measure values.
 
 For example, for a given row in the query result, the column name
-avg_mem_cached_1h is used as the column name and value associated with column, and
-avg_mem_cached_1h is used as the measure value for the single-measure record. You
+avg\_mem\_cached\_1h is used as the column name and value associated with column, and
+avg\_mem\_cached\_1h is used as the measure value for the single-measure record. You
 can also use TargetMeasureName to use a different measure name in the target table.
-For instance, for values in column sum_1h, the mapping specifies to use
-total_disk_io_writes_1h as the measure name in the target table. If any column's
+For instance, for values in column sum\_1h, the mapping specifies to use
+total\_disk\_io\_writes\_1h as the measure name in the target table. If any column's
 value is NULL, then the corresponding measure is ignored.
 
 ```
@@ -649,27 +649,27 @@ The following is the schema for the destination table once this scheduled query 
 materialized. As you can see that the target table is storing records with
 single-measure values of type double. Similarly, the measure schema for the table
 shows the nine measure names. Also notice that the measure name
-total_disk_io_writes_1h is present since the mapping renamed sum_1h to
-total_disk_io_writes_1h.
+total\_disk\_io\_writes\_1h is present since the mapping renamed sum\_1h to
+total\_disk\_io\_writes\_1h.
 
-| Column                | Type      | Timestream for LiveAnalytics attribute type |
-| --------------------- | --------- | ------------------------------------------- |
-| region                | varchar   | DIMENSION                                   |
-| measure_name          | varchar   | MEASURE_NAME                                |
-| time                  | timestamp | TIMESTAMP                                   |
-| measure_value::double | double    | MEASURE_VALUE                               |
+| Column                 | Type      | Timestream for LiveAnalytics attribute type |
+| ---------------------- | --------- | ------------------------------------------- |
+| region                 | varchar   | DIMENSION                                   |
+| measure\_name          | varchar   | MEASURE\_NAME                               |
+| time                   | timestamp | TIMESTAMP                                   |
+| measure\_value::double | double    | MEASURE\_VALUE                              |
 
 The following are the corresponding measures obtained with a SHOW MEASURES
 query.
 
-| measure_name         | data_type | Dimensions                                               |
-| -------------------- | --------- | -------------------------------------------------------- |
-| avg_disk_free_1h     | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| avg_disk_used_1h     | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| avg_mem_cached_1h    | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| max_cpu_system_1h    | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| max_cpu_user_1h      | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| max_mem_used_1h      | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| min_cpu_idle_1h      | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| min_mem_free_1h      | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
-| total-disk-io-writes | double    | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| measure\_name        | data\_type | Dimensions                                               |
+| -------------------- | ---------- | -------------------------------------------------------- |
+| avg\_disk\_free\_1h  | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| avg\_disk\_used\_1h  | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| avg\_mem\_cached\_1h | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| max\_cpu\_system\_1h | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| max\_cpu\_user\_1h   | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| max\_mem\_used\_1h   | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| min\_cpu\_idle\_1h   | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| min\_mem\_free\_1h   | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |
+| total-disk-io-writes | double     | [{'dimension\_name': 'region', 'data\_type': 'varchar'}] |

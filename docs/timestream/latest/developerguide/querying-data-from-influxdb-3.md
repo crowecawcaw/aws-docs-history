@@ -266,7 +266,7 @@ SELECT * FROM system.distinct_caches
   - Use parquet for data export and analytics.
   - Use csv for spreadsheet compatibility.
 
-- **Optimize Aggregations**: Use DATE_BIN for time-based grouping.
+- **Optimize Aggregations**: Use DATE\_BIN for time-based grouping.
 - **Use Parameterized Queries**: Prevent injection attacks and
   improve reusability.
 - **Monitor Query Performance**: Check the system.queries table for
@@ -404,7 +404,7 @@ WHERE room = 'Kitchen'
   usage.
 - Optimize Value Count: Balance between query needs and memory consumption.
 - Consider TTL: Set appropriate time-to-live for cache entries.
-- Monitor Memory: Cache size = (key_column_cardinality × count × value_columns).
+- Monitor Memory: Cache size = (key\_column\_cardinality × count × value\_columns).
 
 ### Distinct Value Cache (DVC)
 
@@ -550,8 +550,8 @@ Choose the right optimization features based on your query patterns:
 
 **Cache memory formula:**
 
-- LVC: memory = key_cardinality × value_count × value_columns × data_size
-- DVC: memory = distinct_combinations × column_count × data_size
+- LVC: memory = key\_cardinality × value\_count × value\_columns × data\_size
+- DVC: memory = distinct\_combinations × column\_count × data\_size
 
 **Best practices:**
 

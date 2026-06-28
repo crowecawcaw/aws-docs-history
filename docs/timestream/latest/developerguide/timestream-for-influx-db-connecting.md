@@ -132,10 +132,7 @@ Alternatively you can open the InfluxDB UI from the Amazon Timestream for Influx
      choose **InfluxDB UI**.
 
 2. Once logged in to your InfluxDB UI, navigate to **Load Data** and then **API Tokens**
-   using the left navigation bar.
-3. Choose **Generate API Token** and select **All Access API Token**.
-4. Enter a description for the API token and choose **SAVE**.
-5. Copy the generated token and store it for safe keeping.
+using the left navigation bar. 3. Choose **Generate API Token** and select **All Access API Token**. 4. Enter a description for the API token and choose **SAVE**. 5. Copy the generated token and store it for safe keeping.
 
 ###### Important
 

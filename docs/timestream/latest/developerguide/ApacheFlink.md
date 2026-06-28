@@ -12,7 +12,7 @@ of these artifacts are available to you in GitHub. This [video tutorial](https:/
 ###### Note
 
 Java 11 is the recommended version for using the Managed Service for Apache Flink
-Application. If you have multiple Java versions, ensure that you export Java 11 to your JAVA_HOME
+Application. If you have multiple Java versions, ensure that you export Java 11 to your JAVA\_HOME
 environment variable.
 
 ###### Topics

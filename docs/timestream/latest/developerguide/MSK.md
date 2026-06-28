@@ -20,7 +20,7 @@ table. All of these artifacts are available on GitHub.
 ###### Note
 
 Java 11 is the recommended version for using the Timestream Kafka Sink Connector. If you
-have multiple Java versions, ensure that you export Java 11 to your JAVA_HOME environment
+have multiple Java versions, ensure that you export Java 11 to your JAVA\_HOME environment
 variable.
 
 ### Creating a sample application
@@ -37,7 +37,7 @@ See the procedure [Create a table](console_timestream.md#console_timestream.tabl
     * An Amazon EC2 instance that is configured as a Kafka producer client machine
     * A Kafka topic
 
-See the [prerequisites](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/java/kafka_ingestor#prerequisites "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/java/kafka_ingestor#prerequisites") of the kafka_ingestor project for detailed instructions. 4. Clone the [Timestream Kafka Sink Connector](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/kafka_connector "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/kafka_connector") repository.
+See the [prerequisites](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/java/kafka_ingestor#prerequisites "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/tools/java/kafka_ingestor#prerequisites") of the kafka\_ingestor project for detailed instructions. 4. Clone the [Timestream Kafka Sink Connector](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/kafka_connector "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/integrations/kafka_connector") repository.
 
 See [Cloning a repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository") on GitHub for detailed instructions. 5. Compile the plugin code.
 

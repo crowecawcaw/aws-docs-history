@@ -21,7 +21,7 @@ See the Prerequisites section and installation in the [cardinality script's READ
 
 **Basic usage**
 
-To determine the cardinality of a table, example_table, in the database example_database the script can be used in the following way:
+To determine the cardinality of a table, example\_table, in the database example\_database the script can be used in the following way:
 
 ###### Example
 

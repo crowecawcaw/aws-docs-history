@@ -52,34 +52,34 @@ instances, when the data is sent as a single-measure record. In this case, the
 dimensions are the region, availability zone, virtual private cloud, and instance IDs of
 the EC2 instances. The measures are the CPU utilization, memory utilization, and the
 incoming network data for the EC2 instances. The columns region, az, vpc, and
-instance_id contain the dimension values. The column time contains the timestamp for
-each record. The column measure_name contains the names of the measures represented by
-cpu-utilization, memory_utilization, and network_bytes_in. The columns
-measure_value::double contains measurements emitted as doubles (e.g. CPU utilization and
-memory utilization). The column measure_value::bigint contains measurements emitted as
+instance\_id contain the dimension values. The column time contains the timestamp for
+each record. The column measure\_name contains the names of the measures represented by
+cpu-utilization, memory\_utilization, and network\_bytes\_in. The columns
+measure\_value::double contains measurements emitted as doubles (e.g. CPU utilization and
+memory utilization). The column measure\_value::bigint contains measurements emitted as
 integers e.g. the incoming network data.
 
-| Time                          | region    | az         | vpc          | instance_id         | measure_name       | measure_value::double | measure_value::bigint |
-| ----------------------------- | --------- | ---------- | ------------ | ------------------- | ------------------ | --------------------- | --------------------- |
-| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu_utilization    | 35.0                  | null                  |
-| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu_utilization    | 38.2                  | null                  |
-| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu_utilization    | 45.3                  | null                  |
-| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | memory_utilization | 54.9                  | null                  |
-| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | memory_utilization | 42.6                  | null                  |
-| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | memory_utilization | 33.3                  | null                  |
-| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | network_bytes      | 34,400                | null                  |
-| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | network_bytes      | 1,500                 | null                  |
-| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | network_bytes      | 6,000                 | null                  |
+| Time                          | region    | az         | vpc          | instance\_id        | measure\_name       | measure\_value::double | measure\_value::bigint |
+| ----------------------------- | --------- | ---------- | ------------ | ------------------- | ------------------- | ---------------------- | ---------------------- |
+| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu\_utilization    | 35.0                   | null                   |
+| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu\_utilization    | 38.2                   | null                   |
+| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | cpu\_utilization    | 45.3                   | null                   |
+| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | memory\_utilization | 54.9                   | null                   |
+| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | memory\_utilization | 42.6                   | null                   |
+| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | memory\_utilization | 33.3                   | null                   |
+| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | network\_bytes      | 34,400                 | null                   |
+| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | network\_bytes      | 1,500                  | null                   |
+| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | network\_bytes      | 6,000                  | null                   |
 
 The table below shows an illustrative example for how Timestream stores data
 representing the CPU utilization, memory utilization, and network activity of EC2
 instances, when the data is sent as a multi-measure record.
 
-| Time                          | region    | az         | vpc          | instance_id         | measure_name | cpu_utilization | memory_utilization | network_bytes |
-| ----------------------------- | --------- | ---------- | ------------ | ------------------- | ------------ | --------------- | ------------------ | ------------- |
-| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | metrics      | 35.0            | 54.9               | 34,400        |
-| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | metrics      | 38.2            | 42.6               | 1,500         |
-| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | metrics      | 45.3            | 33.3               | 6,600         |
+| Time                          | region    | az         | vpc          | instance\_id        | measure\_name | cpu\_utilization | memory\_utilization | network\_bytes |
+| ----------------------------- | --------- | ---------- | ------------ | ------------------- | ------------- | ---------------- | ------------------- | -------------- |
+| 2019-12-04 19:00:00.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | metrics       | 35.0             | 54.9                | 34,400         |
+| 2019-12-04 19:00:01.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | metrics       | 38.2             | 42.6                | 1,500          |
+| 2019-12-04 19:00:02.000000000 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | metrics       | 45.3             | 33.3                | 6,600          |
 
 ### Time series model
 
@@ -87,11 +87,11 @@ The time series model is a query time construct used for time series analytics. 
 represents data as an ordered sequence of (time, measure value) pairs. Timestream
 supports time series functions such as interpolation to enable you to fill the gaps in
 your data. To use these functions, you must convert your data into the time series model
-using functions such as create_time_series. Refer to [Query language reference](reference.md "reference.md") for more details.
+using functions such as create\_time\_series. Refer to [Query language reference](reference.md "reference.md") for more details.
 
 Using the earlier example of the EC2 instance, here is the CPU utilization data
 expressed as a timeseries.
 
-| region    | az         | vpc          | instance_id         | cpu_utilization                                                                                                                                                  |
+| region    | az         | vpc          | instance\_id        | cpu\_utilization                                                                                                                                                 |
 | --------- | ---------- | ------------ | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | us-east-1 | us-east-1d | vpc-1a2b3c4d | i-1234567890abcdef0 | [{time: 2019-12-04 19:00:00.000000000, value: 35}, {time:<br>2019-12-04 19:00:01.000000000, value: 38.2}, {time: 2019-12-04<br>19:00:02.000000000, value: 45.3}] |

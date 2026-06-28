@@ -7,7 +7,7 @@ This section contains the specific error codes for Timestream for LiveAnalytics.
 
 ## Timestream for LiveAnalytics write API errors
 
-\***\*InternalServerException\*\***
+****InternalServerException****
 
 HTTP Status Code: 500
 

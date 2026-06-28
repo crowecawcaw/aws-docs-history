@@ -196,9 +196,9 @@ We will model this scenario with single-measure records and multi-measure
 records, and then compare/contrast both approaches. For each approach, we
 make the following assumptions.
 
-- Each EC2 instance emits four measures (video_startup_time,
-  rebuffering_ratio, video_playback_failures, and average_frame_rate)
-  and four dimensions (device_id, device_type, os_version, and region)
+- Each EC2 instance emits four measures (video\_startup\_time,
+  rebuffering\_ratio, video\_playback\_failures, and average\_frame\_rate)
+  and four dimensions (device\_id, device\_type, os\_version, and region)
   per second.
 - You want to store 6 hours of data in the memory store and 6 months
   of data in the magnetic store.
@@ -214,8 +214,8 @@ make the following assumptions.
 **Data modeling**: With single measure
 records, we will create one record for each of the four measures (video
 startup time, rebuffering ratio, video playback failures, and average
-frame rate). Each record will have the four dimensions (device_id,
-device_type, os_version, and region) and a timestamp.
+frame rate). Each record will have the four dimensions (device\_id,
+device\_type, os\_version, and region) and a timestamp.
 
 **Writes**: When you write data into
 Amazon Timestream for Live Analytics, the records are constructed as follows.
@@ -293,16 +293,16 @@ public void writeRecords() {
 When you store single-measure records, the data is logically
 represented as follows.
 
-| Time                           | device_id | device_type | os_version | region    | measure_name            | measure_value::bigint | measure_value::double |
-| ------------------------------ | --------- | ----------- | ---------- | --------- | ----------------------- | --------------------- | --------------------- |
-| 2021-09-07 21:48:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | video_startup_time      | 200                   |                       |
-| 2021-09-07 21:48:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | rebuffering_ratio       |                       | 0.5                   |
-| 2021-09-07 21:48:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | video_playback_failures | 0                     |                       |
-| 2021-09-07 21:48:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | average_frame_rate      |                       | 0.85                  |
-| 2021-09-07 21:53:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | video_startup_time      | 500                   |                       |
-| 2021-09-07 21:53:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | rebuffering_ratio       |                       | 1.5                   |
-| 2021-09-07 21:53:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | video_playback_failures | 10                    |                       |
-| 2021-09-07 21:53:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | average_frame_rate      |                       | 0.2                   |
+| Time                           | device\_id | device\_type | os\_version | region    | measure\_name             | measure\_value::bigint | measure\_value::double |
+| ------------------------------ | ---------- | ------------ | ----------- | --------- | ------------------------- | ---------------------- | ---------------------- |
+| 2021-09-07 21:48:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | video\_startup\_time      | 200                    |                        |
+| 2021-09-07 21:48:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | rebuffering\_ratio        |                        | 0.5                    |
+| 2021-09-07 21:48:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | video\_playback\_failures | 0                      |                        |
+| 2021-09-07 21:48:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | average\_frame\_rate      |                        | 0.85                   |
+| 2021-09-07 21:53:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | video\_startup\_time      | 500                    |                        |
+| 2021-09-07 21:53:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | rebuffering\_ratio        |                        | 1.5                    |
+| 2021-09-07 21:53:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | video\_playback\_failures | 10                     |                        |
+| 2021-09-07 21:53:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | average\_frame\_rate      |                        | 0.2                    |
 
 **Queries**: You can write a query that
 retrieves all of the data points with the same timestamp received over
@@ -328,8 +328,8 @@ records
 **Data modeling**: With multi-measure
 records, we will create one record that contains all four measures
 (video startup time, rebuffering ratio, video playback failures, and
-average frame rate), all four dimensions (device_id, device_type,
-os_version, and region), and a timestamp.
+average frame rate), all four dimensions (device\_id, device\_type,
+os\_version, and region), and a timestamp.
 
 **Writes**: When you write data into
 Amazon Timestream for Live Analytics, the records are constructed as follows.
@@ -403,10 +403,10 @@ public void writeRecords() {
 When you store multi-measure records, the data is logically
 represented as follows.
 
-| Time                           | device_id | device_type | os_version | region    | measure_name  | video_startup_time | rebuffering_ratio | video\_ playback_failures | average_frame_rate |
-| ------------------------------ | --------- | ----------- | ---------- | --------- | ------------- | ------------------ | ----------------- | ------------------------- | ------------------ |
-| 2021-09-07 21:48:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | video_metrics | 200                | 0.5               | 0                         | 0.85               |
-| 2021-09-07 21:53:44 .000000000 | 12345678  | iPhone 11   | 14.8       | us-east-1 | video_metrics | 500                | 1.5               | 10                        | 0.2                |
+| Time                           | device\_id | device\_type | os\_version | region    | measure\_name  | video\_startup\_time | rebuffering\_ratio | video\_ playback\_failures | average\_frame\_rate |
+| ------------------------------ | ---------- | ------------ | ----------- | --------- | -------------- | -------------------- | ------------------ | -------------------------- | -------------------- |
+| 2021-09-07 21:48:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | video\_metrics | 200                  | 0.5                | 0                          | 0.85                 |
+| 2021-09-07 21:53:44 .000000000 | 12345678   | iPhone 11    | 14.8        | us-east-1 | video\_metrics | 500                  | 1.5                | 10                         | 0.2                  |
 
 **Queries**: You can write a query that
 retrieves all of the data points with the same timestamp received over

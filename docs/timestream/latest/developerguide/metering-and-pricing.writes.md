@@ -23,9 +23,9 @@ Two example calculations are provided below:
 
 Consider a time series event representing the CPU utilization of an EC2 instance as shown below:
 
-| Time                | region    | az  | vpc          | Hostname   | measure_name    | measure_value::double |
-| ------------------- | --------- | --- | ------------ | ---------- | --------------- | --------------------- |
-| 1602983435238563000 | us-east-1 | 1d  | vpc-1a2b3c4d | host-24Gju | cpu_utilization | 35.0                  |
+| Time                | region    | az  | vpc          | Hostname   | measure\_name    | measure\_value::double |
+| ------------------- | --------- | --- | ------------ | ---------- | ---------------- | ---------------------- |
+| 1602983435238563000 | us-east-1 | 1d  | vpc-1a2b3c4d | host-24Gju | cpu\_utilization | 35.0                   |
 
 The write size of the time series event can be calculated as:
 

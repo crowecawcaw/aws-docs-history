@@ -122,7 +122,7 @@ InfluxDB 3:
 
 - **Performance optimization**
 
-  - Enable gzip compression with content_encoding = "gzip".
+  - Enable gzip compression with content\_encoding = "gzip".
   - Configure appropriate batch sizes (5000-10000 metrics).
   - Set buffer limits based on available memory.
   - Use precision appropriate for your use case (seconds often sufficient).

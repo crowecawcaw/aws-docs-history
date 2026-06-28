@@ -13,11 +13,11 @@ Sets the maximum number of write operations that can be buffered in the WAL writ
 
 **Recommendations by Instance Size:**
 
-| Instance Size Recommendations | Instance Type | Memory (GiB)          | Recommended Value |
-| ----------------------------- | ------------- | --------------------- | ----------------- |
-| db.influx.medium              | 8             | **50,000–100,000**    |
-| db.influx.large               | 16            | **100,000**           |
-| db.influx.xlarge              | 32            | **100,000–200,000**   |
-| db.influx.2xlarge             | 64            | **200,000–300,000**   |
-| db.influx.4xlarge             | 128           | **300,000–500,000**   |
-| db.influx.8xlarge+            | 256+          | **500,000–1,000,000** |
+Instance Size Recommendations| Instance Type | Memory (GiB) | Recommended Value |
+| --- | --- | --- |
+| db.influx.medium | 8 | **50,000–100,000** |
+| db.influx.large | 16 | **100,000** |
+| db.influx.xlarge | 32 | **100,000–200,000** |
+| db.influx.2xlarge | 64 | **200,000–300,000** |
+| db.influx.4xlarge | 128 | **300,000–500,000** |
+| db.influx.8xlarge+ | 256+ | **500,000–1,000,000** |

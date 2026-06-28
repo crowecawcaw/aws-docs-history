@@ -40,15 +40,15 @@ The configuration is `mapping_mode = "multi-table"`.
 The resulting Timestream for LiveAnalytics tables, `weather` and `airquality`, will
 look like this.
 
-| `weather`           | time       | location | season      | measure_name | measure_value::bigint |
-| ------------------- | ---------- | -------- | ----------- | ------------ | --------------------- |
-| 2016-06-13 17:43:50 | us-midwest | summer   | temperature | 82           |
-| 2016-06-13 17:43:50 | us-midwest | summer   | humidity    | 71           |
+`weather`| time | location | season | measure\_name | measure\_value::bigint |
+| --- | --- | --- | --- | --- |
+| 2016-06-13 17:43:50 | us-midwest | summer | temperature | 82 |
+| 2016-06-13 17:43:50 | us-midwest | summer | humidity | 71 |
 
-| `airquality`        | time       | location | measure_name | measure_value::bigint |
-| ------------------- | ---------- | -------- | ------------ | --------------------- |
-| 2016-06-13 17:43:50 | us-midwest | no2      | 5            |
-| 2016-06-13 17:43:50 | us-midwest | pm25     | 16           |
+`airquality`| time | location | measure\_name | measure\_value::bigint |
+| --- | --- | --- | --- |
+| 2016-06-13 17:43:50 | us-midwest | no2 | 5 |
+| 2016-06-13 17:43:50 | us-midwest | pm25 | 16 |
 
 ## Storing the data in a single table
 
@@ -65,9 +65,9 @@ There are two addition configurations when using `single-table`,
 
 The resulting Timestream for LiveAnalytics table will look like this.
 
-| `weather`           | time       | location | season     | `<single_table_dimension_name_<br>for_telegraf_measurement_name>` | measure_name | measure_value::bigint |
-| ------------------- | ---------- | -------- | ---------- | ----------------------------------------------------------------- | ------------ | --------------------- |
-| 2016-06-13 17:43:50 | us-midwest | summer   | weather    | temperature                                                       | 82           |
-| 2016-06-13 17:43:50 | us-midwest | summer   | weather    | humidity                                                          | 71           |
-| 2016-06-13 17:43:50 | us-midwest | summer   | airquality | no2                                                               | 5            |
-| 2016-06-13 17:43:50 | us-midwest | summer   | weather    | pm25                                                              | 16           |
+`weather`| time | location | season | `<single_table_dimension_name_<br>for_telegraf_measurement_name>` | measure\_name | measure\_value::bigint |
+| --- | --- | --- | --- | --- | --- |
+| 2016-06-13 17:43:50 | us-midwest | summer | weather | temperature | 82 |
+| 2016-06-13 17:43:50 | us-midwest | summer | weather | humidity | 71 |
+| 2016-06-13 17:43:50 | us-midwest | summer | airquality | no2 | 5 |
+| 2016-06-13 17:43:50 | us-midwest | summer | weather | pm25 | 16 |

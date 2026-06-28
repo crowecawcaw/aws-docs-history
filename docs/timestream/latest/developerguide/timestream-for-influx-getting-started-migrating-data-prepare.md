@@ -16,7 +16,7 @@ Data migration for InfluxDB is accomplished with a Python script that utilizes I
   - Check installation: `python3 --version`.
   - If not installed, install from the Python website. Minimum version 3.7 required. On Windows the default Python 3 alias is simply python.
   - The Python module requests is required. Install it with: `shell python3 -m pip install requests`
-  - TThe Python module influxdb_client is required. Install it with: `shell python3 -m pip install influxdb_client`
+  - TThe Python module influxdb\_client is required. Install it with: `shell python3 -m pip install influxdb_client`
 
 - **InfluxDB CLI**
 

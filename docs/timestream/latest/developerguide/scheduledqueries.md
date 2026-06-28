@@ -103,7 +103,7 @@ retention period.
 In this case, you can use real-time analytics queries that recompute the data every
 time the dashboard is accessed and refreshed, or use derived tables for the dashboard.
 The query cost for dashboards based on real-time analytics queries will be $120.70 per
-month. In contrast, the cost of dashboarding queries powered by derived tables will be
-$12.27 per month (see [Amazon Timestream for LiveAnalytics
+ month. In contrast, the cost of dashboarding queries powered by derived tables will be
+ $12.27 per month (see [Amazon Timestream for LiveAnalytics
 pricing](https://aws.amazon.com/timestream/pricing/ "https://aws.amazon.com/timestream/pricing/")). In this case, using derived tables reduces the query cost by ~10
 times.

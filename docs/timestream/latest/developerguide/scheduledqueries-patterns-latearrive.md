@@ -6,7 +6,7 @@ data ingestion and single-digit millisecond query response times for real-time a
 You may have scenarios where you can have data that arrives significantly late,
 for example, the time when the data was ingested into Timestream for LiveAnalytics is significantly delayed compared
 to the timestamp associated to the rows that are ingested. In the previous examples,
-you have seen how you can use the time ranges defined by the @scheduled_runtime
+you have seen how you can use the time ranges defined by the @scheduled\_runtime
 parameter to account for some late arriving data. However, if you have use cases
 where data can be delayed by hours or days, you may need a different pattern to make
 sure your pre-computations in the derived table are appropriately updated to reflect
@@ -240,22 +240,22 @@ such cases, you can manually trigger scheduled queries to update the derived
 table. Below is an example on how you can achieve this.
 
 Assume that you have the use case where you have the computation written to
-the derived table dp_per_timeseries_per_hr. Your base data in the table devops
+the derived table dp\_per\_timeseries\_per\_hr. Your base data in the table devops
 was updated in the time range 2021-11-30 23:00:00 - 2021-12-01 00:00:00. There
 are two different scheduled queries that can be used to update this derived
 table: MultiPT30mPerHrPerTimeseriesDPCount and
 MultiPT12HPerHrPerTimeseriesDPCountCatchUp. Each scheduled computation you
 create in Timestream for LiveAnalytics has a unique ARN which you obtain when you create the computation
 or when you perform a list operation. You can use the ARN for the computation
-and a value for the parameter @scheduled_runtime taken by the query to perform
+and a value for the parameter @scheduled\_runtime taken by the query to perform
 this operation.
 
 Assume that the computation for MultiPT30mPerHrPerTimeseriesDPCount has an ARN
-arn_1 and you want to use this computation to update the derived table. Since
+arn\_1 and you want to use this computation to update the derived table. Since
 the preceding scheduled computation updates the aggregates 1h before and 1hr
-after the @scheduled_runtime value, you can cover the time range for the update
+after the @scheduled\_runtime value, you can cover the time range for the update
 (2021-11-30 23:00:00 - 2021-12-01 00:00:00) using a value of 2021-12-01 00:00:00
-for the @scheduled_runtime parameter. You can use the ExecuteScheduledQuery API
+for the @scheduled\_runtime parameter. You can use the ExecuteScheduledQuery API
 to pass the ARN of this computation and the time parameter value in epoch
 seconds (in UTC) to achieve this. Below is an example using the AWS CLI and you
 can follow the same pattern using any of the SDKs supported by Timestream for LiveAnalytics.
@@ -296,7 +296,7 @@ The previous six commands correspond to the scheduled computation invoked at
 Alternatively, you can use the computation
 MultiPT12HPerHrPerTimeseriesDPCountCatchUp triggered at 2021-12-01 13:00:00 for
 one execution to update the aggregates for the entire 12 hour time range. For
-instance, if arn_2 is the ARN for that computation, you can execute the
+instance, if arn\_2 is the ARN for that computation, you can execute the
 following command from CLI.
 
 ```
@@ -333,7 +333,7 @@ ExecuteScheduledQuery API.
   automatically manages the schedules so that you don't see these issues
   even if the subsequent invocations have overlapping time ranges.
 - noted earlier, you can trigger the invocations with any timestamp
-  value for @scheduled_runtime. So it is your responsibility to
+  value for @scheduled\_runtime. So it is your responsibility to
   appropriately set the values so the appropriate time ranges are updated
   in the derived table corresponding to the ranges where data was updated
   in the source table.

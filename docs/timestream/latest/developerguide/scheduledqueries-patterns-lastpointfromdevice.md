@@ -24,7 +24,7 @@ optimize the first point query as well if your application needs them.
 
 Below is an example query to find the last measurement emitted by the services
 in a specific deployment (for example, servers for a given micro-service within a given
-region, cell, silo, and availability_zone). In the example application, this
+region, cell, silo, and availability\_zone). In the example application, this
 query will return the last measurement for hundreds of servers. Also note that
 this query has an unbounded time predicate and looks for any data older than a
 given timestamp.

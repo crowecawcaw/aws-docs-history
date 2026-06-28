@@ -8,7 +8,7 @@ Timestream for LiveAnalytics supports the following conversion functions.
 ###### Topics
 
 - [cast()](#conversion-functions.cast "#conversion-functions.cast")
-- [try_cast()](#conversion-functions.try-cast "#conversion-functions.try-cast")
+- [try\_cast()](#conversion-functions.try-cast "#conversion-functions.try-cast")
 
 ## cast()
 
@@ -18,9 +18,9 @@ The syntax of the cast function to explicitly cast a value as a type is as follo
 cast(value AS type)
 ```
 
-## try_cast()
+## try\_cast()
 
-Timestream for LiveAnalytics also supports the try_cast function that is similar to cast but returns null if
+Timestream for LiveAnalytics also supports the try\_cast function that is similar to cast but returns null if
 cast fails. The syntax is as follows.
 
 ```

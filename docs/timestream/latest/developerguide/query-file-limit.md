@@ -13,11 +13,11 @@ Sets the maximum number of Parquet files that can be included in a single query'
 
 **Recommendations by Instance Size:**
 
-| Instance Size Recommendations | Instance Type | Memory (GiB) | Recommended Value |
-| ----------------------------- | ------------- | ------------ | ----------------- |
-| db.influx.medium              | 8             | **100–200**  |
-| db.influx.large               | 16            | **200–300**  |
-| db.influx.xlarge              | 32            | **300–432**  |
-| db.influx.2xlarge             | 64            | **432**      |
-| db.influx.4xlarge             | 128           | **432–600**  |
-| db.influx.8xlarge+            | 256+          | **600–1024** |
+Instance Size Recommendations| Instance Type | Memory (GiB) | Recommended Value |
+| --- | --- | --- |
+| db.influx.medium | 8 | **100–200** |
+| db.influx.large | 16 | **200–300** |
+| db.influx.xlarge | 32 | **300–432** |
+| db.influx.2xlarge | 64 | **432** |
+| db.influx.4xlarge | 128 | **432–600** |
+| db.influx.8xlarge+ | 256+ | **600–1024** |

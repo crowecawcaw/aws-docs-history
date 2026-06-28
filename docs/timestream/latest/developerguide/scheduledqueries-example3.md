@@ -193,16 +193,16 @@ FROM instances_above_threshold GROUP BY region, cell, silo, microservice_name, h
 
 The following is a scheduled query definition for the previous query. The
 schedule expression, it is configured to refresh every 30 mins, and refreshes
-the data for up to an hour back, again using the bin(@scheduled_runtime, 1h)
+the data for up to an hour back, again using the bin(@scheduled\_runtime, 1h)
 construct to get the full hour's events. Depending on your application's
 freshness requirements, you can configure it to refresh more or less frequently.
-By using WHERE time BETWEEN bin(@scheduled_runtime, 1h) - 1h AND
-bin(@scheduled_runtime, 1h) + 1h, we can ensure that even if you are refreshing
+By using WHERE time BETWEEN bin(@scheduled\_runtime, 1h) - 1h AND
+bin(@scheduled\_runtime, 1h) + 1h, we can ensure that even if you are refreshing
 once every 15 minutes, you will get the full hour's data for the current hour
 and the previous hour.
 
 Later on, you will see how the three panels use these aggregates written to
-table deployment_cpu_stats_per_hr to visualize the metrics that are relevant to
+table deployment\_cpu\_stats\_per\_hr to visualize the metrics that are relevant to
 the panel.
 
 ```
@@ -275,7 +275,7 @@ the panel.
 **High CPU utilization hosts**
 
 For the high utilization hosts, you will see how the different panels use the
-data from deployment_cpu_stats_per_hr to compute different aggregates necessary
+data from deployment\_cpu\_stats\_per\_hr to compute different aggregates necessary
 for the panels. For instance, this panels provides region-level information, so
 it reports aggregates grouped by region and microservice, without filtering any
 region or microservice.
@@ -316,7 +316,7 @@ ORDER BY percent_high_utilization_hosts desc, rank asc
 **Drill down into a microservice to find high CPU usage
 deploymentss**
 
-This next example again uses the deployment_cpu_stats_per_hr derived table,
+This next example again uses the deployment\_cpu\_stats\_per\_hr derived table,
 but now applies a filter for a specific microservice (demeter in this example,
 since it reported high utilization hosts in the aggregate dashboard). This panel
 tracks the percentage of high CPU utilization hosts over time.

@@ -101,8 +101,8 @@ Use the following IAM policy as the role for the single-user Lambda function. Th
 
 Replace all items listed below in the IAM policy with values from your AWS account:
 
-- **{rotating_secret_arn}** — The ARN for the secret being rotated can be found in the Secrets Manager secret details.
-- **{db_instance_arn}** — The Timestream for InfluxDB instance ARN can be found on the Timestream for InfluxDB instance summary page.
+- **{rotating\_secret\_arn}** — The ARN for the secret being rotated can be found in the Secrets Manager secret details.
+- **{db\_instance\_arn}** — The Timestream for InfluxDB instance ARN can be found on the Timestream for InfluxDB instance summary page.
 
 JSON
 
@@ -155,9 +155,9 @@ Use the following IAM policy as the role for the multi-user Lambda function. The
 
 Replace all items listed below in the IAM policy with values from your AWS account:
 
-- **{rotating_secret_arn}** — The ARN for the secret being rotated can be found in the Secrets Manager secret details.
-- **{authentication_properties_admin_secret_arn}** — The Timestream for InfluxDB admin secret ARN can be found on the Timestream for InfluxDB instance summary page.
-- **{db_instance_arn}** — The Timestream for InfluxDB instance ARN can be found on the Timestream for InfluxDB instance summary page.
+- **{rotating\_secret\_arn}** — The ARN for the secret being rotated can be found in the Secrets Manager secret details.
+- **{authentication\_properties\_admin\_secret\_arn}** — The Timestream for InfluxDB admin secret ARN can be found on the Timestream for InfluxDB instance summary page.
+- **{db\_instance\_arn}** — The Timestream for InfluxDB instance ARN can be found on the Timestream for InfluxDB instance summary page.
 
 JSON
 

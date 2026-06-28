@@ -124,7 +124,7 @@ base table also match. Once you create the dashboards using the derived tables, 
 will notice the significantly faster load time and lower costs of using the derived
 tables compared to computing these aggregates from the raw data. Below is a snapshot
 of the dashboard using pre-computed data, and the query used to render this panel
-using pre-computed data stored in the table "derived"."host_count_pt1h". Note that
+using pre-computed data stored in the table "derived"."host\_count\_pt1h". Note that
 the structure of the query is very similar to the query that was used in the
 dashboard on raw data, except that is it using the derived table which already
 computes the distinct counts which this query is aggregating.

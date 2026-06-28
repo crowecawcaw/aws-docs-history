@@ -318,9 +318,9 @@ Migration performance depends on the resources available to the InfluxDB 3 node 
 
 **Single-measure record transformation**: The following is a single-measure record in Timestream for LiveAnalytics in the table `example_table`:
 
-| host  | region    | request_id    | measure_name | time                          | measure_value::double |
-| ----- | --------- | ------------- | ------------ | ----------------------------- | --------------------- |
-| host1 | us-west-2 | saio3242ovnfk | cpu_usage    | 2025-04-17 16:42:54.702394001 | 0.66                  |
+| host  | region    | request\_id   | measure\_name | time                          | measure\_value::double |
+| ----- | --------- | ------------- | ------------- | ----------------------------- | ---------------------- |
+| host1 | us-west-2 | saio3242ovnfk | cpu\_usage    | 2025-04-17 16:42:54.702394001 | 0.66                   |
 
 This record will be transformed to:
 
@@ -330,9 +330,9 @@ example_table,host=host1,region=us-west-2,request_id=saio3242ovnfk,measure_name=
 
 **Multi-measure record transformation**: The following is a multi-measure record in Timestream for LiveAnalytics in the table `example_table` with everything to the right of `time` being measures:
 
-| host  | region    | request_id    | measure_name | time                          | cpu_usage | memory_usage |
-| ----- | --------- | ------------- | ------------ | ----------------------------- | --------- | ------------ |
-| host1 | us-west-2 | saio3242ovnfk | metrics      | 2025-04-17 16:42:54.702394001 | 0.66      | 0.21         |
+| host  | region    | request\_id   | measure\_name | time                          | cpu\_usage | memory\_usage |
+| ----- | --------- | ------------- | ------------- | ----------------------------- | ---------- | ------------- |
+| host1 | us-west-2 | saio3242ovnfk | metrics       | 2025-04-17 16:42:54.702394001 | 0.66       | 0.21          |
 
 This record will be transformed to:
 
@@ -443,7 +443,7 @@ complex data pipelines.
 
 **Key features:**
 
-- Field name transformations: snake_case, remove spaces, alphanumeric only.
+- Field name transformations: snake\_case, remove spaces, alphanumeric only.
 - Unit conversions: Temperature, pressure, length, time units.
 - Custom string replacements with regex support.
 - Dry-run mode for testing without writing data.
@@ -489,7 +489,7 @@ and the time range covered.
 
 - Multiple aggregation functions: avg, sum, min, max, median, derivative.
 - Field-specific aggregations (different functions for different fields).
-- Metadata tracking (record_count, time_from, time_to).
+- Metadata tracking (record\_count, time\_from, time\_to).
 - HTTP API for on-demand downsampling with backfill.
 - Configurable batch sizes for large datasets.
 
@@ -609,8 +609,8 @@ influxdb3 create trigger \
 
 ```
 
-**Output:** Creates multiple tables (system_cpu,
-system_memory, system_disk_io, etc.) with detailed metrics for each subsystem.
+**Output:** Creates multiple tables (system\_cpu,
+system\_memory, system\_disk\_io, etc.) with detailed metrics for each subsystem.
 
 ## Common configuration patterns
 

@@ -765,7 +765,7 @@ metered by a query. The `bytesMetered` and `bytesScanned` values
 are cumulative and continuously updated while paging query results. You can use this
 information to understand the bytes scanned by an individual query and also use it to
 make certain decisions. For example, assuming that the query price is $0.01 per GB
-scanned, you may want to cancel queries that exceed $25 per query, or `X` GB.
+ scanned, you may want to cancel queries that exceed $25 per query, or `X` GB.
 The code snippet below shows how this can be done.
 
 ###### Note

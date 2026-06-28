@@ -7,46 +7,46 @@ data ingestion and single-digit millisecond query response times for real-time a
 
 Using the AWS Management Console:
 
-1.  Open the Amazon Timestream for InfluxDB console.
-2.  Choose **InfluxDB Databases** in the navigation pane.
-3.  Choose **Create InfluxDB 3 database.**
-4.  Select **InfluxDB 3** as your engine version.
-5.  Choose **Enterprise** edition for production workloads.
-6.  Configure cluster deployment:
+1. Open the Amazon Timestream for InfluxDB console.
+2. Choose **InfluxDB Databases** in the navigation pane.
+3. Choose **Create InfluxDB 3 database.**
+4. Select **InfluxDB 3** as your engine version.
+5. Choose **Enterprise** edition for production workloads.
+6. Configure cluster deployment:
 
-    1. Select either **1-node** (single node handling writer,
-       reader, and compactor roles), **3-node** configuration, or
-       a **multi-node cluster (up to 15 nodes)** using a custom
-       parameter group. For details on multi-node configurations, see
-       [Scaling a cluster](multi-node-scaling.md "multi-node-scaling.md").
+   1. Select either **1-node** (single node handling writer,
+      reader, and compactor roles), **3-node** configuration, or
+      a **multi-node cluster (up to 15 nodes)** using a custom
+      parameter group. For details on multi-node configurations, see
+      [Scaling a cluster](multi-node-scaling.md "multi-node-scaling.md").
 
-    ###### Note
+   ###### Note
 
-    Single node deployments use Single-AZ compute resources. In case of an issue, a new
-    compute resource must be initialized, resulting in longer remediation time 2. For multi-node deployments, the system configures:
+   Single node deployments use Single-AZ compute resources. In case of an issue, a new
+   compute resource must be initialized, resulting in longer remediation time 2. For multi-node deployments, the system configures:
 
         1. 1-4 writer/reader nodes for handling both write and read operations.
         2. 0-13 reader-only nodes dedicated to processing read queries.
         3. One dedicated compactor node for storage optimization (required for clusters with 3+ nodes).
 
-7.  Configure cluster-level settings:
+7. Configure cluster-level settings:
 
-    1. **Instance class**: Select the appropriate `db.influx`
-       instance size (applies to all nodes). Worth noting your bill will show
-       `db.influxIOIncluded` on your records.
-    2. **Parameter group**: Choose an existing parameter group or
-       create a new one for custom engine configuration.
-    3. **Network configuration**: Configure VPC, subnets, and security
-       groups (applies to all nodes).
+   1. **Instance class**: Select the appropriate `db.influx`
+      instance size (applies to all nodes). Worth noting your bill will show
+      `db.influxIOIncluded` on your records.
+   2. **Parameter group**: Choose an existing parameter group or
+      create a new one for custom engine configuration.
+   3. **Network configuration**: Configure VPC, subnets, and security
+      groups (applies to all nodes).
 
-    ###### Note
+   ###### Note
 
-    Shared VPCs are not currently supported for Timestream for InfluxDB 3. 4. **Public accessibility**: Choose whether the cluster endpoints
-    should be publicly accessible.
+   Shared VPCs are not currently supported for Timestream for InfluxDB 3. 4. **Public accessibility**: Choose whether the cluster endpoints
+   should be publicly accessible.
 
-8.  **Important:** If creating a private cluster, make sure you add the
-    [required S3 policies to create your Timestream for InfluxDB 3 cluster](s3-vpc-endpoint-private-clusters.md "s3-vpc-endpoint-private-clusters.md")
-9.  Review your configuration and choose **Create InfluxDB database**
+8. **Important:** If creating a private cluster, make sure you add the
+   [required S3 policies to create your Timestream for InfluxDB 3 cluster](s3-vpc-endpoint-private-clusters.md "s3-vpc-endpoint-private-clusters.md")
+9. Review your configuration and choose **Create InfluxDB database**
 
 Using the AWS CLI:
 

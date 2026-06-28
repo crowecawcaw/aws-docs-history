@@ -56,7 +56,7 @@ writes the output file objects. The S3 bucket should be owned by the same accoun
 same region. In addition to the query result set, Timestream for LiveAnalytics writes the manifest and metadata files to
 specified destination folder.
 
-PARTITIONED_BY clause
+PARTITIONED\_BY clause
 
 ```
 partitioned_by = ARRAY [col_name[,…] , (default: none)
@@ -117,12 +117,12 @@ encryption = [ '{ SSE_KMS | SSE_S3 }' ], default: SSE_S3
 
 The output files on Amazon S3 are encrypted using your selected encryption option. In
 addition to your data, the manifest and metadata files are also encrypted based on your selected
-encryption option. We currently support SSE_S3 and SSE_KMS encryption. SSE_S3 is a server-side
+encryption option. We currently support SSE\_S3 and SSE\_KMS encryption. SSE\_S3 is a server-side
 encryption with Amazon S3 encrypting the data using 256-bit advanced encryption standard (AES)
-encryption. SSE_KMS is a server-side encryption to encrypt data using customer-managed
+encryption. SSE\_KMS is a server-side encryption to encrypt data using customer-managed
 keys.
 
-KMS_KEY
+KMS\_KEY
 
 ```
 kms_key = '<string>'
@@ -132,7 +132,7 @@ KMS Key is a customer-defined key to encrypt exported query results. KMS Key is 
 managed by AWS Key Management Service (AWS KMS) and used to encrypt data files on Amazon
 S3.
 
-FIELD_DELIMITER
+FIELD\_DELIMITER
 
 ```
 field_delimiter ='<character>' , default: (,)
@@ -151,7 +151,7 @@ or the line break character (ASCII 10, hex 0A, text '\n') as the `FIELD_DELIMITE
 if you want to include headers in the CSV, since that will prevent many parsers from being
 able to parse the headers correctly in the resulting CSV output.
 
-ESCAPED_BY
+ESCAPED\_BY
 
 ```
 escaped_by = '<character>', default: (\)
@@ -179,7 +179,7 @@ it will be serialized as a JSON string. Following is an example.
 | Row        | `( x=23.0, y=hello )`                                                                                            | `"{\"x\":23.0,\"y\":\"hello\"}"`                                                                                                        |
 | Timeseries | `[ ( time=1970-01-01 00:00:00.000000010, value=100.0 ),( time=1970-01-01<br>00:00:00.000000012, value=120.0 ) ]` | `"[{\"time\":\"1970-01-01<br>00:00:00.000000010Z\",\"value\":100.0},{\"time\":\"1970-01-01<br>00:00:00.000000012Z\",\"value\":120.0}]"` |
 
-INCLUDE_HEADER
+INCLUDE\_HEADER
 
 ```
 include_header = 'true' , default: 'false'
@@ -199,7 +199,7 @@ character (ASCII 13, hex 0D, text '\r') or a line break character (ASCII 10, hex
 text '\n') as the `FIELD_DELIMITER`, since that will prevent many parsers
 from being able to parse the headers correctly in the resulting CSV output.
 
-MAX_FILE_SIZE
+MAX\_FILE\_SIZE
 
 ```
 max_file_size = 'X[MB|GB]' , default: '78GB'
@@ -314,7 +314,7 @@ number of records and size of the respective files, and the query metadata
 The metadata file provides additional information about the data set such as
 column name, column type, and schema. The metadata file is available in the
 provided S3 bucket with a file name:
-S3://bucket_name/<queryid>\_<UUID>\_metadata.json
+S3://bucket\_name/<queryid>\_<UUID>\_metadata.json
 
 Following is an example of a metadata file.
 

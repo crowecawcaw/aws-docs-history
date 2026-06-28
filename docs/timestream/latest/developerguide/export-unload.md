@@ -26,7 +26,7 @@ The key benefits of using the `UNLOAD` statement are as follows.
   easier to build data lakes.
 - **Secure and Cost effective** –
   `UNLOAD` statement provides the capability to export your data to
-  an S3 bucket in a compressed manner and to encrypt (SSE-KMS or SSE_S3) your data
+  an S3 bucket in a compressed manner and to encrypt (SSE-KMS or SSE\_S3) your data
   using customer managed keys, reducing the data storage costs and protecting
   against unauthorized access.
 - **Performance** – Using the

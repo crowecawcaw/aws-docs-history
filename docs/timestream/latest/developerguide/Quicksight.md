@@ -65,7 +65,7 @@ view the list of available options. Choose the one you want to use. 8. Choose **
      **Directly query your data**.
 
 10. Choose **Edit/Preview** and then **Save** to
-    save your dataset and close it.
+save your dataset and close it.
 
 ## Edit permissions for the QuickSight data source connection for Timestream
 
@@ -85,7 +85,7 @@ In QuickSight, data sources have two permissions levels: user and owner.
    to access Amazon Timestream, as described in [Accessing Amazon Timestream from QuickSight](#Quicksight.accessing "#Quicksight.accessing").
 2. Choose **Datasets** at left, then scroll down to find the
    data source card for your Timestream connection. For example `US Timestream
-Data`.
+ Data`.
 3. Choose the `Timestream` data source card.
 4. Choose `Share data source`. A list of current permissions displays.
 5. (Optional) To edit permissions, you can choose `user` or

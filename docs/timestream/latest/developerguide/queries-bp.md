@@ -12,15 +12,17 @@ Following are suggested best practices for queries with Amazon Timestream for Li
 - Where possible, push the data computation to Timestream for LiveAnalytics using the built-in aggregates
   and scalar functions in the SELECT clause and WHERE clause as applicable to
   improve query performance and reduce cost. See [SELECT](supported-sql-constructs.SELECT.md "supported-sql-constructs.SELECT.md") and [Aggregate functions](aggregate-functions.md "aggregate-functions.md").
-- Where possible, use approximate functions. E.g., use APPROX_DISTINCT instead
-  of COUNT(DISTINCT column_name) to optimize query performance and reduce the
+- Where possible, use approximate functions. E.g., use APPROX\_DISTINCT instead
+  of COUNT(DISTINCT column\_name) to optimize query performance and reduce the
   query cost. See [Aggregate functions](aggregate-functions.md "aggregate-functions.md").
 - Use a CASE expression to perform complex aggregations instead of selecting
   from the same table multiple times. See [The CASE statement](conditional-expressions.CASE.md "conditional-expressions.CASE.md").
 - Where possible, include a time range in the WHERE clause of your query. This
   optimizes query performance and costs. For example, if you only need the last
   one hour of data in your dataset, then include a time predicate such as time
-  > ago(1h). See [SELECT](supported-sql-constructs.SELECT.md "supported-sql-constructs.SELECT.md") and [Interval and duration](date-time-functions.md#date-time-functions-interval-duration "date-time-functions.md#date-time-functions-interval-duration").
+
+> ago(1h). See [SELECT](supported-sql-constructs.SELECT.md "supported-sql-constructs.SELECT.md") and [Interval and duration](date-time-functions.md#date-time-functions-interval-duration "date-time-functions.md#date-time-functions-interval-duration").
+
 - When a query accesses a subset of measures in a table, always include the
   measure names in the WHERE clause of the query.
 - Where possible, use the equality operator when comparing dimensions and

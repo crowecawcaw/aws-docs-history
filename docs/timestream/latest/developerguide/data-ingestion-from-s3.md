@@ -37,7 +37,7 @@ See the Prerequisites and Installation sections in the [transformation script’
 
 **Usage**
 
-To transform data stored in the bucket example_s3_bucket from the Timestream for LiveAnalytics table example_table in example_database, run the following command:
+To transform data stored in the bucket example\_s3\_bucket from the Timestream for LiveAnalytics table example\_table in example\_database, run the following command:
 
 ```
 python3 transform.py \
@@ -49,9 +49,9 @@ python3 transform.py \
 
 After the script is completed,
 
-- In Athena, the table example_database_example_table will be created, containing Timestream for LiveAnalytics data.
-- In Athena, the table lp_example_database_example_table will be created, containing Timestream for LiveAnalytics data transformed to line protocol points.
-- In the S3 bucket example_s3_bucket, within the path `example_database/example_table/unload-<%Y-%m-%d-%H:%M:%S>/line-protocol-output`, line protocol data will be stored.
+- In Athena, the table example\_database\_example\_table will be created, containing Timestream for LiveAnalytics data.
+- In Athena, the table lp\_example\_database\_example\_table will be created, containing Timestream for LiveAnalytics data transformed to line protocol points.
+- In the S3 bucket example\_s3\_bucket, within the path `example_database/example_table/unload-<%Y-%m-%d-%H:%M:%S>/line-protocol-output`, line protocol data will be stored.
   **Recommendations**
 
 Refer to the [transformation script’s README](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/tools/python/liveanalytics_migration_scripts/targets/timestream_for_influxdb/transform/README.md#prerequisites "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/tools/python/liveanalytics_migration_scripts/targets/timestream_for_influxdb/transform/README.md#prerequisites") for more details on the latest usage of the script and outputs are required for later steps of the migration, such as validation. If you excluded dimensions in order to improve cardinality, adjust the schema to reduce cardinality by using the `--dimensions-to-fields` argument to change particular dimensions to fields.

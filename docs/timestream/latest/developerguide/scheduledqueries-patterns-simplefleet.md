@@ -39,8 +39,8 @@ this time series for the region us-east-1.
 
 Below is an example query to compute this aggregate from the raw data. It
 filters the rows for the region us-east-1 and then computes the per minute sum
-by accounting for the 20 metrics (if measure_name is metrics) or 5 events (if
-measure_name is events). In this example, the graph illustration shows that the
+by accounting for the 20 metrics (if measure\_name is metrics) or 5 events (if
+measure\_name is events). In this example, the graph illustration shows that the
 number of metrics emitted vary between 1.5 Million to 6 Million per minute. When
 plotting this time series for several hours (past 12 hours in this figure), this
 query over the raw data analyzes hundreds of millions of rows.
@@ -75,11 +75,11 @@ such query, you can pre-compute the aggregate for each region and materialize
 the per-region aggregates in another Timestream for LiveAnalytics table.
 
 The query below provides an example of the corresponding pre-computation. As
-you can see, it is similar to the common table expression grouped_data used in
+you can see, it is similar to the common table expression grouped\_data used in
 the query on the raw data, except for two differences: 1) it does not use a
 region predicate, so that we can use one query to pre-compute for all regions;
 and 2) it uses a parameterized time predicate with a special parameter
-@scheduled_runtime which is explained in details below.
+@scheduled\_runtime which is explained in details below.
 
 ```
 SELECT region, bin(time, 1m) as minute,
@@ -149,16 +149,16 @@ the scheduled query.
 In the example, the ScheduleExpression cron(0/5 \* \* \* ? \*) implies that the
 query is executed once every 5 minutes at the 5th, 10th, 15th, .. minutes of
 every hour of every day. These timestamps when a specific instance of this query
-is triggered is what translates to the @scheduled_runtime parameter used in the
+is triggered is what translates to the @scheduled\_runtime parameter used in the
 query. For instance, consider the instance of this scheduled query executing on
-2021-12-01 00:00:00. For this instance, the @scheduled_runtime parameter is
+2021-12-01 00:00:00. For this instance, the @scheduled\_runtime parameter is
 initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
 Therefore, this specific instance will execute at timestamp 2021-12-01 00:00:00
 and will compute the per-minute aggregates from time range 2021-11-30 23:50:00
 to 2021-12-01 00:01:00. Similarly, the next instance of this query is triggered
 at timestamp 2021-12-01 00:05:00 and in that case, the query will compute
 per-minute aggregates from the time range 2021-11-30 23:55:00 to 2021-12-01
-00:06:00. Hence, the @scheduled_runtime parameter provides a scheduled query to
+00:06:00. Hence, the @scheduled\_runtime parameter provides a scheduled query to
 pre-compute the aggregates for the configured time ranges using the invocation
 time for the queries.
 
@@ -244,7 +244,7 @@ you can use the power and flexibility of Timestream for LiveAnalytics's SQL supp
 data from the source table with the historical aggregates from the derived table
 to form a merged view. This merged view uses the union semantics of SQL and
 non-overlapping time ranges from the source and the derived table. In the
-example below, we are using the "derived"."per_minute_aggs_pt5m" derived table.
+example below, we are using the "derived"."per\_minute\_aggs\_pt5m" derived table.
 Since the scheduled computation for that derived table refreshes once every 5
 minutes (per the schedule expression specification), this query below uses the
 most recent 15 minutes of data from the source table, and any data older than 15
@@ -307,7 +307,7 @@ results in your dashboard: having the scheduled computation refresh the
 aggregates more frequently. For instance, below is configuration of the same
 scheduled computation, except that it refreshes once every minute (note the
 schedule express cron(0/1 \* \* \* ? \*)). With this setup, the derived table
-per_minute_aggs_pt1m will have much more recent aggregates compared to the
+per\_minute\_aggs\_pt1m will have much more recent aggregates compared to the
 scenario where the computation specified a refresh schedule of once every 5
 minutes.
 
@@ -366,7 +366,7 @@ ORDER BY 1 desc
 ```
 
 Since the derived table has more recent aggregates, you can now directly query
-the derived table per_minute_aggs_pt1m to get fresher aggregates, as can be seen
+the derived table per\_minute\_aggs\_pt1m to get fresher aggregates, as can be seen
 from the previous query and the dashboard snapshot below.
 
 ![Time series graph showing numDatapoints metric with frequent spikes between 1-6 million from 23:00 to 10:00.](images/schedquery_aggregatefromrequently.png)
