@@ -222,16 +222,15 @@ Set the following parameters:
 - Set the `--lustre-configuration RootSquashConfiguration` options
   as follows:
 
-      + `RootSquash` – Set the colon-separated UID:GID values that specify
-       the user ID and group ID for the root user to use. You can specify any whole number in the range
-       of `0`–`4294967294` (0 is root) for each ID. To disable root
-       squash, specify `0:0` for the UID:GID values.
-      + `NoSquashNids` – Specify the Lustre Network Identifiers (NIDs)
-       of clients to which root squash doesn't apply. Use `[]` to remove all client NIDs,
-       which means there will be no exceptions to root squash.
-
-  This command specifies that root squash is enabled using `65534` as the value
-  for the root user's user ID and group ID.
+  - `RootSquash` – Set the colon-separated UID:GID values that specify
+    the user ID and group ID for the root user to use. You can specify any whole number in the range
+    of `0`–`4294967294` (0 is root) for each ID. To disable root
+    squash, specify `0:0` for the UID:GID values.
+  - `NoSquashNids` – Specify the Lustre Network Identifiers (NIDs)
+    of clients to which root squash doesn't apply. Use `[]` to remove all client NIDs,
+    which means there will be no exceptions to root squash.
+    This command specifies that root squash is enabled using `65534` as the value
+    for the root user's user ID and group ID.
 
 ```
 $ aws fsx update-file-system \

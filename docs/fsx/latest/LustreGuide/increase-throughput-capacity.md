@@ -20,16 +20,15 @@ the update.
 - To modify a file system's throughput capacity, use the [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") CLI command (or the equivalent
   [UpdateFileSystem](../APIReference/API_UpdateFileSystem.md "../APIReference/API_UpdateFileSystem.md") API operation). Set the following parameters:
 
-      + Set `--file-system-id` to the ID of the file system that you are
-       updating.
-      + Set `--lustre-configuration PerUnitStorageThroughput` to a value
-       of `50`, `100`, or `200` MBps/TiB for
-       Persistent 1 SSD file systems, or to a value of `125`,
-       `250`, `500`, or `1000` MBps/TiB for
-       Persistent 2 SSD file systems.
-
-  This command specifies that throughput capacity be set to 1000 MBps/TiB
-  for the file system.
+  - Set `--file-system-id` to the ID of the file system that you are
+    updating.
+  - Set `--lustre-configuration PerUnitStorageThroughput` to a value
+    of `50`, `100`, or `200` MBps/TiB for
+    Persistent 1 SSD file systems, or to a value of `125`,
+    `250`, `500`, or `1000` MBps/TiB for
+    Persistent 2 SSD file systems.
+    This command specifies that throughput capacity be set to 1000 MBps/TiB
+    for the file system.
 
 ```
 `aws fsx update-file-system \
@@ -56,18 +55,16 @@ the update.
 - To modify a file system's throughput capacity, use the [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") CLI command (or the equivalent
   [UpdateFileSystem](../APIReference/API_UpdateFileSystem.md "../APIReference/API_UpdateFileSystem.md") API operation). Set the following parameters:
 
-      + Set `--file-system-id` to the ID of the file system that you are
-       updating.
-      + If your data read cache is configured in proportional to throughput capacity
-       mode, set `--lustre-configuration ThroughputCapacity` to a throughput level
-       of increments of `4000` MBps, up to a maximum of `2000000` MBps.
+  - Set `--file-system-id` to the ID of the file system that you are
+    updating.
+  - If your data read cache is configured in proportional to throughput capacity
+    mode, set `--lustre-configuration ThroughputCapacity` to a throughput level
+    of increments of `4000` MBps, up to a maximum of `2000000` MBps.
 
-
-      If your data read cache is configured in user-provisioned mode, you also need to
-       use the `--lustre-configuration DataReadCacheConfiguration` property to specify
-       the data read cache. You need to maintain the same cache storage per server ratio and
-       specify the new SizeGiB, or the request will be rejected.
-
+  If your data read cache is configured in user-provisioned mode, you also need to
+  use the `--lustre-configuration DataReadCacheConfiguration` property to specify
+  the data read cache. You need to maintain the same cache storage per server ratio and
+  specify the new SizeGiB, or the request will be rejected.
   This command specifies that throughput capacity be set to 8000 MBps for a file system that
   uses a read cache configured in proportional to throughput capacity mode.
 

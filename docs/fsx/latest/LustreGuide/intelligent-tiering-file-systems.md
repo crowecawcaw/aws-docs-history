@@ -43,6 +43,6 @@ to the client as network I/O.
 The following table shows the performance that FSx for Lustre Intelligent-Tiering file systems are designed for.
 
 | Provisioned throughput capacity (MBps) | **Network throughput (MBps)** | **Network IOPS** | **In-memory cache storage (GB)** | **Maximum SSD cache disk throughput (MBps)** | **Maximum SSD cache disk IOPS** |
-| -------------------------------------- | ----------------------------- | ---------------- | -------------------------------- | -------------------------------------------- | ------------------------------- | ------------ | --------- |
+| -------------------------------------- | ----------------------------- | ---------------- | -------------------------------- | -------------------------------------------- | ------------------------------- |
 |                                        | **Baseline**                  | **Burst**        |                                  |                                              |                                 | **Baseline** | **Burst** |
 | Every 4000                             | 12500                         | ‐                | Hundreds of thousands            | 76.8                                         | 4000                            | 160000       | ‐         |

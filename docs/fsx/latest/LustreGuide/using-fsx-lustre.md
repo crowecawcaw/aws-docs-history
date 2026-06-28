@@ -84,22 +84,22 @@ have more file servers and more disks, the probabilities of failure are increase
 Each FSx for Lustre file system requires one IP address for each metadata server (MDS) and
 one IP address for each storage server (OSS).
 
-| File systems using SSD or HDD storage class | File System Type    | Throughput, MBps/TiB | Storage per OSS |
-| ------------------------------------------- | ------------------- | -------------------- | --------------- |
-| Persistent 2 EFA\*                          | 125                 | 38.4 TiB per OSS     |
-| 250                                         | 19.2 TiB per OSS    |
-| 500                                         | 9.6 TiB per OSS     |
-| 1000                                        | 4.8 TiB per OSS     |
-| Persistent 2 non-EFA\*                      | 125, 250, 500, 1000 | 2.4 TiB per OSS      |
-| Persistent 1 SSD                            | 50, 100, 200        | 2.4 TiB per OSS      |
-| Persistent HDD                              | 12                  | 6 TiB per OSS        |
-| 40                                          | 1.8 TiB per OSS     |
-| Scratch 2                                   | 200                 | 2.4 TiB per OSS      |
-| Scratch 1                                   | 200                 | 3.6 TiB per OSS      |
+File systems using SSD or HDD storage class| File System Type | Throughput, MBps/TiB | Storage per OSS |
+| --- | --- | --- |
+| Persistent 2 EFA\* | 125 | 38.4 TiB per OSS |
+| 250 | 19.2 TiB per OSS |
+| 500 | 9.6 TiB per OSS |
+| 1000 | 4.8 TiB per OSS |
+| Persistent 2 non-EFA\* | 125, 250, 500, 1000 | 2.4 TiB per OSS |
+| Persistent 1 SSD | 50, 100, 200 | 2.4 TiB per OSS |
+| Persistent HDD | 12 | 6 TiB per OSS |
+| 40 | 1.8 TiB per OSS |
+| Scratch 2 | 200 | 2.4 TiB per OSS |
+| Scratch 1 | 200 | 3.6 TiB per OSS |
 
-| File systems using Intelligent-Tiering storage class | File System Type  | Throughput per OSS |
-| ---------------------------------------------------- | ----------------- | ------------------ |
-| Intelligent-Tiering\*                                | 4000 MBps per OSS |
+File systems using Intelligent-Tiering storage class| File System Type | Throughput per OSS |
+| --- | --- |
+| Intelligent-Tiering\* | 4000 MBps per OSS |
 
 ###### Note
 

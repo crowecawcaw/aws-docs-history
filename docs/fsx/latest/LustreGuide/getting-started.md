@@ -89,102 +89,103 @@ use up to 256 Unicode letters, white space, and numbers plus the special charact
      shorter-term processing of data. With SSD storage, you are billed for the amount of storage
      that you provision.
 
-6.  Choose the amount of throughput for your file system. You pay for the amount of throughput
-    that you provision.
+6. Choose the amount of throughput for your file system. You pay for the amount of throughput
+that you provision.
 
-    - For Persistent SSD storage, choose a
-      **Throughput per unit of storage** value.
-      _Throughput per unit of storage_ is the amount of read and write
-      throughput for each 1 tebibyte (TiB) of storage provisioned.
-    - For Scratch SSD storage, choose a
-      **Throughput per unit of storage** value.
-    - For Intelligent-Tiering storage, choose
-      a **Throughput capacity** value.
+    * For Persistent SSD storage, choose a
+     **Throughput per unit of storage** value.
+     *Throughput per unit of storage* is the amount of read and write
+     throughput for each 1 tebibyte (TiB) of storage provisioned.
+    * For Scratch SSD storage, choose a
+     **Throughput per unit of storage** value.
+    * For Intelligent-Tiering storage, choose
+     a **Throughput capacity** value.
 
-7.  For **Storage capacity** (SSD storage class only), set the amount of storage capacity
-    for your file system, in TB:
+7. For **Storage capacity** (SSD storage class only), set the amount of storage capacity
+for your file system, in TB:
 
-        * For a *Persistent, SSD* deployment type, set this to a
-         value of 1.2 TiB, 2.4 TiB, or increments of 2.4 TiB.
-        * For an *EFA-enabled, Persistent, SSD* deployment type,
-         set this value in increments of 4.8 TiB, 9.6 TiB, 19.2 TiB, and 38.4 TiB for 1000, 500, 250, and
-         125 MBps/TiB throughput tiers, respectively.
+    * For a *Persistent, SSD* deployment type, set this to a
+     value of 1.2 TiB, 2.4 TiB, or increments of 2.4 TiB.
+    * For an *EFA-enabled, Persistent, SSD* deployment type,
+     set this value in increments of 4.8 TiB, 9.6 TiB, 19.2 TiB, and 38.4 TiB for 1000, 500, 250, and
+     125 MBps/TiB throughput tiers, respectively.
 
-    You can increase the amount of storage capacity as needed after you create the file system. For more
-    information, see [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md").
+You can increase the amount of storage capacity as needed after you create the file system. For more
+information, see [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md"). 8. For the metadata configuration, choose one of the following options to provision
+the number of Metadata IOPS for your file system:
 
-8.  For the metadata configuration, choose one of the following options to provision
-    the number of Metadata IOPS for your file system:
-
-        * Choose **Automatic** (SSD storage class only) if you want
-         Amazon FSx for Lustre to automatically provision and scale the metadata IOPS on your file system
-         based on your file system's storage capacity.
-        * Choose **User-provisioned** if you want to specify the
-         number of Metadata IOPS to provision for your file system with SSD or
-         Intelligent-Tiering storage class. Valid values are as follows:
+    * Choose **Automatic** (SSD storage class only) if you want
+     Amazon FSx for Lustre to automatically provision and scale the metadata IOPS on your file system
+     based on your file system's storage capacity.
+    * Choose **User-provisioned** if you want to specify the
+     number of Metadata IOPS to provision for your file system with SSD or
+     Intelligent-Tiering storage class. Valid values are as follows:
 
 
 
 
-        	+ For SSD file systems, valid values are `1500`,
-        	 `3000`, `6000`, `12000`, and
-        	 multiples of `12000` up to a maximum of `192000`.
-        	+ For Intelligent-Tiering file systems, valid values are `6000`
-        	 and `12000`.
+    	+ For SSD file systems, valid values are `1500`,
+    	 `3000`, `6000`, `12000`, and
+    	 multiples of `12000` up to a maximum of `192000`.
+    	+ For Intelligent-Tiering file systems, valid values are `6000`
+    	 and `12000`.
 
-    For more information about Metadata IOPS, see
-    [Lustre metadata performance configuration](managing-metadata-performance.md#metadata-configuration "managing-metadata-performance.md#metadata-configuration").
+For more information about Metadata IOPS, see
+[Lustre metadata performance configuration](managing-metadata-performance.md#metadata-configuration "managing-metadata-performance.md#metadata-configuration"). 9. For **SSD read cache** (Intelligent-Tiering only),
+select either **Automatic (proportional to throughput capacity)** or
+**Custom (user-provisioned)**. With the Automatic option, Amazon FSx for Lustre automatically
+chooses a read cache size based on your provisioned throughput. If you know the approximate
+size of your active working dataset, you can select Custom to customize the size of the SSD
+read cache. For more information, see [Managing provisioned SSD read cache](managing-ssd-read-cache.md "managing-ssd-read-cache.md"). 10. For **Data compression type**, choose **NONE** to turn off
+data compression or choose **LZ4** to turn on data compression with the LZ4 algorithm.
+For more information, see [Lustre data compression](data-compression.md "data-compression.md"). 11. In the **Network & security** section, provide the following networking and
+security group information:
 
-9.  For **SSD read cache** (Intelligent-Tiering only),
-    select either **Automatic (proportional to throughput capacity)** or
-    **Custom (user-provisioned)**. With the Automatic option, Amazon FSx for Lustre automatically
-    chooses a read cache size based on your provisioned throughput. If you know the approximate
-    size of your active working dataset, you can select Custom to customize the size of the SSD
-    read cache. For more information, see [Managing provisioned SSD read cache](managing-ssd-read-cache.md "managing-ssd-read-cache.md").
-10. For **Data compression type**, choose **NONE** to turn off
-    data compression or choose **LZ4** to turn on data compression with the LZ4 algorithm.
-    For more information, see [Lustre data compression](data-compression.md "data-compression.md").
-11. In the **Network & security** section, provide the following networking and
-    security group information:
+    * For **Virtual Private Cloud (VPC)**, choose the VPC that you want to
+     associate with your file system. For this getting started exercise, choose the same VPC that you chose
+     for your Amazon EC2 instance.
+    * For **VPC security groups**, the ID for the default security group
+     for your VPC should be already added.
 
-    - For **Virtual Private Cloud (VPC)**, choose the VPC that you want to
-      associate with your file system. For this getting started exercise, choose the same VPC that you chose
-      for your Amazon EC2 instance.
-    - For **VPC security groups**, the ID for the default security group
-      for your VPC should be already added.
 
     If you're not using the default security group, make sure that the following
-    inbound rule is added to the security group you're using for this getting started exercise.
+     inbound rule is added to the security group you're using for this getting started exercise.
 
-    | Type    | Protocol | Port range | Source                                 | Description                 |
-    | ------- | -------- | ---------- | -------------------------------------- | --------------------------- |
-    | All TCP | TCP      | 0-65535    | Custom `the_ID_of_this_security_group` | Inbound Lustre traffic rule |
+
+
+
+    | Type | Protocol | Port range | Source | Description |
+    | --- | --- | --- | --- | --- |
+    | All TCP | TCP | 0-65535 | Custom ``the_ID_of_this_security_group`` | Inbound Lustre traffic rule |
+
 
     ###### Important
 
-        + Make sure that the security group you are using follows the
-         configuration instructions provided in [File system access control with Amazon VPC](limit-access-security-groups.md "limit-access-security-groups.md"). You must set up the security
-         group to allow inbound traffic on ports 988 and 1018-1023 from the security
-         group itself or the full subnet CIDR, which is required to allow the file system
-         hosts to communicate with each other.
-        + If you are creating an EFA-enabled file system, make sure you
-         specify an [EFA-enabled security group](limit-access-security-groups.md#efa-security-groups "limit-access-security-groups.md#efa-security-groups").
-    - For **Subnet**, choose any value from the list of available subnets.
+
+
+    	+ Make sure that the security group you are using follows the
+    	 configuration instructions provided in [File system access control with Amazon VPC](limit-access-security-groups.md "limit-access-security-groups.md"). You must set up the security
+    	 group to allow inbound traffic on ports 988 and 1018-1023 from the security
+    	 group itself or the full subnet CIDR, which is required to allow the file system
+    	 hosts to communicate with each other.
+    	+ If you are creating an EFA-enabled file system, make sure you
+    	 specify an [EFA-enabled security group](limit-access-security-groups.md#efa-security-groups "limit-access-security-groups.md#efa-security-groups").
+    * For **Subnet**, choose any value from the list of available subnets.
 
 12. For the **Encryption** section, the options available vary
-    depending upon which file system type you're creating:
+depending upon which file system type you're creating:
 
-    - For a persistent file system, you can choose an AWS Key Management Service (AWS KMS) encryption key to
-      encrypt the data on your file system at rest.
-    - For a scratch file system, data at rest is encrypted using keys managed by AWS.
-    - For scratch 2 and persistent file systems, data in transit is encrypted
-      automatically when the file system is accessed from a supported Amazon EC2 instance type.
-      For more information, see [Encrypting data in transit](encryption-in-transit-fsxl.md "encryption-in-transit-fsxl.md").
+    * For a persistent file system, you can choose an AWS Key Management Service (AWS KMS) encryption key to
+     encrypt the data on your file system at rest.
+    * For a scratch file system, data at rest is encrypted using keys managed by AWS.
+    * For scratch 2 and persistent file systems, data in transit is encrypted
+     automatically when the file system is accessed from a supported Amazon EC2 instance type.
+     For more information, see [Encrypting data in transit](encryption-in-transit-fsxl.md "encryption-in-transit-fsxl.md").
 
 13. For **Data Repository Import/Export _optional_** section,
-    linking your file system to Amazon S3 data repositories is disabled by default. For information
-    about enabling this option and creating a data repository association to an existing S3 bucket, see
-    [To link an S3 bucket while creating a file system (console)](create-linked-dra.md#export-path-lustre-console-dra-new "create-linked-dra.md#export-path-lustre-console-dra-new").
+linking your file system to Amazon S3 data repositories is disabled by default. For information
+about enabling this option and creating a data repository association to an existing S3 bucket, see
+[To link an S3 bucket while creating a file system (console)](create-linked-dra.md#export-path-lustre-console-dra-new "create-linked-dra.md#export-path-lustre-console-dra-new").
 
 ###### Important
 
@@ -196,28 +197,22 @@ use up to 256 Unicode letters, white space, and numbers plus the special charact
      repositories.
 
 14. For **Logging _optional_**, logging is enabled by default.
-    When enabled, failures and warnings for data repository activity on your file system are logged to Amazon CloudWatch Logs.
-    For information about configuring logging, see [Managing logging](cw-event-logging.md#manage-logging "cw-event-logging.md#manage-logging").
-15. In **Backup and maintenance _optional_**, you
-    can do the following.
+When enabled, failures and warnings for data repository activity on your file system are logged to Amazon CloudWatch Logs.
+For information about configuring logging, see [Managing logging](cw-event-logging.md#manage-logging "cw-event-logging.md#manage-logging"). 15. In **Backup and maintenance _optional_**, you
+can do the following.
 
-        * Disable the **Daily automatic backup**. This option is enabled
-         by default, unless you enabled **Data Repository Import/Export**.
-        * Set the start time for **Daily automatic backup window**.
-        * Set the **Automatic backup retention period**, from 1 - 35 days.
-        * Set the **Weekly maintenance window** start time, or keep it set to
-         the default **No preference**.
+    * Disable the **Daily automatic backup**. This option is enabled
+     by default, unless you enabled **Data Repository Import/Export**.
+    * Set the start time for **Daily automatic backup window**.
+    * Set the **Automatic backup retention period**, from 1 - 35 days.
+    * Set the **Weekly maintenance window** start time, or keep it set to
+     the default **No preference**.
 
-    For more information, see [Protecting your data with backups](using-backups-fsx.md "using-backups-fsx.md")
-    and [Amazon FSx for Lustre maintenance windows](maintenance-windows.md "maintenance-windows.md").
-
-16. For **Root Squash _optional_**, root squash
-    is disabled by default. For information about enabling and configuring root squash,
-    see [To enable root squash when creating a file system (console)](root-squash.md#create-root-squash-console "root-squash.md#create-root-squash-console").
-17. Create any tags that you want to apply to your file system.
-18. Choose **Next** to display the **Create file system summary** page.
-19. Review the settings for your Amazon FSx for Lustre file system, and choose **Create file
-    system**.
+For more information, see [Protecting your data with backups](using-backups-fsx.md "using-backups-fsx.md")
+and [Amazon FSx for Lustre maintenance windows](maintenance-windows.md "maintenance-windows.md"). 16. For **Root Squash _optional_**, root squash
+is disabled by default. For information about enabling and configuring root squash,
+see [To enable root squash when creating a file system (console)](root-squash.md#create-root-squash-console "root-squash.md#create-root-squash-console"). 17. Create any tags that you want to apply to your file system. 18. Choose **Next** to display the **Create file system summary** page. 19. Review the settings for your Amazon FSx for Lustre file system, and choose **Create file
+system**.
 
 Now that you've created your file system, note its fully qualified domain name and mount
 name for a later step. You can find the fully qualified domain name and mount name for a file
@@ -242,32 +237,27 @@ Before you can access your Amazon FSx for Lustre file system from your Amazon EC
 uname -r
 ```
 
-3.  Do one of the following:
+3. Do one of the following:
 
-        * If the command returns `6.1.79-99.167.amzn2023.x86_64` for x86-based EC2 instances,
-         or `6.1.79-99.167.amzn2023.aarch64` or higher for Graviton2-based EC2 instances,
-         download and install the Lustre client with the following command.
+   - If the command returns `6.1.79-99.167.amzn2023.x86_64` for x86-based EC2 instances,
+     or `6.1.79-99.167.amzn2023.aarch64` or higher for Graviton2-based EC2 instances,
+     download and install the Lustre client with the following command.
 
+   ```
+   sudo dnf install -y lustre-client
+   ```
+   - If the command returns a result less than `6.1.79-99.167.amzn2023.x86_64` for x86-based EC2 instances,
+     or less than `6.1.79-99.167.amzn2023.aarch64` for Graviton2-based EC2 instances, update the kernel and
+     reboot your Amazon EC2 instance by running the following command.
 
+   ```
+   sudo dnf -y update kernel && sudo reboot
+   ```
 
-        ```
-        sudo dnf install -y lustre-client
-        ```
-        * If the command returns a result less than `6.1.79-99.167.amzn2023.x86_64` for x86-based EC2 instances,
-         or less than `6.1.79-99.167.amzn2023.aarch64` for Graviton2-based EC2 instances, update the kernel and
-         reboot your Amazon EC2 instance by running the following command.
-
-
-
-        ```
-        sudo dnf -y update kernel && sudo reboot
-        ```
-
-        Confirm that the kernel has been updated using the **uname -r** command.
-         Then download and install the Lustre client as described above.
-
-    For information about installing the Lustre client on other Linux distributions,
-    see [Installing the Lustre client](install-lustre-client.md "install-lustre-client.md").
+   Confirm that the kernel has been updated using the **uname -r** command.
+   Then download and install the Lustre client as described above.
+   For information about installing the Lustre client on other Linux distributions,
+   see [Installing the Lustre client](install-lustre-client.md "install-lustre-client.md").
 
 ## Step 3: Mount the file system
 
@@ -324,8 +314,8 @@ This command mounts your file system with two options, `-o relatime` and
      `flock`.
 
 3. Verify that the mount command was successful by listing the contents of the directory
-   to which you mounted the file system `/mnt/fsx`, by using the following
-   command.
+to which you mounted the file system `/mnt/fsx`, by using the following
+command.
 
 ```
 `ls /mnt/fsx`

@@ -54,7 +54,7 @@ This command mounts your file system with two options, `-o relatime` and
      `flock`.
 
 4. Verify that the mount command was successful by listing the contents of the directory to which you mounted the file system, /mnt/fsx by using the following
-   command.
+command.
 
 ```
 `$` `ls /fsx`

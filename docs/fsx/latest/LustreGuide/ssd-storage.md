@@ -17,31 +17,31 @@ perform network data transfers.
 The following tables show performance that the FSx for Lustre deployment options using SSD and HDD
 storage classes are designed for.
 
-| File system performance for SSD storage options | Deployment Type | **Network throughput (MBps/TiB of storage<br>provisioned)** | **Network IOPS (IOPS/TiB of storage provisioned)**    | **Cache storage (GiB of RAM/TiB of storage provisioned)** | **Disk latencies per file operation (milliseconds, P50)** | **Disk throughput (MBps/TiB of storage or SSD cache<br>provisioned)** |
-| ----------------------------------------------- | --------------- | ----------------------------------------------------------- | ----------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------- | --------- |
-|                                                 | **Baseline**    | **Burst**                                                   |                                                       |                                                           |                                                           | **Baseline**                                                          | **Burst** |
-| SCRATCH_2                                       | 200             | 1300                                                        | Tens of thousands baselineHundreds of thousands burst | 6.7                                                       | Metadata: sub-ms<br>Data: sub-ms                          | 200 (read)<br>100 (write)                                             | ‐         |
-| PERSISTENT-125                                  | 320             | 1300                                                        | 3.4                                                   | 125                                                       | 500                                                       |
-| PERSISTENT-250                                  | 640             | 1300                                                        | 6.8                                                   | 250                                                       | 500                                                       |
-| PERSISTENT-500                                  | 1300            | ‐                                                           | 13.7                                                  | 500                                                       | ‐                                                         |
-| PERSISTENT-1000                                 | 2600            | ‐                                                           | 27.3                                                  | 1000                                                      | ‐                                                         |
+File system performance for SSD storage options| Deployment Type | **Network throughput (MBps/TiB of storage<br>provisioned)** | **Network IOPS (IOPS/TiB of storage provisioned)** | **Cache storage (GiB of RAM/TiB of storage provisioned)** | **Disk latencies per file operation (milliseconds, P50)** | **Disk throughput (MBps/TiB of storage or SSD cache<br>provisioned)** |
+| --- | --- | --- | --- | --- | --- |
+| | **Baseline** | **Burst** | | | | **Baseline** | **Burst** |
+| SCRATCH\_2 | 200 | 1300 | Tens of thousands baselineHundreds of thousands burst | 6.7 | Metadata: sub-ms<br>Data: sub-ms | 200 (read)<br>100 (write) | ‐ |
+| PERSISTENT-125 | 320 | 1300 | 3.4 | 125 | 500 |
+| PERSISTENT-250 | 640 | 1300 | 6.8 | 250 | 500 |
+| PERSISTENT-500 | 1300 | ‐ | 13.7 | 500 | ‐ |
+| PERSISTENT-1000 | 2600 | ‐ | 27.3 | 1000 | ‐ |
 
-| File system performance for HDD storage options | Deployment Type | **Network throughput (MBps/TiB of storage<br>or SSD cache provisioned)** | **Network IOPS (IOPS/TiB of storage provisioned)**        | **Cache storage (GiB of RAM/TiB of storage provisioned)** | **Disk latencies per file operation (milliseconds, P50)** | **Disk throughput (MBps/TiB of storage or SSD cache<br>provisioned)** |
-| ----------------------------------------------- | --------------- | ------------------------------------------------------------------------ | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------- |
-|                                                 | **Baseline**    | **Burst**                                                                |                                                           | **Baseline**                                              | **Burst**                                                 |
-| PERSISTENT-12                                   |
-| HDD storage                                     | 40              | 375\*                                                                    | Tens of thousands baseline<br>Hundreds of thousands burst | 0.4 memory                                                | Metadata: sub-ms<br>Data: single-digit ms                 | 12                                                                    | 80 (read)<br>50 (write)   |
-| SSD read cache                                  | 200             | 1,900                                                                    | 200 SSD cache                                             | Data: sub-ms                                              | 200                                                       | -                                                                     |
-| PERSISTENT-40                                   |
-| HDD storage                                     | 150             | 1,300\*                                                                  | Tens of thousands baseline<br>Hundreds of thousands burst | 1.5                                                       | Metadata: sub-ms<br>Data: single-digit ms                 | 40                                                                    | 250 (read)<br>150 (write) |
-| SSD read cache                                  | 750             | 6500                                                                     | 200 SSD cache                                             | Data: sub-ms                                              | 200                                                       | -                                                                     |
+File system performance for HDD storage options| Deployment Type | **Network throughput (MBps/TiB of storage<br>or SSD cache provisioned)** | **Network IOPS (IOPS/TiB of storage provisioned)** | **Cache storage (GiB of RAM/TiB of storage provisioned)** | **Disk latencies per file operation (milliseconds, P50)** | **Disk throughput (MBps/TiB of storage or SSD cache<br>provisioned)** |
+| --- | --- | --- | --- | --- | --- |
+| | **Baseline** | **Burst** | | **Baseline** | **Burst** |
+| PERSISTENT-12 |
+| HDD storage | 40 | 375\* | Tens of thousands baseline<br>Hundreds of thousands burst | 0.4 memory | Metadata: sub-ms<br>Data: single-digit ms | 12 | 80 (read)<br>50 (write) |
+| SSD read cache | 200 | 1,900 | 200 SSD cache | Data: sub-ms | 200 | - |
+| PERSISTENT-40 |
+| HDD storage | 150 | 1,300\* | Tens of thousands baseline<br>Hundreds of thousands burst | 1.5 | Metadata: sub-ms<br>Data: single-digit ms | 40 | 250 (read)<br>150 (write) |
+| SSD read cache | 750 | 6500 | 200 SSD cache | Data: sub-ms | 200 | - |
 
-| File system performance for previous generation SSD storage options | Deployment Type | **Network throughput (MBps per TiB of storage<br>provisioned)** | **Network IOPS (IOPS per TiB of storage provisioned)** | **Cache storage (GiB per TiB of storage provisioned)** | **Disk latencies per file operation (milliseconds, P50)** | **Disk throughput (MBps per TiB of storage or SSD cache<br>provisioned)** |
-| ------------------------------------------------------------------- | --------------- | --------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------------------- | --------- |
-|                                                                     | **Baseline**    | **Burst**                                                       |                                                        |                                                        |                                                           | **Baseline**                                                              | **Burst** |
-| PERSISTENT-50                                                       | 250             | 1,300\*                                                         | Tens of thousands baselineHundreds of thousands burst  | 2.2 RAM                                                | Metadata: sub-ms<br>Data: sub-ms                          | 50                                                                        | 240       |
-| PERSISTENT-100                                                      | 500             | 1,300\*                                                         | 4.4 RAM                                                | 100                                                    | 240                                                       |
-| PERSISTENT-200                                                      | 750             | 1,300\*                                                         | 8.8 RAM                                                | 200                                                    | 240                                                       |
+File system performance for previous generation SSD storage options| Deployment Type | **Network throughput (MBps per TiB of storage<br>provisioned)** | **Network IOPS (IOPS per TiB of storage provisioned)** | **Cache storage (GiB per TiB of storage provisioned)** | **Disk latencies per file operation (milliseconds, P50)** | **Disk throughput (MBps per TiB of storage or SSD cache<br>provisioned)** |
+| --- | --- | --- | --- | --- | --- |
+| | **Baseline** | **Burst** | | | | **Baseline** | **Burst** |
+| PERSISTENT-50 | 250 | 1,300\* | Tens of thousands baselineHundreds of thousands burst | 2.2 RAM | Metadata: sub-ms<br>Data: sub-ms | 50 | 240 |
+| PERSISTENT-100 | 500 | 1,300\* | 4.4 RAM | 100 | 240 |
+| PERSISTENT-200 | 750 | 1,300\* | 8.8 RAM | 200 | 240 |
 
 ###### Note
 

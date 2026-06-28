@@ -8,16 +8,16 @@ view the 10 most recent updates for each update type.
 
 You can view the following information:
 
-\***\*Update type\*\***
+****Update type****
 
 Supported types are **Storage capacity** and **Storage
 optimization**.
 
-\***\*Target value\*\***
+****Target value****
 
 The desired value to update the file system's storage capacity to.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the storage capacity updates. The possible values are as follows:
 
@@ -31,11 +31,11 @@ The current status of the storage capacity updates. The possible values are as f
 - **Failed** – The storage capacity increase failed. Choose the question
   mark (**?**) to see details on why the storage update failed.
 
-\***\*Progress %\*\***
+****Progress %****
 
 Displays the progress of the storage optimization process as percent complete.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update action request.
 

@@ -8,17 +8,17 @@ You can monitor metadata configuration updates in the **Updates** tab on the
 
 For metadata configuration updates, you can view the following information:
 
-\***\*Update type\*\***
+****Update type****
 
 Supported types are **Metadata IOPS** and
 **Metadata configuration mode**.
 
-\***\*Target value\*\***
+****Target value****
 
 The updated value for the file system's Metadata IOPS or
 Metadata configuration mode.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. The possible values are as follows:
 
@@ -29,7 +29,7 @@ The current status of the update. The possible values are as follows:
 - **Failed** – The update request failed. Choose the question
   mark (**?**) to see details on why the request failed.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update action request.
 
@@ -42,7 +42,7 @@ a `FILE_SYSTEM_UPDATE` `AdministrativeActions` is generated.
 
 The following example shows an excerpt of the response of a `describe-file-systems`
 CLI command. The file system has a pending administrative action to increase the Metadata IOPS
-to 96000 and the metadata configuration mode to USER_PROVISIONED.
+to 96000 and the metadata configuration mode to USER\_PROVISIONED.
 
 ```
 "AdministrativeActions": [

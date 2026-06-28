@@ -23,13 +23,12 @@ Lustre](http://wiki.lustre.org/Compiling_Lustre "http://wiki.lustre.org/Compilin
 uname -r
 ```
 
-3.  Review the system response and compare it to the following minimum kernel requirement for installing
-    the Lustre client on Amazon Linux 2023:
+3. Review the system response and compare it to the following minimum kernel requirement for installing
+   the Lustre client on Amazon Linux 2023:
 
-        * 6.12 kernel minimum requirement - 6.12\*
-        * 6.1 kernel minimum requirement - 6.1.79-99.167.amzn2023
-
-    If your EC2 instance meets the minimum kernel requirement, proceed to the step and install the Lustre client.
+   - 6.12 kernel minimum requirement - 6.12\*
+   - 6.1 kernel minimum requirement - 6.1.79-99.167.amzn2023
+     If your EC2 instance meets the minimum kernel requirement, proceed to the step and install the Lustre client.
 
 If the command returns a result less than the kernel minimum requirement, update
 the kernel and reboot your Amazon EC2 instance by running the following command.
@@ -53,14 +52,13 @@ sudo dnf install -y lustre-client
 uname -r
 ```
 
-3.  Review the system response and compare it to the following minimum kernel requirements for installing
-    the Lustre client on Amazon Linux 2:
+3. Review the system response and compare it to the following minimum kernel requirements for installing
+   the Lustre client on Amazon Linux 2:
 
-        * 5.10 kernel minimum requirement - 5.10.144-127.601.amzn2
-        * 5.4 kernel minimum requirement - 5.4.214-120.368.amzn2
-        * 4.14 kernel minimum requirement - 4.14.294-220.533.amzn2
-
-    If your EC2 instance meets the minimum kernel requirements, proceed to the step and install the Lustre client.
+   - 5.10 kernel minimum requirement - 5.10.144-127.601.amzn2
+   - 5.4 kernel minimum requirement - 5.4.214-120.368.amzn2
+   - 4.14 kernel minimum requirement - 4.14.294-220.533.amzn2
+     If your EC2 instance meets the minimum kernel requirements, proceed to the step and install the Lustre client.
 
 If the command returns a result less than the kernel minimum requirement, update
 the kernel and reboot your Amazon EC2 instance by running the following command.
@@ -86,7 +84,7 @@ sudo amazon-linux-extras install -y lustre2.10
 1. Open a terminal on your client.
 2. Determine which kernel is currently running on your compute instance by running
    the following command. The Lustre client requires Amazon Linux kernel `4.14, version
-104` or higher.
+ 104` or higher.
 
 ```
 uname -r

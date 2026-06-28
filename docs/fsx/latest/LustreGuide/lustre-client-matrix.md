@@ -4,7 +4,7 @@ We highly recommend using the Lustre version for your FSx for Lustre file system
 with the Linux kernel versions of your client instances.
 
 | Operating system  | OS version | Minimum kernel version | Maximum kernel version | Lustre client version | Lustre file system version |
-| ----------------- | ---------- | ---------------------- | ---------------------- | --------------------- | -------------------------- | -------- | -------- |
+| ----------------- | ---------- | ---------------------- | ---------------------- | --------------------- | -------------------------- |
 |                   |            |                        |                        |                       | **2.10**                   | **2.12** | **2.15** |
 | Amazon Linux 2023 | 6.18       | \*                     | \*                     | 2.15                  | no                         | yes      | yes      |
 |                   | 6.12       | \*                     | \*                     | 2.15                  | no                         | yes      | yes      |
@@ -17,7 +17,7 @@ with the Linux kernel versions of your client instances.
 |                   |            |                        | <4.14.294-220.533      | 2.10                  | yes                        | yes      | no       |
 
 | Operating system | OS version | Minimum kernel version | Maximum kernel version | Lustre client version | Lustre file system version |
-| ---------------- | ---------- | ---------------------- | ---------------------- | --------------------- | -------------------------- | -------- | -------- |
+| ---------------- | ---------- | ---------------------- | ---------------------- | --------------------- | -------------------------- |
 |                  |            |                        |                        |                       | **2.10**                   | **2.12** | **2.15** |
 | Ubuntu           | 24         | 6.14.0-1012            | 6.14.0\*               | 2.15                  | no                         | yes      | yes      |
 |                  |            | 6.8.0-1024             | 6.8.0\*                | 2.15                  | no                         | yes      | yes      |
@@ -34,7 +34,7 @@ The FSx for Lustre client is compatible with kernels from the standard RHEL Base
 from RHEL Extended Update Support (EUS) repositories are not supported.
 
 | Operating system        | OS version | Architecture | Minimum kernel version | Maximum kernel version | Lustre client version | Lustre file system version |
-| ----------------------- | ---------- | ------------ | ---------------------- | ---------------------- | --------------------- | -------------------------- | -------- | -------- |
+| ----------------------- | ---------- | ------------ | ---------------------- | ---------------------- | --------------------- | -------------------------- |
 |                         |            |              |                        |                        |                       | **2.10**                   | **2.12** | **2.15** |
 | RHEL/Rocky Linux        | 10.2       | Arm + x86    | 6.12.0-211.18.1        | 6.12.0-211\*           | 2.15                  | no                         | no       | yes      |
 |                         | 10.1       | Arm + x86    | 6.12.0-124.8.1         | 6.12.0-124\*           | 2.15                  | no                         | no       | yes      |

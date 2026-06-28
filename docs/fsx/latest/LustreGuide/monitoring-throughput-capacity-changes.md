@@ -10,15 +10,15 @@ console, the API, and the AWS CLI.
 
 For throughput capacity update actions, you can view the following information.
 
-\***\*Update type\*\***
+****Update type****
 
 Supported type is **Per unit storage throughput**.
 
-\***\*Target value\*\***
+****Target value****
 
 The desired value to change the file system's throughput per unit of storage to.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. For throughput capacity updates, the possible
 values are as follows:
@@ -38,7 +38,7 @@ values are as follows:
      Choose the question mark (**?**) to see details on why the
      throughput update failed.
 
-\***\*Request time\*\***
+****Request time****
 
 The time when Amazon FSx received the update request.
 

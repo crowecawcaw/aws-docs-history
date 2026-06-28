@@ -100,7 +100,7 @@ them for the needs of your file system. This solution uses the following default
 6. Choose **Create** to deploy the stack.
 
 You can view the status of the stack in the CloudFormation console in the **Status**
-column. You should see a status of **CREATE_COMPLETE** in about five
+column. You should see a status of **CREATE\_COMPLETE** in about five
 minutes.
 
 ### Additional options

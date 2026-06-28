@@ -36,19 +36,19 @@ security group ID as the source or destination for all EFA traffic rules.
 
 The following table lists the required rules for the file system security group.
 
-| Required rules for the file system security group | Type | Protocol | Port range                                       | Source/Destination |
-| ------------------------------------------------- | ---- | -------- | ------------------------------------------------ | ------------------ |
-| Inbound<br>• All traffic                          | All  | All      | File system security group ID (self-referencing) |
-| Inbound<br>• All traffic                          | All  | All      | Lustre client security group ID                  |
-| Outbound<br>• All traffic                         | All  | All      | File system security group ID (self-referencing) |
-| Outbound<br>• All traffic                         | All  | All      | Lustre client security group ID                  |
+Required rules for the file system security group| Type | Protocol | Port range | Source/Destination |
+| --- | --- | --- | --- |
+| Inbound<br>• All traffic | All | All | File system security group ID (self-referencing) |
+| Inbound<br>• All traffic | All | All | Lustre client security group ID |
+| Outbound<br>• All traffic | All | All | File system security group ID (self-referencing) |
+| Outbound<br>• All traffic | All | All | Lustre client security group ID |
 
 The following table lists the required rules for the Lustre client security group.
 
-| Required rules for the Lustre client security group | Type | Protocol | Port range                    | Source/Destination |
-| --------------------------------------------------- | ---- | -------- | ----------------------------- | ------------------ |
-| Inbound<br>• All traffic                            | All  | All      | File system security group ID |
-| Outbound<br>• All traffic                           | All  | All      | File system security group ID |
+Required rules for the Lustre client security group| Type | Protocol | Port range | Source/Destination |
+| --- | --- | --- | --- |
+| Inbound<br>• All traffic | All | All | File system security group ID |
+| Outbound<br>• All traffic | All | All | File system security group ID |
 
 ###### Note
 
@@ -89,12 +89,12 @@ Lustre traffic between your FSx for Lustre file servers.
    For **Actions**, choose **Edit inbound rules**.
 2. Add the following inbound rules.
 
-| Type            | Protocol | Port Range | Source                                                                                                                   | Description                                                                     |
-| --------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+| Type            | Protocol | Port Range | Source                                                                                                                  | Description                                                                     |
+| --------------- | -------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
 
 3. Choose **Save** to save and apply the new inbound rules.
 
@@ -110,12 +110,12 @@ file servers and Lustre clients, and between Lustre file servers.
    rules**.
 2. Add the following outbound rules.
 
-| Type            | Protocol | Port Range | Source                                                                                                                   | Description                                                                     |
-| --------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allow Lustre traffic between FSx for Lustre file servers                        |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security group associated with your Lustre<br>clients  | Allow Lustre traffic between FSx for Lustre file servers and<br>Lustre clients  |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+| Type            | Protocol | Port Range | Source                                                                                                                  | Description                                                                     |
+| --------------- | -------- | ---------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allow Lustre traffic between FSx for Lustre file servers                        |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security group associated with your Lustre<br>clients  | Allow Lustre traffic between FSx for Lustre file servers and<br>Lustre clients  |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group ID of the security group that you just created                    | Allows Lustre traffic between FSx for Lustre file servers                       |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your Lustre<br>clients | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
 
 3. Choose **Save** to save and apply the new outbound rules.
 
@@ -142,18 +142,18 @@ your security group to ensure that Lustre traffic can flow between your Lustre c
 
 Add the following inbound rules to the security groups applied to your Lustre clients.
 
-| Type            | Protocol | Port Range | Source                                                                                                                             | Description                                                                     |
-| --------------- | -------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients          | Allows Lustre traffic between Lustre clients                                    |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients          | Allows Lustre traffic between Lustre clients                                    |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+| Type            | Protocol | Port Range | Source                                                                                                                            | Description                                                                     |
+| --------------- | -------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients          | Allows Lustre traffic between Lustre clients                                    |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients          | Allows Lustre traffic between Lustre clients                                    |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
 
 Add the following outbound rules to the security groups applied to your Lustre clients.
 
-| Type            | Protocol | Port Range | Source                                                                                                                                | Description                                                                     |
-| --------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients             | Allows Lustre traffic between Lustre clients                                    |
-| Custom TCP rule | TCP      | 988        | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre<br>file systems | Allow Lustre traffic between FSx for Lustre file servers and<br>Lustre clients  |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients             | Allows Lustre traffic between Lustre clients                                    |
-| Custom TCP rule | TCP      | 1018-1023  | Choose \*_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre<br>file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
+| Type            | Protocol | Port Range | Source                                                                                                                               | Description                                                                     |
+| --------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients             | Allows Lustre traffic between Lustre clients                                    |
+| Custom TCP rule | TCP      | 988        | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre<br>file systems | Allow Lustre traffic between FSx for Lustre file servers and<br>Lustre clients  |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups that are applied to your Lustre clients             | Allows Lustre traffic between Lustre clients                                    |
+| Custom TCP rule | TCP      | 1018-1023  | Choose *_Custom_<br>• and enter the security<br>group IDs of the security groups associated with your FSx for Lustre<br>file systems | Allows Lustre traffic between FSx for Lustre file servers and<br>Lustre clients |
