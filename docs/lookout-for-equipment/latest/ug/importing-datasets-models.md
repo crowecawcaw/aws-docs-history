@@ -256,16 +256,16 @@ If an account attempts to access a particular model or version, and no IAM polic
 exists for either the model itself or any version of that model, then access is not
 allowed.
 
-For example, suppose you have a model called Pump_1. This model will serve as the
+For example, suppose you have a model called Pump\_1. This model will serve as the
 parent model.
 
 This model has two versions:
 
-- Pump_1 version 1
-- Pump_1 version 2
+- Pump\_1 version 1
+- Pump\_1 version 2
 
 Now suppose that we set a policy _only_ at the level of the parent
-model (Pump_1).
+model (Pump\_1).
 
 JSON
 
@@ -286,13 +286,13 @@ JSON
 
 ```
 
-This policy indicates that all versions under model Pump_1 can be imported. No
+This policy indicates that all versions under model Pump\_1 can be imported. No
 policies are specified at the level of the model _version_.
 Therefore, Lookout for Equipment will look at the permissions on the parent model level and apply them
 to all the versions.
 
 Now, let us suppose that you also set a policy at the model version level. In this
-case, the model version will be Pump_1 Version 2.
+case, the model version will be Pump\_1 Version 2.
 
 JSON
 
@@ -346,9 +346,9 @@ model.
 You can set three options with `InferenceDataImportStrategy` while calling
 the [ImportModelVersion](API_ImportModelVersion.md "API_ImportModelVersion.md") API:
 
-- **NO_IMPORT:** No data with regard to inference
+- **NO\_IMPORT:** No data with regard to inference
   will be imported
-- **ADD_WHEN_EMPTY:** Only when the target model
+- **ADD\_WHEN\_EMPTY:** Only when the target model
   version has no inference data associated with it, then the inference data will
   be imported.
 - **OVERWRITE:** Even if the target model version

@@ -15,15 +15,15 @@ by populating the existing dataset name in the columns
 `Current_dataset_name` and `New_dataset_name`. You must
 also set the `Source_dataset_arn` value to `None`.
 
-The script outputs an import results CSV file (_import_result_file\_{current_time}.csv_) that lists the following:
+The script outputs an import results CSV file (_import\_result\_file\_{current\_time}.csv_) that lists the following:
 
-- **Source_resource_arn** — The ARN of the source dataset or source model.
-- **Is_import_successful?** — Yes, if the resource import was successful. Otherwise, No.
+- **Source\_resource\_arn** — The ARN of the source dataset or source model.
+- **Is\_import\_successful?** — Yes, if the resource import was successful. Otherwise, No.
 - **type** — The type of the dataset (`dataset` or `model_version`).
-- **Source_resource_name** — The name of the source resource.
-- **New resource_name** — The new name for the resource in the target AWS account.
-- **Version_to_import** — The model version in the source AWS account that was identified for import.
-- **Failed_reason** — If the value of `Is_import_successful` is `No`, provides a reason for the failure.
+- **Source\_resource\_name** — The name of the source resource.
+- **New resource\_name** — The new name for the resource in the target AWS account.
+- **Version\_to\_import** — The model version in the source AWS account that was identified for import.
+- **Failed\_reason** — If the value of `Is_import_successful` is `No`, provides a reason for the failure.
 
 ## Script
 

@@ -67,8 +67,8 @@ target AWS account.
    - [AmazonLookoutEquipmentFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLookoutEquipmentFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonLookoutEquipmentFullAccess").
      Alternatively, grant permissions
      to call the following Lookout for Equipment operations: `ListModels,
-DescribeModelVersion,
-PutResourcePolicy,importModelVersion,ImportDataset`.
+  DescribeModelVersion,
+  PutResourcePolicy,importModelVersion,ImportDataset`.
 
 3. In the target AWS account that you want to bulk import resources into, repeat steps 1 and 2.
 
@@ -80,35 +80,33 @@ AWS account.
 
 ###### To get the resources from the source AWS account
 
-1.  In the source AWS account, open Jupyter Lab in the Amazon Sagemaker
-    notebook instance that you created in step 1 of [Creating the Amazon SageMaker AI notebook instances](#bulk-import-create-notebook-instance "#bulk-import-create-notebook-instance").
-2.  Copy each of the following scripts into separate cells within the
-    notebook.
+1. In the source AWS account, open Jupyter Lab in the Amazon Sagemaker
+   notebook instance that you created in step 1 of [Creating the Amazon SageMaker AI notebook instances](#bulk-import-create-notebook-instance "#bulk-import-create-notebook-instance").
+2. Copy each of the following scripts into separate cells within the
+   notebook.
 
-    - [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md")
-    - [Resource configuration script](bulk-import-resources-resource-configuration-script.md "bulk-import-resources-resource-configuration-script.md")
+   - [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md")
+   - [Resource configuration script](bulk-import-resources-resource-configuration-script.md "bulk-import-resources-resource-configuration-script.md")
 
-3.  Run the [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md"). The script prompts for the
-    following:
+3. Run the [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md"). The script prompts for the
+   following:
 
-        * The Amazon Web Services Region in which you want to run the script.
-        * The ID of the target AWS account to which you want to import the resources.
+   - The Amazon Web Services Region in which you want to run the script.
+   - The ID of the target AWS account to which you want to import the resources.
+     The script generates a CSV file
+     (_import\_input\_file\_{current\_time}.csv_) that you
+     use in the next step. If necessary you can make changes to the CSV
+     before continuing. For more information, see [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md")
 
-    The script generates a CSV file
-    (_import_input_file\_{current_time}.csv_) that you
-    use in the next step. If necessary you can make changes to the CSV
-    before continuing. For more information, see [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md")
+4. Run the [Resource configuration script](bulk-import-resources-resource-configuration-script.md "bulk-import-resources-resource-configuration-script.md").
+   The script prompts for the following information.
 
-4.  Run the [Resource configuration script](bulk-import-resources-resource-configuration-script.md "bulk-import-resources-resource-configuration-script.md").
-    The script prompts for the following information.
-
-        * The AWS region in which you want to run the script.
-        * Permission to update the existing policy, if the policy already
-         exists for the source resource Amazon Resource Name (ARN).
-        * The name and path of the csv file (*import\_input\_file\_{current\_time}.csv*) that you created in step 3.
-
-    For more information, see
-    [Resource configuration script](bulk-import-resources-resource-configuration-script.md "bulk-import-resources-resource-configuration-script.md").
+   - The AWS region in which you want to run the script.
+   - Permission to update the existing policy, if the policy already
+     exists for the source resource Amazon Resource Name (ARN).
+   - The name and path of the csv file (_import\_input\_file\_{current\_time}.csv_) that you created in step 3.
+     For more information, see
+     [Resource configuration script](bulk-import-resources-resource-configuration-script.md "bulk-import-resources-resource-configuration-script.md").
 
 ### Importing the resources to the target AWS account
 
@@ -120,14 +118,14 @@ AWS account.
 1. In the target AWS account, open Jupyter Lab in the Amazon SageMaker AI notebook
    instance that you created in step 3 of [Creating the Amazon SageMaker AI notebook instances](#bulk-import-create-notebook-instance "#bulk-import-create-notebook-instance").
 2. Copy the [Bulk import script](bulk-import-trigger-script.md "bulk-import-trigger-script.md") into a notebook cell.
-3. Copy the file _import_input_file\_{current_time}.csv_ from the source AWS
+3. Copy the file _import\_input\_file\_{current\_time}.csv_ from the source AWS
    account to the target AWS account, in the same location where this
    script is located in the jupyter lab.
 4. Run the [Bulk import script](bulk-import-trigger-script.md "bulk-import-trigger-script.md"). The script prompts for the following:
 
    - The Amazon Web Services Region in which you want to run the script.
-   - The name and path of the csv file (_import_input_file\_{current_time}.csv_) that you copied in step 3.
+   - The name and path of the csv file (_import\_input\_file\_{current\_time}.csv_) that you copied in step 3.
 
 5. After the script finishes, check the import results in the
-   CSV file ( _import_result_file\_{current_time}.csv)_ that the script creates.
+   CSV file ( _import\_result\_file\_{current\_time}.csv)_ that the script creates.
    For more information, see [Bulk import script](bulk-import-trigger-script.md "bulk-import-trigger-script.md").

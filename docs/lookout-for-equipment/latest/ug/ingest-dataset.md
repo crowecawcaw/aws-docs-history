@@ -65,28 +65,26 @@ However, organizing them by sensor, according to the same pattern, is also possi
 
 - **Option 1 (by filename):**
 
-      + The name of the asset is the complete name of the CSV file.
-      + All sensors from that asset are represented in that one CSV
-       file.
-      + The rest of the hierarchy of your Amazon S3 bucket doesn’t affect the
-       ingestion of data for this asset.
-      + You can place multiple asset files into one folder.
-      + There is one CSV file per asset.
-
-  This is a good option if you have a small set of files, each named after a
-  specific asset.
+  - The name of the asset is the complete name of the CSV file.
+  - All sensors from that asset are represented in that one CSV
+    file.
+  - The rest of the hierarchy of your Amazon S3 bucket doesn’t affect the
+    ingestion of data for this asset.
+  - You can place multiple asset files into one folder.
+  - There is one CSV file per asset.
+    This is a good option if you have a small set of files, each named after a
+    specific asset.
 
 - **Option 2 (by part of filename):**
 
-      + The name of the asset is part of the name of the CSV file.
-       (Specifically, it's the part of the filename that precedes the
-       delimiter.)
-      + The rest of the hierarchy of your Amazon S3 bucket doesn’t affect the
-       ingestion of data for this asset.
-      + There are multiple CSV files per asset.
-
-  This is a good option if you have to break up large files and give the smaller
-  files similar names, such as pump1_january.csv and pump1_february.csv.
+  - The name of the asset is part of the name of the CSV file.
+    (Specifically, it's the part of the filename that precedes the
+    delimiter.)
+  - The rest of the hierarchy of your Amazon S3 bucket doesn’t affect the
+    ingestion of data for this asset.
+  - There are multiple CSV files per asset.
+    This is a good option if you have to break up large files and give the smaller
+    files similar names, such as pump1\_january.csv and pump1\_february.csv.
 
 If you choose this option, then you must choose a delimiter. The delimiter
 indicates which character you are using, within the filename, to separate the
@@ -97,22 +95,19 @@ the console window.
 
 - **Option 3 (by folder name):**
 
-      + The name of the asset is the complete name of the folder containing
-       one or more CSV files.
-      + The hierarchy in Amazon S3 is as follows:
+  - The name of the asset is the complete name of the folder containing
+    one or more CSV files.
+  - The hierarchy in Amazon S3 is as follows:
 
+    - Inside the Amazon S3 bucket is the folder you select when you
+      specify the Amazon S3 location of your data source. Within that folder
+      is a folder named after the asset.
+    - Inside that folder are all the CSV files for that
+      asset.
 
-
-
-      	- Inside the Amazon S3 bucket is the folder you select when you
-      	 specify the Amazon S3 location of your data source. Within that folder
-      	 is a folder named after the asset.
-      	- Inside that folder are all the CSV files for that
-      	 asset.
-      + There can be multiple CSV files per asset.
-
-  This is a good option if you have many files with long or inconsistent names,
-  or a custom folder heirarchy that you want to retain.
+  - There can be multiple CSV files per asset.
+    This is a good option if you have many files with long or inconsistent names,
+    or a custom folder heirarchy that you want to retain.
 
 ## Uploading your data to Amazon S3
 

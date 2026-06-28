@@ -40,4 +40,4 @@ how the data from each sensor was weighted.
 
 The anomaly score is a value between 0 and 1 that indicates the intensity of the anomaly.
 
-The prediction reason can be ANOMALY_DETECTED, NO_ANOMALY_DETECTED or MACHINE_OFF.
+The prediction reason can be ANOMALY\_DETECTED, NO\_ANOMALY\_DETECTED or MACHINE\_OFF.

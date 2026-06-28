@@ -8,7 +8,7 @@ information,
 
 This script configures the resource policies to let the target AWS
 account bulk import the resources. By using the CSV file
-(_import_input_file\_{current_time}.csv_ ) that the [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md") creates, the script configures the resource policy for each dataset and model
+(_import\_input\_file\_{current\_time}.csv_ ) that the [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md") creates, the script configures the resource policy for each dataset and model
 version ARN. The script updates existing resource policies for source datasets and
 model version ARNs to grant permissions to the target AWS account, along with any
 existing conditions.

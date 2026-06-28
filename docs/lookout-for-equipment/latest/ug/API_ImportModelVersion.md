@@ -69,8 +69,8 @@ Required: Yes
 Indicates how to import the accumulated inference data when a model version is imported.
 The possible values are as follows:
 
-- NO_IMPORT – Don't import the data.
-- ADD_WHEN_EMPTY – Only import the data from the source model if there is no
+- NO\_IMPORT – Don't import the data.
+- ADD\_WHEN\_EMPTY – Only import the data from the source model if there is no
   existing data in the target model.
 - OVERWRITE – Import the data from the source model and overwrite the
   existing data in the target model.

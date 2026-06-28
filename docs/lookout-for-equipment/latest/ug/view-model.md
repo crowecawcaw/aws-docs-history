@@ -137,10 +137,10 @@ The JSON fields are as follows:
 - **prediction** – The prediction that the
   model made for the event. `0` for a normal event. `1` for
   an abnormal event.
-- **prediction_reason** – The reason for the
+- **prediction\_reason** – The reason for the
   prediction. Valid values are `ANOMALY_DETECTED`,
   `NO_ANOMALY_DETECTED`, `MACHINE_OFF`.
-- **anomaly_score** – The anomaly score for
+- **anomaly\_score** – The anomaly score for
   the event. `anomaly_score` is a float value (0-1) where higher values
   indicate a higher likelihood that the event is abnormal.
 - **diagnostics** – diagnostics information

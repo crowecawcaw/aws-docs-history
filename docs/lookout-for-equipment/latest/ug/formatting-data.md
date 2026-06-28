@@ -35,13 +35,13 @@ You can store the data for your asset in one of the following ways:
 To store the data for your asset in one .csv file, you arrange the data in the
 following format.
 
-| _AssetData.csv_ | Timestamp | Sensor 1 | Sensor 2 |
-| --------------- | --------- | -------- | -------- |
-| 2020/1/1 0:00   | 2         | 12       |
-| 2020/1/1 0:05   | 3         | 11       |
-| 2020/1/1 0:10   | 5         | 10       |
-| 2020/1/1 0:15   | 3         | 9        |
-| 2020/1/1 0:20   | 4         | 12       |
+_AssetData.csv_| Timestamp | Sensor 1 | Sensor 2 |
+| --- | --- | --- |
+| 2020/1/1 0:00 | 2 | 12 |
+| 2020/1/1 0:05 | 3 | 11 |
+| 2020/1/1 0:10 | 5 | 10 |
+| 2020/1/1 0:15 | 3 | 9 |
+| 2020/1/1 0:20 | 4 | 12 |
 
 The following example shows the information from the preceding table as a .csv
 file.
@@ -65,13 +65,13 @@ another.
 If your are storing the data from each sensor in one .csv file, use the following
 table to see how to format the data.
 
-| _SensorData.csv_ | Timestamp | Sensor 3 |
-| ---------------- | --------- | -------- |
-| 2020/1/1 0:00    | 34        |
-| 2020/1/1 0:05    | 33        |
-| 2020/1/1 0:10    | 35        |
-| 2020/1/1 0:15    | 33        |
-| 2020/1/1 0:20    | 34        |
+_SensorData.csv_| Timestamp | Sensor 3 |
+| --- | --- |
+| 2020/1/1 0:00 | 34 |
+| 2020/1/1 0:05 | 33 |
+| 2020/1/1 0:10 | 35 |
+| 2020/1/1 0:15 | 33 |
+| 2020/1/1 0:20 | 34 |
 
 The following example shows the information from the preceding table as a .csv
 file.

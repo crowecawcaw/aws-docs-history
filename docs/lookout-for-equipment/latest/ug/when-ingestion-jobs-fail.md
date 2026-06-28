@@ -36,9 +36,9 @@ the data from specific sensors](reading-details-by-sensor.md "reading-details-by
 
 If you enabled CloudWatch Logs, then the logs may help you troubleshoot ingestion issues. The published logs may include the following error codes:
 
-- COMPLETE_SENSOR_DATA_MISSING : A sensor has no valid data assosicated with it. The log contains the sensor name and the associated component name.
-- DATA_MISSING_IN_COLUMN : Data associated with a sensor is invalid at a particular timestamp. Along with the sensor name and associated component name, the log contains details about the timestamp and the associated file path.
-- UNSUPPORTED_DATE_FORMATS : A value in the timestamp column is invalid. The log contains details about the timestamp string, the path of the file, and the associated component name.
-- INSUFFICIENT_SENSOR_DATA : A sensor is associated with less than [14 days](formatting-data.md#understanding-date-range "formatting-data.md#understanding-date-range") of data. The log contains the sensor name, the component name, and the date range of data (in days) associated with the sensor.
-- DUPLICATE_TIMESTAMPS : A value in the timestamp column of the data is a duplicate entry. The timestamp in question and the associated file path are part of the log.
-- FILES_NOT_INGESTED : A file was not ingested during the ingestion workflow. The log contains details about the file's path.
+- COMPLETE\_SENSOR\_DATA\_MISSING : A sensor has no valid data assosicated with it. The log contains the sensor name and the associated component name.
+- DATA\_MISSING\_IN\_COLUMN : Data associated with a sensor is invalid at a particular timestamp. Along with the sensor name and associated component name, the log contains details about the timestamp and the associated file path.
+- UNSUPPORTED\_DATE\_FORMATS : A value in the timestamp column is invalid. The log contains details about the timestamp string, the path of the file, and the associated component name.
+- INSUFFICIENT\_SENSOR\_DATA : A sensor is associated with less than [14 days](formatting-data.md#understanding-date-range "formatting-data.md#understanding-date-range") of data. The log contains the sensor name, the component name, and the date range of data (in days) associated with the sensor.
+- DUPLICATE\_TIMESTAMPS : A value in the timestamp column of the data is a duplicate entry. The timestamp in question and the associated file path are part of the log.
+- FILES\_NOT\_INGESTED : A file was not ingested during the ingestion workflow. The log contains details about the file's path.

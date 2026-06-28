@@ -13,7 +13,7 @@ therefore be updated periodically to reflect these changes.
 
 In the past, each training resulted in a separate model. When multiple models where
 related to the same asset, the only way to indicate that association was with the naming of
-the models (for example, pumpA_model1, pumpA_model2, and so forth), and you had to manage that association on your own.
+the models (for example, pumpA\_model1, pumpA\_model2, and so forth), and you had to manage that association on your own.
 
 With model versioning, you can store different versions of a model under the same model
 name, and then decide which model version you want to maintain as your [active version](#model-activation "#model-activation"). After you set your active version,
