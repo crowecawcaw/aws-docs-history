@@ -58,8 +58,8 @@ invokeModel
 
 For example, the service ARN for the [`GetQueueUrl`](../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.md "../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.md") API action would be the following:
 `arn:aws:scheduler:::aws-sdk:sqs:`getQueueURL``. Since the API action starts with the `get` prefix, EventBridge Scheduler does not support this target.
- Similairly, the Amazon MQ action [`ListBrokers`](../../../amazon-mq/latest/api-reference/brokers.md#ListBrokers "../../../amazon-mq/latest/api-reference/brokers.md#ListBrokers") is not supported as a
- target because the operation begins with the prefix `list`.
+Similairly, the Amazon MQ action [`ListBrokers`](../../../amazon-mq/latest/api-reference/brokers.md#ListBrokers "../../../amazon-mq/latest/api-reference/brokers.md#ListBrokers") is not supported as a
+target because the operation begins with the prefix `list`.
 
 ## Examples using the universal target
 

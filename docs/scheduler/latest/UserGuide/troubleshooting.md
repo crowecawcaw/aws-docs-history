@@ -238,45 +238,42 @@ Users sometimes encounter issues where schedules don't trigger at the expected t
 
 ### Troubleshooting steps
 
-1.  **Verify cron expressions**
+1. **Verify cron expressions**
 
-    - Ensure your cron expression is correctly formatted.
-    - Note that you can't specify both day-of-month and day-of-week fields simultaneously in a cron expression.
+   - Ensure your cron expression is correctly formatted.
+   - Note that you can't specify both day-of-month and day-of-week fields simultaneously in a cron expression.
 
-2.  **Time zone considerations**
+2. **Time zone considerations**
 
-        * Select your preferred time zone when creating the schedule.
-        * Understand how daylight saving time affects your schedule as this adjustment is based on UTC.
+   - Select your preferred time zone when creating the schedule.
+   - Understand how daylight saving time affects your schedule as this adjustment is based on UTC.
+     Example of daylight saving impact: If you configure a schedule to run at 7:00 AM GMT:
 
-    Example of daylight saving impact: If you configure a schedule to run at 7:00 AM GMT:
+   - During winter: The schedule runs at 7:00 AM GMT (as GMT = UTC)
+   - During summer: The schedule still runs at 7:00 AM UTC, which is now 6:00 AM GMT/BST
+     If you need the schedule to run at the same local time year-round, make sure to select the appropriate time zone when creating the schedule and how daylight savings can affect that time zone.
 
-        * During winter: The schedule runs at 7:00 AM GMT (as GMT = UTC)
-        * During summer: The schedule still runs at 7:00 AM UTC, which is now 6:00 AM GMT/BST
+3. **Understand flexible time windows**
 
-    If you need the schedule to run at the same local time year-round, make sure to select the appropriate time zone when creating the schedule and how daylight savings can affect that time zone.
+   - [Flexible time windows](managing-schedule-flexible-time-windows.md "managing-schedule-flexible-time-windows.md") allow EventBridge Scheduler to optimize invocations.
+   - The schedule might not trigger exactly at the start of the window.
+   - Monitor the actual invocation times to understand the behavior.
 
-3.  **Understand flexible time windows**
+4. **Review rate and cron expressions**
 
-    - [Flexible time windows](managing-schedule-flexible-time-windows.md "managing-schedule-flexible-time-windows.md") allow EventBridge Scheduler to optimize invocations.
-    - The schedule might not trigger exactly at the start of the window.
-    - Monitor the actual invocation times to understand the behavior.
+   - Ensure rate expressions are correctly formatted (e.g., `rate(5 minutes)`, `rate(1 hour)`).
+   - For both rate and cron expressions, be aware that schedule invocations are not clamped to the 0th second of a minute.
+   - Schedules may trigger within the minute specified, but not necessarily at the exact start of the minute.
+     For example:
 
-4.  **Review rate and cron expressions**
+   - A schedule with `rate(1 hour)` might run at 2:00:45 PM, 3:00:32 PM, 4:00:18 PM, etc.
+   - A cron schedule set for `0 * * * ? *` (every hour) might run at 2:00:15 PM, 3:00:07 PM, 4:00:52 PM, etc.
 
-        * Ensure rate expressions are correctly formatted (e.g., `rate(5 minutes)`, `rate(1 hour)`).
-        * For both rate and cron expressions, be aware that schedule invocations are not clamped to the 0th second of a minute.
-        * Schedules may trigger within the minute specified, but not necessarily at the exact start of the minute.
+5. **Monitor CloudWatch metrics**
 
-    For example:
-
-        * A schedule with `rate(1 hour)` might run at 2:00:45 PM, 3:00:32 PM, 4:00:18 PM, etc.
-        * A cron schedule set for `0 * * * ? *` (every hour) might run at 2:00:15 PM, 3:00:07 PM, 4:00:52 PM, etc.
-
-5.  **Monitor CloudWatch metrics**
-
-    - Use the `InvocationAttemptCount` metric to verify if your schedule is triggering.
-    - Check `TargetErrorCount` if invocations are failing.
-    - If you have configured a Dead-Letter Queue, monitor `InvocationsSentToDeadLetterCount` to track failed invocations.
+   - Use the `InvocationAttemptCount` metric to verify if your schedule is triggering.
+   - Check `TargetErrorCount` if invocations are failing.
+   - If you have configured a Dead-Letter Queue, monitor `InvocationsSentToDeadLetterCount` to track failed invocations.
 
 ## Creating schedule patterns and cron expressions
 
@@ -378,8 +375,8 @@ message contains:
 - `ERROR_CODE`:
   `InvalidParameterValueException`
 - `ERROR_MESSAGE`: `The derived qualifier from the
-function name does not match the specified
-qualifier.`
+ function name does not match the specified
+ qualifier.`
 
 **Invalid function name**
 

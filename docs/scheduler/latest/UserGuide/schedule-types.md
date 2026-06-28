@@ -179,7 +179,7 @@ EventBridge Scheduler supports configuring cron-based and one-time schedules in 
 Internet Assigned Numbers Authority (IANA).
 
 With the AWS CLI, you can set the time zone in which you want EventBridge Scheduler to evaluate your schedule using the `--schedule-expression-timezone` parameter. For example, the following command
-creates a cron-based schedule that invokes a templated Amazon SQS `SendMessage` target in **America/New_York** every day at 8:30 a.m.
+creates a cron-based schedule that invokes a templated Amazon SQS `SendMessage` target in **America/New\_York** every day at 8:30 a.m.
 
 ```
 `$` `aws scheduler create-schedule --schedule-expression "cron(30 8 * * ? *)" --name schedule-in-est \
@@ -193,8 +193,8 @@ creates a cron-based schedule that invokes a templated Amazon SQS `SendMessage` 
 EventBridge Scheduler automatically adjusts your schedule for daylight saving time. When time shifts _forward_ in the Spring, if a cron expression falls on a non-existent date and time, your schedule invocation is skipped.
 When time shifts _backwards_ in the Fall, your schedule runs only once and does not repeat its invocation. The following invocations occur normally at the specified date and time.
 
-EventBridge Scheduler adjusts your schedule depending on the time zone you specify when you create the schedule. If you configure a schedule in **America/New_York**, your schedule adjusts when
-the time changes in that time zone, while a schedule in **America/Los_Angeles** is adjusted three hours later when the time changes on the west coast.
+EventBridge Scheduler adjusts your schedule depending on the time zone you specify when you create the schedule. If you configure a schedule in **America/New\_York**, your schedule adjusts when
+the time changes in that time zone, while a schedule in **America/Los\_Angeles** is adjusted three hours later when the time changes on the west coast.
 
 For rate-based schedules that use `days` as the unit, such as `rate(1 days)`, `days` represents a 24-hour duration on the clock. This means that when daylight savings time causes
 a day to shorten to 23 hours, or extend to 25 hours, EventBridge Scheduler still evaluates the rate expression 24 hours after the schedule's last invocation.
@@ -206,7 +206,7 @@ EventBridge Scheduler does not adjust your schedule. Daylight-savings time adjus
 
 ###### Example
 
-Consider a scenario where you create a schedule using the following cron expression in **America/Los_Angeles**: `cron(30 2 * * ? *)`.
+Consider a scenario where you create a schedule using the following cron expression in **America/Los\_Angeles**: `cron(30 2 * * ? *)`.
 This schedule runs every day at 2:30 a.m. in the specified time zone.
 
 - **Spring-forward** – When time shifts forward in the Spring from 1:59 a.m. to 3:00 a.m., EventBridge Scheduler skips the schedule invocation on that day, and resumes running the schedule normally
