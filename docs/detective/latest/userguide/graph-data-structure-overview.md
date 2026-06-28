@@ -7,7 +7,7 @@ It also defines how the source data is mapped to the behavior graph.
 
 The behavior graph data structure is made up of the following information elements.
 
-\***\*Entity\*\***
+****Entity****
 
 An entity represents an item extracted from the Detective source data.
 
@@ -24,7 +24,7 @@ instance, Detective tracks the type of instance and the total number of bytes pr
 Time series properties track activity over time. For example, for an EC2 instance, Detective
 tracks over time the unique ports that it used.
 
-\***\*Relationships\*\***
+****Relationships****
 
 A relationship represents activity occurring between individual entities. Relationships
 are also extracted from the Detective source data.

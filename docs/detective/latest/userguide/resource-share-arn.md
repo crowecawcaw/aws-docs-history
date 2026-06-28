@@ -238,7 +238,7 @@ JSON
 
    You can only use the IAM principals that you previously attached the
    IAM permissions to in step [`Step 2: Add the required IAM
-   permissions to your account]`.
+  permissions to your account]`.
    - **ResourceShareARN** – This field is pre-filled. Do not change the values in this field.
 
 4. **Permissions**

@@ -33,7 +33,7 @@ To enable selected organization accounts:
     1. Select each organization account that you want to enable.
     2. Choose **Enable accounts**.To enable all organization accounts, choose **Enable all organization
 
-accounts\*\*.
+accounts**.
 
 Detective API/AWS CLI
 You can use the Detective API or the AWS Command Line Interface to enable organization accounts as member

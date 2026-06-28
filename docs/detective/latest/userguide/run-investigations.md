@@ -8,19 +8,19 @@ ConsoleFollow these steps to run a Detective Investigation from the
 **Investigations page** using the Amazon Detective
 console.
 
-1.  Sign in to the AWS Management Console. Then open the Detective console at
-    [https://console.aws.amazon.com/detective/](https://console.aws.amazon.com/detective/ "https://console.aws.amazon.com/detective/").
-2.  In the navigation pane, choose **Investigations**.
-3.  In the **Investigations** page, choose **Run investigation** in the top right corner.
-4.  In the **Select resource** section, you have three ways to run an investigation. You can choose
-    to run the investigation for a resource recommended by Detective. You can
-    run the investigation for a specific resource. You can also investigate a resource from the Detective Search page.
+1. Sign in to the AWS Management Console. Then open the Detective console at
+   [https://console.aws.amazon.com/detective/](https://console.aws.amazon.com/detective/ "https://console.aws.amazon.com/detective/").
+2. In the navigation pane, choose **Investigations**.
+3. In the **Investigations** page, choose **Run investigation** in the top right corner.
+4. In the **Select resource** section, you have three ways to run an investigation. You can choose
+   to run the investigation for a resource recommended by Detective. You can
+   run the investigation for a specific resource. You can also investigate a resource from the Detective Search page.
 
-    1. `Choose a recommended resource` – Detective recommends resources based on its activity in findings and
-       finding groups. To run the investigation for a resource recommended by Detective, in the **Recommended resources** table, select a resource to
-       investigate.
+   1. `Choose a recommended resource` – Detective recommends resources based on its activity in findings and
+      finding groups. To run the investigation for a resource recommended by Detective, in the **Recommended resources** table, select a resource to
+      investigate.
 
-    The Recommended resources table provides the following details:
+   The Recommended resources table provides the following details:
 
         * **Resource ARN** – The Amazon Resource Name
          (ARN) of the AWS resource.
@@ -37,28 +37,30 @@ console.
          prioritized on top of the list.
         * **Resource type** – Identifies the type of
          resource. For example, an AWS user or AWS role.
-    2. `Specify an AWS role or user with an ARN` – You can select an AWS role or AWS user and run an investigation for the specific resource.
 
-    Follow these steps to investigate a specific resource type.
+   2. `Specify an AWS role or user with an ARN` – You can select an AWS role or AWS user and run an investigation for the specific resource.
+
+   Follow these steps to investigate a specific resource type.
 
         1. From the **Select resource type** drop-down list, choose AWS role or AWS user.
         2. Enter the **Resource ARN** of the IAM resource. For more details about Resource ARNs, see [Amazon Resource Names (ARNs)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") in the IAM User Guide.
-    3. `Find a resource to investigate from the Search page` – You can search all of your IAM resources from the Detective
-       **Search** page.
 
-    Follow these steps to investigate a resource from the Search page.
+   3. `Find a resource to investigate from the Search page` – You can search all of your IAM resources from the Detective
+   **Search** page.
+
+   Follow these steps to investigate a resource from the Search page.
 
         1. In the navigation pane, choose **Search**.
         2. In the Search page, search for an IAM resource.
         3. Navigate to the profile page of the resource and run investigation from there.
 
-5.  In the **Investigation scope time** section, choose the
-    **Scope time** for the investigation to assess the selected
-    resource's activity. You can select a **Start date** and
-    **Start time**; and **End date** and
-    **End time** in UTC format. The selected scope time window
-    can be between at a minimum of 3 hours and a maximum of 30 days.
-6.  Choose **Run investigation**.
+5. In the **Investigation scope time** section, choose the
+   **Scope time** for the investigation to assess the selected
+   resource's activity. You can select a **Start date** and
+   **Start time**; and **End date** and
+   **End time** in UTC format. The selected scope time window
+   can be between at a minimum of 3 hours and a maximum of 30 days.
+6. Choose **Run investigation**.
 
 APITo run an investigation programmatically, use the [StartInvestigation](../APIReference/API_StartInvestigation.md "../APIReference/API_StartInvestigation.md") operation of the Detective API. To run an investigation using the AWS Command Line Interface (AWS CLI) run the [start-investigation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/detective/start-investigation.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/detective/start-investigation.html") command.
 

@@ -105,12 +105,12 @@ Detective automatically selects the optimal AWS Region within your geography to 
 
 Detective securely routes your inference requests to available compute resources within the geographic area where the request originated, as shown in the following table.
 
-| Cross-region inference routing | Supported Detective geography              | Detective Regions                                                                               | Inference Regions |
-| ------------------------------ | ------------------------------------------ | ----------------------------------------------------------------------------------------------- | ----------------- |
-| United States                  | us-east-1                                  | us-east-1, us-east-2, us-west-1, us-west-2                                                      |
-| us-west-2                      | us-east-1, us-east-2, us-west-1, us-west-2 |
-| Europe                         | eu-central-1                               | eu-central-1, eu-central-2, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2, eu-west-3 |
-| Japan                          | ap-northeast-1                             | ap-northeast-1, ap-northeast-3                                                                  |
+Cross-region inference routing| Supported Detective geography | Detective Regions | Inference Regions |
+| --- | --- | --- |
+| United States | us-east-1 | us-east-1, us-east-2, us-west-1, us-west-2 |
+| us-west-2 | us-east-1, us-east-2, us-west-1, us-west-2 |
+| Europe | eu-central-1 | eu-central-1, eu-central-2, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2, eu-west-3 |
+| Japan | ap-northeast-1 | ap-northeast-1, ap-northeast-3 |
 
 ## Supported Regions
 

@@ -29,19 +29,18 @@ include:
   child group. You can trace the lineage for any group back to its parent groups.
   Groups can have the following relationships:
 
-      + **Child finding group** – A finding group created when a
-       finding involved in two other finding groups is involved in a new
-       finding. The parent groups of the finding are listed for any child
-       group.
-      + **Parent finding group** – A finding group is a parent
-       when a child group has been created from it. If a finding group is a
-       parent, the related children are listed with it. A parent group's status
-       becomes **Inactive** when it's merged into an
-       **Active** child group.
-
-  There are two information tabs that open profile panels. Using the
-  **Involved entities** and **Involved findings**
-  tabs, you can view further details about the group.
+  - **Child finding group** – A finding group created when a
+    finding involved in two other finding groups is involved in a new
+    finding. The parent groups of the finding are listed for any child
+    group.
+  - **Parent finding group** – A finding group is a parent
+    when a child group has been created from it. If a finding group is a
+    parent, the related children are listed with it. A parent group's status
+    becomes **Inactive** when it's merged into an
+    **Active** child group.
+    There are two information tabs that open profile panels. Using the
+    **Involved entities** and **Involved findings**
+    tabs, you can view further details about the group.
 
 Use **Run investigation** to generate an investigation report. The generated report details anomalous behavior that indicates compromise. .
 

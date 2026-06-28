@@ -3,7 +3,7 @@
 The following terms and concepts are important for understanding Amazon Detective and how it
 works.
 
-\***\*Administrator account\*\***
+****Administrator account****
 
 The AWS account that owns a behavior graph and that uses the behavior graph for
 investigation.
@@ -19,11 +19,11 @@ information, see [Managing organization accounts as Detective member accounts](a
 Administrator accounts can also view data usage for the behavior graph, and remove member
 accounts from the behavior graph.
 
-\***\*Autonomous System Organization (ASO)\*\***
+****Autonomous System Organization (ASO)****
 
 The titled organization which is assigned an autonomous system. This autonomous system is a heterogenous network or a set of networks using similar routing logic and policies.
 
-\***\*Behavior graph\*\***
+****Behavior graph****
 
 A linked set of data generated from incoming source data that is associated with one or
 more AWS accounts.
@@ -31,7 +31,7 @@ more AWS accounts.
 Each behavior graph uses the same structure of findings, entities, and
 relationships.
 
-\***\*Delegated administrator account (AWS Organizations)\*\***
+****Delegated administrator account (AWS Organizations)****
 
 In Organizations, the delegated administrator account for a service is able to manage the use of a
 service for the organization.
@@ -44,7 +44,7 @@ In Detective, self-delegation is allowed. An organization management account can
 their own account to be the delegated administrator of Detective but this would be registered or
 remembered only in the scope of Detective and not organizations.
 
-\***\*Detective administrator account\*\***
+****Detective administrator account****
 
 The account designated by the organization management account to be the administrator
 account for the organization behavior graph in a Region. For more information, see [Designating the Detective administrator for an organization](accounts-designate-admin.md "accounts-designate-admin.md").
@@ -55,7 +55,7 @@ their account.
 If the account is not the organization management account, then the Detective administrator
 account is also the delegated administrator account for Detective in Organizations.
 
-\***\*Detective source data\*\***
+****Detective source data****
 
 Processed, structured versions of information from the following types of feeds:
 
@@ -65,7 +65,7 @@ Processed, structured versions of information from the following types of feeds:
 Detective uses the Detective source data to populate the behavior graph. Detective also stores copies
 of the Detective source data to support its analytics.
 
-\***\*Entity\*\***
+****Entity****
 
 An item extracted from the ingested data.
 
@@ -79,17 +79,17 @@ For each entity, the source data is also used to populate entity properties. Pro
 values can be extracted directly from source records or aggregated across multiple
 records.
 
-\***\*Finding\*\***
+****Finding****
 
 A security issue detected by Amazon GuardDuty.
 
-\***\*Finding group\*\***
+****Finding group****
 
 A collection of related findings, entities, and evidence that may be related to the same
 event or security issue. Detective generates finding groups based on a built-in machine learning
 model.
 
-\***\*Detective evidence\*\***
+****Detective evidence****
 
 Detective identifies additional evidence related to a finding group based on data in your
 behavior graph collected within the last 45 days. This evidence is presented as a finding with
@@ -99,7 +99,7 @@ suspicious when viewed within a finding group. An example of this might be newly
 geolocations or API calls observed within the scope time of a finding. At this time, these
 findings are only viewable in Detective and not sent to Security Hub CSPM.
 
-\***\*Finding overview\*\***
+****Finding overview****
 
 A single page that provides a summary of information about a finding.
 
@@ -109,7 +109,7 @@ you can pivot to the profile for an entity.
 A finding overview also contains a details panel that contains the finding
 attributes.
 
-\***\*High-volume entity\*\***
+****High-volume entity****
 
 An entity that has connections to or from a large number of other entities during a time
 interval. For example, an EC2 instance might have connections from millions of IP addresses.
@@ -121,12 +121,12 @@ user.
 For more information, see [Viewing details for high-volume
 entities](high-degree-entities.md "high-degree-entities.md") in the _Amazon Detective User Guide_.
 
-\***\*Investigation\*\***
+****Investigation****
 
 The process of triaging suspicious or interesting activity, determining its scope, getting
 to its underlying source or cause, and then determining how to proceed.
 
-\***\*Member account\*\***
+****Member account****
 
 An AWS account that an administrator account invited to contribute data to a behavior
 graph. In the organization behavior graph, a member account can be an organization account that
@@ -143,7 +143,7 @@ graphs that they contribute data to.
 
 They have no other access to the behavior graph.
 
-\***\*Organization behavior graph\*\***
+****Organization behavior graph****
 
 The behavior graph that is owned by the Detective administrator account. The organization
 management account designates the Detective administrator account. For more information, see [Designating the Detective administrator for an organization](accounts-designate-admin.md "accounts-designate-admin.md").
@@ -155,7 +155,7 @@ organization behavior graph.
 The Detective administrator account can also invite other accounts to the organization
 behavior graph.
 
-\***\*Profile\*\***
+****Profile****
 
 A single page that provides a collection of data visualizations related to activity for an
 entity.
@@ -166,7 +166,7 @@ concern or a false positive.
 Profiles provide information to support an investigation into a finding or for a general
 hunt for suspicious activity.
 
-\***\*Profile panel\*\***
+****Profile panel****
 
 A single visualization on a profile. Each profile panel is intended to help answer a
 specific question or questions to assist an analyst in an investigation.
@@ -174,7 +174,7 @@ specific question or questions to assist an analyst in an investigation.
 Profile panels can contain key-value pairs, tables, timelines, bar charts, or geolocation
 charts.
 
-\***\*Relationship\*\***
+****Relationship****
 
 Activity that occurs between individual entities. Relationships are also extracted from
 the incoming source data.
@@ -183,7 +183,7 @@ Similar to an entity, a relationship has a type, which identifies the types of e
 involved and the direction of the connection. An example of a relationship type is an IP
 address connecting to an Amazon EC2 instance.
 
-\***\*Scope time\*\***
+****Scope time****
 
 The time window that is used to scope the data displayed on profiles.
 

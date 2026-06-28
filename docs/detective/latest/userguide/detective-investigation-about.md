@@ -8,7 +8,7 @@ Detective can start from a finding, a finding group, or an entity.
 
 Any Detective investigation process involves the following phases:
 
-\***\*Triage\*\***
+****Triage****
 
 The investigation process starts when you are notified about a suspected instance of
 malicious or high-risk activity. For example, you are assigned to look into findings or
@@ -21,7 +21,7 @@ entity.
 
 For true positive instances, you continue to the next phase.
 
-\***\*Scoping\*\***
+****Scoping****
 
 During the scoping phase, analysts determine the extent of the malicious or high-risk
 activity and the underlying cause.

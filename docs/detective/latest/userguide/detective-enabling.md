@@ -31,9 +31,8 @@ To add a tag, do the following:
     2. For **Key**, enter the name of the tag.
     3. For **Value**, enter the value of the tag.To remove a tag, choose the **Remove** option for that tag.
 
-6. Choose **Enable Amazon Detective**.
-7. After you enable Detective, you can invite member accounts to your behavior
-   graph.
+6. Choose **Enable Amazon Detective**. 7. After you enable Detective, you can invite member accounts to your behavior
+graph.
 
 To navigate to the **Account management** page, choose
 **Add members now**. For information about inviting member accounts,

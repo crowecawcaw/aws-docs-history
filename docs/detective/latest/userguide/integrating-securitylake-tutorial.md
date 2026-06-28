@@ -24,10 +24,10 @@ To consume logs and events from Amazon Security Lake, you must be a Security Lak
     * If you have already integrated Detective with Security Lake, to use the integration attach these (IAM) permissions to your IAM identity. For details, see the [Add the required IAM permissions to your account](securitylake-integration.md#iam-permissions "securitylake-integration.md#iam-permissions") section.
 
 4. [Accepting the Resource Share ARN invitation and enable the
-   integration](securitylake-integration.md#resource-share-arn "securitylake-integration.md#resource-share-arn")
-   Use the AWS CloudFormation template to set up the parameters required to create and manage
-   query access for Security Lake subscribers. For the detailed steps to create a stack, see
-   [Create a stack using the AWS CloudFormation template](securitylake-integration.md#cloud-formation-template "securitylake-integration.md#cloud-formation-template"). After you finish creating
-   the stack, enable the integration.
+integration](securitylake-integration.md#resource-share-arn "securitylake-integration.md#resource-share-arn")
+Use the AWS CloudFormation template to set up the parameters required to create and manage
+query access for Security Lake subscribers. For the detailed steps to create a stack, see
+[Create a stack using the AWS CloudFormation template](securitylake-integration.md#cloud-formation-template "securitylake-integration.md#cloud-formation-template"). After you finish creating
+the stack, enable the integration.
 
 For a demonstration of how to integrate Amazon Detective with Amazon Security Lake using the Detective console, watch the following video:

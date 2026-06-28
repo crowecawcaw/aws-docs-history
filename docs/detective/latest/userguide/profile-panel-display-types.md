@@ -15,7 +15,7 @@ Profile panel content can take one of the following forms.
 
 When viewing the content of a profile panel, be aware of the following items:
 
-\***\*Approximate count data warning\*\***
+****Approximate count data warning****
 
 This warning indicates that items with extremely low counts do not appear due to the
 volume of applicable data.
@@ -23,7 +23,7 @@ volume of applicable data.
 To ensure a completely accurate count, reduce the amount of data. The simplest way to do
 that is to reduce the length of the scope time. See [Managing the scope time](scope-time-managing.md "scope-time-managing.md").
 
-\***\*Rounding for geographic locations\*\***
+****Rounding for geographic locations****
 
 Detective rounds all latitude and longitude values to a single decimal point.
 
