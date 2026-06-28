@@ -163,7 +163,7 @@ following:
 - Set the `NODE_OPTIONS` environment variable in your Amplify application
   to the value
   `--max-old-space-size=`memory_size_in_mb``. For
-`memory_size_in_mb`, specify your desired heap memory size in
+  `memory_size_in_mb`, specify your desired heap memory size in
   megabytes.
 
 For instructions, see [Setting environment variables](setting-env-vars.md "setting-env-vars.md").

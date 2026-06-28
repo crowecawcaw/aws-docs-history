@@ -179,7 +179,7 @@ The following example uses regular expressions to set up a 200 rewrite for all f
 index.html, except for the file extensions specified in the regular expression.
 
 | Original address | Destination Address | Redirect Type | Country Code |
-| ---------------- | ------------------- | ------------- | ------------ | --- | --- | --- | --- | --- | ---- | ----- | --- | --- | ---- | ------------------ | ------------- | ----- | --- |
+| ---------------- | ------------------- | ------------- | ------------ |
 | `</^[^.]+$       | \.(?!(css           | gif           | ico          | jpg | js  | png | txt | svg | woff | woff2 | ttf | map | json | webp)$)([^.]+$)/>` | `/index.html` | `200` |     |
 
 JSON format

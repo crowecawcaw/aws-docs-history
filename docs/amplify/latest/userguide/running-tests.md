@@ -83,18 +83,18 @@ test:
 After the test configuration has been added to your `amplify.yml`
 build settings, the `test` step runs for every build, on every branch. If you
 want to globally disable tests from running, or only run tests for specific branches, you
-can use the USER_DISABLE_TESTS environment variable without modifying your
+can use the USER\_DISABLE\_TESTS environment variable without modifying your
 build settings.
 
 To **globally** disable tests for all branches, add the
-USER_DISABLE_TESTS environment variable with a value of `true`
+USER\_DISABLE\_TESTS environment variable with a value of `true`
 for all branches. The following screenshot, shows the **Environment variables** section in the
 Amplify console with tests disabled for all branches.
 
 ![The Environment variables section in the Amplify console.](images/amplify-disable-test-global.png)
 
 To disable tests for a specific branch, add the
-USER_DISABLE_TESTS environment variable with a value of `false` for all branches, and then
+USER\_DISABLE\_TESTS environment variable with a value of `false` for all branches, and then
 add an override for each branch you want to disable with a value of `true`. In the
 following screenshot, tests are disabled on the _main_ branch, and enabled for every other
 branch.

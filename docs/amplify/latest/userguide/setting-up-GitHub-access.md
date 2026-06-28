@@ -14,7 +14,7 @@ When you deploy a new app or migrate an existing app using the Amplify console, 
 automatically directed to the installation location for the Amplify GitHub App. To manually access the installation landing
 page for the app, open a web browser and navigate to the app by region. Use the format
 `https://github.com/apps/aws-amplify-`REGION``,
- replacing `REGION` with the region where you will deploy your Amplify
+replacing `REGION` with the region where you will deploy your Amplify
 app. For example, to install the Amplify GitHub App in the US West (Oregon) region, navigate to https://github.com/apps/aws-amplify-us-west-2.
 
 ###### Topics
@@ -148,7 +148,7 @@ installing your app in the US West (Oregon) region, specify
 6. On the **New personal access token** page, for
    **Note** enter a descriptive name for the token.
 7. In the **Select scopes** section, select
-   **admin:repo_hook**.
+   **admin:repo\_hook**.
 8. Choose **Generate token**.
 9. Copy and save the personal access token. You will need to provide it when you deploy
    an Amplify app with the CLI, CloudFormation, or the SDKs.

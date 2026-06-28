@@ -60,7 +60,7 @@ include all files.
 
 **cache**
 
-Specifies build-time dependencies such as the _node_modules_ folder. During the first build, paths provided here are
+Specifies build-time dependencies such as the _node\_modules_ folder. During the first build, paths provided here are
 cached. On subsequent builds, Amplify restores the cache to the same paths before it runs your
 commands.
 

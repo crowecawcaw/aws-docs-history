@@ -63,13 +63,11 @@ repository provider, then choose **Next**. 8. On the **Add repository branch** p
     3. Choose **Next**.
 
 9. On the **App settings** page, locate the **Build
-   settings** section. For **Build output directory** enter
-   `build`.
-10. You must also update the app's frontend build commands in the build
-    specification. To open the build specification, choose **Edit YML file**.
-11. In the `amplify.yml` file, locate the frontend build commands
-    section. Enter `- cd build/compute/default/` and `-
-npm i --production`.
+settings** section. For **Build output directory** enter
+`build`. 10. You must also update the app's frontend build commands in the build
+specification. To open the build specification, choose **Edit YML file**. 11. In the `amplify.yml` file, locate the frontend build commands
+section. Enter `- cd build/compute/default/` and `-
+ npm i --production`.
 
 Your build settings file should look like the following.
 

@@ -56,13 +56,11 @@ repository provider, then choose **Next**. 8. On the **Add repository branch** p
     3. Choose **Next**.
 
 9. On the **App settings** page, locate the **Build
-   settings** section. For **Build output directory** enter
-   `.amplify-hosting`.
-10. You must also update the app's frontend build commands in the build
-    specification. To open the build specification, choose **Edit YML file**.
-11. In the `amplify.yml` file, locate the frontend build commands
-    section. Enter `mv node_modules
-./.amplify-hosting/compute/default`
+settings** section. For **Build output directory** enter
+`.amplify-hosting`. 10. You must also update the app's frontend build commands in the build
+specification. To open the build specification, choose **Edit YML file**. 11. In the `amplify.yml` file, locate the frontend build commands
+section. Enter `mv node_modules
+ ./.amplify-hosting/compute/default`
 
 Your build settings file should look like the following.
 

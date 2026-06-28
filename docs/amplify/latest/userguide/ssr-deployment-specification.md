@@ -106,7 +106,7 @@ following rules.
   module can't reference any modules outside of the subdirectory. Note that frameworks
   can bundle their HTTP server in any way that they want. If the compute process can be
   initiated with the `node server.js` command, where `server.js
-is` is the name of the entry file, from within the subdirectory, Amplify
+ is` is the name of the entry file, from within the subdirectory, Amplify
   considers the directory structure to conform to the deployment specification.
 
 Amplify Hosting bundles and deploys all files inside the

@@ -20,9 +20,9 @@ manage backends.
    and choose **Roles** from the left navigation bar,
    then choose **Create role**.
 2. On the **Select trusted entity** page, choose **AWS
-   service**. For **Use case**, select \*\*Amplify
+   service**. For **Use case**, select **Amplify
 
-- Backend Deployment**, then choose **Next\*\*.
+- Backend Deployment**, then choose **Next**.
 
 3. On the **Add permissions** page, choose
    **Next**.

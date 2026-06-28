@@ -80,7 +80,7 @@ If you have turned on web previews for your app, but they aren't being created f
 new PRs, investigate whether one of the following is the cause of your issue.
 
 1. Check to see whether your app has reached the maximum `Branches per
-app` service quota. For more information about quotas, see [Amplify Hosting service quotas](quotas-chapter.md "quotas-chapter.md").
+ app` service quota. For more information about quotas, see [Amplify Hosting service quotas](quotas-chapter.md "quotas-chapter.md").
 
 To stay within the default quota of 50 branches per app, consider enabling
 auto branch deletion in your app. This will prevent you from accumulating

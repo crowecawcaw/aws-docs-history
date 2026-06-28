@@ -57,9 +57,8 @@ that you have imported into AWS Certificate Manager.
     	1. Choose **Custom SSL certificate**.
     	2. Select the certificate to use from the list.
 
-9. Choose **Add domain**.
-10. If you chose **Create hosted zone on Route 53** in step six, proceed
-    to step 15.
+9. Choose **Add domain**. 10. If you chose **Create hosted zone on Route 53** in step six, proceed
+to step 15.
 
 If you chose **Manual configuration**, in step six, you must
 update your DNS records with your third-party domain provider.
@@ -75,9 +74,8 @@ the console.
      this procedure.
 
 12. Go to your DNS provider's website, log in to your account, and locate the DNS
-    management settings for your domain. You will configure two CNAME records.
-13. Configure the first CNAME record to point your subdomain to the AWS validation
-    server.
+management settings for your domain. You will configure two CNAME records. 13. Configure the first CNAME record to point your subdomain to the AWS validation
+server.
 
 If the Amplify console displays a DNS record for verifying ownership of your
 subdomain such as **\_c3e2d7eaf1e656b73f46cd6980fdc0e.example.com**, enter only `_c3e2d7eaf1e656b73f46cd6980fdc0e` for the CNAME record subdomain
@@ -86,7 +84,7 @@ name.
 The following screenshot shows the location of the verification record to
 use.
 
-![The DNS records section in the Amplify console with the Hostname verification record circled.](images/amplify-customdomains-DNS-verification-1.png)
+![The DNS records section in the Amplify console with the Hostname verification record circled.](/images/amplify/latest/userguide/images/amplify-customdomains-DNS-verification-1.png)
 
 If the the Amplify console displays an ACM validation server record such as
 **\_cjhwou20vhu2exampleuw20vuyb2ovb9.j9s73ucn9vy.acm-validations.aws**,

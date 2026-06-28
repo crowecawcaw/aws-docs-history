@@ -105,6 +105,5 @@ a new role or use an existing one.
     	1. Choose **Use an existing role**.
     	2. In the service role list, select the role to use.
 
-7. Choose **Next**.
-8. On the **Review** page, choose **Save and
-   deploy**.
+7. Choose **Next**. 8. On the **Review** page, choose **Save and
+deploy**.

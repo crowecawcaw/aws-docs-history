@@ -48,10 +48,9 @@ For more information about installing and authorizing the GitHub App, see [Setti
     3. Choose **Next**.
 
 6. On the **Configure build settings** page, choose
-   **Next**.
-7. On the **Review** page, choose **Save and
-   deploy**. When the deployment is complete, you can view your app on
-   the `amplifyapp.com` default domain.
+**Next**. 7. On the **Review** page, choose **Save and
+deploy**. When the deployment is complete, you can view your app on
+the `amplifyapp.com` default domain.
 
 ###### Note
 

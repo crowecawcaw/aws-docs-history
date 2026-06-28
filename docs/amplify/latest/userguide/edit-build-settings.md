@@ -37,7 +37,7 @@ repository.
 ## Setting branch-specific build settings with scripting
 
 You can use bash shell scripting to set branch-specific build settings. For example, the
-following script uses the system environment variable _$AWS_BRANCH_ to run one set of commands if the branch name is _main_ and a different set of commands if the branch name
+following script uses the system environment variable _$AWS\_BRANCH_ to run one set of commands if the branch name is _main_ and a different set of commands if the branch name
 is _dev_.
 
 ```

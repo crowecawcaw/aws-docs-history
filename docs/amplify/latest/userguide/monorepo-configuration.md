@@ -28,7 +28,7 @@ application you declare in your monorepo build specification:
 
 The root, within the repository, that the application starts in. This key must
 exist, and have the same value as the `AMPLIFY_MONOREPO_APP_ROOT`
-environment variable. For instructions on setting this environment variable, see [Setting the AMPLIFY_MONOREPO_APP_ROOT environment variable](#setting-monorepo-environment-variable "#setting-monorepo-environment-variable").
+environment variable. For instructions on setting this environment variable, see [Setting the AMPLIFY\_MONOREPO\_APP\_ROOT environment variable](#setting-monorepo-environment-variable "#setting-monorepo-environment-variable").
 
 The following monorepo build specification example demonstrates how to declare multiple
 Amplify applications in the same repo. The two apps, `react-app`, and
@@ -174,7 +174,7 @@ applications:
     appRoot: packages/nextjs-app
 ```
 
-## Setting the AMPLIFY_MONOREPO_APP_ROOT environment variable
+## Setting the AMPLIFY\_MONOREPO\_APP\_ROOT environment variable
 
 When you deploy an app stored in a monorepo, the app's
 `AMPLIFY_MONOREPO_APP_ROOT` environment variable must have the same value as
@@ -202,7 +202,7 @@ Amplify or is deployed using AWS CloudFormation, you must manually set the
 `AMPLIFY_MONOREPO_APP_ROOT` environment variable in the **Environment
 variables** section in the Amplify console.
 
-### Setting the AMPLIFY_MONOREPO_APP_ROOT environment variable automatically during deployment
+### Setting the AMPLIFY\_MONOREPO\_APP\_ROOT environment variable automatically during deployment
 
 The following instructions demonstrate how to deploy a monorepo app with the Amplify
 console. Amplify automatically sets the `AMPLIFY_MONOREPO_APP_ROOT`
@@ -231,13 +231,13 @@ environment variable using the app's root folder that you specify in the console
 7. On the **Review** page, choose **Save and
    deploy**.
 
-### Setting the AMPLIFY_MONOREPO_APP_ROOT environment variable for an existing app
+### Setting the AMPLIFY\_MONOREPO\_APP\_ROOT environment variable for an existing app
 
 Use the following instructions to manually set the
 `AMPLIFY_MONOREPO_APP_ROOT` environment variable for an app that is already
 deployed to Amplify, or has been created using CloudFormation.
 
-###### To set the AMPLIFY_MONOREPO_APP_ROOT environment variable for an existing app
+###### To set the AMPLIFY\_MONOREPO\_APP\_ROOT environment variable for an existing app
 
 1. Sign in to the AWS Management Console and open the [Amplify console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/").
 2. Choose the name of the app to set the environment variable for.

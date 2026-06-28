@@ -239,19 +239,19 @@ perform.
 
 ###### To add a CAA record to trust an Amazon certificate authority
 
-1.  Configure a CAA record with your domain provider to trust at least one of
-    Amazon’s certificate authority domains. For more information about
-    configuring the CAA record, see [Certification
-    Authority Authorization (CAA) problems](../../../acm/latest/userguide/troubleshooting-caa.md "../../../acm/latest/userguide/troubleshooting-caa.md") in the
-    _AWS Certificate Manager User Guide_.
-2.  Use one of the following methods to update your SSL certificate:
+1. Configure a CAA record with your domain provider to trust at least one of
+   Amazon’s certificate authority domains. For more information about
+   configuring the CAA record, see [Certification
+   Authority Authorization (CAA) problems](../../../acm/latest/userguide/troubleshooting-caa.md "../../../acm/latest/userguide/troubleshooting-caa.md") in the
+   _AWS Certificate Manager User Guide_.
+2. Use one of the following methods to update your SSL certificate:
 
-    - Manually update using the Amplify console.
+   - Manually update using the Amplify console.
 
-    ###### Note
+   ###### Note
 
-    This method will cause down time for your custom
-    domain.
+   This method will cause down time for your custom
+   domain.
 
         1. Sign in to the AWS Management Console and open the [Amplify
          console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/").
@@ -277,7 +277,7 @@ perform.
         	+ [Adding a custom domain managed by Amazon Route 53](to-add-a-custom-domain-managed-by-amazon-route-53.md "to-add-a-custom-domain-managed-by-amazon-route-53.md").
         	+ [Adding a custom domain managed by a third-party DNS provider](to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md "to-add-a-custom-domain-managed-by-a-third-party-dns-provider.md").
         	+ [Updating DNS records for a domain managed by GoDaddy](to-add-a-custom-domain-managed-by-godaddy.md "to-add-a-custom-domain-managed-by-godaddy.md").
-    - Contact Support to have your SSL certificate reissued.
+   - Contact Support to have your SSL certificate reissued.
 
 ## Path components not supported in domain redirects
 

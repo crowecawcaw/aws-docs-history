@@ -76,16 +76,14 @@ Amplify GitHub App in your account:
     5. Choose **Save**
 
 3. After you enable previews for your repo, return to the Amplify console to enable
-   previews for specific branches. On the **Previews** page, select a
-   branch from the list and choose **Edit settings**.
-4. On the **Manage preview settings** page, turn on **Pull
-   request previews**. Then choose **Confirm**.
-5. For fullstack applications do one of the following:
+previews for specific branches. On the **Previews** page, select a
+branch from the list and choose **Edit settings**. 4. On the **Manage preview settings** page, turn on **Pull
+request previews**. Then choose **Confirm**. 5. For fullstack applications do one of the following:
 
-   - Choose, **Create new backend environment for every Pull
+    * Choose, **Create new backend environment for every Pull
      Request**. This option enables you to test changes without
      impacting production.
-   - Choose **Point all Pull Requests for this branch to an existing
+    * Choose **Point all Pull Requests for this branch to an existing
      environment**.
 
 6. Choose **Confirm**.

@@ -77,10 +77,9 @@ want to create a new AWS WAF configuration or use an existing one.
     	 (CloudFront) Region. Regional web ACLs might already exist in your AWS account, but they are not
     	 compatible with Amplify.
 
-5. Choose **Add firewall**.
-6. On the **Firewall** page, the **Associating** status is
-   displayed to indicate that the AWS WAF settings are being propagated. When the process is
-   complete, the status changes to **Enabled**.
+5. Choose **Add firewall**. 6. On the **Firewall** page, the **Associating** status is
+displayed to indicate that the AWS WAF settings are being propagated. When the process is
+complete, the status changes to **Enabled**.
 
 The following screenshots show the firewall progress status in the Amplify console,
 indicating when the AWS WAF configuration is **Associating** and
