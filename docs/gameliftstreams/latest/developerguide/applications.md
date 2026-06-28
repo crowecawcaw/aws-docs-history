@@ -70,17 +70,17 @@ Console
 
 ###### To create an Amazon GameLift Streams application using the Amazon GameLift Streams console
 
-1.  Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/"). Choose the same AWS Region as the Amazon S3 bucket where you uploaded your set of files. For more information, refer to [Choosing a Region](../../../awsconsolehelpdocs/latest/gsg/select-region.md "../../../awsconsolehelpdocs/latest/gsg/select-region.md") in the _AWS Management Console Getting Started Guide_.
-2.  In the navigation bar, choose **Applications** and then choose **Create application**.
-3.  In **Runtime settings**, enter the following:
+1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/"). Choose the same AWS Region as the Amazon S3 bucket where you uploaded your set of files. For more information, refer to [Choosing a Region](../../../awsconsolehelpdocs/latest/gsg/select-region.md "../../../awsconsolehelpdocs/latest/gsg/select-region.md") in the _AWS Management Console Getting Started Guide_.
+2. In the navigation bar, choose **Applications** and then choose **Create application**.
+3. In **Runtime settings**, enter the following:
 
-    1. **Runtime environment**
+   1. **Runtime environment**
 
-    This is the runtime environment to run your application on. Amazon GameLift Streams can run on either Windows, Ubuntu 22.04 LTS, or [Proton](<https://en.wikipedia.org/wiki/Proton_(software)> "https://en.wikipedia.org/wiki/Proton_(software)").
+   This is the runtime environment to run your application on. Amazon GameLift Streams can run on either Windows, Ubuntu 22.04 LTS, or [Proton](<https://en.wikipedia.org/wiki/Proton_(software)> "https://en.wikipedia.org/wiki/Proton_(software)").
 
-    **You cannot edit this field after the creation workflow.**
+   **You cannot edit this field after the creation workflow.**
 
-    Choose from one of the following runtime environments.
+   Choose from one of the following runtime environments.
 
         * For Linux applications:
 
@@ -101,49 +101,49 @@ Console
         	+ Proton 8.0-5 (`PROTON, 20241007`)
         	+ Proton 8.0-2c (`PROTON, 20230704`)
 
-    Review the descriptions and use the comparison checklist to help you select the optimal runtime environment for your application.
+   Review the descriptions and use the comparison checklist to help you select the optimal runtime environment for your application.
 
-4.  In **General settings**, enter the following:
+4. In **General settings**, enter the following:
 
-    1. **Description**
+   1. **Description**
 
-    This is a human-readable label for your application. This value does not have to be unique. For best practice, use a meaningful description, name, or label for the application.
-    You can edit this field at any time. 2. **Base path**
+   This is a human-readable label for your application. This value does not have to be unique. For best practice, use a meaningful description, name, or label for the application.
+   You can edit this field at any time. 2. **Base path**
 
-    This is the Amazon S3 URI to your application's root folder in the Amazon S3 bucket. The folder and any subfolders should contain your build executable and any supporting files.
+   This is the Amazon S3 URI to your application's root folder in the Amazon S3 bucket. The folder and any subfolders should contain your build executable and any supporting files.
 
-    A valid URI is the bucket prefix that contains all the files needed to run and stream the application.
-    Example: A bucket called `mygamebuild` contains three complete versions of the game build files, each in a separate folder.
-    You want to stream the build in the folder `mygamebuild-EN101`.
-    In this example, the URI is `s3://amzn-s3-demo-bucket/mygamebuild-EN101`.
+   A valid URI is the bucket prefix that contains all the files needed to run and stream the application.
+   Example: A bucket called `mygamebuild` contains three complete versions of the game build files, each in a separate folder.
+   You want to stream the build in the folder `mygamebuild-EN101`.
+   In this example, the URI is `s3://amzn-s3-demo-bucket/mygamebuild-EN101`.
 
-    **You cannot edit this field after the creation workflow.** 3. **Executable launch path**
+   **You cannot edit this field after the creation workflow.** 3. **Executable launch path**
 
-    This is the Amazon S3 URI of the executable file that Amazon GameLift Streams will stream. The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang ('`#!`').
+   This is the Amazon S3 URI of the executable file that Amazon GameLift Streams will stream. The file must be contained within the application's root folder. For Windows applications, the file must be a valid Windows executable or batch file with a filename ending in .exe, .cmd, or .bat. For Linux applications, the file must be a valid Linux binary executable or a script that contains an initial interpreter line starting with a shebang ('`#!`').
 
-    **You cannot edit this field after the creation workflow.**
+   **You cannot edit this field after the creation workflow.**
 
-5.  (Optional) In **Application log path**, enter the following:
+5. (Optional) In **Application log path**, enter the following:
 
-    1. **Application log path**
+   1. **Application log path**
 
-    Specify the paths to log files or folders that you want Amazon GameLift Streams to save.
-    At the end of every stream session, Amazon GameLift Streams
-    copies the specified files to the Amazon S3 bucket that you name.
+   Specify the paths to log files or folders that you want Amazon GameLift Streams to save.
+   At the end of every stream session, Amazon GameLift Streams
+   copies the specified files to the Amazon S3 bucket that you name.
 
         * Paths are relative to your application directory, or relative to the user's home directory when using a supported path variable.
         * If you specify a directory, only `.txt`, `.log`, and `.utrace` files are collected. To collect other file types, specify the exact file path.
         * The copy operation is not performed recursively in subfolders.
         * You can specify up to 10 log paths. Each individual log file cannot exceed 50 MB in size.
 
-    **Path variables**
+   **Path variables**
 
-    The following variables are recognized when they appear as the first component of a path.
+   The following variables are recognized when they appear as the first component of a path.
 
         * `%USERPROFILE%` – The user's home directory (Windows and Proton)
         * `$HOME`, `~` – The user's home directory (Linux)
 
-    **Examples:**
+   **Examples:**
 
         * `Saved\Logs` – Collects `.txt`,
          `.log`, and `.utrace` files from the `Saved\Logs`
@@ -153,50 +153,50 @@ Console
          `.log`, and `.utrace` files relative to the user's home directory.
          Use a path variable when your application writes logs outside of the application directory.
 
-    To disable logging, remove all application log paths and clear the application log output destination.
+   To disable logging, remove all application log paths and clear the application log output destination.
 
-    You can edit this field at any time. 2. **Application log output**
+   You can edit this field at any time. 2. **Application log output**
 
-    This is the URI to the Amazon S3 bucket where Amazon GameLift Streams will copy application log files. This field is required if you specify an application log path.
+   This is the URI to the Amazon S3 bucket where Amazon GameLift Streams will copy application log files. This field is required if you specify an application log path.
 
-    To disable logging, remove all application log paths and clear the application log output destination.
+   To disable logging, remove all application log paths and clear the application log output destination.
 
-    You can edit this field at any time.
+   You can edit this field at any time.
 
-    To save log files on your behalf, Amazon GameLift Streams must be given permission to your S3 bucket for saving.
-    If you let Amazon GameLift Streams create the bucket for logging, the permission policy will be applied automatically upon creation.
-    If you provide your own bucket, you will need to apply the permission policy, yourself.
+   To save log files on your behalf, Amazon GameLift Streams must be given permission to your S3 bucket for saving.
+   If you let Amazon GameLift Streams create the bucket for logging, the permission policy will be applied automatically upon creation.
+   If you provide your own bucket, you will need to apply the permission policy, yourself.
 
-    **Bucket permission policy template**
+   **Bucket permission policy template**
 
-    Copy the following policy code and apply it to the bucket that you want to use for application logs. Be sure to replace **amzn-s3-demo-bucket**
-    with the name of your existing S3 bucket.
+   Copy the following policy code and apply it to the bucket that you want to use for application logs. Be sure to replace **amzn-s3-demo-bucket**
+   with the name of your existing S3 bucket.
 
-    ```
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Sid": "PutPolicy",
-          "Effect": "Allow",
-          "Principal": {
-            "Service": [
-              "gameliftstreams.amazonaws.com"
-            ]
-          },
-          "Action": "s3:PutObject",
-          "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*",
-          "Condition": {
-            "StringEquals": {
-              "aws:SourceAccount": "`your 12-digit account id`"
-            }
-          }
-        }
-      ]
-    }
-    ```
+   ```
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "PutPolicy",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": [
+             "gameliftstreams.amazonaws.com"
+           ]
+         },
+         "Action": "s3:PutObject",
+         "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*",
+         "Condition": {
+           "StringEquals": {
+             "aws:SourceAccount": "`your 12-digit account id`"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
-6.  (Optional) In **Tags**, assign tags to this application.
+6. (Optional) In **Tags**, assign tags to this application.
 
 Tags are labels that can help you organize your AWS resources. For more information, refer to [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
 

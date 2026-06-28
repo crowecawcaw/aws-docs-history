@@ -13,7 +13,7 @@ Amazon GameLift Streams supports the following languages:
 **To change the locale setting**
 
 When you call [StartStreamSession](../apireference/API_StartStreamSession.md "../apireference/API_StartStreamSession.md") using the
-Amazon GameLift Streams API, add `LANG=`<language>``to your`AdditionalEnvironmentVariables`. Since
+Amazon GameLift Streams API, add `LANG=`<language>`` to your `AdditionalEnvironmentVariables`. Since
 locale preference is unique per user, you set this at the stream-session level. If you don't set this, the stream uses U.S. English by
 default.
 

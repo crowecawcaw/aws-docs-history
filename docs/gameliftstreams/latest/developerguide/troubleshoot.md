@@ -218,12 +218,11 @@ download link on the Amazon GameLift Streams console on the **Sessions** page. 6
 
 7. Upload the generated shader files to your application's Amazon S3 bucket:
 
-   1. Copy the `GLCache` folder into the root directory of your application.
-   2. If available, copy the `.dxvk-cache` or `vkd3d-proton.cache.write` cache file to the folder
-      containing the application executable.
+    1. Copy the `GLCache` folder into the root directory of your application.
+    2. If available, copy the `.dxvk-cache` or `vkd3d-proton.cache.write` cache file to the folder
+     containing the application executable.
 
-8. Create a new Amazon GameLift Streams application with the same Proton configuration.
-9. Run the application with the same environment variable override:
+8. Create a new Amazon GameLift Streams application with the same Proton configuration. 9. Run the application with the same environment variable override:
 
 ```
 "__GL_SHADER_DISK_CACHE_PATH" : "/home/unpriv/games"

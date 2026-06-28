@@ -23,7 +23,7 @@ lshw -C display | grep driver
 
 2. If the correct drivers are installed, you should see the following output, or similar, where
    `<gpu>` is `nvidia` for NVIDIA: `configuration: driver=<gpu>
-latency=0`
+ latency=0`
 
 **To install the latest NVIDIA GPU drivers**
 
