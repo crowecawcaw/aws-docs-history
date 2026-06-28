@@ -63,19 +63,19 @@ Event sources and partner event buses share the same name, which must follow a s
 
 **Partner event source name**
 
-<partner_name>/<event_generator_name>
+<partner\_name>/<event\_generator\_name>
 
 **Partner event bus name**
 
-<partner_name>/<event_generator_name>
+<partner\_name>/<event\_generator\_name>
 
 **Partner event source ARN**
 
-arn:aws:events:<region>::event-source/aws.partner/<partner_name>/<event_generator_name>
+arn:aws:events:<region>::event-source/aws.partner/<partner\_name>/<event\_generator\_name>
 
 **Partner event bus ARN**
 
-arn:aws:events:<region>:<aws_customer_account_id>:event-bus/aws.partner/<partner_name>/<event_generator_name>
+arn:aws:events:<region>:<aws\_customer\_account\_id>:event-bus/aws.partner/<partner\_name>/<event\_generator\_name>
 
 The **partner name** is determined as part of partner registration and is a unique identifier that provides the AWS customer with confidence that the owner of the event source is a trusted APN partner and is who they claim to be. Each partner name begins with aws.partner/ followed by a fully qualified domain name owned by the partner. The fully qualified domain name (FQDN) used should be one that customers readily associate with the partner or SaaS product.
 
@@ -83,19 +83,19 @@ The **event generator name** is determined by the partner when creating the eve
 
 **Partner event source name**
 
-aws.partner/partner_x/acct1/repo1
+aws.partner/partner\_x/acct1/repo1
 
 **Partner event bus name**
 
-aws.partner/partner_x/acct1/repo1
+aws.partner/partner\_x/acct1/repo1
 
 **Partner event source ARN**
 
-arn:aws:events:us-east-2::event-source/aws.partner/partner_x/acct1/repo1
+arn:aws:events:us-east-2::event-source/aws.partner/partner\_x/acct1/repo1
 
 **Partner event bus ARN**
 
-arn:aws:events:us-east-2:000000000101:event-bus/aws.partner/partner_x/acct1/repo1
+arn:aws:events:us-east-2:000000000101:event-bus/aws.partner/partner\_x/acct1/repo1
 
 ## Event source states
 
