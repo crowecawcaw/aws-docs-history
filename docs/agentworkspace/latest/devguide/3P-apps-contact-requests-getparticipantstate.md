@@ -35,7 +35,7 @@ The ParticipantState type can be:
 
 - { value: ParticipantStateType } where ParticipantStateType includes:
   connecting,
-  connected, hold, disconnected, rejected, silent_monitor, barge
+  connected, hold, disconnected, rejected, silent\_monitor, barge
 - { value: "other"; actual: string } for unknown states
 
 **Permissions required:**

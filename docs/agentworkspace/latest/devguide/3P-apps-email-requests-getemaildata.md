@@ -14,7 +14,7 @@ getEmailData({ contactId, activeContactId }: { contactId: string; activeContactI
 Properties_**
 
 | **Parameter**        | **Type**                | **Description**                                                                                                                                                                                  |
-| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | contactId            | string                  | The id of the email contact                                                                                                                                                                      |
 | contactArn           | string                  | The ARN of the email contact                                                                                                                                                                     |
 | contactAssociationId | string                  | The root contactId which is used as a unique identifier for all<br>subsequent contacts in a contact tree. Use this value with the<br>EmailClient.getEmailThread api.                             |

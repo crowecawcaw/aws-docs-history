@@ -27,7 +27,7 @@ const contactType: ContactChannelType = await contactClient.getChannelType(conta
 **Output - ContactChannelType**
 
 | **Parameter** | **Type** | **Description**                                                             |
-| ------------- | -------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | -------- | --------------------------------------------------------------------------- |
 | type          | string   | The possible values are `voice, queue_callback, chat, task,<br>email`       |
 | subtype       | string   | For the types `voice` & `queue_callback`,<br>it will be `connect:Telephony` | `connect:WebRTC`<br>.<br>For the type `chat`, it will be `connect:Chat`<br> | `connect:SMS` | `connect:Apple` | `connect:Guide`.<br>For the type `task`, it will be `connect:Task`<br>.<br>For the type `email`, it will be `connect:Email`<br>. |
 

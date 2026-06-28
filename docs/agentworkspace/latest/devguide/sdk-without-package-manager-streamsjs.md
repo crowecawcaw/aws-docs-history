@@ -97,6 +97,6 @@ connect.core.initCCP(ccpContainer, {
 1. Load the Streams library before the SDK bundle
 2. Retrieve the provider using `connect.core.getSDKClientConfig().provider` after CCP initializes
 3. Instantiate SDK clients with `new
-AmazonConnectSDK.ContactClient(provider)`
+ AmazonConnectSDK.ContactClient(provider)`
 4. The `AppManagerPlugin` is only required if hosting Connect
    first-party apps

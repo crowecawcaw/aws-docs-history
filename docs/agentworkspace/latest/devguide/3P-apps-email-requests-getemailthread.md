@@ -19,16 +19,16 @@ getEmailThread(getEmailThreadParams: GetEmailThreadParams): Promise<{ contacts: 
 
 **EmailThreadContact Properties**
 
-| **Parameter**       | **Type** | **Description**                                                                                                   |
-| ------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| contactId           | string   | The id of the email contact                                                                                       |
-| contactArn          | string   | The ARN of the email contact                                                                                      |
-| previousContactId   | string   | If this contact is not the first contact, this is the ID of the<br>previous contact.                              |
-| initialContactId    | string   | If this contact is related to other contacts, this is the ID of<br>the initial contact.                           |
-| relatedContactId    | string   | The contactId that is related to this contact.                                                                    |
-| initiationMethod    | string   | Indicates how the contact was initiated; Supported values:<br>"INBOUND" ,"OUTBOUND", "AGENT_REPLY", or "TRANSFER" |
-| initiationTimestamp | Date     | The date and time this contact was initiated, in UTC<br>time.                                                     |
-| disconnectTimestamp | Date     | undefined                                                                                                         | The date and time that the customer endpoint disconnected from<br>the current contact, in UTC time. In transfer scenarios, the<br>DisconnectTimestamp of the previous contact indicates the date and<br>time when that contact ended. |
+| **Parameter**       | **Type** | **Description**                                                                                                    |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| contactId           | string   | The id of the email contact                                                                                        |
+| contactArn          | string   | The ARN of the email contact                                                                                       |
+| previousContactId   | string   | If this contact is not the first contact, this is the ID of the<br>previous contact.                               |
+| initialContactId    | string   | If this contact is related to other contacts, this is the ID of<br>the initial contact.                            |
+| relatedContactId    | string   | The contactId that is related to this contact.                                                                     |
+| initiationMethod    | string   | Indicates how the contact was initiated; Supported values:<br>"INBOUND" ,"OUTBOUND", "AGENT\_REPLY", or "TRANSFER" |
+| initiationTimestamp | Date     | The date and time this contact was initiated, in UTC<br>time.                                                      |
+| disconnectTimestamp | Date     | undefined                                                                                                          | The date and time that the customer endpoint disconnected from<br>the current contact, in UTC time. In transfer scenarios, the<br>DisconnectTimestamp of the previous contact indicates the date and<br>time when that contact ended. |
 
 **GetEmailThreadParams Properties**
 

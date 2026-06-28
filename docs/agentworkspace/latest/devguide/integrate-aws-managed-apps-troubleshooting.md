@@ -20,11 +20,13 @@ Applications fail to launch, display error messages, or the iframe remains blank
   - Verify that the AppManager plugin is properly configured during
     CCP initialization.
   - ```
-    connect.core.initCCP(container, {
-        ccpUrl: instanceUrl,
-        plugins: [AppManagerPlugin], // Required
-    });
+
     ```
+
+  connect.core.initCCP(container, {
+  ccpUrl: instanceUrl,
+  plugins: [AppManagerPlugin], // Required
+  });
 
   ```
 

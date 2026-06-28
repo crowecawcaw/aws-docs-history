@@ -26,7 +26,7 @@ const applicationInfo: AppInfo = await appControllerClient.getApp(appInstanceId)
 **Output - AppInfo**
 
 | **Parameter**  | **Type**      | **Description**                                                                                        |
-| -------------- | ------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------- | ------------------------------------------------------------------------------------------------------ |
 | instanceId     | string        | Unique ID of the application instance                                                                  |
 | config         | Config        | The configuration of the application                                                                   |
 | startTime      | Date          | Time when the application is launched                                                                  |

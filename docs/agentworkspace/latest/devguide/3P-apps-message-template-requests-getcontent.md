@@ -25,7 +25,7 @@ The messageTemplateId can be either the ID or the ARN of a message template
   get the content of a different version of the message template.
   More information on qualifiers can be found here:
 
-[https://docs.aws.amazon.com/connect/latest/APIReference/API_amazon-q-connect_GetMessageTemplate.html](../../../connect/latest/APIReference/API_amazon-q-connect_GetMessageTemplate.md "../../../connect/latest/APIReference/API_amazon-q-connect_GetMessageTemplate.md")
+[https://docs.aws.amazon.com/connect/latest/APIReference/API\_amazon-q-connect\_GetMessageTemplate.html](../../../connect/latest/APIReference/API_amazon-q-connect_GetMessageTemplate.md "../../../connect/latest/APIReference/API_amazon-q-connect_GetMessageTemplate.md")
 
 More information on versioning can be found here:
 

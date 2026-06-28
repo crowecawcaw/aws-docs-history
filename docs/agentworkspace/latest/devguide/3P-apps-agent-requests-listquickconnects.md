@@ -24,7 +24,7 @@ const quickConnects: ListQuickConnectsResult = await agentClient.listQuickConnec
 **Input**
 
 | **Parameter**        | **Type** | **Description**                                                                                                                                       |
-| -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| -------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | queueARNs _Required_ | string   | string[]                                                                                                                                              | One or more Queue ARNs for which the Queue Connects need to be<br>retrieved |
 | options.maxResults   | number   | The maximum number of results to return per page. The default<br>value is 500                                                                         |
 | options.nextToken    | string   | The token for the next set of results. Use the value returned in<br>the previous response in the next request to retrieve the next set<br>of results. |

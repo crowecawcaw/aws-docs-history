@@ -75,6 +75,6 @@ contactClient.onCleared(function (event) {
    any SDK functionality
 2. The `init()` function returns an object containing the `provider`
 3. Instantiate SDK clients with `new
-AmazonConnectSDK.ContactClient(provider)`
+ AmazonConnectSDK.ContactClient(provider)`
 4. Lifecycle callbacks (`onCreate`, `onDestroy`) are
    optional but useful for managing app state

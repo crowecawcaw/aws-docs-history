@@ -24,7 +24,7 @@ const appInfo: AppInfo = await appControllerClient.launchApp(applicationsConfig[
 **Input**
 
 | **Parameter**            | **Type**      | **Description**                                                                                        |
-| ------------------------ | ------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ------------- | ------------------------------------------------------------------------------------------------------ |
 | arnOrName _Required_     | string        | The ARN or name of the application                                                                     |
 | options.parameters       | AppParameters | Key value pair of parameters passed to the application                                                 |
 | options.launchKey        | string        | A unique id to avoid duplicate application being launched with<br>multiple invocation of launchApp API |
@@ -34,7 +34,7 @@ const appInfo: AppInfo = await appControllerClient.launchApp(applicationsConfig[
 **Output - AppInfo**
 
 | **Parameter**  | **Type**      | **Description**                                                                                     |
-| -------------- | ------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------- | --------------------------------------------------------------------------------------------------- |
 | instanceId     | string        | Unique ID of the application instance                                                               |
 | config         | Config        | The configuration of the application                                                                |
 | startTime      | Date          | Time when the application is launched                                                               |

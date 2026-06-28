@@ -29,7 +29,7 @@ sendEmail(emailContact: DraftEmailContact): Promise<void>
 **EmailContent Properties**
 
 | **Parameter** | **Type**     | **Description**                                                |
-| ------------- | ------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| ------------- | ------------ | -------------------------------------------------------------- |
 | subject       | string       | The email contact's subject                                    |
 | body          | string       | The body/content of the email, either in plain text or<br>HTML |
 | bodyType      | "text/plain" | "text/html"                                                    | The body type of the email; can either be "text/plain" or<br>"text/html" |
