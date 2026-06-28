@@ -30,13 +30,13 @@ To make you're using the most recent version of the tool, download the
 the path to where you unzipped the tool, based on your machine
 architecture:
 
-Linux_aarch64
+Linux\_aarch64
 
 ```
 pip install <path/to/unzipped-tool>/Linux_aarch64/amzn_qct_cli-1.2.2-py3-none-any.whl --force-reinstall
 ```
 
-Linux_x86_64
+Linux\_x86\_64
 
 ```
 pip install <path/to/unzipped-tool>/Linux_x86_64/amzn_qct_cli-1.2.2-py3-none-any.whl --force-reinstall

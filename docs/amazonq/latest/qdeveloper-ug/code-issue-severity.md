@@ -17,22 +17,22 @@ be obtained.
 The following table outlines how severity is determined based on the level of access and
 level of effort required for a bad actor to successfully attack a system.
 
-| Severity determination matrix        | Level of access                    | Level of effort | Severity |
-| ------------------------------------ | ---------------------------------- | --------------- | -------- |
-| Full control of system or its output | Requires access to system          | High            |
-| Full control of system or its output | Internet with high level of effort | Critical        |
-| Full control of system or its output | Over internet                      | Critical        |
-| Access to sensitive information      | Requires access to system          | Medium          |
-| Access to sensitive information      | Internet with high level of effort | High            |
-| Access to sensitive information      | Over internet                      | High            |
-| Can crash or slow down the system    | Requires access to system          | Low             |
-| Can crash or slow down the system    | Internet with high level of effort | Medium          |
-| Can crash or slow down the system    | Over internet                      | Medium          |
-| Provides additional security         | Not exploitable                    | Info            |
-| Provides additional security         | Requires access to system          | Info            |
-| Provides additional security         | Internet with high level of effort | Low             |
-| Provides additional security         | Over internet                      | Low             |
-| Best practice                        | Not exploitable                    | Info            |
+Severity determination matrix| Level of access | Level of effort | Severity |
+| --- | --- | --- |
+| Full control of system or its output | Requires access to system | High |
+| Full control of system or its output | Internet with high level of effort | Critical |
+| Full control of system or its output | Over internet | Critical |
+| Access to sensitive information | Requires access to system | Medium |
+| Access to sensitive information | Internet with high level of effort | High |
+| Access to sensitive information | Over internet | High |
+| Can crash or slow down the system | Requires access to system | Low |
+| Can crash or slow down the system | Internet with high level of effort | Medium |
+| Can crash or slow down the system | Over internet | Medium |
+| Provides additional security | Not exploitable | Info |
+| Provides additional security | Requires access to system | Info |
+| Provides additional security | Internet with high level of effort | Low |
+| Provides additional security | Over internet | Low |
+| Best practice | Not exploitable | Info |
 
 ## Severity definitions
 

@@ -93,7 +93,7 @@ Following are example questions you can ask Amazon Q about your resources:
 - Get the configuration for my lambda function
   `<name>`
 - What alarms are configured for instance `<instance
-ID>`?
+ ID>`?
 - List RDS databases without CloudWatch alarms
 - List S3 buckets with tag value `<tag value>`
 - Show me chart of my costs by service last week

@@ -232,16 +232,13 @@ Professional tier section:
      **Log in with AWS IAM Identity Center** dialog.
 
 5. Confirm that you want to open the AWS Authorize request portal in your default
-   web browser.
-6. Follow the prompts in your default web browser. You're notified when the
-   authorization process is complete, and it's safe to close your browser and return to
-   Visual Studio.
-7. A **Sign into Amazon Q** window appears. In the credentials profile
-   dropdown, choose the profile you used to authenticate in the previous steps.
-8. If your administrator has configured more than one Amazon Q Developer profile, you are then
-   prompted to choose a Q Developer profile from the dropdown menu. Choose the profile
-   that meets your current working needs, or that your administrator has instructed you
-   to use. For more information about profiles, see [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md").
+web browser. 6. Follow the prompts in your default web browser. You're notified when the
+authorization process is complete, and it's safe to close your browser and return to
+Visual Studio. 7. A **Sign into Amazon Q** window appears. In the credentials profile
+dropdown, choose the profile you used to authenticate in the previous steps. 8. If your administrator has configured more than one Amazon Q Developer profile, you are then
+prompted to choose a Q Developer profile from the dropdown menu. Choose the profile
+that meets your current working needs, or that your administrator has instructed you
+to use. For more information about profiles, see [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md").
 
 If there is only one profile available, that profile will automatically be chosen
 and you can begin using Amazon Q.

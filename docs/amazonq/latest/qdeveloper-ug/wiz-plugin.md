@@ -209,7 +209,7 @@ If you create a new secret, enter the following information:
      secret where your Wiz credentials are stored. Do not edit the
      service role that is created for you.If you use an existing secret, choose a secret from the **AWS Secrets Manager
 
-secret\*\* dropdown menu. The secret should include the Wiz authentication
+secret** dropdown menu. The secret should include the Wiz authentication
 credentials specified in the previous step.
 
 For more information about the required credentials, see
@@ -286,7 +286,7 @@ most of out of the Amazon Q Wiz plugin:
 
   - `@wiz which issues are due before <date>?`
   - `@wiz what are my issues that have been resolved since
-<date>?`
+   <date>?`
 
 - **Assess issues with security vulnerabilities** –
   Ask about the vulnerabilities or exposures that are posing security threats in your issues.

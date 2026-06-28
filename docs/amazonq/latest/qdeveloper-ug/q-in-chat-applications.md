@@ -74,6 +74,6 @@ channel:
 - `@Amazon Q what are the best practices for securing S3 buckets?`
 - `@Amazon Q what is the maximum zipped file size for a lambda?`
 - `@Amazon Q get the configuration for my lambda function
-`name`?`
+ `name`?`
 - `@Amazon Q what is the size of the auto scaling group `name` in us-east-2?`
 - `@Amazon Q can you show ec2 instances running in us-east-1?`

@@ -114,7 +114,7 @@ Visual Studio Code
 
 1. From VS Code, open VS Code **Settings** by pressing
    `CMD + ,` (Mac) or `Ctrl +
-,` (Windows/Linux).
+ ,` (Windows/Linux).
 2. From the **Settings** search bar, enter
    `Http: Proxy`, then locate it in the search
    results.
@@ -168,13 +168,12 @@ Visual Studio
 
 - Configure the following Windows Environment Variables:
 
-      + `NODE_OPTIONS = --use-openssl-ca`
-      + `NODE_EXTRA_CA_CERTS =
-       `cert-path``
-
-  Replace `cert-path` with the path of your
-  corporate certificate file. The file must have a `.pem`
-  file extension. (You cannot use a `.crt` file.)
+  - `NODE_OPTIONS = --use-openssl-ca`
+  - `NODE_EXTRA_CA_CERTS =
+   `cert-path``
+    Replace `cert-path` with the path of your
+    corporate certificate file. The file must have a `.pem`
+    file extension. (You cannot use a `.crt` file.)
 
 An example path resembles the following:
 
@@ -187,7 +186,7 @@ Visual Studio Code
 
 1. From VS Code, open VS Code **Settings** by pressing
    `CMD + ,` (Mac) or `Ctrl +
-,` (Windows/Linux).
+ ,` (Windows/Linux).
 2. From the **Settings** search bar, enter
    `Amazon Q › Proxy: Certificate Authority`, then
    locate it in the search results.

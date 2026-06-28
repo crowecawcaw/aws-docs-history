@@ -184,17 +184,17 @@ When examining Amazon Q CLI logs, focus on these key areas in the different log 
 
 `qchat.log` analysis - Application-level issues including:
 
-- **ERROR chat_cli::cli::chat** - Chat processing and state management errors
-- **ERROR chat_cli::cli::agent** - Migration and agent-related problems
-- **ERROR chat_cli::telemetry** - Telemetry validation and transmission failures
+- **ERROR chat\_cli::cli::chat** - Chat processing and state management errors
+- **ERROR chat\_cli::cli::agent** - Migration and agent-related problems
+- **ERROR chat\_cli::telemetry** - Telemetry validation and transmission failures
 
 `chat.log` analysis - Runtime operational details including:
 
-- **DEBUG q_cli::cli** - Amazon Q CLI command execution and initialization
-- **DEBUG aws_sdk\_\*** - AWS SDK operations and service calls
+- **DEBUG q\_cli::cli** - Amazon Q CLI command execution and initialization
+- **DEBUG aws\_sdk\_\*** - AWS SDK operations and service calls
 - **DEBUG rustls::\*** - TLS/SSL connection establishment and certificate handling
 - **DEBUG hyper\_\*** - HTTP connection management and network operations
-- **ERROR fig_telemetry** - System telemetry and socket connection issues
+- **ERROR fig\_telemetry** - System telemetry and socket connection issues
 
 General analysis tips:
 
@@ -205,7 +205,7 @@ General analysis tips:
 
 ###### Tip
 
-Use tools like **grep**, **awk**, or text editors with search functionality to filter logs for specific error messages or patterns. For example: **grep -i error $XDG_RUNTIME_DIR/qlog/\*.log**
+Use tools like **grep**, **awk**, or text editors with search functionality to filter logs for specific error messages or patterns. For example: **grep -i error $XDG\_RUNTIME\_DIR/qlog/\*.log**
 
 ## Common log patterns and solutions
 
@@ -219,7 +219,7 @@ MCP server connection errors
 
 Chat processing interruptions
 
-**Log pattern (in qchat.log):** "An error occurred processing the current state err=Interrupted { tool_uses: None }"
+**Log pattern (in qchat.log):** "An error occurred processing the current state err=Interrupted { tool\_uses: None }"
 
 **Solution:** This occurs when chat operations are cancelled by the user (e.g., Ctrl+C) and is expected behavior.
 

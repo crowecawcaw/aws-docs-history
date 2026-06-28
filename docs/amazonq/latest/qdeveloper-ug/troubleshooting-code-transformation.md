@@ -569,7 +569,7 @@ steps:
    appears.
 3. The logs open in the IDE. To search the log files for
    `CodeTransformation`, use `CMD + F` or `Control +
-F`.
+ F`.
 
 Code transformation logs in VS Code are prefixed with
 `CodeTransformation:`. Following is an example of a log generated in

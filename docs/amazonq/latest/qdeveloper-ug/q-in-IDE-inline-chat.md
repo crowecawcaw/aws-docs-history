@@ -20,16 +20,15 @@ chat. It won’t look at code in other files or projects.
 
 An inline chat session unfolds as follows.
 
-1.  You highlight the code that you want suggestions for, and then choose from the following options
-    based on your IDE:
+1. You highlight the code that you want suggestions for, and then choose from the following options
+   based on your IDE:
 
-        * In Visual Studio Code and JetBrains, press `⌘+I` (Mac) or `Ctrl+I` (Windows)
-        * In Eclipse, press `⌘+Shift+I` (Mac) or `Ctrl+Shift+I` (Windows)
-        * Alternatively, you can right-click the selection and choose **Amazon Q** and then
-         **Inline chat**
-
-    This launches a small input screen at the top of the main coding window where you can enter a
-    prompt, such as `Fix this code`.
+   - In Visual Studio Code and JetBrains, press `⌘+I` (Mac) or `Ctrl+I` (Windows)
+   - In Eclipse, press `⌘+Shift+I` (Mac) or `Ctrl+Shift+I` (Windows)
+   - Alternatively, you can right-click the selection and choose **Amazon Q** and then
+     **Inline chat**
+     This launches a small input screen at the top of the main coding window where you can enter a
+     prompt, such as `Fix this code`.
 
 ![The inline chat input screen.](images/inline-chat-input-screen.png) 2. Amazon Q generates code and presents it in a diff.
 

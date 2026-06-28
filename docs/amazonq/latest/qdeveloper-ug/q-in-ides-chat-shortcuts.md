@@ -8,11 +8,11 @@ Keyboard shortcuts are only currently available in the Visual Studio Code IDE.
 
 ## Keyboard shortcuts
 
-| Keyboard shortcuts for Amazon Q chat | Action                                                                                                  | Visual Studio Code Shortcut |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------- | --------------------------- |
-| Run command                          | Shift + Cmd + Enter (Mac)<br>Shift + Ctrl + Enter (Windows)<br>Shift + Meta + Enter (Linux)             |
-| Reject command                       | Shift + Cmd + R (Mac)<br>Shift + Ctrl + R (Windows)<br>Shift + Meta + R (Linux)                         |
-| Stop generation                      | Shift + Cmd + Backspace (Mac)<br>Shift + Ctrl + Backspace (Windows)<br>Shift + Meta + Backspace (Linux) |
+Keyboard shortcuts for Amazon Q chat| Action | Visual Studio Code Shortcut |
+| --- | --- |
+| Run command | Shift + Cmd + Enter (Mac)<br>Shift + Ctrl + Enter (Windows)<br>Shift + Meta + Enter (Linux) |
+| Reject command | Shift + Cmd + R (Mac)<br>Shift + Ctrl + R (Windows)<br>Shift + Meta + R (Linux) |
+| Stop generation | Shift + Cmd + Backspace (Mac)<br>Shift + Ctrl + Backspace (Windows)<br>Shift + Meta + Backspace (Linux) |
 
 ## Customizing keyboard shortcuts
 

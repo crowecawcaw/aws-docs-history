@@ -202,7 +202,7 @@ If you create a new secret, enter the following information:
      secret where your CloudZero credentials are stored. Do not edit the
      service role that is created for you.If you use an existing secret, choose a secret from the **AWS Secrets Manager
 
-secret\*\* dropdown menu. The secret should include the CloudZero authentication
+secret** dropdown menu. The secret should include the CloudZero authentication
 credentials specified in the previous step.
 
 For more information about the required credentials, see
@@ -278,7 +278,7 @@ most of out of the Amazon Q CloudZero plugin:
 
   - `@cloudzero list my top cost insights`
   - `@cloudzero tell me more about insight <insight
-ID>`
+   ID>`
 
 - **Get billing information**
   – Ask the Amazon Q CloudZero plugin about your AWS billing information.

@@ -86,4 +86,4 @@ the chat:
 - @workspace what third-party libraries or packages are used in this project,
   and for what purpose?
 - @workspace add unit tests for function `<function
-name>`
+ name>`

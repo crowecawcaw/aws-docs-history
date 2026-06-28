@@ -150,9 +150,9 @@ IDE:
 - How do I choose between AWS Lambda and Amazon EC2 for a scalable web application backend?
 - What is the syntax of declaring a variable in TypeScript?
 - How do I write an app in React?
-- Provide me a description of what this [*selected code or application*]
+- Provide me a description of what this [_selected code or application_]
   does and how it works.
-- Generate test cases for [*selected code or function*].
+- Generate test cases for [_selected code or function_].
 
 ## Reporting issues with responses from Amazon Q
 

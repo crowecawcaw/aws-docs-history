@@ -3,19 +3,19 @@
 Before you use IAM to manage access to Amazon Q Developer, learn what IAM features are
 available to use with Amazon Q Developer.
 
-| IAM features you can use with Amazon Q Developer                                                                                                         | IAM feature | Amazon Q support |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------- |
-| [Identity-based<br>policies](#security-iam-service-with-iam-id-based-policies "#security-iam-service-with-iam-id-based-policies")                        | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | No          |
-| [Policy<br>actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                 | Yes         |
-| [Policy<br>resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")           | No          |
-| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | No          |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                        | No          |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                  | No          |
-| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                              | Yes         |
-| [Principal<br>permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                  | Yes         |
-| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                          | No          |
-| [Service-linked<br>roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                     | Yes         |
+IAM features you can use with Amazon Q Developer| IAM feature | Amazon Q support |
+| --- | --- |
+| [Identity-based<br>policies](#security-iam-service-with-iam-id-based-policies "#security-iam-service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | No |
+| [Policy<br>actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy<br>resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | No |
+| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | No |
+| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | No |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | No |
+| [Temporary<br>credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Principal<br>permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Yes |
+| [Service<br>roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | No |
+| [Service-linked<br>roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | Yes |
 
 To get a high-level view of how Amazon Q and other AWS services work with most IAM features, see
 [AWS services that work

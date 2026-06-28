@@ -6,14 +6,14 @@ This page covers CLI-specific options for configuring MCP servers.
 
 Usage: `qchat mcp [OPTIONS] `COMMAND``
 
-| MCP configuration commands | Command                                                         | Description |
-| -------------------------- | --------------------------------------------------------------- | ----------- |
-| `qchat mcp add`            | Add or replace a configured server                              |
-| `qchat mcp remove`         | Remove a server from the MCP configuration                      |
-| `qchat mcp list`           | List configured servers                                         |
-| `qchat mcp import`         | Import a server configuration from another file                 |
-| `qchat mcp status`         | Get the status of a configured server                           |
-| `qchat mcp help`           | Print this list of commands or help for the given subcommand(s) |
+MCP configuration commands| Command | Description |
+| --- | --- |
+| `qchat mcp add` | Add or replace a configured server |
+| `qchat mcp remove` | Remove a server from the MCP configuration |
+| `qchat mcp list` | List configured servers |
+| `qchat mcp import` | Import a server configuration from another file |
+| `qchat mcp status` | Get the status of a configured server |
+| `qchat mcp help` | Print this list of commands or help for the given subcommand(s) |
 
 ### MCP server arguments
 

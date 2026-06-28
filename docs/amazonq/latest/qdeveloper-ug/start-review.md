@@ -134,14 +134,14 @@ prompt Amazon Q to run the review you want.
 
   - Open the file in your IDE and enter `Review my code`
   - Enter `Review the code in
-<filename>`
+   <filename>`
 
 - To review an entire code file:
 
   - Open a file without changes and enter `Review my code`
   - Open a file with changes and enter `Review my entire code file`
   - Enter `Review all the code in
-<filename>`
+   <filename>`
 
 - To review all code changes in your repository:
 

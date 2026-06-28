@@ -72,13 +72,13 @@ source qct-cli/bin/activate
    the path to where you unzipped the tool, based on your machine
    architecture:
 
-Linux_aarch64
+Linux\_aarch64
 
 ```
 pip install <path/to/unzipped-tool>/Linux_aarch64/amzn_qct_cli-1.2.2-py3-none-any.whl
 ```
 
-Linux_x86_64
+Linux\_x86\_64
 
 ```
 pip install <path/to/unzipped-tool>/Linux_x86_64/amzn_qct_cli-1.2.2-py3-none-any.whl
@@ -130,7 +130,7 @@ file properly. The following fields are required in the YAML file:
 - versionProperty (optional) - The version of the dependency you're
   defining, as set with the `properties` tag in your application's `pom.xml`
   file.
-- originType - Whether the dependency is first or third party, specified by either FIRST_PARTY or THIRD_PARTY.
+- originType - Whether the dependency is first or third party, specified by either FIRST\_PARTY or THIRD\_PARTY.
 
 Following is an example of a dependency upgrade YAML file, and the required configuration for Amazon Q to parse:
 
@@ -258,7 +258,7 @@ Additional command options:
      changes.
 
 2. Your Maven version is verified before the transformation begins. If you have at least the minimum supported
-   version, you will see the following output:
+version, you will see the following output:
 
 ```
 Running command: mvn --version at: path/to/current/directory

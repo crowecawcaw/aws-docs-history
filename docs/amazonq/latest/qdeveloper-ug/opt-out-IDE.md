@@ -21,7 +21,7 @@ Amazon Q, reference the resource documents in the following GitHub repositories:
 - [Amazon Q plugin for Eclipse](https://github.com/aws/amazon-q-eclipse/blob/main/plugin/codegen-resources/definitions/commonDefinitions.json "https://github.com/aws/amazon-q-eclipse/blob/main/plugin/codegen-resources/definitions/commonDefinitions.json")
 - [AWS Visual Studio Toolkit with Amazon Q](https://github.com/aws/aws-toolkit-visual-studio/blob/main/Telemetry/vs-telemetry-definitions.json "https://github.com/aws/aws-toolkit-visual-studio/blob/main/Telemetry/vs-telemetry-definitions.json")
 
-To learn more about the telemetry data collected by the Q CLI, see the [telemetry_definitions.json](https://github.com/aws/amazon-q-developer-cli/blob/main/crates/chat-cli/telemetry_definitions.json "https://github.com/aws/amazon-q-developer-cli/blob/main/crates/chat-cli/telemetry_definitions.json") document in the
+To learn more about the telemetry data collected by the Q CLI, see the [telemetry\_definitions.json](https://github.com/aws/amazon-q-developer-cli/blob/main/crates/chat-cli/telemetry_definitions.json "https://github.com/aws/amazon-q-developer-cli/blob/main/crates/chat-cli/telemetry_definitions.json") document in the
 `amazon-q-developer-cli` Github repository.
 
 Telemetry collection helps AWS understand how the Q command line transformation tool
@@ -46,7 +46,7 @@ procedure:
    **Workspace** sub-tab. In VS Code, workspace
    settings override user settings.
 3. In the Settings search bar, enter `Amazon Q:
-Telemetry`.
+ Telemetry`.
 4. Deselect the box.
 
 ###### Note
@@ -188,7 +188,7 @@ VS Code, use the following procedure.
    **Workspace** sub-tab. In VS Code, workspace
    settings override user settings.
 3. In the Settings search bar, enter `Amazon Q: Share
-Content`.
+ Content`.
 4. Deselect the box.
 
 JetBrains

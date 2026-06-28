@@ -111,7 +111,7 @@ details, you can chat, email, or request a phone call from a live support agent:
      **Submit**. You will be added to the call queue.
 
 5. You can leave feedback or choose **Skip** to return to the Amazon Q
-   chat panel.
+chat panel.
 
 ## Leave feedback
 

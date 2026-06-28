@@ -62,12 +62,12 @@ NODE_EXTRA_CA_CERTS = Path/To/Corporate/Certs
 Otherwise, you must specify the CA certs used by the proxy to disable
 `NODE_TLS_REJECT_UNAUTHORIZED`.
 
-###### To disable NODE_TLS_REJECT_UNAUTHORIZED on Windows:
+###### To disable NODE\_TLS\_REJECT\_UNAUTHORIZED on Windows:
 
 1. Open the Start menu and search for **Environment Variables**.
 2. Choose **Edit the system environment variables**.
 3. In the **System Properties** window, choose **Environment Variables**.
 4. Under **System variables**, choose **New**.
-5. Set **Variable name** to NODE_TLS_REJECT_UNAUTHORIZED and **Variable value** to 0.
+5. Set **Variable name** to NODE\_TLS\_REJECT\_UNAUTHORIZED and **Variable value** to 0.
 6. Choose **OK** to save the changes.
 7. Restart Visual Studio.

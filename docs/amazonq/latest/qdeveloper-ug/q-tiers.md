@@ -15,7 +15,7 @@ the availability of Amazon Q in various interfaces at the Free tier depending on
 method.
 
 |                                                                                   | Sign in method (Free<br>tier)    |
-| --------------------------------------------------------------------------------- | -------------------------------- | ------------------- | --------------- |
+| --------------------------------------------------------------------------------- | -------------------------------- |
 | Interface                                                                         | Personal account<br>(Builder ID) | IAM Identity Center | IAM credentials |
 | [AWS Management Console, and AWS apps and<br>websites](q-on-aws.md "q-on-aws.md") | No                               | Yes                 | Yes             |
 | [IDE](q-in-IDE.md "q-in-IDE.md")                                                  | Yes                              | No                  | No              |
@@ -39,7 +39,7 @@ understand the availability of Amazon Q in various interfaces at the Pro tier
 depending on your sign in method.
 
 |                                                                                   | Sign in method (Pro<br>tier)     |
-| --------------------------------------------------------------------------------- | -------------------------------- | ------------------- |
+| --------------------------------------------------------------------------------- | -------------------------------- |
 | Interface                                                                         | Personal account<br>(Builder ID) | IAM Identity Center |
 | [AWS Management Console, and AWS apps and<br>websites](q-on-aws.md "q-on-aws.md") | No                               | Yes                 |
 | [IDE](q-in-IDE.md "q-in-IDE.md")                                                  | Yes                              | Yes                 |

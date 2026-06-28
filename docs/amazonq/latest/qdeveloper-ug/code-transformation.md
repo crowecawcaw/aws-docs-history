@@ -28,12 +28,12 @@ Amazon Q currently supports the following Java source code versions and target v
 for transformations. Transforming code to the same Java version includes upgrading
 libraries and other dependencies in the source code version.
 
-| Supported Java upgrades | Source code version | Supported target versions |
-| ----------------------- | ------------------- | ------------------------- |
-| Java 8                  | Java 17 and Java 21 |
-| Java 11                 | Java 17 and Java 21 |
-| Java 17                 | Java 17 and Java 21 |
-| Java 21                 | Java 21             |
+Supported Java upgrades| Source code version | Supported target versions |
+| --- | --- |
+| Java 8 | Java 17 and Java 21 |
+| Java 11 | Java 17 and Java 21 |
+| Java 17 | Java 17 and Java 21 |
+| Java 21 | Java 21 |
 
 Amazon Q supports Java upgrades in the following IDEs:
 
@@ -181,7 +181,7 @@ file properly. The following fields are required in the YAML file:
 - versionProperty (optional) - The version of the dependency you're
   defining, as set with the `properties` tag in your application's `pom.xml`
   file.
-- originType - Whether the dependency is first or third party, specified by either FIRST_PARTY or THIRD_PARTY.
+- originType - Whether the dependency is first or third party, specified by either FIRST\_PARTY or THIRD\_PARTY.
 
 Following is an example of a dependency upgrade YAML file, and the required configuration for Amazon Q to parse:
 

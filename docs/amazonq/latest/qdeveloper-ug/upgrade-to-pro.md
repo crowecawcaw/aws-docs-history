@@ -34,7 +34,7 @@ IDE
 2. In your IDE, do one of the following:
 
    - If you see a `Monthly request limit
-reached` message in the Amazon Q chat window,
+  reached` message in the Amazon Q chat window,
      choose **Subscribe to Q Developer Pro**.
 
    Or

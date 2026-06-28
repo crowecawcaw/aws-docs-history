@@ -36,7 +36,7 @@ The role permissions policy named AWSServiceRoleForAmazonQDeveloper allows Amazo
 following actions on the specified resources:
 
 - Action: `cloudwatch:PutMetricData` on `AWS/Q CloudWatch
-namespace`
+ namespace`
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or
 delete a service-linked role. For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the

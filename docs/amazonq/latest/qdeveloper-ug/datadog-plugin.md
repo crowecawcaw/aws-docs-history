@@ -211,7 +211,7 @@ If you create a new secret, enter the following information:
      secret where your Datadog credentials are stored. Do not edit the
      service role that is created for you.If you use an existing secret, choose a secret from the **AWS Secrets Manager
 
-secret\*\* dropdown menu. The secret should include the Datadog authentication
+secret** dropdown menu. The secret should include the Datadog authentication
 credentials specified in the previous step.
 
 For more information about the required credentials, see

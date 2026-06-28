@@ -26,7 +26,7 @@ IDE. 5. In the prompt file, add a detailed prompt. For example:
 
 1. In your IDE, open an Amazon Q chat window.
 2. Type `@`, and select **Prompts**.
-3. Choose your saved prompt, for example, **Create_sequence_diagram**.
+3. Choose your saved prompt, for example, **Create\_sequence\_diagram**.
 4. (Optional) In the chat input window, add details, as required. You can type more text
    and add more context types. An example prompt might look like this...
 

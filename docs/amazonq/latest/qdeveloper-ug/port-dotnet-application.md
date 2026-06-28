@@ -78,4 +78,4 @@ files to run your application on Linux.
      column for ideas on how to address a Linux readiness issue.
 
 10. To update your files in place, choose **Accept changes** from
-    the **Actions** dropdown menu.
+the **Actions** dropdown menu.

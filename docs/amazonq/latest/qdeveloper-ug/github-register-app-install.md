@@ -53,8 +53,8 @@ configure the code reviews feature, and add tags.
      in GitHub.
 
 8. Choose **Register** to register your
-   app installation in GitHub with your AWS account.
-   After successfully registering the app installation, you can view the registration details.
-   You can still enable or disable the code reviews feature, as well as add tags at a later time.
-   You can also delete the registration. For more information, see
-   [Configuring registered installation details](github-configuration.md "github-configuration.md").
+app installation in GitHub with your AWS account.
+After successfully registering the app installation, you can view the registration details.
+You can still enable or disable the code reviews feature, as well as add tags at a later time.
+You can also delete the registration. For more information, see
+[Configuring registered installation details](github-configuration.md "github-configuration.md").

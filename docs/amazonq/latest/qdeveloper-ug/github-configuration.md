@@ -60,22 +60,21 @@ the registration is also deleted. The action can't be undone.
 
 ###### To delete your GitHub app installation
 
-1.  Navigate to the [Amazon Q Developer console](https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github "https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github").
-2.  In the navigation pane, under **Amazon Q Developer in GitHub**, choose
-    **Registered installations**.
-3.  Do one of the following:
+1. Navigate to the [Amazon Q Developer console](https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github "https://us-east-1.console.aws.amazon.com/amazonq/developer/home#/github").
+2. In the navigation pane, under **Amazon Q Developer in GitHub**, choose
+   **Registered installations**.
+3. Do one of the following:
 
-        * Under the **Actions** column, choose **Delete
-         registration** for the installation you want to delete.
-        * Under the **Name** column, choose the registration name for the
-         installation you want to delete, and the choose **Delete**.
+   - Under the **Actions** column, choose **Delete
+     registration** for the installation you want to delete.
+   - Under the **Name** column, choose the registration name for the
+     installation you want to delete, and the choose **Delete**.
+     Under the **Actions** column, choose **Delete
+     registration** for registered installation you want to delete.
 
-    Under the **Actions** column, choose **Delete
-    registration** for registered installation you want to delete.
-
-4.  In the modal, review the details for deleting registration.
-5.  In the text input field, enter `confirm`, and then choose
-    **Delete** to confirm the changes.
+4. In the modal, review the details for deleting registration.
+5. In the text input field, enter `confirm`, and then choose
+   **Delete** to confirm the changes.
 
 Once you delete a GitHub app installation, you can choose to register a new
 installation.
