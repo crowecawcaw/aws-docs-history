@@ -31,9 +31,9 @@ provides high levels of reliability and scale.
 
 The total cost of hosting your personal website on AWS will vary
 depending on your usage. Typically, it will cost $1-3/month if you
-are outside the [AWS Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/")
-limits. If you are eligible for AWS Free Tier and within the limits,
-hosting your personal website will cost around $0.50/month. To see a
+ are outside the [AWS Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/")
+ limits. If you are eligible for AWS Free Tier and within the limits,
+ hosting your personal website will cost around $0.50/month. To see a
 breakdown of the services used and their associated costs, see
 pricing for [AWS Amplify](https://aws.amazon.com/amplify/pricing/ "https://aws.amazon.com/amplify/pricing/")
 and [Amazon Route 53](https://aws.amazon.com/route53/pricing/ "https://aws.amazon.com/route53/pricing/") .
