@@ -17,8 +17,8 @@ To view and place orders, any additional users on the account must have the **El
 ###### To add the policy to users
 
 1. Log in to your AWS account.
-2. From the account drop-down list, choose \***\*My Security
-   Credentials\*\***.
+2. From the account drop-down list, choose ****My Security
+   Credentials****.
 3. If you see a message that indicates that you are accessing the security
    credentials page for your AWS account, choose **Continue to Security
    Credentials**.
