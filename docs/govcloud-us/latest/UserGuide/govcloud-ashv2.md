@@ -2,6 +2,13 @@
 
 AWS Security Hub is a unified cloud security solution that prioritizes your critical security issues and helps you respond at scale. Security Hub detects security issues by automatically correlating and enriching security signals from multiple sources, such as posture management (AWS Security Hub CSPM), vulnerability management (Amazon Inspector), sensitive data (AWS Macie), and threat detection (Amazon GuardDuty). This enables security teams to prioritize active risks in their cloud environments through automated analyses and contextual insights. Through intuitive visualizations, Security Hub transforms complex security signals into actionable insights, which enables you to make informed decisions about your security quickly. Security Hub also includes automated response workflows to help you remediate risks, improve team productivity, and minimize operational disruptions.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Security Hub differs
 
 The following differences apply to Security Hub:
@@ -39,7 +46,7 @@ Security Hub leverages findings from AWS Security Hub CSPM (Cloud Security Postu
 
 ## Documentation
 
-[AWS Security Hub documentation](../../../securityhub/latest/userguide/what-is-securityhub-v2.md "../../../securityhub/latest/userguide/what-is-securityhub-v2.md").
+- [AWS Security Hub documentation](../../../securityhub/latest/userguide/what-is-securityhub-v2.md "../../../securityhub/latest/userguide/what-is-securityhub-v2.md")
 
 ## Export-controlled content
 

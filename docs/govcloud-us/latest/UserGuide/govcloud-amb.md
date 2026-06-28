@@ -8,7 +8,13 @@ You can use Managed Blockchain to create scalable blockchain resources and netwo
 
 Only the Hyperledger Fabric framework on Amazon Managed Blockchain is currently supported in the AWS GovCloud (US-West) Region.
 
-## How Hyperledger Fabric on Amazon Managed Blockchain differs
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+
+## How Amazon Managed Blockchain differs
 
 The following differences apply to Hyperledger Fabric on Amazon Managed Blockchain:
 
@@ -16,7 +22,7 @@ The following differences apply to Hyperledger Fabric on Amazon Managed Blockcha
 
 ## Documentation
 
-[Hyperledger Fabric on Managed Blockchain documentation](../../../managed-blockchain/latest/hyperledger-fabric-dev/what-is-managed-blockchain.md "../../../managed-blockchain/latest/hyperledger-fabric-dev/what-is-managed-blockchain.md").
+- [Hyperledger Fabric on Managed Blockchain documentation](../../../managed-blockchain/latest/hyperledger-fabric-dev/what-is-managed-blockchain.md "../../../managed-blockchain/latest/hyperledger-fabric-dev/what-is-managed-blockchain.md")
 
 ## Export-controlled content
 

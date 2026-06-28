@@ -8,7 +8,7 @@ There are no differences for this service.
 
 ## Documentation
 
-[AWS Artifact documentation](../../../artifact/latest/ug/what-is-aws-artifact.md "../../../artifact/latest/ug/what-is-aws-artifact.md").
+- [AWS Artifact documentation](../../../artifact/latest/ug/what-is-aws-artifact.md "../../../artifact/latest/ug/what-is-aws-artifact.md")
 
 ## Export-controlled content
 

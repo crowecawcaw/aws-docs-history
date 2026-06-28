@@ -4,6 +4,13 @@ AWS License Manager makes it easier to manage licenses in AWS and on-premises se
 
 AWS License Manager integrates with AWS services to simplify the management of licenses across multiple AWS accounts, IT catalogs, and on-premises, through a single AWS account. License administrators can add rules in AWS Service Catalog, which allows them to create and manage catalogs of IT services that are approved for use on all their AWS accounts. Through seamless integration with AWS Systems Manager and AWS Organizations, administrators can manage licenses across all the AWS accounts in an organization and on-premises environments. AWS Marketplace buyers can also use AWS License Manager to track bring your own license (BYOL) software obtained from the Marketplace and keep a consolidated view of all their licenses.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS License Manager differs
 
 The following differences apply to AWS License Manager:
@@ -14,7 +21,7 @@ The following differences apply to AWS License Manager:
 
 ## Documentation
 
-[AWS License Manager documentation](../../../license-manager/index.md "../../../license-manager/index.md").
+- [AWS License Manager documentation](../../../license-manager/index.md "../../../license-manager/index.md")
 
 ## Export-controlled content
 

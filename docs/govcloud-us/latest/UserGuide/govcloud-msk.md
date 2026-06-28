@@ -2,6 +2,13 @@
 
 Amazon Managed Streaming for Apache Kafka (Amazon MSK) is a fully managed service that enables you to build and run applications that use Apache Kafka to process streaming data. Amazon MSK provides the control-plane operations, such as those for creating, updating, and deleting clusters. It lets you use Apache Kafka data-plane operations, such as those for producing and consuming data. It runs open-source versions of Apache Kafka. This means existing applications, tooling, and plugins from partners and the Apache Kafka community are supported without requiring changes to application code.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Managed Streaming for Apache Kafka differs
 
 The following differences apply to Managed Streaming for Apache Kafka:
@@ -11,7 +18,7 @@ The following differences apply to Managed Streaming for Apache Kafka:
 
 ## Documentation
 
-[Amazon Managed Streaming for Apache Kafka (MSK) documentation](../../../msk/latest/developerguide/what-is-msk.html.md "../../../msk/latest/developerguide/what-is-msk.html.md").
+- [Amazon Managed Streaming for Apache Kafka (MSK) documentation](../../../msk/latest/developerguide/what-is-msk.html.md "../../../msk/latest/developerguide/what-is-msk.html.md")
 
 ## Export-controlled content
 

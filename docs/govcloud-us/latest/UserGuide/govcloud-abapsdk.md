@@ -8,7 +8,7 @@ There are no differences for this service.
 
 ## Documentation
 
-[AWS SDK for SAP ABAP documentation](../../../sdk-for-sapabap/index.md "../../../sdk-for-sapabap/index.md").
+- [AWS SDK for SAP ABAP documentation](../../../sdk-for-sapabap/index.md "../../../sdk-for-sapabap/index.md")
 
 ## Export-controlled content
 

@@ -15,7 +15,7 @@ The following differences apply to AWS Marketplace:
 
 ## Documentation
 
-- [AWS Marketplace documentation](../../../marketplace.md "../../../marketplace.md").
+- [AWS Marketplace documentation](../../../marketplace.md "../../../marketplace.md")
 
 ## Export-controlled content
 

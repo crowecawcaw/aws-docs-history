@@ -2,6 +2,13 @@
 
 AWS Identity and Access Management (IAM) is a web service for securely controlling access to AWS services. With IAM, you can centrally manage users, security credentials such as access keys, and permissions that control which AWS resources users and applications can access.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How IAM differs
 
 The following differences apply to IAM:
@@ -11,16 +18,16 @@ The following differences apply to IAM:
   IAM user or an `OrganizationAccountAccessRole`
   IAM role, depending on the method used.
 
-You cannot access the AWS Management Console for AWS GovCloud (US) using the [associated standard AWS accountroot user credentials](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md").
+You cannot access the AWS Management Console for AWS GovCloud (US) using the [associated standard AWS account root credentials](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md").
 
 - The AWS GovCloud (US) account root user is created at the same time the AWS GovCloud (US) account is created, but access to this user is not provided by default to AWS GovCloud (US) customers.
 
   - Sign in to the AWS Management Console for AWS GovCloud (US) as the AWS GovCloud (US) account root user is not available.
   - AWS GovCloud (US) account root user access keys can be provided at the request of [associated standard AWS account](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md") root user by contacting AWS Customer Support. See [Requesting root access keys for an AWS GovCloud (US) account](govcloud-account-root-user.md#requesting-root-user-keys "govcloud-account-root-user.md#requesting-root-user-keys") to get started.
-  - Tasks that require the root user in AWS GovCloud (US) are limited. See [Tasks in AWS GovCloud (US) Regions that require root user access keys](govcloud-account-root-user.md#govcloud-tasks-require-root-user "govcloud-account-root-user.md#govcloud-tasks-require-root-user").
+  - Tasks that require the root user in AWS GovCloud (US) are limited. See [Tasks in AWS GovCloud (US) Regions that require root access keys](govcloud-account-root-user.md#govcloud-tasks-require-root-user "govcloud-account-root-user.md#govcloud-tasks-require-root-user").
   - Since there is no access to the root user, there is no ability to centrally manage such credentials in AWS Organizations. However, you can perform privileged tasks for member accounts in your organization. To learn more about performing some root user tasks using short-term credentials, see [Perform a privileged task on an AWS Organizations member account](../../../IAM/latest/UserGuide/id_root-user-privileged-task.md "../../../IAM/latest/UserGuide/id_root-user-privileged-task.md").
   - Solution Providers reselling in AWS GovCloud (US) may receive AWS GovCloud (US) account root user access keys to be used for initial access to their account from an AWS business representative.
-  - For more information, see [AWS GovCloud (US) account root user](govcloud-account-root-user.md "govcloud-account-root-user.md").
+  - For more information, see [AWS GovCloud (US) account root](govcloud-account-root-user.md "govcloud-account-root-user.md").
 
 - Access issues for IAM users that are administrators in your AWS GovCloud (US) can be resolved by another administrator in the account.
 
@@ -31,7 +38,7 @@ If all administrators have forgotten or lost access to the AWS GovCloud (US) acc
   This endpoint supports clients using either IPv4 or IPv6 addresses.
   For more information, see [Dual-stack endpoint support](../../../IAM/latest/UserGuide/reference_dual-stack_endpoint_support.md "../../../IAM/latest/UserGuide/reference_dual-stack_endpoint_support.md") in the _IAM User Guide_.
 - In the AWS GovCloud (US) Regions, there is no AWS STS global endpoint. AWS provides Regional AWS STS endpoints.
-- When using the IAM or AWS STS service in AWS GovCloud (US), you must use [AWS GovCloud (US)IAM/AWS STS endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").
+- When using the IAM or AWS STS service in AWS GovCloud (US), you must use [AWS GovCloud (US) IAM/STS endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").
   Use SSL (HTTPS) when you make calls to the IAM or AWS STS service.
 - IAM users that you create in AWS GovCloud (US) are specific to AWS GovCloud (US) and do not exist in other standard AWS Regions.
 - AWS GovCloud (US) supports MFA devices listed in the [Multi-Factor Authentication (MFA) in AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/mfa/ "https://aws.amazon.com/govcloud-us/mfa/") page.
@@ -59,7 +66,7 @@ If all administrators have forgotten or lost access to the AWS GovCloud (US) acc
 
 ## Documentation
 
-[AWSIAM documentation](https://aws.amazon.com/documentation/iam/ "https://aws.amazon.com/documentation/iam/").
+- [AWSIAM documentation](../../../documentation/iam.md "../../../documentation/iam.md")
 
 ## Export-controlled content
 

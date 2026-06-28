@@ -2,13 +2,20 @@
 
 Amazon Simple Workflow Service (Amazon SWF) makes it easy to build applications that coordinate work across distributed components. In Amazon SWF, a task represents a logical unit of work that is performed by a component of your application. Coordinating tasks across the application involves managing intertask dependencies, scheduling, and concurrency in accordance with the logical flow of the application. Amazon SWF gives you full control over implementing tasks and coordinating them without worrying about underlying complexities such as tracking their progress and maintaining their state.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Simple Workflow Service differs
 
 There are no differences for this service.
 
 ## Documentation
 
-[Amazon SWF documentation](http://aws.amazon.com/documentation/swf/ "http://aws.amazon.com/documentation/swf/").
+- [Amazon SWF documentation](../../../http:/aws.amazon.com/documentation/swf.md "../../../http:/aws.amazon.com/documentation/swf.md")
 
 ## Export-controlled content
 

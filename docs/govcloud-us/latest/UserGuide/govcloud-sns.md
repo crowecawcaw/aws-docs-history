@@ -2,6 +2,13 @@
 
 Amazon Simple Notification Service (Amazon SNS) is a web service that enables applications, end-users, and devices to instantly send and receive notifications from the cloud.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Simple Notification Service differs
 
 The following differences apply to Amazon Simple Notification Service:
@@ -16,7 +23,7 @@ The following differences apply to Amazon Simple Notification Service:
 
 ## Documentation
 
-[Amazon SNS documentation](http://aws.amazon.com/documentation/sns/ "http://aws.amazon.com/documentation/sns/").
+- [Amazon SNS documentation](../../../http:/aws.amazon.com/documentation/sns.md "../../../http:/aws.amazon.com/documentation/sns.md")
 
 ## Export-controlled content
 

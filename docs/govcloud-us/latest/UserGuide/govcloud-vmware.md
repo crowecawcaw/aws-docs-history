@@ -4,4 +4,4 @@ VMware Cloud on AWS brings VMware’s enterprise-class Software-Defined Data Cen
 
 ## Documentation
 
-[VMware Cloud on AWS documentation](https://www.vmware.com/products/vmc-on-aws.html "https://www.vmware.com/products/vmc-on-aws.html").
+- [VMware Cloud on AWS documentation](https://www.vmware.com/products/vmc-on-aws.html "https://www.vmware.com/products/vmc-on-aws.html")

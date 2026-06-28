@@ -4,6 +4,13 @@ Amazon EMR is a cloud big data platform for running large-scale distributed data
 
 For information related to Release history, refer to [Amazon EMR Release Information](../../../emr/latest/ReleaseGuide/emr-whatsnew-history.md "../../../emr/latest/ReleaseGuide/emr-whatsnew-history.md").
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon EMR differs
 
 The following differences apply to Amazon EMR:
@@ -18,7 +25,7 @@ The following differences apply to Amazon EMR:
 
 ## Documentation
 
-[Amazon EMR documentation](https://aws.amazon.com/documentation/elastic-mapreduce/ "https://aws.amazon.com/documentation/elastic-mapreduce/").
+- [Amazon EMR documentation](../../../documentation/elastic-mapreduce.md "../../../documentation/elastic-mapreduce.md")
 
 ## Export-controlled content
 

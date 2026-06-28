@@ -2,6 +2,13 @@
 
 Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing. Kinesis Video Streams automatically provisions and elastically scales all the infrastructure needed to ingest streaming video data from millions of devices. It durably stores, encrypts, and indexes video data in your streams, and allows you to access your data through easy-to-use APIs. Kinesis Video Streams enables you to playback video for live and on-demand viewing, and quickly build applications that take advantage of computer vision and video analytics through integration with Amazon Rekognition Video, and libraries for ML frameworks such as Apache MxNet, TensorFlow, and OpenCV.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Kinesis Video Streams differs
 
 The following differences apply to Amazon Kinesis Video Streams:
@@ -18,9 +25,8 @@ The following differences apply to Amazon Kinesis Video Streams:
 
 ## Documentation
 
-[Kinesis Video Streams documentation](../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md "../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md").
-
-[Kinesis Video Streams with WebRTC documentation](../../../kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.md "../../../kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.md").
+- [Kinesis Video Streams documentation](../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md "../../../kinesisvideostreams/latest/dg/what-is-kinesis-video.md")
+- [Kinesis Video Streams with WebRTC documentation](../../../kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.md "../../../kinesisvideostreams-webrtc-dg/latest/devguide/webrtc-ingestion.md")
 
 ## Export-controlled content
 

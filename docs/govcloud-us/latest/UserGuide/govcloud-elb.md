@@ -8,6 +8,13 @@ Elastic Load Balancing supports the following types of load balancers: Applicati
 
 Some features of Elastic Load Balancing (ELB) TLS do not support FIPS 140-3 requirements by default. When using the Classic or Network Load Balancer, you can pass TCP traffic and terminate TLS on your target (for example, web server), that is configured to support FIPS 140-3 requirements. Application Load Balancer (ALB) supports selecting FIPS algorithms.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Elastic Load Balancing differs
 
 The following differences apply to Elastic Load Balancing:
@@ -24,7 +31,7 @@ The following differences apply to Elastic Load Balancing:
 
 ## Documentation
 
-[Elastic Load Balancing documentation](https://aws.amazon.com/documentation/elastic-load-balancing/ "https://aws.amazon.com/documentation/elastic-load-balancing/").
+- [Elastic Load Balancing documentation](../../../documentation/elastic-load-balancing.md "../../../documentation/elastic-load-balancing.md")
 
 ## Export-controlled content
 

@@ -2,6 +2,13 @@
 
 Use CloudWatch Events to send system events from AWS resources to AWS Lambda functions, Amazon SNS topics, streams in Amazon Kinesis, and other target types.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon CloudWatch differs
 
 The following differences apply to Amazon CloudWatch:
@@ -14,7 +21,7 @@ The following differences apply to Amazon CloudWatch:
 
 ## Documentation
 
-[Amazon CloudWatch documentation](https://aws.amazon.com/documentation/cloudwatch/ "https://aws.amazon.com/documentation/cloudwatch/").
+- [Amazon CloudWatch documentation](../../../documentation/cloudwatch.md "../../../documentation/cloudwatch.md")
 
 ## Export-controlled content
 

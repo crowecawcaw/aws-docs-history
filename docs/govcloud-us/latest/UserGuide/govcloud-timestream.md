@@ -1,7 +1,5 @@
 # Amazon Timestream in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) only.
-
 Timestream is a fast, scalable, and serverless time series database service for IoT and operational applications. With Timestream, you can store and analyze trillions of events per day up to 1,000 times faster than with relational databases—​at as little as one-tenth of the cost.
 
 Timestream saves you time and cost in managing the lifecycle of time series data by keeping recent data in memory and moving historical data to a cost-optimized storage tier, based upon user-defined policies.
@@ -9,6 +7,12 @@ Timestream saves you time and cost in managing the lifecycle of time series data
 With the purpose-built query engine in Timestream, you can access and analyze recent and historical data together, without needing to specify explicitly in the query whether the data resides in memory or in the cost-optimized storage tier.
 
 Timestream helps ensure that your time series data is always encrypted, whether at rest or in transit. With Timestream, you can also specify an AWS KMS customer managed key for encrypting data in the magnetic store.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
 
 ## How Amazon Timestream differs
 
@@ -19,7 +23,7 @@ The following differences apply to Amazon Timestream:
 
 ## Documentation
 
-[Timestream documentation](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md").
+- [Timestream documentation](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md")
 
 ## Export-controlled content
 

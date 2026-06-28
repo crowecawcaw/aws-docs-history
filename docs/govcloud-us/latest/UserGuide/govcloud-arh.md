@@ -2,6 +2,13 @@
 
 AWS Resilience Hub gives you a central place to define, validate, and track the resiliency of your AWS application. AWS Resilience Hub helps you to protect your applications from disruptions, and reduce recovery costs to optimize business continuity to help meet compliance and regulatory requirements.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Resilience Hub differs
 
 The following differences apply to AWS Resilience Hub:
@@ -16,5 +23,5 @@ The following differences apply to AWS Resilience Hub:
 
 ## Documentation
 
-- [AWS Resilience Hub User Guide](../../../resilience-hub/latest/userguide/what-is.md "../../../resilience-hub/latest/userguide/what-is.md").
-- [AWS Resilience Hub API Guide](../../../resilience-hub/latest/APIReference/Welcome.md "../../../resilience-hub/latest/APIReference/Welcome.md").
+- [AWS Resilience Hub User Guide](../../../resilience-hub/latest/userguide/what-is.md "../../../resilience-hub/latest/userguide/what-is.md")
+- [AWS Resilience Hub API Guide](../../../resilience-hub/latest/APIReference/Welcome.md "../../../resilience-hub/latest/APIReference/Welcome.md")

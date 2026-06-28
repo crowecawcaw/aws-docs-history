@@ -1,6 +1,13 @@
-# Amazon EC2 in AWS GovCloud (US)
+# Amazon Elastic Compute Cloud (Amazon EC2) in AWS GovCloud (US)
 
 Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizeable computing capacity—literally, servers in Amazon’s data centers—that you use to build and host your software systems.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How Amazon Elastic Compute Cloud differs
 
@@ -76,7 +83,7 @@ The following differences apply to VM Import/Export:
 - When using VM Export:
 
   - The Amazon EC2 instance must have been previously imported using VM Import.
-  - The Amazon S3 bucket for the destination image must exist and must have WRITE and READ_ACP permissions granted to the AWS GovCloud (US) account with canonical ID: af913ca13efe7a94b88392711f6cfc8aa07c9d1454d4f190a624b126733a5602.
+  - The Amazon S3 bucket for the destination image must exist and must have WRITE and READ\_ACP permissions granted to the AWS GovCloud (US) account with canonical ID: af913ca13efe7a94b88392711f6cfc8aa07c9d1454d4f190a624b126733a5602.
   - To export an instance, you can use the [ec2-create-instance-export-task](../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-CreateInstanceExportTask.md "../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-CreateInstanceExportTask.md") command. For more information, see [Exporting an instance as a VM using VM Import/Export](../../../vm-import/latest/userguide/vmexport.md "../../../vm-import/latest/userguide/vmexport.md").
 
 ## Determining if your account has a default VPC
@@ -96,7 +103,7 @@ In the form, include your AWS GovCloud (US-West) account ID and indicate that yo
 
 The following documentation is based on the public AWS documentation. As you read this documentation, you should consider how Amazon EC2 differs for AWS GovCloud (US) Regions, as described in this topic. Also, some features and new functionality described in this documentation might not be available in the current release of AWS GovCloud (US) Regions. There are other differences, such as links, endpoints, and screenshots.
 
-[Amazon Elastic Compute Cloud documentation](../../../ec2.md "../../../ec2.md")
+- [Amazon EC2 documentation](../../../ec2.md "../../../ec2.md")
 
 ## Export-controlled content
 

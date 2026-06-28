@@ -2,11 +2,15 @@
 
 AWS IoT SiteWise is a managed service that you can use to collect, model, analyze, and visualize data from industrial equipment at scale. With AWS IoT SiteWise Monitor, you can quickly create web applications for non-technical users to view and analyze your industrial data in real time. With AWS IoT SiteWise gateways, you can view and process your data on your local devices.
 
-AWS IoT SiteWise is only supported in the AWS GovCloud (US-West) Region.
-
 ###### Note
 
 The SiteWise Monitor feature will no longer be open to new customers starting November 7, 2025. If you would like to use SiteWise Monitor, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [SiteWise Monitor availability change](../../../iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.md "../../../iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.md").
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
 
 ## How AWS IoT SiteWise differs
 
@@ -16,16 +20,15 @@ The following differences apply to AWS IoT SiteWise:
 - Partner data sources on AWS IoT SiteWise gateways are not currently supported.
 - The following endpoints are not available:
 
-      + The endpoint for the control plane API operations that you use to manage asset models and assets: `model.iotsitewise.region.amazonaws.com`.
-      + The endpoint for the control plane API operations that you use to manage tags, storage configurations, and account configurations: `iotsitewise.region.amazonaws.com`.
-      + The endpoint for the control plane API operations that you use to manage gateways: `edge.iotsitewise.region.amazonaws.com`.
-      + The metadata bulk import and export operations are not available in the AWS GovCloud (US-West) region.
-
-  For more information, see [Service Endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").
+  - The endpoint for the control plane API operations that you use to manage asset models and assets: `model.iotsitewise.region.amazonaws.com`.
+  - The endpoint for the control plane API operations that you use to manage tags, storage configurations, and account configurations: `iotsitewise.region.amazonaws.com`.
+  - The endpoint for the control plane API operations that you use to manage gateways: `edge.iotsitewise.region.amazonaws.com`.
+  - The metadata bulk import and export operations are not available in the AWS GovCloud (US-West) region.
+    For more information, see [Service Endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").
 
 ## Documentation
 
-[AWS IoT SiteWise documentation](../../../iot-sitewise/index.md "../../../iot-sitewise/index.md").
+- [AWS IoT SiteWise documentation](../../../iot-sitewise/index.md "../../../iot-sitewise/index.md")
 
 ## Export-controlled content
 

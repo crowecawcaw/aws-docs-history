@@ -2,6 +2,13 @@
 
 Application Auto Scaling is a web service for developers and system administrators who need a solution for automatically scaling their scalable resources for individual AWS services beyond Amazon EC2.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Application Auto Scaling differs
 
 The following differences apply to Application Auto Scaling:
@@ -23,11 +30,8 @@ The following differences apply to Application Auto Scaling:
 
 ## Documentation
 
-For more information about anything in the above list, see the documentation for the specific service at [AWS documentation](https://aws.amazon.com/documentation/ "https://aws.amazon.com/documentation/").
-
-For information about scaling Amazon EC2 instances in AWS GovCloud (US), see [Amazon EC2 Auto Scaling](govcloud-as.md "govcloud-as.md")in this guide.
-
-For more information about AWS Auto Scaling and Application Auto Scaling, see [AWS Auto Scaling documentation](https://aws.amazon.com/documentation/autoscaling/ "https://aws.amazon.com/documentation/autoscaling/").
+- [Amazon EC2 Auto Scaling in AWS GovCloud (US)](govcloud-as.md "govcloud-as.md")
+- [AWS Auto Scaling documentation](../../../documentation/autoscaling.md "../../../documentation/autoscaling.md")
 
 ## Export-controlled content
 

@@ -21,7 +21,7 @@ The following differences apply to AWS Compute Optimizer:
 
 ## Documentation
 
-[Compute Optimizer documentation](../../../compute-optimizer/latest/ug/what-is-compute-optimizer.md "../../../compute-optimizer/latest/ug/what-is-compute-optimizer.md").
+- [Compute Optimizer documentation](../../../compute-optimizer/latest/ug/what-is-compute-optimizer.md "../../../compute-optimizer/latest/ug/what-is-compute-optimizer.md")
 
 ## Export-controlled content
 

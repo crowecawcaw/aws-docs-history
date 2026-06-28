@@ -2,6 +2,13 @@
 
 Amazon Detective makes it easy to analyze, investigate, and quickly identify the root cause of security findings or suspicious activities. Detective automatically collects log data from your AWS resources. It then uses machine learning, statistical analysis, and graph theory to help you visualize and conduct faster and more efficient security investigations.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Detective differs
 
 The following differences apply to Detective:
@@ -11,7 +18,7 @@ The following differences apply to Detective:
 
 ## Documentation
 
-[Detective documentation](../../../detective/latest/adminguide/what-is-detective.md "../../../detective/latest/adminguide/what-is-detective.md").
+- [Detective documentation](../../../detective/latest/adminguide/what-is-detective.md "../../../detective/latest/adminguide/what-is-detective.md")
 
 ## Export-controlled content
 

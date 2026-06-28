@@ -4,6 +4,13 @@ Amazon MQ is a managed message broker service that makes it easy to migrate to a
 
 Amazon MQ works with your existing applications and services without the need to manage, operate, or maintain your own messaging system.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon MQ differs
 
 The following differences apply to Amazon MQ:
@@ -15,7 +22,7 @@ The following differences apply to Amazon MQ:
 
 ## Documentation
 
-[Amazon MQ documentation](../../../amazon-mq.md "../../../amazon-mq.md").
+- [Amazon MQ documentation](../../../amazon-mq.md "../../../amazon-mq.md")
 
 ## Export-controlled content
 

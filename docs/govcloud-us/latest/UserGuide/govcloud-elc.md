@@ -2,6 +2,13 @@
 
 Amazon ElastiCache makes it easy to set up, manage, and scale distributed in-memory cache environments in the AWS Cloud. It provides a high performance, resizable, and cost-effective in-memory cache, while removing complexity associated with deploying and managing a distributed cache environment. ElastiCache works with the Valkey, Memcached and Redis OSS engines. To see which works best for you, see the Comparing Valkey, Memcached, and Redis OSS self-designed caches topic in the ElastiCache user guide.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon ElastiCache differs
 
 The following differences apply to Amazon ElastiCache:
@@ -12,7 +19,7 @@ The following differences apply to Amazon ElastiCache:
 
 ## Documentation
 
-[Amazon ElastiCache documentation](../../../elasticache.md "../../../elasticache.md").
+- [Amazon ElastiCache documentation](../../../http:/docs.aws.amazon.com/elasticache.md "../../../http:/docs.aws.amazon.com/elasticache.md")
 
 ## Export-controlled content
 

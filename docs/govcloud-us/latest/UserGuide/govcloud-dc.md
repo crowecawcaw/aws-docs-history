@@ -2,6 +2,13 @@
 
 AWS Direct Connect links your internal network to an AWS Direct Connect location over a standard 1 gigabit, 10 gigabit, 100 gigabit, or 400 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. With this connection in place, you can create virtual interfaces directly to the AWS cloud and Amazon Virtual Private Cloud, bypassing Internet service providers in your network path.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Direct Connect differs
 
 The following differences apply to Direct Connect:
@@ -10,7 +17,7 @@ The following differences apply to Direct Connect:
 - Direct Connect Gateway is supported between an AWS GovCloud (US) account and a linked standard/commercial AWS account. From your AWS GovCloud (US) account, you can associate a virtual private gateway with an Direct Connect gateway that exists in the linked commercial/standard AWS account.
 - Direct Connect Partners do not support Hosted connections to AWS GovCloud (US) Account IDs. When ordering connections through an Direct Connect Partner for a hosted connection, use the commercial account ID.
 - To set up an Direct Connect connection to AWS GovCloud (US) Regions, you must use the [AWS GovCloud (US) console](https://console.amazonaws-us-gov.com/directconnect/ "https://console.amazonaws-us-gov.com/directconnect/") and the AWS GovCloud (US) credentials associated with your AWS GovCloud (US) account. For instructions about how to provision and configure Direct Connect, see the [AWS Direct Connect User Guide](../../../directconnect/latest/UserGuide.md "../../../directconnect/latest/UserGuide.md").
-- Alternatively, you can set up an Direct Connect connection, in a different Region and connect to AWS GovCloud (US) Regions using a public virtual interface and a VPN connection. For more information, see [Setting up Direct Connect with a VPN Connection](#setup-direct-connect "#setup-direct-connect").
+- Alternatively, you can set up an Direct Connect connection, in a different Region and connect to AWS GovCloud (US) Regions using a public virtual interface and a VPN connection. For more information, see [Setting up AWS Direct Connect with a VPN Connection](#setup-direct-connect "#setup-direct-connect").
 - When you create a public virtual interface on your Direct Connect connection [associated with any standard Region or AWS GovCloud (US) Region](https://aws.amazon.com/directconnect/locations/ "https://aws.amazon.com/directconnect/locations/"), a data path to AWS GovCloud (US) is made available. Public virtual interface on an Direct Connect connections associated with an AWS China Region do not have a data path to AWS GovCloud (US).
 - To access your VPC without using an Amazon VPC VPN (for non-export uses), create an Direct Connect private virtual interface in AWS GovCloud (US) Regions (us-gov-west-1) only, or create an Direct Connect gateway and use any Direct Connect connection from any Direct Connect location.
 - An AWS Direct Connect gateway is supported between an AWS GovCloud (US) account and a linked public AWS account. From your AWS GovCloud (US) account, you can associate a virtual private gateway with an AWS Direct Connect gateway that’s in the linked account.
@@ -19,7 +26,7 @@ The following differences apply to Direct Connect:
 
 ## Documentation
 
-[Direct Connect documentation](../../../directconnect/index.md "../../../directconnect/index.md").
+[AWS Direct Connect documentation](../../../directconnect/index.md "../../../directconnect/index.md").
 
 ## Export-controlled content
 

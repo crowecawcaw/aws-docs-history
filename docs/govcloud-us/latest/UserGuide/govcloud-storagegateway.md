@@ -2,6 +2,13 @@
 
 AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between your on-premises IT environment and the AWS storage infrastructure in the cloud.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Storage Gateway differs
 
 The following differences apply to AWS Storage Gateway:
@@ -13,7 +20,7 @@ The following differences apply to AWS Storage Gateway:
 
 ## Documentation
 
-[AWS Storage Gateway documentation](../../../storagegateway/index.md "../../../storagegateway/index.md").
+- [AWS Storage Gateway documentation](../../../storagegateway/index.md "../../../storagegateway/index.md")
 
 ## Export-controlled content
 
@@ -21,14 +28,13 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - AWS Storage Gateway metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your gateway in AWS Storage Gateway, including but not limited to:
 
-      + Storage Gateway name
-      + Tape barcode
-      + The name of the iSCSI initiator configured for CHAP
+  - Storage Gateway name
+  - Tape barcode
+  - The name of the iSCSI initiator configured for CHAP
+    Do not enter export-controlled data into the following console fields:
 
-  Do not enter export-controlled data into the following console fields:
-
-      + Resource tag: Key
-      + Resource tag: Value
+  - Resource tag: Key
+  - Resource tag: Value
 
 ## AWS Storage Gateway AMI Information
 

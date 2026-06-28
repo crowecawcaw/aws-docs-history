@@ -10,7 +10,7 @@ The following differences apply to AWS Serverless Application Repository:
 
 ## Documentation
 
-[AWS Serverless Application Repository documentation](../../../serverlessrepo/index.md "../../../serverlessrepo/index.md").
+- [AWS Serverless Application Repository documentation](../../../serverlessrepo/index.md "../../../serverlessrepo/index.md")
 
 ## Export-controlled content
 

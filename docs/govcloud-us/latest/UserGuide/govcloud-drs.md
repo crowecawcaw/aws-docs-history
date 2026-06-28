@@ -2,6 +2,13 @@
 
 AWS Elastic Disaster Recovery minimizes downtime and data loss with fast, reliable recovery of on-premises and cloud-based applications using affordable storage, minimal compute, and point-in-time recovery.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Elastic Disaster Recovery differs
 
 The following differences apply to AWS Elastic Disaster Recovery:
@@ -25,7 +32,7 @@ The following differences apply to AWS Elastic Disaster Recovery:
 
 ## Documentation
 
-[AWS Elastic Disaster Recovery documentation](../../../drs/latest/userguide/what-is-drs.md "../../../drs/latest/userguide/what-is-drs.md").
+- [AWS Elastic Disaster Recovery documentation](../../../drs/latest/userguide/what-is-drs.md "../../../drs/latest/userguide/what-is-drs.md")
 
 ## Determining if your account has a default Amazon VPC
 

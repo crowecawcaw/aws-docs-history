@@ -2,6 +2,13 @@
 
 Amazon Athena is an interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (Amazon S3) using standard SQL. With a few actions in the AWS Management Console, you can point Athena at your data stored in Amazon S3 and begin using standard SQL to run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage, and you pay only for the queries you run. Athena scales automatically—executing queries in parallel—so results are fast, even with large datasets and complex queries.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Athena differs
 
 The following differences apply to Athena:
@@ -10,7 +17,7 @@ The following differences apply to Athena:
 
 ## Documentation
 
-[Amazon Athena documentation](../../../athena/latest/ug/what-is.md "../../../athena/latest/ug/what-is.md").
+- [Amazon Athena documentation](../../../athena/latest/ug/what-is.md "../../../athena/latest/ug/what-is.md")
 
 ## Export-controlled content
 

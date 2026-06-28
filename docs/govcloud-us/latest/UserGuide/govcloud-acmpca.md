@@ -1,5 +1,12 @@
 # AWS Private Certificate Authority in AWS GovCloud (US)
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 AWS Private Certificate Authority (AWS Private CA) is a managed private CA service with which you can easily and securely manage your CA infrastructure and your private certificates.
 
 ## How AWS Private CA differs
@@ -13,16 +20,16 @@ The following differences apply to AWS Private CA:
 
 - The Amazon Resource Name (ARN) for a private certificate authority has a AWS GovCloud (US) pattern of `arn:aws-us-gov:acm-pca:<region>:<account-id>:certificate-authority/<CA-ID>`
 
-You can find this ARN on the **CA details** page in the AWS Private CA console.
+You can find this ARN on the **CA details** page in the {pca} console.
 
 - The ARN for a certificate issued by a private CA has a AWS GovCloud (US) pattern of `arn:aws-us-gov:acm-pca:<region>:<account-id>:certificate-authority/<CA-ID>/certificate/<CertificateID>`
 - The ARNs for certificate templates used with the `IssueCertificate` API action have a AWS GovCloud (US) pattern of `arn:aws-us-gov:acm-pca:::template/<TemplateName>/V1`
 
-For example, `arn:aws-us-gov:acm-pca:::template/EndEntityCertificate/V1`. For the complete list of available template names, see [Using certificate templates](../../../privateca/latest/userguide/UsingTemplates.md "../../../privateca/latest/userguide/UsingTemplates.md") in the AWS Private Certificate Authority User Guide.
+For example, `arn:aws-us-gov:acm-pca:::template/EndEntityCertificate/V1`. For the complete list of available template names, see [Using certificate templates](../../../privateca/latest/userguide/UsingTemplates.md "../../../privateca/latest/userguide/UsingTemplates.md") in the {pcalong} User Guide.
 
 ## Documentation
 
-[AWS Private Certificate Authority documentation](../../../acm-pca/latest/userguide/PCAWelcome.md "../../../acm-pca/latest/userguide/PCAWelcome.md").
+- [AWS Private Certificate Authority documentation](../../../acm-pca/latest/userguide/PCAWelcome.md "../../../acm-pca/latest/userguide/PCAWelcome.md")
 
 ## Export-controlled content
 

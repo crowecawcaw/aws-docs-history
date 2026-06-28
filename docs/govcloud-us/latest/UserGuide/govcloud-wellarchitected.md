@@ -17,7 +17,7 @@ The following differences apply to AWS Well-Architected Tool:
 
 ## Documentation
 
-[AWS WA Tool documentation](../../../wellarchitected.md "../../../wellarchitected.md").
+- [AWS WA Tool documentation](../../../wellarchitected.md "../../../wellarchitected.md")
 
 ## Export-controlled content
 

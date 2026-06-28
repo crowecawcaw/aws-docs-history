@@ -2,6 +2,13 @@
 
 AWS Organizations is an account management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. AWS Organizations includes account management and consolidated billing capabilities that enable you to better meet the budgetary, security, and compliance needs of your business.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Organizations differs
 
 The following differences apply to AWS Organizations:
@@ -36,8 +43,8 @@ The following differences apply to AWS Organizations:
 
   As a rule, you can create tag policies that reference only those resource types whose services are supported in the AWS GovCloud (US) Regions. However, you can use the following additional resource types in a tag policy even though the associated service is not yet supported in the AWS GovCloud (US) Regions:
 
-      - `chime:meeting`
-      - `codepipeline:pipeline`
+        - `chime:meeting`
+        - `codepipeline:pipeline`
 
 Tag policy compliance reporting works only in the AWS GovCloud (US-West) Region.
 

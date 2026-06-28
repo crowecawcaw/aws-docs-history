@@ -1,8 +1,12 @@
 # Amazon Location Service in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) only, because Amazon Cognito is not available in AWS GovCloud (US-East).
-
 Amazon Location Service lets you securely add location data to your application. Amazon Location provides access to location-based functionality and data providers through AWS resources. Amazon Location offers five types of AWS resources, depending on the type of functionality you need. Use the different resources together to create a full location-based application.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
 
 ## How Amazon Location Service differs
 
@@ -12,7 +16,7 @@ The following differences apply to Amazon Location Service:
 
 ## Documentation
 
-[Amazon Location documentation](../../../location/index.md "../../../location/index.md").
+- [Amazon Location documentation](../../../location/index.md "../../../location/index.md")
 
 ## Export-controlled content
 

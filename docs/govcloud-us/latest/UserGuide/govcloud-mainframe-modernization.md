@@ -10,7 +10,7 @@ There are no differences for this service.
 
 ## Documentation
 
-[AWS Mainframe Modernization documentation](../../../m2/latest/userguide/what-is-m2.md "../../../m2/latest/userguide/what-is-m2.md").
+- [AWS Mainframe Modernization documentation](../../../m2/latest/userguide/what-is-m2.md "../../../m2/latest/userguide/what-is-m2.md")
 
 ## Export-controlled content
 

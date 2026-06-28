@@ -2,6 +2,13 @@
 
 With the Amazon Chime SDK, you can quickly add voice, video, and screen sharing into your websites and mobile applications. Built-in machine learning provides noise and echo reduction to improve audio quality, and background replacement and blur to help improve visual privacy. Innovate faster by using the Amazon Chime SDK communication building blocks for secure customer communications that scale up or down to meet demand.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Chime SDK differs
 
 The following differences apply to Amazon Chime SDK:
@@ -26,7 +33,7 @@ The following differences apply to Amazon Chime SDK:
 
 ## Documentation
 
-[Amazon Chime SDK documentation](../../../chime-sdk/index.md "../../../chime-sdk/index.md").
+- [Amazon Chime SDK documentation](../../../chime-sdk/index.md "../../../chime-sdk/index.md")
 
 ## Export-controlled content
 

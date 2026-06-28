@@ -2,6 +2,13 @@
 
 AWS End User Messaging is an AWS service that you can use to engage with you customers across multiple messaging channels. You can use AWS End User Messaging to send push notifications, SMS text messages, and voice messages.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS End User Messaging differs
 
 The following differences apply to AWS End User Messaging:

@@ -2,6 +2,13 @@
 
 AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft AD, enables your directory-aware workloads and AWS resources to use managed Active Directory in the AWS Cloud. AWS Managed Microsoft AD is built on actual Microsoft Active Directory and does not require you to synchronize or replicate data from your existing Active Directory to the cloud. You can use standard Active Directory administration tools and take advantage of built-in Active Directory features, such as Group Policy and single sign-on (SSO). With AWS Managed Microsoft AD, you can easily join Amazon EC2 and Amazon RDS for SQL Server instances to your domain, and use AWS Enterprise IT applications such as Amazon WorkSpaces with Active Directory users and groups.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Directory Service differs
 
 The following differences apply to AWS Directory Service:
@@ -27,12 +34,6 @@ The following differences apply to AWS Directory Service:
   - AWS Managed Microsoft AD (Hybrid Edition)
 
 - Only signature version 4 signing is supported.
-- You can use the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") to interact with AWS Directory Service and other AWS services through the command line. For more information, see [AWS CLI](../../../cli/index.md "../../../cli/index.md") documentation.
-
-###### Note
-
-If you are using the Amazon Linux AMI, the AWS CLI is already installed and configured.
-
 - To connect to AWS Directory Service by using the command line or APIs, use the following [endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"):
 
   - https://ds-fips.us-gov-west-1.amazonaws.com
@@ -45,7 +46,7 @@ If you are using the Amazon Linux AMI, the AWS CLI is already installed and conf
 
 ## Documentation
 
-[AWS Directory Service documentation](../../../directory-service/index.md "../../../directory-service/index.md").
+- [AWS Directory Service documentation](../../../directory-service/index.md "../../../directory-service/index.md")
 
 ## Export-controlled content
 

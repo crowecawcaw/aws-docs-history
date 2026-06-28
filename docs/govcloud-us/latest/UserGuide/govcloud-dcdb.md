@@ -4,6 +4,13 @@ Amazon DocumentDB (with MongoDB compatibility) is a fast, scalable, highly avail
 
 Amazon DocumentDB is a non-relational database service designed from the ground-up to give you the performance, scalability, and availability you need when operating mission-critical MongoDB workloads at scale. In Amazon DocumentDB, the storage and compute are decoupled, allowing each to scale independently. You can increase the read capacity to millions of requests per second by adding up to 15 low latency read replicas in minutes, regardless of the size of your data.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon DocumentDB differs
 
 The following differences apply to Amazon DocumentDB:
@@ -16,7 +23,7 @@ The following differences apply to Amazon DocumentDB:
 
 ## Documentation
 
-[Amazon DocumentDB documentation](../../../documentdb/latest/developerguide/what-is.md "../../../documentdb/latest/developerguide/what-is.md").
+- [Amazon DocumentDB documentation](../../../documentdb/latest/developerguide/what-is.md "../../../documentdb/latest/developerguide/what-is.md")
 
 ## Export-controlled content
 

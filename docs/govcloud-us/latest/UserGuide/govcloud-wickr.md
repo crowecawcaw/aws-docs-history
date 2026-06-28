@@ -19,7 +19,7 @@ The following differences apply to AWS WickrGov:
 
 ## Documentation
 
-[AWS WickrGov documentation](../../../wickr/index.md "../../../wickr/index.md").
+- [AWS WickrGov documentation](../../../wickr/index.md "../../../wickr/index.md")
 
 ## Export-controlled content
 

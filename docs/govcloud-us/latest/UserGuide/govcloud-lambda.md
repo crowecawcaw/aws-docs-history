@@ -2,6 +2,13 @@
 
 With AWS Lambda, you can run code without provisioning or managing servers. You pay only for the compute time that you consume—there’s no charge when your code isn’t running. You can run code for virtually any type of application or backend service—all with zero administration. Just upload your code and Lambda takes care of everything required to run and scale your code with high availability. You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Lambda differs
 
 The following differences apply to AWS Lambda:
@@ -31,7 +38,7 @@ Lambda will deprecate the .NET 6 runtime on July 31, 2025. We recommend that you
 
 ## Documentation
 
-[AWS Lambda documentation](https://aws.amazon.com/documentation/lambda/ "https://aws.amazon.com/documentation/lambda/").
+- [AWS Lambda documentation](../../../documentation/lambda.md "../../../documentation/lambda.md")
 
 ## Export-controlled content
 

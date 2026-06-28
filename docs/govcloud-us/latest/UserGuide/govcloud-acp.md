@@ -2,6 +2,13 @@
 
 AWS CodePipeline is a continuous delivery service you can use to model, visualize, and automate the steps required to release your software. You can quickly model and configure the different stages of a software release process. CodePipeline automates the steps required to release your software changes continuously.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS CodePipeline differs
 
 The following differences apply to AWS CodePipeline:
@@ -42,7 +49,7 @@ The following differences apply to AWS CodePipeline:
 
 ## Documentation
 
-[AWS CodePipeline documentation](../../../codepipeline/latest/userguide/welcome.md "../../../codepipeline/latest/userguide/welcome.md").
+- [AWS CodePipeline documentation](../../../codepipeline/latest/userguide/welcome.md "../../../codepipeline/latest/userguide/welcome.md")
 
 ## Export-controlled content
 

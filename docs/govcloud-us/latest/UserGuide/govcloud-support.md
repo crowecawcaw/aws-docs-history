@@ -1,6 +1,6 @@
 # AWS Support
 
-AWS Support offers a range of support plans that provide access to tools and technical help to support the success and operational health of your AWS solutions. For more information, see [Signing Up for AWS GovCloud (US)AWS Support](customer-supp.md "customer-supp.md").
+AWS Support offers a range of support plans that provide access to tools and technical help to support the success and operational health of your AWS solutions. For more information, see [Signing Up for AWS GovCloud (US) AWS Support](customer-supp.md "customer-supp.md").
 
 To create a new case, sign in to the AWS GovCloud (US) Region [Support Center](https://console.amazonaws-us-gov.com/support/ "https://console.amazonaws-us-gov.com/support/") with your AWS GovCloud (US) credentials. 
 
@@ -12,7 +12,7 @@ Do not enter any export-controlled data in your support cases.
 
 The following differences apply to AWS Support:
 
-- [AWS Trusted Advisor](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md") is available in AWS GovCloud (US), but some AWS Trusted Advisor checks and features are not available.
+- [AWS Trusted Advisor-Long](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md") is available in AWS GovCloud (US), but some AWS Trusted Advisor checks and features are not available.
 - The Service Health Dashboard for the AWS GovCloud (US) Region can be found at http://status.aws.amazon.com/govcloud.
 - The AWS GovCloud (US) Regions do not have a dedicated forum area.
 - The endpoint to access AWS Support is https://support.us-gov-west-1.amazonaws.com.
@@ -20,8 +20,6 @@ The following differences apply to AWS Support:
 - Changing the severity level of existing support cases is not available.
 
 ## Documentation
-
-See the following topics:
 
 - [AWS Support User Guide](../../../awssupport/latest/user.md "../../../awssupport/latest/user.md")
 - [AWS Support API Reference](../../../awssupport/latest/APIReference.md "../../../awssupport/latest/APIReference.md")

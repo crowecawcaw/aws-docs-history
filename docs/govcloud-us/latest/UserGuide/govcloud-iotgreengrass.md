@@ -1,6 +1,13 @@
-# AWS IoT Greengrass Version 1 in ?AWS GovCloud (US)
+# AWS IoT Greengrass Version 1 in AWS GovCloud (US)
 
 AWS IoT Greengrass seamlessly extends AWS to edge devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. With AWS IoT Greengrass, connected devices can run AWS Lambda functions, execute predictions based on machine learning models, keep device data in sync, and communicate with other devices securely even when not connected to the Internet.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How AWS IoT Greengrass V1 differs
 
@@ -9,12 +16,12 @@ The following differences apply to AWS IoT Greengrass V1:
 - AWS IoT Greengrass Core software v1.9.2 is the minimum supported version.
 - The following minimum versions of the AWS IoT Greengrass Core SDK are supported.
 
-| ​            | Language or platform | Minimum version |
-| ------------ | -------------------- | --------------- |
-| Python 3.7   | 1.4.0                |
-| Java 8       | 1.3.1                |
-| Node.js 8.10 | 1.4.0                |
-| C, C++       | 1.1.0                |
+​| Language or platform | Minimum version |
+| --- | --- |
+| Python 3.7 | 1.4.0 |
+| Java 8 | 1.3.1 |
+| Node.js 8.10 | 1.4.0 |
+| C, C++ | 1.1.0 |
 
 - The following connectors are supported in AWS GovCloud (US-East):
 
@@ -39,17 +46,16 @@ The following example policy includes the minimum required permissions that must
 
 - AWS IoT Greengrass operations use three endpoints that have different support for FIPS 140-3.
 
-      + The endpoint for Greengrass control plane operations provides FIPS access only.
-      + The endpoint for Greengrass discovery operations does not yet support FIPS. This endpoint provides non-FIPS access only.
-      + The endpoint for AWS IoT device operations does not yet support FIPS. This endpoint provides non-FIPS access only.
-
-  For more information, see [Service Endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"). Only Amazon Trust Services (ATS) server authentication is supported, so you must use ATS-signed root CA certificates and ATS endpoints. For more information, see [Server Authentication](../../../iot/latest/developerguide/managing-device-certs.md#server-authentication "../../../iot/latest/developerguide/managing-device-certs.md#server-authentication") in the _AWS IoT Developer Guide_.
+  - The endpoint for Greengrass control plane operations provides FIPS access only.
+  - The endpoint for Greengrass discovery operations does not yet support FIPS. This endpoint provides non-FIPS access only.
+  - The endpoint for AWS IoT device operations does not yet support FIPS. This endpoint provides non-FIPS access only.
+    For more information, see [Service Endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"). Only Amazon Trust Services (ATS) server authentication is supported, so you must use ATS-signed root CA certificates and ATS endpoints. For more information, see [Server Authentication](../../../iot/latest/developerguide/managing-device-certs.md#server-authentication "../../../iot/latest/developerguide/managing-device-certs.md#server-authentication") in the _AWS IoT Developer Guide_.
 
 - The default limit for the maximum number of transactions per second (TPS) on the AWS IoT Greengrass API is 10 TPS. For more information, see [AWS IoT Greengrass Limits](../../../general/latest/gr/aws_service_limits.md#limits_greengrass "../../../general/latest/gr/aws_service_limits.md#limits_greengrass") in the _Amazon Web Services General Reference_ .
 
 ## Documentation
 
-[AWS IoT Greengrass documentation](https://aws.amazon.com/documentation/greengrass "https://aws.amazon.com/documentation/greengrass").
+- [AWS IoT Greengrass documentation](../../../documentation/greengrass.md "../../../documentation/greengrass.md")
 
 ## Export-controlled content
 

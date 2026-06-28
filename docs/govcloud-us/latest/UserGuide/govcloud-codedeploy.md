@@ -2,6 +2,13 @@
 
 AWS CodeDeploy is a deployment service that enables developers to automate the deployment of applications to instances and to update the applications as required.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS CodeDeploy differs
 
 The following differences apply to AWS CodeDeploy:

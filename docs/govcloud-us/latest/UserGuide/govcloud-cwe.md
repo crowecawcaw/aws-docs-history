@@ -10,7 +10,7 @@ The following differences apply to Amazon CloudWatch Events:
 
 ## Documentation
 
-[Amazon CloudWatch Events documentation](https://aws.amazon.com/documentation/cloudwatch/ "https://aws.amazon.com/documentation/cloudwatch/").
+- [Amazon CloudWatch Events documentation](../../../documentation/cloudwatch.md "../../../documentation/cloudwatch.md")
 
 ## Export-controlled content
 

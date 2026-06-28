@@ -4,6 +4,13 @@ AWS Control Tower offers a straightforward way to set up and govern an AWS multi
 
 You can utilize AWS Control Tower with workloads that require FedRAMP High categorization level in the AWS GovCloud (US) Regions. AWS Control Tower is [in scope for numerous compliance programs and standards](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/"), including HIPAA (Health Insurance Portability and Accountability Act), PCI DSS (Payment Card Industry – Data Security Standard), ISO (International Organization for Standardization), SOC 1, 2, and 3 (System and Organization Controls). To learn more, visit the [AWS Control Tower homepage](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/") or see the [AWS Control Tower User Guide](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md").
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Control Tower differs
 
 The following differences apply to AWS Control Tower:
@@ -150,7 +157,7 @@ After you’ve performed these tasks, it’s a good idea to check the guardrails
 
 ## Documentation
 
-[AWS Control Tower documentation](../../../controltower/index.md "../../../controltower/index.md").
+- [AWS Control Tower documentation](../../../controltower/index.md "../../../controltower/index.md")
 
 ## Export-controlled content
 

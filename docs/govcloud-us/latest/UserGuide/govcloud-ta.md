@@ -8,7 +8,7 @@ The following differences apply to AWS Trusted Advisor:
 
 - Email notifications for Trusted Advisor check summaries are not available.
 - The organizational view feature is currently not supported.
-- For a list of supported checks in the AWS GovCloud (US) Regions, see [Supported Trusted Advisor checks](#supported-ta-checks "#supported-ta-checks"). You can also sign in to the [Trusted Advisor console](https://console.aws.amazon.com/trustedadvisor "https://console.aws.amazon.com/trustedadvisor").
+- For a list of supported checks in the AWS GovCloud (US) Regions, see [Supported AWS Trusted Advisor checks](#supported-ta-checks "#supported-ta-checks"). You can also sign in to the [AWS Trusted Advisor console](https://console.aws.amazon.com/trustedadvisor "https://console.aws.amazon.com/trustedadvisor").
 - Email notifications for Trusted Advisor Priority recommendation summaries are not available.
 - Not all checks are automatically refreshed. For checks not automatically refreshed, customers can manually refresh via the Console or API.
 
@@ -193,11 +193,9 @@ The following table lists the checks for Trusted Advisor service quotas, formerl
 
 ## Documentation
 
-See the following topics:
-
-- [AWS Trusted Advisor](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md") in the _AWS Support User Guide_
-- For more information about Trusted Advisor features, see [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/ "https://aws.amazon.com/premiumsupport/trustedadvisor/").
-- For a complete list of Trusted Advisor checks, see the [AWS Trusted Advisor best practice checklist](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist").
+- [AWS Trusted Advisor-Long](../../../awssupport/latest/user/trusted-advisor.md "../../../awssupport/latest/user/trusted-advisor.md") in the _AWS Support User Guide_
+- For more information about Trusted Advisor features, see [AWS Trusted Advisor-Long](https://aws.amazon.com/premiumsupport/trustedadvisor/ "https://aws.amazon.com/premiumsupport/trustedadvisor/").
+- For a complete list of Trusted Advisor checks, see the [AWS Trusted Advisor-Long best practice checklist](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist").
 
 ## Export-controlled content
 

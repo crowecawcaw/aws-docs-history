@@ -8,7 +8,7 @@ If you use AWS services in other AWS Regions with the standard AWS account, your
 
 The following diagram outlines the relationship between AWS GovCloud (US) and standard AWS accounts:
 
-![Diagram showing AWS GovCloud (US) and AWS Standard accounts with separate services and credential usage.](images/relationship.png)
+![Diagram showing <shared id="govcloud-us"/> and AWS Standard accounts with separate services and credential usage.](images/relationship.png)
 
 AWS GovCloud (US) account relationship to standard AWS account
 
@@ -23,4 +23,4 @@ Amazon S3 bucket. See [Move data in and out of AWS GovCloud (US) with Amazon S3.
 
 ## Savings plans
 
-Savings plans for GovCloud account and regions need to be purchased in the Standard commercial account. These plans purchased in the Standard account apply to usage in GovCloud regions. See [How Amazon Elastic Compute Cloud Differs for AWS GovCloud (US).](govcloud-ec2.md "govcloud-ec2.md") In addition, GovCloud accounts inherit discount sharing configuration from their associated commercial accounts. See [Activating shared Reserved Instances and Savings Plans discount sharing.](../../../awsaccountbilling/latest/aboutv2/ri-turn-off.md#ri-turn-on-process "../../../awsaccountbilling/latest/aboutv2/ri-turn-off.md#ri-turn-on-process")
+Savings plans for GovCloud account and regions need to be purchased in the Standard commercial account. These plans purchased in the Standard account apply to usage in GovCloud regions. See [How Amazon EC2 Differs for AWS GovCloud (US).](govcloud-ec2.md "govcloud-ec2.md") In addition, GovCloud accounts inherit discount sharing configuration from their associated commercial accounts. See [Activating shared Reserved Instances and Savings Plans discount sharing.](../../../awsaccountbilling/latest/aboutv2/ri-turn-off.md#ri-turn-on-process "../../../awsaccountbilling/latest/aboutv2/ri-turn-off.md#ri-turn-on-process")

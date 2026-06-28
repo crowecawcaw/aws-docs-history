@@ -2,13 +2,20 @@
 
 AWS Batch enables you to run batch computing workloads on the AWS Cloud. Batch computing is a common way for developers, scientists, and engineers to access large amounts of compute resources, and AWS Batch removes the undifferentiated heavy lifting of configuring and managing the required infrastructure, similar to traditional batch computing software. This service can efficiently provision resources in response to jobs submitted in order to eliminate capacity constraints, reduce compute costs, and deliver results quickly.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Batch differs
 
 There are no differences for this service.
 
 ## Documentation
 
-[AWS Batch documentation](../../../batch/latest/userguide/what-is-batch.md "../../../batch/latest/userguide/what-is-batch.md").
+- [AWS Batch documentation](../../../batch/latest/userguide/what-is-batch.md "../../../batch/latest/userguide/what-is-batch.md")
 
 ## Export-controlled content
 

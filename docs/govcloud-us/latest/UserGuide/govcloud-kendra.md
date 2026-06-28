@@ -1,8 +1,12 @@
 # Amazon Kendra in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) only.
-
 Amazon Kendra is an intelligent search service powered by machine learning. Amazon Kendra reimagines enterprise search for your websites and applications so your employees and customers can easily find the content they are looking for, even when it is scattered across multiple locations and content repositories within your organization.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
 
 ## How Amazon Kendra differs
 
@@ -14,7 +18,7 @@ The following differences apply to Amazon Kendra:
 
 ## Documentation
 
-[Amazon Kendra documentation](../../../kendra/index.md "../../../kendra/index.md").
+- [Amazon Kendra documentation](../../../kendra/index.md "../../../kendra/index.md")
 
 ## Export-controlled content
 

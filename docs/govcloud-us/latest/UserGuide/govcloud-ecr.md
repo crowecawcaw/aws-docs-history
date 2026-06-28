@@ -1,6 +1,13 @@
-# Amazon ECR in AWS GovCloud (US)
+# Amazon Elastic Container Registry (Amazon ECR) in AWS GovCloud (US)
 
 Amazon Elastic Container Registry (Amazon ECR) is a fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How Amazon Elastic Container Registry differs
 

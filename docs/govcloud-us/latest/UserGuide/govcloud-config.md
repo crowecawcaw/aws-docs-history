@@ -4,6 +4,13 @@ AWS Config provides a detailed view of the resources associated with your AWS ac
 
 AWS Config and AWS Config Rules are supported in the AWS GovCloud (US) Region.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Config differs
 
 The following differences apply to AWS Config:
@@ -15,7 +22,7 @@ The following differences apply to AWS Config:
 
 ## Documentation
 
-[AWS Config documentation](https://aws.amazon.com/documentation/config/ "https://aws.amazon.com/documentation/config/").
+- [AWS Config documentation](../../../documentation/config.md "../../../documentation/config.md")
 
 ## Export-controlled content
 

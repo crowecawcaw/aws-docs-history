@@ -2,6 +2,13 @@
 
 AWS Cloud Map is a fully managed service that you can use to create and maintain a map of the backend services and resources that your applications depend on.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Cloud Map differs
 
 The following differences apply to AWS Cloud Map:
@@ -10,7 +17,7 @@ The following differences apply to AWS Cloud Map:
 
 ## Documentation
 
-[AWS Cloud Map documentation](../../../cloud-map.md "../../../cloud-map.md").
+- [AWS Cloud Map documentation](../../../cloud-map.md "../../../cloud-map.md")
 
 ## Export-controlled content
 

@@ -101,7 +101,7 @@ The procedure is the same for deploying a ROSA cluster in AWS GovCloud (US) Regi
 
 ## Documentation
 
-[ROSA documentation.](../../../ROSA/latest/userguide/what-is-rosa.md "../../../ROSA/latest/userguide/what-is-rosa.md")
+- [ROSA documentation.](../../../ROSA/latest/userguide/what-is-rosa.md "../../../ROSA/latest/userguide/what-is-rosa.md")
 
 ## Export-controlled content
 

@@ -2,11 +2,18 @@
 
 Amazon Simple Storage Service (Amazon S3) is storage for the internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. You can accomplish these tasks using the simple and intuitive web interface of the AWS Management Console.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Simple Storage Service differs
 
 The following differences apply to Amazon Simple Storage Service:
 
-- Amazon Route 53 Private DNS for VPCs is currently not supported for Amazon S3 endpoints.
+- {r53long} Private DNS for VPCs is currently not supported for Amazon S3 endpoints.
 - You cannot do a direct copy of the contents of an Amazon S3 bucket in the AWS GovCloud (US) Regions to or from another AWS Region.
 - If you use Amazon S3 policies, use the AWS GovCloud (US) Amazon Resource Name (ARN) identifier. For more information, see [Amazon Resource Names (ARNs) in AWS GovCloud (US) Regions](using-govcloud-arns.md "using-govcloud-arns.md").
 - In the AWS GovCloud (US) Regions, Amazon S3 has three endpoints. If you are processing export-controlled data, use one of the SSL endpoints. If you have FIPS requirements, use a FIPS 140-3 endpoint (https://s3-fips.us-gov-west-1.amazonaws.com or https://s3-fips.us-gov-east-1.amazonaws.com).
@@ -24,7 +31,7 @@ The following differences apply to Amazon Simple Storage Service:
 
 ## Documentation
 
-[Amazon Simple Storage Service documentation](https://aws.amazon.com/documentation/s3/ "https://aws.amazon.com/documentation/s3/").
+- [Amazon S3 documentation](../../../documentation/s3.md "../../../documentation/s3.md")
 
 ## Export-controlled content
 

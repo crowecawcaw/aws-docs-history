@@ -4,6 +4,13 @@ AWS WAF is a web application firewall that lets you monitor web requests that ar
 
 For list of services that AWS WAF supports, please visit the [service page](https://aws.amazon.com/waf "https://aws.amazon.com/waf").
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS WAF differs
 
 The following differences apply to AWS WAF:
@@ -12,7 +19,7 @@ The following differences apply to AWS WAF:
 
 ## Documentation
 
-[AWS WAF documentation](https://aws.amazon.com/documentation/waf/ "https://aws.amazon.com/documentation/waf/").
+- [AWS WAF documentation](../../../documentation/waf.md "../../../documentation/waf.md")
 
 ## Export-controlled content
 

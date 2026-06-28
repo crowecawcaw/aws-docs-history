@@ -1,6 +1,13 @@
-# Amazon ECS in AWS GovCloud (US)
+# Amazon Elastic Container Service (Amazon ECS) in AWS GovCloud (US)
 
 Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster of Amazon EC2 instances.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How Amazon Elastic Container Service differs
 
@@ -10,7 +17,7 @@ The following differences apply to Amazon Elastic Container Service:
 
 ## Documentation
 
-[Amazon Elastic Container Service documentation](https://aws.amazon.com/documentation/ecs/ "https://aws.amazon.com/documentation/ecs/").
+- [Amazon Elastic Container Service documentation](../../../documentation/ecs.md "../../../documentation/ecs.md")
 
 ## Export-controlled content
 

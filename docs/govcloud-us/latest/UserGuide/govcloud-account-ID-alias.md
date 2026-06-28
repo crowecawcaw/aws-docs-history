@@ -20,7 +20,7 @@ You can retrieve your AWS GovCloud (US) account ID by [Signing in to AWS GovClou
 
 ### Finding your AWS GovCloud (US) account ID using the standard AWS Management Console
 
-You can retrieve your AWS GovCloud (US) account ID by signing in to [the standard AWS Management Console as the root user](../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md "../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md") of the [associated standard AWS account](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md"). In the navigation bar, choose your account name on the top right of the window, and then choose **Account**. On the **Account Settings** page, your 12-digit AWS GovCloud (US) account ID appears under **Linked AWS GovCloud (US) account**.
+You can retrieve your AWS GovCloud (US) account ID by signing in to [the standard AWS Management Console as the root](../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md "../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md") of the [associated standard AWS account](getting-started-standard-account-linking.md "getting-started-standard-account-linking.md"). In the navigation bar, choose your account name on the top right of the window, and then choose **Account**. On the **Account Settings** page, your 12-digit AWS GovCloud (US) account ID appears under **Linked AWS GovCloud (US) account**.
 
 ### Finding your AWS GovCloud (US) account ID using the AWS CLI
 
@@ -52,7 +52,7 @@ Support can’t help you recover this information.
 
 You can retrieve your associated standard AWS account ID by signing into your AWS GovCloud (US) account.
 
-In the navigation bar, choose **Support**, and then **Support Center**. In the **Support Center** navigation pane, choose **Your support cases** and open the most recently created support case by choosing its **Case ID** or **Subject**. In the **Case details**, look for the email address listed in the **Opened by** field. If your account email address has not changed since opening the case, this will be your account email address. [Sign in as the root user](../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md "../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md") of your standard AWS account using this email and follow [Finding your AWS account ID](../../../IAM/latest/UserGuide/console_account-alias.md#FindingYourAWSId "../../../IAM/latest/UserGuide/console_account-alias.md#FindingYourAWSId") in the *AWS Identity and Access Management User Guide*guide.
+In the navigation bar, choose **Support**, and then **Support Center**. In the **Support Center** navigation pane, choose **Your support cases** and open the most recently created support case by choosing its **Case ID** or **Subject**. In the **Case details**, look for the email address listed in the **Opened by** field. If your account email address has not changed since opening the case, this will be your account email address. [Sign in as the root](../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md "../../../signin/latest/userguide/introduction-to-root-user-sign-in-tutorial.md") of your standard AWS account using this email and follow [Finding your AWS account ID](../../../IAM/latest/UserGuide/console_account-alias.md#FindingYourAWSId "../../../IAM/latest/UserGuide/console_account-alias.md#FindingYourAWSId") in the *AWS Identity and Access Management User Guide*guide.
 
 ###### Note
 
@@ -100,7 +100,7 @@ You can use the AWS Management Console, the IAM API, or the command line interfa
 
 - Your AWS GovCloud (US) account can have only one alias. If you create a new alias for your AWS GovCloud (US) account, the new alias overwrites the previous alias, and the URL containing the previous alias stops working.
 - The account alias must be unique across all Amazon Web Services products. It must contain only digits, lowercase letters, and hyphens. For more information on limitations on AWS account entities, see [IAM and AWS STS quotas](../../../IAM/latest/UserGuide/reference_iam-quotas.md "../../../IAM/latest/UserGuide/reference_iam-quotas.md").
-- Changes to your AWS GovCloud (US) account alias or the associated standard AWS account alias will not overwrite the other alias. They can each be customized without interference of the other. See [Creating](../../../IAM/latest/UserGuide/console_account-alias.md#CreateAccountAlias "../../../IAM/latest/UserGuide/console_account-alias.md#CreateAccountAlias") in the *AWS Identity and Access Management User Guide*to learn more about customizing the associated standard AWS account alias.
+- Changes to your AWS GovCloud (US) account alias or the associated standard AWS account alias will not overwrite the other alias. They can each be customized without interference of the other. See [Creating, deleting, and listing an AWS account alias](../../../IAM/latest/UserGuide/console_account-alias.md#CreateAccountAlias "../../../IAM/latest/UserGuide/console_account-alias.md#CreateAccountAlias") in the *AWS Identity and Access Management User Guide*to learn more about customizing the associated standard AWS account alias.
 
 ### Creating, editing, and deleting aliases (console)
 

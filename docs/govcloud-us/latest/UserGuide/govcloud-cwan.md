@@ -2,6 +2,13 @@
 
 AWS Cloud WAN is a managed wide-area networking (WAN) service that you can use to build, manage, and monitor a unified global network that connects resources running across your cloud and on-premises environments.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Cloud WAN differs
 
 The following differences apply to AWS Cloud WAN:
@@ -10,7 +17,7 @@ The following differences apply to AWS Cloud WAN:
 
 ## Documentation
 
-[AWS Cloud WAN documentation](../../../network-manager/latest/cloudwan/what-is-cloudwan.md "../../../network-manager/latest/cloudwan/what-is-cloudwan.md")
+- [AWS Cloud WAN documentation](../../../network-manager/latest/cloudwan/what-is-cloudwan.md "../../../network-manager/latest/cloudwan/what-is-cloudwan.md")
 
 ## Export-controlled content
 

@@ -2,6 +2,13 @@
 
 AWS CodeCommit is a fully-managed source control service that hosts secure Git-based repositories. It makes it easy for teams to collaborate on code in a secure and highly scalable ecosystem. CodeCommit eliminates the need to operate your own source control system or worry about scaling its infrastructure. You can use CodeCommit to securely store anything from source code to binaries, and it works seamlessly with your existing Git tools.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS CodeCommit differs
 
 The following differences apply to AWS CodeCommit:
@@ -13,7 +20,7 @@ The following differences apply to AWS CodeCommit:
 
 ## Documentation
 
-[AWS CodeCommit documentation](../../../codecommit/latest/userguide.md "../../../codecommit/latest/userguide.md").
+- [AWS CodeCommit documentation](../../../codecommit/latest/userguide.md "../../../codecommit/latest/userguide.md")
 
 ## Export-controlled content
 

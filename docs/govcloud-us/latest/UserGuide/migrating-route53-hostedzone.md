@@ -8,5 +8,5 @@ If you have created a public hosted zone in your commercial AWS account for AWS 
 
 Note the following:
 
-- Some Route 53 features are not yet available in AWS GovCloud (US). For more information, see [Amazon Route 53 in AWS GovCloud (US)](govcloud-r53.md "govcloud-r53.md").
+- Some Route 53 features are not yet available in AWS GovCloud (US). For more information, see [Amazon Route 53 in AWS GovCloud (US)](govcloud-r53.md "govcloud-r53.md").
 - Health checks can be created and managed directly within AWS GovCloud (US). While it’s possible to use health checks from commercial Regions with DNS records in AWS GovCloud (US), we recommend creating health checks in AWS GovCloud (US) for DNS failover operations. When migrating hosted zones to AWS GovCloud (US), consider migrating the associated health checks as well.

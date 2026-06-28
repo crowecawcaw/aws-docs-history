@@ -1,8 +1,8 @@
 # Amazon Comprehend Medical in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) only.
-
 Amazon Comprehend Medical detects useful information in unstructured clinical text. As much as 75 percent of all health record data is found in unstructured text such as physician’s notes, discharge summaries, test results, and case notes. Amazon Comprehend Medical uses Natural Language Processing (NLP) models to sort through enormous quantities of data for valuable information gained through advances in machine learning.
+
+Amazon Comprehend Medical is currently available in AWS GovCloud (US-West).
 
 ## How Amazon Comprehend Medical differs
 
@@ -18,7 +18,7 @@ Differences in Quotas/Limits:
 
 ## Documentation
 
-[Amazon Comprehend Medical documentation](../../../comprehend/latest/dg/comprehend-medical.md "../../../comprehend/latest/dg/comprehend-medical.md").
+- [Amazon Comprehend Medical documentation](../../../comprehend/latest/dg/comprehend-medical.md "../../../comprehend/latest/dg/comprehend-medical.md")
 
 ## Export-controlled content
 

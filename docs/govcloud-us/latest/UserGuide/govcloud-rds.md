@@ -1,6 +1,13 @@
-# Amazon RDS in AWS GovCloud (US)
+# Amazon Relational Database Service (Amazon RDS) in AWS GovCloud (US)
 
 Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizable capacity for an industry-standard relational database and manages common database administration tasks.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How Amazon Relational Database Service differs
 
@@ -21,7 +28,7 @@ The following differences apply to Amazon Relational Database Service:
 
 ## Documentation
 
-[Amazon RDS documentation](http://aws.amazon.com/documentation/rds/ "http://aws.amazon.com/documentation/rds/").
+- [Amazon RDS documentation](../../../http:/aws.amazon.com/documentation/rds.md "../../../http:/aws.amazon.com/documentation/rds.md")
 
 ## Export-controlled content
 

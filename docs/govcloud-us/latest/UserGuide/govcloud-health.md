@@ -26,7 +26,7 @@ The following differences apply to AWS Health:
 
 ## Documentation
 
-[AWS Health documentation](../../../health/index.md "../../../health/index.md").
+- [AWS Health documentation](../../../health/index.md "../../../health/index.md")
 
 ## Export-controlled content
 

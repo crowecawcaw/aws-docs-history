@@ -2,6 +2,13 @@
 
 Amazon Textract makes it easy to add document text detection and analysis to your applications. The Amazon Textract Text Detection API can detect text in a variety of documents including financial reports, medical records, and tax forms. For documents with structured data, you can use the Amazon Textract Document Analysis API to extract text, forms and tables.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Textract differs
 
 The following differences apply to Amazon Textract:
@@ -10,7 +17,7 @@ The following differences apply to Amazon Textract:
 
 ## Documentation
 
-[Amazon Textract documentation](../../../textract/latest/dg/what-is.md "../../../textract/latest/dg/what-is.md").
+- [Amazon Textract documentation](../../../textract/latest/dg/what-is.md "../../../textract/latest/dg/what-is.md")
 
 ## Export-controlled content
 

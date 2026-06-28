@@ -2,6 +2,13 @@
 
 Route 53 is a highly available and scalable Domain Name System (DNS) web service. In the AWS GovCloud (US), you can use Route 53 public and private DNS and health checking.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Route 53 differs
 
 The following differences apply to Amazon Route 53:
@@ -44,7 +51,7 @@ The control plane for Route 53 in the AWS GovCloud (US) is in the AWS GovCloud 
 
 ## Documentation
 
-[Amazon Route 53 documentation](../../../Route53/latest/DeveloperGuide/Welcome.md "../../../Route53/latest/DeveloperGuide/Welcome.md").
+- [Amazon Route 53 documentation](../../../Route53/latest/DeveloperGuide/Welcome.md "../../../Route53/latest/DeveloperGuide/Welcome.md")
 
 ## Export-controlled content
 

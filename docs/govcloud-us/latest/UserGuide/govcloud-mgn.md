@@ -1,10 +1,17 @@
 # AWS Transform MGN in AWS GovCloud (US)
 
-AWS Application Migration Service (MGN) is a highly automated lift-and-shift (rehost) solution that simplifies, expedites, and reduces the cost of migrating applications to AWS. It allows companies to lift-and-shift a large number of physical, virtual, or cloud servers without compatibility issues, performance disruption, or long cutover windows. MGN replicates source servers into your AWS account. When you’re ready, it automatically converts and launches your servers on AWS so you can quickly benefit from the cost savings, productivity, resilience, and agility of the Cloud. Once your applications are running on AWS, you can leverage AWS services and capabilities to quickly and easily replatform or refactor those applications – which makes lift-and-shift a fast route to modernization.
+AWS Transform MGN is a highly automated lift-and-shift (rehost) solution that simplifies, expedites, and reduces the cost of migrating applications to AWS. It allows companies to lift-and-shift a large number of physical, virtual, or cloud servers without compatibility issues, performance disruption, or long cutover windows. MGN replicates source servers into your AWS account. When you’re ready, it automatically converts and launches your servers on AWS so you can quickly benefit from the cost savings, productivity, resilience, and agility of the Cloud. Once your applications are running on AWS, you can leverage AWS services and capabilities to quickly and easily replatform or refactor those applications – which makes lift-and-shift a fast route to modernization.
 
-## How AWS Application Migration Service differs
+## Region availability
 
-The following differences apply to AWS Application Migration Service:
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
+## How AWS Transform MGN differs
+
+The following differences apply to AWS Transform MGN:
 
 - The following post-launch actions are not available:
 
@@ -14,7 +21,7 @@ The following differences apply to AWS Application Migration Service:
 
 ## Documentation
 
-[Application Migration Service documentation](../../../mgn/latest/ug/index.md "../../../mgn/latest/ug/index.md")
+- [AWS Transform MGN documentation](../../../mgn/latest/ug/index.md "../../../mgn/latest/ug/index.md")
 
 ## Export-controlled content
 

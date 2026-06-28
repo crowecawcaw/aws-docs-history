@@ -15,7 +15,7 @@ The following figure shows the various AWS services used to demonstrate this sol
 
 ###### Important
 
-This solution requires creating Route 53 public hosted zone in commercial AWS because alias records pointing to CloudFront is not available in AWS GovCloud (US). If your architecture does not include CloudFront, you can consider creating Route 53 public hosted zones in AWS GovCloud (US) Regions. For more information, see [Amazon Route 53 in AWS GovCloud (US)](govcloud-r53.md "govcloud-r53.md").
+This solution requires creating Route 53 public hosted zone in commercial AWS because alias records pointing to CloudFront is not available in AWS GovCloud (US). If your architecture does not include CloudFront, you can consider creating Route 53 public hosted zones in AWS GovCloud (US) Regions. For more information, see [Amazon Route 53 in AWS GovCloud (US)](govcloud-r53.md "govcloud-r53.md").
 
 ## Step 1: Sign Up for AWS GovCloud (US)
 
@@ -57,7 +57,7 @@ For information about how CloudFront processes and forwards requests to a custom
 
 ## Step 4: Configure a New Route 53 Alias Resource Record Set
 
-1. Using your standard AWS account from the previous step, sign in to the [Route 53 console](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
+1. Using your standard AWS account from the previous step, sign in to the [Amazon Route 53 console](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
 2. Under your root domain, create a new record.
 3. Under the routing policy, select Simple routing and click Next.
 
@@ -73,4 +73,4 @@ For information about how CloudFront processes and forwards requests to a custom
 
 Congratulations! You have successfully pointed your zone apex at your Elastic Load Balancing load balancer in the AWS GovCloud (US) Regions.
 
-For more information about Route 53, see the [Route 53 documentation](https://aws.amazon.com/documentation/route53/ "https://aws.amazon.com/documentation/route53/").
+For more information about Route 53, see the [Amazon Route 53 documentation](https://aws.amazon.com/documentation/route53/ "https://aws.amazon.com/documentation/route53/").

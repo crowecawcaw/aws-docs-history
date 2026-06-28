@@ -2,6 +2,13 @@
 
 Amazon Verified Permissions is a scalable, fine-grained permissions management and authorization service for custom applications built by you. With Verified Permissions, your developers can build secure applications faster by externalizing authorization and centralizing policy management and administration. Verified Permissions uses the Cedar Policy Language to define fine-grained permissions for application users.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Verified Permissions differs
 
 The following differences apply to Amazon Verified Permissions:
@@ -10,7 +17,7 @@ The following differences apply to Amazon Verified Permissions:
 
 ## Documentation
 
-[Verified Permissions documentation](../../../verifiedpermissions.md "../../../verifiedpermissions.md").
+- [Verified Permissions documentation](../../../verifiedpermissions.md "../../../verifiedpermissions.md")
 
 ## Export-controlled content
 

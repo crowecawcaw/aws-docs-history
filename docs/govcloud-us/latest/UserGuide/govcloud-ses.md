@@ -4,6 +4,13 @@ Lists the differences for using Amazon SES in the AWS GovCloud (US) compared to 
 
 Amazon SES is an email platform that provides an easy, cost-effective way for you to send and receive email using your own email addresses and domains. For example, you can send marketing emails such as special offers, transactional emails such as order confirmations, and other types of correspondence such as newsletters. When you use Amazon SES to receive mail, you can develop software solutions such as email autoresponders, email unsubscribe systems, and applications that generate customer support tickets from incoming emails.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon SES differs
 
 The following differences apply to Amazon SES:
@@ -12,7 +19,7 @@ The following differences apply to Amazon SES:
 
 ## Documentation
 
-[Amazon SES documentation](../../../ses/latest/DeveloperGuide/Welcome.md "../../../ses/latest/DeveloperGuide/Welcome.md").
+- [Amazon SES documentation](../../../ses/latest/DeveloperGuide/Welcome.md "../../../ses/latest/DeveloperGuide/Welcome.md")
 
 ## Export-controlled content
 

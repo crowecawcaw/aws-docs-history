@@ -2,6 +2,13 @@
 
 In AWS, a resource is an entity that you can work with. Examples include an Amazon EC2 instance, an AWS CloudFormation stack, or an Amazon S3 bucket. If you work with multiple resources, you might find it useful to manage them as a group rather than move from one AWS service to another for each task. AWS Resource Groups make it easier to manage and automate tasks on large numbers of resources at one time. You can use resource groups to organize your AWS resources. A resource group is a collection of AWS resources that are all in the same AWS region, and that match criteria provided in a query. In Resource Groups, there are two types of queries on which you can build a group: tag-based and AWS CloudFormation stack-based queries. Resource Groups feature permissions are at the account level. In Resource Groups, the only available resource is a group. Groups have unique Amazon Resource Names (ARNs) associated with them.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Resource Groups differs
 
 The following differences apply to AWS Resource Groups:
@@ -10,7 +17,7 @@ The following differences apply to AWS Resource Groups:
 
 ## Documentation
 
-[AWS Resource Groups documentation](../../../ARG.md "../../../ARG.md").
+- [AWS Resource Groups documentation](../../../ARG.md "../../../ARG.md")
 
 ## Export-controlled content
 

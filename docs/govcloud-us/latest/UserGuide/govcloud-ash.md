@@ -2,6 +2,13 @@
 
 AWS Security Hub CSPM provides you with a comprehensive view of your security state in AWS and helps you check your environment against security industry standards and best practices. Security Hub collects security data from across AWS accounts, services, and supported third-party partner products and helps you analyze your security trends and identify the highest priority security issues.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Security Hub CSPM differs
 
 The following differences apply to Security Hub CSPM:
@@ -25,7 +32,7 @@ Not all security controls are supported in the AWS GovCloud (US) Region. For det
 
 ## Documentation
 
-[AWS Security Hub CSPM documentation](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md").
+- [AWS Security Hub CSPM documentation](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md")
 
 ## Export-controlled content
 

@@ -2,6 +2,13 @@
 
 Use AWS Systems Manager to organize, monitor, and automate management tasks on your AWS resources.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Systems Manager differs
 
 The following differences apply to AWS Systems Manager:
@@ -38,7 +45,7 @@ https://amazon-ssm-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/latest/windows_a
 
 ## Documentation
 
-[AWS Systems Manager documentation](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md").
+- [AWS Systems Manager documentation](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md")
 
 ## Export-controlled content
 

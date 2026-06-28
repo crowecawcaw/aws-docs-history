@@ -2,16 +2,23 @@
 
 Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse service that makes it simple and cost-effective to efficiently analyze all your data using your existing business intelligence tools. It is optimized for datasets ranging from a few hundred gigabytes to a petabyte or more and costs less than $1,000 per terabyte per year, a tenth the cost of most traditional data warehousing solutions.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Redshift differs
 
 The following differences apply to Amazon Redshift:
 
 - To connect to Amazon Redshift with SSL, you must download the Amazon Redshift certificate bundle from https://s3.us-gov-west-1.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt. For more information, see [Configure Security Options for Connections.](../../../redshift/latest/mgmt/connecting-ssl-support.md "../../../redshift/latest/mgmt/connecting-ssl-support.md")
-- The COPY EXPLICIT_IDS parameter is not available.
+- The COPY EXPLICIT\_IDS parameter is not available.
 
 ## Documentation
 
-[Amazon Redshift documentation](http://aws.amazon.com/documentation/redshift/ "http://aws.amazon.com/documentation/redshift/").
+- [Amazon Redshift documentation](../../../http:/aws.amazon.com/documentation/redshift.md "../../../http:/aws.amazon.com/documentation/redshift.md")
 
 ## Export-controlled content
 

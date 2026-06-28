@@ -1,8 +1,12 @@
 # Connect Customer in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) only.
-
 Amazon Connect is an easy to use omnichannel cloud contact center that helps you provide superior customer service at a lower cost. It provides a seamless experience across voice and chat for your customers and agents. This includes one set of tools for skills-based routing, powerful real-time and historical analytics, and intuitive management tools – all with pay-as-you-go pricing, which means Amazon Connect simplifies contact center operations, improves agent efficiency, and lowers costs. You can set up a contact center in minutes that can scale to support millions of customers from the office or as a virtual contact center.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
 
 ## How Connect Customer differs
 
@@ -26,7 +30,7 @@ The following differences apply to Connect Customer:
 
 ## Documentation
 
-[Connect Customer documentation](../../../connect/latest/adminguide/what-is-amazon-connect.md "../../../connect/latest/adminguide/what-is-amazon-connect.md").
+- [Connect Customer documentation](../../../connect/latest/adminguide/what-is-amazon-connect.md "../../../connect/latest/adminguide/what-is-amazon-connect.md")
 
 ## Export-controlled content
 

@@ -3,13 +3,20 @@
 AWS
 Network Firewall is a stateful, managed, network firewall and intrusion detection and prevention service for your virtual private cloud (VPC) that you created in Amazon Virtual Private Cloud (Amazon VPC).
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Network Firewall differs
 
 There are no differences for this service.
 
 ## Documentation
 
-[AWSNetwork Firewall documentation](../../../network-firewall.md "../../../network-firewall.md").
+- [AWSNetwork Firewall documentation](../../../network-firewall.md "../../../network-firewall.md")
 
 ## Export-controlled content
 

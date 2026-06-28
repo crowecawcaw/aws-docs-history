@@ -2,6 +2,13 @@
 
 AWS X-Ray is a service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues and opportunities for optimization. For any traced request to your application, you can see detailed information not only about the request and response, but also about calls that your application makes to downstream AWS resources, microservices, databases and HTTP web APIs.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS X-Ray differs
 
 The following differences apply to AWS X-Ray:
@@ -10,7 +17,7 @@ The following differences apply to AWS X-Ray:
 
 ## Documentation
 
-[AWS X-Ray documentation](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md").
+- [AWS X-Ray documentation](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md")
 
 ## Export-controlled content
 

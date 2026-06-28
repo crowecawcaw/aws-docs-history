@@ -16,7 +16,7 @@ The following differences apply to AWS IoT TwinMaker:
 
 ## Documentation
 
-[AWS IoT TwinMaker documentation](../../../iot-twinmaker/landingpage.md "../../../iot-twinmaker/landingpage.md").
+- [AWS IoT TwinMaker documentation](../../../iot-twinmaker/landingpage.md "../../../iot-twinmaker/landingpage.md")
 
 ## Export-controlled content
 

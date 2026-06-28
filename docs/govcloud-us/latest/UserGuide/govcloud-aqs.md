@@ -4,6 +4,13 @@ Amazon Quick Suite is a comprehensive business intelligence and analytics platfo
 
 The supported QuickSight capabilities in AWS GovCloud (US) give decision-makers the opportunity to explore and interpret information in an interactive visual environment. They have secure access to dashboards from any device on your network and from mobile devices.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Quick Suite differs
 
 The following differences apply to Amazon Quick Suite:
@@ -33,7 +40,7 @@ If you are using the [Embedded Analytics Tutorial](https://aws.amazon.com/gettin
 
 ## Documentation
 
-[Amazon Quick Suite documentation](../../../quicksuite.md "../../../quicksuite.md").
+- [Amazon Quick Suite documentation](../../../quicksuite.md "../../../quicksuite.md")
 
 ## Export-controlled content
 

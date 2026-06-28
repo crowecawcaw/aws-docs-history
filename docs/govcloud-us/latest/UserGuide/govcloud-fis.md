@@ -2,6 +2,13 @@
 
 AWS Fault Injection Service (AWS FIS) is a managed service that enables you to perform fault injection experiments on your AWS workloads. Fault injection is based on the principles of chaos engineering. These experiments stress an application by creating disruptive events so that you can observe how your application responds. You can then use this information to improve the performance and resiliency of your applications so that they behave as expected.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Fault Injection Service differs
 
 The following differences apply to AWS Fault Injection Service:
@@ -11,7 +18,7 @@ The following differences apply to AWS Fault Injection Service:
 
 ## Documentation
 
-[AWS Fault Injection Service documentation](../../../fis/latest/userguide/what-is.md "../../../fis/latest/userguide/what-is.md").
+- [AWS Fault Injection Service documentation](../../../fis/latest/userguide/what-is.md "../../../fis/latest/userguide/what-is.md")
 
 ## Export-controlled content
 

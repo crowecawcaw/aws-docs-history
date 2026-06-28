@@ -2,6 +2,13 @@
 
 Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for container metrics that makes it easier to securely monitor container environments at scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data model and query language that you use today to monitor the performance of your containerized workloads, and also enjoy improved scalability, availability, and security without having to manage the underlying infrastructure.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Managed Service for Prometheus differs
 
 The following differences apply to Amazon Managed Service for Prometheus:
@@ -10,7 +17,7 @@ The following differences apply to Amazon Managed Service for Prometheus:
 
 ## Documentation
 
-[Amazon Managed Service for Prometheus documentation](../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md "../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md").
+- [Amazon Managed Service for Prometheus documentation](../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md "../../../prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.md")
 
 ## Export-controlled content
 

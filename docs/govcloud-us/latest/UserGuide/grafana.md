@@ -1,10 +1,17 @@
-# How Amazon Managed Grafana differs in AWS GovCloud (US) Regions
+# Amazon Managed Grafana in AWS GovCloud (US)
 
 This topic describes the functionality of Amazon Managed Grafana in the AWS GovCloud (US) Regions.
 
 Amazon Managed Grafana is a fully managed and secure data visualization service that you can use to instantly query, correlate, and visualize operational metrics, logs, and traces from multiple sources. Amazon Managed Grafana makes it easy to deploy, operate, and scale Grafana, a widely deployed data visualization tool that is popular for its extensible data support.
 
-## Service Differences
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
+## How Amazon Managed Grafana differs
 
 The following differences apply to Amazon Managed Grafana in AWS GovCloud (US) Regions:
 
@@ -22,5 +29,5 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 ## Documentation
 
 - [Amazon Managed Grafana](../../../grafana.md "../../../grafana.md") documentation
-- [AWS Developer Tools](../../../{developer-tools-url}.md "../../../{developer-tools-url}.md") in AWS GovCloud (US) Regions
-- [Service endpoints](../../../{service-endpoints-url}.md "../../../{service-endpoints-url}.md") for AWS GovCloud (US) Regions
+- [AWS Developer Tools](govcloud-differences.md "govcloud-differences.md") in AWS GovCloud (US) Regions
+- [Service endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md") for AWS GovCloud (US) Regions

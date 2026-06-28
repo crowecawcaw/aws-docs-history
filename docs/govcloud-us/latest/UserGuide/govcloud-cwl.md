@@ -2,6 +2,13 @@
 
 Use CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon CloudWatch Logs differs
 
 The following differences apply to Amazon CloudWatch Logs:
@@ -12,7 +19,7 @@ The following differences apply to Amazon CloudWatch Logs:
 
 ## Documentation
 
-[Amazon CloudWatch Logs documentation](https://aws.amazon.com/documentation/cloudwatch/ "https://aws.amazon.com/documentation/cloudwatch/").
+- [Amazon CloudWatch Logs documentation](../../../documentation/cloudwatch.md "../../../documentation/cloudwatch.md")
 
 ## Export-controlled content
 

@@ -13,11 +13,8 @@ The following differences apply to AWS Auto Scaling:
 
 ## Documentation
 
-For more information about anything in the above list, see the documentation for the specific service at [AWS documentation](https://aws.amazon.com/documentation/ "https://aws.amazon.com/documentation/").
-
-For information about scaling Amazon EC2 instances in AWS GovCloud (US), see [Amazon EC2 Auto Scaling](govcloud-as.md "govcloud-as.md") in this guide.
-
-For more information about AWS Auto Scaling and Application Auto Scaling, see [AWS Auto Scaling documentation](https://aws.amazon.com/documentation/autoscaling/ "https://aws.amazon.com/documentation/autoscaling/").
+- [Amazon EC2 Auto Scaling in AWS GovCloud (US)](govcloud-as.md "govcloud-as.md")
+- [AWS Auto Scaling documentation](../../../documentation/autoscaling.md "../../../documentation/autoscaling.md")
 
 ## Export-controlled content
 

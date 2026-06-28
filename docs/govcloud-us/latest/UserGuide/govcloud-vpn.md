@@ -2,6 +2,13 @@
 
 AWS Site-to-Site VPN enables you to securely connect your on-premises network or branch office site to your Amazon Virtual Private Cloud (Amazon VPC).
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Site-to-Site VPN differs
 
 The following differences apply to Site-to-Site VPN:
@@ -12,7 +19,7 @@ The following differences apply to Site-to-Site VPN:
 
 ## Documentation
 
-[Site-to-Site VPN documentation](../../../vpn.md "../../../vpn.md").
+- [Site-to-Site VPN documentation](../../../vpn.md "../../../vpn.md")
 
 ## Export-controlled content
 

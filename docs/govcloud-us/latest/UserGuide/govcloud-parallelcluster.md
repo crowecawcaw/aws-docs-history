@@ -8,7 +8,7 @@ There are no differences for this service.
 
 ## Documentation
 
-[AWS ParallelCluster documentation](../../../parallelcluster/latest/ug.md "../../../parallelcluster/latest/ug.md").
+- [AWS ParallelCluster documentation](../../../parallelcluster/latest/ug.md "../../../parallelcluster/latest/ug.md")
 
 ## Export-controlled content
 

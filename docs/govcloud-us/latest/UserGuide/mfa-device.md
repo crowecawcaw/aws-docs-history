@@ -24,4 +24,4 @@ For information about enabling MFA devices, see the following topics:
     * FIDO security key: [Enabling a FIDO security key (console)](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_fido.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_fido.md")
 
 4. Use the MFA device when you sign in to or access AWS resources.
-   For more information, see [Using MFA Devices with Your IAM Sign-in Page](../../../IAM/latest/UserGuide/console_sign-in-mfa.md "../../../IAM/latest/UserGuide/console_sign-in-mfa.md") and [Enabling a Virtual Multi-Factor Authentication (MFA) Device](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md").
+For more information, see [Using MFA Devices with Your IAM Sign-in Page](../../../IAM/latest/UserGuide/console_sign-in-mfa.md "../../../IAM/latest/UserGuide/console_sign-in-mfa.md") and [Enabling a Virtual Multi-Factor Authentication (MFA) Device](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md").

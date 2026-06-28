@@ -13,7 +13,7 @@ root user is not supported.
 
 For more information, see [AWS Identity and Access Management in AWS GovCloud (US)](govcloud-iam.md "govcloud-iam.md").
 
-For more information about the AWS GovCloud (US) account root user, see [AWS GovCloud (US) account root user](govcloud-account-root-user.md "govcloud-account-root-user.md").
+For more information about the AWS GovCloud (US) account root user, see [AWS GovCloud (US) account root](govcloud-account-root-user.md "govcloud-account-root-user.md").
 
 ## Sign in as an IAM user
 
@@ -35,7 +35,7 @@ If you are an IAM user, you can log in using either a sign-in URL or the main si
 
 ###### To sign in to an AWS GovCloud (US) account as an IAM user using an IAM user sign-in URL
 
-1. Open a browser and enter the following sign-in URL, replacing account_alias_or_id with the account alias or account ID provided by your administrator.
+1. Open a browser and enter the following sign-in URL, replacing account\_alias\_or\_id with the account alias or account ID provided by your administrator.
 
 ```
 https://<account_alias_or_id>.signin.amazonaws-us-gov.com

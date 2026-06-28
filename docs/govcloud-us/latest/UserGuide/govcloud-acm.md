@@ -2,13 +2,20 @@
 
 AWS Certificate Manager (ACM) makes it easy to provision, manage, and deploy SSL/TLS certificates on AWS managed resources.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Certificate Manager differs
 
 There are no differences for this service.
 
 ## Documentation
 
-[AWS Certificate Manager documentation](https://aws.amazon.com/documentation/acm/ "https://aws.amazon.com/documentation/acm/").
+- [AWS Certificate Manager documentation](../../../documentation/acm.md "../../../documentation/acm.md")
 
 ## Export-controlled content
 

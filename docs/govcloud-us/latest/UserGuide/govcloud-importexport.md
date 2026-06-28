@@ -13,7 +13,7 @@ The following differences apply to AWS Snow Family:
 
 ## Documentation
 
-[AWS Snow Family documentation](https://aws.amazon.com/documentation/snowball/ "https://aws.amazon.com/documentation/snowball/").
+- [AWS Snow Family documentation](../../../documentation/snowball.md "../../../documentation/snowball.md")
 
 ## Export-controlled content
 

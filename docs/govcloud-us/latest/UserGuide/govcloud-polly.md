@@ -1,8 +1,8 @@
 # Amazon Polly in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) only.
-
 Amazon Polly is a Text-to-Speech (TTS) cloud service that converts text into lifelike speech. You can use Amazon Polly to develop applications that increase engagement and accessibility. Amazon Polly supports multiple languages and includes a variety of lifelike voices, so you can build speech-enabled applications that work in multiple locations and use the ideal voice for your customers.
+
+Amazon Polly is currently available in AWS GovCloud (US-West).
 
 ## How Amazon Polly differs
 
@@ -12,7 +12,7 @@ The following differences apply to Amazon Polly:
 
 ## Documentation
 
-[Amazon Polly documentation](https://aws.amazon.com/documentation/polly/ "https://aws.amazon.com/documentation/polly/").
+- [Amazon Polly documentation](../../../documentation/polly.md "../../../documentation/polly.md")
 
 ## Export-controlled content
 

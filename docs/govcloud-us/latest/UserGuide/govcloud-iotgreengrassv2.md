@@ -10,7 +10,7 @@ The following differences apply to AWS IoT Greengrass V2:
 
 ## Documentation
 
-[AWS IoT Greengrass documentation](../../../greengrass/v2/developerguide/what-is-iot-greengrass.md "../../../greengrass/v2/developerguide/what-is-iot-greengrass.md").
+- [AWS IoT Greengrass documentation](../../../greengrass/v2/developerguide/what-is-iot-greengrass.md "../../../greengrass/v2/developerguide/what-is-iot-greengrass.md")
 
 ## Export-controlled content
 

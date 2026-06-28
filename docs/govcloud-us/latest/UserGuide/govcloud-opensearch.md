@@ -1,6 +1,13 @@
 # Amazon OpenSearch Service in AWS GovCloud (US)
 
-Amazon OpenSearch Service is a managed service that makes it easy to deploy, operate, and scale OpenSearch, a popular open-source search and analytics engine. OpenSearch Service also offers security options, high availability, data durability, and direct access to the OpenSearch API.
+{eslong} is a managed service that makes it easy to deploy, operate, and scale {opensearch}, a popular open-source search and analytics engine. {es} also offers security options, high availability, data durability, and direct access to the {opensearch} API.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How Amazon OpenSearch Service differs
 
@@ -11,7 +18,7 @@ The following differences apply to Amazon OpenSearch Service:
 
 ## Documentation
 
-[Amazon OpenSearch Service documentation](../../../opensearch-service.md "../../../opensearch-service.md").
+- [Amazon OpenSearch Service documentation](../../../opensearch-service.md "../../../opensearch-service.md")
 
 ## Export-controlled content
 

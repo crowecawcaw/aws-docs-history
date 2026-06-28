@@ -2,6 +2,13 @@
 
 IAM Identity Center is the AWS solution for connecting your workforce users to all of their AWS managed applications and AWS accounts. Users who have access to one or more AWS accounts can sign in to the AWS access portal and access AWS services by using the AWS Management Console or retrieve temporary credentials to access AWS services programmatically. You can connect your existing identity provider or create and manage your users directly in IAM Identity Center. For existing identity providers, automatic provisioning (synchronization) of user and group information from your identity provider into IAM Identity Center is supported.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How IAM Identity Center differs
 
 The following differences apply to IAM Identity Center:
@@ -70,7 +77,7 @@ The email address `no-reply@<identitystore_id>.us-gov-home.awsapps.com` is used 
 
 ## Documentation
 
-[AWS IAM Identity Center documentation](../../../singlesignon.md "../../../singlesignon.md").
+- [AWS IAM Identity Center documentation](../../../singlesignon.md "../../../singlesignon.md")
 
 ## Export-controlled content
 

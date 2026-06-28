@@ -2,13 +2,20 @@
 
 With AWS Elastic Beanstalk, you can quickly deploy and manage applications in the AWS Cloud without worrying about the infrastructure that runs those applications. AWS Elastic Beanstalk reduces management complexity without restricting choice or control. You simply upload your application, and AWS Elastic Beanstalk automatically handles the details of capacity provisioning, load balancing, scaling, and application health monitoring.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Elastic Beanstalk differs
 
 There are no differences for this service.
 
 ## Documentation
 
-[AWS Elastic Beanstalk documentation](https://aws.amazon.com/documentation/elastic-beanstalk/ "https://aws.amazon.com/documentation/elastic-beanstalk/").
+- [AWS Elastic Beanstalk documentation](../../../documentation/elastic-beanstalk.md "../../../documentation/elastic-beanstalk.md")
 
 ## Export-controlled content
 

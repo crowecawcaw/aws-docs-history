@@ -2,13 +2,13 @@
 
 AWS CloudHSM Classic helps you meet corporate, contractual and regulatory compliance requirements for data security by using dedicated HSM appliances within the AWS cloud. AWS and AWS Marketplace partners offer a variety of solutions for protecting sensitive data within the AWS platform, but additional protection is necessary for some applications and data that are subject to strict contractual or regulatory requirements for managing cryptographic keys.
 
-## How AWS CloudHSM differs
+## How AWS CloudHSM Classic differs
 
 There are no differences for this service.
 
 ## Documentation
 
-[AWS CloudHSM Classic documentation](../../../cloudhsm/classic/userguide.md "../../../cloudhsm/classic/userguide.md").
+- [AWS CloudHSM Classic documentation](../../../cloudhsm/classic/userguide.md "../../../cloudhsm/classic/userguide.md")
 
 ## Export-controlled content
 

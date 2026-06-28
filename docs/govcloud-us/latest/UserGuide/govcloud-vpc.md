@@ -6,6 +6,13 @@ Amazon Virtual Private Cloud (Amazon VPC) enables you to launch Amazon Web Servi
 
 Not all Amazon VPC endpoints in AWS GovCloud (US) support Amazon VPC endpoint policies.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Virtual Private Cloud differs
 
 The following differences apply to Amazon Virtual Private Cloud:
@@ -18,7 +25,7 @@ The following differences apply to Amazon Virtual Private Cloud:
 
 ## Documentation
 
-[Amazon VPC documentation](../../../vpc.md "../../../vpc.md")
+- [Amazon VPC documentation](../../../vpc.md "../../../vpc.md")
 
 ## Export-controlled content
 

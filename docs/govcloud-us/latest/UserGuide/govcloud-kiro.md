@@ -1,7 +1,5 @@
 # Kiro in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) and AWS GovCloud (US-East).
-
 Kiro is an AI-powered development platform that accelerates software development from prototype to production through spec-driven development. The platform transforms natural language prompts into structured requirements, architectural designs, and discrete implementation tasks, enabling developers to build complex features with precision and speed.
 
 Kiro provides both an integrated development environment (IDE) and command-line interface (CLI) that help developers maintain control throughout the development process. The platform converts requirements into clear specifications, analyzes codebases to recommend optimal architectures, and creates sequenced implementation plans with comprehensive tests. Developers can automate repetitive workflows through hooks that trigger on events, generating documentation and unit tests in the background.

@@ -8,7 +8,7 @@ There are no differences for this service.
 
 ## Documentation
 
-[AWSCloud Control API documentation](../../../cloudcontrolapi.md "../../../cloudcontrolapi.md").
+- [AWSCloud Control API documentation](../../../cloudcontrolapi.md "../../../cloudcontrolapi.md")
 
 ## Export-controlled content
 

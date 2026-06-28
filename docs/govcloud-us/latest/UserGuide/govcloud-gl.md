@@ -2,13 +2,20 @@
 
 Amazon Glacier is a storage service optimized for infrequently used data, or cold data. The service provides durable and extremely low-cost storage with security features for data archiving and backup.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Glacier differs
 
 There are no differences for this service.
 
 ## Documentation
 
-[Amazon Glacier documentation](http://aws.amazon.com/documentation/glacier/ "http://aws.amazon.com/documentation/glacier/").
+- [Amazon Glacier documentation](../../../http:/aws.amazon.com/documentation/glacier.md "../../../http:/aws.amazon.com/documentation/glacier.md")
 
 ## Export-controlled content
 

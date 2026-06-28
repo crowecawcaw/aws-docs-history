@@ -28,11 +28,8 @@ The following differences apply to Amazon WorkSpaces Applications:
 
 ## Documentation
 
-[Amazon WorkSpaces Applications documentation](../../../appstream2.md "../../../appstream2.md").
-
-[Configure the Relay State of Your Federation](../../../appstream2/latest/developerguide/external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state "../../../appstream2/latest/developerguide/external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state").
-
-[Instance type pricing and availability by region can be found here.](https://aws.amazon.com/appstream2/pricing/ "https://aws.amazon.com/appstream2/pricing/")
+- [Amazon AppStream 2.0 documentation](../../../appstream2.md "../../../appstream2.md")
+- [Configure the Relay State of Your Federation](../../../appstream2/latest/developerguide/external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state "../../../appstream2/latest/developerguide/external-identity-providers-setting-up-saml.md#external-identity-providers-relay-state")
 
 ## Export-controlled content
 

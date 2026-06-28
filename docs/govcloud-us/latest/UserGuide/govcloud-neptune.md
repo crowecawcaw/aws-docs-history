@@ -2,6 +2,13 @@
 
 Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets. The core of Neptune is a purpose-built, high-performance graph database engine. This engine is optimized for storing billions of relationships and querying the graph with milliseconds latency. Neptune supports the popular graph query languages Apache TinkerPop Gremlin and W3C’s SPARQL, enabling you to build queries that efficiently navigate highly connected datasets. Neptune powers graph use cases such as recommendation engines, fraud detection, knowledge graphs, drug discovery, and network security.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How Amazon Neptune differs
 
 The following differences apply to Amazon Neptune:
@@ -11,7 +18,7 @@ The following differences apply to Amazon Neptune:
 
 ## Documentation
 
-[Amazon Neptune documentation](../../../neptune/latest/userguide/intro.md "../../../neptune/latest/userguide/intro.md").
+- [Amazon Neptune documentation](../../../neptune/latest/userguide/intro.md "../../../neptune/latest/userguide/intro.md")
 
 ## Export-controlled content
 

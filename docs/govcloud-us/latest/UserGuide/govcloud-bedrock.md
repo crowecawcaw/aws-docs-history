@@ -1,8 +1,13 @@
 # Amazon Bedrock in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) and AWS GovCloud (US-East).
-
 Amazon Bedrock provides a broad set of capabilities you need to build generative AI applications, simplifying development while maintaining privacy and security. You can easily experiment with Foundation Models (FMs) and privately customize them. Since Amazon Bedrock is serverless, you don’t have to manage any infrastructure, and you can securely integrate and deploy generative AI capabilities into your applications.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How Amazon Bedrock differs
 
@@ -24,7 +29,7 @@ The following differences apply to Amazon Bedrock:
 
 ## Documentation
 
-[Amazon Bedrock documentation](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md").
+- [Amazon Bedrock documentation](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md")
 
 ## Export-controlled content
 

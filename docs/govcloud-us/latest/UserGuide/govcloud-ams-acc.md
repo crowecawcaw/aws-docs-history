@@ -1,10 +1,10 @@
-# AWS Managed Services - AMS Accelerate in AWS GovCloud (US)
+# AWS Managed Services - Accelerate in AWS GovCloud (US)
 
-AMS Accelerate is a service for configuring and managing your AWS infrastructure. For more information, see the [service description.](../../../managedservices/latest/accelerate-guide/acc-sd.md "../../../managedservices/latest/accelerate-guide/acc-sd.md")
+AWS Managed Services - Accelerate is a service for configuring and managing your AWS infrastructure. For more information, see the [service description.](../../../managedservices/latest/accelerate-guide/acc-sd.md "../../../managedservices/latest/accelerate-guide/acc-sd.md")
 
-## How AMS Accelerate differs
+## How AWS Managed Services - Accelerate differs
 
-The following differences apply to AMS Accelerate:
+The following differences apply to AWS Managed Services - Accelerate:
 
 - The following features are not available in AWS GovCloud (US) Regions:
 
@@ -13,9 +13,9 @@ The following differences apply to AMS Accelerate:
   - [Enable AMS to use your own CloudTrail trail](../../../managedservices/latest/accelerate-guide/acc-onb-trail-choices.md "../../../managedservices/latest/accelerate-guide/acc-onb-trail-choices.md")
   - [Cost optimization with AMS Resource Scheduler](../../../managedservices/latest/accelerate-guide/acc-resource-scheduler.md "../../../managedservices/latest/accelerate-guide/acc-resource-scheduler.md")
   - [Customer-provided tags](../../../managedservices/latest/accelerate-guide/acc-tag-cust-provided.md "../../../managedservices/latest/accelerate-guide/acc-tag-cust-provided.md")
-  - [Amazon Route 53 DNS firewall event monitoring in Service Incident Response](../../../managedservices/latest/accelerate-guide/security-incident-response.md "../../../managedservices/latest/accelerate-guide/security-incident-response.md")
+  - [Amazon Route 53 DNS firewall event monitoring in Service Incident Response](../../../managedservices/latest/accelerate-guide/security-incident-response.md "../../../managedservices/latest/accelerate-guide/security-incident-response.md")
   - [Trusted Remediator](../../../managedservices/latest/accelerate-guide/trusted-remediator.md "../../../managedservices/latest/accelerate-guide/trusted-remediator.md")
-  - [Amazon Route 53 Resolver DNS Firewall](../../../managedservices/latest/accelerate-guide/acc-sec-data-protect.md#acc-sec-data-protect-r53 "../../../managedservices/latest/accelerate-guide/acc-sec-data-protect.md#acc-sec-data-protect-r53")
+  - [Amazon Route 53 Resolver DNS Firewall](../../../managedservices/latest/accelerate-guide/acc-sec-data-protect.md#acc-sec-data-protect-r53 "../../../managedservices/latest/accelerate-guide/acc-sec-data-protect.md#acc-sec-data-protect-r53")
   - [Monitoring and Incident Management for Amazon EKS](../../../managedservices/latest/accelerate-guide/acc-what-is-mon-inc-eks.md "../../../managedservices/latest/accelerate-guide/acc-what-is-mon-inc-eks.md")
   - [AWS Config periodic recording for the AWS::EC2::Instance resource type](../../../managedservices/latest/accelerate-guide/acc-sec-compliance.md#acc-sec-compliance-reduct-config-spend "../../../managedservices/latest/accelerate-guide/acc-sec-compliance.md#acc-sec-compliance-reduct-config-spend")
   - [Application aware incident notifications in AMS](../../../managedservices/latest/accelerate-guide/app-aware-inc-notifications.md "../../../managedservices/latest/accelerate-guide/app-aware-inc-notifications.md")
@@ -25,14 +25,14 @@ The following differences apply to AMS Accelerate:
   - Outbound [Service notifications](../../../managedservices/latest/accelerate-guide/service-notices.md "../../../managedservices/latest/accelerate-guide/service-notices.md") are not sent to AWS account primary emails. Reports go to smaller, more targeted lists.
   - Accelerate [Compliance and conformance](../../../managedservices/latest/accelerate-guide/acc-sec-compliance.md "../../../managedservices/latest/accelerate-guide/acc-sec-compliance.md") is limited by the AWS Config managed rules available in your AWS Region.
 
-- Other AWS service differences that affect AMS Accelerate:
+- Other AWS service differences that affect AWS Managed Services - Accelerate:
 
   - Not all [AWS Config in AWS GovCloud (US)](govcloud-config.md "govcloud-config.md") managed rules are available in all Regions. The [Developer Guide](../../../config/latest/developerguide/managed-rules-by-aws-config.md "../../../config/latest/developerguide/managed-rules-by-aws-config.md") lists all managed rules, and the applicable Regions for each rule.
   - GuardDuty: For information about the differences in AWS GovCloud (US) Regions, see [Amazon GuardDuty in AWS GovCloud (US)](govcloud-guardduty.md "govcloud-guardduty.md").
 
 ## Documentation
 
-For information, see the [AMS Accelerate documentation](../../../managedservices/latest/accelerate-guide/what-is.md "../../../managedservices/latest/accelerate-guide/what-is.md").
+- [AWS Managed Services - Accelerate documentation](../../../managedservices/latest/accelerate-guide/what-is.md "../../../managedservices/latest/accelerate-guide/what-is.md")
 
 ## Export-controlled content
 
@@ -40,4 +40,4 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Resource names
 - Tags
-- Communications between customers and AMS Accelerate, such as service requests and incident reports.
+- Communications between customers and AWS Managed Services - Accelerate, such as service requests and incident reports.

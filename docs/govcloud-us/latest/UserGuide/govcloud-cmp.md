@@ -1,8 +1,12 @@
 # Amazon Comprehend in AWS GovCloud (US)
 
-This service is currently available in AWS GovCloud (US-West) only.
-
 Amazon Comprehend uses natural language processing (NLP) to extract insights about the content of documents without the need of any special preprocessing. Amazon Comprehend processes any text files in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. With Amazon Comprehend you can search social networking feeds for mentions of products, scan an entire document repository for key phrases, or determine the topics contained in a set of documents. To extract insights from clinical documents such as doctor’s notes or clinical trial reports, use Amazon Comprehend Medical.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
 
 ## How Amazon Comprehend differs
 
@@ -12,7 +16,7 @@ The following differences apply to Amazon Comprehend:
 
 ## Documentation
 
-[Amazon Comprehend documentation](https://aws.amazon.com/documentation/comprehend/ "https://aws.amazon.com/documentation/comprehend/").
+- [Amazon Comprehend documentation](../../../documentation/comprehend.md "../../../documentation/comprehend.md")
 
 ## Export-controlled content
 

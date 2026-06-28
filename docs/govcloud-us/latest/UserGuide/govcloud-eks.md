@@ -1,6 +1,13 @@
-# Amazon Elastic Kubernetes Service in AWS GovCloud (US)
+# Amazon Elastic Kubernetes Service (Amazon EKS) in AWS GovCloud (US)
 
 Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How Amazon EKS differs
 
@@ -11,12 +18,11 @@ The following differences apply to Amazon EKS:
 - The Mountpoint for Amazon S3 CSI driver isn’t available as an Amazon EKS add-on and self-managed installation isn’t officially supported.
 - Amazon EKS Anywhere isn’t available.
 - Amazon EKS Hybrid Nodes isn’t available.
+- [Amazon Application Recovery Controller’s (ARC) Zonal Shift](../../../eks/latest/userguide/zone-shift.md "../../../eks/latest/userguide/zone-shift.md") in Amazon EKS is supported.
 
 ## Documentation
 
-[Amazon EKS documentation](../../../eks.md "../../../eks.md").
-
-Amazon Application Recovery Controller’s (ARC) Zonal Shift in Amazon EKS is supported. For more information, see [Learn about Amazon Application Recovery Controller’s (ARC) Zonal Shift in Amazon EKS](../../../eks/latest/userguide/zone-shift.md "../../../eks/latest/userguide/zone-shift.md").
+- [Amazon EKS documentation](../../../eks.md "../../../eks.md")
 
 ## Export-controlled content
 

@@ -1,5 +1,12 @@
 # AWS Database Migration Service in AWS GovCloud (US)
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Database Migration Service differs
 
 The following differences apply to AWS Database Migration Service:
@@ -8,7 +15,7 @@ The following differences apply to AWS Database Migration Service:
 
 ## Documentation
 
-[AWS Database Migration Service documentation](https://aws.amazon.com/documentation/dms/ "https://aws.amazon.com/documentation/dms/").
+- [AWS Database Migration Service documentation](../../../documentation/dms.md "../../../documentation/dms.md")
 
 ## Export-controlled content
 

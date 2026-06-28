@@ -2,6 +2,13 @@
 
 A transit gateway is a network transit hub that interconnects your virtual private clouds (VPC) and on-premises networks.
 
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
+
 ## How AWS Transit Gateway differs
 
 The following differences apply to AWS Transit Gateway:

@@ -1,6 +1,13 @@
-# Amazon EBS in AWS GovCloud (US)
+# Amazon Elastic Block Store (Amazon EBS) in AWS GovCloud (US)
 
 Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for use with EC2 instances. EBS volumes are highly available and reliable storage volumes that can be attached to any running instance that is in the same Availability Zone. EBS volumes that are attached to an EC2 instance are exposed as storage volumes that persist independently from the life of the instance. With Amazon EBS, you pay only for what you use.
+
+## Region availability
+
+This service is available in the following AWS GovCloud (US) Regions:
+
+- AWS GovCloud (US-West)
+- AWS GovCloud (US-East)
 
 ## How Amazon Elastic Block Store differs
 
@@ -12,9 +19,8 @@ The following differences apply to Amazon Elastic Block Store:
 
 ## Documentation
 
-For more information related to EBS Data LifeCycle Manager (DLM), see [Amazon EBS Snapshot Lifecyle](../../../AWSEC2/latest/UserGuide/snapshot-lifecycle.md "../../../AWSEC2/latest/UserGuide/snapshot-lifecycle.md").
-
-For Amazon EBS User Guide, see [Amazon Elastic Block Store documentation](../../../AWSEC2/latest/UserGuide/AmazonEBS.md "../../../AWSEC2/latest/UserGuide/AmazonEBS.md").
+- [Amazon EBS Snapshot Lifecycle](../../../AWSEC2/latest/UserGuide/snapshot-lifecycle.md "../../../AWSEC2/latest/UserGuide/snapshot-lifecycle.md")
+- [Amazon Elastic Block Store documentation](../../../AWSEC2/latest/UserGuide/AmazonEBS.md "../../../AWSEC2/latest/UserGuide/AmazonEBS.md")
 
 ## Export-controlled content
 
