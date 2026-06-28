@@ -19,7 +19,7 @@ For attribute properties, use the following fields to filter results.:
 - `boolean_attribute_value`
 - `string_attribute_value`
 
-These fields provide better performance than the **latest_value_time_series** table
+These fields provide better performance than the **latest\_value\_time\_series** table
 for asset properties of attribute type.
 
 ###### Note
@@ -41,8 +41,8 @@ WHERE p.property_type = 'attribute' AND p.string_attribute_value LIKE 'my-proper
 
 ## Raw data filters
 
-All raw data tables (**raw_time_series**,
-**latest_value_time_series**, **precomputed_aggregates**) have
+All raw data tables (**raw\_time\_series**,
+**latest\_value\_time\_series**, **precomputed\_aggregates**) have
 timestamps associated with their rows. In addition to metadata filters, use `WHERE`
 clause filters on the `event_timestamp` field to reduce the amount of data scanned.
 Use the following operations to limit the raw data scan:
@@ -57,15 +57,15 @@ Use the following operations to limit the raw data scan:
 
 **Examples of filters**:
 
-- When querying the **precomputed_aggregates** table, always specify a quality filter in the `WHERE` clause.
+- When querying the **precomputed\_aggregates** table, always specify a quality filter in the `WHERE` clause.
   This reduces the amount of data that the query scans, especially if you're looking for `BAD` or `UNCERTAIN` data.
 
 We also highly recommend using a resolution filter (1m, 15m, 1h, or 1d) when querying the
-**precomputed_aggregates** table. If you don't specify a resolution filter,
+**precomputed\_aggregates** table. If you don't specify a resolution filter,
 AWS IoT SiteWise will default to a full table scan across all resolutions, which is inefficient.
 
 - When querying raw data, timestamp functions can also be used in the `WHERE` clause to filter the amount of data scanned.
-  For example, the following query only scans the last 30 minutes of data from the **raw_time_series** table:
+  For example, the following query only scans the last 30 minutes of data from the **raw\_time\_series** table:
 
 ```
 SELECT r.event_timestamp, r.double_value
@@ -77,7 +77,7 @@ WHERE r.event_timestamp > TIMESTAMP_SUB(MINUTE, 30, NOW())
 
 Not equals `(!=)` and `OR` operators typically don't apply meaningful filters
 to the raw data scan.
-Filters on raw data values (string_value, double_value, etc.) also don't limit the raw data scan.
+Filters on raw data values (string\_value, double\_value, etc.) also don't limit the raw data scan.
 
 ## JOIN optimization
 
@@ -101,14 +101,14 @@ JOIN asset_property p ON a.asset_id = p.asset_id
 
 The following implicit joins are allowed (O is allowed, X is prohibited):
 
-|                          | asset | asset_property | latest_value_time_series | raw_time_series | precomputed_aggregates | subquery |
-| ------------------------ | ----- | -------------- | ------------------------ | --------------- | ---------------------- | -------- |
-| asset                    | X     | O              | O                        | O               | O                      | X        |
-| asset_property           | O     | X              | O                        | O               | O                      | X        |
-| latest_value_time_series | O     | O              | X                        | X               | X                      | X        |
-| raw_time_series          | O     | O              | X                        | X               | X                      | X        |
-| precomputed_aggregates   | O     | O              | X                        | X               | X                      | X        |
-| subquery                 | X     | X              | X                        | X               | X                      | X        |
+|                             | asset | asset\_property | latest\_value\_time\_series | raw\_time\_series | precomputed\_aggregates | subquery |
+| --------------------------- | ----- | --------------- | --------------------------- | ----------------- | ----------------------- | -------- |
+| asset                       | X     | O               | O                           | O                 | O                       | X        |
+| asset\_property             | O     | X               | O                           | O                 | O                       | X        |
+| latest\_value\_time\_series | O     | O               | X                           | X                 | X                       | X        |
+| raw\_time\_series           | O     | O               | X                           | X                 | X                       | X        |
+| precomputed\_aggregates     | O     | O               | X                           | X                 | X                       | X        |
+| subquery                    | X     | X               | X                           | X                 | X                       | X        |
 
 Use implicit `JOIN`s where possible. If you must use the `JOIN` keyword, apply filters on the individual `JOIN`ed tables to minimize data scanned. For example, instead of this query:
 

@@ -92,7 +92,7 @@ section.
   – The machine's percentage of successfully filled packages over the specified
   time intervals.
 - `Performance = ((Successes + Failures) / Run_Time) /
-`Ideal_Run_Rate`` – The machine's performance
+ `Ideal_Run_Rate`` – The machine's performance
   over the specified time interval as a percentage out of the ideal run rate (in seconds)
   for your process.
 

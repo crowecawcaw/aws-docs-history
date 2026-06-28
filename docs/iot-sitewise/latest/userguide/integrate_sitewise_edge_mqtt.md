@@ -628,12 +628,9 @@ asset:
 
      The device assets are no longer organized as a hierarchy now.
 
-4. Choose your device asset (**SiteWise Tutorial Device 1**).
-5. Choose **Delete**.
-6. In the confirmation dialog, enter `Delete`, and then choose
-   **Delete**.
-7. Repeat steps 4 through 6 for each device asset and the device fleet asset
-   (**SiteWise Tutorial Device Fleet 1**).
+4. Choose your device asset (**SiteWise Tutorial Device 1**). 5. Choose **Delete**. 6. In the confirmation dialog, enter `Delete`, and then choose
+**Delete**. 7. Repeat steps 4 through 6 for each device asset and the device fleet asset
+(**SiteWise Tutorial Device Fleet 1**).
 
 ###### To delete hierarchical asset models in AWS IoT SiteWise
 

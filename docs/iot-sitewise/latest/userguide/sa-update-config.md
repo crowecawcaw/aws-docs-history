@@ -12,7 +12,7 @@ application.
 
 - A new Siemens Databus user for the AWS IoT SiteWise Edge application.
 - A change to the gateway configuration file (your
-  **SiteWise_Edge_Gateway_Config** file).
+  **SiteWise\_Edge\_Gateway\_Config** file).
 - A proxy configuration update (which also requires a full IEVD reboot)
 - To enable debug logs for debugging issues
 

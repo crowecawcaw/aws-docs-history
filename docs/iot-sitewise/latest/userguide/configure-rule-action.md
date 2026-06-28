@@ -80,17 +80,17 @@ conversions:
 ## Converting timestamps that are in string format
 
 If your sensor or equipment reports time data in string format (for example,
-`2020-03-03T14:57:14.699Z`), use [time_to_epoch(String, String)](../../../iot/latest/developerguide/iot-sql-functions.md#iot-sql-function-time-to-epoch "../../../iot/latest/developerguide/iot-sql-functions.md#iot-sql-function-time-to-epoch"). This function inputs the timestamp and format
+`2020-03-03T14:57:14.699Z`), use [time\_to\_epoch(String, String)](../../../iot/latest/developerguide/iot-sql-functions.md#iot-sql-function-time-to-epoch "../../../iot/latest/developerguide/iot-sql-functions.md#iot-sql-function-time-to-epoch"). This function inputs the timestamp and format
 pattern as parameters and outputs time in milliseconds. Then, you must convert the time to
 time in seconds and offset in nanoseconds. To do so, use the following conversions:
 
 - For **Time in seconds** (`timeInSeconds`), use
   `${floor(time_to_epoch("2020-03-03T14:57:14.699Z",
-"yyyy-MM-dd'T'HH:mm:ss'Z'") / 1E3)}` to convert the timestamp string to
+ "yyyy-MM-dd'T'HH:mm:ss'Z'") / 1E3)}` to convert the timestamp string to
   milliseconds, and then to seconds.
 - For **Offset in nanos** (`offsetInNanos`), use
   `${(time_to_epoch("2020-03-03T14:57:14.699Z", "yyyy-MM-dd'T'HH:mm:ss'Z'")
-% 1E3) * 1E6}` to calculate the nanosecond offset of the timestamp
+ % 1E3) * 1E6}` to calculate the nanosecond offset of the timestamp
   string.
 
 ###### Note
@@ -106,7 +106,7 @@ If your device sends timestamp information in string format with nanosecond prec
 configure your rule action. You can create an AWS Lambda function that converts the
 timestamp from a string into **Time in seconds**
 (`timeInSeconds`) and **Offset in nanos**
-(`offsetInNanos`). Then, use [aws_lambda(functionArn, inputJson)](../../../iot/latest/developerguide/iot-sql-functions.md#iot-func-aws-lambda "../../../iot/latest/developerguide/iot-sql-functions.md#iot-func-aws-lambda") in your rule action parameters to invoke
+(`offsetInNanos`). Then, use [aws\_lambda(functionArn, inputJson)](../../../iot/latest/developerguide/iot-sql-functions.md#iot-func-aws-lambda "../../../iot/latest/developerguide/iot-sql-functions.md#iot-func-aws-lambda") in your rule action parameters to invoke
 that Lambda function and use the output in your rule.
 
 ###### Note
@@ -119,85 +119,78 @@ how to create the following resources:
 
 ###### To create an AWS IoT SiteWise rule action that parses timestamp strings
 
-1.  Create a Lambda function with the following properties:
+1. Create a Lambda function with the following properties:
 
-    - **Function name** – Use a descriptive
-      function name (for example,
-      `ConvertNanosecondTimestampFromString`).
-    - **Runtime** – Use a Python 3 runtime, such
-      as **Python 3.11** (`python3.11`).
-    - **Permissions** – Create a role with basic
-      Lambda permissions (**AWSLambdaBasicExecutionRole**).
-    - **Layers** – Add the
-      **AWSSDKPandas-Python311** layer for the Lambda function to
-      use `numpy`.
-    - **Function code** – Use the following
-      function code, which consumes a string argument named `timestamp` and
-      outputs `timeInSeconds` and `offsetInNanos` values for that
-      timestamp.
+   - **Function name** – Use a descriptive
+     function name (for example,
+     `ConvertNanosecondTimestampFromString`).
+   - **Runtime** – Use a Python 3 runtime, such
+     as **Python 3.11** (`python3.11`).
+   - **Permissions** – Create a role with basic
+     Lambda permissions (**AWSLambdaBasicExecutionRole**).
+   - **Layers** – Add the
+     **AWSSDKPandas-Python311** layer for the Lambda function to
+     use `numpy`.
+   - **Function code** – Use the following
+     function code, which consumes a string argument named `timestamp` and
+     outputs `timeInSeconds` and `offsetInNanos` values for that
+     timestamp.
 
-    ```
-    import json
-    import math
-    import numpy
+   ```
+   import json
+   import math
+   import numpy
 
-    # Converts a timestamp string into timeInSeconds and offsetInNanos in Unix epoch time.
-    # The input timestamp string can have up to nanosecond precision.
-    def lambda_handler(event, context):
-        timestamp_str = event['timestamp']
-        # Parse the timestamp string as nanoseconds since Unix epoch.
-        nanoseconds = numpy.datetime64(timestamp_str, 'ns').item()
-        time_in_seconds = math.floor(nanoseconds / 1E9)
-        # Slice to avoid precision issues.
-        offset_in_nanos = int(str(nanoseconds)[-9:])
-        return {
-            'timeInSeconds': time_in_seconds,
-            'offsetInNanos': offset_in_nanos
-        }
-    ```
+   # Converts a timestamp string into timeInSeconds and offsetInNanos in Unix epoch time.
+   # The input timestamp string can have up to nanosecond precision.
+   def lambda_handler(event, context):
+       timestamp_str = event['timestamp']
+       # Parse the timestamp string as nanoseconds since Unix epoch.
+       nanoseconds = numpy.datetime64(timestamp_str, 'ns').item()
+       time_in_seconds = math.floor(nanoseconds / 1E9)
+       # Slice to avoid precision issues.
+       offset_in_nanos = int(str(nanoseconds)[-9:])
+       return {
+           'timeInSeconds': time_in_seconds,
+           'offsetInNanos': offset_in_nanos
+       }
+   ```
 
-    This Lambda function inputs timestamp strings in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601 "https://en.wikipedia.org/wiki/ISO_8601") format using
-    [datetime64](https://numpy.org/doc/stable/reference/arrays.datetime.html "https://numpy.org/doc/stable/reference/arrays.datetime.html") from NumPy.
+   This Lambda function inputs timestamp strings in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601 "https://en.wikipedia.org/wiki/ISO_8601") format using
+   [datetime64](https://numpy.org/doc/stable/reference/arrays.datetime.html "https://numpy.org/doc/stable/reference/arrays.datetime.html") from NumPy.
 
-    ###### Note
+   ###### Note
 
-    If your timestamp strings aren't in ISO 8601 format, you can implement a
-    solution with pandas that defines the timestamp format. For more
-    information, see [pandas.to_datetime](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html").
+   If your timestamp strings aren't in ISO 8601 format, you can implement a
+   solution with pandas that defines the timestamp format. For more
+   information, see [pandas.to\_datetime](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html "https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_datetime.html").
 
-2.  When you configure the AWS IoT SiteWise action for your rule, use the following substitution
-    templates for **Time in seconds** (`timeInSeconds`) and
-    **Offset in nanos** (`offsetInNanos`). These
-    substitution templates assume that your message payload contains the timestamp string
-    in `timestamp`. The `aws_lambda` function consumes a JSON
-    structure for its second parameter, so you can modify the below substitution templates
-    if needed.
+2. When you configure the AWS IoT SiteWise action for your rule, use the following substitution
+   templates for **Time in seconds** (`timeInSeconds`) and
+   **Offset in nanos** (`offsetInNanos`). These
+   substitution templates assume that your message payload contains the timestamp string
+   in `timestamp`. The `aws_lambda` function consumes a JSON
+   structure for its second parameter, so you can modify the below substitution templates
+   if needed.
 
-        * For **Time in seconds** (`timeInSeconds`), use the
-         following substitution template.
+   - For **Time in seconds** (`timeInSeconds`), use the
+     following substitution template.
 
+   ```
+   ${aws_lambda('arn:aws:lambda:`region`:`account-id`:function:`ConvertNanosecondTimestampFromString`', {'timestamp': timestamp}).timeInSeconds}
+   ```
+   - For **Offset in nanos** (`offsetInNanos`), use the
+     following substitution template.
 
+   ```
+   ${aws_lambda('arn:aws:lambda:`region`:`account-id`:function:`ConvertNanosecondTimestampFromString`', {'timestamp': timestamp}).offsetInNanos}
+   ```
 
-        ```
-        ${aws_lambda('arn:aws:lambda:`region`:`account-id`:function:`ConvertNanosecondTimestampFromString`', {'timestamp': timestamp}).timeInSeconds}
-        ```
-        * For **Offset in nanos** (`offsetInNanos`), use the
-         following substitution template.
-
-
-
-        ```
-        ${aws_lambda('arn:aws:lambda:`region`:`account-id`:function:`ConvertNanosecondTimestampFromString`', {'timestamp': timestamp}).offsetInNanos}
-        ```
-
-    For each parameter, replace `region` and
-    `account-id` with your Region and AWS account ID. If you
-    used a different name for your Lambda function, change that as well.
-
-3.  Grant AWS IoT permissions to invoke your function with the
-    `lambda:InvokeFunction` permission. For more information, see [aws_lambda(functionArn, inputJson)](../../../iot/latest/developerguide/iot-sql-functions.md#iot-func-aws-lambda "../../../iot/latest/developerguide/iot-sql-functions.md#iot-func-aws-lambda").
-4.  Test your rule (for example, use the AWS IoT MQTT test client) and verify that
-    AWS IoT SiteWise receives the data that you send.
+For each parameter, replace `region` and
+`account-id` with your Region and AWS account ID. If you
+used a different name for your Lambda function, change that as well. 3. Grant AWS IoT permissions to invoke your function with the
+`lambda:InvokeFunction` permission. For more information, see [aws\_lambda(functionArn, inputJson)](../../../iot/latest/developerguide/iot-sql-functions.md#iot-func-aws-lambda "../../../iot/latest/developerguide/iot-sql-functions.md#iot-func-aws-lambda"). 4. Test your rule (for example, use the AWS IoT MQTT test client) and verify that
+AWS IoT SiteWise receives the data that you send.
 
 If your rule doesn't work as expected, see [Troubleshoot an AWS IoT SiteWise rule action](troubleshoot-rule.md "troubleshoot-rule.md").
 

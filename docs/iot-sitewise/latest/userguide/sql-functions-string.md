@@ -5,17 +5,17 @@ enable tasks like concatenation, extraction, formatting, and searching within st
 These functions are essential for cleaning, transforming, and analyzing text-based data
 within a database.
 
-| String functions | **Function**                                                                              | **Signature**                                                                                                                                                                                                                                                                                                | **Description** |
-| ---------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- |
-| `LENGTH`         | LENGTH (string)                                                                           | Returns the length of the string.                                                                                                                                                                                                                                                                            |
-| `CONCAT`         | CONCAT (string, string)                                                                   | Concatenates arguments in a string.                                                                                                                                                                                                                                                                          |
-| `SUBSTR`         | • SUBSTR (string, start)<br>• SUBSTR (string, start, length)<br>• SUBSTR (string, regexp) | Returns one of the following:<br>• Returns the substring of the input string starting the specified<br>location and optionally having the specified length.<br>• Returns the first substring of the input string matching the specified<br>regular expression.<br>Uses 1-based indexing for start parameter. |
-| `UPPER`          | UPPER (string)                                                                            | Converts the characters in the input string to uppercase.                                                                                                                                                                                                                                                    |
-| `LOWER`          | LOWER (string)                                                                            | Converts the characters in the input string to lowercase.                                                                                                                                                                                                                                                    |
-| `TRIM`           | TRIM (string)                                                                             | Removes any space characters from the beginning, end, or both sides of<br>string.                                                                                                                                                                                                                            |
-| `LTRIM`          | LTRIM (string)                                                                            | Removes any space characters from the beginning of string.                                                                                                                                                                                                                                                   |
-| `RTRIM`          | RTRIM (string)                                                                            | Removes any space characters from the end of string.                                                                                                                                                                                                                                                         |
-| `STR_REPLACE`    | STR_REPLACE (string, from, to)                                                            | Replaces all occurrences of the specified substring with another specified<br>substring.                                                                                                                                                                                                                     |
+String functions| **Function** | **Signature** | **Description** |
+| --- | --- | --- |
+| `LENGTH` | LENGTH (string) | Returns the length of the string. |
+| `CONCAT` | CONCAT (string, string) | Concatenates arguments in a string. |
+| `SUBSTR` | • SUBSTR (string, start)<br>• SUBSTR (string, start, length)<br>• SUBSTR (string, regexp) | Returns one of the following:<br>• Returns the substring of the input string starting the specified<br>location and optionally having the specified length.<br>• Returns the first substring of the input string matching the specified<br>regular expression.<br>Uses 1-based indexing for start parameter. |
+| `UPPER` | UPPER (string) | Converts the characters in the input string to uppercase. |
+| `LOWER` | LOWER (string) | Converts the characters in the input string to lowercase. |
+| `TRIM` | TRIM (string) | Removes any space characters from the beginning, end, or both sides of<br>string. |
+| `LTRIM` | LTRIM (string) | Removes any space characters from the beginning of string. |
+| `RTRIM` | RTRIM (string) | Removes any space characters from the end of string. |
+| `STR_REPLACE` | STR\_REPLACE (string, from, to) | Replaces all occurrences of the specified substring with another specified<br>substring. |
 
 Examples of all the functions:
 
@@ -29,7 +29,7 @@ Examples of all the functions:
 | TRIM         | `SELECT TRIM(d.string_value) AS tm_string FROM raw_time_series AS<br>d`                                                                                                                                                                      |
 | LTRIM        | `SELECT LTRIM(d.string_value) AS ltrim_string FROM raw_time_series AS<br>d`                                                                                                                                                                  |
 | RTRIM        | `SELECT RTRIM(d.string_value) AS rtrim_string FROM raw_time_series AS<br>d`                                                                                                                                                                  |
-| STR_REPLACE  | `SELECT STR_REPLACE(d.string_value, 'abc', 'def') AS replaced_string FROM<br>raw_time_series AS d`                                                                                                                                           |
+| STR\_REPLACE | `SELECT STR_REPLACE(d.string_value, 'abc', 'def') AS replaced_string FROM<br>raw_time_series AS d`                                                                                                                                           |
 
 ## Concatenation operator
 

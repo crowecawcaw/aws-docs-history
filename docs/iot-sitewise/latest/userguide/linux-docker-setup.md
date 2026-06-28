@@ -616,11 +616,11 @@ After deployment, access the services using the following URLs and credentials:
 
 You can access each service from your host or the gateway machine.
 
-| Service access details | Service                                                                | URL                                             | Credentials |
-| ---------------------- | ---------------------------------------------------------------------- | ----------------------------------------------- | ----------- |
-| Node-RED               | [http://127.0.0.1:1880](http://127.0.0.1:1880 "http://127.0.0.1:1880") | No credentials required                         |
-| InfluxDB               | [http://127.0.0.1:8086](http://127.0.0.1:8086 "http://127.0.0.1:8086") | Username: admin<br>Password: $INFLUXDB_PASSWORD |
-| Grafana                | [http://127.0.0.1:3000](http://127.0.0.1:3000 "http://127.0.0.1:3000") | Username: admin<br>Password: $GRAFANA_PASSWORD  |
+Service access details| Service | URL | Credentials |
+| --- | --- | --- |
+| Node-RED | [http://127.0.0.1:1880](http://127.0.0.1:1880 "http://127.0.0.1:1880") | No credentials required |
+| InfluxDB | [http://127.0.0.1:8086](http://127.0.0.1:8086 "http://127.0.0.1:8086") | Username: admin<br>Password: $INFLUXDB\_PASSWORD |
+| Grafana | [http://127.0.0.1:3000](http://127.0.0.1:3000 "http://127.0.0.1:3000") | Username: admin<br>Password: $GRAFANA\_PASSWORD |
 
 ## Verify the deployment
 

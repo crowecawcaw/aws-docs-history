@@ -2,13 +2,13 @@
 
 Interfaces and asset models work together in a complementary relationship:
 
-| Interfaces vs. Asset Models | Aspect                                                                | Interfaces                                                        | Asset Models |
-| --------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------ |
-| Purpose                     | Define standards and applies consistency                              | Represent physical or logical assets                              |
-| Asset Creation              | Cannot create assets directly                                         | Used to create assets                                             |
-| Properties                  | Define standard properties that must be implemented in models         | Can have interface-applied and unique properties                  |
-| Metrics                     | Define standard calculations                                          | Implement interface metrics and can have additional metrics       |
-| Hierarchies                 | Define data computation hierarchical relationships for rollup metrics | Define physical hierarchical relationships for asset associations |
+Interfaces vs. Asset Models| Aspect | Interfaces | Asset Models |
+| --- | --- | --- |
+| Purpose | Define standards and applies consistency | Represent physical or logical assets |
+| Asset Creation | Cannot create assets directly | Used to create assets |
+| Properties | Define standard properties that must be implemented in models | Can have interface-applied and unique properties |
+| Metrics | Define standard calculations | Implement interface metrics and can have additional metrics |
+| Hierarchies | Define data computation hierarchical relationships for rollup metrics | Define physical hierarchical relationships for asset associations |
 
 When you apply an interface to an asset model:
 

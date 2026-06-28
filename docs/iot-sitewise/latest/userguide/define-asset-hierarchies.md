@@ -62,7 +62,7 @@ When you define a hierarchy for an asset model with the AWS IoT SiteWise API, yo
 following parameters:
 
 - `name` – The hierarchy's name, such as `Wind
-Turbines`.
+ Turbines`.
 - `childAssetModelId` – The ID or the external ID of the child asset
   model for the hierarchy. You can use the [ListAssetModels](../APIReference/API_ListAssetModels.md "../APIReference/API_ListAssetModels.md") operation to find
   the ID of an existing asset model.

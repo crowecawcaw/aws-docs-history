@@ -33,7 +33,7 @@ To configure high frequency inferencing:
 
 - Configure `AWS/ANOMALY_DETECTION_INFERENCE` action payload value with
   `DataUploadFrequency` with values: `PT5M, PT10M, PT15M, PT30M,
-PT1H` while starting inference.
+ PT1H` while starting inference.
 - (Optional) Configure `DataDelayOffsetInMinutes` with the delay offset in
   minutes. Set this value between 0 and 60 minutes.
 

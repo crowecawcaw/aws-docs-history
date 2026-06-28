@@ -402,7 +402,7 @@ information, see [Model industrial assets](industrial-asset-models.md "industria
       **CPU Usage** from the autocomplete list when it
       appears.
    3. In **Time interval**, enter `5
- minutes`.Metric properties define aggregation calculations that process all input data points
+  minutes`.Metric properties define aggregation calculations that process all input data points
       over an interval and output a single data point per interval. This metric property
       calculates each device's average CPU usage every 5 minutes. For more information, see [Aggregate data from properties and other assets (metrics)](metrics.md "metrics.md").
 
@@ -411,7 +411,7 @@ information, see [Model industrial assets](industrial-asset-models.md "industria
     following:
 
     1. In **Name**, enter `Average Memory
-Usage`.
+ Usage`.
     2. In **Formula**, enter `avg(Memory Usage)`.
        Choose **Memory Usage** from the autocomplete list when
        it appears.
@@ -454,14 +454,14 @@ with comprehensive insights into the collective performance of your entire fleet
 6. Under **Metric definitions**, do the following:
 
    1. In **Name**, enter `Average CPU
-Usage`.
+  Usage`.
    2. In **Formula**, enter `avg(Device | Average CPU
-Usage)`. When the autocomplete list appears, choose
+  Usage)`. When the autocomplete list appears, choose
       **Device** to choose a hierarchy, then choose
       **Average CPU Usage** to choose the metric from
       the device asset that you created earlier.
    3. In **Time interval**, enter `5
- minutes`.This metric property calculates the average CPU usage of all device assets associated
+  minutes`.This metric property calculates the average CPU usage of all device assets associated
       to a fleet asset through the `Device` hierarchy.
 
 7. Choose **Add new metric** to add a second metric property.
@@ -469,14 +469,14 @@ Usage)`. When the autocomplete list appears, choose
    following:
 
    1. In **Name**, enter `Average Memory
-Usage`.
+  Usage`.
    2. In **Formula**, enter `avg(Device | Average Memory
-Usage)`. When the autocomplete list appears, choose
+  Usage)`. When the autocomplete list appears, choose
       **Device** to choose a hierarchy, then choose
       **Average Memory Usage** to choose the metric from
       the device asset that you created earlier.
    3. In **Time interval**, enter `5
- minutes`.This metric property calculates the average memory usage of all device assets
+  minutes`.This metric property calculates the average memory usage of all device assets
       associated to a fleet asset through the `Device` hierarchy.
 
 9. (Optional) Add other additional metrics that you're interested in calculating across
@@ -675,9 +675,7 @@ properties in AWS IoT SiteWise** and do the following:
     10. Enter a role name and choose **Create**.
 
 7. (Optional) Configure an error action that you can use to troubleshoot your rule. For
-   more information, see [Troubleshoot a rule (AWS IoT SiteWise)](troubleshoot-rule.md#rule-tutorial-troubleshoot-rule "troubleshoot-rule.md#rule-tutorial-troubleshoot-rule").
-8. Choose **Next**.
-9. Review the settings and choose **Create** to create the rule.
+more information, see [Troubleshoot a rule (AWS IoT SiteWise)](troubleshoot-rule.md#rule-tutorial-troubleshoot-rule "troubleshoot-rule.md#rule-tutorial-troubleshoot-rule"). 8. Choose **Next**. 9. Review the settings and choose **Create** to create the rule.
 
 ## Step 8: Run the device client script
 
@@ -907,25 +905,24 @@ if __name__ == "__main__":
 
 ```
 
-8.  Run `thing_performance.py` from the command line with the following
-    parameters:
+8. Run `thing_performance.py` from the command line with the following
+   parameters:
 
-        * `-n`, `--thingName` – Your thing name, such as
-         `SiteWiseTutorialDevice1`.
-        * `-e`, `--endpoint` – Your custom AWS IoT endpoint that
-         you saved earlier in this procedure.
-        * `-r`, `--rootCA` – The path to your AWS IoT root CA
-         certificate.
-        * `-c`, `--cert` – The path to your AWS IoT thing
-         certificate.
-        * `-k`, `--key` – The path to your AWS IoT thing
-         certificate private key.
-        * `-d`, `--requestDelay` – (Optional) The time in
-         seconds to wait between each device shadow update. Defaults to 1 second.
-        * `-v`, `--enableLogging` – (Optional) If this
-         parameter is present, the script prints debug messages from the AWS IoT Device SDK for Python.
-
-    Your command should look similar to the following example.
+   - `-n`, `--thingName` – Your thing name, such as
+     `SiteWiseTutorialDevice1`.
+   - `-e`, `--endpoint` – Your custom AWS IoT endpoint that
+     you saved earlier in this procedure.
+   - `-r`, `--rootCA` – The path to your AWS IoT root CA
+     certificate.
+   - `-c`, `--cert` – The path to your AWS IoT thing
+     certificate.
+   - `-k`, `--key` – The path to your AWS IoT thing
+     certificate private key.
+   - `-d`, `--requestDelay` – (Optional) The time in
+     seconds to wait between each device shadow update. Defaults to 1 second.
+   - `-v`, `--enableLogging` – (Optional) If this
+     parameter is present, the script prints debug messages from the AWS IoT Device SDK for Python.
+     Your command should look similar to the following example.
 
 ```
 python3 thing_performance.py \
@@ -1025,12 +1022,9 @@ asset:
 
     You should now see your device assets no longer organized as a hierarchy.
 
-4. Choose your device asset (**SiteWise Tutorial Device 1**).
-5. Choose **Delete**.
-6. In the confirmation dialog, enter `Delete` and then choose
-   **Delete**.
-7. Repeat steps 4 through 6 for each device asset and the device fleet asset
-   (**SiteWise Tutorial Device Fleet 1**).
+4. Choose your device asset (**SiteWise Tutorial Device 1**). 5. Choose **Delete**. 6. In the confirmation dialog, enter `Delete` and then choose
+**Delete**. 7. Repeat steps 4 through 6 for each device asset and the device fleet asset
+(**SiteWise Tutorial Device Fleet 1**).
 
 ###### To delete hierarchical asset models in AWS IoT SiteWise
 

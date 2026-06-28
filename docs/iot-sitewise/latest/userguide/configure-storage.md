@@ -47,29 +47,27 @@ to the warm tier in the AWS IoT SiteWise console.
 
 ###### To configure storage settings in the console
 
-1.  Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
-2.  In the navigation pane, under **Settings**, choose
-    **Storage**.
-3.  In the upper-right corner, choose **Edit**.
-4.  On the **Edit storage** page, do the following:
-5.  For **Hot tier settings**, do the following:
+1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
+2. In the navigation pane, under **Settings**, choose
+   **Storage**.
+3. In the upper-right corner, choose **Edit**.
+4. On the **Edit storage** page, do the following:
+5. For **Hot tier settings**, do the following:
 
-        * If you want to set a retention period for how long your data is stored in the hot tier before it's deleted,
-         and moved to the service managed warm tier storage, choose **Enable retention period**.
-        * To configure a retention period, enter a whole number and choose a unit. The retention period must be greater than or equal to 30 days.
+   - If you want to set a retention period for how long your data is stored in the hot tier before it's deleted,
+     and moved to the service managed warm tier storage, choose **Enable retention period**.
+   - To configure a retention period, enter a whole number and choose a unit. The retention period must be greater than or equal to 30 days.
+     AWS IoT SiteWise deletes any data in the hot tier that's older than the retention period.
+     If you don't set a retention period, your data is stored indefinitely.
 
-    AWS IoT SiteWise deletes any data in the hot tier that's older than the retention period.
-    If you don't set a retention period, your data is stored indefinitely.
+6. (Recommended) For **Warm tier settings**, do the following:
 
-6.  (Recommended) For **Warm tier settings**, do the following:
-
-        * To opt in to warm tier storage, select **I confirm to the opt-in of
-         warm tier storage** to opt in for the warm tier storage.
-        * (Optional) To configure a retention period, enter a whole number and choose a unit.
-         The retention period must be greater than or equal to 365 days.
-
-    AWS IoT SiteWise deletes data in the warm tier that existed earlier than the retention
-    period. If you don't set a retention period, your data is stored indefinitely.
+   - To opt in to warm tier storage, select **I confirm to the opt-in of
+     warm tier storage** to opt in for the warm tier storage.
+   - (Optional) To configure a retention period, enter a whole number and choose a unit.
+     The retention period must be greater than or equal to 365 days.
+     AWS IoT SiteWise deletes data in the warm tier that existed earlier than the retention
+     period. If you don't set a retention period, your data is stored indefinitely.
 
 ###### Note
 
@@ -245,19 +243,19 @@ to the cold tier in the AWS IoT SiteWise console.
 
 ###### To configure storage settings in the console
 
-1.  Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
-2.  In the navigation pane, under **Settings**, choose
-    **Storage**.
-3.  In the upper-right corner, choose **Edit**.
-4.  On the **Edit storage** page, do the following:
+1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
+2. In the navigation pane, under **Settings**, choose
+   **Storage**.
+3. In the upper-right corner, choose **Edit**.
+4. On the **Edit storage** page, do the following:
 
-    1. For **Storage settings**, choose
-       **Enable cold tier storage**. The cold tier storage is
-       disabled by default.
-    2. For **S3 bucket location**, enter the name of an existing
-       Amazon S3 bucket and a prefix.
+   1. For **Storage settings**, choose
+      **Enable cold tier storage**. The cold tier storage is
+      disabled by default.
+   2. For **S3 bucket location**, enter the name of an existing
+      Amazon S3 bucket and a prefix.
 
-    ###### Note
+   ###### Note
 
         * Amazon S3 uses the prefix as a folder name in the Amazon S3 bucket. The prefix
          must have 1-255 characters and end with a forward slash (/). Your AWS IoT SiteWise
@@ -265,78 +263,81 @@ to the cold tier in the AWS IoT SiteWise console.
         * If you don't have an Amazon S3 bucket, choose **View**, and
          then create one in the Amazon S3 console. For more information, see [Create your first S3 bucket](../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating-bucket "../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating-bucket")
          in the *Amazon S3 User Guide*.
-    3.  For **S3 access role**, do one of the following:
 
-        - Choose **Create a role from an AWS managed template**,
-          AWS automatically creates an IAM role that allows AWS IoT SiteWise to send data to
-          Amazon S3.
-        - Choose **Use an existing role**, and then choose the role
-          that you created from the list.
+   3. For **S3 access role**, do one of the following:
+
+        * Choose **Create a role from an AWS managed template**,
+         AWS automatically creates an IAM role that allows AWS IoT SiteWise to send data to
+         Amazon S3.
+        * Choose **Use an existing role**, and then choose the role
+         that you created from the list.
+
 
         ###### Note
 
-            + You must use the same Amazon S3 bucket name for the **S3 bucket
-             location** that you used in the previous step and in your
-             IAM policy.
-            + Make sure that your role has the permissions shown in the following
-             example.
 
 
-            ###### Example permissions policy:
+        	+ You must use the same Amazon S3 bucket name for the **S3 bucket
+        	 location** that you used in the previous step and in your
+        	 IAM policy.
+        	+ Make sure that your role has the permissions shown in the following
+        	 example.
 
 
-            JSON
+        	###### Example permissions policy:
 
 
-
-
-
-            ```
-            `{
-             "Version":"2012-10-17",
-             "Statement": [
-             {
-             "Effect": "Allow",
-             "Action": [
-             "s3:PutObject",
-             "s3:GetObject",
-             "s3:DeleteObject",
-             "s3:GetBucketLocation",
-             "s3:ListBucket"
-             ],
-             "Resource": [
-             "arn:aws:s3:::amzn-s3-demo-bucket",
-             "arn:aws:s3:::amzn-s3-demo-bucket/*"
-             ]
-             }
-             ]
-             }`
-
-            ```
+        	JSON
 
 
 
 
-            Replace amzn-s3-demo-bucket with the name of
-             your Amazon S3 bucket.
-            + If the Amazon S3 bucket is encrypted using a customer managed KMS key,
-             the KMS key must have an access policy with an IAM role for `kms:Decrypt` and `kms:GenerateDataKey` operations.
 
-    4.  To setup hot tier, see Step 5 in [Configure storage settings for warm tier (console)](#configure-storage-console-warm "#configure-storage-console-warm").
-    5.  (Optional) For **AWS IoT Analytics integration**, do the following.
+        	```
+        	`{
+        	 "Version":"2012-10-17",
+        	 "Statement": [
+        	 {
+        	 "Effect": "Allow",
+        	 "Action": [
+        	 "s3:PutObject",
+        	 "s3:GetObject",
+        	 "s3:DeleteObject",
+        	 "s3:GetBucketLocation",
+        	 "s3:ListBucket"
+        	 ],
+        	 "Resource": [
+        	 "arn:aws:s3:::amzn-s3-demo-bucket",
+        	 "arn:aws:s3:::amzn-s3-demo-bucket/*"
+        	 ]
+        	 }
+        	 ]
+        	 }`
 
-    ###### Note
+        	```
 
-    End of support notice: On December 15, 2025, AWS
-    will end support for AWS IoT Analytics. After December 15, 2025, you will no longer be able to access the AWS IoT Analytics console or AWS IoT Analytics resources. For more information, see [AWS IoT Analytics end of support](../../../iotanalytics/latest/userguide/iotanalytics-end-of-support.md "../../../iotanalytics/latest/userguide/iotanalytics-end-of-support.md").
+
+
+
+        	Replace amzn-s3-demo-bucket with the name of
+        	 your Amazon S3 bucket.
+        	+ If the Amazon S3 bucket is encrypted using a customer managed KMS key,
+        	 the KMS key must have an access policy with an IAM role for `kms:Decrypt` and `kms:GenerateDataKey` operations.
+
+   4. To setup hot tier, see Step 5 in [Configure storage settings for warm tier (console)](#configure-storage-console-warm "#configure-storage-console-warm"). 5. (Optional) For **AWS IoT Analytics integration**, do the following.
+
+   ###### Note
+
+   End of support notice: On December 15, 2025, AWS
+   will end support for AWS IoT Analytics. After December 15, 2025, you will no longer be able to access the AWS IoT Analytics console or AWS IoT Analytics resources. For more information, see [AWS IoT Analytics end of support](../../../iotanalytics/latest/userguide/iotanalytics-end-of-support.md "../../../iotanalytics/latest/userguide/iotanalytics-end-of-support.md").
 
         1. If you want to use AWS IoT Analytics to query your data, choose
          **Enabled AWS IoT Analytics data store**.
         2. AWS IoT SiteWise generates a name for your data store or you can enter a different
          name.AWS IoT SiteWise automatically creates a data store in AWS IoT Analytics to save your data. To query
 
-    the data, you can use AWS IoT Analytics to create datasets. For more information, see [Working with AWS IoT SiteWise data](../../../iotanalytics/latest/userguide/dataset-itsw.md "../../../iotanalytics/latest/userguide/dataset-itsw.md") in the
-    _AWS IoT Analytics User Guide_. 6. Choose **Save**.
+   the data, you can use AWS IoT Analytics to create datasets. For more information, see [Working with AWS IoT SiteWise data](../../../iotanalytics/latest/userguide/dataset-itsw.md "../../../iotanalytics/latest/userguide/dataset-itsw.md") in the
+   _AWS IoT Analytics User Guide_. 6. Choose **Save**.
 
 In the **AWS IoT SiteWise storage** section, the
 **Cold tier storage** can be one of the following values:
@@ -345,7 +346,7 @@ In the **AWS IoT SiteWise storage** section, the
   Amazon S3 bucket.
 - **Enabling** – AWS IoT SiteWise is processing your request to enable the cold tier storage.
   This process can take several minutes to complete.
-- **Enable_Failed** – AWS IoT SiteWise couldn't process your request to enable the cold tier storage.
+- **Enable\_Failed** – AWS IoT SiteWise couldn't process your request to enable the cold tier storage.
   If you enabled AWS IoT SiteWise to send logs to Amazon CloudWatch Logs, you can use these logs to
   troubleshoot issues. For more information, see [Monitor with Amazon CloudWatch Logs](monitor-cloudwatch-logs.md "monitor-cloudwatch-logs.md").
 - **Disabled** – The cold tier storage is disabled.

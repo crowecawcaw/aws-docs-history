@@ -17,7 +17,7 @@
    following:
 
    - For example, a validation error in the `Bulk operations template` in the `Resource
-type` field indicates that the import template and metadata schema file format don't match.
+  type` field indicates that the import template and metadata schema file format don't match.
      See [AWS IoT SiteWise metadata transfer job schema](bulk-operations-schema.md "bulk-operations-schema.md") for more
      information.
    - A failed `Asset` in the `Resource type` field indicates that the asset is
@@ -53,4 +53,4 @@ The MetadataTransferJobProgress object contains the following parameters:
      transfer process.
 
 4. Additionally, the API call returns an element `reportUrl`, which contains a presigned URL.
-   If your transfer job has any issues that you need to investigate further, visit this url.
+If your transfer job has any issues that you need to investigate further, visit this url.

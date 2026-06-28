@@ -23,7 +23,7 @@ To check if the service deleted your data, do the following:
    **Download**.
 4. Unzip the log file.
 5. If the log file contains the following message, the service deleted your data: **``number` bytes of data have been deleted to prevent
-   SiteWise Edge gateway storage from running out of space.`**
+ SiteWise Edge gateway storage from running out of space.`**
 
 ## Manage your SiteWise Edge gateway with the AWS IoT SiteWise console
 

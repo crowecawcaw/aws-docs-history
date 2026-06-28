@@ -5,22 +5,21 @@ in the _AWS IoT Greengrass Version 2 Developer Guide_.
 
 ###### To configure and access CloudWatch Logs (Console)
 
-1.  Navigate to the [CloudWatch
-    console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  In the navigation pane, choose **Log groups**.
-3.  You can find the AWS IoT SiteWise component logs in the following log groups:
+1. Navigate to the [CloudWatch
+   console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Log groups**.
+3. You can find the AWS IoT SiteWise component logs in the following log groups:
 
-        * `/aws/greengrass/UserComponent/`region`/aws.iot.SiteWiseEdgeCollectorOpcua`
-         – The logs for the SiteWise Edge gateway's component that collects data from the
-         SiteWise Edge gateway's OPC UA sources.
-        * `/aws/greengrass/UserComponent/`region`/aws.iot.SiteWiseEdgePublisher`
-         – The logs for the SiteWise Edge gateway's component that publishes OPC UA data
-         streams to AWS IoT SiteWise.
+   - `/aws/greengrass/UserComponent/`region`/aws.iot.SiteWiseEdgeCollectorOpcua`
+     – The logs for the SiteWise Edge gateway's component that collects data from the
+     SiteWise Edge gateway's OPC UA sources.
+   - `/aws/greengrass/UserComponent/`region`/aws.iot.SiteWiseEdgePublisher`
+     – The logs for the SiteWise Edge gateway's component that publishes OPC UA data
+     streams to AWS IoT SiteWise.
+     Choose the log group for the function to debug.
 
-    Choose the log group for the function to debug.
-
-4.  Choose a log stream that has a name that ends with the name of your AWS IoT Greengrass group. By
-    default, CloudWatch displays the most recent log stream first.
+4. Choose a log stream that has a name that ends with the name of your AWS IoT Greengrass group. By
+   default, CloudWatch displays the most recent log stream first.
 
 ![CloudWatch Logs "Log groups" page screenshot.](images/gateway-view-cloudwatch-logs-console.png) 5. To show logs from the last 5 minutes, do the following:
 

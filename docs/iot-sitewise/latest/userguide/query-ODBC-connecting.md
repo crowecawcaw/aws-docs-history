@@ -23,12 +23,11 @@ The default is `NONE`.
 - **`Auth`**   –  
   The authentication mode. This must be one of the following:
 
-      + `AWS_PROFILE` – Use the default credential chain.
-      + `IAM` – Use AWS IAM credentials.
-      + `AAD` – Use the Azure Active Directory (AD) identity provider.
-      + `OKTA` – Use the Okta identity provider.
-
-  The default is `AWS_PROFILE`.
+  - `AWS_PROFILE` – Use the default credential chain.
+  - `IAM` – Use AWS IAM credentials.
+  - `AAD` – Use the Azure Active Directory (AD) identity provider.
+  - `OKTA` – Use the Okta identity provider.
+    The default is `AWS_PROFILE`.
 
 ###### Endpoint configuration options
 
@@ -183,13 +182,12 @@ The default is `25`.
 - **`LogLevel`**   –  
   The log level for driver logging. Must be one of:
 
-      + **0**   (OFF).
-      + **1**   (ERROR).
-      + **2**   (WARNING).
-      + **3**   (INFO).
-      + **4**   (DEBUG).
-
-  The default is `1` (ERROR).
+  - **0**   (OFF).
+  - **1**   (ERROR).
+  - **2**   (WARNING).
+  - **3**   (INFO).
+  - **4**   (DEBUG).
+    The default is `1` (ERROR).
 
 **Warning:** personal information could be
 logged by the driver when using the DEBUG logging mode.

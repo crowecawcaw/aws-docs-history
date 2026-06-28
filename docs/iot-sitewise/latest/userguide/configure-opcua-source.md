@@ -116,252 +116,266 @@ MQTT-enabled, V3 gateway destinations
     2. Return to this procedure after adding your
      source destinations.
 
-9.  In the **Advanced configuration** pane, you can
-    do the following:
+9. In the **Advanced configuration** pane, you can
+do the following:
 
     1. Choose a **Message security mode** for
-       connections and data in transit between your source server
-       and your SiteWise Edge gateway. This field is the combination of
-       the OPC UA security policy and message security mode. Choose
-       the same security policy and message security mode that you
-       specified for your OPC UA server.
+     connections and data in transit between your source server
+     and your SiteWise Edge gateway. This field is the combination of
+     the OPC UA security policy and message security mode. Choose
+     the same security policy and message security mode that you
+     specified for your OPC UA server.
     2. If your source requires authentication, choose an
-       AWS Secrets Manager secret from the **Authentication
-       configuration** list. The SiteWise Edge gateway uses
-       the authentication credentials in this secret when it
-       connects to this data source. You must attach secrets to
-       your SiteWise Edge gateway's AWS IoT Greengrass component to use them for data
-       source authentication. For more information, see [Configure data source authentication for SiteWise Edge](configure-source-authentication-ggv2.md "configure-source-authentication-ggv2.md").
+     AWS Secrets Manager secret from the **Authentication
+     configuration** list. The SiteWise Edge gateway uses
+     the authentication credentials in this secret when it
+     connects to this data source. You must attach secrets to
+     your SiteWise Edge gateway's AWS IoT Greengrass component to use them for data
+     source authentication. For more information, see [Configure data source authentication for SiteWise Edge](configure-source-authentication-ggv2.md "configure-source-authentication-ggv2.md").
+
 
     ###### Tip
 
     Your data server might have an option named
-    **Allow anonymous login**. If this
-    option is **Yes**, then your source
-    doesn't require authentication. 3. (Optional) You can activate a data stream prefix by
-    selecting **Activate data stream prefix -
-    _optional_**.
+     **Allow anonymous login**. If this
+     option is **Yes**, then your source
+     doesn't require authentication.
+    3. (Optional) You can activate a data stream prefix by
+     selecting **Activate data stream prefix -
+     *optional***.
 
-        1. Enter a **Data stream prefix**.
-         The SiteWise Edge gateway adds this prefix to all data
-         streams from this source. Use a data stream prefix
-         to distinguish between data streams that have the
-         same name from different sources. Each data stream
-         should have a unique name within your
-         account.
+
+    	1. Enter a **Data stream prefix**.
+    	 The SiteWise Edge gateway adds this prefix to all data
+    	 streams from this source. Use a data stream prefix
+    	 to distinguish between data streams that have the
+    	 same name from different sources. Each data stream
+    	 should have a unique name within your
+    	 account.
     4. (Optional) Choose a **Data type
-       conversion** option to convert unsupported OPC
-       UA data types into strings before ingesting them into
-       AWS IoT SiteWise. Convert array values with simple data types to JSON
-       strings and DateTime data types to ISO 8601 strings. For
-       more information, see [Converting unsupported data types](string-conversion.md "string-conversion.md").
+     conversion** option to convert unsupported OPC
+     UA data types into strings before ingesting them into
+     AWS IoT SiteWise. Convert array values with simple data types to JSON
+     strings and DateTime data types to ISO 8601 strings. For
+     more information, see [Converting unsupported data types](string-conversion.md "string-conversion.md").
     5. Choose a **Default data change trigger**
-       for nodes that are not contained in a user-defined property
-       group. The default data change trigger determines when the
-       OPC UA server sends updated values to the gateway. You can
-       choose one of the following options:
+     for nodes that are not contained in a user-defined property
+     group. The default data change trigger determines when the
+     OPC UA server sends updated values to the gateway. You can
+     choose one of the following options:
 
-       - **Status** –
-         to receive data only when a status changes.
-       - **StatusValue**
-         – to receive data when a status or value
-         changes.
-       - **StatusValueTimestamp** – to
-         receive data when a status, value, or timestamp
-         changes.
 
+
+
+    	* **Status** –
+    	 to receive data only when a status changes.
+    	* **StatusValue**
+    	 – to receive data when a status or value
+    	 changes.
+    	* **StatusValueTimestamp** – to
+    	 receive data when a status, value, or timestamp
+    	 changes.
     6. (Optional) On an MQTT-enabled, V3 gateway, you can use
-       **Discovery configuration** to
-       configure the OPC UA node discovery process. Discovery
-       configuration replaces the previous config override file
-       system for these options with console-based settings that
-       update dynamically without needing to restart the
-       gateway.
+     **Discovery configuration** to
+     configure the OPC UA node discovery process. Discovery
+     configuration replaces the previous config override file
+     system for these options with console-based settings that
+     update dynamically without needing to restart the
+     gateway.
+
 
     ###### Note
 
     **Default data change trigger**
-    requires version 3.1.0 or later of the
-    IoT SiteWise OPC UA collector component. For more information,
-    see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
-
-        1. For **Maximum concurrent browse request
-         count**, enter the maximum number of
-         browse requests that your OPC UA server can handle
-         simultaneously. You can configure up to 500
-         concurrent browse requests per data source.
-        2. For **Maximum node count per browse
-         request**, enter the maximum number of
-         nodes to send in each browse request to the OPC UA
-         server. You can send up to 1,000 nodes per browse
-         request.
-        3. Choose **Avoid node tree loops**
-         to prevent the gateway from getting stuck in
-         circular references when browsing the OPC UA
-         server's structure. When selected, the gateway
-         tracks visited locations to avoid infinite loops
-         that can occur when server nodes reference each
-         other in a circular pattern.
-        4. Choose **Enable node traversal**
-         to allow the gateway to explore the complete
-         structure of your OPC UA server to discover all
-         available data points from your equipment and
-         devices. When selected, the gateway navigates
-         through your equipment's data organization beyond
-         the root level to find all sensors, controls, and
-         measurement points automatically.
-        5. Choose **Enable periodic
-         discovery** to automatically run
-         discovery operations at regular intervals to detect
-         changes in the OPC UA server's structure. When
-         selected, the gateway continuously monitors for
-         newly added equipment or data points, ensuring they
-         are automatically detected and made available for
-         data collection.
+     requires version 3.1.0 or later of the
+     IoT SiteWise OPC UA collector component. For more information,
+     see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
 
 
-        	1. For **Periodic discovery
-        	 interval**, set the time interval between
-        	 automatic discovery operations when periodic
-        	 discovery is running. The minimum periodic
-        	 discovery interval is 30 seconds and the maximum is
-        	 30 days.
-        	2. For **Maximum nodes discovered per
-        	 interval**, set the maximum number of
-        	 nodes that should be discovered per discovery
-        	 interval. This helps control the load on both the
-        	 gateway and the OPC UA server during discovery
-        	 operations.
-    7.  (Optional) For **Property groups**,
-        choose **Add new group**.
-
-        1.  Enter a **Name** for the property
-            group.
-        2.  For **Properties**:
-
-            1. For **Node paths**, add OPC
-               UA node filters to limit which OPC UA paths are
-               uploaded to AWS IoT SiteWise. The format is similar to
-               **Node ID for selection**.
-
-        3.  For **Group settings**, do the
-            following:
-
-            1. For **Data quality
-               setting**, choose the type of data
-               quality that you want AWS IoT SiteWise Collector to
-               ingest.
-            2. For **Scan mode setting**,
-               configure the standard subscription properties
-               using **Scan mode**. You can
-               select **Subscribe** or
-               **Poll**. For more information
-               about scan mode, see [Filter data ingestion ranges with OPC UA](opcua-data-acquisition.md "opcua-data-acquisition.md").
-
-            Subscribe
-
-            ###### To send every data point
-
-                1. Choose **Subscribe** and
-                 set the following:
+    	1. For **Maximum concurrent browse request
+    	 count**, enter the maximum number of
+    	 browse requests that your OPC UA server can handle
+    	 simultaneously. You can configure up to 500
+    	 concurrent browse requests per data source.
+    	2. For **Maximum node count per browse
+    	 request**, enter the maximum number of
+    	 nodes to send in each browse request to the OPC UA
+    	 server. You can send up to 1,000 nodes per browse
+    	 request.
+    	3. Choose **Avoid node tree loops**
+    	 to prevent the gateway from getting stuck in
+    	 circular references when browsing the OPC UA
+    	 server's structure. When selected, the gateway
+    	 tracks visited locations to avoid infinite loops
+    	 that can occur when server nodes reference each
+    	 other in a circular pattern.
+    	4. Choose **Enable node traversal**
+    	 to allow the gateway to explore the complete
+    	 structure of your OPC UA server to discover all
+    	 available data points from your equipment and
+    	 devices. When selected, the gateway navigates
+    	 through your equipment's data organization beyond
+    	 the root level to find all sensors, controls, and
+    	 measurement points automatically.
+    	5. Choose **Enable periodic
+    	 discovery** to automatically run
+    	 discovery operations at regular intervals to detect
+    	 changes in the OPC UA server's structure. When
+    	 selected, the gateway continuously monitors for
+    	 newly added equipment or data points, ensuring they
+    	 are automatically detected and made available for
+    	 data collection.
 
 
-                	1. **[Data change trigger](https://reference.opcfoundation.org/v104/Core/docs/Part4/7.17.2/ "https://reference.opcfoundation.org/v104/Core/docs/Part4/7.17.2/")** –
-                	 The condition that initiates a data change
-                	 alert.
-                	2. **[Subscription queue size](https://reference.opcfoundation.org/v104/Core/docs/Part4/7.16/ "https://reference.opcfoundation.org/v104/Core/docs/Part4/7.16/")**
-                	 – The depth of the queue on an OPC UA
-                	 server for a particular metric where notifications
-                	 for monitored items are queued.
-                	3. **[Subscription publishing
-                	 interval](https://reference.opcfoundation.org/v104/Core/docs/Part4/5.13.2/ "https://reference.opcfoundation.org/v104/Core/docs/Part4/5.13.2/")** – The interval
-                	 (in milliseconds) of publishing cycle specified
-                	 when subscription is created.
-                	4. **Snapshot interval -
-                	 *Optional*** –
-                	 The snapshot frequency timeout setting to ensure
-                	 that AWS IoT SiteWise Edge ingests a steady stream of
-                	 data.
-                	5. **Scan rate** – The
-                	 rate that you want the SiteWise Edge gateway to read
-                	 your registers. AWS IoT SiteWise automatically calculates
-                	 the minimum allowable scan rate for your SiteWise Edge
-                	 gateway.
-                	6. **Timestamp** – The timestamp to include with your OPC UA data points. You can use the server timestamp or your device's timestamp.
+    		1. For **Periodic discovery
+    		 interval**, set the time interval between
+    		 automatic discovery operations when periodic
+    		 discovery is running. The minimum periodic
+    		 discovery interval is 30 seconds and the maximum is
+    		 30 days.
+    		2. For **Maximum nodes discovered per
+    		 interval**, set the maximum number of
+    		 nodes that should be discovered per discovery
+    		 interval. This helps control the load on both the
+    		 gateway and the OPC UA server during discovery
+    		 operations.
+    7. (Optional) For **Property groups**,
+     choose **Add new group**.
 
 
-                	###### Note
-
-                	Use version 2.5.0 or later of the
-                	 IoT SiteWise OPC UA collector component. If you use the
-                	 timestamp feature with earlier versions,
-                	 configuration updates fail. For more information,
-                	 see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
-                2. In **Deadband settings**,
-                 configure a **Deadband type**.
-                 The deadband type controls what data your source
-                 sends to your AWS IoT SiteWise, and what data it discards.
-                 For more information about the deadband setting,
-                 see [Filter data ingestion ranges with OPC UA](opcua-data-acquisition.md "opcua-data-acquisition.md").
+    	1. Enter a **Name** for the property
+    	 group.
+    	2. For **Properties**:
 
 
 
 
-                	* **None** – The
-                	 associated server sends all data points for this
-                	 property group.
-                	* **Percentage** – The
-                	 associated server only sends data that falls
-                	 outside a specified percentage of the data's
-                	 range. This range is computed by the server based
-                	 on the engineering unit minimum and maximum
-                	 defined for each node. If the server does not
-                	 support percentage deadbands or lacks defined
-                	 engineering units, the gateway calculates the
-                	 range using the minimum and maximum values
-                	 provided below.
-                	* **Absolute** – The
-                	 associated server only sends data that falls
-                	 outside of a specific range.
-                	1. Set the **Deadband value**
-                	 as the percentage of the data range to
-                	 deadband.
-                	2. (Optional) Specify a minimum and maximum for
-                	 the deadband range using **Minimum range -
-                	 *optional*** and
-                	 **Maximum range -
-                	 *optional***.
-
-            Poll
-
-            ###### To send data points at a specific interval
-
-                * Choose **Poll** and set the
-                 following:
+    		1. For **Node paths**, add OPC
+    		 UA node filters to limit which OPC UA paths are
+    		 uploaded to AWS IoT SiteWise. The format is similar to
+    		 **Node ID for selection**.
+    	3. For **Group settings**, do the
+    	 following:
 
 
-                	1. **Scan rate** – The
-                	 rate that you want the SiteWise Edge gateway to read
-                	 your registers. AWS IoT SiteWise automatically calculates
-                	 the minimum allowable scan rate for your SiteWise Edge
-                	 gateway.
-                	2. **Timestamp** – The timestamp to include with your OPC UA data points. You can use the server timestamp or your device's timestamp.
 
 
-                	###### Note
+    		1. For **Data quality
+    		 setting**, choose the type of data
+    		 quality that you want AWS IoT SiteWise Collector to
+    		 ingest.
+    		2. For **Scan mode setting**,
+    		 configure the standard subscription properties
+    		 using **Scan mode**. You can
+    		 select **Subscribe** or
+    		 **Poll**. For more information
+    		 about scan mode, see [Filter data ingestion ranges with OPC UA](opcua-data-acquisition.md "opcua-data-acquisition.md").
 
-                	Use version 3.1.0 or later of the
-                	 IoT SiteWise OPC UA collector component. If you use the
-                	 timestamp feature with earlier versions,
-                	 configuration updates fail. For more information,
-                	 see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
 
-            ###### Note
 
-            **Deadband settings** are
-            applicable when you've selected
-            **Subscribe** in the
-            **Scan mode settings**.
+    		Subscribe
+    		###### To send every data point
+
+
+    			1. Choose **Subscribe** and
+    			 set the following:
+
+
+    				1. **[Data change trigger](https://reference.opcfoundation.org/v104/Core/docs/Part4/7.17.2/ "https://reference.opcfoundation.org/v104/Core/docs/Part4/7.17.2/")** –
+    				 The condition that initiates a data change
+    				 alert.
+    				2. **[Subscription queue size](https://reference.opcfoundation.org/v104/Core/docs/Part4/7.16/ "https://reference.opcfoundation.org/v104/Core/docs/Part4/7.16/")**
+    				 – The depth of the queue on an OPC UA
+    				 server for a particular metric where notifications
+    				 for monitored items are queued.
+    				3. **[Subscription publishing
+    				 interval](https://reference.opcfoundation.org/v104/Core/docs/Part4/5.13.2/ "https://reference.opcfoundation.org/v104/Core/docs/Part4/5.13.2/")** – The interval
+    				 (in milliseconds) of publishing cycle specified
+    				 when subscription is created.
+    				4. **Snapshot interval -
+    				 *Optional*** –
+    				 The snapshot frequency timeout setting to ensure
+    				 that AWS IoT SiteWise Edge ingests a steady stream of
+    				 data.
+    				5. **Scan rate** – The
+    				 rate that you want the SiteWise Edge gateway to read
+    				 your registers. AWS IoT SiteWise automatically calculates
+    				 the minimum allowable scan rate for your SiteWise Edge
+    				 gateway.
+    				6. **Timestamp** – The timestamp to include with your OPC UA data points. You can use the server timestamp or your device's timestamp.
+
+
+    				###### Note
+
+    				Use version 2.5.0 or later of the
+    				 IoT SiteWise OPC UA collector component. If you use the
+    				 timestamp feature with earlier versions,
+    				 configuration updates fail. For more information,
+    				 see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
+    			2. In **Deadband settings**,
+    			 configure a **Deadband type**.
+    			 The deadband type controls what data your source
+    			 sends to your AWS IoT SiteWise, and what data it discards.
+    			 For more information about the deadband setting,
+    			 see [Filter data ingestion ranges with OPC UA](opcua-data-acquisition.md "opcua-data-acquisition.md").
+
+
+
+
+    				* **None** – The
+    				 associated server sends all data points for this
+    				 property group.
+    				* **Percentage** – The
+    				 associated server only sends data that falls
+    				 outside a specified percentage of the data's
+    				 range. This range is computed by the server based
+    				 on the engineering unit minimum and maximum
+    				 defined for each node. If the server does not
+    				 support percentage deadbands or lacks defined
+    				 engineering units, the gateway calculates the
+    				 range using the minimum and maximum values
+    				 provided below.
+    				* **Absolute** – The
+    				 associated server only sends data that falls
+    				 outside of a specific range.
+    				1. Set the **Deadband value**
+    				 as the percentage of the data range to
+    				 deadband.
+    				2. (Optional) Specify a minimum and maximum for
+    				 the deadband range using **Minimum range -
+    				 *optional*** and
+    				 **Maximum range -
+    				 *optional***.
+
+    		Poll
+    		###### To send data points at a specific interval
+
+
+    			* Choose **Poll** and set the
+    			 following:
+
+
+    				1. **Scan rate** – The
+    				 rate that you want the SiteWise Edge gateway to read
+    				 your registers. AWS IoT SiteWise automatically calculates
+    				 the minimum allowable scan rate for your SiteWise Edge
+    				 gateway.
+    				2. **Timestamp** – The timestamp to include with your OPC UA data points. You can use the server timestamp or your device's timestamp.
+
+
+    				###### Note
+
+    				Use version 3.1.0 or later of the
+    				 IoT SiteWise OPC UA collector component. If you use the
+    				 timestamp feature with earlier versions,
+    				 configuration updates fail. For more information,
+    				 see [Update the version of an AWS IoT SiteWise component](manage-gateways-ggv2.md#update-component-version "manage-gateways-ggv2.md#update-component-version").
+    		###### Note
+
+    		**Deadband settings** are
+    		 applicable when you've selected
+    		 **Subscribe** in the
+    		 **Scan mode settings**.
 
 10. Choose **Save**.
 

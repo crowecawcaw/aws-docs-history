@@ -5,77 +5,77 @@ process metadata and telemetry data.
 
 The following tables provide the view names and descriptions of the views:
 
-| Data model               | **View name**                                                                                                                                     | **View description** |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| asset                    | Contains information about the asset and model derivation.                                                                                        |
-| asset_property           | Contains information about the asset property's structure.                                                                                        |
-| raw_time_series          | Contains the historical data of the time series.                                                                                                  |
-| latest_value_time_series | Contains the latest value of the time series.                                                                                                     |
-| precomputed_aggregates   | Contains the automatically computed aggregated asset property values. They are<br>a set of basic metrics calculated over multiple time intervals. |
+Data model| **View name** | **View description** |
+| --- | --- |
+| asset | Contains information about the asset and model derivation. |
+| asset\_property | Contains information about the asset property's structure. |
+| raw\_time\_series | Contains the historical data of the time series. |
+| latest\_value\_time\_series | Contains the latest value of the time series. |
+| precomputed\_aggregates | Contains the automatically computed aggregated asset property values. They are<br>a set of basic metrics calculated over multiple time intervals. |
 
 The following views list the column names and data types of each view.
 
-| View:asset              | **column name** | **datatype** |
-| ----------------------- | --------------- | ------------ |
-| asset_id                | string          |
-| asset_name              | string          |
-| asset_description       | string          |
-| asset_model_id          | string          |
-| parent_asset_id         | string          |
-| asset_external_id       | string          |
-| asset_model_external_id | string          |
-| hierarchy_id            | string          |
+View:asset| **column name** | **datatype** |
+| --- | --- |
+| asset\_id | string |
+| asset\_name | string |
+| asset\_description | string |
+| asset\_model\_id | string |
+| parent\_asset\_id | string |
+| asset\_external\_id | string |
+| asset\_model\_external\_id | string |
+| hierarchy\_id | string |
 
-| View:asset_property      | **column name** | **datatype** |
-| ------------------------ | --------------- | ------------ |
-| asset_id                 | string          |
-| property_id              | string          |
-| property_name            | string          |
-| property_alias           | string          |
-| property_external_id     | string          |
-| asset_composite_model_id | string          |
-| property_type            | string          |
-| property_data_type       | string          |
-| int_attribute_value      | integer         |
-| double_attribute_value   | double          |
-| boolean_attribute_value  | boolean         |
-| string_attribute_value   | string          |
+View:asset\_property| **column name** | **datatype** |
+| --- | --- |
+| asset\_id | string |
+| property\_id | string |
+| property\_name | string |
+| property\_alias | string |
+| property\_external\_id | string |
+| asset\_composite\_model\_id | string |
+| property\_type | string |
+| property\_data\_type | string |
+| int\_attribute\_value | integer |
+| double\_attribute\_value | double |
+| boolean\_attribute\_value | boolean |
+| string\_attribute\_value | string |
 
-| View:raw_time_series | **column name** | **datatype** |
-| -------------------- | --------------- | ------------ |
-| asset_id             | string          |
-| property_id          | string          |
-| property_alias       | string          |
-| event_timestamp      | timestamp       |
-| quality              | string          |
-| boolean_value        | boolean         |
-| int_value            | integer         |
-| double_value         | double          |
-| string_value         | string          |
+View:raw\_time\_series| **column name** | **datatype** |
+| --- | --- |
+| asset\_id | string |
+| property\_id | string |
+| property\_alias | string |
+| event\_timestamp | timestamp |
+| quality | string |
+| boolean\_value | boolean |
+| int\_value | integer |
+| double\_value | double |
+| string\_value | string |
 
-| View:latest_value_time_series | **column name** | **datatype** |
-| ----------------------------- | --------------- | ------------ |
-| asset_id                      | string          |
-| property_id                   | string          |
-| property_alias                | string          |
-| event_timestamp               | timestamp       |
-| quality                       | string          |
-| boolean_value                 | boolean         |
-| int_value                     | integer         |
-| double_value                  | double          |
-| string_value                  | string          |
+View:latest\_value\_time\_series| **column name** | **datatype** |
+| --- | --- |
+| asset\_id | string |
+| property\_id | string |
+| property\_alias | string |
+| event\_timestamp | timestamp |
+| quality | string |
+| boolean\_value | boolean |
+| int\_value | integer |
+| double\_value | double |
+| string\_value | string |
 
-| View:precomputed_aggregates | **column name** | **datatype** |
-| --------------------------- | --------------- | ------------ |
-| asset_id                    | string          |
-| property_id                 | string          |
-| property_alias              | string          |
-| event_timestamp             | timestamp       |
-| quality                     | string          |
-| resolution                  | string          |
-| sum_value                   | double          |
-| count_value                 | integer         |
-| average_value               | double          |
-| maximum_value               | double          |
-| minimum_value               | double          |
-| stdev_value                 | double          |
+View:precomputed\_aggregates| **column name** | **datatype** |
+| --- | --- |
+| asset\_id | string |
+| property\_id | string |
+| property\_alias | string |
+| event\_timestamp | timestamp |
+| quality | string |
+| resolution | string |
+| sum\_value | double |
+| count\_value | integer |
+| average\_value | double |
+| maximum\_value | double |
+| minimum\_value | double |
+| stdev\_value | double |

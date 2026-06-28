@@ -11,36 +11,36 @@ contact email, and permissions.
 
 ###### Steps to configure a portal:
 
-1.  Enter a name for your portal.
-2.  (Optional) Enter a description for your portal. If you have multiple portals, use
-    meaningful descriptions to help you keep track of what each portal contains.
-3.  (Optional) Upload an image to display your brand in the portal. Choose a square, PNG
-    image. If you upload a non-square image, the portal scales the image down to a
-    square.
-4.  Enter an email address in the **Support contact email** box for support issues.
-5.  In the **User authentication** box, choose the following option:
+1. Enter a name for your portal.
+2. (Optional) Enter a description for your portal. If you have multiple portals, use
+   meaningful descriptions to help you keep track of what each portal contains.
+3. (Optional) Upload an image to display your brand in the portal. Choose a square, PNG
+   image. If you upload a non-square image, the portal scales the image down to a
+   square.
+4. Enter an email address in the **Support contact email** box for support issues.
+5. In the **User authentication** box, choose the following option:
 
-    - Choose **IAM Identity Center** if your portal users sign in to this portal
-      with their corporate user names and passwords.
+   - Choose **IAM Identity Center** if your portal users sign in to this portal
+     with their corporate user names and passwords.
 
-    If you haven't enabled IAM Identity Center in your account, do the following:
+   If you haven't enabled IAM Identity Center in your account, do the following:
 
         1. Choose **Create user**.
         2. On the **Create user** page, to create the first portal,
          enter the user's email address, first name, and last name, and then choose
          **Create user**.###### Note
 
-    Support for IAM credentials is coming soon.
+   Support for IAM credentials is coming soon.
 
-6.  Choose from one of the following options in the **Service access** section:
+6. Choose from one of the following options in the **Service access** section:
 
-    - Choose **Create and use a new service role**. By default,
-      SiteWise Monitor automatically creates a service role for each portal. This role allows your
-      portal users to access your AWS IoT SiteWise resources. For more information, see [Use service roles for AWS IoT SiteWise Monitor](monitor-service-role.md "monitor-service-role.md").
-    - Choose **Use an existing service role**, and then choose the
-      target role.
+   - Choose **Create and use a new service role**. By default,
+     SiteWise Monitor automatically creates a service role for each portal. This role allows your
+     portal users to access your AWS IoT SiteWise resources. For more information, see [Use service roles for AWS IoT SiteWise Monitor](monitor-service-role.md "monitor-service-role.md").
+   - Choose **Use an existing service role**, and then choose the
+     target role.
 
-7.  Choose to enable the AWS IoT SiteWise Assistant for this portal. The AWS IoT SiteWise Assistant provides fast data analysis, real-time insights, and guided recommendations.
+7. Choose to enable the AWS IoT SiteWise Assistant for this portal. The AWS IoT SiteWise Assistant provides fast data analysis, real-time insights, and guided recommendations.
 
 ###### Note
 

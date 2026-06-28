@@ -48,14 +48,13 @@ structure.
 
 - The `value` contains one of the following fields, depending on the type of the property:
 
-      + `booleanValue`
-      + `doubleValue`
-      + `integerValue`
-      + `stringValue`
-      + `nullValue`
-
-  `nullValue` – A structure with the following field denoting the
-  type of the property value with value Null and quality of `BAD` or `UNCERTAIN`.
+  - `booleanValue`
+  - `doubleValue`
+  - `integerValue`
+  - `stringValue`
+  - `nullValue`
+    `nullValue` – A structure with the following field denoting the
+    type of the property value with value Null and quality of `BAD` or `UNCERTAIN`.
 
 - `valueType` – Enum of {"B", "D", "S", "I"}
   To parse values out of the `values` array, you need to use complex nested

@@ -54,7 +54,7 @@ aws iotsitewise get-asset-property-value-history \
     which inference is performed.
   - **prediction** – The prediction result (0 for no
     anomaly, 1 for anomaly detected).
-  - **prediction_reason** – The reason for the
+  - **prediction\_reason** – The reason for the
     prediction (`NO_ANOMALY_DETECTED` or
     `ANOMALY_DETECTED`).
   - **diagnostics** – An array of diagnostic

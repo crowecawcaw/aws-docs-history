@@ -96,7 +96,7 @@ permissions, or use the following steps to delete the demo and try again:
      the resources that failed to delete, and try again.
 
 5. After the demo creates successfully, you can explore the demo assets and data in the
-   [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
+[AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
 
 ## Delete the AWS IoT SiteWise demo
 

@@ -62,7 +62,7 @@ JSON:
 
 Alternatively, you can configure the session timeout by setting the global
 environmental variable
-**AWS_SITEWISE_EDGE_SESSION_TIMEOUT_MINUTES** to your
+**AWS\_SITEWISE\_EDGE\_SESSION\_TIMEOUT\_MINUTES** to your
 desired value (in minutes) on your SiteWise Edge gateway.
 
 After the deployment is complete, the new session timeout configuration is applied

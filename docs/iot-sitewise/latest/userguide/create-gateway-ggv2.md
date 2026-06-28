@@ -70,11 +70,10 @@ do the following:
     		 AWS IoT Greengrass V2 core devices](../../../greengrass/v2/developerguide/setting-up.md "../../../greengrass/v2/developerguide/setting-up.md") in the
     		 *AWS IoT Greengrass Version 2 Developer Guide*.
 
-10. Choose **Create gateway**.
-11. In the **Generate SiteWise Edge gateway installer**
-    dialog box, choose **Generate and download**.
-    AWS IoT SiteWise automatically generates an installer that you can use to
-    configure your local device.
+10. Choose **Create gateway**. 11. In the **Generate SiteWise Edge gateway installer**
+dialog box, choose **Generate and download**.
+AWS IoT SiteWise automatically generates an installer that you can use to
+configure your local device.
 
 ###### Important
 

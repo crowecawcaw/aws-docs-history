@@ -108,9 +108,9 @@ You could then define asset models, such as `robot_model`, that reference these 
 asset models can reference the same component model. You can also reference the same component model multiple times
 in one asset model, such as if your robot has multiple servomotors in it.
 
-|                                                                                                                                                                                                                                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| • `robot_model`<br>+ `servo1` (*reference:<br>• `servo_component_model`)<br>+ `servo2` (*reference:<br>• `servo_component_model`)<br>+ `servo3` (*reference:<br>• `servo_component_model`)<br>+ `powersupply` (*reference:<br>• `powersupply_component_model`)<br>+ `battery` (\*reference:<br>• `battery_component_model`) |
+|                                                                                                                                                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • `robot_model`<br>+ `servo1` (*reference:<br>• `servo_component_model`)<br>+ `servo2` (*reference:<br>• `servo_component_model`)<br>+ `servo3` (*reference:<br>• `servo_component_model`)<br>+ `powersupply` (*reference:<br>• `powersupply_component_model`)<br>+ `battery` (*reference:<br>• `battery_component_model`) |
 
 For information about how to create component models, see [Create component models](create-component-models.md "create-component-models.md").
 

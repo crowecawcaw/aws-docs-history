@@ -304,12 +304,12 @@ The payload must conform to [Option 1: Use a clean payload file](#clean-payload-
     	3. [Flexible scheduling](advanced-inference-configurations.md#flexible-scheduling "advanced-inference-configurations.md#flexible-scheduling").
 
 3. Run the following command to start inference. Replace the following parameters in
-   the payload file.
+the payload file.
 
-   1. `computation-model-id` with the ID of the target computation
-      model.
-   2. `inference-action-definition-id` with the ID of the
-      `AWS/ANOMALY_DETECTION_INFERENCE` action from Step 1.
+    1. `computation-model-id` with the ID of the target computation
+     model.
+    2. `inference-action-definition-id` with the ID of the
+     `AWS/ANOMALY_DETECTION_INFERENCE` action from Step 1.
 
 ```
 aws iotsitewise execute-action \

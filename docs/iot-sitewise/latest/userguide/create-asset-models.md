@@ -40,7 +40,7 @@ models.
 4. On the **Create model** page, do the following:
 
    1. Enter a **Name** for the asset model, such as `Wind
-Turbine` or `Wind Turbine Model`. This name must
+  Turbine` or `Wind Turbine Model`. This name must
       be unique across all models in your account in this Region.
    2. (Optional) Add an **External ID** for the model. This is a
       user-defined ID. For more information, see [Reference objects with external IDs](object-ids.md#external-id-references "object-ids.md#external-id-references") in the _AWS IoT SiteWise User Guide_.
@@ -136,7 +136,7 @@ hierarchies. This operation expects a payload with the following structure.
 
    1. Enter a name (`assetModelName`) for the asset model, such as
       `Wind Turbine` or `Wind Turbine
-Model`. This name must be unique across all asset models and component
+  Model`. This name must be unique across all asset models and component
       models in your account in this AWS Region.
    2. (Optional) Enter an external ID (`assetModelExternalId`) for the asset
       model. This is a user-defined ID. For more information, see [Reference objects with external IDs](object-ids.md#external-id-references "object-ids.md#external-id-references") in the _AWS IoT SiteWise User Guide_.

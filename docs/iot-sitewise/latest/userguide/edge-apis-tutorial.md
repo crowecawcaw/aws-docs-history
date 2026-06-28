@@ -134,7 +134,7 @@ installed.
 ###### To get the credentials using Python
 
 1. Create a file called
-   **get_credentials.py** and the copy
+   **get\_credentials.py** and the copy
    the following code into it.
 
 ```
@@ -255,7 +255,7 @@ if __name__ == "__main__":
 
 ```
 
-2. Run **get_credentials.py** from the
+2. Run **get\_credentials.py** from the
    terminal replacing `<gateway_username>`
    and `<gateway_password>` with the
    credentials you created.
@@ -273,7 +273,7 @@ You need [curl](https://ec.haxx.se/install/ "https://ec.haxx.se/install/") insta
 ###### To get the credentials using curl
 
 1. Run the following command from the terminal replacing
-   <gateway_username> and <gateway_password>
+   <gateway\_username> and <gateway\_password>
    with the credentials you created.
 
 ```
@@ -326,7 +326,7 @@ You need [Python3](https://www.python.org/downloads/ "https://www.python.org/dow
 ###### To get the the list of asset models using Python
 
 1. Create a file called
-   **list_asset_model.py** and the copy
+   **list\_asset\_model.py** and the copy
    the following code into it.
 
 ```
@@ -350,7 +350,7 @@ response = client.list_asset_models()
 print(response)
 ```
 
-2. Run **list_asset_model.py** from the
+2. Run **list\_asset\_model.py** from the
    terminal.
 
 ```

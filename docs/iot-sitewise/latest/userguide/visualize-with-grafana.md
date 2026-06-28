@@ -62,14 +62,10 @@ Be sure to enable plugin management. If you don't select this option, you cannot
     * **Open access** – Allows your workspace to be publicly accessible.
     * **Restricted access** – Limits access to specific IP ranges or VPC endpoints. For more information, see [How VPC connectivity works](../../../grafana/latest/userguide/AMG-configure-vpc.md#AMG-VPC-how-it-works "../../../grafana/latest/userguide/AMG-configure-vpc.md#AMG-VPC-how-it-works") in the *Amazon Managed Grafana User Guide*.
 
-10. Choose **Next**.
-11. Under the **Service managed permission settings** page, choose **Current account** to have Amazon Managed Grafana automatically create policies and permissions for accessing AWS data within your account.
-12. Under **Data sources**, select **AWS IoT SiteWise**. For more information, see [Connect to an AWS IoT SiteWise data source](../../../grafana/latest/userguide/using-iotsitewise-in-AMG.md "../../../grafana/latest/userguide/using-iotsitewise-in-AMG.md") in the _Amazon Managed Grafana User Guide_.
-13. (Optional) Under **Notification channels**, select **Amazon SNS** to enable Grafana alerts to be sent through Amazon SNS, This creates an IAM policy that allows publishing to Amazon SNS topics with names starting with Grafana. You need to complete the notification channel setup later in your Grafana console within the workspace.
-14. Confirm the workspace details, and choose **Create workspace**. This process takes a couple of minutes.
-15. On the **Authentication** tab, under **AWS IAM Identity Center**. assign users or groups to your workspace by doing the following:
+10. Choose **Next**. 11. Under the **Service managed permission settings** page, choose **Current account** to have Amazon Managed Grafana automatically create policies and permissions for accessing AWS data within your account. 12. Under **Data sources**, select **AWS IoT SiteWise**. For more information, see [Connect to an AWS IoT SiteWise data source](../../../grafana/latest/userguide/using-iotsitewise-in-AMG.md "../../../grafana/latest/userguide/using-iotsitewise-in-AMG.md") in the _Amazon Managed Grafana User Guide_. 13. (Optional) Under **Notification channels**, select **Amazon SNS** to enable Grafana alerts to be sent through Amazon SNS, This creates an IAM policy that allows publishing to Amazon SNS topics with names starting with Grafana. You need to complete the notification channel setup later in your Grafana console within the workspace. 14. Confirm the workspace details, and choose **Create workspace**. This process takes a couple of minutes. 15. On the **Authentication** tab, under **AWS IAM Identity Center**. assign users or groups to your workspace by doing the following:
 
-    1.  To assign the user who will manage AWS IoT SiteWise data, choose **Assign new user or group**. Then choose **Make admin** from the **Actions** dropdown list to grant them administrative privileges.
+    1. To assign the user who will manage AWS IoT SiteWise data, choose **Assign new user or group**. Then choose **Make admin** from the **Actions** dropdown list to grant them administrative privileges.
+
 
     ###### Important
 

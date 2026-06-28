@@ -36,14 +36,13 @@ To identify an asset property, specify one of the following.
 - `QUALITY` – (Optional) The quality of the asset property value. The
   value can be one of the following.
 
-      + `GOOD` – (Default) The data isn't affected by any
-       issues.
-      + `BAD` – The data is affected by an issue such as sensor
-       failure.
-      + `UNCERTAIN` – The data is affected by an issue such as sensor
-       inaccuracy.
-
-  For more information about how AWS IoT SiteWise handles data quality in computations, see [Data quality in formula expressions](expression-tutorials.md#data-quality "expression-tutorials.md#data-quality").
+  - `GOOD` – (Default) The data isn't affected by any
+    issues.
+  - `BAD` – The data is affected by an issue such as sensor
+    failure.
+  - `UNCERTAIN` – The data is affected by an issue such as sensor
+    inaccuracy.
+    For more information about how AWS IoT SiteWise handles data quality in computations, see [Data quality in formula expressions](expression-tutorials.md#data-quality "expression-tutorials.md#data-quality").
 
 - `VALUE` – The value of the asset property.
 

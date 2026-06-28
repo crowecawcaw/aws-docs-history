@@ -163,11 +163,10 @@ following parameters:
 - `window` – The time interval and offset for the metric's
   tumbling window, where each interval starts when the previous one ends:
 
-      + `interval` – The time interval for the tumbling window.
-       The time interval must be between a minute and a week.
-      + `offsets` – The offset for the tumbling window.
-
-  For more information, see [TumblingWindow](../APIReference/API_TumblingWindow.md "../APIReference/API_TumblingWindow.md") in the _AWS IoT SiteWise API Reference_.
+  - `interval` – The time interval for the tumbling window.
+    The time interval must be between a minute and a week.
+  - `offsets` – The offset for the tumbling window.
+    For more information, see [TumblingWindow](../APIReference/API_TumblingWindow.md "../APIReference/API_TumblingWindow.md") in the _AWS IoT SiteWise API Reference_.
 
 ###### Example custom time interval with an offset (AWS CLI)
 

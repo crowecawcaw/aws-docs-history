@@ -19,19 +19,19 @@ gateway software.
 
   - OS: Ubuntu 20.04 or later
 
-  Architecture: x86_64 (AMD64) or ARMv8 (Aarch64)
+  Architecture: x86\_64 (AMD64) or ARMv8 (Aarch64)
   - OS: Red Hat Enterprise Linux (RHEL) 8
 
-  Architecture: x86_64 (AMD64) or ARMv8 (Aarch64)
+  Architecture: x86\_64 (AMD64) or ARMv8 (Aarch64)
   - OS: Amazon Linux 2
 
-  Architecture: x86_64 (AMD64) or ARMv8 (Aarch64)
+  Architecture: x86\_64 (AMD64) or ARMv8 (Aarch64)
   - OS: Debian 11
 
-  Architecture: x86_64 (AMD64) or ARMv8 (Aarch64)
+  Architecture: x86\_64 (AMD64) or ARMv8 (Aarch64)
   - OS: Windows Server 2019 and later
 
-  Architecture: x86_64 (AMD64)
+  Architecture: x86\_64 (AMD64)
 
 ###### Note
 

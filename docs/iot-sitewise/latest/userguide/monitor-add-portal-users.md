@@ -41,22 +41,21 @@ steps.
 
 ###### To add portal users
 
-1.  Do the following options:
+1. Do the following options:
 
-        * Choose **IAM users** to add an IAM user as a portal
-         user.
-        * Choose **IAM roles** to add an IAM role as a portal
-         user.
+   - Choose **IAM users** to add an IAM user as a portal
+     user.
+   - Choose **IAM roles** to add an IAM role as a portal
+     user.
+     If you're using SiteWise Monitor for the first time, you don't need to add your portal
+     administrator as a portal user.
 
-    If you're using SiteWise Monitor for the first time, you don't need to add your portal
-    administrator as a portal user.
-
-2.  Select the check boxes for the users or roles that you want as portal users.
-    This adds the users or roles to the **Portal users** list.
-3.  If you add a user that you don't want to have access to the portal, clear the
-    check box for that user.
-4.  When you're finished selecting users, choose **Assign
-    users**.
+2. Select the check boxes for the users or roles that you want as portal users.
+   This adds the users or roles to the **Portal users** list.
+3. If you add a user that you don't want to have access to the portal, clear the
+   check box for that user.
+4. When you're finished selecting users, choose **Assign
+   users**.
 
 ###### Important
 

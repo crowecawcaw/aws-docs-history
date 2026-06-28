@@ -118,11 +118,10 @@ structure that contains a `value`, a `timestamp`, and optionally a
   future.
 - `quality` – (Optional) One of the following quality strings:
 
-      + `GOOD` – (Default) The data isn't affected by any issues.
-      + `BAD` – The data is affected by an issue such as sensor
-       failure.
-      + `UNCERTAIN` – The data is affected by an issue such as sensor
-       inaccuracy.
-
-  For more information about how AWS IoT SiteWise handles data quality in computations, see
-  [Data quality in formula expressions](expression-tutorials.md#data-quality "expression-tutorials.md#data-quality").
+  - `GOOD` – (Default) The data isn't affected by any issues.
+  - `BAD` – The data is affected by an issue such as sensor
+    failure.
+  - `UNCERTAIN` – The data is affected by an issue such as sensor
+    inaccuracy.
+    For more information about how AWS IoT SiteWise handles data quality in computations, see
+    [Data quality in formula expressions](expression-tutorials.md#data-quality "expression-tutorials.md#data-quality").

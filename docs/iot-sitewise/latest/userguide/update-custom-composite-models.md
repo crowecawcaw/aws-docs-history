@@ -59,53 +59,52 @@ To replace an existing composite model property with a new one with the same `na
 
 ###### To update a custom composite model (AWS CLI)
 
-1.  To retrieve the existing composite model definition, run the following command. Replace
-    `composite-model-id` with the ID or the external ID of the custom composite model to update, and
-    `asset-model-id` with the asset model that the custom composite model is
-    associated with. For more information, see the _AWS IoT SiteWise User Guide_.
+1. To retrieve the existing composite model definition, run the following command. Replace
+   `composite-model-id` with the ID or the external ID of the custom composite model to update, and
+   `asset-model-id` with the asset model that the custom composite model is
+   associated with. For more information, see the _AWS IoT SiteWise User Guide_.
 
-    1. Run the command below:
+   1. Run the command below:
 
-    ```
-    aws iotsitewise describe-asset-model-composite-model \
-    --asset-model-composite-model-id `composite-model-id` \
-    --asset-model-id `asset-model-id`
-    ```
-    2. The above command returns the composite model definition corresponding to associated model’s latest version.
-       For an use case where an asset model is in a `FAILED` state, retrieve
-       the valid model definition corresponding to its active version to build your update request. See
-       [Asset model versions](model-active-version.md "model-active-version.md") for details.
-    3. Run the following command to retrieve the active model definition:
+   ```
+   aws iotsitewise describe-asset-model-composite-model \
+   --asset-model-composite-model-id `composite-model-id` \
+   --asset-model-id `asset-model-id`
+   ```
+   2. The above command returns the composite model definition corresponding to associated model’s latest version.
+      For an use case where an asset model is in a `FAILED` state, retrieve
+      the valid model definition corresponding to its active version to build your update request. See
+      [Asset model versions](model-active-version.md "model-active-version.md") for details.
+   3. Run the following command to retrieve the active model definition:
 
-    ```
-    aws iotsitewise describe-asset-model-composite-model \
-    --asset-model-composite-model-id `composite-model-id` \
-    --asset-model-id `asset-model-id` \
-    --asset-model-version ACTIVE
-    ```
-    4. For more information, see the [DescribeAssetModelCompositeModel](../APIReference/API_DescribeAssetModelCompositeModel.md "../APIReference/API_DescribeAssetModelCompositeModel.md") operation.
+   ```
+   aws iotsitewise describe-asset-model-composite-model \
+   --asset-model-composite-model-id `composite-model-id` \
+   --asset-model-id `asset-model-id` \
+   --asset-model-version ACTIVE
+   ```
+   4. For more information, see the [DescribeAssetModelCompositeModel](../APIReference/API_DescribeAssetModelCompositeModel.md "../APIReference/API_DescribeAssetModelCompositeModel.md") operation.
 
-2.  Create a file called `update-custom-composite-model.json`, and then copy the
-    previous command's response into the file.
-3.  Remove every key-value pair from the JSON object in `update-custom-composite-model.json`
-    except for the following fields:
+2. Create a file called `update-custom-composite-model.json`, and then copy the
+   previous command's response into the file.
+3. Remove every key-value pair from the JSON object in `update-custom-composite-model.json`
+   except for the following fields:
 
-    - `assetModelCompositeModelName`
-    - `assetModelCompositeModelDescription` (if present)
-    - `assetModelCompositeModelProperties` (if present)
+   - `assetModelCompositeModelName`
+   - `assetModelCompositeModelDescription` (if present)
+   - `assetModelCompositeModelProperties` (if present)
 
-4.  In `update-custom-composite-model.json`, do any of the following:
+4. In `update-custom-composite-model.json`, do any of the following:
 
-        * Change the value of `assetModelCompositeModelName`.
-        * Add or remove `assetModelCompositeModelDescription`, or change its value.
-        * For inline custom composite models only: Change, add, or remove any of the asset model's
-         properties in `assetModelCompositeModelProperties`.
+   - Change the value of `assetModelCompositeModelName`.
+   - Add or remove `assetModelCompositeModelDescription`, or change its value.
+   - For inline custom composite models only: Change, add, or remove any of the asset model's
+     properties in `assetModelCompositeModelProperties`.
+     For more information about the required format for this file, see the request syntax for [UpdateAssetModelCompositeModel](../APIReference/API_UpdateAssetModelCompositeModel.md "../APIReference/API_UpdateAssetModelCompositeModel.md").
 
-    For more information about the required format for this file, see the request syntax for [UpdateAssetModelCompositeModel](../APIReference/API_UpdateAssetModelCompositeModel.md "../APIReference/API_UpdateAssetModelCompositeModel.md").
-
-5.  Run the following command to update the custom composite model with the definition stored in
-    `update-custom-composite-model.json`. Replace `composite-model-id`
-    with the ID of the composite model, and `asset-model-id` with the ID of the asset model it's in.
+5. Run the following command to update the custom composite model with the definition stored in
+   `update-custom-composite-model.json`. Replace `composite-model-id`
+   with the ID of the composite model, and `asset-model-id` with the ID of the asset model it's in.
 
 ```
 aws iotsitewise update-asset-model-composite-model \

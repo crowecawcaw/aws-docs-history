@@ -20,10 +20,10 @@ from a few seconds (for a SiteWise Edge gateway with few tags) to several minute
 The following table lists the wildcards that you can use to filter OPC UA data
 sources.
 
-| OPC UA node filter wildcards | Wildcard                                       | Description |
-| ---------------------------- | ---------------------------------------------- | ----------- |
-| `*`                          | Matches a single level in a data stream path.  |
-| `**`                         | Matches multiple levels in a data stream path. |
+OPC UA node filter wildcards| Wildcard | Description |
+| --- | --- |
+| `*` | Matches a single level in a data stream path. |
+| `**` | Matches multiple levels in a data stream path. |
 
 ###### Note
 

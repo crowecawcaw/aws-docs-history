@@ -24,10 +24,10 @@ of the Siemens documentation. 3. Within **Edge Management**, browse the catalog 
 
 If a **Contact Us** button displays, choose it, and follow the
 steps to request access to the AWS IoT SiteWise Edge application on Siemens Industrial Edge. For more
-information, see [Access the AWS IoT SiteWise Edge application](sa-get-app.md "sa-get-app.md"). 5. Select **Databus_Configuration** in the Schema Configurations
+information, see [Access the AWS IoT SiteWise Edge application](sa-get-app.md "sa-get-app.md"). 5. Select **Databus\_Configuration** in the Schema Configurations
 options. 6. Enter the **Username** and **Password** for the
 Databus configuration. For more information on creating a Siemens Databus user, see [Create a Siemens Databus user for the application](sa-databus-user.md "sa-databus-user.md"). 7. Choose the small, round gray checkmark icon next to
-**Databus_Configuration** to turn the icon color green.
+**Databus\_Configuration** to turn the icon color green.
 
 ###### Note
 
@@ -37,13 +37,13 @@ green. Otherwise, the input configuration is ignored.
 ![A screenshot of the Siemens Databus Configurator screen displaying an unfinished process, with a circled gray checkmark icon.](images/gateway-sa-gray-checkmark.png)
 
 ![A screenshot of the Siemens Databus Configurator screen displaying a finished process, with a circled green checkmark icon.](images/gateway-sa-green-checkmark.png) 8. Choose **Next** to move onto **Other
-Configurations** where you can upload your gateway configuration file. 9. Choose **SiteWise_Edge_Gateway_Config** as the location to upload the
+Configurations** where you can upload your gateway configuration file. 9. Choose **SiteWise\_Edge\_Gateway\_Config** as the location to upload the
 gateway configuration file.
 
 ###### Note
 
-Ensure that you choose **SiteWise_Edge_Gateway_Config** rather than
-**SiteWise_Edge_Support_Config_Optional**. 10. Select the device to install the application. 11. Choose **Install now**.
+Ensure that you choose **SiteWise\_Edge\_Gateway\_Config** rather than
+**SiteWise\_Edge\_Support\_Config\_Optional**. 10. Select the device to install the application. 11. Choose **Install now**.
 You can optionally configure the publisher component to export data to the AWS Cloud.
 For more information, see [configure the AWS IoT SiteWise
 publisher component](configure-publisher-component.md "configure-publisher-component.md").

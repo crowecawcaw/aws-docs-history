@@ -33,9 +33,9 @@ Use the following information to troubleshoot SiteWise Edge gateway issues.
 - [AWS IoT SiteWise doesn't receive data from OPC UA servers](#gateway-issue-data-streams "#gateway-issue-data-streams")
 - [No data shows in the dashboard](#gateway-issue-no-data "#gateway-issue-no-data")
 - ["Could not find or load main class" showing up in the aws.iot.SiteWiseEdgePublisher logs at /greengrass/v2/logs error](#troubleshoot-java-issues "#troubleshoot-java-issues")
-- [I see 'SESSION_TAKEN_OVER' or 'com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via Spooler and will retry.' in the logs](#sa-troubleshoot-multiple-use "#sa-troubleshoot-multiple-use")
+- [I see 'SESSION\_TAKEN\_OVER' or 'com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via Spooler and will retry.' in the logs](#sa-troubleshoot-multiple-use "#sa-troubleshoot-multiple-use")
 - [I see 'com.aws.greengrass.deployment.IotJobsHelper: No deployment job found.' or 'Deployment result already reported.' in the logs](#sa-troubleshoot-reuse "#sa-troubleshoot-reuse")
-- [I see a 'SYNC_FAILED' status when attempting to configure the timestamp setting in a property group on an OPC UA data source](#troubleshoot-gateway-sync-failed-timestamp "#troubleshoot-gateway-sync-failed-timestamp")
+- [I see a 'SYNC\_FAILED' status when attempting to configure the timestamp setting in a property group on an OPC UA data source](#troubleshoot-gateway-sync-failed-timestamp "#troubleshoot-gateway-sync-failed-timestamp")
 - [Converted data types are not included](#troubleshoot-data-conversion "#troubleshoot-data-conversion")
 - [Trust store issues](#troubleshoot-trust-stores "#troubleshoot-trust-stores")
 - [Proxy-enabled installation issues](#troubleshoot-proxy-during-installation "#troubleshoot-proxy-during-installation")
@@ -154,7 +154,7 @@ pack to version 2.4.1 or newer. Only java version 11.0.20.8.1 is affected, envir
 other java versions can continue to use older versions of the IoT SiteWise Publisher
 component. For more information about updating a component pack, see [Change the version of SiteWise Edge gateway component packs](manage-gateways-ggv2.md#manage-gateway-update-packs "manage-gateways-ggv2.md#manage-gateway-update-packs").
 
-### I see 'SESSION_TAKEN_OVER' or 'com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via Spooler and will retry.' in the logs
+### I see 'SESSION\_TAKEN\_OVER' or 'com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via Spooler and will retry.' in the logs
 
 If you see a warning that includes `SESSION_TAKEN_OVER` or an error that
 includes `com.aws.greengrass.mqttclient.MqttClient: Failed to publish the message via
@@ -184,7 +184,7 @@ There are multiple solutions:
 Follow the steps in [Create a gateway for Siemens Industrial Edge](sa-create-config.md "sa-create-config.md")
 to create a new configuration file.
 
-### I see a 'SYNC_FAILED' status when attempting to configure the timestamp setting in a property group on an OPC UA data source
+### I see a 'SYNC\_FAILED' status when attempting to configure the timestamp setting in a property group on an OPC UA data source
 
 When AWS IoT SiteWise updated the OPC UA collector component for AWS IoT Greengrass in version 2.5.0, we
 introduced a new timestamp configuration option. You can use the timestamp from either your
@@ -275,12 +275,12 @@ more information, see [Downloading Logs](https://docs.eu1.edge.siemens.cloud/bui
 ### My data doesn't display in AWS IoT SiteWise
 
 - Ensure that there are no issues with your Databus users and that the
-  checkmark icon for the **Databus_Configuration** is green rather than
+  checkmark icon for the **Databus\_Configuration** is green rather than
   gray.
 - You may not be running Siemens Industrial Edge Management on a version that contains Secure
   Storage. Upgrade your version of Siemens OS. For more information, see [Siemens Secure Storage and the AWS IoT SiteWise Edge application](sitewise-edge-on-siemens.md#sa-secure-storage "sitewise-edge-on-siemens.md#sa-secure-storage").
 
-### I see 'Config file missing AWS_REGION' in the logs
+### I see 'Config file missing AWS\_REGION' in the logs
 
 If you see `Config file missing AWS_REGION` in the Siemens logs, the JSON of
 the configuration file has been corrupted. You'll need to create a new configuration file.

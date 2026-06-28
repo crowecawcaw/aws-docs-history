@@ -30,9 +30,9 @@ With the regular syntax, the function name is followed by parentheses with
 zero or more arguments.
 
 ``function_name`(`argument1,
- argument2, argument3, ...`)`. For example, functions with
- the regular syntax might look like `log(x)`and`contains(s,
-substring)`.
+argument2, argument3, ...`)`. For example, functions with
+the regular syntax might look like `log(x)` and `contains(s,
+ substring)`.
 
 Uniform function call syntax (UFCS)
 
@@ -42,8 +42,8 @@ object-oriented programming. With UFCS, the first argument is followed by dot
 inside parentheses.
 
 ``argument1`.`function_name`(`argument2`,
-`argument3`, ...)`. For example, functions
- with UFCS might look like `x.log()`and
+ `argument3`, ...)`. For example, functions
+with UFCS might look like `x.log()` and
 `s.contains(substring)`.
 
 You can also use UFCS to chain subsequent functions. AWS IoT SiteWise uses the

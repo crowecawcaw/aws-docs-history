@@ -56,55 +56,55 @@ value of `50`.
 
 ###### To define an AWS IoT Events alarm on an asset model
 
-1.  Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
-2.  In the navigation pane, choose **Models**.
-3.  Choose the asset model for which to define an alarm.
-4.  Choose the **Alarm** tab.
-5.  Choose **Add alarm**.
-6.  In the **Alarm type options** section, choose **AWS IoT Events
-    alarm**.
-7.  In the **Alarm details** section, do the following:
+1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
+2. In the navigation pane, choose **Models**.
+3. Choose the asset model for which to define an alarm.
+4. Choose the **Alarm** tab.
+5. Choose **Add alarm**.
+6. In the **Alarm type options** section, choose **AWS IoT Events
+   alarm**.
+7. In the **Alarm details** section, do the following:
 
-    1. Enter a name for your alarm.
-    2. (Optional) Enter a description for your alarm.
+   1. Enter a name for your alarm.
+   2. (Optional) Enter a description for your alarm.
 
-8.  In the **Threshold definitions** section, you define when the alarm
-    detects and the severity of the alarm. Do the following:
+8. In the **Threshold definitions** section, you define when the alarm
+   detects and the severity of the alarm. Do the following:
 
-    1. Select the **Property** on which the alarm detects. Each time
-       this property receives a new value, AWS IoT SiteWise sends the value to AWS IoT Events to evaluate
-       the state of the alarm.
-    2. Select the **Operator** to use to compare the property with
-       the threshold value. Choose from the following options:
+   1. Select the **Property** on which the alarm detects. Each time
+      this property receives a new value, AWS IoT SiteWise sends the value to AWS IoT Events to evaluate
+      the state of the alarm.
+   2. Select the **Operator** to use to compare the property with
+      the threshold value. Choose from the following options:
 
-       - **< less than**
-       - **<= less than or equal**
-       - **== equal**
-       - **!= not equal**
-       - **>= greater than or equal**
-       - **> greater than**
+      - **< less than**
+      - **<= less than or equal**
+      - **== equal**
+      - **!= not equal**
+      - **>= greater than or equal**
+      - **> greater than**
 
-    3. For **Value**, select the attribute property to use as the threshold
-       value. AWS IoT Events compares the value of the property with the
-       value of this attribute.
-    4. Enter the **Severity** of the alarm. Use a number that your
-       team understands to reflect the severity of this alarm.
+   3. For **Value**, select the attribute property to use as the threshold
+      value. AWS IoT Events compares the value of the property with the
+      value of this attribute.
+   4. Enter the **Severity** of the alarm. Use a number that your
+      team understands to reflect the severity of this alarm.
 
-9.  (Optional) In the **Notification settings - _optional_** section, do the following:
+9. (Optional) In the **Notification settings - _optional_** section, do the following:
 
-    1. Choose **Active**.
+   1. Choose **Active**.
 
-    ###### Note
+   ###### Note
 
-    If you choose **Inactive**, you and your team won't receive any alarm notifications. 2. For **Recipient**, choose the recipient.
+   If you choose **Inactive**, you and your team won't receive any alarm notifications. 2. For **Recipient**, choose the recipient.
 
-    ###### Important
+   ###### Important
 
-    You can send alarm notifications to AWS IAM Identity Center users. To use this feature, you must enable
-    IAM Identity Center. You can only enable IAM Identity Center in one AWS Region at a time. This means that you can define
-    alarm notifications only in the Region where you enable IAM Identity Center. For more information, see
-    [Getting
-    started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in the _AWS IAM Identity Center User Guide_. 3. For **Protocol**, choose from the following options:
+   You can send alarm notifications to AWS IAM Identity Center users. To use this feature, you must enable
+   IAM Identity Center. You can only enable IAM Identity Center in one AWS Region at a time. This means that you can define
+   alarm notifications only in the Region where you enable IAM Identity Center. For more information, see
+   [Getting
+   started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in the _AWS IAM Identity Center User Guide_. 3. For **Protocol**, choose from the following options:
 
         * **Email & text** – The alarm notifies IAM Identity Center
          users with an SMS message and an email message.
@@ -112,13 +112,14 @@ value of `50`.
          email message.
         * **Text** – The alarm notifies IAM Identity Center users with an
          SMS message.
-    4. For **Sender**, choose the sender.
 
-    ###### Important
+   4. For **Sender**, choose the sender.
 
-    You must verify the sender email address in Amazon Simple Email Service (Amazon SES). For more
-    information, see [Verifying an email address identity](../../../ses/latest/dg/creating-identities.md#just-verify-email-proc "../../../ses/latest/dg/creating-identities.md#just-verify-email-proc"), in the
-    _Amazon Simple Email Service Developer Guide_.
+   ###### Important
+
+   You must verify the sender email address in Amazon Simple Email Service (Amazon SES). For more
+   information, see [Verifying an email address identity](../../../ses/latest/dg/creating-identities.md#just-verify-email-proc "../../../ses/latest/dg/creating-identities.md#just-verify-email-proc"), in the
+   _Amazon Simple Email Service Developer Guide_.
 
 10. In the **Default asset state** section, you
     can set the default state for alarms created from this asset model.
@@ -150,56 +151,66 @@ In the **Permissions** section, do the following:
 
 12. (Optional) In the **Additional notification settings** section, do the following:
 
-    1.  For **Recipient attribute**, you define an attribute whose
-        value specifies the recipient of the notification. You can choose IAM Identity Center users as
-        recipients.
+    1. For **Recipient attribute**, you define an attribute whose
+     value specifies the recipient of the notification. You can choose IAM Identity Center users as
+     recipients.
+
 
     You can create an attribute or use an existing attribute on the asset
-    model.
+     model.
 
-        * If you choose **Create a new recipient attribute**, specify the
-         **Recipient attribute name** and **Recipient default
-         value - **optional**** for the attribute.
-        * If you choose **Use an existing recipient attribute**, choose the
-         attribute in **Recipient attribute name**. The alarm uses
-         the default value of the attribute that you choose.
 
+
+
+    	* If you choose **Create a new recipient attribute**, specify the
+    	 **Recipient attribute name** and **Recipient default
+    	 value - **optional**** for the attribute.
+    	* If you choose **Use an existing recipient attribute**, choose the
+    	 attribute in **Recipient attribute name**. The alarm uses
+    	 the default value of the attribute that you choose.
     You can override the default value on each asset that you create from this
-    asset model. 2. For **Custom message attribute**, you define an attribute
-    whose value specifies the custom message to send in addition to the default state
-    change message. For example, you can specify a message that helps your team
-    understand how to address this alarm.
+     asset model.
+    2. For **Custom message attribute**, you define an attribute
+     whose value specifies the custom message to send in addition to the default state
+     change message. For example, you can specify a message that helps your team
+     understand how to address this alarm.
+
 
     You can choose to create an attribute or use an existing attribute on the
-    asset model.
+     asset model.
 
-        * If you choose to **Create a new custom message attribute**, specify the
-         **Custom message attribute name** and **Custom message default
-         value - *optional*** for the attribute.
-        * If you choose **Use an existing custom message attribute**, choose the
-         attribute in **Custom message attribute name**. The alarm uses
-         the default value of the attribute that you choose.
 
+
+
+    	* If you choose to **Create a new custom message attribute**, specify the
+    	 **Custom message attribute name** and **Custom message default
+    	 value - *optional*** for the attribute.
+    	* If you choose **Use an existing custom message attribute**, choose the
+    	 attribute in **Custom message attribute name**. The alarm uses
+    	 the default value of the attribute that you choose.
     You can override the default value on each asset that you create from this
-    asset model. 3. For **Manage your Lambda function**, do one of the following:
+     asset model.
+    3. For **Manage your Lambda function**, do one of the following:
 
-        * To have AWS IoT SiteWise create a new Lambda function, choose **Create a new lambda from an AWS managed template**.
-        * To use an existing Lambda function, choose **Use an existing lambda** and choose the name of the function.
 
+
+
+    	* To have AWS IoT SiteWise create a new Lambda function, choose **Create a new lambda from an AWS managed template**.
+    	* To use an existing Lambda function, choose **Use an existing lambda** and choose the name of the function.
     For more information, see [Managing alarm notifications](../../../iotevents/latest/developerguide/lambda-support.md "../../../iotevents/latest/developerguide/lambda-support.md")
-    in the _AWS IoT Events Developer Guide_.
+     in the *AWS IoT Events Developer Guide*.
 
 13. (Optional) In the **Set state action** section, do the following:
 
-    1.  Choose **Edit action**.
-    2.  Under **Add alarm state actions**, add actions. and the choose **Save**.
+    1. Choose **Edit action**.
+    2. Under **Add alarm state actions**, add actions. and the choose **Save**.
+
 
     You can add up to 10 actions.AWS IoT Events can perform actions when the alarm is active. You can define built-in actions to use a timer or set a variable,
-    or send data to other AWS resources. For more information, see [Supported actions](../../../iotevents/latest/developerguide/iotevents-supported-actions.md "../../../iotevents/latest/developerguide/iotevents-supported-actions.md")
-    in the _AWS IoT Events Developer Guide_.
 
-14. (Optional) Under **Manage alarm model in SiteWise Monitor - _optional_**,
-    choose **Active** or **Inactive**.
+or send data to other AWS resources. For more information, see [Supported actions](../../../iotevents/latest/developerguide/iotevents-supported-actions.md "../../../iotevents/latest/developerguide/iotevents-supported-actions.md")
+in the _AWS IoT Events Developer Guide_. 14. (Optional) Under **Manage alarm model in SiteWise Monitor - _optional_**,
+choose **Active** or **Inactive**.
 
 Use this option so that you can update the alarm model in SiteWise Monitorss. This option is enabled by default. 15. Under **Acknowledge flow**, choose **Active** or **Inactive**. For more information about the acknowledge flow, see
 [Alarm states](industrial-alarms.md#alarm-states "industrial-alarms.md#alarm-states"). 16. Choose **Add alarm**.
@@ -626,24 +637,28 @@ Do the following:
     ```
 
 5. Create the asset model or update the existing asset model. Do one of the
-   following:
+following:
 
-   - To create the asset model, run the following command.
+    * To create the asset model, run the following command.
 
-   ```
-   aws iotsitewise create-asset-model --cli-input-json file://asset-model-payload.json
-   ```
-   - To update the existing asset model, run the following command. Replace
+
+
+    ```
+    aws iotsitewise create-asset-model --cli-input-json file://asset-model-payload.json
+    ```
+    * To update the existing asset model, run the following command. Replace
      `asset-model-id` with the ID of the asset
      model.
 
-   ````
-   aws iotsitewise update-asset-model \
-     --asset-model-id `asset-model-id` \
-     --cli-input-json file://asset-model-payload.json
-   ```After you run the command, note the `assetModelId` in the
-   response.
-   ````
+
+
+    ```
+    aws iotsitewise update-asset-model \
+      --asset-model-id `asset-model-id` \
+      --cli-input-json file://asset-model-payload.json
+    ```After you run the command, note the `assetModelId` in the
+
+response.
 
 The following asset model represents a boiler that reports temperature data.
 This asset model defines an alarm that detects when the boiler overheats.
@@ -796,22 +811,21 @@ only.
 
 ###### To create an AWS IoT Events alarm model (CLI)
 
-1.  When you create the alarm model in AWS IoT Events, you must specify the ID of
-    each property that the alarm uses, which includes the following:
+1. When you create the alarm model in AWS IoT Events, you must specify the ID of
+   each property that the alarm uses, which includes the following:
 
-        * The alarm state property in the composite asset model
-        * The property that the alarm monitors
-        * The threshold attribute
-        * (Optional) The IAM Identity Center identity store ID attribute
-        * (Optional) The IAM Identity Center user ID attribute
-        * (Optional) The SMS sender ID attribute
-        * (Optional) The email *from* address attribute
-        * (Optional) The email subject attribute
-        * (Optional) The additional message attribute
-
-    Run the following command to retrieve the IDs of these properties on the asset
-    model. Replace `asset-model-id` with the ID of the asset
-    model from the previous step.
+   - The alarm state property in the composite asset model
+   - The property that the alarm monitors
+   - The threshold attribute
+   - (Optional) The IAM Identity Center identity store ID attribute
+   - (Optional) The IAM Identity Center user ID attribute
+   - (Optional) The SMS sender ID attribute
+   - (Optional) The email _from_ address attribute
+   - (Optional) The email subject attribute
+   - (Optional) The additional message attribute
+     Run the following command to retrieve the IDs of these properties on the asset
+     model. Replace `asset-model-id` with the ID of the asset
+     model from the previous step.
 
 ```
 aws iotsitewise describe-asset-model --asset-model-id `asset-model-id`
@@ -1354,15 +1368,16 @@ in the asset model to use the alarm model that you created in the previous step.
   copy the previous command's response into the file. 3. Remove the following key-value pairs from the
   `update-asset-model-payload.json` file:
 
-      + `assetModelId`
-      + `assetModelArn`
-      + `assetModelCreationDate`
-      + `assetModelLastUpdateDate`
-      + `assetModelStatus`
-  4.  Add the alarm source property (`AWS/ALARM_SOURCE`) to the alarm
-      composite model that you defined earlier. Replace
-      `alarmModelArn` with the ARN of the alarm
-      model, which sets the value of the alarm source property.
+        + `assetModelId`
+        + `assetModelArn`
+        + `assetModelCreationDate`
+        + `assetModelLastUpdateDate`
+        + `assetModelStatus`
+
+  4. Add the alarm source property (`AWS/ALARM_SOURCE`) to the alarm
+  composite model that you defined earlier. Replace
+  `alarmModelArn` with the ARN of the alarm
+  model, which sets the value of the alarm source property.
 
   ```
   {

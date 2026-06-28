@@ -121,9 +121,9 @@ The example also defines assets based on the asset models.
 - `Sample_Welding Line 1` – This asset is created from `Sample_Welding Line`
   asset model.
 - `Sample_Welding Robot 1` – This asset is created from `Sample_Welding
-Robot` asset model.
+ Robot` asset model.
 - `Sample_Welding Robot 2` – This asset is created from `Sample_Welding
-Robot` asset model.
+ Robot` asset model.
 
 The following JSON metadata file defines these asset models and assets. Running a bulk import with this
 metadata creates the asset models and assets within AWS IoT SiteWise, including their hierarchical relationships.
@@ -477,7 +477,7 @@ previous code example.
 This example defines new properties on existing asset models. See [Example of onboarding additional assets](#example-scenario2 "#example-scenario2") to onboard additional assets and models.
 
 - `Joint 1 Temperature` – This property is added to the `Sample_Welding
-Robot` asset model. This new property will also propagate to each asset created from the
+ Robot` asset model. This new property will also propagate to each asset created from the
   `Sample_Welding Robot` asset model.
 
 To add a new property to an existing asset model, see the following JSON metadata file example. As shown in

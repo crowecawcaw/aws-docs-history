@@ -202,9 +202,7 @@ locally, in GB. If this quota is breached, the
 SiteWise Edge gateway starts deleting the earliest data
 until the size of data stored locally is equal to
 or less than the quota. The value of this
-parameter must be greater than or equal to
-
-1.
+parameter must be greater than or equal to 1.
 
 `SiteWiseS3PublisherConfiguration`
 

@@ -17,40 +17,39 @@ gateway.
 
 Console
 
-1.  Open the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
-2.  In the navigation pane, choose **Edge gateways**.
-3.  Select the gateway to which you want to add a
-    destination.
-4.  In the **Destinations** section, choose **Add
-    destination**.
-5.  On the **Add destination** page, enter **Destination
-    details**:
+1. Open the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
+2. In the navigation pane, choose **Edge gateways**.
+3. Select the gateway to which you want to add a
+   destination.
+4. In the **Destinations** section, choose **Add
+   destination**.
+5. On the **Add destination** page, enter **Destination
+   details**:
 
-    1. A name for your destination in the **Destination name**
-       field.
-    2. Select the **AWS IoT SiteWise real-time** for the
-       **Destination type**.
+   1. A name for your destination in the **Destination name**
+      field.
+   2. Select the **AWS IoT SiteWise real-time** for the
+      **Destination type**.
 
-6.  Configure the gateway publishing order by setting the **Publishing
-    order** to either **Publish older data first** or
-    **Publish newest data first**. By default, the gateway
-    publishes the oldest data first.
-7.  Use **Maximum batch wait time** to set a maximum time for the
-    publisher to wait before sending a batch of data to AWS IoT SiteWise. This setting applies for
-    each alias. The data is stored locally until either:
+6. Configure the gateway publishing order by setting the **Publishing
+   order** to either **Publish older data first** or
+   **Publish newest data first**. By default, the gateway
+   publishes the oldest data first.
+7. Use **Maximum batch wait time** to set a maximum time for the
+   publisher to wait before sending a batch of data to AWS IoT SiteWise. This setting applies for
+   each alias. The data is stored locally until either:
 
-        * The set time has elapsed, or
-        * 10 time-quality-value (TQV) entries are received for the alias
+   - The set time has elapsed, or
+   - 10 time-quality-value (TQV) entries are received for the alias
+     Whichever condition is met first triggers the batch to be sent to the
+     cloud.
 
-    Whichever condition is met first triggers the batch to be sent to the
-    cloud.
-
-8.  To compress uploaded data, select the **Activate compression when
-    uploading data** check box. Letting the gateway compress your data prior
-    to uploading it to the cloud reduces bandwidth usage.
-9.  To filter out expired publisher data, select the **Exclude expired
-    data** check box. This selection only sends active and current data to
-    AWS IoT SiteWise.
+8. To compress uploaded data, select the **Activate compression when
+   uploading data** check box. Letting the gateway compress your data prior
+   to uploading it to the cloud reduces bandwidth usage.
+9. To filter out expired publisher data, select the **Exclude expired
+   data** check box. This selection only sends active and current data to
+   AWS IoT SiteWise.
 10. In the **Cutoff period** field, enter the frequency at which
     data should be considered expired within your dataset. You can determine if the data
     is counted in terms of minutes or days. The minimum cutoff period is five minutes.

@@ -60,6 +60,6 @@ updates** section, do the following:
      **Deploy**.
 
 7. When you're done deploying new versions, choose
-   **Done**.
+**Done**.
 
 If you're experiencing problems upgrading the packs, see [Unable to deploy packs to SiteWise Edge gateways](troubleshooting-gateway.md#gateway-issue-ggv2-packs "troubleshooting-gateway.md#gateway-issue-ggv2-packs").

@@ -71,11 +71,11 @@ Use the following procedure to restore data on a new machine.
 Linux
 sudo
 ``/greengrass/v2`/bin/greengrass-cli
-component stop -n aws.iot.SiteWiseEdgeProcessor`
+ component stop -n aws.iot.SiteWiseEdgeProcessor`
 
 Windows
 ``C:\greengrass\v2`\bin\greengrass-cli
-component stop -n aws.iot.SiteWiseEdgeProcesso` 3. Locate the path where you backed up your data, and run the following
+ component stop -n aws.iot.SiteWiseEdgeProcesso` 3. Locate the path where you backed up your data, and run the following
 command:
 
 Linux
@@ -101,7 +101,7 @@ Linux
 
 Windows
 ``C:\greengrass\v2`\bin\greengrass-cli
-component restart -n aws.iot.SiteWiseEdgeProcessor`
+ component restart -n aws.iot.SiteWiseEdgeProcessor`
 
 ## Validate successful backups and restorations
 

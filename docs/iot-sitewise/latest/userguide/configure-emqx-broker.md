@@ -211,14 +211,13 @@ Use the AWS IoT SiteWise EMQX CLI tool at
 /greengrass/v2/bin/swe-emqx-cli admin change-pwd
 ```
 
-2.  When prompted, do the following:
+2. When prompted, do the following:
 
-        1. Enter your current administrator user (default
-         is `admin`) and password (default is
-         `public`).
-        2. Enter and confirm your new password.
-
-    If successful, you see the following message:
+   1. Enter your current administrator user (default
+      is `admin`) and password (default is
+      `public`).
+   2. Enter and confirm your new password.
+      If successful, you see the following message:
 
 ```
 admin password changed successfully
@@ -231,13 +230,12 @@ admin password changed successfully
 /greengrass/v2/bin/swe-emqx-cli users add
 ```
 
-4.  When prompted, do the following:
+4. When prompted, do the following:
 
-        1. Enter the username for the new user.
-        2. Enter and confirm the password for the new
-         user.
-
-    If successful, you see the following message:
+   1. Enter the username for the new user.
+   2. Enter and confirm the password for the new
+      user.
+      If successful, you see the following message:
 
 ```
 User '[username]' created successfully
@@ -277,14 +275,13 @@ locations:
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 admin change-pwd
 ```
 
-2.  When prompted, do the following:
+2. When prompted, do the following:
 
-        1. Enter your current administrator user (default
-         is `admin`) and password (default is
-         `public`).
-        2. Enter and confirm your new password.
-
-    If successful, you see the following message:
+   1. Enter your current administrator user (default
+      is `admin`) and password (default is
+      `public`).
+   2. Enter and confirm your new password.
+      If successful, you see the following message:
 
 ```
 admin password changed successfully
@@ -297,13 +294,12 @@ admin password changed successfully
 C:\greengrass\v2\bin\swe-emqx-cli.ps1 users add
 ```
 
-4.  When prompted, do the following:
+4. When prompted, do the following:
 
-        1. Enter the username for the new user.
-        2. Enter and confirm the password for the new
-         user.
-
-    If successful, you see the following message:
+   1. Enter the username for the new user.
+   2. Enter and confirm the password for the new
+      user.
+      If successful, you see the following message:
 
 ```
 User '[username]' created successfully

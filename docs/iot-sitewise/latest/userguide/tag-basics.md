@@ -35,16 +35,16 @@ naming and usage conventions](../../../general/latest/gr/aws_tagging.md#tag-conv
 The following table lists resources you can tag using the AWS IoT SiteWise API and their
 corresponding `Create` and `Describe` operations.
 
-| Taggable AWS IoT SiteWise resources | Resource                                                                                                                            | Create operation                                                                                                  | Describe operation |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------ |
-| Asset model or component model      | [CreateAssetModel](../APIReference/API_CreateAssetModel.md "../APIReference/API_CreateAssetModel.md")                               | [DescribeAssetModel](../APIReference/API_DescribeAssetModel.md "../APIReference/API_DescribeAssetModel.md")       |
-| Asset                               | [CreateAsset](../APIReference/API_CreateAsset.md "../APIReference/API_CreateAsset.md")                                              | [DescribeAsset](../APIReference/API_DescribeAsset.md "../APIReference/API_DescribeAsset.md")                      |
-| SiteWise Edge gateway               | [CreateGateway](../APIReference/API_CreateGateway.md "../APIReference/API_CreateGateway.md")                                        | [DescribeGateway](../APIReference/API_DescribeGateway.md "../APIReference/API_DescribeGateway.md")                |
-| Portal                              | [CreatePortal](../APIReference/API_CreatePortal.md "../APIReference/API_CreatePortal.md")                                           | [DescribePortal](../APIReference/API_DescribePortal.md "../APIReference/API_DescribePortal.md")                   |
-| Project                             | [CreateProject](../APIReference/API_CreateProject.md "../APIReference/API_CreateProject.md")                                        | [DescribeProject](../APIReference/API_DescribeProject.md "../APIReference/API_DescribeProject.md")                |
-| Dashboard                           | [CreateDashboard](../APIReference/API_CreateDashboard.md "../APIReference/API_CreateDashboard.md")                                  | [DescribeDashboard](../APIReference/API_DescribeDashboard.md "../APIReference/API_DescribeDashboard.md")          |
-| Access policy                       | [CreateAccessPolicy](../APIReference/API_CreateAccessPolicy.md "../APIReference/API_CreateAccessPolicy.md")                         | [DescribeAccessPolicy](../APIReference/API_DescribeAccessPolicy.md "../APIReference/API_DescribeAccessPolicy.md") |
-| Time series                         | [BatchPutAssetPropertyValue](../APIReference/API_BatchPutAssetPropertyValue.md "../APIReference/API_BatchPutAssetPropertyValue.md") | [DescribeTimeSeries](../APIReference/API_DescribeTimeSeries.md "../APIReference/API_DescribeTimeSeries.md")       |
+Taggable AWS IoT SiteWise resources| Resource | Create operation | Describe operation |
+| --- | --- | --- |
+| Asset model or component model | [CreateAssetModel](../APIReference/API_CreateAssetModel.md "../APIReference/API_CreateAssetModel.md") | [DescribeAssetModel](../APIReference/API_DescribeAssetModel.md "../APIReference/API_DescribeAssetModel.md") |
+| Asset | [CreateAsset](../APIReference/API_CreateAsset.md "../APIReference/API_CreateAsset.md") | [DescribeAsset](../APIReference/API_DescribeAsset.md "../APIReference/API_DescribeAsset.md") |
+| SiteWise Edge gateway | [CreateGateway](../APIReference/API_CreateGateway.md "../APIReference/API_CreateGateway.md") | [DescribeGateway](../APIReference/API_DescribeGateway.md "../APIReference/API_DescribeGateway.md") |
+| Portal | [CreatePortal](../APIReference/API_CreatePortal.md "../APIReference/API_CreatePortal.md") | [DescribePortal](../APIReference/API_DescribePortal.md "../APIReference/API_DescribePortal.md") |
+| Project | [CreateProject](../APIReference/API_CreateProject.md "../APIReference/API_CreateProject.md") | [DescribeProject](../APIReference/API_DescribeProject.md "../APIReference/API_DescribeProject.md") |
+| Dashboard | [CreateDashboard](../APIReference/API_CreateDashboard.md "../APIReference/API_CreateDashboard.md") | [DescribeDashboard](../APIReference/API_DescribeDashboard.md "../APIReference/API_DescribeDashboard.md") |
+| Access policy | [CreateAccessPolicy](../APIReference/API_CreateAccessPolicy.md "../APIReference/API_CreateAccessPolicy.md") | [DescribeAccessPolicy](../APIReference/API_DescribeAccessPolicy.md "../APIReference/API_DescribeAccessPolicy.md") |
+| Time series | [BatchPutAssetPropertyValue](../APIReference/API_BatchPutAssetPropertyValue.md "../APIReference/API_BatchPutAssetPropertyValue.md") | [DescribeTimeSeries](../APIReference/API_DescribeTimeSeries.md "../APIReference/API_DescribeTimeSeries.md") |
 
 For `BatchPutAssetPropertyValue`, you can configure your data sources to send
 industrial data to AWS IoT SiteWise before you create asset models and assets. AWS IoT SiteWise automatically

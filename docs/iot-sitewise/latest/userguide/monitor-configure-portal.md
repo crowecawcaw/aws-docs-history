@@ -13,18 +13,18 @@ contact email, and permissions.
 
 ###### To configure a portal
 
-1.  Enter a name for your portal.
-2.  (Optional) Enter a description for your portal. If you have multiple portals, use
-    meaningful descriptions to help you keep track of what each portal contains.
-3.  (Optional) Upload an image to display your brand in the portal. Choose a square, PNG
-    image. If you upload a non-square image, the portal scales the image down to a
-    square.
-4.  Choose one of the following options:
+1. Enter a name for your portal.
+2. (Optional) Enter a description for your portal. If you have multiple portals, use
+   meaningful descriptions to help you keep track of what each portal contains.
+3. (Optional) Upload an image to display your brand in the portal. Choose a square, PNG
+   image. If you upload a non-square image, the portal scales the image down to a
+   square.
+4. Choose one of the following options:
 
-    - Choose **IAM Identity Center** if your portal users sign in to this portal
-      with their corporate user names and passwords.
+   - Choose **IAM Identity Center** if your portal users sign in to this portal
+     with their corporate user names and passwords.
 
-    If you haven't enabled IAM Identity Center in your account, do the following:
+   If you haven't enabled IAM Identity Center in your account, do the following:
 
         1. Choose **Create user**.
         2. On the **Create user** page, to create the first portal,
@@ -54,20 +54,20 @@ contact email, and permissions.
         Users or roles must have the `iotsitewise:DescribePortal`
          permission to sign in to the portal.
 
-5.  Enter an email address that portal users can contact when they have an issue with
-    the portal and need help to resolve it.
-6.  (Optional) Add tags for your portal. For more information, see [Tag your AWS IoT SiteWise resources](tag-resources.md "tag-resources.md").
-7.  Choose one of the following options:
+5. Enter an email address that portal users can contact when they have an issue with
+   the portal and need help to resolve it.
+6. (Optional) Add tags for your portal. For more information, see [Tag your AWS IoT SiteWise resources](tag-resources.md "tag-resources.md").
+7. Choose one of the following options:
 
-    - Choose **Create and use a new service role**. By default,
-      SiteWise Monitor automatically creates a service role for each portal. This role allows your
-      portal users to access your AWS IoT SiteWise resources. For more information, see [Use service roles for AWS IoT SiteWise Monitor](monitor-service-role.md "monitor-service-role.md").
-    - Choose **Use an existing service role**, and then choose the
-      target role.
+   - Choose **Create and use a new service role**. By default,
+     SiteWise Monitor automatically creates a service role for each portal. This role allows your
+     portal users to access your AWS IoT SiteWise resources. For more information, see [Use service roles for AWS IoT SiteWise Monitor](monitor-service-role.md "monitor-service-role.md").
+   - Choose **Use an existing service role**, and then choose the
+     target role.
 
-8.  Choose **Next**
-9.  (Optional) Enable alarms for your portal. For more information,
-    see [Turn on alarms for your portals in AWS IoT SiteWise](monitor-enable-alarms.md "monitor-enable-alarms.md").
+8. Choose **Next**
+9. (Optional) Enable alarms for your portal. For more information,
+   see [Turn on alarms for your portals in AWS IoT SiteWise](monitor-enable-alarms.md "monitor-enable-alarms.md").
 10. Choose **Create**. AWS IoT SiteWise will create your portal.
 
 ###### Note
