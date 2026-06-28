@@ -116,10 +116,11 @@ configure the backup directory to store passwords in Active Directory.
 ###### To configure the backup directory
 
 - ```
-  Set-GPRegistryValue -Name "LAPS Policy" `
-      -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS" `
-      -ValueName "BackupDirectory" -Type DWord -Value 2
+
   ```
+
+Set-GPRegistryValue -Name "LAPS Policy" `    -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS"`
+-ValueName "BackupDirectory" -Type DWord -Value 2
 
 ````
 
@@ -149,10 +150,11 @@ Admin account belongs to.
 ###### To configure the encryption principal
 
 - ```
-  Set-GPRegistryValue -Name "LAPS Policy" `
-      -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS" `
-      -ValueName "ADPasswordEncryptionPrincipal" -Type String -Value "corp\AWS Delegated LAPS Administrators"
+
   ```
+
+Set-GPRegistryValue -Name "LAPS Policy" `    -Key "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\LAPS"`
+-ValueName "ADPasswordEncryptionPrincipal" -Type String -Value "corp\AWS Delegated LAPS Administrators"
 
 ```
 
@@ -263,8 +265,10 @@ you can mark the password as expired and trigger a new rotation.
 ###### To force password rotation from the management instance
 
 - ```
-  Set-LapsADPasswordExpirationTime -Identity <ComputerName>
+
   ```
+
+Set-LapsADPasswordExpirationTime -Identity <ComputerName>
 
 ```
 

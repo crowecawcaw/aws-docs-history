@@ -8,10 +8,10 @@ Enterprise Edition) instead.
 The following are the default quotas for Simple AD. Each quota is per Region unless
 otherwise noted.
 
-| Simple AD quotas      | Resource        | Default quota |
-| --------------------- | --------------- | ------------- |
-| Simple AD directories | 10              |
-| Manual snapshots \*   | 5 per Simple AD |
+Simple AD quotas| Resource | Default quota |
+| --- | --- |
+| Simple AD directories | 10 |
+| Manual snapshots \* | 5 per Simple AD |
 
 \* The manual snapshot quota cannot be changed.
 

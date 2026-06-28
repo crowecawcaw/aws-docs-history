@@ -43,9 +43,8 @@ then choose **Next**.
     * **User logon name**
 
 6. On the second page of the wizard, enter a temporary password in
-   **Password** and **Confirm Password**. Make sure
-   the **User must change password at next logon** option is selected.
-   None of the other options should be selected. Choose **Next**.
-7. On the third page of the wizard, verify that the new user information is correct
-   and choose **Finish**. The new user will appear in the
-   **Users** folder.
+**Password** and **Confirm Password**. Make sure
+the **User must change password at next logon** option is selected.
+None of the other options should be selected. Choose **Next**. 7. On the third page of the wizard, verify that the new user information is correct
+and choose **Finish**. The new user will appear in the
+**Users** folder.

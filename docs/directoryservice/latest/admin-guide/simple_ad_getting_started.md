@@ -39,9 +39,9 @@ the _Amazon Virtual Private Cloud User Guide_.
   Blog_.
 - The following encryption types must be enabled in the directory:
 
-  - RC4_HMAC_MD5
-  - AES128_HMAC_SHA1
-  - AES256_HMAC_SHA1
+  - RC4\_HMAC\_MD5
+  - AES128\_HMAC\_SHA1
+  - AES256\_HMAC\_SHA1
   - Future encryption types
 
   ###### Note

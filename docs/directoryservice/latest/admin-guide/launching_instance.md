@@ -121,7 +121,7 @@ _Amazon EC2 User Guide_. 12. For **Firewall (security groups)** settings, you ca
 
 After choosing the Domain join directory, you may see:
 
-![An error message when selecting your Domain join directory. There is an error with your existing SSM document.](/images/directoryservice/latest/admin-guide/images/SSM-Error-Message.png)
+![An error message when selecting your Domain join directory. There is an error with your existing SSM document.](images/SSM-Error-Message.png)
 This error occurs if the EC2 launch wizard identifies an existing SSM document with unexpected properties. You can do one of the following:
 
     * If you previously edited the SSM document and the properties are expected, choose close and proceed to launch the EC2 instance with no changes.
@@ -129,38 +129,43 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
      The SSM document will automatically be created when you launch the EC2 instance.
 
 15. For **IAM instance profile**, you can select an existing IAM
-    instance profile or create a new one. Select an IAM instance profile that has the AWS managed policies
-    **AmazonSSMManagedInstanceCore** and
-    **AmazonSSMDirectoryServiceAccess** attached to it from the
-    **IAM instance profile** dropdown list. To create a new one,
-    choose **Create new IAM profile** link, and then do the
-    following:
+instance profile or create a new one. Select an IAM instance profile that has the AWS managed policies
+**AmazonSSMManagedInstanceCore** and
+**AmazonSSMDirectoryServiceAccess** attached to it from the
+**IAM instance profile** dropdown list. To create a new one,
+choose **Create new IAM profile** link, and then do the
+following:
 
-    1.  Choose **Create role**.
-    2.  Under **Select trusted entity**, choose **AWS
-        service**.
-    3.  Under **Use case**, choose **EC2**.
-    4.  Under **Add permissions**, in the list of policies, select the
-        **AmazonSSMManagedInstanceCore** and
-        **AmazonSSMDirectoryServiceAccess** policies. To filter the list,
-        type `SSM` in the search box. Choose **Next**.
+    1. Choose **Create role**.
+    2. Under **Select trusted entity**, choose **AWS
+     service**.
+    3. Under **Use case**, choose **EC2**.
+    4. Under **Add permissions**, in the list of policies, select the
+     **AmazonSSMManagedInstanceCore** and
+     **AmazonSSMDirectoryServiceAccess** policies. To filter the list,
+     type `SSM` in the search box. Choose **Next**.
+
 
     ###### Note
 
     **AmazonSSMDirectoryServiceAccess** provides the permissions
-    to join instances to an Active Directory managed by Directory Service.
-    **AmazonSSMManagedInstanceCore** provides the minimum
-    permissions necessary to use the AWS Systems Manager service. For more information about
-    creating a role with these permissions, and for information about other
-    permissions and policies you can assign to your IAM role, see [Create an IAM instance profile
-    for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the _AWS Systems Manager User Guide_. 5. On the **Name, review, and create** page, enter a
-    **Role name**. You will need this role name to attach to the EC2
-    instance. 6. (Optional) You can provide a description of the IAM instance profile in the
-    **Description** field. 7. Choose **Create role**. 8. Return to **Launch an instance** page and choose the refresh
-    icon next to the **IAM instance profile**. Your new IAM
-    instance profile should be visible in the **IAM instance
-    profile** dropdown list. Choose the new profile and leave the rest of the
-    settings with their default values.
+     to join instances to an Active Directory managed by Directory Service.
+     **AmazonSSMManagedInstanceCore** provides the minimum
+     permissions necessary to use the AWS Systems Manager service. For more information about
+     creating a role with these permissions, and for information about other
+     permissions and policies you can assign to your IAM role, see [Create an IAM instance profile
+     for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the *AWS Systems Manager User Guide*.
+    5. On the **Name, review, and create** page, enter a
+     **Role name**. You will need this role name to attach to the EC2
+     instance.
+    6. (Optional) You can provide a description of the IAM instance profile in the
+     **Description** field.
+    7. Choose **Create role**.
+    8. Return to **Launch an instance** page and choose the refresh
+     icon next to the **IAM instance profile**. Your new IAM
+     instance profile should be visible in the **IAM instance
+     profile** dropdown list. Choose the new profile and leave the rest of the
+     settings with their default values.
 
 16. Choose **Launch instance**.
 

@@ -58,7 +58,7 @@ Repeat steps 1-6 below for each directory.
 3. In the navigation pane, choose **Security Groups**.
 4. Use the search box to search for your AWS Managed Microsoft AD directory ID. In the search
    results, select the item with the description `AWS created security
-group for `yourdirectoryID` directory controllers`.
+ group for `yourdirectoryID` directory controllers`.
 
 ![In the Amazon VPC Console, search results for the security group for the directory controllers are highlighted.](images/security-group-search.png) 5. Go to the **Outbound Rules** tab for that security group.
 Choose **Edit**, and then **Add another

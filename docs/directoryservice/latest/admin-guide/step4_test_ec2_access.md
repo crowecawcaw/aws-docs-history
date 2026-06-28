@@ -54,43 +54,48 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
      The SSM document will automatically be created when you launch the EC2 instance.
 
 15. For **IAM instance profile**, you can select an existing IAM
-    instance profile or create a new one. Select an IAM instance profile that has the AWS managed policies
-    **AmazonSSMManagedInstanceCore** and
-    **AmazonSSMDirectoryServiceAccess** attached to it from the
-    **IAM instance profile** dropdown list. To create a new one,
-    choose **Create new IAM profile** link, and then do the
-    following:
+instance profile or create a new one. Select an IAM instance profile that has the AWS managed policies
+**AmazonSSMManagedInstanceCore** and
+**AmazonSSMDirectoryServiceAccess** attached to it from the
+**IAM instance profile** dropdown list. To create a new one,
+choose **Create new IAM profile** link, and then do the
+following:
 
-    1.  Choose **Create role**.
-    2.  Under **Select trusted entity**, choose **AWS
-        service**.
-    3.  Under **Use case**, choose **EC2**.
-    4.  Under **Add permissions**, in the list of policies, select the
-        **AmazonSSMManagedInstanceCore** and
-        **AmazonSSMDirectoryServiceAccess** policies. To filter the list,
-        type `SSM` in the search box. Choose **Next**.
+    1. Choose **Create role**.
+    2. Under **Select trusted entity**, choose **AWS
+     service**.
+    3. Under **Use case**, choose **EC2**.
+    4. Under **Add permissions**, in the list of policies, select the
+     **AmazonSSMManagedInstanceCore** and
+     **AmazonSSMDirectoryServiceAccess** policies. To filter the list,
+     type `SSM` in the search box. Choose **Next**.
+
 
     ###### Note
 
     **AmazonSSMDirectoryServiceAccess** provides the permissions
-    to join instances to an Active Directory managed by Directory Service.
-    **AmazonSSMManagedInstanceCore** provides the minimum
-    permissions necessary to use the AWS Systems Manager service. For more information about
-    creating a role with these permissions, and for information about other
-    permissions and policies you can assign to your IAM role, see [Create an IAM instance profile
-    for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the _AWS Systems Manager User Guide_. 5. On the **Name, review, and create** page, enter a
-    **Role name**. You will need this role name to attach to the EC2
-    instance. 6. (Optional) You can provide a description of the IAM instance profile in the
-    **Description** field. 7. Choose **Create role**. 8. Return to **Launch an instance** page and choose the refresh
-    icon next to the **IAM instance profile**. Your new IAM
-    instance profile should be visible in the **IAM instance
-    profile** dropdown list. Choose the new profile and leave the rest of the
-    settings with their default values.
+     to join instances to an Active Directory managed by Directory Service.
+     **AmazonSSMManagedInstanceCore** provides the minimum
+     permissions necessary to use the AWS Systems Manager service. For more information about
+     creating a role with these permissions, and for information about other
+     permissions and policies you can assign to your IAM role, see [Create an IAM instance profile
+     for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the *AWS Systems Manager User Guide*.
+    5. On the **Name, review, and create** page, enter a
+     **Role name**. You will need this role name to attach to the EC2
+     instance.
+    6. (Optional) You can provide a description of the IAM instance profile in the
+     **Description** field.
+    7. Choose **Create role**.
+    8. Return to **Launch an instance** page and choose the refresh
+     icon next to the **IAM instance profile**. Your new IAM
+     instance profile should be visible in the **IAM instance
+     profile** dropdown list. Choose the new profile and leave the rest of the
+     settings with their default values.
 
 16. Choose **Launch instance**.
-    Use these steps in the directory consumer account. To complete this procedure,
-    you will need some information about the directory owner account such as the
-    Directory ID, directory name, and the DNS IP addresses.
+Use these steps in the directory consumer account. To complete this procedure,
+you will need some information about the directory owner account such as the
+Directory ID, directory name, and the DNS IP addresses.
 
 **Prerequisites**
 
@@ -104,15 +109,14 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
   **AmazonSSMDirectoryServiceAccess**
   managed policies.
 
-      + For more information about these managed policies and other
-       policies you can attach to an IAM instance profile for Systems Manager,
-       see [Create an IAM instance profile for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the
-       *AWS Systems Manager User Guide*. For information about
-       managed policies, see [AWS Managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the *IAM User Guide*.
-
-  For more information on using Systems Manager to join EC2 instances to a AWS Managed
-  Microsoft Active Directory domain, see [How do I use AWS Systems Manager to join a running EC2 Windows instance to my AWS
-  Directory Service domain?](https://repost.aws/knowledge-center/ec2-systems-manager-dx-domain# "https://repost.aws/knowledge-center/ec2-systems-manager-dx-domain#").
+  - For more information about these managed policies and other
+    policies you can attach to an IAM instance profile for Systems Manager,
+    see [Create an IAM instance profile for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the
+    _AWS Systems Manager User Guide_. For information about
+    managed policies, see [AWS Managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
+    For more information on using Systems Manager to join EC2 instances to a AWS Managed
+    Microsoft Active Directory domain, see [How do I use AWS Systems Manager to join a running EC2 Windows instance to my AWS
+    Directory Service domain?](https://repost.aws/knowledge-center/ec2-systems-manager-dx-domain# "https://repost.aws/knowledge-center/ec2-systems-manager-dx-domain#").
 
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
 2. In the navigation pane, under **Node Management**,
@@ -147,16 +151,14 @@ the **Owner directory details** section.
      Active Directory (for the directory owner account).
 
 6. For **Targets**, choose **Choose instances
-   manually**, and then select the instances that you want to
-   join the domain.
-7. Leave the remainder of the form set to their default values, scroll
-   down the page, and then choose **Run**.
-8. The command status will change from **Pending** to
-   **Success** once the instances have successfully
-   joined the domain. You can view the command output by selecting the
-   **Instance ID** of the instance that joined the
-   domain and **View output**.
-   After completing either of these steps, you should now be able to join your EC2
-   instance to the domain. Once you do that, you can then log into your instance using a
-   Remote Desktop Protocol (RDP) client with the credentials from your AWS Managed Microsoft AD user
-   account.
+manually**, and then select the instances that you want to
+join the domain. 7. Leave the remainder of the form set to their default values, scroll
+down the page, and then choose **Run**. 8. The command status will change from **Pending** to
+**Success** once the instances have successfully
+joined the domain. You can view the command output by selecting the
+**Instance ID** of the instance that joined the
+domain and **View output**.
+After completing either of these steps, you should now be able to join your EC2
+instance to the domain. Once you do that, you can then log into your instance using a
+Remote Desktop Protocol (RDP) client with the credentials from your AWS Managed Microsoft AD user
+account.

@@ -37,19 +37,14 @@ has your NetBIOS name. 2. Open the context menu (right-click) for **Users**, cho
     * For **Group type**, choose **Security**.
 
 4. In the navigation tree, select the **Computers** container under your
-   NetBIOS name. From the **Action** menu, choose **Delegate
-   Control**.
-5. On the **Delegation of Control Wizard** page, choose **Next**, and then choose **Add**.
-6. In the **Select Users, Computers, or Groups** box, type `Joiners` and choose **OK**. If more than one
-   object is found, select the `Joiners` group created above.
-   Choose **Next**.
-7. On the **Tasks to Delegate** page, select **Create a custom
-   task to delegate**, and then choose **Next**.
-8. Select **Only the following objects in the folder**, and then select
-   **Computer objects**.
-9. Select **Create selected objects in this folder** and
-   **Delete selected objects in this folder**. Then choose
-   **Next**.
+NetBIOS name. From the **Action** menu, choose **Delegate
+Control**. 5. On the **Delegation of Control Wizard** page, choose **Next**, and then choose **Add**. 6. In the **Select Users, Computers, or Groups** box, type `Joiners` and choose **OK**. If more than one
+object is found, select the `Joiners` group created above.
+Choose **Next**. 7. On the **Tasks to Delegate** page, select **Create a custom
+task to delegate**, and then choose **Next**. 8. Select **Only the following objects in the folder**, and then select
+**Computer objects**. 9. Select **Create selected objects in this folder** and
+**Delete selected objects in this folder**. Then choose
+**Next**.
 
 ![Object type](images/aduc_directory_join_linux.png) 10. Select **Read** and **Write**, and then choose
 **Next**.

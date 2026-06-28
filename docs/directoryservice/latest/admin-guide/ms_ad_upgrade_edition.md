@@ -9,7 +9,8 @@ outlines the differences between Standard and Enterprise editions:
   directory objects, such as users, groups, and computers.
 - **Enterprise Edition:** AWS Managed Microsoft AD (Enterprise
   Edition) is designed to support enterprise organizations with up to 500,000\*
-  directory objects. \* Upper limits are approximations. Your directory may support more or less directory
+  directory objects.
+  \* Upper limits are approximations. Your directory may support more or less directory
   objects depending on the size of your objects and the behavior and performance needs of your
   applications.
 

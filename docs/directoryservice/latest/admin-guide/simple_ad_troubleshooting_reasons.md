@@ -73,7 +73,7 @@ delete your directory and create a new one.
 
 When a Simple AD is created, Directory Service creates a service account in the
 directory with the name `AWSAdmin`D-xxxxxxxxx``. This error
- is received when this service account is not a member of the `Domain Admins` group. Membership in this group
+is received when this service account is not a member of the `Domain Admins` group. Membership in this group
 is needed to give Directory Service the privileges it needs to perform maintenance and
 recovery operations, such as transferring FSMO roles, domain joining new
 directory controllers, and restoring from snapshots.

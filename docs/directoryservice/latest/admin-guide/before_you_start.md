@@ -16,10 +16,9 @@ instance.
 
 - The following Windows Server tools installed on that instance:
 
-      + AD DS and AD LDS Tools
-      + DNS
-
-  If you need help doing this, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
+  - AD DS and AD LDS Tools
+  - DNS
+    If you need help doing this, see [Installing Active Directory Administration Tools for AWS Managed Microsoft AD](ms_ad_install_ad_tools.md "ms_ad_install_ad_tools.md").
 
 - A self-managed (on-premises) Microsoft Active Directory
 

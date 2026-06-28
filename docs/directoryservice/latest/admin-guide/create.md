@@ -54,17 +54,16 @@ dn: CN=Shoe-Size,CN=Schema,CN=Configuration,DC=example,DC=com
 - **Warnings** – Review the warnings below before you
   extend your schema.
 
-      + Before you extend your Active Directory schema, it is important to review
-       Microsoft's warnings on the impact of this operation. For more information, see [What You Must
-       Know Before Extending the Schema](https://msdn.microsoft.com/en-us/library/ms677995(v=vs.85).aspx "https://msdn.microsoft.com/en-us/library/ms677995(v=vs.85).aspx").
-      + You cannot delete a schema attribute or class. Therefore, if you make a mistake
-       and don't want to restore from backup, you can only disable the object. For more
-       information, see [Disabling
-       Existing Classes and Attributes](https://msdn.microsoft.com/en-us/library/ms675903(v=vs.85).aspx "https://msdn.microsoft.com/en-us/library/ms675903(v=vs.85).aspx").
-      + Changes to defaultSecurityDescriptor are not supported.
-
-  To learn more about how LDIF files are constructed and see a sample LDIF file that can be
-  used for testing AWS Managed Microsoft AD schema extensions, see the article [How to Extend your AWS Managed Microsoft AD Directory Schema](https://aws.amazon.com/blogs/security/how-to-add-more-application-support-to-your-microsoft-ad-directory-by-extending-the-schema/ "https://aws.amazon.com/blogs/security/how-to-add-more-application-support-to-your-microsoft-ad-directory-by-extending-the-schema/") on the AWS Security Blog.
+  - Before you extend your Active Directory schema, it is important to review
+    Microsoft's warnings on the impact of this operation. For more information, see [What You Must
+    Know Before Extending the Schema](<https://msdn.microsoft.com/en-us/library/ms677995(v=vs.85).aspx> "https://msdn.microsoft.com/en-us/library/ms677995(v=vs.85).aspx").
+  - You cannot delete a schema attribute or class. Therefore, if you make a mistake
+    and don't want to restore from backup, you can only disable the object. For more
+    information, see [Disabling
+    Existing Classes and Attributes](<https://msdn.microsoft.com/en-us/library/ms675903(v=vs.85).aspx> "https://msdn.microsoft.com/en-us/library/ms675903(v=vs.85).aspx").
+  - Changes to defaultSecurityDescriptor are not supported.
+    To learn more about how LDIF files are constructed and see a sample LDIF file that can be
+    used for testing AWS Managed Microsoft AD schema extensions, see the article [How to Extend your AWS Managed Microsoft AD Directory Schema](https://aws.amazon.com/blogs/security/how-to-add-more-application-support-to-your-microsoft-ad-directory-by-extending-the-schema/ "https://aws.amazon.com/blogs/security/how-to-add-more-application-support-to-your-microsoft-ad-directory-by-extending-the-schema/") on the AWS Security Blog.
 
 **Next Step**
 

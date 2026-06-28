@@ -371,8 +371,7 @@ This error occurs if the EC2 launch wizard identifies an existing SSM document w
     * Select the delete the existing SSM document here link to delete the SSM document. This will allow for the creation of an SSM document with the correct properties.
      The SSM document will automatically be created when you launch the EC2 instance.
 
-15. For **IAM instance profile**, choose the IAM role that you previously created in the prerequisites section **Step 2: Create the LinuxEC2DomainJoin role**.
-16. Choose **Launch instance**.
+15. For **IAM instance profile**, choose the IAM role that you previously created in the prerequisites section **Step 2: Create the LinuxEC2DomainJoin role**. 16. Choose **Launch instance**.
 
 ###### Note
 

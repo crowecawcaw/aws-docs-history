@@ -3,18 +3,18 @@
 The following are the default quotas for AWS Managed Microsoft AD. Each quota is per Region unless
 otherwise noted.
 
-| AWS Managed Microsoft AD quotas                                                                                     | Resource                       | Default quota |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ------------- |
-| AWS Managed Microsoft AD directories (Standard and Enterprise Editions)                                             | 20                             |
-| AWS Managed Microsoft AD directories (Hybrid Edition)                                                               | 5                              |
-| Manual snapshots (Standard and Enterprise Editions) \*                                                              | 5 per AWS Managed Microsoft AD |
-| Manual snapshots age \*\*                                                                                           | 180 days                       |
-| Maximum number of domain controllers per directory                                                                  | 20                             |
-| Shared domains per Standard Microsoft AD \*\*\*                                                                     | 25                             |
-| Shared domains per Enterprise Microsoft AD \*\*\*                                                                   | 500                            |
-| Shared domains per Hybrid Microsoft AD \*\*\*                                                                       | 125                            |
-| Maximum number of registered certificate authority (CA) certificates per<br>directory                               | 5                              |
-| Maximum number of total AWS Regions in a single AWS Managed Microsoft AD<br>(Enterprise Edition) directory \*\*\*\* | 5                              |
+AWS Managed Microsoft AD quotas| Resource | Default quota |
+| --- | --- |
+| AWS Managed Microsoft AD directories (Standard and Enterprise Editions) | 20 |
+| AWS Managed Microsoft AD directories (Hybrid Edition) | 5 |
+| Manual snapshots (Standard and Enterprise Editions) \* | 5 per AWS Managed Microsoft AD |
+| Manual snapshots age \*\* | 180 days |
+| Maximum number of domain controllers per directory | 20 |
+| Shared domains per Standard Microsoft AD \*\*\* | 25 |
+| Shared domains per Enterprise Microsoft AD \*\*\* | 500 |
+| Shared domains per Hybrid Microsoft AD \*\*\* | 125 |
+| Maximum number of registered certificate authority (CA) certificates per<br>directory | 5 |
+| Maximum number of total AWS Regions in a single AWS Managed Microsoft AD<br>(Enterprise Edition) directory \*\*\*\* | 5 |
 
 \* The manual snapshot quota cannot be changed.
 

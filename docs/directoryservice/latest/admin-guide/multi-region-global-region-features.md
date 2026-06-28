@@ -27,6 +27,6 @@ display **Inherited from primary Region**.
 Any changes that you make to a feature in an [Additional Region](multi-region-global-primary-additional.md#multi-region-additional "multi-region-global-primary-additional.md#multi-region-additional") will be applied only to that Region.
 
 You can identify the features that are Regional on the **Directory
-details** page because they do **_not_** display **Applied to all replicated
+details** page because they do _**not**_ display **Applied to all replicated
 Regions** or **Inherited from primary Region** next to
 them.

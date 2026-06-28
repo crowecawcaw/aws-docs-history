@@ -30,7 +30,7 @@ Before you can begin this procedure, complete the following:
 4. In the **RDP client** tab, choose **Download Remote Desktop File**, then choose **Get Password** to retrieve your password.
 5. In the **Get Windows password**, choose **Upload private key file**. Choose the .pem private key file associated with the Windows Server instance. After uploading the private key file, select **Decrypt password**.
 6. In the **Windows Security** dialog box, copy your local administrator credentials for the Windows Server computer to sign in. The username can be in the following formats: ``NetBIOS-Name`\administrator`
-or ``DNS-Name`\administrator`. For example, `corp\administrator` would be the username if you followed the procedure in [Create your Simple AD](simple_ad_getting_started.md#how_to_create_simple_ad "simple_ad_getting_started.md#how_to_create_simple_ad").
+ or ``DNS-Name`\administrator`. For example, `corp\administrator` would be the username if you followed the procedure in [Create your Simple AD](simple_ad_getting_started.md#how_to_create_simple_ad "simple_ad_getting_started.md#how_to_create_simple_ad").
 7. Once signed in to the Windows Server instance, open **Server Manager** from the Start menu by choosing **Server
    Manager**.
 8. In the **Server Manager Dashboard**, choose **Add

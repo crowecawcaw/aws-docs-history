@@ -161,8 +161,8 @@ to your directory. For more information about these SRV records, see [SRV record
 
 You receive an error message similar to the following when you try to sign in to
 your WorkSpaces with a smart card: **`**ERROR**: Certificate
-Validation failed. Please try again by restarting your browser or application
-and make sure you select the correct certificate.`** The error occurs
+ Validation failed. Please try again by restarting your browser or application
+ and make sure you select the correct certificate.`** The error occurs
 if the smart card's certificate is not properly stored on the client that uses the
 certificates. For more information on AD Connector and smart card requirements,
 see [Prerequisites](ad_connector_clientauth.md#prereqs-clientauth "ad_connector_clientauth.md#prereqs-clientauth").
@@ -203,7 +203,7 @@ Microsoft documentation.
 - In the **Registry Editor**, navigate to the following
   hive key
 
-**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Kdc\UseSubjectAltName**
+**HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\Kdc\UseSubjectAltName**
 
     1. Inspect the value of UseSubjectAltName:
 
@@ -294,18 +294,18 @@ The following errors or symptoms occur while searching users in AWS Enterprise
 Applications such as [Amazon WorkSpaces Console Launch Wizard](../../../workspaces/latest/adminguide/launch-workspace-ad-connector.md#create-workspace-ad-connector "../../../workspaces/latest/adminguide/launch-workspace-ad-connector.md#create-workspace-ad-connector"):
 
 - **`An Error Has Occurred. If you continue to experience an
-issue contact the AWS Support Team on the community forums and via
-AWS Premium Support.`**
+ issue contact the AWS Support Team on the community forums and via
+ AWS Premium Support.`**
 - **`An Error Has Occurred. Your directory needs a credential
-update. Please update the directory credentials.`**
+ update. Please update the directory credentials.`**
 
 If you try to update your AD Connector service account credentials in
 AD Connector, you might receive the following errors messages:
 
 - **`Unexpected error. An unexpected error
-occurred.`**
+ occurred.`**
 - **`An error occurred. There was an error with the service
-account/password combination. Please try again.`**
+ account/password combination. Please try again.`**
 
 The AD Connector directory's service account resides in the customer managed
 Active Directory. The account is used as an identity to perform queries and operations on
@@ -427,7 +427,7 @@ the ADSI Edit window:
 
 ![ADSI Edit dialog box open with searchFlags attribute highlighted.](images/SUBTREE_INDEX.png) 7. Select **OK**. You can close the ADSI
 Edit tool. 8. For the confirmation, you should be able to see an event ID 1137 (
-Source : Active Directory_DomainServices), which indicates that the AD has
+Source : Active Directory\_DomainServices), which indicates that the AD has
 successfully created the new index for the specified attribute.
 
 For more information, see [Microsoft documentation](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/mcm-active-directory-indexing-for-the-masses/ba-p/255867 "https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/mcm-active-directory-indexing-for-the-masses/ba-p/255867").

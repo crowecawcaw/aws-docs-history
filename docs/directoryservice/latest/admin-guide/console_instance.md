@@ -23,19 +23,15 @@ The following prerequisites are required to complete this tutorial:
 - You will need an [IAM
   instance profile role](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.md") that allows Systems Manager and AWS Managed Microsoft AD.
 
-      + For more information on Systems Manager, see [Configure
-       instance permissions required for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-permissions.md "../../../systems-manager/latest/userguide/setup-instance-permissions.md").
-      + The IAM instance role needs the following AWS managed policies so your EC2
-       directory administration Windows instance can domain join your
-       AWS Managed Microsoft AD:
+  - For more information on Systems Manager, see [Configure
+    instance permissions required for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-permissions.md "../../../systems-manager/latest/userguide/setup-instance-permissions.md").
+  - The IAM instance role needs the following AWS managed policies so your EC2
+    directory administration Windows instance can domain join your
+    AWS Managed Microsoft AD:
 
-
-
-
-      	- **`AmazonSSMManagedInstanceCore`**
-      	- **`AmazonSSMDirectoryServiceAccess`**
-
-  [Show moreShow less](# "#")
+    - **`AmazonSSMManagedInstanceCore`**
+    - **`AmazonSSMDirectoryServiceAccess`**
+      [Show moreShow less](# "#")
 
 - The VPC connected to your AWS Managed Microsoft AD needs to allow access to public Directory Service
   endpoints. For more information, see [Prerequisites for creating a AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_prereqs "ms_ad_getting_started.md#ms_ad_getting_started_prereqs").
@@ -45,47 +41,46 @@ The following prerequisites are required to complete this tutorial:
 - You must have the following permissions enabled in your account to launch a
   directory administration EC2 instance from the console:
 
-      + `ds:DescribeDirectories`
-      + `ec2:AuthorizeSecurityGroupIngress`
-      + `ec2:CreateSecurityGroup`
-      + `ec2:CreateTags`
-      + `ec2:DeleteSecurityGroup`
-      + `ec2:DescribeInstances`
-      + `ec2:DescribeInstanceStatus`
-      + `ec2:DescribeKeyPairs`
-      + `ec2:DescribeSecurityGroups`
-      + `ec2:DescribeVpcs`
-      + `ec2:RunInstances`
-      + `ec2:TerminateInstances`
-      + `iam:AddRoleToInstanceProfile`
-      + `iam:AttachRolePolicy`
-      + `iam:CreateInstanceProfile`
-      + `iam:CreateRole`
-      + `iam:DeleteInstanceProfile`
-      + `iam:DeleteRole`
-      + `iam:DetachRolePolicy`
-      + `iam:GetInstanceProfile`
-      + `iam:GetRole`
-      + `iam:ListAttachedRolePolicies`
-      + `iam:ListInstanceProfiles`
-      + `iam:ListInstanceProfilesForRole`
-      + `iam:PassRole`
-      + `iam:RemoveRoleFromInstanceProfile`
-      + `iam:TagInstanceProfile`
-      + `iam:TagRole`
-      + `ssm:CreateDocument`
-      + `ssm:DeleteDocument`
-      + `ssm:DescribeInstanceInformation`
-      + `ssm:GetAutomationExecution`
-      + `ssm:GetParameters`
-      + `ssm:ListCommandInvocations`
-      + `ssm:ListCommands`
-      + `ssm:ListDocuments`
-      + `ssm:SendCommand`
-      + `ssm:StartAutomationExecution`
-      + `ssm:GetDocument`
-
-  [Show moreShow less](# "#")
+  - `ds:DescribeDirectories`
+  - `ec2:AuthorizeSecurityGroupIngress`
+  - `ec2:CreateSecurityGroup`
+  - `ec2:CreateTags`
+  - `ec2:DeleteSecurityGroup`
+  - `ec2:DescribeInstances`
+  - `ec2:DescribeInstanceStatus`
+  - `ec2:DescribeKeyPairs`
+  - `ec2:DescribeSecurityGroups`
+  - `ec2:DescribeVpcs`
+  - `ec2:RunInstances`
+  - `ec2:TerminateInstances`
+  - `iam:AddRoleToInstanceProfile`
+  - `iam:AttachRolePolicy`
+  - `iam:CreateInstanceProfile`
+  - `iam:CreateRole`
+  - `iam:DeleteInstanceProfile`
+  - `iam:DeleteRole`
+  - `iam:DetachRolePolicy`
+  - `iam:GetInstanceProfile`
+  - `iam:GetRole`
+  - `iam:ListAttachedRolePolicies`
+  - `iam:ListInstanceProfiles`
+  - `iam:ListInstanceProfilesForRole`
+  - `iam:PassRole`
+  - `iam:RemoveRoleFromInstanceProfile`
+  - `iam:TagInstanceProfile`
+  - `iam:TagRole`
+  - `ssm:CreateDocument`
+  - `ssm:DeleteDocument`
+  - `ssm:DescribeInstanceInformation`
+  - `ssm:GetAutomationExecution`
+  - `ssm:GetParameters`
+  - `ssm:ListCommandInvocations`
+  - `ssm:ListCommands`
+  - `ssm:ListDocuments`
+  - `ssm:SendCommand`
+  - `ssm:StartAutomationExecution`
+  - `ssm:GetDocument`
+    [Show moreShow less](# "#")
 
 ## Launching a directory administration EC2 instance in the AWS Management Console
 

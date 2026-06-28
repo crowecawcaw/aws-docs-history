@@ -434,7 +434,7 @@ Active Directory Management Tools.
 To manage accounts in Simple AD from a Linux instance, you must update specific
 configuration files on your Linux instance as follows:
 
-1. Set **krb5_use_kdcinfo** to **False** in the
+1. Set **krb5\_use\_kdcinfo** to **False** in the
    **/etc/sssd/sssd.conf** file. For example:
 
 ```
@@ -468,7 +468,7 @@ $ sudo service sssd start
 
 ## Restricting account login access
 
-Since all accounts are defined in Active Directory, by default, all the users in the directory can log in to the instance. You can allow only specific users to log in to the instance with **ad_access_filter** in **sssd.conf**. For example:
+Since all accounts are defined in Active Directory, by default, all the users in the directory can log in to the instance. You can allow only specific users to log in to the instance with **ad\_access\_filter** in **sssd.conf**. For example:
 
 ```
 ad_access_filter = (memberOf=cn=admins,ou=Testou,dc=example,dc=com)
@@ -494,7 +494,7 @@ This is the domain component of your domain. In this example, `example`.
 
 This is an additional domain component. In this example, `com`.
 
-You must manually add **ad_access_filter** to your **/etc/sssd/sssd.conf**.
+You must manually add **ad\_access\_filter** to your **/etc/sssd/sssd.conf**.
 
 Open the **/etc/sssd/sssd.conf** file in a text editor.
 
@@ -572,7 +572,7 @@ To configure distributed user ID mapping, set `ldap_id_mapping = True` in the ss
 
 If you set `ldap_id_mapping = False`, sometimes starting the SSSD service will fail. The reason for this failure is due to
 changing UIDs not supported. We recommend you delete the SSSD cache whenever you change from ID mapping to POSIX attributes or from POSIX attributes to ID mapping.
-For further details about ID mapping and the ldap_id_mapping parameters, see the sssd-ldap(8) man page in the Linux command line.
+For further details about ID mapping and the ldap\_id\_mapping parameters, see the sssd-ldap(8) man page in the Linux command line.
 
 ## Connect to the Linux instance
 

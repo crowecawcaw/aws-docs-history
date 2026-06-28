@@ -18,11 +18,11 @@ your AWS Managed Microsoft AD directory. For more information, see [Enabling mul
 4. In the **Multi-factor authentication** section, choose **Actions**, and then choose **Enable**.
 5. On the **Enable multi-factor authentication (MFA)** page, provide the following values:
 
-**_Display label_**
+_**Display label**_
 
 Provide a label name.
 
-**_RADIUS server DNS name or IP addresses_**
+_**RADIUS server DNS name or IP addresses**_
 
 The IP addresses of your RADIUS server endpoints, or the IP address of
 your RADIUS server load balancer. You can enter multiple IP addresses by
@@ -43,32 +43,32 @@ RADIUS MFA is applicable only to authenticate access to the AWS Management Conso
 
 Users must have their MFA code at the time they enter their username and password. Alternatively, you must use a solution that performs MFA out-of-band such as SMS text verification for the user. In out-of-band MFA solutions, you must make sure you set the RADIUS time-out value appropriately for your solution. When using an out-of-band MFA solution, the sign-in page will prompt the user for an MFA code. In this case, the best practice is for users to enter their password in both the password field and the MFA field.
 
-**_Port_**
+_**Port**_
 
 The port that your RADIUS server is using for communications. Your
 on-premises network must allow inbound traffic over the default RADIUS
 server port (UDP:1812) from the Directory Service servers.
 
-**_Shared secret code_**
+_**Shared secret code**_
 
 The shared secret code that was specified when your RADIUS endpoints
 were created.
 
-**_Confirm shared secret code_**
+_**Confirm shared secret code**_
 
 Confirm the shared secret code for your RADIUS endpoints.
 
-**_Protocol_**
+_**Protocol**_
 
 Select the protocol that was specified when your RADIUS endpoints were
 created.
 
-**_Server timeout (in seconds)_**
+_**Server timeout (in seconds)**_
 
 The amount of time, in seconds, to wait for the RADIUS server to
 respond. This must be a value between 1 and 50.
 
-**_Max RADIUS request retries_**
+_**Max RADIUS request retries**_
 
 The number of times that communication with the RADIUS server is
 attempted. This must be a value between 0 and 10.

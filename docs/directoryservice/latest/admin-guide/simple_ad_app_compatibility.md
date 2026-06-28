@@ -22,9 +22,8 @@ The following third-party applications are compatible with Simple AD:
 
 - Microsoft SharePoint:
 
-      + SharePoint 2010 Foundation
-      + SharePoint 2010 Enterprise
-      + SharePoint 2013 Enterprise
-
-  Customers can choose to use AWS Directory Service for Microsoft Active Directory ([AWS Managed Microsoft AD](directory_microsoft_ad.md "directory_microsoft_ad.md")) for a higher level of compatibility based on actual
-  Active Directory.
+  - SharePoint 2010 Foundation
+  - SharePoint 2010 Enterprise
+  - SharePoint 2013 Enterprise
+    Customers can choose to use AWS Directory Service for Microsoft Active Directory ([AWS Managed Microsoft AD](directory_microsoft_ad.md "directory_microsoft_ad.md")) for a higher level of compatibility based on actual
+    Active Directory.

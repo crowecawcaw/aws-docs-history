@@ -115,32 +115,32 @@ Directory Service does not support using service-linked roles in every Region wh
 service is available. However, Directory Service uses the **AWSServiceRoleForDirectoryService** role only in AWS Regions where
 you can opt-in to hybrid directories.
 
-| Hybrid directory opt-in Region support | Region name    | Region identity | opt-in support |
-| -------------------------------------- | -------------- | --------------- | -------------- |
-| US East (N. Virginia)                  | us-east-1      | Yes             |
-| US East (Ohio)                         | us-east-2      | Yes             |
-| US West (N. California)                | us-west-1      | Yes             |
-| US West (Oregon)                       | us-west-2      | Yes             |
-| Europe (Stockholm)                     | eu-north-1     | Yes             |
-| Middle East (Bahrain)                  | me-south-1     | Yes             |
-| Asia Pacific (Mumbai)                  | ap-south-1     | Yes             |
-| Europe (Paris)                         | eu-west-3      | Yes             |
-| Asia Pacific (Jakarta)                 | ap-southeast-3 | Yes             |
-| Africa (Cape Town)                     | af-south-1     | Yes             |
-| Europe (Ireland)                       | eu-west-1      | Yes             |
-| Middle East (UAE)                      | me-central-1   | Yes             |
-| Europe (Frankfurt)                     | eu-central-1   | Yes             |
-| South America (São Paulo)              | sa-east-1      | Yes             |
-| Asia Pacific (Hong Kong)               | ap-east-1      | Yes             |
-| Asia Pacific (Hyderabad)               | ap-south-2     | Yes             |
-| Asia Pacific (Seoul)                   | ap-northeast-2 | Yes             |
-| Asia Pacific (Osaka)                   | ap-northeast-3 | Yes             |
-| Europe (London)                        | eu-west-2      | Yes             |
-| Asia Pacific (Melbourne)               | ap-southeast-4 | Yes             |
-| Europe (Milan)                         | eu-south-1     | Yes             |
-| Asia Pacific (Tokyo)                   | ap-northeast-1 | Yes             |
-| Asia Pacific (Singapore)               | ap-southeast-1 | Yes             |
-| Asia Pacific (Sydney)                  | ap-southeast-2 | Yes             |
-| Canada (Central)                       | ca-central-1   | Yes             |
-| Europe (Spain)                         | eu-south-2     | Yes             |
-| Europe (Zurich)                        | eu-central-2   | Yes             |
+Hybrid directory opt-in Region support| Region name | Region identity | opt-in support |
+| --- | --- | --- |
+| US East (N. Virginia) | us-east-1 | Yes |
+| US East (Ohio) | us-east-2 | Yes |
+| US West (N. California) | us-west-1 | Yes |
+| US West (Oregon) | us-west-2 | Yes |
+| Europe (Stockholm) | eu-north-1 | Yes |
+| Middle East (Bahrain) | me-south-1 | Yes |
+| Asia Pacific (Mumbai) | ap-south-1 | Yes |
+| Europe (Paris) | eu-west-3 | Yes |
+| Asia Pacific (Jakarta) | ap-southeast-3 | Yes |
+| Africa (Cape Town) | af-south-1 | Yes |
+| Europe (Ireland) | eu-west-1 | Yes |
+| Middle East (UAE) | me-central-1 | Yes |
+| Europe (Frankfurt) | eu-central-1 | Yes |
+| South America (São Paulo) | sa-east-1 | Yes |
+| Asia Pacific (Hong Kong) | ap-east-1 | Yes |
+| Asia Pacific (Hyderabad) | ap-south-2 | Yes |
+| Asia Pacific (Seoul) | ap-northeast-2 | Yes |
+| Asia Pacific (Osaka) | ap-northeast-3 | Yes |
+| Europe (London) | eu-west-2 | Yes |
+| Asia Pacific (Melbourne) | ap-southeast-4 | Yes |
+| Europe (Milan) | eu-south-1 | Yes |
+| Asia Pacific (Tokyo) | ap-northeast-1 | Yes |
+| Asia Pacific (Singapore) | ap-southeast-1 | Yes |
+| Asia Pacific (Sydney) | ap-southeast-2 | Yes |
+| Canada (Central) | ca-central-1 | Yes |
+| Europe (Spain) | eu-south-2 | Yes |
+| Europe (Zurich) | eu-central-2 | Yes |

@@ -163,7 +163,7 @@ defaults write com.google.Chrome AuthServerAllowlist "https://`<alias>`.awsapps.
 
 2. Open **System Preferences**, go to the
    **Profiles** panel, and delete the `Chrome
-Kerberos Configuration` profile.
+ Kerberos Configuration` profile.
 3. Restart Chrome and open chrome://policy in Chrome to
    confirm that the new settings are in place.
 
@@ -201,7 +201,8 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
       menu for your IAM Identity Center policy, and choose **Edit**.
    2. In the policy tree, navigate to **User
       Configuration** > **Preferences**
-      > **Windows Settings**.
+
+   > **Windows Settings**.
    3. In the **Windows Settings** list, open the
       context (right-click) menu for **Registry** and choose
       **New registry item**.
@@ -219,7 +220,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
    **Path**
 
    `Software\Microsoft\Windows\CurrentVersion\Internet
- Settings\ZoneMap\Domains\awsapps.com\`<alias>``
+  Settings\ZoneMap\Domains\awsapps.com\`<alias>``
 
    The value for
    `<alias>` is derived
@@ -228,7 +229,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
    the alias is `examplecorp`, and the
    registry key will be
    `Software\Microsoft\Windows\CurrentVersion\Internet
- Settings\ZoneMap\Domains\awsapps.com\examplecorp`.
+  Settings\ZoneMap\Domains\awsapps.com\examplecorp`.
 
    **Value name**
 
@@ -298,7 +299,8 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
       menu for your IAM Identity Center policy, and choose **Edit**.
    2. In the policy tree, navigate to **User
       Configuration** > **Preferences**
-      > **Windows Settings**.
+
+   > **Windows Settings**.
    3. In the **Windows Settings** list, open the
       context (right-click) menu for **Registry** and choose
       **New registry item**.
@@ -316,7 +318,7 @@ Chrome policies, go to [Policy Settings in Chrome](https://source.chromium.org/c
    **Path**
 
    `Software\Microsoft\Windows\CurrentVersion\Internet
- Settings`
+  Settings`
 
    **Value name**
 

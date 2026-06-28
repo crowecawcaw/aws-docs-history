@@ -88,8 +88,10 @@ Kerberos Authentication certificate template.
 
 ###### To create a certificate template
 
-1. Launch **Microsoft Windows Server Manager**. Select \*\*Tools
-   > Certification Authority\*\*.
+1. Launch **Microsoft Windows Server Manager**. Select **Tools
+
+> Certification Authority**.
+
 2. In the **Certificate Authority** window, expand the
    **Certificate Authority** tree in the left pane. Right-click
    **Certificate Templates**, and choose

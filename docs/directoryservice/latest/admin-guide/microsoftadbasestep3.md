@@ -66,38 +66,37 @@ For more information, see [Joining an Amazon EC2 Windows instance to your AWS Ma
 
 ###### To configure EC2 to join Windows instances to your domain
 
-1.  Open the IAM console at
-    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane of the IAM console, choose **Roles**, and
-    then choose **Create role**.
-3.  Under **Select type of trusted entity**, choose **AWS
-    service**.
-4.  Immediately under **Choose the service that will use this role**,
-    choose **EC2**, and then choose **Next:
-    Permissions**.
-5.  On the **Attached permissions policy** page, do the
-    following:
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane of the IAM console, choose **Roles**, and
+   then choose **Create role**.
+3. Under **Select type of trusted entity**, choose **AWS
+   service**.
+4. Immediately under **Choose the service that will use this role**,
+   choose **EC2**, and then choose **Next:
+   Permissions**.
+5. On the **Attached permissions policy** page, do the
+   following:
 
-        * Select the box next to the **AmazonSSMManagedInstanceCore**
-         managed policy. This policy provides the minimum permissions necessary to use the
-         Systems Manager service.
-        * Select the box next to **AmazonSSMDirectoryServiceAccess**
-         managed policy. The policy provides the permissions to join instances to an Active
-         Directory managed by Directory Service.
+   - Select the box next to the **AmazonSSMManagedInstanceCore**
+     managed policy. This policy provides the minimum permissions necessary to use the
+     Systems Manager service.
+   - Select the box next to **AmazonSSMDirectoryServiceAccess**
+     managed policy. The policy provides the permissions to join instances to an Active
+     Directory managed by Directory Service.
+     For information about these managed policies and other policies you can attach to an
+     IAM instance profile for Systems Manager, see [Create an IAM instance profile for
+     Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the _AWS Systems Manager User Guide_. For information about
+     managed policies, see [AWS
+     Managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
 
-    For information about these managed policies and other policies you can attach to an
-    IAM instance profile for Systems Manager, see [Create an IAM instance profile for
-    Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md") in the _AWS Systems Manager User Guide_. For information about
-    managed policies, see [AWS
-    Managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
-
-6.  Choose **Next: Tags**.
-7.  (Optional) Add one or more tag key-value pairs to organize, track, or control access
-    for this role, and then choose **Next: Review**.
-8.  For **Role name**, enter a name for the role that
-    describes that it is used to join instances to a domain, such as
-    **EC2DomainJoin**.
-9.  (Optional) For **Role description**, enter a description.
+6. Choose **Next: Tags**.
+7. (Optional) Add one or more tag key-value pairs to organize, track, or control access
+   for this role, and then choose **Next: Review**.
+8. For **Role name**, enter a name for the role that
+   describes that it is used to join instances to a domain, such as
+   **EC2DomainJoin**.
+9. (Optional) For **Role description**, enter a description.
 10. Choose **Create role**. The system returns you to the
     **Roles** page.
 

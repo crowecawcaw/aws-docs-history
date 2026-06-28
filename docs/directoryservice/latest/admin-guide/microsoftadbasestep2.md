@@ -21,7 +21,7 @@ procedures to create your directory.
    - For **Directory NetBIOS name**, type
      `corp`.
    - For **Directory description**, type `AWS DS
-Managed`.
+  Managed`.
    - For **Admin password**, type the password you want to use for
      this account and type the password again in **Confirm password**.
      This **Admin** account is automatically created during the directory

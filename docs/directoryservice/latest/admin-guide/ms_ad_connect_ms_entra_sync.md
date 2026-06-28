@@ -157,15 +157,13 @@ options:
     Then select **Next**.
 
 5. On the **Connect to Azure** window, enter your [Global Administrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-administrator "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-administrator") username and password for Entra ID and select
-   **Next**.
-6. On the **Connect your directories** window, choose
-   **Active Directory** for **DIRECTORY TYPE**. Choose the forest for
-   your AWS Managed Microsoft AD for **FOREST**. Then select **Add
-   Directory**.
-7. A pop-up box appears requesting your account options. Select **Use existing AD
-   account**. Enter the AD DS Connector account username and password created in
-   Step 1 and then select **OK**. Then select
-   **Next**.
+**Next**. 6. On the **Connect your directories** window, choose
+**Active Directory** for **DIRECTORY TYPE**. Choose the forest for
+your AWS Managed Microsoft AD for **FOREST**. Then select **Add
+Directory**. 7. A pop-up box appears requesting your account options. Select **Use existing AD
+account**. Enter the AD DS Connector account username and password created in
+Step 1 and then select **OK**. Then select
+**Next**.
 
 ![AD forest account pop-up box with the use existing AD account selected and domain username and password provided.](images/connect-to-your-directories.png) 8. On the **Azure AD Sign-in** window, select
 **Continue without matching all UPN suffixes to verified domains**,

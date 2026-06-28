@@ -7,12 +7,11 @@ You can use the AWS Management Console to view your AWS Managed Microsoft AD dir
 - Directory status
 - Networking details for your AWS Managed Microsoft AD like:
 
-      + Amazon VPC
-      + Subnets
-      + Availability zones
-      + DNS addresses
-
-  You can find the following information about your AWS Managed Microsoft AD:
+  - Amazon VPC
+  - Subnets
+  - Availability zones
+  - DNS addresses
+    You can find the following information about your AWS Managed Microsoft AD:
 
 - Under the **Share & share** tab, you can share your
   AWS Managed Microsoft AD with other AWS accounts and learn the networking details for your

@@ -69,41 +69,41 @@ automatically. For more information, see [Global vs Regional features](multi-reg
 
 ###### To create the trust from your AWS Managed Microsoft AD to your EC2 domain
 
-1.  Open the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
-2.  Choose the **corp.example.com** directory.
-3.  On the **Directory details** page, do one of the
-    following:
+1. Open the [AWS Directory Service console](https://console.aws.amazon.com/directoryservicev2/ "https://console.aws.amazon.com/directoryservicev2/").
+2. Choose the **corp.example.com** directory.
+3. On the **Directory details** page, do one of the
+   following:
 
-    - If you have multiple Regions showing under **Multi-Region
-      replication**, select the primary Region, and then choose
-      the **Networking & security** tab. For more
-      information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
-    - If you do not have any Regions showing under **Multi-Region
-      replication**, choose the **Networking &
-      security** tab.
+   - If you have multiple Regions showing under **Multi-Region
+     replication**, select the primary Region, and then choose
+     the **Networking & security** tab. For more
+     information, see [Primary vs additional Regions](multi-region-global-primary-additional.md "multi-region-global-primary-additional.md").
+   - If you do not have any Regions showing under **Multi-Region
+     replication**, choose the **Networking &
+     security** tab.
 
-4.  In the **Trust relationships** section, choose
-    **Actions**, and then select **Add trust
-    relationship**.
-5.  In the **Add a trust relationship** dialog box, do the
-    following:
+4. In the **Trust relationships** section, choose
+   **Actions**, and then select **Add trust
+   relationship**.
+5. In the **Add a trust relationship** dialog box, do the
+   following:
 
-    - Under **Trust type** select **Forest
-      trust**.
+   - Under **Trust type** select **Forest
+     trust**.
 
-    ###### Note
+   ###### Note
 
-    Make sure that the **Trust type** you choose here
-    matches the same trust type configured in the previous procedure (To
-    create the trust from your EC2 domain to your AWS Managed Microsoft AD).
-    - For **Existing or new remote domain name**, type
-      **example.local**.
-    - For **Trust password**, type the same password that
-      you provided in the previous procedure.
-    - Under **Trust direction**, select
-      **Two-Way**.
+   Make sure that the **Trust type** you choose here
+   matches the same trust type configured in the previous procedure (To
+   create the trust from your EC2 domain to your AWS Managed Microsoft AD).
+   - For **Existing or new remote domain name**, type
+     **example.local**.
+   - For **Trust password**, type the same password that
+     you provided in the previous procedure.
+   - Under **Trust direction**, select
+     **Two-Way**.
 
-    ###### Note
+   ###### Note
 
         + If you decide later to try this with a one-way trust
          instead, ensure that the trust directions are setup
@@ -119,17 +119,17 @@ automatically. For more information, see [Global vs Regional features](multi-reg
          computers) residing in the trusting domain or forest. For
          more information, see [Configuring selective authentication
          settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816580(v=ws.10) "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816580(v=ws.10)").
-    - For **Conditional forwarder**, type the IP address of
-      your DNS server in the **example.local** forest (which
-      you noted in the previous procedure).
+   - For **Conditional forwarder**, type the IP address of
+     your DNS server in the **example.local** forest (which
+     you noted in the previous procedure).
 
-    ###### Note
+   ###### Note
 
-    A conditional forwarder is a DNS server on a network that is used
-    to forward DNS queries according to the DNS domain name in the
-    query. For example, a DNS server can be configured to forward all
-    the queries it receives for names ending with widgets.example.com to
-    the IP address of a specific DNS server or to the IP addresses of
-    multiple DNS servers.
+   A conditional forwarder is a DNS server on a network that is used
+   to forward DNS queries according to the DNS domain name in the
+   query. For example, a DNS server can be configured to forward all
+   the queries it receives for names ending with widgets.example.com to
+   the IP address of a specific DNS server or to the IP addresses of
+   multiple DNS servers.
 
-6.  Choose **Add**.
+6. Choose **Add**.

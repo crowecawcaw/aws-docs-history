@@ -93,9 +93,9 @@ against the domain joined Linux instance using your trusted Active Directory cre
  pam_get_item returned a password`**
 
 **`Jul 31 00:05:00 EC2AMAZ-LSMWqT sshd[23832]: pam_winbind(sshd:auth): request
-wbcLogonUser failed: WBC_ERR_AUTH_ERROR, PAM error: PAM_SYSTEM_ERR (4), NTSTATUS:
-**NT_STATUS_OBJECT_NAME_NOT_FOUND**, Error message was: The object name is not
-found.`**
+ wbcLogonUser failed: WBC_ERR_AUTH_ERROR, PAM error: PAM_SYSTEM_ERR (4), NTSTATUS:
+ **NT_STATUS_OBJECT_NAME_NOT_FOUND**, Error message was: The object name is not
+ found.`**
 
 **`Jul 31 00:05:00 EC2AMAZ-LSMWqT sshd[23832]: pam_winbind(sshd:auth): internal
  module error (retval = PAM_SYSTEM_ERR(4), user = 'CORP\user')`**
@@ -113,7 +113,7 @@ following steps.
 sudo vim /etc/security/pam_winbind.conf
 ```
 
-2. Comment out or remove the following directive **krb5_auth =
+2. Comment out or remove the following directive **krb5\_auth =
    yes**.
 
 ```

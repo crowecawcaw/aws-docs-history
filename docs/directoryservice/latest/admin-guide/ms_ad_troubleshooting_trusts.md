@@ -15,7 +15,7 @@ following:
 - Verify that your domain security settings allow for trust creation.
 - Verify that your local security policy is set correctly. Specifically check
   `Local Security Policy > Local Policies > Security Options > Network access: Named
-Pipes that can be accessed anonymously` and ensure that it contains at least the
+ Pipes that can be accessed anonymously` and ensure that it contains at least the
   following three named pipes:
 
   - netlogon
@@ -39,11 +39,12 @@ normal, as the domain controller's effective default settings for `Network acces
   _Default Domain Controllers Policy_. These settings can be found
   under **Computer Configuration** > **Windows Settings**
 
-  > **Security Settings** > **Local Policies/Security
-  > Options**. They should match the following settings:
-  - Microsoft network client: Digitally sign communications (always): Default:
-    Enabled
-  - Microsoft network server: Digitally sign communications (always): Enabled
+> **Security Settings** > **Local Policies/Security
+> Options**. They should match the following settings:
+
+    + Microsoft network client: Digitally sign communications (always): Default:
+     Enabled
+    + Microsoft network server: Digitally sign communications (always): Enabled
 
 ### Enhancing Trust Efficiency with Site Names and DCLocator
 

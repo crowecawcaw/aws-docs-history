@@ -67,34 +67,29 @@ The user logon name cannot be changed after the user is created.
     and [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes "https://learn.microsoft.com/en-us/windows/win32/ad/user-object-attributes").
 
 6. Choose **Next** once you've provided the user account
-   details.
-7. On the **Add users to groups - _optional_**
-   page, you can add the user to a new group or to an existing group. You can also copy
-   the group membership of an existing user to the new user. If you don't want to add a
-   user to a group, choose **Next**. Move to Step 12 to continue this
-   procedure.
-8. _(Optional)_ To create a new group, see [Create a AWS Managed Microsoft AD group](ms_ad_create_group.md "ms_ad_create_group.md").
-9. _(Optional)_ To add a new user to an existing group:
+details. 7. On the **Add users to groups - _optional_**
+page, you can add the user to a new group or to an existing group. You can also copy
+the group membership of an existing user to the new user. If you don't want to add a
+user to a group, choose **Next**. Move to Step 12 to continue this
+procedure. 8. _(Optional)_ To create a new group, see [Create a AWS Managed Microsoft AD group](ms_ad_create_group.md "ms_ad_create_group.md"). 9. _(Optional)_ To add a new user to an existing group:
 
-   1. Select the group you want to add the new user to in the
-      **Groups** section. To find groups, enter the group name in
-      the search box.
+    1. Select the group you want to add the new user to in the
+     **Groups** section. To find groups, enter the group name in
+     the search box.
 
 10. _(Optional)_ To copy the group membership of an existing user
-    to a new user:
+to a new user:
 
     1. Choose the **Copy group membership from user** tab. To find
-       a user with a group membership you want to copy, enter the user logon name in
-       the search box under the **Users** section.
+     a user with a group membership you want to copy, enter the user logon name in
+     the search box under the **Users** section.
     2. In the **Selected groups** section, select the groups the
-       new user should become a member of.
+     new user should become a member of.
 
 11. Choose **Next** when you're ready to create the new user
-    account.
-12. On the **Review and create user** page, review all the choices
-    you made. Choose **Create user**.
-13. After the user is configured, you're taken to the new user's details page. A
-    banner appears stating the user was successfully created.
+account. 12. On the **Review and create user** page, review all the choices
+you made. Choose **Create user**. 13. After the user is configured, you're taken to the new user's details page. A
+banner appears stating the user was successfully created.
 
 ###### Important
 

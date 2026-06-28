@@ -45,7 +45,7 @@ Before you can begin this procedure, complete the following:
    local administrator credentials for the Windows Server computer to sign
    in. The username can be in the following formats:
    ``NetBIOS-Name`\admin`
-or ``DNS-Name`\admin`. For
+ or ``DNS-Name`\admin`. For
    example, `corp\admin` would be the username if you
    followed the procedure in [Creating your AWS Managed Microsoft AD](ms_ad_getting_started.md#ms_ad_getting_started_create_directory "ms_ad_getting_started.md#ms_ad_getting_started_create_directory").
 7. Once signed in to the Windows Server instance, open **Server

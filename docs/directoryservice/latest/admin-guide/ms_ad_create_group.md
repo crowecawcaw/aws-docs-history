@@ -56,38 +56,37 @@ The group name cannot be changed after the group is created. 7. Choose the **Gro
 
 8. Choose the **Group scope** from one of the following:
 
-   - **Domain local**
-   - **Universal**
-   - **Global**
+    * **Domain local**
+    * **Universal**
+    * **Global**
 
-     - You can turn on **Compare scopes** to display a chart
-       of the similarities and differences between group scopes. To learn more, see
-       [Group scope](ad_group_type_and_scope.md#ad_group_scope "ad_group_type_and_scope.md#ad_group_scope").
+
+
+
+    	+ You can turn on **Compare scopes** to display a chart
+    	 of the similarities and differences between group scopes. To learn more, see
+    	 [Group scope](ad_group_type_and_scope.md#ad_group_scope "ad_group_type_and_scope.md#ad_group_scope").
 
 9. After providing the primary information and contact methods, choose
-   **Next**.
-10. The **Add users to group - _Optional_** page
-    opens and you can add users to the new group. To find a user to add to the group,
-    enter the user logon name in the search box under the **Users**
-    section. Select the users you want to add to the group and choose
-    **Next**.
-11. The **Add child groups - _Optional_** page
-    opens and you can add existing groups to the new group. The existing groups becomes
-    child groups of the newly created group. When you add a child group to your group,
-    your group becomes the parent group, and the child group inherits all of your
-    group's roles and permissions. To find groups to add, enter the group name in the
-    search box under the **Add child groups** section. Select the
-    children groups you want to add to the new group and choose
-    **Next**.
-12. The **Add parent groups - _Optional_** page
-    opens and you can add the new group to existing groups. The new group becomes the
-    parent group of the existing groups. When you add your group to a parent group, your
-    group becomes the child group and inherits all of the parent group's roles and
-    permissions. To find groups to add, enter the group name in the search box under the
-    **Add parent groups** section. Select the parent groups you want
-    to add to the new group and choose **Next**.
-13. On the **Review and create group** page, review your choices,
-    and then choose **Create group**.
+**Next**. 10. The **Add users to group - _Optional_** page
+opens and you can add users to the new group. To find a user to add to the group,
+enter the user logon name in the search box under the **Users**
+section. Select the users you want to add to the group and choose
+**Next**. 11. The **Add child groups - _Optional_** page
+opens and you can add existing groups to the new group. The existing groups becomes
+child groups of the newly created group. When you add a child group to your group,
+your group becomes the parent group, and the child group inherits all of your
+group's roles and permissions. To find groups to add, enter the group name in the
+search box under the **Add child groups** section. Select the
+children groups you want to add to the new group and choose
+**Next**. 12. The **Add parent groups - _Optional_** page
+opens and you can add the new group to existing groups. The new group becomes the
+parent group of the existing groups. When you add your group to a parent group, your
+group becomes the child group and inherits all of the parent group's roles and
+permissions. To find groups to add, enter the group name in the search box under the
+**Add parent groups** section. Select the parent groups you want
+to add to the new group and choose **Next**. 13. On the **Review and create group** page, review your choices,
+and then choose **Create group**.
 
 AWS CLI
 The following describes how to format a request that creates an AWS Managed Microsoft AD group

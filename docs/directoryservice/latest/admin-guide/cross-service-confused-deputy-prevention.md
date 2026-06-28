@@ -67,7 +67,7 @@ JSON
 
 For the following example, the value of `aws:SourceArn` must be
 a SNS topic in your account. For example, you can use something like `arn:aws:sns:ap-southeast-1:123456789012:DirectoryMonitoring_d-966739499f`
-where "ap-southeast-1" is your region, "123456789012" is your customer id and "DirectoryMonitoring_d-966739499f" is the Amazon SNS topic name that you created.
+where "ap-southeast-1" is your region, "123456789012" is your customer id and "DirectoryMonitoring\_d-966739499f" is the Amazon SNS topic name that you created.
 
 The most effective way to protect against the confused deputy problem is to use the
 `aws:SourceArn` global condition context key with the full ARN of the

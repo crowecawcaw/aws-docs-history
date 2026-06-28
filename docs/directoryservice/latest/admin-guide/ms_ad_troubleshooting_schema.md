@@ -49,7 +49,7 @@ to format the LDIF file, see [Step 1: Create your LDIF file](create.md "create.m
 _Add error on entry starting on line 1: Attribute Or Value Exists
 The server side error is: 0x2083 The specified value already exists. The extended server
 error is: 00002083: AtrErr: DSID-03151830, #1: \t0: 00002083: DSID-03151830, problem 1006
-(ATT_OR_VALUE_EXISTS), data 0, Att 20019 (mayContain):len 4 Number of Objects Modified:
+(ATT\_OR\_VALUE\_EXISTS), data 0, Att 20019 (mayContain):len 4 Number of Objects Modified:
 0_
 
 **Troubleshooting**
@@ -63,7 +63,7 @@ The schema change has already been applied.
 _Add error on entry starting on line 1: No Such Attribute The
 server side error is: 0x2085 The attribute value cannot be removed because it is not present
 on the object. The extended server error is: 00002085: AtrErr: DSID-03152367, #1: \t0:
-00002085: DSID-03152367, problem 1001 (NO_ATTRIBUTE_OR_VAL), data 0, Att 20019
+00002085: DSID-03152367, problem 1001 (NO\_ATTRIBUTE\_OR\_VAL), data 0, Att 20019
 (mayContain):len 4 Number of Objects Modified: 0_
 
 **Troubleshooting**
@@ -88,7 +88,7 @@ The attribute listed on line 41 is incorrect. Double-check the spelling.
 
 _Add error on entry starting on line 1: No Such Object The server
 side error is: 0x208d Directory object not found. The extended server error is: 0000208D:
-NameErr: DSID-03100238, problem 2001 (NO_OBJECT), data 0, best match of:
+NameErr: DSID-03100238, problem 2001 (NO\_OBJECT), data 0, best match of:
 'CN=Schema,CN=Configuration,DC=example,DC=com' Number of Objects Modified:
 0_
 

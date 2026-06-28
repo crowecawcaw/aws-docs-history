@@ -179,7 +179,7 @@ account when you create an AWS Managed Microsoft AD. This account is located und
 Users OU (For example, Corp > Users). You use this account to manage
 your Active Directory in the AWS. For more information, see [AWS Managed Microsoft AD Administrator account and group permissions](ms_ad_getting_started_admin_account.md "ms_ad_getting_started_admin_account.md").
 
-**AWS_11111111111**
+**AWS\_11111111111**
 
 Any account name starting with AWS followed by an underscore and located in
 AWS Reserved OU is a service-managed account. This service-managed
