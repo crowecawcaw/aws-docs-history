@@ -49,8 +49,7 @@ continue.
      **Next**.
 
 4. Review your options on the **Review and Confirm**
-   page. Make any edits and choose **Submit**.
-5. Confirm your selection in the confirmation pop-up box.
+page. Make any edits and choose **Submit**. 5. Confirm your selection in the confirmation pop-up box.
 
 AWS CLI
 Using Automatic Management with the AWS CLI requires you to provide Service Quotas with the

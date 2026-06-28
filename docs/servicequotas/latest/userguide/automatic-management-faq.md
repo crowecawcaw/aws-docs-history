@@ -21,14 +21,14 @@ Q4: Can I exclude specific resources from notifications?
 
 No, you can't configure notification exclusions at the resource level. Automatic Management operates at the quota level, not the resource level. You can only exclude notifications on a quota basis. For instructions on excluding specific quotas from notifications, see [Excluding quotas from Automatic Management](excluding-quotas.md "excluding-quotas.md").
 
-Q5: Why did I receive an APPROACHING_THRESHOLD notification instead of THRESHOLD_BREACH even though my quota reached 100% utilization?
+Q5: Why did I receive an APPROACHING\_THRESHOLD notification instead of THRESHOLD\_BREACH even though my quota reached 100% utilization?
 
 The notification type is determined by whether the quota supports automatic adjustment, not by the utilization level:
 
-- **APPROACHING_THRESHOLD:** Sent for quotas that support automatic adjustment. This notification type indicates that you can optimize your quota utilization or request a quota increase.
-- **THRESHOLD_BREACH:** Sent for quotas that cannot be automatically adjusted. This notification type indicates that you need to optimize your quota utilization to mitigate the threshold breach.
+- **APPROACHING\_THRESHOLD:** Sent for quotas that support automatic adjustment. This notification type indicates that you can optimize your quota utilization or request a quota increase.
+- **THRESHOLD\_BREACH:** Sent for quotas that cannot be automatically adjusted. This notification type indicates that you need to optimize your quota utilization to mitigate the threshold breach.
 
-Even if your utilization reaches 100%, you'll receive an APPROACHING_THRESHOLD notification if the quota supports automatic adjustment. For more information about notification types, see [Integrating event-driven applications with Service Quotas using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md").
+Even if your utilization reaches 100%, you'll receive an APPROACHING\_THRESHOLD notification if the quota supports automatic adjustment. For more information about notification types, see [Integrating event-driven applications with Service Quotas using Amazon EventBridge](eventbridge-integration.md "eventbridge-integration.md").
 
 Q6: Why am I receiving alerts for quotas when my usage hasn't changed?
 
