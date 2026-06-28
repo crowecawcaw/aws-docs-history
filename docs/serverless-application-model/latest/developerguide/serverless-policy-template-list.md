@@ -69,7 +69,7 @@ AWS Region and account ID) with the appropriate information.
 - [SageMakerCreateEndpointPolicy](#sagemaker-create-endpoint-policy "#sagemaker-create-endpoint-policy")
 - [ServerlessRepoReadWriteAccessPolicy](#serverlessrepo-read-write-access-policy "#serverlessrepo-read-write-access-policy")
 - [SESBulkTemplatedCrudPolicy](#ses-bulk-templated-crud-policy "#ses-bulk-templated-crud-policy")
-- [SESBulkTemplatedCrudPolicy_v2](#ses-bulk-templated-crud-policy-v2 "#ses-bulk-templated-crud-policy-v2")
+- [SESBulkTemplatedCrudPolicy\_v2](#ses-bulk-templated-crud-policy-v2 "#ses-bulk-templated-crud-policy-v2")
 - [SESCrudPolicy](#ses-crud-policy "#ses-crud-policy")
 - [SESEmailTemplateCrudPolicy](#ses-email-template-crud-policy "#ses-email-template-crud-policy")
 - [SESSendBouncePolicy](#ses-send-bounce-policy "#ses-send-bounce-policy")
@@ -1967,7 +1967,7 @@ The `ses:SendTemplatedEmail` action requires a template ARN. Use
 ]
 ```
 
-## SESBulkTemplatedCrudPolicy_v2
+## SESBulkTemplatedCrudPolicy\_v2
 
 Gives permission to send Amazon SES email, templated email, and templated bulk emails and to verify identity.
 

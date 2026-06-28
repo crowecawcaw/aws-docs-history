@@ -264,8 +264,8 @@ The settings to enable gradual Lambda deployments.
 If a `DeploymentPreference` object is specified, AWS SAM creates an [AWS::CodeDeploy::Application](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.md") called
 `ServerlessDeploymentApplication` (one per stack), an [AWS::CodeDeploy::DeploymentGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.md") called
 ``<function-logical-id>`DeploymentGroup`,
- and an [AWS::IAM::Role](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md") called
- `CodeDeployServiceRole`.
+and an [AWS::IAM::Role](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md") called
+`CodeDeployServiceRole`.
 
 _Type_: [DeploymentPreference](sam-property-function-deploymentpreference.md "sam-property-function-deploymentpreference.md")
 

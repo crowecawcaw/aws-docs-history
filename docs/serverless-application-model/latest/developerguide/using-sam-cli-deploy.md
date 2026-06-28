@@ -96,18 +96,17 @@ Configuring SAM deploy
         SAM configuration environment [default]: `ENTER`
 ```
 
-4.  Next, the AWS SAM CLI deploys your application to the AWS Cloud. During deployment, progress is displayed in
-    your command prompt. The following are the major stages in deployment:
+4. Next, the AWS SAM CLI deploys your application to the AWS Cloud. During deployment, progress is displayed in
+   your command prompt. The following are the major stages in deployment:
 
-        * For applications with AWS Lambda functions packaged as a .zip file archive, the AWS SAM CLI zips and uploads the
-         package to an Amazon Simple Storage Service (Amazon S3) bucket. If necessary, the AWS SAM CLI will create a new bucket.
-        * For applications with Lambda functions package as a container image, the AWS SAM CLI uploads the image to
-         Amazon Elastic Container Registry (Amazon ECR). If necessary, the AWS SAM CLI will create a new repository.
-        * The AWS SAM CLI creates an AWS CloudFormation change set and deploys your application to CloudFormation as a stack.
-        * The AWS SAM CLI modifies your deployed AWS SAM template with the new `CodeUri` value for your Lambda
-         functions.
-
-    The following is an example of the AWS SAM CLI deployment output:
+   - For applications with AWS Lambda functions packaged as a .zip file archive, the AWS SAM CLI zips and uploads the
+     package to an Amazon Simple Storage Service (Amazon S3) bucket. If necessary, the AWS SAM CLI will create a new bucket.
+   - For applications with Lambda functions package as a container image, the AWS SAM CLI uploads the image to
+     Amazon Elastic Container Registry (Amazon ECR). If necessary, the AWS SAM CLI will create a new repository.
+   - The AWS SAM CLI creates an AWS CloudFormation change set and deploys your application to CloudFormation as a stack.
+   - The AWS SAM CLI modifies your deployed AWS SAM template with the new `CodeUri` value for your Lambda
+     functions.
+     The following is an example of the AWS SAM CLI deployment output:
 
 ```
         Looking for resources needed for deployment:

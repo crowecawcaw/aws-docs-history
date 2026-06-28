@@ -83,7 +83,7 @@ The Function ID for a function located outside of the
 
 - To reference a function within the same AWS SAM template, use the
   `Fn::GetAtt` intrinsic function. For example `Id: !GetAtt
-createPostItemFunc.FunctionId`.
+ createPostItemFunc.FunctionId`.
 - To reference a function from a different stack, use `Fn::ImportValue`.
 
 When using `Id`, all other properties are not allowed. AWS SAM will

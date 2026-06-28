@@ -41,7 +41,7 @@ see the following options:
 
 To install the AWS SAM CLI, follow the instructions for your operating system.
 
-x86_64 - command line installer
+x86\_64 - command line installer
 
 1. Download the [AWS SAM CLI .zip file](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip") to a directory of your choice.
 2. **(Optional)** You can verify the integrity of the installer before
@@ -137,7 +137,7 @@ need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI
 
 1. Download the macOS `pkg` to a directory of your choice:
 
-   - **For Macs running Intel processors, choose x86_64** – [aws-sam-cli-macos-x86_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
+   - **For Macs running Intel processors, choose x86\_64** – [aws-sam-cli-macos-x86\_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
    - **For Macs running Apple silicon, choose arm64** – [aws-sam-cli-macos-arm64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg")
 
 ###### Note
@@ -179,7 +179,7 @@ need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI
 
 1. Download the macOS `pkg` to a directory of your choice:
 
-   - **For Macs running Intel processors, choose x86_64** – [aws-sam-cli-macos-x86_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
+   - **For Macs running Intel processors, choose x86\_64** – [aws-sam-cli-macos-x86\_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
    - **For Macs running Apple silicon, choose arm64** – [aws-sam-cli-macos-arm64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg")
 
 ###### Note
@@ -200,7 +200,7 @@ If you don't see this option, go to the next step. 4. For **Installation Type**,
     3. Press **Install**.
 
 5. The AWS SAM CLI will install and **The installation was successful** message will
-   display. Press **Close**.
+display. Press **Close**.
 
 ###### To create a symlink
 
@@ -241,7 +241,7 @@ need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI
 
 1. Download the macOS `pkg` to a directory of your choice:
 
-   - **For Macs running Intel processors, choose x86_64** – [aws-sam-cli-macos-x86_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
+   - **For Macs running Intel processors, choose x86\_64** – [aws-sam-cli-macos-x86\_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
    - **For Macs running Apple silicon, choose arm64** – [aws-sam-cli-macos-arm64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg")
 
 ###### Note
@@ -284,7 +284,7 @@ need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI
 
 1. Download the macOS `pkg` to a directory of your choice:
 
-   - **For Macs running Intel processors, choose x86_64** – [aws-sam-cli-macos-x86_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
+   - **For Macs running Intel processors, choose x86\_64** – [aws-sam-cli-macos-x86\_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
    - **For Macs running Apple silicon, choose arm64** – [aws-sam-cli-macos-arm64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg")
 
 ###### Note
@@ -395,7 +395,7 @@ SAM CLI, <latest version>
 ###### Important
 
 The AWS SAM CLI might interact with filepaths that exceed the Windows max path limitation. This may
-cause errors when running `sam init` due to Windows 10 **MAX_PATH**
+cause errors when running `sam init` due to Windows 10 **MAX\_PATH**
 limitations. To resolve this issue, the new long paths behavior must be
 configured.
 
@@ -422,7 +422,7 @@ If you receive this error, your shell can't locate the AWS SAM CLI executable i
 path. Verify the location of the directory where you installed the AWS SAM CLI executable,
 and then verify that the directory is on your path.
 
-#### AWS SAM CLI error: "/lib64/libc.so.6: version `GLIBC_2.14' not found (required by /usr/local/aws-sam-cli/dist/libz.so.1)"
+#### AWS SAM CLI error: "/lib64/libc.so.6: version `GLIBC\_2.14' not found (required by /usr/local/aws-sam-cli/dist/libz.so.1)"
 
 If you receive this error, you're using an unsupported version of Linux, and the
 built-in glibc version is out of date. Try either of the following:

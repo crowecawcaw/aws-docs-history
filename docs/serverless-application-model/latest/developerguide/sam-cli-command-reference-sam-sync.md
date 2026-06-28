@@ -85,10 +85,10 @@ A list of capabilities that you specify to allow CloudFormation to create certai
 include resources that can affect permissions in your AWS account. For example, by creating new AWS Identity and Access Management (IAM)
 users. Specify this option to override the default values. Valid values include the following:
 
-- CAPABILITY_IAM
-- CAPABILITY_NAMED_IAM
-- CAPABILITY_RESOURCE_POLICY
-- CAPABILITY_AUTO_EXPAND
+- CAPABILITY\_IAM
+- CAPABILITY\_NAMED\_IAM
+- CAPABILITY\_RESOURCE\_POLICY
+- CAPABILITY\_AUTO\_EXPAND
 
 _Default_: `CAPABILITY_NAMED_IAM` and `CAPABILITY_AUTO_EXPAND`
 

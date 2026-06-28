@@ -141,29 +141,29 @@ value to its Amazon S3 URI. The `Fn::ForEach` body is rewritten to use
 The recognized artifact properties are the same ones `sam package` rewrites today. That
 includes:
 
-| Dynamic artifact properties recognized by the AWS SAM CLI | Resource type                                                                                | Property |
-| --------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------- |
-| `AWS::Serverless::Function`                               | `CodeUri`, `ImageUri`                                                                        |
-| `AWS::Serverless::LayerVersion`                           | `ContentUri`                                                                                 |
-| `AWS::Serverless::Api`                                    | `DefinitionUri`                                                                              |
-| `AWS::Serverless::HttpApi`                                | `DefinitionUri`                                                                              |
-| `AWS::Serverless::StateMachine`                           | `DefinitionUri`                                                                              |
-| `AWS::Serverless::GraphQLApi`                             | `SchemaUri`, `CodeUri`                                                                       |
-| `AWS::Serverless::Application`                            | `Location`                                                                                   |
-| `AWS::Lambda::Function`                                   | `Code`, `Code.ImageUri`                                                                      |
-| `AWS::Lambda::LayerVersion`                               | `Content`                                                                                    |
-| `AWS::ApiGateway::RestApi`                                | `BodyS3Location`                                                                             |
-| `AWS::ApiGatewayV2::Api`                                  | `BodyS3Location`                                                                             |
-| `AWS::AppSync::GraphQLSchema`                             | `DefinitionS3Location`                                                                       |
-| `AWS::AppSync::Resolver`                                  | `RequestMappingTemplateS3Location`,<br>`ResponseMappingTemplateS3Location`, `CodeS3Location` |
-| `AWS::AppSync::FunctionConfiguration`                     | `RequestMappingTemplateS3Location`,<br>`ResponseMappingTemplateS3Location`, `CodeS3Location` |
-| `AWS::StepFunctions::StateMachine`                        | `DefinitionS3Location`                                                                       |
-| `AWS::ElasticBeanstalk::ApplicationVersion`               | `SourceBundle`                                                                               |
-| `AWS::Glue::Job`                                          | `Command.ScriptLocation`                                                                     |
-| `AWS::CloudFormation::Stack`                              | `TemplateURL`                                                                                |
-| `AWS::CloudFormation::StackSet`                           | `TemplateURL`                                                                                |
-| `AWS::CloudFormation::ModuleVersion`                      | `ModulePackage`                                                                              |
-| `AWS::CloudFormation::ResourceVersion`                    | `SchemaHandlerPackage`                                                                       |
+Dynamic artifact properties recognized by the AWS SAM CLI| Resource type | Property |
+| --- | --- |
+| `AWS::Serverless::Function` | `CodeUri`, `ImageUri` |
+| `AWS::Serverless::LayerVersion` | `ContentUri` |
+| `AWS::Serverless::Api` | `DefinitionUri` |
+| `AWS::Serverless::HttpApi` | `DefinitionUri` |
+| `AWS::Serverless::StateMachine` | `DefinitionUri` |
+| `AWS::Serverless::GraphQLApi` | `SchemaUri`, `CodeUri` |
+| `AWS::Serverless::Application` | `Location` |
+| `AWS::Lambda::Function` | `Code`, `Code.ImageUri` |
+| `AWS::Lambda::LayerVersion` | `Content` |
+| `AWS::ApiGateway::RestApi` | `BodyS3Location` |
+| `AWS::ApiGatewayV2::Api` | `BodyS3Location` |
+| `AWS::AppSync::GraphQLSchema` | `DefinitionS3Location` |
+| `AWS::AppSync::Resolver` | `RequestMappingTemplateS3Location`,<br>`ResponseMappingTemplateS3Location`, `CodeS3Location` |
+| `AWS::AppSync::FunctionConfiguration` | `RequestMappingTemplateS3Location`,<br>`ResponseMappingTemplateS3Location`, `CodeS3Location` |
+| `AWS::StepFunctions::StateMachine` | `DefinitionS3Location` |
+| `AWS::ElasticBeanstalk::ApplicationVersion` | `SourceBundle` |
+| `AWS::Glue::Job` | `Command.ScriptLocation` |
+| `AWS::CloudFormation::Stack` | `TemplateURL` |
+| `AWS::CloudFormation::StackSet` | `TemplateURL` |
+| `AWS::CloudFormation::ModuleVersion` | `ModulePackage` |
+| `AWS::CloudFormation::ResourceVersion` | `SchemaHandlerPackage` |
 
 For dotted properties (for example, `Command.ScriptLocation` on
 `AWS::Glue::Job` or `Code.ImageUri` on `AWS::Lambda::Function`), the
@@ -241,10 +241,10 @@ When two resources in the same `Fn::ForEach` body declare the same dynamic artif
 the AWS SAM CLI appends a suffix taken from the static portion of the resource
 logical-ID template to keep Mapping names unique:
 
-| Example of mapping names with collision suffixes | Resource template | Property                               | Mapping name |
-| ------------------------------------------------ | ----------------- | -------------------------------------- | ------------ |
-| `${Svc}Api`                                      | `DefinitionUri`   | `SAMDefinitionUriServicesApi`          |
-| `${Svc}StateMachine`                             | `DefinitionUri`   | `SAMDefinitionUriServicesStateMachine` |
+Example of mapping names with collision suffixes| Resource template | Property | Mapping name |
+| --- | --- | --- |
+| `${Svc}Api` | `DefinitionUri` | `SAMDefinitionUriServicesApi` |
+| `${Svc}StateMachine` | `DefinitionUri` | `SAMDefinitionUriServicesStateMachine` |
 
 When there is no collision the base name (for example, `SAMDefinitionUriServices`) is used.
 
@@ -378,20 +378,20 @@ Fn::ForEach::Hosts:
 
 The following intrinsic functions are resolved locally during expansion:
 
-| Intrinsic functions resolved locally during language extensions expansion | Function                                           | Description |
-| ------------------------------------------------------------------------- | -------------------------------------------------- | ----------- |
-| `Fn::ForEach`                                                             | Loop expansion.                                    |
-| `Fn::Length`                                                              | Returns the count of list elements.                |
-| `Fn::ToJsonString`                                                        | Converts a value to a JSON string.                 |
-| `Fn::FindInMap`                                                           | Map lookup, including the optional `DefaultValue`. |
-| `Fn::If`                                                                  | Conditional value selection.                       |
-| `Fn::Sub`                                                                 | String substitution.                               |
-| `Fn::Join`                                                                | String concatenation.                              |
-| `Fn::Split`                                                               | String splitting.                                  |
-| `Fn::Select`                                                              | List element selection.                            |
-| `Fn::Base64`                                                              | Base64 encoding.                                   |
-| `Fn::Equals`, `Fn::And`, `Fn::Or`, `Fn::Not`                              | Condition evaluation.                              |
-| `Ref`                                                                     | Parameter and pseudo-parameter references.         |
+Intrinsic functions resolved locally during language extensions expansion| Function | Description |
+| --- | --- |
+| `Fn::ForEach` | Loop expansion. |
+| `Fn::Length` | Returns the count of list elements. |
+| `Fn::ToJsonString` | Converts a value to a JSON string. |
+| `Fn::FindInMap` | Map lookup, including the optional `DefaultValue`. |
+| `Fn::If` | Conditional value selection. |
+| `Fn::Sub` | String substitution. |
+| `Fn::Join` | String concatenation. |
+| `Fn::Split` | String splitting. |
+| `Fn::Select` | List element selection. |
+| `Fn::Base64` | Base64 encoding. |
+| `Fn::Equals`, `Fn::And`, `Fn::Or`, `Fn::Not` | Condition evaluation. |
+| `Ref` | Parameter and pseudo-parameter references. |
 
 Functions that require deployed resources (`Fn::GetAtt`, `Fn::ImportValue`,
 `Fn::GetAZs`) are preserved for CloudFormation to resolve at deploy time.
@@ -400,12 +400,12 @@ Functions that require deployed resources (`Fn::GetAtt`, `Fn::ImportValue`,
 
 The following template issues are caught locally before the AWS SAM transform runs:
 
-| Validation errors raised during language extensions expansion                                                               | Cause                                                                                                                                   | Error message |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| The `Fn::ForEach` value is malformed — not a list, doesn't have exactly<br>3 elements, or has a non-string loop identifier. | `Fn::ForEach::<key> layout is incorrect` (raised as<br>`InvalidTemplateException`).                                                     |
-| More than 5 levels of `Fn::ForEach` are nested.                                                                             | `Fn::ForEach nesting depth of <N> exceeds the maximum allowed depth of 5.<br>CloudFormation supports up to 5 nested Fn::ForEach loops.` |
-| The collection resolves to an empty list (for example, a<br>`CommaDelimitedList` parameter with `Default: ""`).             | No error — the loop is silently skipped and no resources are emitted.                                                                   |
-| The `!Ref` in the collection points at a parameter that is not declared<br>in the template.                                 | No error — the unresolved reference is preserved in the template. At deploy time,<br>CloudFormation will resolve it server-side.        |
+Validation errors raised during language extensions expansion| Cause | Error message |
+| --- | --- |
+| The `Fn::ForEach` value is malformed — not a list, doesn't have exactly<br>3 elements, or has a non-string loop identifier. | `Fn::ForEach::<key> layout is incorrect` (raised as<br>`InvalidTemplateException`). |
+| More than 5 levels of `Fn::ForEach` are nested. | `Fn::ForEach nesting depth of <N> exceeds the maximum allowed depth of 5.<br>CloudFormation supports up to 5 nested Fn::ForEach loops.` |
+| The collection resolves to an empty list (for example, a<br>`CommaDelimitedList` parameter with `Default: ""`). | No error — the loop is silently skipped and no resources are emitted. |
+| The `!Ref` in the collection points at a parameter that is not declared<br>in the template. | No error — the unresolved reference is preserved in the template. At deploy time,<br>CloudFormation will resolve it server-side. |
 
 ## Limitations
 

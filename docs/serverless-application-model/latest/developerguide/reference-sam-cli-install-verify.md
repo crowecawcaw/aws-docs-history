@@ -214,7 +214,7 @@ Primary key fingerprint: EF46 3E86 CA31 933B B688  CC1A 4094 ABB1 BEDF DAB4
 The `Good signature from "AWS SAM CLI Team <aws-sam-cli-signer@amazon.com>"` message means that
 the signature is verified and you can move forward with installation.
 
-#### x86_64 - command line installer
+#### x86\_64 - command line installer
 
 AWS SAM uses [GnuPG](https://www.gnupg.org/ "https://www.gnupg.org/") to sign the AWS SAM CLI .zip installer. Verification is
 performed in the following steps:
@@ -503,7 +503,7 @@ system.
 
 ### Linux
 
-#### x86_64 - command line installer
+#### x86\_64 - command line installer
 
 Verify the integrity and authenticity of the downloaded installer files by generating a hash value using the
 following command:

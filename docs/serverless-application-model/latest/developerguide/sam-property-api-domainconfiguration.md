@@ -188,7 +188,7 @@ _Required_: No
 _CloudFormation compatibility_: This property is passed directly to the
 `SecurityPolicy`
 property of an `AWS::ApiGateway::DomainName` resource, or to [`AWS::ApiGateway::DomainNameV2`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.md")
-when `EndpointConfiguration` is set to `PRIVATE`. For `PRIVATE` endpoints, only TLS_1_2 is supported.
+when `EndpointConfiguration` is set to `PRIVATE`. For `PRIVATE` endpoints, only TLS\_1\_2 is supported.
 
 ## Examples
 

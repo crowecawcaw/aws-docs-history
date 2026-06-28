@@ -128,7 +128,7 @@ The `sam metadata` resource is a `null_resource`
 Terraform resource type that provides the AWS SAM CLI with the information it
 needs to locate your Lambda artifacts. A unique `sam metadata` resource is
 required for each Lambda function or layer in your project. To learn more about this resource
-type, see [null_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource "https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource") in the _Terraform
+type, see [null\_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource "https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource") in the _Terraform
 registry_.
 
 ###### To define a sam metadata resource
@@ -345,7 +345,7 @@ The following is an example, using the `sam local start-api` command:
 `$` `sam local start-api --hook-name terraform --terraform-plan-file custom-plan.json`
 ```
 
-For a sample application that you can use with these examples, see [api_gateway_v2_tf_cloud](https://github.com/aws-samples/aws-sam-terraform-examples/tree/main/ga/api_gateway_v2_tf_cloud "https://github.com/aws-samples/aws-sam-terraform-examples/tree/main/ga/api_gateway_v2_tf_cloud") in the _aws-samples
+For a sample application that you can use with these examples, see [api\_gateway\_v2\_tf\_cloud](https://github.com/aws-samples/aws-sam-terraform-examples/tree/main/ga/api_gateway_v2_tf_cloud "https://github.com/aws-samples/aws-sam-terraform-examples/tree/main/ga/api_gateway_v2_tf_cloud") in the _aws-samples
 GitHub repository_.
 
 ### Next steps

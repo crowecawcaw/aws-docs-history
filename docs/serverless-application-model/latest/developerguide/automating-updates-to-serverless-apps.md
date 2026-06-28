@@ -69,19 +69,18 @@ These revisions to the AWS SAM template do the following:
   deployment. You can specify how traffic should be shifted between versions in the following
   ways:
 
-      + `Canary`: Traffic is shifted in two increments. You can
-       choose from predefined canary options. The options specify the percentage of traffic
-       that's shifted to your updated Lambda function version in the first increment, and the
-       interval, in minutes, before the remaining traffic is shifted in the second increment.
-      + `Linear`: Traffic is shifted in equal increments with an
-       equal number of minutes between each increment. You can choose from predefined linear
-       options that specify the percentage of traffic that's shifted in each increment and the
-       number of minutes between each increment.
-      + `AllAtOnce`: All traffic is shifted from the original Lambda
-       function to the updated Lambda function version at once.
-
-  The following table outlines other traffic-shifting options that are available beyond
-  the one used in the example.
+  - `Canary`: Traffic is shifted in two increments. You can
+    choose from predefined canary options. The options specify the percentage of traffic
+    that's shifted to your updated Lambda function version in the first increment, and the
+    interval, in minutes, before the remaining traffic is shifted in the second increment.
+  - `Linear`: Traffic is shifted in equal increments with an
+    equal number of minutes between each increment. You can choose from predefined linear
+    options that specify the percentage of traffic that's shifted in each increment and the
+    number of minutes between each increment.
+  - `AllAtOnce`: All traffic is shifted from the original Lambda
+    function to the updated Lambda function version at once.
+    The following table outlines other traffic-shifting options that are available beyond
+    the one used in the example.
 
 | Deployment Preference Type    |
 | ----------------------------- |
@@ -104,17 +103,16 @@ These revisions to the AWS SAM template do the following:
   functions that run checks before traffic shifting starts to the new version, and after
   traffic shifting completes.
 
-      + `PreTraffic`: Before traffic shifting starts,
-       CodeDeploy invokes the pre-traffic hook Lambda function. This Lambda function must call
-       back to CodeDeploy and indicate success or failure. If the function fails, it aborts and
-       reports a failure back to CloudFormation. If the function succeeds, CodeDeploy proceeds to traffic
-       shifting.
-      + `PostTraffic`: After traffic shifting completes,
-       CodeDeploy invokes the post-traffic hook Lambda function. This is similar to the pre-traffic
-       hook, where the function must call back to CodeDeploy to report a success or failure. Use
-       post-traffic hooks to run integration tests or other validation actions.
-
-  For more information, see [SAM Reference to Safe Deployments](https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst "https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst").
+  - `PreTraffic`: Before traffic shifting starts,
+    CodeDeploy invokes the pre-traffic hook Lambda function. This Lambda function must call
+    back to CodeDeploy and indicate success or failure. If the function fails, it aborts and
+    reports a failure back to CloudFormation. If the function succeeds, CodeDeploy proceeds to traffic
+    shifting.
+  - `PostTraffic`: After traffic shifting completes,
+    CodeDeploy invokes the post-traffic hook Lambda function. This is similar to the pre-traffic
+    hook, where the function must call back to CodeDeploy to report a success or failure. Use
+    post-traffic hooks to run integration tests or other validation actions.
+    For more information, see [SAM Reference to Safe Deployments](https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst "https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst").
 
 ## Gradually deploying a Lambda function for the first time
 

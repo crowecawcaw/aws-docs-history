@@ -71,26 +71,26 @@ To resolve version compatibility issues:
      `sam init --runtime python3.9`
     * Modify the `Runtime` property in `template.yaml` after initialization
 
-2.  The AWS SAM CLI will guide you through initializing a new application. Configure the following:
+2. The AWS SAM CLI will guide you through initializing a new application. Configure the following:
 
-        1. Select **AWS Quick Start Templates** to choose a starting template.
-        2. Choose the **Hello World Example** template and download it.
-        3. Use the Python runtime and `zip` package type.
-        4. For this tutorial, opt out of AWS X-Ray tracing. To learn more, see [What is AWS X-Ray?](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md") in the
-         *AWS X-Ray Developer Guide*.
-        5. For this tutorial, opt out of monitoring with Amazon CloudWatch Application Insights. To learn more, see
-         [Amazon CloudWatch Application Insights](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md") in the *Amazon CloudWatch User Guide*.
-        6. For this tutorial, opt out of setting Structured Logging in JSON format on your Lambda functions.
-        7. Name your application as **sam-app**.
+    1. Select **AWS Quick Start Templates** to choose a starting template.
+    2. Choose the **Hello World Example** template and download it.
+    3. Use the Python runtime and `zip` package type.
+    4. For this tutorial, opt out of AWS X-Ray tracing. To learn more, see [What is AWS X-Ray?](../../../xray/latest/devguide/aws-xray.md "../../../xray/latest/devguide/aws-xray.md") in the
+     *AWS X-Ray Developer Guide*.
+    5. For this tutorial, opt out of monitoring with Amazon CloudWatch Application Insights. To learn more, see
+     [Amazon CloudWatch Application Insights](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-application-insights.md") in the *Amazon CloudWatch User Guide*.
+    6. For this tutorial, opt out of setting Structured Logging in JSON format on your Lambda functions.
+    7. Name your application as **sam-app**.
 
-    To use the AWS SAM CLI interactive flow:
+To use the AWS SAM CLI interactive flow:
 
-        * Brackets (`[ ]`) indicate default values. Leave your answer blank to select the default
-         value.
-        * Enter ``y`` for **yes**, and
-         ``n`` for **no**.
+    * Brackets (`[ ]`) indicate default values. Leave your answer blank to select the default
+     value.
+    * Enter ``y`` for **yes**, and
+     ``n`` for **no**.
 
-    The following is an example of the `sam init` interactive flow:
+The following is an example of the `sam init` interactive flow:
 
 ```
 `$` `sam init`
@@ -298,28 +298,27 @@ following:
 `$` `sam deploy --guided`
 ```
 
-2.  Follow the AWS SAM CLI interactive flow to configure your application settings. Configure the following:
+2. Follow the AWS SAM CLI interactive flow to configure your application settings. Configure the following:
 
-        1. The **CloudFormation stack name** – A stack is a collection of AWS resources
-         that you can manage as a single unit. To learn more, see [Working with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the
-         *AWS CloudFormation User Guide*.
-        2. The **AWS Region** to deploy your CloudFormation stack to. For more information, see
-         [CloudFormation
-         endpoints](../../../AWSCloudFormation/latest/UserGuide/using-cfn-endpoints.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-endpoints.md") in the *AWS CloudFormation User Guide*.
-        3. For this tutorial, opt out of **confirming changes before deploy**.
-        4. Allow **IAM role creation** – This lets AWS SAM create the IAM role
-         necessary for your API Gateway resource and Lambda function resource to interact.
-        5. For this tutorial, opt out of **disabling rollback**.
-        6. Allow **HelloWorldFunction without authorization defined** – This message
-         displays because your API Gateway endpoint is configured to be publicly accessible, without authorization. Since this
-         is the intended configuration for your Hello World application, allow the AWS SAM CLI to continue. For more
-         information about configuring authorization, see [Control API access with your AWS SAM template](serverless-controlling-access-to-apis.md "serverless-controlling-access-to-apis.md").
-        7. **Save arguments to configuration file** – This will update your
-         application’s `samconfig.toml` file with your deployment preferences.
-        8. Select the default **configuration file name**.
-        9. Select the default **configuration environment**.
-
-    The following is an example output of the `sam deploy --guided` interactive flow:
+   1. The **CloudFormation stack name** – A stack is a collection of AWS resources
+      that you can manage as a single unit. To learn more, see [Working with stacks](../../../AWSCloudFormation/latest/UserGuide/stacks.md "../../../AWSCloudFormation/latest/UserGuide/stacks.md") in the
+      _AWS CloudFormation User Guide_.
+   2. The **AWS Region** to deploy your CloudFormation stack to. For more information, see
+      [CloudFormation
+      endpoints](../../../AWSCloudFormation/latest/UserGuide/using-cfn-endpoints.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-endpoints.md") in the _AWS CloudFormation User Guide_.
+   3. For this tutorial, opt out of **confirming changes before deploy**.
+   4. Allow **IAM role creation** – This lets AWS SAM create the IAM role
+      necessary for your API Gateway resource and Lambda function resource to interact.
+   5. For this tutorial, opt out of **disabling rollback**.
+   6. Allow **HelloWorldFunction without authorization defined** – This message
+      displays because your API Gateway endpoint is configured to be publicly accessible, without authorization. Since this
+      is the intended configuration for your Hello World application, allow the AWS SAM CLI to continue. For more
+      information about configuring authorization, see [Control API access with your AWS SAM template](serverless-controlling-access-to-apis.md "serverless-controlling-access-to-apis.md").
+   7. **Save arguments to configuration file** – This will update your
+      application’s `samconfig.toml` file with your deployment preferences.
+   8. Select the default **configuration file name**.
+   9. Select the default **configuration environment**.
+      The following is an example output of the `sam deploy --guided` interactive flow:
 
 ```
 `$` `sam deploy --guided`
@@ -346,13 +345,12 @@ Configuring SAM deploy
     SAM configuration environment [default]: `ENTER`
 ```
 
-3.  The AWS SAM CLI deploys your application by doing the following:
+3. The AWS SAM CLI deploys your application by doing the following:
 
-        * The AWS SAM CLI creates an Amazon S3 bucket and uploads your `.aws-sam` directory.
-        * The AWS SAM CLI transforms your AWS SAM template into CloudFormation and uploads it to the CloudFormation service.
-        * CloudFormation provisions your resources.
-
-    During deployment, the AWS SAM CLI displays your progress. The following is an example output:
+   - The AWS SAM CLI creates an Amazon S3 bucket and uploads your `.aws-sam` directory.
+   - The AWS SAM CLI transforms your AWS SAM template into CloudFormation and uploads it to the CloudFormation service.
+   - CloudFormation provisions your resources.
+     During deployment, the AWS SAM CLI displays your progress. The following is an example output:
 
 ```
 Looking for resources needed for deployment:

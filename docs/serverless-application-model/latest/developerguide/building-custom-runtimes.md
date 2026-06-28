@@ -6,11 +6,11 @@ runtime by specifying `Runtime: provided` for the function.
 
 To build a custom runtime, declare the `Metadata` resource attribute with a
 `BuildMethod: makefile` entry. You provide a custom makefile, where you declare a
-build target of the form `build-`function-logical-id``that
- contains the build commands for your runtime. Your makefile is responsible for compiling the
- custom runtime if necessary, and copying the build artifacts into the proper location required
- for subsequent steps in your workflow. The location of the makefile is specified by the
-`CodeUri`property of the function resource, and must be named
+build target of the form `build-`function-logical-id`` that
+contains the build commands for your runtime. Your makefile is responsible for compiling the
+custom runtime if necessary, and copying the build artifacts into the proper location required
+for subsequent steps in your workflow. The location of the makefile is specified by the
+`CodeUri` property of the function resource, and must be named
 `Makefile`.
 
 ## Examples

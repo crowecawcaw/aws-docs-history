@@ -22,10 +22,11 @@ your layer supports. Valid values for `BuildArchitecture` are [Lambda instructio
 architectures](../../../lambda/latest/dg/foundation-arch.md "../../../lambda/latest/dg/foundation-arch.md").
 
 If you specify `makefile`, provide the custom makefile, where you declare a build
-target of the form `build-`layer-logical-id``that contains
- the build commands for your layer. Your makefile is responsible for compiling the layer if
- necessary, and copying the build artifacts into the proper location required for subsequent
- steps in your workflow. The location of the makefile is specified by the`ContentUri` property of the layer resource, and must be named`Makefile`.
+target of the form `build-`layer-logical-id`` that contains
+the build commands for your layer. Your makefile is responsible for compiling the layer if
+necessary, and copying the build artifacts into the proper location required for subsequent
+steps in your workflow. The location of the makefile is specified by the `ContentUri`
+property of the layer resource, and must be named `Makefile`.
 
 ###### Note
 
@@ -60,18 +61,18 @@ When you include the `Metadata` resource attribute section, you can use the
 `sam build` command to build the layer,
 both as an independent object, or as a dependency of an AWS Lambda function.
 
-- \***\*As an independent
-  object.\*\*** You might want to build just the layer object, for example
+- ****As an independent
+  object.**** You might want to build just the layer object, for example
   when you're locally testing a code change to the layer and don't need to build your entire
   application. To build the layer independently, specify the layer resource with the `sam
-build `layer-logical-id`` command.
+ build `layer-logical-id`` command.
 - **As a dependency of a Lambda function.** When you include a
   layer's logical ID in the `Layers` property of a Lambda function in the same AWS SAM
   template file, the layer is a dependency of that Lambda function. When that layer also
   includes a `Metadata` resource attribute section with a `BuildMethod`
   entry, you build the layer either by building the entire application with the `sam
-build` command or by specifying the function resource with the `sam build
-`function-logical-id`` command.
+ build` command or by specifying the function resource with the `sam build
+ `function-logical-id`` command.
 
 ## Examples
 

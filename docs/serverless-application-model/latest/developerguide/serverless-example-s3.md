@@ -123,7 +123,7 @@ AWS resources that were created by CloudFormation.
   `SampleEvent.json` file by replacing the values for the object key, bucket
   name, and bucket ARN.
 - Retrieve the DynamoDB table name. This name is used for the following `sam local
-invoke` command.
+ invoke` command.
 
 Use the AWS SAM CLI to generate a sample Amazon S3 event and invoke the Lambda function:
 

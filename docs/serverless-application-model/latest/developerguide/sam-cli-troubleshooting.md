@@ -193,7 +193,7 @@ the instructions for installing Docker for your development host. For more infor
 
 When running **sam deploy --guided**, you're prompted with the question
 ``Function` may not have authorization defined, Is this
-okay? [y/N]`. If you respond to this prompt with `N` (the
+ okay? [y/N]`. If you respond to this prompt with `N` (the
 default response), you see the following error:
 
 ```

@@ -126,7 +126,7 @@ The following additional parameters can be used to put a record in the Kinesis d
 - `SequenceNumberForOrdering='`string`'`
 - `StreamARN='`string`'`
 
-For a description of each parameter, see [Kinesis.Client.put_record](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/put_record.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/put_record.html").
+For a description of each parameter, see [Kinesis.Client.put\_record](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/put_record.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis/client/put_record.html").
 
 **AWS Lambda**
 
@@ -149,7 +149,7 @@ response streaming:
 For a description of each parameter, see the following:
 
 - Lambda with buffered response – [Lambda.Client.invoke](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke.html")
-- Lambda with response streaming – [Lambda.Client.invoke_with_response_stream](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_with_response_stream.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_with_response_stream.html")
+- Lambda with response streaming – [Lambda.Client.invoke\_with\_response\_stream](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_with_response_stream.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda/client/invoke_with_response_stream.html")
 
 **Amazon Simple Queue Service (Amazon SQS)**
 
@@ -161,7 +161,7 @@ The following additional parameters can be used to send a message to an Amazon S
 - `MessageGroupId='`string`'`
 - `MessageSystemAttributes='`json string`'`
 
-For a description of each parameter, see [SQS.Client.send_message](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs/client/send_message.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs/client/send_message.html").
+For a description of each parameter, see [SQS.Client.send\_message](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs/client/send_message.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs/client/send_message.html").
 
 **AWS Step Functions**
 
@@ -170,7 +170,7 @@ The following additional parameters can be used to start a state machine executi
 - `name='`string`'`
 - `traceHeader='`string`'`
 
-For a description of each parameter, see [SFN.Client.start_execution](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions/client/start_execution.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions/client/start_execution.html").
+For a description of each parameter, see [SFN.Client.start\_execution](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions/client/start_execution.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions/client/start_execution.html").
 
 `--profile `TEXT``
 

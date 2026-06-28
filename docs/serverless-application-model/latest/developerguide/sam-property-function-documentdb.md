@@ -160,7 +160,7 @@ For the `DocumentDB` event source type, the only valid configuration type is
 
 - `BASIC_AUTH` – The Secrets Manager secret that stores your broker
   credentials. For this type, the credential must be in the following format: `{"username": "your-username", 
-"password": "your-password"}`. Only one object of type `BASIC_AUTH` is allowed.
+ "password": "your-password"}`. Only one object of type `BASIC_AUTH` is allowed.
 
 _Type_: List
 

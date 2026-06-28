@@ -35,19 +35,18 @@ serverless applications in the AWS Cloud.
 Run `sam sync` with the `--watch` option to begin syncing your application to the
 AWS Cloud. This does the following:
 
-1.  **Build your application** – This process is similar to using the
-    `sam build` command.
-2.  **Deploy your application** – The AWS SAM CLI deploys your application to
-    AWS CloudFormation using your default settings. The following default values are used:
+1. **Build your application** – This process is similar to using the
+   `sam build` command.
+2. **Deploy your application** – The AWS SAM CLI deploys your application to
+   AWS CloudFormation using your default settings. The following default values are used:
 
-        1. AWS credentials and general configuration settings found in your `.aws` user
-         folder.
-        2. Application deployment settings found in your application’s `samconfig.toml` file.
+   1. AWS credentials and general configuration settings found in your `.aws` user
+      folder.
+   2. Application deployment settings found in your application’s `samconfig.toml` file.
+      If default values can’t be found, the AWS SAM CLI will inform you and exit the sync process.
 
-    If default values can’t be found, the AWS SAM CLI will inform you and exit the sync process.
-
-3.  **Watch for local changes** – The AWS SAM CLI remains running and watches for
-    local changes to your application. This is what the `--watch` option provides.
+3. **Watch for local changes** – The AWS SAM CLI remains running and watches for
+   local changes to your application. This is what the `--watch` option provides.
 
 This option may be turned on by default. For default values, see your application’s
 `samconfig.toml` file. The following is an example file:

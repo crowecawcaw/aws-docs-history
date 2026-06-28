@@ -29,9 +29,8 @@ selected platform. These details vary by platform and can include:
     * Branch that deployments will occur from.
 
 5. AWS SAM displays a summary of the entered OIDC configuration. Enter the number for a
-   setting to edit it, or press **Enter** to continue.
-6. When prompted to confirm the creation of resources needed to support the entered OIDC
-   connection, press **Y** to continue.
+setting to edit it, or press **Enter** to continue. 6. When prompted to confirm the creation of resources needed to support the entered OIDC
+connection, press **Y** to continue.
 
 AWS SAM generates an `AWS::IAM::OIDCProvider` AWS CloudFormation resource with the
 provided configuration that assumes the pipeline execution role. To learn more about this

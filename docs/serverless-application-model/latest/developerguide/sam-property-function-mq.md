@@ -181,7 +181,7 @@ For the `MQ` event source type, the only valid configuration types are
 - `BASIC_AUTH` – The Secrets Manager
   secret that stores your broker credentials. For this type, the credential must be in
   the following format: `{"username": "your-username", "password":
-"your-password"}`. Only one object of type `BASIC_AUTH` is
+ "your-password"}`. Only one object of type `BASIC_AUTH` is
   allowed.
 - `VIRTUAL_HOST` – The name of
   the virtual host in your RabbitMQ broker. Lambda will use this Rabbit MQ's host as

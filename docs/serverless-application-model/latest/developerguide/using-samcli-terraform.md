@@ -69,7 +69,7 @@ For Lambda functions configured to use Lambda authorizers, the AWS SAM CLI will
 authorizer before invoking your Lambda function endpoint.
 
 - To learn more about this feature in the AWS SAM CLI, see [Lambda functions that use Lambda authorizers](using-sam-cli-local-start-api.md#using-sam-cli-local-start-api-authorizers "using-sam-cli-local-start-api.md#using-sam-cli-local-start-api-authorizers").
-- For more information on using Lambda authorizers in Terraform, see [Resource: aws_api_gateway_authorizer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer#example-usage "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer#example-usage") in the _Terraform
+- For more information on using Lambda authorizers in Terraform, see [Resource: aws\_api\_gateway\_authorizer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer#example-usage "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer#example-usage") in the _Terraform
   registry_.
 
 ## Local testing with sam local start-lambda

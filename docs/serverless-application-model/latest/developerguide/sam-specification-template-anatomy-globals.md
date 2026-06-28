@@ -49,7 +49,7 @@ Resources:
 In this example, both `HelloWorldFunction` and `ThumbnailFunction`
 use "nodejs12.x" for `Runtime`, "180" seconds for `Timeout`, and
 "index.handler" for `Handler`. `HelloWorldFunction` adds the MESSAGE
-environment variable, in addition to the inherited TABLE_NAME.
+environment variable, in addition to the inherited TABLE\_NAME.
 `ThumbnailFunction` inherits all the `Globals` properties and adds
 an API event source.
 

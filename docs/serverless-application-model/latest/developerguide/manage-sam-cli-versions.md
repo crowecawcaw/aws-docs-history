@@ -150,7 +150,7 @@ option uses the latest production version of the build image.
 
 To install the AWS SAM CLI nightly build, follow these instructions.
 
-You can install the nightly build version of the AWS SAM CLI on the Linux x86_64 platform
+You can install the nightly build version of the AWS SAM CLI on the Linux x86\_64 platform
 using the package installer.
 
 ###### To install the AWS SAM CLI nightly build

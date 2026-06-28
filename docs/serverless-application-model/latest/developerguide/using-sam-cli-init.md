@@ -50,16 +50,15 @@ file is `template.yaml`. This is your AWS SAM template. Your version of python m
 
 A _template_ consists of the following:
 
-1.  An AWS SAM template for your infrastructure code.
-2.  A starting project directory that organizes your project files. For example, this may include:
+1. An AWS SAM template for your infrastructure code.
+2. A starting project directory that organizes your project files. For example, this may include:
 
-        1. A structure for your Lambda function code and their dependencies.
-        2. An `events` folder that contains test events for local testing.
-        3. A `tests` folder to support unit testing.
-        4. A `samconfig.toml` file to configure project settings.
-        5. A `ReadMe` file and other basic starting project files.
-
-    The following is an example of a starting project directory:
+   1. A structure for your Lambda function code and their dependencies.
+   2. An `events` folder that contains test events for local testing.
+   3. A `tests` folder to support unit testing.
+   4. A `samconfig.toml` file to configure project settings.
+   5. A `ReadMe` file and other basic starting project files.
+      The following is an example of a starting project directory:
 
 ```
 sam-app

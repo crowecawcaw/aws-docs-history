@@ -222,7 +222,7 @@ Cargo Lambda and stored as an executable binary at
 
 If you plan on running the **sam local invoke** command in MacOS, you need to build functions different before invoking. To do this, use the following command:
 
-- **SAM_BUILD_MODE=debug sam build**
+- **SAM\_BUILD\_MODE=debug sam build**
   This command is only needed if local testing will be done. This is not recommended when building for deployment.
 
 ```

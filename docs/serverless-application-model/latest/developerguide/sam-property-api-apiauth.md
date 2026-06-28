@@ -69,7 +69,7 @@ The authorizer used to control access to your API Gateway API.
 
 For more information, see [Control API access with your AWS SAM template](serverless-controlling-access-to-apis.md "serverless-controlling-access-to-apis.md").
 
-_Type_: [CognitoAuthorizer](sam-property-api-cognitoauthorizer.md "sam-property-api-cognitoauthorizer.md") | [LambdaTokenAuthorizer](sam-property-api-lambdatokenauthorizer.md "sam-property-api-lambdatokenauthorizer.md") | [LambdaRequestAuthorizer](sam-property-api-lambdarequestauthorizer.md "sam-property-api-lambdarequestauthorizer.md") | AWS_IAM
+_Type_: [CognitoAuthorizer](sam-property-api-cognitoauthorizer.md "sam-property-api-cognitoauthorizer.md") | [LambdaTokenAuthorizer](sam-property-api-lambdatokenauthorizer.md "sam-property-api-lambdatokenauthorizer.md") | [LambdaRequestAuthorizer](sam-property-api-lambdarequestauthorizer.md "sam-property-api-lambdarequestauthorizer.md") | AWS\_IAM
 
 _Required_: No
 

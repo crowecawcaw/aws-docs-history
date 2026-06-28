@@ -38,7 +38,7 @@ application](serverless-getting-started-hello-world.md "serverless-getting-start
 
 - AWSCloudFormationFullAccess
 - IAMFullAccess
-- AWSLambda_FullAccess
+- AWSLambda\_FullAccess
 - AmazonAPIGatewayAdministrator
 - AmazonS3FullAccess
 - AmazonEC2ContainerRegistryFullAccess
