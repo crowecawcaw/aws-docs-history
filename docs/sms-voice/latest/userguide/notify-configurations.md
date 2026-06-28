@@ -86,7 +86,7 @@ Console
    **Notify configurations**.
 3. Choose **Create Notify configuration**.
 4. For **Display name**, enter a name for your brand.
-5. For **Use case**, choose **CODE_VERIFICATION**.
+5. For **Use case**, choose **CODE\_VERIFICATION**.
 6. Select the channels to enable (**SMS**,
    **VOICE**, or both).
 7. (Optional) Expand **Advanced settings** to select countries,

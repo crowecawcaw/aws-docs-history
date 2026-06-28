@@ -8,12 +8,12 @@ that campaign, and you can't use it for any other 10DLC campaign.
 1. Open the AWS End User Messaging SMS console at
    [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
 2. In the navigation pane, under **Registrations**, choose the
-   10DLC campaign(US_TEN_DLC_CAMPAIGN_REGISTRATION) to associate the long code
+   10DLC campaign(US\_TEN\_DLC\_CAMPAIGN\_REGISTRATION) to associate the long code
    with.
 3. Choose the **Associated resourced** tab and **Add
    resource**.
 4. For **Supported association**, choose
-   **TEN_DLC** from the dropdown list.
+   **TEN\_DLC** from the dropdown list.
 5. For **Available resources**, choose the 10DLC phone number to
    add.
 6. Choose **Associate resource**.

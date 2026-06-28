@@ -163,12 +163,12 @@ Notify emits delivery events to your configured event destinations (CloudWatch, 
 Data Firehose, or Amazon SNS). For information about setting up event destinations, see
 [Configuration sets in AWS End User Messaging SMS](configuration-sets.md "configuration-sets.md").
 
-| Delivery event types | Event                                                          | Description |
-| -------------------- | -------------------------------------------------------------- | ----------- |
-| `PENDING`            | Message is queued for delivery.                                |
-| `DELIVERED`          | Message was delivered to the recipient's device.               |
-| `FAILED`             | Message delivery failed. Check the failure reason for details. |
-| `BLOCKED`            | Message was blocked by Protect configuration rules.            |
+Delivery event types| Event | Description |
+| --- | --- |
+| `PENDING` | Message is queued for delivery. |
+| `DELIVERED` | Message was delivered to the recipient's device. |
+| `FAILED` | Message delivery failed. Check the failure reason for details. |
+| `BLOCKED` | Message was blocked by Protect configuration rules. |
 
 ## Error handling
 

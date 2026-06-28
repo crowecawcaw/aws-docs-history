@@ -48,23 +48,23 @@ RCS metrics and dimensions, see
 
 ### Message spend metrics
 
-| Message spend metrics        | Metric                                                                                        | Description | Unit    | Meaningful statistics |
-| ---------------------------- | --------------------------------------------------------------------------------------------- | ----------- | ------- | --------------------- |
-| **TextMessageMonthlySpend**  | The amount of money (in US Dollars) that you have spent sending SMS messages<br>this month.   | US Dollars  | Maximum |
-| **VoiceMessageMonthlySpend** | The amount of money (in US Dollars) that you have spent sending Voice messages<br>this month. | US Dollars  | Maximum |
-| **MediaMessageMonthlySpend** | The amount of money (in US Dollars) that you have spent sending MMS messages<br>this month.   | US Dollars  | Maximum |
+Message spend metrics| Metric | Description | Unit | Meaningful statistics |
+| --- | --- | --- | --- |
+| **TextMessageMonthlySpend** | The amount of money (in US Dollars) that you have spent sending SMS messages<br>this month. | US Dollars | Maximum |
+| **VoiceMessageMonthlySpend** | The amount of money (in US Dollars) that you have spent sending Voice messages<br>this month. | US Dollars | Maximum |
+| **MediaMessageMonthlySpend** | The amount of money (in US Dollars) that you have spent sending MMS messages<br>this month. | US Dollars | Maximum |
 
 ### Message delivery metrics
 
 The `AWS/SMSVoice` namespace includes the following message delivery
 metrics.
 
-| Message delivery metrics               | Metric                                                                                                                            | Description | Unit                                                                   | Meaningful statistics |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------------------------------------------------------- | --------------------- |
-| **NumberOfTextMessagePartsSent**       | Number of text message parts sent. Excludes messages that are blocked by Protect<br>and service limits like message spend limits  | Count       | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
-| **NumberOfMediaMessagePartsSent**      | Number of media message parts sent. Excludes messages that are blocked by Protect<br>and service limits like message spend limits | Count       | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
-| **NumberOfTextMessagePartsDelivered**  | Number of text message parts delivered to the recipient.                                                                          | Count       | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
-| **NumberOfMediaMessagePartsDelivered** | Number of media message parts delivered to the recipient.                                                                         | Count       | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
+Message delivery metrics| Metric | Description | Unit | Meaningful statistics |
+| --- | --- | --- | --- |
+| **NumberOfTextMessagePartsSent** | Number of text message parts sent. Excludes messages that are blocked by Protect<br>and service limits like message spend limits | Count | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
+| **NumberOfMediaMessagePartsSent** | Number of media message parts sent. Excludes messages that are blocked by Protect<br>and service limits like message spend limits | Count | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
+| **NumberOfTextMessagePartsDelivered** | Number of text message parts delivered to the recipient. | Count | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
+| **NumberOfMediaMessagePartsDelivered** | Number of media message parts delivered to the recipient. | Count | • Sum<br>• Sample Count<br>• Max<br>• Min<br>• Average<br>• Percentile |
 
 ###### Duplicate delivery receipts for multi-part messages
 
@@ -88,21 +88,21 @@ deduplicating on the message ID.
 The `AWS/SMSVoice` namespace includes the following message feedback
 metrics.
 
-| Message feedback metrics                   | Metric                                                                                                                                                                                                                                                                                                                                                                                           | Description | Unit                                 | Meaningful statistics |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ------------------------------------ | --------------------- |
-| **NumberOfTextMessagesExpectingFeedback**  | The total number of text messages for which feedback is tracked.<br>\*_NumberOfTextMessagesExpectingFeedback_<br>• will have<br>a value of 1 for each `SendTextMessage` request with<br>MessageFeedbackEnabled enabled.                                                                                                                                                                          | Count       | • Sum<br>• Sample Count<br>• Average |
-| **NumberOfMediaMessagesExpectingFeedback** | The total number of media messages for which feedback is<br>tracked.\*_NumberOfMediaMessagesExpectingFeedback_<br>• will have a value of 1<br>for each `SendMediaMessage` request with MessageFeedbackEnabled<br>enabled.                                                                                                                                                                        | Count       | • Sum<br>• Sample Count<br>• Average |
-| **NumberOfTextMessagesWithFeedback**       | The total number of text messages for which feedback was tracked and a<br>feedback response was received.**NumberOfTextMessagesWithFeedback\*<br>• will have a value of 1 for each<br>message that receives a feedback. Percentage of messages with feedback can be<br>determined by `100<br>• SUM(**NumberOfTextMessagesWithFeedback**) / SUM(**NumberOfTextMessagesExpectingFeedback\*\*)`     | Count       | • Sum<br>• Sample Count<br>• Average |
-| **NumberOfMediaMessagesWithFeedback**      | The total number of media messages for which feedback was tracked and a<br>feedback response was received.**NumberOfMediaMessagesWithFeedback\*<br>• will have a value of 1 for<br>each message that receives a feedback. Percentage of messages with feedback can be<br>determined by `100<br>• SUM(**NumberOfMediaMessagesWithFeedback**) / SUM(**NumberOfMediaMessagesExpectingFeedback\*\*)` | Count       | • Sum<br>• Sample Count<br>• Average |
+Message feedback metrics| Metric | Description | Unit | Meaningful statistics |
+| --- | --- | --- | --- |
+| **NumberOfTextMessagesExpectingFeedback** | The total number of text messages for which feedback is tracked.<br>*_NumberOfTextMessagesExpectingFeedback_<br>• will have<br>a value of 1 for each `SendTextMessage` request with<br>MessageFeedbackEnabled enabled. | Count | • Sum<br>• Sample Count<br>• Average |
+| **NumberOfMediaMessagesExpectingFeedback** | The total number of media messages for which feedback is<br>tracked.*_NumberOfMediaMessagesExpectingFeedback_<br>• will have a value of 1<br>for each `SendMediaMessage` request with MessageFeedbackEnabled<br>enabled. | Count | • Sum<br>• Sample Count<br>• Average |
+| **NumberOfTextMessagesWithFeedback** | The total number of text messages for which feedback was tracked and a<br>feedback response was received.*_NumberOfTextMessagesWithFeedback_<br>• will have a value of 1 for each<br>message that receives a feedback. Percentage of messages with feedback can be<br>determined by `100<br>• SUM(**NumberOfTextMessagesWithFeedback**) / SUM(**NumberOfTextMessagesExpectingFeedback**)` | Count | • Sum<br>• Sample Count<br>• Average |
+| **NumberOfMediaMessagesWithFeedback** | The total number of media messages for which feedback was tracked and a<br>feedback response was received.*_NumberOfMediaMessagesWithFeedback_<br>• will have a value of 1 for<br>each message that receives a feedback. Percentage of messages with feedback can be<br>determined by `100<br>• SUM(**NumberOfMediaMessagesWithFeedback**) / SUM(**NumberOfMediaMessagesExpectingFeedback**)` | Count | • Sum<br>• Sample Count<br>• Average |
 
 ### Protect metrics in AWS End User Messaging SMS
 
 The `AWS/SMSVoice` namespace includes the following Protect metrics.
 
-| Metric name                       | Description                                                                                                                                                                                                                                                                                                                                    | Unit  | Meaningful Statistics                |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------------------ |
-| **TextMessagesBlockedByProtect**  | Number of text messages blocked due to country mode block rules.<br>**TextMessagesBlockedByProtect\*<br>• will have a value<br>of 1 if the message is blocked by protect and 0 if the message is not blocked.<br>The percentage of SMS messages blocked by Protect can be determined by `100<br>• AVG(**TextMessagesBlockedByProtect\*\*)`.    | Count | • Sum<br>• Average<br>• Sample Count |
-| **MediaMessagesBlockedByProtect** | Number of media messages blocked due to country mode block rules.<br>**MediaMessagesBlockedByProtect\*<br>• will have a value<br>of 1 if the message is blocked by protect and 0 if the message is not blocked.<br>The percentage of MMS messages blocked by Protect can be determined by `100<br>• AVG(**MediaMessagesBlockedByProtect\*\*)`. | Count | • Sum<br>• Average<br>• Sample Count |
+| Metric name                       | Description                                                                                                                                                                                                                                                                                                                                 | Unit  | Meaningful Statistics                |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------------------ |
+| **TextMessagesBlockedByProtect**  | Number of text messages blocked due to country mode block rules.<br>*_TextMessagesBlockedByProtect_<br>• will have a value<br>of 1 if the message is blocked by protect and 0 if the message is not blocked.<br>The percentage of SMS messages blocked by Protect can be determined by `100<br>• AVG(**TextMessagesBlockedByProtect**)`.    | Count | • Sum<br>• Average<br>• Sample Count |
+| **MediaMessagesBlockedByProtect** | Number of media messages blocked due to country mode block rules.<br>*_MediaMessagesBlockedByProtect_<br>• will have a value<br>of 1 if the message is blocked by protect and 0 if the message is not blocked.<br>The percentage of MMS messages blocked by Protect can be determined by `100<br>• AVG(**MediaMessagesBlockedByProtect**)`. | Count | • Sum<br>• Average<br>• Sample Count |
 
 ### Dimensions
 

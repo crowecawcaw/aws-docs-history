@@ -231,14 +231,14 @@ payload uses the same format as SMS two-way messaging:
 
 The inbound message payload contains the following fields:
 
-| Inbound RCS message payload fields | Field                                                                                                                                                     | Description |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `originationNumber`                | The phone number that sent the inbound message<br>(the customer's phone number).                                                                          |
-| `destinationNumber`                | The identifier of the AWS RCS Agent that received<br>the message.                                                                                         |
-| `messageKeyword`                   | The registered keyword that matches the inbound<br>message, if any. Keywords are evaluated against the<br>beginning of the message body.                  |
-| `messageBody`                      | The text content of the inbound message.                                                                                                                  |
-| `inboundMessageId`                 | A unique identifier for the inbound<br>message.                                                                                                           |
-| `previousPublishedMessageId`       | The unique identifier of the outbound message that<br>the customer is responding to, if the inbound message is a<br>reply to a previous outbound message. |
+Inbound RCS message payload fields| Field | Description |
+| --- | --- |
+| `originationNumber` | The phone number that sent the inbound message<br>(the customer's phone number). |
+| `destinationNumber` | The identifier of the AWS RCS Agent that received<br>the message. |
+| `messageKeyword` | The registered keyword that matches the inbound<br>message, if any. Keywords are evaluated against the<br>beginning of the message body. |
+| `messageBody` | The text content of the inbound message. |
+| `inboundMessageId` | A unique identifier for the inbound<br>message. |
+| `previousPublishedMessageId` | The unique identifier of the outbound message that<br>the customer is responding to, if the inbound message is a<br>reply to a previous outbound message. |
 
 ## Supported message types
 

@@ -84,7 +84,7 @@ as part of your Singapore RCS registration. The template has the aggregator
 (Infobip) and representative (AWS) details pre-filled — you only
 need to fill in your company information.
 
-Download the LOA template: [Singapore_RCS_LOA_Template.zip](samples/Singapore_RCS_LOA_Template.zip.md "samples/Singapore_RCS_LOA_Template.zip.md")
+Download the LOA template: [Singapore\_RCS\_LOA\_Template.zip](samples/Singapore_RCS_LOA_Template.zip.md "samples/Singapore_RCS_LOA_Template.zip.md")
 
 Complete the following fields in the template:
 

@@ -4,31 +4,29 @@ Follow these directions to register your short code in Germany.
 
 ###### Complete Germany short code registration form
 
-1.  Open the AWS End User Messaging SMS console at
-    [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
-2.  In the navigation pane, under **Registrations**, choose the
-    registration to complete.
-3.  In the **Company info** section, enter the following:
+1. Open the AWS End User Messaging SMS console at
+   [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
+2. In the navigation pane, under **Registrations**, choose the
+   registration to complete.
+3. In the **Company info** section, enter the following:
 
-        * For **Company name**, enter the legal name of your company.
-        * For **Company identification number**, enter the legal identification number of your company (such as EIN or VAT).
-        * For **DBA (Doing Business As) name**, enter the DBA or brand name if different from the legal name of your company.
-        * For **Company website**, enter the full URL of your company website.
+   - For **Company name**, enter the legal name of your company.
+   - For **Company identification number**, enter the legal identification number of your company (such as EIN or VAT).
+   - For **DBA (Doing Business As) name**, enter the DBA or brand name if different from the legal name of your company.
+   - For **Company website**, enter the full URL of your company website.
+     Choose **Next**.
 
-    Choose **Next**.
+4. In the **Company address** section, enter the following:
 
-4.  In the **Company address** section, enter the following:
+   - For **Address 1**, enter the physical street address associated with your company.
+   - For **Address 2**, enter the unit number of the physical address, if applicable.
+   - For **City**, enter the city where the physical address is located.
+   - For **State / Province**, enter the state, province, or region where the physical address is located.
+   - For **Postal code**, enter the postal code / ZIP code where the physical address is located.
+   - For **Country code**, enter the two-digit ISO country code where the physical address is located.
+     Choose **Next**.
 
-        * For **Address 1**, enter the physical street address associated with your company.
-        * For **Address 2**, enter the unit number of the physical address, if applicable.
-        * For **City**, enter the city where the physical address is located.
-        * For **State / Province**, enter the state, province, or region where the physical address is located.
-        * For **Postal code**, enter the postal code / ZIP code where the physical address is located.
-        * For **Country code**, enter the two-digit ISO country code where the physical address is located.
-
-    Choose **Next**.
-
-5.  In the **Service information and use case** section, enter the following:
+5. In the **Service information and use case** section, enter the following:
 
 To give approval, mobile carriers need to know how you plan to use your short code, and how you will interact with end users.
 

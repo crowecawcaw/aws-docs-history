@@ -333,6 +333,6 @@ If the registration's **AssociationBehavior** is
 and associate it with the registration, once the registration's status is set to
 **COMPLETE**.
 
-If your registration's status is changed to **REQUIRES_UPDATES** then you can find and [edit the flagged fields](registrations-edit.md "registrations-edit.md") and resubmit the
+If your registration's status is changed to **REQUIRES\_UPDATES** then you can find and [edit the flagged fields](registrations-edit.md "registrations-edit.md") and resubmit the
 registration. For a list of registration rejection reasons, see [Gen-AI Feedback on Registrations](registrations-genai-feedback.md "registrations-genai-feedback.md"). If you require help from Support with
 your registration rejection you can [open a ticket](registrations-request-support.md "registrations-request-support.md").

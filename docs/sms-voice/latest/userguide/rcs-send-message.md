@@ -26,11 +26,11 @@ AWS End User Messaging supports three patterns for sending RCS messages. Each pa
 determines how the service selects an origination identity and whether automatic
 SMS fallback is available.
 
-| RCS sending patterns     | Pattern                                                                                                | How it works | SMS fallback                                                                                          | When to use |
-| ------------------------ | ------------------------------------------------------------------------------------------------------ | ------------ | ----------------------------------------------------------------------------------------------------- | ----------- |
-| Pool-based (recommended) | Specify a pool ID as the origination identity. The service<br>selects the best identity from the pool. | Yes          | All use cases. Provides automatic channel selection and SMS<br>fallback with compliance-safe routing. |
-| Account-level            | Omit the origination identity. The service selects from all<br>available identities in your account.   | Yes          | Simple setups with a single use case. Not recommended for<br>accounts with multiple use cases.        |
-| Direct send              | Specify an AWS RCS Agent ARN as the origination identity.<br>The message is sent via RCS only.         | No           | RCS-or-nothing use cases, or when you manage SMS fallback<br>outside of AWS End User Messaging.       |
+RCS sending patterns| Pattern | How it works | SMS fallback | When to use |
+| --- | --- | --- | --- |
+| Pool-based (recommended) | Specify a pool ID as the origination identity. The service<br>selects the best identity from the pool. | Yes | All use cases. Provides automatic channel selection and SMS<br>fallback with compliance-safe routing. |
+| Account-level | Omit the origination identity. The service selects from all<br>available identities in your account. | Yes | Simple setups with a single use case. Not recommended for<br>accounts with multiple use cases. |
+| Direct send | Specify an AWS RCS Agent ARN as the origination identity.<br>The message is sent via RCS only. | No | RCS-or-nothing use cases, or when you manage SMS fallback<br>outside of AWS End User Messaging. |
 
 ### Pool-based sending (recommended)
 

@@ -229,11 +229,8 @@ phone number, do the following:
     5. Choose **Verify number**.
 
 5. For **Configuration set**, choose the event destination to receive the
-   event data.
-6. For **Message body**, enter a custom SMS message.
-7. Choose **Send test message**.
-8. For **Event logs: CloudWatch**, choose the refresh button to display the event
-   log of the test message.
+event data. 6. For **Message body**, enter a custom SMS message. 7. Choose **Send test message**. 8. For **Event logs: CloudWatch**, choose the refresh button to display the event
+log of the test message.
 
 ###### Tip
 

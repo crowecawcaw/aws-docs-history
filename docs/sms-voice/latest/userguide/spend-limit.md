@@ -9,14 +9,14 @@ you need to request a spending limit increase. When you request a spending limit
 either your SMS or MMS _account limit_ both your SMS and
 MMS _account limit_ are set to the new requested limit. MMS
 and SMS have separate _enforced limit_. For example you
-could set you MMS _enforced limit_ to $10 and SMS _enforced limit_ to $5. To change your _account limit_, see [Requesting a spending quota
+could set you MMS _enforced limit_ to $10 and SMS *enforced limit* to $5. To change your _account limit_, see [Requesting a spending quota
 change](awssupport-spend-threshold.md "awssupport-spend-threshold.md").
 
 The _enforced limit_ is an optional spending limit, in US
 dollars, between $1 and the account limit. If you don't specify an enforced limit, you can
-spend up to your account limit. When you reach your enforced limit, AWS End User Messaging SMS stops sending
-your messages. To resume sending messages, you can adjust your enforced limit through the
-console or AWS CLI. For example, if you set your SMS account limit to $100 and your enforced
+ spend up to your account limit. When you reach your enforced limit, AWS End User Messaging SMS stops sending
+ your messages. To resume sending messages, you can adjust your enforced limit through the
+ console or AWS CLI. For example, if you set your SMS account limit to $100 and your enforced
 limit to $50, then once you've spent $50, AWS End User Messaging SMS stops sending your messages until you
 raise your enforced limit.
 

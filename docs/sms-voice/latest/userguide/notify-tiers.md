@@ -9,34 +9,34 @@ tier upgrade verification.
 Basic tier provides immediate access to Notify with conservative limits designed for
 getting started and low-volume use cases.
 
-| Basic tier capabilities         | Capability                                                                 | Basic tier |
-| ------------------------------- | -------------------------------------------------------------------------- | ---------- |
-| Access                          | Immediate after configuration creation                                     |
-| Daily message limit             | 200 messages                                                               |
-| Transactions per second (TPS)   | 1 TPS                                                                      |
-| Supported countries             | 30 pre-approved low-risk countries                                         |
-| Identity types                  | Long codes, toll-free, sender IDs                                          |
-| SMS Protect                     | Mandatory (cannot be disabled)                                             |
-| Country configuration           | Fixed (pre-approved list only)                                             |
-| Default spend limit             | See [Notify spend limits](notify-spend-limits.md "notify-spend-limits.md") |
-| Customer-owned identity support | Yes (optional pool association)                                            |
+Basic tier capabilities| Capability | Basic tier |
+| --- | --- |
+| Access | Immediate after configuration creation |
+| Daily message limit | 200 messages |
+| Transactions per second (TPS) | 1 TPS |
+| Supported countries | 30 pre-approved low-risk countries |
+| Identity types | Long codes, toll-free, sender IDs |
+| SMS Protect | Mandatory (cannot be disabled) |
+| Country configuration | Fixed (pre-approved list only) |
+| Default spend limit | See [Notify spend limits](notify-spend-limits.md "notify-spend-limits.md") |
+| Customer-owned identity support | Yes (optional pool association) |
 
 ## Advanced tier
 
 Advanced tier unlocks higher limits, premium identities, and configurable country rules
 after tier upgrade verification.
 
-| Advanced tier capabilities      | Capability                                                                 | Advanced tier |
-| ------------------------------- | -------------------------------------------------------------------------- | ------------- |
-| Access                          | After tier upgrade verification                                            |
-| Daily message limit             | Unlimited                                                                  |
-| Transactions per second (TPS)   | 25                                                                         |
-| Supported countries             | All supported countries                                                    |
-| Identity types                  | Short codes, long codes, toll-free, sender IDs                             |
-| SMS Protect                     | Mandatory                                                                  |
-| Country configuration           | Configurable allow/block rules                                             |
-| Default spend limit             | See [Notify spend limits](notify-spend-limits.md "notify-spend-limits.md") |
-| Customer-owned identity support | Yes (optional pool association)                                            |
+Advanced tier capabilities| Capability | Advanced tier |
+| --- | --- |
+| Access | After tier upgrade verification |
+| Daily message limit | Unlimited |
+| Transactions per second (TPS) | 25 |
+| Supported countries | All supported countries |
+| Identity types | Short codes, long codes, toll-free, sender IDs |
+| SMS Protect | Mandatory |
+| Country configuration | Configurable allow/block rules |
+| Default spend limit | See [Notify spend limits](notify-spend-limits.md "notify-spend-limits.md") |
+| Customer-owned identity support | Yes (optional pool association) |
 
 ## Upgrading to Advanced tier
 
@@ -141,23 +141,23 @@ messaging.
 
 Most requests are processed within 3–5 business days.
 
-| Upgrade review outcomes | Outcome                                                                                           | Description |
-| ----------------------- | ------------------------------------------------------------------------------------------------- | ----------- |
-| Approved                | Your configuration is upgraded to Advanced tier.                                                  |
-| More information needed | Additional documentation is required. You'll receive details on what's<br>needed.                 |
-| Rejected                | The request did not meet verification requirements. You can resubmit with<br>updated information. |
+Upgrade review outcomes| Outcome | Description |
+| --- | --- |
+| Approved | Your configuration is upgraded to Advanced tier. |
+| More information needed | Additional documentation is required. You'll receive details on what's<br>needed. |
+| Rejected | The request did not meet verification requirements. You can resubmit with<br>updated information. |
 
 ### Tracking upgrade status
 
 The `TierUpgradeStatus` field on your Notify configuration shows the
 current status:
 
-| TierUpgradeStatus values | Status                                                                                             | Description |
-| ------------------------ | -------------------------------------------------------------------------------------------------- | ----------- |
-| `BASIC`                  | No upgrade has been requested. The configuration is at Basic tier.                                 |
-| `PENDING_UPGRADE`        | An upgrade request has been submitted and is under review.                                         |
-| `ADVANCED`               | The upgrade was approved. The configuration is at Advanced tier.                                   |
-| `REJECTED`               | The upgrade request was rejected. You can submit a new registration with<br>corrected information. |
+TierUpgradeStatus values| Status | Description |
+| --- | --- |
+| `BASIC` | No upgrade has been requested. The configuration is at Basic tier. |
+| `PENDING_UPGRADE` | An upgrade request has been submitted and is under review. |
+| `ADVANCED` | The upgrade was approved. The configuration is at Advanced tier. |
+| `REJECTED` | The upgrade request was rejected. You can submit a new registration with<br>corrected information. |
 
 ## Your compliance responsibilities
 

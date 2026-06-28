@@ -130,12 +130,12 @@ Pool configuration fields fall into two categories: immutable fields that are
 set when the pool is created and cannot be changed, and mutable fields that you
 can update after creation.
 
-| Immutable versus mutable pool configuration fields | Field     | Mutability                                                                                                                  | Notes |
-| -------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------- | ----- |
-| Message type                                       | Immutable | Set at pool creation. All identities must match.                                                                            |
-| ISO country code                                   | Immutable | Set at pool creation. For AWS RCS Agents, the value is<br>`ZZ`. Pools can contain phone numbers from<br>multiple countries. |
-| Deletion protection                                | Mutable   | Can be toggled after creation. Must be consistent across identities.                                                        |
-| Opt-out list                                       | Mutable   | Can be changed after creation. Must be consistent across identities.                                                        |
+Immutable versus mutable pool configuration fields| Field | Mutability | Notes |
+| --- | --- | --- |
+| Message type | Immutable | Set at pool creation. All identities must match. |
+| ISO country code | Immutable | Set at pool creation. For AWS RCS Agents, the value is<br>`ZZ`. Pools can contain phone numbers from<br>multiple countries. |
+| Deletion protection | Mutable | Can be toggled after creation. Must be consistent across identities. |
+| Opt-out list | Mutable | Can be changed after creation. Must be consistent across identities. |
 
 The following configuration fields must match across all origination identities
 in a pool:

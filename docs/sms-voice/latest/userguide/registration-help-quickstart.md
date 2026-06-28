@@ -10,17 +10,17 @@ Use this high-level checklist to confirm you are ready to submit before starting
 your registration. Detailed requirements for each item follow in the sections
 below.
 
-| Registration readiness checklist | ☐                                 | Requirement                                                                                                         | Details |
-| -------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------- |
-| ☐                                | Opt-in consent                    | Collected with a clear, affirmative action (not pre-checked or<br>bundled as a condition of service)                |
-| ☐                                | Disclosures at point of consent   | Message frequency, "Message and data rates may apply", links to<br>Terms and Privacy Policy, STOP/HELP instructions |
-| ☐                                | Opt-in confirmation message       | Includes brand name, frequency, data rates disclosure, and<br>STOP/HELP instructions                                |
-| ☐                                | STOP and HELP keywords            | Configured and returning compliant responses with brand<br>name                                                     |
-| ☐                                | Privacy policy                    | Live, publicly accessible, and explicitly states mobile opt-in<br>data is not shared with third parties             |
-| ☐                                | Website                           | Live, publicly accessible, and matches your registered brand<br>name                                                |
-| ☐                                | Sample messages                   | At least 2 messages ready, including brand name and opt-out<br>instructions                                         |
-| ☐                                | Brand registration [10DLC]        | Approved before submitting campaign registration                                                                    |
-| ☐                                | Age gate [age-restricted content] | Full date-of-birth entry (day/month/year) – not a simple<br>yes/no confirmation                                     |
+Registration readiness checklist| ☐ | Requirement | Details |
+| --- | --- | --- |
+| ☐ | Opt-in consent | Collected with a clear, affirmative action (not pre-checked or<br>bundled as a condition of service) |
+| ☐ | Disclosures at point of consent | Message frequency, "Message and data rates may apply", links to<br>Terms and Privacy Policy, STOP/HELP instructions |
+| ☐ | Opt-in confirmation message | Includes brand name, frequency, data rates disclosure, and<br>STOP/HELP instructions |
+| ☐ | STOP and HELP keywords | Configured and returning compliant responses with brand<br>name |
+| ☐ | Privacy policy | Live, publicly accessible, and explicitly states mobile opt-in<br>data is not shared with third parties |
+| ☐ | Website | Live, publicly accessible, and matches your registered brand<br>name |
+| ☐ | Sample messages | At least 2 messages ready, including brand name and opt-out<br>instructions |
+| ☐ | Brand registration [10DLC] | Approved before submitting campaign registration |
+| ☐ | Age gate [age-restricted content] | Full date-of-birth entry (day/month/year) – not a simple<br>yes/no confirmation |
 
 If all applicable items above are complete, you are ready to submit.
 

@@ -20,11 +20,11 @@ The `AWS/SMSVoice` namespace includes the following metrics specific
 to RCS messaging. These metrics track RCS message sending, delivery,
 and SMS fallback.
 
-| RCS messaging metrics         | Metric                                                                                                                                                                                                                                             | Description | Unit                                 | Meaningful statistics |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------ | --------------------- |
-| `RCS.MessagesSent`            | The number of RCS messages sent. This metric counts messages<br>that AWS End User Messaging accepted and attempted to deliver via RCS. Messages<br>blocked by Protect or service limits are excluded from this<br>count.                           | Count       | • Sum<br>• Sample Count<br>• Average |
-| `RCS.MessagesDelivered`       | The number of RCS messages successfully delivered to the<br>recipient's device. A message is counted as delivered when<br>AWS End User Messaging receives a delivery confirmation from the RCS<br>infrastructure.                                  | Count       | • Sum<br>• Sample Count<br>• Average |
-| `RCS.MessagesFallenBackToSMS` | The number of messages that were initially attempted via RCS<br>but fell back to SMS delivery. This metric helps you understand<br>how often RCS delivery is unavailable for your recipients and<br>can be used to track fallback rates over time. | Count       | • Sum<br>• Sample Count<br>• Average |
+RCS messaging metrics| Metric | Description | Unit | Meaningful statistics |
+| --- | --- | --- | --- |
+| `RCS.MessagesSent` | The number of RCS messages sent. This metric counts messages<br>that AWS End User Messaging accepted and attempted to deliver via RCS. Messages<br>blocked by Protect or service limits are excluded from this<br>count. | Count | • Sum<br>• Sample Count<br>• Average |
+| `RCS.MessagesDelivered` | The number of RCS messages successfully delivered to the<br>recipient's device. A message is counted as delivered when<br>AWS End User Messaging receives a delivery confirmation from the RCS<br>infrastructure. | Count | • Sum<br>• Sample Count<br>• Average |
+| `RCS.MessagesFallenBackToSMS` | The number of messages that were initially attempted via RCS<br>but fell back to SMS delivery. This metric helps you understand<br>how often RCS delivery is unavailable for your recipients and<br>can be used to track fallback rates over time. | Count | • Sum<br>• Sample Count<br>• Average |
 
 ## Modified existing metrics with OriginationIdentityType dimension
 
@@ -68,23 +68,23 @@ existing metrics described in the previous sections.
 The `OriginationIdentityType` dimension filters metrics by the
 type of origination identity used to send the message.
 
-| OriginationIdentityType dimension values | Value                                                                                                                                                                                    | Description |
-| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `PHONE_NUMBER`                           | Messages sent using a phone number (long code, short code,<br>or toll-free number).                                                                                                      |
-| `SENDER_ID`                              | Messages sent using a sender ID.                                                                                                                                                         |
-| `RCS_AGENT`                              | Messages sent using an AWS RCS Agent.                                                                                                                                                    |
-| `POOL`                                   | Messages sent using a phone pool. When you send through a<br>pool, AWS End User Messaging selects the appropriate origination identity<br>(AWS RCS Agent or phone number) automatically. |
+OriginationIdentityType dimension values| Value | Description |
+| --- | --- |
+| `PHONE_NUMBER` | Messages sent using a phone number (long code, short code,<br>or toll-free number). |
+| `SENDER_ID` | Messages sent using a sender ID. |
+| `RCS_AGENT` | Messages sent using an AWS RCS Agent. |
+| `POOL` | Messages sent using a phone pool. When you send through a<br>pool, AWS End User Messaging selects the appropriate origination identity<br>(AWS RCS Agent or phone number) automatically. |
 
 ### MessageType dimension
 
 The `MessageType` dimension filters metrics by the type of
 message.
 
-| MessageType dimension values | Value                                                                                         | Description |
-| ---------------------------- | --------------------------------------------------------------------------------------------- | ----------- |
-| `TEXT`                       | Text messages sent via RCS or SMS.                                                            |
-| `MEDIA`                      | Media messages (MMS). RCS in AWS End User Messaging currently supports<br>text messages only. |
-| `DELIVERY_REPORT`            | Delivery report messages confirming message delivery<br>status.                               |
+MessageType dimension values| Value | Description |
+| --- | --- |
+| `TEXT` | Text messages sent via RCS or SMS. |
+| `MEDIA` | Media messages (MMS). RCS in AWS End User Messaging currently supports<br>text messages only. |
+| `DELIVERY_REPORT` | Delivery report messages confirming message delivery<br>status. |
 
 ###### Note
 

@@ -8,12 +8,12 @@ This guide clarifies the critical distinction between first-party lead nurturing
 
 **Key principle:** The brand sending messages must be the same brand the consumer gave consent to. If there is any intermediary between the consumer's consent and the message sender, the campaign is classified as lead generation.
 
-| Lead generation vs. lead nurturing |                                                                 | First-party lead nurturing                                         | Third-party lead generation |
-| ---------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------- |
-| **Definition**                     | Messaging people who gave consent directly to \*your<br>• brand | Collecting contacts and selling/sharing them with other businesses |
-| **Consent source**                 | Your own form, website, or interaction                          | Aggregator sites, affiliate networks, purchased lists              |
-| **Who sends?**                     | The brand the consumer opted in to                              | A different brand than the one the consumer interacted with        |
-| **Registration outcome**           | Approved (with proper opt-in)                                   | Denied – not eligible for resubmission                             |
+Lead generation vs. lead nurturing| | First-party lead nurturing | Third-party lead generation |
+| --- | --- | --- |
+| **Definition** | Messaging people who gave consent directly to *your<br>• brand | Collecting contacts and selling/sharing them with other businesses |
+| **Consent source** | Your own form, website, or interaction | Aggregator sites, affiliate networks, purchased lists |
+| **Who sends?** | The brand the consumer opted in to | A different brand than the one the consumer interacted with |
+| **Registration outcome** | Approved (with proper opt-in) | Denied – not eligible for resubmission |
 
 ## What's allowed (first-party lead nurturing)
 
@@ -29,14 +29,14 @@ Businesses that collect their own leads and message those leads directly may reg
 
 The following activities are **not permitted** on A2P 10DLC:
 
-| Prohibited activity reference                          | Prohibited activity                                    | Why |
-| ------------------------------------------------------ | ------------------------------------------------------ | --- |
-| Selling or sharing opt-in lists with other businesses  | Consent is non-transferable between brands             |
-| Messaging contacts acquired from lead aggregator sites | Consumer did not consent to your brand specifically    |
-| Affiliate marketing via SMS                            | Promoting third-party products/services to your list   |
-| Co-registration (bundled consent for multiple brands)  | Each brand must obtain its own separate consent        |
-| Messaging contacts from purchased databases            | No direct consent relationship exists                  |
-| Operating as a lead-gen intermediary                   | Brand sending must be the brand that collected consent |
+Prohibited activity reference| Prohibited activity | Why |
+| --- | --- |
+| Selling or sharing opt-in lists with other businesses | Consent is non-transferable between brands |
+| Messaging contacts acquired from lead aggregator sites | Consumer did not consent to your brand specifically |
+| Affiliate marketing via SMS | Promoting third-party products/services to your list |
+| Co-registration (bundled consent for multiple brands) | Each brand must obtain its own separate consent |
+| Messaging contacts from purchased databases | No direct consent relationship exists |
+| Operating as a lead-gen intermediary | Brand sending must be the brand that collected consent |
 
 Campaigns involving these activities trigger permanent denials that are **not eligible for resubmission**.
 

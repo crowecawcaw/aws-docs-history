@@ -3,7 +3,7 @@
 Your registration will be in one of these different
 statuses:
 
-- **AUTHENTICATION_REQUIRED** – You need to complete
+- **AUTHENTICATION\_REQUIRED** – You need to complete
   two-factor authentication for your registration.
 - **CLOSED** – You deleted the resources and must also delete
   the registration for the number.
@@ -14,7 +14,7 @@ statuses:
 - **DELETED** – Your registration has been deleted.
 - **REVIEWING** – Your registration has been accepted and is
   being reviewed. You can't make any changes to your registration or any resources associated to the registration while it is in this state.
-- **REQUIRES_UPDATES** – You must fix your registration and
+- **REQUIRES\_UPDATES** – You must fix your registration and
   resubmit it. See [Edit a registration in AWS End User Messaging SMS](registrations-edit.md "registrations-edit.md") for more information. Fields that require
   updates display a warning icon and a brief description of the issue.
 - **SUBMITTED** – Your registration has been submitted and is

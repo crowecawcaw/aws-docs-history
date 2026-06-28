@@ -146,37 +146,37 @@ and the endpoint for each Region, see [Endpoints and quotas](../../../general/la
 number of Availability Zones that are available in each Region, see [AWS global
 infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
-| Region availability        | Region name    | Region                                                                              | Endpoint | Supports SMS/MMS channel | Supports voice channel |
-| -------------------------- | -------------- | ----------------------------------------------------------------------------------- | -------- | ------------------------ | ---------------------- |
-| US East (N. Virginia)      | us-east-1      | sms-voice.us-east-1.amazonaws.com<br>sms-voice-fips.us-east-1.amazonaws.com         | Yes      | Yes                      |
-| US East (Ohio)             | us-east-2      | sms-voice.us-east-2.amazonaws.com<br>sms-voice-fips.us-east-2.amazonaws.com         | Yes      | Yes                      |
-| US West (N. California)    | us-west-1      | sms-voice.us-west-1.amazonaws.com<br>sms-voice-fips.us-west-1.amazonaws.com         | Yes      | Yes                      |
-| US West (Oregon)           | us-west-2      | sms-voice.us-west-2.amazonaws.com<br>sms-voice-fips.us-west-2.amazonaws.com         | Yes      | Yes                      |
-| Africa (Cape Town)         | af-south-1     | sms-voice.af-south-1.amazonaws.com                                                  | Yes      | Yes                      |
-| Asia Pacific (Hyderabad)   | ap-south-2     | sms-voice.ap-south-2.amazonaws.com                                                  | Yes      | No                       |
-| Asia Pacific (Jakarta)     | ap-southeast-3 | sms-voice.ap-southeast-3.amazonaws.com                                              | Yes      | No                       |
-| Asia Pacific (Melbourne)   | ap-southeast-4 | sms-voice.ap-southeast-4.amazonaws.com                                              | Yes      | No                       |
-| Asia Pacific (Mumbai)      | ap-south-1     | sms-voice.ap-south-1.amazonaws.com                                                  | Yes      | Yes                      |
-| Asia Pacific (Osaka)       | ap-northeast-3 | sms-voice.ap-northeast-3.amazonaws.com                                              | Yes      | Yes                      |
-| Asia Pacific (Seoul)       | ap-northeast-2 | sms-voice.ap-northeast-2.amazonaws.com                                              | Yes      | Yes                      |
-| Asia Pacific (Singapore)   | ap-southeast-1 | sms-voice.ap-southeast-1.amazonaws.com                                              | Yes      | Yes                      |
-| Asia Pacific (Sydney)      | ap-southeast-2 | sms-voice.ap-southeast-2.amazonaws.com                                              | Yes      | Yes                      |
-| Asia Pacific (Tokyo)       | ap-northeast-1 | sms-voice.ap-northeast-1.amazonaws.com                                              | Yes      | Yes                      |
-| Asia Pacific (New Zealand) | ap-southeast-6 | sms-voice.ap-southeast-6.amazonaws.com                                              | Yes      | No                       |
-| Asia Pacific (Taipei)      | ap-east-2      | sms-voice.ap-east-2.amazonaws.com                                                   | Yes      | No                       |
-| AWS GovCloud (US-East)     | us-gov-east-1  | sms-voice.us-gov-east-1.amazonaws.com<br>sms-voice-fips.us-gov-east-1.amazonaws.com | Yes      | No                       |
-| AWS GovCloud (US-West)     | us-gov-west-1  | sms-voice.us-gov-west-1.amazonaws.com<br>sms-voice-fips.us-gov-west-1.amazonaws.com | Yes      | Yes                      |
-| Canada (Central)           | ca-central-1   | sms-voice.ca-central-1.amazonaws.com<br>sms-voice-fips.ca-central-1.amazonaws.com   | Yes      | Yes                      |
-| Canada West (Calgary)      | ca-west-1      | sms-voice.ca-west-1.amazonaws.com<br>sms-voice-fips.ca-west-1.amazonaws.com         | Yes      | No                       |
-| Europe (Frankfurt)         | eu-central-1   | sms-voice.eu-central-1.amazonaws.com                                                | Yes      | Yes                      |
-| Europe (Ireland)           | eu-west-1      | sms-voice.eu-west-1.amazonaws.com                                                   | Yes      | Yes                      |
-| Europe (London)            | eu-west-2      | sms-voice.eu-west-2.amazonaws.com                                                   | Yes      | Yes                      |
-| Europe (Milan)             | eu-south-1     | sms-voice.eu-south-1.amazonaws.com                                                  | Yes      | No                       |
-| Europe (Paris)             | eu-west-3      | sms-voice.eu-west-3.amazonaws.com                                                   | Yes      | Yes                      |
-| Europe (Spain)             | eu-south-2     | sms-voice.eu-south-2.amazonaws.com                                                  | Yes      | No                       |
-| Europe (Stockholm)         | eu-north-1     | sms-voice.eu-north-1.amazonaws.com                                                  | Yes      | Yes                      |
-| Europe (Zurich)            | eu-central-2   | sms-voice.eu-central-2.amazonaws.com                                                | Yes      | No                       |
-| Israel (Tel Aviv)          | il-central-1   | sms-voice.il-central-1.amazonaws.com                                                | Yes      | No                       |
-| Middle East (Bahrain)      | me-south-1     | sms-voice.me-south-1.amazonaws.com                                                  | Yes      | Yes                      |
-| Middle East (UAE)          | me-central-1   | sms-voice.me-central-1.amazonaws.com                                                | Yes      | No                       |
-| South America (São Paulo)  | sa-east-1      | sms-voice.sa-east-1.amazonaws.com                                                   | Yes      | Yes                      |
+Region availability| Region name | Region | Endpoint | Supports SMS/MMS channel | Supports voice channel |
+| --- | --- | --- | --- | --- |
+| US East (N. Virginia) | us-east-1 | sms-voice.us-east-1.amazonaws.com<br>sms-voice-fips.us-east-1.amazonaws.com | Yes | Yes |
+| US East (Ohio) | us-east-2 | sms-voice.us-east-2.amazonaws.com<br>sms-voice-fips.us-east-2.amazonaws.com | Yes | Yes |
+| US West (N. California) | us-west-1 | sms-voice.us-west-1.amazonaws.com<br>sms-voice-fips.us-west-1.amazonaws.com | Yes | Yes |
+| US West (Oregon) | us-west-2 | sms-voice.us-west-2.amazonaws.com<br>sms-voice-fips.us-west-2.amazonaws.com | Yes | Yes |
+| Africa (Cape Town) | af-south-1 | sms-voice.af-south-1.amazonaws.com | Yes | Yes |
+| Asia Pacific (Hyderabad) | ap-south-2 | sms-voice.ap-south-2.amazonaws.com | Yes | No |
+| Asia Pacific (Jakarta) | ap-southeast-3 | sms-voice.ap-southeast-3.amazonaws.com | Yes | No |
+| Asia Pacific (Melbourne) | ap-southeast-4 | sms-voice.ap-southeast-4.amazonaws.com | Yes | No |
+| Asia Pacific (Mumbai) | ap-south-1 | sms-voice.ap-south-1.amazonaws.com | Yes | Yes |
+| Asia Pacific (Osaka) | ap-northeast-3 | sms-voice.ap-northeast-3.amazonaws.com | Yes | Yes |
+| Asia Pacific (Seoul) | ap-northeast-2 | sms-voice.ap-northeast-2.amazonaws.com | Yes | Yes |
+| Asia Pacific (Singapore) | ap-southeast-1 | sms-voice.ap-southeast-1.amazonaws.com | Yes | Yes |
+| Asia Pacific (Sydney) | ap-southeast-2 | sms-voice.ap-southeast-2.amazonaws.com | Yes | Yes |
+| Asia Pacific (Tokyo) | ap-northeast-1 | sms-voice.ap-northeast-1.amazonaws.com | Yes | Yes |
+| Asia Pacific (New Zealand) | ap-southeast-6 | sms-voice.ap-southeast-6.amazonaws.com | Yes | No |
+| Asia Pacific (Taipei) | ap-east-2 | sms-voice.ap-east-2.amazonaws.com | Yes | No |
+| AWS GovCloud (US-East) | us-gov-east-1 | sms-voice.us-gov-east-1.amazonaws.com<br>sms-voice-fips.us-gov-east-1.amazonaws.com | Yes | No |
+| AWS GovCloud (US-West) | us-gov-west-1 | sms-voice.us-gov-west-1.amazonaws.com<br>sms-voice-fips.us-gov-west-1.amazonaws.com | Yes | Yes |
+| Canada (Central) | ca-central-1 | sms-voice.ca-central-1.amazonaws.com<br>sms-voice-fips.ca-central-1.amazonaws.com | Yes | Yes |
+| Canada West (Calgary) | ca-west-1 | sms-voice.ca-west-1.amazonaws.com<br>sms-voice-fips.ca-west-1.amazonaws.com | Yes | No |
+| Europe (Frankfurt) | eu-central-1 | sms-voice.eu-central-1.amazonaws.com | Yes | Yes |
+| Europe (Ireland) | eu-west-1 | sms-voice.eu-west-1.amazonaws.com | Yes | Yes |
+| Europe (London) | eu-west-2 | sms-voice.eu-west-2.amazonaws.com | Yes | Yes |
+| Europe (Milan) | eu-south-1 | sms-voice.eu-south-1.amazonaws.com | Yes | No |
+| Europe (Paris) | eu-west-3 | sms-voice.eu-west-3.amazonaws.com | Yes | Yes |
+| Europe (Spain) | eu-south-2 | sms-voice.eu-south-2.amazonaws.com | Yes | No |
+| Europe (Stockholm) | eu-north-1 | sms-voice.eu-north-1.amazonaws.com | Yes | Yes |
+| Europe (Zurich) | eu-central-2 | sms-voice.eu-central-2.amazonaws.com | Yes | No |
+| Israel (Tel Aviv) | il-central-1 | sms-voice.il-central-1.amazonaws.com | Yes | No |
+| Middle East (Bahrain) | me-south-1 | sms-voice.me-south-1.amazonaws.com | Yes | Yes |
+| Middle East (UAE) | me-central-1 | sms-voice.me-central-1.amazonaws.com | Yes | No |
+| South America (São Paulo) | sa-east-1 | sms-voice.sa-east-1.amazonaws.com | Yes | Yes |

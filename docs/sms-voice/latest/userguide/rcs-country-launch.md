@@ -169,7 +169,7 @@ The registration has been approved and the country launch
 agent (RCS for Business ID) is active. Your AWS RCS Agent can
 send messages in this country.
 
-**REQUIRES_UPDATES**
+**REQUIRES\_UPDATES**
 
 The registration requires changes before it can be approved.
 Review the feedback provided, update the required fields, and
@@ -310,7 +310,7 @@ To help ensure a smooth approval process:
 - Provide a clear and complete screen recording that
   demonstrates your RCS messaging use case. See
   [Launch video requirements](rcs-compliance-video.md "rcs-compliance-video.md").
-- Respond promptly to any REQUIRES_UPDATES feedback from the review
+- Respond promptly to any REQUIRES\_UPDATES feedback from the review
   process.
 - Ensure your privacy policy and terms of service URLs are accessible
   and up to date.
@@ -324,7 +324,7 @@ compliance requirements and how to avoid denials, see
 
 ### Registration requires updates
 
-If your registration enters the REQUIRES_UPDATES state, review the
+If your registration enters the REQUIRES\_UPDATES state, review the
 feedback provided in the registration details. Common reasons include:
 
 - Incomplete or inaccurate brand information.
@@ -360,7 +360,7 @@ Carrier approval timelines vary by country and can take
 several months. If your registration has been in the REVIEWING state for
 longer than expected:
 
-- Verify that your registration does not have a REQUIRES_UPDATES
+- Verify that your registration does not have a REQUIRES\_UPDATES
   status that you may have missed.
 - Check the per-carrier status using the
   `DescribeRcsAgentCountryLaunchStatus` API to see if

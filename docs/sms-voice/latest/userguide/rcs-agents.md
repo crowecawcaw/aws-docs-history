@@ -44,12 +44,12 @@ The AWS RCS Agent follows this lifecycle:
 The AWS RCS Agent is distinct from the RCS for Business IDs that it
 manages. The following table summarizes the differences:
 
-| AWS RCS Agent compared to RCS for Business ID | Attribute                                                                                          | AWS RCS Agent                                               | RCS for Business ID |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------- |
-| Managed by                                    | You, through AWS End User Messaging console or API                                                 | AWS End User Messaging, during the registration process     |
-| Scope                                         | One per brand or per use case                                                                      | One per country launch, plus one testing agent              |
-| Configuration                                 | Friendly name, deletion protection, opt-out list, tags,<br>keywords, two-way messaging destination | Brand assets and other settings defined during registration |
-| Identifier                                    | `rcs-a1b2c3d4` format                                                                              | Managed internally by the RCS infrastructure provider       |
+AWS RCS Agent compared to RCS for Business ID| Attribute | AWS RCS Agent | RCS for Business ID |
+| --- | --- | --- |
+| Managed by | You, through AWS End User Messaging console or API | AWS End User Messaging, during the registration process |
+| Scope | One per brand or per use case | One per country launch, plus one testing agent |
+| Configuration | Friendly name, deletion protection, opt-out list, tags,<br>keywords, two-way messaging destination | Brand assets and other settings defined during registration |
+| Identifier | `rcs-a1b2c3d4` format | Managed internally by the RCS infrastructure provider |
 
 ### Agent ID and ARN
 

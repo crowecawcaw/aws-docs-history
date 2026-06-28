@@ -115,7 +115,7 @@ Configuration is being validated.
 ACTIVE
 Ready to send messages.
 
-REQUIRES_VERIFICATION
+REQUIRES\_VERIFICATION
 Brand name requires verification before activation.
 
 REJECTED

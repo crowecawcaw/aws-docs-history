@@ -49,15 +49,15 @@ identities, routing, and compliance. Use standard AWS End User Messaging SMS sen
 bodies, marketing or promotional messages, MMS messaging, or full control over which
 origination identity sends each message.
 
-| Notify vs. standard SMS sending | Feature                 | Standard SMS              | Notify |
-| ------------------------------- | ----------------------- | ------------------------- | ------ |
-| Phone number provisioning       | Required                | Not required              |
-| Number registration             | Customer responsibility | AWS-managed               |
-| Time to first message           | Days to weeks           | Minutes                   |
-| Message templates               | Customer-managed        | Pre-approved, AWS-managed |
-| Fraud protection                | Optional                | Mandatory                 |
-| Identity management             | Customer-managed        | AWS-managed               |
-| Routing logic                   | Customer-managed        | AWS-managed               |
+Notify vs. standard SMS sending| Feature | Standard SMS | Notify |
+| --- | --- | --- |
+| Phone number provisioning | Required | Not required |
+| Number registration | Customer responsibility | AWS-managed |
+| Time to first message | Days to weeks | Minutes |
+| Message templates | Customer-managed | Pre-approved, AWS-managed |
+| Fraud protection | Optional | Mandatory |
+| Identity management | Customer-managed | AWS-managed |
+| Routing logic | Customer-managed | AWS-managed |
 
 ###### Key concepts
 

@@ -29,28 +29,27 @@ You can request an increase to your maximum monthly spending quota by using the
 
 ###### To request a spending limit increase
 
-1.  Sign in to the AWS Management Console and open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
-2.  In the Navigation pane, choose **AWS Services**.
-3.  Choose **AWS End User Messaging** from the list, or search for
-    **AWS End User Messaging** in the search box.
-4.  Choose the applicable spending quota
+1. Sign in to the AWS Management Console and open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
+2. In the Navigation pane, choose **AWS Services**.
+3. Choose **AWS End User Messaging** from the list, or search for
+   **AWS End User Messaging** in the search box.
+4. Choose the applicable spending quota
 
-        * **TextMessageMonthlySpend**
-        * **VoiceMessageMonthlySpend**
-        * **MediaMessageMonthlySpend**
+   - **TextMessageMonthlySpend**
+   - **VoiceMessageMonthlySpend**
+   - **MediaMessageMonthlySpend**
+     and then choose **Request increase at account level**.
 
-    and then choose **Request increase at account level**.
-
-5.  For increased quota value, enter the new value. The new value must be greater
-    than the current value.
-6.  Choose **Request**.
-7.  To view any pending or recently resolved requests in the console, navigate to
-    the **Request history** tab from the service's details page or
-    choose **Dashboard** from the navigation pane. For pending
-    requests, choose the status of the request to open the request receipt. The
-    initial status of a request is **Pending**. After the status
-    changes to **Quota requested**, the Support case number is
-    shown. Choose the case number to open the ticket for your request.
+5. For increased quota value, enter the new value. The new value must be greater
+   than the current value.
+6. Choose **Request**.
+7. To view any pending or recently resolved requests in the console, navigate to
+   the **Request history** tab from the service's details page or
+   choose **Dashboard** from the navigation pane. For pending
+   requests, choose the status of the request to open the request receipt. The
+   initial status of a request is **Pending**. After the status
+   changes to **Quota requested**, the Support case number is
+   shown. Choose the case number to open the ticket for your request.
 
 The AWS Support team provides an initial response to your request within 24 hours.
 

@@ -84,5 +84,5 @@ information).
 
 After you submit the registration, the carrier review proceeds through the
 standard approval workflow. No additional action is required from you unless the
-registration enters the REQUIRES_UPDATES state. For general compliance guidance,
+registration enters the REQUIRES\_UPDATES state. For general compliance guidance,
 see [RCS country launch compliance guide](rcs-country-launch-compliance.md "rcs-country-launch-compliance.md").

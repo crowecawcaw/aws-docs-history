@@ -46,13 +46,12 @@ regulatory body the registration form is sent to. 5. (optional) Expand **Tags** 
     * **Edit a tag** – In **Manage tags**
      choose the **Key** or **Value** and edit the text.
 
-6. Choose **Create**.
-7. Your registration has now been created and you need to enter in all required information
-   then submit.
+6. Choose **Create**. 7. Your registration has now been created and you need to enter in all required information
+then submit.
 
-   - **US toll-free number registration** – [US toll-free number registration form](registrations-tfn-register.md "registrations-tfn-register.md").
-   - **US 10DLC Brand vetting** – The 10DLC brand has been
+    * **US toll-free number registration** – [US toll-free number registration form](registrations-tfn-register.md "registrations-tfn-register.md").
+    * **US 10DLC Brand vetting** – The 10DLC brand has been
      submitting for vetting and you don't need to fill out any additional forms, see [10DLC brand vetting form](registrations-10dlc-vetting.md "registrations-10dlc-vetting.md").
-   - **US 10DLC Brand registration** – [10DLC brand registration form](registrations-10dlc-company.md "registrations-10dlc-company.md").
-   - **US-10DLC campaign registration** – [10DLC campaign registration form](registrations-10dlc-register-campaign.md "registrations-10dlc-register-campaign.md").
-   - **Singapore sender ID registration** – [Singapore sender ID registration form](registrations-sg-form.md "registrations-sg-form.md").
+    * **US 10DLC Brand registration** – [10DLC brand registration form](registrations-10dlc-company.md "registrations-10dlc-company.md").
+    * **US-10DLC campaign registration** – [10DLC campaign registration form](registrations-10dlc-register-campaign.md "registrations-10dlc-register-campaign.md").
+    * **Singapore sender ID registration** – [Singapore sender ID registration form](registrations-sg-form.md "registrations-sg-form.md").

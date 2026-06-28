@@ -31,22 +31,22 @@ To request a phone number using the AWS End User Messaging SMS console, follow t
 
 ###### Request a phone number (Console)
 
-1.  Open the AWS End User Messaging SMS console at
-    [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
-2.  In the navigation pane, under **Configurations**, choose
-    **Phone numbers** and then **Request originator**.
-3.  On the **Select country** page you must choose the **Message
-    destination country** from the dropdown that messages will be sent to. Choose
-    **Next**.
-4.  On the **Messaging use case** section, enter the following:
+1. Open the AWS End User Messaging SMS console at
+   [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
+2. In the navigation pane, under **Configurations**, choose
+   **Phone numbers** and then **Request originator**.
+3. On the **Select country** page you must choose the **Message
+   destination country** from the dropdown that messages will be sent to. Choose
+   **Next**.
+4. On the **Messaging use case** section, enter the following:
 
-    - Under **Number capabilities**, choose any combination of available
-      capabilities:
+   - Under **Number capabilities**, choose any combination of available
+     capabilities:
 
-    ###### Important
+   ###### Important
 
-    Capabilities for SMS, MMS, and Voice can't be changed after the phone number has been
-    purchased.
+   Capabilities for SMS, MMS, and Voice can't be changed after the phone number has been
+   purchased.
 
         + **Text messages (SMS)** Choose this if you need SMS
          capabilities.
@@ -63,38 +63,38 @@ To request a phone number using the AWS End User Messaging SMS console, follow t
          and [Choosing an origination identity](phone-number-types.md "phone-number-types.md").
         + **Text to audio messages (Voice)** – Choose this if you need
          voice capabilities.
-    - Under **Estimated monthly message volume – optional**, choose
-      the estimated number of SMS messages you will send each month.
-    - For **Company headquarters - optional**, choose either of the
-      following:
+   - Under **Estimated monthly message volume – optional**, choose
+     the estimated number of SMS messages you will send each month.
+   - For **Company headquarters - optional**, choose either of the
+     following:
 
-      - **Local** – Choose this if your company's headquarters is in
-        the same country as your customers who will revive SMS messages. For example, you would
-        choose this option if your headquarters is in the United States and your users who will
-        receive messages are also in the United States.
-      - **International** – Choose this if your company's
-        headquarters is not in the same country as your customers who will revive SMS
-        messages.
+     - **Local** – Choose this if your company's headquarters is in
+       the same country as your customers who will revive SMS messages. For example, you would
+       choose this option if your headquarters is in the United States and your users who will
+       receive messages are also in the United States.
+     - **International** – Choose this if your company's
+       headquarters is not in the same country as your customers who will revive SMS
+       messages.
 
-    - For **Two-way messaging**, choose **Yes** if you
-      require two-way messaging.
+   - For **Two-way messaging**, choose **Yes** if you
+     require two-way messaging.
 
-5.  Choose **Next**.
-6.  Under **Select originator type**, choose either the recommend phone
-    number type or one of the available number types. The available options are based on the use
-    case information you filled out in the previous steps.
+5. Choose **Next**.
+6. Under **Select originator type**, choose either the recommend phone
+   number type or one of the available number types. The available options are based on the use
+   case information you filled out in the previous steps.
 
-    - If you choose 10DLC and already have a registered campaign you can choose the campaign
-      from the **Associate to registered campaign** to add the 10DLC phone number
-      to the 10DLC campaign.
-    - If the number type you want isn't available you can choose **Previous**
-      to go back and modify your use case. Also check the [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") to
-      make sure the originator type you want is supported in the destination country.
-    - If you want to request a short code or long code you may need to open a case with Support. For
-      more information, see [Requesting dedicated short codes](phone-numbers-request-short-code.md "phone-numbers-request-short-code.md") and [Requesting dedicated long codes](phone-numbers-request-long-code.md "phone-numbers-request-long-code.md").
+   - If you choose 10DLC and already have a registered campaign you can choose the campaign
+     from the **Associate to registered campaign** to add the 10DLC phone number
+     to the 10DLC campaign.
+   - If the number type you want isn't available you can choose **Previous**
+     to go back and modify your use case. Also check the [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") to
+     make sure the originator type you want is supported in the destination country.
+   - If you want to request a short code or long code you may need to open a case with Support. For
+     more information, see [Requesting dedicated short codes](phone-numbers-request-short-code.md "phone-numbers-request-short-code.md") and [Requesting dedicated long codes](phone-numbers-request-long-code.md "phone-numbers-request-long-code.md").
 
-7.  Use **Resource policy** to share your phone number other AWS accounts or AWS services. To share the phone number at a later time, see [Sharing a phone number, pool, opt-out list, or sender ID](shared-resources.md#sharing-share "shared-resources.md#sharing-share"). For more information on
-    **Resource policy**, see [Working with shared resources in AWS End User Messaging SMS](shared-resources.md "shared-resources.md").
+7. Use **Resource policy** to share your phone number other AWS accounts or AWS services. To share the phone number at a later time, see [Sharing a phone number, pool, opt-out list, or sender ID](shared-resources.md#sharing-share "shared-resources.md#sharing-share"). For more information on
+   **Resource policy**, see [Working with shared resources in AWS End User Messaging SMS](shared-resources.md "shared-resources.md").
 
 ###### Note
 
@@ -106,24 +106,24 @@ Amazon SNS even if you are using the same AWS account.
     2. Choose **Simple notification Service (Amazon SNS)** to share the pool with
      Amazon SNS
 
-8. Choose **Next**.
-9. On **Review and request** you can verify and edit your request before submitting it. Choose **Request**.
-10. A **Registration Required** window might appear depending on the type
-    of phone number you requested. Your phone number or sender ID is associated with this
-    registration and can't send messages until your registration has been approved. For more
-    information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
+8. Choose **Next**. 9. On **Review and request** you can verify and edit your request before submitting it. Choose **Request**. 10. A **Registration Required** window might appear depending on the type
+of phone number you requested. Your phone number or sender ID is associated with this
+registration and can't send messages until your registration has been approved. For more
+information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
 
     1. For **Registration form name** enter a friendly name.
     2. Choose **Begin registration** to finish registering the phone
-       number or **Register later**.
+     number or **Register later**.
+
 
     ###### Important
 
     Your phone number or sender ID can't send messages until your registration has been
-    approved.
+     approved.
 
-    You are still billed the recurring monthly lease fee for the phone number regardless of
-    registration status. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
+
+     You are still billed the recurring monthly lease fee for the phone number regardless of
+     registration status. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
 
 Request a phone number for the United States (Console)
 
@@ -193,25 +193,24 @@ Amazon SNS even if you are using the same AWS account.
     2. Choose **Simple notification Service (Amazon SNS)** to share the pool with
      Amazon SNS
 
-8. Choose **Next**.
-9. On **Review and request** you can verify and edit your request before
-   submitting it. Choose **Request**.
-10. A **Registration Required** window might appear depending on the type
-    of phone number you requested. Your phone number or sender ID is associated with this
-    registration and can't send messages until your registration has been approved. For more
-    information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
+8. Choose **Next**. 9. On **Review and request** you can verify and edit your request before
+submitting it. Choose **Request**. 10. A **Registration Required** window might appear depending on the type
+of phone number you requested. Your phone number or sender ID is associated with this
+registration and can't send messages until your registration has been approved. For more
+information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
 
     1. For **Registration form name** enter a friendly name.
     2. Choose **Begin registration** to finish registering the phone number
-       or **Register later**.
+     or **Register later**.
+
 
     ###### Important
 
     Your phone number or sender ID can't send messages until your registration has been
-    approved.
+     approved.
 
-    You are still billed the recurring monthly lease fee for the phone number regardless
-    of registration status. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
+     You are still billed the recurring monthly lease fee for the phone number regardless
+     of registration status. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
 
 Request a phone number (AWS CLI)You can use the [request-phone-number](../../../cli/latest/reference/pinpoint-sms-voice-v2/request-phone-number.md "../../../cli/latest/reference/pinpoint-sms-voice-v2/request-phone-number.md") command to add new phone numbers to your account. Phone
 number availability and supported features vary by country.

@@ -43,20 +43,17 @@ phone number or sender ID type. 4. On the **Messaging use case** section, enter 
     	+ **Text to audio messages (Voice)** – Choose if you need SMS capabilities.
 
 5. Under **Estimated monthly SMS message volume per month –
-   optional**, choose the estimated number of SMS messages you will send each
-   month.
-6. For **Company headquarters - optional**, choose either of the following:
+optional**, choose the estimated number of SMS messages you will send each
+month. 6. For **Company headquarters - optional**, choose either of the following:
 
-   - **Local** – Choose this if your companies headquarters is in
+    * **Local** – Choose this if your companies headquarters is in
      the same country as your customers who will revive SMS messages. For example, you would choose this option if your headquarters is in the
      United States and your users who will receive messages are also in the United States.
-   - **International** – Choose this if your companies headquarters is not in
+    * **International** – Choose this if your companies headquarters is not in
      the same country as your customers who will revive SMS messages.
 
 7. For **Two-way messaging**, choose **Yes** if you
-   require two-way messaging.
-8. Choose **Next**.
-9. Under **Originator type**, choose Sender ID.
+require two-way messaging. 8. Choose **Next**. 9. Under **Originator type**, choose Sender ID.
 
 If sender ID isn't available then choose **Previous** to go back and
 modify your use case. Also check the [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](phone-numbers-sms-by-country.md "phone-numbers-sms-by-country.md") to sender IDs are supported in the destination
@@ -76,14 +73,13 @@ even if you are using the same AWS account.
     2. Choose **Simple notification Service (Amazon SNS)** to share the pool with
      Amazon SNS
 
-11. Choose **Next**.
-12. On **Review and request** you can verify and edit your request before submitting it. Choose **Request**.
-13. A **Registration Required** window might appear depending on the type of
-    number you requested. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
+11. Choose **Next**. 12. On **Review and request** you can verify and edit your request before submitting it. Choose **Request**. 13. A **Registration Required** window might appear depending on the type of
+number you requested. For more information about registrations requirements see [Origination identity registration in AWS End User Messaging SMS](registrations.md "registrations.md").
 
-    1.  For **Registration form name** enter a name.
-    2.  Choose **Complete registration** to finish registering the sender ID
-        or **Register later**.
+    1. For **Registration form name** enter a name.
+    2. Choose **Complete registration** to finish registering the sender ID
+     or **Register later**.
+
 
     ###### Important
 

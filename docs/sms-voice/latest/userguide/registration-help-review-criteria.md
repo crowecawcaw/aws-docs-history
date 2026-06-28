@@ -19,16 +19,16 @@ review on the first attempt.
 - Only one brand is registered per EIN
 - Brand vetting is complete before submitting campaigns
 
-| Common mistakes                               | Mistake                    | Related denial title |
-| --------------------------------------------- | -------------------------- | -------------------- |
-| Using a public email domain for support       | Public email domain        |
-| Physical address cannot be verified           | Brand address invalid      |
-| Same EIN registered for multiple brands       | Brand multi-use            |
-| Website missing or inaccessible               | Invalid brand URL          |
-| DBA name doesn't match legal entity           | DBA name mismatch          |
-| Brand vetting score too low                   | Brand invalid vetting      |
-| Brand not verified before campaign submission | Brand unverified           |
-| Support phone number missing or invalid       | Invalid brand phone number |
+Common mistakes| Mistake | Related denial title |
+| --- | --- |
+| Using a public email domain for support | Public email domain |
+| Physical address cannot be verified | Brand address invalid |
+| Same EIN registered for multiple brands | Brand multi-use |
+| Website missing or inaccessible | Invalid brand URL |
+| DBA name doesn't match legal entity | DBA name mismatch |
+| Brand vetting score too low | Brand invalid vetting |
+| Brand not verified before campaign submission | Brand unverified |
+| Support phone number missing or invalid | Invalid brand phone number |
 
 ###### Tip
 
@@ -52,15 +52,15 @@ review on the first attempt.
 - Site has substantive content beyond a single form
 - Domain has clean reputation (not flagged for malware or phishing)
 
-| Common mistakes                                   | Mistake                         | Related denial title |
-| ------------------------------------------------- | ------------------------------- | -------------------- |
-| URL is broken or doesn't resolve                  | Invalid brand URL               |
-| Site requires login to access                     | Website requires authentication |
-| Only a lead capture form with no business context | Website contains only a form    |
-| Not enough information about the business         | Insufficient website content    |
-| Domain flagged in threat intelligence databases   | High-risk domain reputation     |
-| Website references affiliate marketing            | Non-compliant brand affiliation |
-| Website references prohibited content categories  | Non-compliant brand affiliation |
+Common mistakes| Mistake | Related denial title |
+| --- | --- |
+| URL is broken or doesn't resolve | Invalid brand URL |
+| Site requires login to access | Website requires authentication |
+| Only a lead capture form with no business context | Website contains only a form |
+| Not enough information about the business | Insufficient website content |
+| Domain flagged in threat intelligence databases | High-risk domain reputation |
+| Website references affiliate marketing | Non-compliant brand affiliation |
+| Website references prohibited content categories | Non-compliant brand affiliation |
 
 ###### Tip
 
@@ -86,17 +86,17 @@ review on the first attempt.
 - Single brand per campaign (not multiple companies)
 - If ISV: identifies the end brand, not the platform
 
-| Common mistakes                                  | Mistake                            | Related denial title |
-| ------------------------------------------------ | ---------------------------------- | -------------------- |
-| Description doesn't match samples or use case    | Campaign mismatch                  |
-| Too vague to understand the program purpose      | Campaign unclear                   |
-| Brand name doesn't match registration            | Campaign to brand mismatch         |
-| Same text pasted across multiple fields          | Duplicate content across fields    |
-| Non-English content without translation          | Non-English campaign content       |
-| Multiple brands referenced in one campaign       | Multiple brands in one campaign    |
-| Describes personal or P2P messaging              | Personal or P2P use case detected  |
+Common mistakes| Mistake | Related denial title |
+| --- | --- |
+| Description doesn't match samples or use case | Campaign mismatch |
+| Too vague to understand the program purpose | Campaign unclear |
+| Brand name doesn't match registration | Campaign to brand mismatch |
+| Same text pasted across multiple fields | Duplicate content across fields |
+| Non-English content without translation | Non-English campaign content |
+| Multiple brands referenced in one campaign | Multiple brands in one campaign |
+| Describes personal or P2P messaging | Personal or P2P use case detected |
 | Direct lending not declared as content attribute | Campaign undeclared direct lending |
-| ISV registered instead of end brand              | Invalid brand business connection  |
+| ISV registered instead of end brand | Invalid brand business connection |
 
 ###### Tip
 
@@ -119,15 +119,15 @@ review on the first attempt.
 - Use case is a permitted category (not prohibited content)
 - Only one campaign per use case (no duplicates)
 
-| Common mistakes                                           | Mistake                                               | Related denial title |
-| --------------------------------------------------------- | ----------------------------------------------------- | -------------------- |
-| Samples indicate charity but use case is not Charity      | Campaign mismatch: charity                            |
-| Samples indicate political but use case is not Political  | Campaign mismatch: political                          |
-| Same use case duplicated across multiple campaigns        | Campaign multi use                                    |
-| Test or non-production use case for live traffic          | Campaign non-compliant content: non-subscriber facing |
-| Direct lending content without content attribute selected | Campaign undeclared direct lending                    |
-| Emergency alert use case (not permitted for 10DLC)        | Emergency alert use case not permitted                |
-| Campaign not qualified for selected use case              | Campaign not qualified for use case                   |
+Common mistakes| Mistake | Related denial title |
+| --- | --- |
+| Samples indicate charity but use case is not Charity | Campaign mismatch: charity |
+| Samples indicate political but use case is not Political | Campaign mismatch: political |
+| Same use case duplicated across multiple campaigns | Campaign multi use |
+| Test or non-production use case for live traffic | Campaign non-compliant content: non-subscriber facing |
+| Direct lending content without content attribute selected | Campaign undeclared direct lending |
+| Emergency alert use case (not permitted for 10DLC) | Emergency alert use case not permitted |
+| Campaign not qualified for selected use case | Campaign not qualified for use case |
 
 ###### Tip
 
@@ -152,17 +152,17 @@ review on the first attempt.
 - If embedded phone number is selected, it appears in samples
 - Each sample contains unique content
 
-| Common mistakes                                 | Mistake                                                     | Related denial title |
-| ----------------------------------------------- | ----------------------------------------------------------- | -------------------- |
-| Brand name missing from samples                 | Sample message(s) mismatch                                  |
-| Samples don't match declared use case           | Sample messages use case mismatch                           |
-| Contains public URL shorteners                  | Sample message(s) URL shortener                             |
-| Embedded phone selected but not in samples      | Sample messages(s) embedded phone number                    |
-| Prohibited SHAFT content in samples             | Non-compliant message samples: SHAFT                        |
-| High-risk financial content in samples          | Non-compliant message samples: high-risk financial services |
-| Gambling content in samples                     | Non-compliant message samples: gambling                     |
-| Samples indicate charity but use case differs   | Sample messages use case mismatch: charity                  |
-| Samples indicate political but use case differs | Sample messages use case mismatch: political                |
+Common mistakes| Mistake | Related denial title |
+| --- | --- |
+| Brand name missing from samples | Sample message(s) mismatch |
+| Samples don't match declared use case | Sample messages use case mismatch |
+| Contains public URL shorteners | Sample message(s) URL shortener |
+| Embedded phone selected but not in samples | Sample messages(s) embedded phone number |
+| Prohibited SHAFT content in samples | Non-compliant message samples: SHAFT |
+| High-risk financial content in samples | Non-compliant message samples: high-risk financial services |
+| Gambling content in samples | Non-compliant message samples: gambling |
+| Samples indicate charity but use case differs | Sample messages use case mismatch: charity |
+| Samples indicate political but use case differs | Sample messages use case mismatch: political |
 
 ###### Tip
 
@@ -190,21 +190,21 @@ review on the first attempt.
 - Each declared opt-in method has complete workflow details
 - Consent is freely given (not bundled as condition of service)
 
-| Common mistakes                                | Mistake                                                         | Related denial title |
-| ---------------------------------------------- | --------------------------------------------------------------- | -------------------- |
-| No opt-in URL or screenshot provided           | Opt-in workflow missing                                         |
-| Missing "message and data rates" disclosure    | Opt-in workflow non compliant message and data rates disclosure |
-| Missing message frequency disclosure           | Opt-in workflow non compliant message frequency disclosure      |
-| Missing HELP/STOP instructions                 | Opt-in workflow non-compliant HELP or STOP                      |
-| Missing privacy policy link                    | Opt-in workflow non compliant privacy policy                    |
-| Missing terms and conditions link              | Opt-in workflow non compliant terms and conditions              |
-| Consent not sufficiently explicit              | Opt-in workflow insufficient consent                            |
-| Brand name missing from opt-in flow            | Opt-in workflow mismatch                                        |
-| Checkbox pre-selected by default               | Opt-in checkbox missing or pre-selected                         |
-| Marketing consent bundled with transactional   | Marketing consent not separated                                 |
-| Opt-in data shared with third parties          | Opt-in data shared with third parties                           |
-| Missing required consent language              | Non-compliant consent language                                  |
-| Multiple opt-in methods but incomplete details | Incomplete opt-in workflow details                              |
+Common mistakes| Mistake | Related denial title |
+| --- | --- |
+| No opt-in URL or screenshot provided | Opt-in workflow missing |
+| Missing "message and data rates" disclosure | Opt-in workflow non compliant message and data rates disclosure |
+| Missing message frequency disclosure | Opt-in workflow non compliant message frequency disclosure |
+| Missing HELP/STOP instructions | Opt-in workflow non-compliant HELP or STOP |
+| Missing privacy policy link | Opt-in workflow non compliant privacy policy |
+| Missing terms and conditions link | Opt-in workflow non compliant terms and conditions |
+| Consent not sufficiently explicit | Opt-in workflow insufficient consent |
+| Brand name missing from opt-in flow | Opt-in workflow mismatch |
+| Checkbox pre-selected by default | Opt-in checkbox missing or pre-selected |
+| Marketing consent bundled with transactional | Marketing consent not separated |
+| Opt-in data shared with third parties | Opt-in data shared with third parties |
+| Missing required consent language | Non-compliant consent language |
+| Multiple opt-in methods but incomplete details | Incomplete opt-in workflow details |
 
 ###### Tip
 
@@ -231,16 +231,16 @@ review on the first attempt.
 - Opt-in confirmation message includes "Message and data rates may apply"
 - Opt-in confirmation message includes brand name
 
-| Common mistakes                                          | Mistake                                    | Related denial title |
-| -------------------------------------------------------- | ------------------------------------------ | -------------------- |
-| Opt-out message missing brand name                       | Opt-out message mismatch                   |
-| Opt-out doesn't confirm messages will stop               | Non-compliant opt-out message              |
-| HELP message missing support contact info                | Non-compliant help message                 |
-| HELP message brand name doesn't match registration       | Help message mismatch                      |
-| Opt-in message missing HELP/STOP instructions            | Non-compliant opt-in message HELP and STOP |
-| Opt-in message missing frequency or data rate disclosure | Non-compliant opt-in message               |
-| Opt-in message brand name doesn't match                  | Opt-in message mismatch                    |
-| No opt-in confirmation message provided                  | Missing opt-in message                     |
+Common mistakes| Mistake | Related denial title |
+| --- | --- |
+| Opt-out message missing brand name | Opt-out message mismatch |
+| Opt-out doesn't confirm messages will stop | Non-compliant opt-out message |
+| HELP message missing support contact info | Non-compliant help message |
+| HELP message brand name doesn't match registration | Help message mismatch |
+| Opt-in message missing HELP/STOP instructions | Non-compliant opt-in message HELP and STOP |
+| Opt-in message missing frequency or data rate disclosure | Non-compliant opt-in message |
+| Opt-in message brand name doesn't match | Opt-in message mismatch |
+| No opt-in confirmation message provided | Missing opt-in message |
 
 ###### Tip
 
@@ -296,23 +296,23 @@ For OTP and password reset use cases on Toll-Free Numbers, account for this beha
 - Terms and conditions include link to privacy policy
 - Terms and conditions include use case description
 
-| Common mistakes                                    | Mistake                                                  | Related denial title |
-| -------------------------------------------------- | -------------------------------------------------------- | -------------------- |
-| High-risk financial content (payday loans, crypto) | Campaign non-compliant content: high-risk financial      |
-| Cannabis or CBD content                            | Prohibited content: cannabis or CBD                      |
-| Gambling content                                   | Campaign non-compliant content: gambling.                |
-| SHAFT content without compliant age gate           | Campaign non-compliant content: missing age gate         |
-| Affiliate marketing or lead generation             | Campaign non-compliant content: affiliate marketing.     |
-| Sweepstakes content                                | Campaign non-compliant content: sweepstakes              |
-| Third-party job board content                      | Campaign non-compliant content: third party job boards.  |
-| Privacy policy allows third-party data sharing     | Non-compliant privacy policy                             |
-| Terms missing carrier liability statement          | Non-compliant Terms and Conditions: carrier liability    |
-| Terms missing opt-out instructions                 | Non-compliant Terms and Conditions: opt-out instructions |
-| Terms missing message frequency                    | Non-compliant Terms and Conditions: message frequency    |
-| Terms missing customer care contact                | Non-compliant Terms and Conditions: customer care info   |
-| Terms missing privacy policy link                  | Non-compliant Terms and Conditions: privacy policy       |
-| Terms missing use case description                 | Non-compliant Terms and Conditions: use case description |
-| Spam or phishing association detected              | Spam or phishing association                             |
+Common mistakes| Mistake | Related denial title |
+| --- | --- |
+| High-risk financial content (payday loans, crypto) | Campaign non-compliant content: high-risk financial |
+| Cannabis or CBD content | Prohibited content: cannabis or CBD |
+| Gambling content | Campaign non-compliant content: gambling. |
+| SHAFT content without compliant age gate | Campaign non-compliant content: missing age gate |
+| Affiliate marketing or lead generation | Campaign non-compliant content: affiliate marketing. |
+| Sweepstakes content | Campaign non-compliant content: sweepstakes |
+| Third-party job board content | Campaign non-compliant content: third party job boards. |
+| Privacy policy allows third-party data sharing | Non-compliant privacy policy |
+| Terms missing carrier liability statement | Non-compliant Terms and Conditions: carrier liability |
+| Terms missing opt-out instructions | Non-compliant Terms and Conditions: opt-out instructions |
+| Terms missing message frequency | Non-compliant Terms and Conditions: message frequency |
+| Terms missing customer care contact | Non-compliant Terms and Conditions: customer care info |
+| Terms missing privacy policy link | Non-compliant Terms and Conditions: privacy policy |
+| Terms missing use case description | Non-compliant Terms and Conditions: use case description |
+| Spam or phishing association detected | Spam or phishing association |
 
 ## Next steps
 

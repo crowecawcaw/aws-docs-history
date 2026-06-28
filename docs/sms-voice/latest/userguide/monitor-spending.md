@@ -92,39 +92,35 @@ following steps:
      datapoint.
 
 9. Choose **Select metric**. The **Specify metric and
-   conditions** page appears, showing a graph and other information
-   about the metric and statistic for the alarm.
-10. Under **Conditions**, complete the following steps:
+conditions** page appears, showing a graph and other information
+about the metric and statistic for the alarm. 10. Under **Conditions**, complete the following steps:
 
-    - For **Threshold type**, choose
-      **Static**.
-    - For **Whenever (**TextMessageMonthlySpend**, **MediaMessageMonthlySpend**, or **VoiceMessageMonthlySpend**) is**, specify
-      whether you want the metric to be greater than, greater than or equal
-      to, or equal to the threshold to trigger the alarm. Then, under
-      **than**, enter the threshold value, which is the
-      dollar amount (in US Dollars) that you want to trigger the alarm.
+    * For **Threshold type**, choose
+     **Static**.
+    * For **Whenever (**TextMessageMonthlySpend**, **MediaMessageMonthlySpend**, or **VoiceMessageMonthlySpend**) is**, specify
+     whether you want the metric to be greater than, greater than or equal
+     to, or equal to the threshold to trigger the alarm. Then, under
+     **than**, enter the threshold value, which is the
+     dollar amount (in US Dollars) that you want to trigger the alarm.
 
 11. Under **Additional configuration**, complete the
-    following steps:
+following steps:
 
-    - For **Datapoints to alarm**, enter the number of
-      evaluation periods (datapoints) during which the spending amount must
-      exceed the threshold to trigger the alarm.
-    - For **Missing data treatment**, choose
-      **Treat missing data as ignore (maintain the alarm
-      state)**.
+    * For **Datapoints to alarm**, enter the number of
+     evaluation periods (datapoints) during which the spending amount must
+     exceed the threshold to trigger the alarm.
+    * For **Missing data treatment**, choose
+     **Treat missing data as ignore (maintain the alarm
+     state)**.
 
-12. Choose **Next**.
-13. Under **Notification**, complete the following steps:
+12. Choose **Next**. 13. Under **Notification**, complete the following steps:
 
-    - For **Whenever this alarm state is**, choose
-      **in Alarm**.
-    - For **Select an SNS topic**, choose the Amazon SNS topic
-      that you want the alarm notification to be sent to.
+    * For **Whenever this alarm state is**, choose
+     **in Alarm**.
+    * For **Select an SNS topic**, choose the Amazon SNS topic
+     that you want the alarm notification to be sent to.
 
-14. Choose **Next**.
-15. Enter a name and, optionally, a description for the alarm, and then choose
-    **Next**.
-16. Under **Preview and create**, review and confirm that the
-    alarm settings are what you want, and then choose **Create
-    alarm**.
+14. Choose **Next**. 15. Enter a name and, optionally, a description for the alarm, and then choose
+**Next**. 16. Under **Preview and create**, review and confirm that the
+alarm settings are what you want, and then choose **Create
+alarm**.

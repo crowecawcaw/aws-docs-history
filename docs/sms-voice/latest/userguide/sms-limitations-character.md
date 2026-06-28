@@ -41,7 +41,7 @@ set. If you send a message that includes only the characters shown in the follow
 the message can contain up to 160 characters.
 
 | GSM 03.38 standard characters |
-| ----------------------------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ----------------------------- |
 | A                             | B   | C   | D   | E   | F   | G   | H   | I   | J   | K   | L   | M   |
 | N                             | O   | P   | Q   | R   | S   | T   | U   | V   | W   | X   | Y   | Z   |
 | a                             | b   | c   | d   | e   | f   | g   | h   | i   | j   | k   | l   | m   |

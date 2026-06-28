@@ -13,12 +13,12 @@ You can apply different country modes to individual countries or geographic regi
 like North America. The country rule mode can be overridden with a [phone number override
 rule](protect-rule-override-rules-processing.md#protect-rule-override-rules-processing.title "protect-rule-override-rules-processing.md#protect-rule-override-rules-processing.title") for specific phone numbers.
 
-| Country rule mode | Mode name                                                                                                                        | Description |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Block             | Block sending of messages to the destination country.                                                                            |
-| Allow             | Allow sending message to the destination country.                                                                                |
-| Monitor           | Allow sending messages to the destination country, but include the<br>SMS protect blocking recommendation in metrics and events. |
-| Filter            | Allow sending messages to the destination country, but block messages<br>that the End User Messaging suspects as AIT.            |
+Country rule mode| Mode name | Description |
+| --- | --- |
+| Block | Block sending of messages to the destination country. |
+| Allow | Allow sending message to the destination country. |
+| Monitor | Allow sending messages to the destination country, but include the<br>SMS protect blocking recommendation in metrics and events. |
+| Filter | Allow sending messages to the destination country, but block messages<br>that the End User Messaging suspects as AIT. |
 
 ###### Important
 

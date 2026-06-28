@@ -20,12 +20,12 @@ If you are creating an account choose **Enterprise** as the entity type. 2. You 
 for every Telemarketer in the table below. We use multiple providers so you are
 required to create multiple chains to ensure your SMS will be delivered.
 
-| Telemarketer                                                | Telemarketer Name   | Telemarketer ID (TM ID) |
-| ----------------------------------------------------------- | ------------------- | ----------------------- |
-| ROUTE LEDGER TECHNOLOGIES PRIVATE LIMITED                   | 1002786139254391    |
-| Karix Mobile Pvt Ltd                                        | 110200001000        |
+Telemarketer| Telemarketer Name | Telemarketer ID (TM ID) |
+| --- | --- |
+| ROUTE LEDGER TECHNOLOGIES PRIVATE LIMITED | 1002786139254391 |
+| Karix Mobile Pvt Ltd | 110200001000 |
 | Sinch Cloud Communication Services India Private<br>Limited | 1102502720000073897 |
-| Infobip India Private Limited                               | 110200001152        |
+| Infobip India Private Limited | 110200001152 |
 
 ###### Note
 

@@ -74,13 +74,13 @@ recipients regardless of their device or carrier support for RCS.
 
 The following table compares RCS and SMS messaging capabilities in AWS End User Messaging.
 
-| RCS compared to SMS   | Feature                                                                                                                                                 | RCS                                                                                                                                                                                    | SMS |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| Brand identity        | Verified brand name, logo, colors, and badge                                                                                                            | Phone number or sender ID only                                                                                                                                                         |
+RCS compared to SMS| Feature | RCS | SMS |
+| --- | --- | --- |
+| Brand identity | Verified brand name, logo, colors, and badge | Phone number or sender ID only |
 | Delivery confirmation | Device-level delivery receipts: the recipient's device reports back directly, confirming actual delivery. You are only billed for confirmed deliveries. | Carrier-level confirmation: the carrier network acknowledges receipt, but this does not guarantee the message reached the device. You are billed when the carrier accepts the message. |
-| Message content       | Text messages                                                                                                                                           | Text messages, MMS for media                                                                                                                                                           |
-| Device support        | Android devices with RCS enabled, iPhone with iOS 18 or later                                                                                           | All mobile devices                                                                                                                                                                     |
-| Supported countries   | 22 countries including the United States, Canada, United Kingdom, Germany, France, Brazil, and more                                                     | Over 200 countries and regions                                                                                                                                                         |
+| Message content | Text messages | Text messages, MMS for media |
+| Device support | Android devices with RCS enabled, iPhone with iOS 18 or later | All mobile devices |
+| Supported countries | 22 countries including the United States, Canada, United Kingdom, Germany, France, Brazil, and more | Over 200 countries and regions |
 
 ## Why SMS fallback is essential
 

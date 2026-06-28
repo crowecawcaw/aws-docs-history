@@ -23,42 +23,42 @@ This guide covers A2P SMS registration requirements specific to real estate brok
 
 ### Brand identity issues
 
-| Denial title reference                | Denial title                                                                                                                                                                                                                  | What it means for realty brokers |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| **Invalid brand URL**                 | Your brokerage website is inaccessible, parked, or under construction. Reviewers must verify your business exists and offers real estate services.                                                                            |
-| **Insufficient website content**      | A single IDX search page or property listing feed is insufficient. Your site must show who you are, what markets you serve, and how consumers can contact you.                                                                |
+Denial title reference| Denial title | What it means for realty brokers |
+| --- | --- |
+| **Invalid brand URL** | Your brokerage website is inaccessible, parked, or under construction. Reviewers must verify your business exists and offers real estate services. |
+| **Insufficient website content** | A single IDX search page or property listing feed is insufficient. Your site must show who you are, what markets you serve, and how consumers can contact you. |
 | **Invalid brand business connection** | The brand name on your registration doesn't match the entity shown on your website or real estate license. If you operate a team under a parent brokerage, ensure the registered brand matches your consumer-facing identity. |
-| **DBA name mismatch**                 | Your "Doing Business As" name doesn't match what appears on your website or marketing materials. Common when agents form teams with branded names different from their brokerage.                                             |
-| **Non-compliant brand affiliation**   | Your website or brand materials reference lead generation or affiliate marketing. If your site routes inquiries to multiple agents or brokerages, this signals a lead-gen model rather than a direct brokerage.               |
+| **DBA name mismatch** | Your "Doing Business As" name doesn't match what appears on your website or marketing materials. Common when agents form teams with branded names different from their brokerage. |
+| **Non-compliant brand affiliation** | Your website or brand materials reference lead generation or affiliate marketing. If your site routes inquiries to multiple agents or brokerages, this signals a lead-gen model rather than a direct brokerage. |
 
 ### Campaign description issues
 
-| Denial title reference                                  | Denial title                                                                                                                                                                                                                                                                               | What it means for realty brokers |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| **Campaign unclear**                                    | Your description doesn't clearly explain what messages consumers will receive. "Real estate communications" is too vague. Instead, specify the message types and audience. For example: "Property showing confirmations and new listing alerts for active buyers working with ABC Realty." |
-| **Campaign not qualified for use case**                 | The selected use case category doesn't match your actual messaging. Realty brokers typically register under "Customer Care" or "Account Notifications" – not "Marketing" unless sending promotional content.                                                                               |
-| **Campaign to brand mismatch**                          | The campaign describes services for a different brokerage or team than what's registered. Each brand/team needs its own registration.                                                                                                                                                      |
-| **Campaign non-compliant content: affiliate marketing** | Your campaign description or samples suggest routing leads to third-party agents or brokerages. Each entity sending messages needs its own registration with direct consumer consent.                                                                                                      |
+Denial title reference| Denial title | What it means for realty brokers |
+| --- | --- |
+| **Campaign unclear** | Your description doesn't clearly explain what messages consumers will receive. "Real estate communications" is too vague. Instead, specify the message types and audience. For example: "Property showing confirmations and new listing alerts for active buyers working with ABC Realty." |
+| **Campaign not qualified for use case** | The selected use case category doesn't match your actual messaging. Realty brokers typically register under "Customer Care" or "Account Notifications" – not "Marketing" unless sending promotional content. |
+| **Campaign to brand mismatch** | The campaign describes services for a different brokerage or team than what's registered. Each brand/team needs its own registration. |
+| **Campaign non-compliant content: affiliate marketing** | Your campaign description or samples suggest routing leads to third-party agents or brokerages. Each entity sending messages needs its own registration with direct consumer consent. |
 
 ### Opt-in workflow issues
 
-| Denial title reference                                              | Denial title                                                                                                                                                                          | What it means for realty brokers |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| **Opt-in workflow insufficient consent**                            | Your property inquiry form collects a phone number but doesn't explicitly state the consumer will receive SMS messages. A phone number field on a listing page is not consent.        |
-| **Opt-in workflow missing**                                         | No screenshot or URL showing where consumers agree to receive texts. Provide your buyer registration form, property inquiry page, or tenant portal showing the SMS consent mechanism. |
-| **Opt-in workflow mismatch**                                        | The brand name on your opt-in form doesn't match your registered brand. If your form says "Smith Team" but you registered as "Smith Realty Group LLC," this triggers a mismatch.      |
-| **Marketing consent not separated**                                 | Your form bundles marketing SMS consent with the property inquiry or lease agreement. Marketing opt-in must be a separate, unchecked checkbox – not buried in terms acceptance.       |
-| **Opt-in workflow non compliant message frequency disclosure**      | Your consent language doesn't tell consumers how often they'll hear from you. Add: "You may receive up to 10 messages per month regarding property listings and showing updates."     |
-| **Opt-in workflow non-compliant HELP or STOP**                      | Your opt-in disclosure is missing instructions for how to get help or opt out. Include: "Reply STOP to unsubscribe. Reply HELP for support."                                          |
-| **Opt-in workflow non compliant message and data rates disclosure** | Missing the "Message and data rates may apply" disclosure near your consent language.                                                                                                 |
-| **Opt-in data shared with third parties**                           | Your opt-in indicates consumer data may be shared with other agents, brokerages, or lead buyers. Each entity that will send messages needs its own consent.                           |
+Denial title reference| Denial title | What it means for realty brokers |
+| --- | --- |
+| **Opt-in workflow insufficient consent** | Your property inquiry form collects a phone number but doesn't explicitly state the consumer will receive SMS messages. A phone number field on a listing page is not consent. |
+| **Opt-in workflow missing** | No screenshot or URL showing where consumers agree to receive texts. Provide your buyer registration form, property inquiry page, or tenant portal showing the SMS consent mechanism. |
+| **Opt-in workflow mismatch** | The brand name on your opt-in form doesn't match your registered brand. If your form says "Smith Team" but you registered as "Smith Realty Group LLC," this triggers a mismatch. |
+| **Marketing consent not separated** | Your form bundles marketing SMS consent with the property inquiry or lease agreement. Marketing opt-in must be a separate, unchecked checkbox – not buried in terms acceptance. |
+| **Opt-in workflow non compliant message frequency disclosure** | Your consent language doesn't tell consumers how often they'll hear from you. Add: "You may receive up to 10 messages per month regarding property listings and showing updates." |
+| **Opt-in workflow non-compliant HELP or STOP** | Your opt-in disclosure is missing instructions for how to get help or opt out. Include: "Reply STOP to unsubscribe. Reply HELP for support." |
+| **Opt-in workflow non compliant message and data rates disclosure** | Missing the "Message and data rates may apply" disclosure near your consent language. |
+| **Opt-in data shared with third parties** | Your opt-in indicates consumer data may be shared with other agents, brokerages, or lead buyers. Each entity that will send messages needs its own consent. |
 
 ### Sample message issues
 
-| Denial title reference                       | Denial title                                                                                                                                                                   | What it means for realty brokers |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
-| **Sample message(s) mismatch**               | Your sample messages don't match the use case you described. If you registered for "showing confirmations" but samples show marketing offers, this triggers a mismatch.        |
-| **Sample message(s) URL shortener**          | Messages contain bit.ly, tinyurl, or other shortened links. Use your full branded domain (e.g., abcrealty.com/listings).                                                       |
+Denial title reference| Denial title | What it means for realty brokers |
+| --- | --- |
+| **Sample message(s) mismatch** | Your sample messages don't match the use case you described. If you registered for "showing confirmations" but samples show marketing offers, this triggers a mismatch. |
+| **Sample message(s) URL shortener** | Messages contain bit.ly, tinyurl, or other shortened links. Use your full branded domain (e.g., abcrealty.com/listings). |
 | **Sample messages(s) embedded phone number** | If you selected the 'embedded phone number' option during registration, your sample messages must contain a phone number. Otherwise, deselect that option during resubmission. |
 
 ## Realty-specific registration tips

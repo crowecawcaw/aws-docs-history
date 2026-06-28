@@ -15,38 +15,38 @@ The countries available for Notify messaging depend on your Notify configuration
 Basic tier supports 30 pre-approved countries. Use the `ListNotifyCountries`
 API for the most current list.
 
-| Basic tier supported countries | Country | ISO code |
-| ------------------------------ | ------- | -------- |
-| American Samoa                 | AS      |
-| Australia                      | AU      |
-| Belgium                        | BE      |
-| Brazil                         | BR      |
-| Canada                         | CA      |
-| Colombia                       | CO      |
-| Denmark                        | DK      |
-| Finland                        | FI      |
-| France                         | FR      |
-| Germany                        | DE      |
-| Guam                           | GU      |
-| Hong Kong                      | HK      |
-| India                          | IN      |
-| Ireland                        | IE      |
-| Italy                          | IT      |
-| Japan                          | JP      |
-| Mexico                         | MX      |
-| Netherlands                    | NL      |
-| New Zealand                    | NZ      |
-| Northern Mariana Islands       | MP      |
-| Portugal                       | PT      |
-| Puerto Rico                    | PR      |
-| Singapore                      | SG      |
-| South Korea                    | KR      |
-| Spain                          | ES      |
-| Sweden                         | SE      |
-| Switzerland                    | CH      |
-| United Kingdom                 | GB      |
-| United States                  | US      |
-| US Virgin Islands              | VI      |
+Basic tier supported countries| Country | ISO code |
+| --- | --- |
+| American Samoa | AS |
+| Australia | AU |
+| Belgium | BE |
+| Brazil | BR |
+| Canada | CA |
+| Colombia | CO |
+| Denmark | DK |
+| Finland | FI |
+| France | FR |
+| Germany | DE |
+| Guam | GU |
+| Hong Kong | HK |
+| India | IN |
+| Ireland | IE |
+| Italy | IT |
+| Japan | JP |
+| Mexico | MX |
+| Netherlands | NL |
+| New Zealand | NZ |
+| Northern Mariana Islands | MP |
+| Portugal | PT |
+| Puerto Rico | PR |
+| Singapore | SG |
+| South Korea | KR |
+| Spain | ES |
+| Sweden | SE |
+| Switzerland | CH |
+| United Kingdom | GB |
+| United States | US |
+| US Virgin Islands | VI |
 
 ## Advanced tier countries
 

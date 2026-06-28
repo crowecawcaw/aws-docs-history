@@ -768,7 +768,7 @@ and territories (mainly in the Pacific and Caribbean) also use this country
 code. Sending voice messages to some of these countries can be significantly
 more expensive than for others. For example, sending messages to recipients
 in the US and Canada costs $0.013 per minute, but sending to Jamaica costs
-$0.564 per minute[1](#voice-best-practices-fraud-protection-note-1 "#voice-best-practices-fraud-protection-note-1"). Phone numbers in all three of these
+ $0.564 per minute[1](#voice-best-practices-fraud-protection-note-1 "#voice-best-practices-fraud-protection-note-1"). Phone numbers in all three of these
 countries begin with +1 followed by 10 digits, so to the untrained eye they
 can be difficult to distinguish.
 

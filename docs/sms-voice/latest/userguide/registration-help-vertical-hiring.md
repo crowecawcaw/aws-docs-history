@@ -8,12 +8,12 @@ This guide covers registration requirements for organizations that send employme
 
 **Key distinction:** The brand sending messages must be the entity the candidate has a direct relationship with. If candidates applied to _your_ company or _your_ agency directly, you may message them. If you scraped or purchased candidate lists, or aggregate jobs from other employers, you are operating as a third-party job board.
 
-| Model reference                  | Model                                                                                          | Description              | Eligible? |
-| -------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------ | --------- |
-| **Direct employer**              | Company messaging its own applicants/employees about roles at that company                     | ✅ Yes                   |
-| **Staffing agency (exclusive)**  | Agency messaging candidates it directly recruited for specific client placements               | ✅ Yes (with conditions) |
-| **Staffing agency (aggregator)** | Agency blasting candidates about roles across many unrelated employers                         | ❌ No                    |
-| **Third-party job board**        | Platform aggregating listings from multiple employers and messaging candidates on their behalf | ❌ No                    |
+Model reference| Model | Description | Eligible? |
+| --- | --- | --- |
+| **Direct employer** | Company messaging its own applicants/employees about roles at that company | ✅ Yes |
+| **Staffing agency (exclusive)** | Agency messaging candidates it directly recruited for specific client placements | ✅ Yes (with conditions) |
+| **Staffing agency (aggregator)** | Agency blasting candidates about roles across many unrelated employers | ❌ No |
+| **Third-party job board** | Platform aggregating listings from multiple employers and messaging candidates on their behalf | ❌ No |
 
 ## What's allowed
 
@@ -30,14 +30,14 @@ Direct employers and exclusive staffing agencies may register campaigns for:
 
 The following employment-related activities are **not permitted** on A2P 10DLC:
 
-| Prohibited activity reference                   | Prohibited activity                    | Why |
-| ----------------------------------------------- | -------------------------------------- | --- |
-| Third-party job board messaging                 | Explicitly disallowed content category |
-| Job listing aggregation from multiple employers | Third-party job board pattern          |
-| Lead generation for staffing clients            | Affiliate marketing / lead generation  |
-| Mass candidate outreach from purchased lists    | No prior consent relationship          |
-| Messaging on behalf of unnamed employers        | Invalid business connection            |
-| "We found your resume" cold outreach            | No opt-in consent obtained             |
+Prohibited activity reference| Prohibited activity | Why |
+| --- | --- |
+| Third-party job board messaging | Explicitly disallowed content category |
+| Job listing aggregation from multiple employers | Third-party job board pattern |
+| Lead generation for staffing clients | Affiliate marketing / lead generation |
+| Mass candidate outreach from purchased lists | No prior consent relationship |
+| Messaging on behalf of unnamed employers | Invalid business connection |
+| "We found your resume" cold outreach | No opt-in consent obtained |
 
 Campaigns involving third-party job board activity are **not eligible for resubmission**.
 

@@ -16,15 +16,14 @@ following:
   **Amazon Web Services**.
 - In ComReg’s Section 3 "Select OPAs," choose all of the following:
 
-      + **Sinch Sweden AB**
-      + **Telesign Corporation**
-      + **Twilio Inc**
-      + **Vonage**
-
-  Failure to choose **Amazon Web Services** as a third party or failure
-  to choose all of the OPAs might result in impact to your SMS delivery to Ireland. After
-  ComReg has approved your sender ID registration, you can proceed with the AWS
-  registration process below.
+  - **Sinch Sweden AB**
+  - **Telesign Corporation**
+  - **Twilio Inc**
+  - **Vonage**
+    Failure to choose **Amazon Web Services** as a third party or failure
+    to choose all of the OPAs might result in impact to your SMS delivery to Ireland. After
+    ComReg has approved your sender ID registration, you can proceed with the AWS
+    registration process below.
 
 1. Open the AWS End User Messaging SMS console at
    [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").

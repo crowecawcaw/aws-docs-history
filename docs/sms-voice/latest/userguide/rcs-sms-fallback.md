@@ -149,11 +149,11 @@ selects origination identities from that pool. Because all identities in the poo
 are registered for the same use case, the fallback message is always sent from an
 appropriate number.
 
-| Sending approach compliance comparison | Sending approach                                                                   | SMS fallback behavior                                                                                | Compliance risk |
-| -------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | --------------- |
-| Pool-based (recommended)               | Falls back to a phone number in the same pool, registered<br>for the same use case | Low — fallback number matches the message use case                                                   |
-| Account-level                          | Falls back to any available phone number in the account                            | High — fallback number may not match the message use<br>case if multiple use cases share the account |
-| Direct (AWS RCS Agent ARN)             | No SMS fallback                                                                    | None — message is delivered via RCS only or not at<br>all                                            |
+Sending approach compliance comparison| Sending approach | SMS fallback behavior | Compliance risk |
+| --- | --- | --- |
+| Pool-based (recommended) | Falls back to a phone number in the same pool, registered<br>for the same use case | Low — fallback number matches the message use case |
+| Account-level | Falls back to any available phone number in the account | High — fallback number may not match the message use<br>case if multiple use cases share the account |
+| Direct (AWS RCS Agent ARN) | No SMS fallback | None — message is delivered via RCS only or not at<br>all |
 
 ## Fallback logic and priority order
 

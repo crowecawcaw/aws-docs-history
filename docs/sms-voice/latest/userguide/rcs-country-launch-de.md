@@ -58,7 +58,7 @@ Download the Brand Verification Letter template, fill in the required
 fields, sign it, and send it by email to the German RCS approval
 authority.
 
-Download the Brand Verification Letter template: [Germany_RCS_BrandVerificationLetter.zip](samples/Germany_RCS_BrandVerificationLetter.zip.md "samples/Germany_RCS_BrandVerificationLetter.zip.md")
+Download the Brand Verification Letter template: [Germany\_RCS\_BrandVerificationLetter.zip](samples/Germany_RCS_BrandVerificationLetter.zip.md "samples/Germany_RCS_BrandVerificationLetter.zip.md")
 
 The Brand Verification Letter is a bilingual (English/German) form
 (.docx) with the following fields to fill in:

@@ -7,24 +7,23 @@ user guide_](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/
 
 To create new IAM polices, do the following:
 
-1.  Create a new **permission policy** by following
-    the directions in [Creating policies using the JSON editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
-    IAM User Guide.
+1. Create a new **permission policy** by following
+   the directions in [Creating policies using the JSON editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
+   IAM User Guide.
 
-    1. In step 4 use the **permission policy**
-       defined below.
+   1. In step 4 use the **permission policy**
+      defined below.
 
-2.  Create a new **trust policy** by following the
-    directions in [Creating a role using custom trust policies](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") in
-    the IAM User Guide.
+2. Create a new **trust policy** by following the
+   directions in [Creating a role using custom trust policies](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") in
+   the IAM User Guide.
 
-        1. In step 4 use the **trust policy**
-         defined below.
-        2. In step 11 add the **permission policy**
-         that you created in the previous step.
-
-    The following is the **permission policy** for the IAM
-    role to allow for publishing to Connect Customer.
+   1. In step 4 use the **trust policy**
+      defined below.
+   2. In step 11 add the **permission policy**
+      that you created in the previous step.
+      The following is the **permission policy** for the IAM
+      role to allow for publishing to Connect Customer.
 
 JSON
 
