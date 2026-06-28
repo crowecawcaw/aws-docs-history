@@ -15,12 +15,11 @@ destination file system as the source file system in another replication configu
   determines the availability and durability with which the Amazon EFS file system stores data within
   an AWS Region.
 
-      + Choose **Regional** to create a file system that stores
-       data and metadata redundantly across all Availability Zones within the AWS Region.
-      + Choose **One Zone** to create a file system that stores
-       data and metadata redundantly within a single Availability Zone.
-
-  For more information about file system types, see [EFS file system types](features.md#file-system-type "features.md#file-system-type").
+  - Choose **Regional** to create a file system that stores
+    data and metadata redundantly across all Availability Zones within the AWS Region.
+  - Choose **One Zone** to create a file system that stores
+    data and metadata redundantly within a single Availability Zone.
+    For more information about file system types, see [EFS file system types](features.md#file-system-type "features.md#file-system-type").
 
 - **Encryption** – All destination file systems are
   created with encryption at rest enabled. You can specify the AWS KMS key that is used to encrypt
@@ -115,7 +114,7 @@ system and the number of files in it. For more information about replication per
 
 This section provides examples for creating a replication configuration in the AWS CLI
 using the `create-replication-configuration` command. The equivalent API command is
-[CreateReplicationConfiguration](API_CreateReplicationConfiguration.md "API_CreateReplicationConfiguration.md").
+[CreateReplicationConfiguration](../APIReference/API_CreateReplicationConfiguration.md "../APIReference/API_CreateReplicationConfiguration.md").
 
 ###### Example: Create a replication configuration for a Regional destination file system
 

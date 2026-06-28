@@ -64,9 +64,7 @@ settings:
     * **Port Range:** 22
     * **Source:** Anywhere 0.0.0.0/0
 
-10. Choose **Review and Launch**.
-11. Choose **Launch**.
-12. Select the check box for the key pair that you created, and then choose
-    **Launch Instances**.
-    Your EC2 instance is now configured to mount the EFS file system at
-    launch and whenever it's rebooted.
+10. Choose **Review and Launch**. 11. Choose **Launch**. 12. Select the check box for the key pair that you created, and then choose
+**Launch Instances**.
+Your EC2 instance is now configured to mount the EFS file system at
+launch and whenever it's rebooted.

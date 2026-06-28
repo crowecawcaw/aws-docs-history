@@ -93,24 +93,23 @@ target's security groups in your VPC.
 
 ###### To allow inbound traffic to the NFS port
 
-1.  Sign in to the AWS Management Console and open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  Under **NETWORK & SECURITY**, choose **Security
-    Groups**.
-3.  Choose the security group associated with your file system. You made a note of this at
-    the end of Step 1: Create your EFS resources.
-4.  In the tabbed pane that appears below the list of security groups, choose the
-    **Inbound** tab.
-5.  Choose **Edit**.
-6.  Choose **Add Rule**, and choose a rule of the following type:
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Under **NETWORK & SECURITY**, choose **Security
+   Groups**.
+3. Choose the security group associated with your file system. You made a note of this at
+   the end of Step 1: Create your EFS resources.
+4. In the tabbed pane that appears below the list of security groups, choose the
+   **Inbound** tab.
+5. Choose **Edit**.
+6. Choose **Add Rule**, and choose a rule of the following type:
 
-        * **Type** – **NFS**
-        * **Source** –
-         **Anywhere**
-
-    We recommend that you only use the **Anywhere** source for testing.
-    You can create a custom source set to the IP address of the on-premises client, or use the
-    console from the client itself, and choose **My IP**.
+   - **Type** – **NFS**
+   - **Source** –
+     **Anywhere**
+     We recommend that you only use the **Anywhere** source for testing.
+     You can create a custom source set to the IP address of the on-premises client, or use the
+     console from the client itself, and choose **My IP**.
 
 ###### Note
 
@@ -335,7 +334,7 @@ Direct Connect or VPN.
 2. Using your text editor of choice, open the
    `/etc/amazon/efs/efs-utils.conf` file.
 3. Find the line `“dns_name_format =
-{fs_id}.efs.`{region}`.amazonaws.com”`.
+ {fs_id}.efs.`{region}`.amazonaws.com”`.
 4. Change `{region}` with the ID for your AWS
    Region, for example `us-west-2`.
 

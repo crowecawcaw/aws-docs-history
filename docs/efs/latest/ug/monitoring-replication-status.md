@@ -13,7 +13,7 @@ you can use the Amazon EFS console, AWS CLI, API, or Amazon CloudWatch.
 - **In the AWS CLI or API** – The
   `LastReplicatedTimestamp` property in the `Destination` object shows the
   time that the last successful sync was completed. To access this property, use the
-  `describe-replication-configurations` CLI command. [DescribeReplicationConfigurations](API_DescribeReplicationConfigurations.md "API_DescribeReplicationConfigurations.md") is the equivalent API
+  `describe-replication-configurations` CLI command. [DescribeReplicationConfigurations](../APIReference/API_DescribeReplicationConfigurations.md "../APIReference/API_DescribeReplicationConfigurations.md") is the equivalent API
   operation.
 - **In CloudWatch** – The `TimeSinceLastSync` CloudWatch
   metric for Amazon EFS shows the time that has elapsed since the last successful sync was completed.
@@ -61,7 +61,7 @@ for the replication configuration:
 To view a replication configuration, use the
 `describe-replication-configurations` command. You can view the replication
 configuration for either a specific file system, or all replication configurations for a
-particular AWS account in an AWS Region. The equivalent API command is [DescribeReplicationConfigurations](API_DescribeReplicationConfigurations.md "API_DescribeReplicationConfigurations.md").
+particular AWS account in an AWS Region. The equivalent API command is [DescribeReplicationConfigurations](../APIReference/API_DescribeReplicationConfigurations.md "../APIReference/API_DescribeReplicationConfigurations.md").
 
 If the status of the replication configuration is `PAUSED` or
 `ERROR`, information about the cause of the issue and how to fix it is returned in

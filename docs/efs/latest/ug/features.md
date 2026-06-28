@@ -106,33 +106,33 @@ One Zone file systems. To see the mapping of AZ IDs to Availability Zones in you
 account, see [Availability Zone IDs for your AWS Resources](../../../ram/latest/userguide/working-with-az-ids.md "../../../ram/latest/userguide/working-with-az-ids.md") in the _AWS
 Resource Access Manager User Guide_.
 
-| Availability Zones that support One Zone file systems | AWS Region Name | AWS Region Code                                  | Supported AZ IDs |
-| ----------------------------------------------------- | --------------- | ------------------------------------------------ | ---------------- |
-| US East (Ohio)                                        | us-east-2       | use2-az1, use2-az2, use2-az3                     |
-| US East (N. Virginia)                                 | us-east-1       | use1-az1, use1-az2, use1-az4, use1-az5, use1-az6 |
-| US West (N. California)                               | us-west-1       | usw1-az1, usw1-az3                               |
-| US West (Oregon)                                      | us-west-2       | usw2-az1, usw2-az2, usw2-az3, usw2-az4           |
-| Africa (Cape Town)                                    | af-south-1      | afs1-az1,afs1-az2,afs1-az3                       |
-| Asia Pacific (Hong Kong)                              | ap-east-1       | ape1-az1, ape1-az2,ape1-az3                      |
-| Asia Pacific (Mumbai)                                 | ap-south-1      | aps1-az1, aps1-az2, aps1-az3                     |
-| Asia Pacific (Osaka)                                  | ap-northeast-3  | apne3-az1, apne3-az2, apne3-az3                  |
-| Asia Pacific (Seoul)                                  | ap-northeast-2  | apne2-az1, apne2-az2, apne2-az3                  |
-| Asia Pacific (Singapore)                              | ap-southeast-1  | apse1-az1, apse1-az2                             |
-| Asia Pacific (Sydney)                                 | ap-southeast-2  | apse2-az1, apse2-az2, apse2-az3                  |
-| Asia Pacific (Tokyo)                                  | ap-northeast-1  | apne1-az1,apne1-az4                              |
-| Canada (Central)                                      | ca-central-1    | cac1-az1, cac1-az2                               |
-| China (Beijing)                                       | cn-north-1      | cnn1-az1, cnn1-az2                               |
-| China (Ningxia)                                       | cn-northwest-1  | cnnw1-az1, cnnw1-az2, cnnw1-az3                  |
-| Europe (Frankfurt)                                    | eu-central-1    | euc1-az1, euc1-az2, euc1-az3                     |
-| Europe (Ireland)                                      | eu-west-1       | euw1-az1, euw1-az2, euw1-az3                     |
-| Europe (London)                                       | eu-west-2       | euw2-az1, euw2-az2                               |
-| Europe (Milan)                                        | eu-south-1      | eus1-az1, eus1-az2, eus1-az3                     |
-| Europe (Paris)                                        | eu-west-3       | euw3-az1, euw3-az3                               |
-| Europe (Stockholm)                                    | eu-north-1      | eun1-az1, eun1-az2, eun1-az3                     |
-| Middle East (Bahrain)                                 | me-south-1      | mes1-az1, mes1-az2, mes1-az3                     |
-| South America (São Paulo)                             | sa-east-1       | sae1-az1, sae1-az2, sae1-az3                     |
-| AWS GovCloud (US-East)                                | us-gov-east-1   | usge1-az1, usge1-az2, usge1-az3                  |
-| AWS GovCloud (US-West)                                | us-gov-west-1   | usgw1-az1, usgw1-az2, usgw1-az3                  |
+Availability Zones that support One Zone file systems| AWS Region Name | AWS Region Code | Supported AZ IDs |
+| --- | --- | --- |
+| US East (Ohio) | us-east-2 | use2-az1, use2-az2, use2-az3 |
+| US East (N. Virginia) | us-east-1 | use1-az1, use1-az2, use1-az4, use1-az5, use1-az6 |
+| US West (N. California) | us-west-1 | usw1-az1, usw1-az3 |
+| US West (Oregon) | us-west-2 | usw2-az1, usw2-az2, usw2-az3, usw2-az4 |
+| Africa (Cape Town) | af-south-1 | afs1-az1,afs1-az2,afs1-az3 |
+| Asia Pacific (Hong Kong) | ap-east-1 | ape1-az1, ape1-az2,ape1-az3 |
+| Asia Pacific (Mumbai) | ap-south-1 | aps1-az1, aps1-az2, aps1-az3 |
+| Asia Pacific (Osaka) | ap-northeast-3 | apne3-az1, apne3-az2, apne3-az3 |
+| Asia Pacific (Seoul) | ap-northeast-2 | apne2-az1, apne2-az2, apne2-az3 |
+| Asia Pacific (Singapore) | ap-southeast-1 | apse1-az1, apse1-az2 |
+| Asia Pacific (Sydney) | ap-southeast-2 | apse2-az1, apse2-az2, apse2-az3 |
+| Asia Pacific (Tokyo) | ap-northeast-1 | apne1-az1,apne1-az4 |
+| Canada (Central) | ca-central-1 | cac1-az1, cac1-az2 |
+| China (Beijing) | cn-north-1 | cnn1-az1, cnn1-az2 |
+| China (Ningxia) | cn-northwest-1 | cnnw1-az1, cnnw1-az2, cnnw1-az3 |
+| Europe (Frankfurt) | eu-central-1 | euc1-az1, euc1-az2, euc1-az3 |
+| Europe (Ireland) | eu-west-1 | euw1-az1, euw1-az2, euw1-az3 |
+| Europe (London) | eu-west-2 | euw2-az1, euw2-az2 |
+| Europe (Milan) | eu-south-1 | eus1-az1, eus1-az2, eus1-az3 |
+| Europe (Paris) | eu-west-3 | euw3-az1, euw3-az3 |
+| Europe (Stockholm) | eu-north-1 | eun1-az1, eun1-az2, eun1-az3 |
+| Middle East (Bahrain) | me-south-1 | mes1-az1, mes1-az2, mes1-az3 |
+| South America (São Paulo) | sa-east-1 | sae1-az1, sae1-az2, sae1-az3 |
+| AWS GovCloud (US-East) | us-gov-east-1 | usge1-az1, usge1-az2, usge1-az3 |
+| AWS GovCloud (US-West) | us-gov-west-1 | usgw1-az1, usgw1-az2, usgw1-az3 |
 
 ### EFS storage classes
 

@@ -13,13 +13,12 @@ The Amazon EFS usage report includes the following information:
 - UsageType – One of the following
   values:
 
-      + A code that identifies the type of storage
-      + A code that identifies the type of request
-      + A code that identifies the type of data transfer
-      + A code that identifies the throughput mode
-      + A code that identifies the backup usage
-
-  For a detailed explanation of Amazon EFS usage types, see [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").
+  - A code that identifies the type of storage
+  - A code that identifies the type of request
+  - A code that identifies the type of data transfer
+  - A code that identifies the throughput mode
+  - A code that identifies the backup usage
+    For a detailed explanation of Amazon EFS usage types, see [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").
 
 - Resource – The name of the resource
   associated with the listed usage.
@@ -32,10 +31,9 @@ The Amazon EFS usage report includes the following information:
   depending on the service and the report, terabytes (TB) might appear
   instead.
 
-      + The number of requests during the specified time period
-      + The amount of data transferred
-      + The amount of data stored in a given hour
-
-  For information about understanding the codes and abbreviations used in the billing and usage reports for
-  Amazon EFS, see
-  [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").
+  - The number of requests during the specified time period
+  - The amount of data transferred
+  - The amount of data stored in a given hour
+    For information about understanding the codes and abbreviations used in the billing and usage reports for
+    Amazon EFS, see
+    [Understanding billing and usage reports for Amazon EFS](billing-usage-reports-understand.md "billing-usage-reports-understand.md").

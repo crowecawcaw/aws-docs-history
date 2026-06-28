@@ -42,7 +42,7 @@ You can use the AWS Management Console to set the lifecycle policies for an exis
    You can use the AWS CLI to set or modify a file system's lifecycle policies.
 
 - Run the [`put-lifecycle-configuration`](../../../cli/latest/reference/efs/put-lifecycle-configuration.md "../../../cli/latest/reference/efs/put-lifecycle-configuration.md")
-  AWS CLI command or the [PutLifecycleConfiguration](API_PutLifecycleConfiguration.md "API_PutLifecycleConfiguration.md")
+  AWS CLI command or the [PutLifecycleConfiguration](../APIReference/API_PutLifecycleConfiguration.md "../APIReference/API_PutLifecycleConfiguration.md")
   API command, specifying the file system ID of the file system for which you are managing lifecycle management.
 
 ```

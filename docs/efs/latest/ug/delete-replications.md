@@ -50,7 +50,7 @@ replication configuration in both the source and destination account or
 Region. Deleting the local configuration leaves the configuration in the
 other account or Region unrecoverable.
 To delete a replication configuration, use the
-`delete-replication-configuration` CLI. The equivalent API command is [DeleteReplicationConfiguration](API_DeleteReplicationConfiguration.md "API_DeleteReplicationConfiguration.md").
+`delete-replication-configuration` CLI. The equivalent API command is [DeleteReplicationConfiguration](../APIReference/API_DeleteReplicationConfiguration.md "../APIReference/API_DeleteReplicationConfiguration.md").
 
 The following example deletes the replication configuration for source file system
 `fs-0123456789abcdef1`.

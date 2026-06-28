@@ -77,12 +77,11 @@ create for the file system. 6. Define the mount target settings:
      with the new address.
 
 7. Choose at least one security group to associate with the mount target. You can
-   [modify the security
-   groups](manage-fs-access-update-mount-target-config-sg.md "manage-fs-access-update-mount-target-config-sg.md") later.
-8. Choose **Save**.
-   This section provide examples for creating a mount target in the AWS CLI
-   using the `create-mount-target` command. The equivalent API command is
-   [CreateMountTarget](API_CreateMountTarget.md "API_CreateMountTarget.md").
+[modify the security
+groups](manage-fs-access-update-mount-target-config-sg.md "manage-fs-access-update-mount-target-config-sg.md") later. 8. Choose **Save**.
+This section provide examples for creating a mount target in the AWS CLI
+using the `create-mount-target` command. The equivalent API command is
+[CreateMountTarget](../APIReference/API_CreateMountTarget.md "../APIReference/API_CreateMountTarget.md").
 
 - If you don't specify an IP address type for the mount target, then IPv4-only
   is used.

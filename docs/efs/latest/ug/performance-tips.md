@@ -120,7 +120,7 @@ Use nested subdirectories as much as possible.
 When listing a directory, avoid getting file attributes if they are not required,
 because they are not stored in the directory itself.
 
-## Optimizing the NFS read_ahead_kb size
+## Optimizing the NFS read\_ahead\_kb size
 
 The NFS `read_ahead_kb` attribute defines the number of kilobytes for the
 Linux kernel to read ahead or prefetch during a sequential read operation.

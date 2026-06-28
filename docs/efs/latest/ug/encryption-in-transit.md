@@ -24,7 +24,7 @@ If you're not using the mount helper, you can still enable encryption of data in
    2049 using TLS.
 3. Using the NFS client, mount
    `localhost:`port`, where
-`port`` is the port that you noted in the
+ `port`` is the port that you noted in the
    first step.
 
 Because encryption of data in transit is configured on a per-connection basis, each

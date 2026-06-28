@@ -25,7 +25,7 @@ In this example, the EFS file system policy has the following
 characteristics:
 
 - The effect is `Allow`.
-- The principal is set to the Testing_Role in the AWS account.
+- The principal is set to the Testing\_Role in the AWS account.
 - The action is set to `ClientMount` (read), and
   `ClientWrite`.
 - The condition for granting permissions is set to

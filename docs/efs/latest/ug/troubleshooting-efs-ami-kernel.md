@@ -46,7 +46,7 @@ A client becomes deadlocked.
 
 **Kernel versions with this bug**
 
-- CentOS-7 with kernel Linux 3.10.0-229.20.1.el7.x86_64
+- CentOS-7 with kernel Linux 3.10.0-229.20.1.el7.x86\_64
 - Ubuntu 15.10 with kernel Linux 4.2.0-18-generic
 
 ###### Action to take

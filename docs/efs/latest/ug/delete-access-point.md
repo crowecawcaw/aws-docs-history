@@ -11,7 +11,7 @@ to the Amazon EFS file system that it's configured for.
 4. Choose **Delete**.
 5. Choose **Confirm** to confirm the action and delete the access point.
    In the following example, the `delete-access-point` CLI command deletes the
-   specified access point. The equivalent API command is [DeleteAccessPoint](API_DeleteAccessPoint.md "API_DeleteAccessPoint.md"). If the command is successful,
+   specified access point. The equivalent API command is [DeleteAccessPoint](../APIReference/API_DeleteAccessPoint.md "../APIReference/API_DeleteAccessPoint.md"). If the command is successful,
    the service returns an HTTP 204 response with an empty HTTP body.
 
 ```

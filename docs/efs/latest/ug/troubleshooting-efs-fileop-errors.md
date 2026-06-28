@@ -96,7 +96,7 @@ that may fail include `stat()` and `readdir()`.
 
 ###### Action to take
 
-If you encounter this error, you can resolve it by using the **nfs.enable_ino64=0 kernel** boot option.
+If you encounter this error, you can resolve it by using the **nfs.enable\_ino64=0 kernel** boot option.
 This option compresses the 64-bit EFS inode numbers
 to 32 bits. Kernel boot options are handled differently for different Linux distributions.
 On Amazon Linux, turn on this option by adding `nfs.enable_ino64=0 kernel` to the

@@ -47,7 +47,7 @@ Amazon EFS does not support the `nconnect` mount option.
 
 For Linux kernel versions 5.4.\*, the Linux NFS client uses a default
 `read_ahead_kb` value of 128 KB. We recommend increasing this value to 15 MB.
-For more information, see [Optimizing the NFS read_ahead_kb size](performance-tips.md#efs-perf-optimize-nfs-read-ahead "performance-tips.md#efs-perf-optimize-nfs-read-ahead").
+For more information, see [Optimizing the NFS read\_ahead\_kb size](performance-tips.md#efs-perf-optimize-nfs-read-ahead "performance-tips.md#efs-perf-optimize-nfs-read-ahead").
 
 For optimal performance and to avoid a variety of known NFS client bugs, we recommend
 working with a recent Linux kernel. If you are using an enterprise Linux distribution, we

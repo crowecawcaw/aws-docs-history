@@ -27,7 +27,7 @@ file system.
 6. Choose **Save**.
    To modify security groups that are in effect for a mount target, use the
    `modify-mount-target-security-group` AWS CLI command (the corresponding
-   operation is [ModifyMountTargetSecurityGroups](API_ModifyMountTargetSecurityGroups.md "API_ModifyMountTargetSecurityGroups.md")) to replace any existing
+   operation is [ModifyMountTargetSecurityGroups](../APIReference/API_ModifyMountTargetSecurityGroups.md "../APIReference/API_ModifyMountTargetSecurityGroups.md")) to replace any existing
    security groups, as shown following.
 
 ```

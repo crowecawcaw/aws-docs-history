@@ -253,7 +253,7 @@ Amazon EFS provides a metered throughput
 of 1 MiBps to all file systems, even if the baseline rate is lower.
 
 The file system size used to determine the baseline and burst rates is the
-`ValueInStandard` metered size available through the [DescribeFileSystems](API_DescribeFileSystems.md "API_DescribeFileSystems.md") API
+`ValueInStandard` metered size available through the [DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API
 operation.
 
 File systems can earn credits up to a maximum credit balance of 2.1 TiB for file

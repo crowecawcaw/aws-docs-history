@@ -25,7 +25,7 @@ file system.
    **Remove**.
 6. Choose **Save**.
    To delete an existing mount target, use the `delete-mount-target` AWS CLI
-   command (corresponding operation is [DeleteMountTarget](API_DeleteMountTarget.md "API_DeleteMountTarget.md")), as shown following.
+   command (corresponding operation is [DeleteMountTarget](../APIReference/API_DeleteMountTarget.md "../APIReference/API_DeleteMountTarget.md")), as shown following.
 
 ###### Note
 

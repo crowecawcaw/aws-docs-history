@@ -37,7 +37,7 @@ _AWS CloudTrail User Guide:_
 - [Receiving CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log
   files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
 
-All Amazon EFS [Amazon EFS API](api-reference.md "api-reference.md") are logged by CloudTrail. For
+All Amazon EFS [Amazon EFS API Reference](api-reference.md "api-reference.md") are logged by CloudTrail. For
 example, calls to the `CreateFileSystem`, `CreateMountTarget` and
 `CreateTags` operations generate entries in the CloudTrail log files.
 

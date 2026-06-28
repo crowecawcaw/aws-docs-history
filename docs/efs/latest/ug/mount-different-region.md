@@ -24,5 +24,4 @@ property value in the `efs-utils.conf` file.
     3. Save the changes.
 
 4. Add a host entry for the cross region mount. For more information on how to do this,
-   see [Step 3: Add a host entry for the mount target](efs-different-vpc.md#wt6-efs-utils-step3 "efs-different-vpc.md#wt6-efs-utils-step3").
-5. Mount the file system using the EFS mount helper for [Linux](mounting-fs-mount-helper-ec2-linux.md "mounting-fs-mount-helper-ec2-linux.md") or [Mac](mounting-fs-mount-helper-ec2-mac.md "mounting-fs-mount-helper-ec2-mac.md") instances.
+see [Step 3: Add a host entry for the mount target](efs-different-vpc.md#wt6-efs-utils-step3 "efs-different-vpc.md#wt6-efs-utils-step3"). 5. Mount the file system using the EFS mount helper for [Linux](mounting-fs-mount-helper-ec2-linux.md "mounting-fs-mount-helper-ec2-linux.md") or [Mac](mounting-fs-mount-helper-ec2-mac.md "mounting-fs-mount-helper-ec2-mac.md") instances.

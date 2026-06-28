@@ -35,42 +35,39 @@ You can manage the file system throughput mode by using the Amazon EFS console, 
 
 ###### To manage file system throughput
 
-1.  Open the Amazon Elastic File System console at
-    [https://console.aws.amazon.com/efs/](https://console.aws.amazon.com/efs/ "https://console.aws.amazon.com/efs/").
-2.  In the left navigation pane, choose **File systems** to display the
-    list of EFS file systems in your account.
-3.  Choose the file system that you want to change the throughput mode for.
-4.  On the file system details page, in the **General** section, choose
-    **Edit**. The **Edit** page displays.
-5.  Modify the **Throughput mode** setting.
+1. Open the Amazon Elastic File System console at
+   [https://console.aws.amazon.com/efs/](https://console.aws.amazon.com/efs/ "https://console.aws.amazon.com/efs/").
+2. In the left navigation pane, choose **File systems** to display the
+   list of EFS file systems in your account.
+3. Choose the file system that you want to change the throughput mode for.
+4. On the file system details page, in the **General** section, choose
+   **Edit**. The **Edit** page displays.
+5. Modify the **Throughput mode** setting.
 
-        * To use Elastic throughput or Provisioned throughput,
-         choose **Enhanced**, and then choose **Elastic** or
-         **Provisioned**.
+   - To use Elastic throughput or Provisioned throughput,
+     choose **Enhanced**, and then choose **Elastic** or
+     **Provisioned**.
 
+   If you choose **Provisioned**, then, in
+   **Provisioned Throughput (MiB/s)**, enter the amount of
+   throughput to provision for file system requests. The amount of **Maximum Read
+   Throughput** is displayed at three times the amount of the throughput that
+   you enter. EFS file systems meter read requests at one-third the rate of
+   other requests. After you enter the throughput, an estimate of the monthly cost for
+   the file system is shown.
 
-        If you choose **Provisioned**, then, in
-         **Provisioned Throughput (MiB/s)**, enter the amount of
-         throughput to provision for file system requests. The amount of **Maximum Read
-         Throughput** is displayed at three times the amount of the throughput that
-         you enter. EFS file systems meter read requests at one-third the rate of
-         other requests. After you enter the throughput, an estimate of the monthly cost for
-         the file system is shown.
+   ###### Note
 
+   You can change the throughput mode and the provisioned throughput amount after the
+   file system is available. However, any time that you change the file system
+   throughput to Provisioned or increase the provisioned throughput amount,
+   you must wait at least 24 hours before you can change the throughput mode again or
+   decrease the provisioned amount.
+   - To use Bursting throughput, choose
+     **Bursting**.
+     For more information about choosing the correct throughput mode for your performance
+     needs, see [Throughput modes](performance.md#throughput-modes "performance.md#throughput-modes").
 
-        ###### Note
-
-        You can change the throughput mode and the provisioned throughput amount after the
-         file system is available. However, any time that you change the file system
-         throughput to Provisioned or increase the provisioned throughput amount,
-         you must wait at least 24 hours before you can change the throughput mode again or
-         decrease the provisioned amount.
-        * To use Bursting throughput, choose
-         **Bursting**.
-
-    For more information about choosing the correct throughput mode for your performance
-    needs, see [Throughput modes](performance.md#throughput-modes "performance.md#throughput-modes").
-
-6.  Choose **Save changes** to implement your changes.
-    Use the [update-file-system](../../../cli/latest/reference/efs/update-file-system.md "../../../cli/latest/reference/efs/update-file-system.md") CLI command, or the [UpdateFileSystem](API_UpdateFileSystem.md "API_UpdateFileSystem.md") API action to
-    change a file system's throughput mode.
+6. Choose **Save changes** to implement your changes.
+   Use the [update-file-system](../../../cli/latest/reference/efs/update-file-system.md "../../../cli/latest/reference/efs/update-file-system.md") CLI command, or the [UpdateFileSystem](../APIReference/API_UpdateFileSystem.md "../APIReference/API_UpdateFileSystem.md") API action to
+   change a file system's throughput mode.

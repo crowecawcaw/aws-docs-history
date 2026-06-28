@@ -47,18 +47,18 @@ change.
 The following table lists Elastic throughput quotas per file system for all
 connected clients in each AWS Region.
 
-| Regional file systems – Total default Elastic throughput per file system for all connected clients in each AWS Region                                                                                                                                                                                                               | AWS Region                      | Maximum read throughput | Maximum write throughput (metered throughput) |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ----------------------- | --------------------------------------------- |
-| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Asia Pacific (Mumbai) Region<br>Asia Pacific (Seoul) Region<br>Asia Pacific (Singapore) Region<br>Asia Pacific (Sydney) Region<br>Asia Pacific (Tokyo) Region<br>Europe (Frankfurt) Region<br>Europe (Ireland) Region<br>Europe (London) Region | 60 gibibytes per second (GiBps) | 5 GiBps                 |
-| All other AWS Regions                                                                                                                                                                                                                                                                                                               | 20 GiBps                        | 1 GiBps                 |
+Regional file systems – Total default Elastic throughput per file system for all connected clients in each AWS Region| AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
+| --- | --- | --- |
+| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Asia Pacific (Mumbai) Region<br>Asia Pacific (Seoul) Region<br>Asia Pacific (Singapore) Region<br>Asia Pacific (Sydney) Region<br>Asia Pacific (Tokyo) Region<br>Europe (Frankfurt) Region<br>Europe (Ireland) Region<br>Europe (London) Region | 60 gibibytes per second (GiBps) | 5 GiBps |
+| All other AWS Regions | 20 GiBps | 1 GiBps |
 
 The following table lists the Provisioned throughput quotas per file system
 for all connected clients in each AWS Region.
 
-| Regional file systems – Total default Provisioned throughput per file system for all connected clients in each AWS Region | AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
-| ------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------- | --------------------------------------------- |
-| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Europe (Ireland) Region               | 10 GiBps   | 3.33 GiBps              |
-| All other AWS Regions                                                                                                     | 3 GiBps    | 1 GiBps                 |
+Regional file systems – Total default Provisioned throughput per file system for all connected clients in each AWS Region| AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
+| --- | --- | --- |
+| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Europe (Ireland) Region | 10 GiBps | 3.33 GiBps |
+| All other AWS Regions | 3 GiBps | 1 GiBps |
 
 ### Requesting a quota increase
 
@@ -86,14 +86,14 @@ Quotas for several Amazon EFS resources cannot be changed, including:
 
 The following table lists the general resource quotas that cannot be changed.
 
-| General resource quotas that cannot be changed                       | Resource | Quota |
-| -------------------------------------------------------------------- | -------- | ----- |
-| Number of connections for each file system                           | 25,000   |
-| Number of mount targets for each file system in an Availability Zone | 1        |
-| Number of mount targets for each virtual private cloud (VPC)         | 1,400    |
-| Number of security groups for each mount target                      | 5        |
-| Number of tags for each file system                                  | 50       |
-| Number of VPCs for each file system                                  | 1        |
+General resource quotas that cannot be changed| Resource | Quota |
+| --- | --- |
+| Number of connections for each file system | 25,000 |
+| Number of mount targets for each file system in an Availability Zone | 1 |
+| Number of mount targets for each virtual private cloud (VPC) | 1,400 |
+| Number of security groups for each mount target | 5 |
+| Number of tags for each file system | 50 |
+| Number of VPCs for each file system | 1 |
 
 ###### Note
 
@@ -103,17 +103,17 @@ information, see [Mounting EFS file systems from another AWS account or VPC](man
 The following table lists the total default Elastic and Provisioned
 throughput limits per file system for all connected clients in each AWS Region.
 
-| One Zone file systems – Total default Elastic and Provisioned throughput per file system for all connected clients in each AWS Region | AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
-| ------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------- | --------------------------------------------- |
-| All AWS Regions                                                                                                                       | 3 GiBps    | 1 GiBps                 |
+One Zone file systems – Total default Elastic and Provisioned throughput per file system for all connected clients in each AWS Region| AWS Region | Maximum read throughput | Maximum write throughput (metered throughput) |
+| --- | --- | --- |
+| All AWS Regions | 3 GiBps | 1 GiBps |
 
 The following table lists the total Bursting throughput limits per file
 system for all connected clients in each AWS Region.
 
-| Regional and One Zone file systems – Total Bursting throughput per file system for all connected clients in each AWS Region                 | AWS Region | Maximum read throughput | Maximum write throughput |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------- | ------------------------ |
-| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Asia Pacific (Sydney) Region<br>Europe (Ireland) Region | 5 GiBps    | 3 GiBps                 |
-| All other AWS Regions                                                                                                                       | 3 GiBps    | 1 GiBps                 |
+Regional and One Zone file systems – Total Bursting throughput per file system for all connected clients in each AWS Region| AWS Region | Maximum read throughput | Maximum write throughput |
+| --- | --- | --- |
+| US East (Ohio) Region<br>US East (N. Virginia) Region<br>US West (Oregon) Region<br>Asia Pacific (Sydney) Region<br>Europe (Ireland) Region | 5 GiBps | 3 GiBps |
+| All other AWS Regions | 3 GiBps | 1 GiBps |
 
 ## Quotas for NFS clients
 
@@ -203,9 +203,9 @@ other than `OPEN4_SHARE_DENY_NONE`.
 - Unsupported file types when using the CREATE operation: Block devices (NF4BLK),
   character devices (NF4CHR), attribute directory (NF4ATTRDIR), and named attribute
   (NF4NAMEDATTR).
-- Unsupported attributes: FATTR4_ARCHIVE, FATTR4_FILES_AVAIL, FATTR4_FILES_FREE,
-  FATTR4_FILES_TOTAL, FATTR4_FS_LOCATIONS, FATTR4_MIMETYPE, FATTR4_QUOTA_AVAIL_HARD,
-  FATTR4_QUOTA_AVAIL_SOFT, FATTR4_QUOTA_USED, FATTR4_TIME_BACKUP, and FATTR4_ACL.
+- Unsupported attributes: FATTR4\_ARCHIVE, FATTR4\_FILES\_AVAIL, FATTR4\_FILES\_FREE,
+  FATTR4\_FILES\_TOTAL, FATTR4\_FS\_LOCATIONS, FATTR4\_MIMETYPE, FATTR4\_QUOTA\_AVAIL\_HARD,
+  FATTR4\_QUOTA\_AVAIL\_SOFT, FATTR4\_QUOTA\_USED, FATTR4\_TIME\_BACKUP, and FATTR4\_ACL.
 
 An attempt to set these attributes results in an `NFS4ERR_ATTRNOTSUPP`
 error that is sent back to the client.

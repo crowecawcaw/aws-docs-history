@@ -35,16 +35,20 @@ with the following instructions.
    sudo curl -o `latest-stunnel-version`.tar.gz https://www.stunnel.org/downloads/`latest-stunnel-version`.tar.gz
    ```
    3. ```
-      sudo tar xvfz `latest-stunnel-version`.tar.gz
+
       ```
+
+   sudo tar xvfz `latest-stunnel-version`.tar.gz
 
    ````
    4. ```
    cd `latest-stunnel-version`/
    ````
    5. ```
-      sudo ./configure
+
       ```
+
+   sudo ./configure
 
    ````
    6. ```

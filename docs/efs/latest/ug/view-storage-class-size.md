@@ -27,7 +27,7 @@ the file system storage size:
 You can view how much data is stored in each storage class of your file system
 using the AWS CLI or EFS API. View data storage details by calling the
 `describe-file-systems` CLI command (the corresponding API
-operation is [DescribeFileSystems](API_DescribeFileSystems.md "API_DescribeFileSystems.md")).
+operation is [DescribeFileSystems](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md")).
 
 ```
 `$` `aws efs describe-file-systems \

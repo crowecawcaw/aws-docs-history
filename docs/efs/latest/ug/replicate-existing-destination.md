@@ -144,7 +144,7 @@ The **Replication** section shows the replication details.
 
 This section provides examples for creating a replication configuration in the AWS CLI
 using the `create-replication-configuration` command. The equivalent API command is
-[CreateReplicationConfiguration](API_CreateReplicationConfiguration.md "API_CreateReplicationConfiguration.md").
+[CreateReplicationConfiguration](../APIReference/API_CreateReplicationConfiguration.md "../APIReference/API_CreateReplicationConfiguration.md").
 
 ###### Example: Create a replication configuration to an existing destination file system in another Region
 

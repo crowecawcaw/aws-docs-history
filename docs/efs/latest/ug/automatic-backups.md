@@ -26,7 +26,7 @@ the AWS CLI, or the EFS API.
 5. Choose **Save changes**.
 
 - Use the `put-backup-policy` CLI command (the corresponding API operation is
-  [PutBackupPolicy](API_PutBackupPolicy.md "API_PutBackupPolicy.md")) turn automatic backups on or off
+  [PutBackupPolicy](../APIReference/API_PutBackupPolicy.md "../APIReference/API_PutBackupPolicy.md")) turn automatic backups on or off
   for an existing file system.
 
   - Use the following command to turn on automatic backups.

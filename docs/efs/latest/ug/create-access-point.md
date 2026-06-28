@@ -75,9 +75,9 @@ for that file system.
     	 user so that they are able to mount.
 
 4. Choose **Create access point** to create the access point by
-   using this configuration.
-   In the following example, the `create-access-point` CLI command creates an
-   access point for an EFS file system. The equivalent API command is [CreateAccessPoint](API_CreateAccessPoint.md "API_CreateAccessPoint.md").
+using this configuration.
+In the following example, the `create-access-point` CLI command creates an
+access point for an EFS file system. The equivalent API command is [CreateAccessPoint](../APIReference/API_CreateAccessPoint.md "../APIReference/API_CreateAccessPoint.md").
 
 ```
 aws efs create-access-point --file-system-id fs-abcdef0123456789a --client-token 010102020-3 \

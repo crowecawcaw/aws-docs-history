@@ -56,4 +56,4 @@ managing these resources:
   - Call the Amazon EFS API directly from your application – If you cannot use the
     SDKs for some reason, you can make the Amazon EFS API calls directly from your application.
     However, you need to write the necessary code to authenticate your requests if you use
-    this option. For more information about the Amazon EFS API, see [Amazon EFS API](api-reference.md "api-reference.md").
+    this option. For more information about the Amazon EFS API, see [Amazon EFS API Reference](api-reference.md "api-reference.md").

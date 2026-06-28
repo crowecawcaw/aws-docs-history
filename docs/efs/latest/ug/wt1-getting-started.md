@@ -23,14 +23,12 @@ In this tutorial, you create the following AWS resources in your account:
 
 - Amazon EFS resources:
 
-      + A file system.
-      + A mount target for your file system.
+  - A file system.
+  - A mount target for your file system.
 
-
-      To mount your file system on an EC2 instance you need to create a mount
-       target in your VPC. You can create one mount target in each of the Availability Zones in your
-       VPC. For more information, see [How Amazon EFS works](how-it-works.md "how-it-works.md").
-
+  To mount your file system on an EC2 instance you need to create a mount
+  target in your VPC. You can create one mount target in each of the Availability Zones in your
+  VPC. For more information, see [How Amazon EFS works](how-it-works.md "how-it-works.md").
   Then, you test the file system on your EC2 instance. The cleanup step at the end of
   the tutorial provides information for you to remove these resources.
 
@@ -269,26 +267,26 @@ In this step, you launch an EC2 instance.
 
 ###### To launch an EC2 instance
 
-1.  Gather the following information that you need to provide when launching an
-    EC2 instance:
+1. Gather the following information that you need to provide when launching an
+   EC2 instance:
 
-    - Key pair name. For instructions to create a key pair, see [Create a key
-      pair for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/create-key-pairs.md "../../../AWSEC2/latest/UserGuide/create-key-pairs.md") in the _Amazon EC2 User Guide_.
-    - The ID of the Amazon Machine Image (AMI) you want to launch.
+   - Key pair name. For instructions to create a key pair, see [Create a key
+     pair for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/create-key-pairs.md "../../../AWSEC2/latest/UserGuide/create-key-pairs.md") in the _Amazon EC2 User Guide_.
+   - The ID of the Amazon Machine Image (AMI) you want to launch.
 
-    The AWS CLI command that you use to launch an EC2 instance requires the ID
-    of the Amazon Machine Image (AMI) that you want to deploy as a parameter. The
-    exercise uses the Amazon Linux HVM AMI.
+   The AWS CLI command that you use to launch an EC2 instance requires the ID
+   of the Amazon Machine Image (AMI) that you want to deploy as a parameter. The
+   exercise uses the Amazon Linux HVM AMI.
 
-    ###### Note
+   ###### Note
 
-    You can use most general purpose Linux-based AMIs. If you use another Linux
-    AMI, make sure that you use your distribution's package manager to install
-    the NFS client on the instance. Also, you might need to add software packages as
-    you need them.
+   You can use most general purpose Linux-based AMIs. If you use another Linux
+   AMI, make sure that you use your distribution's package manager to install
+   the NFS client on the instance. Also, you might need to add software packages as
+   you need them.
 
-    For the Amazon Linux HVM AMI, you can find the latest IDs at [Amazon Linux AMI](https://aws.amazon.com/amazon-linux-ami/ "https://aws.amazon.com/amazon-linux-ami/"). You choose the
-    ID value from the Amazon Linux AMI IDs table as follows:
+   For the Amazon Linux HVM AMI, you can find the latest IDs at [Amazon Linux AMI](https://aws.amazon.com/amazon-linux-ami/ "https://aws.amazon.com/amazon-linux-ami/"). You choose the
+   ID value from the Amazon Linux AMI IDs table as follows:
 
         + Choose the **US West Oregon** region. This walkthrough
          assumes you are creating all resources in the US West (Oregon) Region
@@ -296,20 +294,20 @@ In this step, you launch an EC2 instance.
         + Choose the **EBS-backed HVM 64-bit** type (because in the
          CLI command you specify the `t2.micro` instance type, which does not
          support instance store).
-    - ID of the security group you created for an EC2 instance.
-    - AWS Region. This walkthrough uses the us-west-2 region.
-    - Your VPC subnet ID where you want to launch the instance. You can get list of
-      subnets using the `describe-subnets` command.
+   - ID of the security group you created for an EC2 instance.
+   - AWS Region. This walkthrough uses the us-west-2 region.
+   - Your VPC subnet ID where you want to launch the instance. You can get list of
+     subnets using the `describe-subnets` command.
 
-    ```
-    $ aws ec2 describe-subnets \
-    --region us-west-2 \
-    --filters "Name=vpc-id,Values=`vpc-id`" \
-    --profile adminuser
-    ```
+   ```
+   $ aws ec2 describe-subnets \
+   --region us-west-2 \
+   --filters "Name=vpc-id,Values=`vpc-id`" \
+   --profile adminuser
+   ```
 
-    After you choose the subnet ID, write down the following values from the
-    `describe-subnets` result:
+   After you choose the subnet ID, write down the following values from the
+   `describe-subnets` result:
 
         + Subnet ID – You need this value when
          you create a mount target. In this exercise, you create a mount target in the
@@ -318,8 +316,8 @@ In this step, you launch an EC2 instance.
          this value to construct your mount target DNS name, which you use to mount a
          file system on the EC2 instance.
 
-2.  Run the following AWS CLI `run-instances` command to launch an EC2
-    instance.
+2. Run the following AWS CLI `run-instances` command to launch an EC2
+   instance.
 
 ```
 $ aws ec2 run-instances \

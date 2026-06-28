@@ -83,7 +83,7 @@ sizes of the objects stored when there are no writes to the file system.
 You can see the metered size for an EFS file system in the following
 ways:
 
-- Using the [describe-file-systems](../../../cli/latest/reference/efs/describe-file-systems.md "../../../cli/latest/reference/efs/describe-file-systems.md") AWS CLI command and the [DescribeFileSystem](API_DescribeFileSystems.md "API_DescribeFileSystems.md") API operation, the response includes the
+- Using the [describe-file-systems](../../../cli/latest/reference/efs/describe-file-systems.md "../../../cli/latest/reference/efs/describe-file-systems.md") AWS CLI command and the [DescribeFileSystem](../APIReference/API_DescribeFileSystems.md "../APIReference/API_DescribeFileSystems.md") API operation, the response includes the
   following:
 
 ```
