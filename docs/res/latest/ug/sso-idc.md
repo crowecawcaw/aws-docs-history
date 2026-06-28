@@ -95,41 +95,42 @@ To create the urn:
     ```
 
 12. After you enter the Amazon Cognito URN, choose **Submit**.
+
 1. From the **Identity Center**, open the details for
    your created application.
-1. Choose **Actions**, then choose **Edit
+2. Choose **Actions**, then choose **Edit
    attribute mappings**.
-1. Under **Subject**, enter
+3. Under **Subject**, enter
    `${user:email}`.
-1. Under **Format**, choose
+4. Under **Format**, choose
    **emailAddress**.
-1. Choose **Add new attribute mapping**.
-1. Under **User attribute in the application**,
+5. Choose **Add new attribute mapping**.
+6. Under **User attribute in the application**,
    enter 'email'.
-1. Under **Maps to this string value or user attribute in
+7. Under **Maps to this string value or user attribute in
    IAM Identity Center**, enter
    `${user:email}`.
-1. Under **Format**, enter 'unspecified'.
-1. Choose **Save changes**.
-1. From the Identity Center, open **Assigned users** for
-   your created application and choose **Assign users**.
-1. Select the users you want to assign application access.
-1. Choose **Assign users**.
-1. From the Research and Engineering Studio environment, under **Environment management**,
-   open **Identity Management**.
-1. Under **Single Sign-On**, choose **Edit**
-   (next to **Status**).
-1. Complete the form with the following information:
+8. Under **Format**, enter 'unspecified'.
+9. Choose **Save changes**.
+10. From the Identity Center, open **Assigned users** for
+    your created application and choose **Assign users**.
+11. Select the users you want to assign application access.
+12. Choose **Assign users**.
+13. From the Research and Engineering Studio environment, under **Environment management**,
+    open **Identity Management**.
+14. Under **Single Sign-On**, choose **Edit**
+    (next to **Status**).
+15. Complete the form with the following information:
 
-   1. Choose **SAML**.
-   2. Under **Provider name**, enter a user friendly
-      name.
-   3. Choose **Enter metadata document endpoint URL**.
-   4. Enter the URL you copied during
-      [Setting up the application in IAM Identity Center](#setup-application-identity-center "#setup-application-identity-center").
-   5. Under **Provider email attribute**, enter
-      'email'.
-   6. Choose **Submit**.
+    1. Choose **SAML**.
+    2. Under **Provider name**, enter a user friendly
+       name.
+    3. Choose **Enter metadata document endpoint URL**.
+    4. Enter the URL you copied during
+       [Setting up the application in IAM Identity Center](#setup-application-identity-center "#setup-application-identity-center").
+    5. Under **Provider email attribute**, enter
+       'email'.
+    6. Choose **Submit**.
 
-1. Refresh the page and check that the **Status**
-   displays as enabled.
+16. Refresh the page and check that the **Status**
+    displays as enabled.

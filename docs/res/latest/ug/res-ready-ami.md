@@ -228,8 +228,8 @@ For information on how to install an SSM agent, see:
      for Windows Server](../../../systems-manager/latest/userguide/sysman-install-win.md "../../../systems-manager/latest/userguide/sysman-install-win.md").
 
 7. For Ubuntu 24.04 based recipes, add a custom component to install
-   `unzip` before adding the AWS CLI component. Create a component
-   with the following content:
+`unzip` before adding the AWS CLI component. Create a component
+with the following content:
 
 ```
 name: unzip-ubuntu

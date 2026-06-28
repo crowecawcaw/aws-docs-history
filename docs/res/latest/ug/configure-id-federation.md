@@ -21,27 +21,27 @@ to connect your identity provider with your Active Directory and periodically sy
 This section provides the steps to configure your identity provider with information from
 the RES Amazon Cognito user pool.
 
-1.  RES assumes that you have an AD (AWS Managed AD or a self-provisioned
-    AD) with the user identities allowed to access the RES portal and projects.
-    Connect your AD to your identity service provider and sync the user identities. Check
-    your identity provider's documentation to learn how to connect your AD and sync user
-    identities. For example, see [Using Active Directory as an identity
-    source](../../../singlesignon/latest/userguide/gs-ad.md "../../../singlesignon/latest/userguide/gs-ad.md") in the _AWS IAM Identity Center User Guide_.
-2.  Configure a SAML 2.0 application for RES in your identity provider (IdP).
-    This configuration requires the following parameters:
+1. RES assumes that you have an AD (AWS Managed AD or a self-provisioned
+   AD) with the user identities allowed to access the RES portal and projects.
+   Connect your AD to your identity service provider and sync the user identities. Check
+   your identity provider's documentation to learn how to connect your AD and sync user
+   identities. For example, see [Using Active Directory as an identity
+   source](../../../singlesignon/latest/userguide/gs-ad.md "../../../singlesignon/latest/userguide/gs-ad.md") in the _AWS IAM Identity Center User Guide_.
+2. Configure a SAML 2.0 application for RES in your identity provider (IdP).
+   This configuration requires the following parameters:
 
-    - SAML Redirect URL — The URL that your
-      IdP uses to send the SAML 2.0 response to the service provider.
+   - SAML Redirect URL — The URL that your
+     IdP uses to send the SAML 2.0 response to the service provider.
 
-    ###### Note
+   ###### Note
 
-    Depending on the IdP, the SAML Redirect URL might have a different name:
+   Depending on the IdP, the SAML Redirect URL might have a different name:
 
         + Application URL
         + Assertion Consumer Service (ACS) URL
         + ACS POST Binding URL
 
-    ###### To get the URL
+   ###### To get the URL
 
         1. Sign in to RES as an **admin**
          or **clusteradmin**.
@@ -49,24 +49,24 @@ the RES Amazon Cognito user pool.
          **General Settings** ⇒ **Identity
          Provider**.
         3. Choose **SAML Redirect URL**.
-    - SAML Audience URI — The unique ID of
-      the SAML audience entity on the service provider side.
+   - SAML Audience URI — The unique ID of
+     the SAML audience entity on the service provider side.
 
-    ###### Note
+   ###### Note
 
-    Depending on the IdP, the SAML Audience URI might have a different name:
+   Depending on the IdP, the SAML Audience URI might have a different name:
 
         + ClientID
         + Application SAML Audience
         + SP entity ID
 
-    Provide the input in the following format.
+   Provide the input in the following format.
 
-    ```
-    urn:amazon:cognito:sp:`user-pool-id`
-    ```
+   ```
+   urn:amazon:cognito:sp:`user-pool-id`
+   ```
 
-    ###### To find your SAML Audience URI
+   ###### To find your SAML Audience URI
 
         1. Sign in to RES as an **admin**
          or **clusteradmin**.
@@ -75,68 +75,68 @@ the RES Amazon Cognito user pool.
          **Identity Provider**.
         3. Choose **User Pool Id**.
 
-3.  The SAML assertion posted to RES must have the following fields/claims set
-    to the user's email address:
+3. The SAML assertion posted to RES must have the following fields/claims set
+   to the user's email address:
 
-    - SAML Subject or NameID
-    - SAML email
+   - SAML Subject or NameID
+   - SAML email
 
-4.  Your IdP adds fields/claims to the SAML assertion, based on the
-    configuration. RES requires these fields.
-    Most providers automatically fill these fields by default.
-    Refer to the following field inputs and values if you have to
-    configure them.
+4. Your IdP adds fields/claims to the SAML assertion, based on the
+   configuration. RES requires these fields.
+   Most providers automatically fill these fields by default.
+   Refer to the following field inputs and values if you have to
+   configure them.
 
-    - AudienceRestriction — Set to
-      `urn:amazon:cognito:sp:`user-pool-id``. 
-Replace `user-pool-id` with the ID of your Amazon Cognito user
-      pool.
+   - AudienceRestriction — Set to
+     `urn:amazon:cognito:sp:`user-pool-id``.
+     Replace `user-pool-id` with the ID of your Amazon Cognito user
+     pool.
 
-    ```
-    <saml:AudienceRestriction>
-        <saml:Audience> urn:amazon:cognito:sp:`user-pool-id`
-    </saml:AudienceRestriction>
-    ```
-    - Response — Set `InResponseTo`
-      to `https://`user-pool-domain`/saml2/idpresponse`.
-      Replace `user-pool-domain` with the domain name of
-      your Amazon Cognito user pool.
+   ```
+   <saml:AudienceRestriction>
+       <saml:Audience> urn:amazon:cognito:sp:`user-pool-id`
+   </saml:AudienceRestriction>
+   ```
+   - Response — Set `InResponseTo`
+     to `https://`user-pool-domain`/saml2/idpresponse`.
+     Replace `user-pool-domain` with the domain name of
+     your Amazon Cognito user pool.
 
-    ```
-    <saml2p:Response
-      Destination="https://`user-pool-domain`/saml2/idpresponse"
-      ID="id123"
-      InResponseTo="_dd0a3436-bc64-4679-a0c2-cb4454f04184"
-      IssueInstant="Date-time stamp"
-      Version="2.0"
-      xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
-      xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    ```
-    - SubjectConfirmationData — Set
-      `Recipient` to your user pool `saml2/idpresponse` endpoint
-      and `InResponseTo` to the original SAML request ID.
+   ```
+   <saml2p:Response
+     Destination="https://`user-pool-domain`/saml2/idpresponse"
+     ID="id123"
+     InResponseTo="_dd0a3436-bc64-4679-a0c2-cb4454f04184"
+     IssueInstant="Date-time stamp"
+     Version="2.0"
+     xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   ```
+   - SubjectConfirmationData — Set
+     `Recipient` to your user pool `saml2/idpresponse` endpoint
+     and `InResponseTo` to the original SAML request ID.
 
-    ```
-    <saml2:SubjectConfirmationData
-      InResponseTo="_dd0a3436-bc64-4679-a0c2-cb4454f04184"
-      NotOnOrAfter="Date-time stamp"
-      Recipient="https://`user-pool-domain`/saml2/idpresponse"/>
-    ```
-    - AuthnStatement — Configure as the
-      following:
+   ```
+   <saml2:SubjectConfirmationData
+     InResponseTo="_dd0a3436-bc64-4679-a0c2-cb4454f04184"
+     NotOnOrAfter="Date-time stamp"
+     Recipient="https://`user-pool-domain`/saml2/idpresponse"/>
+   ```
+   - AuthnStatement — Configure as the
+     following:
 
-    ```
-    <saml2:AuthnStatement AuthnInstant="2016-10-30T13:13:28.152TZ"
-      SessionIndex="32413b2e54db89c764fb96ya2k" SessionNotOnOrAfter="2016-10-30T13:13:28">
-        <saml2:SubjectLocality />
-        <saml2:AuthnContext>
-            <saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</saml2:AuthnContextClassRef>
-        </saml2:AuthnContext>
-    </saml2:AuthnStatement>
-    ```
+   ```
+   <saml2:AuthnStatement AuthnInstant="2016-10-30T13:13:28.152TZ"
+     SessionIndex="32413b2e54db89c764fb96ya2k" SessionNotOnOrAfter="2016-10-30T13:13:28">
+       <saml2:SubjectLocality />
+       <saml2:AuthnContext>
+           <saml2:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</saml2:AuthnContextClassRef>
+       </saml2:AuthnContext>
+   </saml2:AuthnStatement>
+   ```
 
-5.  If your SAML application has a logout URL field, set it to:
-    ``<domain-url>`/saml2/logout`.
+5. If your SAML application has a logout URL field, set it to:
+   ``<domain-url>`/saml2/logout`.
 
 ###### To get the domain URL
 
@@ -147,7 +147,7 @@ Replace `user-pool-id` with the ID of your Amazon Cognito user
     3. Choose **Domain URL**.
 
 6. If your IdP accepts a signing certificate to establish trust with Amazon Cognito, download
-   the Amazon Cognito signing certificate and upload it in your IdP.
+the Amazon Cognito signing certificate and upload it in your IdP.
 
 ###### To get the signing certificate
 
@@ -208,7 +208,7 @@ indicator to open the **Single Sign On Configuration** page.
     5. Choose **Submit**.
 
 4. Reload the **Environment Settings** page. Single sign-on is enabled
-   if the configuration was correct.
+if the configuration was correct.
 
 ## Configuring your identity provider in a non-production environment
 
@@ -256,9 +256,9 @@ The RES SSO enablement form asks for three configuration parameters:
     4. Choose **Run**.
 
 7. Under **Items returned**, find the
-   `identity-provider.cognito.sso_idp_provider_email_attribute` string
-   and choose **Edit** to modify the string to match your
-   changes in Amazon Cognito.
+`identity-provider.cognito.sso_idp_provider_email_attribute` string
+and choose **Edit** to modify the string to match your
+changes in Amazon Cognito.
 
 ![The Amazon CognitoUpdate the Filters and Items returned in DynamoDB.](images/res-scanqueryitems.png)
 

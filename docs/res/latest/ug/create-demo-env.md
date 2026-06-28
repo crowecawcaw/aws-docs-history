@@ -79,7 +79,7 @@ product template and modify them as necessary.
 | AdministratorEmail |                | The email address for the user completing setup of the product.<br>This user additionally functions as a break-glass user if there is<br>an Active Directory single sign on integration failure. |
 | KeyPair            |                | The key pair used to connect to infrastructure hosts.                                                                                                                                            |
 | ClientIPCidr       | <0.0.0.0/0>    | IP address filter which limits connection to the system. You can update the<br>ClientIpCidr after deployment.                                                                                    |
-| InboundPrefixList  |                | \*(Optional)<br>• Provide a managed prefix list<br>for IPs allowed to directly access the web UI and SSH into the bastion<br>host.                                                               |
+| InboundPrefixList  |                | *(Optional)<br>• Provide a managed prefix list<br>for IPs allowed to directly access the web UI and SSH into the bastion<br>host.                                                                |
 
 4. Choose **Create stack**.
 

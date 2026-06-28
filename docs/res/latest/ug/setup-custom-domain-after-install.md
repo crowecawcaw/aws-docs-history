@@ -25,7 +25,7 @@ contents in a Secrets Manager secret before performing these steps.
       ``<env-name>`.cluster-settings`.
    2. Go to **Explore Items** and **Filter by Attribute**
       – name "key", Type "string", condition "contains", and value
-      "external_alb".
+      "external\_alb".
    3. Set `cluster.load_balancers.external_alb.certificates.provided`
       to True.
    4. Update the value of
@@ -61,7 +61,7 @@ contents in a Secrets Manager secret before performing these steps.
       ``<env-name>`.cluster-settings`.
    2. Go to **Explore Items** and **Filter by Attribute**
       – name "key", Type "string", condition "contains", and value
-      "dcv_connection_gateway".
+      "dcv\_connection\_gateway".
    3. Set `vdc.dcv_connection_gateway.certificate.provided` to
       True.
    4. Update the value of
@@ -77,8 +77,9 @@ contents in a Secrets Manager secret before performing these steps.
 3. Update the launch template used for the gateway instance:
 
    1. Open the Auto Scaling group in the AWS Console under **EC2**
-      > **Auto Scaling** >
-      > **Auto Scaling Groups**.
+
+   > **Auto Scaling** >
+   > **Auto Scaling Groups**.
    2. Select the gateway auto scaling group that corresponds to the RES
       environment. The name follows the naming convention
       ``<env-name>`-vdc-gateway-asg`.

@@ -11,7 +11,7 @@ on how to resolve the issue.
   - [Environment CloudFormation stack fails to delete due to dependent object error](#object-error "#object-error")
   - [Error encountered for CIDR block parameter during environment creation](#cidr-block-error "#cidr-block-error")
   - [CloudFormation stack creation failure during environment creation](#cf-stack-creation-fails "#cf-stack-creation-fails")
-  - [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
+  - [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE\_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
 
 - [Identity management issues](#troubleshooting-identity-management "#troubleshooting-identity-management")
 
@@ -61,11 +61,11 @@ on how to resolve the issue.
   - [cluster-manager Amazon CloudWatch log shows "<user-home-init> account not available yet. waiting for user to be synced" (where the account is a user name)](#res-troubleshooting-vd-component-acct-unavailable "#res-troubleshooting-vd-component-acct-unavailable")
   - [Windows desktop on login attempt says "Your account has been disabled. Please see your administrator"](#res-troubleshooting-vd-component-acct-disabled "#res-troubleshooting-vd-component-acct-disabled")
   - [DHCP Options issues with external/customer AD configuration](#res-troubleshooting-vd-component-dhcp "#res-troubleshooting-vd-component-dhcp")
-  - [Firefox error MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING](#res-troubleshooting-vd-firefox "#res-troubleshooting-vd-firefox")
+  - [Firefox error MOZILLA\_PKIX\_ERROR\_REQUIRED\_TLS\_FEATURE\_MISSING](#res-troubleshooting-vd-firefox "#res-troubleshooting-vd-firefox")
 
 - [Env deletion](#res-troubleshooting-env-deletion "#res-troubleshooting-env-deletion")
 
-  - [res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
+  - [res-xxx-cluster stack in "DELETE\_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
   - [Collecting Logs](#res-troubleshooting-env-deletion-collect-logs "#res-troubleshooting-env-deletion-collect-logs")
   - [Downloading VDI Logs](#res-troubleshooting-env-deletion-download-logs "#res-troubleshooting-env-deletion-download-logs")
   - [Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
@@ -96,7 +96,7 @@ on how to resolve the issue.
 - [Environment CloudFormation stack fails to delete due to dependent object error](#object-error "#object-error")
 - [Error encountered for CIDR block parameter during environment creation](#cidr-block-error "#cidr-block-error")
 - [CloudFormation stack creation failure during environment creation](#cf-stack-creation-fails "#cf-stack-creation-fails")
-- [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
+- [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE\_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
 
 ........................
 
@@ -185,8 +185,8 @@ was unable to join the Active Directory.
 1. Verify the parameter values for the following were entered correctly
    during RES stack creation.
 
-   - directoryservice.ldap_connection_uri
-   - directoryservice.ldap_base
+   - directoryservice.ldap\_connection\_uri
+   - directoryservice.ldap\_base
    - directoryservice.users.ou
    - directoryservice.groups.ou
    - directoryservice.sudoers.ou
@@ -257,8 +257,8 @@ was unable to join the Active Directory.
 
 ### Environment CloudFormation stack fails to delete due to dependent object error
 
-If the deletion of the ``<env-name>`-vdc`CloudFormation
- stack fails due to a dependent object error such as the
+If the deletion of the ``<env-name>`-vdc` CloudFormation
+stack fails due to a dependent object error such as the
 `vdcdcvhostsecuritygroup`, this could be due to an Amazon EC2 instance that was
 launched into a RES-created subnet or security group using the AWS
 Console.
@@ -295,7 +295,7 @@ the creation in a different Region.
 
 ........................
 
-### Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED
+### Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE\_FAILED
 
 If the demo environment stack creation fails with the following error, it may be due
 to Amazon EC2 patching occurring unexpectedly during the provisioning after instance launch.
@@ -417,7 +417,7 @@ check the controller instance logs and review the configuration settings for err
 
 5. Choose **Run**.
 6. In the returned string, verify that the SSO configuration values are correct.
-   If they are incorrect, change the value of the sso_enabled key to
+   If they are incorrect, change the value of the sso\_enabled key to
    **False**.
 
 ![The DynamoDB console with the Edit item screen for the sso_enabled key value.](images/res-editssoenabledkeyvalue.png) 7. Return to the RES user interface to reconfigure the SSO.
@@ -585,9 +585,9 @@ Currently, when you create Amazon FSx for NetApp ONTAP from the RES console, the
 gets provisioned but it does not join the domain. To join the created ONTAP file system
 SVM to your domain, see [Joining SVMs to a Microsoft Active
 Directory](../../../fsx/latest/ONTAPGuide/self-managed-AD-join.md "../../../fsx/latest/ONTAPGuide/self-managed-AD-join.md") and follow the steps on the [Amazon FSx console](https://console.aws.amazon.com/fsx/home#file-systems "https://console.aws.amazon.com/fsx/home#file-systems"). Make sure required [permissions are delegated to the Amazon FSx Service Account](../../../fsx/latest/ONTAPGuide/self-managed-AD-best-practices.md#connect_delegate_privileges "../../../fsx/latest/ONTAPGuide/self-managed-AD-best-practices.md#connect_delegate_privileges") in AD. Once the SVM
-joins the domain successfully, go to SVM \*\*Summary > Endpoints
+joins the domain successfully, go to SVM **Summary > Endpoints
 
-> SMB DNS name\*\*, and copy the DNS name because you will need it later.
+> SMB DNS name**, and copy the DNS name because you will need it later.
 
 After it is joined to the domain, edit the SMB DNS config key in the cluster settings
 DynamoDB table:
@@ -988,7 +988,7 @@ in the filesystem.
    user's from the user's DDB table (**except
    clusteradmin**).
 6. Initiate AD sync - run `sudo /opt/idea/python/3.9.16/bin/resctl 
-ldap sync-from-ad` in the cluster-manager Amazon EC2.
+ ldap sync-from-ad` in the cluster-manager Amazon EC2.
 7. Reboot the VDI instance in the `Error` state from the
    RES webpage. Validate that the VDI transitions into the `Ready`
    state in around 20 minutes.
@@ -1029,7 +1029,7 @@ ln -sf /usr/bin/Xdcv-console /usr/bin/Xorg
 - [cluster-manager Amazon CloudWatch log shows "<user-home-init> account not available yet. waiting for user to be synced" (where the account is a user name)](#res-troubleshooting-vd-component-acct-unavailable "#res-troubleshooting-vd-component-acct-unavailable")
 - [Windows desktop on login attempt says "Your account has been disabled. Please see your administrator"](#res-troubleshooting-vd-component-acct-disabled "#res-troubleshooting-vd-component-acct-disabled")
 - [DHCP Options issues with external/customer AD configuration](#res-troubleshooting-vd-component-dhcp "#res-troubleshooting-vd-component-dhcp")
-- [Firefox error MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING](#res-troubleshooting-vd-firefox "#res-troubleshooting-vd-firefox")
+- [Firefox error MOZILLA\_PKIX\_ERROR\_REQUIRED\_TLS\_FEATURE\_MISSING](#res-troubleshooting-vd-firefox "#res-troubleshooting-vd-firefox")
 
 ........................
 
@@ -1102,7 +1102,7 @@ Insufficient permissions to modify computer account: CN=IDEA-586BD25043,OU=Compu
      objects in the AD.
 
 - If the username used was correct, but the logs contain the text `Invalid 
-credentials`, then the password you entered might be **wrong** or have **expired**.
+ credentials`, then the password you entered might be **wrong** or have **expired**.
 
 Example log line:
 
@@ -1202,10 +1202,10 @@ ip-10-0-x-xx.ec2.internal hostname.
 
 ........................
 
-### Firefox error MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING
+### Firefox error MOZILLA\_PKIX\_ERROR\_REQUIRED\_TLS\_FEATURE\_MISSING
 
 When you use the Firefox web browser, you might encounter the error message type
-MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING when you attempt to connect to a virtual
+MOZILLA\_PKIX\_ERROR\_REQUIRED\_TLS\_FEATURE\_MISSING when you attempt to connect to a virtual
 desktop.
 
 The cause is that the RES web server is set up with TLS + Stapling On but is not
@@ -1213,7 +1213,7 @@ responding with Stapling Validation (see
 [https://support.mozilla.org/en-US/questions/1372483](https://support.mozilla.org/en-US/questions/1372483 "https://support.mozilla.org/en-US/questions/1372483").
 
 You can fix this by following the instructions at:
-[https://really-simple-ssl.com/mozilla_pkix_error_required_tls_feature_missing](https://really-simple-ssl.com/mozilla_pkix_error_required_tls_feature_missing "https://really-simple-ssl.com/mozilla_pkix_error_required_tls_feature_missing").
+[https://really-simple-ssl.com/mozilla\_pkix\_error\_required\_tls\_feature\_missing](https://really-simple-ssl.com/mozilla_pkix_error_required_tls_feature_missing "https://really-simple-ssl.com/mozilla_pkix_error_required_tls_feature_missing").
 
 ........................
 
@@ -1221,7 +1221,7 @@ You can fix this by following the instructions at:
 
 ###### Topics
 
-- [res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
+- [res-xxx-cluster stack in "DELETE\_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
 - [Collecting Logs](#res-troubleshooting-env-deletion-collect-logs "#res-troubleshooting-env-deletion-collect-logs")
 - [Downloading VDI Logs](#res-troubleshooting-env-deletion-download-logs "#res-troubleshooting-env-deletion-download-logs")
 - [Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
@@ -1231,12 +1231,12 @@ You can fix this by following the instructions at:
 
 ........................
 
-### res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error
+### res-xxx-cluster stack in "DELETE\_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error
 
-If you notice that the "res-xxx-cluster" stack is in "DELETE_FAILED" state and cannot
+If you notice that the "res-xxx-cluster" stack is in "DELETE\_FAILED" state and cannot
 be deleted manually, you can perform the following steps to delete it.
 
-If you see the stack in a "DELETE_FAILED" state, first try to manually delete it.
+If you see the stack in a "DELETE\_FAILED" state, first try to manually delete it.
 It may pop up a dialog confirming Delete Stack. Choose **Delete**.
 
 ![delete stack confirmation popup screen](images/res-delete-stack-popup.png)
@@ -1256,7 +1256,7 @@ a role with that name using the parameters as shown here, which are:
 
 - For **Trusted entity type** choose **AWS service**.
 - For **Use case**, under `Use cases for other AWS 
-services` choose `CloudFormation`.
+ services` choose `CloudFormation`.
 
 ![IAM Roles create role step 1 window lets you select the trusted entity](images/res-select-trusted-entity.png)
 
@@ -1509,7 +1509,7 @@ to restore Keycloak to a healthy state. Follow these steps:
 
    - ``<env-name>`-RESSsoKeycloak-`<random characters>`` (Stack1)
 
-   ``<env-name>`-RESSsoKeycloak-`<random characters>`-RESSsoKeycloak-\*` (Stack2)
+   ``<env-name>`-RESSsoKeycloak-`<random characters>`-RESSsoKeycloak-*` (Stack2)
 
 2. Delete Stack1. If prompted to delete the nested stack, select
    **Yes** to delete the nested stack.
@@ -1592,10 +1592,10 @@ include:
 If you set DisableADJoin to `true` when installing RES, your
 **Linux** VDIs only connect to the Active Directory instead of
 joining it via the SSSD service. Connect to your VDI instance from the EC2 console and run
-command `id `username``on it. If the command cannot return 
- the UID / GID of the corresponding AD user, check the SSSD service status using command 
-`sudo systemctl status sssd`on the VDI instance as well as the SSSD service logs 
- under the`/var/log/sssd/` directory.
+command `id `username`` on it. If the command cannot return
+the UID / GID of the corresponding AD user, check the SSSD service status using command
+`sudo systemctl status sssd` on the VDI instance as well as the SSSD service logs
+under the `/var/log/sssd/` directory.
 
 If you need to customize SSSD configurations to connect to your AD, you can edit the SSSD
 config file (`/etc/sssd/sssd.conf`) manually and restart the SSSD service using
@@ -1636,13 +1636,13 @@ every hour or manually trigger it following the instructions in [How to manually
 ### AD user cannot access the home directory using File Browser even after launching Linux VDIs successfully
 
 Check whether the AD user is visible to the Cluster Manager by running the command
-`id `username``on the Cluster Manager instance. If the 
- command cannot return the UID / GID of the corresponding AD user, check the Cluster Manager 
- logs under the`/`environment-name`/cluster-manager` 
- CloudWatch log group and search for any errors about starting the SSSD service. If there's 
- no error in the Cluster Manager logs, check the SSSD service status using the command 
- `sudo systemctl status sssd`on the Cluster Manager instance as well as the 
- SSSD service logs under the`/var/log/sssd/` directory.
+`id `username`` on the Cluster Manager instance. If the
+command cannot return the UID / GID of the corresponding AD user, check the Cluster Manager
+logs under the `/`environment-name`/cluster-manager`
+CloudWatch log group and search for any errors about starting the SSSD service. If there's
+no error in the Cluster Manager logs, check the SSSD service status using the command
+`sudo systemctl status sssd` on the Cluster Manager instance as well as the
+SSSD service logs under the `/var/log/sssd/` directory.
 
 If the AD user is visible to the Cluster Manager, check the UID / GID on the user's home
 directory (`/home/`username``) by running the command 
@@ -1659,13 +1659,13 @@ successfully.
 ### AD admin user cannot access the Bastion Host after SSH access is enabled
 
 Check whether the AD user is visible to the Bastion Host by running the command
-`id `username``on the Bastion Host instance. If the 
- command cannot return the UID / GID of the corresponding AD user, check the Bastion Host 
- logs under the`/`environment-name`/bastion-host`CloudWatch 
- log group and search for any errors about starting the SSSD service. If there's no error in 
- the Bastion Host logs, check the SSSD service status using the command 
-`sudo systemctl status sssd`on the Bastion Host instance as well as the SSSD 
- service logs under the`/var/log/sssd/` directory.
+`id `username`` on the Bastion Host instance. If the
+command cannot return the UID / GID of the corresponding AD user, check the Bastion Host
+logs under the `/`environment-name`/bastion-host` CloudWatch
+log group and search for any errors about starting the SSSD service. If there's no error in
+the Bastion Host logs, check the SSSD service status using the command
+`sudo systemctl status sssd` on the Bastion Host instance as well as the SSSD
+service logs under the `/var/log/sssd/` directory.
 
 ........................
 

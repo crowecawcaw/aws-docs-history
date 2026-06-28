@@ -25,7 +25,7 @@ to manage the bucket lifecycle from the console.
 ###### Important
 
 There are limited version strings supported by AWS. For more information,
-see [https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html](../../../IAM/latest/UserGuide/reference_policies_elements_version.md "../../../IAM/latest/UserGuide/reference_policies_elements_version.md").
+see [https://docs.aws.amazon.com/IAM/latest/UserGuide/reference\_policies\_elements\_version.html](../../../IAM/latest/UserGuide/reference_policies_elements_version.md "../../../IAM/latest/UserGuide/reference_policies_elements_version.md").
 
 JSON
 
@@ -81,4 +81,4 @@ JSON
 
 ![Create a new snapshot](images/res-createsnapshot.png) 5. After five to ten minutes, choose **Refresh** on the Snapshots
 page to check the status. A snapshot will not be valid until the status changes
-from IN_PROGRESS to COMPLETED.
+from IN\_PROGRESS to COMPLETED.

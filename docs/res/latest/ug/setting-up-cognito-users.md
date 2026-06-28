@@ -91,7 +91,7 @@ You can also initiate the sync manually from the Lambda console.
 
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda "https://console.aws.amazon.com/lambda").
 2. Search for the Cognito sync Lambda. This Lambda follows this naming convention:
-   ``{RES_ENVIRONMENT_NAME}`\_cognito-sync-lambda`.
+   ``{RES_ENVIRONMENT_NAME}`_cognito-sync-lambda`.
 3. Select **Test**.
 4. In the **Test event** section, choose the **Test**
    button at the top right. The event body format does not matter.

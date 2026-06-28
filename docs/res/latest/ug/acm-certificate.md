@@ -45,4 +45,4 @@ If you do not see your certificates, refresh the list. 7. Do one of the followin
      **Issued**.
 
 8. Copy the new certificate ARN to input as the parameter for
-   `ACMCertificateARNforWebApp`.
+`ACMCertificateARNforWebApp`.

@@ -164,7 +164,7 @@ log in.
 1. Connect to the Bastion Host instance from the EC2 console.
 2. Edit `/etc/environment` and add
    `environment_name=<res-environment-name>` as a new line under
-   IDEA_CLUSTER_NAME.
+   IDEA\_CLUSTER\_NAME.
 3. Run the following commands on the instance:
 
 ```
@@ -202,7 +202,7 @@ is still possible to manually stop VDIs in RES environments deployed in isolated
 
 **Bug description**
 
-When an Amazon Linux 2 - x86_64, RHEL 8 - x86_64, or RHEL 9 x86_64 VDI is launched on a
+When an Amazon Linux 2 - x86\_64, RHEL 8 - x86\_64, or RHEL 9 x86\_64 VDI is launched on a
 graphic enhanced instance type (g4, g5), the instance will get stuck in the provisioning
 state. This means the instance will never get to the "Ready" state and be available for
 connection.
@@ -218,7 +218,7 @@ All RES versions 2024.10 or earlier.
 
 **Mitigation**
 
-1. Download [patch.py](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.10/patch_scripts/patch.py "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.10/patch_scripts/patch.py") and [graphic_enhanced_instance_types_fix.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.10/patch_scripts/patches/graphic_enhanced_instance_types_fix.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.10/patch_scripts/patches/graphic_enhanced_instance_types_fix.patch") by replacing
+1. Download [patch.py](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.10/patch_scripts/patch.py "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.10/patch_scripts/patch.py") and [graphic\_enhanced\_instance\_types\_fix.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.10/patch_scripts/patches/graphic_enhanced_instance_types_fix.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.10/patch_scripts/patches/graphic_enhanced_instance_types_fix.patch") by replacing
    `<output-directory>` with the directory where you want to download
    the patch script and patch file and `<environment-name>` with the
    name of your RES environment in the command below:
@@ -426,7 +426,7 @@ The error results from RES only accepting group names that meet the following re
 
 1. To download the patch script and patch file
    ([patch.py](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patch.py "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patch.py") and
-   [groupname_regex.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patches/groupname_regex.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patches/groupname_regex.patch")), run the following command, replacing
+   [groupname\_regex.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patches/groupname_regex.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patches/groupname_regex.patch")), run the following command, replacing
    `<output-directory>` with the directory where you want to put
    the files, and `<environment-name>` with the name of your RES
    environment:
@@ -496,7 +496,7 @@ All RES versions 2024.06 or earlier
 
 Follow these steps to resolve the issue:
 
-1. To download the patch.py script and group_member_sync_bug_fix.patch file, run
+1. To download the patch.py script and group\_member\_sync\_bug\_fix.patch file, run
    the following commands, replacing `<output-directory>` with the
    local directory where you'd like to download the files, and `<res_version>`
    with the version of RES you want to patch:
@@ -623,7 +623,7 @@ These instructions describe how to run a script to apply the platform update on 
 
 1. To download the patch script and patch file
    ([patch.py](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patch.py "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patch.py") and
-   [update_openssh.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patches/update_openssh.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patches/update_openssh.patch")) run the following commands, replacing
+   [update\_openssh.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patches/update_openssh.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.06/patch_scripts/patches/update_openssh.patch")) run the following commands, replacing
    `<output-directory>` with the directory where you want to download
    the files, and `<environment-name>` with the name of your RES
    environment:
@@ -694,7 +694,7 @@ a project:
 
 1. To download the patch script and patch file
    ([patch.py](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patch.py "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patch.py") and
-   [vdi_host_role_permission_boundary.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_host_role_permission_boundary.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_host_role_permission_boundary.patch")), run the following command,
+   [vdi\_host\_role\_permission\_boundary.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_host_role_permission_boundary.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_host_role_permission_boundary.patch")), run the following command,
    replacing `<output-directory>` with the local directory where
    you'd like to put the files:
 
@@ -870,7 +870,7 @@ To prevent new virtual desktops from running into the same issue:
 
 1. To download the patch script and patch file
    ([patch.py](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patch.py "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patch.py") and
-   [vdi_stuck_in_resuming_status.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_stuck_in_resuming_status.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_stuck_in_resuming_status.patch")), run the following command, replacing
+   [vdi\_stuck\_in\_resuming\_status.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_stuck_in_resuming_status.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_stuck_in_resuming_status.patch")), run the following command, replacing
    `<output-directory>` with the directory where you want to put
    the files:
 
@@ -947,7 +947,7 @@ requirements:
 
 1. To download the patch script and patch file
    ([patch.py](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patch.py "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patch.py") and
-   [samaccountname_regex.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/samaccountname_regex.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/samaccountname_regex.patch")), run the following command, replacing
+   [samaccountname\_regex.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/samaccountname_regex.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/samaccountname_regex.patch")), run the following command, replacing
    `<output-directory>` with the directory where you want to put the
    files:
 

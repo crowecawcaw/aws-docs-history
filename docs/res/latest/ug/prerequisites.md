@@ -57,13 +57,13 @@ You have the option to import an existing Cognito User Pool for user and client 
 when you install RES. Otherwise, RES will create a new Cognito User Pool automatically. The
 pre-existing user pool must have the following sign-up custom attributes:
 
-| Name                     | Type   | Min value/length | Max value/length | Mutable |
-| ------------------------ | ------ | ---------------- | ---------------- | ------- |
-| custom:aws_region        | String |                  |                  | TRUE    |
-| custom:cluster_name      | String |                  |                  | TRUE    |
-| custom:password_last_set | Number |                  |                  | TRUE    |
-| custom:password_max_age  | Number |                  |                  | TRUE    |
-| custom:uid               | Number | 2000200001       | 4294967294       | TRUE    |
+| Name                       | Type   | Min value/length | Max value/length | Mutable |
+| -------------------------- | ------ | ---------------- | ---------------- | ------- |
+| custom:aws\_region         | String |                  |                  | TRUE    |
+| custom:cluster\_name       | String |                  |                  | TRUE    |
+| custom:password\_last\_set | Number |                  |                  | TRUE    |
+| custom:password\_max\_age  | Number |                  |                  | TRUE    |
+| custom:uid                 | Number | 2000200001       | 4294967294       | TRUE    |
 
 ## Create a custom domain (optional)
 
@@ -223,7 +223,7 @@ The service account requires the following permissions:
   and `GroupsOU`.
 - To join the AD domain → create `Computer` objects in the `ComputersOU`.
 
-The script at [https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/res/res_demo_env/assets/service_account.ps1](https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/res/res_demo_env/assets/service_account.ps1 "https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/res/res_demo_env/assets/service_account.ps1")
+The script at [https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/res/res\_demo\_env/assets/service\_account.ps1](https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/res/res_demo_env/assets/service_account.ps1 "https://github.com/aws-samples/aws-hpc-recipes/blob/main/recipes/res/res_demo_env/assets/service_account.ps1")
 provides an example of how to grant proper Service Account permissions. You can modify it based on your own AD.
 
 ## Configure a private VPC (optional)
@@ -278,186 +278,205 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
 
 3. Create the EC2 image builder component:
 
-   1. Open the EC2 Image Builder console at [https://console.aws.amazon.com//imagebuilder](https://console.aws.amazon.com//imagebuilder "https://console.aws.amazon.com//imagebuilder").
-   2. Under **Saved resources**, choose
-      **Components** and choose **Create
-      component**.
-   3. On the **Create component** page, enter the following
-      details:
+    1. Open the EC2 Image Builder console at [https://console.aws.amazon.com//imagebuilder](https://console.aws.amazon.com//imagebuilder "https://console.aws.amazon.com//imagebuilder").
+    2. Under **Saved resources**, choose
+     **Components** and choose **Create
+     component**.
+    3. On the **Create component** page, enter the following
+     details:
 
-      - For **Component type**, choose
-        **Build**.
-      - For **Component details** choose:
 
-      | Parameter                   | User entry                                                                  |
-      | --------------------------- | --------------------------------------------------------------------------- |
-      | Image operating system (OS) | Linux                                                                       |
-      | Compatible OS Versions      | Amazon Linux 2, Amazon Linux 2023, RHEL8, RHEL 9, or<br>Windows 10 and 11   |
-      | Component name              | Enter a name such as:<br>`<research-and-engineering-studio-infrastructure>` |
-      | Component version           | We recommend starting with 1.0.0.                                           |
-      | Description                 | Optional user entry.                                                        |
 
-   4. On the **Create component** page, choose
-      **Define document content**.
 
-      1. Before entering the definition document content, you will need a
-         file URI for the tar.gz file. Upload the tar.gz file provided by
-         RES to an Amazon S3 bucket and copy the file's URI from the
-         bucket properties.
-      2. Enter the following:
+    	* For **Component type**, choose
+    	 **Build**.
+    	* For **Component details** choose:
 
-      ###### Note
 
-      `AddEnvironmentVariables` is optional, and you may remove
-      it if you do not require custom environment variables in your
-      infrastructure hosts.
 
-      If you are setting up `http_proxy` and `https_proxy`
-      environment variables, the `no_proxy` parameters are required
-      to prevent the instance from using proxy to query localhost, instance
-      metadata IP addresses, and the services that support VPC endpoints.
 
-      ```
-      #  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
-      #
-      #  Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance
-      #  with the License. A copy of the License is located at
-      #
-      #      http://www.apache.org/licenses/LICENSE-2.0
-      #
-      #  or in the 'license' file accompanying this file. This file is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES
-      #  OR CONDITIONS OF ANY KIND, express or implied. See the License for the specific language governing permissions
-      #  and limitations under the License.
-      name: research-and-engineering-studio-infrastructure
-      description: An RES EC2 Image Builder component to install required RES software dependencies for infrastructure hosts.
-      schemaVersion: 1.0
+    	| Parameter | User entry |
+    	| --- | --- |
+    	| Image operating system (OS) | Linux |
+    	| Compatible OS Versions | Amazon Linux 2, Amazon Linux 2023, RHEL8, RHEL 9, or<br>Windows 10 and 11 |
+    	| Component name | Enter a name such as:<br>`<research-and-engineering-studio-infrastructure>` |
+    	| Component version | We recommend starting with 1.0.0. |
+    	| Description | Optional user entry. |
+    4. On the **Create component** page, choose
+     **Define document content**.
 
-      parameters:
-        - AWSRegion:
-            type: string
-            description: RES Environment AWS Region
-      phases:
-        - name: build
-          steps:
-             - name: DownloadRESInstallScripts
-               action: S3Download
-               onFailure: Abort
-               maxAttempts: 3
-               inputs:
-                  - source: '`<s3 tar.gz file uri>`'
-                    destination: '/root/bootstrap/res-installation-scripts/res-installation-scripts.tar.gz'
-             - name: RunInstallScript
-               action: ExecuteBash
-               onFailure: Abort
-               maxAttempts: 3
-               inputs:
-                  commands:
-                      - 'cd /root/bootstrap/res-installation-scripts'
-                      - 'tar -xf res-installation-scripts.tar.gz'
-                      - 'cd scripts/infrastructure-host'
-                      - '/bin/bash install.sh'
-             - name: AddEnvironmentVariables
-               action: ExecuteBash
-               onFailure: Abort
-               maxAttempts: 3
-               inputs:
-                  commands:
-                      - |
-                        echo -e "
-                        http_proxy=http://`<ip>`:`<port>`
-                        https_proxy=http://`<ip>`:`<port>`
-                        no_proxy=127.0.0.1,169.254.169.254,169.254.170.2,localhost,{{ AWSRegion }}.res,{{ AWSRegion }}.vpce.amazonaws.com,{{ AWSRegion }}.elb.amazonaws.com,s3.{{ AWSRegion }}.amazonaws.com,s3.dualstack.{{ AWSRegion }}.amazonaws.com,ec2.{{ AWSRegion }}.amazonaws.com,ec2.{{ AWSRegion }}.api.aws,ec2messages.{{ AWSRegion }}.amazonaws.com,ssm.{{ AWSRegion }}.amazonaws.com,ssmmessages.{{ AWSRegion }}.amazonaws.com,kms.{{ AWSRegion }}.amazonaws.com,secretsmanager.{{ AWSRegion }}.amazonaws.com,sqs.{{ AWSRegion }}.amazonaws.com,elasticloadbalancing.{{ AWSRegion }}.amazonaws.com,sns.{{ AWSRegion }}.amazonaws.com,logs.{{ AWSRegion }}.amazonaws.com,logs.{{ AWSRegion }}.api.aws,elasticfilesystem.{{ AWSRegion }}.amazonaws.com,fsx.{{ AWSRegion }}.amazonaws.com,dynamodb.{{ AWSRegion }}.amazonaws.com,api.ecr.{{ AWSRegion }}.amazonaws.com,.dkr.ecr.{{ AWSRegion }}.amazonaws.com,kinesis.{{ AWSRegion }}.amazonaws.com,.data-kinesis.{{ AWSRegion }}.amazonaws.com,.control-kinesis.{{ AWSRegion }}.amazonaws.com,events.{{ AWSRegion }}.amazonaws.com,cloudformation.{{ AWSRegion }}.amazonaws.com,sts.{{ AWSRegion }}.amazonaws.com,application-autoscaling.{{ AWSRegion }}.amazonaws.com,monitoring.{{ AWSRegion }}.amazonaws.com,ecs.{{ AWSRegion }}.amazonaws.com,.execute-api.{{ AWSRegion }}.amazonaws.com
-                         " >> /etc/environment
-      ```
 
-   5. Choose **Create component**.
+    	1. Before entering the definition document content, you will need a
+    	 file URI for the tar.gz file. Upload the tar.gz file provided by
+    	 RES to an Amazon S3 bucket and copy the file's URI from the
+    	 bucket properties.
+    	2. Enter the following:
+
+
+    	###### Note
+
+    	`AddEnvironmentVariables` is optional, and you may remove
+    	 it if you do not require custom environment variables in your
+    	 infrastructure hosts.
+
+    	If you are setting up `http_proxy` and `https_proxy`
+    	 environment variables, the `no_proxy` parameters are required
+    	 to prevent the instance from using proxy to query localhost, instance
+    	 metadata IP addresses, and the services that support VPC endpoints.
+
+
+
+    	```
+    	#  Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+    	#
+    	#  Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance
+    	#  with the License. A copy of the License is located at
+    	#
+    	#      http://www.apache.org/licenses/LICENSE-2.0
+    	#
+    	#  or in the 'license' file accompanying this file. This file is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES
+    	#  OR CONDITIONS OF ANY KIND, express or implied. See the License for the specific language governing permissions
+    	#  and limitations under the License.
+    	name: research-and-engineering-studio-infrastructure
+    	description: An RES EC2 Image Builder component to install required RES software dependencies for infrastructure hosts.
+    	schemaVersion: 1.0
+
+    	parameters:
+    	  - AWSRegion:
+    	      type: string
+    	      description: RES Environment AWS Region
+    	phases:
+    	  - name: build
+    	    steps:
+    	       - name: DownloadRESInstallScripts
+    	         action: S3Download
+    	         onFailure: Abort
+    	         maxAttempts: 3
+    	         inputs:
+    	            - source: '`<s3 tar.gz file uri>`'
+    	              destination: '/root/bootstrap/res-installation-scripts/res-installation-scripts.tar.gz'
+    	       - name: RunInstallScript
+    	         action: ExecuteBash
+    	         onFailure: Abort
+    	         maxAttempts: 3
+    	         inputs:
+    	            commands:
+    	                - 'cd /root/bootstrap/res-installation-scripts'
+    	                - 'tar -xf res-installation-scripts.tar.gz'
+    	                - 'cd scripts/infrastructure-host'
+    	                - '/bin/bash install.sh'
+    	       - name: AddEnvironmentVariables
+    	         action: ExecuteBash
+    	         onFailure: Abort
+    	         maxAttempts: 3
+    	         inputs:
+    	            commands:
+    	                - |
+    	                  echo -e "
+    	                  http_proxy=http://`<ip>`:`<port>`
+    	                  https_proxy=http://`<ip>`:`<port>`
+    	                  no_proxy=127.0.0.1,169.254.169.254,169.254.170.2,localhost,{{ AWSRegion }}.res,{{ AWSRegion }}.vpce.amazonaws.com,{{ AWSRegion }}.elb.amazonaws.com,s3.{{ AWSRegion }}.amazonaws.com,s3.dualstack.{{ AWSRegion }}.amazonaws.com,ec2.{{ AWSRegion }}.amazonaws.com,ec2.{{ AWSRegion }}.api.aws,ec2messages.{{ AWSRegion }}.amazonaws.com,ssm.{{ AWSRegion }}.amazonaws.com,ssmmessages.{{ AWSRegion }}.amazonaws.com,kms.{{ AWSRegion }}.amazonaws.com,secretsmanager.{{ AWSRegion }}.amazonaws.com,sqs.{{ AWSRegion }}.amazonaws.com,elasticloadbalancing.{{ AWSRegion }}.amazonaws.com,sns.{{ AWSRegion }}.amazonaws.com,logs.{{ AWSRegion }}.amazonaws.com,logs.{{ AWSRegion }}.api.aws,elasticfilesystem.{{ AWSRegion }}.amazonaws.com,fsx.{{ AWSRegion }}.amazonaws.com,dynamodb.{{ AWSRegion }}.amazonaws.com,api.ecr.{{ AWSRegion }}.amazonaws.com,.dkr.ecr.{{ AWSRegion }}.amazonaws.com,kinesis.{{ AWSRegion }}.amazonaws.com,.data-kinesis.{{ AWSRegion }}.amazonaws.com,.control-kinesis.{{ AWSRegion }}.amazonaws.com,events.{{ AWSRegion }}.amazonaws.com,cloudformation.{{ AWSRegion }}.amazonaws.com,sts.{{ AWSRegion }}.amazonaws.com,application-autoscaling.{{ AWSRegion }}.amazonaws.com,monitoring.{{ AWSRegion }}.amazonaws.com,ecs.{{ AWSRegion }}.amazonaws.com,.execute-api.{{ AWSRegion }}.amazonaws.com
+    	                   " >> /etc/environment
+    	```
+    5. Choose **Create component**.
 
 4. Create an Image Builder image recipe.
 
-   1. On the **Create recipe** page, enter the
-      following:
+    1. On the **Create recipe** page, enter the
+     following:
 
-   | Section                    | Parameter                   | User entry                                                                                                                                                                                                                                    |
-   | -------------------------- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Recipe details**         | **Name**                    | Enter an appropriate name such as res-recipe-linux-x86.                                                                                                                                                                                       |
-   |                            | **Version**                 | Enter a version, typically starting with 1.0.0.                                                                                                                                                                                               |
-   |                            | **Description**             | Add an optional description.                                                                                                                                                                                                                  |
-   | **Base image**             | **Select image**            | Select managed images.                                                                                                                                                                                                                        |
-   |                            | **OS**                      | Amazon Linux or Red Hat Enterprise Linux (RHEL)                                                                                                                                                                                               |
-   |                            | **Image origin**            | Quick start (Amazon-managed)                                                                                                                                                                                                                  |
-   |                            | **Image name**              | Amazon Linux 2 x86, Amazon Linux 2023 x86, Red Hat Enterprise<br>Linux 8 x86, or Red Hat Enterprise Linux 9 x86                                                                                                                               |
-   |                            | **Auto-versioning options** | Use latest available OS version.                                                                                                                                                                                                              |
-   | **Instance configuration** | **–**                       | Keep everything in the default settings, and make sure<br>**Remove SSM agent after pipeline execution**<br>is not selected.                                                                                                                   |
-   | **Working directory**      | **Working directory path**  | /root/bootstrap/res-installation-scripts                                                                                                                                                                                                      |
-   | **Components**             | **Build components**        | Search for and select the following:<br>• Amazon-managed: aws-cli-version-2-linux<br>• Amazon-managed: amazon-cloudwatch-agent-linux<br>• Owned by you: Amazon EC2 component created previously.<br>Put your current AWS Region in the field. |
-   |                            | **Test components**         | Search for and select:<br>• Amazon-managed: simple-boot-test-linux                                                                                                                                                                            |
-   2. Choose **Create recipe**.
+
+
+
+    | Section | Parameter | User entry |
+    | --- | --- | --- |
+    | **Recipe details** | **Name** | Enter an appropriate name such as res-recipe-linux-x86. |
+    |  | **Version** | Enter a version, typically starting with 1.0.0. |
+    |  | **Description** | Add an optional description. |
+    | **Base image** | **Select image** | Select managed images. |
+    |  | **OS** | Amazon Linux or Red Hat Enterprise Linux (RHEL) |
+    |  | **Image origin** | Quick start (Amazon-managed) |
+    |  | **Image name** | Amazon Linux 2 x86, Amazon Linux 2023 x86, Red Hat Enterprise<br>Linux 8 x86, or Red Hat Enterprise Linux 9 x86 |
+    |  | **Auto-versioning options** | Use latest available OS version. |
+    | **Instance configuration** | **–** | Keep everything in the default settings, and make sure<br>**Remove SSM agent after pipeline execution**<br>is not selected. |
+    | **Working directory** | **Working directory path** | /root/bootstrap/res-installation-scripts |
+    | **Components** | **Build components** | Search for and select the following:<br>• Amazon-managed: aws-cli-version-2-linux<br>• Amazon-managed: amazon-cloudwatch-agent-linux<br>• Owned by you: Amazon EC2 component created previously.<br>Put your current AWS Region in the field. |
+    |  | **Test components** | Search for and select:<br>• Amazon-managed: simple-boot-test-linux |
+    2. Choose **Create recipe**.
 
 5. Create Image Builder infrastructure configuration.
 
-   1. Under **Saved resources**, choose
-      **Infrastructure configurations**.
-   2. Choose **Create infrastructure configuration**.
-   3. On the **Create infrastructure configuration** page,
-      enter the following:
+    1. Under **Saved resources**, choose
+     **Infrastructure configurations**.
+    2. Choose **Create infrastructure configuration**.
+    3. On the **Create infrastructure configuration** page,
+     enter the following:
 
-   | Section                | Parameter                            | User entry                                                                                                                                                                                                                                                                                                                                                                                                       |
-   | ---------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **General**            | **Name**                             | Enter an appropriate name such as res-infra-linux-x86.                                                                                                                                                                                                                                                                                                                                                           |
-   |                        | **Description**                      | Add an optional description.                                                                                                                                                                                                                                                                                                                                                                                     |
-   |                        | **IAM role**                         | Select the IAM role created previously.                                                                                                                                                                                                                                                                                                                                                                          |
-   | **AWS infrastructure** | **Instance type**                    | Choose t3.medium.                                                                                                                                                                                                                                                                                                                                                                                                |
-   |                        | **VPC, subnet, and security groups** | Select an option that permits internet access and access to<br>the Amazon S3 bucket. If you need to create a security group, you<br>can create one from the Amazon EC2 console with the following inputs:<br>• VPC: Select the same VPC being used for the infrastructure<br>configuration. This VPC must have internet access.<br>• Inbound rule:<br>+ Type: SSH<br>+ Source: Custom<br>+ CIDR block: 0.0.0.0/0 |
-   4. Choose **Create infrastructure configuration**.
+
+
+
+    | Section | Parameter | User entry |
+    | --- | --- | --- |
+    | **General** | **Name** | Enter an appropriate name such as res-infra-linux-x86. |
+    |  | **Description** | Add an optional description. |
+    |  | **IAM role** | Select the IAM role created previously. |
+    | **AWS infrastructure** | **Instance type** | Choose t3.medium. |
+    |  | **VPC, subnet, and security groups** | Select an option that permits internet access and access to<br>the Amazon S3 bucket. If you need to create a security group, you<br>can create one from the Amazon EC2 console with the following inputs:<br>• VPC: Select the same VPC being used for the infrastructure<br>configuration. This VPC must have internet access.<br>• Inbound rule:<br>+ Type: SSH<br>+ Source: Custom<br>+ CIDR block: 0.0.0.0/0 |
+    4. Choose **Create infrastructure configuration**.
 
 6. Create a new EC2 Image Builder pipeline:
 
-   1. Go to **Image pipelines**, and choose **Create
-      image pipeline**.
-   2. On the **Specify pipeline details** page, enter the
-      following and choose **Next**:
+    1. Go to **Image pipelines**, and choose **Create
+     image pipeline**.
+    2. On the **Specify pipeline details** page, enter the
+     following and choose **Next**:
 
-      - Pipeline name and optional description
-      - For **Build schedule**, set a schedule or choose
-        **Manual** if you want to start the AMI baking
-        process manually.
 
-   3. On the **Choose recipe** page, choose **Use
-      existing recipe** and enter the **Recipe name**
-      created previously. Choose **Next**.
-   4. On the **Define image process** page, select the
-      default workflows and choose **Next**.
-   5. On the **Define infrastructure configuration** page,
-      choose **Use existing infrastructure configuration**
-      and enter the name of the previously created infrastructure
-      configuration. Choose **Next**.
-   6. On the **Define distribution settings** page,
-      consider the following for your selections:
 
-      - The output image must reside in the same region as the
-        deployed RES environment, so that RES can properly launch
-        infrastructure host instances from it. Using service defaults,
-        the output image will be created in the region where the EC2
-        Image Builder service is being used.
-      - If you want to deploy RES in multiple regions, you can choose
-        **Create a new distribution settings** and
-        add more regions there.
 
-   7. Review your selections and choose **Create
-      pipeline**.
+    	* Pipeline name and optional description
+    	* For **Build schedule**, set a schedule or choose
+    	 **Manual** if you want to start the AMI baking
+    	 process manually.
+    3. On the **Choose recipe** page, choose **Use
+     existing recipe** and enter the **Recipe name**
+     created previously. Choose **Next**.
+    4. On the **Define image process** page, select the
+     default workflows and choose **Next**.
+    5. On the **Define infrastructure configuration** page,
+     choose **Use existing infrastructure configuration**
+     and enter the name of the previously created infrastructure
+     configuration. Choose **Next**.
+    6. On the **Define distribution settings** page,
+     consider the following for your selections:
+
+
+
+
+    	* The output image must reside in the same region as the
+    	 deployed RES environment, so that RES can properly launch
+    	 infrastructure host instances from it. Using service defaults,
+    	 the output image will be created in the region where the EC2
+    	 Image Builder service is being used.
+    	* If you want to deploy RES in multiple regions, you can choose
+    	 **Create a new distribution settings** and
+    	 add more regions there.
+    7. Review your selections and choose **Create
+     pipeline**.
 
 7. Run the EC2 Image Builder pipeline:
 
-   1. From **Image pipelines**, find and select the pipeline
-      you created.
-   2. Choose **Actions**, and select **Run
-      pipeline**.
+    1. From **Image pipelines**, find and select the pipeline
+     you created.
+    2. Choose **Actions**, and select **Run
+     pipeline**.
 
-   The pipeline may take approximately 45 minutes to an hour to create an
-   AMI image.
+
+    The pipeline may take approximately 45 minutes to an hour to create an
+     AMI image.
 
 8. Note the AMI ID for the generated AMI and use it as the input for the
-   InfrastructureHostAMI parameter in [Step 1: Launch the product](launch-the-product.md "launch-the-product.md").
+InfrastructureHostAMI parameter in [Step 1: Launch the product](launch-the-product.md "launch-the-product.md").
 
 ### Set up VPC endpoints
 

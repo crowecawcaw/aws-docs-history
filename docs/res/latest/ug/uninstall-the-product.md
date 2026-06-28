@@ -15,7 +15,7 @@ stored data to retain.
 ## Using AWS Command Line Interface
 
 Determine whether the AWS Command Line Interface (AWS CLI) is available in your environment. For installation
-instructions, see [What Is the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the *AWS CLI User Guide*. After confirming
+instructions, see [What Is the AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") in the _AWS CLI User Guide_. After confirming
 that the AWS CLI is available and configured to the administrator account in the Region where
 the product was deployed, run the following command.
 

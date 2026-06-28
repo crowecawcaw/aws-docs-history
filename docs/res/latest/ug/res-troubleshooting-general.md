@@ -55,7 +55,7 @@ On a Linux virtual desktop, the following contain useful log files
 - /root/bootstrap/logs/userdata.log
 - /var/log/messages
 - /opt/idea/app/logs/
-- /opt/res/logs/vdi_idle_check.log
+- /opt/res/logs/vdi\_idle\_check.log
 
 On Windows virtual desktop instances logs can be found at
 

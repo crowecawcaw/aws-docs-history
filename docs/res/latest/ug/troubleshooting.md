@@ -39,7 +39,7 @@ troubleshoot specific issues.
     - [Environment CloudFormation stack fails to delete due to dependent object error](res-troubleshooting-issue-runbooks.md#object-error "res-troubleshooting-issue-runbooks.md#object-error")
     - [Error encountered for CIDR block parameter during environment creation](res-troubleshooting-issue-runbooks.md#cidr-block-error "res-troubleshooting-issue-runbooks.md#cidr-block-error")
     - [CloudFormation stack creation failure during environment creation](res-troubleshooting-issue-runbooks.md#cf-stack-creation-fails "res-troubleshooting-issue-runbooks.md#cf-stack-creation-fails")
-    - [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED](res-troubleshooting-issue-runbooks.md#demo-environment-stack-fails "res-troubleshooting-issue-runbooks.md#demo-environment-stack-fails")
+    - [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE\_FAILED](res-troubleshooting-issue-runbooks.md#demo-environment-stack-fails "res-troubleshooting-issue-runbooks.md#demo-environment-stack-fails")
 
   - [Identity management issues](res-troubleshooting-issue-runbooks.md#troubleshooting-identity-management "res-troubleshooting-issue-runbooks.md#troubleshooting-identity-management")
 
@@ -89,11 +89,11 @@ troubleshoot specific issues.
     - [cluster-manager Amazon CloudWatch log shows "<user-home-init> account not available yet. waiting for user to be synced" (where the account is a user name)](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-acct-unavailable "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-acct-unavailable")
     - [Windows desktop on login attempt says "Your account has been disabled. Please see your administrator"](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-acct-disabled "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-acct-disabled")
     - [DHCP Options issues with external/customer AD configuration](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-dhcp "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-dhcp")
-    - [Firefox error MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-firefox "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-firefox")
+    - [Firefox error MOZILLA\_PKIX\_ERROR\_REQUIRED\_TLS\_FEATURE\_MISSING](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-firefox "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-firefox")
 
   - [Env deletion](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion")
 
-    - [res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-role-invalid "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-role-invalid")
+    - [res-xxx-cluster stack in "DELETE\_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-role-invalid "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-role-invalid")
     - [Collecting Logs](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-collect-logs "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-collect-logs")
     - [Downloading VDI Logs](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-download-logs "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-download-logs")
     - [Downloading logs from Linux EC2 instances](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-linux-ec2-logs "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-linux-ec2-logs")

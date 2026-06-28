@@ -132,7 +132,7 @@ a recommendation on which Rocky AMI to use and how to use it.
 1. Sign in to the AWS Management Console, and go to the [AMI Catalog page](https://console.aws.amazon.com/ec2/home#AMICatalog "https://console.aws.amazon.com/ec2/home#AMICatalog") within the EC2 Console.
 2. Search for AMIs under the **AWS Marketplace** tab with
    the name **Rocky Linux 9**.
-3. Select the AMI named **Rocky Linux 9 (Official) - x86_64**
+3. Select the AMI named **Rocky Linux 9 (Official) - x86\_64**
    from **Rocky Linux**.
 
 ![Screenshot showing Rocky Linux 9 AMI search results in the AMI Catalog](images/res-rocky-linux9.png) 4. Once selected, choose **Subscribe now**. 5. Scroll up, and copy the AMI Id for **Selected AMI**.
