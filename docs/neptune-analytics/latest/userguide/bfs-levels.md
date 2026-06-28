@@ -53,7 +53,7 @@ for the algorithm.
   provided then all edge labels are processed during traversal.
   - **vertexLabel**   _(optional)_   –  
     _type:_ `string`;   _example:_
-    `"airport"`;  *default:* no node filtering.
+    `"airport"`;  _default:_ no node filtering.
 
   If you provide a node label to filter on then only nodes matching that label
   will be traversed. This does not, however, filter out any nodes in the source node list.
@@ -109,7 +109,7 @@ CALL neptune.algo.bfs.levels(
     vertexLabel: "airport",
     maxDepth: 6,
     traversalDirection: "both",
-    concurrency: 2
+    concurrency: 0
   }
 )
 YIELD node
@@ -150,7 +150,7 @@ RETURN n, node, level
 This query illustrates various ways to constrain the input and output:
 
 ```
-MATCH (n) where id(n)="101"
+MATCH (n) WHERE id(n)="101"
 CALL neptune.algo.bfs.levels(n, { edgeLabel: "route", maxDepth: 2})
 YIELD node, level WHERE node.city CONTAINS "New"
 RETURN n.city, node.city, level
@@ -173,7 +173,7 @@ Here is an example of the output returned by .bfs.levels when run against the
 ```
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
-  --query-string "CALL neptune.algo.bfs.levels(['101'], {maxDepth: 1}) yield source, node, level return source, node, level limit 2" \
+  --query-string "CALL neptune.algo.bfs.levels(['101'], {maxDepth: 1}) YIELD source, node, level RETURN source, node, level LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
 

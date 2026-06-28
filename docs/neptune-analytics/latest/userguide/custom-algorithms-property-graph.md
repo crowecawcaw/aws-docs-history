@@ -1,19 +1,19 @@
 # Property graph information
 
-Property Graph Information (graph.pg_info) summarizes some of the basic metrics of the graph, such as the number of
+Property Graph Information (graph.pg\_info) summarizes some of the basic metrics of the graph, such as the number of
 vertices, the number of edges, the number of edge properties, the number of vertex properties, the number of edge labels,
 and the number of vertex labels.
 
-## Inputs for graph.pg_info
+## Inputs for graph.pg\_info
 
-There are no inputs for graph.pg_info.
+There are no inputs for graph.pg\_info.
 
-## Outputs for graph.pg_info
+## Outputs for graph.pg\_info
 
 There are two columns in the output relation: the first column is the metric name and the second column is the
 count.
 
-###### metric: the metrics that graph.pg_info will return, which include:
+###### metric: the metrics that graph.pg\_info will return, which include:
 
 - numVertices: the number of vertices in the graph.
 - numEdges: the number of edges in the graph.
@@ -26,7 +26,7 @@ count.
 
 - count: the value of the above metrics.
 
-## graph.pg_info query example
+## graph.pg\_info query example
 
 ```
 ## Syntax
@@ -35,7 +35,7 @@ YIELD metric, count
 RETURN metric, count
 ```
 
-## graph.pg_info query integration
+## graph.pg\_info query integration
 
 ```
 # sample query integration
@@ -45,7 +45,7 @@ WHERE metric = 'numVertices'
 RETURN count
 ```
 
-## Sample graph.pg_info output
+## Sample graph.pg\_info output
 
 ```
 # sample output of graph.pg_info

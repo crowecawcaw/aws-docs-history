@@ -86,7 +86,7 @@ Neptune Analytics supports the following types in an `Any` type: `Bool` (or `Boo
 
 - `Vector` type is not supported in `Any` type.
 - Nested `Any` type is not supported. For example, `"{""value"": "{""value"": ""10"", ""type"": 
-""Int""}", ""type"": ""Any""}"`.
+ ""Int""}", ""type"": ""Any""}"`.
 
 ## Limitations and unsupported features
 

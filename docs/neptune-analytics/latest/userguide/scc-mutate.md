@@ -71,7 +71,7 @@ CALL neptune.algo.scc.mutate(
     writeProperty: "SCOMM_ID",
     edgeLabels: ["route", ..],
     vertexLabel: "airport",
-    concurrency: 2
+    concurrency: 0
   }
 )
 ```

@@ -69,7 +69,7 @@ CALL neptune.algo.wcc.mutate(
     writeProperty: "CCID",
     edgeLabels: ["route"],
     vertexLabel: "airport",
-    concurrency: 2
+    concurrency: 0
   }
 )
 ```

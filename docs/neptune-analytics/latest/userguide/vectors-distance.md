@@ -61,7 +61,7 @@ The distance metric to use for distance computation.
 
 
 
-    	![L2: Euclidean distance (L2 norm) between two vectors.](images/vectors-distance/L2.png)
+    	![L2: Euclidean distance (L2 norm) between two vectors.](/images/neptune-analytics/latest/userguide/images/vectors-distance/L2.png)
 
 
     	 For more information on L2, see

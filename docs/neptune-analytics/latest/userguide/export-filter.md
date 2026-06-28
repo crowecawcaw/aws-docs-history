@@ -23,8 +23,8 @@ vertex labels and properties are included in the export.
   - `sourcePropertyName`: The name of the property as it exists in the original graph data. If not provided,
     it is assumed that the key matches the desired `sourcePropertyName`.
   - `multiValueHandling`: Specifies how to handle properties that have multiple values. Can be either
-    "TO_LIST" to export all values as a list, or "PICK_FIRST" to export the first value encountered. If not specified,
-    the default value is "PICK_FIRST".
+    "TO\_LIST" to export all values as a list, or "PICK\_FIRST" to export the first value encountered. If not specified,
+    the default value is "PICK\_FIRST".
 
 `edgeFilter` is used to specify filters on a per-label basis for edges. This allows you to control which edge labels and
 properties are included in the export.
@@ -48,8 +48,8 @@ properties are included in the export.
   - `sourcePropertyName`: The name of the property as it exists in the original graph data. If not provided,
     it is assumed that the key matches the desired `sourcePropertyName`.
   - `multiValueHandling`: Specifies how to handle properties that have multiple values. Can be either
-    "TO_LIST" to export all values as a list, or "PICK_FIRST" to export the first value encountered. If not specified,
-    the default value is "PICK_FIRST".
+    "TO\_LIST" to export all values as a list, or "PICK\_FIRST" to export the first value encountered. If not specified,
+    the default value is "PICK\_FIRST".
 
 ## Filter syntax
 

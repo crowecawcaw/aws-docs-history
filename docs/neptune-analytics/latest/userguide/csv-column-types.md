@@ -38,7 +38,7 @@
 - A column type `Any` is supported in the user columns. An `Any` type is a type “syntactic sugar” for
   all of the other types we support. It is extremely useful if a user column has multiple types in it. The payload of an
   `Any` type value is a list of json strings as follows: `"{""value"": ""10"", ""type"": ""Int""};{""value"": 
-""1.0"", ""type"": ""Float""}"` , which has a `value` field and a `type` field in each
+ ""1.0"", ""type"": ""Float""}"` , which has a `value` field and a `type` field in each
   individual json string. The column header of an `Any` type is `propertyname:Any`. The cardinality
   value of an `Any` column is `set`, meaning that the column can accept multiple values.
 
@@ -48,4 +48,4 @@
     `Date`, `dateTime`, and `String`.
   - `Vector` type is not supported in `Any` type.
   - Nested `Any` type is not supported. For example, `"{""value"": "{""value"": ""10"", ""type"": 
-""Int""}", ""type"": ""Any""}"`.
+   ""Int""}", ""type"": ""Any""}"`.

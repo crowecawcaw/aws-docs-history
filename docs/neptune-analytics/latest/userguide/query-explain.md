@@ -95,7 +95,7 @@ a result, up to the point of evaluation. The operators that can appear in a DFE 
 - DFENotExists – Takes a left and right hand input relation, and retains values from the left relation that
   do not have a corresponding value in the right relation as defined by the given join variables. If there is
   no overlap in join variables, then this operator will return an empty relation.
-- DFEOptionalJoin – Performs the optional join A OPTIONAL B ≡ (A JOIN B) UNION (A MINUS_NE B). This is a
+- DFEOptionalJoin – Performs the optional join A OPTIONAL B ≡ (A JOIN B) UNION (A MINUS\_NE B). This is a
   blocking operation.
 - DFEOverlapSimilarityAlgo – Explain operator for invocations of the Overlap Similarity algorithm, which
   measures the overlap between the neighbors of two nodes.

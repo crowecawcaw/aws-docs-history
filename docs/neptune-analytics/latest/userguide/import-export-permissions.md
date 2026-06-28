@@ -59,7 +59,7 @@ JSON
     * `s3:ListBucket`: To list Amazon S3 objects for deduplication checks.
 
 3. Create an IAM role (choose custom trust policy), configure it's trust policy so that Neptune Analytics is able to assume
-   this role:
+this role:
 
 JSON
 

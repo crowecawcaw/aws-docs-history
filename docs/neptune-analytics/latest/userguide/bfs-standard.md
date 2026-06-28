@@ -50,7 +50,7 @@ for the algorithm.
   provided then all edge labels are processed during traversal.
   - **vertexLabel**   _(optional)_   –  
     _type:_ `string`;   _example:_
-    `"airport"`;  *default:* no node filtering.
+    `"airport"`;  _default:_ no node filtering.
 
   If you provide a node label to filter on then only nodes matching that label
   will be traversed. This does not, however, filter out any nodes in the source node list.
@@ -99,7 +99,7 @@ CALL neptune.algo.bfs(
     vertexLabel: "airport",
     maxDepth: 11,
     traversalDirection: "both",
-    concurrency: 2
+    concurrency: 0
   }
 )
 YIELD node
@@ -113,7 +113,7 @@ aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string 'CALL neptune.algo.bfs(["101", "102"],
       {edgeLabels: ["route"], vertexLabel: "airport", maxDepth: 11,
-      traversalDirection: "both", concurrency: 2})' \
+      traversalDirection: "both", concurrency: 0})' \
   --language open_cypher \
   /tmp/out.txt
 ```
@@ -147,7 +147,7 @@ The `MATCH` clause can also explicitly specify a starting node list
 using the `id()` function, like this:
 
 ```
-MATCH (n) where id(n)="101"
+MATCH (n) WHERE id(n)="101"
 CALL neptune.algo.bfs(n, {edgeLabels: ["route"]})
 YIELD node
 RETURN node
@@ -156,7 +156,7 @@ RETURN node
 Also:
 
 ```
-MATCH (n) where id(n) IN ["101", "102"]
+MATCH (n) WHERE id(n) IN ["101", "102"]
 CALL neptune.algo.bfs(n, {edgeLabels: ["route"]})
 YIELD node
 RETURN COUNT(node)
@@ -179,7 +179,7 @@ Here is an example of the output returned by .bfs when run against the
 ```
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
-  --query-string "CALL neptune.algo.bfs(['101'], {maxDepth: 1}) yield source, node return source, node limit 2" \
+  --query-string "CALL neptune.algo.bfs(['101'], {maxDepth: 1}) YIELD source, node RETURN source, node LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
 

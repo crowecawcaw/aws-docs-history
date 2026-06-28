@@ -9,16 +9,16 @@ To view the logs go to CloudWatch, click log groups from the left column, then s
 2. **Bulk Load using Import Task**: The logs are saved under
    `/aws/neptune/import-task-logs/<graph-id>/<task-id>` CloudWatch log stream.
 
-- **S3_ACCESS_DENIED**: The server does not have permissions to list or download
+- **S3\_ACCESS\_DENIED**: The server does not have permissions to list or download
   the given file. Fix the permissions and retry. See [Create your IAM role for Amazon S3 access](bulk-import-create-from-s3.md#create-iam-role-for-s3-access "bulk-import-create-from-s3.md#create-iam-role-for-s3-access") for help setting up the Amazon S3 permissions.
-- **LARGE_STRING_ERROR**: One or more strings exceeded the limit on the size of
+- **LARGE\_STRING\_ERROR**: One or more strings exceeded the limit on the size of
   strings. This data cannot be inserted as is. Update the strings exceeding the limit and retry.
-- **PARSING_ERROR**: Error parsing the given value(s). Correct the value(s) and retry.
+- **PARSING\_ERROR**: Error parsing the given value(s). Correct the value(s) and retry.
   More information on different parsing errors is provided in this section.
-- **OUT_OF_MEMORY**: No more data can be loaded in the current m-NCU. If encountered
+- **OUT\_OF\_MEMORY**: No more data can be loaded in the current m-NCU. If encountered
   during import task, set a higher m-NCU and retry. If encountered during batch load, scale the number of m-NCU and
   retry the batch load.
-- **PARTITION_FULL_ERROR**: No more data can be loaded in the internal server
+- **PARTITION\_FULL\_ERROR**: No more data can be loaded in the internal server
   configuration. If encountered during import task, the import workflow would change the server configuration
   and retry. If encountered during batch load, reach out to the AWS service team to unblock loading of new data.
   **Common parsing errors and solutions**

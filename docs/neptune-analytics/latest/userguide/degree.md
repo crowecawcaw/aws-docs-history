@@ -104,7 +104,7 @@ aws neptune-graph execute-query \
           edgeLabels: ["route"],
           vertexLabel: ["airport"],
           traversalDirection: "inbound",
-          concurrency: 2
+          concurrency: 0
         }
       )
       YIELD node, degree

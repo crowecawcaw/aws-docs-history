@@ -26,15 +26,15 @@ or the [CreatePrivateGraphEndpoint](../apiref/API_CreatePrivateGraphEndpoint.md 
      `vpce-<alphanumeric>.vpce-svc-<alphanumeric>.<region>.vpce.amazonaws.com`.
 
 3. Use Amazon Route 53 to create a [private hosted zone](../../../Route53/latest/DeveloperGuide/hosted-zone-private-creating.md "../../../Route53/latest/DeveloperGuide/hosted-zone-private-creating.md") for
-   VPC B.
+VPC B.
 
-   1. From the Route 53 console, choose **Create hosted zone**.
-   2. Set the **domain name** of the private hosted zone to the graph endpoint of the Neptune Analytics graph. The
-      graph endpoint should have the format of
-      `g-<alphanumeric>.<region>.neptune-graph.amazonaws.com`.
-   3. Set the **Type** to **Private hosted zone**.
-   4. Associate VPC B with the hosted zone.
-   5. Choose **Create hosted zone**.
+    1. From the Route 53 console, choose **Create hosted zone**.
+    2. Set the **domain name** of the private hosted zone to the graph endpoint of the Neptune Analytics graph. The
+     graph endpoint should have the format of
+     `g-<alphanumeric>.<region>.neptune-graph.amazonaws.com`.
+    3. Set the **Type** to **Private hosted zone**.
+    4. Associate VPC B with the hosted zone.
+    5. Choose **Create hosted zone**.
 
 Add a record to route traffic destined for the graph endpoint to the VPC endpoint directly.
 

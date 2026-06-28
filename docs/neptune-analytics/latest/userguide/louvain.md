@@ -184,7 +184,7 @@ This is a query integration example, where `.louvain` uses the output of a prece
 `MATCH` clause as its node list:
 
 ```
-Match (n)
+MATCH (n)
 CALL neptune.algo.louvain(
   n,
   {
@@ -223,8 +223,8 @@ aws neptune-graph execute-query \
     --query-string 'MATCH (n) \
             CALL neptune.algo.louvain(n) \
             YIELD node, community \
-            return node, community \
-            limit 2' \
+            RETURN node, community \
+            LIMIT 2' \
     --language open_cypher \
     /tmp/out.txt
 cat /tmp/out.txt

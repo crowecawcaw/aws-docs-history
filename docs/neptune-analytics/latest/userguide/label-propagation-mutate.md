@@ -153,7 +153,7 @@ CALL neptune.algo.labelPropagation.mutate(
     edgeWeightProperty: "dist",
     edgeWeightType: "int",
     traversalDirection: "both",
-    concurrency: 2
+    concurrency: 0
   }
 )
 ```

@@ -73,7 +73,7 @@ This is a query integration example, where `.scc` follows a
 `MATCH` clause that generates its input node list:
 
 ```
-Match (n)
+MATCH (n)
 CALL neptune.algo.scc(n, {edgeLabels: ["route", "contains"]})
 YIELD component
 RETURN n, component
@@ -82,10 +82,10 @@ RETURN n, component
 This is another query integration example:
 
 ```
-Match (n)
+MATCH (n)
 CALL neptune.algo.scc(n, {})
-Yield component
-Return n, component
+YIELD component
+RETURN n, component
 ```
 
 ###### Warning

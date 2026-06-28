@@ -125,7 +125,7 @@ CALL neptune.algo.closenessCentrality(
     vertexLabel: "airport",
     traversalDirection: "outbound",
     normalize: true,
-    concurrency: 1
+    concurrency: 0
   }
 )
 YIELD node, score
@@ -137,7 +137,7 @@ follows a `MATCH` clause and uses the output of the `MATCH`
 clause as its list of source nodes:
 
 ```
-Match (n)
+MATCH (n)
 CALL neptune.algo.closenessCentrality(
   n,
   {
@@ -146,7 +146,7 @@ CALL neptune.algo.closenessCentrality(
     vertexLabel: "airport",
     traversalDirection: "outbound",
     normalize: true,
-    concurrency: 1
+    concurrency: 0
   }
 )
 YIELD score
@@ -186,7 +186,7 @@ Here is an example of the output returned by .closenessCentrality when run again
 ```
 aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
-  --query-string "CALL neptune.algo.closenessCentrality(n, {numSources: 10}) YIELD node, score RETURN node, score limit 2" \
+  --query-string "CALL neptune.algo.closenessCentrality(n, {numSources: 10}) YIELD node, score RETURN node, score LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
 

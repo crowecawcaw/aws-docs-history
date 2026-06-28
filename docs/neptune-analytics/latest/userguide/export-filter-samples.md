@@ -54,11 +54,11 @@
   - `~label` - The label of the edge, which will be "knows".
   - `weight` - The "weight" property of the edge, exported as a Float type.
 
-| "~from" | "~to"  | "~label"  | "weight:Float" |
-| ------- | ------ | --------- | -------------- |
-| "p1"    | "p5"   | "reports" | 1              |
-| "p1"    | "p2"   | "knows"   | 0.5            |
-| "p2"    | "s2_2" | "knows"   | 0.6            |
+| "~from" | "~to"   | "~label"  | "weight:Float" |
+| ------- | ------- | --------- | -------------- |
+| "p1"    | "p5"    | "reports" | 1              |
+| "p1"    | "p2"    | "knows"   | 0.5            |
+| "p2"    | "s2\_2" | "knows"   | 0.6            |
 
 ## Sample filter: Exporting vertices and edges to a single schema
 
@@ -102,11 +102,11 @@ label.
 | "p2"  | "Professor" | "Professor 2" | 2         |
 | "p1"  | "Professor" | "Professor 1" | 1         |
 
-| "~from" | "~to"  | "~label"  | "weight:Float" |
-| ------- | ------ | --------- | -------------- |
-| "p1"    | "p5"   | "reports" | 1              |
-| "p1"    | "p2"   | "knows"   | 0.5            |
-| "p2"    | "s2_2" | "knows"   | 0.6            |
+| "~from" | "~to"   | "~label"  | "weight:Float" |
+| ------- | ------- | --------- | -------------- |
+| "p1"    | "p5"    | "reports" | 1              |
+| "p1"    | "p2"    | "knows"   | 0.5            |
+| "p2"    | "s2\_2" | "knows"   | 0.6            |
 
 ## Sample filter: Exporting all vertices but no edges
 
@@ -161,11 +161,11 @@ with all edges.
 By specifying properties as an empty object, only the `~from`, `~to`, and `~label` columns will
 be exported for all edges.
 
-| "~from" | "~to"  | "~label"  |
-| ------- | ------ | --------- |
-| "p1"    | "p5"   | "reports" |
-| "p1"    | "p2"   | "knows"   |
-| "p2"    | "s2_2" | "knows"   |
+| "~from" | "~to"   | "~label"  |
+| ------- | ------- | --------- |
+| "p1"    | "p5"    | "reports" |
+| "p1"    | "p2"    | "knows"   |
+| "p2"    | "s2\_2" | "knows"   |
 
 ## Run a mutation algorithm then export the results
 
@@ -200,8 +200,8 @@ Followed by an export with a filter:
 
 The result would be:
 
-| "~id" | "~label"  | "P_RANK:Float" |
-| ----- | --------- | -------------- |
-| "SYD" | "Airport" | 0.005          |
-| "JFK" | "Airport" | 0.008          |
-| "LGA" | "Airport" | 0.002          |
+| "~id" | "~label"  | "P\_RANK:Float" |
+| ----- | --------- | --------------- |
+| "SYD" | "Airport" | 0.005           |
+| "JFK" | "Airport" | 0.008           |
+| "LGA" | "Airport" | 0.002           |

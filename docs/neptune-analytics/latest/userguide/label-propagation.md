@@ -38,8 +38,8 @@ CALL neptune.algo.labelPropagation(
     concurrency: `number of threads to use (optional)`
   }
 )
-Yield node, community
-Return node, community
+YIELD node, community
+RETURN node, community
 ```
 
 ## `.labelPropagation`  inputs
@@ -167,7 +167,7 @@ CALL neptune.algo.labelPropagation(
     edgeWeightProperty: "dist",
     edgeWeightType: "int",
     traversalDirection: "both",
-    concurrency: 2
+    concurrency: 0
   }
 )
 YIELD node, community
@@ -178,7 +178,7 @@ This is a query integration example, where `.labelPropagation` uses the
 output of a preceding `MATCH` clause as its source node list:
 
 ```
-Match (n)
+MATCH (n)
 CALL neptune.algo.labelPropagation(
   n,
   {
@@ -190,7 +190,7 @@ CALL neptune.algo.labelPropagation(
     edgeWeightProperty: "dist",
     edgeWeightType: "int",
     traversalDirection: "both",
-    concurrency: 2
+    concurrency: 0
   }
 )
 YIELD community

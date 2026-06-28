@@ -60,7 +60,7 @@ The node or nodes to use as the starting location(s) for the algorithm.
   provided then all edge labels are processed during traversal.
   - **vertexLabel**   _(optional)_   –  
     _type:_ `string`;   _example:_
-    `"airport"`;  *default:* no node filtering.
+    `"airport"`;  _default:_ no node filtering.
 
   A node label for node filtering. If a node label is provided, vertices matching the label are the only
   vertices that are included, including vertices in the input list.
@@ -120,7 +120,7 @@ CALL neptune.algo.sssp.bellmanFord.parents(
     edgeWeightType: "int",
     vertexLabel: "airport",
     traversalDirection: "outbound",
-    concurrency: 1
+    concurrency: 0
   }
 )
 YIELD node, parent, distance
@@ -146,9 +146,9 @@ aws neptune-graph execute-query \
   --graph-identifier ${graphIdentifier} \
   --query-string "CALL neptune.algo.sssp.bellmanFord.parents(['101'],
        {edgeWeightProperty: 'dist', edgeWeightType: 'int'})
-     yield source, node, parent
-     return source, node, parent
-     limit 2" \
+     YIELD source, node, parent
+     RETURN source, node, parent
+     LIMIT 2" \
   --language open_cypher \
   /tmp/out.txt
 

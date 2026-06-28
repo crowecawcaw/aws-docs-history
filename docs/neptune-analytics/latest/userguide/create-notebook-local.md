@@ -10,7 +10,7 @@ graph-notebook repository](https://github.com/aws/graph-notebook "https://github
 - [Connecting to Neptune](https://github.com/aws/graph-notebook/#amazon-neptune "https://github.com/aws/graph-notebook/#amazon-neptune")
   When setting up for Neptune Analytics:
 
-- When setting the connection using [%%graph_notebook_config](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-config "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-config"),
+- When setting the connection using [%%graph\_notebook\_config](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-config "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-config"),
   make sure to set the `neptune_service` field to the value `neptune-graph`.
 - If you're connecting to a private graph endpoint, you need to enable access
   to the VPC where the Neptune Analytics instance resides. The easiest way to set this is up is using

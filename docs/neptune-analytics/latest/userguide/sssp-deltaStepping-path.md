@@ -65,7 +65,7 @@ The node or nodes to use as the ending location(s) for the algorithm.
   The numeric data type of the values in the property specified by `edgeWeightProperty`.
   - **delta**   _(optional)_   –  
     _type:_ `float`;   _example:_
-    `3.0`;  *default:* 2.0
+    `3.0`;  _default:_ 2.0
 
   The delta stepping value.
   - **edgeLabels**   _(optional)_   –  
@@ -76,7 +76,7 @@ The node or nodes to use as the ending location(s) for the algorithm.
   provided then all edge labels are processed during traversal.
   - **vertexLabel**   _(optional)_   –  
     _type:_ `string`;   _example:_
-    `"airport"`;  *default:* no node filtering.
+    `"airport"`;  _default:_ no node filtering.
 
   A node label for node filtering. If a node label is provided, vertices matching the label are the only
   vertices that are included, including vertices in the input list.
@@ -147,7 +147,7 @@ CALL neptune.algo.sssp.deltaStepping.path(
     edgeWeightType: "int",
     vertexLabel: "airport",
     traversalDirection: "outbound",
-    concurrency: 1
+    concurrency: 0
   }
 )
 YIELD distance, vertexPath, allDistances, path
@@ -182,7 +182,7 @@ aws neptune-graph execute-query \
   edgeLabels: ["route"],
   vertexLabel: "airport",
   traversalDirection: "outbound",
-  concurrency: 1
+  concurrency: 0
   })
   YIELD source, target, distance, vertexPath, allDistances, path
   RETURN source, target, distance, vertexPath, allDistances, path" \

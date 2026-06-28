@@ -150,7 +150,7 @@ Personalized PagerRank applies the same integration and constraints. Here are so
 pass personalization-specific configurations.
 
 The example below computes the Personalized PageRank score of every vertex in the graph, and writes
-that score to a new vertex property named "PRS_RANK":
+that score to a new vertex property named "PRS\_RANK":
 
 ```
 CALL neptune.algo.pageRank.mutate(

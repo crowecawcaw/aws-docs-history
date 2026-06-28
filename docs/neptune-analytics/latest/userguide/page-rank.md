@@ -197,32 +197,32 @@ integration), the result returned by the `MATCH` clause is taken as the node lis
   The type of values associated with the edgeWeightProperty argument, specified as a string.
   _valid values_: "int", "long", "float", "double".
 
-      - If the edgeWeightProperty is not given, the algorithm runs unweighted no matter if the edgeWeightType
-       is given or not.
-      - Note that if multiple properties exist on the edge with the name specified by edgeWeightProperty, one
-       of those property values will be sampled at random.
+        - If the edgeWeightProperty is not given, the algorithm runs unweighted no matter if the edgeWeightType
+         is given or not.
+        - Note that if multiple properties exist on the edge with the name specified by edgeWeightProperty, one
+         of those property values will be sampled at random.
   - **sourceNodes** _(optional) - required if
     running personalized PageRank_   –  
     _type:_ `list`;   _default: none_.
 
   A personalization vertex list ["101", ...]
 
-      - Can include 1 to 8192 vertices.
-      - If a `vertexLabel` is provided, nodes that do not have the given `vertexLabel`
-       are ignored.
+        - Can include 1 to 8192 vertices.
+        - If a `vertexLabel` is provided, nodes that do not have the given `vertexLabel`
+         are ignored.
   - **sourceWeights** _(optional)_   –  
     _type:_ `list`;   _default: none_.
 
   A personalization weight list. The weight distribution among the personalized vertices.
 
-      - If not provided, the default behavior is uniform distribution among the vertices given in
-       `sourceNodes`.
-      - There must be at least one non-zero weight in the list.
-      - The length of the sourceWeights list must match the `sourceNodes` list.
-      - The mapping of personalization vertex and weight lists are one to one. The first value in the weight list
-       corresponds to the weight of first vertex in the vertex list, second value is for the second vertex, etc.
-      - The weights can be one of `int`, `long`, `float`, or `double`
-       types.
+        - If not provided, the default behavior is uniform distribution among the vertices given in
+         `sourceNodes`.
+        - There must be at least one non-zero weight in the list.
+        - The length of the sourceWeights list must match the `sourceNodes` list.
+        - The mapping of personalization vertex and weight lists are one to one. The first value in the weight list
+         corresponds to the weight of first vertex in the vertex list, second value is for the second vertex, etc.
+        - The weights can be one of `int`, `long`, `float`, or `double`
+         types.
 
 ## Outputs for the `.pageRank` algorithm
 

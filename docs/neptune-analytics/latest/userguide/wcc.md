@@ -90,7 +90,7 @@ CALL neptune.algo.wcc(
   {
     edgeLabels: ["route"],
     vertexLabel: "airport",
-    concurrency: 2
+    concurrency: 0
   }
 )
 YIELD node, component

@@ -77,7 +77,7 @@ A query plan is evicted by cache TTL or maximum number of cached query plans rea
 the TTL is refreshed. The defaults are:
 
 - The maximum number of plans cached per instance is 1000.
-- TTL: 300_000 milliseconds or 5 minutes. Note that cache hit refreshes the TTL back to 5 min.
+- TTL: 300\_000 milliseconds or 5 minutes. Note that cache hit refreshes the TTL back to 5 min.
   **Conditions when a query plan is not cached**
 
 The following list demonstrates conditions for when a query plan would not be cached.

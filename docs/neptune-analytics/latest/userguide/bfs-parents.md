@@ -52,7 +52,7 @@ for the algorithm.
   provided then all edge labels are processed during traversal.
   - **vertexLabel**   _(optional)_   –  
     _type:_ `string`;   _example:_
-    `"airport"`;  *default:* no node filtering.
+    `"airport"`;  _default:_ no node filtering.
 
   If you provide a node label to filter on then only vertices matching that label
   will be traversed. This does not, however, filter out any nodes in the source node list.
@@ -106,7 +106,7 @@ CALL neptune.algo.bfs.parents(
     vertexLabel: "airport",
     maxDepth: 2,
     traversalDirection: "both",
-    concurrency: 2
+    concurrency: 1
   }
 )
 YIELD node, parent
@@ -122,7 +122,7 @@ This is a query integration example, where `.bfs.parents` follows a
 `MATCH` clause that provides the source node list for `.bfs.parents`:
 
 ```
-Match (n) with n LIMIT 5
+MATCH (n) WITH n LIMIT 5
 CALL neptune.algo.bfs.parents(n, {edgeLabels: ["route"]})
 YIELD node
 RETURN n, node
@@ -141,7 +141,7 @@ This query searches for routes to BFS from BKK, returning the starting node (BKK
 5 visited vertices, and their parents:
 
 ```
-MATCH (n) where n.code CONTAINS "BKK"
+MATCH (n) WHERE n.code CONTAINS "BKK"
 CALL neptune.algo.bfs.parents(n, {edgeLabels: ["route"]})
 YIELD node, parent
 RETURN n, node, parent

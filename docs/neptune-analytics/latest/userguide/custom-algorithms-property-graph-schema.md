@@ -23,11 +23,11 @@ integration with third-party applications, and inclusion in open-source tools.
 This procedure provides a unified method of complete and up-to-date information extraction to support a wide range of applications
 from AI-driven query generation to data visualization and reporting.
 
-## Inputs for neptune.graph.pg_schema()
+## Inputs for neptune.graph.pg\_schema()
 
-There are no inputs for neptune.graph.pg_schema().
+There are no inputs for neptune.graph.pg\_schema().
 
-## Outputs for neptune.graph.pg_schema()
+## Outputs for neptune.graph.pg\_schema()
 
 There is a single column in the output containing a map schema containing the following key components in the schema map:
 
@@ -77,7 +77,7 @@ There is a single column in the output containing a map schema containing the fo
   - `~from` - The node label of the head node of the node-edge->node.
   - `~to` - The node label of the tail node of the node-edge->node.
 
-## neptune.graph.pg_schema() query example
+## neptune.graph.pg\_schema() query example
 
 ```
 ## Syntax
@@ -86,7 +86,7 @@ YIELD schema
 RETURN schema
 ```
 
-## neptune.graph.pg_schema() query integration
+## neptune.graph.pg\_schema() query integration
 
 ```
 # sample query integration.
@@ -119,7 +119,7 @@ RETURN label, COUNT(n) as count
 }%
 ```
 
-## Sample neptune.graph.pg_schema() output
+## Sample neptune.graph.pg\_schema() output
 
 ```
 % aws neptune-graph execute-query \

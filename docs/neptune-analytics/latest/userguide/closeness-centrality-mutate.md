@@ -135,7 +135,7 @@ CALL neptune.algo.closenessCentrality.mutate(
     vertexLabel: "airport",
     traversalDirection: "outbound",
     normalize: true,
-    concurrency: 1
+    concurrency: 0
   }
 )
 ```
@@ -143,7 +143,7 @@ CALL neptune.algo.closenessCentrality.mutate(
 Then you can query the `ccScore` property in a subsequent query:
 
 ```
-MATCH (n) RETURN id(n), n.ccScore limit 5
+MATCH (n) RETURN id(n), n.ccScore LIMIT 5
 ```
 
 ## Sample   `.closenessCentrality.mutate`   output

@@ -17,7 +17,7 @@ A quick summary of steps needed to import a graph from Amazon S3:
 - Use the `CreateGraphUsingImportTask` API to import from Amazon S3: Create a graph using the
   `CreateGraphUsingImportTask` API. This will generate a `taskId` for the operation.
 - Use the `GetImportTask` API to get the details of the import task. The response will indicate the status
-  of the task (ie. INITIALIZING, ANALYZING_DATA, IMPORTING etc.).
+  of the task (ie. INITIALIZING, ANALYZING\_DATA, IMPORTING etc.).
 - Once the task has completed successfully, you will see a `COMPLETED` status for the import task and
   also the `graphId` for the newly created graph.
 - Use the `GetGraphs` API to fetch all the details about your new graph, including the ARN, endpoint, etc.
@@ -118,7 +118,7 @@ Your IAM role is now ready for import.
 ## Use the CreateGraphUsingImportTask API to import from Amazon S3
 
 You can perform this operation from the Neptune console as well as from AWS CLI/SDK. For more information on
-different parameters, see [https://docs.aws.amazon.com//neptune-analytics/latest/apiref/API_CreateGraphUsingImportTask.html](../apiref/API_CreateGraphUsingImportTask.md "../apiref/API_CreateGraphUsingImportTask.md")
+different parameters, see [https://docs.aws.amazon.com//neptune-analytics/latest/apiref/API\_CreateGraphUsingImportTask.html](../apiref/API_CreateGraphUsingImportTask.md "../apiref/API_CreateGraphUsingImportTask.md")
 
 **Via CLI/SDK**
 

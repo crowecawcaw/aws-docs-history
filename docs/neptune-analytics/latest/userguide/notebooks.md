@@ -20,24 +20,24 @@ Neptune Analytics graphs:
   (uses the [neptune-load()](batch-load.md "batch-load.md") openCypher
   integration to let you batch-load data).
 - [%status](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-status "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-status") or
-  [%get_graph](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-get-graph "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-get-graph")   (gets status information about the graph).
+  [%get\_graph](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-get-graph "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-get-graph")   (gets status information about the graph).
 - [%%opencypher or %%oc](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-opencypher "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-opencypher")  
   (issues an openCypher query).
-- [%opencypher_status, or %oc_status](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-opencypher-status "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-opencypher-status")  
+- [%opencypher\_status, or %oc\_status](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-opencypher-status "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-opencypher-status")  
   (retrieves query status for, or cancels, an openCypher query).
-- [%%graph_notebook_config](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-config "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-config")  
+- [%%graph\_notebook\_config](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-config "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-config")  
   (displays a JSON object containing the configuration that the notebook is using).
-- [%graph_notebook_host](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-host "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-host")  
+- [%graph\_notebook\_host](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-host "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-host")  
   (sets the line input as the notebook's host).
-- [%graph_notebook_version](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-version "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-version")  
+- [%graph\_notebook\_version](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-version "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-version")  
   (returns the Neptune workbench notebook release number).
-- [%graph_notebook_service](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-service "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-service")  
+- [%graph\_notebook\_service](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-service "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-graph-notebook-service")  
   (sets the line input as the Neptune service name to use).
-- [%%graph_notebook_vis_options](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-vis-options "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-vis-options")  
+- [%%graph\_notebook\_vis\_options](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-vis-options "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-cell-magics-graph-notebook-vis-options")  
   (lets you set visualization options for the notebook).
 - [%summary](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-summary "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-summary")  
   (retrieves graph summary information).
-- [%graph_reset](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-reset-graph "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-reset-graph")  
+- [%graph\_reset](../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-reset-graph "../../../neptune/latest/userguide/notebooks-magics.md#notebooks-line-magics-reset-graph")  
   (empties the data from a graph).
   You can use a Neptune graph notebook to generate an interactive visualization of the results returned
   from an openCypher query, and use options to customize the appearance of the visualized graph (see
