@@ -39,7 +39,7 @@ network requirements for your gateway, see [Network and firewall requirements](R
      host name and port to complete configuration.
    - **View current HTTP proxy configuration** - If an
      HTTP proxy is not configured, the message `HTTP Proxy not
-configured` is displayed. If an HTTP proxy is configured,
+  configured` is displayed. If an HTTP proxy is configured,
      the host name and port of the proxy are displayed.
    - **Remove an HTTP proxy configuration** - The message
      `HTTP Proxy Configuration Removed` is

@@ -70,10 +70,10 @@ device. 5. Follow the Add Hardware wizard to add a network adapter.
      information, and then choose **Finish**.
 
 6. Choose the **Summary** tab for the VM, and choose
-   **View All** next to the **IP Address**
-   box. The **Virtual Machine IP Addresses** window displays all
-   the IP addresses you can use to access the gateway. Confirm that a second IP
-   address is listed for the gateway.
+**View All** next to the **IP Address**
+box. The **Virtual Machine IP Addresses** window displays all
+the IP addresses you can use to access the gateway. Confirm that a second IP
+address is listed for the gateway.
 
 ###### Note
 

@@ -51,4 +51,4 @@ cluster, we also recommend this additional CloudWatch alarm:
 | **Alarm**             | The metric or expression is outside of the defined<br>threshold.                                                                                                                                 |
 | **Insufficient data** | The alarm has just started, the metric is not available, or not<br>enough data is available for the metric to determine the alarm<br>state.                                                      |
 | **None**              | No alarms are created for the gateway. To create a new alarm, see<br>[Create a custom CloudWatch alarm for your gateway](cloudwatch-alarms-create-alarm.md "cloudwatch-alarms-create-alarm.md"). |
-| **Unavailable**       | The state of the alarm is unknown. Choose<br>**Unavailable\*<br>• to view error information in<br>the **Monitoring\*<br>• tab.                                                                   |
+| **Unavailable**       | The state of the alarm is unknown. Choose<br>*_Unavailable_<br>• to view error information in<br>the *_Monitoring_<br>• tab.                                                                     |

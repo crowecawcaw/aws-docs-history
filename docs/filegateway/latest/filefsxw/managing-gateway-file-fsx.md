@@ -54,14 +54,14 @@ a status of AVAILABLE. This should be the status most of the time.
 The following table describes file share statuses, what they mean, and whether action
 might be required.
 
-| Status         | Meaning                                                                                                                                                                                                                                                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AVAILABLE      | The file system is configured properly and is available to use.<br>This is the standard status for a file system that's working<br>properly.                                                                                                                                                                                                |
-| CREATING       | The file system is not yet fully created and is not ready for use.<br>The CREATING status is transitional. No action is required. If the<br>file system gets stuck in this status, it's probably because<br>the gateway VM lost connection to AWS.                                                                                          |
-| UPDATING       | The file system configuration is currently updating. The UPDATING<br>status is transitional. No action is required. If a file system gets<br>stuck in this status, it's probably because the gateway VM lost<br>connection to AWS.                                                                                                          |
-| DELETING       | The file system is being deleted. The file system is not deleted<br>until all data is uploaded to AWS. The DELETING status is<br>transitional, and no action is required.                                                                                                                                                                   |
-| FORCE_DELETING | The file system is being deleted forcibly. The file system is<br>deleted immediately and data is not uploaded to AWS. The<br>FORCE_DELETING status is transitional, and no action is<br>required.                                                                                                                                           |
-| ERROR          | The file system is in an unhealthy state. Action is required. Some<br>possible causes include problems with access credentials or<br>privileges, connectivity issues, or insufficient storage space on<br>the file system. When the issue that caused the unhealthy state is<br>resolved, the file system returns to a status of AVAILABLE. |
+| Status          | Meaning                                                                                                                                                                                                                                                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AVAILABLE       | The file system is configured properly and is available to use.<br>This is the standard status for a file system that's working<br>properly.                                                                                                                                                                                                |
+| CREATING        | The file system is not yet fully created and is not ready for use.<br>The CREATING status is transitional. No action is required. If the<br>file system gets stuck in this status, it's probably because<br>the gateway VM lost connection to AWS.                                                                                          |
+| UPDATING        | The file system configuration is currently updating. The UPDATING<br>status is transitional. No action is required. If a file system gets<br>stuck in this status, it's probably because the gateway VM lost<br>connection to AWS.                                                                                                          |
+| DELETING        | The file system is being deleted. The file system is not deleted<br>until all data is uploaded to AWS. The DELETING status is<br>transitional, and no action is required.                                                                                                                                                                   |
+| FORCE\_DELETING | The file system is being deleted forcibly. The file system is<br>deleted immediately and data is not uploaded to AWS. The<br>FORCE\_DELETING status is transitional, and no action is<br>required.                                                                                                                                          |
+| ERROR           | The file system is in an unhealthy state. Action is required. Some<br>possible causes include problems with access credentials or<br>privileges, connectivity issues, or insufficient storage space on<br>the file system. When the issue that caused the unhealthy state is<br>resolved, the file system returns to a status of AVAILABLE. |
 
 ## Edit basic information for an FSx File Gateway
 
@@ -101,7 +101,7 @@ from the following options:
      Logs to monitor your gateway.
 
 7. When you finish modifying the settings you want to change, choose
-   **Save changes**.
+**Save changes**.
 
 ## Set a security level for your gateway
 

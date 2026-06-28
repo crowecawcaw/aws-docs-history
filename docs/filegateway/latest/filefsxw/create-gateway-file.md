@@ -54,7 +54,7 @@ File Gateway in AWS Storage Gateway.
         and configure the gateway virtual machine using Linux
         Kernel-based Virtual Machine (KVM). Refer to the provided
         aws-storage-gateway.xml file for suggested boot configurations.
-        UEFI boot mode with secure boot disabled (loader_secure=no) is
+        UEFI boot mode with secure boot disabled (loader\_secure=no) is
         required for File Gateway 2.x, Volume Gateway 3.x, and Tape
         Gateway 3.x.
       - **Amazon EC2** – Configure and launch
@@ -136,19 +136,18 @@ File Gateway in AWS Storage Gateway.
 
 ###### To activate a new FSx File Gateway
 
-1.  If you have not done so already, complete the procedures described in the
-    following topics:
+1. If you have not done so already, complete the procedures described in the
+   following topics:
 
-        * [Set up an Amazon FSx File Gateway](create-gateway-file.md#set-up-gateway-fsx-file "create-gateway-file.md#set-up-gateway-fsx-file")
-        * [Connect your Amazon FSx File Gateway to AWS](create-gateway-file.md#connect-to-amazon-fsx-file "create-gateway-file.md#connect-to-amazon-fsx-file")
+   - [Set up an Amazon FSx File Gateway](create-gateway-file.md#set-up-gateway-fsx-file "create-gateway-file.md#set-up-gateway-fsx-file")
+   - [Connect your Amazon FSx File Gateway to AWS](create-gateway-file.md#connect-to-amazon-fsx-file "create-gateway-file.md#connect-to-amazon-fsx-file")
+     When finished, choose **Next** to open the
+     **Review and activate** page in the AWS Storage Gateway
+     console.
 
-    When finished, choose **Next** to open the
-    **Review and activate** page in the AWS Storage Gateway
-    console.
-
-2.  Review the initial gateway details for each section on the page.
-3.  If a section contains errors, choose **Edit** to return
-    to the corresponding settings page and make changes.
+2. Review the initial gateway details for each section on the page.
+3. If a section contains errors, choose **Edit** to return
+   to the corresponding settings page and make changes.
 
 ###### Important
 
@@ -161,32 +160,31 @@ configuration to allocate local storage disks and configure logging. Choose
 
 ###### To perform the first-time configuration on a new FSx File Gateway
 
-1.  If you have not done so already, complete the procedures described in the
-    following topics:
+1. If you have not done so already, complete the procedures described in the
+   following topics:
 
-        * [Set up an Amazon FSx File Gateway](create-gateway-file.md#set-up-gateway-fsx-file "create-gateway-file.md#set-up-gateway-fsx-file")
-        * [Connect your Amazon FSx File Gateway to AWS](create-gateway-file.md#connect-to-amazon-fsx-file "create-gateway-file.md#connect-to-amazon-fsx-file")
-        * [Review settings and activate your Amazon FSx File Gateway](create-gateway-file.md#review-and-activate-fsx-file "create-gateway-file.md#review-and-activate-fsx-file")
+   - [Set up an Amazon FSx File Gateway](create-gateway-file.md#set-up-gateway-fsx-file "create-gateway-file.md#set-up-gateway-fsx-file")
+   - [Connect your Amazon FSx File Gateway to AWS](create-gateway-file.md#connect-to-amazon-fsx-file "create-gateway-file.md#connect-to-amazon-fsx-file")
+   - [Review settings and activate your Amazon FSx File Gateway](create-gateway-file.md#review-and-activate-fsx-file "create-gateway-file.md#review-and-activate-fsx-file")
+     When finished, choose **Next** to open the
+     **Configure gateway** page in the AWS Storage Gateway
+     console.
 
-    When finished, choose **Next** to open the
-    **Configure gateway** page in the AWS Storage Gateway
-    console.
+2. In the **Configure storage** section, use the dropdown
+   lists to allocate at least one local disk with at least 150 gibibytes (GiB)
+   capacity to **Cache**. The local disks listed in this
+   section correspond to the physical storage that you provisioned on your host
+   platform.
+3. In the **CloudWatch log group** section, choose how to set up
+   Amazon CloudWatch Logs to monitor the health of your gateway. You can choose from the
+   following options:
 
-2.  In the **Configure storage** section, use the dropdown
-    lists to allocate at least one local disk with at least 150 gibibytes (GiB)
-    capacity to **Cache**. The local disks listed in this
-    section correspond to the physical storage that you provisioned on your host
-    platform.
-3.  In the **CloudWatch log group** section, choose how to set up
-    Amazon CloudWatch Logs to monitor the health of your gateway. You can choose from the
-    following options:
-
-    - **Create a new log group** – Set up a new
-      log group to monitor your gateway.
-    - **Use an existing log group** – Choose an
-      existing log group from the corresponding dropdown list.
-    - **Deactivate logging** – Do not use
-      Amazon CloudWatch Logs to monitor your gateway.
+   - **Create a new log group** – Set up a new
+     log group to monitor your gateway.
+   - **Use an existing log group** – Choose an
+     existing log group from the corresponding dropdown list.
+   - **Deactivate logging** – Do not use
+     Amazon CloudWatch Logs to monitor your gateway.
 
 ###### Note
 
@@ -247,14 +245,13 @@ defined limits. You can choose from the following options:
      be notified about your gateway's metrics.
 
 5. (Optional) In the **Tags** section, choose **Add
-   new tag**, then enter a case-sensitive key-value pair to help
-   you search and filter for your gateway on the list pages in the AWS Storage Gateway
-   console. Repeat this step to add as many tags as you need.
-6. (Optional) In the **Verify VMware High Availability
-   configuration** section, if your gateway is deployed on a
-   VMware host that is part of a VMware High Availability (HA) cluster, choose
-   **Verify VMware HA** to test whether the HA
-   configuration is working properly.
+new tag**, then enter a case-sensitive key-value pair to help
+you search and filter for your gateway on the list pages in the AWS Storage Gateway
+console. Repeat this step to add as many tags as you need. 6. (Optional) In the **Verify VMware High Availability
+configuration** section, if your gateway is deployed on a
+VMware host that is part of a VMware High Availability (HA) cluster, choose
+**Verify VMware HA** to test whether the HA
+configuration is working properly.
 
 ###### Note
 

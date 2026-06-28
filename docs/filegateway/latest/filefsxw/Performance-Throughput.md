@@ -245,9 +245,7 @@ This example command does the following:
     + Groups results for easier analysis
      (`--group_reporting`)
 
-For more information, see the [fio](https://linux.die.net/man/1/fio "https://linux.die.net/man/1/fio") Linux man page.
-
--
+For more information, see the [fio](https://linux.die.net/man/1/fio "https://linux.die.net/man/1/fio") Linux man page. *
 
 ## Turn off automated cache refresh
 

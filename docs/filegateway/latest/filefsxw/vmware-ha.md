@@ -49,44 +49,43 @@ Next, configure your VMware cluster to work with Storage Gateway.
 
 ###### To configure your VMware cluster
 
-1.  On the **Edit Cluster Settings** page in VMware vSphere, make
-    sure that VM monitoring is configured for VM and application monitoring. To do
-    so, set the following values for each option:
+1. On the **Edit Cluster Settings** page in VMware vSphere, make
+   sure that VM monitoring is configured for VM and application monitoring. To do
+   so, set the following values for each option:
 
-    - **Host Failure Response**: **Restart
-      VMs**
-    - **Response for Host Isolation**: **Shut down
-      and restart VMs**
-    - **Datastore with PDL**:
-      **Disabled**
-    - **Datastore with APD**:
-      **Disabled**
-    - **VM Monitoring**: **VM and Application
-      Monitoring**
+   - **Host Failure Response**: **Restart
+     VMs**
+   - **Response for Host Isolation**: **Shut down
+     and restart VMs**
+   - **Datastore with PDL**:
+     **Disabled**
+   - **Datastore with APD**:
+     **Disabled**
+   - **VM Monitoring**: **VM and Application
+     Monitoring**
 
-2.  Fine-tune the sensitivity of the cluster by adjusting the following values:
+2. Fine-tune the sensitivity of the cluster by adjusting the following values:
 
-        * **Failure interval** – After this interval,
-         the VM is restarted if a VM heartbeat isn't received.
-        * **Minimum uptime** – The cluster waits this
-         long after a VM starts to begin monitoring for VM tools'
-         heartbeats.
-        * **Maximum per-VM resets** – The cluster
-         restarts the VM a maximum of this many times within the maximum resets
-         time window.
-        * **Maximum resets time window** – The window of
-         time in which to count the maximum resets per-VM resets.
+   - **Failure interval** – After this interval,
+     the VM is restarted if a VM heartbeat isn't received.
+   - **Minimum uptime** – The cluster waits this
+     long after a VM starts to begin monitoring for VM tools'
+     heartbeats.
+   - **Maximum per-VM resets** – The cluster
+     restarts the VM a maximum of this many times within the maximum resets
+     time window.
+   - **Maximum resets time window** – The window of
+     time in which to count the maximum resets per-VM resets.
+     If you aren't sure what values to set, use these example settings:
 
-    If you aren't sure what values to set, use these example settings:
-
-        * **Failure interval**: `30`
-         seconds
-        * **Minimum uptime**: `120`
-         seconds
-        * **Maximum per-VM resets**:
-         `3`
-        * **Maximum resets time window**:
-         `1` hour
+   - **Failure interval**: `30`
+     seconds
+   - **Minimum uptime**: `120`
+     seconds
+   - **Maximum per-VM resets**:
+     `3`
+   - **Maximum resets time window**:
+     `1` hour
 
 If you have other VMs running on the cluster, you might want to set these values
 specifically for your VM. You can't do this until you deploy the VM from the .ova. For

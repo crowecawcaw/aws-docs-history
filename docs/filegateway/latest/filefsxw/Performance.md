@@ -45,7 +45,7 @@ configuration.
 ### FSx File Gateway performance on Windows clients
 
 | Example Configuration                                                                                                        | Protocol               | Write throughput (file sizes 1 GB) | Cache hit read throughput | Cache miss read throughput |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------------------------------- | ------------------------- | -------------------------- | ---------------------- |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------------------------------- | ------------------------- | -------------------------- |
 | Root disk: 80 GB, io1 SSD, 4,000 IOPS<br>Cache disks: 2 x 2 TiB NVME<br>Minimum network performance: 10 Gbps<br>CPU: 32 vCPU | RAM: 244 GB            | SMBv3<br>• 1 thread                | 162 MiB/sec (1.4 Gbps)    | 403 MiB/sec (3.4 Gbps)     | 288 MiB/sec (2.4 Gbps) |
 | SMBv3<br>• 8 threads                                                                                                         | 511 MiB/sec (4.3 Gbps) | 571 MiB/sec (4.8 Gbps)             | 567 MiB/sec (4.8 Gbps)    |
 

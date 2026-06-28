@@ -54,7 +54,7 @@ Go to the next step.
     * Enter a value for **Domain controller(s) - optional**.
 
 5. Choose **Next** to open the **Attach FSx File
-   system** page.
-   **Next step**
+system** page.
+**Next step**
 
 [Attach an Amazon FSx for Windows File Server file system](attach-fsxw-filesystem.md "attach-fsxw-filesystem.md")
