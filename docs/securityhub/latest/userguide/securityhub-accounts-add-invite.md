@@ -94,7 +94,7 @@ accounts. 4. To select the accounts, do one of the following:
      accounts**.
 
 5. After you finish adding accounts, under **Accounts to be
-   added**, choose **Next**.
+added**, choose **Next**.
 
 Security Hub CSPM API
 **To add accounts to your list of member accounts**

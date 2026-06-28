@@ -86,7 +86,7 @@ In your request, use the `StandardsArn` parameter to specify the Amazon Resource
 --region `us-east-1``
 ```
 
-Where `arn:aws:securityhub:`us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0``is the ARN of the FSBP standard in the US East (N. Virginia) Region, and`us-east-1` is the Region in which to enable it.
+Where `arn:aws:securityhub:`us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0`` is the ARN of the FSBP standard in the US East (N. Virginia) Region, and `us-east-1` is the Region in which to enable it.
 
 To obtain the ARN for a standard, use the [DescribeStandards](../../1.0/APIReference/API_DescribeStandards.md "../../1.0/APIReference/API_DescribeStandards.md") operation or, if you're using the AWS CLI, run the [describe-standards](../../../cli/latest/reference/securityhub/describe-standards.md "../../../cli/latest/reference/securityhub/describe-standards.md") command.
 

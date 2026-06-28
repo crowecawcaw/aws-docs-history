@@ -29,12 +29,12 @@ Management account and standalone accounts open in view mode when Cost Explorer 
 This feature automatically retrieves information on actual past usage to estimate the cost for certain account types.
 See below for details on each of the account types and the data that is available for each account type.
 
-| Access permissions by account type | Account Type                            | Cost Explorer Data        | Data Entry        | Scope |
-| ---------------------------------- | --------------------------------------- | ------------------------- | ----------------- | ----- |
-| Management Account (MA)            | Auto-populated                          | Manual override available | Organization-wide |
-| Delegated Administrator (DA)       | Auto-populated via cross-account role\* | Manual override available | Organization-wide |
-| Member Account                     | Auto-populated via cross-account role\* | Manual override available | Organization-wide |
-| Standalone Account (SA)            | Auto-populated                          | Manual override available | Single account    |
+Access permissions by account type| Account Type | Cost Explorer Data | Data Entry | Scope |
+| --- | --- | --- | --- |
+| Management Account (MA) | Auto-populated | Manual override available | Organization-wide |
+| Delegated Administrator (DA) | Auto-populated via cross-account role\* | Manual override available | Organization-wide |
+| Member Account | Auto-populated via cross-account role\* | Manual override available | Organization-wide |
+| Standalone Account (SA) | Auto-populated | Manual override available | Single account |
 
 \* Requires cross-account IAM role configuration in management account. See [Setting up cross-account access](setting-up-cross-account-access.md "setting-up-cross-account-access.md") section below.
 
@@ -44,15 +44,15 @@ See below for details on each of the account types and the data that is availabl
 
 In order to use the all of the cost estimator's capabilties your IAM principal must have the following permissions:
 
-| Required IAM permissions for Cost Estimator | API Operation     | Service                                                                     | Purpose |
-| ------------------------------------------- | ----------------- | --------------------------------------------------------------------------- | ------- |
-| `ce:GetCostAndUsage`                        | AWS Cost Explorer | Retrieve historical usage and cost data                                     |
-| `pricing:GetProducts`                       | AWS Pricing       | Get current pricing rates                                                   |
-| `organizations:ListAccounts`                | AWS Organizations | Count accounts in organization                                              |
-| `organizations:DescribeOrganization`        | AWS Organizations | Determine account type                                                      |
-| `securityhub:ListOrganizationAdminAccounts` | Security Hub      | List organization admin accounts                                            |
-| `iam:GetRole`                               | IAM               | Check cross-account role existence (Management account only)\*              |
-| `sts:AssumeRole`                            | IAM               | Assume cross-account role (Delegated administrator/Member account only)\*\* |
+Required IAM permissions for Cost Estimator| API Operation | Service | Purpose |
+| --- | --- | --- |
+| `ce:GetCostAndUsage` | AWS Cost Explorer | Retrieve historical usage and cost data |
+| `pricing:GetProducts` | AWS Pricing | Get current pricing rates |
+| `organizations:ListAccounts` | AWS Organizations | Count accounts in organization |
+| `organizations:DescribeOrganization` | AWS Organizations | Determine account type |
+| `securityhub:ListOrganizationAdminAccounts` | Security Hub | List organization admin accounts |
+| `iam:GetRole` | IAM | Check cross-account role existence (Management account only)\* |
+| `sts:AssumeRole` | IAM | Assume cross-account role (Delegated administrator/Member account only)\*\* |
 
 \* Required only for Management Account users to verify cross-account role status.
 

@@ -155,7 +155,7 @@ Security Hub CSPM.
 |                                                            | SchemaVersion              | "2018-10-08"                                                                                                                                                                                                                                                                                                                                                                               |
 |                                                            | Severity.Label             | See "Interpreting Severity Label" below                                                                                                                                                                                                                                                                                                                                                    |
 |                                                            | Types                      | ["Software and Configuration Checks"]                                                                                                                                                                                                                                                                                                                                                      |
-| detail.newEvaluationResult.complianceType                  | Compliance.Status          | "FAILED", "NOT_AVAILABLE", "PASSED", or "WARNING"                                                                                                                                                                                                                                                                                                                                          |
+| detail.newEvaluationResult.complianceType                  | Compliance.Status          | "FAILED", "NOT\_AVAILABLE", "PASSED", or "WARNING"                                                                                                                                                                                                                                                                                                                                         |
 |                                                            | Workflow.Status            | "RESOLVED" if an AWS Config finding is generated with a<br>Compliance.Status of "PASSED," or if the Compliance.Status<br>changes from "FAILED" to "PASSED." Otherwise,<br>Workflow.Status will be "NEW." You can change this value<br>with the [BatchUpdateFindings](../../1.0/APIReference/API_BatchUpdateFindings.md "../../1.0/APIReference/API_BatchUpdateFindings.md") API operation. |
 
 #### Interpreting severity label
@@ -436,58 +436,56 @@ following logic:
 
 - Severity **CRITICAL** if:
 
-      + The `service` field in the AWS Health
-       finding has the value `Risk`
-      + The `typeCode` field in the AWS Health
-       finding has the value
-       `AWS_S3_OPEN_ACCESS_BUCKET_NOTIFICATION`
-      + The `typeCode` field in the AWS Health
-       finding has the value
-       `AWS_SHIELD_INTERNET_TRAFFIC_LIMITATIONS_PLACED_IN_RESPONSE_TO_DDOS_ATTACK`
-      + The `typeCode` field in the AWS Health
-       finding has the value
-       `AWS_SHIELD_IS_RESPONDING_TO_A_DDOS_ATTACK_AGAINST_YOUR_AWS_RESOURCES`
+  - The `service` field in the AWS Health
+    finding has the value `Risk`
+  - The `typeCode` field in the AWS Health
+    finding has the value
+    `AWS_S3_OPEN_ACCESS_BUCKET_NOTIFICATION`
+  - The `typeCode` field in the AWS Health
+    finding has the value
+    `AWS_SHIELD_INTERNET_TRAFFIC_LIMITATIONS_PLACED_IN_RESPONSE_TO_DDOS_ATTACK`
+  - The `typeCode` field in the AWS Health
+    finding has the value
+    `AWS_SHIELD_IS_RESPONDING_TO_A_DDOS_ATTACK_AGAINST_YOUR_AWS_RESOURCES`
+    Severity **HIGH** if:
 
-  Severity **HIGH** if:
+  - The `service` field in the AWS Health
+    finding has the value `Abuse`
+  - The `typeCode` field in the AWS Health
+    finding contains the value
+    `SECURITY_NOTIFICATION`
+  - The `typeCode` field in the AWS Health
+    finding contains the value
+    `ABUSE_DETECTION`
+    Severity **MEDIUM** if:
 
-      + The `service` field in the AWS Health
-       finding has the value `Abuse`
-      + The `typeCode` field in the AWS Health
-       finding contains the value
-       `SECURITY_NOTIFICATION`
-      + The `typeCode` field in the AWS Health
-       finding contains the value
-       `ABUSE_DETECTION`
-
-  Severity **MEDIUM** if:
-
-      + The `service` field in the finding is any
-       of the following: `ACM`,
-       `ARTIFACT`, `AUDITMANAGER`,
-       `BACKUP`,`CLOUDENDURE`,
-       `CLOUDHSM`, `CLOUDTRAIL`,
-       `CLOUDWATCH`, `CODEGURGU`,
-       `COGNITO`, `CONFIG`,
-       `CONTROLTOWER`, `DETECTIVE`,
-       `DIRECTORYSERVICE`, `DRS`,
-       `EVENTS`, `FIREWALLMANAGER`,
-       `GUARDDUTY`, `IAM`,
-       `INSPECTOR`, `INSPECTOR2`,
-       `IOTDEVICEDEFENDER`, `KMS`,
-       `MACIE`, `NETWORKFIREWALL`,
-       `ORGANIZATIONS`,
-       `RESILIENCEHUB`,
-       `RESOURCEMANAGER`, `ROUTE53`,
-       `SECURITYHUB`,
-       `SECRETSMANAGER`, `SES`,
-       `SHIELD`, `SSO`, or
-       `WAF`
-      + The **typeCode** field in the
-       AWS Health finding contains the value
-       `CERTIFICATE`
-      + The **typeCode** field in the
-       AWS Health finding contains the value
-       `END_OF_SUPPORT`
+  - The `service` field in the finding is any
+    of the following: `ACM`,
+    `ARTIFACT`, `AUDITMANAGER`,
+    `BACKUP`,`CLOUDENDURE`,
+    `CLOUDHSM`, `CLOUDTRAIL`,
+    `CLOUDWATCH`, `CODEGURGU`,
+    `COGNITO`, `CONFIG`,
+    `CONTROLTOWER`, `DETECTIVE`,
+    `DIRECTORYSERVICE`, `DRS`,
+    `EVENTS`, `FIREWALLMANAGER`,
+    `GUARDDUTY`, `IAM`,
+    `INSPECTOR`, `INSPECTOR2`,
+    `IOTDEVICEDEFENDER`, `KMS`,
+    `MACIE`, `NETWORKFIREWALL`,
+    `ORGANIZATIONS`,
+    `RESILIENCEHUB`,
+    `RESOURCEMANAGER`, `ROUTE53`,
+    `SECURITYHUB`,
+    `SECRETSMANAGER`, `SES`,
+    `SHIELD`, `SSO`, or
+    `WAF`
+  - The **typeCode** field in the
+    AWS Health finding contains the value
+    `CERTIFICATE`
+  - The **typeCode** field in the
+    AWS Health finding contains the value
+    `END_OF_SUPPORT`
 
 ##### Typical finding from AWS Health
 

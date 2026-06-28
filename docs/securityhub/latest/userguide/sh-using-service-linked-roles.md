@@ -40,7 +40,7 @@ run security checks for controls. The `AWSServiceRoleForSecurityHubV2` service-l
 the `securityhub.amazonaws.com` service to assume the role.
 
 The `AWSServiceRoleForSecurityHubV2` service-linked role uses the managed
-policy [AWSSecurityHubServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubservicerolepolicy "security-iam-awsmanpol.md#security-iam-awsmanpol-awssecurityhubservicerolepolicy").
+policy [AWSSecurityHubV2ServiceRolePolicy](sh-security-iam-awsmanpol.md#sh-security-iam-awsmanpol-awssecurityhubv2servicerolepolicy "sh-security-iam-awsmanpol.md#sh-security-iam-awsmanpol-awssecurityhubv2servicerolepolicy").
 
 You must grant permissions to allow an IAM identity (such as a role, group, or user)
 to create, edit, or delete a service-linked role. For the `AWSServiceRoleForSecurityHubV2`

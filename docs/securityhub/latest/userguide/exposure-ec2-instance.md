@@ -202,7 +202,7 @@ Here are reachability traits for EC2 instances and suggested remediation steps.
 
 ### The EC2 instance is reachable over the internet
 
-Amazon EC2 instances with ports that are reachable from the internet through an internet gateway (including instances behind Application Load Balancers or Classic Load Balancers), a VPC peering connection, or a VPN virtual gateway may expose your instance to the internet.
+Amazon EC2 instances with ports that are reachable from the internet may expose your instance. Reachability can occur through an internet gateway (including instances behind Application Load Balancers or Classic Load Balancers), a VPC peering connection, or a VPN virtual gateway.
 Following standard security principles, we recommend implementing least-privilege network access controls by restricting inbound traffic to only necessary sources and ports.
 
 ###### Modify or remove security group rules

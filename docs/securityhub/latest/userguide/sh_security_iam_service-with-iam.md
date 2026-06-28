@@ -3,19 +3,19 @@
 Before you use AWS Identity and Access Management (IAM) to manage access to AWS Security Hub, learn which IAM
 features are available to use with Security Hub.
 
-| IAM features you can use with AWS Security Hub                                                                                                                 | IAM feature | Security Hub support |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------------------- |
-| [Identity-based policies](#sh_security_iam_service-with-iam-id-based-policies "#sh_security_iam_service-with-iam-id-based-policies")                           | Yes         |
-| [Resource-based policies](#sh_security_iam_service-with-iam-resource-based-policies "#sh_security_iam_service-with-iam-resource-based-policies")               | No          |
-| [Policy actions](#sh_security_iam_service-with-iam-id-based-policies-actions "#sh_security_iam_service-with-iam-id-based-policies-actions")                    | Yes         |
-| [Policy resources](#sh_security_iam_service-with-iam-id-based-policies-resources "#sh_security_iam_service-with-iam-id-based-policies-resources")              | No          |
-| [Policy condition keys](#sh_security_iam_service-with-iam-id-based-policies-conditionkeys "#sh_security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes         |
-| [Access control lists (ACLs)](#sh_security_iam_service-with-iam-acls "#sh_security_iam_service-with-iam-acls")                                                 | No          |
-| [Attribute-based access control (ABAC) – tags in<br>policies](#sh_security_iam_service-with-iam-tags "#sh_security_iam_service-with-iam-tags")                 | Yes         |
-| [Temporary<br>credentials](#sh_security_iam_service-with-iam-roles-tempcreds "#sh_security_iam_service-with-iam-roles-tempcreds")                              | Yes         |
-| [Forward access<br>sessions (FAS)](#sh_security_iam_service-with-iam-principal-permissions "#sh_security_iam_service-with-iam-principal-permissions")          | Yes         |
-| [Service<br>roles](#sh_security_iam_service-with-iam-roles-service "#sh_security_iam_service-with-iam-roles-service")                                          | No          |
-| [Service-linked roles](#sh_security_iam_service-with-iam-roles-service-linked "#sh_security_iam_service-with-iam-roles-service-linked")                        | Yes         |
+IAM features you can use with AWS Security Hub| IAM feature | Security Hub support |
+| --- | --- |
+| [Identity-based policies](#sh_security_iam_service-with-iam-id-based-policies "#sh_security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#sh_security_iam_service-with-iam-resource-based-policies "#sh_security_iam_service-with-iam-resource-based-policies") | No |
+| [Policy actions](#sh_security_iam_service-with-iam-id-based-policies-actions "#sh_security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy resources](#sh_security_iam_service-with-iam-id-based-policies-resources "#sh_security_iam_service-with-iam-id-based-policies-resources") | No |
+| [Policy condition keys](#sh_security_iam_service-with-iam-id-based-policies-conditionkeys "#sh_security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
+| [Access control lists (ACLs)](#sh_security_iam_service-with-iam-acls "#sh_security_iam_service-with-iam-acls") | No |
+| [Attribute-based access control (ABAC) – tags in<br>policies](#sh_security_iam_service-with-iam-tags "#sh_security_iam_service-with-iam-tags") | Yes |
+| [Temporary<br>credentials](#sh_security_iam_service-with-iam-roles-tempcreds "#sh_security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Forward access<br>sessions (FAS)](#sh_security_iam_service-with-iam-principal-permissions "#sh_security_iam_service-with-iam-principal-permissions") | Yes |
+| [Service<br>roles](#sh_security_iam_service-with-iam-roles-service "#sh_security_iam_service-with-iam-roles-service") | No |
+| [Service-linked roles](#sh_security_iam_service-with-iam-roles-service-linked "#sh_security_iam_service-with-iam-roles-service-linked") | Yes |
 
 For a high-level view of how Security Hub and other AWS services work with most IAM features,
 see [AWS services

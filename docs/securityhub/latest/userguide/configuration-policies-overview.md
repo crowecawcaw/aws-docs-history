@@ -43,8 +43,8 @@ Regions but applies the configuration in Regions where the control is
 available. You lack coverage for a control that isn't available in the home Region or any of the linked Regions.
 
 - **Configuration policies are resources** – As a resource, a configuration policy has an Amazon Resource Name (ARN) and a universally unique identifier (UUID). The ARN uses the following format:
-  `arn:`partition:`securityhub:`region`:`delegated administrator account ID`:configuration-policy/`configuration policy UUID``. A self-managed 
-configuration has no ARN or UUID. The identifier for a self-managed configuration is `SELF_MANAGED_SECURITY_HUB`.
+  `arn:`partition:`securityhub:`region`:`delegated administrator account ID`:configuration-policy/`configuration policy UUID``. A self-managed
+  configuration has no ARN or UUID. The identifier for a self-managed configuration is `SELF_MANAGED_SECURITY_HUB`.
 
 ## Types of configuration policies
 

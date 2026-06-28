@@ -8,9 +8,9 @@ Customers, SIEMs, ticketing, SOAR, and other types of tools must use the [BatchU
 their investigation of findings from finding providers. For more information, see [BatchUpdateFindings for customers](finding-update-batchupdatefindings.md "finding-update-batchupdatefindings.md").
 
 When Security Hub CSPM receives a `BatchImportFindings` request to create or update a
-finding, it automatically generates a \*\*Security Hub Findings
+finding, it automatically generates a **Security Hub Findings
 
-- Imported\*\* event in Amazon EventBridge. You can take automated action
+- Imported** event in Amazon EventBridge. You can take automated action
   on that event. For more information, see [Using EventBridge for automated response and remediation](securityhub-cloudwatch-events.md "securityhub-cloudwatch-events.md").
 
 ## Prerequisites for using `BatchImportFindings`

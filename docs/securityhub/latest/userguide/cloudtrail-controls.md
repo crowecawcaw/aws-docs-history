@@ -62,10 +62,10 @@ To create a new multi-Region trail in CloudTrail, see
 [Creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md") in the _AWS CloudTrail User Guide_. Use the following
 values:
 
-| Field                                              | Value                                                            |
-| -------------------------------------------------- | ---------------------------------------------------------------- |
-| Additional settings, Log file validation           | Enabled                                                          |
-| Choose log events, Management events, API activity | **Read\*<br>• and **Write\*\*. Clear check boxes for exclusions. |
+| Field                                              | Value                                                         |
+| -------------------------------------------------- | ------------------------------------------------------------- |
+| Additional settings, Log file validation           | Enabled                                                       |
+| Choose log events, Management events, API activity | *_Read_<br>• and **Write**. Clear check boxes for exclusions. |
 
 To update an existing trail, see [Updating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-update-a-trail-console.md "../../../awscloudtrail/latest/userguide/cloudtrail-update-a-trail-console.md") in the _AWS CloudTrail User Guide_. In
 **Management events**, for **API activity**, choose **Read** and **Write**.

@@ -159,12 +159,12 @@ Alert displays "No cost data available for your account".
 
 The solution depends on your account type:
 
-| Solutions for missing Cost Explorer data | Account Type                                                     | Solution |
-| ---------------------------------------- | ---------------------------------------------------------------- | -------- |
-| Management Account                       | Enable Cost Explorer and wait 24 hours for data processing       |
-| Delegated Administrator                  | Contact Management Account administrator to request access       |
-| Member Account                           | Contact Management Account or Delegated Administrator for access |
-| Standalone Account                       | Enable Cost Explorer and wait 24 hours for data processing       |
+Solutions for missing Cost Explorer data| Account Type | Solution |
+| --- | --- |
+| Management Account | Enable Cost Explorer and wait 24 hours for data processing |
+| Delegated Administrator | Contact Management Account administrator to request access |
+| Member Account | Contact Management Account or Delegated Administrator for access |
+| Standalone Account | Enable Cost Explorer and wait 24 hours for data processing |
 
 ###### Workaround
 

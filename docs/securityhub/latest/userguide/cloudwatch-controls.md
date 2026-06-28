@@ -155,12 +155,12 @@ Make note of the name of the CloudWatch Logs log group that you associate with t
 metric filter for that log group in the next step. 3. Create a metric filter. For instructions, see [Create a metric filter for a log group](../../../AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.md "../../../AmazonCloudWatch/latest/logs/CreateMetricFilterProcedure.md") in the
 _Amazon CloudWatch User Guide_. Use the following values:
 
-| Field                          | Value                                     |
-| ------------------------------ | ----------------------------------------- | --- | -------------------------------- |
-| Define pattern, Filter pattern | `{($.errorCode="\*UnauthorizedOperation") |     | ($.errorCode="AccessDenied\*")}` |
-| Metric namespace               | `LogMetrics`                              |
-| Metric value                   | `1`                                       |
-| Default value                  | `0`                                       |
+| Field                          | Value                                    |
+| ------------------------------ | ---------------------------------------- |
+| Define pattern, Filter pattern | `{($.errorCode="*UnauthorizedOperation") |     | ($.errorCode="AccessDenied*")}` |
+| Metric namespace               | `LogMetrics`                             |
+| Metric value                   | `1`                                      |
+| Default value                  | `0`                                      |
 
 4. Create an alarm based on the filter. For instructions, see [Create a CloudWatch alarm based on a log group-metric filter](../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.md "../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.md") in the _Amazon CloudWatch User Guide_. Use the following values:
 
@@ -316,7 +316,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                                                                   |
-| ------------------------------ | ----------------------------------------------------------------------- | --- | ------------------------------ | --- | ------------------------------ | --- | ---------------------------- | --- | --------------------------- | --- | --------------------------- | --- | -------------------------- | --- | -------------------------- | --- | --------------------------------- | --- | --------------------------------- | --- | ------------------------------ | --- | ------------------------------ | --- | ------------------------------ | --- | ------------------------------ | --- | ------------------------------- | --- | ---------------------------------- |
+| ------------------------------ | ----------------------------------------------------------------------- |
 | Define pattern, Filter pattern | `{($.eventSource=iam.amazonaws.com) && (($.eventName=DeleteGroupPolicy) |     | ($.eventName=DeleteRolePolicy) |     | ($.eventName=DeleteUserPolicy) |     | ($.eventName=PutGroupPolicy) |     | ($.eventName=PutRolePolicy) |     | ($.eventName=PutUserPolicy) |     | ($.eventName=CreatePolicy) |     | ($.eventName=DeletePolicy) |     | ($.eventName=CreatePolicyVersion) |     | ($.eventName=DeletePolicyVersion) |     | ($.eventName=AttachRolePolicy) |     | ($.eventName=DetachRolePolicy) |     | ($.eventName=AttachUserPolicy) |     | ($.eventName=DetachUserPolicy) |     | ($.eventName=AttachGroupPolicy) |     | ($.eventName=DetachGroupPolicy))}` |
 | Metric namespace               | `LogMetrics`                                                            |
 | Metric value                   | `1`                                                                     |
@@ -397,7 +397,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                       |
-| ------------------------------ | --------------------------- | --- | ------------------------- | --- | ------------------------- | --- | -------------------------- | --- | --------------------------- |
+| ------------------------------ | --------------------------- |
 | Define pattern, Filter pattern | `{($.eventName=CreateTrail) |     | ($.eventName=UpdateTrail) |     | ($.eventName=DeleteTrail) |     | ($.eventName=StartLogging) |     | ($.eventName=StopLogging)}` |
 | Metric namespace               | `LogMetrics`                |
 | Metric value                   | `1`                         |
@@ -562,7 +562,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                                                            |
-| ------------------------------ | ---------------------------------------------------------------- | --- | ------------------------------------ |
+| ------------------------------ | ---------------------------------------------------------------- |
 | Define pattern, Filter pattern | `{($.eventSource=kms.amazonaws.com) && (($.eventName=DisableKey) |     | ($.eventName=ScheduleKeyDeletion))}` |
 | Metric namespace               | `LogMetrics`                                                     |
 | Metric value                   | `1`                                                              |
@@ -643,7 +643,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                                                             |
-| ------------------------------ | ----------------------------------------------------------------- | --- | ----------------------------- | --- | --------------------------- | --- | -------------------------------- | --- | ---------------------------------- | --- | -------------------------------- | --- | ------------------------------ | --- | ----------------------------------- | --- | ---------------------------------------- |
+| ------------------------------ | ----------------------------------------------------------------- |
 | Define pattern, Filter pattern | `{($.eventSource=s3.amazonaws.com) && (($.eventName=PutBucketAcl) |     | ($.eventName=PutBucketPolicy) |     | ($.eventName=PutBucketCors) |     | ($.eventName=PutBucketLifecycle) |     | ($.eventName=PutBucketReplication) |     | ($.eventName=DeleteBucketPolicy) |     | ($.eventName=DeleteBucketCors) |     | ($.eventName=DeleteBucketLifecycle) |     | ($.eventName=DeleteBucketReplication))}` |
 | Metric namespace               | `LogMetrics`                                                      |
 | Metric value                   | `1`                                                               |
@@ -724,7 +724,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                                                                              |
-| ------------------------------ | ---------------------------------------------------------------------------------- | --- | ----------------------------------- | --- | -------------------------------- | --- | ----------------------------------------- |
+| ------------------------------ | ---------------------------------------------------------------------------------- |
 | Define pattern, Filter pattern | `{($.eventSource=config.amazonaws.com) && (($.eventName=StopConfigurationRecorder) |     | ($.eventName=DeleteDeliveryChannel) |     | ($.eventName=PutDeliveryChannel) |     | ($.eventName=PutConfigurationRecorder))}` |
 | Metric namespace               | `LogMetrics`                                                                       |
 | Metric value                   | `1`                                                                                |
@@ -806,7 +806,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                                         |
-| ------------------------------ | --------------------------------------------- | --- | ------------------------------------------ | --- | ---------------------------------------- | --- | --------------------------------------- | --- | --------------------------------- | --- | ----------------------------------- |
+| ------------------------------ | --------------------------------------------- |
 | Define pattern, Filter pattern | `{($.eventName=AuthorizeSecurityGroupIngress) |     | ($.eventName=AuthorizeSecurityGroupEgress) |     | ($.eventName=RevokeSecurityGroupIngress) |     | ($.eventName=RevokeSecurityGroupEgress) |     | ($.eventName=CreateSecurityGroup) |     | ($.eventName=DeleteSecurityGroup)}` |
 | Metric namespace               | `LogMetrics`                                  |
 | Metric value                   | `1`                                           |
@@ -888,7 +888,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                            |
-| ------------------------------ | -------------------------------- | --- | ----------------------------------- | --- | ------------------------------ | --- | ----------------------------------- | --- | ------------------------------------ | --- | -------------------------------------------- |
+| ------------------------------ | -------------------------------- |
 | Define pattern, Filter pattern | `{($.eventName=CreateNetworkAcl) |     | ($.eventName=CreateNetworkAclEntry) |     | ($.eventName=DeleteNetworkAcl) |     | ($.eventName=DeleteNetworkAclEntry) |     | ($.eventName=ReplaceNetworkAclEntry) |     | ($.eventName=ReplaceNetworkAclAssociation)}` |
 | Metric namespace               | `LogMetrics`                     |
 | Metric value                   | `1`                              |
@@ -970,7 +970,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                                 |
-| ------------------------------ | ------------------------------------- | --- | ----------------------------------- | --- | ----------------------------------- | --- | ----------------------------------- | --- | ----------------------------------- | --- | ------------------------------------- |
+| ------------------------------ | ------------------------------------- |
 | Define pattern, Filter pattern | `{($.eventName=CreateCustomerGateway) |     | ($.eventName=DeleteCustomerGateway) |     | ($.eventName=AttachInternetGateway) |     | ($.eventName=CreateInternetGateway) |     | ($.eventName=DeleteInternetGateway) |     | ($.eventName=DetachInternetGateway)}` |
 | Metric namespace               | `LogMetrics`                          |
 | Metric value                   | `1`                                   |
@@ -1052,7 +1052,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                                                             |
-| ------------------------------ | ----------------------------------------------------------------- | --- | ------------------------------ | --- | -------------------------- | --- | ------------------------------------------ | --- | ------------------------------ | --- | ------------------------- | --- | --------------------------------------- |
+| ------------------------------ | ----------------------------------------------------------------- |
 | Define pattern, Filter pattern | `{($.eventSource=ec2.amazonaws.com) && (($.eventName=CreateRoute) |     | ($.eventName=CreateRouteTable) |     | ($.eventName=ReplaceRoute) |     | ($.eventName=ReplaceRouteTableAssociation) |     | ($.eventName=DeleteRouteTable) |     | ($.eventName=DeleteRoute) |     | ($.eventName=DisassociateRouteTable))}` |
 | Metric namespace               | `LogMetrics`                                                      |
 | Metric value                   | `1`                                                               |
@@ -1135,7 +1135,7 @@ metric filter for that log group in the next step. 3. Create a metric filter. Fo
 _Amazon CloudWatch User Guide_. Use the following values:
 
 | Field                          | Value                     |
-| ------------------------------ | ------------------------- | --- | ----------------------- | --- | -------------------------------- | --- | ---------------------------------------- | --- | ---------------------------------------- | --- | ---------------------------------------- | --- | ---------------------------------------- | --- | ---------------------------------- | --- | ---------------------------------- | --- | ----------------------------------- | --- | ------------------------------------ |
+| ------------------------------ | ------------------------- |
 | Define pattern, Filter pattern | `{($.eventName=CreateVpc) |     | ($.eventName=DeleteVpc) |     | ($.eventName=ModifyVpcAttribute) |     | ($.eventName=AcceptVpcPeeringConnection) |     | ($.eventName=CreateVpcPeeringConnection) |     | ($.eventName=DeleteVpcPeeringConnection) |     | ($.eventName=RejectVpcPeeringConnection) |     | ($.eventName=AttachClassicLinkVpc) |     | ($.eventName=DetachClassicLinkVpc) |     | ($.eventName=DisableVpcClassicLink) |     | ($.eventName=EnableVpcClassicLink)}` |
 | Metric namespace               | `LogMetrics`              |
 | Metric value                   | `1`                       |

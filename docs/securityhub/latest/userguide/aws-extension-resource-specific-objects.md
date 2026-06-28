@@ -319,7 +319,7 @@ The cloud function object includes the following attributes:
 - `runtime` - The cloud function language-specific environment
 - `security_groups` - Array of security groups associated with the cloud function
 - `subnet_info_list` - Details about subnets associated with the cloud function
-- `user` - Details about the IAM entity that grants the cloud_function permission to access services
+- `user` - Details about the IAM entity that grants the cloud\_function permission to access services
 - `version` - The cloud function version
 - `vpc_uid` - The unique identifier of the VPC if the cloud function is in a VPC
 
@@ -375,7 +375,7 @@ Object
 Added to `resource_details`.
 See the OCSF [Databucket](https://schema.ocsf.io/1.6.0/objects/databucket "https://schema.ocsf.io/1.6.0/objects/databucket") object definition.
 
-Note: This object is added to resource_details by the AWS Extension.
+Note: This object is added to resource\_details by the AWS Extension.
 The core OCSF Databucket object is used without additional attributes.
 
 **Example**

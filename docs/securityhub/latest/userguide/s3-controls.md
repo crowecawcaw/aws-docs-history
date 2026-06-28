@@ -232,7 +232,7 @@ API operations actions restricted
 **Parameters:**
 
 - `blacklistedactionpatterns`: `s3:DeleteBucketPolicy, s3:PutBucketAcl,
-s3:PutBucketPolicy, s3:PutEncryptionConfiguration, s3:PutObjectAcl` (not customizable)
+ s3:PutBucketPolicy, s3:PutEncryptionConfiguration, s3:PutObjectAcl` (not customizable)
 
 This control checks whether an Amazon S3 general purpose bucket policy prevents principals from other AWS accounts
 from performing denied actions on resources in the S3 bucket. The control fails if the

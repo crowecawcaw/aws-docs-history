@@ -149,13 +149,16 @@ perform tasks such as run security checks for Security Hub CSPM controls.
 This policy includes the following permissions:
 
 - `cloudtrail` – Retrieve information about CloudTrail trails.
-- `cloudwatch` – Retrieve current CloudWatch alarms.
+- `cloudwatch` – Retrieve current CloudWatch alarms and Connector health metrics.
 - `logs` – Retrieve metric filters for CloudWatch logs.
 - `sns` – Retrieve the list of subscriptions to an SNS
   topic.
 - `config` – Retrieve information about configuration recorders,
-  resources, and AWS Config rules. Also allows the service-linked role to manage the Security Hub CSPM service-linked
-  configuration recorders, create and delete AWS Config rules, and run evaluations against the rules.
+  resources, and AWS Config rules. Manage the Security Hub CSPM service-linked
+  configuration recorders and third-party service-linked configuration recorders.
+  Create and delete AWS Config rules, and run evaluations against the rules. List
+  configuration recorders and get connector information to support third-party
+  cloud integrations.
 - `iam` – Retrieve and generate credential reports for
   accounts, and create the service-linked role for AWS Config.
 - `organizations` – Retrieve account and organizational unit (OU) information for an
@@ -175,6 +178,7 @@ alerts about updates to the policies, subscribe to the RSS feed on the [Security
 
 | Change                                                                                                                                                                                          | Description                                                                                                                                                                                                                                                                               | Date               |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [AWSSecurityHubServiceRolePolicy](#security-iam-awsmanpol-awssecurityhubservicerolepolicy "#security-iam-awsmanpol-awssecurityhubservicerolepolicy") – Updated policy                           | Security Hub CSPM updated the policy to support third-party integration. The update adds the following permissions: manage third-party configuration recorders, list configuration recorders, get connector information, and retrieve Connector health metrics.                           | June 30, 2026      |
 | [AWSSecurityHubServiceRolePolicy](#security-iam-awsmanpol-awssecurityhubservicerolepolicy "#security-iam-awsmanpol-awssecurityhubservicerolepolicy") – Updated policy                           | Security Hub CSPM updated the policy to add permissions to manage Security Hub CSPM service-linked configuration recorders and create the AWS Config service-linked role.                                                                                                                 | April 29, 2026     |
 | [AWSSecurityHubOrganizationsAccess](#security-iam-awsmanpol-awssecurityhuborganizationsaccess "#security-iam-awsmanpol-awssecurityhuborganizationsaccess") – Updated policy                     | Security Hub updated the policy to add permissions to describe resource policies to support Security Hub features. Security Hub is in preview release and subject to change.                                                                                                              | November 12, 2025  |
 | [AWSSecurityHubFullAccess](#security-iam-awsmanpol-awssecurityhubfullaccess "#security-iam-awsmanpol-awssecurityhubfullaccess") – Updated policy                                                | Security Hub updated the policy to add capabilities around managing GuardDuty, Amazon Inspector, and account management to support Security Hub features. Security Hub is in preview release and subject to change.                                                                       | November 17, 2025  |

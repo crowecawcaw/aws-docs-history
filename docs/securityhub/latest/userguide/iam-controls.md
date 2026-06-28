@@ -882,7 +882,7 @@ This check results in a control status of `WARNING` if one or more of the follow
 We recommend using organization trails to log events from many accounts in an
 organization. Organization trails are multi-Region trails by default and can only be
 managed by the AWS Organizations management account or the CloudTrail delegated administrator
-account. Using an organization trail results in a control status of NO_DATA for
+account. Using an organization trail results in a control status of NO\_DATA for
 controls evaluated in organization member accounts. In member accounts, Security Hub CSPM only
 generates findings for member-owned resources. Findings that pertain to organization
 trails are generated in the resource owner's account. You can see these findings in

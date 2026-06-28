@@ -32,7 +32,7 @@ descriptions for exposure finding details.
   the exposure finding.
 - **Type** – The name of the exposure
   finding type. For example, the name might resemble `Exposure/Potential
-Impact/Resource Hijacking`.
+ Impact/Resource Hijacking`.
 - **Account** – The ID of the
   AWS account where the exposure finding was generated.
 - **Age** – Indicates how long the

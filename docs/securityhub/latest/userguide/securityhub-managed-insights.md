@@ -97,7 +97,7 @@ practices**
 **Finding filters:**
 
 - Type is `Software and Configuration Checks/Industry and
-Regulatory Standards/AWS Security Best Practices`
+ Regulatory Standards/AWS Security Best Practices`
 - Record state is `ACTIVE`
 - Workflow status is `NEW` or `NOTIFIED`
 
@@ -138,7 +138,7 @@ Regulatory Standards/AWS Security Best Practices`
 
 - Resource type is `AwsS3Bucket`
 - Type is `Software and Configuration Checks/Industry and
-Regulatory Standards/AWS Security Best Practices`
+ Regulatory Standards/AWS Security Best Practices`
 - Record state is `ACTIVE`
 - Workflow status is `NEW` or `NOTIFIED`
 
@@ -166,7 +166,7 @@ Regulatory Standards/AWS Security Best Practices`
 **Finding filters:**
 
 - Type starts with `Sensitive Data
-Identifications/Passwords/`
+ Identifications/Passwords/`
 - Record state is `ACTIVE`
 - Workflow status is `NEW` or `NOTIFIED`
 
@@ -181,7 +181,7 @@ vulnerabilities**
 **Finding filters:**
 
 - Type starts with `Software and Configuration
-Checks/Vulnerabilities/CVE`
+ Checks/Vulnerabilities/CVE`
 - Resource type is `AwsEc2Instance`
 - Record state is `ACTIVE`
 - Workflow status is `NEW` or `NOTIFIED`
@@ -210,7 +210,7 @@ Checks/Vulnerabilities/CVE`
 **Finding filters:**
 
 - Type starts with `Software and Configuration Checks/AWS
-Security Best Practices/Network Reachability`
+ Security Best Practices/Network Reachability`
 - Resource type is `AwsEc2Instance`
 - Record state is `ACTIVE`
 - Workflow status is `NEW` or `NOTIFIED`
@@ -227,9 +227,9 @@ Security Best Practices/Network Reachability`
 - Type starts with one of the following:
 
   - `Software and Configuration Checks/Industry and
-Regulatory Standards/`
+   Regulatory Standards/`
   - `Software and Configuration Checks/AWS Security Best
-Practices`
+   Practices`
 
 - Resource type is `AwsEc2Instance`
 - Record state is `ACTIVE`
@@ -245,7 +245,7 @@ Practices`
 **Finding filters:**
 
 - Type starts with `Software and Configuration Checks/AWS
-Security Best Practices/Network Reachability`
+ Security Best Practices/Network Reachability`
 - Resource type is `AwsEc2Instance`
 - Record state is `ACTIVE`
 - Workflow status is `NEW` or `NOTIFIED`
@@ -297,7 +297,7 @@ Security Best Practices/Network Reachability`
 - Type starts with one of the following:
 
   - `Effects/Resource
-Consumption/Cryptocurrency`
+   Consumption/Cryptocurrency`
   - `TTPs/Command and Control/CryptoCurrency`
 
 - Record state is `ACTIVE`
@@ -315,13 +315,13 @@ Consumption/Cryptocurrency`
 - Type starts with one of the following:
 
   - `TTPs/Command and
-Control/UnauthorizedAccess`
+   Control/UnauthorizedAccess`
   - `TTPs/Initial Access/UnauthorizedAccess`
   - `Effects/Data
-Exfiltration/UnauthorizedAccess`
+   Exfiltration/UnauthorizedAccess`
   - `Unusual Behaviors/User/UnauthorizedAccess`
   - `Effects/Resource
-Consumption/UnauthorizedAccess`
+   Consumption/UnauthorizedAccess`
 
 - Record state is `ACTIVE`
 - Workflow status is `NEW` or `NOTIFIED`

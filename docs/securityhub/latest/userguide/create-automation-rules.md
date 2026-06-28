@@ -12,7 +12,7 @@ rule to apply to findings.
 
 When you create an automation rule in the Security Hub CSPM console, Security Hub CSPM shows you a beta of
 the findings to which your rule applies. The beta is currently not supported if your
-rule criteria include a CONTAINS or NOT_CONTAINS filter. You can choose these filters
+rule criteria include a CONTAINS or NOT\_CONTAINS filter. You can choose these filters
 for map and string field types.
 
 ###### Important

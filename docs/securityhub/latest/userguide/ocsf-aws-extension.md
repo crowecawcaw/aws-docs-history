@@ -15,11 +15,11 @@ These attributes ensure proper identification and classification of cloud resour
 
 ## AWS Extension for OCSF attribute reference
 
-The [Basic attributes](aws-extension-basic-attributes.md "aws-extension-basic-attributes.md") and [Resource specific objects](aws-extension-resource-specific-objects.md "aws-extension-resource-specific-objects.md") sections provide examples of each of the attributes that are part of the AWS OCSF extension to resource_details.
+The [Basic attributes](aws-extension-basic-attributes.md "aws-extension-basic-attributes.md") and [Resource specific objects](aws-extension-resource-specific-objects.md "aws-extension-resource-specific-objects.md") sections provide examples of each of the attributes that are part of the AWS OCSF extension to resource\_details.
 
 Each of the attribute definitions contains an OCSF status outlining its current relationship to the public OCSF schema:
 
-- **Existing**: This attribute was already in standard OCSF resource_details and is now part of the AWS extension.
+- **Existing**: This attribute was already in standard OCSF resource\_details and is now part of the AWS extension.
 - **New**: The attribute is not part of OCSF and was introduced as part of the AWS extension.
   It does not exist in the core OCSF schema.
-- **Added to resource_details**: The attribute is defined in OCSF but not part of resource_details.
+- **Added to resource\_details**: The attribute is defined in OCSF but not part of resource\_details.

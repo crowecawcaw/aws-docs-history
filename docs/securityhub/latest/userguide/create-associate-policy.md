@@ -45,26 +45,25 @@ at least one configuration policy, you only see the **Custom policy** option.
     enabled controls that support custom parameters.
 
 4. In the **Accounts** section, choose which target accounts, OUs, or the root that
-   you want your configuration policy to apply to.
+you want your configuration policy to apply to.
 
-   - Choose **All accounts** if you want to apply the
+    * Choose **All accounts** if you want to apply the
      configuration policy to the root. This includes all accounts and OUs in the organization
      that don't have another policy applied to them or inherited.
-   - Choose **Specific
+    * Choose **Specific
      accounts** if you want to apply the configuration policy to specific accounts or OUs. Enter the account IDs, or select
      the accounts and OUs from the organization structure. You can apply the policy to a maximum of
      15 targets (accounts, OUs, or root) when you create it. To specify a larger number, edit your policy after creation, and apply it
      to additional targets.
-   - Choose **The delegated administrator
+    * Choose **The delegated administrator
      only** to apply the configuration policy to the current delegated administrator account.
 
-5. Choose **Next**.
-6. On the **Review and apply** page, review your
-   configuration policy details. Then, choose **Create policy and
-   apply**. In your home Region and linked Regions, this action overrides the existing configuration settings
-   of accounts that are associated with this configuration policy. Accounts may be associated with the configuration policy
-   through application, or inheritance from a parent node. Child accounts and OUs of the applied targets
-   will automatically inherit this configuration policy unless they are specifically excluded, self-managed, or use a different configuration policy.
+5. Choose **Next**. 6. On the **Review and apply** page, review your
+configuration policy details. Then, choose **Create policy and
+apply**. In your home Region and linked Regions, this action overrides the existing configuration settings
+of accounts that are associated with this configuration policy. Accounts may be associated with the configuration policy
+through application, or inheritance from a parent node. Child accounts and OUs of the applied targets
+will automatically inherit this configuration policy unless they are specifically excluded, self-managed, or use a different configuration policy.
 
 Security Hub CSPM API
 

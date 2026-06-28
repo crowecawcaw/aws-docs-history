@@ -25,11 +25,9 @@ Sign in using the credentials of the delegated Security Hub CSPM administrator a
     * To configure a control, choose **Controls**, and choose a specific control.
 
 3. The console
-   lists your existing Security Hub CSPM configuration policies and the status of the selected standard or control in each one. Choose the options to enable or disable the standard or control in each existing configuration policy. For controls, you can
-   also choose to customize [control parameters](custom-control-parameters.md "custom-control-parameters.md"). You can't create a new policy during in-context
-   configuration. To create a new policy, you must go to the **Configuration** page, choose the **Policies** tab, and
-   then choose **Create policy**.
-4. After making your changes, choose **Next**.
-5. Review your changes, and choose **Apply**. The updates
-   affect all accounts and OUs that are associated with a changed configuration policy. The updates also take effect in the home
-   Region and all linked Regions.
+lists your existing Security Hub CSPM configuration policies and the status of the selected standard or control in each one. Choose the options to enable or disable the standard or control in each existing configuration policy. For controls, you can
+also choose to customize [control parameters](custom-control-parameters.md "custom-control-parameters.md"). You can't create a new policy during in-context
+configuration. To create a new policy, you must go to the **Configuration** page, choose the **Policies** tab, and
+then choose **Create policy**. 4. After making your changes, choose **Next**. 5. Review your changes, and choose **Apply**. The updates
+affect all accounts and OUs that are associated with a changed configuration policy. The updates also take effect in the home
+Region and all linked Regions.

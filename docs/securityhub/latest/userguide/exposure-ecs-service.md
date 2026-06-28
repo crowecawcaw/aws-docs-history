@@ -32,6 +32,10 @@ The remediation guidance provided in this topic might require additional consult
   - [The IAM role associated with the Amazon ECS service has an administrative access policy](exposure-ecs-service.md#administrative-access-policy "exposure-ecs-service.md#administrative-access-policy")
   - [The IAM Role associated with the ECS service has a Service Admin Policy](exposure-ecs-service.md#service-admin-policy "exposure-ecs-service.md#service-admin-policy")
 
+- [Reachability traits for Amazon ECS services](exposure-ecs-service.md#reachability "exposure-ecs-service.md#reachability")
+
+  - [The Amazon ECS service is reachable over the internet](exposure-ecs-service.md#internet-reachable "exposure-ecs-service.md#internet-reachable")
+
 - [Vulnerability traits for Amazon ECS services](exposure-ecs-service.md#vulnerability "exposure-ecs-service.md#vulnerability")
 
   - [The Amazon ECS service has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ecs-service.md#high-priority-vulnerability "exposure-ecs-service.md#high-priority-vulnerability")
@@ -279,6 +283,44 @@ If service-level administrative permissions are necessary for Amazon ECS tasks, 
 
 Create a new revision of your task definition that references the new or updated IAM roles.
 Then update your Amazon ECS service to use the new task definition revision.
+
+## Reachability traits for Amazon ECS services
+
+Here are reachability traits for Amazon ECS services and suggested remediation steps.
+
+### The Amazon ECS service is reachable over the internet
+
+An Amazon ECS service that runs tasks on a public subnet is directly accessible from
+the internet. This increases the attack surface and the risk of unauthorized access.
+Following standard security principles, AWS recommends that you run tasks on
+private subnets and allow only the internet access that your service requires.
+
+###### Run tasks on a private subnet
+
+To move your tasks off a public subnet, update the network configuration for
+your launch type:
+
+- For Fargate, specify private subnets in the network configuration of your
+  Amazon ECS service and set `assignPublicIp` to `DISABLED`.
+  Amazon ECS hosts each task on a private subnet and routes its outbound traffic
+  through a NAT gateway that you associate with the subnet.
+- For EC2, launch the container instances that provide your cluster
+  capacity on private subnets. Tasks use the private networking of the host and
+  route outbound traffic through a NAT gateway.
+
+###### Use a NAT gateway for outbound access
+
+For tasks on a private subnet that require outbound internet access, use a NAT
+gateway. You can use a NAT gateway to let tasks start outbound connections to the
+internet and prevent inbound connections from the internet. For more information,
+see [Connect Amazon ECS applications to the internet](../../../AmazonECS/latest/developerguide/networking-outbound.md "../../../AmazonECS/latest/developerguide/networking-outbound.md") in the Amazon ECS Developer Guide.
+
+###### Use a load balancer for inbound access
+
+For services that need to accept internet traffic, run your tasks on private
+subnets behind a load balancer that runs on a public subnet. To add protection
+against web exploits and bots, associate AWS Web Application Firewall (WAF)
+with your load balancer. For more information, see [Use load balancing to distribute Amazon ECS service traffic](../../../AmazonECS/latest/developerguide/service-load-balancing.md "../../../AmazonECS/latest/developerguide/service-load-balancing.md") in the Amazon ECS Developer Guide.
 
 ## Vulnerability traits for Amazon ECS services
 

@@ -305,8 +305,8 @@ configuration](../../../apigatewayv2/latest/api-reference/apis-apiid-integration
 
 - `allowedSecurityPolicies`:
   `SecurityPolicy_TLS13_1_3_2025_09, SecurityPolicy_TLS13_1_3_FIPS_2025_09,
-SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09, SecurityPolicy_TLS13_2025_EDGE,
-SecurityPolicy_TLS12_PFS_2025_EDGE` (not customizable)
+ SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09, SecurityPolicy_TLS13_2025_EDGE,
+ SecurityPolicy_TLS12_PFS_2025_EDGE` (not customizable)
 
 This control checks whether an API Gateway domain name is configured to encrypt data
 in transit by using a recommended security policy. The control fails if the API Gateway
