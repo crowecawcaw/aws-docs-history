@@ -8,10 +8,10 @@ The release also adds a new PHP configuration and, for certain AWS Regions, supp
 ## Changes
 
 | **Category**         | **Description**                                                                                                                                                                                                           |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------------- | ---- | ------- | ------- | ---- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----------- | --------------------------------------------------------------------------------------------------------------------------- | ---- | ------------ | ----------------------------------------------------------------------------------------------- | --- |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Security updates** | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before August 6,<br>2018 to all Linux-based platforms.                    |
 | **PHP**              | Added support for PHP 7.2 in a [new PHP configuration](#release-2018-08-15-linux.platforms.PHP "#release-2018-08-15-linux.platforms.PHP"). It is released<br>side-by-side with the existing supported PHP configurations. |
-| **Instance types**   | Added support for more Amazon EC2 instance types in some AWS Regions, as follows:<br>                                                                                                                                     | \*_Instance type_<br>• | \*_Regions_<br>• | <br> | --<br>• | --<br>• | <br> | \*_z1d_<br>• | • US East (N. Virginia)—us-east-1<br>• US West (N. California)—us-west-1<br>• US West (Oregon)—us-west-2<br>• Asia Pacific (Singapore)—ap-southeast-1<br>• Asia Pacific (Tokyo)—ap-northeast-1<br>• EU (Ireland)—eu-west-1 | <br> | \*_r5_<br>• | • US East (N. Virginia)—us-east-1<br>• US East (Ohio)—us-east-2<br>• US West (Oregon)—us-west-2<br>• EU (Ireland)—eu-west-1 | <br> | \*_r5d_<br>• | • US East (N. Virginia)—us-east-1<br>• US East (Ohio)—us-east-2<br>• US West (Oregon)—us-west-2 |     |
+| **Instance types**   | Added support for more Amazon EC2 instance types in some AWS Regions, as follows:<br>                                                                                                                                     | *_Instance type_<br>• | *_Regions_<br>• | <br> | --<br>• | --<br>• | <br> | *_z1d_<br>• | • US East (N. Virginia)—us-east-1<br>• US West (N. California)—us-west-1<br>• US West (Oregon)—us-west-2<br>• Asia Pacific (Singapore)—ap-southeast-1<br>• Asia Pacific (Tokyo)—ap-northeast-1<br>• EU (Ireland)—eu-west-1 | <br> | *_r5_<br>• | • US East (N. Virginia)—us-east-1<br>• US East (Ohio)—us-east-2<br>• US West (Oregon)—us-west-2<br>• EU (Ireland)—eu-west-1 | <br> | *_r5d_<br>• | • US East (N. Virginia)—us-east-1<br>• US East (Ohio)—us-east-2<br>• US West (Oregon)—us-west-2 |     |
 
 ## Updated platform configurations
 
@@ -64,19 +64,19 @@ The release also adds a new PHP configuration and, for certain AWS Regions, supp
 
 ### Java SE
 
-| Configuration and _Solution Stack Name_                                        | AMI       | Language       | Tools                              | AWS X‑Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Java 8_ | 2018.03.0 | Java 1.8.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Java 7_ | 2018.03.0 | Java 1.7.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Configuration and _Solution Stack Name_                                        | AMI       | Language        | Tools                              | AWS X‑Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Java 8_ | 2018.03.0 | Java 1.8.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Java 7_ | 2018.03.0 | Java 1.7.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 ### Java with Tomcat
 
-| Configuration and _Solution Stack Name_                                                                   | AMI       | Language       | AWS X‑Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_181 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Configuration and _Solution Stack Name_                                                                   | AMI       | Language        | AWS X‑Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_181 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.2**<br>_64bit Amazon Linux 2018.03 v3.0.2 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 ### Node.js
 
@@ -97,12 +97,12 @@ The release also adds a new PHP configuration and, for certain AWS Regions, supp
 
 ### Python
 
-| Configuration and _Solution Stack Name_                                                | AMI       | Language      | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                    |
-| -------------------------------------------------------------------------------------- | --------- | ------------- | --------------- | ----------------- | ----------- | --------- | ------------------------------- |
-| **Python 3.6 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Python 3.6_ | 2018.03.0 | Python 3.6.5  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod_wsgi 3.5 |
-| **Python 3.4 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Python 3.4_ | 2018.03.0 | Python 3.4.8  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod_wsgi 3.5 |
-| **Python 2.7 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Python 2.7_ | 2018.03.0 | Python 2.7.14 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod_wsgi 3.5 |
-| **Python 2.6 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Python 2.6_ | 2018.03.0 | Python 2.6.9  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod_wsgi 3.5 |
+| Configuration and _Solution Stack Name_                                                | AMI       | Language      | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                     |
+| -------------------------------------------------------------------------------------- | --------- | ------------- | --------------- | ----------------- | ----------- | --------- | -------------------------------- |
+| **Python 3.6 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Python 3.6_ | 2018.03.0 | Python 3.6.5  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod\_wsgi 3.5 |
+| **Python 3.4 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Python 3.4_ | 2018.03.0 | Python 3.4.8  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod\_wsgi 3.5 |
+| **Python 2.7 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Python 2.7_ | 2018.03.0 | Python 2.7.14 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod\_wsgi 3.5 |
+| **Python 2.6 version 2.7.2**<br>_64bit Amazon Linux 2018.03 v2.7.2 running Python 2.6_ | 2018.03.0 | Python 2.6.9  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod\_wsgi 3.5 |
 
 ### Ruby
 

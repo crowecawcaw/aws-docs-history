@@ -7,8 +7,8 @@ This release applies security updates to Linux-based platforms for AWS Elastic B
 ## Changes
 
 | **Category**         | **Description**                                                                                                                                                                                                                                                                                |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | -------------------- | ---- | ------- | ------- | ---- | ------ | ------------------------------------------------------------------------------------------------------------------- | --- |
-| **Security updates** | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before August 10,<br>2018 to all Linux-based platforms.<br>The following are specific critical security updates that this release applied:<br> | \*_Affected packages_<br>• | \*_Information_<br>• | <br> | --<br>• | --<br>• | <br> | kernel | [ALAS-2018-1058](https://alas.aws.amazon.com/ALAS-2018-1058.html "https://alas.aws.amazon.com/ALAS-2018-1058.html") |     |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Security updates** | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before August 10,<br>2018 to all Linux-based platforms.<br>The following are specific critical security updates that this release applied:<br> | *_Affected packages_<br>• | *_Information_<br>• | <br> | --<br>• | --<br>• | <br> | kernel | [ALAS-2018-1058](https://alas.aws.amazon.com/ALAS-2018-1058.html "https://alas.aws.amazon.com/ALAS-2018-1058.html") |     |
 
 ## Updated platform configurations
 
@@ -61,19 +61,19 @@ This release applies security updates to Linux-based platforms for AWS Elastic B
 
 ### Java SE
 
-| Configuration and _Solution Stack Name_                                        | AMI       | Language       | Tools                              | AWS X‑Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.7.4**<br>_64bit Amazon Linux 2018.03 v2.7.4 running Java 8_ | 2018.03.0 | Java 1.8.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
-| **Java 7 version 2.7.4**<br>_64bit Amazon Linux 2018.03 v2.7.4 running Java 7_ | 2018.03.0 | Java 1.7.0_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| Configuration and _Solution Stack Name_                                        | AMI       | Language        | Tools                              | AWS X‑Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.7.4**<br>_64bit Amazon Linux 2018.03 v2.7.4 running Java 8_ | 2018.03.0 | Java 1.8.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
+| **Java 7 version 2.7.4**<br>_64bit Amazon Linux 2018.03 v2.7.4 running Java 7_ | 2018.03.0 | Java 1.7.0\_181 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 2.0.0     | nginx 1.12.1 |
 
 ### Java with Tomcat
 
-| Configuration and _Solution Stack Name_                                                                   | AMI       | Language       | AWS X‑Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 8 with Tomcat 8 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 7 with Tomcat 7 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_181 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
-| **Java 6 with Tomcat 7 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| Configuration and _Solution Stack Name_                                                                   | AMI       | Language        | AWS X‑Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.5.32      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 8 with Tomcat 8 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 8 Java 8_     | 2018.03.0 | Java 1.8.0\_181 | 2.0.0     | Tomcat 8.0.53      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 7 with Tomcat 7 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_181 | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
+| **Java 6 with Tomcat 7 version 3.0.3**<br>_64bit Amazon Linux 2018.03 v3.0.3 running Tomcat 7 Java 6_     | 2018.03.0 | Java 1.6.0\_41  | 2.0.0     | Tomcat 7.0.90      | Apache 2.4.33 (default), Apache 2.2.34, Nginx 1.12.1 |
 
 ### Node.js
 
@@ -94,12 +94,12 @@ This release applies security updates to Linux-based platforms for AWS Elastic B
 
 ### Python
 
-| Configuration and _Solution Stack Name_                                                | AMI       | Language      | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                    |
-| -------------------------------------------------------------------------------------- | --------- | ------------- | --------------- | ----------------- | ----------- | --------- | ------------------------------- |
-| **Python 3.6 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Python 3.6_ | 2018.03.0 | Python 3.6.5  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod_wsgi 3.5 |
-| **Python 3.4 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Python 3.4_ | 2018.03.0 | Python 3.4.8  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod_wsgi 3.5 |
-| **Python 2.7 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Python 2.7_ | 2018.03.0 | Python 2.7.14 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod_wsgi 3.5 |
-| **Python 2.6 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Python 2.6_ | 2018.03.0 | Python 2.6.9  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod_wsgi 3.5 |
+| Configuration and _Solution Stack Name_                                                | AMI       | Language      | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                     |
+| -------------------------------------------------------------------------------------- | --------- | ------------- | --------------- | ----------------- | ----------- | --------- | -------------------------------- |
+| **Python 3.6 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Python 3.6_ | 2018.03.0 | Python 3.6.5  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod\_wsgi 3.5 |
+| **Python 3.4 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Python 3.4_ | 2018.03.0 | Python 3.4.8  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod\_wsgi 3.5 |
+| **Python 2.7 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Python 2.7_ | 2018.03.0 | Python 2.7.14 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod\_wsgi 3.5 |
+| **Python 2.6 version 2.7.3**<br>_64bit Amazon Linux 2018.03 v2.7.3 running Python 2.6_ | 2018.03.0 | Python 2.6.9  | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 2.0.0     | Apache 2.4.33 with mod\_wsgi 3.5 |
 
 ### Ruby
 

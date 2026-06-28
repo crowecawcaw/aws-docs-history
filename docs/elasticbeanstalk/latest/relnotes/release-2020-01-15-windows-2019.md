@@ -11,8 +11,8 @@ The following table lists the changes included in this release. Be aware that at
 might not yet be available in all the AWS Regions that Elastic Beanstalk supports. It might take a few hours for the release to complete.
 
 | **Category**                 | **Description** |
-| ---------------------------- | --------------- | ----------- | ---------------- | ---- | ------- | ------- | ---- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --- |
-| **Operating system updates** |                 | \*_OS_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_Windows Server 2019_<br>• | Added support for Windows Server 2019 as two new Windows Server v2 platform versions: one with Windows Server 2019, one with<br>Windows Server Core 2019.<br>For details from Microsoft, see [Get<br>started with Windows Server 2019](https://docs.microsoft.com/en-us/windows-server/get-started-19/get-started-19 "https://docs.microsoft.com/en-us/windows-server/get-started-19/get-started-19"). |     |
+| ---------------------------- | --------------- |
+| **Operating system updates** |                 | *_OS_<br>• | *_Details_<br>• | <br> | --<br>• | --<br>• | <br> | *_Windows Server 2019_<br>• | Added support for Windows Server 2019 as two new Windows Server v2 platform versions: one with Windows Server 2019, one with<br>Windows Server Core 2019.<br>For details from Microsoft, see [Get<br>started with Windows Server 2019](https://docs.microsoft.com/en-us/windows-server/get-started-19/get-started-19 "https://docs.microsoft.com/en-us/windows-server/get-started-19/get-started-19"). |     |
 
 ## New platform versions
 

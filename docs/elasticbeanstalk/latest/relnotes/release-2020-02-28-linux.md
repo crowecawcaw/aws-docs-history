@@ -17,10 +17,10 @@ The following table lists the changes included in this release.
   The Go platform version should be 2.14.3, and the Node.js platform version should be 4.13.1. They're now fixed in the release notes and the
   platforms document.
 
-| **Category**                  | **Description**                                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------------- | ---- | ------- | ------- | ---- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| **Security updates**          | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before **February 13, 2020\*<br>• to all Linux-based platforms.<br>The **Node.js*<br>• release includes security fixes. For more information, see \*\*Platform-specific<br>updates*<br>• in this table. |
-| **Platform-specific updates** | Made these platform-specific updates:<br>                                                                                                                                                                                                                                                                                                               | \*_Platform_<br>• | \*_Update_<br>• | <br> | --<br>• | --<br>• | <br> | \*_Go_<br>• | Updated to Go release 1.13.8. For details, see [go1.13](https://golang.org/doc/devel/release.html#go1.13 "https://golang.org/doc/devel/release.html#go1.13") in<br>_The Go Programming Language Release History_. | <br> | \*_Node.js_<br>• | Updated the Node.js platform to add support for Node versions<br>[12.16.1](https://nodejs.org/en/blog/release/v12.16.1/ "https://nodejs.org/en/blog/release/v12.16.1/"),<br>[12.15.0](https://nodejs.org/en/blog/release/v12.15.0/ "https://nodejs.org/en/blog/release/v12.15.0/"), and<br>[10.19.0](https://nodejs.org/en/blog/release/v10.19.0/ "https://nodejs.org/en/blog/release/v10.19.0/").<br>The latest Node.js 12.15 and 10.19 versions are security releases and include fixes for vulnerabilities. |     |
+| **Category**                  | **Description**                                                                                                                                                                                                                                                                                                                                      |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Security updates**          | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before *_February 13, 2020_<br>• to all Linux-based platforms.<br>The *_Node.js_<br>• release includes security fixes. For more information, see *_Platform-specific<br>updates_<br>• in this table. |
+| **Platform-specific updates** | Made these platform-specific updates:<br>                                                                                                                                                                                                                                                                                                            | *_Platform_<br>• | *_Update_<br>• | <br> | --<br>• | --<br>• | <br> | *_Go_<br>• | Updated to Go release 1.13.8. For details, see [go1.13](https://golang.org/doc/devel/release.html#go1.13 "https://golang.org/doc/devel/release.html#go1.13") in<br>_The Go Programming Language Release History_. | <br> | *_Node.js_<br>• | Updated the Node.js platform to add support for Node versions<br>[12.16.1](https://nodejs.org/en/blog/release/v12.16.1/ "https://nodejs.org/en/blog/release/v12.16.1/"),<br>[12.15.0](https://nodejs.org/en/blog/release/v12.15.0/ "https://nodejs.org/en/blog/release/v12.15.0/"), and<br>[10.19.0](https://nodejs.org/en/blog/release/v10.19.0/ "https://nodejs.org/en/blog/release/v10.19.0/").<br>The latest Node.js 12.15 and 10.19 versions are security releases and include fixes for vulnerabilities. |     |
 
 ## New platform versions
 
@@ -63,17 +63,17 @@ The following table lists the changes included in this release.
 
 ### Java SE
 
-| Platform Version and _Solution Stack Name_                                       | AMI       | Language       | Tools                              | AWS X‑Ray | Proxy Server |
-| -------------------------------------------------------------------------------- | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.10.3**<br>_64bit Amazon Linux 2018.03 v2.10.3 running Java 8_ | 2018.03.0 | Java 1.8.0_232 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
-| **Java 7 version 2.10.3**<br>_64bit Amazon Linux 2018.03 v2.10.3 running Java 7_ | 2018.03.0 | Java 1.7.0_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                       | AMI       | Language        | Tools                              | AWS X‑Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.10.3**<br>_64bit Amazon Linux 2018.03 v2.10.3 running Java 8_ | 2018.03.0 | Java 1.8.0\_232 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
+| **Java 7 version 2.10.3**<br>_64bit Amazon Linux 2018.03 v2.10.3 running Java 7_ | 2018.03.0 | Java 1.7.0\_231 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.1.0     | nginx 1.16.1 |
 
 ### Tomcat
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X‑Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_232 | 3.1.0     | Tomcat 8.5.50      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
-| **Java 7 with Tomcat 7 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X‑Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_232 | 3.1.0     | Tomcat 8.5.50      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
+| **Java 7 with Tomcat 7 version 3.3.3**<br>_64bit Amazon Linux 2018.03 v3.3.3 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_231 | 3.1.0     | Tomcat 7.0.94      | Apache 2.4.41 (default), Apache 2.2.34, Nginx 1.16.1 |
 
 ### Node.js
 
@@ -90,9 +90,9 @@ The following table lists the changes included in this release.
 
 ### Python
 
-| Platform Version and _Solution Stack Name_                                             | AMI       | Language     | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                    |
-| -------------------------------------------------------------------------------------- | --------- | ------------ | --------------- | ----------------- | ----------- | --------- | ------------------------------- |
-| **Python 3.6 version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Python 3.6_ | 2018.03.0 | Python 3.6.8 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 3.1.0     | Apache 2.4.41 with mod_wsgi 3.5 |
+| Platform Version and _Solution Stack Name_                                             | AMI       | Language     | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                     |
+| -------------------------------------------------------------------------------------- | --------- | ------------ | --------------- | ----------------- | ----------- | --------- | -------------------------------- |
+| **Python 3.6 version 2.9.6**<br>_64bit Amazon Linux 2018.03 v2.9.6 running Python 3.6_ | 2018.03.0 | Python 3.6.8 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 3.1.0     | Apache 2.4.41 with mod\_wsgi 3.5 |
 
 ### Ruby
 

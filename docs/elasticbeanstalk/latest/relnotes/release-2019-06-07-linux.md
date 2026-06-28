@@ -25,10 +25,10 @@ These are the impacted AWS Regions:
 - Europe (Ireland) – eu-west-1
   We will add support for the **T3a** instance type in the next Linux platform update.
 
-| **Category**                  | **Description**                                                                                                                                                                                            |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------------- | ---- | ------- | ------- | ---- | ------------------------------ | ---------------------------------------- | ---- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| **Security updates**          | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before \*_May 30, 2019_<br>• to all Linux-based platforms. |
-| **Platform-specific updates** | Made these platform-specific updates:<br>                                                                                                                                                                  | \*_Platform_<br>• | \*_Update_<br>• | <br> | --<br>• | --<br>• | <br> | \*_Multicontainer Docker_<br>• | Updated the ECS agent to version 1.28.0. | <br> | \*_Go_<br>• | Updated to minor revision 1.12.5. For details, see [go1.12](https://golang.org/doc/devel/release.html#go1.12 "https://golang.org/doc/devel/release.html#go1.12") in<br>_The Go Programming Language Release History_. | <br> | \*_Java with Tomcat_<br>• | Updated Tomcat 8.5 to [Tomcat<br>8.5.40](<https://tomcat.apache.org/tomcat-8.5-doc/changelog.html#Tomcat_8.5.40_(markt)> "https://tomcat.apache.org/tomcat-8.5-doc/changelog.html#Tomcat_8.5.40_(markt)"). | <br> | \*_Node.js_<br>• | Updated the Node.js platform to add support for [Node<br>v10.16.0](https://nodejs.org/en/blog/release/v10.16.0/ "https://nodejs.org/en/blog/release/v10.16.0/"). |     |
+| **Category**                  | **Description**                                                                                                                                                                                           |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Security updates**          | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before *_May 30, 2019_<br>• to all Linux-based platforms. |
+| **Platform-specific updates** | Made these platform-specific updates:<br>                                                                                                                                                                 | *_Platform_<br>• | *_Update_<br>• | <br> | --<br>• | --<br>• | <br> | *_Multicontainer Docker_<br>• | Updated the ECS agent to version 1.28.0. | <br> | *_Go_<br>• | Updated to minor revision 1.12.5. For details, see [go1.12](https://golang.org/doc/devel/release.html#go1.12 "https://golang.org/doc/devel/release.html#go1.12") in<br>_The Go Programming Language Release History_. | <br> | *_Java with Tomcat_<br>• | Updated Tomcat 8.5 to [Tomcat<br>8.5.40](<https://tomcat.apache.org/tomcat-8.5-doc/changelog.html#Tomcat_8.5.40_(markt)> "https://tomcat.apache.org/tomcat-8.5-doc/changelog.html#Tomcat_8.5.40_(markt)"). | <br> | *_Node.js_<br>• | Updated the Node.js platform to add support for [Node<br>v10.16.0](https://nodejs.org/en/blog/release/v10.16.0/ "https://nodejs.org/en/blog/release/v10.16.0/"). |     |
 
 ## New platform versions
 
@@ -78,17 +78,17 @@ These are the impacted AWS Regions:
 
 ### Java SE
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X‑Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Java 8_ | 2018.03.0 | Java 1.8.0_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Java 7_ | 2018.03.0 | Java 1.7.0_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X‑Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Java 8_ | 2018.03.0 | Java 1.8.0\_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Java 7_ | 2018.03.0 | Java 1.7.0\_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 ### Java with Tomcat
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X‑Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X‑Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.4**<br>_64bit Amazon Linux 2018.03 v3.1.4 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 ### Node.js
 
@@ -104,9 +104,9 @@ These are the impacted AWS Regions:
 
 ### Python
 
-| Platform Version and _Solution Stack Name_                                             | AMI       | Language     | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                    |
-| -------------------------------------------------------------------------------------- | --------- | ------------ | --------------- | ----------------- | ----------- | --------- | ------------------------------- |
-| **Python 3.6 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Python 3.6_ | 2018.03.0 | Python 3.6.8 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 3.0.0     | Apache 2.4.39 with mod_wsgi 3.5 |
+| Platform Version and _Solution Stack Name_                                             | AMI       | Language     | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                     |
+| -------------------------------------------------------------------------------------- | --------- | ------------ | --------------- | ----------------- | ----------- | --------- | -------------------------------- |
+| **Python 3.6 version 2.8.4**<br>_64bit Amazon Linux 2018.03 v2.8.4 running Python 3.6_ | 2018.03.0 | Python 3.6.8 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 3.0.0     | Apache 2.4.39 with mod\_wsgi 3.5 |
 
 ### Ruby
 

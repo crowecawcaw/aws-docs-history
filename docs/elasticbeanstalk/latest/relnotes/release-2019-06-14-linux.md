@@ -7,11 +7,11 @@ It also includes a Go update and support for an additional Amazon EC2 instance t
 
 ## Changes
 
-| **Category**                  | **Description**                                                                                                                                                                                            |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------------- | ---- | ------- | ------- | ---- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| **Security updates**          | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before \*_June 5, 2019_<br>• to all Linux-based platforms. |
-| **Platform-specific updates** | Made these platform-specific updates:<br>                                                                                                                                                                  | \*_Platform_<br>•      | \*_Update_<br>•  | <br> | --<br>• | --<br>• | <br> | \*_Go_<br>•  | Updated to minor revision 1.12.6. For details, see [go1.12](https://golang.org/doc/devel/release.html#go1.12 "https://golang.org/doc/devel/release.html#go1.12") in<br>_The Go Programming Language Release History_. |     |
-| **Instance types**            | Added support for an additional Amazon EC2 instance type in some AWS Regions, as listed in the following table.<br>                                                                                        | \*_Instance type_<br>• | \*_Regions_<br>• | <br> | --<br>• | --<br>• | <br> | \*_T3a_<br>• | • US East (Ohio) – us-east-2<br>• US East (N. Virginia) – us-east-1<br>• US West (Oregon) – us-west-2<br>• Asia Pacific (Singapore) – ap-southeast-1<br>• Europe (Ireland) – eu-west-1                                |     |
+| **Category**                  | **Description**                                                                                                                                                                                           |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Security updates**          | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/ "https://alas.aws.amazon.com/") on or before *_June 5, 2019_<br>• to all Linux-based platforms. |
+| **Platform-specific updates** | Made these platform-specific updates:<br>                                                                                                                                                                 | *_Platform_<br>•      | *_Update_<br>•  | <br> | --<br>• | --<br>• | <br> | *_Go_<br>•  | Updated to minor revision 1.12.6. For details, see [go1.12](https://golang.org/doc/devel/release.html#go1.12 "https://golang.org/doc/devel/release.html#go1.12") in<br>_The Go Programming Language Release History_. |     |
+| **Instance types**            | Added support for an additional Amazon EC2 instance type in some AWS Regions, as listed in the following table.<br>                                                                                       | *_Instance type_<br>• | *_Regions_<br>• | <br> | --<br>• | --<br>• | <br> | *_T3a_<br>• | • US East (Ohio) – us-east-2<br>• US East (N. Virginia) – us-east-1<br>• US West (Oregon) – us-west-2<br>• Asia Pacific (Singapore) – ap-southeast-1<br>• Europe (Ireland) – eu-west-1                                |     |
 
 ## New platform versions
 
@@ -61,17 +61,17 @@ It also includes a Go update and support for an additional Amazon EC2 instance t
 
 ### Java SE
 
-| Platform Version and _Solution Stack Name_                                     | AMI       | Language       | Tools                              | AWS X‑Ray | Proxy Server |
-| ------------------------------------------------------------------------------ | --------- | -------------- | ---------------------------------- | --------- | ------------ |
-| **Java 8 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Java 8_ | 2018.03.0 | Java 1.8.0_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
-| **Java 7 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Java 7_ | 2018.03.0 | Java 1.7.0_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                     | AMI       | Language        | Tools                              | AWS X‑Ray | Proxy Server |
+| ------------------------------------------------------------------------------ | --------- | --------------- | ---------------------------------- | --------- | ------------ |
+| **Java 8 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Java 8_ | 2018.03.0 | Java 1.8.0\_201 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
+| **Java 7 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Java 7_ | 2018.03.0 | Java 1.7.0\_211 | Ant 1.9.6, Gradle 2.7, Maven 3.3.3 | 3.0.0     | nginx 1.14.1 |
 
 ### Java with Tomcat
 
-| Platform Version and _Solution Stack Name_                                                                | AMI       | Language       | AWS X‑Ray | Application Server | Proxy Server                                         |
-| --------------------------------------------------------------------------------------------------------- | --------- | -------------- | --------- | ------------------ | ---------------------------------------------------- |
-| **Java 8 with Tomcat 8.5 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
-| **Java 7 with Tomcat 7 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| Platform Version and _Solution Stack Name_                                                                | AMI       | Language        | AWS X‑Ray | Application Server | Proxy Server                                         |
+| --------------------------------------------------------------------------------------------------------- | --------- | --------------- | --------- | ------------------ | ---------------------------------------------------- |
+| **Java 8 with Tomcat 8.5 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 8.5 Java 8_ | 2018.03.0 | Java 1.8.0\_201 | 3.0.0     | Tomcat 8.5.40      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
+| **Java 7 with Tomcat 7 version 3.1.5**<br>_64bit Amazon Linux 2018.03 v3.1.5 running Tomcat 7 Java 7_     | 2018.03.0 | Java 1.7.0\_211 | 3.0.0     | Tomcat 7.0.91      | Apache 2.4.39 (default), Apache 2.2.34, Nginx 1.14.1 |
 
 ### Node.js
 
@@ -87,9 +87,9 @@ It also includes a Go update and support for an additional Amazon EC2 instance t
 
 ### Python
 
-| Platform Version and _Solution Stack Name_                                             | AMI       | Language     | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                    |
-| -------------------------------------------------------------------------------------- | --------- | ------------ | --------------- | ----------------- | ----------- | --------- | ------------------------------- |
-| **Python 3.6 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Python 3.6_ | 2018.03.0 | Python 3.6.8 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 3.0.0     | Apache 2.4.39 with mod_wsgi 3.5 |
+| Platform Version and _Solution Stack Name_                                             | AMI       | Language     | Package Manager | Packager          | meld3       | AWS X‑Ray | Proxy Server                     |
+| -------------------------------------------------------------------------------------- | --------- | ------------ | --------------- | ----------------- | ----------- | --------- | -------------------------------- |
+| **Python 3.6 version 2.8.5**<br>_64bit Amazon Linux 2018.03 v2.8.5 running Python 3.6_ | 2018.03.0 | Python 3.6.8 | pip 9.0.3       | setuptools 28.8.0 | meld3 1.0.2 | 3.0.0     | Apache 2.4.39 with mod\_wsgi 3.5 |
 
 ### Ruby
 

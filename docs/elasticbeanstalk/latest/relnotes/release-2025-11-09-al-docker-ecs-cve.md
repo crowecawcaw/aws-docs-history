@@ -18,8 +18,8 @@ The following table lists the changes included in this release.
   Elastic Beanstalk supports. It might take a few hours for the release to complete.
 
 | **Category**                  | **Description**                           |
-| ----------------------------- | ----------------------------------------- | ----------------- | --------------- | ---- | ------- | ------- | ---- | --------------- | ------------------------------------------------------------------------ | --- |
-| **Platform-specific updates** | Made these platform-specific updates:<br> | \*_Platform_<br>• | \*_Update_<br>• | <br> | --<br>• | --<br>• | <br> | \*_Docker_<br>• | **AL2/AL2023 Docker platform branch**<br>• Updated runc to version 1.3.3 |     |
+| ----------------------------- | ----------------------------------------- |
+| **Platform-specific updates** | Made these platform-specific updates:<br> | *_Platform_<br>• | *_Update_<br>• | <br> | --<br>• | --<br>• | <br> | *_Docker_<br>• | **AL2/AL2023 Docker platform branch**<br>• Updated runc to version 1.3.3 |     |
 
 ## New platform versions
 

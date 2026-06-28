@@ -17,9 +17,9 @@ The following table lists the changes included in this release.
   Elastic Beanstalk supports. It might take a few hours for the release to complete.
 
 | **Category**              | **Description** |
-| ------------------------- | --------------- | ------------------ | ---------------- | ---- | ------- | ------- | ---- | ------------------ | ----------------------------------------------------------------------------------------------------------- | ---- | ------------------------- | -------------------------------------- | ---- | ------------------------- | -------------------------------------------------------- | ---- | ------------------ | -------------------------------------------- | --- |
-| **Framework updates**     |                 | \*_Framework_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_.NET Core_<br>• | Added support for .NET 9. This platform includes .NET 9 version 9.0.5.<br>Updated .NET 8 to version 8.0.16. |      |
-| **AWS component updates** |                 | \*_Component_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_AMI_<br>•       | Updated the base AMI to version 2025.05.15.                                                                 | <br> | \*_AWS SDK for .NET_<br>• | Updated the SDK to version 3.7.1044.0. | <br> | \*_CloudWatch Agent_<br>• | Updated the CloudWatch Agent to version 1.300055.1b1106. | <br> | \*_SSM Agent_<br>• | Updated the SSM Agent to version 3.3.2299.0. |     |
+| ------------------------- | --------------- |
+| **Framework updates**     |                 | *_Framework_<br>• | *_Details_<br>• | <br> | --<br>• | --<br>• | <br> | *_.NET Core_<br>• | Added support for .NET 9. This platform includes .NET 9 version 9.0.5.<br>Updated .NET 8 to version 8.0.16. |      |
+| **AWS component updates** |                 | *_Component_<br>• | *_Details_<br>• | <br> | --<br>• | --<br>• | <br> | *_AMI_<br>•       | Updated the base AMI to version 2025.05.15.                                                                 | <br> | *_AWS SDK for .NET_<br>• | Updated the SDK to version 3.7.1044.0. | <br> | *_CloudWatch Agent_<br>• | Updated the CloudWatch Agent to version 1.300055.1b1106. | <br> | *_SSM Agent_<br>• | Updated the SSM Agent to version 3.3.2299.0. |     |
 
 ## New platform versions
 
