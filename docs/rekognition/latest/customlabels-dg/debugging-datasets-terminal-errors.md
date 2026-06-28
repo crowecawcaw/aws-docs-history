@@ -15,15 +15,15 @@ The following are file errors. You can get information about file
 errors by calling `DescribeDataset` and checking the `Status` and `StatusMessage` fields. For
 example code, see [Describing a dataset (SDK)](md-describing-dataset-sdk.md "md-describing-dataset-sdk.md").
 
-- [ERROR_MANIFEST_INACCESSIBLE_OR_UNSUPPORTED_FORMAT](#md-error-status-ERROR_MANIFEST_INACCESSIBLE_OR_UNSUPPORTED_FORMAT "#md-error-status-ERROR_MANIFEST_INACCESSIBLE_OR_UNSUPPORTED_FORMAT")
-- [ERROR_MANIFEST_SIZE_TOO_LARGE](#md-error-status-ERROR_MANIFEST_SIZE_TOO_LARGE "#md-error-status-ERROR_MANIFEST_SIZE_TOO_LARGE").
-- [ERROR_MANIFEST_ROWS_EXCEEDS_MAXIMUM](#md-error-status-ERROR_MANIFEST_ROWS_EXCEEDS_MAXIMUM "#md-error-status-ERROR_MANIFEST_ROWS_EXCEEDS_MAXIMUM")
-- [ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET](#md-error-status-ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET "#md-error-status-ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET")
-- [ERROR_TOO_MANY_RECORDS_IN_ERROR](#md-error-status-ERROR_TOO_MANY_RECORDS_IN_ERROR "#md-error-status-ERROR_TOO_MANY_RECORDS_IN_ERROR")
-- [ERROR_MANIFEST_TOO_MANY_LABELS](#md-error-status-ERROR_MANIFEST_TOO_MANY_LABELS "#md-error-status-ERROR_MANIFEST_TOO_MANY_LABELS")
-- [ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_DISTRIBUTE](#md-error-status-ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_DISTRIBUTE "#md-error-status-ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_DISTRIBUTE")
+- [ERROR\_MANIFEST\_INACCESSIBLE\_OR\_UNSUPPORTED\_FORMAT](#md-error-status-ERROR_MANIFEST_INACCESSIBLE_OR_UNSUPPORTED_FORMAT "#md-error-status-ERROR_MANIFEST_INACCESSIBLE_OR_UNSUPPORTED_FORMAT")
+- [ERROR\_MANIFEST\_SIZE\_TOO\_LARGE](#md-error-status-ERROR_MANIFEST_SIZE_TOO_LARGE "#md-error-status-ERROR_MANIFEST_SIZE_TOO_LARGE").
+- [ERROR\_MANIFEST\_ROWS\_EXCEEDS\_MAXIMUM](#md-error-status-ERROR_MANIFEST_ROWS_EXCEEDS_MAXIMUM "#md-error-status-ERROR_MANIFEST_ROWS_EXCEEDS_MAXIMUM")
+- [ERROR\_INVALID\_PERMISSIONS\_MANIFEST\_S3\_BUCKET](#md-error-status-ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET "#md-error-status-ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET")
+- [ERROR\_TOO\_MANY\_RECORDS\_IN\_ERROR](#md-error-status-ERROR_TOO_MANY_RECORDS_IN_ERROR "#md-error-status-ERROR_TOO_MANY_RECORDS_IN_ERROR")
+- [ERROR\_MANIFEST\_TOO\_MANY\_LABELS](#md-error-status-ERROR_MANIFEST_TOO_MANY_LABELS "#md-error-status-ERROR_MANIFEST_TOO_MANY_LABELS")
+- [ERROR\_INSUFFICIENT\_IMAGES\_PER\_LABEL\_FOR\_DISTRIBUTE](#md-error-status-ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_DISTRIBUTE "#md-error-status-ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_DISTRIBUTE")
 
-### ERROR_MANIFEST_INACCESSIBLE_OR_UNSUPPORTED_FORMAT
+### ERROR\_MANIFEST\_INACCESSIBLE\_OR\_UNSUPPORTED\_FORMAT
 
 #### Error message
 
@@ -31,7 +31,7 @@ The manifest file extension or contents are invalid.
 
 The training or testing manifest file doesn't have a file extension or its contents are invalid.
 
-###### To fix error _ERROR_MANIFEST_INACCESSIBLE_OR_UNSUPPORTED_FORMAT_
+###### To fix error _ERROR\_MANIFEST\_INACCESSIBLE\_OR\_UNSUPPORTED\_FORMAT_
 
 - Check the following possible causes in both the training and testing manifest files.
 
@@ -39,7 +39,7 @@ The training or testing manifest file doesn't have a file extension or its conte
     extension is `.manifest`.
   - The Amazon S3 bucket or key for the manifest file couldn't be found.
 
-### ERROR_MANIFEST_SIZE_TOO_LARGE
+### ERROR\_MANIFEST\_SIZE\_TOO\_LARGE
 
 #### Error message
 
@@ -50,13 +50,13 @@ A manifest file can have less than the maximum number of JSON Lines and still ex
 
 You can't use the Amazon Rekognition Custom Labels console to fix error _The manifest file size exceeds the maximum supported size_.
 
-###### To fix error _ERROR_MANIFEST_SIZE_TOO_LARGE_
+###### To fix error _ERROR\_MANIFEST\_SIZE\_TOO\_LARGE_
 
 1. Check which of the training and testing manifests exceed the maximum file size.
 2. Reduce the number of JSON Lines in the manifest files that are too large.
    For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
-### ERROR_MANIFEST_ROWS_EXCEEDS_MAXIMUM
+### ERROR\_MANIFEST\_ROWS\_EXCEEDS\_MAXIMUM
 
 #### Error message
 
@@ -77,7 +77,7 @@ You can't use the Amazon Rekognition Custom Labels console to fix error `ERROR_M
 - Reduce the number of JSON Lines in the manifest.
   For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
-### ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET
+### ERROR\_INVALID\_PERMISSIONS\_MANIFEST\_S3\_BUCKET
 
 #### Error message
 
@@ -87,13 +87,13 @@ Amazon Rekognition Custom Labels doesn't have permissions to one or more of the 
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-###### To fix error _ERROR_INVALID_PERMISSIONS_MANIFEST_S3_BUCKET_
+###### To fix error _ERROR\_INVALID\_PERMISSIONS\_MANIFEST\_S3\_BUCKET_
 
 - Check the permissions for the bucket(s) containing the training and testing manifests.
 
 For more information, see [Step 2: Set up Amazon Rekognition Custom Labels console permissions](su-console-policy.md "su-console-policy.md").
 
-### ERROR_TOO_MANY_RECORDS_IN_ERROR
+### ERROR\_TOO\_MANY\_RECORDS\_IN\_ERROR
 
 #### Error message
 
@@ -106,7 +106,7 @@ The manifest file has too many terminal errors.
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-### ERROR_MANIFEST_TOO_MANY_LABELS
+### ERROR\_MANIFEST\_TOO\_MANY\_LABELS
 
 #### Error message
 
@@ -117,13 +117,13 @@ The manifest file has too many labels.
 The number of unique labels in the manifest (dataset) is more than the allowed limit. If the training
 dataset is split to create a testing dataset, the mumber of labels is determined after the split.
 
-###### To fix ERROR_MANIFEST_TOO_MANY_LABELS (Console)
+###### To fix ERROR\_MANIFEST\_TOO\_MANY\_LABELS (Console)
 
 - Remove labels from the dataset. For more information, see
   [Managing labels](md-labels.md "md-labels.md"). The labels
   are automatically removed from the images and bounding boxes in your dataset.
 
-###### To fix ERROR_MANIFEST_TOO_MANY_LABELS (JSON Line)
+###### To fix ERROR\_MANIFEST\_TOO\_MANY\_LABELS (JSON Line)
 
 - Manifests with image level JSON Lines – If the image has a single label, remove the JSON Lines for images
   that use the desired label. If the JSON Line contains multiple labels, remove only the JSON object for the desired label. For
@@ -135,7 +135,7 @@ You need to remove the label from the `class-map` array and corresponding object
 `objects` and `annotations` array.
 For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
-### ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_DISTRIBUTE
+### ERROR\_INSUFFICIENT\_IMAGES\_PER\_LABEL\_FOR\_DISTRIBUTE
 
 #### Error message
 
@@ -144,7 +144,7 @@ The manifest file doesn't have enough labeled images to distribute the dataset.
 Dataset distribution occurs when Amazon Rekognition Custom Labels splits a training dataset to create a test dataset. You
 can also split a dataset by calling the `DistributeDatasetEntries` API.
 
-###### To fix error _ERROR_MANIFEST_TOO_MANY_LABELS_
+###### To fix error _ERROR\_MANIFEST\_TOO\_MANY\_LABELS_
 
 - Add more labeled images to the training dataset
 

@@ -8,7 +8,7 @@ The manifest summary contains the following information.
   in the training and testing datasets.
 - Error statistics such as the total number of invalid JSON Lines found in the training and testing datasets.
   The manifest summary is created during training if there are no [List of terminal manifest file errors](tm-debugging.md#tm-error-category-terminal "tm-debugging.md#tm-error-category-terminal").
-  To get the location of the manifest summary file (_manifest_summary.json_), see [Getting the validation results](tm-debugging-getting-validation-data.md "tm-debugging-getting-validation-data.md").
+  To get the location of the manifest summary file (_manifest\_summary.json_), see [Getting the validation results](tm-debugging-getting-validation-data.md "tm-debugging-getting-validation-data.md").
 
 ###### Note
 
@@ -40,7 +40,7 @@ or test manifest that has an error. For more information, see
 ### errors
 
 Errors spanning both the training and testing dataset. For example,
-an [ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP](tm-debugging-aggregate-errors.md#tm-error-ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP "tm-debugging-aggregate-errors.md#tm-error-ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP")
+an [ERROR\_INSUFFICIENT\_USABLE\_LABEL\_OVERLAP](tm-debugging-aggregate-errors.md#tm-error-ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP "tm-debugging-aggregate-errors.md#tm-error-ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP")
 occurs when there is isn't enough usable labels that overlap the training and testing datasets.
 
 ```
@@ -89,7 +89,7 @@ occurs when there is isn't enough usable labels that overlap the training and te
 ## Example manifest summary
 
 The following example is a partial manifest summary that shows a terminal manifest content error
-([ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST](tm-debugging-aggregate-errors.md#tm-error-ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST "tm-debugging-aggregate-errors.md#tm-error-ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST")).
+([ERROR\_TOO\_MANY\_INVALID\_ROWS\_IN\_MANIFEST](tm-debugging-aggregate-errors.md#tm-error-ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST "tm-debugging-aggregate-errors.md#tm-error-ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST")).
 The `error_json_line_indices`
 array contains the line numbers of non-terminal JSON Line errors in the corresponding training or testing
 validation manifest.

@@ -46,10 +46,10 @@ Later you add the source code and optionally a layer to the Lambda function.
 7. Add the following environment variables. For each variable choose **Add enviroment variable**
    and then enter the variable key and value.
 
-| Key        | Value                                                                                                                                                                                                                                  |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| MODEL_ARN  | The Amazon Resource Name (ARN) of the model that you<br>want your Lambda function to use. You can get the model<br>ARN from the \*_Use Model_<br>• tab of the<br>model's details page in the Amazon Rekognition Custom Labels console. |
-| CONFIDENCE | The minimum value (0–100) for the model's<br>confidence in the prediction for a label. The Lambda<br>function doesn't return labels with confidence values<br>lower than this value.                                                   |
+| Key        | Value                                                                                                                                                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MODEL\_ARN | The Amazon Resource Name (ARN) of the model that you<br>want your Lambda function to use. You can get the model<br>ARN from the *_Use Model_<br>• tab of the<br>model's details page in the Amazon Rekognition Custom Labels console. |
+| CONFIDENCE | The minimum value (0–100) for the model's<br>confidence in the prediction for a label. The Lambda<br>function doesn't return labels with confidence values<br>lower than this value.                                                  |
 
 8. Choose **Save** to save the environment variables.
 9. On the **Permissions** pane, Under **Role
@@ -170,7 +170,7 @@ image bytes.
 
 2. Choose the **Code** tab.
 3. In **Code source**, replace the code in
-   **lambda_function.py** with the following:
+   **lambda\_function.py** with the following:
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -321,10 +321,8 @@ To provide access, add permissions to your users, groups, or roles:
     	+ (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
 
 2. Install and configure AWS SDK for Python. For more information,
-   see [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md "su-awscli-sdk.md").
-3. [Start the model](rm-start.md "rm-start.md") that you specified
-   in step 7 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function") .
-4. Save the following code to a file named `client.py`.
+see [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md "su-awscli-sdk.md"). 3. [Start the model](rm-start.md "rm-start.md") that you specified
+in step 7 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function") . 4. Save the following code to a file named `client.py`.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.

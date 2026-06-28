@@ -43,10 +43,10 @@ locations in an image, such as _backyard_, _kitchen_, and
 _patio_.
 The training and test images represent a single location. Each image is labeled with a single
 image-level label,
-such as _kitchen_, _patio_, or _living_space_.
+such as _kitchen_, _patio_, or _living\_space_.
 For an analyzed image, the trained model returns one or more matching
 labels from the set of image-level labels used for training.
-For example, the model might find the label _living_space_ in
+For example, the model might find the label _living\_space_ in
 the following image. For more information,
 see [Find objects, scenes, and concepts](md-dataset-purpose.md#md-dataset-purpose-classification "md-dataset-purpose.md#md-dataset-purpose-classification").
 
@@ -58,11 +58,11 @@ The multi-label image classification project (Flowers) trains a model that categ
 three concepts (flower type, leaf presence, and growth stage).
 
 The training and test images have image-level labels for each concept, such as _camellia_ for
-a flower type, _with_leaves_ for a flower with leaves, and _fully_grown_ for
+a flower type, _with\_leaves_ for a flower with leaves, and _fully\_grown_ for
 a flower that is fully grown.
 
 For an analyzed image, the trained model returns matching labels from the set of image-level labels used for training.
-For example, the model returns the labels _mediterranean_spurge_ and _with_leaves_ for the following image.
+For example, the model returns the labels _mediterranean\_spurge_ and _with\_leaves_ for the following image.
 For more information,
 see [Find objects, scenes, and concepts](md-dataset-purpose.md#md-dataset-purpose-classification "md-dataset-purpose.md#md-dataset-purpose-classification").
 
@@ -90,8 +90,8 @@ _comparator_ or an _infra red light emitting
 diode_. The training and test images include bounding boxes that
 surround the circuit board parts and a label that identifies the part within the
 bounding box. In the following example image, the label names are
-_ir_phototransistor_, _ir_led_,
-_pot_resistor_, and _comparator_. The
+_ir\_phototransistor_, _ir\_led_,
+_pot\_resistor_, and _comparator_. The
 trained model finds the circuit board parts and returns a labeled bounding for each
 circuit part found. For more information, see [Find object locations](md-dataset-purpose.md#md-dataset-purpose-localization "md-dataset-purpose.md#md-dataset-purpose-localization").
 

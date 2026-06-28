@@ -26,33 +26,32 @@ to categorize and manage your resources.
 The following procedure shows you how to create a dataset by using a SageMaker AI
 Ground Truth format manifest file.
 
-1.  Create a manifest file for your training dataset by doing one of the
-    following:
+1. Create a manifest file for your training dataset by doing one of the
+   following:
 
-        * Create a manifest file with a SageMaker AI GroundTruth Job by
-         following the instructions at  [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md").
-        * Create your own manifest file by following the instructions at
-         [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
+   - Create a manifest file with a SageMaker AI GroundTruth Job by
+     following the instructions at [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md").
+   - Create your own manifest file by following the instructions at
+     [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
+     If you want to create a test dataset, repeat step 1 to create the test
+     dataset.
 
-    If you want to create a test dataset, repeat step 1 to create the test
-    dataset.
-
-2.  Open the Amazon Rekognition console at
-    [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/ "https://console.aws.amazon.com/rekognition/").
-3.  Choose **Use Custom Labels**.
-4.  Choose **Get started**.
-5.  In the left navigation pane, choose
-    **Projects**.
-6.  In the **Projects** page, choose the project to which
-    you want to add a dataset. The details page for your project is
-    displayed.
-7.  Choose **Create dataset**. The **Create
-    dataset** page is shown.
-8.  In **Starting configuration**, choose either
-    **Start with a single dataset** or **Start
-    with a training dataset**. To create a higher quality
-    model, we recommend starting with separate training and test
-    datasets.
+2. Open the Amazon Rekognition console at
+   [https://console.aws.amazon.com/rekognition/](https://console.aws.amazon.com/rekognition/ "https://console.aws.amazon.com/rekognition/").
+3. Choose **Use Custom Labels**.
+4. Choose **Get started**.
+5. In the left navigation pane, choose
+   **Projects**.
+6. In the **Projects** page, choose the project to which
+   you want to add a dataset. The details page for your project is
+   displayed.
+7. Choose **Create dataset**. The **Create
+   dataset** page is shown.
+8. In **Starting configuration**, choose either
+   **Start with a single dataset** or **Start
+   with a training dataset**. To create a higher quality
+   model, we recommend starting with separate training and test
+   datasets.
 
 Single dataset
 
@@ -90,8 +89,7 @@ Separate training and test datasets
     5. Choose **Create Datasets**. The
      datasets page for your project opens.
 
-9. If you need to add or change labels, do [Labeling images](md-labeling-images.md "md-labeling-images.md").
-10. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.
+9. If you need to add or change labels, do [Labeling images](md-labeling-images.md "md-labeling-images.md"). 10. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.
 
 ## Creating a dataset with a SageMaker AI Ground Truth manifest file (SDK)
 
@@ -101,21 +99,20 @@ a manifest file by using the [CreateDataset](../APIReference/API_CreateDataset.m
 You can use an existing manifest file, such as the output from an [SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md"),
 or create your own [manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
-1.  If you haven't already done so, install and configure the AWS CLI and the AWS SDKs. For more information, see
-    [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md "su-awscli-sdk.md").
-2.  Create a manifest file for your training dataset by doing one of the
-    following:
+1. If you haven't already done so, install and configure the AWS CLI and the AWS SDKs. For more information, see
+   [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md "su-awscli-sdk.md").
+2. Create a manifest file for your training dataset by doing one of the
+   following:
 
-        * Create a manifest file with a SageMaker AI GroundTruth Job by
-         following the instructions at  [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md").
-        * Create your own manifest file by following the instructions at
-         [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
+   - Create a manifest file with a SageMaker AI GroundTruth Job by
+     following the instructions at [Labeling images with an Amazon SageMaker AI Ground Truth job](md-create-dataset-ground-truth-job.md "md-create-dataset-ground-truth-job.md").
+   - Create your own manifest file by following the instructions at
+     [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
+     If you want to create a test dataset, repeat step 2 to create the test
+     dataset.
 
-    If you want to create a test dataset, repeat step 2 to create the test
-    dataset.
-
-3.  Use the following example code to create the training and test
-    dataset.
+3. Use the following example code to create the training and test
+   dataset.
 
 AWS CLI
 Use the following code to create a dataset. Replace the

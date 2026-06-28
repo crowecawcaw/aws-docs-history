@@ -118,9 +118,4 @@ Separate training and test datasets
      15 in the **Image source
      configuration** section.
 
-13. Choose **Import images from Amazon S3 bucket**.
-14. In **S3 URI**, enter the Amazon S3 bucket location and folder path.
-15. Choose **Automatically attach labels to images based on the folder**.
-16. Choose **Create Datasets**. The datasets page for your project opens.
-17. If you need to add or change labels, do [Labeling images](md-labeling-images.md "md-labeling-images.md").
-18. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.
+13. Choose **Import images from Amazon S3 bucket**. 14. In **S3 URI**, enter the Amazon S3 bucket location and folder path. 15. Choose **Automatically attach labels to images based on the folder**. 16. Choose **Create Datasets**. The datasets page for your project opens. 17. If you need to add or change labels, do [Labeling images](md-labeling-images.md "md-labeling-images.md"). 18. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.

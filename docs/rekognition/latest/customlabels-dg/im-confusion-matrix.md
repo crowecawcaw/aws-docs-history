@@ -42,10 +42,10 @@ correctly labeled. This should help the model better distinguish between the two
 labels. To add more images to a dataset, see [Adding more images to a dataset](md-add-images.md "md-add-images.md").
 
 While the confusion matrix is helpful, it's important to consider other
-metrics. For example, 100% of the predictions correctly found the floor_plan
+metrics. For example, 100% of the predictions correctly found the floor\_plan
 label, which indicates excellent performance. However, the test dataset only has
-2 images with the floor_plan label. It also has 11 images with the living_space
-label. This imbalance is also in the training dataset (13 living_space images
+2 images with the floor\_plan label. It also has 11 images with the living\_space
+label. This imbalance is also in the training dataset (13 living\_space images
 and 2 closet images). To get a more accurate evaluation, balance the training
 and test datasets by adding more images of under-represented labels (floor plans
 in this example). To get the number of test images per label, see [Accessing evaluation metrics (Console)](im-access-training-results.md "im-access-training-results.md").
@@ -53,18 +53,18 @@ in this example). To get the number of test images per label, see [Accessing eva
 The following table is a sample confusion matrix, comparing the predicted
 label (on the y-axis) against the ground truth label:
 
-| Predicted label | backyard | bathroom | bedroom | closet | entry_way | floor_plan | front_yard | kitchen | living_space | patio |
-| --------------- | -------- | -------- | ------- | ------ | --------- | ---------- | ---------- | ------- | ------------ | ----- |
-| backyard        | 75%      | 0%       | 0%      | 0%     | 0%        | 0%         | 33%        | 0%      | 0%           | 0%    |
-| bathroom        | 0%       | 67%      | 0%      | 0%     | 0%        | 0%         | 0%         | 0%      | 0%           | 0%    |
-| bedroom         | 0%       | 0%       | 82%     | 50%    | 0%        | 0%         | 0%         | 0%      | 9%           | 0%    |
-| closet          | 0%       | 0%       | 0%      | 50%    | 0%        | 0%         | 0%         | 0%      | 0%           | 0%    |
-| entry_way       | 0%       | 0%       | 0%      | 0%     | 33%       | 0%         | 0%         | 0%      | 0%           | 0%    |
-| floor_plan      | 0%       | 0%       | 0%      | 0%     | 0%        | 100%       | 0%         | 0%      | 0%           | 0%    |
-| front_yard      | 25%      | 0%       | 0%      | 0%     | 0%        | 0%         | 67%        | 0%      | 0%           | 0%    |
-| kitchen         | 0%       | 33%      | 0%      | 0%     | 0%        | 0%         | 0%         | 88%     | 0%           | 0%    |
-| living_space    | 0%       | 0%       | 18%     | 0%     | 67%       | 0%         | 0%         | 12%     | 91%          | 33%   |
-| patio           | 0%       | 0%       | 0%      | 0%     | 0%        | 0%         | 0%         | 0%      | 0%           | 67%   |
+| Predicted label | backyard | bathroom | bedroom | closet | entry\_way | floor\_plan | front\_yard | kitchen | living\_space | patio |
+| --------------- | -------- | -------- | ------- | ------ | ---------- | ----------- | ----------- | ------- | ------------- | ----- |
+| backyard        | 75%      | 0%       | 0%      | 0%     | 0%         | 0%          | 33%         | 0%      | 0%            | 0%    |
+| bathroom        | 0%       | 67%      | 0%      | 0%     | 0%         | 0%          | 0%          | 0%      | 0%            | 0%    |
+| bedroom         | 0%       | 0%       | 82%     | 50%    | 0%         | 0%          | 0%          | 0%      | 9%            | 0%    |
+| closet          | 0%       | 0%       | 0%      | 50%    | 0%         | 0%          | 0%          | 0%      | 0%            | 0%    |
+| entry\_way      | 0%       | 0%       | 0%      | 0%     | 33%        | 0%          | 0%          | 0%      | 0%            | 0%    |
+| floor\_plan     | 0%       | 0%       | 0%      | 0%     | 0%         | 100%        | 0%          | 0%      | 0%            | 0%    |
+| front\_yard     | 25%      | 0%       | 0%      | 0%     | 0%         | 0%          | 67%         | 0%      | 0%            | 0%    |
+| kitchen         | 0%       | 33%      | 0%      | 0%     | 0%         | 0%          | 0%          | 88%     | 0%            | 0%    |
+| living\_space   | 0%       | 0%       | 18%     | 0%     | 67%        | 0%          | 0%          | 12%     | 91%           | 33%   |
+| patio           | 0%       | 0%       | 0%      | 0%     | 0%         | 0%          | 0%          | 0%      | 0%            | 67%   |
 
 ## Getting the confusion matrix for a model
 

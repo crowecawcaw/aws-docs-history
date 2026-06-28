@@ -72,5 +72,4 @@ Separate training and test datasets
      **Add images to test
      dataset**.
 
-8. Follow the steps in [Labeling images](md-labeling-images.md "md-labeling-images.md") to label your images.
-9. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.
+8. Follow the steps in [Labeling images](md-labeling-images.md "md-labeling-images.md") to label your images. 9. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.

@@ -17,16 +17,16 @@ JSON Line error information is added to the JSON Lines where errors occur.
 
 A JSON Line error is a non-terminal error related to a single image. A non-terminal validation error
 can invalidate the entire JSON Line or just a portion.
-For example, if the image referenced in a JSON Line is not in PNG or JPG format, an [ERROR_INVALID_IMAGE](tm-debugging-json-line-errors.md#tm-error-ERROR_INVALID_IMAGE "tm-debugging-json-line-errors.md#tm-error-ERROR_INVALID_IMAGE")
+For example, if the image referenced in a JSON Line is not in PNG or JPG format, an [ERROR\_INVALID\_IMAGE](tm-debugging-json-line-errors.md#tm-error-ERROR_INVALID_IMAGE "tm-debugging-json-line-errors.md#tm-error-ERROR_INVALID_IMAGE")
 error occurs and the entire JSON Line is excluded from training. Training continues with other valid JSON Lines.
 
 Within a JSON Line, an error might mean the JSON Line can stil be used for training.
 For example, if the left value for one of four bounding boxes associated with a label is negative,
 the model is still trained using the other valid bounding boxes. JSON Line error information is
-returned for the invalid bounding box ([ERROR_INVALID_BOUNDING_BOX](tm-debugging-json-line-errors.md#tm-error-ERROR_INVALID_BOUNDING_BOX "tm-debugging-json-line-errors.md#tm-error-ERROR_INVALID_BOUNDING_BOX")).
+returned for the invalid bounding box ([ERROR\_INVALID\_BOUNDING\_BOX](tm-debugging-json-line-errors.md#tm-error-ERROR_INVALID_BOUNDING_BOX "tm-debugging-json-line-errors.md#tm-error-ERROR_INVALID_BOUNDING_BOX")).
 In this example, the error information is added to the `annotation` object where the error occurs.
 
-Warning errors, such as [WARNING_NO_ANNOTATIONS](tm-debugging-json-line-errors.md#tm-warning-WARNING_NO_ANNOTATIONS "tm-debugging-json-line-errors.md#tm-warning-WARNING_NO_ANNOTATIONS"),
+Warning errors, such as [WARNING\_NO\_ANNOTATIONS](tm-debugging-json-line-errors.md#tm-warning-WARNING_NO_ANNOTATIONS "tm-debugging-json-line-errors.md#tm-warning-WARNING_NO_ANNOTATIONS"),
 aren't used for training and count as ignored JSON lines (`ignored_json_lines`) in the manifest summary. For more information,
 see [Understanding the manifest summary](tm-debugging-summary.md "tm-debugging-summary.md").
 Additionally, ignored JSON Lines don't count towards the 20% error threshold for training and testing.
@@ -36,7 +36,7 @@ For information about specific non-terminal data validation errors, see [Non-Ter
 ###### Note
 
 If there are too many data validation errors, training is stopped and a
-[ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST](tm-debugging-aggregate-errors.md#tm-error-ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST "tm-debugging-aggregate-errors.md#tm-error-ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST")
+[ERROR\_TOO\_MANY\_INVALID\_ROWS\_IN\_MANIFEST](tm-debugging-aggregate-errors.md#tm-error-ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST "tm-debugging-aggregate-errors.md#tm-error-ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST")
 terminal error is reported in the manifest summary.
 
 For information about correcting JSON Line errors, see [Fixing training errors](tm-debugging-fixing-validation-errors.md "tm-debugging-fixing-validation-errors.md").
@@ -159,7 +159,7 @@ For more information, see [Object localization in manifest files](md-create-mani
 ## Example JSON line error
 
 The following object localization JSON Line (formatted for readability) shows an
-[ERROR_BOUNDING_BOX_TOO_SMALL](tm-debugging-json-line-errors.md#tm-error-ERROR_BOUNDING_BOX_TOO_SMALL "tm-debugging-json-line-errors.md#tm-error-ERROR_BOUNDING_BOX_TOO_SMALL") error.
+[ERROR\_BOUNDING\_BOX\_TOO\_SMALL](tm-debugging-json-line-errors.md#tm-error-ERROR_BOUNDING_BOX_TOO_SMALL "tm-debugging-json-line-errors.md#tm-error-ERROR_BOUNDING_BOX_TOO_SMALL") error.
 In this example, the bounding box dimensions (height and width) aren't greater than 1 x 1.
 
 ```

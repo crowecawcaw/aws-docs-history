@@ -18,10 +18,10 @@ to locate and fix JSON Line errors in the training and testing validation manife
 
 ###### To fix Amazon Rekognition Custom Labels training errors
 
-1. Download the validation results files. The file names are _training_manifest_with_validation.json_, _testing_manifest_with_validation.json_
-   and _manifest_summary.json_. For more information, see
+1. Download the validation results files. The file names are _training\_manifest\_with\_validation.json_, _testing\_manifest\_with\_validation.json_
+   and _manifest\_summary.json_. For more information, see
    [Getting the validation results](tm-debugging-getting-validation-data.md "tm-debugging-getting-validation-data.md").
-2. Open the manifest summary file (_manifest_summary.json_).
+2. Open the manifest summary file (_manifest\_summary.json_).
 3. Fix any errors in the manifest summary. For more information, see [Understanding the manifest summary](tm-debugging-summary.md "tm-debugging-summary.md").
 4. In the manifest summary, iterate through the `error_line_indices` array in `training` and fix the errors in `training_manifest_with_validation.json` at
    the corresponding JSON Line numbers. For more information, see [Understanding training and testing validation result manifests](tm-debugging-scope-json-line.md "tm-debugging-scope-json-line.md").
@@ -39,11 +39,11 @@ to locate and fix JSON Line errors in the training and testing validation manife
 The following JSON Line errors are detected first. If any of these errors occur, validation of JSON Line
 errors is stopped. You must fix these errors before you can fix any of the other JSON Line errors
 
-- MISSING_SOURCE_REF
-- ERROR_INVALID_SOURCE_REF_FORMAT
-- ERROR_NO_LABEL_ATTRIBUTES
-- ERROR_INVALID_LABEL_ATTRIBUTE_FORMAT
-- ERROR_INVALID_LABEL_ATTRIBUTE_METADATA_FORMAT
-- ERROR_MISSING_BOUNDING_BOX_CONFIDENCE
-- ERROR_MISSING_CLASS_MAP_ID
-- ERROR_INVALID_JSON_LINE
+- MISSING\_SOURCE\_REF
+- ERROR\_INVALID\_SOURCE\_REF\_FORMAT
+- ERROR\_NO\_LABEL\_ATTRIBUTES
+- ERROR\_INVALID\_LABEL\_ATTRIBUTE\_FORMAT
+- ERROR\_INVALID\_LABEL\_ATTRIBUTE\_METADATA\_FORMAT
+- ERROR\_MISSING\_BOUNDING\_BOX\_CONFIDENCE
+- ERROR\_MISSING\_CLASS\_MAP\_ID
+- ERROR\_INVALID\_JSON\_LINE

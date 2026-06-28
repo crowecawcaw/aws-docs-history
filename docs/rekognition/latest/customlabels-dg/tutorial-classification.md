@@ -74,7 +74,7 @@ For example, if you're training a model to recognize rooms in a house, you can c
 Each class maps to an image-level label. Later you assign image-level labels to the images in your training and test datasets.
 
 If you're using the images from the Rooms example project, the image-level labels are _backyard_, _bathroom_, _bedroom_, _closet_,
-_entry_way_, _floor_plan_, _front_yard_, _kitchen_, _living_space_, and _patio_.
+_entry\_way_, _floor\_plan_, _front\_yard_, _kitchen_, _living\_space_, and _patio_.
 
 ## Step 3: Create a project
 
@@ -191,14 +191,14 @@ in progress. You can check the current status by viewing the `Model
  Status` column for the model version. Training a model takes a while
 to complete.
 
-![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](images/tutorial-training-progress.jpg) 5. After training completes, choose the model name. Training is finished when the model status is **TRAINING_COMPLETED**.
+![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](images/tutorial-training-progress.jpg) 5. After training completes, choose the model name. Training is finished when the model status is **TRAINING\_COMPLETED**.
 
 ![Rooms 19 model info showing status TRAINING_COMPLETED indicating the model is ready.](images/get-started-choose-model.jpg) 6. Choose the **Evaluate** button to see the evaluation results.
 For information about evaluating a model, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md"). 7. Choose **View test results** to see the results for individual test images. For more information, see [Metrics for evaluating your model](im-metrics-use.md "im-metrics-use.md").
 
 ![Model evaluation results showing F1 score, average precision, and overall recall for 10 image labels with per label performance metrics.](images/get-started-training-results.jpg) 8. After viewing the test results, choose the model name to return to the model page.
 
-![Interface showing test results for a trained model on a dataset of backyard and front yard images, with predicted labels and confidence scores displayed.](images/get-started-image-test-results.jpg)
+![Interface showing test results for a trained model on a dataset of backyard and front yard images, with predicted labels and confidence scores displayed.](/images/rekognition/latest/customlabels-dg/images/get-started-image-test-results.jpg)
 
 ## Step 8: Start your model
 

@@ -96,7 +96,7 @@ detected in the image. There must be corresponding metadata
 identified by the field name with _-metadata_
 appended. For example, `"bounding-box-metadata"`.
 
-_image_size_
+_image\_size_
 
 (Required) A single element array containing the size
 of the image in pixels.
@@ -115,11 +115,11 @@ _annotations_
 (Required) An array of bounding box information for
 each object detected in the image.
 
-- _class_id_ –
+- _class\_id_ –
   (Required) Maps to the label in
   _class-map_. In the preceding
   example, the object with the
-  _class_id_ of `1` is
+  _class\_id_ of `1` is
   the Echo Dot in the image.
 - _top_ – (Required)
   The distance from the top of the image to the top

@@ -60,10 +60,9 @@ In the **Use your model** section do the following:
      [Starting an Amazon Rekognition Custom Labels model (SDK)](#rm-start-sdk "#rm-start-sdk").
 
 9. To go back to the project overview page, choose your project name at the
-   top of the page .
-10. In the **Model** section, check the status of the model. When the model status is
-    **RUNNING**, you can use the model to analyze
-    images. For more information, see [Analyzing an image with a trained model](detecting-custom-labels.md "detecting-custom-labels.md").
+top of the page . 10. In the **Model** section, check the status of the model. When the model status is
+**RUNNING**, you can use the model to analyze
+images. For more information, see [Analyzing an image with a trained model](detecting-custom-labels.md "detecting-custom-labels.md").
 
 ## Starting an Amazon Rekognition Custom Labels model (SDK)
 

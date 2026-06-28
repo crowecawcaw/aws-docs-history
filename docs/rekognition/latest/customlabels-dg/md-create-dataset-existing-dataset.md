@@ -44,5 +44,4 @@ Separate training and test datasets
      image sources.
     5. Choose **Create Datasets**. The datasets page for your project opens.
 
-8. If you need to add or change labels, do [Labeling images](md-labeling-images.md "md-labeling-images.md").
-9. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.
+8. If you need to add or change labels, do [Labeling images](md-labeling-images.md "md-labeling-images.md"). 9. Follow the steps in [Training a model (Console)](training-model.md#tm-console "training-model.md#tm-console") to train your model.

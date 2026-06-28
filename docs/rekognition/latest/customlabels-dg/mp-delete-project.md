@@ -38,24 +38,34 @@ dialog box is shown. 7. If the project has no associated models:
 
 8. If the project has associated models or datasets:
 
-   1. Enter **delete** to confirm that you want to delete the model(s) and datasets.
-   2. Choose either **Delete associated models** or **Delete associated datasets** or
-      **Delete associated datasets and models**, depending on whether the model has datasets, models, or both.
-      Model deletion might take a while to complete.
+    1. Enter **delete** to confirm that you want to delete the model(s) and datasets.
+    2. Choose either **Delete associated models** or **Delete associated datasets** or
+     **Delete associated datasets and models**, depending on whether the model has datasets, models, or both.
+     Model deletion might take a while to complete.
 
-   ###### Note
 
-   The console can't delete models that are in-training or running. Try again after stopping
-   any running models that are listed, and wait until models listed as training finish.
+    ###### Note
 
-   If you **Close** the dialog box during model deletion,
-   the models are still deleted. Later, you can delete the project by repeating this procedure.
+    The console can't delete models that are in-training or running. Try again after stopping
+     any running models that are listed, and wait until models listed as training finish.
 
-   The panel for deleting a model gives you explicit instructions to delete associated models.
+    If you **Close** the dialog box during model deletion,
+     the models are still deleted. Later, you can delete the project by repeating this procedure.
 
-   ![Interface for deleting a project.](images/delete-project-with-models.png) 3. Enter **delete** to confirm that you want to delete the project. 4. Choose **Delete** to delete the project.
 
-   ![Dialog box confirming deletion of "echo-devices-project" project with no models.](images/delete-project.png)
+
+     The panel for deleting a model gives you explicit instructions to delete associated models.
+
+
+
+
+    ![Interface for deleting a project.](images/delete-project-with-models.png)
+    3. Enter **delete** to confirm that you want to delete the project.
+    4. Choose **Delete** to delete the project.
+
+
+
+    ![Dialog box confirming deletion of "echo-devices-project" project with no models.](images/delete-project.png)
 
 ## Deleting an Amazon Rekognition Custom Labels project (SDK)
 

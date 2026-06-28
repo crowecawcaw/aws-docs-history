@@ -20,7 +20,7 @@ The training and test datasets both require at least two labels.
 
 The model classifies images as belonging to a set of predefined labels.
 For example, you might want a model that determines if an image contains a living space.
-The following image might have a _living_space_ image-level label.
+The following image might have a _living\_space_ image-level label.
 
 ![Cozy living room with fireplace, large windows overlooking backyard patio. Neutral tones, wooden accents.](images/living_space1.jpeg)
 
@@ -32,8 +32,8 @@ For an example project, see [Image classification](getting-started.md#gs-image-c
 The model classifies images into multiple categories, such as the type
 of
 flower and whether it has leaves, or not. For example, the following image might
-have _mediterranean_spurge_ and
-_no_leaves_ image level labels.
+have _mediterranean\_spurge_ and
+_no\_leaves_ image level labels.
 
 ![Close-up of a green viburnum flower cluster with tightly packed small florets.](images/mediterranean_spurge3.jpg)
 

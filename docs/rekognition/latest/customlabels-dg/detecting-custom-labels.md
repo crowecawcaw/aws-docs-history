@@ -69,12 +69,11 @@ When specifying a different threshold (`MinConfidence`), consider the following.
 - If you want to apply different thresholds to multiple labels,
   do the following:
 
-      1. Use a value of 0 for `MinConfidence`. A value 0
-       ensures that all labels are returned, regardless of the detection confidence.
-      2. For each label returned, apply the desired threshold by checking that
-       the label confidence is greater than the threshold that you want for the label.
-
-  For more information, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md").
+  1.  Use a value of 0 for `MinConfidence`. A value 0
+      ensures that all labels are returned, regardless of the detection confidence.
+  2.  For each label returned, apply the desired threshold by checking that
+      the label confidence is greater than the threshold that you want for the label.
+      For more information, see [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md").
 
 If you're finding the confidence values returned by `DetectCustomLabels` are too low,
 consider retraining the model. For more information, see [Training an Amazon Rekognition Custom Labels model](training-model.md "training-model.md").

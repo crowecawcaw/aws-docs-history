@@ -11,7 +11,7 @@ see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-fi
 validation errors, see [Fixing training errors](tm-debugging-fixing-validation-errors.md "tm-debugging-fixing-validation-errors.md").
 Some errors can be fixed by using the Amazon Rekognition Custom Labels console.
 
-## ERROR_MISSING_SOURCE_REF
+## ERROR\_MISSING\_SOURCE\_REF
 
 ### Error message
 
@@ -34,7 +34,7 @@ typically occurs in manually created manifest files. For more information, see [
 You can't use the Amazon Rekognition Custom Labels console to
 fix this error.
 
-## ERROR_INVALID_SOURCE_REF_FORMAT
+## ERROR\_INVALID\_SOURCE\_REF\_FORMAT
 
 ### Error message
 
@@ -44,7 +44,7 @@ The format of the source-ref value is invalid.
 
 The `source-ref` key is present in the JSON Line, but the schema of the Amazon S3 path
 is incorrect. For example, the path is `https://....` instead of `S3://....`.
-An ERROR_INVALID_SOURCE_REF_FORMAT error typically occurs in manually created manifest files.
+An ERROR\_INVALID\_SOURCE\_REF\_FORMAT error typically occurs in manually created manifest files.
 For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
 ###### To fix `ERROR_INVALID_SOURCE_REF_FORMAT`
@@ -56,7 +56,7 @@ For more information, see [Creating a manifest file](md-create-manifest-file.md 
 
 You can't use the Amazon Rekognition Custom Labels console to fix this `ERROR_INVALID_SOURCE_REF_FORMAT`.
 
-## ERROR_NO_LABEL_ATTRIBUTES
+## ERROR\_NO\_LABEL\_ATTRIBUTES
 
 ### Error message
 
@@ -121,7 +121,7 @@ For more information, see [Creating a manifest file](md-create-manifest-file.md 
 
 You can't use the Amazon Rekognition Custom Labels console to fix `ERROR_NO_LABEL_ATTRIBUTES` .
 
-## ERROR_INVALID_LABEL_ATTRIBUTE_FORMAT
+## ERROR\_INVALID\_LABEL\_ATTRIBUTE\_FORMAT
 
 ### Error message
 
@@ -130,7 +130,7 @@ The format of the label attribute {} is invalid.
 ### More information
 
 The schema for the label attribute key is missing or invalid.
-An ERROR_INVALID_LABEL_ATTRIBUTE_FORMAT error
+An ERROR\_INVALID\_LABEL\_ATTRIBUTE\_FORMAT error
 typically occurs in manually created manifest files. for more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
 ###### To fix `ERROR_INVALID_LABEL_ATTRIBUTE_FORMAT`
@@ -167,7 +167,7 @@ typically occurs in manually created manifest files. for more information, see [
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_INVALID_LABEL_ATTRIBUTE_METADATA_FORMAT
+## ERROR\_INVALID\_LABEL\_ATTRIBUTE\_METADATA\_FORMAT
 
 ### Error message
 
@@ -176,7 +176,7 @@ The format of the label attribute metadata is invalid.
 ### More information
 
 The schema for the label attribute metadata key is missing or invalid.
-An ERROR_INVALID_LABEL_ATTRIBUTE_METADATA_FORMAT error typically occurs in manually created manifest files.
+An ERROR\_INVALID\_LABEL\_ATTRIBUTE\_METADATA\_FORMAT error typically occurs in manually created manifest files.
 For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
 ###### To fix `ERROR_INVALID_LABEL_ATTRIBUTE_FORMAT`
@@ -207,7 +207,7 @@ For more information, see [Creating a manifest file](md-create-manifest-file.md 
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_NO_VALID_LABEL_ATTRIBUTES
+## ERROR\_NO\_VALID\_LABEL\_ATTRIBUTES
 
 ### Error message
 
@@ -217,7 +217,7 @@ No valid label attributes found.
 
 No valid label attributes were found in the JSON Line. Amazon Rekognition Custom Labels checks both the label attribute and the
 label attribute identifier.
-An ERROR_INVALID_LABEL_ATTRIBUTE_FORMAT error
+An ERROR\_INVALID\_LABEL\_ATTRIBUTE\_FORMAT error
 typically occurs in manually created manifest files. for more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
 If a JSON Line isn't in a supported SageMaker AI manifest format, Amazon Rekognition Custom Labels marks the JSON Line as invalid and an `ERROR_NO_VALID_LABEL_ATTRIBUTES` error is
@@ -232,7 +232,7 @@ For more information, see [Creating a manifest file](md-create-manifest-file.md 
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_MISSING_BOUNDING_BOX_CONFIDENCE
+## ERROR\_MISSING\_BOUNDING\_BOX\_CONFIDENCE
 
 ### Error message
 
@@ -242,7 +242,7 @@ One or more bounding boxes has a missing confidence value.
 
 The confidence key is missing for one or more object location bounding boxes. The confidence key for a
 bounding box is in the label attribute metadata, as shown in the following example.
-A ERROR_MISSING_BOUNDING_BOX_CONFIDENCE error typically occurs in manually created manifest files.
+A ERROR\_MISSING\_BOUNDING\_BOX\_CONFIDENCE error typically occurs in manually created manifest files.
 For more information,
 see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
@@ -264,7 +264,7 @@ see [Object localization in manifest files](md-create-manifest-file-object-detec
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_MISSING_CLASS_MAP_ID
+## ERROR\_MISSING\_CLASS\_MAP\_ID
 
 ### Error message
 
@@ -275,9 +275,9 @@ One of more class ids is missing from the class map.
 The `class_id` in an annotation (bounding box) object doesn't have a matching entry in the label attribute metadata
 class map (`class-map`).
 For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
-A ERROR_MISSING_CLASS_MAP_ID error typically occurs in manually created manifest files.
+A ERROR\_MISSING\_CLASS\_MAP\_ID error typically occurs in manually created manifest files.
 
-###### To fix ERROR_MISSING_CLASS_MAP_ID
+###### To fix ERROR\_MISSING\_CLASS\_MAP\_ID
 
 1. Check that the `class_id` value in each annotation (bounding box) object has a corresponding
    value in the `class-map` array,
@@ -329,7 +329,7 @@ A ERROR_MISSING_CLASS_MAP_ID error typically occurs in manually created manifest
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_INVALID_JSON_LINE
+## ERROR\_INVALID\_JSON\_LINE
 
 ### Error message
 
@@ -338,7 +338,7 @@ The JSON Line has an invalid format.
 ### More information
 
 An unexpected character was found in the JSON Line. The JSON Line is replaced with a new
-JSON Line that contains only the error information. An ERROR_INVALID_JSON_LINE
+JSON Line that contains only the error information. An ERROR\_INVALID\_JSON\_LINE
 error typically occurs in manually created manifest files. For more information,
 see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
@@ -346,12 +346,12 @@ You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
 ###### To fix `ERROR_INVALID_JSON_LINE`
 
-1. Open the manifest file and navigate to the JSON Line where the ERROR_INVALID_JSON_LINE error occurs.
+1. Open the manifest file and navigate to the JSON Line where the ERROR\_INVALID\_JSON\_LINE error occurs.
 2. Check that the JSON Line doesn't contain invalid characters and that required `;` or `,`
    characters are not missing.
 3. Update, or remove, the JSON Line in the manifest file.
 
-## ERROR_INVALID_IMAGE
+## ERROR\_INVALID\_IMAGE
 
 ### Error message
 
@@ -379,7 +379,7 @@ For more information, see [Guidelines and quotas in Amazon Rekognition Custom La
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_INVALID_IMAGE_DIMENSION
+## ERROR\_INVALID\_IMAGE\_DIMENSION
 
 ### Error message
 
@@ -452,7 +452,7 @@ For more information, see [Guidelines and quotas in Amazon Rekognition Custom La
 }
 ```
 
-## ERROR_INVALID_BOUNDING_BOX
+## ERROR\_INVALID\_BOUNDING\_BOX
 
 ### Error message
 
@@ -489,7 +489,7 @@ For more information, see [Guidelines and quotas in Amazon Rekognition Custom La
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_NO_VALID_ANNOTATIONS
+## ERROR\_NO\_VALID\_ANNOTATIONS
 
 ### Error message
 
@@ -554,7 +554,7 @@ None of the annotation objects in the JSON Line contain valid bounding box infor
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_BOUNDING_BOX_TOO_SMALL
+## ERROR\_BOUNDING\_BOX\_TOO\_SMALL
 
 ### Error message
 
@@ -590,16 +590,16 @@ is stored in the `annotations` array of an object location JSON Line. For more i
 
 The error information is added to the annotation object.
 
-###### To fix ERROR_BOUNDING_BOX_TOO_SMALL
+###### To fix ERROR\_BOUNDING\_BOX\_TOO\_SMALL
 
 - Choose one of the following options.
 
   - Increase the size of bounding boxes that are too small.
   - Remove bounding boxes that are too small. For information about removing a bounding
-    box, see [ERROR_TOO_MANY_BOUNDING_BOXES](#tm-error-ERROR_TOO_MANY_BOUNDING_BOXES "#tm-error-ERROR_TOO_MANY_BOUNDING_BOXES").
+    box, see [ERROR\_TOO\_MANY\_BOUNDING\_BOXES](#tm-error-ERROR_TOO_MANY_BOUNDING_BOXES "#tm-error-ERROR_TOO_MANY_BOUNDING_BOXES").
   - Remove the image (JSON Line) from the manifest.
 
-## ERROR_TOO_MANY_BOUNDING_BOXES
+## ERROR\_TOO\_MANY\_BOUNDING\_BOXES
 
 ### Error message
 
@@ -629,16 +629,15 @@ in the Amazon Rekognition Custom Labels console, or you can remove them from the
 14. Choose **Save changes** to save your changes.
 15. Choose **Exit** to exit labeling mode.
 
-###### To fix ERROR_TOO_MANY_BOUNDING_BOXES (JSON Line).
+###### To fix ERROR\_TOO\_MANY\_BOUNDING\_BOXES (JSON Line).
 
-1.  Open the manifest file and navigate to the JSON Line where the ERROR_TOO_MANY_BOUNDING_BOXES error occurs.
-2.  Remove the following for each bounding box that you want to remove.
+1. Open the manifest file and navigate to the JSON Line where the ERROR\_TOO\_MANY\_BOUNDING\_BOXES error occurs.
+2. Remove the following for each bounding box that you want to remove.
 
-        * Remove the required `annotation` object from `annotations` array.
-        * Remove the corresponding `confidence` object from the `objects` array in the label attribute metadata.
-        * If no longer used by other bounding boxes, remove the label from the `class-map`.
-
-    Use the following example to identify which items to remove.
+   - Remove the required `annotation` object from `annotations` array.
+   - Remove the corresponding `confidence` object from the `objects` array in the label attribute metadata.
+   - If no longer used by other bounding boxes, remove the label from the `class-map`.
+     Use the following example to identify which items to remove.
 
 ```
 {
@@ -684,7 +683,7 @@ in the Amazon Rekognition Custom Labels console, or you can remove them from the
 }
 ```
 
-## WARNING_UNANNOTATED_RECORD
+## WARNING\_UNANNOTATED\_RECORD
 
 ### Warning Message
 
@@ -708,12 +707,12 @@ The JSON line for the image isn't used for training.
 
 ```
 
-###### To fix WARNING_UNANNOTATED_RECORD
+###### To fix WARNING\_UNANNOTATED\_RECORD
 
 - Label the image by using the Amazon Rekognition Custom Labels console. For instructions,
   see [Assigning image-level labels to an image](md-assign-image-level-labels.md "md-assign-image-level-labels.md").
 
-## WARNING_NO_ANNOTATIONS
+## WARNING\_NO\_ANNOTATIONS
 
 ### Warning Message
 
@@ -769,7 +768,7 @@ For more information, see [Understanding training and testing validation result 
 
 ```
 
-###### To fix WARNING_NO_ANNOTATIONS
+###### To fix WARNING\_NO\_ANNOTATIONS
 
 - Choose one of the following options.
 
@@ -778,7 +777,7 @@ For more information, see [Understanding training and testing validation result 
     [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
   - Remove the image (JSON Line) from the manifest.
 
-## WARNING_NO_ATTRIBUTE_ANNOTATIONS
+## WARNING\_NO\_ATTRIBUTE\_ANNOTATIONS
 
 ### Warning Message
 
@@ -833,7 +832,7 @@ For more information, see [Understanding training and testing validation result 
 }
 ```
 
-###### To fix WARNING_NO_ATTRIBUTE_ANNOTATIONS
+###### To fix WARNING\_NO\_ATTRIBUTE\_ANNOTATIONS
 
 - Choose one of the following options.
 
@@ -844,7 +843,7 @@ For more information, see [Understanding training and testing validation result 
   - Remove the image (JSON Line) from the manifest. If other valid bounding box attributes
     exist in the JSON Line, you can instead remove just the invalid bounding box attribute from the JSON Line.
 
-## ERROR_UNSUPPORTED_USE_CASE_TYPE
+## ERROR\_UNSUPPORTED\_USE\_CASE\_TYPE
 
 ### Warning Message
 
@@ -938,7 +937,7 @@ For more information, see [Creating a manifest file](md-create-manifest-file.md 
 }
 ```
 
-###### To fix ERROR_UNSUPPORTED_USE_CASE_TYPE
+###### To fix ERROR\_UNSUPPORTED\_USE\_CASE\_TYPE
 
 - Choose one of the following options:
 
@@ -947,13 +946,13 @@ For more information, see [Creating a manifest file](md-create-manifest-file.md 
     For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
   - Remove the image (JSON Line) from the manifest.
 
-## ERROR_INVALID_LABEL_NAME_LENGTH
+## ERROR\_INVALID\_LABEL\_NAME\_LENGTH
 
 ### More information
 
 The length of a label name is too long. The maximum length is 256 characters.
 
-###### To fix ERROR_INVALID_LABEL_NAME_LENGTH
+###### To fix ERROR\_INVALID\_LABEL\_NAME\_LENGTH
 
 - Choose one of the following options:
 

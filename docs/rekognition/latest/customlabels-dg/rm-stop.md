@@ -42,9 +42,8 @@ In the **Use your model** section do the following:
     4. Use the example code to stop your model. For more information, see
      [Stopping an Amazon Rekognition Custom Labels model (SDK)](#rm-stop-sdk "#rm-stop-sdk").
 
-9. Choose your project name at the top of the page to go back to the project overview page.
-10. In the **Model** section, check the status of the model. The model has stopped
-    when the model status is **STOPPED**.
+9. Choose your project name at the top of the page to go back to the project overview page. 10. In the **Model** section, check the status of the model. The model has stopped
+when the model status is **STOPPED**.
 
 ## Stopping an Amazon Rekognition Custom Labels model (SDK)
 

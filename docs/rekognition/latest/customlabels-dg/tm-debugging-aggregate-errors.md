@@ -5,7 +5,7 @@ reported in the manifest summary. The manifest summary includes an error code an
 For more information, see [Understanding the manifest summary](tm-debugging-summary.md "tm-debugging-summary.md"). Terminal manifest content errors
 don't stop the reporting of [List of non-terminal JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors").
 
-## ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST
+## ERROR\_TOO\_MANY\_INVALID\_ROWS\_IN\_MANIFEST
 
 ### Error message
 
@@ -18,14 +18,14 @@ invalid content.
 
 You can't use the Amazon Rekognition Custom Labels console to fix an `ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST` error.
 
-###### To fix ERROR_TOO_MANY_INVALID_ROWS_IN_MANIFEST
+###### To fix ERROR\_TOO\_MANY\_INVALID\_ROWS\_IN\_MANIFEST
 
 1. Check the manifest for JSON Line errors. For more information, see
    [Understanding training and testing validation result manifests](tm-debugging-scope-json-line.md "tm-debugging-scope-json-line.md").
 2. Fix JSON Lines that have errors For more information, see
    [Non-Terminal JSON Line Validation Errors](tm-debugging-json-line-errors.md "tm-debugging-json-line-errors.md").
 
-## ERROR_IMAGES_IN_MULTIPLE_S3_BUCKETS
+## ERROR\_IMAGES\_IN\_MULTIPLE\_S3\_BUCKETS
 
 ### Error message
 
@@ -51,7 +51,7 @@ You can't use the Amazon Rekognition Custom Labels console to fix this error.
   Alternatively, choose a preferred Amazon S3 bucket and remove the JSON Lines where `source-ref` doesn't
   reference your preferred bucket.
 
-## ERROR_INVALID_PERMISSIONS_IMAGES_S3_BUCKET
+## ERROR\_INVALID\_PERMISSIONS\_IMAGES\_S3\_BUCKET
 
 ### Error message
 
@@ -68,7 +68,7 @@ You can't use the Amazon Rekognition Custom Labels console to fix this error.
 - Check the permissions of the bucket containing the images. The value of the `source-ref` for an
   image contains the bucket location.
 
-## ERROR_INVALID_IMAGES_S3_BUCKET_OWNER
+## ERROR\_INVALID\_IMAGES\_S3\_BUCKET\_OWNER
 
 ### Error message
 
@@ -86,7 +86,7 @@ aws s3api get-bucket-acl --bucket `amzn-s3-demo-bucket`
 
 The `OWNER` `ID` must match for the buckets that store the images and manifest files.
 
-###### To fix ERROR_INVALID_IMAGES_S3_BUCKET_OWNER
+###### To fix ERROR\_INVALID\_IMAGES\_S3\_BUCKET\_OWNER
 
 1. Choose the desired owner of the training, testing, output, and image buckets. The owner must have permissions to use
    Amazon Rekognition Custom Labels.
@@ -96,7 +96,7 @@ The `OWNER` `ID` must match for the buckets that store the images and manifest f
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-## ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_AUTOSPLIT
+## ERROR\_INSUFFICIENT\_IMAGES\_PER\_LABEL\_FOR\_AUTOSPLIT
 
 ### Error message
 
@@ -105,17 +105,17 @@ The manifest file contains insufficient labeled images per label to perform auto
 ### More information
 
 During model training, you can create a testing dataset by using 20% of the images from the training dataset.
-ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_AUTOSPLIT occurs when there aren't enough images to create an acceptable testing dataset.
+ERROR\_INSUFFICIENT\_IMAGES\_PER\_LABEL\_FOR\_AUTOSPLIT occurs when there aren't enough images to create an acceptable testing dataset.
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-###### To fix ERROR_INSUFFICIENT_IMAGES_PER_LABEL_FOR_AUTOSPLIT
+###### To fix ERROR\_INSUFFICIENT\_IMAGES\_PER\_LABEL\_FOR\_AUTOSPLIT
 
 - Add more labeled image to your training dataset. You can add images in the Amazon Rekognition Custom Labels console by adding images
   to the training dataset, or by adding JSON Lines to your training manifest. For more information, see
   [Managing datasets](managing-dataset.md "managing-dataset.md").
 
-## ERROR_MANIFEST_TOO_FEW_LABELS
+## ERROR\_MANIFEST\_TOO\_FEW\_LABELS
 
 ### Error message
 
@@ -128,7 +128,7 @@ to detect image-level labels (classification) or if the model detects object loc
 split to create a testing dataset, the number of labels in the dataset is determined after the training dataset is split.
 For more information, see [Guidelines and quotas in Amazon Rekognition Custom Labels](limits.md "limits.md").
 
-###### To fix ERROR_MANIFEST_TOO_FEW_LABELS (console)
+###### To fix ERROR\_MANIFEST\_TOO\_FEW\_LABELS (console)
 
 1. Add more new labels to the dataset. For more information, see
    [Managing labels](md-labels.md "md-labels.md").
@@ -136,7 +136,7 @@ For more information, see [Guidelines and quotas in Amazon Rekognition Custom La
    [Assigning image-level labels to an image](md-assign-image-level-labels.md "md-assign-image-level-labels.md"). If your model detects object locations,
    see [Labeling objects with bounding boxes](md-localize-objects.md "md-localize-objects.md").
 
-###### To fix ERROR_MANIFEST_TOO_FEW_LABELS (JSON Line)
+###### To fix ERROR\_MANIFEST\_TOO\_FEW\_LABELS (JSON Line)
 
 - Add JSON Lines for new images that have new labels. For more information, see
   [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
@@ -205,7 +205,7 @@ following example.
 You need to map the class map table to the bounding box annotations. For more information,
 see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
-## ERROR_MANIFEST_TOO_MANY_LABELS
+## ERROR\_MANIFEST\_TOO\_MANY\_LABELS
 
 ### Error message
 
@@ -216,13 +216,13 @@ The manifest file has too many labels.
 The number of unique labels in the manifest (dataset) is more than the allowed limit. If the training
 dataset is split to create a testing dataset, the mumber of labels is determined after the split.
 
-###### To fix ERROR_MANIFEST_TOO_MANY_LABELS (Console)
+###### To fix ERROR\_MANIFEST\_TOO\_MANY\_LABELS (Console)
 
 - Remove labels from the dataset. For more information, see
   [Managing labels](md-labels.md "md-labels.md"). The labels
   are automatically removed from the images and bounding boxes in your dataset.
 
-###### To fix ERROR_MANIFEST_TOO_MANY_LABELS (JSON Line)
+###### To fix ERROR\_MANIFEST\_TOO\_MANY\_LABELS (JSON Line)
 
 - Manifests with image level JSON Lines – If the image has a single label, remove the JSON Lines for images
   that use the desired label. If the JSON Line contains multiple labels, remove only the JSON object for the desired label. For
@@ -234,7 +234,7 @@ You need to remove the label from the `class-map` array and corresponding object
 `objects` and `annotations` array.
 For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
-## ERROR_INSUFFICIENT_LABEL_OVERLAP
+## ERROR\_INSUFFICIENT\_LABEL\_OVERLAP
 
 ### Error message
 
@@ -244,13 +244,13 @@ Less than {}% label overlap between the training and testing manifest files.
 
 There is less than 50% overlap between the testing dataset label names and the training dataset label names.
 
-###### To fix ERROR_INSUFFICIENT_LABEL_OVERLAP (Console)
+###### To fix ERROR\_INSUFFICIENT\_LABEL\_OVERLAP (Console)
 
 - Remove labels from the training dataset. Alternatively, add more common labels to your testing dataset. For more information, see
   [Managing labels](md-labels.md "md-labels.md"). The labels
   are automatically removed from the images and bounding boxes in your dataset.
 
-###### To fix ERROR_INSUFFICIENT_LABEL_OVERLAP by removing labels from the training dataset (JSON Line)
+###### To fix ERROR\_INSUFFICIENT\_LABEL\_OVERLAP by removing labels from the training dataset (JSON Line)
 
 - Manifests with image level JSON Lines – If the image has a single label, remove the JSON Line for the image
   that use the desired label. If
@@ -264,12 +264,12 @@ You need to remove the label from the `class-map` array and corresponding object
 `objects` and `annotations` array.
 For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
-###### To fix ERROR_INSUFFICIENT_LABEL_OVERLAP by adding common labels to the testing dataset (JSON Line)
+###### To fix ERROR\_INSUFFICIENT\_LABEL\_OVERLAP by adding common labels to the testing dataset (JSON Line)
 
 - Add JSON Lines to the testing dataset that include images labeled with labels already in the training dataset.
   For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
-## ERROR_MANIFEST_TOO_FEW_USABLE_LABELS
+## ERROR\_MANIFEST\_TOO\_FEW\_USABLE\_LABELS
 
 ### Error message
 
@@ -280,13 +280,13 @@ The manifest file has too few usable labels.
 A training manifest can contain JSON Lines in image-level label format and in object location format.
 Depending on type of JSON Lines found in the training manifest, Amazon Rekognition Custom Labels chooses to create
 a model that detects image-level labels, or a model that detects object locations. Amazon Rekognition Custom Labels filters out valid JSON records
-for JSON Lines that are not in the chosen format. ERROR_MANIFEST_TOO_FEW_USABLE_LABELS occurs when the number of labels
+for JSON Lines that are not in the chosen format. ERROR\_MANIFEST\_TOO\_FEW\_USABLE\_LABELS occurs when the number of labels
 in the chosen model type manifest is insufficient to train the model.
 
 A minimum of 1 label is required to train a model that detects image-level labels.
 A minimum of 2 labels is required to train a model that object locations.
 
-###### To fix ERROR_MANIFEST_TOO_FEW_USABLE_LABELS (Console)
+###### To fix ERROR\_MANIFEST\_TOO\_FEW\_USABLE\_LABELS (Console)
 
 1. Check the `use_case` field in the manifest summary.
 2. Add more labels to the training dataset for the use case (image level or object localization) that matches
@@ -294,14 +294,14 @@ A minimum of 2 labels is required to train a model that object locations.
    [Managing labels](md-labels.md "md-labels.md"). The labels
    are automatically removed from the images and bounding boxes in your dataset.
 
-###### To fix ERROR_MANIFEST_TOO_FEW_USABLE_LABELS (JSON Line)
+###### To fix ERROR\_MANIFEST\_TOO\_FEW\_USABLE\_LABELS (JSON Line)
 
 1. Check the `use_case` field in the manifest summary.
 2. Add more labels to the training dataset for the use case (image level or object localization) that matches
    the value of `use_case`.
    For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
-## ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP
+## ERROR\_INSUFFICIENT\_USABLE\_LABEL\_OVERLAP
 
 ### Error message
 
@@ -312,16 +312,16 @@ Less than {}% usable label overlap between the training and testing manifest fil
 A training manifest can contain JSON Lines in image-level label format and in object location format.
 Depending on the formats found in the training manifest, Amazon Rekognition Custom Labels chooses to create
 a model that detects image-level labels, or a model that detects object locations. Amazon Rekognition Custom Labels doesn't use valid JSON records
-for JSON Lines that are not in the chosen model format. ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP occurs when there is less than
+for JSON Lines that are not in the chosen model format. ERROR\_INSUFFICIENT\_USABLE\_LABEL\_OVERLAP occurs when there is less than
 50% overlap between the testing and training labels that are used.
 
-###### To fix ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP (Console)
+###### To fix ERROR\_INSUFFICIENT\_USABLE\_LABEL\_OVERLAP (Console)
 
 - Remove labels from the training dataset. Alternatively, add more common labels to your testing dataset. For more information, see
   [Managing labels](md-labels.md "md-labels.md"). The labels
   are automatically removed from the images and bounding boxes in your dataset.
 
-###### To fix ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP by removing labels from the training dataset (JSON Line)
+###### To fix ERROR\_INSUFFICIENT\_USABLE\_LABEL\_OVERLAP by removing labels from the training dataset (JSON Line)
 
 - Datasets used to detect image-level labels – If the image has a single label, remove the JSON Line for the image
   that use the desired label. If
@@ -335,12 +335,12 @@ You need to remove the label from the `class-map` array and corresponding object
 `objects` and `annotations` array.
 For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
 
-###### To fix ERROR_INSUFFICIENT_USABLE_LABEL_OVERLAP by adding common labels to the testing dataset (JSON Line)
+###### To fix ERROR\_INSUFFICIENT\_USABLE\_LABEL\_OVERLAP by adding common labels to the testing dataset (JSON Line)
 
 - Add JSON Lines to the testing dataset that include images labeled with labels already in the training dataset.
   For more information, see [Creating a manifest file](md-create-manifest-file.md "md-create-manifest-file.md").
 
-## ERROR_FAILED_IMAGES_S3_COPY
+## ERROR\_FAILED\_IMAGES\_S3\_COPY
 
 ### Error message
 
@@ -352,7 +352,7 @@ The service wasn't able to copy any of the images in your your dataset.
 
 You can't use the Amazon Rekognition Custom Labels console to fix this error.
 
-###### To fix ERROR_FAILED_IMAGES_S3_COPY
+###### To fix ERROR\_FAILED\_IMAGES\_S3\_COPY
 
 1. Check the permissions of your images.
 2. If you are using AWS KMS, check the bucket policy. For more information, see

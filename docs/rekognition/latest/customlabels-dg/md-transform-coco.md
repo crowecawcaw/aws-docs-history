@@ -178,7 +178,7 @@ the image is stored.
 A label attribute name of your choosing. For more information, see
 [bounding-box](md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box "md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box").
 
-#### image_size
+#### image\_size
 
 The size of the image in pixels. Maps to an `image`
 object in the [images](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images")
@@ -239,9 +239,9 @@ Must be `groundtruth/object-detection`
 Specify `yes` or `no`. For more
 information, see [bounding-box-metadata](md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box-metadata "md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box-metadata").
 
-#### creation-date -> [image](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images").date_captured
+#### creation-date -> [image](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images").date\_captured
 
-The creation date and time of the image. Maps to the [image](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images").date_captured field of
+The creation date and time of the image. Maps to the [image](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images").date\_captured field of
 an image in the COCO images list. Amazon Rekognition Custom Labels expects the format
 of `creation-date` to be
 _Y-M-DTH:M:S_.

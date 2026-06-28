@@ -4,9 +4,9 @@ The validation results contain error information for [List of terminal manifest 
 [List of non-terminal JSON line validation errors](tm-debugging.md#tm-error-category-non-terminal-errors "tm-debugging.md#tm-error-category-non-terminal-errors").
 There are three validation results files.
 
-- _training_manifest_with_validation.json_ – A copy of the training dataset manifest file with JSON Line error information added.
-- _testing_manifest_with_validation.json_ – A copy of the testing dataset manifest file with JSON Line error error information added.
-- _manifest_summary.json_ – A summary of manifest content errors and JSON Line errors found in the
+- _training\_manifest\_with\_validation.json_ – A copy of the training dataset manifest file with JSON Line error information added.
+- _testing\_manifest\_with\_validation.json_ – A copy of the testing dataset manifest file with JSON Line error error information added.
+- _manifest\_summary.json_ – A summary of manifest content errors and JSON Line errors found in the
   training and testing datasets. For more information, see [Understanding the manifest summary](tm-debugging-summary.md "tm-debugging-summary.md").
   For information about the contents of the training and testing validation manifests, see [Debugging a failed model training](tm-debugging.md "tm-debugging.md").
 

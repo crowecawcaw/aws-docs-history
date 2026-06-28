@@ -79,19 +79,19 @@ For more information, see
 
 7. (Optional) if you want to add tags to your model do the following:
 
-   1. In the **Tags** section, choose **Add new tag**.
-   2. Enter the following:
+    1. In the **Tags** section, choose **Add new tag**.
+    2. Enter the following:
 
-      1. The name of the key in **Key**.
-      2. The value of the key in **Value**.
 
-   3. To add more tags, repeat steps 6a and 6b.
-   4. (Optional) If you want to remove a tag, choose **Remove** next to the
-      tag that you want to remove. If you are removing a previously saved tag, it
-      is removed when you save your changes.
+    	1. The name of the key in **Key**.
+    	2. The value of the key in **Value**.
+    3. To add more tags, repeat steps 6a and 6b.
+    4. (Optional) If you want to remove a tag, choose **Remove** next to the
+     tag that you want to remove. If you are removing a previously saved tag, it
+     is removed when you save your changes.
 
 8. On the **Train model** page, Choose **Train model**. The Amazon Resource Name (ARN) for your project should
-   be in the **Choose project** edit box. If not, enter the ARN for your project.
+be in the **Choose project** edit box. If not, enter the ARN for your project.
 
 ![Train model button to start training an AI model on the Amazon Rekognition Custom Labels service.](images/tutorial-train-model-page-train-model.jpg) 9. In the **Do you want to train your model?** dialog box, choose
 **Train model**.
@@ -100,7 +100,7 @@ For more information, see
 status in the `Model Status` column, where the training's in
 progress. Training a model takes a while to complete.
 
-![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](images/tutorial-training-progress.jpg) 11. After training completes, choose the model name. Training is finished when the model status is **TRAINING_COMPLETED**.
+![Model status showing 'TRAINING_IN_PROGRESS' indicating the model is currently being trained.](images/tutorial-training-progress.jpg) 11. After training completes, choose the model name. Training is finished when the model status is **TRAINING\_COMPLETED**.
 If training fails, read [Debugging a failed model training](tm-debugging.md "tm-debugging.md").
 
 ![Interface showing a trained model and status TRAINING_COMPLETED, indicating the model is ready to run.](images/get-started-choose-model.jpg) 12. Next step: Evaluate your model. For more information, [Improving a trained Amazon Rekognition Custom Labels model](improving-model.md "improving-model.md").
