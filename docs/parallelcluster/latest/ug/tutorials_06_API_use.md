@@ -78,9 +78,11 @@ Clone the AWS ParallelCluster source code, `cd` to the `api` directory, and
 install the Python client libraries.
 
 1. ```
-   ``$` git clone -b v${PCLUSTER_VERSION} https://github.com/aws/aws-parallelcluster aws-parallelcluster-v${PCLUSTER_VERSION}
-    cd aws-parallelcluster-v${PCLUSTER_VERSION}/api`
+
    ```
+
+``$` git clone -b v${PCLUSTER_VERSION} https://github.com/aws/aws-parallelcluster aws-parallelcluster-v${PCLUSTER_VERSION}
+ cd aws-parallelcluster-v${PCLUSTER_VERSION}/api`
 
 ```
 
@@ -108,7 +110,7 @@ install the Python client libraries.
 ```
 
 ``$` export CLUSTER_NAME="test-api-cluster"
-echo "export CLUSTER_NAME=${CLUSTER_NAME}" |tee -a ~/.bashrc`
+ echo "export CLUSTER_NAME=${CLUSTER_NAME}" |tee -a ~/.bashrc`
 
 ```
 5. Run the following commands to store the credentials that the example client uses to access the API.
@@ -265,7 +267,7 @@ instance_ops = cluster_instances_api.ClusterInstancesApi(api_client)
 
 ```
 
-``$` eval $(aws sts assume-role --role-arn ${PCLUSTER_API_USER_ROLE} --role-session-name ApiTestSession | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')`
+``$`  eval $(aws sts assume-role --role-arn ${PCLUSTER_API_USER_ROLE} --role-session-name ApiTestSession | jq -r '.Credentials | "export AWS_ACCESS_KEY_ID=\(.AccessKeyId)\nexport AWS_SECRET_ACCESS_KEY=\(.SecretAccessKey)\nexport AWS_SESSION_TOKEN=\(.SessionToken)\n"')`
 
 ```
 

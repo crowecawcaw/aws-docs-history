@@ -5,7 +5,7 @@ that indentation is correct to reduce configuration errors. For more information
 
 These configuration files are used to define how your custom AWS ParallelCluster AMIs are
 built using EC2 Image Builder. Custom AMI building processes are triggered using the [pcluster build-image](pcluster.build-image-v3.md "pcluster.build-image-v3.md") command. For some
-example configuration files, see [https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/schemas/test_imagebuilder_schema/test_imagebuilder_schema](https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/schemas/test_imagebuilder_schema/test_imagebuilder_schema "https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/schemas/test_imagebuilder_schema/test_imagebuilder_schema").
+example configuration files, see [https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/schemas/test\_imagebuilder\_schema/test\_imagebuilder\_schema](https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/schemas/test_imagebuilder_schema/test_imagebuilder_schema "https://github.com/aws/aws-parallelcluster/tree/release-3.0/cli/tests/pcluster/schemas/test_imagebuilder_schema/test_imagebuilder_schema").
 
 ###### Topics
 

@@ -38,9 +38,7 @@ Create a cluster with AWS CloudFormation
     1. For **KeyName**, enter the name of your Amazon EC2 key pair.
     2. For **AvailabilityZone**, choose an AZ for your cluster nodes, for example, `us-east-1a`.
 
-4. Check the boxes to acknowledge each of the access capabilities at the bottom of the page.
-5. Choose **Create stack**.
-6. Wait for the CloudFormation stack to reach the `CREATE_COMPLETE` state.
+4. Check the boxes to acknowledge each of the access capabilities at the bottom of the page. 5. Choose **Create stack**. 6. Wait for the CloudFormation stack to reach the `CREATE_COMPLETE` state.
 
 ## Cluster creation with the CloudFormation Command Line Interface (CLI)
 

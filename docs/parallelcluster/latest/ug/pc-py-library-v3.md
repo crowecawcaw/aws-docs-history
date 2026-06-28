@@ -55,7 +55,7 @@ the following step.)
 2. In the navigation pane, select **Layers**, then **Create layer**.
 3. Enter a name for your layer and select **Upload a file from Amazon S3**.
 4. Enter the URL to the zip file: s3://`aws-region-id`-aws-parallelcluster/parallelcluster/`3.15.1`/layers/aws-parallelcluster/lambda-layer.zip.
-5. For **Compatible architectures**, choose the **x86_64** architecture.
+5. For **Compatible architectures**, choose the **x86\_64** architecture.
 6. For **Compatible runtimes**, choose the **Python 3.12** runtime.
 7. Choose **Create**.
 
@@ -64,7 +64,7 @@ the following step.)
 1. In the Lambda console navigation pane, select **Functions**, then **Create function**.
 2. Enter a name for your function.
 3. For **Runtime**, choose the **Python 3.12** runtime.
-4. For **Architecture**, choose the **x86_64** architecture.
+4. For **Architecture**, choose the **x86\_64** architecture.
 5. Choose **Create function**.
 6. After the function is created, choose **Layers** and select **Add a layer**.
 7. Select **Custom layers** and choose the layer you created in previous steps.

@@ -40,7 +40,7 @@ HeadNode:
 ...
 ```
 
-The final example configures read_only access to all buckets and objects in the account.
+The final example configures read\_only access to all buckets and objects in the account.
 
 ```
 ...

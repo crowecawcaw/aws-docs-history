@@ -76,7 +76,8 @@ Specifies the base image. The parent image can be either a non AWS ParallelClust
 AMI or an official AWS ParallelCluster AMI for the same version. You can't use a
 AWS ParallelCluster official or custom AMI from a different version of AWS ParallelCluster.
 The format must either be the ARN of a image
-`arn:`Partition`:imagebuilder:`Region`:`Account`:image/`ImageName`/`ImageVersion`` or an AMI ID`ami-12345678`.
+`arn:`Partition`:imagebuilder:`Region`:`Account`:image/`ImageName`/`ImageVersion``
+or an AMI ID `ami-12345678`.
 
 `SecurityGroupIds`
 (**Optional**, `[String]`)

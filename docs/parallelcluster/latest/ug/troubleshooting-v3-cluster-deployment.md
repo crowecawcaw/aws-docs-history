@@ -33,7 +33,7 @@ message likely looks like the following output:
 
 ###### Topics
 
-- [View CloudFormation events on CREATE_FAILED](#troubleshooting-v3-cluster-deployment-events "#troubleshooting-v3-cluster-deployment-events")
+- [View CloudFormation events on CREATE\_FAILED](#troubleshooting-v3-cluster-deployment-events "#troubleshooting-v3-cluster-deployment-events")
 - [Use the CLI to view log streams](#troubleshooting-v3-cluster-deployment-cli-logstreams "#troubleshooting-v3-cluster-deployment-cli-logstreams")
 - [Re-create the failed cluster with rollback-on-failure](#troubleshooting-v3-cluster-deployment-cli-fail-rollback "#troubleshooting-v3-cluster-deployment-cli-fail-rollback")
 
@@ -44,7 +44,7 @@ You can use the console or the AWS ParallelCluster CLI to view CloudFormation ev
 ###### Topics
 
 - [View events in the CloudFormation console](#troubleshooting-v3-cluster-deployment-cloudformation "#troubleshooting-v3-cluster-deployment-cloudformation")
-- [Use the CLI to view and filter CloudFormation events on CREATE_FAILED](#troubleshooting-v3-cluster-deployment-cli-events "#troubleshooting-v3-cluster-deployment-cli-events")
+- [Use the CLI to view and filter CloudFormation events on CREATE\_FAILED](#troubleshooting-v3-cluster-deployment-cli-events "#troubleshooting-v3-cluster-deployment-cli-events")
 
 ### View events in the CloudFormation console
 
@@ -138,7 +138,7 @@ then analyzing the log streams content.
 The two primary log streams that you can use to find initialization errors are the following:
 
 - `cfn-init` is the log for the `cfn-init` script. First check this log stream. You're likely to see the `Command
-chef failed` error in this log. Look at the lines immediately before this line for more specifics connected with the error message.
+ chef failed` error in this log. Look at the lines immediately before this line for more specifics connected with the error message.
   For more information, see [cfn-init](../../../AWSCloudFormation/latest/UserGuide/cfn-init.md "../../../AWSCloudFormation/latest/UserGuide/cfn-init.md").
 - `cloud-init` is the log for [cloud-init](https://cloudinit.readthedocs.io/ "https://cloudinit.readthedocs.io/"). If you don't see anything in
   `cfn-init`, then try checking this log next.

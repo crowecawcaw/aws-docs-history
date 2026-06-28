@@ -87,4 +87,4 @@ If you are in this scenario, you can cancel the update so that you do not need t
 Canceling the update triggers the rollback. You cannot reduce the 1 hour timeout on the rollback, so in the worst case scenario you need to wait for the rollback to reach its final state.
 
 If the rollback succeeds, you can immediately retry your original cluster update once you have fixed the root cause of the failure.
-Otherwise, see [clusterStatus is UPDATE_FAILED and cloudFormationStackStatus is UPDATE_ROLLBACK_FAILED](#update-cluster-failure-rollback-failed-v3 "#update-cluster-failure-rollback-failed-v3").
+Otherwise, see [clusterStatus is UPDATE\_FAILED and cloudFormationStackStatus is UPDATE\_ROLLBACK\_FAILED](#update-cluster-failure-rollback-failed-v3 "#update-cluster-failure-rollback-failed-v3").

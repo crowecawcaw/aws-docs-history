@@ -4,29 +4,28 @@ Choose the _Automated_ tab to create the Active Directory (AD) infrastructure wi
 
 Choose the _Manual_ tab to manually create the AD infrastructure.
 
-1.  Sign in to the AWS Management Console.
-2.  Open [CloudFormation Quick Create (region us-east-1)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml") to create the following resources in the CloudFormation console:
+1. Sign in to the AWS Management Console.
+2. Open [CloudFormation Quick Create (region us-east-1)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml") to create the following resources in the CloudFormation console:
 
-    - A VPC with two subnets and routing for public access, if no VPC is specified.
-    - An AWS Managed Microsoft AD.
-    - An Amazon EC2 instance that's joined to the AD that you can use to manage the directory.
+   - A VPC with two subnets and routing for public access, if no VPC is specified.
+   - An AWS Managed Microsoft AD.
+   - An Amazon EC2 instance that's joined to the AD that you can use to manage the directory.
 
-3.  In the **Quick create stack** page **Parameters** section, enter passwords for the
-    following parameters:
+3. In the **Quick create stack** page **Parameters** section, enter passwords for the
+   following parameters:
 
-        * **AdminPassword**
-        * **ReadOnlyPassword**
-        * **UserPassword**
+   - **AdminPassword**
+   - **ReadOnlyPassword**
+   - **UserPassword**
+     Make note of the passwords. You use them later on in this tutorial.
 
-    Make note of the passwords. You use them later on in this tutorial.
-
-4.  For **DomainName**, enter `corp.example.com`
-5.  For **Keypair**, enter the name of an Amazon EC2 key pair.
-6.  Check the boxes to acknowledge each of the access capabilities at the bottom of the page.
-7.  Choose **Create stack**.
-8.  After the CloudFormation stack has reached the `CREATE_COMPLETE` state, choose the **Outputs** tab of the stack.
-    Make a note of the output resource names and IDs because you need to use them in later steps. The outputs provide the information that's
-    needed to create the cluster.
+4. For **DomainName**, enter `corp.example.com`
+5. For **Keypair**, enter the name of an Amazon EC2 key pair.
+6. Check the boxes to acknowledge each of the access capabilities at the bottom of the page.
+7. Choose **Create stack**.
+8. After the CloudFormation stack has reached the `CREATE_COMPLETE` state, choose the **Outputs** tab of the stack.
+   Make a note of the output resource names and IDs because you need to use them in later steps. The outputs provide the information that's
+   needed to create the cluster.
 
 ![A diagram that shows the created stack outputs in the AWS Management Console.](images/ad-cfn.png) 9. To complete the exercises [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md "tutorials_05_multi-user-ad-step2.md"), you need the directory ID.
 Choose **Resources** and scroll down to make note of the directory ID. 10. Continue at [(Optional) Manage AD users and groups](tutorials_05_multi-user-ad-step2.md "tutorials_05_multi-user-ad-step2.md") or [Create the cluster](tutorials_05_multi-user-ad-step3.md "tutorials_05_multi-user-ad-step3.md").

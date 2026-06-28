@@ -149,7 +149,7 @@ Valid values: `CREATE_IN_PROGRESS | CREATE_FAILED | CREATE_COMPLETE |
 
 **ec2AmiInfo**
 
-**ami_id**
+**ami\_id**
 
 The Amazon EC2 AMI ID.
 

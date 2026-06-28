@@ -8,7 +8,7 @@ credentials. Although an user requires a password to access an AWS service's con
 same user requires an access key pair to perform the same operations using AWS ParallelCluster.
 All other short-term credentials are used in the same way they are used with the console.
 
-The credentials used by AWS ParallelCluster are stored in plaintext files and are **_not_** encrypted.
+The credentials used by AWS ParallelCluster are stored in plaintext files and are _**not**_ encrypted.
 
 - The `$HOME/.aws/credentials` file stores long-term credentials required
   to access your AWS resources. These include your access key ID and secret access key.

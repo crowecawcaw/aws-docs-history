@@ -750,9 +750,9 @@ UTC format, for example
 The Amazon S3 export bucket must be the same as the import bucket specified by
 `ImportPath`. If you only specify a bucket name, such as
 `s3://`amzn-s3-demo-bucket``, you get a 1:1 mapping of file system objects to
- Amazon S3 bucket objects. This mapping means that the input data in Amazon S3 is overwritten on
- export. If you provide a custom prefix in the export path, such as
- `s3://`amzn-s3-demo-bucket`/[custom-optional-prefix]`, FSx for Lustre exports the
+Amazon S3 bucket objects. This mapping means that the input data in Amazon S3 is overwritten on
+export. If you provide a custom prefix in the export path, such as
+`s3://`amzn-s3-demo-bucket`/[custom-optional-prefix]`, FSx for Lustre exports the
 contents of your file system to that export prefix in the Amazon S3 bucket.
 
 ###### Note
@@ -848,9 +848,9 @@ you provision. This corresponds to the [PerUnitStorageThroughput](../../../AWSCl
 
 Valid values:
 
-- PERSISTENT_1 SSD storage: 50, 100, 200 MB/s/TiB.
-- PERSISTENT_1 HDD storage: 12, 40 MB/s/TiB.
-- PERSISTENT_2 SSD storage: 125, 250, 500, 1000 MB/s/TiB.
+- PERSISTENT\_1 SSD storage: 50, 100, 200 MB/s/TiB.
+- PERSISTENT\_1 HDD storage: 12, 40 MB/s/TiB.
+- PERSISTENT\_2 SSD storage: 125, 250, 500, 1000 MB/s/TiB.
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")

@@ -115,7 +115,7 @@ This is configured in the provided CloudFormation template.
 
 Following security best practice, we recommend that you also enable server identity verification on the `slurmdbd` client. To do
 this, configure the [StorageParameters](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_StorageParameters "https://slurm.schedmd.com/slurmdbd.conf.html#OPT_StorageParameters") in the
-`slurmdbd.conf`. Upload the server CA certificate to the head node of the cluster. Next, set the [SSL_CA](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_SSL_CA "https://slurm.schedmd.com/slurmdbd.conf.html#OPT_SSL_CA") option of `StorageParameters` in
+`slurmdbd.conf`. Upload the server CA certificate to the head node of the cluster. Next, set the [SSL\_CA](https://slurm.schedmd.com/slurmdbd.conf.html#OPT_SSL_CA "https://slurm.schedmd.com/slurmdbd.conf.html#OPT_SSL_CA") option of `StorageParameters` in
 `slurmdbd.conf` to the path of the server CA certificate on the head node. Doing this enables server identity verification on the
 `slurmdbd` side. After you make these changes, restart the `slurmdbd` service to re-establish connectivity to the database
 server with identity verification enabled.

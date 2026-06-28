@@ -35,7 +35,7 @@ or **Log groups**. For more information, see [Integration with Amazon CloudWatch
 ###### Topics
 
 - [Key logs for debugging](#troubleshooting-v3-key-logs "#troubleshooting-v3-key-logs")
-- [Seeing InsufficientInstanceCapacity error in slurm_resume.log when I fail to run a job, or in clustermgtd.log when I fail to create a cluster](#compute-node-initialization-ice-failure-v3-c2 "#compute-node-initialization-ice-failure-v3-c2")
+- [Seeing InsufficientInstanceCapacity error in slurm\_resume.log when I fail to run a job, or in clustermgtd.log when I fail to create a cluster](#compute-node-initialization-ice-failure-v3-c2 "#compute-node-initialization-ice-failure-v3-c2")
 - [Troubleshooting node initialization issues](#troubleshooting-v3-node-init "#troubleshooting-v3-node-init")
 - [Troubleshooting unexpected node replacements and terminations](#troubleshooting-v3-unexpected-node-replacements-and-terminations "#troubleshooting-v3-unexpected-node-replacements-and-terminations")
 - [Replacing, terminating, or powering down problematic instances and nodes](#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3 "#replacing-terminating-or-powering-down-problematic-instances-and-nodes-v3")

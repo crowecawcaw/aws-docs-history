@@ -21,7 +21,7 @@ For AWS ParallelCluster versions 3.2.0 to 3.6.`x`, `EnableMemoryBasedScheduling`
 
 The following examples show how you can query instance types for vCPUs, EFA support, and architecture.
 
-Query InstanceTypes with 96 vCPUs and x86_64 architecture.
+Query InstanceTypes with 96 vCPUs and x86\_64 architecture.
 
 ```
 `$` `aws ec2 describe-instance-types --region `region-id` \

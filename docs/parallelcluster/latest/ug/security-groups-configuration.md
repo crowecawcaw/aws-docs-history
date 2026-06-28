@@ -25,22 +25,22 @@ For each of these sections, you can specify:
 
 When configuring custom security groups, you must ensure that the following ports are open between the appropriate nodes:
 
-| Required ports for head node | Port    | Protocol | Direction                                                           | Purpose |
-| ---------------------------- | ------- | -------- | ------------------------------------------------------------------- | ------- |
-| 22                           | TCP     | Inbound  | SSH access to the head node (from allowed IP ranges)                |
-| 6817-6819                    | TCP     | Inbound  | Slurm controller ports (from compute and login nodes)               |
-| 6817-6819                    | TCP     | Outbound | Slurm controller ports (to compute and login nodes)                 |
-| 8443                         | TCP     | Inbound  | Amazon DCV (if enabled, from allowed IP ranges)                     |
-| 111, 2049                    | TCP/UDP | Inbound  | NFS (from compute and login nodes, if using NFS for shared storage) |
-| 443                          | TCP     | Outbound | HTTPS access to AWS services (if not using VPC endpoints)           |
+Required ports for head node| Port | Protocol | Direction | Purpose |
+| --- | --- | --- | --- |
+| 22 | TCP | Inbound | SSH access to the head node (from allowed IP ranges) |
+| 6817-6819 | TCP | Inbound | Slurm controller ports (from compute and login nodes) |
+| 6817-6819 | TCP | Outbound | Slurm controller ports (to compute and login nodes) |
+| 8443 | TCP | Inbound | Amazon DCV (if enabled, from allowed IP ranges) |
+| 111, 2049 | TCP/UDP | Inbound | NFS (from compute and login nodes, if using NFS for shared storage) |
+| 443 | TCP | Outbound | HTTPS access to AWS services (if not using VPC endpoints) |
 
-| Required ports for compute nodes | Port    | Protocol | Direction                                                 | Purpose |
-| -------------------------------- | ------- | -------- | --------------------------------------------------------- | ------- |
-| 22                               | TCP     | Inbound  | SSH access (from head node and login nodes)               |
-| 6818                             | TCP     | Inbound  | Slurm daemon port (from head node)                        |
-| 6817-6819                        | TCP     | Outbound | Slurm controller ports (to head node)                     |
-| 111, 2049                        | TCP/UDP | Outbound | NFS (to head node, if using NFS for shared storage)       |
-| 443                              | TCP     | Outbound | HTTPS access to AWS services (if not using VPC endpoints) |
+Required ports for compute nodes| Port | Protocol | Direction | Purpose |
+| --- | --- | --- | --- |
+| 22 | TCP | Inbound | SSH access (from head node and login nodes) |
+| 6818 | TCP | Inbound | Slurm daemon port (from head node) |
+| 6817-6819 | TCP | Outbound | Slurm controller ports (to head node) |
+| 111, 2049 | TCP/UDP | Outbound | NFS (to head node, if using NFS for shared storage) |
+| 443 | TCP | Outbound | HTTPS access to AWS services (if not using VPC endpoints) |
 
 If you're using EFA (Elastic Fabric Adapter), you must also allow all traffic between compute nodes that have EFA enabled:
 

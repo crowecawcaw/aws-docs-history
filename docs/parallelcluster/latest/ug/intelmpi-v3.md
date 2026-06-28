@@ -24,7 +24,7 @@ intelmpi`
 ```
 
 To load a module, run `module load `modulename``. You can add this to the script
- used to run `mpirun`.
+used to run `mpirun`.
 
 ```
 `$` `module load intelmpi`

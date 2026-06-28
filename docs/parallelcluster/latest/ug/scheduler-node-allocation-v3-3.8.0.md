@@ -3,7 +3,7 @@
 Starting with ParallelCluster version 3.8.0, ParallelCluster uses **Job-level resume** or **job-level scaling** as the
 default dynamic node allocation strategy to scale the cluster: ParallelCluster scales up the
 cluster based on the requirements of each job, the number of nodes allocated to the job, and
-which nodes need to be resumed. ParallelCluster gets this information from the SLURM_RESUME_FILE
+which nodes need to be resumed. ParallelCluster gets this information from the SLURM\_RESUME\_FILE
 environment variable.
 
 The scaling for dynamic nodes is a two-step process, which involves the launch of the EC2
@@ -28,7 +28,7 @@ launch strategies.
 
 ###### Example
 
-The available **ParallelCluster\*\***launch strategies** that can be set into the [ScalingStrategy](Scheduling-v3.md#yaml-Scheduling-ScalingStrategy "Scheduling-v3.md#yaml-Scheduling-ScalingStrategy") cluster configuration to be used with **job-level scaling** are:**all-or-nothing\*\* scaling:
+The available **ParallelCluster\****launch strategies** that can be set into the [ScalingStrategy](Scheduling-v3.md#yaml-Scheduling-ScalingStrategy "Scheduling-v3.md#yaml-Scheduling-ScalingStrategy") cluster configuration to be used with **job-level scaling** are:**all-or-nothing** scaling:
 
 This strategy involves AWS ParallelCluster initiating an Amazon EC2 launch instance API call for
 each job, that requires all instances necessary for the requested compute nodes to be

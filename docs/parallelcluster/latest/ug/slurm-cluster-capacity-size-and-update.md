@@ -17,8 +17,8 @@ many Amazon EC2 instances as configured in `MinCount` for each compute resource
 (`Scheduling/SlurmQueues/ ComputeResources`)
 defined in the cluster. The instances
 launched to cover the minimal amount of nodes for a compute resources in the cluster
-are called **\*static
-nodes**.\* Once started, static nodes are meant to be
+are called _**static
+nodes**._ Once started, static nodes are meant to be
 persistent in the cluster and they are not terminated by the system, unless a
 particular event or condition occurs. Such events include, for example, the failure
 of Slurm or Amazon EC2 health checks and the change of the Slurm node status to DRAIN or
@@ -27,7 +27,7 @@ DOWN.
 The Amazon EC2 instances, in the range of `1` to `‘MaxCount -
  MinCount’` (`MaxCount`
 _minus_ `MinCount)`, launched on-demand to deal with
-the increased load of the cluster, are referred to as **_dynamic nodes_**. Their nature
+the increased load of the cluster, are referred to as _**dynamic nodes**_. Their nature
 is ephemeral, they are launched to serve pending jobs and are terminated once they
 stay idle for a period of time defined by `Scheduling/SlurmSettings/ScaledownIdletime`
 in the cluster configuration (default: 10 minutes).
@@ -159,7 +159,7 @@ greater than `MinCount` (mixed static and dynamic capacity).
 
   $ sinfo
   PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
-  queue1\* up infinite 100 idle queue1-st-c5xlarge-[1-100]
+  queue1* up infinite 100 idle queue1-st-c5xlarge-[1-100]
 
   ````
   + Update `-30` on `MinCount` and
@@ -344,7 +344,7 @@ queue1*      up   infinite    100   idle queue1-st-c5xlarge-[1-100]
 In all the cases where nodes are removed and Amazon EC2 instances terminated, a sbatch
 job running on the removed nodes will be re-queued, unless there are no other nodes
 satisfying the job requirements. In this last case the job fails with status
-NODE_FAIL and disappears from the queue, and it must be
+NODE\_FAIL and disappears from the queue, and it must be
 re-submitted manually.
 
 If you are planning to perform a cluster resize update, you can prevent jobs to go
@@ -387,11 +387,11 @@ Upon a scheduler configuration change, the following steps are executed during t
 cluster update process:
 
 - Stop AWS ParallelCluster `clustermgtd (supervisorctl stop
-clustermgtd)`
+ clustermgtd)`
 - Generate updated Slurm partitions configuration from AWS ParallelCluster
   configuration
 - Restart `slurmctld` (done through Chef service recipe)
 - Check `slurmctld` status `(systemctl is-active --quiet
-slurmctld.service)`
+ slurmctld.service)`
 - Reload Slurm configuration `(scontrol reconfigure)`
 - Start `clustermgtd (supervisorctl start clustermgtd)`

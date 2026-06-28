@@ -10,7 +10,7 @@ We recommend that you install AWS ParallelCluster in a virtual environment to av
 ###### To install AWS ParallelCluster in a virtual environment
 
 1. If `virtualenv` isn't installed, install `virtualenv` using `pip3`. If `python3 -m virtualenv
-help` displays help information, go to step 2.
+ help` displays help information, go to step 2.
 
 ```
 `$` `python3 -m pip install --upgrade pip`

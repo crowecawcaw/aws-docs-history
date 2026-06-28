@@ -205,7 +205,7 @@ The reason for the failure when the cluster stack is in `CREATE_FAILED` status.
 
 Type: string
 
-**head_node**
+**head\_node**
 
 The cluster head node.
 

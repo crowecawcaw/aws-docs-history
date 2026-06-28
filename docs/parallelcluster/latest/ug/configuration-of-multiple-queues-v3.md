@@ -14,9 +14,9 @@ be used when there are strong security, data, or operational isolation requireme
 example, if you need to manage and operate workloads independently, with different schedules, update cycles,
 or access policies, multiple clusters are more appropriate.
 
-| Cluster queue and compute resource quotas                                                                                                      | Resource                                                           | Quota |
-| ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----- |
-| [Slurm queues](Scheduling-v3.md#Scheduling-v3-SlurmQueues "Scheduling-v3.md#Scheduling-v3-SlurmQueues")                                        | 50 queues per cluster                                              |
+Cluster queue and compute resource quotas| Resource | Quota |
+| --- | --- |
+| [Slurm queues](Scheduling-v3.md#Scheduling-v3-SlurmQueues "Scheduling-v3.md#Scheduling-v3-SlurmQueues") | 50 queues per cluster |
 | [Compute resources](Scheduling-v3.md#Scheduling-v3-SlurmQueues-ComputeResources "Scheduling-v3.md#Scheduling-v3-SlurmQueues-ComputeResources") | 50 compute resources per queue<br>50 compute resources per cluster |
 
 **Node Counts**

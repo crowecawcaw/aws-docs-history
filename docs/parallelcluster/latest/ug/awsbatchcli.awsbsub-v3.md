@@ -48,16 +48,16 @@ Default: False
  `WORKING_DIR``
 
 Specifies the folder to use as the job's working directory. If a working directory isn't specified, the job
-is run in the `job-`<AWS_BATCH_JOB_ID>``subfolder of the user’s home
- directory. You can use either this parameter or the`--parent-working-dir` parameter.
+is run in the `job-`<AWS_BATCH_JOB_ID>`` subfolder of the user’s home
+directory. You can use either this parameter or the `--parent-working-dir` parameter.
 
 `-pw `PARENT_WORKING_DIR`, --parent-working-dir
  `PARENT_WORKING_DIR``
 
 Specifies the parent folder of the job's working directory. If a parent working directory isn't specified, it
 defaults to the user’s home directory. A subfolder named
-`job-`<AWS_BATCH_JOB_ID>``is created in the parent working directory.
- You can use either this parameter or the`--working-dir` parameter.
+`job-`<AWS_BATCH_JOB_ID>`` is created in the parent working directory.
+You can use either this parameter or the `--working-dir` parameter.
 
 `-if `INPUT_FILE`, --input-file
  `INPUT_FILE``
@@ -144,7 +144,7 @@ properties for a job, it becomes an array job.
 Specifies a semicolon-separated list of dependencies for a job. A job can depend upon a maximum of 20 jobs.
 You can specify a `SEQUENTIAL` type dependency without specifying a job ID for array jobs. A sequential
 dependency allows each child array job to complete sequentially, starting at index 0. You can also specify an
-N_TO_N type dependency with a job ID for array jobs. An N_TO_N dependency means that each index child of this job
+N\_TO\_N type dependency with a job ID for array jobs. An N\_TO\_N dependency means that each index child of this job
 must wait for the corresponding index child of each dependency to complete before it can begin. The syntax for
 this parameter is
 "jobId=`<string>`,type=`<string>`;...".

@@ -114,7 +114,7 @@ When using zonal Reserved Instances, you can avoid potential Insufficient Capaci
 - `${queue_name}` is the name of the queue that you want to apply overrides to.
 - `${compute_resource_name}` is the compute resource that you want to apply overrides to.
 - `${overrides}` is an arbitrary JSON object that contains a list of `RunInstances` overrides to use for the
-  specific combination of queue and instance type. The overrides syntax needs to follow the same specifications that are documented in a [run_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.run_instances "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.run_instances") boto3
+  specific combination of queue and instance type. The overrides syntax needs to follow the same specifications that are documented in a [run\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.run_instances "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Client.run_instances") boto3
   call.
 
 ```

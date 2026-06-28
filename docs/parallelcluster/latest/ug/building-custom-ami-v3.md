@@ -103,7 +103,7 @@ page. The results of the preceding command are as follows:
     * If the build is successful, the stack is deleted. If the build fails, the stack is retained and available for inspection.
 
 4. You can monitor the status of the build process by running the following command. After the build completes, you can run it to retrieve the
-   AMI ID given in the response.
+AMI ID given in the response.
 
 ```
 `$` `pcluster describe-image --image-id `IMAGE_ID` --region `REGION``
@@ -325,7 +325,7 @@ Navigate to **Instances**, choose the new instance, select **Instance state**, a
     4. Choose **Create Image**.
 
 11. Enter the new AMI ID in the [CustomAmi](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Image-CustomAmi "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Image-CustomAmi") field in your cluster
-    configuration and create a cluster.
+configuration and create a cluster.
 
 Old Amazon EC2 console
 
@@ -357,4 +357,4 @@ sudo /usr/local/sbin/ami_cleanup.sh
     4. Choose **Create Image**.
 
 11. Enter the new AMI ID in the [CustomAmi](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Image-CustomAmi "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Image-CustomAmi") field in your cluster
-    configuration and create a cluster.
+configuration and create a cluster.

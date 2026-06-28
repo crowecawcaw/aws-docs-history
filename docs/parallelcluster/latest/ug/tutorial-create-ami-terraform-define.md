@@ -104,7 +104,7 @@ variable "architecture" {
 6. Create the file `terraform.tfvars` to set your arbitrary values for the variables.
 
 With the file below deploy the custom AMI in `us-east-1` based on Amazon
-Linux 2 for x86_64 architecture, using the existing ParallelCluster API 3.11.1 which is
+Linux 2 for x86\_64 architecture, using the existing ParallelCluster API 3.11.1 which is
 already deployed in `us-east-1` with stack name
 `MyParallelClusterAPI-3111`.
 

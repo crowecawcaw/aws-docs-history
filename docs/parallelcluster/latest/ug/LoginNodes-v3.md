@@ -450,7 +450,7 @@ Starting with AWS ParallelCluster version 3.11.0, the update policy is: The logi
 
 Specifies an instance profile to override the default login node instance profile. You can't specify
 both `InstanceProfile` and `InstanceRole`. The format is `arn:Partition:iam::Account:instance-profile/`InstanceProfileName``.
- If this is specified, the `InstanceRole`and`AdditionalIamPolicies` settings can't be specified.
+If this is specified, the `InstanceRole` and `AdditionalIamPolicies` settings can't be specified.
 
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")

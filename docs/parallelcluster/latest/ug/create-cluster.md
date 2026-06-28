@@ -194,7 +194,7 @@ The AWS ParallelCluster version that's used to create the cluster.
 
 Type: string
 
-**validation_messages**
+**validation\_messages**
 
 A list of messages with a validation level lower than `validationFailureLevel`.
 The list of messages is collected during configuration validation.

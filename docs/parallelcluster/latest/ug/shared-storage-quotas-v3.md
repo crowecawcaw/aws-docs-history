@@ -3,12 +3,12 @@
 Configure cluster `SharedStorage` to mount existing shared file storage and create new shared file storage based on the quotas that
 are listed in the following table.
 
-| The mounted file storage quotas for each cluster | File shared storage type | AWS ParallelCluster managed storage | External storage | Quota net total |
-| ------------------------------------------------ | ------------------------ | ----------------------------------- | ---------------- | --------------- |
-| Amazon EBS                                       | 5                        | 5                                   | 5                |
-| RAID                                             | 1                        | 0                                   | 1                |
-| Amazon EFS                                       | 1                        | 20                                  | 21               |
-| Amazon FSx †                                     | 1 FSx for Lustre         | 20                                  | 21               |
+The mounted file storage quotas for each cluster| File shared storage type | AWS ParallelCluster managed storage | External storage | Quota net total |
+| --- | --- | --- | --- |
+| Amazon EBS | 5 | 5 | 5 |
+| RAID | 1 | 0 | 1 |
+| Amazon EFS | 1 | 20 | 21 |
+| Amazon FSx † | 1 FSx for Lustre | 20 | 21 |
 
 ###### Note
 

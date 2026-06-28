@@ -114,7 +114,7 @@ The sequence token.
 
 Type: string
 
-**next_token**
+**next\_token**
 
 A token that can be used to retrieve the next set of results, or `null` if there are no additional results.
 

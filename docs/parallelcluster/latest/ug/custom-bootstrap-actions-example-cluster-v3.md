@@ -64,30 +64,27 @@ CustomActions:
  --region `<region>` --cluster-configuration `config-file.yaml``
 ```
 
-5.  Verify the output.
+5. Verify the output.
 
-        * If you added custom actions to the `HeadNode` configuration, log
-         in to the head node and check the `cfn-init.log` file located
-         at `/var/log/cfn-init.log` by running the following command:
+   - If you added custom actions to the `HeadNode` configuration, log
+     in to the head node and check the `cfn-init.log` file located
+     at `/var/log/cfn-init.log` by running the following command:
 
-
-
-        ```
-        $ less /var/log/cfn-init.log
-          2021-09-03 10:43:54,588 [DEBUG] Command run
-          postinstall output: The script has 3 arguments
-          arg: R
-          arg: curl
-          arg: wget
-          Loaded plugins: dkms-build-requires, priorities, update-motd, upgrade-helper
-          Package R-3.4.1-1.52.amzn1.x86_64 already installed and latest version
-          Package curl-7.61.1-7.91.amzn1.x86_64 already installed and latest version
-          Package wget-1.18-4.29.amzn1.x86_64 already installed and latest version
-          Nothing to do
-        ```
-        * If you added custom actions to the `SlurmQueues` setting, check the
-         `cloud-init.log` located at `/var/log/cloud-init.log`
-         in a compute node. Use CloudWatch to view these logs.
-
-    You can view both of these logs in the Amazon CloudWatch console. For more information, see
-    [Integration with Amazon CloudWatch Logs](cloudwatch-logs-v3.md "cloudwatch-logs-v3.md").
+   ```
+   $ less /var/log/cfn-init.log
+     2021-09-03 10:43:54,588 [DEBUG] Command run
+     postinstall output: The script has 3 arguments
+     arg: R
+     arg: curl
+     arg: wget
+     Loaded plugins: dkms-build-requires, priorities, update-motd, upgrade-helper
+     Package R-3.4.1-1.52.amzn1.x86_64 already installed and latest version
+     Package curl-7.61.1-7.91.amzn1.x86_64 already installed and latest version
+     Package wget-1.18-4.29.amzn1.x86_64 already installed and latest version
+     Nothing to do
+   ```
+   - If you added custom actions to the `SlurmQueues` setting, check the
+     `cloud-init.log` located at `/var/log/cloud-init.log`
+     in a compute node. Use CloudWatch to view these logs.
+     You can view both of these logs in the Amazon CloudWatch console. For more information, see
+     [Integration with Amazon CloudWatch Logs](cloudwatch-logs-v3.md "cloudwatch-logs-v3.md").

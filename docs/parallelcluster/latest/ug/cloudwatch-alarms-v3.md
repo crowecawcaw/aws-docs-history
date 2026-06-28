@@ -7,16 +7,18 @@ identifies the metric being monitored.
 
 Access the alarms in the CloudWatch console by choosing **Alarms** in the navigation pane.
 
-A composite alarm named ``cluster-name`-HeadNode`enters the
+A composite alarm named ``cluster-name`-HeadNode` enters the
 `ALARM` state when any of the individual head node alarms triggers.
 
 ## Disk and memory alarms
 
 Starting with AWS ParallelCluster version 3.6.0, the following CloudWatch alarms are created:
 
-- ``cluster-name`-HeadNode-Disk`— Monitors the root volume`disk_used_percent`metric. Enters the`ALARM` state when disk usage is greater than 90%
+- ``cluster-name`-HeadNode-Disk` — Monitors the root volume
+  `disk_used_percent` metric. Enters the `ALARM` state when disk usage is greater than 90%
   for 1 data point within a 1 minute period.
-- ``cluster-name`-HeadNode-Mem`— Monitors the`mem_used_percent`metric. Enters the`ALARM` state when memory usage is greater than 90%
+- ``cluster-name`-HeadNode-Mem` — Monitors the
+  `mem_used_percent` metric. Enters the `ALARM` state when memory usage is greater than 90%
   for 1 data point within a 1 minute period.
 
 For more information, see [Metrics collected by the CloudWatch
@@ -26,9 +28,11 @@ agent](../../../AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWat
 
 Starting with AWS ParallelCluster version 3.8.0, the following CloudWatch alarms are created:
 
-- ``cluster-name`-HeadNode-Health`— Monitors the Amazon EC2`StatusCheckFailed`metric. Enters the`ALARM` state when the value is greater than 0
+- ``cluster-name`-HeadNode-Health` — Monitors the Amazon EC2
+  `StatusCheckFailed` metric. Enters the `ALARM` state when the value is greater than 0
   for 1 data point within a 1 minute period.
-- ``cluster-name`-HeadNode-Cpu`— Monitors the Amazon EC2`CPUUtilization`metric. Enters the`ALARM` state when CPU utilization is greater than 90%
+- ``cluster-name`-HeadNode-Cpu` — Monitors the Amazon EC2
+  `CPUUtilization` metric. Enters the `ALARM` state when CPU utilization is greater than 90%
   for 1 data point within a 1 minute period.
 
 ## Cluster management daemon heartbeat alarm
@@ -36,7 +40,8 @@ Starting with AWS ParallelCluster version 3.8.0, the following CloudWatch alarms
 Starting with AWS ParallelCluster version 3.15.0, when Amazon CloudWatch logging is enabled and the Slurm scheduler is
 used, the following alarm is created:
 
-- ``cluster-name`-HeadNode-ClustermgtdHeartbeat`— Monitors the`ClustermgtdHeartbeat`metric in the`ParallelCluster`namespace. The alarm enters the`ALARM`
+- ``cluster-name`-HeadNode-ClustermgtdHeartbeat` — Monitors the
+  `ClustermgtdHeartbeat` metric in the `ParallelCluster` namespace. The alarm enters the `ALARM`
   state when fewer than 1 heartbeat is received for 10 consecutive data points within a 1 minute period. Missing
   data is treated as breaching.
 

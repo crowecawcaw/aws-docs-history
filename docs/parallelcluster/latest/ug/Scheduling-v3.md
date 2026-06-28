@@ -641,11 +641,11 @@ Specify the allocation strategy for all the compute resources defined in [Instan
 Valid values: `lowest-price` | `capacity-optimized` |
 `price-capacity-optimized` | `prioritized` | `capacity-optimized-prioritized`
 
-| CapacityType   | Allowed strategies                                                                         |
-| -------------- | ------------------------------------------------------------------------------------------ |
-| ONDEMAND       | lowest-price, prioritized                                                                  |
-| SPOT           | lowest-price, capacity-optimized, price-capacity-optimized, capacity-optimized-prioritized |
-| CAPACITY_BLOCK | Not supported — AllocationStrategy cannot be configured                                    |
+| CapacityType    | Allowed strategies                                                                         |
+| --------------- | ------------------------------------------------------------------------------------------ |
+| ONDEMAND        | lowest-price, prioritized                                                                  |
+| SPOT            | lowest-price, capacity-optimized, price-capacity-optimized, capacity-optimized-prioritized |
+| CAPACITY\_BLOCK | Not supported — AllocationStrategy cannot be configured                                    |
 
 Default: `lowest-price`
 

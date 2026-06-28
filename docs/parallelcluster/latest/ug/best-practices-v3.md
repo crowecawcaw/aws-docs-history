@@ -94,12 +94,11 @@ To optimize the process of moving a cluster to a new minor or patch version, we 
   move the data from one cluster to another in the future.
 - Create shared storage systems using the following types. You can create these systems using the AWS CLI or AWS Management Console.
 
-      + [SharedStorage](SharedStorage-v3.md "SharedStorage-v3.md") / [EbsSettings](SharedStorage-v3.md#SharedStorage-v3-EbsSettings "SharedStorage-v3.md#SharedStorage-v3-EbsSettings") / [VolumeId](SharedStorage-v3.md#yaml-SharedStorage-EbsSettings-VolumeId "SharedStorage-v3.md#yaml-SharedStorage-EbsSettings-VolumeId")
-      + [SharedStorage](SharedStorage-v3.md "SharedStorage-v3.md") / [EfsSettings](SharedStorage-v3.md#SharedStorage-v3-EfsSettings "SharedStorage-v3.md#SharedStorage-v3-EfsSettings") / [FileSystemId](SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-FileSystemId "SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-FileSystemId")
-      + [SharedStorage](SharedStorage-v3.md "SharedStorage-v3.md") / [FsxLustreSettings](SharedStorage-v3.md#SharedStorage-v3-FsxLustreSettings "SharedStorage-v3.md#SharedStorage-v3-FsxLustreSettings") / [FileSystemId](SharedStorage-v3.md#yaml-SharedStorage-FsxLustreSettings-FileSystemId "SharedStorage-v3.md#yaml-SharedStorage-FsxLustreSettings-FileSystemId")
-
-  Define a file system or volume in a cluster configuration as existing file system or volume. This way, they're preserved when you delete the
-  cluster and can be attached to a new cluster.
+  - [SharedStorage](SharedStorage-v3.md "SharedStorage-v3.md") / [EbsSettings](SharedStorage-v3.md#SharedStorage-v3-EbsSettings "SharedStorage-v3.md#SharedStorage-v3-EbsSettings") / [VolumeId](SharedStorage-v3.md#yaml-SharedStorage-EbsSettings-VolumeId "SharedStorage-v3.md#yaml-SharedStorage-EbsSettings-VolumeId")
+  - [SharedStorage](SharedStorage-v3.md "SharedStorage-v3.md") / [EfsSettings](SharedStorage-v3.md#SharedStorage-v3-EfsSettings "SharedStorage-v3.md#SharedStorage-v3-EfsSettings") / [FileSystemId](SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-FileSystemId "SharedStorage-v3.md#yaml-SharedStorage-EfsSettings-FileSystemId")
+  - [SharedStorage](SharedStorage-v3.md "SharedStorage-v3.md") / [FsxLustreSettings](SharedStorage-v3.md#SharedStorage-v3-FsxLustreSettings "SharedStorage-v3.md#SharedStorage-v3-FsxLustreSettings") / [FileSystemId](SharedStorage-v3.md#yaml-SharedStorage-FsxLustreSettings-FileSystemId "SharedStorage-v3.md#yaml-SharedStorage-FsxLustreSettings-FileSystemId")
+    Define a file system or volume in a cluster configuration as existing file system or volume. This way, they're preserved when you delete the
+    cluster and can be attached to a new cluster.
 
 We recommend that you use Amazon EFS or FSx for Lustre file systems. Both of these systems can be attached to multiple clusters at the same time.
 Moreover, you can attach either of these systems to a new cluster before you delete your existing cluster.

@@ -90,8 +90,7 @@ Application SAML audience: urn:amazon:cognito:sp:<userpool-id> 10. Choose **Subm
 
     ![Screenshot highlighting the Attribute Mappings for PCUI section](images/tutorials/pcui_awsic_integration/IAC_attribute_mappings_PCUI_6.png)
 
-12. Save your changes.
-13. Choose the **Assign Users** button and then assign your user to the application. These are the users in your Active Directory that will have access to the PCUI interface.
+12. Save your changes. 13. Choose the **Assign Users** button and then assign your user to the application. These are the users in your Active Directory that will have access to the PCUI interface.
 
 ![Screenshot highlighting Assign users for the application.](images/tutorials/pcui_awsic_integration/IAC_PCUI_App_7.png)
 

@@ -17,21 +17,17 @@ cluster:
   `SLURM_RESUME_FILE` environment variable.
 
 - ###### Allocation with an Amazon EC2 launch strategy:
+  - **Best-effort** scaling:
 
-      + **Best-effort** scaling:
+  ParallelCluster scales up the cluster by using an Amazon EC2 launch instance API call with the
+  minimum target capacity equal to 1, to launch some, but not necessarily all of
+  instances needed to support the requested nodes.
+  - **All-or-nothing** scaling:
 
-
-      ParallelCluster scales up the cluster by using an Amazon EC2 launch instance API call with the
-       minimum target capacity equal to 1, to launch some, but not necessarily all of
-       instances needed to support the requested nodes.
-      + **All-or-nothing** scaling:
-
-
-      ParallelCluster scales up the cluster by using an Amazon EC2 launch instance API call that
-       only succeeds if all of the instances needed to support the requested nodes are
-       launched. In this case, it calls the Amazon EC2 launch instance API with the minimum target
-       capacity equal to the total requested capacity.
-
+  ParallelCluster scales up the cluster by using an Amazon EC2 launch instance API call that
+  only succeeds if all of the instances needed to support the requested nodes are
+  launched. In this case, it calls the Amazon EC2 launch instance API with the minimum target
+  capacity equal to the total requested capacity.
   By default, ParallelCluster uses **node-list** scaling with a
   **best-effort** Amazon EC2 launch strategy to launch some, but not
   necessarily all of instances needed to support the requested nodes. It tries to provision as
