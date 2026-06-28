@@ -38,19 +38,18 @@ Configure the Agent for Envoy using these variables:
   Envoy proxy and provides the following APIs for health checks, telemetry data and
   summarizes the operating condition of the proxy.
 
-      + `GET /status` – Queries Envoy stats and returns server
-       information.
-      + `POST /drain_listeners` – Drains all inbound
-       listeners.
-      + `POST /enableLogging?level=<desired_level>` –
-       Change Envoy logging level across all loggers.
-      + `GET /stats/prometheus` – Show Envoy statistics in
-       Prometheus format.
-      + `GET /stats/prometheus?usedonly` – Only show statistics
-       that Envoy has updated.
-
-  For more information about Agent configuration variables, see [Envoy configuration
-  variables](envoy-config.md "envoy-config.md").
+  - `GET /status` – Queries Envoy stats and returns server
+    information.
+  - `POST /drain_listeners` – Drains all inbound
+    listeners.
+  - `POST /enableLogging?level=<desired_level>` –
+    Change Envoy logging level across all loggers.
+  - `GET /stats/prometheus` – Show Envoy statistics in
+    Prometheus format.
+  - `GET /stats/prometheus?usedonly` – Only show statistics
+    that Envoy has updated.
+    For more information about Agent configuration variables, see [Envoy configuration
+    variables](envoy-config.md "envoy-config.md").
 
 The new AWS App Mesh Agent is included in App Mesh-optimized Envoy images starting from
 version `1.21.0.0` and requires no additional resource allocation in customer

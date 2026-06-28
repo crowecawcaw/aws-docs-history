@@ -51,8 +51,8 @@ AWS Management Console
     **Target port** is **required**.
 11. For **Match** configuration, specify:
 
-**\*Match** configuration
-is not available for `tcp`\*
+_**Match** configuration
+is not available for `tcp`_
 
     * If **http/http2** is the selected
      type:
@@ -134,9 +134,11 @@ Create a gRPC route using the following command and input JSON (replace
 the `red` values with your own):
 
 1. ```
-   aws appmesh create-route \
-        --cli-input-json file://create-route-grpc.json
+
    ```
+
+aws appmesh create-route \
+--cli-input-json file://create-route-grpc.json
 
 ```
 2. Contents of **example**
@@ -406,9 +408,9 @@ AWS CLI
 ```
 
 aws appmesh delete-route \
- --mesh-name `meshName` \
- --virtual-router-name `routerName` \
- --route-name `routeName`
+--mesh-name `meshName` \
+--virtual-router-name `routerName` \
+--route-name `routeName`
 
 ```
 2. Example output:

@@ -263,7 +263,7 @@ where to send the logs.
     [Show moreShow less](# "#")
 
 9. Choose **Create virtual gateway** to
-   finish.
+finish.
 
 AWS CLI
 **To create a virtual gateway using the
@@ -273,11 +273,13 @@ Create a virtual gateway using the following command and input JSON
 (replace the `red` values with your own):
 
 1. ```
-   aws appmesh create-virtual-gateway \
-   --mesh-name `meshName` \
-   --virtual-gateway-name `virtualGatewayName` \
-   --cli-input-json file://`create-virtual-gateway.json`
+
    ```
+
+aws appmesh create-virtual-gateway \
+--mesh-name `meshName` \
+--virtual-gateway-name `virtualGatewayName` \
+--cli-input-json file://`create-virtual-gateway.json`
 
 ```
 2. Contents of **example**
@@ -404,8 +406,8 @@ AWS CLI
 ```
 
 aws appmesh delete-virtual-gateway \
- --mesh-name `meshName` \
- --virtual-gateway-name `virtualGatewayName`
+--mesh-name `meshName` \
+--virtual-gateway-name `virtualGatewayName`
 
 ```
 2. Example output:

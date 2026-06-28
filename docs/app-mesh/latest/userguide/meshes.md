@@ -131,10 +131,9 @@ of which preference is set on the mesh.
     	 and `IPv6` addresses.
     [Show moreShow less](# "#")
 
-6. Choose **Create mesh** to finish.
-7. (Optional) Share the mesh with other accounts. A shared mesh
-   allows resources created by different accounts to communicate with
-   each other in the same mesh. For more information, see [Working with shared meshes](sharing.md "sharing.md").
+6. Choose **Create mesh** to finish. 7. (Optional) Share the mesh with other accounts. A shared mesh
+allows resources created by different accounts to communicate with
+each other in the same mesh. For more information, see [Working with shared meshes](sharing.md "sharing.md").
 
 AWS CLI
 **To create a mesh using the AWS CLI.**
@@ -143,8 +142,10 @@ Create a service mesh using the following command (replace the
 `red` values with your own):
 
 1. ```
-   aws appmesh create-mesh --mesh-name `meshName`
+
    ```
+
+aws appmesh create-mesh --mesh-name `meshName`
 
 ```
 2. Example output:
@@ -207,7 +208,7 @@ AWS CLI
 ```
 
 aws appmesh delete-mesh \
- --mesh-name `meshName`
+--mesh-name `meshName`
 
 ```
 2. Example output:

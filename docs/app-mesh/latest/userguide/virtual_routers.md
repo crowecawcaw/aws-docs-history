@@ -51,9 +51,11 @@ Create a virtual router using the following command and input JSON
 (replace the `red` values with your own):
 
 1. ```
-   aws appmesh create-virtual-router \
-        --cli-input-json file://create-virtual-router.json
+
    ```
+
+aws appmesh create-virtual-router \
+--cli-input-json file://create-virtual-router.json
 
 ````
 2. Contents of **example**

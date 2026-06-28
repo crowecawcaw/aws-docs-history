@@ -199,10 +199,10 @@ Amazon Linux console and AWS CLI
 
 ###### To identify a shared mesh using the AWS CLI
 
-Use the `aws appmesh list `resource``command,
- such as`aws appmesh list-meshes`. The command returns the meshes that you own and the
- meshes that are shared with you. The `meshOwner`property shows the AWS
- account ID of the`meshOwner`and the`resourceOwner` property
+Use the `aws appmesh list `resource`` command,
+such as `aws appmesh list-meshes`. The command returns the meshes that you own and the
+meshes that are shared with you. The `meshOwner` property shows the AWS
+account ID of the `meshOwner` and the `resourceOwner` property
 shows the AWS account ID of the resource owner. Any command run against any mesh
 resource returns these properties.
 

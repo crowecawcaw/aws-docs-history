@@ -25,20 +25,19 @@ _in_ the cloud:
   is determined by the AWS service that you use. You are also responsible for other
   factors including:
 
-      + The sensitivity of your data, your company’s requirements, and applicable
-       laws and regulations.
-      + The security configuration of the App Mesh data plane, including the
-       configuration of the security groups that allow traffic to pass between
-       services within your VPC.
-      + The configuration of your compute resources associated with App Mesh.
-      + The IAM policies associated with your compute resources and what
-       configuration they are allowed to retrieve from the App Mesh control
-       plane.
-
-  This documentation helps you understand how to apply the shared responsibility model when
-  using App Mesh. The following topics show you how to configure App Mesh to meet
-  your security and compliance objectives. You also learn how to use other AWS services that
-  help you to monitor and secure your App Mesh resources.
+  - The sensitivity of your data, your company’s requirements, and applicable
+    laws and regulations.
+  - The security configuration of the App Mesh data plane, including the
+    configuration of the security groups that allow traffic to pass between
+    services within your VPC.
+  - The configuration of your compute resources associated with App Mesh.
+  - The IAM policies associated with your compute resources and what
+    configuration they are allowed to retrieve from the App Mesh control
+    plane.
+    This documentation helps you understand how to apply the shared responsibility model when
+    using App Mesh. The following topics show you how to configure App Mesh to meet
+    your security and compliance objectives. You also learn how to use other AWS services that
+    help you to monitor and secure your App Mesh resources.
 
 **App Mesh security tenet**
 

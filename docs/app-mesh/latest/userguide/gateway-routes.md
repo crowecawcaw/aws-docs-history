@@ -14,30 +14,30 @@ AWS Management Console
 
 ###### To create a gateway route using the AWS Management Console
 
-1.  Open the App Mesh console at [https://console.aws.amazon.com/appmesh/](https://console.aws.amazon.com/appmesh/ "https://console.aws.amazon.com/appmesh/").
-2.  Choose the mesh in which you want to create the gateway route. All
-    of the meshes that you own and that have been [shared](sharing.md "sharing.md") with you are listed.
-3.  Choose **Virtual gateways** in the left
-    navigation.
-4.  Choose the virtual gateway with which you want to associate a new
-    gateway route. If none are listed, then you need to [create a virtual gateway](virtual_gateways.md#create-virtual-gateway "virtual_gateways.md#create-virtual-gateway")
-    first. You can only create a gateway route for a virtual gateway of
-    which your account is listed as the **Resource
-    owner**.
-5.  In the **Gateway routes** table, choose
-    **Create gateway route**.
-6.  For **Gateway route name**, specify the name to
-    use for your gateway route.
-7.  For **Gateway route type** choose either
-    **http**, **http2**, or **grpc**.
-8.  Select an existing **Virtual service name**. If
-    none are listed, then you need to create a [virtual service](virtual_services.md#create-virtual-service "virtual_services.md#create-virtual-service")
-    first.
-9.  Choose the port that corresponds to the target for
-    **Virtual service provider port**. Virtual
-    service provider port is **required**
-    when the provider (router or node) of the selected virtual service
-    has multiple listeners.
+1. Open the App Mesh console at [https://console.aws.amazon.com/appmesh/](https://console.aws.amazon.com/appmesh/ "https://console.aws.amazon.com/appmesh/").
+2. Choose the mesh in which you want to create the gateway route. All
+   of the meshes that you own and that have been [shared](sharing.md "sharing.md") with you are listed.
+3. Choose **Virtual gateways** in the left
+   navigation.
+4. Choose the virtual gateway with which you want to associate a new
+   gateway route. If none are listed, then you need to [create a virtual gateway](virtual_gateways.md#create-virtual-gateway "virtual_gateways.md#create-virtual-gateway")
+   first. You can only create a gateway route for a virtual gateway of
+   which your account is listed as the **Resource
+   owner**.
+5. In the **Gateway routes** table, choose
+   **Create gateway route**.
+6. For **Gateway route name**, specify the name to
+   use for your gateway route.
+7. For **Gateway route type** choose either
+   **http**, **http2**, or **grpc**.
+8. Select an existing **Virtual service name**. If
+   none are listed, then you need to create a [virtual service](virtual_services.md#create-virtual-service "virtual_services.md#create-virtual-service")
+   first.
+9. Choose the port that corresponds to the target for
+   **Virtual service provider port**. Virtual
+   service provider port is **required**
+   when the provider (router or node) of the selected virtual service
+   has multiple listeners.
 10. (Optional) For **Priority**, specify the priority
     for this gateway route.
 11. For **Match** configuration, specify:
@@ -71,25 +71,25 @@ AWS Management Console
 
         ###### Important
 
-            * You can't specify either
-             `/aws-appmesh*` or
-             `/aws-app-mesh*` for **Prefix
-             match**. These prefixes are reserved for
-             future App Mesh internal use.
-            * If multiple gateway routes are defined, then
-             a request is matched to the route with the longest
-             prefix. For example, if two gateway routes
-             existed, with one having a prefix of
-             `/chapter` and one having a prefix of
-             `/`, then a request for
-             `www.example.com/chapter/` would be
-             matched to the gateway route with the
-             `/chapter` prefix.
+              * You can't specify either
+               `/aws-appmesh*` or
+               `/aws-app-mesh*` for **Prefix
+               match**. These prefixes are reserved for
+               future App Mesh internal use.
+              * If multiple gateway routes are defined, then
+               a request is matched to the route with the longest
+               prefix. For example, if two gateway routes
+               existed, with one having a prefix of
+               `/chapter` and one having a prefix of
+               `/`, then a request for
+               `www.example.com/chapter/` would be
+               matched to the gateway route with the
+               `/chapter` prefix.
 
         ###### Note
 
         If you enable **Path**/**Prefix** based matching, App Mesh enables
-        path normalization ([normalize_path](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-normalize-path "https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-normalize-path") and [merge_slashes](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-merge-slashes "https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-merge-slashes")) to minimize the
+        path normalization ([normalize\_path](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-normalize-path "https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-normalize-path") and [merge\_slashes](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-merge-slashes "https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto#envoy-v3-api-field-extensions-filters-network-http-connection-manager-v3-httpconnectionmanager-merge-slashes")) to minimize the
         probability of path confusion
         vulnerabilities.
 
@@ -195,12 +195,14 @@ Create a gateway route using the following command and input JSON (replace
 the `red` values with your own):
 
 1. ```
-   aws appmesh create-virtual-gateway \
-   --mesh-name `meshName` \
-   --virtual-gateway-name `virtualGatewayName` \
-   --gateway-route-name `gatewayRouteName` \
-   --cli-input-json file://`create-gateway-route.json`
+
    ```
+
+aws appmesh create-virtual-gateway \
+--mesh-name `meshName` \
+--virtual-gateway-name `virtualGatewayName` \
+--gateway-route-name `gatewayRouteName` \
+--cli-input-json file://`create-gateway-route.json`
 
 ```
 2. Contents of **example**
@@ -310,9 +312,9 @@ AWS CLI
 ```
 
 aws appmesh delete-gateway-route \
- --mesh-name `meshName` \
- --virtual-gateway-name `virtualGatewayName` \
- --gateway-route-name `gatewayRouteName`
+--mesh-name `meshName` \
+--virtual-gateway-name `virtualGatewayName` \
+--gateway-route-name `gatewayRouteName`
 
 ```
 2. Example output:

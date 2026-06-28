@@ -72,9 +72,11 @@ command and an input JSON file (replace the `red`
 values with your own):
 
 1. ```
-   aws appmesh create-virtual-service \
-   --cli-input-json file://create-virtual-service-virtual-node.json
+
    ```
+
+aws appmesh create-virtual-service \
+--cli-input-json file://create-virtual-service-virtual-node.json
 
 ```
 2. Contents of **example**
@@ -174,8 +176,8 @@ AWS CLI
 ```
 
 aws appmesh delete-virtual-service \
- --mesh-name `meshName` \
- --virtual-service-name `serviceA.svc.cluster.local`
+--mesh-name `meshName` \
+--virtual-service-name `serviceA.svc.cluster.local`
 
 ```
 2. Example output:

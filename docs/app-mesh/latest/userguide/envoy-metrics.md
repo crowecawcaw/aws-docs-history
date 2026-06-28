@@ -103,16 +103,16 @@ mesh.
 
 - Clusters used to reach other AWS services. This type allows your mesh to
   reach most AWS services by default: `cds_egress_`<mesh
-  name>`_amazonaws`.
+   name>`_amazonaws`.
 - Cluster used to perform routing for virtual gateways. This can generally be
   safely ignored: .
 
   - For single listeners: `cds_ingress_`<mesh
-    name>`_`<virtual gateway
-    name>`_self_redirect_`<protocol>`_`<port>``
+       name>`_`<virtual gateway
+       name>`_self_redirect_`<protocol>`_`<port>``
   - For multiple listeners: `cds_ingress_`<mesh
-    name>`_`<virtual gateway
-    name>`_self_redirect_`<ingress*listener_port>`*`<protocol>`\_`<port>``
+       name>`_`<virtual gateway
+       name>`_self_redirect_`<ingress_listener_port>`_`<protocol>`_`<port>``
 
 - The cluster who’s endpoint you can define, such as TLS, when you retrieve
   secrets using Envoy’s Secret Discovery Service:

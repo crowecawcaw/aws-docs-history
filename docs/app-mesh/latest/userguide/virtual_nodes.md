@@ -14,8 +14,8 @@ virtual node. Set this value as the `APPMESH_RESOURCE_ARN` environment variable 
 group's Envoy proxy container in your Amazon ECS task definition or Kubernetes pod spec. For example, the value
 could be
 `arn:aws:appmesh:`us-west-2`:`111122223333`:mesh/`myMesh`/virtualNode/`myVirtualNode``.
- This is then mapped to the `node.id`and`node.cluster`Envoy parameters. You must be
- using`1.15.0` or later of the Envoy image when setting this variable. For more information
+This is then mapped to the `node.id` and `node.cluster` Envoy parameters. You must be
+using `1.15.0` or later of the Envoy image when setting this variable. For more information
 about App Mesh Envoy variables, see [Envoy image](envoy.md "envoy.md").
 
 ###### Note
@@ -499,9 +499,11 @@ an input JSON file (replace the `red` values with your
 own):
 
 1. ```
-   aws appmesh create-virtual-node \
-   --cli-input-json file://`create-virtual-node-dns`.json
+
    ```
+
+aws appmesh create-virtual-node \
+--cli-input-json file://`create-virtual-node-dns`.json
 
 ```
 2. Contents of **example**
@@ -616,8 +618,8 @@ AWS CLI
 ```
 
 aws appmesh delete-virtual-node \
- --mesh-name `meshName` \
- --virtual-node-name `nodeName`
+--mesh-name `meshName` \
+--virtual-node-name `nodeName`
 
 ```
 2. Example output:

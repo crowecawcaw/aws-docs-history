@@ -112,19 +112,19 @@ infrastructure doesn't support `IPv6`, we recommended you specify an IP setting 
 with your infrastructure rather than relying on the default `IPv6_PREFERRED` behavior. The
 default `IPv6_PREFERRED` behavior can degrade service performance.
 
-- **IPv6_PREFERRED** – This is the default setting. Envoy
+- **IPv6\_PREFERRED** – This is the default setting. Envoy
   performs a DNS lookup for IPv6 addresses first and falls back to `IPv4` if no
   `IPv6` addresses are found. This is beneficial if your infrastructure primarily
   supports `IPv6` but needs `IPv4` compatibility.
-- **IPv4_PREFERRED** – Envoy first looks up
+- **IPv4\_PREFERRED** – Envoy first looks up
   `IPv4` addresses and falls back to `IPv6` if no `IPv4`
   addresses are available. Use this setting if your infrastructure primarily supports
   `IPv4` but has some `IPv6` compatibility.
-- **IPv6_ONLY** – Choose this option if your services
+- **IPv6\_ONLY** – Choose this option if your services
   exclusively support `IPv6` traffic. Envoy only performs DNS lookups for
   `IPv6` addresses, ensuring all traffic is routed through
   `IPv6`.
-- **IPv4_ONLY** – Choose this setting if your services
+- **IPv4\_ONLY** – Choose this setting if your services
   exclusively support `IPv4` traffic. Envoy only performs DNS lookups for
   `IPv4` addresses, ensuring all traffic is routed through
   `IPv4`.

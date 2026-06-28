@@ -304,7 +304,7 @@ Support](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiums
 
 ###### Symptoms
 
-When HTTP_PROXY/HTTPS_PROXY is set as an environment variable at the:
+When HTTP\_PROXY/HTTPS\_PROXY is set as an environment variable at the:
 
 - App container in the task definition with App Mesh enabled, requests being sent to the
   namespace of the App Mesh services will get `HTTP 500` error responses from the
