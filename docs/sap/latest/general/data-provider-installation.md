@@ -123,11 +123,11 @@ Before beginning the manual installation you must install the items listed in th
 Download the following file for your environment. By default the files will download in the us-east-1 region, change the default region before downloading if you want the files to download in a different region.
 
 - **Red Hat**
-  [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm")
+  [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86\_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm")
 - **SUSE**
-  [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm")
+  [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86\_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm")
 - **Oracle Linux**
-  [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm")
+  [https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86\_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm")
 - **Windows** https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/win/aws-data-provider-installer-win-x64-Standalone.exe
 - **GPG Key**
   [GPG Key: https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS")
@@ -141,9 +141,9 @@ On Linux the data provider is delivered as an RPM package.
 To install the AWS Data Provider for SAP on SUSE Linux Enterprise Server (SLES) download the following files:
 
 - **Standard:**
-  [aws-sap-dataprovider-sles.x86_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm") and [GPG Key](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS")
+  [aws-sap-dataprovider-sles.x86\_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm") and [GPG Key](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/RPM-GPG-KEY-AWS")
 - **China:**
-  [aws-sap-dataprovider-sles.x86_64.rpm](https://aws-sap-dataprovider-cn-north-1.s3.cn-north-1.amazonaws.cn/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm "https://aws-sap-dataprovider-cn-north-1.s3.cn-north-1.amazonaws.cn/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm") and [GPG Key](https://aws-sap-dataprovider-cn-north-1.s3.cn-north-1.amazonaws.cn/v4/installers/RPM-GPG-KEY-AWS "https://aws-sap-dataprovider-cn-north-1.s3.cn-north-1.amazonaws.cn/v4/installers/RPM-GPG-KEY-AWS")
+  [aws-sap-dataprovider-sles.x86\_64.rpm](https://aws-sap-dataprovider-cn-north-1.s3.cn-north-1.amazonaws.cn/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm "https://aws-sap-dataprovider-cn-north-1.s3.cn-north-1.amazonaws.cn/v4/installers/linux/SUSE/aws-sap-dataprovider-sles-standalone.x86_64.rpm") and [GPG Key](https://aws-sap-dataprovider-cn-north-1.s3.cn-north-1.amazonaws.cn/v4/installers/RPM-GPG-KEY-AWS "https://aws-sap-dataprovider-cn-north-1.s3.cn-north-1.amazonaws.cn/v4/installers/RPM-GPG-KEY-AWS")
 
 The files are identical but AWS offers these two location options due to possible connectivity issues when working from China.
 
@@ -238,12 +238,12 @@ For Red Hat and Oracle Enterprise Linux, the installation steps are the same as 
 - **Red Hat**
 
 **Default:**
-[aws-sap-dataprovider-rhel.x86_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm")
+[aws-sap-dataprovider-rhel.x86\_64.rpm](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/RHEL/aws-sap-dataprovider-rhel-standalone.x86_64.rpm")
 
 - **Oracle Enterprise Linux**
 
 **Default:**
-[aws-sap-dataprovider-oel.x86_64.rpm﻿](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm")
+[aws-sap-dataprovider-oel.x86\_64.rpm﻿](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/linux/ORACLE/aws-sap-dataprovider-oel-standalone.x86_64.rpm")
 
 To install the data provider run the following commands:
 

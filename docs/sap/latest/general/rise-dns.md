@@ -34,25 +34,24 @@ The reference architecture below outlines the components needed for this approac
 
 ![DNS Forwarding in RISE](images/rise-dns-forwarding.png)
 
-1.  Network Connectivity: refer to Common Infrastructure Requirements
-2.  Domain Delegation: refer to Common Infrastructure Requirements
-3.  Create Route 53 resolver endpoints (Inbound and Outbound) in your central Networking VPC to handle DNS queries between your AWS accounts and RISE with SAP account. Please follow [the best practices for operating Resolver endpoints](../../../Route53/latest/DeveloperGuide/best-practices-resolver.md "../../../Route53/latest/DeveloperGuide/best-practices-resolver.md"). We recommend deploying multiple endpoints across all availability zones and monitoring their utilization in CloudWatch to allow for proactive scaling. Provide SAP with details of your on-premises DNS server and the IP addresses of your Route 53 Resolver endpoints (needed for forwarding and firewall configuration).
-4.  Configure the Route 53 Resolver rules in your workload VPCs to forward DNS queries as follows:
+1. Network Connectivity: refer to Common Infrastructure Requirements
+2. Domain Delegation: refer to Common Infrastructure Requirements
+3. Create Route 53 resolver endpoints (Inbound and Outbound) in your central Networking VPC to handle DNS queries between your AWS accounts and RISE with SAP account. Please follow [the best practices for operating Resolver endpoints](../../../Route53/latest/DeveloperGuide/best-practices-resolver.md "../../../Route53/latest/DeveloperGuide/best-practices-resolver.md"). We recommend deploying multiple endpoints across all availability zones and monitoring their utilization in CloudWatch to allow for proactive scaling. Provide SAP with details of your on-premises DNS server and the IP addresses of your Route 53 Resolver endpoints (needed for forwarding and firewall configuration).
+4. Configure the Route 53 Resolver rules in your workload VPCs to forward DNS queries as follows:
 
-    1. SAP-bound DNS queries: Forward to Outbound endpoint to resolve queries through SAP DNS servers
-    2. Corporate data center-bound DNS queries: Forward to Outbound endpoint to resolve queries through on-premises DNS servers
+   1. SAP-bound DNS queries: Forward to Outbound endpoint to resolve queries through SAP DNS servers
+   2. Corporate data center-bound DNS queries: Forward to Outbound endpoint to resolve queries through on-premises DNS servers
 
-5.  Configure your on-premises DNS server to forward DNS queries as follows:
+5. Configure your on-premises DNS server to forward DNS queries as follows:
 
-    1. SAP-bound queries: Forward to the SAP DNS server (alternatively, zone transfer of sap.<customer>.<domain> from SAP DNS server)
-    2. AWS-bound queries: Forward to the Inbound endpoint
+   1. SAP-bound queries: Forward to the SAP DNS server (alternatively, zone transfer of sap.<customer>.<domain> from SAP DNS server)
+   2. AWS-bound queries: Forward to the Inbound endpoint
 
-6.  SAP DNS servers are configured as follows:
+6. SAP DNS servers are configured as follows:
 
-        1. Corporate data center-bound DNS queries: Forward to on-premises DNS server
-        2. AWS-bound DNS queries: Forward to the Inbound endpoint
-
-    Ensure your Workload VPCs have all relevant resolver rules associated with them for DNS forwarding through your central Networking VPC. We recommend using Route 53 Profiles to manage these configurations, as they enable consistent DNS settings across multiple VPCs and AWS accounts. This approach simplifies DNS management by allowing you to define and apply standardized DNS configurations throughout your AWS infrastructure.
+   1. Corporate data center-bound DNS queries: Forward to on-premises DNS server
+   2. AWS-bound DNS queries: Forward to the Inbound endpoint
+      Ensure your Workload VPCs have all relevant resolver rules associated with them for DNS forwarding through your central Networking VPC. We recommend using Route 53 Profiles to manage these configurations, as they enable consistent DNS settings across multiple VPCs and AWS accounts. This approach simplifies DNS management by allowing you to define and apply standardized DNS configurations throughout your AWS infrastructure.
 
 Please note that for DNS resolution in hybrid environments, DNS delegation can be an alternative approach to conditional forwarding. While conditional forwarding is generally recommended for RISE with SAP environments, DNS delegation might be beneficial in specific scenarios, particularly in environments with many distributed DNS resolvers without a centralized upstream resolver. However, for scenarios involving SAP DNS servers, additional technical considerations apply as outlined in the DNS Zone Delegation section.
 

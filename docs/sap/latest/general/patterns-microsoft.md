@@ -25,7 +25,7 @@ The architecture patterns are divided into two categories.
 The following table provides a comparison of all the architecture patterns discussed further.
 
 |                     |                                 |                              |                            |
-| ------------------- | ------------------------------- | ---------------------------- | -------------------------- | -------------- | ---------------- | ------------------------- | ------------ |
+| ------------------- | ------------------------------- | ---------------------------- | -------------------------- |
 | **Patterns**        | **Business requirements**       | **Solution characteristics** | **Implementation details** |
 | **Resilience type** | **Recovery point objective**    | **Recovery time objective**  | **Cost**                   | **Complexity** | **SQL AlwaysOn** | **Amazon S3 replication** |
 | Pattern 1           | Single Region disaster recovery | Near zero\*                  | Low                        | Medium         | Medium           | 2-tier                    | N/A          |

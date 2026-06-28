@@ -25,12 +25,15 @@ The following two metrics indicate that SAPOSCOL is collaborating successfully w
 
 The AWS-specific metrics start with the following strings:
 
--     * Virtualization\_Configuration
-      * CPU\_Virtualization\_Virtual\_System
-      * Memory\_Virtualization\_Virtual\_System
-      * System\_Info\_Virtualization\_System
+-
 
-  **AWS-specific metrics**
+    * Virtualization\_Configuration
+
+    * CPU\_Virtualization\_Virtual\_System
+    * Memory\_Virtualization\_Virtual\_System
+    * System\_Info\_Virtualization\_System
+
+**AWS-specific metrics**
 
 ![Data Provider metrics](images/data-provider-aws-metrics-saposcol.png)
 
