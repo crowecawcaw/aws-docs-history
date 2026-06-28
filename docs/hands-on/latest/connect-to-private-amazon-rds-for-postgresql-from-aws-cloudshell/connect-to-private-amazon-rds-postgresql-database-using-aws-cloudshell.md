@@ -58,10 +58,7 @@ The commands performed the following actions:
     * Deployed a NAT gateway and default routes for the NAT gateway in the private
      subnets.
 
-4. Open [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") and wait for the Status column of the **custom-vpc** stack to show CREATE_COMPLETE.
-5. Open [Amazon VPC](https://console.aws.amazon.com/vpcconsole/ "https://console.aws.amazon.com/vpcconsole/").
-6. Select **Your VPCs** from the left menu.
-7. Select **CustomVPC**, and then select the **Resource map tab** to review the layout of the subnets and route tables.
+4. Open [AWS CloudFormation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") and wait for the Status column of the **custom-vpc** stack to show CREATE\_COMPLETE. 5. Open [Amazon VPC](https://console.aws.amazon.com/vpcconsole/ "https://console.aws.amazon.com/vpcconsole/"). 6. Select **Your VPCs** from the left menu. 7. Select **CustomVPC**, and then select the **Resource map tab** to review the layout of the subnets and route tables.
 
 ![Resource map showing VPC with subnets in two availability zones connected to route tables and network connections.](images/resource-map-tab.png)
 In this task, you will create an Amazon RDS PostgreSQL database hosted in private subnets
@@ -108,8 +105,7 @@ connectivity.
 
     1. For example, **cloudshell-vpc-demo**.
 
-3. Select **CustomVPC**, any **Private subnet,** and the **default security group**.
-4. Choose **Create**.
+3. Select **CustomVPC**, any **Private subnet,** and the **default security group**. 4. Choose **Create**.
 
 ![Create a VPC environment form with fields for name, VPC, subnet, and security group.](images/custom-vpc.png)
 
