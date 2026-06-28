@@ -25,7 +25,7 @@ You can use Markdown syntax elements to format your messages.
 | ------------- | ----------------------------------------------------------------------------------------------------------- |
 | Bold          | Add an asterisk before and after the word.<br>\*bold\*                                                      |
 | Italic        | Add one underscore before and after the word.<br>\_italic\_                                                 |
-| Strikethrough | Add one tildes before and after the word.<br>~strikethrough~                                                |
+| Strikethrough | Add one tildes before and after the word.<br>~~strikethrough~~                                              |
 | Code          | Add a back-quote before and after your code.<br>`your code`                                                 |
 | Blockquote    | Add a bracket in front of your text.<br>> your text                                                         |
 | Code block    | Add three back-quotes before and after your block of code.<br>`this is a block of code`                     |

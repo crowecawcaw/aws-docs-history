@@ -6,6 +6,14 @@ Enterprise, which is the on-premises version of Wickr, see [Enterprise Administr
 To help you keep track of the ongoing updates and improvements to Wickr, we publish
 release notices that describe recent changes.
 
+## June 2026
+
+- Enhancements
+
+  - **Session Timeout support** - The client now enforces admin-configured inactivity timeouts.
+  - **Consent Banner support** - Users see and must acknowledge admin-configured consent banners on login.
+  - Performance improvements and bug fixes.
+
 ## April 2026
 
 - Enhancements
