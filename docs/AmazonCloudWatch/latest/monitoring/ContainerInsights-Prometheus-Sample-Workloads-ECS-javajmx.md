@@ -1,11 +1,11 @@
 # Sample Java/JMX workload for Amazon ECS clusters
 
 JMX Exporter is an official Prometheus exporter that can scrape and expose JMX
-mBeans as Prometheus metrics. For more information, see [prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
+mBeans as Prometheus metrics. For more information, see [prometheus/jmx\_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
 
 The CloudWatch agent with Prometheus support scrapes the Java/JMX Prometheus metrics
 based on the service discovery configuration in the Amazon ECS cluster. You can configure
-the JMX Exporter to expose the metrics on a different port or metrics_path. If you do
+the JMX Exporter to expose the metrics on a different port or metrics\_path. If you do
 change the port or path, update the default `ecs_service_discovery` section
 in the CloudWatch agent configuration.
 
@@ -15,22 +15,21 @@ Insights, see [Amazon ECS](deploy-container-insights-ECS.md "deploy-container-in
 
 ###### To install the Java/JMX sample workload for Amazon ECS clusters
 
-1.  Follow the steps in these sections to create your Docker images.
+1. Follow the steps in these sections to create your Docker images.
 
-    - [Example: Java Jar Application Docker image with Prometheus metrics](ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-jar "ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-jar")
-    - [Example: Apache Tomcat Docker image with Prometheus metrics](ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-tomcat "ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-tomcat")
+   - [Example: Java Jar Application Docker image with Prometheus metrics](ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-jar "ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-jar")
+   - [Example: Apache Tomcat Docker image with Prometheus metrics](ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-tomcat "ContainerInsights-Prometheus-Sample-Workloads-javajmx.md#ContainerInsights-Prometheus-Sample-Workloads-javajmx-tomcat")
 
-2.  Specify the following two docker labels in the Amazon ECS task definition file. You
-    can then run the task definition as an Amazon ECS service or Amazon ECS task in the
-    cluster.
+2. Specify the following two Docker labels in the Amazon ECS task definition file. You
+   can then run the task definition as an Amazon ECS service or Amazon ECS task in the
+   cluster.
 
-        * Set `ECS_PROMETHEUS_EXPORTER_PORT` to point to the
-         containerPort where the Prometheus metrics are exposed.
-        * Set `Java_EMF_Metrics` to `true`. The CloudWatch agent
-         uses this flag to generated the embedded metric format in the log
-         event.
-
-    The following is an example:
+   - Set `ECS_PROMETHEUS_EXPORTER_PORT` to point to the
+     containerPort where the Prometheus metrics are exposed.
+   - Set `Java_EMF_Metrics` to `true`. The CloudWatch agent
+     uses this flag to generated the embedded metric format in the log
+     event.
+     The following is an example:
 
 ```
 {
@@ -69,7 +68,7 @@ these default settings, see line 65 of the [CloudWatch agent YAML configuration 
 specified container port for Prometheus scraping.
 
 The default setting of the CloudWatch agent also has the `metric_declaration`
-setting for Java/JMX at line 112 of the same file. All docker labels of the target
+setting for Java/JMX at line 112 of the same file. All Docker labels of the target
 containers will be added as additional labels in the Prometheus metrics and sent to
-CloudWatch Logs. For the Java/JMX containers with docker label
-`Java_EMF_Metrics=“true”`, the embedded metric format will be generated.
+CloudWatch Logs. For the Java/JMX containers with Docker label
+`Java_EMF_Metrics="true"`, the embedded metric format will be generated.

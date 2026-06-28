@@ -5,7 +5,7 @@ the configuration of an alarm gets updated.
 
 When an alarm evaluates, it might change from one state to another, such as ALARM or OK.
 For Metrics Insights alarms that monitor multiple time series, each time series (contributor)
-can only be in ALARM or OK state, never in INSUFFICIENT_DATA state. This is because a time
+can only be in ALARM or OK state, never in INSUFFICIENT\_DATA state. This is because a time
 series only exists when data is present.
 
 Additionally, CloudWatch sends events to Amazon EventBridge whenever alarms change state, and when alarms

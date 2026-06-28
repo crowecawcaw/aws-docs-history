@@ -63,18 +63,18 @@ of a metric search** and then do the following:
      values were found to populate the input box.
 
 10. (Optional) For more settings, choose **Secondary settings** and do one or
-    more of the following:
+more of the following:
 
-    - To customize the name of your variable, enter the name in
-      **Custom variable name**.
-    - To customize the label for the variable input field, enter the label in **Input
-      label**.
-    - To set the default value for this variable when the dashboard
-      is first opened, enter the default in
-      **Default value**.
+    * To customize the name of your variable, enter the name in
+     **Custom variable name**.
+    * To customize the label for the variable input field, enter the label in **Input
+     label**.
+    * To set the default value for this variable when the dashboard
+     is first opened, enter the default in
+     **Default value**.
 
 11. Choose
-    **Add variable**.
+**Add variable**.
 
 A **FunctionName** dropdown selection box appears near the
 top of the dashboard. You can select a Lambda function in this box and all

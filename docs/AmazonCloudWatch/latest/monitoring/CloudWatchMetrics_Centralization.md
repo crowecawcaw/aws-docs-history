@@ -91,64 +91,62 @@ data from source accounts to your destination account.
 
 ###### To create a centralization rule
 
-1.  Navigate to the CloudWatch console in the Management or Delegated Administrator
-    account of the organization.
-2.  Choose **Settings**.
-3.  Navigate to the **Organization** tab.
-4.  Choose **Configure rule**.
-5.  Specify source details by setting the following fields, then choose
-    **Next**:
+1. Navigate to the CloudWatch console in the Management or Delegated Administrator
+   account of the organization.
+2. Choose **Settings**.
+3. Navigate to the **Organization** tab.
+4. Choose **Configure rule**.
+5. Specify source details by setting the following fields, then choose
+   **Next**:
 
-    1.  **Centralization rule name**: Enter a
-        unique name for the centralization rule.
-    2.  **Source accounts**: Define source
-        selection criteria to pick accounts from which metric data will be
-        centralized. The selection criteria can include:
+   1. **Centralization rule name**: Enter a
+      unique name for the centralization rule.
+   2. **Source accounts**: Define source
+      selection criteria to pick accounts from which metric data will be
+      centralized. The selection criteria can include:
 
-            * A list of member accounts in the organization
-            * A list of organization units in the organization
-            * The entire organization
-
+      - A list of member accounts in the organization
+      - A list of organization units in the organization
+      - The entire organization
         You can provide the selection criteria in two modes:
 
-            * **Builder**: A click-based
-             experience to generate the source selection criteria
-            * **Editor**: A free-form text
-             box to provide the source selection criteria
-
+      - **Builder**: A click-based
+        experience to generate the source selection criteria
+      - **Editor**: A free-form text
+        box to provide the source selection criteria
         Supported syntax for source selection criteria:
 
-            * **Supported
-             Keys:**`OrganizationId` |
-             `OrganizationUnitId` |
-             `AccountId` | `*`
-            * **Supported
-             Operators:**`=` | `IN` |
-             `OR`
+      - **Supported
+        Keys:**`OrganizationId` |
+        `OrganizationUnitId` |
+        `AccountId` | `*`
+      - **Supported
+        Operators:**`=` | `IN` |
+        `OR`
 
-    3.  **Source regions**: Select a list of
-        Regions to look for the metric data to centralize.
+   3. **Source regions**: Select a list of
+      Regions to look for the metric data to centralize.
 
-6.  Specify destination details by setting the following fields, then choose
-    **Next**:
+6. Specify destination details by setting the following fields, then choose
+   **Next**:
 
-    1. **Metrics**: Ensure Metrics is
-       selected (it is enabled by default). If you only want to centralize
-       metrics, you can deselect Logs.
-    2. **Destination region**: Select a
-       primary Region that stores a copy of the centralized metric
-       data.
+   1. **Metrics**: Ensure Metrics is
+      selected (it is enabled by default). If you only want to centralize
+      metrics, you can deselect Logs.
+   2. **Destination region**: Select a
+      primary Region that stores a copy of the centralized metric
+      data.
 
-7.  Specify telemetry data by setting the following fields, then choose
-    **Next**:
+7. Specify telemetry data by setting the following fields, then choose
+   **Next**:
 
-    1. **Metrics**: All metrics from the
-       source accounts are centralized to the destination account. This
-       includes custom metrics, Embedded Metric Format (EMF) metrics, and
-       OpenTelemetry (OTLP) metrics.
-    2. **Backup region**: Optionally select a
-       Region that stores a second copy of the centralized metric data. Logs
-       and metrics can have separate backup region settings.###### Note
+   1. **Metrics**: All metrics from the
+      source accounts are centralized to the destination account. This
+      includes custom metrics, Embedded Metric Format (EMF) metrics, and
+      OpenTelemetry (OTLP) metrics.
+   2. **Backup region**: Optionally select a
+      Region that stores a second copy of the centralized metric data. Logs
+      and metrics can have separate backup region settings.###### Note
 
 Currently, all metrics from source accounts are centralized. Selective
 metric filtering is not supported at this time. 8. Review the centralization rule, optionally make any last-minute edits, and
@@ -204,24 +202,24 @@ Resource-based automatic dashboards (such as EC2 and S3) have partial support.
 These dashboards may show incomplete data for centralized metrics because they depend
 on resource metadata that is not centralized from source accounts.
 
-| Fully supported features       | Feature                                                      | Description |
-| ------------------------------ | ------------------------------------------------------------ | ----------- |
-| GetMetricData API              | Query metric data points programmatically                    |
-| GetMetricStatistics API        | Query metric statistics                                      |
-| ListMetrics API                | Discover available centralized metrics                       |
-| Console Metric Browser         | Browse and navigate centralized metrics                      |
-| Metrics Insights (SQL queries) | Query metrics using SQL-like syntax                          |
-| Query Studio                   | Unified query interface for PromQL and metrics               |
-| Search Expressions             | Dynamic metric discovery via SEARCH()                        |
-| Metric Math                    | Arithmetic, comparison, and logical operators on time series |
-| Anomaly Detection              | ML-based anomaly detection models and alarms                 |
-| Metric Alarms                  | Standard threshold-based alarms                              |
-| Composite Alarms               | Boolean logic combining multiple alarm states                |
-| PromQL Alarms                  | Alarms using PromQL expressions                              |
-| Alarm Actions (SNS)            | SNS notifications on alarm state changes                     |
-| CloudWatch Dashboards          | Add centralized metrics to dashboards                        |
-| Metric Streams                 | Stream centralized metrics to Firehose, S3, or partners      |
-| PromQL Querying                | Prometheus-compatible metric queries                         |
+Fully supported features| Feature | Description |
+| --- | --- |
+| GetMetricData API | Query metric data points programmatically |
+| GetMetricStatistics API | Query metric statistics |
+| ListMetrics API | Discover available centralized metrics |
+| Console Metric Browser | Browse and navigate centralized metrics |
+| Metrics Insights (SQL queries) | Query metrics using SQL-like syntax |
+| Query Studio | Unified query interface for PromQL and metrics |
+| Search Expressions | Dynamic metric discovery via SEARCH() |
+| Metric Math | Arithmetic, comparison, and logical operators on time series |
+| Anomaly Detection | ML-based anomaly detection models and alarms |
+| Metric Alarms | Standard threshold-based alarms |
+| Composite Alarms | Boolean logic combining multiple alarm states |
+| PromQL Alarms | Alarms using PromQL expressions |
+| Alarm Actions (SNS) | SNS notifications on alarm state changes |
+| CloudWatch Dashboards | Add centralized metrics to dashboards |
+| Metric Streams | Stream centralized metrics to Firehose, S3, or partners |
+| PromQL Querying | Prometheus-compatible metric queries |
 
 ## Monitoring and troubleshooting centralization rules
 

@@ -60,7 +60,7 @@ visualization. For more information, see [Creating a graph](graph_a_metric.md#cr
    or longer.
 
 7. Choose **Next**.
-8. Under **_Conditions_**, specify the following:
+8. Under _**Conditions**_, specify the following:
 
    1. Choose **Anomaly detection**.
 
@@ -122,7 +122,7 @@ For more information about Systems Manager actions, see [Configuring CloudWatch 
 
 To create an alarm that performs an AWS Systems Manager Incident Manager action, you must have
 certain permissions. For more information, see [Identity-based policy examples for AWS Systems Manager Incident
-Manager](../../../incident-manager/latest/userguide/security_iam_id-based-policy-examples.md "../../../incident-manager/latest/userguide/security_iam_id-based-policy-examples.md"). 12. Choose **Next**. 13. Under **_Name and description_**, enter a name
+Manager](../../../incident-manager/latest/userguide/security_iam_id-based-policy-examples.md "../../../incident-manager/latest/userguide/security_iam_id-based-policy-examples.md"). 12. Choose **Next**. 13. Under _**Name and description**_, enter a name
 and description for your alarm, and choose **Next**. The name must
 contain only UTF-8 characters, and can't contain ASCII control characters. The description
 can include markdown formatting, which is displayed only in the alarm
@@ -132,7 +132,7 @@ links to runbooks or other internal resources.
 ###### Tip
 
 The alarm name must contain only UTF-8 characters, and can't contain ASCII control
-characters 14. Under **_Preview and create_**, confirm that your
+characters 14. Under _**Preview and create**_, confirm that your
 alarm's information and conditions are correct, and choose **Create
 alarm**.
 
@@ -153,7 +153,7 @@ can also specify whether to adjust the model for Daylight Savings Time changes.
    alarm.
 4. Choose **View**, **In metrics**.
 5. In the **Details** column, choose the
-   **ANOMALY_DETECTION_BAND** keyword, and then choose **Edit
+   **ANOMALY\_DETECTION\_BAND** keyword, and then choose **Edit
    anomaly detection model** in the popup.
 
 ![The Graphed Metrics tab with the ANOMALY_DETECTION_BAND popup menu displayed.](images/Anomaly_Detection_Edit.PNG) 6. To exclude a time period from being used to produce the model, choose the calendar
@@ -196,7 +196,7 @@ recreates the model.
 
 4. Choose **Graphed metrics**.
 5. In the **Graphed metrics** tab, in the **Details**
-   column, choose the **ANOMALY_DETECTION_BAND** keyword, and then choose
+   column, choose the **ANOMALY\_DETECTION\_BAND** keyword, and then choose
    **Delete anomaly detection model** in the popup.
 
 ![The Graphed Metrics tab with the ANOMALY_DETECTION_BAND popup menu displayed.](images/Anomaly_Detection_Edit.PNG)

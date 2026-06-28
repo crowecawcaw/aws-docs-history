@@ -361,7 +361,7 @@ The CloudWatch Synthetics Playwright runtime creates CloudWatch logs for every c
 Logs are written in JSON format for convenient querying. Optionally, you can change
 the log format to `TEXT`.
 
-- `Environment variable name` – CW_SYNTHETICS_LOG_FORMAT
+- `Environment variable name` – CW\_SYNTHETICS\_LOG\_FORMAT
 - `Supported values` – JSON, TEXT
 - `Default` – JSON
 
@@ -370,6 +370,6 @@ the log format to `TEXT`.
 Though enabling `Debug` mode increases verbosity, it can be useful for
 troubleshooting.
 
-- `Environment variable name` – CW_SYNTHETICS_LOG_LEVEL
+- `Environment variable name` – CW\_SYNTHETICS\_LOG\_LEVEL
 - `Supported values` – TRACE, DEBUG, INFO, WARN, ERROR, FATAL
 - `Default` – INFO

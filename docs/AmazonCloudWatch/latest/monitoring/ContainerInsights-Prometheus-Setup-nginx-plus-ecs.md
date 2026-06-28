@@ -43,7 +43,7 @@ docker build -t web-server-app ./`path-to-app-directory`
 In the directory that you just created, create the following two
 files:
 
-    * A sample Dockerfile with the following content. This docker file is
+    * A sample Dockerfile with the following content. This Docker file is
      adopted from a sample file provided at [https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/#docker\_plus\_image](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/#docker_plus_image "https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/#docker_plus_image").
      The important change that we make is that we load a separate file, called
      `nginx.conf`, which will be created in the next
@@ -54,7 +54,7 @@ files:
     ```
     FROM debian:buster-slim
 
-    LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>“
+    LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
 
     # Define NGINX versions for NGINX Plus and NGINX Plus modules
     # Uncomment this block and the versioned nginxPackages block in the main RUN

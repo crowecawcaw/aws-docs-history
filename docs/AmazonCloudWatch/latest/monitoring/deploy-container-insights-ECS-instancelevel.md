@@ -11,7 +11,7 @@ data](../../../AWSEC2/latest/UserGuide/ec2-instance-metadata.md "../../../AWSEC2
 
 These methods also assume that you have the AWS CLI installed. Additionally, to run the
 commands in the following procedures, you must be logged on to an account or role that has
-the **IAMFullAccess** and **AmazonECS_FullAccess**
+the **IAMFullAccess** and **AmazonECS\_FullAccess**
 policies.
 
 ###### Important
@@ -268,7 +268,7 @@ URL.
 - `region` – By default, the agent publishes metrics to the
   same Region where the Amazon ECS container instance is located. To override this, you
   can specify a different Region here. For example, `"region" :
-"us-east-1"`
+ "us-east-1"`
 
 The following is an example of a customized configuration:
 
@@ -376,8 +376,8 @@ Replace that section with the following:
    ```
 
    If you see this error message, `An error occurred
- (InvalidParameterException) when calling the CreateService operation:
- Creation of service was not idempotent`, you have already
+  (InvalidParameterException) when calling the CreateService operation:
+  Creation of service was not idempotent`, you have already
    created a daemon service named `cwagent-daemon-service`. You must
    delete that service first, using the following command as an example.
 

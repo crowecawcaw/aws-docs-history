@@ -3,13 +3,13 @@
 String processors modify text values within log events through operations like case
 conversion, trimming, and pattern matching.
 
-## lowercase_string processor
+## lowercase\_string processor
 
 Converts specified fields to lowercase.
 
 ###### Configuration
 
-Configure the lowercase_string processor with the following parameters:
+Configure the lowercase\_string processor with the following parameters:
 
 ```
 processor:
@@ -30,13 +30,13 @@ Conditional expression that determines whether this processor executes.
 Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## uppercase_string processor
+## uppercase\_string processor
 
 Converts specified fields to uppercase.
 
 ###### Configuration
 
-Configure the uppercase_string processor with the following parameters:
+Configure the uppercase\_string processor with the following parameters:
 
 ```
 processor:
@@ -57,13 +57,13 @@ Conditional expression that determines whether this processor executes.
 Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## trim_string processor
+## trim\_string processor
 
 Removes leading and trailing whitespace from specified fields.
 
 ###### Configuration
 
-Configure the trim_string processor with the following parameters:
+Configure the trim\_string processor with the following parameters:
 
 ```
 processor:
@@ -84,13 +84,13 @@ Conditional expression that determines whether this processor executes.
 Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## substitute_string processor
+## substitute\_string processor
 
 Performs string substitution using regular expressions.
 
 ###### Configuration
 
-Configure the substitute_string processor with the following
+Configure the substitute\_string processor with the following
 parameters:
 
 ```
@@ -179,13 +179,13 @@ Conditional expression that determines whether this processor executes.
 Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## extract_value processor
+## extract\_value processor
 
 Extracts values using regular expressions.
 
 ###### Configuration
 
-Configure the extract_value processor with the following parameters:
+Configure the extract\_value processor with the following parameters:
 
 ```
 processor:
@@ -247,13 +247,13 @@ The expression value identifies which `when`
 conditions to consider. Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## convert_entry_type processor
+## convert\_entry\_type processor
 
 Converts field values between different data types.
 
 ###### Configuration
 
-Configure the convert_entry_type processor with the following
+Configure the convert\_entry\_type processor with the following
 parameters:
 
 ```
@@ -368,13 +368,13 @@ Conditional expression that determines whether this processor executes.
 Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## list_to_map processor
+## list\_to\_map processor
 
 Converts array fields to map structures.
 
 ###### Configuration
 
-Configure the list_to_map processor with the following parameters:
+Configure the list\_to\_map processor with the following parameters:
 
 ```
 processor:
@@ -417,13 +417,13 @@ Conditional expression that determines whether this processor executes.
 Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## rename_keys processor
+## rename\_keys processor
 
 Renames fields in log events.
 
 ###### Configuration
 
-Configure the rename_keys processor with the following parameters:
+Configure the rename\_keys processor with the following parameters:
 
 ```
 processor:
@@ -474,13 +474,13 @@ The expression value identifies which `when`
 conditions to consider. Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## select_entries processor
+## select\_entries processor
 
 Selects only specified fields from events.
 
 ###### Configuration
 
-Configure the select_entries processor with the following parameters:
+Configure the select\_entries processor with the following parameters:
 
 ```
 processor:

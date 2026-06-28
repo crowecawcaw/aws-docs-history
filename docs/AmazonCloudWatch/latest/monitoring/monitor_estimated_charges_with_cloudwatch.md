@@ -107,12 +107,11 @@ charges for the current month. 11. Choose **Additional Configuration** and do th
     * For **Missing data treatment**, choose **Treat
      missing data as missing**.
 
-12. Choose **Next**.
-13. Under **Notification**, ensure that **In
-    alarm** is selected. Then specify an Amazon SNS topic to be notified when your
-    alarm is in the `ALARM` state. The Amazon SNS topic can include your email
-    address so that you receive email when the billing amount crosses the threshold that
-    you specified.
+12. Choose **Next**. 13. Under **Notification**, ensure that **In
+alarm** is selected. Then specify an Amazon SNS topic to be notified when your
+alarm is in the `ALARM` state. The Amazon SNS topic can include your email
+address so that you receive email when the billing amount crosses the threshold that
+you specified.
 
 You can select an existing Amazon SNS topic, create a new Amazon SNS topic, or use a topic
 ARN to notify other account. If you want your alarm to send multiple notifications for
@@ -125,9 +124,8 @@ name must contain only UTF-8 characters, and can't contain ASCII control charact
      **Details** tab in the CloudWatch console. The markdown can be useful
      to add links to runbooks or other internal resources.
 
-16. Choose **Next**.
-17. Under **Preview and create**, make sure that your configuration
-    is correct, and then choose **Create alarm**.
+16. Choose **Next**. 17. Under **Preview and create**, make sure that your configuration
+is correct, and then choose **Create alarm**.
 
 ## Deleting a billing alarm
 

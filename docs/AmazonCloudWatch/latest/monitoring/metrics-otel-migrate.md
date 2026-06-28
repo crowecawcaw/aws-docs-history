@@ -84,12 +84,12 @@ your application code. Classic metrics stop incurring charges immediately.
 The following table shows common Classic metric names and their suggested OTel
 equivalents.
 
-| Classic name        | Suggested OTel name           | Notes                                |
-| ------------------- | ----------------------------- | ------------------------------------ |
-| RequestLatency (ms) | http_request_duration_seconds | Convert to seconds (OTel convention) |
-| RequestCount        | http_requests_total           | Use `_total` suffix for counters     |
-| ErrorCount          | http_server_errors_total      | Use `_total` suffix                  |
-| QueueDepth          | queue_depth                   | Gauge — no suffix needed             |
+| Classic name        | Suggested OTel name              | Notes                                |
+| ------------------- | -------------------------------- | ------------------------------------ |
+| RequestLatency (ms) | http\_request\_duration\_seconds | Convert to seconds (OTel convention) |
+| RequestCount        | http\_requests\_total            | Use `_total` suffix for counters     |
+| ErrorCount          | http\_server\_errors\_total      | Use `_total` suffix                  |
+| QueueDepth          | queue\_depth                     | Gauge — no suffix needed             |
 
 ## What about AWS vended metrics?
 

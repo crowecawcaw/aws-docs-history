@@ -127,52 +127,51 @@ traces, and logs to Application Signals.
 
 ###### To add the annotations for Application Signals
 
-1.  You have two options for the annotation:
+1. You have two options for the annotation:
 
-        * **Annotate Workload** auto-instruments a single workload in a cluster.
-        * **Annotate Namespace** auto-instruments all workloads deployed in the selected namespace.
+   - **Annotate Workload** auto-instruments a single workload in a cluster.
+   - **Annotate Namespace** auto-instruments all workloads deployed in the selected namespace.
+     Choose one of those options, and follow the appropriate steps.
 
-    Choose one of those options, and follow the appropriate steps.
+2. To annotate a single workload, enter one of the following commands. Replace
+   `$WORKLOAD_TYPE` and
+   `$WORKLOAD_NAME` with the values for your workload.
 
-2.  To annotate a single workload, enter one of the following commands. Replace
-    `$WORKLOAD_TYPE` and
-    `$WORKLOAD_NAME` with the values for your workload.
+   - For Java workloads:
 
-    - For Java workloads:
+   ```
+   kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-java": "true"}}}}}'
+   ```
+   - For Python workloads:
 
-    ```
-    kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-java": "true"}}}}}'
-    ```
-    - For Python workloads:
+   ```
+   kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-python": "true"}}}}}'
+   ```
 
-    ```
-    kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-python": "true"}}}}}'
-    ```
+   For Python applications, there are additional required configurations. For more information, see [Python application doesn't start after Application Signals is enabled](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-starting-Python "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-starting-Python").
+   - For .NET workloads:
 
-    For Python applications, there are additional required configurations. For more information, see [Python application doesn't start after Application Signals is enabled](CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-starting-Python "CloudWatch-Application-Signals-Enable-Troubleshoot.md#Application-Signals-troubleshoot-starting-Python").
-    - For .NET workloads:
+   ```
+   kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-dotnet": "true"}}}}}'
+   ```
 
-    ```
-    kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-dotnet": "true"}}}}}'
-    ```
+   ###### Note
 
-    ###### Note
+   To enable Application Signals for a .NET workload on Alpine Linux
+   (`linux-musl-x64`) based images, add the following additional
+   annotation.
 
-    To enable Application Signals for a .NET workload on Alpine Linux
-    (`linux-musl-x64`) based images, add the following additional
-    annotation.
+   ```
+   instrumentation.opentelemetry.io/otel-dotnet-auto-runtime: "linux-musl-x64"
+   ```
+   - For Node.js workloads:
 
-    ```
-    instrumentation.opentelemetry.io/otel-dotnet-auto-runtime: "linux-musl-x64"
-    ```
-    - For Node.js workloads:
+   ```
+   kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-nodejs": "true"}}}}}'
+   ```
 
-    ```
-    kubectl patch `$WORKLOAD_TYPE` `$WORKLOAD_NAME` -p '{"spec": {"template": {"metadata": {"annotations": {"instrumentation.opentelemetry.io/inject-nodejs": "true"}}}}}'
-    ```
-
-3.  To annotate all workloads in a namespace, enter enter one of the following commands. Replace `$NAMESPACE`
-    with the name of your namespace.
+3. To annotate all workloads in a namespace, enter enter one of the following commands. Replace `$NAMESPACE`
+   with the name of your namespace.
 
 If the namespace includes Java, Python, and .NET workloads, add all
 annotations to the namespace.

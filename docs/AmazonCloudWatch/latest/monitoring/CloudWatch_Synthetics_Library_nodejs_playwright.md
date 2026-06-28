@@ -7,7 +7,7 @@ testing. For more information about Playwright, see [https://playwright.dev/](ht
 The naming convention for these runtime versions is `syn-`language`
  -`framework`-`majorversion`.`minorversion``.
 
-## syn-nodejs-playwright-7.0
+## syn-nodejs-playwright-7.1
 
 ###### Important
 
@@ -25,8 +25,41 @@ namespace. Legacy namespace will be deprecated in a future release.
 - Chromium version 147.0.7727.15
 - Firefox version 148.0.2
 
+**Changes in syn-nodejs-playwright-7.1**
+
+- Fix bug where HTTP headers with array values were not being captured properly.
+- Upgrade `ws` to 8.20.1 to address the following CVEs:
+
+  - CVE-2026-45736
+
+- Upgrade `fast-xml-parser` to 5.7.2 to address the following CVEs:
+
+  - CVE-2026-41650
+
+For more information, see the following:
+
+- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
+- [Playwright API
+  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
+
+The following earlier runtime versions for Node.js and Playwright are still
+supported.
+
+### syn-nodejs-playwright-7.0
+
+**Major dependencies**:
+
+- AWS Lambda runtime Node.js 22.x
+- Playwright version 1.59.1
+- Playwright/test version 1.59.1
+- Chromium version 147.0.7727.15
+- Firefox version 148.0.2
+
 **Changes in syn-nodejs-playwright-7.0**
 
+- [Multilocation canaries](CloudWatch_Synthetics_Canaries_MultiLocation.md "CloudWatch_Synthetics_Canaries_MultiLocation.md") – Run the
+  same canary across multiple AWS Regions from a single point of
+  management.
 - Upgrade `ImageMagick` to 7.1.2-15 to address the following CVEs:
 
   - CVE-2023-34152
@@ -43,15 +76,6 @@ namespace. Legacy namespace will be deprecated in a future release.
   - CVE-2026-25986
   - CVE-2026-25987
   - CVE-2026-26284
-
-For more information, see the following:
-
-- [Playwright change log](https://playwright.dev/docs/release-notes "https://playwright.dev/docs/release-notes")
-- [Playwright API
-  reference](https://playwright.dev/docs/api/class-playwright "https://playwright.dev/docs/api/class-playwright")
-
-The following earlier runtime versions for Node.js and Playwright are still
-supported.
 
 ### syn-nodejs-playwright-6.1
 

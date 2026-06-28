@@ -56,148 +56,148 @@ sink as raw logs.
 **Web Resources Activity (6001)** contains the
 following event types:
 
-- private_channel_created
-- private_channel_archive
-- private_channel_converted_to_public
-- private_channel_deleted
-- private_channel_unarchive
-- public_channel_archive
-- public_channel_converted_to_private
-- public_channel_created
-- public_channel_deleted
-- public_channel_preview
-- public_channel_unarchive
-- file_public_link_created
-- file_public_link_revoked
-- huddle_screenshare_on
-- huddle_ended
-- huddle_knock_accepted
-- huddle_participant_dropped
-- huddle_participant_joined
-- huddle_participant_left
-- huddle_started
-- huddle_screenshare_off
-- huddle_transcription_cancelled
-- huddle_transcription_paused
-- huddle_transcription_resumed
-- huddle_transcription_started
-- huddle_transcription_start_notification
-- slack_ai_huddle_notes_generated
-- list_linksharing_enabled
-- canvas_linksharing_enabled
-- list_linksharing_disabled
-- canvas_linksharing_disabled
+- private\_channel\_created
+- private\_channel\_archive
+- private\_channel\_converted\_to\_public
+- private\_channel\_deleted
+- private\_channel\_unarchive
+- public\_channel\_archive
+- public\_channel\_converted\_to\_private
+- public\_channel\_created
+- public\_channel\_deleted
+- public\_channel\_preview
+- public\_channel\_unarchive
+- file\_public\_link\_created
+- file\_public\_link\_revoked
+- huddle\_screenshare\_on
+- huddle\_ended
+- huddle\_knock\_accepted
+- huddle\_participant\_dropped
+- huddle\_participant\_joined
+- huddle\_participant\_left
+- huddle\_started
+- huddle\_screenshare\_off
+- huddle\_transcription\_cancelled
+- huddle\_transcription\_paused
+- huddle\_transcription\_resumed
+- huddle\_transcription\_started
+- huddle\_transcription\_start\_notification
+- slack\_ai\_huddle\_notes\_generated
+- list\_linksharing\_enabled
+- canvas\_linksharing\_enabled
+- list\_linksharing\_disabled
+- canvas\_linksharing\_disabled
 
 [Show moreShow less](# "#")
 **Entity Management (3004)** contains the following
 event types:
 
-- external_shared_channel_invite_accepted
-- external_shared_channel_invite_approved
-- external_shared_channel_invite_auto_revoked
-- external_shared_channel_invite_created
-- external_shared_channel_access_upgraded
-- external_shared_channel_disconnect_and_archived
-- external_shared_channel_disconnected
-- external_shared_channel_invite_declined
-- external_shared_channel_invite_expired
-- external_shared_channel_invite_revoked
-- channels_export_completed
-- channels_export_deleted
-- channels_export_downloaded
-- channels_export_started
-- scheduled_export_completed
-- scheduled_export_deleted
-- scheduled_export_downloaded
-- scheduled_export_started
-- manual_export_completed
-- manual_export_deleted
-- manual_export_downloaded
-- manual_export_started
-- manual_user_export_downloaded
-- manual_user_export_completed
-- manual_user_export_deleted
-- manual_user_export_started
-- external_shared_channel_connected
+- external\_shared\_channel\_invite\_accepted
+- external\_shared\_channel\_invite\_approved
+- external\_shared\_channel\_invite\_auto\_revoked
+- external\_shared\_channel\_invite\_created
+- external\_shared\_channel\_access\_upgraded
+- external\_shared\_channel\_disconnect\_and\_archived
+- external\_shared\_channel\_disconnected
+- external\_shared\_channel\_invite\_declined
+- external\_shared\_channel\_invite\_expired
+- external\_shared\_channel\_invite\_revoked
+- channels\_export\_completed
+- channels\_export\_deleted
+- channels\_export\_downloaded
+- channels\_export\_started
+- scheduled\_export\_completed
+- scheduled\_export\_deleted
+- scheduled\_export\_downloaded
+- scheduled\_export\_started
+- manual\_export\_completed
+- manual\_export\_deleted
+- manual\_export\_downloaded
+- manual\_export\_started
+- manual\_user\_export\_downloaded
+- manual\_user\_export\_completed
+- manual\_user\_export\_deleted
+- manual\_user\_export\_started
+- external\_shared\_channel\_connected
 
 [Show moreShow less](# "#")
 **Account Change (3001)** contains the following
 event types:
 
-- role_change_to_owner
-- role_change_to_admin
-- role_change_to_guest
-- role_change_to_user
-- role_removed
-- role_assigned
-- guest_created
-- guest_deactivated
-- guest_reactivated
-- user_created
-- user_deactivated
-- user_reactivated
-- user_email_updated
-- user_profile_updated
-- user_profile_deleted
-- guest_expiration_cleared
-- guest_expiration_set
-- guest_expired
-- user_force_upgrade_non_compliant_mobile_app_version
-- owner_transferred
-- service_owner_transferred
-- user_password_reset_requested
-- user_password_reset_slack_security
-- custom_tos_accepted
-- user_session_settings_changed
-- role_added_to_usergroup
-- role_removed_from_usergroup
+- role\_change\_to\_owner
+- role\_change\_to\_admin
+- role\_change\_to\_guest
+- role\_change\_to\_user
+- role\_removed
+- role\_assigned
+- guest\_created
+- guest\_deactivated
+- guest\_reactivated
+- user\_created
+- user\_deactivated
+- user\_reactivated
+- user\_email\_updated
+- user\_profile\_updated
+- user\_profile\_deleted
+- guest\_expiration\_cleared
+- guest\_expiration\_set
+- guest\_expired
+- user\_force\_upgrade\_non\_compliant\_mobile\_app\_version
+- owner\_transferred
+- service\_owner\_transferred
+- user\_password\_reset\_requested
+- user\_password\_reset\_slack\_security
+- custom\_tos\_accepted
+- user\_session\_settings\_changed
+- role\_added\_to\_usergroup
+- role\_removed\_from\_usergroup
 
 [Show moreShow less](# "#")
 **Authentication (3002)** contains the following
 event types:
 
-- bulk_session_reset_by_admin
-- user_session_reset_by_admin
-- user_logout_non_compliant_mobile_app_version
-- user_logout
-- user_logout_compromised
-- user_login
-- user_login_failed
-- cli_login
-- user_sessions_reset_by_anomaly_event_response
-- user_session_invalidated
+- bulk\_session\_reset\_by\_admin
+- user\_session\_reset\_by\_admin
+- user\_logout\_non\_compliant\_mobile\_app\_version
+- user\_logout
+- user\_logout\_compromised
+- user\_login
+- user\_login\_failed
+- cli\_login
+- user\_sessions\_reset\_by\_anomaly\_event\_response
+- user\_session\_invalidated
 
 **User Access Management (3005)** contains the
 following event types:
 
-- permissions_assigned
-- user_channel_join
-- guest_channel_join
-- user_added_to_usergroup
-- workflow_trigger_permission_added
-- workflow_trigger_permission_set
-- app_resources_granted
-- app_resources_added
-- app_scopes_expanded
-- permissions_removed
-- user_channel_leave
-- guest_channel_leave
-- user_removed_from_usergroup
-- workflow_trigger_permission_removed
-- role_modified_on_usergroup
+- permissions\_assigned
+- user\_channel\_join
+- guest\_channel\_join
+- user\_added\_to\_usergroup
+- workflow\_trigger\_permission\_added
+- workflow\_trigger\_permission\_set
+- app\_resources\_granted
+- app\_resources\_added
+- app\_scopes\_expanded
+- permissions\_removed
+- user\_channel\_leave
+- guest\_channel\_leave
+- user\_removed\_from\_usergroup
+- workflow\_trigger\_permission\_removed
+- role\_modified\_on\_usergroup
 
 [Show moreShow less](# "#")
 **File Hosting Activity (6006)** contains the
 following event types:
 
-- file_deleted
-- file_download_blocked
-- file_downloaded
-- file_shared
-- file_uploaded
+- file\_deleted
+- file\_download\_blocked
+- file\_downloaded
+- file\_shared
+- file\_uploaded
 
 **Detection Finding (2004)** contains the following
 event types:
 
-- file_malicious_content_detected
+- file\_malicious\_content\_detected
 - Anomaly

@@ -73,8 +73,8 @@ to the Cross-service dashboard screen. 4. You can focus on a particular service 
      tab.
 
 5. You can focus on resources in a particular resource group. To do so, choose
-   the resource group from the list at the top of the page where **All
-   resources** is displayed.
+the resource group from the list at the top of the page where **All
+resources** is displayed.
 
 For more information, see [Viewing a CloudWatch dashboard for a resource group](CloudWatch_Automatic_Dashboards_Resource_Group.md "CloudWatch_Automatic_Dashboards_Resource_Group.md"). 6. To change the time range shown in all graphs and alarms currently displayed,
 select the range you want next to **Time range** at the top of

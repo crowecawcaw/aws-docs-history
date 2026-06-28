@@ -31,7 +31,7 @@ following steps.
 ###### Prerequisites for using the Prometheus JMX exporter SSM package
 
 - SSM agent version 2.3.1550.0 or later installed
-- The JAVA_HOME environment variable is set
+- The JAVA\_HOME environment variable is set
 
 ###### Install and configure the `AWSObservabilityExporter-JMXExporterInstallAndConfigure` package
 
@@ -384,11 +384,10 @@ retrieve the metrics for the CloudWatch service.
      `false`.
 
 2. Navigate to the [SSM Distributor](https://console.aws.amazon.com/systems-manager/distributor "https://console.aws.amazon.com/systems-manager/distributor") console
-   and open the **Owned by Amazon** tab. Select
-   **AWSObservabilityExporter-SAP-SAPHostExporterInstallAndConfigure**
-   and choose **Install one time**.
-3. Update the SSM parameter you created in the first step by replacing
-   "Additional Arguments" with the following:
+and open the **Owned by Amazon** tab. Select
+**AWSObservabilityExporter-SAP-SAPHostExporterInstallAndConfigure**
+and choose **Install one time**. 3. Update the SSM parameter you created in the first step by replacing
+"Additional Arguments" with the following:
 
 ```
 {

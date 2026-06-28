@@ -28,17 +28,16 @@ There are three main usage scenarios for CloudWatch metric streams:
   destination URL and API key for your destination, and CloudWatch
   handles the rest of the setup. Quick partner setup is available for the following third-party providers:
 
-      + Datadog
-      + Dynatrace
-      + Elastic
-      + New Relic
-      + Splunk Observability Cloud
-      + SumoLogic
-
-  You can stream all of your CloudWatch metrics, or use filters to stream only specified metrics. Each metric
-  stream can include up to 1000 filters that
-  either include or exclude metric namespaces or specific metrics. A single metric stream can have only include or
-  exclude filters, but not both.
+  - Datadog
+  - Dynatrace
+  - Elastic
+  - New Relic
+  - Splunk Observability Cloud
+  - SumoLogic
+    You can stream all of your CloudWatch metrics, or use filters to stream only specified metrics. Each metric
+    stream can include up to 1000 filters that
+    either include or exclude metric namespaces or specific metrics. A single metric stream can have only include or
+    exclude filters, but not both.
 
 After a metric stream is created, if new metrics are created that match the filters in place,
 the new metrics are automatically included in the stream.

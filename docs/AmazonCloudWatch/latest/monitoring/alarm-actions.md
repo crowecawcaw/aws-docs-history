@@ -1,6 +1,6 @@
 # Alarm actions
 
-You can specify what actions an alarm takes when it changes state between the OK, ALARM, and INSUFFICIENT_DATA states.
+You can specify what actions an alarm takes when it changes state between the OK, ALARM, and INSUFFICIENT\_DATA states.
 
 Most actions can be set for the transition into each of the three states. Except for Auto Scaling actions, the actions happen only on state transitions, and are not performed again if the condition persists for hours or days.
 
@@ -19,15 +19,15 @@ The following are supported as alarm actions:
 The following table shows the actions executed for alarms along with
 their behavior for multiple time series (or contributors) alarms:
 
-| Action Type                                    | Metrics Insights Multiple Time Series Alarm support | PromQL Alarm support | Log Alarm support | More Information                                                                                                                                                                                                                                         |
-| ---------------------------------------------- | --------------------------------------------------- | -------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SNS notifications                              | Contributor Level                                   | Contributor Level    | Contributor Level | [Amazon SNS event destinations](../../../sns/latest/dg/sns-event-destinations.md "../../../sns/latest/dg/sns-event-destinations.md")                                                                                                                     |
-| EC2 actions (stop, terminate, reboot, recover) | Not supported                                       | Not supported        | Not supported     | [Stop, terminate, reboot, or recover an EC2 instance](UsingAlarmActions.md "UsingAlarmActions.md")                                                                                                                                                       |
-| Auto Scaling actions                           | Not supported                                       | Alarm Level1         | Not supported     | [Step and simple<br>scaling policies for Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/as-scaling-simple-step.md "../../../autoscaling/ec2/userguide/as-scaling-simple-step.md")                                                           |
-| Systems Manager OpsItem creation               | Alarm Level                                         | Not supported        | Alarm Level       | [Configure CloudWatch alarms to create OpsItems](../../../systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md "../../../systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md")          |
-| Systems Manager Incident Manager incidents     | Alarm Level                                         | Not supported        | Not supported     | [Creating incidents automatically with CloudWatch alarms](../../../incident-manager/latest/userguide/incident-creation.md#incident-tracking-auto-alarms "../../../incident-manager/latest/userguide/incident-creation.md#incident-tracking-auto-alarms") |
-| Lambda function invocation                     | Contributor Level                                   | Contributor Level    | Contributor Level | [Invoke a Lambda function from an alarm](alarms-and-actions-Lambda.md "alarms-and-actions-Lambda.md")                                                                                                                                                    |
-| CloudWatch investigations investigation        | Alarm Level                                         | Not supported        | Not supported     | [Start a CloudWatch investigations from an alarm](Start-Investigation-Alarm.md "Start-Investigation-Alarm.md")                                                                                                                                           |
+| Action Type                                    | Metrics Insights Multiple Time Series Alarm support | PromQL Alarm support | More Information                                                                                                                                                                                                                                         |
+| ---------------------------------------------- | --------------------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| SNS notifications                              | Contributor Level                                   | Contributor Level    | [Amazon SNS event destinations](../../../sns/latest/dg/sns-event-destinations.md "../../../sns/latest/dg/sns-event-destinations.md")                                                                                                                     |
+| EC2 actions (stop, terminate, reboot, recover) | Not supported                                       | Not supported        | [Stop, terminate, reboot, or recover an EC2 instance](UsingAlarmActions.md "UsingAlarmActions.md")                                                                                                                                                       |
+| Auto Scaling actions                           | Not supported                                       | Alarm Level1         | [Step and simple<br>scaling policies for Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/as-scaling-simple-step.md "../../../autoscaling/ec2/userguide/as-scaling-simple-step.md")                                                           |
+| Systems Manager OpsItem creation               | Alarm Level                                         | Not supported        | [Configure CloudWatch alarms to create OpsItems](../../../systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md "../../../systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md")          |
+| Systems Manager Incident Manager incidents     | Alarm Level                                         | Not supported        | [Creating incidents automatically with CloudWatch alarms](../../../incident-manager/latest/userguide/incident-creation.md#incident-tracking-auto-alarms "../../../incident-manager/latest/userguide/incident-creation.md#incident-tracking-auto-alarms") |
+| Lambda function invocation                     | Contributor Level                                   | Contributor Level    | [Invoke a Lambda function from an alarm](alarms-and-actions-Lambda.md "alarms-and-actions-Lambda.md")                                                                                                                                                    |
+| CloudWatch investigations investigation        | Alarm Level                                         | Not supported        | [Start a CloudWatch investigations from an alarm](Start-Investigation-Alarm.md "Start-Investigation-Alarm.md")                                                                                                                                           |
 
 1 PromQL alarms support only Application Auto Scaling actions.
 
@@ -39,10 +39,6 @@ The content of alarm notifications differs depending on the alarm type:
   reason for each contributor, without the detailed state reason data block.
 - PromQL alarms do not include a state reason or state reason data in their
   notifications.
-- Log alarms without contributors (single-value) include both a state reason and
-  detailed state reason data, showing the query results evaluated.
-- Log alarms with contributors (using a `BY` clause) provide a simplified
-  state reason for each contributor, without the detailed state reason data block.
 
 ###### Example Notification Content Examples
 

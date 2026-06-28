@@ -3,7 +3,7 @@
 Filter processors let you selectively remove log entries from the pipeline
 based on conditions you define.
 
-## drop_events processor
+## drop\_events processor
 
 Filters out unwanted log entries based on conditional expressions. Use this
 processor to reduce noise from third-party pipeline connectors and lower storage
@@ -11,7 +11,7 @@ costs by removing log events that match specified conditions.
 
 ###### Configuration
 
-Configure the drop_events processor with the following parameters:
+Configure the drop\_events processor with the following parameters:
 
 ```
 processor:

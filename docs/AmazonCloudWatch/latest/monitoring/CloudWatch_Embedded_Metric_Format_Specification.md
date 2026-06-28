@@ -6,7 +6,7 @@ This section describes embedded metric format specification conventions and the 
 
 ## Embedded metric format specification conventions
 
-The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
 format specification are to be interpreted as described in [Key Words RFC2119](http://tools.ietf.org/html/rfc2119 "http://tools.ietf.org/html/rfc2119").
 
 The terms "JSON", "JSON text", "JSON value", "member", "element", "object", "array", "number", "string", "boolean", "true", "false", and

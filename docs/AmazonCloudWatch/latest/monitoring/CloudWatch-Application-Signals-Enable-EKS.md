@@ -66,7 +66,7 @@ If you haven't already enabled Application Signals, follow the instructions in [
      restart immediately.
    - The **Annotate Manifest File** method gives you more control of when your
      pods restart, and can also help you manage your monitoring in a more decentralized
-     way if you don’t want to centralize it.
+     way if you don't want to centralize it.
 
 ###### Note
 
@@ -79,7 +79,7 @@ The **Console** option uses the advanced configuration of the
 Amazon CloudWatch Observability EKS add-on to setup Application Signals for your services.
 For more information about the add-on, see [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration").
 
-If you don’t see a list of workloads and namespaces, ensure you have the right permissions to view them for this cluster.
+If you don't see a list of workloads and namespaces, ensure you have the right permissions to view them for this cluster.
 For more information, see [Required permissions](../../../eks/latest/userguide/view-kubernetes-resources.md#view-kubernetes-resources-permissions "../../../eks/latest/userguide/view-kubernetes-resources.md#view-kubernetes-resources-permissions").
 
 You can either monitor all service workloads by selecting the **Auto monitor** check box or selectively choose specific workloads and namespaces to monitor.
@@ -202,7 +202,7 @@ Choose one of those options, and follow the appropriate steps:
     	 is `kubectl rollout restart deployment -n `namespace_name``
 
 7. Choose **View Services when done**. This takes you to the Application Signals Services view,
-   where you can see the data that Application Signals is collecting. It might take a few minutes for data to appear.
+where you can see the data that Application Signals is collecting. It might take a few minutes for data to appear.
 
 To enable Application Signals in another Amazon EKS cluster, choose **Enable Application Signals** from the
 **Services** screen.
@@ -223,7 +223,7 @@ for Application Signals. For more information, see
 We provide limited support for Node.js applications with the ESM module format. For
 details, see [Known limitations about Node.js with ESM](CloudWatch-Application-Signals-supportmatrix.md#ESM-limitations "CloudWatch-Application-Signals-supportmatrix.md#ESM-limitations").
 
-For the ESM module format, enabling Application Signals through the console or by annotating the manifest file doesn’t work. Skip step 8
+For the ESM module format, enabling Application Signals through the console or by annotating the manifest file doesn't work. Skip step 8
 of the previous procedure, and do the following instead.
 
 ###### To enable Application Signals for a Node.js application with ESM

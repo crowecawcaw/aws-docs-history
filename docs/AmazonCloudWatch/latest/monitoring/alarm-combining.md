@@ -62,10 +62,10 @@ ALARM ("alarm-name or alarm-ARN") is TRUE if the alarm is in ALARM state.
 
 OK ("alarm-name or alarm-ARN") is TRUE if the alarm is in OK state.
 
-- INSUFFICIENT_DATA
+- INSUFFICIENT\_DATA
 
-INSUFFICIENT_DATA (“alarm-name or alarm-ARN") is TRUE if the named alarm is in
-INSUFFICIENT_DATA state.
+INSUFFICIENT\_DATA (“alarm-name or alarm-ARN") is TRUE if the named alarm is in
+INSUFFICIENT\_DATA state.
 
 ###### Note
 
@@ -86,12 +86,12 @@ The syntax of the expression you use to combine several alarms into one composit
 uses boolean logic and functions. The following table describes the operators and functions
 available in rule expressions:
 
-| Operator/Function | Description                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AND`             | Logical AND operator. Returns TRUE when all specified conditions are<br>TRUE.                                                                                                                                                                                                                                                                                           |
-| `OR`              | Logical OR operator. Returns TRUE when at least one of the specified conditions<br>is TRUE.                                                                                                                                                                                                                                                                             |
-| `NOT`             | Logical NOT operator. Returns TRUE when the specified condition is FALSE.                                                                                                                                                                                                                                                                                               |
-| `AT_LEAST`        | Function that returns TRUE when a minimum number or percentage of specified<br>alarms are in the required state. Format: `AT_LEAST(M, STATE_CONDITION, (alarm1,<br>alarm2, ...alarmN))` where M can be an absolute number or percentage (for example,<br>50%), and STATE_CONDITION can be ALARM, OK, INSUFFICIENT_DATA, NOT ALARM, NOT OK, or<br>NOT INSUFFICIENT_DATA. |
+| Operator/Function | Description                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AND`             | Logical AND operator. Returns TRUE when all specified conditions are<br>TRUE.                                                                                                                                                                                                                                                                                              |
+| `OR`              | Logical OR operator. Returns TRUE when at least one of the specified conditions<br>is TRUE.                                                                                                                                                                                                                                                                                |
+| `NOT`             | Logical NOT operator. Returns TRUE when the specified condition is FALSE.                                                                                                                                                                                                                                                                                                  |
+| `AT_LEAST`        | Function that returns TRUE when a minimum number or percentage of specified<br>alarms are in the required state. Format: `AT_LEAST(M, STATE_CONDITION, (alarm1,<br>alarm2, ...alarmN))` where M can be an absolute number or percentage (for example,<br>50%), and STATE\_CONDITION can be ALARM, OK, INSUFFICIENT\_DATA, NOT ALARM, NOT OK, or<br>NOT INSUFFICIENT\_DATA. |
 
 You can use parentheses to group conditions and control the order of evaluation in complex
 expressions.
@@ -129,4 +129,4 @@ composite alarm that reduces alarm noise during a deployment window.
 - `AT_LEAST(2, ALARM, (AZ1Health, AZ2Health, AZ3Health)) AND NOT ALARM(MaintenanceWindow)`
 
 The expression specifies that the composite alarm goes into `ALARM` when
-at least 2 out of 3 availability zone health alarms are in `ALARM` state and the maintenance window alarm is not in `ALARM`. This combines the AT_LEAST function with other logical operators for more complex monitoring scenarios.
+at least 2 out of 3 availability zone health alarms are in `ALARM` state and the maintenance window alarm is not in `ALARM`. This combines the AT\_LEAST function with other logical operators for more complex monitoring scenarios.

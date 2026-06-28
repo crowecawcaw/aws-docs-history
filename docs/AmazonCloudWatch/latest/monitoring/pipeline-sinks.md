@@ -3,11 +3,11 @@
 Sinks define the destination where processed log data is sent. Each pipeline must have
 exactly one sink. Currently, only CloudWatch Logs sink is supported.
 
-| Sink behavior by source type | Source Type           | Log Group Configuration                          | Behavior |
-| ---------------------------- | --------------------- | ------------------------------------------------ | -------- |
-| CloudWatch Logs              | Must use `@original`  | Events are sent back to their original log group |
-| S3                           | Custom log group path | Events are sent to the specified log group       |
-| Third-party APIs             | Custom log group path | Events are sent to the specified log group       |
+Sink behavior by source type| Source Type | Log Group Configuration | Behavior |
+| --- | --- | --- |
+| CloudWatch Logs | Must use `@original` | Events are sent back to their original log group |
+| S3 | Custom log group path | Events are sent to the specified log group |
+| Third-party APIs | Custom log group path | Events are sent to the specified log group |
 
 ###### Configuration
 

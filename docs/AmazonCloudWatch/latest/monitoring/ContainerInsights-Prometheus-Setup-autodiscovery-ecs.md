@@ -1,7 +1,7 @@
 # Detailed guide for autodiscovery on Amazon ECS clusters
 
 Prometheus provides dozens of dynamic service-discovery mechanisms as described in
-[<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config"). However there is no built-in service discovery for
+[<scrape\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config"). However there is no built-in service discovery for
 Amazon ECS. The CloudWatch agent adds this mechanism.
 
 When the Amazon ECS Prometheus service discovery is enabled, the CloudWatch agent
@@ -21,7 +21,7 @@ ECS:DescribeTaskDefinition
 The metadata is used by the CloudWatch agent to scan the Prometheus targets within the
 ECS cluster. The CloudWatch agent supports three service discovery modes:
 
-- Container docker label-based service discovery
+- Container Docker label-based service discovery
 - ECS task definition ARN regular expression-based service discovery
 - ECS service name regular expression-based service discovery
   All modes can be used together. CloudWatch agent de-duplicates the discovered
@@ -68,7 +68,7 @@ container. The following is a sample result file:
 
 You can directly integrate this result file with Prometheus file-based service
 discovery. For more information about Prometheus file-based service discovery, see
-[<file_sd_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config").
+[<file\_sd\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#file_sd_config").
 
 Suppose the result file is written to
 `/tmp/cwagent_ecs_auto_sd.yaml` The following Prometheus scrape
@@ -125,8 +125,8 @@ This section includes examples that demonstrate ECS service discovery.
 }
 ```
 
-This example enables docker label-based service discovery. The CloudWatch agent will
-query the ECS tasks’ metadata once per minute and write the discovered targets into
+This example enables Docker label-based service discovery. The CloudWatch agent will
+query the ECS tasks' metadata once per minute and write the discovered targets into
 the `/tmp/cwagent_ecs_auto_sd.yaml` file within the CloudWatch agent
 container.
 
@@ -140,15 +140,15 @@ format: `private_ip:host_port`.
 
 The default value of `sd_metrics_path_label` in the
 `docker_label` section is `ECS_PROMETHEUS_METRICS_PATH`. If
-the container has this docker label, its value will be used as the
+the container has this Docker label, its value will be used as the
 `__metrics_path__` . If the container does not have this label, the
 default value `/metrics` is used.
 
 The default value of `sd_job_name_label` in the
 `docker_label` section is `job`. If the container has this
-docker label, its value will be appended as one of the labels for the target to
+Docker label, its value will be appended as one of the labels for the target to
 replace the default job name specified in the Prometheus configuration. The value of
-this docker label is used as the log stream name in the CloudWatch Logs log group.
+this Docker label is used as the log stream name in the CloudWatch Logs log group.
 
 **Example 2**
 
@@ -163,10 +163,10 @@ this docker label is used as the log stream name in the CloudWatch Logs log grou
 }
 ```
 
-This example enables docker label-based service discovery. THe CloudWatch agent will
-query the ECS tasks’ metadata every 15 seconds and write the discovered targets into
+This example enables Docker label-based service discovery. THe CloudWatch agent will
+query the ECS tasks' metadata every 15 seconds and write the discovered targets into
 the `/tmp/cwagent_ecs_auto_sd.yaml` file within the CloudWatch agent
-container. The containers with a docker label of
+container. The containers with a Docker label of
 `ECS_PROMETHEUS_EXPORTER_PORT_SUBSET_A` will be scanned. The value of
 the docker label `ECS_PROMETHEUS_JOB_NAME` is used as the job
 name.
@@ -196,7 +196,7 @@ name.
 ```
 
 This example enables ECS task definition ARN regular expression-based service
-discovery. The CloudWatch agent will query the ECS tasks’ metadata every five minutes and
+discovery. The CloudWatch agent will query the ECS tasks' metadata every five minutes and
 write the discovered targets into the
 `/tmp/cwagent_ecs_auto_sd.yaml` file within the CloudWatch agent
 container.
@@ -253,7 +253,7 @@ Two task definition ARN regular expresion sections are defined:
 ```
 
 This example enables ECS service name regular expression-based service
-discovery. The CloudWatch agent will query the ECS services’ metadata every five minutes
+discovery. The CloudWatch agent will query the ECS services' metadata every five minutes
 and write the discovered targets into the
 `/tmp/cwagent_ecs_auto_sd.yaml` file within the CloudWatch agent
 container.
@@ -303,13 +303,13 @@ Two service name regular expresion sections are defined:
 ```
 
 This example enables both ECS service discovery modes. The CloudWatch agent will query
-the ECS tasks’ metadata every 90 seconds and write the discovered targets into the
+the ECS tasks' metadata every 90 seconds and write the discovered targets into the
 `/tmp/cwagent_ecs_auto_sd.yaml` file within the CloudWatch agent
 container.
 
-For the docker-based service discovery configuration:
+For the Docker-based service discovery configuration:
 
-- The ECS tasks with docker label
+- The ECS tasks with Docker label
   `MY_PROMETHEUS_EXPORTER_PORT_LABEL` will be filtered for Prometheus
   port scan. The target Prometheus container port is specified by the value of the
   label `MY_PROMETHEUS_EXPORTER_PORT_LABEL`.
@@ -317,7 +317,7 @@ For the docker-based service discovery configuration:
   is used for `__metrics_path__`. If the container does not have this
   docker label, the default value `/metrics` is used.
 - The value of the docker label `MY_PROMETHEUS_EXPORTER_PORT_LABEL`
-  is used as the job label. If the container does not have this docker label, the
+  is used as the job label. If the container does not have this Docker label, the
   job name defined in the Prometheus configuration is used.
 
 For the ECS task definition ARN regular expression-based service discovery

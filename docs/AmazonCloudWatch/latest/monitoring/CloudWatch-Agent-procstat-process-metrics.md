@@ -61,7 +61,7 @@ only section included in the `metrics_collected` section of the agent
 configuration file. Actual configuration files can also include other sections in
 `metrics_collected`. For more information, see [Manually create or edit the CloudWatch agent configuration file](CloudWatch-Agent-Configuration-File-Details.md "CloudWatch-Agent-Configuration-File-Details.md").
 
-### Configure with pid_file
+### Configure with pid\_file
 
 The following example `procstat` section monitors the processes that
 create the PID files `example1.pid` and `example2.pid`.

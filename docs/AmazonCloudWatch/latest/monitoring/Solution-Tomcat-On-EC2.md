@@ -88,7 +88,7 @@ The pricing calculator can help you estimate approximate monthly costs for using
    enter `(27 + average number of disk paths per EC2 host) * number of EC2 instances configured for this solution`.
 3. In the **APIs** section, for **Number of API
    requests**, enter `43200 * number of EC2 instances
-configured for this solution`.
+ configured for this solution`.
 
 By default, the solution performs one **PutMetricData** operation each minute for each EC2 host. 4. In the **Dashboards and Alarms** section, for **Number of Dashboards**, enter `1`. 5. You can see your monthly estimated costs at the bottom of the
 pricing calculator.
@@ -112,7 +112,7 @@ For a list of all Tomcat metrics that you can collect, see
 The CloudWatch agent relies on JMX to collect the metrics related to the Tomcat server and JVM process.
 To make this possible, you must expose the JMX port from your servers. To enable a JMX port for monitoring and management,
 you would set system properties for your Tomcat servers. You can use the environment variable `CATALINA_OPTS`  
- to set the required system properties for Tomcat. Review the startup scripts and configuration files of your Tomcat server
+to set the required system properties for Tomcat. Review the startup scripts and configuration files of your Tomcat server
 on the best place to set the environment variable. Be sure that you specify an unused port number.
 You will need to restart the server after the change.
 
@@ -122,7 +122,7 @@ export CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxrem
 
 This example sets up unauthenticated JMX. If your security policies/requirements require you to enable JMX with password authentication
 or SSL for remote access, refer to the [JMX documentation](https://docs.oracle.com/en/java/javase/17/management/monitoring-and-management-using-jmx-technology.html "https://docs.oracle.com/en/java/javase/17/management/monitoring-and-management-using-jmx-technology.html")  
- to set the required property.
+to set the required property.
 
 To verify the JMX port, run `ps aux | grep jmxremote.port`. The results should show that the JMX port was set on the JVM processes.
 
@@ -442,7 +442,7 @@ in the dashboard name, such as `TomcatDashboard-us-east-1`. 4. Preview the dashb
 ###### To create the dashboard via CloudFormation
 
 1. Open the CloudFormation **Quick create stack** wizard using this link:
-   [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+   [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 2. Verify that the selected Region on the console is the Region where the Tomcat workload is running.
 3. For **Stack name**, enter a name to identity this stack,
    such as `TomcatDashboard-us-east-1`.
@@ -453,7 +453,7 @@ in the dashboard name, such as `TomcatDashboard-us-east-1`. 4. Preview the dashb
 6. Acknowledge access capabilities for transforms under **Capabilities and transforms**.
    Note that CloudFormation doesn't add any IAM resources.
 7. Review the settings, then choose **Create stack**.
-8. After the stack status is **CREATE_COMPLETE**, choose the **Resources** tab under
+8. After the stack status is **CREATE\_COMPLETE**, choose the **Resources** tab under
    the created stack and then choose the link under **Physical ID** to go to the dashboard. You can also access the
    dashboard in the CloudWatch console by choosing **Dashboards** in the left navigation pane of the console,
    and finding the dashboard name under **Custom Dashboards**.
@@ -461,7 +461,7 @@ in the dashboard name, such as `TomcatDashboard-us-east-1`. 4. Preview the dashb
 If you want to edit the template file to customize it for any purpose, you can use **Upload a template file** option
 under **Create Stack Wizard** to upload the edited template. For more information, see
 [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
-You can use this link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+You can use this link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Tomcat_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 
 ###### Note
 

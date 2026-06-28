@@ -9,7 +9,7 @@ The preferences listed in numbers two through five are the same preference order
 defined in the AWS SDK. For more information, see [Specifying
 Credentials](../../../sdk-for-go/v1/developer-guide/configuring-sdk.md#specifying-credentials "../../../sdk-for-go/v1/developer-guide/configuring-sdk.md#specifying-credentials") in the SDK documentation.
 
-1. Shared config and credentials files as defined in the CloudWatch agent’s
+1. Shared config and credentials files as defined in the CloudWatch agent's
    `common-config.toml` file. For more information, see [Install the CloudWatch agent using AWS Systems Manager](installing-cloudwatch-agent-ssm.md "installing-cloudwatch-agent-ssm.md").
 2. AWS SDK environment variables
 
@@ -48,12 +48,12 @@ you use the CloudWatch agent.
 2. Use IAM roles if your application runs on an Amazon EC2 instance.
 3. Use the CloudWatch agent `common-config.toml` file to specify the
    credentials file. This credentials file is the same one used by other AWS SDKs and the
-   AWS CLI. If you’re already using a shared credentials file, you can also use it for this
-   purpose. If you provide it by using the CloudWatch agent’s
+   AWS CLI. If you're already using a shared credentials file, you can also use it for this
+   purpose. If you provide it by using the CloudWatch agent's
    `common-config.toml` file, you ensure that the agent will consume
    rotated credentials when they expire and get replaced without requiring you to restart the
    agent.
-4. Use environment variables. Setting environment variables is useful if you’re doing
+4. Use environment variables. Setting environment variables is useful if you're doing
    development work on a computer other than an Amazon EC2 instance.
 
 ###### Note

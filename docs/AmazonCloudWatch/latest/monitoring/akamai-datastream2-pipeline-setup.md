@@ -35,7 +35,7 @@ S3 event notifications.
 `data_source_name` (required)
 
 Identifies the data source. This can be any string value that
-represents your data source. Example: "akamai_datastream_2".
+represents your data source. Example: "akamai\_datastream\_2".
 
 `aws.region` (required)
 
@@ -64,4 +64,4 @@ when new objects are created.
 `on_error` (optional)
 
 Determines how to handle errors in Amazon SQS. Can be either
-retain_messages or delete_messages. Default is retain_messages.
+retain\_messages or delete\_messages. Default is retain\_messages.

@@ -78,11 +78,11 @@ To get started with SageMaker AI Insights, see the following topics.
 
 You can open SageMaker AI Insights from the SageMaker AI console by using any of the following paths.
 
-| Source                                              | Action                                   | Destination                                            |
-| --------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------ |
-| SageMaker AI console → \*_Endpoints_<br>• list      | Choose **Open SageMaker AI Insights**    | Fleet‐level dashboard (no filter)                      |
-| SageMaker AI console → endpoint detail page         | Choose **View in SageMaker AI Insights** | Dashboard filtered to that endpoint                    |
-| SageMaker AI console → \*_IC_<br>• tab → per‐IC row | Choose **Metrics**                       | Dashboard filtered to endpoint and inference component |
+| Source                                             | Action                                   | Destination                                            |
+| -------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------ |
+| SageMaker AI console → *_Endpoints_<br>• list      | Choose **Open SageMaker AI Insights**    | Fleet‐level dashboard (no filter)                      |
+| SageMaker AI console → endpoint detail page        | Choose **View in SageMaker AI Insights** | Dashboard filtered to that endpoint                    |
+| SageMaker AI console → *_IC_<br>• tab → per‐IC row | Choose **Metrics**                       | Dashboard filtered to endpoint and inference component |
 
 You can also navigate directly through the CloudWatch console by choosing
 **Infrastructure monitoring** → **SageMaker AI Insights**.

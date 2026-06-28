@@ -2,58 +2,58 @@
 
 CloudWatch Application Insights supports the following metrics:
 
-asedb_database_availability
+asedb\_database\_availability
 
-asedb_trunc_log_on_chkpt_enabled
+asedb\_trunc\_log\_on\_chkpt\_enabled
 
-asedb_last_db_backup_age_in_days
+asedb\_last\_db\_backup\_age\_in\_days
 
-asedb_last_transaction_log_backup_age_in_hours
+asedb\_last\_transaction\_log\_backup\_age\_in\_hours
 
-asedb_suspected_database
+asedb\_suspected\_database
 
-asedb_db_space_usage_percent
+asedb\_db\_space\_usage\_percent
 
-asedb_db_log_space_usage_percent
+asedb\_db\_log\_space\_usage\_percent
 
-asedb_locked_login
+asedb\_locked\_login
 
-asedb_has_mixed_log_and_data
+asedb\_has\_mixed\_log\_and\_data
 
-asedb_runtime_for_open_transactions
+asedb\_runtime\_for\_open\_transactions
 
-asedb_data_cache_hit_ratio
+asedb\_data\_cache\_hit\_ratio
 
-asedb_data_cache_usage
+asedb\_data\_cache\_usage
 
-asedb_sql_cache_hit_ratio
+asedb\_sql\_cache\_hit\_ratio
 
-asedb_cache_usage
+asedb\_cache\_usage
 
-asedb_run_queue_length
+asedb\_run\_queue\_length
 
-asedb_number_of_rollbacks
+asedb\_number\_of\_rollbacks
 
-asedb_number_of_commits
+asedb\_number\_of\_commits
 
-asedb_number_of_transactions
+asedb\_number\_of\_transactions
 
-asedb_outstanding_disk_io
+asedb\_outstanding\_disk\_io
 
-asedb_percent_io_busy
+asedb\_percent\_io\_busy
 
-asedb_percent_system_busy
+asedb\_percent\_system\_busy
 
-asedb_percent_locks_active
+asedb\_percent\_locks\_active
 
-asedb_scheduled_jobs_failed_percent
+asedb\_scheduled\_jobs\_failed\_percent
 
-asedb_user_connections_percent
+asedb\_user\_connections\_percent
 
-asedb_query_logical_reads
+asedb\_query\_logical\_reads
 
-asedb_query_physical_reads
+asedb\_query\_physical\_reads
 
-asedb_query_cpu_time
+asedb\_query\_cpu\_time
 
-asedb_query_memory_usage
+asedb\_query\_memory\_usage

@@ -410,7 +410,7 @@ following command. The command includes these actions:
 
 1. Enable monitoring for the component.
 2. Set the tier of the component to `.NET
-Worker`.
+ Worker`.
 3. Update the JSON configuration of the component to read from
    the local file `configuration.txt`.
 
@@ -427,7 +427,7 @@ following command. The command includes these actions:
 
 1. Enable monitoring for the component.
 2. Set the tier of the component to `.NET
-Worker`.
+ Worker`.
 3. Update the JSON configuration of the component to read from
    the local file `configuration.txt`.
 

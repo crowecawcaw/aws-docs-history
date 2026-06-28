@@ -33,11 +33,10 @@ The agent chooses the service name from the following options, in priority order
 - **Resource tags from instance metadata** – For
   Amazon EC2 workloads, the agent sends the a name from tags, in the following order.
 
-      + service
-      + application
-      + app
-
-  You must [setup instance metadata](../../../AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS "../../../AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS") for the agent to be able to access tags.
+  - service
+  - application
+  - app
+    You must [setup instance metadata](../../../AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS "../../../AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.md#allow-access-to-tags-in-IMDS") for the agent to be able to access tags.
 
 - **Default** – If no other service name is found,
   the agent will send the name `Unknown`.
@@ -57,8 +56,8 @@ order:
   or log file level.
 - **Cluster name and workspace** – For Amazon EKS,
   `eks:`cluster-name`/`Namespace``.
-For native Kubernetes running on Amazon EC2,
-`k8s:`cluster-name`/`Namespace``.
+ For native Kubernetes running on Amazon EC2,
+ `k8s:`cluster-name`/`Namespace``.
 - **Resource tags from instance metadata** – For
   Amazon EC2 workloads, the agent can will use the `AutoScalingGroup` tag.
 

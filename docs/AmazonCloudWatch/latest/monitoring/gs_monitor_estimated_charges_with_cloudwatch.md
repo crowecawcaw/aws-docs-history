@@ -116,15 +116,14 @@ is provided by Amazon Services LLC. For more information, see
      specify **1 out of 1**.
     * For **Missing data treatment**, choose **Treat missing data as missing**.
 
-12. Choose **Next**.
-13. Under **Notification**, ensure
-    that **In alarm** is selected. Then
-    specify an Amazon SNS topic
-    to be notified
-    when your alarm is
-    in the `ALARM` state. The Amazon SNS
-    topic can include your email address so that you recieve
-    email when the billing amount crosses the threshold that you specified.
+12. Choose **Next**. 13. Under **Notification**, ensure
+that **In alarm** is selected. Then
+specify an Amazon SNS topic
+to be notified
+when your alarm is
+in the `ALARM` state. The Amazon SNS
+topic can include your email address so that you recieve
+email when the billing amount crosses the threshold that you specified.
 
 You can
 select an existing Amazon SNS topic,
@@ -143,11 +142,10 @@ for your alarm.
      Enter a description
      of your alarm.
 
-16. Choose **Next**.
-17. Under **Preview and create**,
-    make sure
-    that your configuration is correct,
-    and then choose **Create alarm**.
+16. Choose **Next**. 17. Under **Preview and create**,
+make sure
+that your configuration is correct,
+and then choose **Create alarm**.
 
 ## Step 3: Check the alarm status
 

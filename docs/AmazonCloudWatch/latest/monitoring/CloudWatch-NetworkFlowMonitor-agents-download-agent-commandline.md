@@ -22,10 +22,10 @@ attached. For more information, see [Configure permissions for agents](CloudWatc
 **Amazon Linux 2023**
 Install the package for your architecture by using one of the following commands:
 
-- **x86_64**: `sudo yum install 
-https://networkflowmonitoragent.awsstatic.com/latest/x86_64/network-flow-monitor-agent.rpm`
+- **x86\_64**: `sudo yum install 
+ https://networkflowmonitoragent.awsstatic.com/latest/x86_64/network-flow-monitor-agent.rpm`
 - **ARM64 (Graviton)**: `sudo yum install 
-https://networkflowmonitoragent.awsstatic.com/latest/arm64/network-flow-monitor-agent.rpm`
+ https://networkflowmonitoragent.awsstatic.com/latest/arm64/network-flow-monitor-agent.rpm`
 
 Verify that Network Flow Monitor agent is successfully installed by running the following command and
 verifying that the response shows that the agent is enabled and active:
@@ -41,7 +41,7 @@ network-flow-monitor.service - Network Flow Monitor Agent
 
 Install the package for your architecture by using one of the following commands:
 
-- **x86_64**:
+- **x86\_64**:
   `wget https://networkflowmonitoragent.awsstatic.com/latest/x86_64/network-flow-monitor-agent.deb`
 - **ARM64 (Graviton)**:
   `wget https://networkflowmonitoragent.awsstatic.com/latest/arm64/network-flow-monitor-agent.deb`
@@ -219,7 +219,7 @@ a9kDGcs3jIAchzxhzp/ViUBmTg6SoGKh3t+3uG/RK2ougRObJMW3G+DI7xWyY+3f
 `PS>`  rpm --checksig `agent-download-filename`
 ```
 
-For example, for the x86_64 architecture on Amazon Linux 2023, use the following command:
+For example, for the x86\_64 architecture on Amazon Linux 2023, use the following command:
 
 ```
 `PS>`  rpm --checksig network-flow-monitor-agent.rpm

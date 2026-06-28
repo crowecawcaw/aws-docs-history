@@ -20,7 +20,7 @@ expression can watch only one time series.
    expression**.
 6. For **Details**, enter the search expression that you want. For
    example, `SEARCH('{AWS/EC2,InstanceId} MetricName="CPUUtilization"',
-'Average')`
+ 'Average')`
 7. (Optional) To add another search expression or math expression to the graph, choose
    **Add a math expression**
 8. (Optional) After you add a search expression, you can specify a dynamic label to
@@ -106,6 +106,5 @@ results. 5. If you selected a namespace to narrow your results, you can do the f
      this?**.The selected metrics appear on the graph.
 
 6. (Optional) Select one of the buttons in the search bar to edit that part of the
-   search term.
-7. (Optional) To add the graph to a dashboard, choose **Actions** and
-   then **Add to dashboard**.
+search term. 7. (Optional) To add the graph to a dashboard, choose **Actions** and
+then **Add to dashboard**.

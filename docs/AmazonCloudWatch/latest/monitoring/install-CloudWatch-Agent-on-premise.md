@@ -153,7 +153,7 @@ If you specify a `shared_credential_profile`, you must also remove the
 The first example below shows the syntax of a valid
 `shared_credential_file` line for Linux servers, and the second example
 is valid for Windows Server. On Windows Server, you must escape the \
- characters.
+characters.
 
 ```
 shared_credential_file= "/usr/`username`/credentials"

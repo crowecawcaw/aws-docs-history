@@ -26,7 +26,7 @@ You can set CloudWatch Synthetics configurations at the global level.
 
 Function definitions:
 
-#### set_config(options)
+#### set\_config(options)
 
 ```
 from aws_synthetics.common import synthetics_configuration
@@ -43,43 +43,43 @@ possible fields in `options`.
 - `screenshot_on_step_failure` (boolean)— Whether to take a
   screenshot after a step fails.
 
-**with_screenshot_on_step_start(screenshot_on_step_start)**
+**with\_screenshot\_on\_step\_start(screenshot\_on\_step\_start)**
 
 Accepts a Boolean argument, which indicates whether to take a screenshot
 before starting a step.
 
-**with_screenshot_on_step_success(screenshot_on_step_success)**
+**with\_screenshot\_on\_step\_success(screenshot\_on\_step\_success)**
 
 Accepts a Boolean argument, which indicates whether to take a screenshot
 after completing a step successfully.
 
-**with_screenshot_on_step_failure(screenshot_on_step_failure)**
+**with\_screenshot\_on\_step\_failure(screenshot\_on\_step\_failure)**
 
 Accepts a Boolean argument, which indicates whether to take a screenshot
 after a step fails.
 
-**get_screenshot_on_step_start()**
+**get\_screenshot\_on\_step\_start()**
 
 Returns whether to take a screenshot before starting a step.
 
-**get_screenshot_on_step_success()**
+**get\_screenshot\_on\_step\_success()**
 
 Returns whether to take a screenshot after completing a step successfully.
 
-**get_screenshot_on_step_failure()**
+**get\_screenshot\_on\_step\_failure()**
 
 Returns whether to take a screenshot after a step fails.
 
-**disable_step_screenshots()**
+**disable\_step\_screenshots()**
 
-Disables all screenshot options (get_screenshot_on_step_start,
-get_screenshot_on_step_success,
-and get_screenshot_on_step_failure).
+Disables all screenshot options (get\_screenshot\_on\_step\_start,
+get\_screenshot\_on\_step\_success,
+and get\_screenshot\_on\_step\_failure).
 
-**enable_step_screenshots()**
+**enable\_step\_screenshots()**
 
-Enables all screenshot options (get_screenshot_on_step_start,
-get_screenshot_on_step_success, and get_screenshot_on_step_failure). By default, all
+Enables all screenshot options (get\_screenshot\_on\_step\_start,
+get\_screenshot\_on\_step\_success, and get\_screenshot\_on\_step\_failure). By default, all
 these methods are enabled.
 
 **setConfig(options) regarding CloudWatch metrics**
@@ -96,7 +96,7 @@ For a list of CloudWatch metrics emitted by canaries, see [CloudWatch metrics pu
 - `failed_canary_metric` (boolean)— Whether to emit the `Failed` metric (with the `CanaryName` dimension) for this
   canary. The default is `true`.
 - `failed_requests_metric` (boolean)— Whether to emit the `Failed
-requests` metric (with the `CanaryName` dimension) for this
+ requests` metric (with the `CanaryName` dimension) for this
   canary. The default is `true`.
 - `2xx_metric` (boolean)— Whether to emit the `2xx`
   metric (with the `CanaryName` dimension) for this canary. The default
@@ -128,17 +128,17 @@ requests` metric (with the `CanaryName` dimension) for this
 - `aggregated_5xx_metric` (boolean)— Whether to emit the `5xx` metric (without the `CanaryName` dimension) for this
   canary. The default is `true`.
 
-**with_2xx_metric(2xx_metric)**
+**with\_2xx\_metric(2xx\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `2xx`
 metric with the `CanaryName` dimension for this canary.
 
-**with_4xx_metric(4xx_metric)**
+**with\_4xx\_metric(4xx\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `4xx`
 metric with the `CanaryName` dimension for this canary.
 
-**with_5xx_metric(5xx_metric)**
+**with\_5xx\_metric(5xx\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `5xx`
 metric with the `CanaryName` dimension for this canary.
@@ -153,67 +153,67 @@ metric with no dimension for this canary.
 Accepts a Boolean argument, which specifies whether to emit a `4xx`
 metric with no dimension for this canary.
 
-**with_aggregated_5xx_metric(aggregated_5xx_metric)**
+**with\_aggregated\_5xx\_metric(aggregated\_5xx\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `5xx`
 metric with no dimension for this canary.
 
-**with_aggregated_failed_canary_metric(aggregated_failed_canary_metric)**
+**with\_aggregated\_failed\_canary\_metric(aggregated\_failed\_canary\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `Failed`
 metric with no dimension for this canary.
 
-**with_aggregated_failed_requests_metric(aggregated_failed_requests_metric)**
+**with\_aggregated\_failed\_requests\_metric(aggregated\_failed\_requests\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `Failed
  requests` metric with no dimension for this canary.
 
-**with_failed_canary_metric(failed_canary_metric)**
+**with\_failed\_canary\_metric(failed\_canary\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `Failed`
 metric with the `CanaryName` dimension for this canary.
 
-**with_failed_requests_metric(failed_requests_metric)**
+**with\_failed\_requests\_metric(failed\_requests\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `Failed
  requests` metric with the `CanaryName` dimension for this canary.
 
-**with_step_duration_metric(step_duration_metric)**
+**with\_step\_duration\_metric(step\_duration\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `Duration`
 metric with the `CanaryName` dimension for this canary.
 
-**with_step_success_metric(step_success_metric)**
+**with\_step\_success\_metric(step\_success\_metric)**
 
 Accepts a Boolean argument, which specifies whether to emit a `StepSuccess`
 metric with the `CanaryName` dimension for this canary.
 
 ##### Methods to enable or disable metrics
 
-**disable_aggregated_request_metrics()**
+**disable\_aggregated\_request\_metrics()**
 
 Disables the canary from emitting all request metrics that are emitted with no `CanaryName` dimension.
 
-**disable_request_metrics()**
+**disable\_request\_metrics()**
 
 Disables all request metrics, including both per-canary metrics and
 metrics aggregated across all canaries.
 
-**disable_step_metrics()**
+**disable\_step\_metrics()**
 
 Disables all step metrics, including both step success metrics
 and step duration metrics.
 
-**enable_aggregated_request_metrics()**
+**enable\_aggregated\_request\_metrics()**
 
 Enables the canary to emit all request metrics that are emitted with no `CanaryName` dimension.
 
-**enable_request_metrics()**
+**enable\_request\_metrics()**
 
 Enables all request metrics, including both per-canary metrics and
 metrics aggregated across all canaries.
 
-**enable_step_metrics()**
+**enable\_step\_metrics()**
 
 Enables all step metrics, including both step success metrics
 and step duration metrics.
@@ -258,7 +258,7 @@ example, to disable screenshots only for one step, disable them before running t
 step
 and then enable them after the step.
 
-##### set_config(options) for UI canaries
+##### set\_config(options) for UI canaries
 
 Starting with `syn-python-selenium-1.1`, for UI canaries, `set_config` can include the following Boolean parameters:
 
@@ -441,10 +441,10 @@ methods.
 
 ###### Topics
 
-- [set_viewport_size(width, height)](#CloudWatch_Synthetics_Library_set_viewport_size "#CloudWatch_Synthetics_Library_set_viewport_size")
-- [save_screenshot(filename, suffix)](#CloudWatch_Synthetics_Library_save_screenshot "#CloudWatch_Synthetics_Library_save_screenshot")
+- [set\_viewport\_size(width, height)](#CloudWatch_Synthetics_Library_set_viewport_size "#CloudWatch_Synthetics_Library_set_viewport_size")
+- [save\_screenshot(filename, suffix)](#CloudWatch_Synthetics_Library_save_screenshot "#CloudWatch_Synthetics_Library_save_screenshot")
 
-#### set_viewport_size(width, height)
+#### set\_viewport\_size(width, height)
 
 Sets the viewport of the browser. Example:
 
@@ -452,7 +452,7 @@ Sets the viewport of the browser. Example:
 browser.set_viewport_size(1920, 1080)
 ```
 
-#### save_screenshot(filename, suffix)
+#### save\_screenshot(filename, suffix)
 
 Saves screenshots to the `/tmp` directory. The screenshots are
 uploaded from there to the canary artifacts folder in the S3 bucket.
@@ -475,13 +475,13 @@ from aws_synthetics.selenium import synthetics_webdriver
 
 ###### Topics
 
-- [add_execution_error(errorMessage, ex);](#CloudWatch_Synthetics_Library_Python_addExecutionError "#CloudWatch_Synthetics_Library_Python_addExecutionError")
-- [add_user_agent(user_agent_str)](#CloudWatch_Synthetics_Library_add_user_agent "#CloudWatch_Synthetics_Library_add_user_agent")
-- [execute_step(step_name, function_to_execute)](#CloudWatch_Synthetics_Library_Python_execute_step "#CloudWatch_Synthetics_Library_Python_execute_step")
-- [get_http_response(url)](#CloudWatch_Synthetics_Library_Python_get_http_response "#CloudWatch_Synthetics_Library_Python_get_http_response")
+- [add\_execution\_error(errorMessage, ex);](#CloudWatch_Synthetics_Library_Python_addExecutionError "#CloudWatch_Synthetics_Library_Python_addExecutionError")
+- [add\_user\_agent(user\_agent\_str)](#CloudWatch_Synthetics_Library_add_user_agent "#CloudWatch_Synthetics_Library_add_user_agent")
+- [execute\_step(step\_name, function\_to\_execute)](#CloudWatch_Synthetics_Library_Python_execute_step "#CloudWatch_Synthetics_Library_Python_execute_step")
+- [get\_http\_response(url)](#CloudWatch_Synthetics_Library_Python_get_http_response "#CloudWatch_Synthetics_Library_Python_get_http_response")
 - [Chrome()](#CloudWatch_Synthetics_Library_Python_Chrome "#CloudWatch_Synthetics_Library_Python_Chrome")
 
-#### add_execution_error(errorMessage, ex);
+#### add\_execution\_error(errorMessage, ex);
 
 `errorMessage` describes the error and `ex` is the
 exception that is encountered
@@ -511,7 +511,7 @@ except Exception as ex:
 
 ```
 
-#### add_user_agent(user_agent_str)
+#### add\_user\_agent(user\_agent\_str)
 
 Appends the value of `user_agent_str` to the browser's user agent
 header. You must assign `user_agent_str` before creating the browser
@@ -526,7 +526,7 @@ await synthetics_webdriver.add_user_agent('MyApp-1.0')
 `add_user_agent` should be used inside an `async`
 function.
 
-#### execute_step(step_name, function_to_execute)
+#### execute\_step(step\_name, function\_to\_execute)
 
 Processes one function. It also does the following:
 
@@ -561,7 +561,7 @@ def custom_actions():
 
 ```
 
-#### get_http_response(url)
+#### get\_http\_response(url)
 
 Makes an HTTP request to the provided URL and returns the response code of the
 HTTP request. If an exception occurred during the HTTP request, a string with value

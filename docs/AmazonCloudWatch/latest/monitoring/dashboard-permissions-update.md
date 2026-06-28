@@ -15,17 +15,16 @@ Dashboard access in the CloudWatch console now requires permissions that were in
 - A custom policy that includes one or more of these specific
   permissions:
 
-      + `cloudwatch:GetDashboard` and
-       `cloudwatch:ListDashboards` to be able to view
-       dashboards
-      + `cloudwatch:PutDashboard` to be able to create or modify
-       dashboards
-      + `cloudwatch:DeleteDashboards` to be able to delete
-       dashboards
-
-  For more information about using policies to change permissions for an IAM user, see
-  [Changing Permissions for
-  an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md").
+  - `cloudwatch:GetDashboard` and
+    `cloudwatch:ListDashboards` to be able to view
+    dashboards
+  - `cloudwatch:PutDashboard` to be able to create or modify
+    dashboards
+  - `cloudwatch:DeleteDashboards` to be able to delete
+    dashboards
+    For more information about using policies to change permissions for an IAM user, see
+    [Changing Permissions for
+    an IAM user](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md").
 
 For more information about CloudWatch permissions, see [Amazon CloudWatch permissions reference](permissions-reference-cw.md "permissions-reference-cw.md").
 

@@ -35,4 +35,4 @@ This integration supports OCSF schema version v1.5.0 and events that map to DNS 
 
 **Authentication** covers events from source:
 
-- Admin Audit Logs - Event actions: SIGN_IN, SIGN_OUT
+- Admin Audit Logs - Event actions: SIGN\_IN, SIGN\_OUT

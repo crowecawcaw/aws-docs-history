@@ -198,17 +198,15 @@ To continue using the wizard, do the following:
 
 9. To enter your rule as a JSON object instead of using the wizard, do the following:
 
-   1. Choose the **Syntax** tab.
-   2. In **Rule body**, enter the JSON object for your rule. For information about rule syntax, see
-      [Contributor Insights rule syntax in CloudWatch](ContributorInsights-RuleSyntax.md "ContributorInsights-RuleSyntax.md").
+    1. Choose the **Syntax** tab.
+    2. In **Rule body**, enter the JSON object for your rule. For information about rule syntax, see
+     [Contributor Insights rule syntax in CloudWatch](ContributorInsights-RuleSyntax.md "ContributorInsights-RuleSyntax.md").
 
-10. Choose **Next**.
-11. For **Rule name**, enter a name. Valid characters are A-Z, a-z, 0-9, "-",
-    "\_', and ".".
-12. Choose whether to create the rule in a disabled or enabled state. If you choose to enable it,
-    the rule immediately starts analyzing your data. You incur costs when you run enabled
-    rules. For more information, see [Amazon CloudWatch
-    Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+10. Choose **Next**. 11. For **Rule name**, enter a name. Valid characters are A-Z, a-z, 0-9, "-",
+"\_', and ".". 12. Choose whether to create the rule in a disabled or enabled state. If you choose to enable it,
+the rule immediately starts analyzing your data. You incur costs when you run enabled
+rules. For more information, see [Amazon CloudWatch
+Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
 Contributor Insights analyzes only new log events after a rule is created. A rule cannot process logs events that were previously processed by
 CloudWatch Logs. 13. (Optional) For **Tags**, add one or more key-value pairs as tags for this

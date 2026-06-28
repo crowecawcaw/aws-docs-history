@@ -113,27 +113,27 @@ to the ECS service discovery, as shown in the following example.
 The meaning of each metric for a particular ECS service discovery cycle is as
 follows:
 
-- **AWSCLI_DescribeContainerInstances** –
+- **AWSCLI\_DescribeContainerInstances** –
   the number of `ECS::DescribeContainerInstances` API calls made.
-- **AWSCLI_DescribeInstancesRequest** – the
+- **AWSCLI\_DescribeInstancesRequest** – the
   number of `ECS::DescribeInstancesRequest` API calls made.
-- **AWSCLI_DescribeTaskDefinition** – the
+- **AWSCLI\_DescribeTaskDefinition** – the
   number of `ECS::DescribeTaskDefinition` API calls made.
-- **AWSCLI_DescribeTasks** – the number of
+- **AWSCLI\_DescribeTasks** – the number of
   `ECS::DescribeTasks` API calls made.
-- **AWSCLI_ListTasks** – the number of
+- **AWSCLI\_ListTasks** – the number of
   `ECS::ListTasks` API calls made.
 - **ExporterDiscoveredTargetCount** – the
   number of Prometheus targets that were discovered and successfully exported into
   the target result file within the container.
-- **LRUCache_Get_EC2MetaData** – the number
+- **LRUCache\_Get\_EC2MetaData** – the number
   of times that container instances metadata was retrieved from the cache.
-- **LRUCache_Get_TaskDefinition** – the
+- **LRUCache\_Get\_TaskDefinition** – the
   number of times that ECS task definition metadata was retrieved from the
   cache.
-- **LRUCache_Size_ContainerInstance** – the
+- **LRUCache\_Size\_ContainerInstance** – the
   number of unique container instance's metadata cached in memory.
-- **LRUCache_Size_TaskDefinition** – the
+- **LRUCache\_Size\_TaskDefinition** – the
   number of unique ECS task definitions cached in memory.
 - **Latency** – how long the service
   discovery cycle takes.
@@ -143,12 +143,12 @@ discovered Prometheus targets match your expectations. If not, the possible reas
 are as follows:
 
 - The configuration of ECS service discovery might not match your application's
-  setting. For the docker label-based service discovery, your target containers may
-  not have the necessary docker label configured in the CloudWatch agent to auto discover
+  setting. For the Docker label-based service discovery, your target containers may
+  not have the necessary Docker label configured in the CloudWatch agent to auto discover
   them. For the ECS task definition ARN regular expression-based service discovery,
-  the regex setting in the CloudWatch agent may not match your application’s task
+  the regex setting in the CloudWatch agent may not match your application's task
   definition.
-- The CloudWatch agent’s ECS task role might not have permission to retrieve the
+- The CloudWatch agent's ECS task role might not have permission to retrieve the
   metadata of ECS tasks. Check that the CloudWatch agent has been granted the following
   read-only permissions:
 
@@ -168,9 +168,9 @@ discovered Prometheus targets, this could be caused by one of the following:
 - The CloudWatch agent might not be able to connect to the Prometheus target ports.
   Check the security group setting behind the CloudWatch agent. The private IP should alow
   the CloudWatch agent to connect to the Prometheus exporter ports.
-- The CloudWatch agent’s ECS task role might not have the
+- The CloudWatch agent's ECS task role might not have the
   **CloudWatchAgentServerPolicy** managed policy. The CloudWatch
-  agent’s ECS task role needs to have this policy to be able to send the Prometheus
+  agent's ECS task role needs to have this policy to be able to send the Prometheus
   metrics as log events. If you used the sample CloudFormation template to create the IAM
   roles automatically, both the ECS task role and the ECS execution role are granted
   with the least privilege to perform the Prometheus monitoring.

@@ -23,7 +23,7 @@ the recover action to alarms that is set on any Amazon EC2 per-instance metric e
 
 ###### Important
 
-Alarms configured on Amazon EC2 metrics can temporarily enter the INSUFFICIENT_DATA state if
+Alarms configured on Amazon EC2 metrics can temporarily enter the INSUFFICIENT\_DATA state if
 there are missing metric data points. This is rare, but can happen when the
 metric reporting is interrupted, even when the Amazon EC2 instance is healthy. For alarms on Amazon EC2 metrics that are
 configured to take stop, terminate, reboot, or recover actions, we recommend that you configure those
@@ -105,7 +105,7 @@ terminated.
 
    To create an SNS topic, choose **New list**. For **Send
    notification to**, type a name for the SNS topic (for example,
-   Stop_EC2_Instance). For **Email list**, type a comma-separated list
+   Stop\_EC2\_Instance). For **Email list**, type a comma-separated list
    of email addresses to be notified when the alarm changes to the `ALARM`
    state. Each email address is sent a topic subscription confirmation email. You must
    confirm the subscription before notifications can be sent to an email address. 6. Choose **Add EC2 Action**. 7. For **Alarm state trigger**, choose **In alarm**.
@@ -153,7 +153,7 @@ _Amazon EC2 User Guide_.
 
    To create an SNS topic, choose **New list**. For **Send
    notification to**, type a name for the SNS topic (for example,
-   Terminate_EC2_Instance). For **Email list**, type a comma-separated
+   Terminate\_EC2\_Instance). For **Email list**, type a comma-separated
    list of email addresses to be notified when the alarm changes to the
    `ALARM` state. Each email address is sent a topic subscription
    confirmation email. You must confirm the subscription before notifications can be sent
@@ -190,7 +190,7 @@ reboot alarms to three evaluation periods of one minute each.
 3. For the **Select Metric** step, do the following:
 
    1. Under **EC2 Metrics**, choose **Per-Instance Metrics**.
-   2. Select the row with the instance and the **StatusCheckFailed_Instance** metric.
+   2. Select the row with the instance and the **StatusCheckFailed\_Instance** metric.
    3. For the statistic, choose **Minimum**.
    4. Choose a period (for example, `1 Minute`).
    5. Choose
@@ -211,7 +211,7 @@ reboot alarms to three evaluation periods of one minute each.
 
    To create an SNS topic, choose **New list**. For **Send
    notification to**, type a name for the SNS topic (for example,
-   Reboot_EC2_Instance). For **Email list**, type a comma-separated list
+   Reboot\_EC2\_Instance). For **Email list**, type a comma-separated list
    of email addresses to be notified when the alarm changes to the `ALARM`
    state. Each email address is sent a topic subscription confirmation email. You must
    confirm the subscription before notifications can be sent to an email address. 4. Choose **EC2 Action**. 5. For **Whenever this alarm**, choose **State is
@@ -265,7 +265,7 @@ two evaluation periods of one minute each and reboot alarms to three evaluation 
 4. Choose **Select Metric** and then do the following:
 
    1. Choose **EC2 Metrics**, **Per-Instance Metrics**.
-   2. Select the row with the instance and the **StatusCheckFailed_System** metric, and then choose **Select metric**.
+   2. Select the row with the instance and the **StatusCheckFailed\_System** metric, and then choose **Select metric**.
    3. For the statistic, choose **Minimum**.
    4. Choose a period (for example, `1 Minute`).
 
@@ -297,7 +297,7 @@ two evaluation periods of one minute each and reboot alarms to three evaluation 
 
 8. For **Alarm name**, type a unique name for the alarm (for example,
    `Recover EC2 instance`) and a description of the alarm (for example, `Recover EC2 instance when 
-health checks fail`). Alarm names must contain only ASCII characters.
+ health checks fail`). Alarm names must contain only ASCII characters.
 9. Choose **Next**.
 10. Choose **Create Alarm**.
 

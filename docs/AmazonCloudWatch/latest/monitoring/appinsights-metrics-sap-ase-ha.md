@@ -2,8 +2,8 @@
 
 CloudWatch Application Insights supports the following metrics:
 
-asedb_ha_replication_state
+asedb\_ha\_replication\_state
 
-asedb_ha_replication_mode
+asedb\_ha\_replication\_mode
 
-asedb_ha_replication_latency_in_minutes
+asedb\_ha\_replication\_latency\_in\_minutes

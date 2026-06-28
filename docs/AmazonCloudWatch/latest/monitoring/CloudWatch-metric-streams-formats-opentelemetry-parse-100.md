@@ -10,42 +10,37 @@ OpenTelemetry 1.0.0 messages in your preferred language.
 
 - The steps depend on your preferred language.
 
-      + To use Java, add the following Maven dependency
-       to your Java project:
-       [OpenTelemetry Java >> 0.14.1](https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-proto/0.14.1 "https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-proto/0.14.1").
-      + To use any other language, follow these steps:
+  - To use Java, add the following Maven dependency
+    to your Java project:
+    [OpenTelemetry Java >> 0.14.1](https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-proto/0.14.1 "https://mvnrepository.com/artifact/io.opentelemetry/opentelemetry-proto/0.14.1").
+  - To use any other language, follow these steps:
 
+    1. Make sure that your language is supported by
+       checking the list at [Generating Your Classes](https://developers.google.com/protocol-buffers/docs/proto3#generating "https://developers.google.com/protocol-buffers/docs/proto3#generating").
+    2. Install the Protobuf compiler by following the steps
+       at [Download Protocol Buffers](https://developers.google.com/protocol-buffers/docs/downloads "https://developers.google.com/protocol-buffers/docs/downloads").
+    3. Download the OpenTelemetry 1.0.0 ProtoBuf definitions at
+       [Release version 1.0.0](https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0 "https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0").
+    4. Confirm that you are in the root folder of the downloaded
+       OpenTelemetry 1.0.0 ProtoBuf definitions. Then create a `src`
+       folder and then run the command to
+       generate language-specific bindings. For more information, see
+       [Generating Your Classes](https://developers.google.com/protocol-buffers/docs/proto3#generating "https://developers.google.com/protocol-buffers/docs/proto3#generating").
 
-      	1. Make sure that your language is supported by
-      	 checking the list at [Generating Your Classes](https://developers.google.com/protocol-buffers/docs/proto3#generating "https://developers.google.com/protocol-buffers/docs/proto3#generating").
-      	2. Install the Protobuf compiler by following the steps
-      	 at [Download Protocol Buffers](https://developers.google.com/protocol-buffers/docs/downloads "https://developers.google.com/protocol-buffers/docs/downloads").
-      	3. Download the OpenTelemetry 1.0.0 ProtoBuf definitions at
-      	 [Release version 1.0.0](https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0 "https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.0.0").
-      	4. Confirm that you are in the root folder of the downloaded
-      	 OpenTelemetry 1.0.0 ProtoBuf definitions. Then create a `src`
-      	 folder and then run the command to
-      	 generate language-specific bindings. For more information, see
-      	 [Generating Your Classes](https://developers.google.com/protocol-buffers/docs/proto3#generating "https://developers.google.com/protocol-buffers/docs/proto3#generating").
+    The following is an example for how to generate
+    Javascript bindings.
 
+    ```
+    protoc --proto_path=./ --js_out=import_style=commonjs,binary:src \
+    opentelemetry/proto/common/v1/common.proto \
+    opentelemetry/proto/resource/v1/resource.proto \
+    opentelemetry/proto/metrics/v1/metrics.proto \
+    opentelemetry/proto/collector/metrics/v1/metrics_service.proto
 
+    ```
 
-      	The following is an example for how to generate
-      	 Javascript bindings.
-
-
-
-      	```
-      	protoc --proto_path=./ --js_out=import_style=commonjs,binary:src \
-      	opentelemetry/proto/common/v1/common.proto \
-      	opentelemetry/proto/resource/v1/resource.proto \
-      	opentelemetry/proto/metrics/v1/metrics.proto \
-      	opentelemetry/proto/collector/metrics/v1/metrics_service.proto
-
-      	```
-
-  The following section includes examples of using the language-specific bindings
-  that you can build using the previous instructions.
+The following section includes examples of using the language-specific bindings
+that you can build using the previous instructions.
 
 **Java**
 

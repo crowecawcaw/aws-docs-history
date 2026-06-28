@@ -27,12 +27,6 @@ tagged with specific applications or environments.
   (PromQL) instant query on metrics ingested through the CloudWatch OTLP endpoint. The alarm
   tracks individual breaching time series as contributors and uses duration-based pending
   and recovery periods to control state transitions. For more information, see [PromQL alarms](alarm-promql.md "alarm-promql.md").
-- A _log alarm_ monitors the results of a CloudWatch Logs Insights
-  query that runs on a schedule. The alarm evaluates aggregated query results against a
-  threshold using M-out-of-N evaluation on recent query executions. Use log alarms to
-  detect patterns, errors, or threshold breaches directly in your log data without
-  creating metric filters. For more information, see
-  [Create a Log Alarm](Alarm-On-Logs.md#Create_Log_Alarm "Alarm-On-Logs.md#Create_Log_Alarm").
 - A _composite alarm_ includes a rule expression that takes into
   account the alarm states of other alarms that you have created. The composite alarm goes
   into ALARM state only if all conditions of the rule are met. The alarms specified in a
@@ -84,7 +78,7 @@ that your alarm actions exist.
 The following features apply to all CloudWatch alarms:
 
 - There is no limit to the number of alarms that you can create. To create or update an
-  alarm, you use the CloudWatch console, the [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md") or [PutLogAlarm](../APIReference/API_PutLogAlarm.md "../APIReference/API_PutLogAlarm.md") API actions, or the corresponding commands in
+  alarm, you use the CloudWatch console, the [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md") API action, or the [put-metric-alarm](../../../cli/latest/reference/cloudwatch/put-metric-alarm.md "../../../cli/latest/reference/cloudwatch/put-metric-alarm.md") command in
   the AWS CLI.
 - Alarm names must contain only UTF-8 characters, and can't contain ASCII control
   characters

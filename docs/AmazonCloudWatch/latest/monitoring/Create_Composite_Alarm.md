@@ -45,7 +45,7 @@ is in `ALARM` at the same time as OK("NetworkOutTooHigh") is in
 `OK`. 5. When finished, choose **Next**. 6. Under **Configure actions**, you can choose from the
 following:
 
-For **_Notification_**
+For _**Notification**_
 
     * **Select an exisiting SNS topic**, **Create a new SNS
      topic**, or **Use a topic ARN** to define the SNS topic
@@ -59,7 +59,7 @@ For **_Notification_**
 **Add Lambda action**. Then specify the function name or ARN, and
 optionally choose a specific version of the function.
 
-For **_Systems Manager action_**
+For _**Systems Manager action**_
 
     * **Add Systems Manager action**, so your alarm can perform an
      SSM action when it goes into ALARM.

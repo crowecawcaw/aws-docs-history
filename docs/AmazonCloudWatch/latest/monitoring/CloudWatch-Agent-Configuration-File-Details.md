@@ -16,8 +16,8 @@ The CloudWatch agent configuration file is a JSON file with four sections:
   You can view the schema definition for this configuration file. The schema definition is
   located at
   ``installation-directory`/doc/amazon-cloudwatch-agent-schema.json`
-on Linux servers and at
-``installation-directory`/amazon-cloudwatch-agent-schema.json`
+ on Linux servers and at
+ ``installation-directory`/amazon-cloudwatch-agent-schema.json`
   on servers running Windows Server.
 
 If you create or edit the agent configuration file manually, you can give it any name.
@@ -95,17 +95,16 @@ For more information about these options, see [LogLevelType](../../../sdk-for-go
   log messages. If you specify an empty string, the log goes to stderr. If you don't
   specify this option, the default locations are the following:
 
-      + Linux:
-       `/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log`
-      + Windows Server:
-       `c:\\ProgramData\\Amazon\\CloudWatchAgent\\Logs\\amazon-cloudwatch-agent.log`
-
-  The CloudWatch agent automatically rotates the log file that it creates. A log file is
-  rotated out when it reaches 100 MB in size. The agent keeps the rotated log files
-  for up to seven days, and it keeps as many as five backup log files that have been
-  rotated out. Backup log files have a timestamp appended to their filename. The
-  timestamp shows the date and time that the file was rotated out: for example,
-  `amazon-cloudwatch-agent-2018-06-08T21-01-50.247.log.gz`.
+  - Linux:
+    `/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log`
+  - Windows Server:
+    `c:\\ProgramData\\Amazon\\CloudWatchAgent\\Logs\\amazon-cloudwatch-agent.log`
+    The CloudWatch agent automatically rotates the log file that it creates. A log file is
+    rotated out when it reaches 100 MB in size. The agent keeps the rotated log files
+    for up to seven days, and it keeps as many as five backup log files that have been
+    rotated out. Backup log files have a timestamp appended to their filename. The
+    timestamp shows the date and time that the file was rotated out: for example,
+    `amazon-cloudwatch-agent-2018-06-08T21-01-50.247.log.gz`.
 
 - `omit_hostname` – Optional. By default, the hostname is
   published as a dimension of metrics that are collected by the agent, unless you are
@@ -348,12 +347,12 @@ collected.
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
 
-      - `rename` – Specifies a different name for this
-       metric.
-      - `unit` – Specifies the unit to use for this metric,
-       overriding the default unit of `None` for the metric. The unit
-       that you specify must be a valid CloudWatch metric unit, as listed in the
-       `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
+        - `rename` – Specifies a different name for this
+         metric.
+        - `unit` – Specifies the unit to use for this metric,
+         overriding the default unit of `None` for the metric. The unit
+         that you specify must be a valid CloudWatch metric unit, as listed in the
+         `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the cpu metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -409,12 +408,12 @@ collected.
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
 
-      - `rename` – Specifies a different name for this
-       metric.
-      - `unit` – Specifies the unit to use for this metric,
-       overriding the default unit of `None` of `None` for
-       the metric. The unit that you specify must be a valid CloudWatch metric unit, as
-       listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
+        - `rename` – Specifies a different name for this
+         metric.
+        - `unit` – Specifies the unit to use for this metric,
+         overriding the default unit of `None` of `None` for
+         the metric. The unit that you specify must be a valid CloudWatch metric unit, as
+         listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
   - `ignore_file_system_types` – Specifies file system types
     to exclude when collecting disk metrics. Valid values include
     `sysfs`, `devtmpfs`, and so on.
@@ -447,11 +446,11 @@ collected.
   One key-value pair that you can use is the following. You can also specify
   other custom key-value pairs.
 
-      - `"VolumeId":"${aws:VolumeId}"` adds a `VolumeId`
-       dimension to your block device disk metrics. For Amazon EBS volumes, this will
-       be the Amazon EBS Volume ID. For EC2 instance store, this will be the device
-       serial. Using this requires the `drop_device` parameter to be
-       set to `false`.
+        - `"VolumeId":"${aws:VolumeId}"` adds a `VolumeId`
+         dimension to your block device disk metrics. For Amazon EBS volumes, this will
+         be the Amazon EBS Volume ID. For EC2 instance store, this will be the device
+         serial. Using this requires the `drop_device` parameter to be
+         set to `false`.
 
 - `diskio` – Optional. Specifies that disk i/o metrics are to
   be collected. This section is valid only for Linux instances. This section can
@@ -482,12 +481,12 @@ collected.
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
 
-      - `rename` – Specifies a different name for this
-       metric.
-      - `unit` – Specifies the unit to use for this metric,
-       overriding the default unit of `None` of `None` for
-       the metric. The unit that you specify must be a valid CloudWatch metric unit, as
-       listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
+        - `rename` – Specifies a different name for this
+         metric.
+        - `unit` – Specifies the unit to use for this metric,
+         overriding the default unit of `None` of `None` for
+         the metric. The unit that you specify must be a valid CloudWatch metric unit, as
+         listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
 
   For information on default units and description of the metrics, see [Collect Amazon EBS NVMe driver metrics](Container-Insights-metrics-EBS-Collect.md "Container-Insights-metrics-EBS-Collect.md").
   - `metrics_collection_interval` – Optional. Specifies how
@@ -529,12 +528,12 @@ collected.
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
 
-      - `rename` – Specifies a different name for this
-       metric.
-      - `unit` – Specifies the unit to use for this metric,
-       overriding the default unit of `None` of `None` for
-       the metric. The unit that you specify must be a valid CloudWatch metric unit, as
-       listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
+        - `rename` – Specifies a different name for this
+         metric.
+        - `unit` – Specifies the unit to use for this metric,
+         overriding the default unit of `None` of `None` for
+         the metric. The unit that you specify must be a valid CloudWatch metric unit, as
+         listed in the `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the swap metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -577,12 +576,12 @@ collected.
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
 
-      - `rename` – Specifies a different name for this
-       metric.
-      - `unit` – Specifies the unit to use for this metric,
-       overriding the default unit of `None` for the metric. The unit
-       that you specify must be a valid CloudWatch metric unit, as listed in the
-       `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
+        - `rename` – Specifies a different name for this
+         metric.
+        - `unit` – Specifies the unit to use for this metric,
+         overriding the default unit of `None` for the metric. The unit
+         that you specify must be a valid CloudWatch metric unit, as listed in the
+         `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the mem metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -628,12 +627,12 @@ collected.
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
 
-      - `rename` – Specifies a different name for this
-       metric.
-      - `unit` – Specifies the unit to use for this metric,
-       overriding the default unit of `None` for the metric. The unit
-       that you specify must be a valid CloudWatch metric unit, as listed in the
-       `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
+        - `rename` – Specifies a different name for this
+         metric.
+        - `unit` – Specifies the unit to use for this metric,
+         overriding the default unit of `None` for the metric. The unit
+         that you specify must be a valid CloudWatch metric unit, as listed in the
+         `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the net metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -680,12 +679,12 @@ collected.
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
 
-      - `rename` – Specifies a different name for this
-       metric.
-      - `unit` – Specifies the unit to use for this metric,
-       overriding the default unit of `None` for the metric. The unit
-       that you specify must be a valid CloudWatch metric unit, as listed in the
-       `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
+        - `rename` – Specifies a different name for this
+         metric.
+        - `unit` – Specifies the unit to use for this metric,
+         overriding the default unit of `None` for the metric. The unit
+         that you specify must be a valid CloudWatch metric unit, as listed in the
+         `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the netstat metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -728,12 +727,12 @@ collected.
   Within the entry for each individual metric, you might optionally specify
   one or both of the following:
 
-      - `rename` – Specifies a different name for this
-       metric.
-      - `unit` – Specifies the unit to use for this metric,
-       overriding the default unit of `None` for the metric. The unit
-       that you specify must be a valid CloudWatch metric unit, as listed in the
-       `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
+        - `rename` – Specifies a different name for this
+         metric.
+        - `unit` – Specifies the unit to use for this metric,
+         overriding the default unit of `None` for the metric. The unit
+         that you specify must be a valid CloudWatch metric unit, as listed in the
+         `Unit` description in [MetricDatum](../APIReference/API_MetricDatum.md "../APIReference/API_MetricDatum.md").
   - `metrics_collection_interval` – Optional. Specifies how
     often to collect the processes metrics, overriding the global
     `metrics_collection_interval` specified in the `agent`
@@ -1220,22 +1219,20 @@ concurrency can help with throughput.
         number of days to retain the log events in the specified log
         group.
 
-            + If the agent is creating this log group now, and you omit this
-             field, the retention of this new log group is set to never
-             expire.
-            + If this log group already exists and you specify this field, the
-             new retention that you specify is used. If you omit this field for a
-             log group that already exists, the log group's retention is not
-             changed.
+        - If the agent is creating this log group now, and you omit this
+          field, the retention of this new log group is set to never
+          expire.
+        - If this log group already exists and you specify this field, the
+          new retention that you specify is used. If you omit this field for a
+          log group that already exists, the log group's retention is not
+          changed.
 
-
-            The CloudWatch agent wizard uses `-1` as the default value
-             for this field when it is used to create the agent configuration
-             file and you don't specify a value for log retention. This
-             `-1` value set by the wizard specifies that the events
-             in the log group will never expire. However, manually editing this
-             value to `-1` has no effect.
-
+        The CloudWatch agent wizard uses `-1` as the default value
+        for this field when it is used to create the agent configuration
+        file and you don't specify a value for log retention. This
+        `-1` value set by the wizard specifies that the events
+        in the log group will never expire. However, manually editing this
+        value to `-1` has no effect.
         Valid values are 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365,
         400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.
 
@@ -1266,29 +1263,29 @@ concurrency can help with throughput.
         If you omit this field, all logs in the log file are published to CloudWatch Logs.
         If you include this field, the agent processes each log message with all
         of the filters that you specify, and only the log events that pass all
-        of the filters are published to CloudWatch Logs. The log entries that don’t pass
+        of the filters are published to CloudWatch Logs. The log entries that don't pass
         all of the filters will still remain in the host's log file, but will
         not be sent to CloudWatch Logs.
 
       Each entry in the filters array can include the following
       fields:
 
-          + `type`– Denotes the type of filter. Valid
-           values are `include` and `exclude`. With
-           `include`, the log entry must match the expression to
-           be published to CloudWatch Logs. With `exclude`, each log entry
-           that matches the filter is not sent to CloudWatch Logs.
-          + `expression`– A regular expression string that
-           follows the [RE2 Syntax](https://github.com/google/re2/wiki/Syntax "https://github.com/google/re2/wiki/Syntax").
+            + `type`– Denotes the type of filter. Valid
+             values are `include` and `exclude`. With
+             `include`, the log entry must match the expression to
+             be published to CloudWatch Logs. With `exclude`, each log entry
+             that matches the filter is not sent to CloudWatch Logs.
+            + `expression`– A regular expression string that
+             follows the [RE2 Syntax](https://github.com/google/re2/wiki/Syntax "https://github.com/google/re2/wiki/Syntax").
 
 
-          ###### Note
+            ###### Note
 
-          The CloudWatch agent doesn't check the performance of any regular
-           expression that you supply, or restrict the run time of the
-           evaluation of the regular expressions. We recommend that you are
-           careful not to write an expression that is expensive to evaluate.
-           For more information about possible issues, see [Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS "https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS")
+            The CloudWatch agent doesn't check the performance of any regular
+             expression that you supply, or restrict the run time of the
+             evaluation of the regular expressions. We recommend that you are
+             careful not to write an expression that is expensive to evaluate.
+             For more information about possible issues, see [Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS "https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS")
 
       For example, the following excerpt of the CloudWatch agent configuration
       file publishes logs that are PUT and POST requests to CloudWatch Logs, but
@@ -1462,12 +1459,12 @@ concurrency can help with throughput.
       possible values:
 
       `ascii, big5, euc-jp, euc-kr, gbk, gb18030, ibm866, iso2022-jp,
- iso8859-2, iso8859-3, iso8859-4, iso8859-5, iso8859-6, iso8859-7,
- iso8859-8, iso8859-8-i, iso8859-10, iso8859-13, iso8859-14,
- iso8859-15, iso8859-16, koi8-r, koi8-u, macintosh, shift_jis, utf-8,
- utf-16, utf-16le, UTF-16, UTF-16LE, windows-874, windows-1250,
- windows-1251, windows-1252, windows-1253, windows-1254, windows-1255,
- windows-1256, windows-1257, windows-1258, x-mac-cyrillic`
+   iso8859-2, iso8859-3, iso8859-4, iso8859-5, iso8859-6, iso8859-7,
+   iso8859-8, iso8859-8-i, iso8859-10, iso8859-13, iso8859-14,
+   iso8859-15, iso8859-16, koi8-r, koi8-u, macintosh, shift_jis, utf-8,
+   utf-16, utf-16le, UTF-16, UTF-16LE, windows-874, windows-1250,
+   windows-1251, windows-1252, windows-1253, windows-1254, windows-1255,
+   windows-1256, windows-1257, windows-1258, x-mac-cyrillic`
       - `service.name` – Optional. Specifies the service
         name to be used to populate the entity for [finding related telemetry](ExploreRelated.md "ExploreRelated.md").
       - `deployment.environment` – Optional. Specifies the
@@ -1499,7 +1496,7 @@ concurrency can help with throughput.
       up the log channel based on its `Full Name` property.
       Meanwhile, the Windows Event Viewer navigation pane displays the
       `Log Name` property of log channels. The `Full
- Name` and `Log Name` do not always match. To
+   Name` and `Log Name` do not always match. To
       confirm the `Full Name` of a channel, right-click on it in
       the Windows Event viewer and open
       **Properties**.
@@ -1519,14 +1516,14 @@ concurrency can help with throughput.
       Using `event_ids` for filtering is recommended over regex expressions when you need to filter by Event ID, as it provides better performance.
       - `filters` – Optional. Contains an array of entries. Each entry specifies a regular expression and a filter type to specify whether to publish or drop
         the log entries that match the filter. When the field is included, the agent processes each log message with all of the filters that you specify, and only the log events that pass all filters are
-        published to CloudWatch Logs. The windows event logs that doesn’t pass all of the filters will be dropped and not sent to CloudWatch Logs. The filters section can also be used with other filtering
+        published to CloudWatch Logs. The windows event logs that doesn't pass all of the filters will be dropped and not sent to CloudWatch Logs. The filters section can also be used with other filtering
         mechanisms like event ids [4624, 4625] and system levels (Information, Error, or Critical) to effectively filter logs and push to CloudWatch.
 
       Each entry in the filters array can include the following fields:
 
-          + `type` – Specifies the type of filter. Valid values are `include` and `exclude`. With include, the windows events entry must match the expression to be published to CloudWatch Logs.
-           With exclude, each windows event log entry that matches the filter is not sent to CloudWatch Logs.
-          + `expression` – A regular expression string that follows the RE2 Syntax.
+            + `type` – Specifies the type of filter. Valid values are `include` and `exclude`. With include, the windows events entry must match the expression to be published to CloudWatch Logs.
+             With exclude, each windows event log entry that matches the filter is not sent to CloudWatch Logs.
+            + `expression` – A regular expression string that follows the RE2 Syntax.
 
       ###### Note
 
@@ -1536,7 +1533,7 @@ concurrency can help with throughput.
       In the example agent configuration below:
 
       For the first entry, the agent pushes logs that contain database failure messages, any authentication related activities, and all login events (both successful and failed attempts) to CloudWatch.
-      Any log that doesn’t match this pattern is dropped.
+      Any log that doesn't match this pattern is dropped.
 
       In the second entry, initial filtering is done based on event ids for windows event subscription. The agent collects all logs that contain the string user, discarding logs that don't match these patterns.
       The agent then drops logs containing `successful` before sending the remaining logs to CloudWatch Logs. Every filter type is applied to each windows event log before sending
@@ -1588,7 +1585,7 @@ concurrency can help with throughput.
 
       ###### Warning
 
-      Even though all filtering mechanisms (event_levels, event_ids, filters) are optional, at least one is required during agent configuration to filter logs.
+      Even though all filtering mechanisms (event\_levels, event\_ids, filters) are optional, at least one is required during agent configuration to filter logs.
       - `log_group_name` – Required. Specifies what to use
         as the log group name in CloudWatch Logs.
       - `log_stream_name` – Optional. Specifies what to
@@ -1614,22 +1611,20 @@ concurrency can help with throughput.
         number of days to retain the Windows events in the specified log
         group.
 
-            + If the agent is creating this log group now, and you omit this
-             field, the retention of this new log group is set to never
-             expire.
-            + If this log group already exists and you specify this field, the
-             new retention that you specify is used. If you omit this field for a
-             log group that already exists, the log group's retention is not
-             changed.
+        - If the agent is creating this log group now, and you omit this
+          field, the retention of this new log group is set to never
+          expire.
+        - If this log group already exists and you specify this field, the
+          new retention that you specify is used. If you omit this field for a
+          log group that already exists, the log group's retention is not
+          changed.
 
-
-            The CloudWatch agent wizard uses `-1` as the default value
-             for this field when it is used to create the agent configuration
-             file and you don't specify a value for log retention. This
-             `-1` value specifies set by the wizard specifies that
-             the events in the log group don't expire. However, manually editing
-             this value to `-1` has no effect.
-
+        The CloudWatch agent wizard uses `-1` as the default value
+        for this field when it is used to create the agent configuration
+        file and you don't specify a value for log retention. This
+        `-1` value specifies set by the wizard specifies that
+        the events in the log group don't expire. However, manually editing
+        this value to `-1` has no effect.
         Valid values are 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365,
         400, 545, 731, 1827, 2192, 2557, 2922, 3288, and 3653.
 
@@ -1707,32 +1702,29 @@ alarming on partial or incomplete data.
   Application Signals and Container Insights with enhanced observability for
   Amazon EKS.
 
-      + `application_signals` (Optional) Specifies that you want to
-       enable [CloudWatch
-       Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md") For more information about this configuration, see
-       [Enable CloudWatch Application Signals](CloudWatch-Agent-Application_Signals.md "CloudWatch-Agent-Application_Signals.md").
-      + `kubernetes` – This field can contain an
-       `enhanced_container_insights` parameter, which you can use to
-       enable Container Insights with enhanced observability for Amazon EKS.
+  - `application_signals` (Optional) Specifies that you want to
+    enable [CloudWatch
+    Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md") For more information about this configuration, see
+    [Enable CloudWatch Application Signals](CloudWatch-Agent-Application_Signals.md "CloudWatch-Agent-Application_Signals.md").
+  - `kubernetes` – This field can contain an
+    `enhanced_container_insights` parameter, which you can use to
+    enable Container Insights with enhanced observability for Amazon EKS.
 
+    - `enhanced_container_insights` – Set this to
+      `true` to enable Container Insights with enhanced observability
+      for Amazon EKS. For more information, see [Amazon EKS](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md").
+    - `accelerated_compute_metrics` – Set this to
+      `false` to opt out of collecting Nvidia GPU metrics on Amazon EKS
+      clusters. For more information, see [NVIDIA GPU metrics](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU "Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU").
 
-
-
-      	- `enhanced_container_insights` – Set this to
-      	 `true` to enable Container Insights with enhanced observability
-      	 for Amazon EKS. For more information, see [Amazon EKS](deploy-container-insights-EKS.md "deploy-container-insights-EKS.md").
-      	- `accelerated_compute_metrics` – Set this to
-      	 `false` to opt out of collecting Nvidia GPU metrics on Amazon EKS
-      	 clusters. For more information, see [NVIDIA GPU metrics](Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU "Container-Insights-metrics-enhanced-EKS.md#Container-Insights-metrics-EKS-GPU").
-      + `emf` – To collect metrics embedded in logs, it is no
-       longer necessary to add this `emf` field. This is a legacy field that
-       specified that the agent is to collect logs that are in embedded metric format.
-       You can generate metric data from these logs. For more information, see [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md "CloudWatch_Embedded_Metric_Format.md").
-      + `otlp` – Optional. Specifies that you want to collect
-       metrics from the OpenTelemetry SDK. For more information about the fields that
-       you can use in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md").
-
-  The following is an example of a `logs` section.
+  - `emf` – To collect metrics embedded in logs, it is no
+    longer necessary to add this `emf` field. This is a legacy field that
+    specified that the agent is to collect logs that are in embedded metric format.
+    You can generate metric data from these logs. For more information, see [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md "CloudWatch_Embedded_Metric_Format.md").
+  - `otlp` – Optional. Specifies that you want to collect
+    metrics from the OpenTelemetry SDK. For more information about the fields that
+    you can use in this section, see [Collect metrics and traces with OpenTelemetry](CloudWatch-Agent-OpenTelemetry-metrics.md "CloudWatch-Agent-OpenTelemetry-metrics.md").
+    The following is an example of a `logs` section.
 
 ```
 "logs":{
@@ -1865,14 +1857,14 @@ The `traces` section can include the following fields:
 
     This section can contain the following field.
 
-        * `bind_address` – Optional. Specifies the TCP
-         address to which the CloudWatch agent should set up the proxy. The format is
-         `ip:port`. This address must match the address set in the
-         X-Ray SDK.
+          * `bind_address` – Optional. Specifies the TCP
+           address to which the CloudWatch agent should set up the proxy. The format is
+           `ip:port`. This address must match the address set in the
+           X-Ray SDK.
 
 
-        If you omit this field, the default of `127.0.0.1:2000`
-         is used.
+          If you omit this field, the default of `127.0.0.1:2000`
+           is used.
 
   - `otlp` – Optional. Specifies that you want to collect
     traces from the OpenTelemetry SDK. For more information about the fields that
@@ -1882,23 +1874,23 @@ The `traces` section can include the following fields:
 
   This section can include the following fields:
 
-      - `grpc_endpoint` – Optional. Specifies the address for
-       the CloudWatch agent to use to listen for OpenTelemetry traces sent using gRPC
-       Remote Procedure Calls. The format is `ip:port`. This address
-       must match the address set for the gRPC exporter in the OpenTelemetry
-       SDK.
+        - `grpc_endpoint` – Optional. Specifies the address for
+         the CloudWatch agent to use to listen for OpenTelemetry traces sent using gRPC
+         Remote Procedure Calls. The format is `ip:port`. This address
+         must match the address set for the gRPC exporter in the OpenTelemetry
+         SDK.
 
 
-      If you omit this field, the default of `127.0.0.1:4317` is
-       used.
-      - `http_endpoint` – Optional. Specifies the address for
-       the CloudWatch agent to use to listen for OTLP traces sent over HTTP. The format
-       is `ip:port`. This address must match the address set for the
-       HTTP exporter in the OpenTelemetry SDK.
+        If you omit this field, the default of `127.0.0.1:4317` is
+         used.
+        - `http_endpoint` – Optional. Specifies the address for
+         the CloudWatch agent to use to listen for OTLP traces sent over HTTP. The format
+         is `ip:port`. This address must match the address set for the
+         HTTP exporter in the OpenTelemetry SDK.
 
 
-      If you omit this field, the default of `127.0.0.1:4318` is
-       used.
+        If you omit this field, the default of `127.0.0.1:4318` is
+         used.
 
 - `concurrency` – Optional. Specifies the maximum number of
   concurrent calls to X-Ray that can be used to upload traces. The default value is

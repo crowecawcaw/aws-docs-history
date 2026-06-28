@@ -33,8 +33,8 @@ Using an account ID in a `SearchTerm` works only in accounts that are set
 up as monitoring accounts for CloudWatch cross-account observability. The syntax for an
 account ID in `SearchTerm` is `:aws.AccountId =
  `444455556666``. You can also use
- `'LOCAL'`to specify the monitoring account itself:`:aws.AccountId =
-'LOCAL'`
+`'LOCAL'` to specify the monitoring account itself: `:aws.AccountId =
+ 'LOCAL'`
 
 For more information, see [CloudWatch cross-account observability](CloudWatch-Unified-Cross-Account.md "CloudWatch-Unified-Cross-Account.md").
 

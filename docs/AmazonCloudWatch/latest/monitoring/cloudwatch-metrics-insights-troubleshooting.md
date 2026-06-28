@@ -62,46 +62,46 @@ values: `env=beta` (from 00:00 to 01:30) and `env=gamma` (from
 ![Two CloudWatch metric graphs comparing tag-based query results with 1-minute and 3-hour periods.](images/metrics-insights-tag-alignment.png)
 
 | **env=beta with 1-minute period** |
-| --------------------------------- | -------- | -------- | ---------- |
+| --------------------------------- |
 | Statistic                         | Expected | Returned | Difference |
 | SUM                               | 270      | 271      | +1         |
 | AVG                               | 3.0      | 3.0      | 0          |
 | MIN                               | 1        | 1        | 0          |
 | MAX                               | 5        | 5        | 0          |
-| SAMPLE_COUNT                      | 90       | 91       | +1         |
+| SAMPLE\_COUNT                     | 90       | 91       | +1         |
 
 | **env=gamma with 1-minute period** |
-| ---------------------------------- | -------- | -------- | ---------- |
+| ---------------------------------- |
 | Statistic                          | Expected | Returned | Difference |
 | SUM                                | 270      | 275      | +5         |
 | AVG                                | 3.0      | 3.0      | 0          |
 | MIN                                | 1        | 1        | 0          |
 | MAX                                | 5        | 5        | 0          |
-| SAMPLE_COUNT                       | 90       | 91       | +1         |
+| SAMPLE\_COUNT                      | 90       | 91       | +1         |
 
 With a 1-minute period, the alignment adjustment is small (1 minute), so only 1 extra
 data point is included per tag. With a 3-hour period, the adjustment spans the entire query
 range:
 
 | **env=beta with 3-hour period** |
-| ------------------------------- | -------- | -------- | ---------- |
+| ------------------------------- |
 | Statistic                       | Expected | Returned | Difference |
 | SUM                             | 270      | 540      | +270       |
 | AVG                             | 3.0      | 3.0      | 0          |
 | MIN                             | 1        | 1        | 0          |
 | MAX                             | 5        | 5        | 0          |
-| SAMPLE_COUNT                    | 90       | 180      | +90        |
+| SAMPLE\_COUNT                   | 90       | 180      | +90        |
 
 | **env=gamma with 3-hour period** |
-| -------------------------------- | -------- | -------- | ---------- |
+| -------------------------------- |
 | Statistic                        | Expected | Returned | Difference |
 | SUM                              | 270      | 540      | +270       |
 | AVG                              | 3.0      | 3.0      | 0          |
 | MIN                              | 1        | 1        | 0          |
 | MAX                              | 5        | 5        | 0          |
-| SAMPLE_COUNT                     | 90       | 180      | +90        |
+| SAMPLE\_COUNT                    | 90       | 180      | +90        |
 
-With the 3-hour period, both tags return the entire dataset (SUM=540, SAMPLE_COUNT=180)
+With the 3-hour period, both tags return the entire dataset (SUM=540, SAMPLE\_COUNT=180)
 because the single aggregated data point's timestamp falls within both adjusted ranges. The
 tag boundary is effectively erased.
 

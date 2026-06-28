@@ -42,20 +42,20 @@ This integration supports OCSF schema version v1.5.0 and the Auth0 events that m
 - ferrt
 - fertft
 - fsa
-- limit_wc
-- limit_sul
-- limit_mu
-- pwd_leak
-- reset_pwd_leak
-- signup_pwd_leak
-- gd_auth_fail_email_verification
-- gd_auth_failed
-- gd_auth_rejected
-- gd_otp_rate_limit_exceed
-- gd_recovery_failed
-- gd_recovery_rate_limit_exceed
-- gd_webauthn_challenge_failed
-- passkey_challenge_failed
+- limit\_wc
+- limit\_sul
+- limit\_mu
+- pwd\_leak
+- reset\_pwd\_leak
+- signup\_pwd\_leak
+- gd\_auth\_fail\_email\_verification
+- gd\_auth\_failed
+- gd\_auth\_rejected
+- gd\_otp\_rate\_limit\_exceed
+- gd\_recovery\_failed
+- gd\_recovery\_rate\_limit\_exceed
+- gd\_webauthn\_challenge\_failed
+- passkey\_challenge\_failed
 - scp
 - sv
 - ss
@@ -65,7 +65,7 @@ This integration supports OCSF schema version v1.5.0 and the Auth0 events that m
 - feoobft
 - feotpft
 - fercft
-- ss_sso_failure
+- ss\_sso\_failure
 - fepotpft
 - fvr
 - flo
@@ -73,8 +73,8 @@ This integration supports OCSF schema version v1.5.0 and the Auth0 events that m
 [Show moreShow less](# "#")
 **API Activity** contains the following events:
 
-- api_limit
-- limit_delegation
-- mgmt_api_read
+- api\_limit
+- limit\_delegation
+- mgmt\_api\_read
 - sapi
-- api_limit_warning
+- api\_limit\_warning

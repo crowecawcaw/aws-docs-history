@@ -64,4 +64,4 @@ when new objects are created.
 `on_error` (optional)
 
 Determines how to handle errors in Amazon SQS. Can be either
-retain_messages or delete_messages. Default is retain_messages.
+retain\_messages or delete\_messages. Default is retain\_messages.

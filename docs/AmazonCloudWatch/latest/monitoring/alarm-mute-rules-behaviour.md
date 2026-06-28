@@ -4,7 +4,7 @@ The following scenarios illustrate how alarm mute rules affect the targeted alar
 
 ###### Note
 
-- Muting an alarm will mute actions associated with all alarm states, including OK, ALARM, and INSUFFICIENT_DATA. The behaviours illustrated below apply to actions associated with all alarm states.
+- Muting an alarm will mute actions associated with all alarm states, including OK, ALARM, and INSUFFICIENT\_DATA. The behaviours illustrated below apply to actions associated with all alarm states.
 - When you mute a Metrics Insights alarm, all contributor metric series for that alarm are automatically muted as well.
 
 ## Scenario: Alarm actions are muted when a mute rule is active

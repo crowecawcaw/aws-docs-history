@@ -39,7 +39,7 @@ endpoints, you may experience the following behaviors after installing or upgrad
 
 Adding the Application Signals Layer to Java Lambda functions increases the startup latency (cold start time). The following tips can help reduce latency for time-sensitive functions.
 
-**Fast startup for Java agent** – The Application Signals Java Lambda Layer includes a Fast Startup feature that's turned off by default but can be enabled by setting the OTEL_JAVA_AGENT_FAST_STARTUP_ENABLED variable to true. When enabled, this feature
+**Fast startup for Java agent** – The Application Signals Java Lambda Layer includes a Fast Startup feature that's turned off by default but can be enabled by setting the OTEL\_JAVA\_AGENT\_FAST\_STARTUP\_ENABLED variable to true. When enabled, this feature
 configures the JVM to use tiered compilation level 1 C1 compiler to generate quick optimized native code for faster cold starts. The C1 compiler prioritizes speed at the cost of long-term optimization whereas the C2 compiler provides superior overall
 performance by profiling data over time.
 
@@ -78,7 +78,7 @@ environment variable `OTEL_AWS_APPLICATION_SIGNALS_RUNTIME_ENABLED=false` to you
 ## Python application doesn't start after Application Signals is enabled
 
 It is a known issue in OpenTelemetry auto-instrumentation that a missing `PYTHONPATH` environment variable can sometimes cause the application to fail to start
-. To resolve this, ensure that you set the `PYTHONPATH` environment variable to the location of your application’s working directory.
+. To resolve this, ensure that you set the `PYTHONPATH` environment variable to the location of your application's working directory.
 For more information about this issue, see
 [Python autoinstrumentation setting of PYTHONPATH is not compliant with Python's module resolution behavior, breaking Django applications](https://github.com/open-telemetry/opentelemetry-operator/issues/2302 "https://github.com/open-telemetry/opentelemetry-operator/issues/2302").
 
@@ -86,7 +86,7 @@ For Django applications, there are additional required configurations, which are
 [OpenTelemetry Python documentation](https://opentelemetry-python.readthedocs.io/en/latest/examples/django/README.html "https://opentelemetry-python.readthedocs.io/en/latest/examples/django/README.html").
 
 - Use the `--noreload` flag to prevent automatic reloading.
-- Set the `DJANGO_SETTINGS_MODULE` environment variable to the location of your Django application’s `settings.py` file.
+- Set the `DJANGO_SETTINGS_MODULE` environment variable to the location of your Django application's `settings.py` file.
   This ensures that OpenTelemetry can correctly access and integrate with your Django settings.
 
 ## No Application Signals data for a Python application that uses a pre-fork server (WSGI or ASGI)
@@ -171,7 +171,7 @@ after the fork, so that traces, metrics, and logs are exported correctly.
 ## My Node.js application is not instrumented or isn't generating Application Signals telemetry
 
 To enable Application Signals for Node.js, you must ensure that your Node.js application uses the CommonJS (CJS) module format.
-The AWS Distro for OpenTelemetry Node.js doesn't support the ESM module format, because OpenTelemetry JavaScript’s support
+The AWS Distro for OpenTelemetry Node.js doesn't support the ESM module format, because OpenTelemetry JavaScript's support
 of ESM is experimental and is a work in progress.
 
 To determine if your application is using CJS and not ESM, make sure that your application does not fulfill the
@@ -326,7 +326,7 @@ Some typical examples where you would see `InternalOperation` include the follow
 - **Preloading on start**– Your application performs an operation named `loadDatafromDB` which reads metadata from a
   database during the warm up phase. Instead of observing `loadDatafromDB` as a service operation, you'll see it categorized as an `InternalOperation`.
 - **Async execution in the background**– Your application subscribes to an event queue, and processes streaming data
-  accordingly whenever there’s an update. Each triggered operation will be under `InternalOperation` as a service operation.
+  accordingly whenever there's an update. Each triggered operation will be under `InternalOperation` as a service operation.
 - **Retrieving host information from a service registry**– Your application talks to a service registry for service discovery.
   All interactions with the discovery system are classified as an `InternalOperation`.
 
@@ -546,8 +546,7 @@ If you upgrade to a fixed version, be sure to use a version equal to or later th
      than `0.3.0`.
 
 4. Update the Application Signals environment variables in your app container by following the instructions
-   at [Step 4: Instrument your application with the CloudWatch agent](CloudWatch-Application-Signals-ECS-Sidecar.md#CloudWatch-Application-Signals-Enable-ECS-Instrument "CloudWatch-Application-Signals-ECS-Sidecar.md#CloudWatch-Application-Signals-Enable-ECS-Instrument").
-5. Deploy your service with the new task definition.
+at [Step 4: Instrument your application with the CloudWatch agent](CloudWatch-Application-Signals-ECS-Sidecar.md#CloudWatch-Application-Signals-Enable-ECS-Instrument "CloudWatch-Application-Signals-ECS-Sidecar.md#CloudWatch-Application-Signals-Enable-ECS-Instrument"). 5. Deploy your service with the new task definition.
 
 #### Update on Amazon EC2 or other architectures
 

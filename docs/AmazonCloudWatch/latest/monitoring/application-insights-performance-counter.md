@@ -28,7 +28,7 @@ instances.
 | .NET CLR Networking 4.0.0.0 HttpWebRequests Aborted/Sec          | .NET CLR Networking 4.0.0.0     |
 | .NET CLR Networking 4.0.0.0 HttpWebRequests Failed/Sec           | .NET CLR Networking 4.0.0.0     |
 | .NET CLR Networking 4.0.0.0 HttpWebRequests Queued/Sec           | .NET CLR Networking 4.0.0.0     |
-| APP_POOL_WAS Total Worker Process Ping Failures                  | APP_POOL_WAS                    |
+| APP\_POOL\_WAS Total Worker Process Ping Failures                | APP\_POOL\_WAS                  |
 | ASP.NET Application Restarts                                     | ASP.NET                         |
 | ASP.NET Requests Rejected                                        | ASP.NET                         |
 | ASP.NET Worker Process Restarts                                  | ASP.NET                         |
@@ -116,11 +116,11 @@ instances.
 | System Processor Queue Length                                    | System                          |
 | TCPv4 Connections Established                                    | TCPv4                           |
 | TCPv6 Connections Established                                    | TCPv6                           |
-| W3SVC_W3WP File Cache Flushes                                    | W3SVC_W3WP                      |
-| W3SVC_W3WP File Cache Misses                                     | W3SVC_W3WP                      |
-| W3SVC_W3WP Requests/Sec                                          | W3SVC_W3WP                      |
-| W3SVC_W3WP URI Cache Flushes                                     | W3SVC_W3WP                      |
-| W3SVC_W3WP URI Cache Misses                                      | W3SVC_W3WP                      |
+| W3SVC\_W3WP File Cache Flushes                                   | W3SVC\_W3WP                     |
+| W3SVC\_W3WP File Cache Misses                                    | W3SVC\_W3WP                     |
+| W3SVC\_W3WP Requests/Sec                                         | W3SVC\_W3WP                     |
+| W3SVC\_W3WP URI Cache Flushes                                    | W3SVC\_W3WP                     |
+| W3SVC\_W3WP URI Cache Misses                                     | W3SVC\_W3WP                     |
 | Web Service Bytes Received/Sec                                   | Web Service                     |
 | Web Service Bytes Sent/Sec                                       | Web Service                     |
 | Web Service Connection Attempts/Sec                              | Web Service                     |

@@ -3,21 +3,21 @@
 This tutorial provides a hands-on introduction to scrape the Prometheus metrics of
 a sample Redis OSS application in an Amazon ECS Fargate cluster. The Redis OSS Prometheus
 exporter target will be auto-discovered by the CloudWatch agent with Prometheus metric
-support based on the container’s docker labels.
+support based on the container's Docker labels.
 
 Redis OSS (https://redis.io/) is an open source (BSD licensed), in-memory data
 structure store, used as a database, cache and message broker. For more information,
 see [redis](https://redis.io/ "https://redis.io/").
 
-redis_exporter (MIT License licensed) is used to expose the Redis OSS prometheus
+redis\_exporter (MIT License licensed) is used to expose the Redis OSS prometheus
 metrics on the specified port (default: 0.0.0.0:9121). For more information, see
-[redis_exporter](https://github.com/oliver006/redis_exporter "https://github.com/oliver006/redis_exporter").
+[redis\_exporter](https://github.com/oliver006/redis_exporter "https://github.com/oliver006/redis_exporter").
 
 The Docker images in the following two Docker Hub repositories are used in this
 tutorial:
 
 - [redis](https://hub.docker.com/_/redis?tab=description "https://hub.docker.com/_/redis?tab=description")
-- [redis_exporter](https://hub.docker.com/r/oliver006/redis_exporter "https://hub.docker.com/r/oliver006/redis_exporter")
+- [redis\_exporter](https://hub.docker.com/r/oliver006/redis_exporter "https://hub.docker.com/r/oliver006/redis_exporter")
   **Prerequisite**
 
 To collect metrics from a sample Prometheus workload for Amazon ECS, you must be
@@ -85,7 +85,7 @@ ECS_CLUSTER_SUBNET_2=`subnet-xxxxxxxxxxxxxxxxx`
 ```
 
 2. In this tutorial, we are going to install the Redis OSS application and the
-   CloudWatch agent in the default security group of the Amazon ECS cluster’s VPC. The default
+   CloudWatch agent in the default security group of the Amazon ECS cluster's VPC. The default
    security group allows all network connection within the same security group so
    the CloudWatch agent can scrape the Prometheus metrics exposed on the Redis OSS
    containers. In a real production environment, you might want to create dedicated
@@ -157,7 +157,7 @@ In the Redis OSS task definition, two containers are defined:
   6379 for access.
 - The other container runs the Redis OSS exporter process to expose the
   Prometheus metrics on port 9121. This is the container to be discovered and
-  scraped by the CloudWatch agent. The following docker label is defined so that the
+  scraped by the CloudWatch agent. The following Docker label is defined so that the
   CloudWatch agent can discover this container based on it.
 
 ```
@@ -183,7 +183,7 @@ curl -O https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-containe
 Then, in the `ecs_service_discovery` section shown here, the
 `docker_label`-based service discovery is enabled with the default
 settings which are based on `ECS_PROMETHEUS_EXPORTER_PORT`, which
-matches the docker label we defined in the Redis OSS ECS task definition. So we
+matches the Docker label we defined in the Redis OSS ECS task definition. So we
 do not need to make any changes in this section:
 
 ```

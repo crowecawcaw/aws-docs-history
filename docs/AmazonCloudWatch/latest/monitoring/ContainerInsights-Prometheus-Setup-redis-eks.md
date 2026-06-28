@@ -6,15 +6,15 @@ of a sample Redis OSS application on Amazon EKS and Kubernetes. Redis OSS
 store, used as a database, cache and message broker. For more information, see
 [redis](https://redis.io/ "https://redis.io/").
 
-redis_exporter (MIT License licensed) is used to expose the Redis OSS Prometheus
+redis\_exporter (MIT License licensed) is used to expose the Redis OSS Prometheus
 metrics on the specified port (default: 0.0.0.0:9121). For more information, see
-[redis_exporter](https://github.com/oliver006/redis_exporter "https://github.com/oliver006/redis_exporter").
+[redis\_exporter](https://github.com/oliver006/redis_exporter "https://github.com/oliver006/redis_exporter").
 
 The Docker images in the following two Docker Hub repositories are used in this
 tutorial:
 
 - [redis](https://hub.docker.com/_/redis?tab=description "https://hub.docker.com/_/redis?tab=description")
-- [redis_exporter](https://hub.docker.com/r/oliver006/redis_exporter "https://hub.docker.com/r/oliver006/redis_exporter")
+- [redis\_exporter](https://hub.docker.com/r/oliver006/redis_exporter "https://hub.docker.com/r/oliver006/redis_exporter")
 
 ###### To install a sample Redis OSS workload which exposes Prometheus metrics
 

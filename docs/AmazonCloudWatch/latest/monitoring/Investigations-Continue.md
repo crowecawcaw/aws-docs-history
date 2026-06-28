@@ -83,37 +83,37 @@ You have several options:
      **Add**.
 
 4. When you add a hypothesis to the **Feed** area, it might
-   display **Show suggested actions**. If so, choosing this
-   displays possible actions that you can take, assuming that hypothesis is correct
-   about the issue. Possible actions include the following:
+display **Show suggested actions**. If so, choosing this
+displays possible actions that you can take, assuming that hypothesis is correct
+about the issue. Possible actions include the following:
 
-   - **Documentation suggestions** are links to AWS
+    * **Documentation suggestions** are links to AWS
      documentation that can help you understand the issue that you are
      working on, and how to solve it. To view suggested documentation, choose
      its **Review** link
-   - **Runbook suggestions** are suggestions that leverage
-     the pre-defined _runbooks_ in Systems Manager
+    * **Runbook suggestions** are suggestions that leverage
+     the pre-defined *runbooks* in Systems Manager
      Automation. Each runbook defines a number of steps for performing a task
      on an AWS resource. For information about continuing with a runbook
      action, see [Reviewing and executing suggested runbook remediations for CloudWatch investigations](suggested-investigation-actions.md "suggested-investigation-actions.md").
 
-   ###### Important
 
-   There is a charge for executing an Automation runbook. However,
-   CloudWatch investigations provides you with a preview of actions that a suggested runbook
-   takes, giving you an opportunity to better evaluate whether to
-   execute the runbook. For information about Automation pricing, see
-   [AWS Systems Manager pricing for
-   Automation](https://aws.amazon.com/systems-manager/pricing/#Automation "https://aws.amazon.com/systems-manager/pricing/#Automation").
+    ###### Important
+
+    There is a charge for executing an Automation runbook. However,
+     CloudWatch investigations provides you with a preview of actions that a suggested runbook
+     takes, giving you an opportunity to better evaluate whether to
+     execute the runbook. For information about Automation pricing, see
+     [AWS Systems Manager pricing for
+     Automation](https://aws.amazon.com/systems-manager/pricing/#Automation "https://aws.amazon.com/systems-manager/pricing/#Automation").
 
 5. (Optional) Choose **Incident report** to create a
-   comprehensive incident analysis document. For
-   more information, see [Generate incident reports](Investigations-Incident-Reports.md "Investigations-Incident-Reports.md").
-6. When you are ready to end an investigation, choose **End
-   investigation** and then optionally add final notes. The
-   investigation status changes to **Archived**. You can restart
-   archived investigations by opening the investigation page and choosing
-   **Restart investigation**.
+comprehensive incident analysis document. For
+more information, see [Generate incident reports](Investigations-Incident-Reports.md "Investigations-Incident-Reports.md"). 6. When you are ready to end an investigation, choose **End
+investigation** and then optionally add final notes. The
+investigation status changes to **Archived**. You can restart
+archived investigations by opening the investigation page and choosing
+**Restart investigation**.
 
 ###### Note
 

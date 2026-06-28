@@ -1,6 +1,6 @@
 # GetMetricWidgetImage: Metric Widget Structure and Syntax
 
-`MetricWidget` is an input parameter for the [https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricWidgetImage.html](../APIReference/API_GetMetricWidgetImage.md "../APIReference/API_GetMetricWidgetImage.md") API. It
+`MetricWidget` is an input parameter for the [https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API\_GetMetricWidgetImage.html](../APIReference/API_GetMetricWidgetImage.md "../APIReference/API_GetMetricWidgetImage.md") API. It
 is a string in JSON format.
 
 ###### Contents
@@ -124,12 +124,16 @@ If you omit this, the default of `Average` is used.
 
 Valid Values: `SampleCount` | `Average` |
 `Sum` | `Minimum` | `Maximum` |
-`p`??``|
+`p`??`` |
 `TM(`??`:`??`)`,
- `TC(`??`:`??`)`  |
- `TS(`??`:`??`)`  |
- `WM(`??`:`??`)`  |
- `PR(`??`:`??`)` |`IQM`
+`TC(`??`:`??`)`
+|
+`TS(`??`:`??`)`
+|
+`WM(`??`:`??`)`
+|
+`PR(`??`:`??`)`
+| `IQM`
 
 Type: String that is a valid CloudWatch statistic.
 

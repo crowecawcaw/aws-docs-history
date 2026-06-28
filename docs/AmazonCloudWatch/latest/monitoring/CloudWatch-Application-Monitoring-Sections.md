@@ -65,28 +65,27 @@ for Canada West (Calgary).
 
 - **Use Application Signals for daily application monitoring** – Use Application Signals within the CloudWatch console, as part of daily application monitoring:
 
-      1. If you have created service level objectives (SLOs) for your services, start
-       with the [Service Level
-       Objectives (SLO)](CloudWatch-ServiceLevelObjectives.md#CloudWatch-ServiceLevelObjectives-Triage "CloudWatch-ServiceLevelObjectives.md#CloudWatch-ServiceLevelObjectives-Triage") page. This gives you an immediate view of the health of
-       your most critical services, operations, and dependencies. Choose the service, operation, or dependency name for
-       an SLO to open the [Service detail](ServiceDetail.md "ServiceDetail.md") page and see
-       detailed service information as you troubleshoot issues.
-      2. Open the [Services](Services-page.md "Services-page.md") page to see a summary
-       of all your services, and quickly see services with the highest fault rate or
-       latency. If you have created SLOs, look at the Services table to see which services
-       have unhealthy service level indicators (SLIs). If a particular service is in an
-       unhealthy state, select the service to open the [Service detail](ServiceDetail.md "ServiceDetail.md") page and see service operations, dependencies, Synthetics
-       canaries, and client requests. Select a point in a graph to see correlated traces so
-       that you can troubleshoot and identify the root cause of operational issues.
-      3. If new services have been deployed or dependencies have changed, open the
-       [Application Map](ServiceMap.md "ServiceMap.md") to inspect your application
-       topology. See a map of your applications that shows the relationship between
-       clients, Synthetics canaries, services, and dependencies. Quickly see SLI health,
-       view key metrics such as call volume, fault rate, and latency, and drill down to see
-       more detailed information in the [Service detail](ServiceDetail.md "ServiceDetail.md")
-       page.
-
-  Using Application Signals incurs charges. For information about CloudWatch pricing, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwatch/pricing").
+  1.  If you have created service level objectives (SLOs) for your services, start
+      with the [Service Level
+      Objectives (SLO)](CloudWatch-ServiceLevelObjectives.md#CloudWatch-ServiceLevelObjectives-Triage "CloudWatch-ServiceLevelObjectives.md#CloudWatch-ServiceLevelObjectives-Triage") page. This gives you an immediate view of the health of
+      your most critical services, operations, and dependencies. Choose the service, operation, or dependency name for
+      an SLO to open the [Service detail](ServiceDetail.md "ServiceDetail.md") page and see
+      detailed service information as you troubleshoot issues.
+  2.  Open the [Services](Services-page.md "Services-page.md") page to see a summary
+      of all your services, and quickly see services with the highest fault rate or
+      latency. If you have created SLOs, look at the Services table to see which services
+      have unhealthy service level indicators (SLIs). If a particular service is in an
+      unhealthy state, select the service to open the [Service detail](ServiceDetail.md "ServiceDetail.md") page and see service operations, dependencies, Synthetics
+      canaries, and client requests. Select a point in a graph to see correlated traces so
+      that you can troubleshoot and identify the root cause of operational issues.
+  3.  If new services have been deployed or dependencies have changed, open the
+      [Application Map](ServiceMap.md "ServiceMap.md") to inspect your application
+      topology. See a map of your applications that shows the relationship between
+      clients, Synthetics canaries, services, and dependencies. Quickly see SLI health,
+      view key metrics such as call volume, fault rate, and latency, and drill down to see
+      more detailed information in the [Service detail](ServiceDetail.md "ServiceDetail.md")
+      page.
+      Using Application Signals incurs charges. For information about CloudWatch pricing, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwatch/pricing").
 
 ###### Note
 

@@ -7,32 +7,32 @@ into CloudWatch Logs for unified analysis.
 
 The following table lists the supported direct third-party integrations:
 
-| Direct third-party integrations | Source      | Integration pattern              | Category |
-| ------------------------------- | ----------- | -------------------------------- | -------- |
-| Akamai DataStream 2             | S3 Delivery | CDN and edge security            |
-| Cisco Meraki                    | API         | Network security                 |
-| Cisco Umbrella                  | S3 Delivery | DNS and network security         |
-| CrowdStrike Falcon              | S3 Delivery | Endpoint security                |
-| Drupal Core                     | API         | Content management               |
-| Entrust IDaaS                   | API         | Identity and access management   |
-| F5 BIG-IP                       | S3 Delivery | Network security                 |
-| GitHub                          | API         | Source code and audit logs       |
-| Microsoft Entra ID              | API         | Identity and access management   |
-| Microsoft Office 365            | API         | Productivity and audit logs      |
-| Microsoft Windows Event Logs    | API         | Operating system events          |
-| Netskope                        | API         | Network security and CASB        |
-| Okta Auth0                      | API         | Identity and access management   |
-| Okta SSO                        | API         | Identity and access management   |
-| OneLogin Identity               | API         | Identity and access management   |
-| Palo Alto Networks NGFW         | API         | Network security                 |
-| PingIdentity PingOne            | API         | Identity and access management   |
-| Slack Audit Log                 | API         | Collaboration and audit logs     |
-| SentinelOne                     | S3 Delivery | Endpoint security                |
-| ServiceNow CMDB                 | API         | IT service management            |
-| Tanium Endpoint Management      | S3 Delivery | Endpoint security and management |
-| Wiz CNAPP                       | API         | Cloud security                   |
-| Zeek                            | S3 Delivery | Network security monitoring      |
-| Zscaler ZIA/ZPA                 | S3 Delivery | Network security                 |
+Direct third-party integrations| Source | Integration pattern | Category |
+| --- | --- | --- |
+| Akamai DataStream 2 | S3 Delivery | CDN and edge security |
+| Cisco Meraki | API | Network security |
+| Cisco Umbrella | S3 Delivery | DNS and network security |
+| CrowdStrike Falcon | S3 Delivery | Endpoint security |
+| Drupal Core | API | Content management |
+| Entrust IDaaS | API | Identity and access management |
+| F5 BIG-IP | S3 Delivery | Network security |
+| GitHub | API | Source code and audit logs |
+| Microsoft Entra ID | API | Identity and access management |
+| Microsoft Office 365 | API | Productivity and audit logs |
+| Microsoft Windows Event Logs | API | Operating system events |
+| Netskope | API | Network security and CASB |
+| Okta Auth0 | API | Identity and access management |
+| Okta SSO | API | Identity and access management |
+| OneLogin Identity | API | Identity and access management |
+| Palo Alto Networks NGFW | API | Network security |
+| PingIdentity PingOne | API | Identity and access management |
+| Slack Audit Log | API | Collaboration and audit logs |
+| SentinelOne | S3 Delivery | Endpoint security |
+| ServiceNow CMDB | API | IT service management |
+| Tanium Endpoint Management | S3 Delivery | Endpoint security and management |
+| Wiz CNAPP | API | Cloud security |
+| Zeek | S3 Delivery | Network security monitoring |
+| Zscaler ZIA/ZPA | S3 Delivery | Network security |
 
 For detailed setup procedures, prerequisites, and configuration steps for each
 integration, see [Third-party data sources integration](third-party-integration-setup.md "third-party-integration-setup.md").

@@ -151,7 +151,7 @@ analyze CloudWatch cost and usage data.
 
 You can use any of the example queries in this document. All of the example
 queries in this document correspond to a database named
-**_costandusagereport_**, and show
+_**costandusagereport**_, and show
 results for the month of April and the year 2025. You can change this information.
 However, before you run a query, make sure that the name of your database matches
 the name of the database in the query.
@@ -254,7 +254,7 @@ to this query:
 `line_item_line_item_description`
 
 This line creates a column called
-**_Description_**.
+_**Description**_.
 
 ```
 SELECT
@@ -286,10 +286,10 @@ Many AWS services, such as Amazon Elastic Compute Cloud (Amazon EC2) , Amazon S3
 send metrics to CloudWatch at no charge. However, metrics that are grouped in the following
 categories can incur additional costs:
 
-- **_Custom metrics, detailed monitoring, and embedded
-  metrics_**
-- **_API requests_**
-- **_Metric streams_**
+- _**Custom metrics, detailed monitoring, and embedded
+  metrics**_
+- _**API requests**_
+- _**Metric streams**_
 
 For more information, see [Using Amazon CloudWatch
 metrics](working_with_metrics.md "working_with_metrics.md").
@@ -325,12 +325,12 @@ while you're querying cost and usage data with Athena, match the strings for
 
 CloudWatch has two types of monitoring:
 
-- **_Basic monitoring_**
+- _**Basic monitoring**_
 
 Basic monitoring is free and automatically enabled for all AWS services
 that support the feature.
 
-- **_Detailed monitoring_**
+- _**Detailed monitoring**_
 
 Detailed monitoring incurs costs and adds different enhancements depending
 on the AWS service. For each AWS service that supports detailed
@@ -341,7 +341,7 @@ information, see [Basic and detailed monitoring](cloudwatch-metrics-basic-detail
 
 Other AWS services support detailed monitoring and might refer to this
 feature using a different name. For example, detailed monitoring for Amazon S3 is
-referred to as **_request metrics_**.
+referred to as _**request metrics**_.
 
 Similar to custom metrics, detailed monitoring is prorated by the hour and metered
 only when data is sent to CloudWatch. Detailed monitoring generates costs by the number of
@@ -349,7 +349,7 @@ metrics that are sent to CloudWatch. To reduce costs, only enable detailed monit
 necessary. For information about how detailed monitoring is priced, see [Amazon CloudWatch
 Pricing](https://aws.amazon.com/cloudwatch/pricing/?nc1=h_ls "https://aws.amazon.com/cloudwatch/pricing/?nc1=h_ls").
 
-**_Example: Athena query_**
+_**Example: Athena query**_
 
 You can use the following query to show which EC2 instances have detailed
 monitoring enabled.
@@ -412,10 +412,10 @@ a custom metric for each unique dimension combination. For more information, see
 
 CloudWatch has the following types of API requests:
 
-- **_API requests_**
-- **_Bulk (Get)_**
-- **_Contributor Insights_**
-- **_Bitmap image snapshot_**
+- _**API requests**_
+- _**Bulk (Get)**_
+- _**Contributor Insights**_
+- _**Bitmap image snapshot**_
 
 API requests generate costs by the request type and number of metrics requested.
 
@@ -436,8 +436,8 @@ and identify API-related costs.
 | _Contributor Insights_  | `GIRR-Metrics` | `GetInsightRuleReport` | Returns time-series data that's collected by a Contributor<br>Insights rule |
 | _Bitmap image snapshot_ | `GMWI-Metrics` | `GetMetricWidgetImage` | Retrieves a snapshot of one or more CloudWatch metrics as a bitmap<br>image |
 
-To analyze costs, use Cost Explorer, and group your results by **_API
-Operation_**.
+To analyze costs, use Cost Explorer, and group your results by _**API
+Operation**_.
 
 The billing console shows generic API requests under UsageType _Requests_. These appear as _X.XX USD per 1,000 requests - [region]_. This rate applies to all requests with the UsageType Requests, aggregated together, beyond your free tier allowance.
 
@@ -464,15 +464,15 @@ Data events are not logged automatically by trails and event data stores. Loggin
 
 For more information, see [Logging data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") and [Identifying resources driving CloudWatch GetMetricData charges using AWS CloudTrail](https://aws.amazon.com/blogs/mt/identifying-resources-driving-amazon-cloudwatch-getmetricdata-charges-using-aws-cloudtrail/ "https://aws.amazon.com/blogs/mt/identifying-resources-driving-amazon-cloudwatch-getmetricdata-charges-using-aws-cloudtrail/").
 
-**_`API calls not incurring charges`_**
+_**`API calls not incurring charges`**_
 
-When you log CloudWatch data events in CloudTrail, you might see more calls than you initiated. This happens because logging CloudWatch data events in CloudTrail captures API actions from internal components. Internal component calls don’t incur
+When you log CloudWatch data events in CloudTrail, you might see more calls than you initiated. This happens because logging CloudWatch data events in CloudTrail captures API actions from internal components. Internal component calls don't incur
 CloudWatch charges. However, these events count toward your CloudTrail event logging total and may affect CloudTrail charges.
 
 For example, CloudTrail will record GetMetricData calls initiated by a monitoring account to retrieve data from a source account, as well
 as GetMetricData calls initiated by CloudWatch dashboards to refresh widget data. These API calls do not incur CloudWatch charges.
 
-**_`PutMetricData`_**
+_**`PutMetricData`**_
 
 Each CloudWatch `PutMetricData` API call incurs charges. Frequent calls can significantly increase your costs, especially in high-volume monitoring scenarios. To reduce costs,
 consider batching multiple metrics in each API call or adjusting your monitoring frequency. For more information, see [PutMetricData](../APIReference/API_PutMetricData.md "../APIReference/API_PutMetricData.md") in the _Amazon CloudWatch API Reference_.
@@ -490,7 +490,7 @@ following resources:
 - [Lowering costs and focusing on our customers with Amazon CloudWatch embedded
   custom metrics](https://aws.amazon.com/blogs/mt/lowering-costs-and-focusing-on-our-customers-with-amazon-cloudwatch-embedded-custom-metrics/ "https://aws.amazon.com/blogs/mt/lowering-costs-and-focusing-on-our-customers-with-amazon-cloudwatch-embedded-custom-metrics/")
 
-**_`GetMetricData`_**
+_**`GetMetricData`**_
 
 The CloudWatch `GetMetricData` API operation can also significantly increase your costs. Third-party monitoring tools often increase costs when they frequently pull
 data to generate insights. To learn more about pricing and best practices for using `GetMetricData`, see [GetMetricData](../APIReference/API_GetMetricData.md "../APIReference/API_GetMetricData.md") in the _Amazon CloudWatch API Reference_.
@@ -505,7 +505,7 @@ parties at a lower cost. For more information, see the following resources:
 - [CloudWatch Metric Streams - Send AWS Metrics to Partners and to Your Apps
   in Real Time](https://aws.amazon.com/blogs/aws/cloudwatch-metric-streams-send-aws-metrics-to-partners-and-to-your-apps-in-real-time/ "https://aws.amazon.com/blogs/aws/cloudwatch-metric-streams-send-aws-metrics-to-partners-and-to-your-apps-in-real-time/")
 
-**_`GetMetricStatistics`_**
+_**`GetMetricStatistics`**_
 
 Depending on your use case, you might consider using
 `GetMetricStatistics` instead of `GetMetricData`. With
@@ -549,7 +549,7 @@ To analyze costs that are generated by CloudWatch metric streams, use AWS Cost a
 Athena. This way, you can identify which metric streams are generating costs and
 determine how the costs are generated.
 
-**_Example: Athena query_**
+_**Example: Athena query**_
 
 You can use the following query to track which metric streams generate costs by
 Amazon Resource Name (ARN).
@@ -596,14 +596,14 @@ Metric alarms have the following resolution settings:
 - **Standard** (evaluated every 60 seconds)
 - **High resolution** (evaluated every 10 seconds)
 
-When you create a metric alarm, your costs are based on your alarm’s resolution
+When you create a metric alarm, your costs are based on your alarm's resolution
 setting and the number of metrics that your alarm references. For example, a metric
 alarm that references one metric incurs one alarm-metric cost per hour. For more
 information, see [Using Amazon CloudWatch
 alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md").
 
 If you create a metric alarm that contains a metric math expression, which
-references multiple metrics, you incur a cost for each alarm-metric that’s
+references multiple metrics, you incur a cost for each alarm-metric that's
 referenced in the metric math expression. For information about how to create a
 metric alarm that contains a metric math expression, see [Creating a CloudWatch alarm based on a metric math expression](Create-alarm-on-metric-math-expression.md "Create-alarm-on-metric-math-expression.md").
 
@@ -629,7 +629,7 @@ If you create an alarm that contains both a Metrics Insights query and a metric
 math expression, it is reported as a Metrics Insights query alarm. If your alarm
 contains a metric math expression which references other metrics in addition to the
 metrics analyzed by the Metrics Insights query, you incur an additional cost for
-each alarm-metric that’s referenced in the metric math expression. For information
+each alarm-metric that's referenced in the metric math expression. For information
 about how to create a metric alarm that contains a metric math expression, see
 [Creating a CloudWatch alarm based on a metric math expression](Create-alarm-on-metric-math-expression.md "Create-alarm-on-metric-math-expression.md").
 
@@ -670,7 +670,7 @@ The best way to reduce costs is to remove all unnecessary or unused alarms.
 For example, you can delete alarms that evaluate metrics emitted by AWS
 resources that no longer exist.
 
-###### Example of using DescribeAlarms to check for alarms in INSUFFICIENT_DATA state
+###### Example of using DescribeAlarms to check for alarms in INSUFFICIENT\_DATA state
 
 If you delete a resource, but not the metric alarms that the resource
 emits, the alarms still exist and typically will go into the
@@ -769,10 +769,10 @@ Here are the UsageTypes and Operations associated with Database Insights:
 
 Amazon CloudWatch Logs has the following log types:
 
-- **\*Custom logs** (logs that you create for your
-  applications)\*
-- **\*Vended logs** (logs that other AWS services, such
-  as Amazon Virtual Private Cloud (Amazon VPC) and Amazon Route 53, create on your behalf)\*
+- _**Custom logs** (logs that you create for your
+  applications)_
+- _**Vended logs** (logs that other AWS services, such
+  as Amazon Virtual Private Cloud (Amazon VPC) and Amazon Route 53, create on your behalf)_
 
 For more information about vended logs, see [Enabling
 logging from certain AWS services](../logs/AWS-logs-and-resource-policy.md "../logs/AWS-logs-and-resource-policy.md") in the _Amazon CloudWatch Logs User

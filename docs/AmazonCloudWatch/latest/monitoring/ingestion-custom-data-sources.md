@@ -3,16 +3,15 @@
 You can create pipelines for custom data sources using the following
 approaches:
 
-1.  **CloudWatch Custom Logs** – Define
-    pipelines on your existing CloudWatch custom log groups by providing:
+1. **CloudWatch Custom Logs** – Define
+   pipelines on your existing CloudWatch custom log groups by providing:
 
-        * A data source name
-        * A data source type
+   - A data source name
+   - A data source type
+     For more information on data source name and type, see the [CloudWatch Logs User Guide](../logs/data-source-discovery-management.md#how-to-get-started-data-sources "../logs/data-source-discovery-management.md#how-to-get-started-data-sources").
 
-    For more information on data source name and type, see the [CloudWatch Logs User Guide](../logs/data-source-discovery-management.md#how-to-get-started-data-sources "../logs/data-source-discovery-management.md#how-to-get-started-data-sources").
-
-2.  **S3 Custom Sources** – Process arbitrary
-    logs stored in S3 buckets by configuring source for the pipeline:
+2. **S3 Custom Sources** – Process arbitrary
+   logs stored in S3 buckets by configuring source for the pipeline:
 
 ```
 source:
@@ -49,7 +48,7 @@ S3 event notifications.
 `data_source_name`
 
 Identifies the data source. This can be any string value that
-represents your data source. Example: "my_custom_logs".
+represents your data source. Example: "my\_custom\_logs".
 
 `aws.region` (required)
 

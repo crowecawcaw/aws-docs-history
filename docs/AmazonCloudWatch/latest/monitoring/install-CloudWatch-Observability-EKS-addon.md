@@ -183,7 +183,7 @@ Terraform
    and replace `my-service-account-role` with the IAM
    role created in EKS Pod Identity association step.
 
-For more information, see [Resource: aws_eks_addon](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon") in the Terraform documentation. 2. ```
+For more information, see [Resource: aws\_eks\_addon](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon") in the Terraform documentation. 2. ```
 resource "aws_iam_role_policy_attachment" "CloudWatchAgentServerPolicy" {
 policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
 role = "my-role"
@@ -391,12 +391,12 @@ eksctl utils associate-iam-oidc-provider --cluster `my-cluster-name` --approve
 ```
 
 eksctl create iamserviceaccount \
- --name cloudwatch-agent \
- --namespace amazon-cloudwatch --cluster `my-cluster-name` \
- --role-name `my-service-account-role` \
- --attach-policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy \
- --role-only \
- --approve
+--name cloudwatch-agent \
+--namespace amazon-cloudwatch --cluster `my-cluster-name` \
+--role-name `my-service-account-role` \
+--attach-policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy \
+--role-only \
+--approve
 
 ```
 3. Install the add-on by entering the following command. Replace
@@ -538,7 +538,7 @@ Starting with version 1.7.0 of the Amazon CloudWatch Observability EKS add-on, y
 	 `/aws/containerinsights/`my-cluster-name`/application`
 	 in CloudWatch Logs.
 	+ `dataplane-log.conf`– A `conf` file for sending
-	 logs corresponding to your cluster’s data plane components including the CRI
+	 logs corresponding to your cluster's data plane components including the CRI
 	 logs, kubelet logs, kube-proxy logs and Amazon VPC CNI logs to the log group
 	 `/aws/containerinsights/`my-cluster-name`/dataplane`
 	 in CloudWatch Logs.
@@ -573,7 +573,7 @@ As an example, the default Fluent Bit configuration for version 1.7.0 can be fou
 
 
 We recommend that you provide the `config` as YAML when you supply it
- using the Amazon EKS add-on’s advanced config or when you supply it as value overrides for
+ using the Amazon EKS add-on's advanced config or when you supply it as value overrides for
  your Helm installation. Be sure that the YAML conforms to the following
  structure.
 
@@ -642,7 +642,7 @@ my-service.conf: |
 [INPUT]
 Name tail
 Tag myservice.*
-Path /var/log/containers/*myservice\*.log
+Path /var/log/containers/_myservice_.log
 DB /var/fluent-bit/state/flb_myservice.db
 Mem_Buf_Limit 5MB
 Skip_Long_Lines On

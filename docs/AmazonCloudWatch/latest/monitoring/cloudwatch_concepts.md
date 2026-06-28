@@ -57,7 +57,7 @@ non-whitespace character.
 
 The AWS namespaces typically use the following naming convention:
 `AWS/`service``. For example, Amazon EC2 uses the
- `AWS/EC2` namespace. For the list of AWS namespaces, see [AWS services that publish CloudWatch metrics](aws-services-cloudwatch-metrics.md "aws-services-cloudwatch-metrics.md").
+`AWS/EC2` namespace. For the list of AWS namespaces, see [AWS services that publish CloudWatch metrics](aws-services-cloudwatch-metrics.md "aws-services-cloudwatch-metrics.md").
 
 ## Metrics
 

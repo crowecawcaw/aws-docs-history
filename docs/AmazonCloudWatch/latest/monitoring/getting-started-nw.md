@@ -57,7 +57,7 @@ search or filter on specific information.
      be helpful for tag-based authentication or metering.
 
 6. Choose **Next**. On the next page, you'll specify sources and destinations,
-   to create probes for the monitor.
+to create probes for the monitor.
 
 ## Choose sources and destinations
 
@@ -82,22 +82,26 @@ These steps are designed to be completed all at once. You can't save in-process 
    The subnets that you choose are the monitor sources.
 3. For **Destination 1**, enter a destination IP address of the
    on-premises network. IPv4 and IPv6 addresses are both supported.
-4. Choose **Advanced settings**.
-5. For **Protocol**, choose the network protocol for the on-premises destination.
-   The protocol can be either **ICMP** or **TCP**.
-6. If you choose **TCP**, enter the following information:
 
-   1. Enter the **Port** that your network uses to connect. The port must be
-      a number from **1** to **65535**.
-   2. Enter the **Packet size**. This is the size, in bytes, of each packet
-      that's sent on the probe, between the source and destination. Packet size must be a number
-      from **56** to **8500**.
+###### Note
+
+Don't enter a reserved or AWS-internal IP address as a destination, such as
+an address in the link-local range `169.254.0.0/16` or the address
+`10.0.0.2`. Network Synthetic Monitor can't correctly measure round-trip time and packet
+loss for these addresses, and reports round-trip time values below 1 millisecond.
+For more information, see [Network Synthetic Monitor requirements and limitations](what-is-network-monitor.md#nw-monitor-limitations "what-is-network-monitor.md#nw-monitor-limitations"). 4. Choose **Advanced settings**. 5. For **Protocol**, choose the network protocol for the on-premises destination.
+The protocol can be either **ICMP** or **TCP**. 6. If you choose **TCP**, enter the following information:
+
+    1. Enter the **Port** that your network uses to connect. The port must be
+     a number from **1** to **65535**.
+    2. Enter the **Packet size**. This is the size, in bytes, of each packet
+     that's sent on the probe, between the source and destination. Packet size must be a number
+     from **56** to **8500**.
 
 7. Choose **Add destination** to add another on-premises
-   destination to the monitor. Repeat these steps for each destination that you want to
-   add.
-8. When you're finished adding sources and destinations, choose **Next** to confirm
-   the probes for the monitor.
+destination to the monitor. Repeat these steps for each destination that you want to
+add. 8. When you're finished adding sources and destinations, choose **Next** to confirm
+the probes for the monitor.
 
 ## Confirm probes
 

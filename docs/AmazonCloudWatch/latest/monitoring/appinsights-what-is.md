@@ -170,18 +170,18 @@ pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com
 For this scenario, 13 of the above metrics are emitted to CloudWatch using
 the CloudWatch agent. These metrics are treated as custom metrics. The cost
 for each custom metric is $.3/month. The total cost for these custom
-metrics is 13 \* $.3 = $3.90/month.
+ metrics is 13 \* $.3 = $3.90/month.
 
 - **Alarms**
 
 For this scenario, CloudWatch Application Insights monitors 26 metrics in total, which creates 26
 alarms. The cost for each alarm is $.1/month. The total cost for alarms
-is 26 \* $.1 = $2.60/month.
+ is 26 \* $.1 = $2.60/month.
 
 - **Data ingestion and error logs**
 
 The cost of data ingestion is $.05/GB and storage for the SQL Server
-error log is $.03/GB. The total cost for data ingestion and the error
+ error log is $.03/GB. The total cost for data ingestion and the error
 log is $.05/GB + $.03/GB= $.08/GB.
 
 - **Amazon EC2 Systems Manager OpsItems**

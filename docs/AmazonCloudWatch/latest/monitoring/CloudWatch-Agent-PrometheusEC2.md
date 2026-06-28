@@ -34,13 +34,13 @@ see [Installing the CloudWatch agent](install-CloudWatch-Agent-on-EC2-Instance.m
 
 The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the
 Prometheus metrics. One is for the standard Prometheus configurations as documented in
-[<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config")in the Prometheus documentation. The other is for the
+[<scrape\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config")in the Prometheus documentation. The other is for the
 CloudWatch agent configuration.
 
 ### Prometheus scrape configuration
 
 The CloudWatch agent supports the standard Prometheus scrape configurations as
-documented in [<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. You can edit this
+documented in [<scrape\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. You can edit this
 section to update the configurations that are already in this file, and add additional
 Prometheus scraping targets. A sample configuration file contains the following global
 configuration lines:
@@ -147,13 +147,13 @@ The CloudWatch agent configuration file includes `prometheus` sections under
 both `logs` and `metrics_collected`. It includes the following
 parameters.
 
-- **cluster_name**— specifies the cluster
+- **cluster\_name**— specifies the cluster
   name to be added as a label in the log event. This field is optional.
-- **log_group_name**— specifies the log
+- **log\_group\_name**— specifies the log
   group name for the scraped Prometheus metrics.
-- **prometheus_config_path**— specifies the
+- **prometheus\_config\_path**— specifies the
   Prometheus scrape configuration file path.
-- **emf_processor**— specifies the embedded
+- **emf\_processor**— specifies the embedded
   metric format processor configuration. For more information about embedded metric
   format, see [Embedding metrics within logs](CloudWatch_Embedded_Metric_Format.md "CloudWatch_Embedded_Metric_Format.md").
 
@@ -284,7 +284,7 @@ The log event that is sent includes the following highlighted section.
 ## Example: Set up Java/JMX sample workloads for Prometheus metric testing
 
 JMX Exporter is an official Prometheus exporter that can scrape and expose JMX
-mBeans as Prometheus metrics. For more information, see [prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
+mBeans as Prometheus metrics. For more information, see [prometheus/jmx\_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
 
 The CloudWatch agent can collect predefined Prometheus metrics from Java Virtual Machine
 (JVM), Hjava, and Tomcat (Catalina), from a JMX exporter on EC2 instances.
@@ -299,7 +299,7 @@ see [Installing the CloudWatch agent](install-CloudWatch-Agent-on-EC2-Instance.m
 The next step is to start the Java/JMX workload.
 
 First, download the latest JMX exporter jar file from the following location:
-[prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
+[prometheus/jmx\_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
 
 **Use the jar for your sample application**
 

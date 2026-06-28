@@ -21,15 +21,14 @@ at the top of the page.
   during the time frame that you've selected for viewing performance metrics. NHI is a binary value,
   that is, 1 or 0, which is shown in the console as **Degraded** or **Healthy**.
 
-      + NHI is shown as **Degraded** if there were issues with the portion of the
-       AWS network that any network flow in the monitor traversed, at any time during the time frame
-       that you select.
-      + Otherwise, NHI is shown as **Healthy**.
-
-  If the NHI is **Degraded**, you can view the
-  **Network health indicator** bar graph for more information. The graph
-  shows you when, during the selected time frame, there were AWS network issues for the
-  network flows tracked by your monitor.
+  - NHI is shown as **Degraded** if there were issues with the portion of the
+    AWS network that any network flow in the monitor traversed, at any time during the time frame
+    that you select.
+  - Otherwise, NHI is shown as **Healthy**.
+    If the NHI is **Degraded**, you can view the
+    **Network health indicator** bar graph for more information. The graph
+    shows you when, during the selected time frame, there were AWS network issues for the
+    network flows tracked by your monitor.
 
 - **Traffic summary:** Observe overall metrics for the flows tracked by this
   monitor, for the time period that you've selected. You can see average round-trip time, sums (totals)

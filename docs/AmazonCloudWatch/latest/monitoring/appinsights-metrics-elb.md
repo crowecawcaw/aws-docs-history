@@ -10,9 +10,9 @@ EstimatedALBNewConnectionCount
 
 EstimatedProcessedBytes
 
-HTTPCode_Backend_4XX
+HTTPCode\_Backend\_4XX
 
-HTTPCode_Backend_5XX
+HTTPCode\_Backend\_5XX
 
 HealthyHostCount
 

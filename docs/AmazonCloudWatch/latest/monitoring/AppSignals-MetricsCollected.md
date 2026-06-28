@@ -87,29 +87,29 @@ dimension combinations:
 **Running on Amazon EKS clusters**
 
 - `[Environment, Service, Operation, RemoteService, RemoteOperation,
-RemoteEnvironment, RemoteResourceIdentifier, RemoteResourceType, [Latency, Error,
-Fault]]`
+ RemoteEnvironment, RemoteResourceIdentifier, RemoteResourceType, [Latency, Error,
+ Fault]]`
 - `[Environment, Service, Operation, RemoteService, RemoteOperation,
-RemoteEnvironment, [Latency, Error, Fault]]`
+ RemoteEnvironment, [Latency, Error, Fault]]`
 - `[Environment, Service, Operation, RemoteService, RemoteOperation,
-RemoteResourceIdentifier, RemoteResourceType, [Latency, Error, Fault]]`
+ RemoteResourceIdentifier, RemoteResourceType, [Latency, Error, Fault]]`
 - `[Environment, Service, Operation, RemoteService, RemoteOperation, [Latency,
-Error, Fault]]`
+ Error, Fault]]`
 - `[Environment, Service, RemoteService, RemoteEnvironment, [Latency, Error,
-Fault]]`
+ Fault]]`
 - `[Environment, Service, RemoteService, [Latency, Error, Fault]]`
 - `[Environment, Service, RemoteService, RemoteOperation, RemoteEnvironment,
-RemoteResourceIdentifier, RemoteResourceType, [Latency, Error, Fault]]`
+ RemoteResourceIdentifier, RemoteResourceType, [Latency, Error, Fault]]`
 - `[Environment, Service, RemoteService, RemoteOperation, RemoteEnvironment,
-[Latency, Error, Fault]]`
+ [Latency, Error, Fault]]`
 - `[Environment, Service, RemoteService, RemoteOperation, RemoteResourceIdentifier,
-RemoteResourceType, [Latency, Error, Fault]]`
+ RemoteResourceType, [Latency, Error, Fault]]`
 - `[Environment, Service, RemoteService, RemoteOperation, [Latency, Error,
-Fault]]`
+ Fault]]`
 - `[RemoteService [Latency, Error,
-Fault]]`
+ Fault]]`
 - `[RemoteService, RemoteResourceIdentifier, RemoteResourceType [Latency, Error,
-Fault]]`
+ Fault]]`
 
 ## Runtime metrics
 

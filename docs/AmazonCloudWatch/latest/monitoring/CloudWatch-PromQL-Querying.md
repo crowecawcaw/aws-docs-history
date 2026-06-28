@@ -209,9 +209,9 @@ Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../I
 The PromQL endpoint follows the pattern
 `https://monitoring.`AWS
 Region`.amazonaws.com/api/v1/`operation``.
- For example, for the US East (N. Virginia) (us-east-1) Region, the endpoint for an
- instant query is
- `https://monitoring.us-east-1.amazonaws.com/api/v1/query`.
+For example, for the US East (N. Virginia) (us-east-1) Region, the endpoint for an
+instant query is
+`https://monitoring.us-east-1.amazonaws.com/api/v1/query`.
 
 For the full API reference, including supported operations, request parameters, and
 response formats, see [Prometheus-compatible APIs](CloudWatch-PromQL-APIs.md "CloudWatch-PromQL-APIs.md"). For the list of AWS Regions where

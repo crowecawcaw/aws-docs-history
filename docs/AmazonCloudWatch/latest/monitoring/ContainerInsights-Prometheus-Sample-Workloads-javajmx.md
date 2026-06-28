@@ -1,7 +1,7 @@
 # Set up Java/JMX sample workload on Amazon EKS and Kubernetes
 
 JMX Exporter is an official Prometheus exporter that can scrape and expose JMX
-mBeans as Prometheus metrics. For more information, see [prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
+mBeans as Prometheus metrics. For more information, see [prometheus/jmx\_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
 
 Container Insights can collect predefined Prometheus metrics from Java Virtual
 Machine (JVM), Java, and Tomcat (Catalina) using the JMX Exporter.
@@ -14,8 +14,8 @@ an Amazon EKS or Kubernetes cluster. This is done by `role: pod` discovery
 of Prometheus `kubernetes_sd_config`. 9404 is the default port
 allocated for JMX Exporter by Prometheus. For more information about `role:
  pod` discovery, see [pod](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#pod "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#pod"). You can configure the JMX Exporter to expose the metrics on a
-different port or metrics_path. If you do change the port or path, update the
-default jmx scrape_config in the CloudWatch agent config map. Run the following command
+different port or metrics\_path. If you do change the port or path, update the
+default jmx scrape\_config in the CloudWatch agent config map. Run the following command
 to get the current CloudWatch agent Prometheus configuration:
 
 ```
@@ -47,12 +47,12 @@ If you expose your application running on a set of pods with Java/JMX
 Prometheus exporters by a Kubernetes Service, you can also switch to use
 `role: service` discovery or `role: endpoint` discovery of
 Prometheus `kubernetes_sd_config`. For more information about these
-discovery methods, see [service](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#service "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#service"), [endpoints](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#endpoints "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#endpoints"), and [<kubernetes_sd_config>.](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config").
+discovery methods, see [service](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#service "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#service"), [endpoints](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#endpoints "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#endpoints"), and [<kubernetes\_sd\_config>.](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config").
 
 More meta labels are provided by these two service discovery modes which could
 be useful for you to build the CloudWatch metrics dimensions. For example, you can
 relabel `__meta_kubernetes_service_name` to `Service` and
-include it into your metrics’ dimension. For more informatio about customizing
+include it into your metrics' dimension. For more informatio about customizing
 your CloudWatch metrics and their dimensions, see [CloudWatch agent configuration for Prometheus](ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config "ContainerInsights-Prometheus-Setup-configure-ECS.md#ContainerInsights-Prometheus-Setup-cw-agent-config").
 
 ## Docker image with JMX Exporter
@@ -108,9 +108,9 @@ ENTRYPOINT ["catalina.sh", "run"]
 The following list explains the four `COPY` lines in this
 Dockerfile.
 
-- Download the latest JMX Exporter jar file from [https://github.com/prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
+- Download the latest JMX Exporter jar file from [https://github.com/prometheus/jmx\_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
 - `config.yaml` is the JMX Exporter configuration file.
-  For more information, see [https://github.com/prometheus/jmx_exporter#Configuration](https://github.com/prometheus/jmx_exporter#Configuration "https://github.com/prometheus/jmx_exporter#Configuration ").
+  For more information, see [https://github.com/prometheus/jmx\_exporter#Configuration](https://github.com/prometheus/jmx_exporter#Configuration "https://github.com/prometheus/jmx_exporter#Configuration ").
 
 Here is a sample configuration file for Java and Tomcat:
 
@@ -205,9 +205,9 @@ ENTRYPOINT exec /opt/jmx_exporter/start_exporter_example.sh
 The following list explains the four `COPY` lines in this
 Dockerfile.
 
-- Download the latest JMX Exporter jar file from [https://github.com/prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
+- Download the latest JMX Exporter jar file from [https://github.com/prometheus/jmx\_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter").
 - `config.yaml` is the JMX Exporter configuration file.
-  For more information, see [https://github.com/prometheus/jmx_exporter#Configuration](https://github.com/prometheus/jmx_exporter#Configuration "https://github.com/prometheus/jmx_exporter#Configuration ").
+  For more information, see [https://github.com/prometheus/jmx\_exporter#Configuration](https://github.com/prometheus/jmx_exporter#Configuration "https://github.com/prometheus/jmx_exporter#Configuration ").
 
 Here is a sample configuration file for Java and Tomcat:
 

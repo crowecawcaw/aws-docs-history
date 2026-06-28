@@ -114,7 +114,7 @@ The package structure is defined below:
 
 - Root-level handler file (index.js/index.mjs)
 - Optional configuration file (synthetics.json)
-- Additional dependencies in node_modules (if needed)
+- Additional dependencies in node\_modules (if needed)
 
 Packaging structure example:
 

@@ -10,12 +10,12 @@ You can use the following types of widgets on CloudWatch dashboards:
   that you can add
   to your dashboard
   include
-  **_Line_**,
-  **_Stacked area_**,
-  **_Number_**,
-  **_Gauge_**,
-  **_Bar_**, and
-  **_Pie_**.
+  _**Line**_,
+  _**Stacked area**_,
+  _**Number**_,
+  _**Gauge**_,
+  _**Bar**_, and
+  _**Pie**_.
   You can remove graphs
   from your dashboard
   when you don't need them anymore.

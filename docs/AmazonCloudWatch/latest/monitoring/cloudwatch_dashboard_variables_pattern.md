@@ -62,7 +62,7 @@ more of the following:
      **Default value**.
 
 12. Choose
-    **Add variable**.
+**Add variable**.
 
 The dashboard appears, with a **Region:** label next to
 the radio buttons for the Regions near the top. When you switch between

@@ -13,7 +13,7 @@ Amazon EC2
 
 ###### To enable JMX in your JVM instance
 
-For the CloudWatch agent to be able to collect JMX metrics, your application’s JVM
+For the CloudWatch agent to be able to collect JMX metrics, your application's JVM
 must bind to a port using the `com.sun.management.jmxremote.port`
 system property.
 
@@ -35,17 +35,17 @@ enable JMX metrics collection:
 - One or more of the following:
 
   - For JVM metrics: `cloudwatch.aws.amazon.com/inject-jmx-jvm:
-"true"`
+   "true"`
   - For Kafka broker metrics:
     `cloudwatch.aws.amazon.com/inject-jmx-kafka: "true"`
   - For Kafka consumer metrics:
     `cloudwatch.aws.amazon.com/inject-jmx-kafka-consumer:
-"true"`
+   "true"`
   - For Kafka producer metrics:
     `cloudwatch.aws.amazon.com/inject-jmx-kafka-producer:
-"true"`
+   "true"`
   - For Tomcat metrics: `cloudwatch.aws.amazon.com/inject-jmx-tomcat:
-"true"`
+   "true"`
 
 You must also configure a `jmx` section in the CloudWatch agent
 configuration as described below. For more information about providing a custom
@@ -230,7 +230,7 @@ the following fields.
   `SASL/DIGEST-MD5`, and `SASL/CRAM-MD5`. Should be one
   of:`SASL/PLAIN`, `SASL/DIGEST-MD5`,
   `SASL/CRAM-MD5`, `TLS SASL/PLAIN`, `TLS
-SASL/DIGEST-MD5`, or `TLS SASL/CRAM-MD5`
+ SASL/DIGEST-MD5`, or `TLS SASL/CRAM-MD5`
 - `realm` – Optional. The realm as required by the remote profile
   `SASL/DIGEST-MD5`.
 - `registry_ssl_enabled` – If RMI registry authentication is
@@ -296,24 +296,24 @@ agent configuration file.
 
 The following metrics can be collected.
 
-| Metric                         | Dimensions        | Description                                                                                                                                                                                    |
-| ------------------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `jvm.classes.loaded`           | [DEFAULT]         | The total number of loaded classes.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                                                     |
-| `jvm.gc.collections.count`     | [DEFAULT], `name` | The total number of garbage collections that have occurred.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                             |
-| `jvm.gc.collections.elapsed`   | [DEFAULT], `name` | The approximate accumulated garbage collection elapsed time.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                    |
-| `jvm.memory.heap.init`         | [DEFAULT]         | The initial amount of memory that the JVM requests from the operating<br>system for the heap.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average          |
-| `jvm.memory.heap.max`          | [DEFAULT]         | The maximum amount of memory that can be used for the heap.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Maximum                                                                 |
-| `jvm.memory.heap.used`         | [DEFAULT]         | The current heap memory usage.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                                                         |
-| `jvm.memory.heap.committed`    | [DEFAULT]         | The amount of memory that is guaranteed to be available for the<br>heap.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                               |
-| `jvm.memory.nonheap.init`      | [DEFAULT]         | The initial amount of memory that the JVM requests from the operating<br>system for non-heap purposes.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average |
-| `jvm.memory.nonheap.max`       | [DEFAULT]         | The maximum amount of memory that can be used for non-heap<br>purposes.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Maximum                                                     |
-| `jvm.memory.nonheap.used`      | [DEFAULT]         | The current non-heap memory usage.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                                                     |
-| `jvm.memory.nonheap.committed` | [DEFAULT]         | The amount of memory that is guaranteed to be available for non-heap<br>purposes.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                      |
-| `jvm.memory.pool.init`         | [DEFAULT], `name` | The initial amount of memory that the JVM requests from the operating<br>system for the memory pool.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average   |
-| `jvm.memory.pool.max`          | [DEFAULT], `name` | The maximum amount of memory that can be used for the memory pool.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Maximum                                                          |
-| `jvm.memory.pool.used`         | [DEFAULT], `name` | The current memory pool memory usage.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                                                  |
-| `jvm.memory.pool.committed`    | [DEFAULT], `name` | The amount of memory that is guaranteed to be available for the memory<br>pool.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                        |
-| `jvm.threads.count`            | [DEFAULT]         | The current number of threads.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                                                          |
+| Metric                         | Dimensions        | Description                                                                                                                                                                                  |
+| ------------------------------ | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `jvm.classes.loaded`           | [DEFAULT]         | The total number of loaded classes.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                                                     |
+| `jvm.gc.collections.count`     | [DEFAULT], `name` | The total number of garbage collections that have occurred.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                             |
+| `jvm.gc.collections.elapsed`   | [DEFAULT], `name` | The approximate accumulated garbage collection elapsed time.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                    |
+| `jvm.memory.heap.init`         | [DEFAULT]         | The initial amount of memory that the JVM requests from the operating<br>system for the heap.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average          |
+| `jvm.memory.heap.max`          | [DEFAULT]         | The maximum amount of memory that can be used for the heap.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Maximum                                                                 |
+| `jvm.memory.heap.used`         | [DEFAULT]         | The current heap memory usage.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                                                         |
+| `jvm.memory.heap.committed`    | [DEFAULT]         | The amount of memory that is guaranteed to be available for the<br>heap.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                               |
+| `jvm.memory.nonheap.init`      | [DEFAULT]         | The initial amount of memory that the JVM requests from the operating<br>system for non-heap purposes.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average |
+| `jvm.memory.nonheap.max`       | [DEFAULT]         | The maximum amount of memory that can be used for non-heap<br>purposes.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Maximum                                                     |
+| `jvm.memory.nonheap.used`      | [DEFAULT]         | The current non-heap memory usage.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                                                     |
+| `jvm.memory.nonheap.committed` | [DEFAULT]         | The amount of memory that is guaranteed to be available for non-heap<br>purposes.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                      |
+| `jvm.memory.pool.init`         | [DEFAULT], `name` | The initial amount of memory that the JVM requests from the operating<br>system for the memory pool.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average   |
+| `jvm.memory.pool.max`          | [DEFAULT], `name` | The maximum amount of memory that can be used for the memory pool.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Maximum                                                          |
+| `jvm.memory.pool.used`         | [DEFAULT], `name` | The current memory pool memory usage.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                                                  |
+| `jvm.memory.pool.committed`    | [DEFAULT], `name` | The amount of memory that is guaranteed to be available for the memory<br>pool.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                        |
+| `jvm.threads.count`            | [DEFAULT]         | The current number of threads.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                                                          |
 
 The JVM metrics are collected with the following dimensions:
 
@@ -338,29 +338,29 @@ agent configuration file.
 
 The following metrics can be collected for Kafka brokers.
 
-| Metric                             | Dimensions             | Description                                                                                                                                                                     |
-| ---------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kafka.message.count`              | [DEFAULT]              | The number of messages received by the Kafka broker.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                     |
-| `kafka.request.count`              | [DEFAULT], `type`      | The number of requests received by the Kafka broker.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                     |
-| `kafka.request.failed`             | [DEFAULT], `type`      | The number of requests to the Kafka broker that resulted in a<br>failure.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                |
-| `kafka.request.time.total`         | [DEFAULT], `type`      | The total time that the Kafka broker has taken to service requests.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average              |
-| `kafka.request.time.50p`           | [DEFAULT], `type`      | The 50th percentile time that the Kafka broker has taken to service<br>requests.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average |
-| `kafka.request.time.99p`           | [DEFAULT], `type`      | The 99th percentile time that the Kafka broker has taken to service<br>requests.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average |
-| `kafka.request.time.avg`           | [DEFAULT], `type`      | The average time that the Kafka broker has taken to service<br>requests.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Average                              |
-| `kafka.network.io`                 | [DEFAULT], `state`     | The number of bytes received by or sent by the Kafka broker.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                            |
-| `kafka.purgatory.size`             | [DEFAULT], `type`      | The number of requests waiting in purgatory.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                             |
-| `kafka.partition.count`            | [DEFAULT]              | The number of partitions on the Kafka broker.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                            |
-| `kafka.partition.offline`          | [DEFAULT]              | The number of partitions that are offline.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                               |
-| `kafka.partition.under_replicated` | [DEFAULT]              | The number of under-replicated partitions.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                               |
-| `kafka.isr.operation.count`        | [DEFAULT], `operation` | The number of in-sync replica shrink and expand operations.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                              |
-| `kafka.max.lag`                    | [DEFAULT]              | The maximum lag in messages between follower and leader replicas.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Maximum                                             |
-| `kafka.controller.active.count`    | [DEFAULT]              | The number of active controllers on the broker.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                          |
-| `kafka.leader.election.rate`       | [DEFAULT]              | Leader election rate. If this increases, it indicates broker<br>failures.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                |
-| `kafka.unclean.election.rate`      | [DEFAULT]              | Unclean leader election rate. If this increases, it indicates broker<br>failures.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average        |
-| `kafka.request.queue`              | [DEFAULT]              | The size of the request queue.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                                           |
-| `kafka.logs.flush.time.count`      | [DEFAULT]              | The logs flush count.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                                            |
-| `kafka.logs.flush.time.median`     | [DEFAULT]              | The 50th percentile value of the logs flush count.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                               |
-| `kafka.logs.flush.time.99p`        | [DEFAULT]              | The 99th percentile value of the logs flush count.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                               |
+| Metric                             | Dimensions             | Description                                                                                                                                                                   |
+| ---------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `kafka.message.count`              | [DEFAULT]              | The number of messages received by the Kafka broker.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                     |
+| `kafka.request.count`              | [DEFAULT], `type`      | The number of requests received by the Kafka broker.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                     |
+| `kafka.request.failed`             | [DEFAULT], `type`      | The number of requests to the Kafka broker that resulted in a<br>failure.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                |
+| `kafka.request.time.total`         | [DEFAULT], `type`      | The total time that the Kafka broker has taken to service requests.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average              |
+| `kafka.request.time.50p`           | [DEFAULT], `type`      | The 50th percentile time that the Kafka broker has taken to service<br>requests.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average |
+| `kafka.request.time.99p`           | [DEFAULT], `type`      | The 99th percentile time that the Kafka broker has taken to service<br>requests.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average |
+| `kafka.request.time.avg`           | [DEFAULT], `type`      | The average time that the Kafka broker has taken to service<br>requests.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Average                              |
+| `kafka.network.io`                 | [DEFAULT], `state`     | The number of bytes received by or sent by the Kafka broker.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                            |
+| `kafka.purgatory.size`             | [DEFAULT], `type`      | The number of requests waiting in purgatory.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                             |
+| `kafka.partition.count`            | [DEFAULT]              | The number of partitions on the Kafka broker.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                            |
+| `kafka.partition.offline`          | [DEFAULT]              | The number of partitions that are offline.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                               |
+| `kafka.partition.under_replicated` | [DEFAULT]              | The number of under-replicated partitions.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                               |
+| `kafka.isr.operation.count`        | [DEFAULT], `operation` | The number of in-sync replica shrink and expand operations.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                              |
+| `kafka.max.lag`                    | [DEFAULT]              | The maximum lag in messages between follower and leader replicas.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Maximum                                             |
+| `kafka.controller.active.count`    | [DEFAULT]              | The number of active controllers on the broker.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                          |
+| `kafka.leader.election.rate`       | [DEFAULT]              | Leader election rate. If this increases, it indicates broker<br>failures.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                |
+| `kafka.unclean.election.rate`      | [DEFAULT]              | Unclean leader election rate. If this increases, it indicates broker<br>failures.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average        |
+| `kafka.request.queue`              | [DEFAULT]              | The size of the request queue.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                                           |
+| `kafka.logs.flush.time.count`      | [DEFAULT]              | The logs flush count.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                                            |
+| `kafka.logs.flush.time.median`     | [DEFAULT]              | The 50th percentile value of the logs flush count.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                               |
+| `kafka.logs.flush.time.99p`        | [DEFAULT]              | The 99th percentile value of the logs flush count.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                               |
 
 The Kafka broker metrics are collected with the following dimensions:
 
@@ -375,16 +375,16 @@ The Kafka broker metrics are collected with the following dimensions:
 
 The following metrics can be collected for Kafka consumers.
 
-| Metric                                       | Dimensions                      | Description                                                                                                                                               |
-| -------------------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kafka.consumer.fetch-rate`                  | [DEFAULT], `client-id`          | The number of fetch requests for all topics per second.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average            |
-| `kafka.consumer.records-lag-max`             | [DEFAULT], `client-id`          | The number of messages that the consumer lags behind the producer.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average |
-| `kafka.consumer.total.bytes-consumed-rate`   | [DEFAULT], `client-id`          | The average number of bytes consumed for all topics per second.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Average                        |
-| `kafka.consumer.total.fetch-size-avg`        | [DEFAULT], `client-id`          | The number of bytes fetched per request for all topics.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average           |
-| `kafka.consumer.total.records-consumed-rate` | [DEFAULT], `client-id`          | The average number of records consumed for all topics per second.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Average                       |
-| `kafka.consumer.bytes-consumed-rate`         | [DEFAULT], `client-id`, `topic` | The average number of bytes consumed per second.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Average                                       |
-| `kafka.consumer.fetch-size-avg`              | [DEFAULT], `client-id`, `topic` | The number of bytes fetched per request.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                          |
-| `kafka.consumer.records-consumed-rate`       | [DEFAULT], `client-id`, `topic` | The average number of records consumed per second.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Average                                      |
+| Metric                                       | Dimensions                      | Description                                                                                                                                             |
+| -------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `kafka.consumer.fetch-rate`                  | [DEFAULT], `client-id`          | The number of fetch requests for all topics per second.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average            |
+| `kafka.consumer.records-lag-max`             | [DEFAULT], `client-id`          | The number of messages that the consumer lags behind the producer.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average |
+| `kafka.consumer.total.bytes-consumed-rate`   | [DEFAULT], `client-id`          | The average number of bytes consumed for all topics per second.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Average                        |
+| `kafka.consumer.total.fetch-size-avg`        | [DEFAULT], `client-id`          | The number of bytes fetched per request for all topics.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average           |
+| `kafka.consumer.total.records-consumed-rate` | [DEFAULT], `client-id`          | The average number of records consumed for all topics per second.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Average                       |
+| `kafka.consumer.bytes-consumed-rate`         | [DEFAULT], `client-id`, `topic` | The average number of bytes consumed per second.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Average                                       |
+| `kafka.consumer.fetch-size-avg`              | [DEFAULT], `client-id`, `topic` | The number of bytes fetched per request.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                          |
+| `kafka.consumer.records-consumed-rate`       | [DEFAULT], `client-id`, `topic` | The average number of records consumed per second.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Average                                      |
 
 The Kafka consumer metrics are collected with the following dimensions:
 
@@ -398,18 +398,18 @@ The Kafka consumer metrics are collected with the following dimensions:
 
 The following metrics can be collected for Kafka producers.
 
-| Metric                               | Dimensions                      | Description                                                                                                                                                          |
-| ------------------------------------ | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `kafka.producer.io-wait-time-ns-avg` | [DEFAULT], `client-id`          | The average length of time the I/O thread spent waiting for a socket ready<br>for reads or writes.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Average |
-| `kafka.producer.outgoing-byte-rate`  | [DEFAULT], `client-id`          | The average number of outgoing bytes sent per second to all<br>servers.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Average                           |
-| `kafka.producer.request-latency-avg` | [DEFAULT], `client-id`          | The average request latency.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Average                                                               |
-| `kafka.producer.request-rate`        | [DEFAULT], `client-id`          | The average number of requests sent per second.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Average                                                    |
-| `kafka.producer.response-rate`       | [DEFAULT], `client-id`          | The number of responses received per second.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                                  |
-| `kafka.producer.byte-rate`           | [DEFAULT], `client-id`, `topic` | The average number of bytes sent per second for a topic.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Average                                          |
-| `kafka.producer.compression-rate`    | [DEFAULT], `client-id`, `topic` | The average compression rate of record batches for a topic.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Average                                        |
-| `kafka.producer.record-error-rate`   | [DEFAULT], `client-id`, `topic` | The average per-second number of record sends that resulted in errors for<br>a topic.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Average              |
-| `kafka.producer.record-retry-rate`   | [DEFAULT], `client-id`, `topic` | The average per-second number of retried record sends for a topic.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Average                                 |
-| `kafka.producer.record-send-rate`    | [DEFAULT], `client-id`, `topic` | The average number of records sent per second for a topic.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Average                                         |
+| Metric                               | Dimensions                      | Description                                                                                                                                                        |
+| ------------------------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `kafka.producer.io-wait-time-ns-avg` | [DEFAULT], `client-id`          | The average length of time the I/O thread spent waiting for a socket ready<br>for reads or writes.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Average |
+| `kafka.producer.outgoing-byte-rate`  | [DEFAULT], `client-id`          | The average number of outgoing bytes sent per second to all<br>servers.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Average                           |
+| `kafka.producer.request-latency-avg` | [DEFAULT], `client-id`          | The average request latency.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Average                                                               |
+| `kafka.producer.request-rate`        | [DEFAULT], `client-id`          | The average number of requests sent per second.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Average                                                    |
+| `kafka.producer.response-rate`       | [DEFAULT], `client-id`          | The number of responses received per second.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                                  |
+| `kafka.producer.byte-rate`           | [DEFAULT], `client-id`, `topic` | The average number of bytes sent per second for a topic.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Average                                          |
+| `kafka.producer.compression-rate`    | [DEFAULT], `client-id`, `topic` | The average compression rate of record batches for a topic.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Average                                        |
+| `kafka.producer.record-error-rate`   | [DEFAULT], `client-id`, `topic` | The average per-second number of record sends that resulted in errors for<br>a topic.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Average              |
+| `kafka.producer.record-retry-rate`   | [DEFAULT], `client-id`, `topic` | The average per-second number of retried record sends for a topic.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Average                                 |
+| `kafka.producer.record-send-rate`    | [DEFAULT], `client-id`, `topic` | The average number of records sent per second for a topic.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Average                                         |
 
 Kafka producer metrics are collected with the following dimensions:
 
@@ -427,15 +427,15 @@ agent configuration file.
 
 The following metrics can be collected.
 
-| Metric                   | Dimensions                                 | Description                                                                                                                    |
-| ------------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| `tomcat.sessions`        | [DEFAULT]                                  | The number of active sessions.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average          |
-| `tomcat.errors`          | [DEFAULT], `proto_handler`                 | The number of errors encountered.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average       |
-| `tomcat.processing_time` | [DEFAULT], `proto_handler`                 | The total processing time.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average      |
-| `tomcat.traffic`         | [DEFAULT], `proto_handler`                 | The number of bytes received and sent.<br>**Unit:\*<br>• Bytes<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average |
-| `tomcat.threads`         | [DEFAULT], `proto_handler`                 | The number of threads.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                  |
-| `tomcat.max_time`        | [DEFAULT], `proto_handler`,<br>`direction` | Maximum time to process a request.<br>**Unit:\*<br>• Milliseconds<br>**Meaningful statistics:\*<br>• Maximum                   |
-| `tomcat.request_count`   | [DEFAULT], `proto_handler`                 | The total requests.<br>**Unit:\*<br>• None<br>**Meaningful statistics:\*<br>• Minimum, Maximum,<br>Average                     |
+| Metric                   | Dimensions                                 | Description                                                                                                                  |
+| ------------------------ | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| `tomcat.sessions`        | [DEFAULT]                                  | The number of active sessions.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average          |
+| `tomcat.errors`          | [DEFAULT], `proto_handler`                 | The number of errors encountered.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average       |
+| `tomcat.processing_time` | [DEFAULT], `proto_handler`                 | The total processing time.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average      |
+| `tomcat.traffic`         | [DEFAULT], `proto_handler`                 | The number of bytes received and sent.<br>**Unit:_<br>• Bytes<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average |
+| `tomcat.threads`         | [DEFAULT], `proto_handler`                 | The number of threads.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                  |
+| `tomcat.max_time`        | [DEFAULT], `proto_handler`,<br>`direction` | Maximum time to process a request.<br>**Unit:_<br>• Milliseconds<br>**Meaningful statistics:_<br>• Maximum                   |
+| `tomcat.request_count`   | [DEFAULT], `proto_handler`                 | The total requests.<br>**Unit:_<br>• None<br>**Meaningful statistics:_<br>• Minimum, Maximum,<br>Average                     |
 
 Tomcat metrics are collected with the following dimensions:
 

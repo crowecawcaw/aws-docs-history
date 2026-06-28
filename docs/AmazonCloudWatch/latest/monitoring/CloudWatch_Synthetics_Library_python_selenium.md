@@ -12,9 +12,32 @@ reference](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.s
 The naming convention for these runtime versions is `syn-`language`
  -`framework`-`majorversion`.`minorversion``.
 
-## syn-python-selenium-11.0
+## syn-python-selenium-11.1
 
-Version 11.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
+**Major dependencies**:
+
+- Python 3.12
+- Selenium 4.32.0
+- Chromium version 147.0.7727.57
+
+**Changes in syn-python-selenium-11.1**
+
+- Upgrade `urllib3` to 2.7.0 to address the following CVEs:
+
+  - CVE-2026-44431
+  - CVE-2026-44432
+
+For more information, see the following:
+
+- [Selenium
+  Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
+- [Selenium
+  documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
+
+The following earlier runtime versions for Python and Selenium are still
+supported.
+
+### syn-python-selenium-11.0
 
 **Major dependencies**:
 
@@ -30,16 +53,6 @@ Version 11.0 is the newest CloudWatch Synthetics runtime for Python and Selenium
   - CVE-2026-3909
   - CVE-2026-3910
   - CVE-2026-5281
-
-For more information, see the following:
-
-- [Selenium
-  Change log](https://www.selenium.dev/blog/2025/selenium-4-32-released "https://www.selenium.dev/blog/2025/selenium-4-32-released")
-- [Selenium
-  documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
-
-The following earlier runtime versions for Python and Selenium are still
-supported.
 
 ### syn-python-selenium-10.0
 
@@ -80,8 +93,6 @@ For more information, see the following:
   documentation](https://www.selenium.dev/selenium/docs/api/py/api.html "https://www.selenium.dev/selenium/docs/api/py/api.html")
 
 ### syn-python-selenium-8.0
-
-Version 8.0 is the newest CloudWatch Synthetics runtime for Python and Selenium.
 
 **Major dependencies**:
 

@@ -56,9 +56,9 @@ alarm transitions to the `ALARM`, `OK`, or
     2. (Optional) To not send Amazon SNS notifications, choose **Remove**.
 
 15. To have the alarm perform Auto Scaling, Lambda, or Systems Manager actions, choose the
-    appropriate button and choose the alarm state and action to perform. If you choose a
-    Lambda function as an alarm action, you specify the function name or ARN, and you can
-    optionally choose a specific version of the function.
+appropriate button and choose the alarm state and action to perform. If you choose a
+Lambda function as an alarm action, you specify the function name or ARN, and you can
+optionally choose a specific version of the function.
 
 Alarms can perform Systems Manager actions only when they go into ALARM state. For more
 information about Systems Manager actions, see see [Configuring CloudWatch to create OpsItems from alarms](../../../systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md "../../../systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.md") and [Incident creation](../../../incident-manager/latest/userguide/incident-creation.md "../../../incident-manager/latest/userguide/incident-creation.md").

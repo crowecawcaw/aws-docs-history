@@ -8,7 +8,7 @@ include Amazon CloudFront in the suggestions.
 You can review suggestions for your application's top Regions by traffic volume, or for top client locations, also by
 traffic volume.
 
-\***\*Suggestions to reduce latency for top Regions\*\***
+****Suggestions to reduce latency for top Regions****
 To help you quickly understand your best options for reducing latency for your clients,
 Internet Monitor automatically provides suggestions for improving latency in your application for your top Regions (by traffic volume).
 
@@ -17,7 +17,7 @@ where your application serves clients. This includes getting details about each 
 by specific client location. To explore all Regional configurations and expected latency changes for your application,
 choose **Optimization suggestions for all Regions**.
 
-\***\*Suggestions to reduce latency for all Regions\*\***
+****Suggestions to reduce latency for all Regions****
 To explore suggestions for reducing latency for all Regions where clients access your application,
 choose **Optimization suggestions for all Regions** to open a new dashboard page. On this page,
 you can select different Regions to configure, with the option of including CloudFront as a configuration comparison,
@@ -26,14 +26,14 @@ and then compare the times to first byte (TTFBs) for each selected configuration
 Then, for each comparison, you can also see a table with at a more granular level (by client location), with the
 average expected TTFB for each one.
 
-\***\*Suggestions to reduce latency for top locations\*\***
+****Suggestions to reduce latency for top locations****
 Internet Monitor also provides suggestions for reducing application latency for your clients by specific location. When the
 table lists multiple suggestions for the same location, expand the city location for that row to see details.
 
 Be aware that if you change a configuration to use a different Region or to use CloudFront, latency improvements can vary by
 client location. For example, latency might improve for some locations, but stay the same or worsen for others.
 
-\***\*Suggestions to reduce latency by updating routing configurations\*\***
+****Suggestions to reduce latency by updating routing configurations****
 Note: These suggestions are only relevant for application traffic to Regional load balancers.
 The table is not shown for monitors that you create for CloudFront distributions or WorkSpaces resources.
 

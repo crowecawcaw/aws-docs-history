@@ -22,7 +22,7 @@ Before you begin, ensure you have the following:
   - CloudWatch Application Signals and CloudWatch access
   - Amazon Bedrock model access (if using Bedrock models)
 
-- **GitHub Token**: The workflow automatically uses GITHUB_TOKEN with the required permissions
+- **GitHub Token**: The workflow automatically uses GITHUB\_TOKEN with the required permissions
 
 ### Setup Steps
 

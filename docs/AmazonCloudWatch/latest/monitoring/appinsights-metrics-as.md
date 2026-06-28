@@ -42,6 +42,6 @@ NetworkPacketsOut
 
 StatusCheckFailed
 
-StatusCheckFailed_Instance
+StatusCheckFailed\_Instance
 
-StatusCheckFailed_System
+StatusCheckFailed\_System

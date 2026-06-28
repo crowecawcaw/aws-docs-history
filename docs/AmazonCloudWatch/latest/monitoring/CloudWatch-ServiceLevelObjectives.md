@@ -249,10 +249,10 @@ You can use the CloudWatch console to create burn rate alarms using this method.
 
 The SLO interval length is determined based on the SLO interval type:
 
-- For SLOs with a rolling interval, it’s the length of the interval in hours.
+- For SLOs with a rolling interval, it's the length of the interval in hours.
 - For SLOs with a calendar-based interval:
 
-  - If the unit is days or weeks, it’s the length of the interval in hours.
+  - If the unit is days or weeks, it's the length of the interval in hours.
   - If the unit is a month, we take 30 days as the estimated length and convert it to hours.
 
 **Method 2: Determine the time unitl budget exhaustion for the next interval**
@@ -375,91 +375,92 @@ Use the following procedure to create a period-based SLO.
 
 ###### To create a period-based SLO
 
-1.  Open the CloudWatch console at
-    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  In the navigation pane, choose **Service Level Objectives (SLO)**.
-3.  Choose **Create SLO**.
-4.  For **Set Service Level Indicator (SLI)**, do one of the following:
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Service Level Objectives (SLO)**.
+3. Choose **Create SLO**.
+4. For **Set Service Level Indicator (SLI)**, do one of the following:
 
-    - To set the SLO on a service operation, all operations, or the dependency of a service,
-      using either of the standard application metrics `Latency` or
-      `Availability`:
+   - To set the SLO on a service operation, all operations, or the dependency of a service,
+     using either of the standard application metrics `Latency` or
+     `Availability`:
 
-      1. For **Type**, choose **Service**.
-      2. Select an account that this SLO will monitor.
-      3. Select the service that this SLO will monitor.
-      4. For **Type**, choose one of the following:
+     1. For **Type**, choose **Service**.
+     2. Select an account that this SLO will monitor.
+     3. Select the service that this SLO will monitor.
+     4. For **Type**, choose one of the following:
 
-         - **Service Operations** — to create an SLO on a service operation,
-           all operations, or a subset of operations.
-         - **Service Dependency** — to create an SLO on a dependency of the
-           service.
+        - **Service Operations** — to create an SLO on a service operation,
+          all operations, or a subset of operations.
+        - **Service Dependency** — to create an SLO on a dependency of the
+          service.
 
-      5. If you chose **Service Operations**, select the operation that this SLO
-         will monitor. To create a service-level SLO that monitors the overall health of your service across
-         all operations, select **All Operations**. Otherwise, select a specific operation
-         to monitor.
+     5. If you chose **Service Operations**, select the operation that this SLO
+        will monitor. To create a service-level SLO that monitors the overall health of your service across
+        all operations, select **All Operations**. Otherwise, select a specific operation
+        to monitor.
 
-      To create an SLO that monitors a subset of operations, see [Create a composite SLO on multiple operations](#CloudWatch-ServiceLevelObjectives-Create-Composite "#CloudWatch-ServiceLevelObjectives-Create-Composite"). 6. If you chose **Service Dependency**, do the following:
+     To create an SLO that monitors a subset of operations, see [Create a composite SLO on multiple operations](#CloudWatch-ServiceLevelObjectives-Create-Composite "#CloudWatch-ServiceLevelObjectives-Create-Composite"). 6. If you chose **Service Dependency**, do the following:
 
-          1. Under **Select an operation**, select one specific operation or
-           select **All operations** to use the metrics from all operations of this
-           service that calls a dependency.
-          2. Under **Select a dependency**, search and select the required
-           dependency for which you want to measure the reliability.
+           1. Under **Select an operation**, select one specific operation or
+            select **All operations** to use the metrics from all operations of this
+            service that calls a dependency.
+           2. Under **Select a dependency**, search and select the required
+            dependency for which you want to measure the reliability.
 
 
-          After you select the dependency, you can view the updated graph and historical data
-           based on the dependency.
-      7. For **Select a calculation method**, choose **Periods**.
+           After you select the dependency, you can view the updated graph and historical data
+            based on the dependency.
 
-      The **Select service** and **Select operation**
-      drop-downs are populated by services and operations that have been active within
-      the past 24 hours. 8. Choose either **Availability** or **Latency**
-      and then set the threshold.
+     7. For **Select a calculation method**, choose **Periods**.
 
-    - To set the SLO on any CloudWatch metric or a CloudWatch metric math expression:
+     The **Select service** and **Select operation**
+     drop-downs are populated by services and operations that have been active within
+     the past 24 hours. 8. Choose either **Availability** or **Latency**
+     and then set the threshold.
 
-      1. For **Type**, choose **CloudWatch Metric**.
-      2. Choose **Select CloudWatch metric**.
+   - To set the SLO on any CloudWatch metric or a CloudWatch metric math expression:
 
-      The **Select metric** screen appears. Use the **Browse**
-      or **Query** tabs to find the metric you want, or create a metric math expression.
+     1. For **Type**, choose **CloudWatch Metric**.
+     2. Choose **Select CloudWatch metric**.
 
-      After you select the metric that you want, choose the **Graphed
-      metrics** tab and select the **Statistic** and
-      **Period** to use for the SLO. Then choose **Select
-      metric**.
+     The **Select metric** screen appears. Use the **Browse**
+     or **Query** tabs to find the metric you want, or create a metric math expression.
 
-      For more information about these screens, see
-      [Graph a metric](graph_a_metric.md "graph_a_metric.md") and
-      [Add a math expression to a CloudWatch graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console"). 3. For **Select a calculation method**, choose **Periods**. 4. For **Set condition**, select a comparison operator and threshold
-      for the SLO to use as the indicator of success.
+     After you select the metric that you want, choose the **Graphed
+     metrics** tab and select the **Statistic** and
+     **Period** to use for the SLO. Then choose **Select
+     metric**.
 
-5.  If you selected **Service** in step 4, set the period length for this SLO.
-6.  Enter a name for the SLO. Including the name of a service or operation, along with appropriate
-    keywords such as latency or availability, will help you quickly identify what the SLO
-    status indicates during triage.
-7.  Set the **interval** and **attainment goal** for the SLO.
-    For more information about intervals and attainment goals and
-    how they work together, see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts").
-8.  (Optional) For **Set SLO burn rates** do the following:
+     For more information about these screens, see
+     [Graph a metric](graph_a_metric.md "graph_a_metric.md") and
+     [Add a math expression to a CloudWatch graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console"). 3. For **Select a calculation method**, choose **Periods**. 4. For **Set condition**, select a comparison operator and threshold
+     for the SLO to use as the indicator of success.
 
-    - Set the length (in minutes) of the look-back window for the burn rate. For information about how to
-      choose this length, see [Walkthroughs for burn rate alarms](#ServiceLevelObjectives-burnrate-examples "#ServiceLevelObjectives-burnrate-examples").
-    - To create more burn rates for this SLO, choose **Add more burn rates** and set the
-      look-back window for the additional burn rates.
+5. If you selected **Service** in step 4, set the period length for this SLO.
+6. Enter a name for the SLO. Including the name of a service or operation, along with appropriate
+   keywords such as latency or availability, will help you quickly identify what the SLO
+   status indicates during triage.
+7. Set the **interval** and **attainment goal** for the SLO.
+   For more information about intervals and attainment goals and
+   how they work together, see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts").
+8. (Optional) For **Set SLO burn rates** do the following:
 
-9.  (Optional) Create burn rate alarms by doing the following:
+   - Set the length (in minutes) of the look-back window for the burn rate. For information about how to
+     choose this length, see [Walkthroughs for burn rate alarms](#ServiceLevelObjectives-burnrate-examples "#ServiceLevelObjectives-burnrate-examples").
+   - To create more burn rates for this SLO, choose **Add more burn rates** and set the
+     look-back window for the additional burn rates.
 
-    - Under **Set burn rate alarms** select the check box for each burn rate that you want to create an alarm for. For each of these alarms,
-      do the following:
+9. (Optional) Create burn rate alarms by doing the following:
 
-      - Specify the Amazon SNS topic to use for notifications when the alarm goes into ALARM state.
-      - Either set a burn rate threshold or specify the percentage of the
-        estimated total budget burnt in the last look-back window you want to stay below. If you set the percentage of estimated total budget burned,
-        the burn rate threshold is calculated for you and used in the alarm. To either decide what threshold to set or to understand how this option is used to compute the burn rate
-        threshold, see [Determine the appropriate threshold for a burn rate alarm](#ServiceLevelObjectives-calculate-threshold "#ServiceLevelObjectives-calculate-threshold").
+   - Under **Set burn rate alarms** select the check box for each burn rate that you want to create an alarm for. For each of these alarms,
+     do the following:
+
+     - Specify the Amazon SNS topic to use for notifications when the alarm goes into ALARM state.
+     - Either set a burn rate threshold or specify the percentage of the
+       estimated total budget burnt in the last look-back window you want to stay below. If you set the percentage of estimated total budget burned,
+       the burn rate threshold is calculated for you and used in the alarm. To either decide what threshold to set or to understand how this option is used to compute the burn rate
+       threshold, see [Determine the appropriate threshold for a burn rate alarm](#ServiceLevelObjectives-calculate-threshold "#ServiceLevelObjectives-calculate-threshold").
 
 10. (Optional) Set one or more CloudWatch alarms or a warning threshold for the SLO.
 
@@ -508,126 +509,125 @@ Use the following procedure to create a request-based SLO.
 
 ###### To create a request-based SLO
 
-1.  Open the CloudWatch console at
-    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  In the navigation pane, choose **Service Level Objectives (SLO)**.
-3.  Choose **Create SLO**.
-4.  For **Set Service Level Indicator (SLI)**, do one of the following:
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Service Level Objectives (SLO)**.
+3. Choose **Create SLO**.
+4. For **Set Service Level Indicator (SLI)**, do one of the following:
 
-    - To set the SLO on a service operation, all operations, or the dependency of a service,
-      using either of the standard application metrics `Latency` or
-      `Availability`:
+   - To set the SLO on a service operation, all operations, or the dependency of a service,
+     using either of the standard application metrics `Latency` or
+     `Availability`:
 
-      1. For **Type**, choose **Service**.
-      2. Select the service that this SLO will monitor.
-      3. For **Type**, choose one of the following:
+     1. For **Type**, choose **Service**.
+     2. Select the service that this SLO will monitor.
+     3. For **Type**, choose one of the following:
 
-         - **Service Operations** — to create an SLO on a service operation,
-           all operations, or a subset of operations.
-         - **Service Dependency** — to create an SLO on a dependency of the
-           service.
+        - **Service Operations** — to create an SLO on a service operation,
+          all operations, or a subset of operations.
+        - **Service Dependency** — to create an SLO on a dependency of the
+          service.
 
-      4. If you chose **Service Operations**, select the operation that this SLO
-         will monitor. To create a service-level SLO that monitors the overall health of your service across
-         all operations, select **All Operations**. Otherwise, select a specific operation
-         to monitor.
+     4. If you chose **Service Operations**, select the operation that this SLO
+        will monitor. To create a service-level SLO that monitors the overall health of your service across
+        all operations, select **All Operations**. Otherwise, select a specific operation
+        to monitor.
 
-      To create an SLO that monitors a subset of operations, see [Create a composite SLO on multiple operations](#CloudWatch-ServiceLevelObjectives-Create-Composite "#CloudWatch-ServiceLevelObjectives-Create-Composite"). 5. If you chose **Service Dependency**, do the following:
+     To create an SLO that monitors a subset of operations, see [Create a composite SLO on multiple operations](#CloudWatch-ServiceLevelObjectives-Create-Composite "#CloudWatch-ServiceLevelObjectives-Create-Composite"). 5. If you chose **Service Dependency**, do the following:
 
-          1. Under **Select an operation**, select one specific operation or
-           select **All operations** to use the metrics from all operations of this
-           service that calls a dependency.
-          2. Under **Select a dependency**, search and select the required
-           dependency for which you want to measure the reliability.
+           1. Under **Select an operation**, select one specific operation or
+            select **All operations** to use the metrics from all operations of this
+            service that calls a dependency.
+           2. Under **Select a dependency**, search and select the required
+            dependency for which you want to measure the reliability.
 
 
-          After you select the dependency, you can view the updated graph and historical data
-           based on the dependency.
-      6. For **Select a calculation method**, choose **Requests**.
-      7. The **Select service** and **Select operation**
-         drop-downs are populated by services and operations that have been active within
-         the past 24 hours.
-      8. Choose either **Availability** or **Latency**.
-         If you choose **Latency**, set the threshold.
+           After you select the dependency, you can view the updated graph and historical data
+            based on the dependency.
 
-    - To set the SLO on any CloudWatch metric or a CloudWatch metric math expression:
+     6. For **Select a calculation method**, choose **Requests**. 7. The **Select service** and **Select operation**
+     drop-downs are populated by services and operations that have been active within
+     the past 24 hours. 8. Choose either **Availability** or **Latency**.
+     If you choose **Latency**, set the threshold.
 
-      1. For **Type**, choose **CloudWatch Metric**.
-      2. For **Define target requests**, do the following:
+   - To set the SLO on any CloudWatch metric or a CloudWatch metric math expression:
 
-         1. Choose whether you want to measure **Good Requests** or
-            **Bad Requests**.
-         2. Choose **Select CloudWatch metric**. This metric will be
-            the numerator of the ratio of target requests to total requests. If you use
-            a latency metric, use the **Trimmed count
-            (TC)** statistics. If the threshold is 9 ms and you're using the
-            less than (<) comparison operator, then use threshold TC (:threshold -
-            1). For more information about TC, see [Syntax](Statistics-definitions.md#Statistics-syntax "Statistics-definitions.md#Statistics-syntax").
+     1. For **Type**, choose **CloudWatch Metric**.
+     2. For **Define target requests**, do the following:
 
-         The **Select metric** screen appears. Use the **Browse**
-         or **Query** tabs to find the metric you want, or create a metric math expression.
+        1. Choose whether you want to measure **Good Requests** or
+           **Bad Requests**.
+        2. Choose **Select CloudWatch metric**. This metric will be
+           the numerator of the ratio of target requests to total requests. If you use
+           a latency metric, use the **Trimmed count
+           (TC)** statistics. If the threshold is 9 ms and you're using the
+           less than (<) comparison operator, then use threshold TC (:threshold -
+           1). For more information about TC, see [Syntax](Statistics-definitions.md#Statistics-syntax "Statistics-definitions.md#Statistics-syntax").
 
-      3. For **Define total requests**, choose the CloudWatch metric that you want to use for the source.
-         This metric will be the denominator of the ratio of target requests to total requests.
+        The **Select metric** screen appears. Use the **Browse**
+        or **Query** tabs to find the metric you want, or create a metric math expression.
 
-      The **Select metric** screen appears. Use the **Browse**
-      or **Query** tabs to find the metric you want, or create a metric math expression.
+     3. For **Define total requests**, choose the CloudWatch metric that you want to use for the source.
+        This metric will be the denominator of the ratio of target requests to total requests.
 
-      After you select the metric that you want, choose the **Graphed
-      metrics** tab and select the **Statistic** and
-      **Period** to use for the SLO. Then choose **Select
-      metric**.
+     The **Select metric** screen appears. Use the **Browse**
+     or **Query** tabs to find the metric you want, or create a metric math expression.
 
-      If you use a latency metric which emits one data point per request,
-      use the **Sample count statistics** to count the number of total requests.
+     After you select the metric that you want, choose the **Graphed
+     metrics** tab and select the **Statistic** and
+     **Period** to use for the SLO. Then choose **Select
+     metric**.
 
-      For more information about these screens, see
-      [Graph a metric](graph_a_metric.md "graph_a_metric.md") and
-      [Add a math expression to a CloudWatch graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console").
+     If you use a latency metric which emits one data point per request,
+     use the **Sample count statistics** to count the number of total requests.
 
-5.  Enter a name for the SLO. Including the name of a service or operation, along with appropriate
-    keywords such as latency or availability, will help you quickly identify what the SLO
-    status indicates during triage.
-6.  Set the **interval** and **attainment goal** for the SLO.
-    For more information about intervals and attainment goals and
-    how they work together, see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts").
-7.  (Optional) For **Set SLO burn rates** do the following:
+     For more information about these screens, see
+     [Graph a metric](graph_a_metric.md "graph_a_metric.md") and
+     [Add a math expression to a CloudWatch graph](using-metric-math.md#adding-metrics-expression-console "using-metric-math.md#adding-metrics-expression-console").
 
-    - Set the length (in minutes) of the look-back window for the burn rate. For information about how to
-      choose this length, see [Walkthroughs for burn rate alarms](#ServiceLevelObjectives-burnrate-examples "#ServiceLevelObjectives-burnrate-examples").
-    - To create more burn rates for this SLO, choose **Add more burn rates** and set the
-      look-back window for the additional burn rates.
+5. Enter a name for the SLO. Including the name of a service or operation, along with appropriate
+   keywords such as latency or availability, will help you quickly identify what the SLO
+   status indicates during triage.
+6. Set the **interval** and **attainment goal** for the SLO.
+   For more information about intervals and attainment goals and
+   how they work together, see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-ServiceLevelObjectives-concepts").
+7. (Optional) For **Set SLO burn rates** do the following:
 
-8.  (Optional) Create burn rate alarms by doing the following:
+   - Set the length (in minutes) of the look-back window for the burn rate. For information about how to
+     choose this length, see [Walkthroughs for burn rate alarms](#ServiceLevelObjectives-burnrate-examples "#ServiceLevelObjectives-burnrate-examples").
+   - To create more burn rates for this SLO, choose **Add more burn rates** and set the
+     look-back window for the additional burn rates.
 
-    - Under **Set burn rate alarms** select the check box for each burn rate that you want to create an alarm for. For each of these alarms,
-      do the following:
+8. (Optional) Create burn rate alarms by doing the following:
 
-      - Specify the Amazon SNS topic to use for notifications when the alarm goes into ALARM state.
-      - Either set a burn rate threshold or specify the percentage of the
-        estimated total budget burnt in the last look-back window you want to stay below. If you set the percentage of estimated total budget burned,
-        the burn rate threshold is calculated for you and used in the alarm. To either decide what threshold to set or to understand how this option is used to compute the burn rate
-        threshold, see [Determine the appropriate threshold for a burn rate alarm](#ServiceLevelObjectives-calculate-threshold "#ServiceLevelObjectives-calculate-threshold").
+   - Under **Set burn rate alarms** select the check box for each burn rate that you want to create an alarm for. For each of these alarms,
+     do the following:
 
-9.  (Optional) Set one or more CloudWatch alarms or a warning threshold for the SLO.
+     - Specify the Amazon SNS topic to use for notifications when the alarm goes into ALARM state.
+     - Either set a burn rate threshold or specify the percentage of the
+       estimated total budget burnt in the last look-back window you want to stay below. If you set the percentage of estimated total budget burned,
+       the burn rate threshold is calculated for you and used in the alarm. To either decide what threshold to set or to understand how this option is used to compute the burn rate
+       threshold, see [Determine the appropriate threshold for a burn rate alarm](#ServiceLevelObjectives-calculate-threshold "#ServiceLevelObjectives-calculate-threshold").
 
-    1. CloudWatch alarms can use
-       Amazon SNS to proactively notify you
-       if
-       an application is unhealthy based on its SLI performance.
+9. (Optional) Set one or more CloudWatch alarms or a warning threshold for the SLO.
 
-    To create an alarm, select one of the alarm check boxes and enter or create the Amazon SNS topic to
-    use for notifications when the alarm goes into `ALARM` state. For more
-    information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md"). Creating alarms incurs charges. For more
-    information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 2. If you set a warning threshold, it appears in Application Signals screens to help you identify
-    SLOs that are in danger of being unmet, even if they're currently healthy.
+   1. CloudWatch alarms can use
+      Amazon SNS to proactively notify you
+      if
+      an application is unhealthy based on its SLI performance.
 
-    To set a warning threshold, enter the threshold value in **Warning
-    threshold**. When the SLO's error budget is lower than the warning
-    threshold, the SLO is marked with **Warning** in several Application
-    Signals screens. Warning thresholds also appear on error budget graphs. You can also
-    create an **SLO warning alarm** that's based on the warning
-    threshold.
+   To create an alarm, select one of the alarm check boxes and enter or create the Amazon SNS topic to
+   use for notifications when the alarm goes into `ALARM` state. For more
+   information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md"). Creating alarms incurs charges. For more
+   information about CloudWatch pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). 2. If you set a warning threshold, it appears in Application Signals screens to help you identify
+   SLOs that are in danger of being unmet, even if they're currently healthy.
+
+   To set a warning threshold, enter the threshold value in **Warning
+   threshold**. When the SLO's error budget is lower than the warning
+   threshold, the SLO is marked with **Warning** in several Application
+   Signals screens. Warning thresholds also appear on error budget graphs. You can also
+   create an **SLO warning alarm** that's based on the warning
+   threshold.
 
 10. (Optional) For **Set SLO time window exclusion**, do the following:
 
@@ -863,7 +863,7 @@ see [SLO concepts](#CloudWatch-ServiceLevelObjectives-concepts "#CloudWatch-Serv
      SLO is set for.
 
 3. To see the attainment and error budget graphs for an SLO, choose the radio button next to the
-   SLO name.
+SLO name.
 
 The graphs at the top of the page display the **SLO attainment** and
 **Error budget** status. A graph about the SLI metric associated with this SLO

@@ -25,18 +25,17 @@ a static IP address
 
 ###### To give internet access (IPv4) to a canary on a VPC
 
-1.  Create a NAT gateway in a public subnet on the VPC. For instructions, see [Create a NAT
-    gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-creating "../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-creating").
-2.  Add a new route to the route table in the private subnet where the canary is
-    launched. Specify the following:
+1. Create a NAT gateway in a public subnet on the VPC. For instructions, see [Create a NAT
+   gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-creating "../../../vpc/latest/userguide/vpc-nat-gateway.md#nat-gateway-creating").
+2. Add a new route to the route table in the private subnet where the canary is
+   launched. Specify the following:
 
-        * For **Destination**, enter `0.0.0.0/0`
-        * For **Target**, choose **NAT Gateway**, and
-         then choose the ID of the NAT gateway that you created.
-        * Choose **Save routes**.
-
-    For more information about adding the route to the route table, see [Add and remove
-    routes from a route table](../../../vpc/latest/userguide/WorkWithRouteTables.md#AddRemoveRoutes "../../../vpc/latest/userguide/WorkWithRouteTables.md#AddRemoveRoutes").
+   - For **Destination**, enter `0.0.0.0/0`
+   - For **Target**, choose **NAT Gateway**, and
+     then choose the ID of the NAT gateway that you created.
+   - Choose **Save routes**.
+     For more information about adding the route to the route table, see [Add and remove
+     routes from a route table](../../../vpc/latest/userguide/WorkWithRouteTables.md#AddRemoveRoutes "../../../vpc/latest/userguide/WorkWithRouteTables.md#AddRemoveRoutes").
 
 ###### To give internet access (IPv6) to a canary on a VPC
 

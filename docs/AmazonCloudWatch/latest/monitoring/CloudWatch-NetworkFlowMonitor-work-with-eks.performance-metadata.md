@@ -20,7 +20,7 @@ Amazon EKS configuration and determine where there are bottlenecks or impairment
   The following table lists the information that Network Flow Monitor returns for each network flow scenario.
 
 | **Connection information**                                                                                            | **Metadata information** |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------ | ---------------------------------------------------- | ----------------------------------------------------- | ------------ | ----------- | ------------- | ------------ | ----------- | ------------- |
+| --------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 |                                                                                                                       | **Local**                | **Remote**                                           |
 | **Scenario**                                                                                                          | **Initiated by**         | **Local**                                            | **Remote**                                            | **Pod name** | **Service** | **Namespace** | **Pod name** | **Service** | **Namespace** |
 | Local pod connecting to cluster IP of another internal cluster service                                                | Local                    | Local pod IP address                                 | Remote pod IP address<br>(through cluster IP address) | ✓            | ✓           | ✓             | ✓ ¹          | ✓           | ✓             |

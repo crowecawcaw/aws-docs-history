@@ -34,18 +34,18 @@ included.
    turn
    off the sparkline feature, choose
    **Options**. Under
-   **_Sparkline_**,
+   _**Sparkline**_,
 
 the
 check
 box. 7. (Optional) To change your number widget's time range, select one of the predefined
 time ranges in the upper area of the widget. The time ranges span
-from 1 hour to 1 week (**_1h_**,
-**_3h_**,
-**_12h_**,
-**_1d_**,
-**_3d_**, or
-**_1w_**).
+from 1 hour to 1 week (_**1h**_,
+_**3h**_,
+_**12h**_,
+_**1d**_,
+_**3d**_, or
+_**1w**_).
 
 To set your own time range,
 choose **Custom**.
@@ -53,12 +53,12 @@ choose **Custom**.
     1. (Optional) To have this widget keep using this time range that you select, even
      if the time range for the rest of the dashboard is later changed, choose **Persist time range**.
 
-8. (Optional) To have the number widget display an aggregate (**_1h_**,
-   **_3h_**,
-   **_12h_**,
-   **_1d_**,
-   **_3d_**, or
-   **_1w_**).
+8. (Optional) To have the number widget display an aggregate (_**1h**_,
+_**3h**_,
+_**12h**_,
+_**1d**_,
+_**3d**_, or
+_**1w**_).
 
 To set your own time range,
 choose **Custom**.
@@ -68,7 +68,7 @@ choose **Custom**.
      **Options**, **Time range value shows the value from the entire time range**.
 
 9. Choose **Create widget**,
-   and choose **Save dashboard**.
+and choose **Save dashboard**.
 
 ###### Tip
 

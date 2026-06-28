@@ -29,11 +29,11 @@ After you download the template file, open it and replace
 saved the template file. Then export the following parameters and run the CloudFormation command,
 as shown in the following command.
 
-- **Cluster_Name**– The Amazon ECS cluster
+- **Cluster\_Name**– The Amazon ECS cluster
   name
-- **AWS_Region**– The Region where the data
+- **AWS\_Region**– The Region where the data
   will be sent
-- **PATH_TO_CloudFormation_TEMPLATE**– The
+- **PATH\_TO\_CloudFormation\_TEMPLATE**– The
   path where you saved the CloudFormation template file.
 - **command**– To enable the AWS Distro for
   OpenTelemetry collector to collect the instance-level metrics for Amazon ECS on Amazon EC2,

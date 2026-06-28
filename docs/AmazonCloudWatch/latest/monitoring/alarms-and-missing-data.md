@@ -24,7 +24,7 @@ reported to CloudWatch falls under one of three categories:
   the threshold
 - `ignore` – The current alarm state is maintained
 - `missing` – If all data points in the alarm evaluation range are
-  missing, the alarm transitions to INSUFFICIENT_DATA.
+  missing, the alarm transitions to INSUFFICIENT\_DATA.
   The best choice depends on the type of metric and the purpose of the alarm. For example,
   if you are creating an application rollback alarm using a metric that continually reports
   data, you might want to treat missing data points as breaching, because it might indicate that
@@ -34,7 +34,7 @@ reported to CloudWatch falls under one of three categories:
 
 ###### Important
 
-Alarms configured on Amazon EC2 metrics can temporarily enter the INSUFFICIENT_DATA state if
+Alarms configured on Amazon EC2 metrics can temporarily enter the INSUFFICIENT\_DATA state if
 there are missing metric data points. This is rare, but can happen when the metric reporting
 is interrupted, even when the Amazon EC2 instance is healthy. For alarms on Amazon EC2 metrics that
 are configured to take stop, terminate, reboot, or recover actions, we recommend that you
@@ -138,7 +138,7 @@ data points are considered breaching, the alarm goes into ALARM state, while if 
 considered not breaching, then the alarm goes into OK state. If missing data points are
 ignored, the alarm retains the current state it had before the missing data points. And if
 missing data points are just considered as missing, then the alarm does not have enough
-recent real data to make an evaluation, and goes into INSUFFICIENT_DATA.
+recent real data to make an evaluation, and goes into INSUFFICIENT\_DATA.
 
 In the fourth row, the alarm goes to `ALARM` state in all cases because the
 three most recent data points are breaching, and the alarm's **Evaluation

@@ -71,9 +71,9 @@ You can do the following:
      search**.
 
 6. (Optional) To add this graph to a CloudWatch dashboard, choose **Actions**,
-   **Add to dashboard**.
-   **To view available metrics by account namespace, dimension, or metric
-   using the AWS CLI**
+**Add to dashboard**.
+**To view available metrics by account namespace, dimension, or metric
+using the AWS CLI**
 
 Use the [list-metrics](../../../cli/latest/reference/cloudwatch/list-metrics.md "../../../cli/latest/reference/cloudwatch/list-metrics.md")
 command to list CloudWatch metrics. For a list of the namespaces, metrics, and dimensions for all

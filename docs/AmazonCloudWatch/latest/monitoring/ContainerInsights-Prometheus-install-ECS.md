@@ -201,8 +201,8 @@ cluster.
 | ------------------------ | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
 | AWS::SSM::Parameter      | AmazonCloudWatch-CWAgentConfig-$`ECS_CLUSTER_NAME`-$`ECS_LAUNCH_TYPE`-$`ECS_NETWORK_MODE`        | This is the CloudWatch agent with the default App Mesh and Java/JMX embedded<br>metric format definition.   |
 | AWS::SSM::Parameter      | AmazonCloudWatch-PrometheusConfigName-$`ECS_CLUSTER_NAME`-$`ECS_LAUNCH_TYPE`-$`ECS_NETWORK_MODE` | This is the Prometheus scraping configuration.                                                              |
-| AWS::IAM::Role           | **$ECS_TASK_ROLE_NAME**.                                                                         | The Amazon ECS task role. This is created only if you specified<br>`True` for `CREATE_IAM_ROLES`.           |
-| AWS::IAM::Role           | **${ECS_EXECUTION_ROLE_NAME}**                                                                   | The Amazon ECS task execution role. This is created only if you specified<br>`True` for `CREATE_IAM_ROLES`. |
+| AWS::IAM::Role           | **$ECS\_TASK\_ROLE\_NAME**.                                                                      | The Amazon ECS task role. This is created only if you specified<br>`True` for `CREATE_IAM_ROLES`.           |
+| AWS::IAM::Role           | **${ECS\_EXECUTION\_ROLE\_NAME}**                                                                | The Amazon ECS task execution role. This is created only if you specified<br>`True` for `CREATE_IAM_ROLES`. |
 | AWS::ECS::TaskDefinition | cwagent-prometheus-$`ECS_CLUSTER_NAME`-$`ECS_LAUNCH_TYPE`-$`ECS_NETWORK_MODE`                    |                                                                                                             |
 | AWS::ECS::Service        | cwagent-prometheus-replica-service-$`ECS_LAUNCH_TYPE`-$`ECS_NETWORK_MODE`                        |                                                                                                             |
 

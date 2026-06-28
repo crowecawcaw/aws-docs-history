@@ -258,21 +258,20 @@ insights will show metrics and statistics filtered for your pod.
 In **Log Insights**, you can modify the query that generated the
 metrics under **Top contributors** using the following steps:
 
-1.  Select **View in Log Insights**. The **Logs
-    Insights** page that opens contains an query that is automatically
-    generated and contains the following information:
+1. Select **View in Log Insights**. The **Logs
+   Insights** page that opens contains an query that is automatically
+   generated and contains the following information:
 
-        * The log cluster group name.
-        * The operation that you were investigating with CloudWatch.
-        * The aggregate of the operational health metric interacted with on the
-         graph.
+   - The log cluster group name.
+   - The operation that you were investigating with CloudWatch.
+   - The aggregate of the operational health metric interacted with on the
+     graph.
+     The log results are automatically filtered to show data from the last five minutes
+     before you selected the data point on the service graph.
 
-    The log results are automatically filtered to show data from the last five minutes
-    before you selected the data point on the service graph.
-
-2.  To edit the query, replace the generated text with your changes. You can also use
-    the **Query generator** to help you generate a new query, or update
-    the existing query.
+2. To edit the query, replace the generated text with your changes. You can also use
+   the **Query generator** to help you generate a new query, or update
+   the existing query.
 
 #### Application logs
 
@@ -444,28 +443,25 @@ To analyze related metrics in detail, select a data point in the **Related metri
 
 - Top Contributors – Analyzes metrics by running CloudWatch Logs Insights queries. These queries process Enhanced Metrics Format (EMF) records that contain key attributes for detailed analysis for the following:
 
-      + Latency measurements
-      + Fault occurrences
-      + Service availability metrics
+  - Latency measurements
+  - Fault occurrences
+  - Service availability metrics
+    The following metrics do not support Top Contributors:
 
-  The following metrics do not support Top Contributors:
-
-      + OTEL Metrics
-      + Server-side Span Metrics
-
-  You can view Top Contributors for RED Metrics and Client-side Span Metrics.
+  - OTEL Metrics
+  - Server-side Span Metrics
+    You can view Top Contributors for RED Metrics and Client-side Span Metrics.
 
 - Correlated Spans – The Correlated Spans section works consistently with the Service Operations tab. To help you identify related traces and metrics, the correlation mechanism works by:
 
-      + Comparing metric names with span attributes
-      + Identifying matching patterns during the selected time period
-      + Displaying relevant trace information
+  - Comparing metric names with span attributes
+  - Identifying matching patterns during the selected time period
+  - Displaying relevant trace information
+    To effectively analyze your metrics and spans together, you need to understand how different metric types correlate. Here are the key limitations:
 
-  To effectively analyze your metrics and spans together, you need to understand how different metric types correlate. Here are the key limitations:
-
-      + OTEL Metrics don't correlate with spans because they use independent naming systems
-      + To correlate Server or Client-side Span Metrics with spans:
-      + Include a Service dimension field in your configuration
-      + Without this Service dimension, you cannot correlate these metrics with spans
+  - OTEL Metrics don't correlate with spans because they use independent naming systems
+  - To correlate Server or Client-side Span Metrics with spans:
+  - Include a Service dimension field in your configuration
+  - Without this Service dimension, you cannot correlate these metrics with spans
 
 - Log Applications – For information on log application, see [Application logs](ServiceDetail.md#ServiceDetail-operations "ServiceDetail.md#ServiceDetail-operations")

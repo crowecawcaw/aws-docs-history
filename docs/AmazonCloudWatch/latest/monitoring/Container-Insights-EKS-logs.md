@@ -19,4 +19,4 @@ Use Fluent Bit instead.
 
 - [Set up Fluent Bit as a DaemonSet to send logs to CloudWatch Logs](Container-Insights-setup-logs-FluentBit.md "Container-Insights-setup-logs-FluentBit.md")
 - [(Optional) Set up Amazon EKS control plane logging](Container-Insights-setup-control-plane-logging.md "Container-Insights-setup-control-plane-logging.md")
-- [(Optional) Enable the Use_Kubelet feature for large clusters](ContainerInsights-use-kubelet.md "ContainerInsights-use-kubelet.md")
+- [(Optional) Enable the Use\_Kubelet feature for large clusters](ContainerInsights-use-kubelet.md "ContainerInsights-use-kubelet.md")

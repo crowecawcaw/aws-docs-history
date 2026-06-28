@@ -30,14 +30,11 @@ metrics** tab, and do one of the following:
      appears. Select the check box next to the metric that you want.Choose **Select metric**.
 
 7. To change other aspects of the alarm, choose the appropriate options. To change how
-   many data points must be breaching for the alarm to go into `ALARM` state or
-   to change how missing data is treated, choose **Additional
-   configuration**.
-8. Choose **Next**.
-9. Under **Notification**, **Auto Scaling action**,
-   and **EC2 action**, optionally edit the actions taken when the alarm is
-   triggered. Then choose **Next**.
-10. Optionally change the alarm description.
+many data points must be breaching for the alarm to go into `ALARM` state or
+to change how missing data is treated, choose **Additional
+configuration**. 8. Choose **Next**. 9. Under **Notification**, **Auto Scaling action**,
+and **EC2 action**, optionally edit the actions taken when the alarm is
+triggered. Then choose **Next**. 10. Optionally change the alarm description.
 
 You can't change the name of an existing alarm. You can copy an alarm and give the
 new alarm a different name. To copy an alarm, select the check box next to the alarm

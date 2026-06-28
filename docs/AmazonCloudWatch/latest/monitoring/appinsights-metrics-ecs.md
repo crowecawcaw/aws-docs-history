@@ -54,66 +54,66 @@ TaskCount
 
 TaskSetCount
 
-instance_cpu_limit
+instance\_cpu\_limit
 
-instance_cpu_reserved_capacity
+instance\_cpu\_reserved\_capacity
 
-instance_cpu_usage_total
+instance\_cpu\_usage\_total
 
-instance_cpu_utilization
+instance\_cpu\_utilization
 
-instance_filesystem_utilization
+instance\_filesystem\_utilization
 
-instance_memory_limit
+instance\_memory\_limit
 
-instance_memory_reserved_capacity
+instance\_memory\_reserved\_capacity
 
-instance_memory_utilization
+instance\_memory\_utilization
 
-instance_memory_working_set
+instance\_memory\_working\_set
 
-instance_network_total_bytes
+instance\_network\_total\_bytes
 
-instance_number_of_running_tasks
+instance\_number\_of\_running\_tasks
 
 ## Container Insights Prometheus metrics
 
 **Java JMX metrics**
 
-java_lang_memory_heapmemoryusage_used
+java\_lang\_memory\_heapmemoryusage\_used
 
-java_lang_memory_heapmemoryusage_committed
+java\_lang\_memory\_heapmemoryusage\_committed
 
-java_lang_operatingsystem_openfiledescriptorcount
+java\_lang\_operatingsystem\_openfiledescriptorcount
 
-java_lang_operatingsystem_maxfiledescriptorcount
+java\_lang\_operatingsystem\_maxfiledescriptorcount
 
-java_lang_operatingsystem_freephysicalmemorysize
+java\_lang\_operatingsystem\_freephysicalmemorysize
 
-java_lang_operatingsystem_freeswapspacesize
+java\_lang\_operatingsystem\_freeswapspacesize
 
-java_lang_threading_threadcount
+java\_lang\_threading\_threadcount
 
-java_lang_classloading_loadedclasscount
+java\_lang\_classloading\_loadedclasscount
 
-java_lang_threading_daemonthreadcount
+java\_lang\_threading\_daemonthreadcount
 
-java_lang_garbagecollector_collectiontime_copy
+java\_lang\_garbagecollector\_collectiontime\_copy
 
-java_lang_garbagecollector_collectiontime_ps_scavenge
+java\_lang\_garbagecollector\_collectiontime\_ps\_scavenge
 
-java_lang_garbagecollector_collectiontime_parnew
+java\_lang\_garbagecollector\_collectiontime\_parnew
 
-java_lang_garbagecollector_collectiontime_marksweepcompact
+java\_lang\_garbagecollector\_collectiontime\_marksweepcompact
 
-java_lang_garbagecollector_collectiontime_ps_marksweep
+java\_lang\_garbagecollector\_collectiontime\_ps\_marksweep
 
-java_lang_garbagecollector_collectiontime_concurrentmarksweep
+java\_lang\_garbagecollector\_collectiontime\_concurrentmarksweep
 
-java_lang_garbagecollector_collectiontime_g1_young_generation
+java\_lang\_garbagecollector\_collectiontime\_g1\_young\_generation
 
-java_lang_garbagecollector_collectiontime_g1_old_generation
+java\_lang\_garbagecollector\_collectiontime\_g1\_old\_generation
 
-java_lang_garbagecollector_collectiontime_g1_mixed_generation
+java\_lang\_garbagecollector\_collectiontime\_g1\_mixed\_generation
 
-java_lang_operatingsystem_committedvirtualmemorysize
+java\_lang\_operatingsystem\_committedvirtualmemorysize

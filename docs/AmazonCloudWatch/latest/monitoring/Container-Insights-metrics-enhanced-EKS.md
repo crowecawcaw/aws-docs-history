@@ -359,10 +359,10 @@ prerequisites:
   - To enable the metrics when you are using Amazon EBS CSI driver add-on, use the
     following option when you create or update the add-on.
     `--configuration-values '{ "node": { "enableMetrics": true }
-}'`
+   }'`
   - To enable the metrics if you are using Helm chart, use the following option
     when you create or update the add-on. `--set
-node.enableMetrics=true`
+   node.enableMetrics=true`
 
 The metrics that are collected are listed in the following table.
 
@@ -403,7 +403,7 @@ To collect these metrics, you must meet the following prerequisites:
     `--configuration-values '{"metrics":{"enabled":true}}'`
   - To enable the metrics when you are using Helm chart, use the following option
     when you create or update the add-on. `--set
-metrics.enabled=true`
+   metrics.enabled=true`
 
 - Your cluster must have worker nodes running on EC2 instance types that support
   instance store volumes. For more information, see [Considerations](../../../eks/latest/userguide/lis-csi.md#lis-csi-considerations "../../../eks/latest/userguide/lis-csi.md#lis-csi-considerations")

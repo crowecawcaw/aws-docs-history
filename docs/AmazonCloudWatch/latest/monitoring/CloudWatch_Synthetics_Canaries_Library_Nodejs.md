@@ -178,7 +178,7 @@ For a list of CloudWatch metrics emitted by canaries, see [CloudWatch metrics pu
 - `failedCanaryMetric` (boolean)— Whether to emit the `Failed` metric (with the `CanaryName` dimension) for this
   canary. The default is `true`.
 - `failedRequestsMetric` (boolean)— Whether to emit the `Failed
-requests` metric (with the `CanaryName` dimension) for this
+ requests` metric (with the `CanaryName` dimension) for this
   canary. The default is `true`.
 - `_2xxMetric` (boolean)— Whether to emit the `2xx`
   metric (with the `CanaryName` dimension) for this canary. The
@@ -797,7 +797,7 @@ stored in your customer account. For more information, see [Security considerati
 
 This function is available in `syn-nodejs-puppeteer-3.2` and later.
 It returns sanitized url strings based on the configuration. You can choose to
-redact sensitive URL parameters such as password and access_token by setting the
+redact sensitive URL parameters such as password and access\_token by setting the
 property `restrictedUrlParameters`. By default, passwords in URLs are
 redacted. You can enable URL passwords if needed by setting `includeUrlPassword`
 to true.

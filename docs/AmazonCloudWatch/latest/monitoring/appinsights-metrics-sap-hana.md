@@ -7,280 +7,280 @@ attached, monitoring will be set up for only the first detected SID.
 
 CloudWatch Application Insights supports the following metrics:
 
-hanadb_every_service_started_status
+hanadb\_every\_service\_started\_status
 
-hanadb_daemon_service_started_status
+hanadb\_daemon\_service\_started\_status
 
-hanadb_preprocessor_service_started_status
+hanadb\_preprocessor\_service\_started\_status
 
-hanadb_webdispatcher_service_started_status
+hanadb\_webdispatcher\_service\_started\_status
 
-hanadb_compileserver_service_started_status
+hanadb\_compileserver\_service\_started\_status
 
-hanadb_nameserver_service_started_status
+hanadb\_nameserver\_service\_started\_status
 
-hanadb_server_startup_time_variations_seconds
+hanadb\_server\_startup\_time\_variations\_seconds
 
-hanadb_level_5_alerts_count
+hanadb\_level\_5\_alerts\_count
 
-hanadb_level_4_alerts_count
+hanadb\_level\_4\_alerts\_count
 
-hanadb_out_of_memory_events_count
+hanadb\_out\_of\_memory\_events\_count
 
-hanadb_max_trigger_read_ratio_percent
+hanadb\_max\_trigger\_read\_ratio\_percent
 
-hanadb_max_trigger_write_ratio_percent
+hanadb\_max\_trigger\_write\_ratio\_percent
 
-hanadb_log_switch_wait_ratio_percent
+hanadb\_log\_switch\_wait\_ratio\_percent
 
-hanadb_log_switch_race_ratio_percent
+hanadb\_log\_switch\_race\_ratio\_percent
 
-hanadb_time_since_last_savepoint_seconds
+hanadb\_time\_since\_last\_savepoint\_seconds
 
-hanadb_disk_usage_highlevel_percent
+hanadb\_disk\_usage\_highlevel\_percent
 
-hanadb_max_converter_page_number_count
+hanadb\_max\_converter\_page\_number\_count
 
-hanadb_long_running_savepoints_count
+hanadb\_long\_running\_savepoints\_count
 
-hanadb_failed_io_reads_count
+hanadb\_failed\_io\_reads\_count
 
-hanadb_failed_io_writes_count
+hanadb\_failed\_io\_writes\_count
 
-hanadb_disk_data_unused_percent
+hanadb\_disk\_data\_unused\_percent
 
-hanadb_current_allocation_limit_used_percent
+hanadb\_current\_allocation\_limit\_used\_percent
 
-hanadb_table_allocation_limit_used_percent
+hanadb\_table\_allocation\_limit\_used\_percent
 
-hanadb_host_total_physical_memory_mb
+hanadb\_host\_total\_physical\_memory\_mb
 
-hanadb_host_physical_memory_used_mb
+hanadb\_host\_physical\_memory\_used\_mb
 
-hanadb_host_physical_memory_free_mb
+hanadb\_host\_physical\_memory\_free\_mb
 
-hanadb_swap_memory_free_mb
+hanadb\_swap\_memory\_free\_mb
 
-hanadb_swap_memory_used_mb
+hanadb\_swap\_memory\_used\_mb
 
-hanadb_host_allocation_limit_mb
+hanadb\_host\_allocation\_limit\_mb
 
-hanadb_host_total_memory_used_mb
+hanadb\_host\_total\_memory\_used\_mb
 
-hanadb_host_total_peak_memory_used_mb
+hanadb\_host\_total\_peak\_memory\_used\_mb
 
-hanadb_host_total_allocation_limit_mb
+hanadb\_host\_total\_allocation\_limit\_mb
 
-hanadb_host_code_size_mb
+hanadb\_host\_code\_size\_mb
 
-hanadb_host_shared_memory_allocation_mb
+hanadb\_host\_shared\_memory\_allocation\_mb
 
-hanadb_cpu_usage_percent
+hanadb\_cpu\_usage\_percent
 
-hanadb_cpu_user_percent
+hanadb\_cpu\_user\_percent
 
-hanadb_cpu_system_percent
+hanadb\_cpu\_system\_percent
 
-hanadb_cpu_waitio_percent
+hanadb\_cpu\_waitio\_percent
 
-hanadb_cpu_busy_percent
+hanadb\_cpu\_busy\_percent
 
-hanadb_cpu_idle_percent
+hanadb\_cpu\_idle\_percent
 
-hanadb_long_delta_merge_count
+hanadb\_long\_delta\_merge\_count
 
-hanadb_unsuccessful_delta_merge_count
+hanadb\_unsuccessful\_delta\_merge\_count
 
-hanadb_successful_delta_merge_count
+hanadb\_successful\_delta\_merge\_count
 
-hanadb_row_store_allocated_size_mb
+hanadb\_row\_store\_allocated\_size\_mb
 
-hanadb_row_store_free_size_mb
+hanadb\_row\_store\_free\_size\_mb
 
-hanadb_row_store_used_size_mb
+hanadb\_row\_store\_used\_size\_mb
 
-hanadb_temporary_tables_count
+hanadb\_temporary\_tables\_count
 
-hanadb_large_non_compressed_tables_count
+hanadb\_large\_non\_compressed\_tables\_count
 
-hanadb_total_non_compressed_tables_count
+hanadb\_total\_non\_compressed\_tables\_count
 
-hanadb_longest_running_job_seconds
+hanadb\_longest\_running\_job\_seconds
 
-hanadb_average_commit_time_milliseconds
+hanadb\_average\_commit\_time\_milliseconds
 
-hanadb_suspended_sql_statements_count
+hanadb\_suspended\_sql\_statements\_count
 
-hanadb_plan_cache_hit_ratio_percent
+hanadb\_plan\_cache\_hit\_ratio\_percent
 
-hanadb_plan_cache_lookup_count
+hanadb\_plan\_cache\_lookup\_count
 
-hanadb_plan_cache_hit_count
+hanadb\_plan\_cache\_hit\_count
 
-hanadb_plan_cache_total_execution_microseconds
+hanadb\_plan\_cache\_total\_execution\_microseconds
 
-hanadb_plan_cache_cursor_duration_microseconds
+hanadb\_plan\_cache\_cursor\_duration\_microseconds
 
-hanadb_plan_cache_preparation_microseconds
+hanadb\_plan\_cache\_preparation\_microseconds
 
-hanadb_plan_cache_evicted_count
+hanadb\_plan\_cache\_evicted\_count
 
-hanadb_plan_cache_evicted_microseconds
+hanadb\_plan\_cache\_evicted\_microseconds
 
-hanadb_plan_cache_evicted_preparation_count
+hanadb\_plan\_cache\_evicted\_preparation\_count
 
-hanadb_plan_cache_evicted_execution_count
+hanadb\_plan\_cache\_evicted\_execution\_count
 
-hanadb_plan_cache_evicted_preparation_microseconds
+hanadb\_plan\_cache\_evicted\_preparation\_microseconds
 
-hanadb_plan_cache_evicted_cursor_duration_microseconds
+hanadb\_plan\_cache\_evicted\_cursor\_duration\_microseconds
 
-hanadb_plan_cache_evicted_total_execution_microseconds
+hanadb\_plan\_cache\_evicted\_total\_execution\_microseconds
 
-hanadb_plan_cache_evicted_plan_size_mb
+hanadb\_plan\_cache\_evicted\_plan\_size\_mb
 
-hanadb_plan_cache_count
+hanadb\_plan\_cache\_count
 
-hanadb_plan_cache_preparation_count
+hanadb\_plan\_cache\_preparation\_count
 
-hanadb_plan_cache_execution_count
+hanadb\_plan\_cache\_execution\_count
 
-hanadb_network_collision_rate
+hanadb\_network\_collision\_rate
 
-hanadb_network_receive_rate
+hanadb\_network\_receive\_rate
 
-hanadb_network_transmit_rate
+hanadb\_network\_transmit\_rate
 
-hanadb_network_packet_receive_rate
+hanadb\_network\_packet\_receive\_rate
 
-hanadb_network_packet_transmit_rate
+hanadb\_network\_packet\_transmit\_rate
 
-hanadb_network_transmit_error_rate
+hanadb\_network\_transmit\_error\_rate
 
-hanadb_network_receive_error_rate
+hanadb\_network\_receive\_error\_rate
 
-hanadb_time_until_license_expires_days
+hanadb\_time\_until\_license\_expires\_days
 
-hanadb_is_license_valid_status
+hanadb\_is\_license\_valid\_status
 
-hanadb_local_running_connections_count
+hanadb\_local\_running\_connections\_count
 
-hanadb_local_idle_connections_count
+hanadb\_local\_idle\_connections\_count
 
-hanadb_remote_running_connections_count
+hanadb\_remote\_running\_connections\_count
 
-hanadb_remote_idle_connections_count
+hanadb\_remote\_idle\_connections\_count
 
-hanadb_last_full_data_backup_age_days
+hanadb\_last\_full\_data\_backup\_age\_days
 
-hanadb_last_data_backup_age_days
+hanadb\_last\_data\_backup\_age\_days
 
-hanadb_last_log_backup_age_hours
+hanadb\_last\_log\_backup\_age\_hours
 
-hanadb_failed_data_backup_past_7_days_count
+hanadb\_failed\_data\_backup\_past\_7\_days\_count
 
-hanadb_failed_log_backup_past_7_days_count
+hanadb\_failed\_log\_backup\_past\_7\_days\_count
 
-hanadb_oldest_backup_in_catalog_age_days
+hanadb\_oldest\_backup\_in\_catalog\_age\_days
 
-hanadb_backup_catalog_size_mb
+hanadb\_backup\_catalog\_size\_mb
 
-hanadb_hsr_replication_status
+hanadb\_hsr\_replication\_status
 
-hanadb_hsr_log_shipping_delay_seconds
+hanadb\_hsr\_log\_shipping\_delay\_seconds
 
-hanadb_hsr_secondary_failover_count
+hanadb\_hsr\_secondary\_failover\_count
 
-hanadb_hsr_secondary_reconnect_count
+hanadb\_hsr\_secondary\_reconnect\_count
 
-hanadb_hsr_async_buffer_used_mb
+hanadb\_hsr\_async\_buffer\_used\_mb
 
-hanadb_hsr_secondary_active_status
+hanadb\_hsr\_secondary\_active\_status
 
-hanadb_handle_count
+hanadb\_handle\_count
 
-hanadb_ping_time_milliseconds
+hanadb\_ping\_time\_milliseconds
 
-hanadb_connection_count
+hanadb\_connection\_count
 
-hanadb_internal_connection_count
+hanadb\_internal\_connection\_count
 
-hanadb_external_connection_count
+hanadb\_external\_connection\_count
 
-hanadb_idle_connection_count
+hanadb\_idle\_connection\_count
 
-hanadb_transaction_count
+hanadb\_transaction\_count
 
-hanadb_internal_transaction_count
+hanadb\_internal\_transaction\_count
 
-hanadb_external_transaction_count
+hanadb\_external\_transaction\_count
 
-hanadb_user_transaction_count
+hanadb\_user\_transaction\_count
 
-hanadb_blocked_transaction_count
+hanadb\_blocked\_transaction\_count
 
-hanadb_statement_count
+hanadb\_statement\_count
 
-hanadb_active_commit_id_range_count
+hanadb\_active\_commit\_id\_range\_count
 
-hanadb_mvcc_version_count
+hanadb\_mvcc\_version\_count
 
-hanadb_pending_session_count
+hanadb\_pending\_session\_count
 
-hanadb_record_lock_count
+hanadb\_record\_lock\_count
 
-hanadb_read_count
+hanadb\_read\_count
 
-hanadb_write_count
+hanadb\_write\_count
 
-hanadb_merge_count
+hanadb\_merge\_count
 
-hanadb_unload_count
+hanadb\_unload\_count
 
-hanadb_active_thread_count
+hanadb\_active\_thread\_count
 
-hanadb_waiting_thread_count
+hanadb\_waiting\_thread\_count
 
-hanadb_total_thread_count
+hanadb\_total\_thread\_count
 
-hanadb_active_sql_executor_count
+hanadb\_active\_sql\_executor\_count
 
-hanadb_waiting_sql_executor_count
+hanadb\_waiting\_sql\_executor\_count
 
-hanadb_total_sql_executor_count
+hanadb\_total\_sql\_executor\_count
 
-hanadb_data_write_size_mb
+hanadb\_data\_write\_size\_mb
 
-hanadb_data_write_time_milliseconds
+hanadb\_data\_write\_time\_milliseconds
 
-hanadb_log_write_size_mb
+hanadb\_log\_write\_size\_mb
 
-hanadb_log_write_time_milliseconds
+hanadb\_log\_write\_time\_milliseconds
 
-hanadb_data_read_size_mb
+hanadb\_data\_read\_size\_mb
 
-hanadb_data_read_time_milliseconds
+hanadb\_data\_read\_time\_milliseconds
 
-hanadb_log_read_size_mb
+hanadb\_log\_read\_size\_mb
 
-hanadb_log_read_time_milliseconds
+hanadb\_log\_read\_time\_milliseconds
 
-hanadb_data_backup_write_size_mb
+hanadb\_data\_backup\_write\_size\_mb
 
-hanadb_data_backup_write_time_milliseconds
+hanadb\_data\_backup\_write\_time\_milliseconds
 
-hanadb_log_backup_write_size_mb
+hanadb\_log\_backup\_write\_size\_mb
 
-hanadb_log_backup_write_time_milliseconds
+hanadb\_log\_backup\_write\_time\_milliseconds
 
-hanadb_mutex_collision_count
+hanadb\_mutex\_collision\_count
 
-hanadb_read_write_lock_collision_count
+hanadb\_read\_write\_lock\_collision\_count
 
-hanadb_admission_control_admit_count
+hanadb\_admission\_control\_admit\_count
 
-hanadb_admission_control_reject_count
+hanadb\_admission\_control\_reject\_count
 
-hanadb_admission_control_queue_size_mb
+hanadb\_admission\_control\_queue\_size\_mb
 
-hanadb_admission_control_wait_time_milliseconds
+hanadb\_admission\_control\_wait\_time\_milliseconds

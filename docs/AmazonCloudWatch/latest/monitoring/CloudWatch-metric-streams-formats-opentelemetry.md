@@ -178,7 +178,7 @@ message Resource {
 
 **The InstrumentationLibraryMetrics object**
 
-The instrumentation_library field will not be filled. We will fill only the
+The instrumentation\_library field will not be filled. We will fill only the
 metrics field that we are exporting.
 
 ```

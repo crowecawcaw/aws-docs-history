@@ -2,7 +2,7 @@
 
 The CloudWatch agent with Prometheus monitoring needs two configurations to scrape the
 Prometheus metrics. One is for the standard Prometheus configurations as documented in
-[<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. The other is for the
+[<scrape\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. The other is for the
 CloudWatch agent configuration.
 
 For Amazon ECS clusters, the configurations are integrated with the Parameter Store of AWS Systems Manager
@@ -27,7 +27,7 @@ to connect to the Prometheus workloads' port by private IP.
 ## Prometheus scrape configuration
 
 The CloudWatch agent supports the standard Prometheus scrape configurations as
-documented in [<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. You can edit this
+documented in [<scrape\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation. You can edit this
 section to update the configurations that are already in this file, and add additional
 Prometheus scraping targets. By default, the sample configuration file contains the
 following global configuration lines:
@@ -38,9 +38,9 @@ global:
   scrape_timeout: 10s
 ```
 
-- **scrape_interval**— Defines how
+- **scrape\_interval**— Defines how
   frequently to scrape targets.
-- **scrape_timeout**— Defines how long to
+- **scrape\_timeout**— Defines how long to
   wait before a scrape request times out.
 
 You can also define different values for these settings at the job level, to
@@ -98,26 +98,26 @@ The CloudWatch agent configuration file has a `prometheus` section under
 `metrics_collected` for the Prometheus scraping configuration. It
 includes the following configuration options:
 
-- **cluster_name**— specifies the cluster
+- **cluster\_name**— specifies the cluster
   name to be added as a label in the log event. This field is optional. If you omit
   it, the agent can detect the Amazon ECS cluster name.
-- **log_group_name**— specifies the log
+- **log\_group\_name**— specifies the log
   group name for the scraped Prometheus metrics. This field is optional. If you omit
   it, CloudWatch uses
   **/aws/ecs/containerinsights/`cluster_name`/prometheus**
   for logs from Amazon ECS clusters.
-- **prometheus_config_path**— specifies the
+- **prometheus\_config\_path**— specifies the
   Prometheus scrape configuration file path. If the value of this field starts with
   `env:` the Prometheus scrape configuration file contents will be
   retrieved from the container's environment variable. Do not change this
   field.
-- **ecs_service_discovery**— is the section
+- **ecs\_service\_discovery**— is the section
   to specify the configurations of the Amazon ECS Prometheus target auto-discovery
   functions. Two modes are supported to discover the Prometheus targets: discovery
-  based on the container’s docker label or discovery based on the Amazon ECS task
+  based on the container's Docker label or discovery based on the Amazon ECS task
   definition ARN regular expression. You can use the two modes together and the CloudWatch
   agent will de-duplicate the discovered targets based on:
-  _{private_ip}:{port}/{metrics_path}_.
+  _{private\_ip}:{port}/{metrics\_path}_.
 
 The `ecs_service_discovery` section can contain the following
 fields:
@@ -140,8 +140,8 @@ fields:
      Prometheus target results. The Prometheus scrape configuration will refer to
      this file.
     + `docker_label` is an optional section that you can use to
-     specify the configuration for docker label-based service discovery. If you
-     omit this section, docker label-based discovery is not used. This section can
+     specify the configuration for Docker label-based service discovery. If you
+     omit this section, Docker label-based discovery is not used. This section can
      contain the following fields:
 
 
@@ -150,11 +150,11 @@ fields:
     	- `sd_port_label` is the container's docker label name that
     	 specifies the container port for Prometheus metrics. The default value is
     	 `ECS_PROMETHEUS_EXPORTER_PORT`. If the container does not
-    	 have this docker label, the CloudWatch agent will skip it.
+    	 have this Docker label, the CloudWatch agent will skip it.
     	- `sd_metrics_path_label` is the container's docker label
     	 name that specifies the Prometheus metrics path. The default value is
     	 `ECS_PROMETHEUS_METRICS_PATH`. If the container does not have
-    	 this docker label, the agent assumes the default path
+    	 this Docker label, the agent assumes the default path
     	 `/metrics`.
     	- `sd_job_name_label` is the container's docker label name
     	 that specifies the Prometheus scrape job name. The default value is
@@ -205,7 +205,7 @@ fields:
     	 you omit this field, the CloudWatch agent uses the job name in the Prometheus
     	 scrape configuration.
 
-- **metric_declaration**— are sections that
+- **metric\_declaration**— are sections that
   specify the array of logs with embedded metric format to be generated. There are
   `metric_declaration` sections for each Prometheus source that the
   CloudWatch agent imports from by default. These sections each include the following

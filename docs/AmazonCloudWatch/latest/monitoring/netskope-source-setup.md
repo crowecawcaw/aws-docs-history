@@ -66,7 +66,7 @@ API token:
 
 When configuring the pipeline to read event and alert logs from Netskope, choose
 Netskope as the data source. Fill in the required information such as your tenant
-hostname and the AWS Secrets Manager secret ARN for your credentials where api_token is
+hostname and the AWS Secrets Manager secret ARN for your credentials where api\_token is
 stored. Once you create the pipeline, data will be available in the selected CloudWatch Logs
 log group.
 
@@ -91,7 +91,7 @@ are:
 - Logout
 - Other Events which contain the keyword "login"
 
-Audit Events, using the "audit_log_event" field. The supported audit_log_event
+Audit Events, using the "audit\_log\_event" field. The supported audit\_log\_event
 values are:
 
 - Login Failed
@@ -161,7 +161,7 @@ events from Audit Events:
 **Network Activity (4001)** contains the following
 events:
 
-Network Events are categorized using the record_type="network" and "action"
+Network Events are categorized using the record\_type="network" and "action"
 fields. The supported "action" values are:
 
 - Allow
@@ -171,13 +171,13 @@ fields. The supported "action" values are:
 - Idle Timeout
 - Proceed
 
-All events with the value of /record_type = "connection" are also included.
+All events with the value of /record\_type = "connection" are also included.
 
 **Detection Finding (2004)** contains the following
 events:
 
-Alerts are categorized using the "alert_type" and "alert" fields, where the
-"alert" field value is set to "yes". The supported "alert_type" values are:
+Alerts are categorized using the "alert\_type" and "alert" fields, where the
+"alert" field value is set to "yes". The supported "alert\_type" values are:
 
 - Compromised Credential
 - Malsite
@@ -189,9 +189,9 @@ Alerts are categorized using the "alert_type" and "alert" fields, where the
 **Data Security Finding (2006)** contains the
 following events:
 
-- /record_type = "alert" and /alert_type = "DLP"
-- /record_type = "incident"
-- /record_type = "epdlp" and /type = "endpoint"
+- /record\_type = "alert" and /alert\_type = "DLP"
+- /record\_type = "incident"
+- /record\_type = "epdlp" and /type = "endpoint"
 
 **File Hosting Activity (6006)** contains the
 following events:
@@ -228,4 +228,4 @@ field value set to "no". The supported activity values are:
 **Device Inventory Info (5001)** contains the
 following events:
 
-All infrastructure logs with record_type="infrastructure".
+All infrastructure logs with record\_type="infrastructure".

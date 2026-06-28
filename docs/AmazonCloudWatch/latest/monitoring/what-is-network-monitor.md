@@ -55,3 +55,13 @@ see [Network Synthetic Monitor](cloudwatch_limits.md#nw-monitor-quotas "cloudwat
 - Network Synthetic Monitor doesn't provide automatic network failover in the event of an AWS network
   issue.
 - There's a charge for each probe that you create. For pricing details, see [Pricing for Network Synthetic Monitor](pricing-nw.md "pricing-nw.md").
+- Don't use reserved or AWS-internal IP addresses as probe destinations. Network Synthetic Monitor can't
+  correctly measure round-trip time and packet loss for these addresses because the probe traffic
+  doesn't leave the AWS data center, which results in round-trip time values below 1 millisecond.
+  Specifically, avoid the following destination addresses:
+
+  - Any address in the link-local range `169.254.0.0/16`. This range includes
+    the Instance Metadata Service address `169.254.169.254` and the addresses
+    `169.254.254.1` and `169.254.254.2`, which are used by Network Synthetic Monitor probe
+    infrastructure.
+  - The address `10.0.0.2`.

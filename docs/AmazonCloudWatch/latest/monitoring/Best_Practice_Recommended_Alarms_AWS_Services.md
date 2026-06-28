@@ -71,7 +71,7 @@ information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **5XXError**
 
@@ -93,7 +93,7 @@ information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **Count**
 
@@ -115,7 +115,7 @@ information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **Count**
 
@@ -137,7 +137,7 @@ information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **Count**
 
@@ -159,7 +159,7 @@ information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **Count**
 
@@ -181,7 +181,7 @@ information, see [Alarm evaluation](alarm-evaluation.md "alarm-evaluation.md").
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **IntegrationLatency**
 
@@ -206,7 +206,7 @@ the `Duration` metric for Lambda integrations. This helps you determine whether 
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **IntegrationLatency**
 
@@ -231,7 +231,7 @@ Lambda integrations. This helps you determine whether the API backend is taking 
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **Latency**
 
@@ -255,7 +255,7 @@ mostly aligned, the API backend is the source of higher latency and you should i
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **Latency**
 
@@ -279,7 +279,7 @@ metrics are mostly aligned, the API backend is the source of higher latency and 
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **Latency**
 
@@ -302,7 +302,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **Latency**
 
@@ -325,7 +325,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **4xx**
 
@@ -347,7 +347,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **5xx**
 
@@ -369,7 +369,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **MessageCount**
 
@@ -391,7 +391,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **MessageCount**
 
@@ -413,7 +413,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **ClientError**
 
@@ -435,7 +435,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ExecutionError**
 
@@ -457,7 +457,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon EC2 Auto Scaling
 
@@ -481,7 +481,7 @@ the `IntegrationLatency` metric value to check the API backend latency. If the t
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 ## AWS Certificate Manager (ACM)
 
@@ -511,7 +511,7 @@ allows sufficient time for manual intervention if automatic renewal fails. Adjus
 
 **Evaluation periods:** 1
 
-**Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 ## Amazon CloudFront
 
@@ -536,7 +536,7 @@ allows sufficient time for manual intervention if automatic renewal fails. Adjus
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **OriginLatency**
 
@@ -560,7 +560,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **FunctionValidationErrors**
 
@@ -582,7 +582,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 2
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **FunctionExecutionErrors**
 
@@ -604,7 +604,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **FunctionThrottles**
 
@@ -626,7 +626,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon Cognito
 
@@ -650,7 +650,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **SignInThrottles**
 
@@ -672,7 +672,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TokenRefreshThrottles**
 
@@ -694,7 +694,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **FederationThrottles**
 
@@ -716,7 +716,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon DynamoDB
 
@@ -740,7 +740,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 2
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **AccountProvisionedWriteCapacityUtilization**
 
@@ -762,7 +762,7 @@ Refer to [find and fix delayed responses from applications on your origin server
 
 **Evaluation periods:** 2
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **AgeOfOldestUnreplicatedRecord**
 
@@ -785,7 +785,7 @@ Kinesis data stream. Under normal operation, `AgeOfOldestUnreplicatedRecord` sho
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **FailedToReplicateRecordCount**
 
@@ -807,7 +807,7 @@ Kinesis data stream. Under normal operation, `AgeOfOldestUnreplicatedRecord` sho
 
 **Evaluation periods:** 1
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ReadThrottleEvents**
 
@@ -829,7 +829,7 @@ Kinesis data stream. Under normal operation, `AgeOfOldestUnreplicatedRecord` sho
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ReadThrottleEvents**
 
@@ -851,7 +851,7 @@ Kinesis data stream. Under normal operation, `AgeOfOldestUnreplicatedRecord` sho
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ReplicationLatency**
 
@@ -873,7 +873,7 @@ Kinesis data stream. Under normal operation, `AgeOfOldestUnreplicatedRecord` sho
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **SuccessfulRequestLatency**
 
@@ -896,7 +896,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **SystemErrors**
 
@@ -918,7 +918,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ThrottledPutRecordCount**
 
@@ -940,7 +940,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **UserErrors**
 
@@ -962,7 +962,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **WriteThrottleEvents**
 
@@ -984,7 +984,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **WriteThrottleEvents**
 
@@ -1006,7 +1006,7 @@ table operation ( indicated by the dimension value of the `Operation` in the ala
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon EBS
 
@@ -1035,7 +1035,7 @@ the alarm is in ALARM state.
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 ## Amazon EC2
 
@@ -1059,7 +1059,7 @@ the alarm is in ALARM state.
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **StatusCheckFailed**
 
@@ -1081,9 +1081,9 @@ the alarm is in ALARM state.
 
 **Evaluation periods:** 2
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
-**StatusCheckFailed_AttachedEBS**
+**StatusCheckFailed\_AttachedEBS**
 
 **Dimensions:** InstanceId
 
@@ -1110,7 +1110,7 @@ When the attached EBS status check fails, you can either wait for Amazon to reso
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 ## Amazon ElastiCache
 
@@ -1126,7 +1126,7 @@ When the attached EBS status check fails, you can either wait for Amazon to reso
 
 **Recommended threshold:** Depends on your situation
 
-**Threshold justification:** Set the threshold to the percentage that reflects a critical CPU utilization level for your application. For Memcached, the engine can use up to num_threads cores. For Redis OSS, the engine is largely single-threaded, but might use additional cores if available to accelerate I/O. In most cases, you can set the threshold to about 90% of your available CPU. Because Redis OSS is single-threaded, the actual threshold value should be calculated as a fraction of the node's total capacity.
+**Threshold justification:** Set the threshold to the percentage that reflects a critical CPU utilization level for your application. For Memcached, the engine can use up to num\_threads cores. For Redis OSS, the engine is largely single-threaded, but might use additional cores if available to accelerate I/O. In most cases, you can set the threshold to about 90% of your available CPU. Because Redis OSS is single-threaded, the actual threshold value should be calculated as a fraction of the node's total capacity.
 
 **Period:** 60
 
@@ -1134,7 +1134,7 @@ When the attached EBS status check fails, you can either wait for Amazon to reso
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **CurrConnections**
 
@@ -1157,7 +1157,7 @@ might indicate heavy load or performance issues. A constant increase of `CurrCon
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **DatabaseMemoryUsagePercentage**
 
@@ -1181,7 +1181,7 @@ triggered and evictions might occur based on the policy selected. If no object i
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **EngineCPUUtilization**
 
@@ -1203,7 +1203,7 @@ triggered and evictions might occur based on the policy selected. If no object i
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ReplicationLag**
 
@@ -1225,7 +1225,7 @@ triggered and evictions might occur based on the policy selected. If no object i
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon ECS
 
@@ -1253,7 +1253,7 @@ cluster characteristics.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **CPUUtilization**
 
@@ -1282,7 +1282,7 @@ services.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **EBSFilesystemUtilization**
 
@@ -1312,7 +1312,7 @@ is not enough capacity.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **MemoryReservation**
 
@@ -1340,7 +1340,7 @@ characteristics.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **MemoryUtilization**
 
@@ -1364,9 +1364,9 @@ indicate a resource bottleneck or application performance problems.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
-**HTTPCode_Target_5XX_Count**
+**HTTPCode\_Target\_5XX\_Count**
 
 **Dimensions:** ClusterName, ServiceName
 
@@ -1389,7 +1389,7 @@ data to determine the acceptable error rate for the application workload, and th
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TargetResponseTime**
 
@@ -1411,7 +1411,7 @@ data to determine the acceptable error rate for the application workload, and th
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon ECS with Container Insights
 
@@ -1444,7 +1444,7 @@ while for others, it might lead to failure of the container.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **RunningTaskCount**
 
@@ -1473,7 +1473,7 @@ unavailable.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **TaskCpuUtilization**
 
@@ -1499,7 +1499,7 @@ might be normal, while for others, it might indicate performance issues or the n
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TaskCpuUtilization**
 
@@ -1525,7 +1525,7 @@ while for others, it might indicate performance issues or the need for more reso
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ContainerCpuUtilization**
 
@@ -1552,7 +1552,7 @@ The threshold can be adjusted based on your workload characteristics and perform
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ContainerCpuUtilization**
 
@@ -1580,7 +1580,7 @@ while allowing for normal fluctuations in CPU usage. The threshold can be adjust
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TaskEphemeralStorageUtilization**
 
@@ -1607,7 +1607,7 @@ utilization might be normal, while for others, it might indicate potential disk 
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TaskEphemeralStorageUtilization**
 
@@ -1634,7 +1634,7 @@ utilization might be normal, while for others, it might indicate potential disk 
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TaskMemoryUtilization**
 
@@ -1656,7 +1656,7 @@ utilization might be normal, while for others, it might indicate potential disk 
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TaskMemoryUtilization**
 
@@ -1682,7 +1682,7 @@ memory utilization might be normal, while for others, it might indicate memory p
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ContainerMemoryUtilization**
 
@@ -1708,7 +1708,7 @@ memory utilization might be normal, while for others, it might indicate memory p
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ContainerMemoryUtilization**
 
@@ -1734,9 +1734,9 @@ utilization might be normal, while for others, it might indicate memory pressure
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
-**instance_filesystem_utilization**
+**instance\_filesystem\_utilization**
 
 **Dimensions:** InstanceId, ContainerInstanceId, ClusterName
 
@@ -1763,7 +1763,7 @@ issues and prevent running new tasks.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon ECS with Container Insights with enhanced observability
 
@@ -1796,7 +1796,7 @@ for your tasks, and set the threshold accordingly.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TaskMemoryUtilization**
 
@@ -1827,7 +1827,7 @@ accordingly.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **ContainerCPUUtilization**
 
@@ -1857,7 +1857,7 @@ is acceptable for your containers, and set the threshold accordingly.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ContainerMemoryUtilization**
 
@@ -1888,7 +1888,7 @@ accordingly.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **TaskEBSfilesystemUtilization**
 
@@ -1912,7 +1912,7 @@ about 80% of the Amazon EBS file system size.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **TaskEphemeralStorageUtilization**
 
@@ -1938,7 +1938,7 @@ about 80% of the ephemeral storage size.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon EFS
 
@@ -1962,7 +1962,7 @@ about 80% of the ephemeral storage size.
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **BurstCreditBalance**
 
@@ -1984,11 +1984,11 @@ about 80% of the ephemeral storage size.
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 ## Amazon EKS with Container Insights
 
-**node_cpu_utilization**
+**node\_cpu\_utilization**
 
 **Dimensions:** ClusterName
 
@@ -2008,9 +2008,9 @@ about 80% of the ephemeral storage size.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
-**node_filesystem_utilization**
+**node\_filesystem\_utilization**
 
 **Dimensions:** ClusterName
 
@@ -2030,9 +2030,9 @@ about 80% of the ephemeral storage size.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
-**node_memory_utilization**
+**node\_memory\_utilization**
 
 **Dimensions:** ClusterName
 
@@ -2052,9 +2052,9 @@ about 80% of the ephemeral storage size.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
-**pod_cpu_utilization_over_pod_limit**
+**pod\_cpu\_utilization\_over\_pod\_limit**
 
 **Dimensions:** ClusterName, Namespace, Service
 
@@ -2074,9 +2074,9 @@ about 80% of the ephemeral storage size.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
-**pod_memory_utilization_over_pod_limit**
+**pod\_memory\_utilization\_over\_pod\_limit**
 
 **Dimensions:** ClusterName, Namespace, Service
 
@@ -2096,7 +2096,7 @@ about 80% of the ephemeral storage size.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon EventBridge Scheduler
 
@@ -2124,7 +2124,7 @@ for others, it might be a cause of concern. Set this alarm's threshold, `datapoi
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **InvocationThrottleCount**
 
@@ -2151,7 +2151,7 @@ Set this alarm's threshold, `datapointsToAlarm`, and `evaluationPeriods` accordi
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **InvocationDroppedCount**
 
@@ -2176,7 +2176,7 @@ DLQ correctly on all of your schedules, dropped invocations will appear in the D
 
 **Evaluation periods:** 1
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **InvocationsFailedToBeSentToDeadLetterCount**
 
@@ -2201,7 +2201,7 @@ sent to the configured DLQ. Retryable errors also show up in this metric, so `da
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon Kinesis Data Streams
 
@@ -2225,7 +2225,7 @@ sent to the configured DLQ. Retryable errors also show up in this metric, so `da
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **GetRecords.Success**
 
@@ -2255,7 +2255,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **PutRecord.Success**
 
@@ -2277,7 +2277,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **PutRecords.FailedRecords**
 
@@ -2299,7 +2299,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ReadProvisionedThroughputExceeded**
 
@@ -2321,7 +2321,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **SubscribeToShardEvent.MillisBehindLatest**
 
@@ -2343,7 +2343,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **WriteProvisionedThroughputExceeded**
 
@@ -2365,7 +2365,7 @@ in AWS](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Lambda
 
@@ -2399,7 +2399,7 @@ threshold value. By default, your account has a concurrency quota of 1,000 acros
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **Errors**
 
@@ -2421,7 +2421,7 @@ threshold value. By default, your account has a concurrency quota of 1,000 acros
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **Throttles**
 
@@ -2443,7 +2443,7 @@ threshold value. By default, your account has a concurrency quota of 1,000 acros
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **Duration**
 
@@ -2465,7 +2465,7 @@ threshold value. By default, your account has a concurrency quota of 1,000 acros
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ConcurrentExecutions**
 
@@ -2495,15 +2495,15 @@ To get better visibility on reserved concurrency and provisioned concurrency uti
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Lambda Insights
 
 We recommend setting best-practice alarms for the following Lambda Insights metrics.
 
-**memory_utilization**
+**memory\_utilization**
 
-**Dimensions:** function_name
+**Dimensions:** function\_name
 
 **Alarm description:** This alarm is used to detect if the memory utilization of a lambda function is approaching the configured limit. For troubleshooting, you can try to 1) Optimize your code. 2) Rightly size your memory allocation by accurately estimating the memory requirements. You can refer to
 [Lambda Power Tuning](../../../lambda/latest/operatorguide/profile-functions.md "../../../lambda/latest/operatorguide/profile-functions.md") for the same. 3) Use connection pooling. Refer to [Using Amazon RDS Proxy with Lambda](https://aws.amazon.com/blogs/compute/using-amazon-rds-proxy-with-aws-lambda/ "https://aws.amazon.com/blogs/compute/using-amazon-rds-proxy-with-aws-lambda/") for the connection pooling for RDS database. 4) You can also consider designing your functions to avoid storing large amounts of data in memory between invocations.
@@ -2522,7 +2522,7 @@ We recommend setting best-practice alarms for the following Lambda Insights metr
 
 **Evaluation Periods:** 10
 
-**ComparisonOperator:** GREATER_THAN_THRESHOLD
+**ComparisonOperator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon VPC (`AWS/NATGateway`)
 
@@ -2546,7 +2546,7 @@ We recommend setting best-practice alarms for the following Lambda Insights metr
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **PacketsDropCount**
 
@@ -2568,7 +2568,7 @@ We recommend setting best-practice alarms for the following Lambda Insights metr
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## AWS Private Link (`AWS/PrivateLinkEndpoints`)
 
@@ -2592,7 +2592,7 @@ We recommend setting best-practice alarms for the following Lambda Insights metr
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## AWS Private Link (`AWS/PrivateLinkServices`)
 
@@ -2616,7 +2616,7 @@ We recommend setting best-practice alarms for the following Lambda Insights metr
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## `Amazon RDS`
 
@@ -2651,7 +2651,7 @@ on the overall database workload, high CPU at your RDS/Aurora instance can degra
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **DatabaseConnections**
 
@@ -2684,7 +2684,7 @@ value between 90-95% of the maximum number of connections for your database and 
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **EBSByteBalance%**
 
@@ -2709,7 +2709,7 @@ a lower throughput for the workload.
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **EBSIOBalance%**
 
@@ -2733,7 +2733,7 @@ you can set the threshold accordingly. You can also set a lower threshold, if yo
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **FreeableMemory**
 
@@ -2765,7 +2765,7 @@ You can analyze the historical behavior of this metric to determine sensible thr
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **FreeLocalStorage**
 
@@ -2797,7 +2797,7 @@ action before the volume reaches its limit.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **FreeStorageSpace**
 
@@ -2825,7 +2825,7 @@ space. Typically, you should calculate the value of 10 percent of the allocated 
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **MaximumUsedTransactionIDs**
 
@@ -2845,7 +2845,7 @@ blog](https://aws.amazon.com/blogs/database/understanding-autovacuum-in-amazon-r
 **Recommended threshold:** 1.0E9
 
 **Threshold justification:** Setting this threshold to 1 billion should give you time to investigate the
-problem. The default autovacuum_freeze_max_age value is 200 million. If the age of the oldest transaction is 1 billion, autovacuum is
+problem. The default autovacuum\_freeze\_max\_age value is 200 million. If the age of the oldest transaction is 1 billion, autovacuum is
 having a problem keeping this threshold below the target of 200 million transaction IDs.
 
 **Period:** 60
@@ -2854,7 +2854,7 @@ having a problem keeping this threshold below the target of 200 million transact
 
 **Evaluation periods:** 1
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ReadLatency**
 
@@ -2886,7 +2886,7 @@ the historical behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **ReplicaLag**
 
@@ -2917,7 +2917,7 @@ more than 60 seconds.
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **WriteLatency**
 
@@ -2950,7 +2950,7 @@ latency and analyze the historical behavior of this metric to determine sensible
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **DBLoad**
 
@@ -2979,7 +2979,7 @@ issues in the DB instance. This alarm is not applicable to serverless DB instanc
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **AuroraVolumeBytesLeftTotal**
 
@@ -3009,7 +3009,7 @@ the volume reaches its limit.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **AuroraBinlogReplicaLag**
 
@@ -3037,7 +3037,7 @@ this value if the replica is in an error state.
 
 **Evaluation periods:** 2
 
-**Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **BlockedTransactions**
 
@@ -3065,7 +3065,7 @@ requirements of blocked transactions and analyze the historical behavior of this
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **BufferCacheHitRatio**
 
@@ -3093,7 +3093,7 @@ However, you can adjust this value based on your acceptable performance level an
 
 **Evaluation periods:** 10
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **EngineUptime**
 
@@ -3122,7 +3122,7 @@ write operations fail with an exception. However, service is typically restored 
 
 **Evaluation periods:** 2
 
-**Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **RollbackSegmentHistoryListLength**
 
@@ -3151,7 +3151,7 @@ investigate the problem. However, you can adjust this value based on your accept
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **StorageNetworkThroughput**
 
@@ -3183,7 +3183,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## `Amazon Route 53 Public Data Plane`
 
@@ -3207,7 +3207,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 ## `Amazon S3`
 
@@ -3231,7 +3231,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **5xxErrors**
 
@@ -3253,7 +3253,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **OperationsFailedReplication**
 
@@ -3275,7 +3275,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## `S3ObjectLambda`
 
@@ -3299,7 +3299,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **5xxErrors**
 
@@ -3321,7 +3321,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **LambdaResponse4xx**
 
@@ -3343,7 +3343,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon SNS
 
@@ -3367,7 +3367,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **NumberOfNotificationsDelivered**
 
@@ -3389,7 +3389,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **NumberOfNotificationsFailed**
 
@@ -3411,7 +3411,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **NumberOfNotificationsFilteredOut-InvalidAttributes**
 
@@ -3433,7 +3433,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **NumberOfNotificationsFilteredOut-InvalidMessageBody**
 
@@ -3455,7 +3455,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **NumberOfNotificationsRedrivenToDlq**
 
@@ -3477,7 +3477,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **NumberOfNotificationsFailedToRedriveToDlq**
 
@@ -3499,7 +3499,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **SMSMonthToDateSpentUSD**
 
@@ -3521,7 +3521,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 **SMSSuccessRate**
 
@@ -3543,7 +3543,7 @@ behavior of this metric to determine sensible threshold levels.
 
 **Evaluation periods:** 5
 
-**Comparison Operator:** GREATER_THAN_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_THRESHOLD
 
 ## Amazon SQS
 
@@ -3570,7 +3570,7 @@ This metric can be used in combination with `ApproximateNumberOfMessagesVisible`
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **ApproximateNumberOfMessagesNotVisible**
 
@@ -3594,7 +3594,7 @@ messages with respect to `QueueName`. For troubleshooting, check
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **ApproximateNumberOfMessagesVisible**
 
@@ -3616,7 +3616,7 @@ messages with respect to `QueueName`. For troubleshooting, check
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** GREATER_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** GREATER\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 **NumberOfMessagesSent**
 
@@ -3640,7 +3640,7 @@ producer is not sending messages.
 
 **Evaluation periods:** 15
 
-**Comparison Operator:** LESS_THAN_OR_EQUAL_TO_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_OR\_EQUAL\_TO\_THRESHOLD
 
 ## Site-to-Site VPN
 
@@ -3664,7 +3664,7 @@ producer is not sending messages.
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD
 
 **TunnelState**
 
@@ -3686,4 +3686,4 @@ producer is not sending messages.
 
 **Evaluation periods:** 3
 
-**Comparison Operator:** LESS_THAN_THRESHOLD
+**Comparison Operator:** LESS\_THAN\_THRESHOLD

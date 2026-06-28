@@ -34,15 +34,15 @@ ActiveConnectionCount
 
 ConsumedLCUs
 
-HTTPCode_ELB_4XX_Count
+HTTPCode\_ELB\_4XX\_Count
 
-HTTPCode_Target_2XX_Count
+HTTPCode\_Target\_2XX\_Count
 
-HTTPCode_Target_3XX_Count
+HTTPCode\_Target\_3XX\_Count
 
-HTTPCode_Target_4XX_Count
+HTTPCode\_Target\_4XX\_Count
 
-HTTPCode_Target_5XX_Count
+HTTPCode\_Target\_5XX\_Count
 
 NewConnectionCount
 
@@ -144,9 +144,9 @@ EstimatedALBNewConnectionCount
 
 EstimatedProcessedBytes
 
-HTTPCode_Backend_4XX
+HTTPCode\_Backend\_4XX
 
-HTTPCode_Backend_5XX
+HTTPCode\_Backend\_5XX
 
 HealthyHostCount
 

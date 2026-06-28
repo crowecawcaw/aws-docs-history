@@ -56,9 +56,8 @@ When using tags, alarms will match the metrics only if the specified tags existe
     3. For **Missing data treatment**, choose how to have the alarm behave when some data points are missing. For more
      information, see [Configuring how CloudWatch alarms treat missing data](alarms-and-missing-data.md "alarms-and-missing-data.md").
 
-8. Choose **Next**.
-9. Under **Notification**, select an SNS topic to notify when the alarm is in `ALARM` state,
-   `OK` state, or `INSUFFICIENT_DATA` state.
+8. Choose **Next**. 9. Under **Notification**, select an SNS topic to notify when the alarm is in `ALARM` state,
+`OK` state, or `INSUFFICIENT_DATA` state.
 
 To have the alarm send multiple notifications for the same alarm state or for different alarm states,
 choose **Add notification**.

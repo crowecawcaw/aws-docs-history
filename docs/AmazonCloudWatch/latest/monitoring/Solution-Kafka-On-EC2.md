@@ -90,9 +90,9 @@ The pricing calculator can help you estimate approximate monthly costs for using
    enter `broker_metrics_count + producer_metrics_count + consumer_metrics_count`. Calculate these
    as follows:
 
-   - `broker_metrics_count` = (33 + average number of disk paths per EC2 host) \* number_of_ec2_broker_hosts
-   - `producer_metrics_count` = (3 \* average_number_of_topics_per_producer_host + 3) \* number_of_ec2_producer_hosts
-   - `consumer_metrics_count` = (2 \* average_number_of_topics_per_consumer_host + 3) \* number_of_ec2_consumer_hosts
+   - `broker_metrics_count` = (33 + average number of disk paths per EC2 host) \* number\_of\_ec2\_broker\_hosts
+   - `producer_metrics_count` = (3 \* average\_number\_of\_topics\_per\_producer\_host + 3) \* number\_of\_ec2\_producer\_hosts
+   - `consumer_metrics_count` = (2 \* average\_number\_of\_topics\_per\_consumer\_host + 3) \* number\_of\_ec2\_consumer\_hosts
 
 3. In the **APIs** section, for **Number of API requests**,
    enter `43200 * number of EC2 instances configured for this solution`.
@@ -133,7 +133,7 @@ producer or consumer JVM application. See the documentation for your application
 In general, to enable a JMX port for monitoring and management, you would set the following system properties for your JVM application.
 The following example sets up unauthenticated JMX. If your security policies/requirements require you to enable JMX with password authentication
 or SSL for remote access, refer to the [JMX documentation](https://docs.oracle.com/en/java/javase/17/management/monitoring-and-management-using-jmx-technology.html "https://docs.oracle.com/en/java/javase/17/management/monitoring-and-management-using-jmx-technology.html")  
- to set the required property.
+to set the required property.
 
 ```
 -Dcom.sun.management.jmxremote
@@ -572,7 +572,7 @@ in the dashboard name, such as `KafkaDashboard-us-east-1`. 4. Preview the dashbo
 
 ###### To create the dashboard via CloudFormation
 
-1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 2. Verify that the selected Region on the console is the Region where the Kafka
    workload is running.
 3. For **Stack name**, enter a name to identity this stack,
@@ -582,7 +582,7 @@ in the dashboard name, such as `KafkaDashboard-us-east-1`. 4. Preview the dashbo
 
 To easily differentiate this dashboard from similar dashboards in other Regions,
 we recommend including the Region name in the dashboard name, such as `KafkaDashboard-us-east-1`. 5. Acknowledge access capabilities for transforms under **Capabilities and transforms**.
-Note that CloudFormation doesn't add any IAM resources. 6. Review the settings, then choose **Create stack**. 7. After the stack status is **CREATE_COMPLETE**, choose the **Resources** tab under
+Note that CloudFormation doesn't add any IAM resources. 6. Review the settings, then choose **Create stack**. 7. After the stack status is **CREATE\_COMPLETE**, choose the **Resources** tab under
 the created stack and then choose the link under **Physical ID** to go to the dashboard. You can also access the
 dashboard in the CloudWatch console by choosing **Dashboards** in the left navigation pane of the console,
 and finding the dashboard name under **Custom Dashboards**.
@@ -590,7 +590,7 @@ and finding the dashboard name under **Custom Dashboards**.
 If you want to edit the template file to customize it for any purpose, you can use **Upload a template file** option
 under **Create Stack Wizard** to upload the edited template. For more information, see
 [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
-You can use this link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+You can use this link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/Kafka_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 
 ###### Note
 

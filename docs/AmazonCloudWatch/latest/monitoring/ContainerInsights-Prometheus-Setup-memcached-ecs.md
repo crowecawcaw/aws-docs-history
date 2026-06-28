@@ -11,8 +11,8 @@ reduce the number of times an external data source (such as a database or API) m
 read. For more infromation, see [What is
 Memcached?](https://www.memcached.org/ "https://www.memcached.org/")
 
-The [memchached_exporter](https://github.com/prometheus/memcached_exporter "https://github.com/prometheus/memcached_exporter") (Apache License 2.0) is one of the Prometheus official
-exporters. By default the memcache_exporter serves on port 0.0.0.0:9150 at
+The [memchached\_exporter](https://github.com/prometheus/memcached_exporter "https://github.com/prometheus/memcached_exporter") (Apache License 2.0) is one of the Prometheus official
+exporters. By default the memcache\_exporter serves on port 0.0.0.0:9150 at
 `/metrics.`
 
 The Docker images in the following two Docker Hub repositories are used in this

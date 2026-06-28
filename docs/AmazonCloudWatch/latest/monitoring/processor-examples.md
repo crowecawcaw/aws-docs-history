@@ -89,7 +89,7 @@ processor:
       handle_expression_failure: "skip"
 ```
 
-###### Example Processor-level conditional with delete_entries
+###### Example Processor-level conditional with delete\_entries
 
 Remove sensitive fields only when the environment is production:
 

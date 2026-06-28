@@ -51,9 +51,9 @@ NetworkPacketsOut
 
 StatusCheckFailed
 
-StatusCheckFailed_Instance
+StatusCheckFailed\_Instance
 
-StatusCheckFailed_System
+StatusCheckFailed\_System
 
 ## CloudWatch agent metrics (Windows server)
 
@@ -101,7 +101,7 @@ StatusCheckFailed_System
 
 .NET CLR Networking 4.0.0.0 HttpWebRequests Queued/sec
 
-APP_POOL_WAS Total Worker Process Ping Failures
+APP\_POOL\_WAS Total Worker Process Ping Failures
 
 ASP.NET Application Restarts
 
@@ -195,15 +195,15 @@ TCPv4 Connections Established
 
 TCPv6 Connections Established
 
-W3SVC_W3WP File Cache Flushes
+W3SVC\_W3WP File Cache Flushes
 
-W3SVC_W3WP File Cache Misses
+W3SVC\_W3WP File Cache Misses
 
-W3SVC_W3WP Requests/Sec
+W3SVC\_W3WP Requests/Sec
 
-W3SVC_W3WP URI Cache Flushes
+W3SVC\_W3WP URI Cache Flushes
 
-W3SVC_W3WP URI Cache Misses
+W3SVC\_W3WP URI Cache Misses
 
 Web Service Bytes Received/Sec
 
@@ -259,180 +259,180 @@ Process metrics are collected using the [CloudWatch agent procstat
 plugin](CloudWatch-Agent-procstat-process-metrics.md "CloudWatch-Agent-procstat-process-metrics.md"). Only Amazon EC2 instances running Windows workloads support
 process metrics.
 
-procstat cpu_time_system
+procstat cpu\_time\_system
 
-procstat cpu_time_user
+procstat cpu\_time\_user
 
-procstat cpu_usage
+procstat cpu\_usage
 
-procstat memory_rss
+procstat memory\_rss
 
-procstat memory_vms
+procstat memory\_vms
 
-procstat read_bytes
+procstat read\_bytes
 
-procstat write_bytes
+procstat write\_bytes
 
-.procstat read_count
+.procstat read\_count
 
-procstat write_count
+procstat write\_count
 
 ## CloudWatch agent metrics (Linux server)
 
-cpu_time_active
+cpu\_time\_active
 
-cpu_time_guest
+cpu\_time\_guest
 
-cpu_time_guest_nice
+cpu\_time\_guest\_nice
 
-cpu_time_idle
+cpu\_time\_idle
 
-cpu_time_iowait
+cpu\_time\_iowait
 
-cpu_time_irq
+cpu\_time\_irq
 
-cpu_time_nice
+cpu\_time\_nice
 
-cpu_time_softirq
+cpu\_time\_softirq
 
-cpu_time_steal
+cpu\_time\_steal
 
-cpu_time_system
+cpu\_time\_system
 
-cpu_time_user
+cpu\_time\_user
 
-cpu_usage_active
+cpu\_usage\_active
 
-cpu_usage_guest
+cpu\_usage\_guest
 
-cpu_usage_guest_nice
+cpu\_usage\_guest\_nice
 
-cpu_usage_idle
+cpu\_usage\_idle
 
-cpu_usage_iowait
+cpu\_usage\_iowait
 
-cpu_usage_irq
+cpu\_usage\_irq
 
-cpu_usage_nice
+cpu\_usage\_nice
 
-cpu_usage_softirq
+cpu\_usage\_softirq
 
-cpu_usage_steal
+cpu\_usage\_steal
 
-cpu_usage_system
+cpu\_usage\_system
 
-cpu_usage_user
+cpu\_usage\_user
 
-disk_free
+disk\_free
 
-disk_inodes_free
+disk\_inodes\_free
 
-disk_inodes_used
+disk\_inodes\_used
 
-disk_used
+disk\_used
 
-disk_used_percent
+disk\_used\_percent
 
-diskio_io_time
+diskio\_io\_time
 
-diskio_iops_in_progress
+diskio\_iops\_in\_progress
 
-diskio_read_bytes
+diskio\_read\_bytes
 
-diskio_read_time
+diskio\_read\_time
 
-diskio_reads
+diskio\_reads
 
-diskio_write_bytes
+diskio\_write\_bytes
 
-diskio_write_time
+diskio\_write\_time
 
-diskio_writes
+diskio\_writes
 
-mem_active
+mem\_active
 
-mem_available
+mem\_available
 
-mem_available_percent
+mem\_available\_percent
 
-mem_buffered
+mem\_buffered
 
-mem_cached
+mem\_cached
 
-mem_free
+mem\_free
 
-mem_inactive
+mem\_inactive
 
-mem_used
+mem\_used
 
-mem_used_percent
+mem\_used\_percent
 
-net_bytes_recv
+net\_bytes\_recv
 
-net_bytes_sent
+net\_bytes\_sent
 
-net_drop_in
+net\_drop\_in
 
-net_drop_out
+net\_drop\_out
 
-net_err_in
+net\_err\_in
 
-net_err_out
+net\_err\_out
 
-net_packets_recv
+net\_packets\_recv
 
-net_packets_sent
+net\_packets\_sent
 
-netstat_tcp_close
+netstat\_tcp\_close
 
-netstat_tcp_close_wait
+netstat\_tcp\_close\_wait
 
-netstat_tcp_closing
+netstat\_tcp\_closing
 
-netstat_tcp_established
+netstat\_tcp\_established
 
-netstat_tcp_fin_wait1
+netstat\_tcp\_fin\_wait1
 
-netstat_tcp_fin_wait2
+netstat\_tcp\_fin\_wait2
 
-netstat_tcp_last_ack
+netstat\_tcp\_last\_ack
 
-netstat_tcp_listen
+netstat\_tcp\_listen
 
-netstat_tcp_none
+netstat\_tcp\_none
 
-netstat_tcp_syn_recv
+netstat\_tcp\_syn\_recv
 
-netstat_tcp_syn_sent
+netstat\_tcp\_syn\_sent
 
-netstat_tcp_time_wait
+netstat\_tcp\_time\_wait
 
-netstat_udp_socket
+netstat\_udp\_socket
 
-processes_blocked
+processes\_blocked
 
-processes_dead
+processes\_dead
 
-processes_idle
+processes\_idle
 
-processes_paging
+processes\_paging
 
-processes_running
+processes\_running
 
-processes_sleeping
+processes\_sleeping
 
-processes_stopped
+processes\_stopped
 
-processes_total
+processes\_total
 
-processes_total_threads
+processes\_total\_threads
 
-processes_wait
+processes\_wait
 
-processes_zombies
+processes\_zombies
 
-swap_free
+swap\_free
 
-swap_used
+swap\_used
 
-swap_used_percent
+swap\_used\_percent

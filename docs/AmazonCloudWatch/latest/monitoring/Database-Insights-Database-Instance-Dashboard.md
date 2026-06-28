@@ -133,15 +133,13 @@ The default database instance dashboard appears. 6. To add a widget to the dashb
      account.
 
 7. To delete a graph from the dashboard, choose the vertical ellipsis in the
-   widget, then choose **Delete**.
-8. To add more metrics to an existing widget in the dashboard, or change its
-   title, choose the vertical ellipsis in the widget, and choose
-   **Edit**. Then in the **Update
-   widget** popup, find the metric or metrics that you want to
-   add, select their checkboxes, and choose **Update Widget**.
-   You can also change the widget title.
-9. After customizing a dashboard, you can reset it to its original default
-   state by choosing **Reset Dashboard**.
+widget, then choose **Delete**. 8. To add more metrics to an existing widget in the dashboard, or change its
+title, choose the vertical ellipsis in the widget, and choose
+**Edit**. Then in the **Update
+widget** popup, find the metric or metrics that you want to
+add, select their checkboxes, and choose **Update Widget**.
+You can also change the widget title. 9. After customizing a dashboard, you can reset it to its original default
+state by choosing **Reset Dashboard**.
 
 ### Logs section for database telemetry
 

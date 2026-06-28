@@ -137,8 +137,8 @@ OTEL_RESOURCE_ATTRIBUTES="service.name=$YOUR_SVC_NAME,deployment.environment.nam
 
    Meter meter = meterProvider.get("myMeter");
    ```
-   - Agent-based export – Configure the agent environment variables [OTEL_METRICS_EXPORTER](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection "https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection") and
-     [OTEL_EXPORTER_OTLP_METRICS_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_metrics_endpoint "https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_metrics_endpoint"). For example:
+   - Agent-based export – Configure the agent environment variables [OTEL\_METRICS\_EXPORTER](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection "https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#exporter-selection") and
+     [OTEL\_EXPORTER\_OTLP\_METRICS\_ENDPOINT](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_metrics_endpoint "https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/#otel_exporter_otlp_metrics_endpoint"). For example:
 
    ```
    OTEL_METRICS_EXPORTER=otlp
@@ -193,15 +193,16 @@ To ensure 100% metric sampling, it's recommended to send 100% of spans to the en
 
 3. Create a metric filter with the following values. For information on how to create a metric filter, see [Create a metric filter for a log group](../logs/CreateMetricFilterProcedure.md "../logs/CreateMetricFilterProcedure.md").
 
-   - Log Group – aws/spans
-   - Filter pattern – { $.attributes.['myattribute'] = \* }
-   - Metric name – myattribute (The values must be an exact match or span correlation will not work
-   - Metric value – $.attributes.['myattribute']
-   - Dimensions – Field Name: Service, Field Value: $.attributes.['aws.local.service'], Field Name: Environment, Field Value: $.attributes.['aws.local.environment'], and Field Name: Operation, Field Value: $.attributes.['aws.local.operation']
+    * Log Group – aws/spans
+    * Filter pattern – { $.attributes.['myattribute'] = \* }
+    * Metric name – myattribute (The values must be an exact match or span correlation will not work
+    * Metric value – $.attributes.['myattribute']
+    * Dimensions – Field Name: Service, Field Value: $.attributes.['aws.local.service'], Field Name: Environment, Field Value: $.attributes.['aws.local.environment'], and Field Name: Operation, Field Value: $.attributes.['aws.local.operation']
 
-   ###### Note
 
-   When you add attributes to manually generated spans, you cannot set `Operation` because `aws.local.operation` will not be present in span data.
+    ###### Note
+
+    When you add attributes to manually generated spans, you cannot set `Operation` because `aws.local.operation` will not be present in span data.
 
 ## Viewing custom metrics in Application Signals
 

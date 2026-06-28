@@ -47,7 +47,7 @@ Pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwa
 
 The CloudWatch agent is open-source under the MIT license, and is [hosted on GitHub](https://github.com/aws/amazon-cloudwatch-agent/ "https://github.com/aws/amazon-cloudwatch-agent/"). If you would
 like to build, customize or contribute to the CloudWatch agent, see the GitHub repository for the
-latest instructions. If you think you’ve found a potential security issue, do not post it on
+latest instructions. If you think you've found a potential security issue, do not post it on
 GitHub or any public forum. Instead, follow the instructions at [Vulnerability Reporting](https://aws.amazon.com/security/vulnerability-reporting/ "https://aws.amazon.com/security/vulnerability-reporting/") or [email AWS security directly](mailto:aws-security@amazon.com "mailto:aws-security@amazon.com").
 
 You can download and install the CloudWatch agent manually using the command line, or you can

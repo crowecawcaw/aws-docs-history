@@ -25,14 +25,13 @@ Pipelines metrics are only emitted when the value is non-zero.
 
 ### Error and warning metrics
 
-| Metric                          | Description                                          | Dimension                                                  | Unit  |
-| ------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- | ----- |
-| `PipelineErrors`                | Aggregate count of errors in pipeline                | PipelineName                                               | Count |
-| `PipelineErrorsByErrorType`     | Detailed error counts by type                        | PipelineName, ErrorSource, ErrorComponent, ErrorType       | Count |
-| `PipelineWarnings`              | Number of warnings encountered                       | PipelineName                                               | Count |
-| `PipelineWarningsByWarningType` | Detailed warnings by type                            | PipelineName, WarningSource, WarningComponent, WarningType | Count |
-| `PipelineRecordsUnprocessed`    | Number of records that couldn't be processed         | PipelineName, DataSource, DataType                         | Count |
-| `PipelineRecordsDropped`        | Number of records dropped (third-party sources only) | PipelineName, DataSource, DataType                         | Count |
+| Metric                          | Description                                  | Dimension                                                  | Unit  |
+| ------------------------------- | -------------------------------------------- | ---------------------------------------------------------- | ----- |
+| `PipelineErrors`                | Aggregate count of errors in pipeline        | PipelineName                                               | Count |
+| `PipelineErrorsByErrorType`     | Detailed error counts by type                | PipelineName, ErrorSource, ErrorComponent, ErrorType       | Count |
+| `PipelineWarnings`              | Number of warnings encountered               | PipelineName                                               | Count |
+| `PipelineWarningsByWarningType` | Detailed warnings by type                    | PipelineName, WarningSource, WarningComponent, WarningType | Count |
+| `PipelineRecordsUnprocessed`    | Number of records that couldn't be processed | PipelineName, DataSource, DataType                         | Count |
 
 ## Dimensions
 
@@ -48,7 +47,7 @@ Source of the data (AWS service name or third-party source)
 Type of data being processed
 
 **ErrorSource**
-Origin of the error (s3, aws.secrets, cloudwatch_logs)
+Origin of the error (s3, aws.secrets, cloudwatch\_logs)
 
 **ErrorComponent**
 Component where error occurred (source, sink, extension)
@@ -138,6 +137,7 @@ aws cloudwatch put-metric-alarm \
 - Use `PipelineBytesIn` and `PipelineBytesOut` to track data volume
 - Monitor `PipelineRecordsIn` and `PipelineRecordsOut` to track record counts
 - Watch for unexpected changes in throughput patterns
+- To monitor dropped records, compute `PipelineRecordsIn` - `PipelineRecordsOut` over a given period; a sustained positive difference indicates records that did not reach the destination.
 
 ### Track errors and warnings
 

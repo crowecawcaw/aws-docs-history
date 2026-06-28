@@ -70,18 +70,17 @@ The console automatically:
 
 ###### To save and verify your API key
 
-1.  Copy and securely save the displayed credentials:
+1. Copy and securely save the displayed credentials:
 
-        * **API Key ID** (Service-specific
-         credential ID)
-        * **API Key Secret** (Bearer
-         token)
-
-    The console also offers the option to store your API key directly in
-    [AWS
-    Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") during generation. If you choose to store in
-    Secrets Manager, the key is automatically updated on reset and deleted on
-    key deletion.
+   - **API Key ID** (Service-specific
+     credential ID)
+   - **API Key Secret** (Bearer
+     token)
+     The console also offers the option to store your API key directly in
+     [AWS
+     Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") during generation. If you choose to store in
+     Secrets Manager, the key is automatically updated on reset and deleted on
+     key deletion.
 
 ###### Important
 

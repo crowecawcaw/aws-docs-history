@@ -78,11 +78,10 @@ it continuously using a rate expression, or schedule it using a cron expression.
     * For more information about writing a cron expression for canary scheduling, see [Scheduling canary runs using cron](CloudWatch_Synthetics_Canaries_cron.md "CloudWatch_Synthetics_Canaries_cron.md").
 
 12. (Optional) To set a timeout value for the canary, choose **Additional
-    configuration** and then specify the timeout value. Make it no shorter than 15
-    seconds to allow for Lambda cold starts and the time it takes to boot up the canary
-    instrumentation.
-13. Under **Data retention**, specify how long to retain information
-    about both failed and successful canary runs. The range is 1-455 days.
+configuration** and then specify the timeout value. Make it no shorter than 15
+seconds to allow for Lambda cold starts and the time it takes to boot up the canary
+instrumentation. 13. Under **Data retention**, specify how long to retain information
+about both failed and successful canary runs. The range is 1-455 days.
 
 This setting affects the range of information returned by [GetCanaryRuns](../../../AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.md "../../../AmazonSynthetics/latest/APIReference/API_GetCanaryRuns.md")
 operations, as well as the range of information displayed in the Synthetics console.
@@ -168,14 +167,14 @@ runtimes. For more information, see [Canaries and X-Ray tracing](CloudWatch_Synt
 When you create a canary, the following resources are created:
 
 - An IAM role with the name `CloudWatchSyntheticsRole-`canary-name`
--`uuid`` (if you use CloudWatch console to create the canary
+ -`uuid`` (if you use CloudWatch console to create the canary
   and specify for a new role to be created for the canary)
 - An IAM policy with the name `CloudWatchSyntheticsPolicy-`canary-name`-`uuid``.
 - An S3 bucket with the name `cw-syn-results-`accountID`
--`region``.
+ -`region``.
 - Alarms with the name `Synthetics-Alarm-`MyCanaryName``,
   if you want alarms to be created for the canary.
 - Lambda functions and layers, if you use a blueprint to create the canary. These
   resources have the prefix `cwsyn-`MyCanaryName``.
 - CloudWatch Logs log groups with the name `/aws/lambda/cwsyn-`MyCanaryName`
--`randomId``.
+ -`randomId``.

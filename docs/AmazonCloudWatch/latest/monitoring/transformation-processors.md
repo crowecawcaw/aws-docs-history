@@ -3,14 +3,14 @@
 Transformation processors modify the structure of log events by adding, copying,
 moving, or removing fields.
 
-## add_entries processor
+## add\_entries processor
 
 Adds static key-value pairs to log events. At most 1 `add_entries`
 processor can be added to a pipeline.
 
 ###### Configuration
 
-Configure the add_entries processor with the following parameters:
+Configure the add\_entries processor with the following parameters:
 
 ```
 processor:
@@ -63,14 +63,14 @@ The expression value identifies which `when`
 conditions to consider. Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## copy_values processor
+## copy\_values processor
 
 Copies values from one field to another. At most 1 `copy_values`
 processor can be added to a pipeline.
 
 ###### Configuration
 
-Configure the copy_values processor with the following parameters:
+Configure the copy\_values processor with the following parameters:
 
 ```
 processor:
@@ -124,13 +124,13 @@ The expression value identifies which `when`
 conditions to consider. Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## delete_entries processor
+## delete\_entries processor
 
 Removes specified fields from log events.
 
 ###### Configuration
 
-Configure the delete_entries processor with the following parameters:
+Configure the delete\_entries processor with the following parameters:
 
 ```
 processor:
@@ -151,13 +151,13 @@ Conditional expression that determines whether this processor executes.
 Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
 
-## move_keys processor
+## move\_keys processor
 
 Moves fields from one location to another.
 
 ###### Configuration
 
-Configure the move_keys processor with the following parameters:
+Configure the move\_keys processor with the following parameters:
 
 ```
 processor:
@@ -249,3 +249,154 @@ Array of keys to exclude from flattening. Maximum 20 keys, each up to
 Conditional expression that determines whether this processor executes.
 Maximum length is 256 characters.
 See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+## lookup processor
+
+Enriches log events with data from a CloudWatch Logs lookup table. The processor matches
+fields in your log events against fields in the lookup table and appends specified
+fields to your log events. Use this processor for data enrichment scenarios such as
+mapping user IDs to user details, product codes to product information, or error
+codes to error descriptions. At most 1 `lookup` processor can be added to
+a pipeline.
+
+###### Note
+
+If a lookup table is used in a pipeline, you must provide an execution role
+with `logs:GetLookupTable` permissions on the table. For more
+information, see [CloudWatch pipelines IAM policies and permissions](pipeline-iam-reference.md "pipeline-iam-reference.md").
+
+###### Configuration
+
+Configure the lookup processor with the following parameters:
+
+```
+processor:
+  - lookup:
+      lookup_table: "arn:aws:logs:us-east-1:123456789012:lookup-table:my_lookup_table"
+      match_keys:
+        - log_key: "src_ip"
+          lookup_key: "ip_address"
+      entries:
+        - source: "hostname"
+          target: "src_hostname"
+          overwrite_if_exists: true
+```
+
+###### Parameters
+
+`lookup_table` (required)
+
+The ARN of the CloudWatch Logs lookup table to use for enrichment. Maximum
+length is 2048 characters.
+
+`match_keys` (required)
+
+Array of key pairs that define how to match log event fields to lookup
+table fields. Minimum 1, maximum 5 match keys. When multiple match keys
+are specified, a lookup table row must match all keys to produce a result
+(AND logic).
+
+`match_keys[].log_key` (required)
+
+The field name in the log event to match against. Maximum 128
+characters.
+
+`match_keys[].lookup_key` (required)
+
+The column name in the lookup table to match against. Maximum 128
+characters.
+
+`entries` (required)
+
+Array of fields to add to the log event from the matching lookup table
+row. Minimum 1, maximum 10 entries.
+
+`entries[].source` (required)
+
+The column name in the lookup table to retrieve the value from.
+Maximum 128 characters.
+
+`entries[].target` (optional)
+
+The field name to add to the log event. If not specified, the
+`source` column name is used as the field name. Maximum 128
+characters.
+
+`entries[].overwrite_if_exists` (optional)
+
+Boolean flag that determines behavior when the target field already
+exists in the log event. Defaults to false.
+
+`when` (optional)
+
+Conditional expression that determines whether this processor executes.
+Maximum length is 256 characters.
+See [Expression syntax for conditional processing](conditional-processing.md "conditional-processing.md").
+
+###### Example
+
+Consider a lookup table named `network_assets` with the following
+rows:
+
+network\_assets lookup table| ip\_address | hostname | owner | location |
+| --- | --- | --- | --- |
+| 10.0.1.12 | web-server-01 | team-alpha | us-east-1 |
+| 10.0.2.45 | db-server-03 | team-beta | us-west-2 |
+| 10.0.3.78 | cache-node-07 | team-alpha | eu-west-1 |
+
+Given the following log event:
+
+```
+{
+  "timestamp": "2026-05-04T12:00:00Z",
+  "src_ip": "10.0.2.45",
+  "action": "connection_opened",
+  "bytes": 2048
+}
+```
+
+And the following processor configuration:
+
+```
+processor:
+  - lookup:
+      lookup_table: "arn:aws:logs:us-east-1:123456789012:lookup-table:network_assets"
+      match_keys:
+        - log_key: "src_ip"
+          lookup_key: "ip_address"
+      entries:
+        - source: "hostname"
+          target: "src_hostname"
+        - source: "owner"
+        - source: "location"
+          target: "src_region"
+          overwrite_if_exists: false
+```
+
+The processor produces the following enriched log event:
+
+```
+{
+  "timestamp": "2026-05-04T12:00:00Z",
+  "src_ip": "10.0.2.45",
+  "action": "connection_opened",
+  "bytes": 2048,
+  "src_hostname": "db-server-03",
+  "owner": "team-beta",
+  "src_region": "us-west-2"
+}
+```
+
+###### IAM permissions
+
+When a pipeline uses the lookup processor, the pipeline's execution role must
+include `logs:GetLookupTable` permission for the referenced table. The
+following example policy statement grants this permission:
+
+```
+{
+  "Effect": "Allow",
+  "Action": "logs:GetLookupTable",
+  "Resource": "arn:aws:logs:<region>:<account-id>:lookup-table:<table-name>"
+}
+```

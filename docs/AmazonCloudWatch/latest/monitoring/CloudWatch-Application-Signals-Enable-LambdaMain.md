@@ -288,7 +288,7 @@ function container to enable Application Signals monitoring.
 
 - AWS CLI configured with your credentials
 - Docker installed
-- These instructions assume you are on x86_64 platform
+- These instructions assume you are on x86\_64 platform
 
 1. **Set Up Project Structure**
 
@@ -356,8 +356,8 @@ The layer extraction steps ensures:
      image size smaller
 
 3. **Lambda function code** –
-   Create a Java file for your Lambda handler at
-   `src/main/java/com/example/lambda/App.java:`
+Create a Java file for your Lambda handler at
+`src/main/java/com/example/lambda/App.java:`
 
 Your project should look something like:
 
@@ -461,7 +461,7 @@ function to enable Application Signals monitoring.
 - AWS CLI configured with your credentials
 - Docker installed
 - .Net 8 SDK
-- These instructions assume you are on x86_64 platform
+- These instructions assume you are on x86\_64 platform
 
 1. **Set Up Project Structure**
 
@@ -531,8 +531,8 @@ The layer extraction steps ensures:
      image size smaller
 
 3. **Lambda function code** –
-   Initialize your Lambda project using the AWS Lambda .NET
-   template:
+Initialize your Lambda project using the AWS Lambda .NET
+template:
 
 ```
 # Install the Lambda templates if you haven't already
@@ -693,7 +693,7 @@ Lambda function to enable Application Signals monitoring.
 
 - AWS CLI configured with your credentials
 - Docker installed
-- These instructions assume you are on x86_64 platform
+- These instructions assume you are on x86\_64 platform
 
 1. **Set Up Project Structure**
 
@@ -899,7 +899,7 @@ Lambda function to enable Application Signals monitoring.
 
 - AWS CLI configured with your credentials
 - Docker installed
-- These instructions assume you are on x86_64 platform
+- These instructions assume you are on x86\_64 platform
 
 1. **Set Up Project Structure**
 

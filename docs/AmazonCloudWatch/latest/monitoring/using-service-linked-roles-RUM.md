@@ -150,7 +150,7 @@ role.
 If you no longer have app monitors with X-Ray enabled, we recommend that you
 delete the **AWSServiceRoleForCloudWatchRUM** role.
 
-That way you don’t have an unused entity that is not actively monitored or
+That way you don't have an unused entity that is not actively monitored or
 maintained. However, you must clean up your service-linked role before you can
 delete it.
 

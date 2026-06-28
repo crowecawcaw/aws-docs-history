@@ -81,7 +81,7 @@ The pricing calculator can help you estimate approximate monthly costs for using
 1. Open the [Amazon CloudWatch pricing calculator](https://calculator.aws/#/createCalculator/CloudWatch "https://calculator.aws/#/createCalculator/CloudWatch").
 2. In the **Metrics** section, for **Number of metrics**,
    enter `(6 + total count of disk and diskio metrics per EC2 host as described above) * number of EC2 instances 
-configured for this solution`.
+ configured for this solution`.
 3. In the **APIs** section, for **Number of API requests**,
    enter `43200 * number of EC2 instances configured for this solution`.
 4. By default, the solution performs one **PutMetricData** operation each minute for each EC2 host.
@@ -337,14 +337,14 @@ in the dashboard name, such as `EC2HealthDashboard-us-east-1`. 4. Preview the da
 ###### To create the dashboard via CloudFormation
 
 1. Open the CloudFormation **Quick create stack** wizard using this link:
-   [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json") .
+   [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2\_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json") .
 2. Verify that the selected Region on the console is the Region where the EC2 instances are running.
 3. For **Stack name**, enter a name to identity this stack, such as `EC2HealthDashboardStack`.
 4. In the **Parameters** section, specify the name of the dashboard under the **DashboardName** parameter.
 
 To easily differentiate this dashboard from similar dashboards in other Regions, we recommend including the Region name
 in the dashboard name, such as `EC2HealthDashboard-us-east-1`. 5. Acknowledge access capabilities for transforms under **Capabilities and transforms**.
-Note that CloudFormation doesn't add any IAM resources. 6. Review the settings, then choose **Create stack**. 7. After the stack status is **CREATE_COMPLETE**, choose the **Resources** tab under
+Note that CloudFormation doesn't add any IAM resources. 6. Review the settings, then choose **Create stack**. 7. After the stack status is **CREATE\_COMPLETE**, choose the **Resources** tab under
 the created stack and then choose the link under **Physical ID** to go to the dashboard. You can also access the
 dashboard in the CloudWatch console by choosing **Dashboards** in the left navigation pane of the console,
 and finding the dashboard name under **Custom Dashboards**.
@@ -353,7 +353,7 @@ If you want to edit the template file to customize it for any purpose, you can u
 under **Create Stack Wizard** to upload the edited template. For more information, see
 [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 You can use this link to download the template:
-[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json")
+[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2\_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/EC2_Health/CloudWatch/CFN/v1.0.0/dashboard-template-linux-macos-1.0.0.json")
 
 ## Get started with the EC2 Health solution dashboard
 

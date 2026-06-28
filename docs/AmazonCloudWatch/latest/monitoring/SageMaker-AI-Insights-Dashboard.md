@@ -21,11 +21,11 @@ The summary bar at the top of the dashboard shows fleet‐wide totals.
 
 ### Filters panel
 
-| Filter              | Description                                                             |
-| ------------------- | ----------------------------------------------------------------------- |
-| Endpoint            | Select a specific endpoint or \*_All endpoints_<br>• for the fleet view |
-| Instance            | Select a specific instance (requires an endpoint selected first)        |
-| Inference component | Select a specific IC for granular filtering                             |
+| Filter              | Description                                                            |
+| ------------------- | ---------------------------------------------------------------------- |
+| Endpoint            | Select a specific endpoint or *_All endpoints_<br>• for the fleet view |
+| Instance            | Select a specific instance (requires an endpoint selected first)       |
+| Inference component | Select a specific IC for granular filtering                            |
 
 ### Drill-down
 

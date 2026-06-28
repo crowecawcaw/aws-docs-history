@@ -2,7 +2,7 @@
 
 You can configure the Network Flow Monitor add-on to expose an OpenMetrics server during installation. This enables integration with third-party monitoring tools such as Prometheus, allowing you to collect and analyze network flow metrics alongside your existing monitoring infrastructure. [Learn more about about OpenMetrics](https://openmetrics.io/ "https://openmetrics.io/"). This feature is available from add-on version v1.1.0.
 
-To enable the OpenMetrics server, add OPEN_METRICS, OPEN_METRICS_ADDRESS, and OPEN_METRICS_PORT to the configuration values of the EKS Network Flow Monitor add-on. This guide will explain how to do this using both CLI and Console. See [Amazon EKS add-ons advanced configuration](https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/ "https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/") for additional details about adding configuration values.
+To enable the OpenMetrics server, add OPEN\_METRICS, OPEN\_METRICS\_ADDRESS, and OPEN\_METRICS\_PORT to the configuration values of the EKS Network Flow Monitor add-on. This guide will explain how to do this using both CLI and Console. See [Amazon EKS add-ons advanced configuration](https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/ "https://aws.amazon.com/blogs/containers/amazon-eks-add-ons-advanced-configuration/") for additional details about adding configuration values.
 
 ## CLI Configuration
 
@@ -43,24 +43,24 @@ env:
 
 ## EKS Network Flow Monitor add-on OpenMetric Parameters
 
-- **OPEN_METRICS:**
+- **OPEN\_METRICS:**
 
   - Enable or disable open metrics. Disabled if not supplied
   - Type: String
   - Values: ["on", "off"]
 
-- **OPEN_METRICS_ADDRESS:**
+- **OPEN\_METRICS\_ADDRESS:**
 
   - Listening IP address for open metrics endpoint. Defaults to 127.0.0.1 if not supplied
   - Type: String
 
-- **OPEN_METRICS_PORT:**
+- **OPEN\_METRICS\_PORT:**
 
   - Listening port for open metrics endpoint. Defaults to 80 if not supplied
   - Type: Integer
   - Range: [0..65535]
 
-**Important:** When setting OPEN_METRICS_ADDRESS to 0.0.0.0, the metrics endpoint will be accessible from any network interface. Consider using 127.0.0.1 for localhost-only access or implement appropriate network security controls to restrict access to authorized monitoring systems only.
+**Important:** When setting OPEN\_METRICS\_ADDRESS to 0.0.0.0, the metrics endpoint will be accessible from any network interface. Consider using 127.0.0.1 for localhost-only access or implement appropriate network security controls to restrict access to authorized monitoring systems only.
 
 ## Troubleshooting
 
@@ -74,7 +74,7 @@ Troubleshooting Steps:
 
 1. Verify that the OpenMetrics server is enabled in your add-on configuration:
 
-   - Check that OPEN_METRICS is set to "on" in your configuration values. See [describe-addon](../../../cli/latest/reference/eks/describe-addon.md "../../../cli/latest/reference/eks/describe-addon.md").
+   - Check that OPEN\_METRICS is set to "on" in your configuration values. See [describe-addon](../../../cli/latest/reference/eks/describe-addon.md "../../../cli/latest/reference/eks/describe-addon.md").
    - Confirm that the add-on version is v1.1.0 or later in the _Configure selected add-ons settings_.
 
 2. Test the metrics endpoint directly:
@@ -104,13 +104,13 @@ Problem: You receive "connection refused" errors when trying to access the metri
 
 Troubleshooting Steps:
 
-1. Verify the OPEN_METRICS_ADDRESS configuration:
+1. Verify the OPEN\_METRICS\_ADDRESS configuration:
 
    - If set to 127.0.0.1, the endpoint is only accessible from within the pod.
    - If set to 0.0.0.0, the endpoint should be accessible from other pods in the cluster.
    - Ensure your monitoring tool can reach the configured address.
 
-2. Check the OPEN_METRICS_PORT configuration:
+2. Check the OPEN\_METRICS\_PORT configuration:
 
    - Verify that the port number is not already in use by another service.
    - Ensure the port is within the valid range (1-65535).

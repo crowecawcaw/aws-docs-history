@@ -90,7 +90,6 @@ CloudWatch supports logging the following actions as events in CloudTrail log fi
 - [PutDashboard](../APIReference/API_PutDashboard.md "../APIReference/API_PutDashboard.md")
 - [PutInsightRule](../APIReference/API_PutInsightRule.md "../APIReference/API_PutInsightRule.md")
 - [PutManagedInsightRules](../APIReference/API_PutManagedInsightRules.md "../APIReference/API_PutManagedInsightRules.md")
-- [PutLogAlarm](../APIReference/API_PutLogAlarm.md "../APIReference/API_PutLogAlarm.md")
 - [PutMetricAlarm](../APIReference/API_PutMetricAlarm.md "../APIReference/API_PutMetricAlarm.md")
 - [PutMetricStream](../APIReference/API_PutMetricStream.md "../APIReference/API_PutMetricStream.md")
 - [SetAlarmState](../APIReference/API_SetAlarmState.md "../APIReference/API_SetAlarmState.md")
@@ -232,7 +231,7 @@ listed above can be logged as data events in CloudTrail.
 [Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events"), also known as data plane operations, give you insight into the resource operations performed
 on or within a resource. Data events are often high-volume activities.
 
-By default, CloudTrail doesn’t log
+By default, CloudTrail doesn't log
 data events. The CloudTrail **Event history** doesn't record data events.
 
 Additional charges apply for data events. For more information about CloudTrail pricing, see

@@ -15,7 +15,7 @@ following:
   If you want to use the default encryption option with an AWS managed key, you don't need
   any additional permissions.
 
-To use SSE-S3 encryption, you specify **SSE_S3** as the encryption mode
+To use SSE-S3 encryption, you specify **SSE\_S3** as the encryption mode
 when you create or update your canary. You do not need any additional permissions to use this
 encryption mode. For more information, see [Protecting data using
 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md").

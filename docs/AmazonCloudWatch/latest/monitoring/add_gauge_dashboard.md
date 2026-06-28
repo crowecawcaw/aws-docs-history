@@ -22,7 +22,7 @@ when you create this widget.
    then
    select the metric that you want to graph.
 5. Choose **Options**.
-   Under **_Gauge range_**,
+   Under _**Gauge range**_,
    set values
    for **Min** and **Max**.
    For percentages,

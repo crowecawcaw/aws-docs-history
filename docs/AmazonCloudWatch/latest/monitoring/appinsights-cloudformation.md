@@ -15,7 +15,7 @@ Guide_, see [ApplicationInsights resource type reference](../../../AWSCloudForma
 - [Create an Application Insights application with detailed settings](#appinsights-cloudformation-apply-detailed "#appinsights-cloudformation-apply-detailed")
 - [Create an Application Insights application with CUSTOM mode component configuration](#appinsights-cloudformation-custom "#appinsights-cloudformation-custom")
 - [Create an Application Insights application with DEFAULT mode component configuration](#appinsights-cloudformation-default "#appinsights-cloudformation-default")
-- [Create an Application Insights application with DEFAULT_WITH_OVERWRITE mode component configuration](#appinsights-cloudformation-default-with-overwrite "#appinsights-cloudformation-default-with-overwrite")
+- [Create an Application Insights application with DEFAULT\_WITH\_OVERWRITE mode component configuration](#appinsights-cloudformation-default-with-overwrite "#appinsights-cloudformation-default-with-overwrite")
 
 ## Create an Application Insights application for the entire CloudFormation stack
 
@@ -506,13 +506,12 @@ The following template performs these actions:
   `DOT_NET_CORE` tier. Overwritten configuration settings are
   specified in the `DefaultOverwriteComponentConfiguration`:
 
-      + At the component level `AlarmMetrics` settings are
-       overwritten.
-      + At the sub-component level, for the `EC2_Instance` type
-       sub-components, `Logs` settings are overwritten.
-
-  For more information, see [UpdateComponentConfiguration](../../../cloudwatch/latest/APIReference/API_UpdateComponentConfiguration.md "../../../cloudwatch/latest/APIReference/API_UpdateComponentConfiguration.md") in the _Amazon CloudWatch Application Insights API
-  Reference_.
+  - At the component level `AlarmMetrics` settings are
+    overwritten.
+  - At the sub-component level, for the `EC2_Instance` type
+    sub-components, `Logs` settings are overwritten.
+    For more information, see [UpdateComponentConfiguration](../../../cloudwatch/latest/APIReference/API_UpdateComponentConfiguration.md "../../../cloudwatch/latest/APIReference/API_UpdateComponentConfiguration.md") in the _Amazon CloudWatch Application Insights API
+    Reference_.
 
 **Template in JSON format**
 

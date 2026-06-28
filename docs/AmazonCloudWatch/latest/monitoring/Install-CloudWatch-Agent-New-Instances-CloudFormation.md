@@ -17,7 +17,7 @@ contains templates for both Linux and Windows instances.
   embedded into the CloudFormation template. By default, the Linux templates collect the metrics
   `mem_used_percent` and `swap_used_percent`, and the Windows
   templates collect `Memory % Committed Bytes In Use` and `Paging File %
-Usage`.
+ Usage`.
 
 To modify these templates to collect different metrics, modify the following section
 of the template. The following example is from the template for Linux servers. Follow

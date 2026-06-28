@@ -1,8 +1,8 @@
 # Create an alarm on Performance Insights counter metrics from an AWS database
 
-CloudWatch includes a **DB_PERF_INSIGHTS** metric math function which you can
+CloudWatch includes a **DB\_PERF\_INSIGHTS** metric math function which you can
 use to bring Performance Insights counter metrics into CloudWatch from Amazon Relational Database Service and Amazon DocumentDB (with MongoDB compatibility).
-**DB_PERF_INSIGHTS** also brings in the `DBLoad` metric at
+**DB\_PERF\_INSIGHTS** also brings in the `DBLoad` metric at
 sub-minute intervals. You can set CloudWatch alarms on these metrics.
 
 For more information about Amazon RDS Performance Insights, see [Monitoring DB load with
@@ -12,21 +12,21 @@ For more information about Amazon DocumentDB Performance Insights, see [Monitori
 Performance Insights](../../../documentdb/latest/developerguide/performance-insights.html.md "../../../documentdb/latest/developerguide/performance-insights.html.md").
 
 Anomaly detection is not supported for alarms based on the
-**DB_PERF_INSIGHTS** function.
+**DB\_PERF\_INSIGHTS** function.
 
 ###### Note
 
 High-resolution metrics with sub-minute granularity retrieved by
-**DB_PERF_INSIGHTS** are only applicable to the
+**DB\_PERF\_INSIGHTS** are only applicable to the
 **DBLoad** metric, or for operating system metrics if you have enabled
 Enhanced Monitoring at a higher resolution. For more information about Amazon RDS enhanced
 monitoring, see [Monitoring OS metrics with
 Enhanced Monitoring.](../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md "../../../AmazonRDS/latest/UserGuide/USER_Monitoring.OS.md").
 
-You can create a high-resolution alarm using the **DB_PERF_INSIGHTS**
+You can create a high-resolution alarm using the **DB\_PERF\_INSIGHTS**
 function. The maximum evaluation range for a high-resolution alarm is three hours. You can
 use the CloudWatch console to graph metrics retrieved with the
-**DB_PERF_INSIGHTS** function for any time range.
+**DB\_PERF\_INSIGHTS** function for any time range.
 
 ###### To create an alarm that's based on Performance Insights metrics
 
@@ -37,25 +37,25 @@ use the CloudWatch console to graph metrics retrieved with the
 3. Choose **Create alarm**.
 4. Choose **Select Metric**.
 5. Choose the **Add math** dropdown, and then select **All
-   functions**, **DB_PERF_INSIGHTS** from the list.
+   functions**, **DB\_PERF\_INSIGHTS** from the list.
 
-After you choose **DB_PERF_INSIGHTS**, a math expression box
-appears where you apply or edit math expressions. 6. In the math expression box, enter your **DB_PERF_INSIGHTS** math
+After you choose **DB\_PERF\_INSIGHTS**, a math expression box
+appears where you apply or edit math expressions. 6. In the math expression box, enter your **DB\_PERF\_INSIGHTS** math
 expression, and then choose **Apply**.
 
-For example, `DB_PERF_INSIGHTS(‘RDS’, ‘db-ABCDEFGHIJKLMNOPQRSTUVWXY1’,
- ‘os.cpuUtilization.user.avg’)`
+For example, `DB_PERF_INSIGHTS('RDS', 'db-ABCDEFGHIJKLMNOPQRSTUVWXY1',
+ 'os.cpuUtilization.user.avg')`
 
 ###### Important
 
-When you use the **DB_PERF_INSIGHTS** math expression, you must
+When you use the **DB\_PERF\_INSIGHTS** math expression, you must
 specify the Unique Database Resource ID of the database. This is different than the
 database identifier. To find the database resource ID in the Amazon RDS console, choose the
 DB instance to see its details. Then choose the **Configuration**
 tab. The **Resource ID** is displayed in the
 **Configuration** section.
 
-For information about the **DB_PERF_INSIGHTS** function and other
+For information about the **DB\_PERF\_INSIGHTS** function and other
 functions that are available for metric math, see [Metric math syntax and functions](using-metric-math.md#metric-math-syntax "using-metric-math.md#metric-math-syntax"). 7. Choose **Select metric**.
 
 The **Specify metric and conditions** page appears, showing a graph

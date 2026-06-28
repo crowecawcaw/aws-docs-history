@@ -9,92 +9,92 @@ CloudWatch Application Insights supports the following metrics:
 
 ## Container Insights metrics
 
-cluster_failed_node_count
+cluster\_failed\_node\_count
 
-cluster_node_count
+cluster\_node\_count
 
-namespace_number_of_running_pods
+namespace\_number\_of\_running\_pods
 
-node_cpu_limit
+node\_cpu\_limit
 
-node_cpu_reserved_capacity
+node\_cpu\_reserved\_capacity
 
-node_cpu_usage_total
+node\_cpu\_usage\_total
 
-node_cpu_utilization
+node\_cpu\_utilization
 
-node_filesystem_utilization
+node\_filesystem\_utilization
 
-node_memory_limit
+node\_memory\_limit
 
-node_memory_reserved_capacity
+node\_memory\_reserved\_capacity
 
-node_memory_utilization
+node\_memory\_utilization
 
-node_memory_working_set
+node\_memory\_working\_set
 
-node_network_total_bytes
+node\_network\_total\_bytes
 
-node_number_of_running_containers
+node\_number\_of\_running\_containers
 
-node_number_of_running_pods
+node\_number\_of\_running\_pods
 
-pod_cpu_reserved_capacity
+pod\_cpu\_reserved\_capacity
 
-pod_cpu_utilization
+pod\_cpu\_utilization
 
-pod_cpu_utilization_over_pod_limit
+pod\_cpu\_utilization\_over\_pod\_limit
 
-pod_memory_reserved_capacity
+pod\_memory\_reserved\_capacity
 
-pod_memory_utilization
+pod\_memory\_utilization
 
-pod_memory_utilization_over_pod_limit
+pod\_memory\_utilization\_over\_pod\_limit
 
-pod_network_rx_bytes
+pod\_network\_rx\_bytes
 
-pod_network_tx_bytes
+pod\_network\_tx\_bytes
 
-service_number_of_running_pods
+service\_number\_of\_running\_pods
 
 ## Container Insights Prometheus metrics
 
 **Java JMX metrics**
 
-java_lang_memory_heapmemoryusage_used
+java\_lang\_memory\_heapmemoryusage\_used
 
-java_lang_memory_heapmemoryusage_committed
+java\_lang\_memory\_heapmemoryusage\_committed
 
-java_lang_operatingsystem_openfiledescriptorcount
+java\_lang\_operatingsystem\_openfiledescriptorcount
 
-java_lang_operatingsystem_maxfiledescriptorcount
+java\_lang\_operatingsystem\_maxfiledescriptorcount
 
-java_lang_operatingsystem_freephysicalmemorysize
+java\_lang\_operatingsystem\_freephysicalmemorysize
 
-java_lang_operatingsystem_freeswapspacesize
+java\_lang\_operatingsystem\_freeswapspacesize
 
-java_lang_threading_threadcount
+java\_lang\_threading\_threadcount
 
-java_lang_classloading_loadedclasscount
+java\_lang\_classloading\_loadedclasscount
 
-java_lang_threading_daemonthreadcount
+java\_lang\_threading\_daemonthreadcount
 
-java_lang_garbagecollector_collectiontime_copy
+java\_lang\_garbagecollector\_collectiontime\_copy
 
-java_lang_garbagecollector_collectiontime_ps_scavenge
+java\_lang\_garbagecollector\_collectiontime\_ps\_scavenge
 
-java_lang_garbagecollector_collectiontime_parnew
+java\_lang\_garbagecollector\_collectiontime\_parnew
 
-java_lang_garbagecollector_collectiontime_marksweepcompact
+java\_lang\_garbagecollector\_collectiontime\_marksweepcompact
 
-java_lang_garbagecollector_collectiontime_ps_marksweep
+java\_lang\_garbagecollector\_collectiontime\_ps\_marksweep
 
-java_lang_garbagecollector_collectiontime_concurrentmarksweep
+java\_lang\_garbagecollector\_collectiontime\_concurrentmarksweep
 
-java_lang_garbagecollector_collectiontime_g1_young_generation
+java\_lang\_garbagecollector\_collectiontime\_g1\_young\_generation
 
-java_lang_garbagecollector_collectiontime_g1_old_generation
+java\_lang\_garbagecollector\_collectiontime\_g1\_old\_generation
 
-java_lang_garbagecollector_collectiontime_g1_mixed_generation
+java\_lang\_garbagecollector\_collectiontime\_g1\_mixed\_generation
 
-java_lang_operatingsystem_committedvirtualmemorysize
+java\_lang\_operatingsystem\_committedvirtualmemorysize

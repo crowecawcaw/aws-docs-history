@@ -24,7 +24,7 @@ service.
 Network Flow Monitor uses the following service-linked roles:
 
 - **AWSServiceRoleForNetworkFlowMonitor**
-- **AWSServiceRoleForNetworkFlowMonitor_Topology**
+- **AWSServiceRoleForNetworkFlowMonitor\_Topology**
 
 ### Service-linked role permissions for AWSServiceRoleForNetworkFlowMonitor
 
@@ -42,16 +42,16 @@ role:
 
 - `networkflowmonitor.amazonaws.com`
 
-### Service-linked role permissions for AWSServiceRoleForNetworkFlowMonitor_Topology
+### Service-linked role permissions for AWSServiceRoleForNetworkFlowMonitor\_Topology
 
-Network Flow Monitor uses the service-linked role named **AWSServiceRoleForNetworkFlowMonitor_Topology**.
+Network Flow Monitor uses the service-linked role named **AWSServiceRoleForNetworkFlowMonitor\_Topology**.
 This role allows Network Flow Monitor to generate a topology snapshot of the resources that you use with Network Flow Monitor.
 
 This service-linked role uses the managed policy `CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy`.
 
 To view the permissions for this policy, see [CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy](../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy.md "../../../aws-managed-policy/latest/reference/CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy.md") in the _AWS Managed Policy Reference_.
 
-The **AWSServiceRoleForNetworkFlowMonitor_Topology** service-linked role trusts the following service to assume the
+The **AWSServiceRoleForNetworkFlowMonitor\_Topology** service-linked role trusts the following service to assume the
 role:
 
 - `topology.networkflowmonitor.amazonaws.com`
@@ -59,7 +59,7 @@ role:
 ## Creating a service-linked role for Network Flow Monitor
 
 You do not need to manually create the service-linked roles for Network Flow Monitor. The first time that you initialize
-Network Flow Monitor, Network Flow Monitor creates **AWSServiceRoleForNetworkFlowMonitor** and **AWSServiceRoleForNetworkFlowMonitor_Topology** for you.
+Network Flow Monitor, Network Flow Monitor creates **AWSServiceRoleForNetworkFlowMonitor** and **AWSServiceRoleForNetworkFlowMonitor\_Topology** for you.
 
 For more information, see [Creating a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the _IAM User Guide_.
 
@@ -85,7 +85,7 @@ then the deletion might fail. If that happens, wait for a few minutes and then t
 **To manually delete the service-linked role using IAM**
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the **AWSServiceRoleForNetworkFlowMonitor**
-or the **AWSServiceRoleForNetworkFlowMonitor_Topology**
+or the **AWSServiceRoleForNetworkFlowMonitor\_Topology**
 service-linked role. For more information, see [Deleting a
 service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.
 

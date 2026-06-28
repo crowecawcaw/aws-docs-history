@@ -175,7 +175,7 @@ Setup IAM permissions for Kubernetes
     ```
 
 5. Configure the OTLP exporter in your collector configuration to send
-   telemetry to the CloudWatch endpoint. See examples below.
+telemetry to the CloudWatch endpoint. See examples below.
 
 ## Authenticate with a bearer token (API key)
 
@@ -294,7 +294,7 @@ service:
 
 ###### Note
 
-Configure your OpenTelemetry SDKs to _always_on_ sampling configuration to reliably record 100% spans and get full visibility into your critical applications with CloudWatch Application Signals. For more information, see an [OpenTelemetry Java SDK sampler configuration](https://opentelemetry.io/docs/languages/java/sdk/#sampler "https://opentelemetry.io/docs/languages/java/sdk/#sampler") example.
+Configure your OpenTelemetry SDKs to _always\_on_ sampling configuration to reliably record 100% spans and get full visibility into your critical applications with CloudWatch Application Signals. For more information, see an [OpenTelemetry Java SDK sampler configuration](https://opentelemetry.io/docs/languages/java/sdk/#sampler "https://opentelemetry.io/docs/languages/java/sdk/#sampler") example.
 For an example on setting up OpenTelemetry Collector with X-Ray OTLP endpoint, see the [application signals demo](https://github.com/aws-observability/application-signals-demo/blob/main/scripts/opentelemetry/otel_simple_setup/opentelemetry.yaml "https://github.com/aws-observability/application-signals-demo/blob/main/scripts/opentelemetry/otel_simple_setup/opentelemetry.yaml") repository.
 
 Copy and paste the content below to configure your collector to send metrics to the OTLP endpoints.

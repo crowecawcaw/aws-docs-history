@@ -36,9 +36,9 @@ The screenshot appears, and you can do one of the following:
      .
 
 6. Under **Script editor**, **Runtime version**, select
-   a synthetics runtime version to execute the canary. For information on synthetics runtime
-   versions, see [Synthetics
-   runtime versions](CloudWatch_Synthetics_Canaries_Library.md "CloudWatch_Synthetics_Canaries_Library.md") .
+a synthetics runtime version to execute the canary. For information on synthetics runtime
+versions, see [Synthetics
+runtime versions](CloudWatch_Synthetics_Canaries_Library.md "CloudWatch_Synthetics_Canaries_Library.md") .
 
 Under **Browser configuration**, you can enable the browser to test
 the canary. You must select at least one browser. 7. (Optional) To add or remove replica locations from a multilocation canary, update

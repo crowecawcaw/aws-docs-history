@@ -98,7 +98,7 @@ space more efficiently by writing brief information representing the empty block
 instead of the actual null bytes which makes up the block. This makes the actual size of a
 sparse file usually much smaller than its apparent size.
 
-However, the CloudWatch agent doesn’t treat sparse files differently than it treats normal
+However, the CloudWatch agent doesn't treat sparse files differently than it treats normal
 files. When the agent reads a sparse file, the empty blocks are treated as "real" blocks
 filled with null bytes. Because of this, the CloudWatch agent publishes as many bytes as the
 apparent size of a sparse file to CloudWatch.
@@ -400,7 +400,7 @@ service:
 ```
 
 To configure the CloudWatch agent, start the CloudWatch agent using the `fetch-config`
-option and specify the CloudWatch agent’s configuration file. CloudWatch agent requires at least one
+option and specify the CloudWatch agent's configuration file. CloudWatch agent requires at least one
 CloudWatch agent configuration file.
 
 ```

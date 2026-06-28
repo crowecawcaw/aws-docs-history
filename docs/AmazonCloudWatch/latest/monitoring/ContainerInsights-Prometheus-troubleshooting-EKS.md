@@ -12,9 +12,10 @@ kubectl get pod -n amazon-cloudwatch
 ```
 
 The output should include a row with
-`cwagent-prometheus-`id`` in the`NAME`column and
-`Running`in the`STATUS
-column.`
+`cwagent-prometheus-`id``
+in the `NAME` column and
+`Running` in the `STATUS
+ column.`
 
 To display details about the running pod, enter the following command. Replace
 `pod-name` with the complete name of your pod that has a
@@ -158,9 +159,9 @@ new log events in the log stream, check the following:
 - Check that the Prometheus metrics exporter endpoints are set up
   correctly
 - Check that the Prometheus scraping configurations in the `config map:
-cwagent-prometheus` section of the CloudWatch agent YAML file is correct. The
+ cwagent-prometheus` section of the CloudWatch agent YAML file is correct. The
   configuration should be the same as it would be in a Prometheus configuration
-  file. For more information, see [<scrape_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation.
+  file. For more information, see [<scrape\_config>](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") in the Prometheus documentation.
 
 If the Prometheus metrics are ingested as log events correctly, check that the
 embedded metric format settings are added into the log events to generate the

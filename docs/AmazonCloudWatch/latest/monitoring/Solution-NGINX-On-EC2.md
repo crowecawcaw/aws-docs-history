@@ -101,7 +101,7 @@ solution.
    appropriate log group.
 5. In the **Logs** section, for **Log Storage/Archival
    (Standard and Vended Logs)**, select `Yes to Store Logs:
-Assuming 1 month retention`. Modify this value if you decide to make custom
+ Assuming 1 month retention`. Modify this value if you decide to make custom
    changes to the retention period.
 6. In the **Dashboards and Alarms** section, for **Number
    of Dashboards**, enter `1`.
@@ -281,7 +281,7 @@ The CloudWatch agent with Prometheus monitoring needs two configurations to scra
 Prometheus metrics. Each configuration will be stored as a separate parameter in SSM's
 Parameter Store, as detailed later in [Step 2: Store the recommended CloudWatch agent configuration file in Systems Manager Parameter Store](#Solution-NGINX-Agent-Step2 "#Solution-NGINX-Agent-Step2").
 
-The first configuration is for the Prometheus exporter, as documented in Prometheus' [scrape_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") documentation. The second configuration is for the CloudWatch agent.
+The first configuration is for the Prometheus exporter, as documented in Prometheus' [scrape\_config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config "https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config") documentation. The second configuration is for the CloudWatch agent.
 
 **Prometheus configuration**
 
@@ -561,7 +561,7 @@ in the dashboard name, such as `NGINXDashboard-us-east-1`. 4. Preview the dashbo
 
 ###### To create the dashboard via CloudFormation
 
-1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json")
+1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json")
    .
 2. Verify that the selected Region on the console is the Region where the NGINX
    workload is running.
@@ -573,7 +573,7 @@ in the dashboard name, such as `NGINXDashboard-us-east-1`. 4. Preview the dashbo
 6. Acknowledge access capabilities for transforms under **Capabilities
    and transforms**. Note that CloudFormation doesn't add any IAM resources.
 7. Review the settings, then choose **Create stack**.
-8. After the stack status is **CREATE_COMPLETE**, choose the **Resources** tab under the created stack and then choose the link under **Physical
+8. After the stack status is **CREATE\_COMPLETE**, choose the **Resources** tab under the created stack and then choose the link under **Physical
    ID** to go to the dashboard. You can also access the dashboard in the CloudWatch
    console by choosing **Dashboards** in the left navigation pane of the
    console, and finding the dashboard name under **Custom
@@ -583,7 +583,7 @@ If you want to edit the template file first to customize it, choose the **Upload
 under **Create Stack Wizard** to upload the edited template. For more information,
 see [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 You can use the following link to download the template:
-[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json " https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+[https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json " https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/NGINX_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 
 ### Get started with the NGINX dashboard
 

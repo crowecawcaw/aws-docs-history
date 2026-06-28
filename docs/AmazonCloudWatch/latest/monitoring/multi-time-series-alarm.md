@@ -55,7 +55,7 @@ This alarm differs from single-instance alarms in several ways:
   This alarm differs from aggregated metric-query alarms in several ways:
 
 - It monitors time series individually instead of an aggregate, using the `GROUP
-BY` clause.
+ BY` clause.
 - It follows the level of granularity that you set according to your needs: for
   example, it can alarm on every Amazon EC2 instance (most granular level of Amazon EC2 metrics) or
   per Amazon RDS table (aggregated across various operations on a table), depending on which

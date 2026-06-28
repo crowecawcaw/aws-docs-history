@@ -262,14 +262,14 @@ Account-based application monitoring
     ```
 
 4. After you submit your application monitoring configuration, you
-   will be taken to the details page for the application, where you can
-   view the **Application summary**, the list of
-   **Monitored components** and
-   **Unmonitored components**, and, by selecting
-   the tabs next to **Components**, the
-   **Configuration history**, **Log
-   patterns**, and any **Tags** that you
-   have applied.
+will be taken to the details page for the application, where you can
+view the **Application summary**, the list of
+**Monitored components** and
+**Unmonitored components**, and, by selecting
+the tabs next to **Components**, the
+**Configuration history**, **Log
+patterns**, and any **Tags** that you
+have applied.
 
 To view insights for the application, choose **View
 Insights**.

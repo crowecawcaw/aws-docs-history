@@ -272,7 +272,7 @@ When enabling CloudTrail logs using the SLC path:
 - Events use the retention period configured for the log group
 - For CloudTrail events, as part of the enablement wizard, you can choose at least
   one event type to ingest to CloudWatch.
-- If events are delivered with delay (indicated by addendum reason DELIVERY_DELAY)
+- If events are delivered with delay (indicated by addendum reason DELIVERY\_DELAY)
   and you previously configured a shorter retention period, delayed events might only be
   available for the duration of the shorter retention period.
 
@@ -292,7 +292,7 @@ When enabling detailed monitoring:
 
 When enabling Security Hub logging:
 
-- Uses managed CloudWatch log group pattern aws/securityhub_cspm/findings
+- Uses managed CloudWatch log group pattern aws/securityhub\_cspm/findings
 - CloudWatch does not enable log deliveries for Security Hub that already are ingesting
   logs to managed CloudWatch Logs
 
@@ -336,7 +336,7 @@ When enabling CloudFront Distribution logging:
 When enabling MSK Cluster metrics:
 
 - Only supports METRICS telemetry type
-- You can configure enhanced monitoring levels (PER_BROKER, PER_TOPIC_PER_BROKER,
+- You can configure enhanced monitoring levels (PER\_BROKER, PER\_TOPIC\_PER\_BROKER,
   etc.) to control the granularity of metrics collected
 - Rules with different enhanced monitoring levels can coexist for the same MSK
   cluster

@@ -29,7 +29,7 @@ For more information, see [Service-linked roles for Network Flow Monitor](using-
 ## AWS managed policy: CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy
 
 You can't attach `CloudWatchNetworkFlowMonitorTopologyServiceRolePolicy` to your IAM entities. This policy is attached
-to a service-linked role named **AWSServiceRoleForNetworkFlowMonitor_Topology**. Using these permissions, as
+to a service-linked role named **AWSServiceRoleForNetworkFlowMonitor\_Topology**. Using these permissions, as
 well as internal meta data information gathering (for performance efficiencies), this service-linked role gathers meta data about resource
 network configurations, such as describing route tables and gateways, for resources that this service monitors network traffic for. This meta data
 enables Network Flow Monitor to generate topology snapshots of the resources. When there is network degradation, Network Flow Monitor uses the topologies to

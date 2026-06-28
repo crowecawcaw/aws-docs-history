@@ -47,5 +47,4 @@ The page displays the Managed Instances view with metrics for your Lambda functi
     * **Instance Type** – Displays aggregated metrics at the instance type level.
     * **Function** – Displays metrics at the individual function level. The top part of the page displays graphs with aggregated metrics of all your Lambda functions in the region that has Lambda Insights enabled. Lower on the page is a table that lists the functions. To filter by function name, type part of the function name in the box near the top of the page.
 
-5. Use the **Filters** section to filter by capacity provider, instance type, or function.
-6. To add this view to a dashboard as a widget, choose **Add to dashboard**.
+5. Use the **Filters** section to filter by capacity provider, instance type, or function. 6. To add this view to a dashboard as a widget, choose **Add to dashboard**.

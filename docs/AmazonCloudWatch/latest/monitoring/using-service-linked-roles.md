@@ -377,15 +377,15 @@ JSON
 ## Service-linked role permissions for CloudWatch alarms Systems Manager OpsCenter actions
 
 CloudWatch uses the service-linked role named
-**AWSServiceRoleForCloudWatchAlarms_ActionSSM** – CloudWatch
+**AWSServiceRoleForCloudWatchAlarms\_ActionSSM** – CloudWatch
 uses this service-linked role to perform Systems Manager OpsCenter actions when a CloudWatch alarm
 goes into ALARM state.
 
-The AWSServiceRoleForCloudWatchAlarms_ActionSSM service-linked role trusts the
+The AWSServiceRoleForCloudWatchAlarms\_ActionSSM service-linked role trusts the
 CloudWatch service to assume the role. CloudWatch alarms invoke the Systems Manager OpsCenter actions when
 called upon by the alarm.
 
-The **AWSServiceRoleForCloudWatchAlarms_ActionSSM**
+The **AWSServiceRoleForCloudWatchAlarms\_ActionSSM**
 service-linked role permissions policy allows Systems Manager to complete the following
 actions:
 
@@ -394,15 +394,15 @@ actions:
 ## Service-linked role permissions for CloudWatch alarms Systems Manager Incident Manager actions
 
 CloudWatch uses the service-linked role named
-**AWSServiceRoleForCloudWatchAlarms_ActionSSMIncidents**
+**AWSServiceRoleForCloudWatchAlarms\_ActionSSMIncidents**
 – CloudWatch uses this service-linked role to start Incident Manager incidents when
 a CloudWatch alarm goes into ALARM state.
 
-The **AWSServiceRoleForCloudWatchAlarms_ActionSSMIncidents**
+The **AWSServiceRoleForCloudWatchAlarms\_ActionSSMIncidents**
 service-linked role trusts the CloudWatch service to assume the role. CloudWatch alarms invoke
 the Systems Manager Incident Manager action when called upon by the alarm.
 
-The **AWSServiceRoleForCloudWatchAlarms_ActionSSMIncidents**
+The **AWSServiceRoleForCloudWatchAlarms\_ActionSSMIncidents**
 service-linked role permissions policy allows Systems Manager to complete the following
 actions:
 
@@ -427,11 +427,11 @@ role trusts the CloudWatch service to assume the role.
 ## Service-linked role permissions for CloudWatch database Performance Insights
 
 CloudWatch uses the service-linked role named
-**AWSServiceRoleForCloudWatchMetrics_DbPerfInsights** –
+**AWSServiceRoleForCloudWatchMetrics\_DbPerfInsights** –
 CloudWatch uses this role to retrieve Performance Insights metrics for creating alarms and
 snapshotting.
 
-The **AWSServiceRoleForCloudWatchMetrics_DbPerfInsights**
+The **AWSServiceRoleForCloudWatchMetrics\_DbPerfInsights**
 service-linked role has the
 `AWSServiceRoleForCloudWatchMetrics_DbPerfInsightsServiceRolePolicy`
 IAM policy attached. The contents of that policy are as follows:
@@ -459,7 +459,7 @@ JSON
 
 ```
 
-The **AWSServiceRoleForCloudWatchMetrics_DbPerfInsights**
+The **AWSServiceRoleForCloudWatchMetrics\_DbPerfInsights**
 service-linked role trusts the CloudWatch service to assume the role.
 
 ## Service-linked role permissions for CloudWatch Logs centralization
@@ -498,7 +498,7 @@ assume the role.
 You do not need to manually create any of these service-linked roles. The first
 time you create an alarm in the AWS Management Console, the IAM CLI, or the IAM API,
 CloudWatch creates AWSServiceRoleForCloudWatchEvents and
-**AWSServiceRoleForCloudWatchAlarms_ActionSSM** for you.
+**AWSServiceRoleForCloudWatchAlarms\_ActionSSM** for you.
 
 The first time that you enable service and topology discovery, Application Signals
 creates **AWSServiceRoleForCloudWatchApplicationSignals** for
@@ -510,7 +510,7 @@ cross-Region functionality, CloudWatch creates
 
 When you first create an alarm that uses the `DB_PERF_INSIGHTS` metric
 math function, CloudWatch creates
-**AWSServiceRoleForCloudWatchMetrics_DbPerfInsights** for
+**AWSServiceRoleForCloudWatchMetrics\_DbPerfInsights** for
 you.
 
 For more information, see [Creating a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the
@@ -520,9 +520,9 @@ _IAM User Guide_.
 
 CloudWatch does not allow you to edit the
 **AWSServiceRoleForCloudWatchEvents**,
-**AWSServiceRoleForCloudWatchAlarms_ActionSSM**,
+**AWSServiceRoleForCloudWatchAlarms\_ActionSSM**,
 **ServiceRoleForCloudWatchCrossAccountV2**, or
-**AWSServiceRoleForCloudWatchMetrics_DbPerfInsights** roles.
+**AWSServiceRoleForCloudWatchMetrics\_DbPerfInsights** roles.
 After you create these roles, you cannot change their names because various entities
 might reference these roles. However, you can edit the description of these roles
 using IAM.
@@ -587,14 +587,14 @@ instances, we recommend that you delete the AWSServiceRoleForCloudWatchEvents
 role.
 
 If you not longer have alarms that perform Systems Manager OpsCenter actions, we recommend
-that you delete the AWSServiceRoleForCloudWatchAlarms_ActionSSM role.
+that you delete the AWSServiceRoleForCloudWatchAlarms\_ActionSSM role.
 
 If you delete all alarms that use the `DB_PERF_INSIGHTS` metric math
 function, we recommend that you delete the
-**AWSServiceRoleForCloudWatchMetrics_DbPerfInsights**
+**AWSServiceRoleForCloudWatchMetrics\_DbPerfInsights**
 service-linked role.
 
-That way you don’t have an unused entity that is not actively monitored or
+That way you don't have an unused entity that is not actively monitored or
 maintained. However, you must clean up your service-linked role before you can
 delete it.
 
@@ -720,6 +720,6 @@ subscribe to the RSS feed on the CloudWatch Document history page.
 | [AWSServiceRoleForObservabilityAdmin](#service-linked-role-telemetry-config "#service-linked-role-telemetry-config") – New<br>service-linked role                                             | CloudWatch added this new service-linked role and corresponding<br>managed policy, AWSObservabilityAdminServiceRolePolicy, to<br>support resource and telemetry config discovery for AWS<br>Organizations.                                                                                                                                                   | November 26, 2024  |
 | [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– Update to permissions of service-linked role<br>policy                      | CloudWatch add more log groups to the scope of the<br>`logs:StartQuery` and<br>`logs:GetQueryResults` permissions granted by<br>this role.                                                                                                                                                                                                                   | April 24, 2024     |
 | [AWSServiceRoleForCloudWatchApplicationSignals](#service-linked-role-signals "#service-linked-role-signals")<br>– New service-linked role                                                     | CloudWatch added this new service-linked role to allow CloudWatch<br>Application Signals to collect CloudWatch Logs data, X-Ray trace data,<br>CloudWatch metrics data, and tagging data from applications that you<br>have enabled for CloudWatch Application Signals.                                                                                      | November 9, 2023   |
-| [AWSServiceRoleForCloudWatchMetrics_DbPerfInsights](#service-linked-role-permissions-dbperfinsights "#service-linked-role-permissions-dbperfinsights")<br>– New service-linked role           | CloudWatch added this new service-linked role to allow CloudWatch to fetch<br>Performance Insights metrics for alarming and snapshotting. An<br>IAM policy is attached to this role, and the policy grants<br>permission to CloudWatch to fetch Performance Insights metrics on your<br>behalf.                                                              | September 13, 2023 |
-| [AWSServiceRoleForCloudWatchAlarms_ActionSSMIncidents](#service-linked-role-permissions-incident-manager "#service-linked-role-permissions-incident-manager")<br>– New service-linked role    | CloudWatch added a new service-linked role to allow CloudWatch to create<br>incidents in AWS Systems Manager Incident Manager.                                                                                                                                                                                                                               | April 26, 2021     |
+| [AWSServiceRoleForCloudWatchMetrics\_DbPerfInsights](#service-linked-role-permissions-dbperfinsights "#service-linked-role-permissions-dbperfinsights")<br>– New service-linked role          | CloudWatch added this new service-linked role to allow CloudWatch to fetch<br>Performance Insights metrics for alarming and snapshotting. An<br>IAM policy is attached to this role, and the policy grants<br>permission to CloudWatch to fetch Performance Insights metrics on your<br>behalf.                                                              | September 13, 2023 |
+| [AWSServiceRoleForCloudWatchAlarms\_ActionSSMIncidents](#service-linked-role-permissions-incident-manager "#service-linked-role-permissions-incident-manager")<br>– New service-linked role   | CloudWatch added a new service-linked role to allow CloudWatch to create<br>incidents in AWS Systems Manager Incident Manager.                                                                                                                                                                                                                               | April 26, 2021     |
 | CloudWatch started tracking<br>changes                                                                                                                                                        | CloudWatch started tracking changes for its service-linked<br>roles.                                                                                                                                                                                                                                                                                         | April 26, 2021     |

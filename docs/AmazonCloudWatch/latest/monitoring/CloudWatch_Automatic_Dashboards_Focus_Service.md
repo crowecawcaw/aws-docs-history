@@ -42,27 +42,26 @@ ways:
      group.
 
 6. When viewing alarms, you can focus on a particular alarm in several
-   ways:
+ways:
 
-   1. To see more details about an alarm, hover on the alarm, and choose the
-      actions icon, **View in alarms**.
+    1. To see more details about an alarm, hover on the alarm, and choose the
+     actions icon, **View in alarms**.
 
-   The alarms view appears in a new tab, displaying a list of your
-   alarms, along with details about the chosen alarm. To see the history
-   for this alarm, choose the **History** tab.
+
+    The alarms view appears in a new tab, displaying a list of your
+     alarms, along with details about the chosen alarm. To see the history
+     for this alarm, choose the **History** tab.
 
 7. Alarms are always refreshed one time per minute. To refresh the view, choose
-   the refresh icon (two curved arrows) at the top right of the screen. To change
-   the automatic refresh rate for items on the screen other than alarms, choose the
-   down arrow next to the refresh icon and choose a refresh rate. You can also
-   choose to turn off automatic refresh.
-8. To change the time range shown in all graphs and alarms currently displayed,
-   next to **Time range** at the top of the screen, choose the
-   range. To select from more time range options than those displayed by default,
-   choose **custom**.
-9. To return to the cross-service dashboard, choose **Overview**
-   in the list at the top of the screen that currently shows the service you are
-   focusing on.
+the refresh icon (two curved arrows) at the top right of the screen. To change
+the automatic refresh rate for items on the screen other than alarms, choose the
+down arrow next to the refresh icon and choose a refresh rate. You can also
+choose to turn off automatic refresh. 8. To change the time range shown in all graphs and alarms currently displayed,
+next to **Time range** at the top of the screen, choose the
+range. To select from more time range options than those displayed by default,
+choose **custom**. 9. To return to the cross-service dashboard, choose **Overview**
+in the list at the top of the screen that currently shows the service you are
+focusing on.
 
 Alternatively, from any view, you can choose **CloudWatch**
 at the top of the screen to clear all filters and return to the overview

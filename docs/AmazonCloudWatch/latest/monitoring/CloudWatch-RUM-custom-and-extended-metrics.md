@@ -148,8 +148,7 @@ This number is calculated by multiplying the number of chosen metric names by th
 
     Only the locations where this app monitor has reported metrics from will appear in the list to choose from.
 
-8. When you are finished with your choices, choose **Send metrics**.
-9. (Optional) In the **Extended metrics** list, to create an alarm that watches one of the metrics, choose **Create alarm** in that metric's row.
+8. When you are finished with your choices, choose **Send metrics**. 9. (Optional) In the **Extended metrics** list, to create an alarm that watches one of the metrics, choose **Create alarm** in that metric's row.
 
 For general information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md"). For a tutorial for setting an alarm on a CloudWatch RUM extended metric, see [Tutorial: create an extended metric and alarm it](#CloudWatch-RUM-extended-metrics-alarmtutorial "#CloudWatch-RUM-extended-metrics-alarmtutorial").
 
@@ -210,10 +209,10 @@ minutes**. 13. Under **Conditions**, do the following:
      number.
 
 14. (Optional) By default, the alarm goes into ALARM state as soon as
-    the number of errors exceeds the threshold number you set during a
-    5-minute period. You can optionally change this so that the alarm
-    goes into ALARM state only if this number is exceeded for more than
-    one 5-minute period.
+the number of errors exceeds the threshold number you set during a
+5-minute period. You can optionally change this so that the alarm
+goes into ALARM state only if this number is exceeded for more than
+one 5-minute period.
 
 To do so, choose **Additional configuration** and
 then for **Datapoints to alarm**, specify how many
@@ -234,8 +233,6 @@ notification with Amazon SNS, do the following:
      If you create a new one, specify a name for it and add at
      least one email address to it.
 
-17. Choose **Next**.
-18. Enter a name and optional description for the alarm, and choose
-    **Next**.
-19. Review the details and choose **Create
-    alarm**.
+17. Choose **Next**. 18. Enter a name and optional description for the alarm, and choose
+**Next**. 19. Review the details and choose **Create
+alarm**.

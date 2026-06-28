@@ -34,76 +34,76 @@ different AWS Regions. For more information, see [Cross-Region inference](Invest
 
 ###### To create an investigation group in your account
 
-1.  Open the CloudWatch console at
-    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  In the left navigation pane, choose **AI Operations**,
-    **Configuration**.
-3.  Choose **Configure for this account**.
-4.  Optionally change the retention period for investigations. For more
-    information about what the retention period governs, see [CloudWatch investigations data retention](Investigations-Retention.md "Investigations-Retention.md").
-5.  (Optional) To encrypt your investigation data with a customer managed AWS KMS
-    key, choose **Customize encryption settings** and follow the
-    steps to create or specify a key to use. If you don't specify a customer managed
-    key, CloudWatch investigations uses an AWS owned key for encryption. For more information, see
-    [Encryption of investigation data](Investigations-Security.md#Investigations-KMS "Investigations-Security.md#Investigations-KMS").
-6.  Choose how to give CloudWatch investigations permissions to access resources. To be able to choose
-    either of the first two options, you must be signed in to an IAM principal
-    that has the `iam:CreateRole`, `iam:AttachRolePolicy`, and
-    `iam:PutRolePolicy` permissions.
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the left navigation pane, choose **AI Operations**,
+   **Configuration**.
+3. Choose **Configure for this account**.
+4. Optionally change the retention period for investigations. For more
+   information about what the retention period governs, see [CloudWatch investigations data retention](Investigations-Retention.md "Investigations-Retention.md").
+5. (Optional) To encrypt your investigation data with a customer managed AWS KMS
+   key, choose **Customize encryption settings** and follow the
+   steps to create or specify a key to use. If you don't specify a customer managed
+   key, CloudWatch investigations uses an AWS owned key for encryption. For more information, see
+   [Encryption of investigation data](Investigations-Security.md#Investigations-KMS "Investigations-Security.md#Investigations-KMS").
+6. Choose how to give CloudWatch investigations permissions to access resources. To be able to choose
+   either of the first two options, you must be signed in to an IAM principal
+   that has the `iam:CreateRole`, `iam:AttachRolePolicy`, and
+   `iam:PutRolePolicy` permissions.
 
-    1. (Recommended) Select **Auto-create a new role with default
-       investigation permissions**. This role will be granted
-       permissions using the AWS managed policies for AI Operations.For more
-       information, see [User permissions for your CloudWatch investigations group](Investigations-Security.md#Investigations-Security-IAM "Investigations-Security.md#Investigations-Security-IAM").
-    2. Create a new role yourself and then assign the policy templates.
-    3. Choose **Assign an existing role** if you already
-       have a role with the permissions that you want to use.
+   1. (Recommended) Select **Auto-create a new role with default
+      investigation permissions**. This role will be granted
+      permissions using the AWS managed policies for AI Operations.For more
+      information, see [User permissions for your CloudWatch investigations group](Investigations-Security.md#Investigations-Security-IAM "Investigations-Security.md#Investigations-Security-IAM").
+   2. Create a new role yourself and then assign the policy templates.
+   3. Choose **Assign an existing role** if you already
+      have a role with the permissions that you want to use.
 
-    If you choose this option, you must make sure the role includes a
-    trust policy that names `aiops.amazonaws.com` as the service
-    principal. For more information about using service principals in trust
-    policies, see [AWS service principals](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services").
+   If you choose this option, you must make sure the role includes a
+   trust policy that names `aiops.amazonaws.com` as the service
+   principal. For more information about using service principals in trust
+   policies, see [AWS service principals](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-services").
 
-    We also recommend that you include a `Condition` section
-    with the account number, to prevent a confused deputy situation. The
-    following example trust policy illustrates both the service principal
-    and the `Condition` section.
+   We also recommend that you include a `Condition` section
+   with the account number, to prevent a confused deputy situation. The
+   following example trust policy illustrates both the service principal
+   and the `Condition` section.
 
-    JSON
+   JSON
 
-    ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Principal": {
-     "Service": "aiops.amazonaws.com"
-     },
-     "Action": "sts:AssumeRole",
-     "Condition": {
-     "StringEquals": {
-     "aws:SourceAccount": "123456789012"
-     },
-     "ArnLike": {
-     "aws:SourceArn": "arn:aws:aiops:us-east-1:123456789012:*"
-     }
-     }
-     }
-     ]
-    }`
+   ```
+   `{
+    "Version":"2012-10-17",
+    "Statement": [
+    {
+    "Effect": "Allow",
+    "Principal": {
+    "Service": "aiops.amazonaws.com"
+    },
+    "Action": "sts:AssumeRole",
+    "Condition": {
+    "StringEquals": {
+    "aws:SourceAccount": "123456789012"
+    },
+    "ArnLike": {
+    "aws:SourceArn": "arn:aws:aiops:us-east-1:123456789012:*"
+    }
+    }
+    }
+    ]
+   }`
 
-    ```
+   ```
 
-7.  Choose **Create investigation group**, you can now create an
-    investigation from an alarm, metric, or log insight.
-    Optionally, you can setup additional recommended configurations to enhance your
-    experience.
+7. Choose **Create investigation group**, you can now create an
+   investigation from an alarm, metric, or log insight.
+   Optionally, you can setup additional recommended configurations to enhance your
+   experience.
 
-8.  In the left navigation pane, choose **AI Operations,
-    Configuration**.
-9.  On the **Optional configuration** tab, choose the
-    enhancements you want to add to CloudWatch investigations.
+8. In the left navigation pane, choose **AI Operations,
+   Configuration**.
+9. On the **Optional configuration** tab, choose the
+   enhancements you want to add to CloudWatch investigations.
 10. In **Configure cross account access** you can set this
     account as a monitoring account that collects data from other source accounts in
     your organization. For more information, see [Cross-account investigations](Investigations-cross-account.md "Investigations-cross-account.md").
@@ -155,12 +155,11 @@ different AWS Regions. For more information, see [Cross-Region inference](Invest
     investigation through the chat channel. CloudWatch investigations support chat channels in the
     following applications:
 
-        * Slack
-        * Microsoft Teams
-
-    If you want to integrate with a chat channel, we recommend that you complete
-    some additional steps before enabling this enhancement in your investigation
-    group. For more information, see [Integration with third-party chat systems](Investigations-Integrations.md#Investigations-Integrations-Chat "Investigations-Integrations.md#Investigations-Integrations-Chat").
+    - Slack
+    - Microsoft Teams
+      If you want to integrate with a chat channel, we recommend that you complete
+      some additional steps before enabling this enhancement in your investigation
+      group. For more information, see [Integration with third-party chat systems](Investigations-Integrations.md#Investigations-Integrations-Chat "Investigations-Integrations.md#Investigations-Integrations-Chat").
 
 Then, perform the following steps to integrate with a chat channel in chat
 applications:

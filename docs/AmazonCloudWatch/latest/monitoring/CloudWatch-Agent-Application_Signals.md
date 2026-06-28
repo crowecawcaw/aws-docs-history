@@ -50,93 +50,93 @@ high-cardinality telemetry as outlined in this section.
   collect logs that are in embedded metric format. Those settings are no longer
   needed.
 
-      - `application_signals` (Optional) Specifies that you want to
-       enable CloudWatch Application Signals to receive metrics from your auto-instrumented
-       applications to facilitate CloudWatch Application Signals.
+        - `application_signals` (Optional) Specifies that you want to
+         enable CloudWatch Application Signals to receive metrics from your auto-instrumented
+         applications to facilitate CloudWatch Application Signals.
 
 
 
 
-      	* `rules` (Optional) An array of rules to conditionally
-      	 select metrics and traces and apply actions to handle high-cardinality
-      	 scenarios. Each rule can contain the following fields:
+        	* `rules` (Optional) An array of rules to conditionally
+        	 select metrics and traces and apply actions to handle high-cardinality
+        	 scenarios. Each rule can contain the following fields:
 
 
 
 
-      		+ `rule_name` (Optional) The name of the rule.
-      		+ `selectors` (Optional) An array of metrics and traces
-      		 dimension matchers. Each selector must provide the following
-      		 fields:
+        		+ `rule_name` (Optional) The name of the rule.
+        		+ `selectors` (Optional) An array of metrics and traces
+        		 dimension matchers. Each selector must provide the following
+        		 fields:
 
 
 
 
-      			- `dimension` Required if `selectors` is
-      			 not empty. This specifies the dimension of metrics and traces to
-      			 use as a filter.
-      			- `match` Required if `selectors` is not
-      			 empty. A wildcard pattern used for matching values of the
-      			 specified dimension.
-      		+ `action` (Optional) The action to be applied to metrics
-      		 and traces that match the specified selectors. The value of
-      		 `action` must be one of the following keywords:
+        			- `dimension` Required if `selectors` is
+        			 not empty. This specifies the dimension of metrics and traces to
+        			 use as a filter.
+        			- `match` Required if `selectors` is not
+        			 empty. A wildcard pattern used for matching values of the
+        			 specified dimension.
+        		+ `action` (Optional) The action to be applied to metrics
+        		 and traces that match the specified selectors. The value of
+        		 `action` must be one of the following keywords:
 
 
 
 
-      			- `keep` Specifies to send only the metrics and
-      			 traces to CloudWatch if matched by the `selectors`.
-      			- `drop` Specifies to drop the metric and traces that
-      			 match the `selectors`.
-      			- `replace` Specifies to replace the dimensions of
-      			 the metrics and traces that match `selectors`. They are
-      			 replaced according to the `replacements`
-      			 section.
-      		+ `replacements` Required if `action` is
-      		 `replace`. An array of dimension and value pairs that
-      		 will be applied to metrics and traces that match the specified
-      		 `selectors` when the `action` is
-      		 `replace`. Each replacement must provide the following
-      		 fields:
+        			- `keep` Specifies to send only the metrics and
+        			 traces to CloudWatch if matched by the `selectors`.
+        			- `drop` Specifies to drop the metric and traces that
+        			 match the `selectors`.
+        			- `replace` Specifies to replace the dimensions of
+        			 the metrics and traces that match `selectors`. They are
+        			 replaced according to the `replacements`
+        			 section.
+        		+ `replacements` Required if `action` is
+        		 `replace`. An array of dimension and value pairs that
+        		 will be applied to metrics and traces that match the specified
+        		 `selectors` when the `action` is
+        		 `replace`. Each replacement must provide the following
+        		 fields:
 
 
 
 
-      			- `target_dimension` Required if
-      			 `replacements` is not empty. Specifies the dimension
-      			 that needs to be replace.
-      			- `value` Required if `replacements` is
-      			 not empty. The value to replace the original value of
-      			 `target_dimension` with.
-      	* `limiter` (Optional) Use this section to limit how many
-      	 metrics and dimensions Application Signals sends to CloudWatch, to optimize your
-      	 costs.
+        			- `target_dimension` Required if
+        			 `replacements` is not empty. Specifies the dimension
+        			 that needs to be replace.
+        			- `value` Required if `replacements` is
+        			 not empty. The value to replace the original value of
+        			 `target_dimension` with.
+        	* `limiter` (Optional) Use this section to limit how many
+        	 metrics and dimensions Application Signals sends to CloudWatch, to optimize your
+        	 costs.
 
 
 
 
-      		+ `disabled` (Optional) If `true`, the metric
-      		 limiting feature is disabled. The default is `false`
-      		+ `drop_threshold` (Optional) The maximum number of
-      		 distinct metrics per service in one rotation interval that can be
-      		 exported by one CloudWatch agent. The default is 500.
-      		+ `rotation_interval` (Optional) The interval at which
-      		 the limiter resets the metric records for distinction counting. This
-      		 is expressed as a string with a sequence of numbers and a unit suffix.
-      		 Fractions are supported. The supported unit suffixes are
-      		 `s`, `m`, `h`, `ms`,
-      		 `us`, and `ns`. The default is `1h` for one hour.
-      		+ `log_dropped_metrics` (Optional) Specifies whether the
-      		 agent should write logs to the CloudWatch agent logs when Application
-      		 Signals metrics are dropped. The default is `false`.
+        		+ `disabled` (Optional) If `true`, the metric
+        		 limiting feature is disabled. The default is `false`
+        		+ `drop_threshold` (Optional) The maximum number of
+        		 distinct metrics per service in one rotation interval that can be
+        		 exported by one CloudWatch agent. The default is 500.
+        		+ `rotation_interval` (Optional) The interval at which
+        		 the limiter resets the metric records for distinction counting. This
+        		 is expressed as a string with a sequence of numbers and a unit suffix.
+        		 Fractions are supported. The supported unit suffixes are
+        		 `s`, `m`, `h`, `ms`,
+        		 `us`, and `ns`. The default is `1h` for one hour.
+        		+ `log_dropped_metrics` (Optional) Specifies whether the
+        		 agent should write logs to the CloudWatch agent logs when Application
+        		 Signals metrics are dropped. The default is `false`.
 
 
-      		###### Note
+        		###### Note
 
-      		To activate this logging, the `debug` parameter in
-      		 the `agent` section must also be set to
-      		 `true`.
+        		To activate this logging, the `debug` parameter in
+        		 the `agent` section must also be set to
+        		 `true`.
 
 - `traces`
 

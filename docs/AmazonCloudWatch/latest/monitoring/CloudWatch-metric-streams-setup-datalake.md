@@ -73,11 +73,11 @@ If you choose **Select metrics**, do one of the following:
      are included.
 
 9. (Optional) To stream additional statistics for some of these metrics beyond Minimum, Maximum,
-   SampleCount, and Sum, choose **Add additional statistics**. Either
-   choose **Add recommended metrics** to add some commonly used statistics, or
-   manually select the
-   namespace and metric name to stream additional statistics for. Next, select
-   the additional statistics to stream.
+SampleCount, and Sum, choose **Add additional statistics**. Either
+choose **Add recommended metrics** to add some commonly used statistics, or
+manually select the
+namespace and metric name to stream additional statistics for. Next, select
+the additional statistics to stream.
 
 To then choose another group of metrics to stream a different set of additional statistics for, choose
 **Add additional statistics**. Each metric can include as many

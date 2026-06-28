@@ -69,8 +69,8 @@ operations:
 The AWS KMS key that you use with CloudWatch Dataset must meet the following
 requirements:
 
-- The key must be a symmetric encryption key (SYMMETRIC_DEFAULT) with key usage
-  ENCRYPT_DECRYPT. Asymmetric keys are not supported.
+- The key must be a symmetric encryption key (SYMMETRIC\_DEFAULT) with key usage
+  ENCRYPT\_DECRYPT. Asymmetric keys are not supported.
 - Multi-Region keys are not supported.
 - The key must be in the same AWS Region as the Dataset.
 - You must specify the key as a fully qualified key ARN. Key aliases and key IDs

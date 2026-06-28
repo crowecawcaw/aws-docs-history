@@ -19,10 +19,7 @@ based on the canary's frequency. If you configure a timeout value, make it no sh
 15 seconds to allow for Lambda cold starts and the time it takes to boot up the canary
 instrumentation.
 
-## syn-nodejs-puppeteer-16.0
-
-`syn-nodejs-puppeteer-16.0` is the most recent Synthetics runtime for
-Node.js and Puppeteer.
+## syn-nodejs-puppeteer-16.1
 
 ###### Important
 
@@ -49,11 +46,34 @@ support only the following step-level configuration overrides:
 - `continueOnStepFailure/continueOnHttpStepFailure`
 - `stepsReport`
 
+**Major dependencies**:
+
+- Lambda runtime Node.js 22.x
+- Puppeteer-core version 24.42.0
+- Chromium version 147.0.7727.57
+- Firefox version 147.0.4
+
+**Changes in syn-nodejs-puppeteer-16.1**
+
+- Fix bug where HTTP headers with array values were not being captured properly.
+- Upgrade `ip-address` to 10.1.1 to address the following CVEs:
+
+  - CVE-2026-42338
+
+- Upgrade `ws` to 8.20.1 to address the following CVEs:
+
+  - CVE-2026-45736
+
 For more information, see the following:
 
 - [Puppeteer Change log](https://pptr.dev/CHANGELOG#24420-2026-04-20 "https://pptr.dev/CHANGELOG#24420-2026-04-20")
 - [Puppeteer
   API reference](https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.42.0/docs/api/index.md "https://github.com/puppeteer/puppeteer/blob/puppeteer-v24.42.0/docs/api/index.md")
+
+The following earlier runtime versions for Node.js and Puppeteer are still
+supported.
+
+### syn-nodejs-puppeteer-16.0
 
 **Major dependencies**:
 
@@ -64,6 +84,9 @@ For more information, see the following:
 
 **Changes in syn-nodejs-puppeteer-16.0**
 
+- [Multilocation canaries](CloudWatch_Synthetics_Canaries_MultiLocation.md "CloudWatch_Synthetics_Canaries_MultiLocation.md") – Run the
+  same canary across multiple AWS Regions from a single point of
+  management.
 - Upgrade `ImageMagick` to 7.1.2-15 to address the following CVEs:
 
   - CVE-2023-34152
@@ -80,9 +103,6 @@ For more information, see the following:
   - CVE-2026-25986
   - CVE-2026-25987
   - CVE-2026-26284
-
-The following earlier runtime versions for Node.js and Puppeteer are still
-supported.
 
 ### syn-nodejs-puppeteer-15.1
 
@@ -211,7 +231,7 @@ Node.js and Puppeteer.
 - Multi-browser support – You can now run Node.js Puppeteer canaries in
   either Firefox or Chrome
 - Simplified packaging – Package scripts directly under root without
-  using the Node.js/node_modules directory structure
+  using the Node.js/node\_modules directory structure
 - Screenshot integration – Capture screenshots using native Puppeteer
   functions to visualize canary script stages. Synthetics automatically associates
   screenshots with canary steps and uploads them to Amazon S3

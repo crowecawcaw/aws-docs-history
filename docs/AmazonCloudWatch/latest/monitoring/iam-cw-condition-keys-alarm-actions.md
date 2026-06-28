@@ -3,7 +3,7 @@
 When CloudWatch alarms change state, they can perform different actions such as
 stopping and terminating EC2 instances and performing Systems Manager actions. These
 actions can be initiated when the alarm changes to any state, including ALARM,
-OK, or INSUFFICIENT_DATA.
+OK, or INSUFFICIENT\_DATA.
 
 Use the `cloudwatch:AlarmActions` condition key to allow a user to
 create alarms that can only perform the actions you specify when the alarm state

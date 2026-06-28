@@ -80,10 +80,10 @@ of the following:
      widget**.
 
 5. (Optional) Choose **Add widget**,
-   and then repeat step 4
-   to add another widget
-   to the dashboard.
-   You can repeat this step multiple times.
+and then repeat step 4
+to add another widget
+to the dashboard.
+You can repeat this step multiple times.
 
 For each graph on the dashboard, there is an information icon at the upper right. Choose this icon
 to see the descriptions of the metrics in the graph. 6. Choose **Save dashboard**.

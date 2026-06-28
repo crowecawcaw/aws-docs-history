@@ -10,6 +10,7 @@
 - [Metric Widget: Format for Each Metric in the Array](#CloudWatch-Dashboard-Properties-Metrics-Array-Format "#CloudWatch-Dashboard-Properties-Metrics-Array-Format")
 - [Properties of a Metrics Explorer Widget Object](#CloudWatch-Dashboard-Properties-Metric-Explorer-Object "#CloudWatch-Dashboard-Properties-Metric-Explorer-Object")
 - [Properties of an Alarm Status Widget Object](#CloudWatch-Dashboard-Properties-Alarm-Widget-Object "#CloudWatch-Dashboard-Properties-Alarm-Widget-Object")
+- [Properties of a Chart Widget Object](#CloudWatch-Dashboard-Properties-Chart-Widget-Object "#CloudWatch-Dashboard-Properties-Chart-Widget-Object")
 
 ## Overall Structure
 
@@ -257,7 +258,7 @@ Each widget of any type can have the following properties.
 
 The type of widget.
 
-Valid Values: `metric` | `text` | `log` | `alarm` | `explorer`
+Valid Values: `metric` | `text` | `log` | `alarm` | `explorer` | `chart`
 
 Type: String
 
@@ -307,7 +308,8 @@ Required: No
 
 The detailed properties of the widget, which differ depending on the widget type. For more
 information about the format of `properties`, see
-[Properties of a Metric Widget Object](#CloudWatch-Dashboard-Properties-Metric-Widget-Object "#CloudWatch-Dashboard-Properties-Metric-Widget-Object")
+[Properties of a Metric Widget Object](#CloudWatch-Dashboard-Properties-Metric-Widget-Object "#CloudWatch-Dashboard-Properties-Metric-Widget-Object"),
+[Properties of a Chart Widget Object](#CloudWatch-Dashboard-Properties-Chart-Widget-Object "#CloudWatch-Dashboard-Properties-Chart-Widget-Object"),
 or [Properties of a Text Widget Object](#CloudWatch-Dashboard-Properties-Text-Widget-Object "#CloudWatch-Dashboard-Properties-Text-Widget-Object").
 
 Type: Object
@@ -2073,7 +2075,7 @@ Choose `default`
 to sort them in alphabetical order by alarm name.
 
 Choose `stateUpdatedTimestamp`
-to sort them first by alarm state, with alarms in ALARM state first, INSUFFICIENT_DATA
+to sort them first by alarm state, with alarms in ALARM state first, INSUFFICIENT\_DATA
 alarms next, and OK alarms last. Within each group, the alarms are sorted by
 when they last changed state, with more recent state changes listed first.
 
@@ -2137,7 +2139,7 @@ name, no matter their current state:
 
 The following example widget specifies the same four alarms, but the widget
 displays only the alarms that are
-currently in ALARM or INSUFFICIENT_DATA state:
+currently in ALARM or INSUFFICIENT\_DATA state:
 
 ```
 {
@@ -2159,6 +2161,581 @@ currently in ALARM or INSUFFICIENT_DATA state:
             "INSUFFICIENT_DATA"
         ],
         "title": "EC2 alarms that are not currently OK"
+    }
+}
+```
+
+## Properties of a Chart Widget Object
+
+A widget of type `chart` is a multi-data-source chart widget that supports PromQL queries
+against CloudWatch metrics. Use a chart widget to visualize metrics that are queryable with PromQL, including
+metrics ingested via OpenTelemetry Line Protocol (OTLP) and AWS vended metrics that have been enriched
+for OTel. For more information about querying with PromQL, see
+[Query metrics with PromQL](CloudWatch-PromQL.md "CloudWatch-PromQL.md").
+
+A widget of type `chart` can have the following fields within `properties`:
+
+**view**
+
+The visualization to use for the widget.
+
+Valid Values: `line` | `bar` | `pie` | `number` |
+`solidgauge` | `column` | `legend` | `histogram` |
+`heatmap` | `scatter`
+
+Type: String
+
+Required: Yes
+
+**title**
+
+The title to display for the widget.
+
+Type: String
+
+Required: No
+
+**description**
+
+An optional description for the widget.
+
+Type: String
+
+Required: No
+
+**region**
+
+The AWS Region to use for all queries in the widget. Each query in the
+`data.queries` array can override this with its own `region` field.
+
+Type: String
+
+Required: No
+
+**data**
+
+The queries to plot in the widget. The `data` object contains a
+`queries` array, where each entry defines one query. For more
+information about the format, see
+[Chart Widget: Format for Each Query in the Array](#CloudWatch-Dashboard-Properties-Chart-Widget-Query-Format "#CloudWatch-Dashboard-Properties-Chart-Widget-Query-Format").
+
+Type: Object
+
+Required: Yes
+
+**plotOptions**
+
+Visualization options for the widget, such as legend placement, axis configuration,
+and view-specific style settings (for example, line width or stacked bars). The exact
+fields available depend on the value of `view`. If you omit
+`plotOptions`, default settings for the view are used. For the full list
+of fields, see
+[Chart Widget: plotOptions Reference](#CloudWatch-Dashboard-Properties-Chart-Widget-PlotOptions "#CloudWatch-Dashboard-Properties-Chart-Widget-PlotOptions").
+
+Type: Object
+
+Required: No
+
+### Chart Widget: Format for Each Query in the Array
+
+Each entry in the `data.queries` array defines a single query. To create a chart
+widget that queries CloudWatch metrics, set `type` to `cloudwatch-metrics`,
+set `language` to either `PromQL` or `SQL`, and provide the
+query expression as a string in the `query` field. A single chart widget can mix
+queries written in different languages.
+
+**id**
+
+An identifier for this query. The ID must be unique within the widget.
+
+Type: String
+
+Required: Yes
+
+**type**
+
+The kind of query. For PromQL, use `cloudwatch-metrics`.
+
+Valid Values: `cloudwatch-metrics`
+
+Type: String
+
+Required: Yes
+
+**language**
+
+The query language for this query. Specify `PromQL` to write the
+query in Prometheus Query Language, or `SQL` to write the query
+in CloudWatch Metrics Insights SQL.
+
+Valid Values: `PromQL` | `SQL`
+
+Type: String
+
+Required: Yes
+
+**query**
+
+The query expression to evaluate, as a string. The syntax depends on the
+`language` field.
+
+For PromQL, provide a Prometheus Query Language expression. For example,
+`sum by (InstanceId) (rate(CPUUtilization[5m]))`. For information about
+PromQL syntax and the labels available on AWS vended metrics, see
+[Querying vended AWS metrics with PromQL](CloudWatch-PromQL-Querying.md#CloudWatch-PromQL-Querying-Vended "CloudWatch-PromQL-Querying.md#CloudWatch-PromQL-Querying-Vended").
+
+For SQL, provide a CloudWatch Metrics Insights SQL query. For example,
+`SELECT AVG(CPUUtilization) FROM SCHEMA("AWS/EC2", InstanceId) GROUP BY InstanceId`.
+For information about Metrics Insights query syntax, see [Metrics Insights query components and syntax](cloudwatch-metrics-insights-querylanguage.md "cloudwatch-metrics-insights-querylanguage.md").
+
+Type: String
+
+Required: Yes
+
+**label**
+
+The label to display in the legend for this query's series. Specify the special
+value `__verbose__` to include all metric labels in each series name.
+
+Type: String
+
+Required: No
+
+**region**
+
+The AWS Region to evaluate this query in. If omitted, the widget's
+`region` is used.
+
+Type: String
+
+Required: No
+
+**accountId**
+
+The AWS account to evaluate this query in. Use this for cross-account queries
+on a monitoring-account dashboard.
+
+Type: String
+
+Required: No
+
+**step**
+
+The query resolution, in seconds. This controls how frequently the PromQL
+expression is evaluated across the widget's time range.
+
+Type: Number
+
+Required: No
+
+**visible**
+
+Set to `false` to hide this query's series from the chart while
+still keeping the query in the widget definition. The default is `true`.
+
+Type: Boolean
+
+Required: No
+
+### Chart Widget: plotOptions Reference
+
+The `plotOptions` object controls how the chart is rendered.
+It can contain a set of common fields shared by every `view`, plus a
+`style` object whose shape depends on the chosen `view`. Some views also
+accept axis (`yAxis`, `xAxis`) and `annotations` objects.
+
+The following table summarizes which fields each `view` supports.
+
+| **view**     | **style sub-object**      | **yAxis / xAxis** | **Annotation support**        |
+| ------------ | ------------------------- | ----------------- | ----------------------------- |
+| `line`       | LineStyle                 | Yes               | Yes (vertical and horizontal) |
+| `bar`        | BarStyle                  | Yes               | Yes (vertical and horizontal) |
+| `column`     | BarStyle                  | Yes               | No                            |
+| `pie`        | PieStyle                  | No                | No                            |
+| `number`     | NumberStyle               | No                | No                            |
+| `solidgauge` | GaugeStyle                | No                | Yes (horizontal)              |
+| `scatter`    | ScatterStyle              | Yes               | Yes (vertical and horizontal) |
+| `histogram`  | BarStyle + HistogramStyle | Yes               | No                            |
+| `heatmap`    | HeatmapStyle              | Yes               | No                            |
+
+#### Common plotOptions fields
+
+The following fields are valid in `plotOptions` for every
+`view`.
+
+**legend**
+
+Configures the legend. The object contains the
+following fields:
+
+- position– Where the
+  legend appears on the widget. Valid values are `bottom` and
+  `right`.
+- show– Boolean. Set to
+  `false` to hide the legend.
+
+Type: Object
+
+Required: No
+
+#### View-specific style fields
+
+The shape of the `style` object depends on the value of
+`view`.
+
+**lineOptions**
+
+Used when `view` is `line`.
+Configures line rendering. The object contains the following fields:
+
+- width– Number. Line
+  width in pixels.
+- pattern– Line stroke
+  pattern. Valid values are `solid`, `dashed`, and
+  `dotted`.
+- spline– Boolean. If
+  `true`, draws a smoothed curve through the data points.
+- filled– Boolean. If
+  `true`, fills the area below the line.
+- stacked– Boolean. If
+  `true`, stacks filled areas across series. Use with
+  `filled: true` for a stacked area chart.
+- color– A six-digit
+  HTML hex color.
+
+Type: Object
+
+Required: No
+
+**barOptions**
+
+Used when `view` is `bar`,
+`column`, or `histogram`. Configures bar rendering.
+The object contains the following fields:
+
+- stacked– Boolean. If
+  `true`, bars from different series are stacked.
+- orientation– Bar
+  direction. Valid values are `vertical` and
+  `horizontal`.
+
+Type: Object
+
+Required: No
+
+**pieOptions**
+
+Used when `view` is `pie`.
+The object contains the following fields:
+
+- innerSize– String. A
+  percentage like `"50%"`. Set to `"0%"` for a solid
+  pie, or a non-zero value for a donut chart.
+
+Type: Object
+
+Required: No
+
+**numberOptions**
+
+Used when `view` is `number`.
+The object contains the following fields:
+
+- sparkline– Boolean. If
+  `true`, displays a sparkline below the number.
+- truncate– Boolean. If
+  `true`, truncates large numbers (for example, displays
+  `1.2K` instead of `1234`).
+
+Type: Object
+
+Required: No
+
+**gaugeOptions**
+
+Used when `view` is `solidgauge`.
+The object contains the following fields:
+
+- min– Number. The
+  minimum value of the gauge.
+- max– Number. The
+  maximum value of the gauge.
+
+Type: Object
+
+Required: No
+
+**colorOptions**
+
+Used when `view` is `heatmap`.
+Configures the color gradient. The object contains the following fields:
+
+- colorPreset– String.
+  Name of a built-in color scale.
+- minColor– A six-digit
+  HTML hex color used at the low end of a custom gradient.
+- midColor– A six-digit
+  HTML hex color used at the midpoint of a custom gradient.
+- maxColor– A six-digit
+  HTML hex color used at the high end of a custom gradient.
+
+Type: Object
+
+Required: No
+
+**histogramOptions**
+
+Used when `view` is `histogram`,
+in addition to `barOptions`. The object contains the following
+fields:
+
+- bucketCount– Number.
+  Number of buckets to divide the data into.
+- bucketSize– Number,
+  or the string `"auto"` to size buckets automatically.
+- combineSeries–
+  Boolean. Combines all series into a single histogram.
+
+Type: Object
+
+Required: No
+
+**aggregationOptions**
+
+Used when `view` is `histogram`.
+Controls how data points are aggregated before bucketing. The object contains
+the following fields:
+
+- binInterval– String.
+  The bin width as a duration. For example, `"5m"` for
+  five-minute bins.
+
+Type: Object
+
+Required: No
+
+**label**
+
+Used with line, bar, and scatter styles to label data
+points directly on the chart. The object contains the following fields:
+
+- position– Where the
+  label appears relative to its data point. Valid values are
+  `inside`, `outside`, `top`,
+  `bottom`, `left`, and `right`.
+- show– Boolean. Set to
+  `true` to display labels.
+
+Type: Object
+
+Required: No
+
+**markOptions**
+
+Used with line and scatter styles to configure markers
+drawn at data points. The object contains the following fields:
+
+- enabled– Boolean. Set
+  to `true` to draw markers.
+- symbolType– String.
+  Marker shape. For example, `circle`, `square`, or
+  `diamond`.
+- symbolSize– Number.
+  Marker size in pixels.
+- borderWidth– Number.
+  Marker border width in pixels.
+- borderColor– A
+  six-digit HTML hex color for the marker border.
+- fillColor– A six-digit
+  HTML hex color for the marker fill.
+- fillOpacity– Number
+  between 0 and 1.
+
+Type: Object
+
+Required: No
+
+#### yAxis and xAxis fields
+
+For `view` values that support axes, you can include
+`yAxis` and `xAxis` objects in `plotOptions`.
+
+**yAxis**
+
+An array of one or two axis objects. The first entry
+configures the left axis, and the second entry (if present) configures the
+right axis. Each axis object contains the following fields:
+
+- min– Number. Lower
+  bound of the axis.
+- max– Number. Upper
+  bound of the axis.
+- type– Axis scale.
+  Valid values are `linear`, `logarithmic`,
+  `datetime`, and `category`.
+- title– String. Axis
+  label displayed alongside the axis.
+- showUnits– Boolean.
+  Whether to show unit suffixes (for example, `K`,
+  `M`) on tick labels.
+
+Type: Array of objects
+
+Required: No
+
+**xAxis**
+
+A single axis object that configures the x-axis. The
+object contains the following fields:
+
+- min– Number. Lower
+  bound of the axis.
+- max– Number. Upper
+  bound of the axis.
+- type– Axis scale.
+  Valid values are `linear`, `logarithmic`,
+  `datetime`, and `category`.
+- title– String. Axis
+  label displayed alongside the axis.
+- label– String. Tick
+  label format.
+
+Type: Object
+
+Required: No
+
+#### annotations
+
+For `view` values that support annotations, you can add
+reference lines or shaded bands to the chart. The `annotations` object can
+contain the following arrays:
+
+**vertical**
+
+Annotations on the time axis. Each entry is either an
+annotation object, or an array of two annotation objects to define a band
+(shaded region between two values). Each annotation object contains the
+following fields:
+
+- type– The annotation
+  type. Use `static`.
+- label– String. The
+  text displayed next to the annotation.
+- value– Number,
+  ISO-8601 timestamp string, or category. The location on the time axis
+  where the annotation appears.
+- color– A six-digit
+  HTML hex color used for the annotation line and any fill shading.
+- fill– How to use fill
+  shading. Valid values are `before` (shading before the
+  annotation), `after` (shading after the annotation), and
+  `between` (used for band annotations to shade between the two
+  values).
+
+Type: Array
+
+Required: No
+
+**horizontal**
+
+Annotations on the value axis. Each entry is either an
+annotation object, or an array of two annotation objects to define a band.
+Each annotation object contains the following fields:
+
+- type– The annotation
+  type. Use `static`.
+- label– String. The
+  text displayed next to the annotation.
+- value– Number. The
+  value on the value axis where the annotation appears.
+- color– A six-digit
+  HTML hex color used for the annotation line and any fill shading.
+- fill– How to use fill
+  shading. Valid values are `above` (shading above the
+  annotation), `below` (shading below the annotation), and
+  `between` (used for band annotations to shade between the two
+  values).
+
+Type: Array
+
+Required: No
+
+**Example: PromQL line chart**
+
+The following example renders a line chart that plots a PromQL query against AWS vended
+metrics in `us-east-1`.
+
+```
+{
+    "type": "chart",
+    "x": 0,
+    "y": 0,
+    "width": 12,
+    "height": 6,
+    "properties": {
+        "view": "line",
+        "title": "EC2 CPU by instance",
+        "region": "us-east-1",
+        "data": {
+            "queries": [
+                {
+                    "id": "a",
+                    "type": "cloudwatch-metrics",
+                    "language": "PromQL",
+                    "query": "sum by (InstanceId) (rate(CPUUtilization[5m]))"
+                }
+            ]
+        },
+        "plotOptions": {
+            "legend": {
+                "position": "bottom",
+                "show": true
+            }
+        }
+    }
+}
+```
+
+**Example: Chart that combines a PromQL query and a SQL query**
+
+The following example shows a line chart that plots two queries against the same metric, one
+written in PromQL and one written in CloudWatch Metrics Insights SQL.
+
+```
+{
+    "type": "chart",
+    "x": 0,
+    "y": 6,
+    "width": 12,
+    "height": 6,
+    "properties": {
+        "view": "line",
+        "title": "EC2 CPU utilization (PromQL and SQL)",
+        "region": "us-east-1",
+        "data": {
+            "queries": [
+                {
+                    "id": "promql_cpu",
+                    "type": "cloudwatch-metrics",
+                    "language": "PromQL",
+                    "query": "sum by (InstanceId) (rate(CPUUtilization[5m]))",
+                    "label": "PromQL"
+                },
+                {
+                    "id": "sql_cpu",
+                    "type": "cloudwatch-metrics",
+                    "language": "SQL",
+                    "query": "SELECT AVG(CPUUtilization) FROM SCHEMA(\"AWS/EC2\", InstanceId) GROUP BY InstanceId",
+                    "label": "SQL"
+                }
+            ]
+        },
+        "plotOptions": {
+            "legend": {
+                "position": "right",
+                "show": true
+            }
+        }
     }
 }
 ```

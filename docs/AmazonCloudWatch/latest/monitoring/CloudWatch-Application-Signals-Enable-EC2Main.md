@@ -128,61 +128,60 @@ Java
 
 ###### To instrument your Java applications as part of enabling Application Signals on an Amazon EC2 instance or on-premises host
 
-1.  Download the latest version of the AWS Distro for OpenTelemetry
-    Java auto-instrumentation agent. You can download the latest version by using
-    [this link](https://github.com/aws-observability/aws-otel-java-instrumentation/releases/latest/download/aws-opentelemetry-agent.jar "https://github.com/aws-observability/aws-otel-java-instrumentation/releases/latest/download/aws-opentelemetry-agent.jar"). You can view information about all released versions at
-    [aws-otel-java-instrumentation Releases](https://github.com/aws-observability/aws-otel-java-instrumentation/releases "https://github.com/aws-observability/aws-otel-java-instrumentation/releases").
-2.  To optimize your Application Signals benefits, use environment variables to
-    provide additional information before you start your application. This information will be displayed
-    in Application Signals dashboards.
+1. Download the latest version of the AWS Distro for OpenTelemetry
+   Java auto-instrumentation agent. You can download the latest version by using
+   [this link](https://github.com/aws-observability/aws-otel-java-instrumentation/releases/latest/download/aws-opentelemetry-agent.jar "https://github.com/aws-observability/aws-otel-java-instrumentation/releases/latest/download/aws-opentelemetry-agent.jar"). You can view information about all released versions at
+   [aws-otel-java-instrumentation Releases](https://github.com/aws-observability/aws-otel-java-instrumentation/releases "https://github.com/aws-observability/aws-otel-java-instrumentation/releases").
+2. To optimize your Application Signals benefits, use environment variables to
+   provide additional information before you start your application. This information will be displayed
+   in Application Signals dashboards.
 
-    1.  For the `OTEL_RESOURCE_ATTRIBUTES` variable, specify the following information as
-        key-value pairs:
+   1. For the `OTEL_RESOURCE_ATTRIBUTES` variable, specify the following information as
+      key-value pairs:
 
-        - (Optional) `service.name` sets the name of the service. This will be displayed as the service
-          name for your application in Application Signals dashboards. If you don't provide a value for this key, the
-          default of `UnknownService` is used.
-        - (Optional) `deployment.environment` sets the environment that the application runs in.
-          This will be diplayed as the **Hosted In** environment of your
-          application in Application Signals dashboards. If you don't specify this, one of the following defaults is used:
+      - (Optional) `service.name` sets the name of the service. This will be displayed as the service
+        name for your application in Application Signals dashboards. If you don't provide a value for this key, the
+        default of `UnknownService` is used.
+      - (Optional) `deployment.environment` sets the environment that the application runs in.
+        This will be diplayed as the **Hosted In** environment of your
+        application in Application Signals dashboards. If you don't specify this, one of the following defaults is used:
 
-              + If this is an instance that is part of an Auto Scaling group, it is set to `ec2:`name-of-Auto-Scaling-group``
-              + If this is an Amazon EC2 instance that is not part of an Auto Scaling group, it is set to `ec2:default`
-              + If this is an on-premises host, it is set to `generic:default`
-
+        - If this is an instance that is part of an Auto Scaling group, it is set to `ec2:`name-of-Auto-Scaling-group``
+        - If this is an Amazon EC2 instance that is not part of an Auto Scaling group, it is set to `ec2:default`
+        - If this is an on-premises host, it is set to `generic:default`
           This environment variable is used only by Application Signals, and is converted into X-Ray trace annotations
           and CloudWatch metric dimensions.
 
-        - For the `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` variable, specify the base endpoint URL where
+      - For the `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` variable, specify the base endpoint URL where
 
-        traces are to be exported to. The CloudWatch agent exposes 4316 as its OTLP port. On Amazon EC2, because applications
-        communicate with the local CloudWatch agent, you should set this value to
-        `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://localhost:4316/v1/traces`
-        - For the `OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT` variable, specify the base endpoint URL where
+      traces are to be exported to. The CloudWatch agent exposes 4316 as its OTLP port. On Amazon EC2, because applications
+      communicate with the local CloudWatch agent, you should set this value to
+      `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://localhost:4316/v1/traces`
+      - For the `OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT` variable, specify the base endpoint URL where
 
-        metrics are to be exported to. The CloudWatch agent exposes 4316 as its OTLP port. On Amazon EC2, because applications
-        communicate with the local CloudWatch agent, you should set this value to
-        `OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT=http://localhost:4316/v1/metrics`
-        - For the `JAVA_TOOL_OPTIONS` variable, specify the path where the AWS Distro for OpenTelemetry
-          Java auto-instrumentation agent is stored.
+      metrics are to be exported to. The CloudWatch agent exposes 4316 as its OTLP port. On Amazon EC2, because applications
+      communicate with the local CloudWatch agent, you should set this value to
+      `OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT=http://localhost:4316/v1/metrics`
+      - For the `JAVA_TOOL_OPTIONS` variable, specify the path where the AWS Distro for OpenTelemetry
+        Java auto-instrumentation agent is stored.
 
-        ```
-        export JAVA_TOOL_OPTIONS=" -javaagent:`$AWS_ADOT_JAVA_INSTRUMENTATION_PATH`"
-        ```
+      ```
+      export JAVA_TOOL_OPTIONS=" -javaagent:`$AWS_ADOT_JAVA_INSTRUMENTATION_PATH`"
+      ```
 
-        For example:
+      For example:
 
-        ```
-        export AWS_ADOT_JAVA_INSTRUMENTATION_PATH=./aws-opentelemetry-agent.jar
-        ```
-        - For the `OTEL_METRICS_EXPORTER` variable, we recommend that you set the value to
-          `none`. This disables other metrics exporters so that only the
-          Application Signals exporter is used.
-        - Set `OTEL_AWS_APPLICATION_SIGNALS_ENABLED` to `true`. This generates
-          Application Signals metrics from traces.
+      ```
+      export AWS_ADOT_JAVA_INSTRUMENTATION_PATH=./aws-opentelemetry-agent.jar
+      ```
+      - For the `OTEL_METRICS_EXPORTER` variable, we recommend that you set the value to
+        `none`. This disables other metrics exporters so that only the
+        Application Signals exporter is used.
+      - Set `OTEL_AWS_APPLICATION_SIGNALS_ENABLED` to `true`. This generates
+        Application Signals metrics from traces.
 
-3.  Start your application with the environment variables listed in the previous step. The following
-    is an example of a starting script.
+3. Start your application with the environment variables listed in the previous step. The following
+   is an example of a starting script.
 
 ###### Note
 
@@ -284,11 +283,11 @@ in Application Signals dashboards.
      to Application Signals.
 
 3. Start your application with the environment variables discussed in the previous step. The following
-   is an example of a starting script.
+is an example of a starting script.
 
-   - Replace `$SVC_NAME` with your application name. This will
+    * Replace `$SVC_NAME` with your application name. This will
      be displayed as the name of the application, in Application Signals dashboards.
-   - Replace `$PYTHON_APP` with the location and name of your application.
+    * Replace `$PYTHON_APP` with the location and name of your application.
 
 ```
 OTEL_METRICS_EXPORTER=none \
@@ -309,7 +308,7 @@ Before you enable Application Signals for your Python applications, be aware of 
 
     * In some containerized applications, a missing `PYTHONPATH` environment variable can sometimes
      cause the application to fail to start. To resolve this, ensure that you set the `PYTHONPATH` environment variable
-     to the location of your application’s working directory. This is due to a known issue with OpenTelemetry auto-instrumentation.
+     to the location of your application's working directory. This is due to a known issue with OpenTelemetry auto-instrumentation.
      For more information about this issue, see
      [Python autoinstrumentation setting of PYTHONPATH is not compliant](https://github.com/open-telemetry/opentelemetry-operator/issues/2302 "https://github.com/open-telemetry/opentelemetry-operator/issues/2302").
     * For Django applications, there are additional required configurations, which are outlined
@@ -320,15 +319,15 @@ Before you enable Application Signals for your Python applications, be aware of 
 
     	+ Use the `--noreload` flag to prevent automatic reloading.
     	+ Set the `DJANGO_SETTINGS_MODULE` environment variable to the location of your Django
-    	 application’s `settings.py` file. This ensures that OpenTelemetry can correctly access and integrate with your Django settings.
+    	 application's `settings.py` file. This ensures that OpenTelemetry can correctly access and integrate with your Django settings.
 
 4. (Optional) To enable log correlation, in `OTEL_RESOURCE_ATTRIBUTES`, set an additional environment variable `aws.log.group.names` for the log groups of your application.
-   By doing so, the traces and metrics from your application can be correlated with the relevant log entries from these log groups. For this variable, replace `$YOUR_APPLICATION_LOG_GROUP`
-   with the log group names for your application. If you have multiple log groups, you can use an ampersand (`&`) to separate them as in this example: `aws.log.group.names=log-group-1&log-group-2`.
-   To enable metric to log correlation, setting this current environmental variable is enough. For more information, see
-   [Enable metric to log correlation](Application-Signals-MetricLogCorrelation.md "Application-Signals-MetricLogCorrelation.md"). To enable trace to log correlation, you'll also need to change the
-   logging
-   configuration in your application. For more information, see [Enable trace to log correlation](Application-Signals-TraceLogCorrelation.md "Application-Signals-TraceLogCorrelation.md").
+By doing so, the traces and metrics from your application can be correlated with the relevant log entries from these log groups. For this variable, replace `$YOUR_APPLICATION_LOG_GROUP`
+with the log group names for your application. If you have multiple log groups, you can use an ampersand (`&`) to separate them as in this example: `aws.log.group.names=log-group-1&log-group-2`.
+To enable metric to log correlation, setting this current environmental variable is enough. For more information, see
+[Enable metric to log correlation](Application-Signals-MetricLogCorrelation.md "Application-Signals-MetricLogCorrelation.md"). To enable trace to log correlation, you'll also need to change the
+logging
+configuration in your application. For more information, see [Enable trace to log correlation](Application-Signals-TraceLogCorrelation.md "Application-Signals-TraceLogCorrelation.md").
 
 The following is an example of a starting script that helps enable log correlation.
 
@@ -504,9 +503,9 @@ in Application Signals dashboards.
      to Application Signals.
 
 3. Start your application with the environment variables discussed in the previous step. The following
-   is an example of a starting script.
+is an example of a starting script.
 
-   - Replace `$SVC_NAME` with your application name. This will
+    * Replace `$SVC_NAME` with your application name. This will
      be displayed as the name of the application, in Application Signals dashboards.
 
 ```

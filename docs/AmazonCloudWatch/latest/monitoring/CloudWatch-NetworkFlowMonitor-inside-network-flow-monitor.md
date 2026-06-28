@@ -6,7 +6,7 @@ This section provides information about several aspects of how Network Flow Moni
 
 Agents in Network Flow Monitor are installed on AWS compute resources (Amazon EC2 and Amazon EKS), where they gather performance metrics
 and send them to the Network Flow Monitor backend. Agents do not have access to the payload of your TCP connections.
-Agents receive only what is called the "bpf_sock_ops" structure
+Agents receive only what is called the "bpf\_sock\_ops" structure
 from the Linux kernel. This structure provides the local and remote IP address and the
 source and destination TCP port, as well as counters and round-trip times. For list of the TCP statistics collected
 and published by the agent, see [View Network Flow Monitor metrics in CloudWatch](CloudWatch-NetworkFlowMonitor-cw-metrics.md "CloudWatch-NetworkFlowMonitor-cw-metrics.md").

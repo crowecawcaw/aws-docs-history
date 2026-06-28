@@ -352,7 +352,7 @@ For the ESM module format, enabling Application Signals by using the `init` cont
     	```
 
 4. Deploy the updated stack – Run the `cdk synth` command in your application's main directory.
-   To deploy the service in your AWS account, run the `cdk deploy` command in your application's main directory.
+To deploy the service in your AWS account, run the `cdk deploy` command in your application's main directory.
 
 If you used the sidecar strategy, you'll see one service created:
 

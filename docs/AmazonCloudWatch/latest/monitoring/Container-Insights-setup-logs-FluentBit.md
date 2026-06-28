@@ -177,7 +177,7 @@ page to set up Fluent Bit, download the Kubernetes manifest YAML file from the k
 `apply` command that you previously ran and modify it with your changes,
 which you can then re-apply to your cluster. Alternatively, if you are using the
 Amazon CloudWatch Observability EKS add-on or Helm chart, see [(Optional) Additional configuration](install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration "install-CloudWatch-Observability-EKS-addon.md#install-CloudWatch-Observability-EKS-addon-configuration") for
-information about managing the Fluent Bit configuration by using the add-on’s advanced
+information about managing the Fluent Bit configuration by using the add-on's advanced
 config or the Helm chart.
 
 To stop Fluent Bit application logs, remove the following section from the

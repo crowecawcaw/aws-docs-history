@@ -74,7 +74,7 @@ resource "aws_cloudwatch_otel_enrichment" "example" {
 }
 ```
 
-For more information, see [aws_cloudwatch_otel_enrichment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_otel_enrichment "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_otel_enrichment") in the Terraform Registry.
+For more information, see [aws\_cloudwatch\_otel\_enrichment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_otel_enrichment "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_otel_enrichment") in the Terraform Registry.
 
 To enable across multiple regions, create the same resource in each regional stack or invoke the API in each region of interest.
 

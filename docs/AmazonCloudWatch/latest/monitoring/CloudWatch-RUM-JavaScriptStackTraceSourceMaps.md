@@ -238,7 +238,7 @@ field for events ingested after the feature was enabled.
 
 Enable RUM event storage in CloudWatch Logs by turning on **Data
 storage**. Once enabled, you can search the new
-**event_details.unminifiedStack** field. This allows you to
+**event\_details.unminifiedStack** field. This allows you to
 analyze trends and relate issues across multiple sessions using CloudWatch Logs
 queries.
 
@@ -246,17 +246,17 @@ queries.
 
 CloudWatch RUM provides out of the box metrics to troubleshoot your source map setup.
 These metrics are published in the metric namespace named `AWS/RUM`. The
-following metrics are published with an application_name dimension. The value of
+following metrics are published with an application\_name dimension. The value of
 this dimension is the name of the app monitor. The metrics are also published with
 an `aws:releaseId` dimension. The value of this dimension is the
 `releaseId` associated with the JavaScript error event.
 
-| MetricName                | Unit  | Description                                                                                                                                                                                                                     |
-| ------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| UnminifyLineFailureCount  | Count | The count of stack trace lines in the JS error event that<br>failed to be unminified. Additional details regarding the<br>failure will be added to the specific line that failed in the<br>event_details.unminifiedStack field. |
-| UnminifyLineSuccessCount  | Count | The count of stack trace lines in the JS error event that<br>were successfully unminified.                                                                                                                                      |
-| UnminifyEventFailureCount | Count | The count of JS error events that failed to have any lines<br>unminified. Additional details regarding the failure will be<br>added in the event_details.unminifiedStack field.                                                 |
-| UnminifyEventSuccessCount | Count | The count of JS error events that succeeded to have at<br>least one stack trace line unminified.                                                                                                                                |
+| MetricName                | Unit  | Description                                                                                                                                                                                                                      |
+| ------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UnminifyLineFailureCount  | Count | The count of stack trace lines in the JS error event that<br>failed to be unminified. Additional details regarding the<br>failure will be added to the specific line that failed in the<br>event\_details.unminifiedStack field. |
+| UnminifyLineSuccessCount  | Count | The count of stack trace lines in the JS error event that<br>were successfully unminified.                                                                                                                                       |
+| UnminifyEventFailureCount | Count | The count of JS error events that failed to have any lines<br>unminified. Additional details regarding the failure will be<br>added in the event\_details.unminifiedStack field.                                                 |
+| UnminifyEventSuccessCount | Count | The count of JS error events that succeeded to have at<br>least one stack trace line unminified.                                                                                                                                 |
 
 CloudWatch RUM may fail to unminify a line in the stack trace for various reasons,
 including but not limited to:

@@ -22,4 +22,4 @@ For information about changing the sampling configuration, see the following:
 | `OTEL_TRACES_SAMPLER_ARG` | `0.05`                     |
 
 For information about more advanced sampling settings, see
-[OTEL_TRACES_SAMPLER](https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler "https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler").
+[OTEL\_TRACES\_SAMPLER](https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler "https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler").

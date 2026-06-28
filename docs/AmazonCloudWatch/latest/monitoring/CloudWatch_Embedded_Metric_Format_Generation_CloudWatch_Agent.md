@@ -83,7 +83,7 @@ The sample task definition that you should use depends on your networking mode.
 Notice that the `webapp` specifies the `AWS_EMF_AGENT_ENDPOINT`
 environment variable. This is used by the library and should point to the endpoint that
 the agent is listening on. Additionally, the `cwagent` specifies the
-`CW_CONFIG_CONTENT` as a “valueFrom” parameter that points to the SSM
+`CW_CONFIG_CONTENT` as a "valueFrom" parameter that points to the SSM
 configuration that you created in the previous step.
 
 This section contains one example for bridge mode and one example for host or awsvpc

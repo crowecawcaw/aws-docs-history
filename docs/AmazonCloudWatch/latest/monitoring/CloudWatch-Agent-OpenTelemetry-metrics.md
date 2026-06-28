@@ -22,14 +22,13 @@ CloudWatch agent configuration file. The section has the following fields:
 - `tls` – Optional. Specifies that the server should be configured
   with TLS.
 
-      + `cert_file` – Path to the TLS certificate to use for TLS
-       required connections.
-      + `key_file` – Path to the TLS key to use for TLS required
-       connections.
-
-  The `otlp` section can be placed in multiple sections within the CloudWatch agent
-  configuration file depending on how and where you want to send the metrics and
-  traces.
+  - `cert_file` – Path to the TLS certificate to use for TLS
+    required connections.
+  - `key_file` – Path to the TLS key to use for TLS required
+    connections.
+    The `otlp` section can be placed in multiple sections within the CloudWatch agent
+    configuration file depending on how and where you want to send the metrics and
+    traces.
 
 ###### Important
 
@@ -45,7 +44,7 @@ shows a configuration that sends metrics to CloudWatch:
 ###### Note
 
 If you are running the agent in containerized environments and sending telemetry
-from outside the agent container’s network, make sure to specify the endpoint as
+from outside the agent container's network, make sure to specify the endpoint as
 `0.0.0.0` instead of the default endpoint `127.0.0.1`.
 
 ```

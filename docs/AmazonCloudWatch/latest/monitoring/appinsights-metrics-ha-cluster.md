@@ -2,14 +2,14 @@
 
 CloudWatch Application Insights supports the following metrics:
 
-ha_cluster_pacemaker_stonith_enabled
+ha\_cluster\_pacemaker\_stonith\_enabled
 
-ha_cluster_corosync_quorate
+ha\_cluster\_corosync\_quorate
 
-hanadb_webdispatcher_service_started_status
+hanadb\_webdispatcher\_service\_started\_status
 
-ha_cluster_pacemaker_nodes
+ha\_cluster\_pacemaker\_nodes
 
-ha_cluster_corosync_ring_errors
+ha\_cluster\_corosync\_ring\_errors
 
-ha_cluster_pacemaker_fail_count
+ha\_cluster\_pacemaker\_fail\_count

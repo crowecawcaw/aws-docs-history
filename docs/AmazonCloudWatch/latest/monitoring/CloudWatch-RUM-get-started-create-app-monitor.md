@@ -8,45 +8,43 @@ it to RUM.
 
 ## To create an app monitor for a web platform
 
-1.  Open the CloudWatch console at
-    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  In the navigation pane, choose **Application
-    Signals**, **RUM**.
-3.  Choose **Add app monitor**.
-4.  For **App monitor name**, enter a name to be used to
-    identify this app monitor within the CloudWatch RUM console.
-5.  Select **Web** as the platform.
-6.  For **Application domain list**, enter the registered
-    domain names where your application has administrative authority. You
-    can also use a wildcard character `*` to allow any sub-domain
-    or top-level domains (for example, \*.amazon.com, amazon.\*,
-    \*.amazon.\*).
-7.  For **Configure RUM data collection**, specify
-    whether you want the app monitor to collect each of the
-    following:
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Application
+   Signals**, **RUM**.
+3. Choose **Add app monitor**.
+4. For **App monitor name**, enter a name to be used to
+   identify this app monitor within the CloudWatch RUM console.
+5. Select **Web** as the platform.
+6. For **Application domain list**, enter the registered
+   domain names where your application has administrative authority. You
+   can also use a wildcard character `*` to allow any sub-domain
+   or top-level domains (for example, \*.amazon.com, amazon.\*,
+   \*.amazon.\*).
+7. For **Configure RUM data collection**, specify
+   whether you want the app monitor to collect each of the
+   following:
 
-        * **Performance telemetry** – Collects
-         information about page load and resource load times
-        * **JavaScript errors** – Collects
-         information about unhandled JavaScript errors raised by your
-         application
+   - **Performance telemetry** – Collects
+     information about page load and resource load times
+   - **JavaScript errors** – Collects
+     information about unhandled JavaScript errors raised by your
+     application
 
-
-        You can select **Unminify JavaScript error stack
-         traces** to debug unminified JavaScript errors. To
-         use this feature, upload your source map files to an Amazon S3 bucket
-         or folder and provide the Amazon S3 URI. Once enabled, RUM will use
-         these source maps and enrich JavaScript error events by adding
-         the unminified stack trace. Note that after enabling, this
-         feature only processes new JavaScript error events and cannot be
-         used on previously collected data. For more information, see
-         [Enabling unminification of JavaScript error stack traces](CloudWatch-RUM-JavaScriptStackTraceSourceMaps.md "CloudWatch-RUM-JavaScriptStackTraceSourceMaps.md").
-        * **HTTP errors** – Collects information
-         about HTTP errors thrown by your application
-
-    Selecting these options provides more information about your
-    application, but also generates more CloudWatch RUM events and thus incurs
-    more charges.
+   You can select **Unminify JavaScript error stack
+   traces** to debug unminified JavaScript errors. To
+   use this feature, upload your source map files to an Amazon S3 bucket
+   or folder and provide the Amazon S3 URI. Once enabled, RUM will use
+   these source maps and enrich JavaScript error events by adding
+   the unminified stack trace. Note that after enabling, this
+   feature only processes new JavaScript error events and cannot be
+   used on previously collected data. For more information, see
+   [Enabling unminification of JavaScript error stack traces](CloudWatch-RUM-JavaScriptStackTraceSourceMaps.md "CloudWatch-RUM-JavaScriptStackTraceSourceMaps.md").
+   - **HTTP errors** – Collects information
+     about HTTP errors thrown by your application
+     Selecting these options provides more information about your
+     application, but also generates more CloudWatch RUM events and thus incurs
+     more charges.
 
 If you don't select any of these, the app monitor still collects
 session start events and page IDs so that you can see how many users are

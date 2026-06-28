@@ -22,7 +22,7 @@ New interface
 3. Choose **Browse**, and then select a metric or metrics to
    graph.
 4. Choose **Options**, and select **Line**
-   under **_Widget type_**.
+   under _**Widget type**_.
 5. Choose and drag on the area of the graph that you want to focus on, and then
    release the drag.
 6. To reset the zoom, choose the **Reset zoom** icon, which
@@ -37,8 +37,8 @@ Original interface
 2. In the navigation pane, choose **Metrics**, and then choose
    **All metrics**. .
 3. Choose **All metrics**, and then select a metric to graph.
-4. Choose **Graph options**. Under **_Widget
-   type_** select **Line**.
+4. Choose **Graph options**. Under _**Widget
+   type**_ select **Line**.
 5. Choose and drag on the area of the graph that you want to focus on, and then
    release the drag.
 6. To reset the zoom, choose the **Reset zoom** icon, which

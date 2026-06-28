@@ -68,7 +68,7 @@ the CloudWatch agent as a daemonset on a new or upgraded cluster, or you see an 
 the message `W! No pod metric collected`.
 
 These errors can be caused by changes in the container runtime, such as containerd or
-the docker systemd cgroup driver. You can usually solve this by updating your deployment
+the Docker systemd cgroup driver. You can usually solve this by updating your deployment
 manifest so that the containerd socket from the host is mounted into the container. See
 the following example:
 
@@ -150,7 +150,7 @@ printing all the scraped metrics in log](https://github.com/aws/amazon-cloudwatc
 ## Latest docker image mentioned in release notes not found from Dockerhub
 
 We update the release note and tag on Github before we start the actual release
-internally. It usually takes 1-2 weeks to see the latest docker image on registries after
+internally. It usually takes 1-2 weeks to see the latest Docker image on registries after
 we bump the version number on Github. There is no nightly release for the CloudWatch agent
 container image. You can build the image directly from source at the following location:
 [https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile](https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile "https://github.com/aws/amazon-cloudwatch-agent/tree/main/amazon-cloudwatch-container-insights/cloudwatch-agent-dockerfile")

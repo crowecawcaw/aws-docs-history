@@ -91,7 +91,7 @@ processor:
 `column_names` (optional)
 
 Array of column names for parsed fields. Maximum 100 columns, each
-name up to 128 characters. If not provided, defaults to column_1, column_2, and so on.
+name up to 128 characters. If not provided, defaults to column\_1, column\_2, and so on.
 
 `delimiter` (optional)
 

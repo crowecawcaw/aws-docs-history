@@ -194,7 +194,7 @@ Container Insights.
 Use the following guidance to resolve common issues when you enable OTel Container Insights
 on Amazon EKS.
 
-### Add-on status shows CREATE_FAILED or DEGRADED
+### Add-on status shows CREATE\_FAILED or DEGRADED
 
 **Symptom:** When you run `aws eks
  describe-addon`, the status shows `CREATE_FAILED` or

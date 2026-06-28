@@ -56,20 +56,20 @@ On Linux servers, to import ethtool metrics, add an `ethtool` section to
 the `metrics_collected` section of the CloudWatch agent configuration file. The
 `ethtool` section can include the following subsections:
 
-- **interface_include**— Including this
+- **interface\_include**— Including this
   section causes the agent to collect metrics from only the interfaces that have names
   listed in this section. If you omit this section, metrics are collected from all
   Ethernet interfaces that aren't listed in `interface_exclude`.
 
 The default ethernet interface is `eth0`.
 
-- **interface_exclude**— If you include this
+- **interface\_exclude**— If you include this
   section, list the Ethernet interfaces that you don't want to collect metrics
   from.
 
 The ethtool plugin always ignores loopback interfaces.
 
-- **metrics_include**— This section lists the
+- **metrics\_include**— This section lists the
   metrics to import into CloudWatch. It can include both standard statistics collected by
   ethtool and Amazon EC2 high-resolution network metrics.
 

@@ -105,7 +105,7 @@ following:
 - **Maximum CPU** – The maximum
   computational power available to your database. To see whether active sessions
   are exceeding the maximum CPU, look at their relationship to the `Max
-vCPU` line. The `Max vCPU` value is determined by the
+ vCPU` line. The `Max vCPU` value is determined by the
   number of vCPU (virtual CPU) cores for your DB instance.
 
 You can also "slice" the `DBLoad` metric into dimensions, which are

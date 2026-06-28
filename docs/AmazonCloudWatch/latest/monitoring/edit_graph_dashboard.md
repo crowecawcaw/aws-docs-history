@@ -36,12 +36,12 @@ New interface
    and then choose **Apply**.
 5. (Optional) To change your graph's time range, select one of the predefined
    time ranges in the upper are of the graph. The time ranges span
-   from 1 hour to 1 week (**_1h_**,
-   **_3h_**,
-   **_12h_**,
-   **_1d_**,
-   **_3d_**, or
-   **_1w_**).
+   from 1 hour to 1 week (_**1h**_,
+   _**3h**_,
+   _**12h**_,
+   _**1d**_,
+   _**3d**_, or
+   _**1w**_).
 
 To set your own time range,
 choose **Custom**.
@@ -50,157 +50,177 @@ choose **Custom**.
      if the time range for the rest of the dashboard is later changed, choose **Persist time range**.
 
 6. To change your graph's widget type, use
-   dropdown
-   that's next to the predefined time ranges.
-7. In **Graphed metrics**, you can add a
-   dynamic label to your metric and change your metric's label,
-   label color, statistic, and period. You also can determine
-   the position of labels on the
-   Y-axis
-   from left to right.
+dropdown
+that's next to the predefined time ranges. 7. In **Graphed metrics**, you can add a
+dynamic label to your metric and change your metric's label,
+label color, statistic, and period. You also can determine
+the position of labels on the
+Y-axis
+from left to right.
 
-   1. To add a dynamic label
-      for a metric,
-      choose **Dynamic labels**.
-      Dynamic labels display a statistic
-      about the metric
-      in the graph legend.
-      Dynamic labels update automatically
-      when your dashboard or graph refreshes.
-      By default,
-      the dynamic values
-      that you add
-      to labels
-      appear
-      at the beginning
-      of the labels.
-      For more information,
-      see [Use dynamic labels](graph-dynamic-labels.md "graph-dynamic-labels.md").
-   2. To change the color
-      of a metric,
-      choose the color square
-      that's next
-      to the metric.
-   3. To change the statistic,
-      choose the statistic value
-      under the **_Statistic_** column,
-      and then choose a new value.
-      For more information,
-      see [Statistics](cloudwatch_concepts.md#Statistic "cloudwatch_concepts.md#Statistic").
-   4. To change the period,
-      choose the period value
-      under the **_Period_** column,
-      and then choose a new value.
+    1. To add a dynamic label
+     for a metric,
+     choose **Dynamic labels**.
+     Dynamic labels display a statistic
+     about the metric
+     in the graph legend.
+     Dynamic labels update automatically
+     when your dashboard or graph refreshes.
+     By default,
+     the dynamic values
+     that you add
+     to labels
+     appear
+     at the beginning
+     of the labels.
+     For more information,
+     see [Use dynamic labels](graph-dynamic-labels.md "graph-dynamic-labels.md").
+    2. To change the color
+     of a metric,
+     choose the color square
+     that's next
+     to the metric.
+    3. To change the statistic,
+     choose the statistic value
+     under the ***Statistic*** column,
+     and then choose a new value.
+     For more information,
+     see [Statistics](cloudwatch_concepts.md#Statistic "cloudwatch_concepts.md#Statistic").
+    4. To change the period,
+     choose the period value
+     under the ***Period*** column,
+     and then choose a new value.
 
 8. To add or edit horizontal annotations,
-   choose **Options**:
+choose **Options**:
 
-   1. To add a horizontal annotation,
-      choose **Add horizontal annotation**.
-   2. For **Label**,
-      choose the pen and paper icon
-      next
-      to the current annotation.
-      Then enter your new annotation.
-      After you enter your annotation,
-      choose the check mark icon.
-   3. For **Value**,
-      choose the pen and paper icon
-      next
-      to the current metric value.
-      Then enter your new metric value.
-      After you enter your value,
-      select the check mark icon.
-   4. For **Fill**,
-      choose the dropdown
-      under the column,
-      and then specify
-      how your annotation will use shading.
-      You can choose **None**, **Above**, **Between**, or **Below**.
-      If you choose **Between**,
-      another new label and value field appears.
+    1. To add a horizontal annotation,
+     choose **Add horizontal annotation**.
+    2. For **Label**,
+     choose the pen and paper icon
+     next
+     to the current annotation.
+     Then enter your new annotation.
+     After you enter your annotation,
+     choose the check mark icon.
+    3. For **Value**,
+     choose the pen and paper icon
+     next
+     to the current metric value.
+     Then enter your new metric value.
+     After you enter your value,
+     select the check mark icon.
+    4. For **Fill**,
+     choose the dropdown
+     under the column,
+     and then specify
+     how your annotation will use shading.
+     You can choose **None**, **Above**, **Between**, or **Below**.
+     If you choose **Between**,
+     another new label and value field appears.
 
-   ###### Tip
 
-   You can change the fill color
-   by choosing the colored square
-   next
-   to the annotation. 5. For **Axis**,
-   specify whether your annotation
-   appears on the left or right side
-   of the Y-axis. 6. To hide an annotation,
-   deselect the check box
-   next to the annotation
-   that you want
-   to hide
-   on the graph. 7. To delete an annotation,
-   choose **X**
-   under the **Actions** column.
 
-   ###### Note
+    ###### Tip
 
-   You can repeat these steps
-   to add multiple horizontal annotations
-   to the same graph.
+
+     You can change the fill color
+     by choosing the colored square
+     next
+     to the annotation.
+    5. For **Axis**,
+     specify whether your annotation
+     appears on the left or right side
+     of the Y-axis.
+    6. To hide an annotation,
+     deselect the check box
+     next to the annotation
+     that you want
+     to hide
+     on the graph.
+    7. To delete an annotation,
+     choose **X**
+     under the **Actions** column.
+
+
+
+    ###### Note
+
+
+     You can repeat these steps
+     to add multiple horizontal annotations
+     to the same graph.
 
 9. To add or edit vertical annotations,
-   choose **Options**:
+choose **Options**:
 
-   1. To add a vertical annotation,
-      choose **Add vertical annotation**.
-   2. For **Label**,
-      choose the pen and paper icon
-      next
-      to the current annotation.
-      Then enter your new annotation.
-      After you enter your annotation,
-      choose the check mark icon.
+    1. To add a vertical annotation,
+     choose **Add vertical annotation**.
+    2. For **Label**,
+     choose the pen and paper icon
+     next
+     to the current annotation.
+     Then enter your new annotation.
+     After you enter your annotation,
+     choose the check mark icon.
 
-   ###### Tip
 
-   To show only the date and time,
-   leave the label field blank. 3. For **Date**,
-   choose the current date and time.
-   Then enter the new date and time. 4. For **Fill**,
-   choose the dropdown
-   under the column,
-   and then specify
-   how your annotation will use shading.
-   You can choose **None**, **Above**, **Between**, or **Below**.
-   If you choose **Between**,
-   a new label and value field appears.
 
-   ###### Tip
+    ###### Tip
 
-   You can change the fill color
-   by choosing the color square
-   next
-   to the annotation.
 
-   ###### Note
+     To show only the date and time,
+     leave the label field blank.
+    3. For **Date**,
+     choose the current date and time.
+     Then enter the new date and time.
+    4. For **Fill**,
+     choose the dropdown
+     under the column,
+     and then specify
+     how your annotation will use shading.
+     You can choose **None**, **Above**, **Between**, or **Below**.
+     If you choose **Between**,
+     a new label and value field appears.
 
-   You can repeat these steps
-   to add multiple vertical annotations
-   to the same graph. 5. To hide an annotation,
-   deselect the check box
-   next to the annotation
-   that you want
-   to hide
-   on the graph. 6. To delete an annotation,
-   choose **X**
-   under the **Actions** column.
+
+
+    ###### Tip
+
+
+     You can change the fill color
+     by choosing the color square
+     next
+     to the annotation.
+
+
+
+    ###### Note
+
+
+     You can repeat these steps
+     to add multiple vertical annotations
+     to the same graph.
+    5. To hide an annotation,
+     deselect the check box
+     next to the annotation
+     that you want
+     to hide
+     on the graph.
+    6. To delete an annotation,
+     choose **X**
+     under the **Actions** column.
 
 10. To customize the Y-axis, choose **Options**.
-    Under **_Left Y-axis_**,
-    you can enter a custom label for **Label**.
-    If the graph displays values on the right Y-axis, you can
-    customize that label, too. You also can set minimums and
-    maximums on the Y-axis values, so
-    that
-    the graph displays only the value range
-    that you specify.
-11. When you finish making changes,
-    choose **Update widget**.
+Under _**Left Y-axis**_,
+you can enter a custom label for **Label**.
+If the graph displays values on the right Y-axis, you can
+customize that label, too. You also can set minimums and
+maximums on the Y-axis values, so
+that
+the graph displays only the value range
+that you specify. 11. When you finish making changes,
+choose **Update widget**.
 
 ###### To hide or change the position of a graph legend
 
@@ -228,7 +248,7 @@ choose **Custom**.
    a dashboard.
 3. Select the color square for the metric that you want to hide
    in the graph's footer. An
-   **_X_** appears in
+   _**X**_ appears in
    the color square when you hover over it, and the square
    turns
    gray
@@ -262,12 +282,12 @@ Original interface
 5. To change the graph's time range, choose one of the
    predefined time ranges in the
    upper area of the graph. These span from 1 hour to 1 week
-   (**_1h_**,
-   **_3h_**,
-   **_12h_**,
-   **_1d_**,
-   **_3d_**, or
-   **_1w_**).
+   (_**1h**_,
+   _**3h**_,
+   _**12h**_,
+   _**1d**_,
+   _**3d**_, or
+   _**1w**_).
 
    1. To set your own time range,
       choose **custom**.
@@ -275,7 +295,7 @@ Original interface
 6. To change your graph's widget type,
    select the **Graph options** tab.
    You can choose
-   **_Line_**, **_Stacked area_**, **_Number_**, **_Bar_**, or **_Pie_**.
+   _**Line**_, _**Stacked area**_, _**Number**_, _**Bar**_, or _**Pie**_.
 
 ###### Tip
 
@@ -322,117 +342,138 @@ from left to right.
      and then choose a new value.
 
 8. To add or edit horizontal annotations,
-   choose **Graph options**:
+choose **Graph options**:
 
-   1. To add a horizontal annotation,
-      choose **Add horizontal annotation**.
-   2. For **Label**,
-      choose the pencil icon
-      next
-      to the current annotation.
-      Then enter your new annotation.
-      After you enter your annotation,
-      choose the check mark icon.
-   3. For **Value**,
-      choose the pencil icon
-      next
-      to the current metric value.
-      Then enter your new metric value.
-      After you enter your value,
-      select the check mark icon.
-   4. For **Fill**,
-      choose the dropdown
-      under the column,
-      and then specify
-      how your annotation will use shading.
-      You can choose **None**, **Above**, **Between**, or **Below**.
-      If you choose **Between**,
-      a new label and value field appears.
+    1. To add a horizontal annotation,
+     choose **Add horizontal annotation**.
+    2. For **Label**,
+     choose the pencil icon
+     next
+     to the current annotation.
+     Then enter your new annotation.
+     After you enter your annotation,
+     choose the check mark icon.
+    3. For **Value**,
+     choose the pencil icon
+     next
+     to the current metric value.
+     Then enter your new metric value.
+     After you enter your value,
+     select the check mark icon.
+    4. For **Fill**,
+     choose the dropdown
+     under the column,
+     and then specify
+     how your annotation will use shading.
+     You can choose **None**, **Above**, **Between**, or **Below**.
+     If you choose **Between**,
+     a new label and value field appears.
 
-   ###### Tip
 
-   You can change the fill color
-   by choosing the color square
-   next
-   to the annotation. 5. For **Axis**,
-   specify whether your annotation
-   appears on the left or right side
-   of the Y-axis. 6. To hide an annotation,
-   deselect the check box
-   next to the annotation
-   that you want
-   to hide
-   on the graph. 7. To delete an annotation,
-   choose **X**
-   under the **Actions** column.
 
-   ###### Note
+    ###### Tip
 
-   You can repeat these steps
-   to add multiple horizontal annotations
-   to the same graph.
+
+     You can change the fill color
+     by choosing the color square
+     next
+     to the annotation.
+    5. For **Axis**,
+     specify whether your annotation
+     appears on the left or right side
+     of the Y-axis.
+    6. To hide an annotation,
+     deselect the check box
+     next to the annotation
+     that you want
+     to hide
+     on the graph.
+    7. To delete an annotation,
+     choose **X**
+     under the **Actions** column.
+
+
+
+    ###### Note
+
+
+     You can repeat these steps
+     to add multiple horizontal annotations
+     to the same graph.
 
 9. To add or edit vertical annotations,
-   choose **Graph options**:
+choose **Graph options**:
 
-   1. To add a vertical annotation,
-      choose **Add vertical annotation**.
-   2. For **Label**,
-      choose the pencil icon
-      next
-      to the current annotation.
-      Then enter your new annotation.
-      After you enter your annotation,
-      choose the check mark icon.
+    1. To add a vertical annotation,
+     choose **Add vertical annotation**.
+    2. For **Label**,
+     choose the pencil icon
+     next
+     to the current annotation.
+     Then enter your new annotation.
+     After you enter your annotation,
+     choose the check mark icon.
 
-   ###### Tip
 
-   To show only the date and time,
-   leave the label field blank. 3. For **Date**,
-   choose the pencil icon
-   next
-   to the current date and time.
-   Then enter the new date and time. 4. For **Fill**,
-   choose the dropdown
-   under the column,
-   and then specify
-   how your annotation will use shading.
-   You can choose **None**, **Above**, **Between**, or **Below**.
-   If you choose **Between**,
-   a new label and value field appears.
 
-   ###### Tip
+    ###### Tip
 
-   You can change the fill color
-   by choosing the color square
-   next
-   to the annotation.
 
-   ###### Note
+     To show only the date and time,
+     leave the label field blank.
+    3. For **Date**,
+     choose the pencil icon
+     next
+     to the current date and time.
+     Then enter the new date and time.
+    4. For **Fill**,
+     choose the dropdown
+     under the column,
+     and then specify
+     how your annotation will use shading.
+     You can choose **None**, **Above**, **Between**, or **Below**.
+     If you choose **Between**,
+     a new label and value field appears.
 
-   You can repeat these steps
-   to add multiple vertical annotations
-   to the same graph. 5. To hide an annotation,
-   deselect the check box
-   next to the annotation
-   that you want
-   to hide
-   on the graph. 6. To delete an annotation,
-   choose **X**
-   under the **Actions** column.
+
+
+    ###### Tip
+
+
+     You can change the fill color
+     by choosing the color square
+     next
+     to the annotation.
+
+
+
+    ###### Note
+
+
+     You can repeat these steps
+     to add multiple vertical annotations
+     to the same graph.
+    5. To hide an annotation,
+     deselect the check box
+     next to the annotation
+     that you want
+     to hide
+     on the graph.
+    6. To delete an annotation,
+     choose **X**
+     under the **Actions** column.
 
 10. To customize the Y-axis, choose **Graph
-    options**. Under **_Left
-    Y-axis_**, you can enter a custom
-    label for **Label**. If the graph displays
-    values on the right Y-axis, you can customize that label,
-    too. You also can set minimums and maximums on the Y-axis
-    values, so
-    that
-    the graph displays only the value range
-    that you specify.
-11. When you finish making changes,
-    choose **Update widget**.
+options**. Under _**Left
+Y-axis**_, you can enter a custom
+label for **Label**. If the graph displays
+values on the right Y-axis, you can customize that label,
+too. You also can set minimums and maximums on the Y-axis
+values, so
+that
+the graph displays only the value range
+that you specify. 11. When you finish making changes,
+choose **Update widget**.
 
 ###### To hide or change the position of a graph legend
 
@@ -463,7 +504,7 @@ from left to right.
    a dashboard.
 3. Select the color square for the metric that you want to hide
    in the graph's footer. An
-   **_X_** appears in
+   _**X**_ appears in
    the color square when you hover over it, and the square
    turns
    gray

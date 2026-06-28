@@ -33,6 +33,11 @@ The following resources in CloudWatch support tagging:
   [PutInsightRule](../APIReference/API_PutInsightRule.md "../APIReference/API_PutInsightRule.md") API.
   You can add tags to existing rules by using the [tag-resource](../../../cli/latest/reference/cloudwatch/tag-resource.md "../../../cli/latest/reference/cloudwatch/tag-resource.md") AWS CLI command and the
   [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") API.
+- Dashboards – You can tag dashboards when
+  you create them by using the [put-dashboard](../../../cli/latest/reference/cloudwatch/put-dashboard.md "../../../cli/latest/reference/cloudwatch/put-dashboard.md") AWS CLI command and the
+  [PutDashboard](../APIReference/API_PutDashboard.md "../APIReference/API_PutDashboard.md") API.
+  You can add tags to existing dashboards by using the [tag-resource](../../../cli/latest/reference/cloudwatch/tag-resource.md "../../../cli/latest/reference/cloudwatch/tag-resource.md") AWS CLI command and the
+  [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") API.
 - Metric streams – You can tag metric streams when
   you create them by using the [put-metric-stream](../../../cli/latest/reference/cloudwatch/put-metric-stream.md "../../../cli/latest/reference/cloudwatch/put-metric-stream.md") AWS CLI command and the
   [PutMetricStream](../APIReference/API_PutMetricStream.md "../APIReference/API_PutMetricStream.md") API.
@@ -64,7 +69,8 @@ CloudWatch resources:
 - The maximum tag key length is 128 Unicode characters in UTF-8.
 - The maximum tag value length is 256 Unicode characters in UTF-8.
 - Allowed characters are letters, numbers, spaces representable in UTF-8, and the following
-  characters: **_. : + = @ \_ / -_** (hyphen).
+  characters: _**. : + = @ \_ /
+  -**_ (hyphen).
 - Tag keys and values are case sensitive. As a best practice, decide on a strategy for
   capitalizing tags and consistently implement that strategy across all resource
   types. For example, decide whether to use `Costcenter`,

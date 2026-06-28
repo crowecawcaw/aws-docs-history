@@ -95,19 +95,6 @@ using filters](../logs/MonitoringLogData.md "../logs/MonitoringLogData.md") in t
 
 For more information on how to create an alarm based on log group-metric filter, see [Alarming on logs](Alarm-On-Logs.md "Alarm-On-Logs.md").
 
-## Log Insights query
-
-You can create an alarm that uses a CloudWatch Logs Insights query to monitor log data directly.
-The query runs on a schedule using a Scheduled Query, and the alarm evaluates the aggregated
-results against a threshold. When the aggregation expression includes a `by`
-clause, each unique combination of field values is tracked as a contributor.
-
-For more information about how Log Alarms work, see
-[Log alarms](alarm-log.md "alarm-log.md").
-
-For more information about how to create a Log Alarm, see
-[Create a Log Alarm](Alarm-On-Logs.md#Create_Log_Alarm "Alarm-On-Logs.md#Create_Log_Alarm").
-
 ## PromQL
 
 You can create an alarm that uses a Prometheus Query Language (PromQL) instant query to

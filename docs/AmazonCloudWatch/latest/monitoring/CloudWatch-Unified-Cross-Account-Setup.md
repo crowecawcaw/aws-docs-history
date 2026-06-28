@@ -408,7 +408,7 @@ performing the steps in [Step 2: (Optional) Download an CloudFormation template 
     and choose **Submit**.
 15. In the **Stack instances** tab, refresh the screen
     until you see that your stack instances have the status
-    **CREATE_COMPLETE**.
+    **CREATE\_COMPLETE**.
 
 ### Use an CloudFormation template to set up individual source accounts
 
@@ -436,7 +436,7 @@ performing the steps in [Step 2: (Optional) Download an CloudFormation template 
     **Submit**.
 12. On the status page for your stack, refresh the screen until you see
     that your stack has the status
-    **CREATE_COMPLETE**.
+    **CREATE\_COMPLETE**.
 13. To use this same template to link more source accounts to this
     monitoring account, sign out of this account and sign in to the next
     source account. Then repeat steps 2-12.

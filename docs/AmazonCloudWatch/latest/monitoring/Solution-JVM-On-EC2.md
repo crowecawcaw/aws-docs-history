@@ -110,7 +110,7 @@ Instructions for exposing the JMX port depend on the workload type you are using
 In general, to enable a JMX port for monitoring and management, you would set the following system properties for your JVM application.
 Be sure to specify an unused port number. The following example sets up unauthenticated JMX. If your security policies/requirements require you to enable JMX with password authentication
 or SSL for remote access, refer to the [JMX documentation](https://docs.oracle.com/en/java/javase/17/management/monitoring-and-management-using-jmx-technology.html "https://docs.oracle.com/en/java/javase/17/management/monitoring-and-management-using-jmx-technology.html")  
- to set the required property.
+to set the required property.
 
 ```
 -Dcom.sun.management.jmxremote
@@ -416,7 +416,7 @@ in the dashboard name, such as `JVMDashboard-us-east-1`. 4. Preview the dashboar
 
 ###### To create the dashboard via CloudFormation
 
-1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json") .
+1. Open the CloudFormation **Quick create stack** wizard using this link: [https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://console.aws.amazon.com/cloudformation/home?#/stacks/quickcreate?templateURL=https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json") .
 2. Verify that the selected Region on the console is the Region where the JVM workload is running.
 3. For **Stack name**, enter a name to identity this stack,
    such as `JVMDashboardStack`.
@@ -425,7 +425,7 @@ in the dashboard name, such as `JVMDashboard-us-east-1`. 4. Preview the dashboar
 
 To easily differentiate this dashboard from similar dashboards in other Regions,
 we recommend including the Region name in the dashboard name, such as `JVMDashboard-us-east-1`. 5. Acknowledge access capabilities for transforms under **Capabilities and transforms**.
-Note that CloudFormation doesn't add any IAM resources. 6. Review the settings, then choose **Create stack**. 7. After the stack status is **CREATE_COMPLETE**, choose the **Resources** tab under
+Note that CloudFormation doesn't add any IAM resources. 6. Review the settings, then choose **Create stack**. 7. After the stack status is **CREATE\_COMPLETE**, choose the **Resources** tab under
 the created stack and then choose the link under **Physical ID** to go to the dashboard. You can also access the
 dashboard in the CloudWatch console by choosing **Dashboards** in the left navigation pane of the console,
 and finding the dashboard name under **Custom Dashboards**.
@@ -433,7 +433,7 @@ and finding the dashboard name under **Custom Dashboards**.
 If you want to edit the template file to customize it for any purpose, you can use **Upload a template file** option
 under **Create Stack Wizard** to upload the edited template. For more information, see
 [Creating a stack on CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
-You can use this link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
+You can use this link to download the template: [https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM\_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json](https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json "https://aws-observability-solutions-prod-us-east-1.s3.us-east-1.amazonaws.com/JVM_EC2/CloudWatch/CFN/v1.0.0/dashboard-template-1.0.0.json").
 
 ###### Note
 

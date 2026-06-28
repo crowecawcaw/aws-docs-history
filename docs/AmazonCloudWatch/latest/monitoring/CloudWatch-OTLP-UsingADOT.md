@@ -107,7 +107,7 @@ The example above samples 5% of traces. Adjust the value of `OTEL_TRACES_SAMPLER
 between `0` and `1` to set the sampling rate appropriate for your workload.
 
 For more information about sampler configuration options, see
-[OTEL_TRACES_SAMPLER](https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler "https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler")
+[OTEL\_TRACES\_SAMPLER](https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler "https://opentelemetry.io/docs/concepts/sdk-configuration/general-sdk-configuration/#otel_traces_sampler")
 in the OpenTelemetry documentation.
 
 Java
@@ -258,8 +258,7 @@ You can view information about all released versions at [aws-otel-js-instrumenta
     * Set `OTEL_LOGS_EXPORTER` to `otlp` (this is optional and is the default value if this environment variable is not set).
     * Set `OTEL_EXPORTER_OTLP_LOGS_PROTOCOL` variable to `http/protobuf` (this is optional and is the default value if this environment variable is not set).
 
-3. Your application should now be running with ADOT JavaScript instrumentation and will generate spans and logs. Spans will be stored in the `aws/spans` CloudWatch log group, while logs will be stored in the log group specified in the `OTEL_EXPORTER_OTLP_LOGS_HEADERS` header. You can also view the logs and metrics correlated with your spans in the CloudWatch Traces and Metrics Console.
-4. Start your application with the environment variables listed in the previous step. The following is an example of a starting script.
+3. Your application should now be running with ADOT JavaScript instrumentation and will generate spans and logs. Spans will be stored in the `aws/spans` CloudWatch log group, while logs will be stored in the log group specified in the `OTEL_EXPORTER_OTLP_LOGS_HEADERS` header. You can also view the logs and metrics correlated with your spans in the CloudWatch Traces and Metrics Console. 4. Start your application with the environment variables listed in the previous step. The following is an example of a starting script.
 
 Replace `$SVC_NAME` with your application name. This will be displayed as the name of the application.
 
@@ -344,8 +343,7 @@ You can view information about all released versions at [aws-otel-python-instrum
     * Set `OTEL_LOGS_EXPORTER` to `otlp` (this is optional and is the default value if this environment variable is not set).
     * Set `OTEL_EXPORTER_OTLP_LOGS_PROTOCOL` variable to `http/protobuf` (this is optional and is the default value if this environment variable is not set).
 
-3. Your application should now be running with ADOT Python instrumentation and will generate spans and logs. Spans will be stored in the `aws/spans` CloudWatch log group, while logs will be stored in the log group specified in the `OTEL_EXPORTER_OTLP_LOGS_HEADERS` header. You can also view the logs and metrics correlated with your spans in the CloudWatch Traces and Metrics Console.
-4. Start your application with the environment variables listed in the previous step. The following is an example of a starting script.
+3. Your application should now be running with ADOT Python instrumentation and will generate spans and logs. Spans will be stored in the `aws/spans` CloudWatch log group, while logs will be stored in the log group specified in the `OTEL_EXPORTER_OTLP_LOGS_HEADERS` header. You can also view the logs and metrics correlated with your spans in the CloudWatch Traces and Metrics Console. 4. Start your application with the environment variables listed in the previous step. The following is an example of a starting script.
 
 Replace `$SVC_NAME` with your application name. This will be displayed as the name of the application.
 

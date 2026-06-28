@@ -23,7 +23,7 @@ troubleshooting tool can:
 - [The CloudWatch agent won't start on Windows Server](#CloudWatch-Agent-troubleshooting-Windows-start "#CloudWatch-Agent-troubleshooting-Windows-start")
 - [Where are the metrics?](#CloudWatch-Agent-troubleshooting-no-metrics "#CloudWatch-Agent-troubleshooting-no-metrics")
 - [The CloudWatch agent takes a long time to run in a container or logs a hop limit error](#CloudWatch-Agent-container-slow "#CloudWatch-Agent-container-slow")
-- [I updated my agent configuration but don’t see the new metrics or logs in the CloudWatch console](#CloudWatch-Agent-troubleshooting-update-no-new-metrics "#CloudWatch-Agent-troubleshooting-update-no-new-metrics")
+- [I updated my agent configuration but don't see the new metrics or logs in the CloudWatch console](#CloudWatch-Agent-troubleshooting-update-no-new-metrics "#CloudWatch-Agent-troubleshooting-update-no-new-metrics")
 - [The CloudWatch agent is using the wrong credentials](#CloudWatch-Agent-troubleshooting-wrong-credentials "#CloudWatch-Agent-troubleshooting-wrong-credentials")
 - [CloudWatch agent files and locations](#CloudWatch-Agent-files-and-locations "#CloudWatch-Agent-files-and-locations")
 - [Finding information about CloudWatch agent versions](#CloudWatch-Agent-troubleshooting-agent-version "#CloudWatch-Agent-troubleshooting-agent-version")
@@ -189,7 +189,7 @@ v1.247354.0, you can experience this issue without seeing the log message.
 
 To solve this, increase the hop limit to 2 by following the instructions in [Configure the instance metadata options](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md#configuring-IMDS-existing-instances. "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md#configuring-IMDS-existing-instances.").
 
-## I updated my agent configuration but don’t see the new metrics or logs in the CloudWatch console
+## I updated my agent configuration but don't see the new metrics or logs in the CloudWatch console
 
 If you update your CloudWatch agent configuration file, the next time that you start the
 agent, you need to use the `fetch-config` option. For example, if you

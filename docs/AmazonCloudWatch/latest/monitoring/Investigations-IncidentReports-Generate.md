@@ -83,7 +83,6 @@ include:
      best practices
 
 9. To retain a copy of the report in a different location, you can choose to copy
-   the text of the report and paste it into your desired location.
-10. Choose **Report assessment** to review a list of data gaps in
-    the report. You can use this information to gather additional data for the
-    report and then update the facts accordingly and regenerate the report.
+the text of the report and paste it into your desired location. 10. Choose **Report assessment** to review a list of data gaps in
+the report. You can use this information to gather additional data for the
+report and then update the facts accordingly and regenerate the report.

@@ -12,24 +12,23 @@ This section describes how to view these metrics in the CloudWatch console and q
 
 ###### To view metrics that were generated from embedded metric format logs
 
-1.  Open the CloudWatch console at
-    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  In the navigation pane, choose **Metrics**.
-3.  Select a namespace that you specified for your embedded metrics when you
-    generated them. If you used the client libraries to generate the metrics and did not specify
-    a namespace, then select **aws-embedded-metrics**. This is the default namespace for
-    embedded metrics generated using the client libraries.
-4.  Select a metric dimension (for example, **ServiceName**).
-5.  The **All metrics** tab displays all metrics for that dimension in the namespace.
-    You can do the following:
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Metrics**.
+3. Select a namespace that you specified for your embedded metrics when you
+   generated them. If you used the client libraries to generate the metrics and did not specify
+   a namespace, then select **aws-embedded-metrics**. This is the default namespace for
+   embedded metrics generated using the client libraries.
+4. Select a metric dimension (for example, **ServiceName**).
+5. The **All metrics** tab displays all metrics for that dimension in the namespace.
+   You can do the following:
 
-        1. To sort the table, use the column heading.
-        2. To graph a metric, select the check box next to the metric. To select all metrics, select the check box
-         in the heading row of the table.
-        3. To filter by resource, choose the resource ID and then choose **Add to search**.
-        4. To filter by metric, choose the metric name and then choose **Add to search**.
-
-    **Querying logs using CloudWatch Logs Insights**
+   1. To sort the table, use the column heading.
+   2. To graph a metric, select the check box next to the metric. To select all metrics, select the check box
+      in the heading row of the table.
+   3. To filter by resource, choose the resource ID and then choose **Add to search**.
+   4. To filter by metric, choose the metric name and then choose **Add to search**.
+      **Querying logs using CloudWatch Logs Insights**
 
 You can query the detailed log events associated with the extracted metrics by using CloudWatch Logs Insights to
 provide deep insights into the root causes of operational events. One of the benefits of

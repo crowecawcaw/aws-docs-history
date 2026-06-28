@@ -180,7 +180,7 @@ To set a custom user-agent string, do the following:
   using the Synthetics configuration file. For more information, see [CloudWatch Synthetics configurations](Synthetics_WritingCanary_Nodejs_Playwright.md#Synthetics_canary_configure_Playwright_script "Synthetics_WritingCanary_Nodejs_Playwright.md#Synthetics_canary_configure_Playwright_script").
 - For Puppeteer or Selenium runtimes, you can add your custom user-agent string using
   supported library functions. For Puppeteer runtimes, see [async addUserAgent(page, userAgentString);](CloudWatch_Synthetics_Canaries_Library_Nodejs.md#CloudWatch_Synthetics_Library_addUserAgent "CloudWatch_Synthetics_Canaries_Library_Nodejs.md#CloudWatch_Synthetics_Library_addUserAgent"). For Selenium runtimes,
-  see [add_user_agent(user_agent_str)](CloudWatch_Synthetics_Canaries_Library_Python.md#CloudWatch_Synthetics_Library_add_user_agent "CloudWatch_Synthetics_Canaries_Library_Python.md#CloudWatch_Synthetics_Library_add_user_agent").
+  see [add\_user\_agent(user\_agent\_str)](CloudWatch_Synthetics_Canaries_Library_Python.md#CloudWatch_Synthetics_Library_add_user_agent "CloudWatch_Synthetics_Canaries_Library_Python.md#CloudWatch_Synthetics_Library_add_user_agent").
 
 ## Waiting for an element to appear
 
@@ -370,30 +370,29 @@ To help you troubleshoot these issues, see the logs for the canary.
 To understand why your canary is failing or to analyze specific failed attempts, follow
 these troubleshooting steps.
 
-1.  Open the CloudWatch console at
-    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
-2.  In the navigation pane, choose **Application Signals**, **Synthetics
-    Canaries**.
-3.  Choose the **Canary**.
-4.  Under the **Availability** tab, you can examine the run details by
-    either:
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Application Signals**, **Synthetics
+   Canaries**.
+3. Choose the **Canary**.
+4. Under the **Availability** tab, you can examine the run details by
+   either:
 
-        * Selecting a specific point on the Canary Runs graph
-        * Under **Issues**, selecting a record. Note that retry attempts
-         are tagged and share timestamps with their scheduled runs
+   - Selecting a specific point on the Canary Runs graph
+   - Under **Issues**, selecting a record. Note that retry attempts
+     are tagged and share timestamps with their scheduled runs
+     You can view additional information under **Steps**, **Screenshot**, **Logs**, **HAR file**, or **Traces
+     (if active tracing is enabled)**.
 
-    You can view additional information under **Steps**, **Screenshot**, **Logs**, **HAR file**, or **Traces
-    (if active tracing is enabled)**.
+5. Under **Canary artifacts and Amazon S3 location**, you can access the
+   artifact and navigate to the Amazon S3 folders or buckets through the available links.
+6. The **Canary runs** graph uses different colored points to indicate
+   various status:
 
-5.  Under **Canary artifacts and Amazon S3 location**, you can access the
-    artifact and navigate to the Amazon S3 folders or buckets through the available links.
-6.  The **Canary runs** graph uses different colored points to indicate
-    various status:
-
-    - Blue Points – Indicates successful scheduled runs with a consistent value
-      of 100%
-    - Red Points – Displays failure of both scheduled runs and all retries,
-      marked at 0%
-    - Orange Points – Displays either 0% or 100%. 0% indicates ongoing retry
-      following previous attempt failures and 100% means success was achieved after
-      retrying
+   - Blue Points – Indicates successful scheduled runs with a consistent value
+     of 100%
+   - Red Points – Displays failure of both scheduled runs and all retries,
+     marked at 0%
+   - Orange Points – Displays either 0% or 100%. 0% indicates ongoing retry
+     following previous attempt failures and 100% means success was achieved after
+     retrying

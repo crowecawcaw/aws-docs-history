@@ -38,7 +38,7 @@ handler for the canary.
 
 **Java canary class example**
 
-This example is for a canary to make a get request to a URL stored in the _TESTING_URL_ Lambda environment variable. The canary does not use any of the
+This example is for a canary to make a get request to a URL stored in the _TESTING\_URL_ Lambda environment variable. The canary does not use any of the
 methods provided by Synthetics runtime.
 
 ```
@@ -247,11 +247,11 @@ response logs.
 Configurations for metrics related to the count of network requests with different
 HTTP status codes, emitted by CloudWatch Synthetics for this canary.
 
-- _metric_2xx_ – Specifies whether to emit the _2xx_ metric (with the CanaryName dimension) for this canary. The default
+- _metric\_2xx_ – Specifies whether to emit the _2xx_ metric (with the CanaryName dimension) for this canary. The default
   is _true_.
-- _metric_4xx_ – Specifies whether to emit the _4xx_ metric (with the CanaryName dimension) for this canary. The default
+- _metric\_4xx_ – Specifies whether to emit the _4xx_ metric (with the CanaryName dimension) for this canary. The default
   is _true_.
-- _metric_5xx_ – Specifies whether to emit the _5xx_ metric (with the CanaryName dimension) for this canary. The default
+- _metric\_5xx_ – Specifies whether to emit the _5xx_ metric (with the CanaryName dimension) for this canary. The default
   is _true_.
 - _aggregated2xxMetric_ – Specifies whether to emit the _2xx_ metric (without the CanaryName dimension) for this canary. The
   default is _true_.
@@ -280,13 +280,13 @@ The CloudWatch Synthetics Java runtime creates CloudWatch logs for every canary 
 written in JSON format for convenient querying. Optionally, you can change the log
 format to _TEXT_.
 
-- _Environment variable name_ – CW_SYNTHETICS_LOG_FORMAT
+- _Environment variable name_ – CW\_SYNTHETICS\_LOG\_FORMAT
 - _Supported values_ – JSON, TEXT
 - _Default_ –JSON
 
 **Log levels**
 
-- _Environment variable name_ – CW_SYNTHETICS_LOG_LEVEL
+- _Environment variable name_ – CW\_SYNTHETICS\_LOG\_LEVEL
 - _Supported values_ – TRACE, DEBUG, INFO, WARN, ERROR,
   FATAL
 - _Default_ – INFO

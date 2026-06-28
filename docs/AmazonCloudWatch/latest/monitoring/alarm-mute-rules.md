@@ -29,20 +29,20 @@ Alarm mute rules can be defined using: **rules** and **targets**.
 
     ```
 
-        * The following characters are supported in each field:
+          * The following characters are supported in each field:
 
 
 
 
 
-        	+ `Minute`: `*` `,` `-` `/`
-        	+ `Hour`: `*` `,` `-` `/`
-        	+ `Day of month`: `*` `?` `,` `-` `/` `L`
-        	+ `Month`: `*` `,` `-` `/`
-        	+ `Day of week`: `*` `?` `,` `-` `L` `#`
+          	+ `Minute`: `*` `,` `-` `/`
+          	+ `Hour`: `*` `,` `-` `/`
+          	+ `Day of month`: `*` `?` `,` `-` `/` `L`
+          	+ `Month`: `*` `,` `-` `/`
+          	+ `Day of week`: `*` `?` `,` `-` `L` `#`
 
-         For example, `cron(0 9 * * SUN#4)` activates on the fourth Sunday of every month at 9:00 AM.
-        * English names can be used for the `month` (JAN-DEC) and `day of week` (SUN-SAT) fields
+           For example, `cron(0 9 * * SUN#4)` activates on the fourth Sunday of every month at 9:00 AM.
+          * English names can be used for the `month` (JAN-DEC) and `day of week` (SUN-SAT) fields
     - **At expressions** – Use at expressions for one-time mute windows. This approach works well for planned operational events that occur once at a known time.
 
     ```
@@ -52,7 +52,7 @@ Alarm mute rules can be defined using: **rules** and **targets**.
     ```
 
   - **Duration** – Specifies how long the mute rule lasts once activated. Duration must be specified in ISO-8601 format with a minimum of 1 minute (PT1M) and maximum of 15 days (P15D).
-  - **Timezone** – Specifies the timezone in which the mute window will be applied according to the expressions, using standard timezone identifiers such as "America/Los_Angeles" or "Europe/London".
+  - **Timezone** – Specifies the timezone in which the mute window will be applied according to the expressions, using standard timezone identifiers such as "America/Los\_Angeles" or "Europe/London".
 
 - **Targets** - specify the list of alarm names whose actions will be muted during the defined time windows. You can include both metric alarms and composite alarms in your target list.
 
@@ -79,14 +79,14 @@ Once created, an alarm mute rule can be in one of the below three statuses:
 
 During an active mute window, when a targeted alarm changes state and has actions configured, CloudWatch mutes those actions from executing. Mutes are applied only to alarm actions, meaning that alarms continue to be evaluated and state changes are visible in the CloudWatch console, but configured actions such as Amazon Simple Notification Service notifications, Amazon Elastic Compute Cloud Auto Scaling actions, or Amazon EC2 actions are prevented from executing. CloudWatch continues to evaluate alarm states normally throughout the mute period, and you can view this information through alarm history.
 
-When a mute window ends, if the targeted alarm(s) remains in an alarming state (OK/ALARM/INSUFFICIENT_DATA), CloudWatch automatically re-triggers the alarm actions that were muted during the window. This ensures that your alarm actions are executed for ongoing issues once the planned mute period ends, maintaining the integrity of your monitoring system.
+When a mute window ends, if the targeted alarm(s) remains in an alarming state (OK/ALARM/INSUFFICIENT\_DATA), CloudWatch automatically re-triggers the alarm actions that were muted during the window. This ensures that your alarm actions are executed for ongoing issues once the planned mute period ends, maintaining the integrity of your monitoring system.
 
 ###### Note
 
 When you mute an alarm:
 
 - All the actions associated with the targeted alarms are muted
-- Actions associated with all alarm states (OK, ALARM, and INSUFFICIENT_DATA) are muted
+- Actions associated with all alarm states (OK, ALARM, and INSUFFICIENT\_DATA) are muted
 
 ## Viewing and managing muted alarms
 

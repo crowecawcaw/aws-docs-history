@@ -121,7 +121,7 @@ by running synthetic tests between a VPC and on-premises endpoints. When you cre
 specify probes by providing a VPC subnet and on-premises IP addresses. AWS creates and manages the
 infrastructure in the background that is required to perform round-trip time and packet loss measurements
 with the probes. These tests detect issues with connectivity, DNS, and latency before they impact your
-applications, so that you can take action to improve your end users’ experience.
+applications, so that you can take action to improve your end users' experience.
 
 ## Billing and costs
 

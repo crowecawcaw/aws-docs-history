@@ -45,8 +45,7 @@ Be aware of the following:
     * You can add only one type of resource to a single monitor. For example, VPCs or CloudFront distributions or WorkSpaces directories,
      but not a combination of different types.
 
-6. Leave the default percentage of traffic as 100%, or choose another percentage of your internet traffic to monitor.
-7. Choose **Create monitor**.
+6. Leave the default percentage of traffic as 100%, or choose another percentage of your internet traffic to monitor. 7. Choose **Create monitor**.
 
 ## Step 2: Configure the monitor
 

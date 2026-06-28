@@ -2,7 +2,7 @@
 
 ## Integrating with ServiceNow CMDB
 
-ServiceNow is an enterprise platform that provides IT service management (ITSM) and configuration management database (CMDB) capabilities for tracking and managing IT assets, configurations, and changes across organizations. CloudWatch Pipeline uses the ServiceNow Table API to retrieve information about sys_audit, syslog, sysevent, and syslog_transactions from your ServiceNow instance.
+ServiceNow is an enterprise platform that provides IT service management (ITSM) and configuration management database (CMDB) capabilities for tracking and managing IT assets, configurations, and changes across organizations. CloudWatch Pipeline uses the ServiceNow Table API to retrieve information about sys\_audit, syslog, sysevent, and syslog\_transactions from your ServiceNow instance.
 
 ## Authenticating with ServiceNow CMDB
 
@@ -24,7 +24,7 @@ This integration supports OCSF schema version v1.5.0 and events that map to Enti
 
 **Entity Management** contains events from following tables:
 
-- sys_audit
+- sys\_audit
 
 **API Activity** contains events from following tables:
 
@@ -33,4 +33,4 @@ This integration supports OCSF schema version v1.5.0 and events that map to Enti
 
 **Datastore Activity** contains events from following tables:
 
-- syslog_transactions
+- syslog\_transactions

@@ -65,7 +65,7 @@ If you find that SELinux is currently disabled, do the following:
     ```
 
 3. Ensure that the CloudWatch agent is running as a `systemd` service. This is
-   required to use it within a confined SELinux domain.
+required to use it within a confined SELinux domain.
 
 ```
 sudo systemctl status amazon-cloudwatch-agent

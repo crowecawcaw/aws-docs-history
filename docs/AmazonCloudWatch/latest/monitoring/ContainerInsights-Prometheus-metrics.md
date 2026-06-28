@@ -26,67 +26,67 @@ The following metrics are automatically collected from App Mesh .
 **Prometheus metrics for App Mesh on Amazon EKS and Kubernetes
 clusters**
 
-| Metric name                                                 | Dimensions                                                                                                         |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `envoy_http_downstream_rq_total`                            | ClusterName, `Namespace`                                                                                           |
-| `envoy_http_downstream_rq_xx`                               | ClusterName, `Namespace`<br>ClusterName, `Namespace`, envoy_http_conn_manager_prefix,<br>envoy_response_code_class |
-| `envoy_cluster_upstream_cx_rx_bytes_total`                  | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_cx_tx_bytes_total`                  | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_membership_healthy`                          | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_membership_total`                            | ClusterName, `Namespace`                                                                                           |
-| `envoy_server_memory_heap_size`                             | ClusterName, `Namespace`                                                                                           |
-| `envoy_server_memory_allocated`                             | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_cx_connect_timeout`                 | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_pending_failure_eject`           | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_pending_overflow`                | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_timeout`                         | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_try_per_timeout`                 | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_rx_reset`                        | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_cx_destroy_local_with_active_rq`    | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_cx_destroy_remote_active_rq`        | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_maintenance_mode`                | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_flow_control_paused_reading_total`  | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_flow_control_resumed_reading_total` | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_flow_control_backed_up_total`       | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_flow_control_drained_total`         | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_retry`                           | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_retry_success`                   | ClusterName, `Namespace`                                                                                           |
-| `envoy_cluster_upstream_rq_retry_overflow`                  | ClusterName, `Namespace`                                                                                           |
-| `envoy_server_live`                                         | ClusterName, `Namespace`                                                                                           |
-| `envoy_server_uptime`                                       | ClusterName, `Namespace`                                                                                           |
+| Metric name                                                 | Dimensions                                                                                                                |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `envoy_http_downstream_rq_total`                            | ClusterName, `Namespace`                                                                                                  |
+| `envoy_http_downstream_rq_xx`                               | ClusterName, `Namespace`<br>ClusterName, `Namespace`, envoy\_http\_conn\_manager\_prefix,<br>envoy\_response\_code\_class |
+| `envoy_cluster_upstream_cx_rx_bytes_total`                  | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_cx_tx_bytes_total`                  | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_membership_healthy`                          | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_membership_total`                            | ClusterName, `Namespace`                                                                                                  |
+| `envoy_server_memory_heap_size`                             | ClusterName, `Namespace`                                                                                                  |
+| `envoy_server_memory_allocated`                             | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_cx_connect_timeout`                 | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_pending_failure_eject`           | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_pending_overflow`                | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_timeout`                         | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_try_per_timeout`                 | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_rx_reset`                        | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_cx_destroy_local_with_active_rq`    | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_cx_destroy_remote_active_rq`        | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_maintenance_mode`                | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_flow_control_paused_reading_total`  | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_flow_control_resumed_reading_total` | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_flow_control_backed_up_total`       | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_flow_control_drained_total`         | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_retry`                           | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_retry_success`                   | ClusterName, `Namespace`                                                                                                  |
+| `envoy_cluster_upstream_rq_retry_overflow`                  | ClusterName, `Namespace`                                                                                                  |
+| `envoy_server_live`                                         | ClusterName, `Namespace`                                                                                                  |
+| `envoy_server_uptime`                                       | ClusterName, `Namespace`                                                                                                  |
 
 **Prometheus metrics for App Mesh on Amazon ECS
 clusters**
 
-| Metric name                                                 | Dimensions                                                                                                                                                         |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `envoy_http_downstream_rq_total`                            | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_http_downstream_rq_xx`                               | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_cx_rx_bytes_total`                  | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_cx_tx_bytes_total`                  | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_membership_healthy`                          | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_membership_total`                            | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_server_memory_heap_size`                             | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_server_memory_allocated`                             | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_cx_connect_timeout`                 | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_pending_failure_eject`           | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_pending_overflow`                | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_timeout`                         | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_try_per_timeout`                 | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_rx_reset`                        | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_cx_destroy_local_with_active_rq`    | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_cx_destroy_remote_active_rq`        | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_maintenance_mode`                | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_flow_control_paused_reading_total`  | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_flow_control_resumed_reading_total` | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_flow_control_backed_up_total`       | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_flow_control_drained_total`         | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_retry`                           | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_retry_success`                   | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_cluster_upstream_rq_retry_overflow`                  | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_server_live`                                         | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_server_uptime`                                       | ClusterName, `TaskDefinitionFamily`                                                                                                                                |
-| `envoy_http_downstream_rq_xx`                               | ClusterName, TaskDefinitionFamily, envoy_http_conn_manager_prefix,<br>envoy_response_code_class<br>ClusterName, TaskDefinitionFamily,<br>envoy_response_code_class |
+| Metric name                                                 | Dimensions                                                                                                                                                                   |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `envoy_http_downstream_rq_total`                            | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_http_downstream_rq_xx`                               | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_cx_rx_bytes_total`                  | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_cx_tx_bytes_total`                  | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_membership_healthy`                          | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_membership_total`                            | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_server_memory_heap_size`                             | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_server_memory_allocated`                             | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_cx_connect_timeout`                 | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_pending_failure_eject`           | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_pending_overflow`                | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_timeout`                         | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_try_per_timeout`                 | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_rx_reset`                        | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_cx_destroy_local_with_active_rq`    | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_cx_destroy_remote_active_rq`        | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_maintenance_mode`                | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_flow_control_paused_reading_total`  | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_flow_control_resumed_reading_total` | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_flow_control_backed_up_total`       | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_flow_control_drained_total`         | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_retry`                           | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_retry_success`                   | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_cluster_upstream_rq_retry_overflow`                  | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_server_live`                                         | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_server_uptime`                                       | ClusterName, `TaskDefinitionFamily`                                                                                                                                          |
+| `envoy_http_downstream_rq_xx`                               | ClusterName, TaskDefinitionFamily, envoy\_http\_conn\_manager\_prefix,<br>envoy\_response\_code\_class<br>ClusterName, TaskDefinitionFamily,<br>envoy\_response\_code\_class |
 
 ###### Note
 
@@ -140,7 +140,7 @@ clusters**
 
 On Amazon EKS and Kubernetes clusters, Container Insights can collect the following
 predefined Prometheus metrics from the Java Virtual Machine (JVM), Java, and Tomcat
-(Catalina) using the JMX Exporter. For more information, see [prometheus/jmx_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter") on
+(Catalina) using the JMX Exporter. For more information, see [prometheus/jmx\_exporter](https://github.com/prometheus/jmx_exporter "https://github.com/prometheus/jmx_exporter") on
 Github.
 
 **Java/JMX on Amazon EKS and Kubernetes clusters**

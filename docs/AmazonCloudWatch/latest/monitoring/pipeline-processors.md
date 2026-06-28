@@ -12,11 +12,11 @@ making it easy to distinguish between original and processed data. If you enable
 **Keep original log** option during pipeline creation, you can compare
 the original log with the transformed version at any time.
 
-| Processor categories | Category                                                                                                                  | Description |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Parsers              | Convert raw log data into structured formats, such as Open Cybersecurity<br>Schema Framework (OCSF), CSV, JSON, and so on |
-| Transformers         | Modify log data structure; add, copy, move, or delete fields                                                              |
-| String Processors    | Manipulate string values; case conversion, trimming, substitution                                                         |
+Processor categories| Category | Description |
+| --- | --- |
+| Parsers | Convert raw log data into structured formats, such as Open Cybersecurity<br>Schema Framework (OCSF), CSV, JSON, and so on |
+| Transformers | Modify log data structure; add, copy, move, or delete fields |
+| String Processors | Manipulate string values; case conversion, trimming, substitution |
 
 ###### Topics
 

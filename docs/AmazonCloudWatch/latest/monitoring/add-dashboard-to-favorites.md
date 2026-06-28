@@ -43,9 +43,9 @@ how to add a dashboard to the favorites list.
 ###### Tip
 
 You can favorite dashboards, as well as alarms and log groups,
-from the **_Favorites and recents_** menu
+from the _**Favorites and recents**_ menu
 in the CloudWatch console navigation pane.
-Under the **_Recently visited_** column,
+Under the _**Recently visited**_ column,
 hover over the dashboard
 that you want
 to favorite,

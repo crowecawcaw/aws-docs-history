@@ -127,7 +127,7 @@ def handler(event, context):
 ```
 
 3. Put the Dockerfile and `index.py` in the same directory. Then, in that directory, run
-   the following steps to build the docker image and upload it to Amazon ECR.
+   the following steps to build the Docker image and upload it to Amazon ECR.
 
 ```
 // create an ECR repository
@@ -150,7 +150,7 @@ docker push "${`ACCOUNT_ID`}".dkr.ecr."${`REGION`}".amazonaws.com/test-repositor
 ## ARM64 container image deployment
 
 To enable Lambda Insights on a Lambda function that is deployed as a container image running on an
-AL2_aarch64 container (which uses ARM64 architecture), add
+AL2\_aarch64 container (which uses ARM64 architecture), add
 the following lines in your Dockerfile. These lines install the Lambda Insights agent as an extension
 in your container image.
 
@@ -262,7 +262,7 @@ def handler(event, context):
 ```
 
 3. Put the Dockerfile and `index.py` in the same directory. Then, in that directory, run
-   the following steps to build the docker image and upload it to Amazon ECR.
+   the following steps to build the Docker image and upload it to Amazon ECR.
 
 ```
 // create an ECR repository

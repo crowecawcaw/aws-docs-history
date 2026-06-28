@@ -25,5 +25,4 @@ information:
      sent along the probe between the source and destination. Packet size must be a number from
      **56** to **8500**.
 
-9. (Optional) Add, change, or remove Tags for the probe.
-10. Choose **Save changes**.
+9. (Optional) Add, change, or remove Tags for the probe. 10. Choose **Save changes**.

@@ -101,7 +101,7 @@ The setup script takes about 30 minutes to run, and does the following:
     	+ `logs:GetQueryResults`
 
 2. (Optional) If you want to review the source code for the PetClinic sample application, you can
-   find them under the root folder.
+find them under the root folder.
 
 ```
 - application-signals-demo

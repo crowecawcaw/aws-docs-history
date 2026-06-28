@@ -215,15 +215,15 @@ In the meantime, you can use the CloudWatch Agent with auto-instrumentation to a
 
 ## Runtime version support matrix
 
-| Language | Runtime version                                                                                                                                                     |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Java     | JVM versions 8, 11, 17, 21, and 23                                                                                                                                  |
-| Python   | Python versions 3.9 and higher are supported                                                                                                                        |
-| .NET     | Release 1.6.0 and below supports .NET 6, 8, and .NET Framework 4.6.2 and higher<br>Release 1.7.0 and higher supports .NET 8, 9, and .NET Framework 4.6.2 and higher |
-| Node.js  | Node.js versions 14, 16, 18, 20, and 22                                                                                                                             |
-| PHP      | PHP versions 8.0 and higher                                                                                                                                         |
-| Ruby     | CRuby >= 3.1, JRuby >= 9.3.2.0, or TruffleRuby >= 22.1                                                                                                              |
-| GoLang   | Golang versions 1.18 and higher                                                                                                                                     |
+| Language | Runtime version                                        |
+| -------- | ------------------------------------------------------ |
+| Java     | JVM versions 8, 11, 17, 21, 23, and 25                 |
+| Python   | Python versions 3.10, 3.11, 3.12, 3.13, 3.14           |
+| .NET     | .NET 8, 9, 10 and .NET Framework 4.6.2 and higher      |
+| Node.js  | Node.js versions 18, 20, 22, and 24                    |
+| PHP      | PHP versions 8.0 and higher                            |
+| Ruby     | CRuby >= 3.1, JRuby >= 9.3.2.0, or TruffleRuby >= 22.1 |
+| GoLang   | Golang versions 1.18 and higher                        |
 
 ## Known issues
 

@@ -363,7 +363,7 @@ safe canary updates](performing-safe-canary-upgrades.md "performing-safe-canary-
 For any intermittent or consistent failures related to timeouts, network
 connection failures (for example, ENOTFOUND, ECONNRESET) consider turning on `DEBUG` logs such that the following run will provide more additional details on
 why the Checks are failing. To do so, provide the Environment Variable
-CW_SYNTHETICS_LOG_LEVEL: "DEBUG".
+CW\_SYNTHETICS\_LOG\_LEVEL: "DEBUG".
 
 If there are still failures that you are unable to debug, consider reaching out to
 AWS Support or checking if any of the other provided Canary types from CloudWatch
