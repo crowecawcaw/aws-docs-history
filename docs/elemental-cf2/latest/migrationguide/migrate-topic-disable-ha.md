@@ -53,7 +53,7 @@ I, [2024-06-04T23:07:54.439807 #131824]  INFO -- : HA environment not enabled
 database system is ready to accept connections.
 ```
 
-If the elemental_se or postgres process has already started when you starting
+If the elemental\_se or postgres process has already started when you starting
 tailing the logs, you might not see the **ready to accept
 connections** message. Instead, you could see **rejects connection for host messages** until you upgrade the
 worker nodes. 8. Enter Ctrl+C to exit the tail command.
@@ -66,14 +66,14 @@ Conductor**
 
 1. From the Linux prompt, log in to the primary Conductor node with the _elemental_ user credentials.
 2. Enter the following command to configure the primary Conductor node for high
-   availability. Where _<dbrepl_config_file_name>_ is your dbrepl_config.yml
+   availability. Where _<dbrepl\_config\_file\_name>_ is your dbrepl\_config.yml
    file.
 
 ```
 [elemental@hostname ~]$ sudo /opt/elemental_se/.support_utils/dbrepl configure <dbrepl_config_file_name> primary
 ```
 
-3. Restart the elemental_se service.
+3. Restart the elemental\_se service.
 
 ```
 [elemental@hostname ~] sudo systemctl restart elemental_se
@@ -114,7 +114,7 @@ I, [2024-06-04T20:58:03.170375 #9844] INFO -- : Preparing database as replicatio
 database system is ready to accept connections.
 ```
 
-If the elemental_se or postgres process has already started when you starting
+If the elemental\_se or postgres process has already started when you starting
 tailing the logs, you might not see the **ready to accept
 connections message**. Instead, you could see **rejects connection for host messages** until you upgrade the
 worker nodes. 8. Enter Ctrl+C to exit the tail command. 9. Type the following command to exit the session as the sudo user.

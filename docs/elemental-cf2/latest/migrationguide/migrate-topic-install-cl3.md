@@ -59,7 +59,7 @@
    is no need to view this prompt because you have previously accepted the
    agreement.
 
-3. Make sure that the elemental_se service restarts. Look for this prompt on the
+3. Make sure that the elemental\_se service restarts. Look for this prompt on the
    primary Conductor command line:
 
 ```

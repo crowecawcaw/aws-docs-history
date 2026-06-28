@@ -70,31 +70,25 @@ You can use these keys to work on the screen:
     * Enter to select
     * ESC to return to the previous screen.
 
-4.  On the main menu, choose **Advanced**.
-5.  In **sSATA Configuration**, look for fields that have
-    one of these values:
+4. On the main menu, choose **Advanced**. 5. In **sSATA Configuration**, look for fields that have
+one of these values:
 
-        * **BIOS**
-        * **DUAL**
-        * **Legacy**
-        * **Legacy BIOS**
+    * **BIOS**
+    * **DUAL**
+    * **Legacy**
+    * **Legacy BIOS**
 
-    Change the value to **EFI**. If there are no fields
-    with these values, go to the next step.
+Change the value to **EFI**. If there are no fields
+with these values, go to the next step. 6. In **PCIe/PCI/PnP Configuration**, find every field
+that has one of these values:
 
-6.  In **PCIe/PCI/PnP Configuration**, find every field
-    that has one of these values:
+    * **BIOS**
+    * **DUAL**
+    * **Legacy**
+    * **Legacy BIOS**
 
-        * **BIOS**
-        * **DUAL**
-        * **Legacy**
-        * **Legacy BIOS**
-
-    In each of these fields, change the value to
-    **EFI**.
-
-7.  On the main menu, choose **Boot**. In **Boot
-    Mode Select**, change the value from
-    **DUAL** to **UEFI**.
-8.  Select **F4**. On the **Save &
-    Exit** dialog, choose **Yes**.
+In each of these fields, change the value to
+**EFI**. 7. On the main menu, choose **Boot**. In **Boot
+Mode Select**, change the value from
+**DUAL** to **UEFI**. 8. Select **F4**. On the **Save &
+Exit** dialog, choose **Yes**.
