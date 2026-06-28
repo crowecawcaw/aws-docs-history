@@ -3,7 +3,7 @@
 The following table shows the structure of a Verified Access policy.
 
 | Component        | Syntax                                                                       |
-| ---------------- | ---------------------------------------------------------------------------- | ------- |
+| ---------------- | ---------------------------------------------------------------------------- |
 | effect           | `permit                                                                      | forbid` |
 | scope            | `(principal, action, resource)`                                              |
 | condition clause | ``<br>when {<br>context.`policy-reference-name`.`attribute-name`<br>};<br>`` |
