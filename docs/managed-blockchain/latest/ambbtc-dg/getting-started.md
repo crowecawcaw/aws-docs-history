@@ -16,7 +16,7 @@ have completed those prerequisites. For more information, see [Setting up Amazon
 ## Create an IAM policy to access Bitcoin JSON-RPCs
 
 In order to access the public endpoints for the Bitcoin Mainnet and Testnet to make JSON-RPC
-calls, you must have user credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY) that have
+calls, you must have user credentials (AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY) that have
 the appropriate IAM permissions for Amazon Managed Blockchain (AMB) Access Bitcoin. In a terminal with the AWS CLI installed,
 run the following command to create an IAM Policy to access both Bitcoin endpoints:
 
@@ -148,7 +148,7 @@ To run this example Node.js script, apply the following prerequisites:
    your machine. You can find installation instructions for your OS [here](https://github.com/nvm-sh/nvm "https://github.com/nvm-sh/nvm").
 2. Use the `node --version` command and confirm that you are using _Node
    version 14_ or higher. If required, you can use the `nvm install
-14` command, followed by the `nvm use 14` command, to install
+ 14` command, followed by the `nvm use 14` command, to install
    _version 14_.
 3. The environment variables `AWS_ACCESS_KEY_ID` and
    `AWS_SECRET_ACCESS_KEY` must contain the credentials that are
