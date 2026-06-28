@@ -92,7 +92,7 @@ create a new dataset.
 3. For **Model Type**, choose the **Online
    Fraud Insights** model.
 4. For **Event type**, choose
-   **sample_registration**. This is the event type
+   **sample\_registration**. This is the event type
    that you created in Step 1.
 5. In **Historical event data**,
 
@@ -138,7 +138,7 @@ other performance metrics.
       **Models**.
    2. In the **Models** page, choose the model
       that you just trained
-      (**sample_fraud_detection_model**), and
+      (**sample\_fraud\_detection\_model**), and
       then choose **1.0**. This is the version
       Amazon Fraud Detector created of your model.
 
@@ -158,7 +158,7 @@ ready to use it generate fraud predictions, you can deploy the model.
 1. In left navigation pane of the Amazon Fraud Detector console, choose
    **Models**.
 2. In the **Models** page, choose
-   **sample_fraud_detection_model**, and then
+   **sample\_fraud\_detection\_model**, and then
    choose the specific model version that you want to deploy. For this
    tutorial, choose **1.0**.
 3. On the **Model version** page, choose

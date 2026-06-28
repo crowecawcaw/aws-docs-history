@@ -8,8 +8,8 @@ variables that are defined in the event type. For an example dataset, see [Get a
 The Online Fraud Insights model requires a training dataset that has at least 2 variables and up to 100 variables. In addition to the event variables, the
 training dataset must contain the following headers:
 
-- EVENT_TIMESTAMP - Defines when the event occurred
-- EVENT_LABEL - Classifies the event as fraudulent or legitimate. The values in the column must correspond to the values defined in the event type.
+- EVENT\_TIMESTAMP - Defines when the event occurred
+- EVENT\_LABEL - Classifies the event as fraudulent or legitimate. The values in the column must correspond to the values defined in the event type.
   The following sample CSV data represents historical registration events from an online merchant:
 
 ```
@@ -81,13 +81,13 @@ you might receive the following error: _"The fraud distribution across time is u
 the easiest fix for this error is to ensure that the fraud events and legitimate events are sampled evenly across the same timeframe. You also might need to remove data if
 you experienced a large spike in fraud within a short time period.
 
-If you cannot generate enough data to create an evenly distributed dataset, one approach is to randomize the EVENT_TIMESTAMP of your events such that they are evenly
-distributed. However, this often results in performance metrics being unrealistic because Amazon Fraud Detector uses EVENT_TIMESTAMP to evaluate models on the
+If you cannot generate enough data to create an evenly distributed dataset, one approach is to randomize the EVENT\_TIMESTAMP of your events such that they are evenly
+distributed. However, this often results in performance metrics being unrealistic because Amazon Fraud Detector uses EVENT\_TIMESTAMP to evaluate models on the
 appropriate subset of events in your dataset.
 
 ## Null and missing values
 
-Amazon Fraud Detector handles null and missing values. However, the percentage of nulls for variables should be limited. EVENT_TIMESTAMP and EVENT_LABEL columns should
+Amazon Fraud Detector handles null and missing values. However, the percentage of nulls for variables should be limited. EVENT\_TIMESTAMP and EVENT\_LABEL columns should
 not contain any missing values.
 
 ## File validation

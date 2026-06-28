@@ -28,7 +28,7 @@ If you are creating variables to use for your model training, use the variables 
 6. If you want to provide a default value for your variable,
    select **Define a custom default value** and enter a default value for your variable. Skip this step if you are following this example.
 7. Choose **Create**.
-8. In the **email_address** overview page, confirm the details of the variable you just created.
+8. In the **email\_address** overview page, confirm the details of the variable you just created.
 
 If you need to update, choose **Edit** and provide the updates. Choose **Save changes**. 9. Repeat the process to create another variable `ip_address` and choose **IP Address** for the variable type. 10. The **Variables** page shows the newly created variables.
 

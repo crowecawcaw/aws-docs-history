@@ -30,13 +30,12 @@ Amazon Fraud Detector makes the following assumptions when parsing date/timestam
 - If you are using the ISO 8601 standard, it must be an exact match of the preceding specification
 - If you are using one of the other formats, there is additional flexibility:
 
-      + For months and days, you can provide single or double digits. For example, 1/12/2019 is a valid date.
-      + You do not need to include hh:mm:ss if you do not have them (that is, you can simply provide a date). You can also provide a subset
-       of just the hour and minutes (for example, hh:mm). Just providing hour is not supported. Milliseconds are also not supported.
-      + If you provide AM/PM labels, a 12-hour clock is assumed. If there is no AM/PM information, a 24-hour clock is assumed.
-      + You can use “/” or “-” as delimiters for the date elements. “:” is assumed for the timestamp elements.
-
-  The following is an example `SendEvent` API call.
+  - For months and days, you can provide single or double digits. For example, 1/12/2019 is a valid date.
+  - You do not need to include hh:mm:ss if you do not have them (that is, you can simply provide a date). You can also provide a subset
+    of just the hour and minutes (for example, hh:mm). Just providing hour is not supported. Milliseconds are also not supported.
+  - If you provide AM/PM labels, a 12-hour clock is assumed. If there is no AM/PM information, a 24-hour clock is assumed.
+  - You can use “/” or “-” as delimiters for the date elements. “:” is assumed for the timestamp elements.
+    The following is an example `SendEvent` API call.
 
 ```
 import boto3

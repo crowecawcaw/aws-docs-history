@@ -25,15 +25,15 @@ To follow the steps mentioned below, make sure that you complete the following b
 1. Open the [AWS
    Management Console](https://console.aws.amazon.com "https://console.aws.amazon.com") and sign in to your account.
    Navigate to Amazon Fraud Detector.
-2. In the left navigation pane, choose **Detectors** and select the detector you created for your use case, example **payments_detector**.
-3. In the **payments_detector** page, choose **Associated rules** tab and then choose **Create rule**.
+2. In the left navigation pane, choose **Detectors** and select the detector you created for your use case, example **payments\_detector**.
+3. In the **payments\_detector** page, choose **Associated rules** tab and then choose **Create rule**.
 4. In the **New rule** page, enter the following:
 
    1. In the **Name**, enter a name for the rule, example `high_risk`
    2. In the **Description - optional**, optionally enter a rule description, example, `This rule captures events with a high ML model
-score`
+  score`
    3. In the **Expression**, enter a rule expression for your use case using the **Expression quick reference guide**. Example `$sample_fraud_detection_model_insightscore >900`
-   4. In the **Outcomes**, choose the outcome you created for your use case, example **verify_customer**. An outcome is the result from a fraud
+   4. In the **Outcomes**, choose the outcome you created for your use case, example **verify\_customer**. An outcome is the result from a fraud
       prediction and is returned if the rule matches during an evaluation.
 
 5. Choose **Save rule**

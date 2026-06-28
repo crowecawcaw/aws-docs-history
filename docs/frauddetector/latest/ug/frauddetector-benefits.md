@@ -64,4 +64,4 @@ trained you can add rules to take actions on the evaluated data, such as accept 
 data for review, or collect more data. A rule is a condition that tells Amazon Fraud Detector how to interpret data during fraud prediction. For example, you can
 create a rule that flags suspicious customer accounts to be reviewed. You can set this
 rule to be initiated if both the detected model score is greater than your predetermined
-threshold and if the account payment’s authorization code (AUTH_CODE) isn’t valid.
+threshold and if the account payment’s authorization code (AUTH\_CODE) isn’t valid.

@@ -27,9 +27,9 @@ using the following components:
 Event metadata provides details of the event being evaluated. Each event you want to evaluate must include value for each variable in the event type associated with your detector version. In addition, your event metadata
 must include the following:
 
-- EVENT_ID – An identifier for the event. For example, if your event is an online transaction the EVENT_ID might be the transaction reference number provided to your customer.
+- EVENT\_ID – An identifier for the event. For example, if your event is an online transaction the EVENT\_ID might be the transaction reference number provided to your customer.
 
-**Important notes about EVENT_ID**
+**Important notes about EVENT\_ID**
 
     + Must be unique for that event
     + Should represent information that is meaningful to your business
@@ -37,7 +37,7 @@ must include the following:
     + Must be saved. EVENT\_ID is the reference for the event and is used to perform operations on the event such as deleting the event.
     + Appending timestamp to the EVENT\_ID is not recommended as it might cause issues when later you want to update the event, since you will need to provide the exact same EVENT\_ID.
 
-- ENTITY_TYPE – The entity that performs the event, such as a merchant or a customer.
-- ENTITY_ID - An identifier for the entity performing the event. The ENTITY_ID must satisfy the following regular expression pattern: `^[0-9a-z_-]+$`. If the ENTITY_ID is not
+- ENTITY\_TYPE – The entity that performs the event, such as a merchant or a customer.
+- ENTITY\_ID - An identifier for the entity performing the event. The ENTITY\_ID must satisfy the following regular expression pattern: `^[0-9a-z_-]+$`. If the ENTITY\_ID is not
   available at the time of evaluation, pass the string unknown.
-- EVENT_TIMESTAMP - The timestamp when the event occurred. The timestamp must be in ISO 8601 standard in UTC.
+- EVENT\_TIMESTAMP - The timestamp when the event occurred. The timestamp must be in ISO 8601 standard in UTC.

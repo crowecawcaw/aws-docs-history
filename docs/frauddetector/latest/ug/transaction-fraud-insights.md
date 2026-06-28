@@ -23,7 +23,7 @@ the event variables are combined with other entity and event metadata to predict
 
 ## Selecting data source
 
-Transaction Fraud Insights models are trained on dataset stored internally with Amazon Fraud Detector (INGESTED_EVENTS) only. This allows Amazon Fraud Detector to continuously update calculated values about
+Transaction Fraud Insights models are trained on dataset stored internally with Amazon Fraud Detector (INGESTED\_EVENTS) only. This allows Amazon Fraud Detector to continuously update calculated values about
 the entities you are evaluating. For more information about the available data sources, see [Event data storage](event-data-storage.md "event-data-storage.md")
 
 ## Preparing data
@@ -46,7 +46,7 @@ There is no need to select a time range that represents an ideal fraud rate. Ama
 fraud rates, time range, and entity counts.
 
 Amazon Fraud Detector returns a validation error during model training if you select a time range for which there are not enough events to successfully train a model.
-For stored datasets, the EVENT_LABEL field is optional, but events must be labeled to be included in your training dataset. When configuring your model training,
+For stored datasets, the EVENT\_LABEL field is optional, but events must be labeled to be included in your training dataset. When configuring your model training,
 you can choose whether to ignore unlabeled events, assume a legitimate label for unlabeled events, or assume a fraudulent label for unlabeled events.
 
 ## Event variables

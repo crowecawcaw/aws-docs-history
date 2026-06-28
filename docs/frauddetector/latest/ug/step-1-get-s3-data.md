@@ -11,13 +11,13 @@ is labeled for your convenience. A column in the dataset identifies whether the 
 
 1. Go to [Samples](https://github.com/aws-samples/aws-fraud-detector-samples/tree/master/data "https://github.com/aws-samples/aws-fraud-detector-samples/tree/master/data").
 
-There are two data files that has online account registration data - _registration_data_20K_minimum.csv_
-and _registration_data_20K_full.csv_. The file
+There are two data files that has online account registration data - _registration\_data\_20K\_minimum.csv_
+and _registration\_data\_20K\_full.csv_. The file
 `registration_data_20K_minimum` contains only two variables:
-_ip_address_ and _email_address_. The
+_ip\_address_ and _email\_address_. The
 file `registration_data_20K_full` contains other variables.
-These variables are for each event and they include _billing_address_,
-_phone_number_, and _user_agent_. Both data files also
+These variables are for each event and they include _billing\_address_,
+_phone\_number_, and _user\_agent_. Both data files also
 contain two mandatory fields:
 
     * EVENT\_TIMESTAMP – Defines when the event occurred

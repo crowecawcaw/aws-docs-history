@@ -22,9 +22,9 @@ version of the detector that you use to generate fraud predictions.
 3. In the **Define detector details** page, enter
    `sample_detector` for detector name. Optionally,
    enter a description for the detector, such as `my sample fraud
-detector`.
+ detector`.
 4. For **Event Type**, select
-   **sample_registration**. This is the event that
+   **sample\_registration**. This is the event that
    you created in Part A of this tutorial.
 5. Choose **Next**.
    If you completed Part A of this tutorial, then you likely already have an
@@ -49,7 +49,7 @@ detector`.
     a rule**, enter `high_fraud_risk` for the
     rule name and under **Description - optional**,
     enter `This rule captures events with a high ML model
-score` as the description for the rule.
+ score` as the description for the rule.
 11. In **Expression**, enter the following rule
     expression using the Amazon Fraud Detector simpliﬁed rule expression
     language:
@@ -176,8 +176,8 @@ can use account registration data from the example dataset.
    Amazon Fraud Detector model. You can use the following example values. This assumes
    that you used the suggested variable names:
 
-   - ip_address: `205.251.233.178`
-   - email_address: `johndoe@exampledomain.com`
+   - ip\_address: `205.251.233.178`
+   - email\_address: `johndoe@exampledomain.com`
 
 4. Choose **Run test**.
 5. Amazon Fraud Detector returns the fraud prediction outcome based on the rule
@@ -191,8 +191,8 @@ can use account registration data from the example dataset.
    for any models added to your detector.
 
 You can change the inputs and run couple of tests to see different
-outcomes. You can use the _ip_address_ and
-_email_address_ values from your example
+outcomes. You can use the _ip\_address_ and
+_email\_address_ values from your example
 dataset for the tests and check if the outcomes are as
 expected. 6. When you're satisfied with how the detector is working, promote it
 from `Draft` to `Active`. Doing so makes the

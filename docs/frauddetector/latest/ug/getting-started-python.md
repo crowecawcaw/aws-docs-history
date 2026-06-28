@@ -359,8 +359,8 @@ prediction.
 
 In the following example, the [CreateDetectorVersion](../api/API_CreateDetectorVersion.md "../api/API_CreateDetectorVersion.md") API is used to
 create a detector version. It does this by providing model version details, rules,
-and a rule execution mode FIRST_MATCHED. A rule execution mode specifies the
-sequence for evaluating rules. The rule execution mode FIRST_MATCHED specifies that
+and a rule execution mode FIRST\_MATCHED. A rule execution mode specifies the
+sequence for evaluating rules. The rule execution mode FIRST\_MATCHED specifies that
 the rules are evaluated sequentially, first to last, stopping at first matched
 rule.
 
@@ -405,7 +405,7 @@ scores as well as any outcomes that are associated to the matched rules.
 
 In the following example, the [GetEventPrediction](../api/API_GetEventPrediction.md "../api/API_GetEventPrediction.md") API is used to
 provide data from a single account registration with each request. For this
-tutorial, take data (email_address and ip_address) from the account registration
+tutorial, take data (email\_address and ip\_address) from the account registration
 example data file. Each line (row) after the top header line represents data from a
 single account registration event.
 

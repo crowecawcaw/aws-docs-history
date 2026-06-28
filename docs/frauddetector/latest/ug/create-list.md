@@ -6,7 +6,7 @@ You can create a list containing input data (entries) of a variable in your even
 The entries in the list can be managed dynamically without updating the rule that is using the list.
 
 To create a list, you must first specify a name and then optionally associate the list with a [Variable types](variables.md#variable-types "variables.md#variable-types") supported by Amazon Fraud Detector.
-By default, Amazon Fraud Detector assumes the list to be of FREE_FORM_TEXT variable type.
+By default, Amazon Fraud Detector assumes the list to be of FREE\_FORM\_TEXT variable type.
 
 You can create a list in the Amazon Fraud Detector console, using the API, using the AWS CLI, or using the AWS SDK.
 
@@ -26,8 +26,8 @@ You can create a list in the Amazon Fraud Detector console, using the API, using
 
    ###### Important
 
-   If your list contains IP addresses, make sure to select **IP_ADDRESS** as the variable type. If you don’t
-   select a variable type, Amazon Fraud Detector assumes the list to be of **FREE_FORM_TEXT** variable type.
+   If your list contains IP addresses, make sure to select **IP\_ADDRESS** as the variable type. If you don’t
+   select a variable type, Amazon Fraud Detector assumes the list to be of **FREE\_FORM\_TEXT** variable type.
 
 4. In the **Add list data**, add list entries, one entry in each line. You can also copy and paste entries from a spreadsheet.
 
@@ -43,8 +43,8 @@ to the list later if you haven't assigned it when at the time of list creation. 
 
 ###### Important
 
-If your list contains IP addresses, make sure to assign **IP_ADDRESS** as the variable type. If you don’t
-assign a variable type, Amazon Fraud Detector assumes the list to be of **FREE_FORM_TEXT** variable type.
+If your list contains IP addresses, make sure to assign **IP\_ADDRESS** as the variable type. If you don’t
+assign a variable type, Amazon Fraud Detector assumes the list to be of **FREE\_FORM\_TEXT** variable type.
 
 The following example uses [CreateList](../api/API_CreateList.md "../api/API_CreateList.md") API operation to create
 an `allow_email_ids` list by providing a description, a variable type, and by adding four list entries.

@@ -10,7 +10,7 @@ information
 
 You can choose to opt out of having your event data used to develop or improve the quality of Amazon Fraud Detector
 by visiting the [AI services opt-out policies](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md")  
- page in the _AWS Organizations User Guide_ and following the process explained there.
+page in the _AWS Organizations User Guide_ and following the process explained there.
 
 ###### Note
 

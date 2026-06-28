@@ -12,7 +12,7 @@ Amazon Fraud Detector supports importing SageMaker AI algorithms that use JSON o
 
 To import a SageMaker AI model, use the `PutExternalModel` API. The following example assumes the SageMaker AI endpoint `sagemaker-transaction-model` has been deployed, is `InService` status, and uses the XGBoost algorithm.
 
-The input configuration specifies that will use the event variables to construct the model input (`useEventVariables` is set to `TRUE`). The input format is TEXT_CSV, given XGBoost requires a CSV input. The csvInputTemplate specifies how to construct the CSV input from the variables sent as part of the `GetEventPrediction` request. This example assumes you have created the variables `order_amt`, `prev_amt`, `hist_amt` and `payment_type`.
+The input configuration specifies that will use the event variables to construct the model input (`useEventVariables` is set to `TRUE`). The input format is TEXT\_CSV, given XGBoost requires a CSV input. The csvInputTemplate specifies how to construct the CSV input from the variables sent as part of the `GetEventPrediction` request. This example assumes you have created the variables `order_amt`, `prev_amt`, `hist_amt` and `payment_type`.
 
 The output configuration specifies the response format of the SageMaker AI model, and maps the appropriate CSV index to the Amazon Fraud Detector variable `sagemaker_output_score`. Once configured, you can use the output variable in rules.
 

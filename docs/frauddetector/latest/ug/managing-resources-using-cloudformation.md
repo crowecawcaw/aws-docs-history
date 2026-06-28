@@ -48,10 +48,10 @@ ensure that all of your fraud team’s products are working together.
 In addition to the standard parameters that are available in all CloudFormation templates, Amazon Fraud Detector introduces two additional parameters that will help
 you manage deployment behavior. If you do not include one or both of these parameters, CloudFormation will use the default value shown below.
 
-| Parameter             | Values                                                                                                                                                                                                                                       | Default Value |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| DetectorVersionStatus | **ACTIVE:\*<br>• Set the new/updated detector version to Active status<br>**DRAFT:\*<br>• Set the new/updated detector version to Draft status                                                                                               | DRAFT         |
-| Inline                | **TRUE:\*<br>• Allow CloudFormation to create/update/delete<br>the resource when creating/updating/deleting the stack.<br>**FALSE:\*<br>• Allow CloudFormation to validate that the<br>object exists but not make any changes to the object. | TRUE          |
+| Parameter             | Values                                                                                                                                                                                                                                     | Default Value |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| DetectorVersionStatus | **ACTIVE:_<br>• Set the new/updated detector version to Active status<br>**DRAFT:_<br>• Set the new/updated detector version to Draft status                                                                                               | DRAFT         |
+| Inline                | **TRUE:_<br>• Allow CloudFormation to create/update/delete<br>the resource when creating/updating/deleting the stack.<br>**FALSE:_<br>• Allow CloudFormation to validate that the<br>object exists but not make any changes to the object. | TRUE          |
 
 ## Sample CloudFormation template for Amazon Fraud Detector resources
 

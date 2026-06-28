@@ -121,13 +121,13 @@ regex_match(".*\+1", $phone_number)
 
 **Regex Table**
 
-| Operator                                                           | Amazon Fraud Detector Example         |
-| ------------------------------------------------------------------ | ------------------------------------- |
-| Match any string that starts with                                  | regex_match("^mystring", $variable)   |
-| Match entire string exactly                                        | regex_match("mystring", $variable)    |
-| Match any character except new line                                | regex_match(".", $variable)           |
-| Match any number of characters except new line prior<br>‘mystring’ | regex_match(".\*mystring", $variable) |
-| Escape special characters                                          | \                                     |
+| Operator                                                           | Amazon Fraud Detector Example          |
+| ------------------------------------------------------------------ | -------------------------------------- |
+| Match any string that starts with                                  | regex\_match("^mystring", $variable)   |
+| Match entire string exactly                                        | regex\_match("mystring", $variable)    |
+| Match any character except new line                                | regex\_match(".", $variable)           |
+| Match any number of characters except new line prior<br>‘mystring’ | regex\_match(".\*mystring", $variable) |
+| Escape special characters                                          | \                                      |
 
 ## Checking for missing values
 
@@ -172,12 +172,12 @@ $variable_1 < 100 and $variable_2 != "US" or ($variable_1 * 100.0 > $variable_3)
 
 ### DateTime functions
 
-| Function                       | Description                                                                                                                                                                | Example                                                                                                                                  |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| getcurrentdatetime()           | Gives the current time of the rule execution in ISO8601 UTC<br>format. You can use \*_getepochmilliseconds(getcurrentdatetime())_<br>• to<br>perform additional operations | getcurrentdatetime() == "2023-03-28T18:34:02Z"                                                                                           |
-| isbefore(DateTime1, DateTime2) | Returns a boolean(True/False) if the caller DateTime1 is before DateTime2                                                                                                  | isbefore(getcurrentdatetime(), "2019-11-30T01:01:01Z") == "False"<br>isbefore(getcurrentdatetime(), "2050-11-30T01:05:01Z") ==<br>"True" |
-| isafter(DateTime1,DateTime2)   | Returns a boolean(True/False) if the caller DateTime1 is after DateTime2                                                                                                   | isafter(getcurrentdatetime(), "2019-11-30T01:01:01Z") == "True"<br>isafter(getcurrentdatetime(), "2050-11-30T01:05:01Z") ==<br>"False"   |
-| getepochmilliseconds(DateTime) | Takes a DateTime and returns that DateTime in epoch milliseconds. Useful for performing mathematical operations on the date                                                | getepochmilliseconds("2019-11-30T01:01:01Z") ==<br>1575032461                                                                            |
+| Function                       | Description                                                                                                                                                               | Example                                                                                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| getcurrentdatetime()           | Gives the current time of the rule execution in ISO8601 UTC<br>format. You can use **getepochmilliseconds(getcurrentdatetime())*<br>• to<br>perform additional operations | getcurrentdatetime() == "2023-03-28T18:34:02Z"                                                                                           |
+| isbefore(DateTime1, DateTime2) | Returns a boolean(True/False) if the caller DateTime1 is before DateTime2                                                                                                 | isbefore(getcurrentdatetime(), "2019-11-30T01:01:01Z") == "False"<br>isbefore(getcurrentdatetime(), "2050-11-30T01:05:01Z") ==<br>"True" |
+| isafter(DateTime1,DateTime2)   | Returns a boolean(True/False) if the caller DateTime1 is after DateTime2                                                                                                  | isafter(getcurrentdatetime(), "2019-11-30T01:01:01Z") == "True"<br>isafter(getcurrentdatetime(), "2050-11-30T01:05:01Z") ==<br>"False"   |
+| getepochmilliseconds(DateTime) | Takes a DateTime and returns that DateTime in epoch milliseconds. Useful for performing mathematical operations on the date                                               | getepochmilliseconds("2019-11-30T01:01:01Z") ==<br>1575032461                                                                            |
 
 ### String Operators
 

@@ -19,15 +19,15 @@ different optimization strategies like upweighting the minority fraud population
 
 When training an Online Fraud Insights model, you can choose to train the model on event data that is either stored externally (outside of Amazon Fraud Detector) or
 stored within Amazon Fraud Detector. The external storage Amazon Fraud Detector currently supports is Amazon Simple Storage Service (Amazon S3). If your are using external storage, your event dataset must be uploaded as a comma-separated values (CSV) format to an Amazon S3 bucket.
-These data storage options are referred to within the model training configuration as EXTERNAL_EVENTS (for external storage) and INGESTED_EVENTS (for internal storage).
+These data storage options are referred to within the model training configuration as EXTERNAL\_EVENTS (for external storage) and INGESTED\_EVENTS (for internal storage).
 For more information about the available data sources and how to store data in them, see [Event data storage](event-data-storage.md "event-data-storage.md").
 
 ## Preparing data
 
 Regardless of where you choose to store your event data (Amazon S3 or Amazon Fraud Detector), the requirements for Online Fraud Insights model type are the same.
 
-Your dataset must contain the column header EVENT_LABEL. This variable classifies an event as fraudulent or legitimate. When using a CSV file
-(external storage), you must include EVENT_LABEL for each event in the file. For internal storage, the EVENT_LABEL field is optional but all events
+Your dataset must contain the column header EVENT\_LABEL. This variable classifies an event as fraudulent or legitimate. When using a CSV file
+(external storage), you must include EVENT\_LABEL for each event in the file. For internal storage, the EVENT\_LABEL field is optional but all events
 must be labeled to be included within a training dataset. When configuring your model training, you can choose whether to ignore unlabeled events,
 assume a legitimate label for unlabeled events, or assume a fraudulent label for all unlabeled events.
 
@@ -36,7 +36,7 @@ assume a legitimate label for unlabeled events, or assume a fraudulent label for
 See [Gather event data](create-event-dataset.md#gather-event-data "create-event-dataset.md#gather-event-data")
 for information on selecting data for training your Online Fraud Insights model.
 
-The Online Fraud Insights training process samples and partitions historic data based on EVENT_TIMESTAMP. There is no need to manually sample the data and doing
+The Online Fraud Insights training process samples and partitions historic data based on EVENT\_TIMESTAMP. There is no need to manually sample the data and doing
 so may negatively impact your model results.
 
 ## Event variables

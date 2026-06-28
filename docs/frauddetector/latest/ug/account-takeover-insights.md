@@ -58,20 +58,20 @@ For the Accounts Takeover Insights model, you must provide the following event m
 
 We recommend that you provide the following metadata in your CSV file header. The event metadata must be in uppercase letters.
 
-- EVENT_ID - A unique identifier for the login event.
-- ENTITY_TYPE - The entity that performs the login event, such as a merchant or a customer.
-- ENTITY_ID - An identifier for the entity performing the login event.
-- EVENT_TIMESTAMP - The timestamp when the login event occurred. The timestamp must be in ISO 8601 standard in UTC.
-- EVENT_LABEL (recommended) - A label that classifies the event as fraudulent or legitimate. You can use any labels, such as "fraud", "legit", "1", or "0".
+- EVENT\_ID - A unique identifier for the login event.
+- ENTITY\_TYPE - The entity that performs the login event, such as a merchant or a customer.
+- ENTITY\_ID - An identifier for the entity performing the login event.
+- EVENT\_TIMESTAMP - The timestamp when the login event occurred. The timestamp must be in ISO 8601 standard in UTC.
+- EVENT\_LABEL (recommended) - A label that classifies the event as fraudulent or legitimate. You can use any labels, such as "fraud", "legit", "1", or "0".
 
 ###### Note
 
 - Event metadata must be in uppercase letters. It’s case sensitive.
-- Labels aren’t required for login events. However, we recommend that you include EVENT_LABEL metadata and provide labels for your login events.
+- Labels aren’t required for login events. However, we recommend that you include EVENT\_LABEL metadata and provide labels for your login events.
   It’s fine if the labels are incomplete or sporadic. If you provide labels, Amazon Fraud Detector will use them to automatically calculate an Account Takeover Discovery Rate and display
   it in model performance chart and table.
 
-  **Event variables**
+**Event variables**
 
 For Accounts Takeover Insights model, there are both required (mandatory) variables that you must provide and optional variables.
 When you create your variables, make sure to assign the variable to the right variable type. As part of the model training process,
@@ -87,7 +87,7 @@ The following variables are required for training an Accounts Takeover Insights 
 
 | Category           | Variable type | Description                                                     |
 | ------------------ | ------------- | --------------------------------------------------------------- |
-| IP address         | IP_ADDRESS    | The IP address used in the login event                          |
+| IP address         | IP\_ADDRESS   | The IP address used in the login event                          |
 | Browser and device | USERAGENT     | The browser, device, and OS used in the login event             |
 | Valid credentials  | VALIDCRED     | Indicates if the credentials that were used for login are valid |
 
@@ -95,12 +95,12 @@ The following variables are required for training an Accounts Takeover Insights 
 
 The following variables are optional for training an Accounts Takeover Insights model.
 
-| Category           | Type            | Description                                                                                                                   |
-| ------------------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Browser and device | FINGERPRINT     | The unique identifier for a browser or device fingerprint                                                                     |
-| Session Id         | SESSION_ID      | The identifier for an authentication session                                                                                  |
-| Label              | EVENT_LABEL     | A label that classifies the event as fraudulent or legitimate. You can use any labels, such as "fraud", "legit", "1", or "0". |
-| Timestamp          | LABEL_TIMESTAMP | The timestamp when the label was last updated. This is required if EVENT_LABEL is provided.                                   |
+| Category           | Type             | Description                                                                                                                   |
+| ------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Browser and device | FINGERPRINT      | The unique identifier for a browser or device fingerprint                                                                     |
+| Session Id         | SESSION\_ID      | The identifier for an authentication session                                                                                  |
+| Label              | EVENT\_LABEL     | A label that classifies the event as fraudulent or legitimate. You can use any labels, such as "fraud", "legit", "1", or "0". |
+| Timestamp          | LABEL\_TIMESTAMP | The timestamp when the label was last updated. This is required if EVENT\_LABEL is provided.                                  |
 
 ###### Note
 

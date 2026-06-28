@@ -39,7 +39,7 @@ Smart Data Validation before importing your dataset, turn off the validation in 
 When uploading events via the `SendEvent`, `GetEventPrediction`, or `CreateBatchImportJob` API operation, Amazon Fraud Detector validates the following:
 
 - The EventIngestion setting for that event type is ENABLED.
-- Event timestamps cannot be updated. An event with a repeated event ID and different EVENT_TIMESTAMP will be treated as an error.
+- Event timestamps cannot be updated. An event with a repeated event ID and different EVENT\_TIMESTAMP will be treated as an error.
 - Variable names and values match their expected format. For more information, see [Create a variable](create-a-variable.md "create-a-variable.md")
 - Required variables are populated with a value.
 - All event timestamps are not older than 18 months and are not in the future.

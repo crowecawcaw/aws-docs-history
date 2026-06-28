@@ -2,8 +2,8 @@ Amazon Fraud Detector is no longer open to new customers as of November 7, 2025.
 
 # Assign a variable type to a list
 
-Every list you use in a rule must be associated with an Amazon Fraud Detector's [Variable types](variables.md#variable-types "variables.md#variable-types") variable type. By default, Amazon Fraud Detector assumes the list to be of FREE_FORM_TEXT variable type.
-It is important to note that a list that consists of IP addresses must be associated with IP_ADDRESS variable type.
+Every list you use in a rule must be associated with an Amazon Fraud Detector's [Variable types](variables.md#variable-types "variables.md#variable-types") variable type. By default, Amazon Fraud Detector assumes the list to be of FREE\_FORM\_TEXT variable type.
+It is important to note that a list that consists of IP addresses must be associated with IP\_ADDRESS variable type.
 
 You can associate your list with a variable type either at the time of list creation or anytime later. If you already associated your
 list with a variable type and want to change it later, you must create a new list. You can’t change the variable type of a list.

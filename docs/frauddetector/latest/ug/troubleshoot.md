@@ -30,8 +30,8 @@ We recommend that you check the relevant guidance in this section to further imp
 
 - [Unstable fraud rate in the given dataset](#unstable-fraud-rate "#unstable-fraud-rate")
 - [Insufficient data](#insufficient-data "#insufficient-data")
-- [Missing or different EVENT_LABEL values](#missing-different-event-label-values "#missing-different-event-label-values")
-- [Missing or incorrect EVENT_TIMESTAMP values](#missing-incorrect-timestamp-values "#missing-incorrect-timestamp-values")
+- [Missing or different EVENT\_LABEL values](#missing-different-event-label-values "#missing-different-event-label-values")
+- [Missing or incorrect EVENT\_TIMESTAMP values](#missing-incorrect-timestamp-values "#missing-incorrect-timestamp-values")
 - [Data not ingested](#data-not-ingested "#data-not-ingested")
 - [Insufficient variables](#insufficient-variables "#insufficient-variables")
 - [Missing or incorrect variable type](#missing-incorrect-variable-type "#missing-incorrect-variable-type")
@@ -51,7 +51,7 @@ Fraud rate in the given data is too unstable through time. Please make sure your
 **Cause**
 
 This error occurs if the fraud and legitimate events in your dataset are distributed unevenly and are taken from different time slots.
-Amazon Fraud Detector model training process samples and partitions your dataset based on EVENT_TIMESTAMP. For example, if your dataset consists of fraud
+Amazon Fraud Detector model training process samples and partitions your dataset based on EVENT\_TIMESTAMP. For example, if your dataset consists of fraud
 events pulled from last 6 months, but only the last month of legitimate events are included, the dataset is considered unstable. An unstable
 dataset might lead to biases in model performance evaluation.
 
@@ -139,14 +139,14 @@ from at least 100 events (records) in your dataset for model training.
 
 Make sure that you have data from more than 100 events in your dataset.
 
-### Missing or different EVENT_LABEL values
+### Missing or different EVENT\_LABEL values
 
 1. **Issue type : Error**
 
 **Description**
 
-Greater than 1% of your EVENT_LABEL column are null or are values other than those defined in the model configuration `$label_values`.
-Ensure you have less than 1% of missing values in your EVENT_LABEL column and the values are those defined in the model configuration `$label_values`.
+Greater than 1% of your EVENT\_LABEL column are null or are values other than those defined in the model configuration `$label_values`.
+Ensure you have less than 1% of missing values in your EVENT\_LABEL column and the values are those defined in the model configuration `$label_values`.
 
 **Cause**
 
@@ -155,17 +155,17 @@ This error occurs because of one of the following reasons:
     * More than 1% of the records in the CSV file containing your training data have missing values in the EVENT\_LABEL column.
     * More than 1% of the records in the CSV file containing your training data have values in the EVENT\_LABEL column that are different than those associated with your event type.
 
-Online Fraud Insights (OFI) model requires that the EVENT_LABEL column in each record be populated with one of the labels that’s associated with your event type (or, mapped in `CreateModelVersion`).
+Online Fraud Insights (OFI) model requires that the EVENT\_LABEL column in each record be populated with one of the labels that’s associated with your event type (or, mapped in `CreateModelVersion`).
 
 **Solution**
 
-If this error is due to the missing EVENT_LABEL values, consider assigning proper labels to those records or dropping those records from your dataset.
-If this error is because labels of some records are not among `label_values`, make sure to add all the values in EVENT_LABEL column
+If this error is due to the missing EVENT\_LABEL values, consider assigning proper labels to those records or dropping those records from your dataset.
+If this error is because labels of some records are not among `label_values`, make sure to add all the values in EVENT\_LABEL column
 to labels of the event type and mapped to either fraudulent or legitimate (fraud, legit) in model creation. 2. **Issue type : Information**
 
 **Description**
 
-Your EVENT_LABEL column contains null values or label values other than those defined in the model configuration `$label_values`. These inconsistent values were converted to 'not fraud' prior to training.
+Your EVENT\_LABEL column contains null values or label values other than those defined in the model configuration `$label_values`. These inconsistent values were converted to 'not fraud' prior to training.
 
 **Cause**
 
@@ -178,37 +178,37 @@ The model training in both the cases will succeed. However, the label values of 
 
 **Solution**
 
-If there are missing EVENT_LABEL values in your dataset, consider dropping those records from your dataset. If the values provided for
-those EVENT_LABELS are not mapped, make sure that all those values are mapped to either fraudulent or legitimate (fraud, legit) for each event.
+If there are missing EVENT\_LABEL values in your dataset, consider dropping those records from your dataset. If the values provided for
+those EVENT\_LABELS are not mapped, make sure that all those values are mapped to either fraudulent or legitimate (fraud, legit) for each event.
 
-### Missing or incorrect EVENT_TIMESTAMP values
+### Missing or incorrect EVENT\_TIMESTAMP values
 
 1. **Issue type : Error**
 
 **Description**
 
-Your training data set contains EVENT_TIMESTAMP with timestamps that do not conform to accepted formats. Ensure the format is one of the accepted date/timestamp formats.
+Your training data set contains EVENT\_TIMESTAMP with timestamps that do not conform to accepted formats. Ensure the format is one of the accepted date/timestamp formats.
 
 **Cause**
 
-This error occurs if the EVENT_TIMESTAMP column contains value that doesn’t comply with the [timestamp formats](online-fraud-insights.md#timestamp-formats "online-fraud-insights.md#timestamp-formats") that are supported by Amazon Fraud Detector.
+This error occurs if the EVENT\_TIMESTAMP column contains value that doesn’t comply with the [timestamp formats](online-fraud-insights.md#timestamp-formats "online-fraud-insights.md#timestamp-formats") that are supported by Amazon Fraud Detector.
 
 **Solution**
 
-Ensure that the values provided for the EVENT_TIMESTAMP column is compliant with the supported [timestamp formats](online-fraud-insights.md#timestamp-formats "online-fraud-insights.md#timestamp-formats"). If you have missing values in
-the EVENT_TIMESTAMP column, you can either backfill those with values using the supported timestamp format or consider dropping the event completely instead of entering strings such as `none`, `null`, or `missing`. 2. **Issue type : Error**
+Ensure that the values provided for the EVENT\_TIMESTAMP column is compliant with the supported [timestamp formats](online-fraud-insights.md#timestamp-formats "online-fraud-insights.md#timestamp-formats"). If you have missing values in
+the EVENT\_TIMESTAMP column, you can either backfill those with values using the supported timestamp format or consider dropping the event completely instead of entering strings such as `none`, `null`, or `missing`. 2. **Issue type : Error**
 
-Your training data set contains EVENT_TIMESTAMP with missing values. Ensure you have no missing values.
+Your training data set contains EVENT\_TIMESTAMP with missing values. Ensure you have no missing values.
 
 **Cause**
 
-This error occurs if the EVENT_TIMESTAMP column in your dataset has missing values. Amazon Fraud Detector requires that the EVENT_TIMESTAMP column in your dataset
+This error occurs if the EVENT\_TIMESTAMP column in your dataset has missing values. Amazon Fraud Detector requires that the EVENT\_TIMESTAMP column in your dataset
 have values.
 
 **Solution**
 
-Ensure that the EVENT_TIMESTAMP column in your dataset has values and those values are compliant with the supported [timestamp formats](online-fraud-insights.md#timestamp-formats "online-fraud-insights.md#timestamp-formats").
-If you have missing values in the EVENT_TIMESTAMP column, you can either backfill those with values using the supported timestamp format or consider dropping the event completely instead of entering strings such as `none`, `null`, or `missing`.
+Ensure that the EVENT\_TIMESTAMP column in your dataset has values and those values are compliant with the supported [timestamp formats](online-fraud-insights.md#timestamp-formats "online-fraud-insights.md#timestamp-formats").
+If you have missing values in the EVENT\_TIMESTAMP column, you can either backfill those with values using the supported timestamp format or consider dropping the event completely instead of entering strings such as `none`, `null`, or `missing`.
 
 ### Data not ingested
 
@@ -250,7 +250,7 @@ If a variable fails validation, it is excluded in model training and you will se
 **Solution**
 
 Ensure that your dataset has at least two variables populated with values and passed all data validations. Note that the event metadata row where you have provided your column
-headers (EVENT_TIMESTAMP, EVENT_ID, ENTITY_ID, EVENT_LABEL, etc.) aren’t considered as variable.
+headers (EVENT\_TIMESTAMP, EVENT\_ID, ENTITY\_ID, EVENT\_LABEL, etc.) aren’t considered as variable.
 
 ### Missing or incorrect variable type
 
@@ -269,7 +269,7 @@ As a result, that variable is excluded in model training.
 
 If you want to keep it as a NUMERIC variable, make sure that values you provide can be converted to float number. Note that if the variable
 contains missing values, don’t fill them with strings such as `nonene`, `null`, or `missing`. If the variable
-does contain non-numeric values, re-create it as a CATEGORICAL or FREE_FORM_TEXT variable type.
+does contain non-numeric values, re-create it as a CATEGORICAL or FREE\_FORM\_TEXT variable type.
 
 ### Missing variable values
 
@@ -361,7 +361,7 @@ The number of unique entities is less than 1500. Consider including more data to
 
 This information is displayed if your dataset has a smaller number of unique entities than the recommended number. The Transaction Fraud Insights (TFI)
 model uses both time-series aggregates and generic transaction features to provide the best performance. If your dataset has too few unique entities,
-then most of your generic data such as IP_ADDRESS, EMAIL_ADDRESS, might not have unique values. Then, there’s also a risk that this dataset isn’t
+then most of your generic data such as IP\_ADDRESS, EMAIL\_ADDRESS, might not have unique values. Then, there’s also a risk that this dataset isn’t
 general enough to cover the feature space of that variable. As a result, the model might not generalize well on transactions from fresh new entities.
 
 **Solution**

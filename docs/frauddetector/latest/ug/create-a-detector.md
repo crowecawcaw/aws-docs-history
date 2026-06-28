@@ -20,7 +20,7 @@ This example assumes that you've created an event type and also have created and
 3. In the **Define detector details** page, enter
    `sample_detector` for detector name. Optionally,
    enter a description for the detector, such as `my sample fraud
-detector`.
+ detector`.
 4. For **Event Type**, select the event type you have created for fraud prediction.
 5. Choose **Next**.
 
@@ -46,7 +46,7 @@ your model and your use case.
    a rule**, enter `high_fraud_risk` for the
    rule name and under **Description - optional**,
    enter `This rule captures events with a high ML model
-score` as the description for the rule.
+ score` as the description for the rule.
 2. In **Expression**, enter the following rule
    expression using the Amazon Fraud Detector simpliﬁed rule expression
    language:
@@ -97,7 +97,7 @@ rules using the following rule details:
      700`
 
 9. After you have created all the rules for your use case, choose
-   **Next**.
+**Next**.
 
 For more information about creating and writing rules, see [Rules](rules.md "rules.md") and
 [Rule language reference](rule-language-reference.md "rule-language-reference.md").
