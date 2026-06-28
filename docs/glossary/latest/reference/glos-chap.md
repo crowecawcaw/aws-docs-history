@@ -2363,11 +2363,11 @@ for metadata about items, such as price, genre, or availability.
 See also [dataset](#dataset "#dataset").
 
 item-to-item similarities (SIMS) recipe
-[Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): A RELATED_ITEMS recipe that uses the data from an Interactions dataset to make recommendations for items that are similar to a specified item. The SIMS recipe calculates similarity based on the way users interact with items instead of matching item metadata, such as price or age.
+[Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): A RELATED\_ITEMS recipe that uses the data from an Interactions dataset to make recommendations for items that are similar to a specified item. The SIMS recipe calculates similarity based on the way users interact with items instead of matching item metadata, such as price or age.
 
 See also [recipe](#persrecipe "#persrecipe").
 
-See also [RELATED_ITEMS recipes](#related-item-recipes "#related-item-recipes").
+See also [RELATED\_ITEMS recipes](#related-item-recipes "#related-item-recipes").
 
 See also [Interactions dataset](#interactions-dataset "#interactions-dataset").
 
@@ -3266,7 +3266,7 @@ Amazon Personalize is an artificial intelligence service for creating individual
 
 See also [https://aws.amazon.com/personalize/](https://aws.amazon.com/personalize/ "https://aws.amazon.com/personalize/").
 
-PERSONALIZED_RANKING recipes
+PERSONALIZED\_RANKING recipes
 [Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): Recipes that provide item recommendations in ranked order based on the predicted interest for a user.
 
 See also [recipe](#persrecipe "#persrecipe").
@@ -3278,11 +3278,11 @@ See also [personalized-ranking recipe](#personalizedranking "#personalizedrankin
 See also [popularity-count recipe](#popularity-count-recipe "#popularity-count-recipe").
 
 personalized-ranking recipe
-[Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): A PERSONALIZED_RANKING recipe that ranks a collection of items that you provide based on the predicted interest level for a specific user. Use the personalized-ranking recipe to create curated lists of items or ordered search results that are personalized for a specific user.
+[Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): A PERSONALIZED\_RANKING recipe that ranks a collection of items that you provide based on the predicted interest level for a specific user. Use the personalized-ranking recipe to create curated lists of items or ordered search results that are personalized for a specific user.
 
 See also [recipe](#persrecipe "#persrecipe").
 
-See also [PERSONALIZED_RANKING recipes](#personalized-ranking-recipes "#personalized-ranking-recipes").
+See also [PERSONALIZED\_RANKING recipes](#personalized-ranking-recipes "#personalized-ranking-recipes").
 
 physical name
 A unique label that [CloudFormation](#CloudFormation "#CloudFormation") assigns to each [resource](#resource "#resource") when creating
@@ -3344,11 +3344,11 @@ countries.
 See also [https://aws.amazon.com/polly/](https://aws.amazon.com/polly/ "https://aws.amazon.com/polly/").
 
 popularity-count recipe
-[Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): A USER_PERSONALIZATION recipe that recommends the items that have had the most interactions with unique users.
+[Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): A USER\_PERSONALIZATION recipe that recommends the items that have had the most interactions with unique users.
 
 See also [recipe](#persrecipe "#persrecipe").
 
-See also [USER_PERSONALIZATION recipes](#user-personalization-recipes "#user-personalization-recipes").
+See also [USER\_PERSONALIZATION recipes](#user-personalization-recipes "#user-personalization-recipes").
 
 Porting Assistant for .NET
 Porting Assistant for .NET is a compatibility analyzer that reduces the manual effort required to port Microsoft .NET Framework applications to open source .NET Core.
@@ -3590,16 +3590,16 @@ manage email delivery for a [recipient](#recipient "#recipient").
 recipe
 [Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): An Amazon Personalize
 algorithm that's preconfigured to predict the items that a user interacts with (for
-USER_PERSONALIZATION recipes), or calculate items that are similar to specific items
-that a user has shown interest in (for RELATED_ITEMS recipes), or rank a collection
+USER\_PERSONALIZATION recipes), or calculate items that are similar to specific items
+that a user has shown interest in (for RELATED\_ITEMS recipes), or rank a collection
 of items that you provide based on the predicted interest for a specific user (for
-PERSONALIZED_RANKING recipes).
+PERSONALIZED\_RANKING recipes).
 
-See also [USER_PERSONALIZATION recipes](#user-personalization-recipes "#user-personalization-recipes").
+See also [USER\_PERSONALIZATION recipes](#user-personalization-recipes "#user-personalization-recipes").
 
-See also [RELATED_ITEMS recipes](#related-item-recipes "#related-item-recipes").
+See also [RELATED\_ITEMS recipes](#related-item-recipes "#related-item-recipes").
 
-See also [PERSONALIZED_RANKING recipes](#personalized-ranking-recipes "#personalized-ranking-recipes").
+See also [PERSONALIZED\_RANKING recipes](#personalized-ranking-recipes "#personalized-ranking-recipes").
 
 recipient
 [Amazon SES](#SES "#SES"): The person or entity receiving an email
@@ -3608,9 +3608,9 @@ message. For example, a person named in the "To" field of a message.
 recommendations
 [Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): A list of
 items that Amazon Personalize predicts that a user interacts with. Depending on the Amazon Personalize recipe
-used, recommendations can be either a list of items (with USER_PERSONALIZATION
-recipes and RELATED_ITEMS recipes), or a ranking of a collection of items you
-provided (with PERSONALIZED_RANKING recipes).
+used, recommendations can be either a list of items (with USER\_PERSONALIZATION
+recipes and RELATED\_ITEMS recipes), or a ranking of a collection of items you
+provided (with PERSONALIZED\_RANKING recipes).
 
 See also [recipe](#persrecipe "#persrecipe").
 
@@ -3618,11 +3618,11 @@ See also [campaign](#campaign "#campaign").
 
 See also [solution version](#solution-version "#solution-version").
 
-See also [USER_PERSONALIZATION recipes](#user-personalization-recipes "#user-personalization-recipes").
+See also [USER\_PERSONALIZATION recipes](#user-personalization-recipes "#user-personalization-recipes").
 
-See also [RELATED_ITEMS recipes](#related-item-recipes "#related-item-recipes").
+See also [RELATED\_ITEMS recipes](#related-item-recipes "#related-item-recipes").
 
-See also [PERSONALIZED_RANKING recipes](#personalized-ranking-recipes "#personalized-ranking-recipes").
+See also [PERSONALIZED\_RANKING recipes](#personalized-ranking-recipes "#personalized-ranking-recipes").
 
 Redis
 A fast, open-source, in-memory key-value data structure store. Redis comes with a
@@ -3671,7 +3671,7 @@ Amazon Rekognition is a machine learning service that identifies objects, people
 
 See also [https://aws.amazon.com/rekognition/](https://aws.amazon.com/rekognition/ "https://aws.amazon.com/rekognition/").
 
-RELATED_ITEMS recipes
+RELATED\_ITEMS recipes
 [Amazon Personalize](#amazonpersonalize "#amazonpersonalize")Recipes that recommend items that are
 similar to a specified item, such as the item-to-item (SIMS) recipe.
 
@@ -4819,7 +4819,7 @@ AWS account, and a set of security credentials that aren't shared with other use
 These credentials are separate from the security credentials for the AWS account.
 Each user is associated with one and only one AWS account.
 
-USER_PERSONALIZATION recipes
+USER\_PERSONALIZATION recipes
 [Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): Recipes
 that are used to build a recommendation system that predicts the items that a user
 interacts with based on data provided in Interactions, Items, and Users
@@ -4835,7 +4835,7 @@ See also [HRNN](#hrnn "#hrnn").
 
 user-personalization recipe
 [Amazon Personalize](#amazonpersonalize "#amazonpersonalize"): An
-HRNN-based USER_PERSONALIZATION recipe that predicts the items that a user interacts
+HRNN-based USER\_PERSONALIZATION recipe that predicts the items that a user interacts
 with. The user-personalization recipe can use item exploration and impressions data
 to generate recommendations for new items.
 
@@ -4843,7 +4843,7 @@ See also [HRNN](#hrnn "#hrnn").
 
 See also [recipe](#persrecipe "#persrecipe").
 
-See also [USER_PERSONALIZATION recipes](#user-personalization-recipes "#user-personalization-recipes").
+See also [USER\_PERSONALIZATION recipes](#user-personalization-recipes "#user-personalization-recipes").
 
 See also [item exploration](#item-exploration "#item-exploration").
 
