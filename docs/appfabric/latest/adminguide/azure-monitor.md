@@ -110,9 +110,9 @@ _Microsoft Entra Developer Guide_.
 
 - Microsoft Graph User Access API > User.Read.All (Select
   Delegated Type)
-- Microsoft Graph User Access API > offline_access (Select
+- Microsoft Graph User Access API > offline\_access (Select
   Delegated Type)
-- Azure Service Management Audit Log API > user_impersonation
+- Azure Service Management Audit Log API > user\_impersonation
   (Select Delegated Type)
 
 After you’ve added the permissions, to grant admin consent for the permissions,

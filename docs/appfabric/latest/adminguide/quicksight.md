@@ -44,8 +44,8 @@ Quick supports the following AppFabric output locations:
 
   To use Athena:
 
-      1. Follow the instructions in [Using
-       AWS Glue to connect to data sources in Amazon S3](../../../athena/latest/ug/data-sources-glue.md "../../../athena/latest/ug/data-sources-glue.md") in the
-       *Athena User Guide*.
-      2. Follow the instructions in [Creating a dataset using Athena data](../../../quicksight/latest/user/create-a-data-set-athena.md "../../../quicksight/latest/user/create-a-data-set-athena.md") in the
-       *Quick User Guide*.
+        1. Follow the instructions in [Using
+         AWS Glue to connect to data sources in Amazon S3](../../../athena/latest/ug/data-sources-glue.md "../../../athena/latest/ug/data-sources-glue.md") in the
+         *Athena User Guide*.
+        2. Follow the instructions in [Creating a dataset using Athena data](../../../quicksight/latest/user/create-a-data-set-athena.md "../../../quicksight/latest/user/create-a-data-set-athena.md") in the
+         *Quick User Guide*.

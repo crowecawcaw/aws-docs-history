@@ -16,7 +16,7 @@ Deletes an application client.
 The request accepts the following data in JSON format.
 
 | Parameter               | Description                                                                                                                                                                                                        |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **appClientIdentifier** | The Amazon Resource Name (ARN) or Universal Unique<br>Identifier (UUID) of the AppClient to use for the<br>request.<br>Length Constraints: Minimum length of 1. Maximum length of<br>1011.<br>Pattern:<br>`arn:.+$ | ^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}`<br>Required: Yes |
 
 ## Response elements

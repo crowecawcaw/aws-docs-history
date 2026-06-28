@@ -248,9 +248,9 @@ HTTP body.
 ## Refresh tokens for end users
 
 The tokens your AppClient acquires for end users can be refreshed on expiry. This can be
-done using the [Token](API_Token.md "API_Token.md") API with the grant_type
+done using the [Token](API_Token.md "API_Token.md") API with the grant\_type
 `refresh_token`. The `refresh_token` to be used is returned as part of
-the token API response when the grant_type is `authorization_code`. The default expirations
+the token API response when the grant\_type is `authorization_code`. The default expirations
 is 12 hours. To call the refresh API, you must have the `"appfabric:Token"` IAM policy
 permission. For more information, see [Token](API_Token.md "API_Token.md") and [Allow access to update AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-update-appclient").
 

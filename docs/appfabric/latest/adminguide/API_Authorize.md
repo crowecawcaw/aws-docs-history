@@ -14,8 +14,8 @@ Authorizes an AppClient.
 
 The request accepts the following data in JSON format.
 
-| Parameter         | Description                                                               |
-| ----------------- | ------------------------------------------------------------------------- |
-| **app_client_id** | The ID of the AppClient to authorize.                                     |
-| **redirect_uri**  | The URI to redirect end users to after<br>authorization.                  |
-| **state**         | A unique value to maintain the state between the request<br>and callback. |
+| Parameter           | Description                                                               |
+| ------------------- | ------------------------------------------------------------------------- |
+| **app\_client\_id** | The ID of the AppClient to authorize.                                     |
+| **redirect\_uri**   | The URI to redirect end users to after<br>authorization.                  |
+| **state**           | A unique value to maintain the state between the request<br>and callback. |

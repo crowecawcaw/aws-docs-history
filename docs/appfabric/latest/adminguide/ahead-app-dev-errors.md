@@ -145,7 +145,7 @@ Ensure the email address you’re using matches the one listed for the
 `starterUserEmails` attribute when you created the AppClient. If the emails don’t
 match, change to the matching email address and try again. To view the email used, use the [GetAppClient](manage-appclients.md#get_appclient_details "manage-appclients.md#get_appclient_details") API operation.
 
-**Reason 2: For grant_type as refresh_token when the token is not
+**Reason 2: For grant\_type as refresh\_token when the token is not
 specified.**
 
 ```

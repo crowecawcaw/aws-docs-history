@@ -122,5 +122,5 @@ the following steps.
    entry for **Admin API** in the applications list. Click
    **Protect** at the far-right to configure the
    application. Scroll down to the scopes section and add `Grant
-read log` and `Grant read
-resource`.
+ read log` and `Grant read
+ resource`.

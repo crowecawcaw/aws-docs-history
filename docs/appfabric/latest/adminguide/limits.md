@@ -17,7 +17,7 @@ The quotas related to AppFabric that are in your AWS account are shown in the fo
 table.
 
 | Name                       | Default                   | Adjustable | Description                                                                                                                   |
-| -------------------------- | ------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------- | --- | ---- | ------- | ---- | ---------------------------------------------------------------------------------- | --- |
+| -------------------------- | ------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | Application bundles        | Each supported Region: 1  | No         | The maximum number of application bundles that you can<br>create in an account in the current AWS Region.                     |
 | Application authorizations | Each supported Region: 50 | No         | The maximum number of application authorizations that you<br>can create in an account in the current AWS Region.              |
 | Ingestions                 | Each supported Region: 50 | No         | The maximum number of ingestions that you can create in an<br>account in the current AWS Region.                              |

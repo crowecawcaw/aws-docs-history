@@ -439,7 +439,7 @@ now and don’t waste time switching between apps to find content.
 ###### Request Header
 
 - Authorization header needs to be passed in with the `Bearer
-Token` value.
+ Token` value.
 
 **Response Fields**
 

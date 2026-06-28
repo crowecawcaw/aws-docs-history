@@ -129,17 +129,16 @@ new OAuth app:
     4. Save your changes.
 
 12. Complete the following steps to verify that audit logs are being
-    generated:
+generated:
 
-    1.  On the **Setup page**, enter **Event Log
-        File** into the Quick Find text box, and then choose
-        **Event Log File Browser**.
-    2.  Confirm that event logs are listed in the **Event Log File
-        Browser**.
+    1. On the **Setup page**, enter **Event Log
+     File** into the Quick Find text box, and then choose
+     **Event Log File Browser**.
+    2. Confirm that event logs are listed in the **Event Log File
+     Browser**.
 
 13. Navigate to the created app, and choose **View** from the
-    drop-down.
-14. Choose **Manage Consumer Details**.
+drop-down. 14. Choose **Manage Consumer Details**.
 
 You will be redirected to a new tab where you will need to verify your
 identity. On that tab, make a note of the **Consumer Key**
