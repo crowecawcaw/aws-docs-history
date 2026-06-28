@@ -65,21 +65,21 @@ maximum file size of 100kb.
 Amazon CodeGuru Reviewer detects unprotected usernames, passwords, RSA keys, and the following
 secrets.
 
-| Secrets detected by CodeGuru Reviewer | Provider                                                                                                                                                                                    | Secrets detected |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Amazon Web Services (AWS)             | • Amazon AWS Secret Access Key                                                                                                                                                              |
-| Atlassian                             | • Atlassian API Token<br>• Atlassian JSON Web Token<br>• Bitbucket Server Personal Access Token                                                                                             |
-| Databricks                            | • Databricks Access Token                                                                                                                                                                   |
-| Datadog                               | • Datadog API Key<br>• Datadog App Key                                                                                                                                                      |
-| GitHub                                | • GitHub Personal Access Token<br>• GitHub OAuth Access Token<br>• GitHub Refresh Token<br>• GitHub App Installation Access Token<br>• GitHub SSH Private Key                               |
-| Intercom                              | • Intercom Access Token                                                                                                                                                                     |
-| Mailchimp                             | • Mailchimp API Key                                                                                                                                                                         |
-| Mailgun                               | • Mailgun API Key                                                                                                                                                                           |
-| Salesforce                            | • Private Key                                                                                                                                                                               |
-| SendGrid                              | • SendGrid API Key                                                                                                                                                                          |
-| Shopify                               | • Shopify App Shared Secret<br>• Shopify Access Token<br>• Shopify Custom App Access Token<br>• Shopify Private App Password                                                                |
-| Slack                                 | • Client ID<br>• Client Secret                                                                                                                                                              |
-| Stripe                                | • Stripe API Key<br>• Stripe Live API Secret Key<br>• Stripe Test API Secret Key<br>• Stripe Live API Restricted Key<br>• Stripe Test API Restricted Key<br>• Stripe Webhook Signing Secret |
-| Tableau                               | • Tableau Personal access token                                                                                                                                                             |
-| Telegram                              | • Telegram Bot Token                                                                                                                                                                        |
-| Twilio                                | • Twilio Account string identifier<br>• Twilio API Key                                                                                                                                      |
+Secrets detected by CodeGuru Reviewer| Provider | Secrets detected |
+| --- | --- |
+| Amazon Web Services (AWS) | • Amazon AWS Secret Access Key |
+| Atlassian | • Atlassian API Token<br>• Atlassian JSON Web Token<br>• Bitbucket Server Personal Access Token |
+| Databricks | • Databricks Access Token |
+| Datadog | • Datadog API Key<br>• Datadog App Key |
+| GitHub | • GitHub Personal Access Token<br>• GitHub OAuth Access Token<br>• GitHub Refresh Token<br>• GitHub App Installation Access Token<br>• GitHub SSH Private Key |
+| Intercom | • Intercom Access Token |
+| Mailchimp | • Mailchimp API Key |
+| Mailgun | • Mailgun API Key |
+| Salesforce | • Private Key |
+| SendGrid | • SendGrid API Key |
+| Shopify | • Shopify App Shared Secret<br>• Shopify Access Token<br>• Shopify Custom App Access Token<br>• Shopify Private App Password |
+| Slack | • Client ID<br>• Client Secret |
+| Stripe | • Stripe API Key<br>• Stripe Live API Secret Key<br>• Stripe Test API Secret Key<br>• Stripe Live API Restricted Key<br>• Stripe Test API Restricted Key<br>• Stripe Webhook Signing Secret |
+| Tableau | • Tableau Personal access token |
+| Telegram | • Telegram Bot Token |
+| Twilio | • Twilio Account string identifier<br>• Twilio API Key |

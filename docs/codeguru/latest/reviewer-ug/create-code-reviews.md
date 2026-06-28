@@ -143,11 +143,11 @@ can enable your workflow, as supported by CodeGuru Reviewer.
 
 The following is a list of parameters.
 
-| Argument   | Required | Description                                                                                                                                                                           |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| s3_bucket  | Yes      | User-owned bucket which starts with the prefix `codeguru-reviewer-`.<br>Must be in the same Region as your application.                                                               |
-| build_path | No       | Path to build artifact(s) directory. JAR files in this directory are uploaded<br>for review. The build artifacts are required to get the complete set of security<br>recommendations. |
-| kms_key_id | No       | The key ID uniquely identifies an AWS KMS key within an account<br>and Region.                                                                                                        |
+| Argument     | Required | Description                                                                                                                                                                           |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| s3\_bucket   | Yes      | User-owned bucket which starts with the prefix `codeguru-reviewer-`.<br>Must be in the same Region as your application.                                                               |
+| build\_path  | No       | Path to build artifact(s) directory. JAR files in this directory are uploaded<br>for review. The build artifacts are required to get the complete set of security<br>recommendations. |
+| kms\_key\_id | No       | The key ID uniquely identifies an AWS KMS key within an account<br>and Region.                                                                                                        |
 
 5. Run your workflow in GitHub to start the code analysis. When the build is complete,
    review your recommendations in the GitHub **Security** tab.

@@ -101,7 +101,7 @@ Create a pull request for CodeGuru Reviewer to review.
 
 1. In your forked GitHub repository, choose **New pull request**.
 2. On the left side of the comparison (**base**), select
-   **USER_ID/amazon-codeguru-reviewer-sample-app**, where
+   **USER\_ID/amazon-codeguru-reviewer-sample-app**, where
    `USER_ID` is your GitHub user ID. Leave the branch at
    **master**.
 3. On the right side of the comparison (**compare**), change the
@@ -139,7 +139,7 @@ After you're finished with this tutorial, clean up your resources.
    go to **Settings**, and then choose **Delete this
    repository**. Follow the instructions to delete the forked repository.
 2. Delete your clone of the forked repository, for example, `rm -rf
-amazon-codeguru-reviewer-sample-app`.
+ amazon-codeguru-reviewer-sample-app`.
 3. In the CodeGuru Reviewer console, select the example repository and choose
    **Disassociate repository**.
 
