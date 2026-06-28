@@ -110,7 +110,7 @@ AWS SigV4 authentication allows AWS DevOps Agent to connect to MCP servers that 
 
 1. **Configure IAM role** – Choose one of the following options:
 
-   - **Use an existing role** – Select an existing IAM role from the dropdown. The role must have a trust policy that allows the AWS DevOps Agent service principal to assume it (see [Creating an IAM role for SigV4 authentication](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md#creating-an-iam-role-for-sigv4-authentication "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md#creating-an-iam-role-for-sigv4-authentication")).
+   - **Use an existing role** – Select an existing IAM role from the dropdown. The role must have a trust policy that allows the AWS DevOps Agent service principal to assume it (see [Creating an IAM role for SigV4 authentication](configuring-integrations-and-knowledge-connecting-mcp-servers.md#creating-an-iam-role-for-sigv4-authentication "configuring-integrations-and-knowledge-connecting-mcp-servers.md#creating-an-iam-role-for-sigv4-authentication")).
    - **Create a new role manually** – Follow the step-by-step instructions displayed in the console to create a new IAM role with the correct trust policy.
 
 2. **AWS Region** – Enter the AWS Region for SigV4 signing (for example, `us-east-1`). To use SigV4a multi-region signing, enter `*`.

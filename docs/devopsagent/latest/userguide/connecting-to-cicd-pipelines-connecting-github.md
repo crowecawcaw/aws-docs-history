@@ -39,6 +39,11 @@ On the "Register GitHub Account / Organization" screen, select whether you're co
 - **User** – Your personal GitHub account with a username and profile
 - **Organization** – A shared GitHub account where multiple people can collaborate across many projects at once
 
+Select the **GitHub App permissions** for your GitHub App. The permission level determines the actions the GitHub App can perform in your repository:
+
+- **Read & Write** (default): The GitHub App requests both read and write permissions. This enables all features. DevOps Agent can post inline pull request comments, propose fixes, and trigger workflows.
+- **Read Only**: The GitHub App requests only read permissions. DevOps Agent can view code and pull requests but cannot post comments, propose fixes, or trigger workflows.
+
 If you are connecting to a GitHub Enterprise Server instance, check the **Use GitHub Enterprise Server** checkbox and enter the HTTPS URL of your instance (for example, `https://github.example.com`).
 
 If your GitHub Enterprise Server instance is not publicly accessible, you can optionally configure a private connection to allow AWS DevOps Agent to securely reach your instance. For more information, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
@@ -142,6 +147,8 @@ Until you accept a permission update, AWS DevOps Agent continues to operate with
 ### Requested permissions
 
 The following table describes each permission the AWS DevOps Agent GitHub App requests and why it is needed.
+
+If you selected **Read Only** during registration, the GitHub App requests read-level access only for each permission in the following table. With Read Only permissions, the GitHub App cannot perform write-level actions listed in the **Purpose** column.
 
 | Permission    | Access level   | Purpose                                                                                                                                               |
 | ------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |

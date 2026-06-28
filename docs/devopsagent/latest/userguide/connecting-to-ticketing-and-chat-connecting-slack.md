@@ -1,6 +1,6 @@
 # Connecting Slack
 
-You can configure AWS DevOps Agent to update a Slack channel you select with incident response investigation key findings, root cause analyses, and generated mitigation plans.
+You can configure AWS DevOps Agent to update Slack channels you select with incident response investigation key findings, root cause analyses, and generated mitigation plans.
 
 ## Before you begin
 
@@ -10,6 +10,8 @@ Slack needs to be registered with DevOps Agent before it can be added to an Agen
 - Have identified the Slack channels where you want AWS DevOps Agent to send notifications
 
 ## Register Slack integration with AWS DevOps Agent
+
+Each registration connects to one Slack workspace. To connect multiple workspaces, repeat this process for each one.
 
 ![Register Slack with AWS DevOps Agent page showing installation steps and authorization section.](images/4034f56fad96.png)
 
@@ -24,7 +26,7 @@ Slack needs to be registered with DevOps Agent before it can be added to an Agen
 
 ## Associate Slack with your DevOps Agent Space(s)
 
-After registering Slack in your DevOps Agent Space, you can associate it with your DevOps Agent Space(s):
+After registering Slack, you can associate one or more channels with your DevOps Agent Space(s). Repeat these steps for each channel you want to add:
 
 1. From the **Capabilities** tab within your configured AgentSpace, navigate to **Communications** > **Slack**.
 2. Select **Add Slack**

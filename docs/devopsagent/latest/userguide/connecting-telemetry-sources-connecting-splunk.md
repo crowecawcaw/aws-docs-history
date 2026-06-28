@@ -19,8 +19,8 @@ Your Splunk Administrator needs to perform the following steps:
 
 - enable [REST API access](https://docs.splunk.com/Documentation/SplunkCloud/latest/RESTTUT/RESTandCloud "https://docs.splunk.com/Documentation/SplunkCloud/latest/RESTTUT/RESTandCloud")
 - [enable token authentication](https://help.splunk.com/en/splunk-cloud-platform/administer/manage-users-and-security/9.2.2406/authenticate-into-the-splunk-platform-with-tokens/enable-or-disable-token-authentication "https://help.splunk.com/en/splunk-cloud-platform/administer/manage-users-and-security/9.2.2406/authenticate-into-the-splunk-platform-with-tokens/enable-or-disable-token-authentication") on the deployment.
-- create a new role 'mcp_user', the new role does not need to have any capabilities.
-- assign the role 'mcp_user' to any users on the deployment who are authorized to use the MCP server.
+- create a new role 'mcp\_user', the new role does not need to have any capabilities.
+- assign the role 'mcp\_user' to any users on the deployment who are authorized to use the MCP server.
 - create the token for the authorized users with audience as 'mcp' and set the appropriate expiration, if the user does not have the permission to create tokens themselves.
 
 ### Splunk User steps

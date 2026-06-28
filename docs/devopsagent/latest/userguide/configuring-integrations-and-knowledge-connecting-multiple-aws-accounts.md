@@ -31,7 +31,7 @@ In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding
 ### Step 3: Create the role in the secondary account
 
 1. Open a new browser tab and sign in to the IAM console in the secondary AWS account
-2. Navigate to **IAM >\*\***Roles** > **Create role\*\*
+2. Navigate to **IAM >****Roles** > **Create role**
 3. Select **Custom trust policy**
 4. Paste the trust policy you copied from Step 2
 5. Choose **Next**

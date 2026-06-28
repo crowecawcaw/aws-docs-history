@@ -268,28 +268,28 @@ AWS DevOps Agent uses a shared log schema across all event types. Not every log 
 
 The following table describes the fields in the log schema.
 
-| Field                         | Type          | Description                                                                    |
-| ----------------------------- | ------------- | ------------------------------------------------------------------------------ |
-| event_timestamp               | Long          | Unix timestamp of when the event occurred                                      |
-| resource_arn                  | String        | ARN of the resource that generated the event                                   |
-| optional_account_id           | String        | AWS account ID associated with the log.                                        |
-| optional_level                | String        | Log level: `INFO`, `WARN`, `ERROR`                                             |
-| optional_agent_space_id       | String        | Identifier of the agent space.                                                 |
-| optional_association_id       | String        | Association identifier for the log.                                            |
-| optional_status               | String        | Status of the topology operation.                                              |
-| optional_webhook_id           | String        | Webhook identifier.                                                            |
-| optional_mcp_endpoint_url     | String        | MCP server endpoint URL                                                        |
-| optional_service_type         | String        | Type of the Service: `DYNATRACE`, `DATADOG`, `GITHUB`, `SLACK`, `SERVICENOW`.  |
-| optional_service_endpoint_url | String        | Endpoint URL for third-party integrations.                                     |
-| optional_service_id           | String        | Identifier of the source.                                                      |
-| request_id                    | String        | Request identifier for correlating with AWS CloudTrail or support tickets.     |
-| optional_operation            | String        | Name of the operation that was performed.                                      |
-| optional_task_type            | String        | Agent backlog task type: `INVESTIGATION` or `EVALUATION`                       |
-| optional_task_id              | String        | Agent Backlog Task IDAgent backlog task identifier.                            |
-| optional_reference            | String        | Reference from an agent task (for example, a Jira ticket).                     |
-| optional_error_type           | String        | Error type                                                                     |
-| optional_error_message        | String        | Error description when an operation fails.                                     |
-| optional_details              | String (JSON) | Service-specific event payload that contains operation parameters and results. |
+| Field                            | Type          | Description                                                                    |
+| -------------------------------- | ------------- | ------------------------------------------------------------------------------ |
+| event\_timestamp                 | Long          | Unix timestamp of when the event occurred                                      |
+| resource\_arn                    | String        | ARN of the resource that generated the event                                   |
+| optional\_account\_id            | String        | AWS account ID associated with the log.                                        |
+| optional\_level                  | String        | Log level: `INFO`, `WARN`, `ERROR`                                             |
+| optional\_agent\_space\_id       | String        | Identifier of the agent space.                                                 |
+| optional\_association\_id        | String        | Association identifier for the log.                                            |
+| optional\_status                 | String        | Status of the topology operation.                                              |
+| optional\_webhook\_id            | String        | Webhook identifier.                                                            |
+| optional\_mcp\_endpoint\_url     | String        | MCP server endpoint URL                                                        |
+| optional\_service\_type          | String        | Type of the Service: `DYNATRACE`, `DATADOG`, `GITHUB`, `SLACK`, `SERVICENOW`.  |
+| optional\_service\_endpoint\_url | String        | Endpoint URL for third-party integrations.                                     |
+| optional\_service\_id            | String        | Identifier of the source.                                                      |
+| request\_id                      | String        | Request identifier for correlating with AWS CloudTrail or support tickets.     |
+| optional\_operation              | String        | Name of the operation that was performed.                                      |
+| optional\_task\_type             | String        | Agent backlog task type: `INVESTIGATION` or `EVALUATION`                       |
+| optional\_task\_id               | String        | Agent Backlog Task IDAgent backlog task identifier.                            |
+| optional\_reference              | String        | Reference from an agent task (for example, a Jira ticket).                     |
+| optional\_error\_type            | String        | Error type                                                                     |
+| optional\_error\_message         | String        | Error description when an operation fails.                                     |
+| optional\_details                | String (JSON) | Service-specific event payload that contains operation parameters and results. |
 
 ### Manage and disable log delivery
 

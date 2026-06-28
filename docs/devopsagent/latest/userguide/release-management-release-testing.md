@@ -86,10 +86,10 @@ The `aws-actions/devops-agent-release-testing@v1` GitHub Action triggers the rel
 
 In your GitHub repository, go to **Settings → Secrets and variables → Actions → Repository secrets** and add:
 
-| Secret                      | Description                                      |
-| --------------------------- | ------------------------------------------------ |
-| DEVOPS_AGENT_WEBHOOK_URL    | The webhook URL from your Agent Space            |
-| DEVOPS_AGENT_WEBHOOK_SECRET | The webhook signing secret from your Agent Space |
+| Secret                         | Description                                      |
+| ------------------------------ | ------------------------------------------------ |
+| DEVOPS\_AGENT\_WEBHOOK\_URL    | The webhook URL from your Agent Space            |
+| DEVOPS\_AGENT\_WEBHOOK\_SECRET | The webhook signing secret from your Agent Space |
 
 For information on creating a webhook endpoint, see [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md "configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md").
 

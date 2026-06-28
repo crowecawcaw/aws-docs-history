@@ -327,7 +327,7 @@ You can also sync from the skills list view by clicking the Sync button on the i
 
 **Constraints:**
 
-- **URL format** – Only GitHub directory URLs are accepted (for example, `https://github.com/org/repo/tree/branch/path/to/skill`). Direct paths to a SKILL.md file are also accepted (for example, `https://github.com/org/repo/tree/branch/path/to/skill/SKILL.md`).
+- **URL format** – Only GitHub URLs are accepted. You can point to a directory containing a SKILL.md (for example, `https://github.com/org/repo/tree/main/skills/my-skill`), which imports the entire directory including reference files. If the SKILL.md is at the root of the repository, you can also link directly to the file (for example, `https://github.com/org/repo/blob/main/SKILL.md`), which imports only the SKILL.md.
 - **SKILL.md required** – The directory must contain a SKILL.md file with valid frontmatter (name and description).
 - **Maximum directory size** – Total directory size must not exceed 6 MB.
 - **Maximum files** – A directory can contain up to 100 files.

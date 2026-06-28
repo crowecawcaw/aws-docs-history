@@ -49,6 +49,35 @@ In this architecture:
 - Your security groups govern which traffic is allowed through the ENIs.
 - From your target service's perspective, the request originates from private IP addresses of ENIs within your VPC.
 
+## Configuring firewall rules for private connections
+
+With private connections, traffic from AWS DevOps Agent to your privately-hosted tool originates from the Resource Gateway ENIs in the subnets you specified during private connection creation. This is different from publicly-hosted tool connections, which use the static IP addresses listed on the [Security](aws-devops-agent-security.md "aws-devops-agent-security.md") page.
+
+###### Important
+
+**The static IP addresses published on the [Security](aws-devops-agent-security.md "aws-devops-agent-security.md") page do** not apply to private connections. Do not use those IPs in your firewall rules for privately-hosted tools.
+
+To allow AWS DevOps Agent traffic to reach your privately-hosted tool:
+
+1. Identify the subnets you specified when creating the private connection.
+2. In your target tool's security group (for example, the security group on your Grafana ALB), add an inbound rule using one of the following approaches:
+
+   - **Security group referencing (recommended)** – Allow inbound traffic from the security group attached to the private connection ENIs. If you specified a security group during private connection creation, use that security group ID as the source. For example: allow TCP 443 from `sg-0123456789abcdef0`.
+   - **Subnet CIDR allowlisting** – Allow inbound traffic from the CIDR blocks of the subnets you specified during private connection creation. For example, if your subnet CIDR is `10.0.1.0/24`: allow TCP 443 from `10.0.1.0/24`.
+
+To find your subnet CIDR blocks, run the following command with the subnet IDs you specified during private connection creation:
+
+```
+aws ec2 describe-subnets \
+    --subnet-ids subnet-0123456789abcdef0 subnet-0123456789abcdef1 \
+    --query 'Subnets[*].[SubnetId,CidrBlock]' \
+    --output table
+```
+
+###### Note
+
+The ENI IP addresses remain stable for the lifetime of your private connection. If you delete and recreate a private connection, the ENI IP addresses may change. Using subnet CIDR blocks or security group referencing avoids needing to update rules after recreation.
+
 ## Create a private connection
 
 You can create a private connection using the AWS Management Console or the AWS CLI.
