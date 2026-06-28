@@ -70,10 +70,11 @@ whether to accept the changes and promote the canary release to the production s
 to discard the changes and revert the canary release from the production stage.
 
 The production stage execution log group is named
-`API-Gateway-Execution-Logs/`{rest-api-id}`/`{stage-name}``  and the canary release execution log group is named
- `API-Gateway-Execution-Logs/`{rest-api-id}`/`{stage-name}`/Canary`.
- For access logging, you must create a new log group or choose an existing one. The
- canary release access log group name has the `/Canary` suffix appended to the
+`API-Gateway-Execution-Logs/`{rest-api-id}`/`{stage-name}``
+and the canary release execution log group is named
+`API-Gateway-Execution-Logs/`{rest-api-id}`/`{stage-name}`/Canary`.
+For access logging, you must create a new log group or choose an existing one. The
+canary release access log group name has the `/Canary` suffix appended to the
 selected log group name.
 
 A canary release can use the stage cache, if enabled, to store responses and use

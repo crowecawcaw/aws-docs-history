@@ -269,9 +269,7 @@ settings**, choose **Edit**. 10. For **Request body passthrough**, select **When
      multi-value header called `$header3Value` that combines `header1` and
      `header2`.
 
-12. Choose **Save**.
-13. Choose the **Test** tab.
-14. Under **Headers**, copy the following code:
+12. Choose **Save**. 13. Choose the **Test** tab. 14. Under **Headers**, copy the following code:
 
 ```
 header1:header1Val

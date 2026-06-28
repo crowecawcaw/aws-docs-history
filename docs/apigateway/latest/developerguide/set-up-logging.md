@@ -38,7 +38,7 @@ This logs the value in the `x-amzn-RequestId` header. Clients can override
 the value in the `x-amzn-RequestId` header with a value in the format of a universally unique
 identifier (UUID). API Gateway returns this request ID in the `x-amzn-RequestId` response header. API Gateway
 replaces overridden request IDs that aren't in the format of a UUID with
-``UUID`\_REPLACED_INVALID_REQUEST_ID` in your access logs.
+``UUID`_REPLACED_INVALID_REQUEST_ID` in your access logs.
 
 **`$context.extendedRequestId`**
 

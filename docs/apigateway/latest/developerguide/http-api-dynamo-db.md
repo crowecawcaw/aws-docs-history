@@ -267,7 +267,7 @@ routes:
    path parameter that API Gateway retrieves from the request path when a client makes a request.
 7. Choose **Create**.
 8. Repeat steps 4-7 for `GET /items`, `DELETE /items/{id}`, and `PUT
-/items`.
+ /items`.
 
 ![Your API has routes for GET /items, GET /items/{id},DELETE /items/{id}, and PUT /items.](images/ddb-create-routes.png)
 

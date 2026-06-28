@@ -32,8 +32,9 @@ endpoints for your HTTP integrations.
   returns the specified pet found in the PetStore. The URL of the backend HTTP
   endpoint is
   `http://petstore-demo-endpoint.execute-api.com/petstore/pets/`n``,
-where `n`is an integer as the identifier of the queried pet.
-The API supports CORS access via the`OPTIONS`methods of the`MOCK` integration type. API Gateway returns the required headers supporting CORS
+  where `n` is an integer as the identifier of the queried pet.
+  The API supports CORS access via the `OPTIONS` methods of the
+  `MOCK` integration type. API Gateway returns the required headers supporting CORS
   access.
 
 The following procedure walks you through the steps to create and test an API from an

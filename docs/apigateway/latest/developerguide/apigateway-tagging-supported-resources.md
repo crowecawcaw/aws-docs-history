@@ -101,7 +101,7 @@ resources:
 - The maximum tag key length is 128 Unicode characters in UTF-8.
 - The maximum tag value length is 256 Unicode characters in UTF-8.
 - Allowed characters for keys and values are letters, numbers, spaces
-  representable in UTF-8, and the following characters: **_. : + = @ \_ / -_**
+  representable in UTF-8, and the following characters: _**. : + = @ \_ / -**_
   (hyphen). Amazon EC2 resources allow any characters.
 - Tag keys and values are case-sensitive. As a best practice, decide on a
   strategy for capitalizing tags, and consistently implement that strategy

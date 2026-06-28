@@ -65,7 +65,7 @@ use this template to create the following:
 9. Choose **Next**, and then choose **Submit**.
 
 CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-your resources. Choose the **Outputs** tab to see your created resources and their ARNs. When the status of your CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
+your resources. Choose the **Outputs** tab to see your created resources and their ARNs. When the status of your CloudFormation stack is **CREATE\_COMPLETE**, you're ready to move
 on to the next step.
 
 ## Step 2: Create a WebSocket API
@@ -85,7 +85,9 @@ The route selection expression determines the route that API Gateway invokes whe
 The **$connect** and **$disconnect** routes are special routes that
 API Gateway invokes automatically when a client connects to or disconnects from an API. API Gateway invokes the
 **$default** route when no other routes match a request. You will create a custom route to
-connect to Step Functions after you create your API. 8. Choose **Next**. 9. For **Integration for $connect**, do the following:
+ connect to Step Functions after you create your API.
+8. Choose **Next**.
+9. For **Integration for $connect**, do the following:
 
     1. For **Integration type**, choose **Lambda**.
     2. For **Lambda function**, choose the corresponding **$connect** Lambda
@@ -94,10 +96,10 @@ connect to Step Functions after you create your API. 8. Choose **Next**. 9. For 
 
 10. For **Integration for $disconnect**, do the following:
 
-    1.  For **Integration type**, choose **Lambda**.
-    2.  For **Lambda function**, choose the corresponding **$disconnect** Lambda
-        function that you created with CloudFormation in Step 1. The Lambda function name should start with
-        `websocket-step`.
+    1. For **Integration type**, choose **Lambda**.
+    2. For **Lambda function**, choose the corresponding **$disconnect** Lambda
+     function that you created with CloudFormation in Step 1. The Lambda function name should start with
+     `websocket-step`.
 
 11. For **Integration for $default**, choose **mock**.
 
@@ -142,8 +144,8 @@ After you create your authorizer, you attach it to the **$connect** route of you
 ## Step 4: Create a mock two-way integration
 
 Next, you create the two-way mock integration for the **$default** route. A mock integration
-lets you send a response to the client without using a backend. When you create an integration for the
-**$default** route, you can show clients how to interact with your API.
+ lets you send a response to the client without using a backend. When you create an integration for the
+ **$default** route, you can show clients how to interact with your API.
 
 You configure the
 **$default** route to inform clients to use the
@@ -167,7 +169,8 @@ Choose **Create template**.
 
 The result should look like the following:
 
-![Integration request configuration for mock integration for the $default route.](images/ws-sfn-mock-integration-request.png) 8. The the **$default route** pane, choose **Enable two-way communication**. 9. Choose the **Integration response** tab, and then choose **Create integration response**. 10. For **Response key**, enter `$default`. 11. For **Template selection expression**, enter `200`. 12. Choose **Create response**. 13. Under **Response templates**, choose **Create template**. 14. For **Template key**, enter `200`. 15. For **Response template**, enter the following mapping template:
+![Integration request configuration for mock integration for the $default route.](images/ws-sfn-mock-integration-request.png)
+8. The the **$default route** pane, choose **Enable two-way communication**. 9. Choose the **Integration response** tab, and then choose **Create integration response**. 10. For **Response key**, enter `$default`. 11. For **Template selection expression**, enter `200`. 12. Choose **Create response**. 13. Under **Response templates**, choose **Create template**. 14. For **Template key**, enter `200`. 15. For **Response template**, enter the following mapping template:
 
 ```
 {"Use the sendmessage route to send a message. Connection ID: $context.connectionId"}
@@ -242,7 +245,7 @@ The mapping template does the following:
 ![sendmessage route configuration.](images/ws-sfn-integration-request.png)
 
 You can create a non-proxy integration on the **$connect** or
-**$disconnect** routes, to directly add or remove a connection ID from the DynamoDB table, without
+ **$disconnect** routes, to directly add or remove a connection ID from the DynamoDB table, without
 invoking a Lambda function.
 
 ## Step 6: Test your API
@@ -333,7 +336,7 @@ Now that you have tested your WebSocket API, you can disconnect from your API.
 
 When a client disconnects from your API, API Gateway invokes
 your API's **$disconnect** route. The Lambda integration for your API's
-**$disconnect** route removes the connection ID from DynamoDB.
+ **$disconnect** route removes the connection ID from DynamoDB.
 
 ## Step 7: Clean up
 

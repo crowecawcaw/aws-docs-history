@@ -27,7 +27,7 @@ For clients to decide if invocations are asynchronous or synchronous:
    `method.request.header.InvocationType`.
 3. Clients can include the `InvocationType: Event` header in API
    requests for asynchronous invocations or `InvocationType:
-RequestResponse` for synchronous invocations.
+ RequestResponse` for synchronous invocations.
 
 ## Configure Lambda asynchronous invocation using OpenAPI
 
@@ -89,7 +89,7 @@ For clients to decide if invocations are asynchronous or synchronous:
 
 3. Clients can include the `InvocationType: Event` header in API
    requests for asynchronous invocations or `InvocationType:
-RequestResponse` for synchronous invocations.
+ RequestResponse` for synchronous invocations.
 
 ## Configure Lambda asynchronous invocation using CloudFormation
 

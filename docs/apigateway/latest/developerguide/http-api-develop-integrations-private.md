@@ -25,8 +25,8 @@ The following considerations might impact your use of private integrations:
   integration, choose **Advanced settings** and then enter a secure server name.
 - For private integrations, API Gateway includes the [stage](http-api-stages.md "http-api-stages.md") portion of the API
   endpoint in the request to your backend resources. For example, a request to the `test` stage of an API
-  includes `test/`route-path``in the request to your private integration. To
-remove the stage name from the request to your backend resources, use [parameter mapping](http-api-parameter-mapping.md "http-api-parameter-mapping.md") to overwrite the request path to`$request.path`.
+  includes `test/`route-path`` in the request to your private integration. To
+  remove the stage name from the request to your backend resources, use [parameter mapping](http-api-parameter-mapping.md "http-api-parameter-mapping.md") to overwrite the request path to `$request.path`.
 
 ## Create a private integration using an Application Load Balancer or Network Load Balancer
 

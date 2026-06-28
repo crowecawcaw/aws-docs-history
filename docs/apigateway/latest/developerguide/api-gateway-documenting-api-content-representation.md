@@ -158,8 +158,10 @@ When an API entity matches more than one `DocumentationPart`'s location pattern,
 documentation part with the location fields of the highest precedence and
 specificities. The order of precedence is `path`
 
-> `statusCode`. For matching with the `path` field, API Gateway chooses the entity with the most
-> specific path value. The following table shows this with a few examples.
+>
+
+`statusCode`. For matching with the `path` field, API Gateway chooses the entity with the most
+specific path value. The following table shows this with a few examples.
 
 | Case | `path`        | `statusCode` | `name` | Remarks                                                                                                                                                                                                                                              |
 | ---- | ------------- | ------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

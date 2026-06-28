@@ -31,7 +31,7 @@ The following diagram shows the authorization workflow for a Lambda authorizer.
 5. API Gateway evaluates the IAM policy.
 
    - If access is denied, API Gateway returns a suitable HTTP status code, such as `403
-ACCESS_DENIED`.
+  ACCESS_DENIED`.
    - If access is allowed, API Gateway invokes the method.
 
    If you enable authorization caching, API Gateway caches the policy so that the Lambda authorizer
@@ -50,8 +50,8 @@ There are two types of Lambda authorizers:
 A `REQUEST` authorizer receives the caller's identity in a combination of headers, query
 string parameters, [stageVariables](api-gateway-mapping-template-reference.md#stagevariables-template-reference "api-gateway-mapping-template-reference.md#stagevariables-template-reference"), and
 [$context](api-gateway-mapping-template-reference.md#context-variable-reference "api-gateway-mapping-template-reference.md#context-variable-reference") variables. You can use a
-`REQUEST` authorizer to create fine-grained policies based on the information from multiple
-identity sources, such as the `$context.path` and
+ `REQUEST` authorizer to create fine-grained policies based on the information from multiple
+ identity sources, such as the `$context.path`and 
 `$context.httpMethod` context variables.
 
 If you turn on authorization caching for a `REQUEST` authorizer, API Gateway verifies that all
@@ -427,7 +427,7 @@ JSON
 ```
 
 - If the token value is `deny`, the authorizer function returns a `200
-OK` HTTP response and a `Deny` IAM policy that looks
+ OK` HTTP response and a `Deny` IAM policy that looks
   like the following, and the method request fails:
 
 JSON

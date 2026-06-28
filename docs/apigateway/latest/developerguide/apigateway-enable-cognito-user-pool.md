@@ -67,14 +67,15 @@ the integrated user pool.
    2. If needed, in the **Integration request**, add the
       `$context.authorizer.claims['`property-name`']`
       or
-      `$context.authorizer.claims.`property-name``expressions
-in
-a body-mapping template to pass the specified
-identity claims property from the user pool to the backend. For simple
-property names, such as`sub`or`custom-sub`, the
-two notations are identical. For complex property names, such as
-`custom:role`, you can't use the dot notation. For
-example, the following mapping expressions pass the claim's [standard fields](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims "https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims") of `sub`and`email`
+      `$context.authorizer.claims.`property-name``
+      expressions
+      in
+      a body-mapping template to pass the specified
+      identity claims property from the user pool to the backend. For simple
+      property names, such as `sub` or `custom-sub`, the
+      two notations are identical. For complex property names, such as
+      `custom:role`, you can't use the dot notation. For
+      example, the following mapping expressions pass the claim's [standard fields](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims "https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims") of `sub` and `email`
       to the backend:
 
    ```
@@ -136,7 +137,7 @@ Instead of using the API Gateway console, you can also enable an Amazon Cognito 
 by specifying an OpenAPI definition file and importing the API definition into
 API Gateway.
 
-###### To import a COGNITO_USER_POOLS authorizer with an OpenAPI definition file
+###### To import a COGNITO\_USER\_POOLS authorizer with an OpenAPI definition file
 
 1. Create (or export) an OpenAPI definition file for your API.
 2. Specify the `COGNITO_USER_POOLS` authorizer
@@ -183,7 +184,7 @@ OpenAPI 2.0
 ```
 
 3. To use the identity token for method authorization, add `{ "MyUserPool":
-[] }` to the `security` definition of the method, as shown
+ [] }` to the `security` definition of the method, as shown
    in the following GET method on the root resource.
 
 ```
@@ -233,7 +234,7 @@ OpenAPI 2.0
 
 4. To use the access token for method authorization, change the above security
    definition to `{ "MyUserPool": [resource-server/scope, ...]
-}`:
+ }`:
 
 ```
   "paths": {

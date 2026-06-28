@@ -81,8 +81,8 @@ The following section details notes that might impact your use of API Gateway.
 
   - Path segments can only contain alphanumeric characters, underscores, hyphens,
     periods, commas, colons, and curly braces. Path parameters must be separate
-    path segments. For example, "resource/{path_parameter_name}" is
-    valid; "resource{path_parameter_name}" is not.
+    path segments. For example, "resource/{path\_parameter\_name}" is
+    valid; "resource{path\_parameter\_name}" is not.
   - Model names can only contain alphanumeric characters.
   - For input parameters, only the following attributes are supported: `name`, `in`, `required`, `type`, `description`. Other attributes are ignored.
   - The `securitySchemes` type, if used, must be
@@ -113,7 +113,7 @@ The following section details notes that might impact your use of API Gateway.
   - The `readOnly` field is not supported.
   - `$ref` cannot be used to reference other files.
   - Response definitions of the `"500": {"$ref":
-"#/responses/UnexpectedError"}` form is not supported in
+   "#/responses/UnexpectedError"}` form is not supported in
     the OpenAPI document root. To work around this, replace the
     reference by the inline schema.
   - Numbers of the `Int32` or `Int64` type are
@@ -130,7 +130,7 @@ The following section details notes that might impact your use of API Gateway.
     not supported in a schema definition.
   - In method responses, schema definition must be of an object type
     and cannot be of primitive types. For example, `"schema": {
-"type": "string"}` is not supported. However, you can work
+   "type": "string"}` is not supported. However, you can work
     around this using the following object type:
 
   ```

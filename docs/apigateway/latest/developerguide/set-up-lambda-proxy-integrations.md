@@ -270,11 +270,12 @@ In the output:
 
 To enable CORS for the Lambda proxy integration, you must add
 `Access-Control-Allow-Origin:`domain-name``  to the output `headers`.
- ``domain-name``can be`_`for
- any domain name. The output`body`is marshalled to the frontend as the
- method response payload. If`body`is a binary blob, you can encode it as
- a Base64-encoded string by setting`isBase64Encoded`to`true` and configuring`_/\*`as a **Binary Media Type**.
- Otherwise, you can set it to`false` or leave it unspecified.
+ ``domain-name`` can be `*` for
+any domain name. The output `body` is marshalled to the frontend as the
+method response payload. If `body` is a binary blob, you can encode it as
+a Base64-encoded string by setting `isBase64Encoded` to `true`
+and configuring `*/*` as a **Binary Media Type**.
+Otherwise, you can set it to `false` or leave it unspecified.
 
 ###### Note
 
@@ -288,19 +289,19 @@ To return a response in a Lambda function in Node.js, you can use commands such 
 the following:
 
 - To return a successful result, call `callback(null, {"statusCode":
-200, "body": "results"})`.
+ 200, "body": "results"})`.
 - To throw an exception, call `callback(new Error('internal server
-error'))`.
+ error'))`.
 - For a client-side error (if, for example, a required parameter is
   missing), you can call `callback(null, {"statusCode": 400, "body":
-"Missing parameters of ..."})` to return the error without
+ "Missing parameters of ..."})` to return the error without
   throwing an exception.
 
 In a Lambda `async` function in Node.js, the equivalent syntax would be:
 
 - To return a successful result, call `return {"statusCode": 200, "body": "results"}`.
 - To throw an exception, call `throw new Error("internal server
-error")`.
+ error")`.
 - For a client-side error (if, for example, a required parameter is
   missing), you can call `return {"statusCode": 400, "body": "Missing parameters of ..."}` to return the error without
   throwing an exception.

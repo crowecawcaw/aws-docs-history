@@ -77,7 +77,7 @@ can perform with this service.
 
 The API-managing `Action` expression has the format
 `apigateway:`action``, where
- `action` is one of the following API Gateway actions: **GET**,
+`action` is one of the following API Gateway actions: **GET**,
 **POST**, **PUT**, **DELETE**, **PATCH**
 (to update resources), or **\***, which is all of the previous actions.
 

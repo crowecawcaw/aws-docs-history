@@ -44,10 +44,8 @@ then choose your product REST endpoint page to finalize the content of the page.
      portal.
 
 11. To let customers invoke your API in your portal, select
-    **Try it functionality**. For more information, see [Enable try it for an API Gateway product REST endpoint in your portal](apigateway-portals-try-it.md "apigateway-portals-try-it.md").
-12. For **Section name**, enter a name or choose an existing section. When you add your
-    product REST endpoint to a section, consumers can view your content on a published portal.
-13. Choose **Save changes**.
+**Try it functionality**. For more information, see [Enable try it for an API Gateway product REST endpoint in your portal](apigateway-portals-try-it.md "apigateway-portals-try-it.md"). 12. For **Section name**, enter a name or choose an existing section. When you add your
+product REST endpoint to a section, consumers can view your content on a published portal. 13. Choose **Save changes**.
 
 To allow the new page to be visible to consumers, you still need to republish your portal. For more
 information, see [Publish a portal in API Gateway](apigateway-portals-publish-portal.md "apigateway-portals-publish-portal.md").

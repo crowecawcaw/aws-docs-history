@@ -159,7 +159,7 @@ aws apigateway put-method-response \
 5. Use the following [put-integration](../../../cli/latest/reference/apigateway/put-integration.md "../../../cli/latest/reference/apigateway/put-integration.md")
    command to set up the integration of the `GET /greeting?greeter={name}` method with a Lambda
    function, named `HelloWorld`. The function responds to the request with a message of `"Hello,
-{name}!"`, if the `greeter` parameter is provided, or `"Hello, World!"`, if the
+ {name}!"`, if the `greeter` parameter is provided, or `"Hello, World!"`, if the
    query string parameter is not set.
 
 ```

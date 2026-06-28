@@ -142,8 +142,8 @@ If you choose the `1.0` format version, Lambda authorizers must return an IAM po
 or denies access to your API route. You can use standard IAM policy syntax in the policy. For examples of
 IAM policies, see [Control access for invoking an API](api-gateway-control-access-using-iam-policies-to-invoke-api.md "api-gateway-control-access-using-iam-policies-to-invoke-api.md"). You can pass
 context properties to Lambda integrations or access logs by using
-`$context.authorizer.`property``. The `context`object is
- optional and`claims` is a reserved placeholder and cannot be used as the context object. To learn
+`$context.authorizer.`property``. The `context` object is
+optional and `claims` is a reserved placeholder and cannot be used as the context object. To learn
 more, see [Customize HTTP API access logs](http-api-logging-variables.md "http-api-logging-variables.md").
 
 ###### Example

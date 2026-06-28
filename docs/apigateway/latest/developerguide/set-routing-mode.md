@@ -5,14 +5,14 @@ You can choose which routing mode API Gateway uses to route traffic to your APIs
 You must set a routing mode for your custom domain name to route traffic to your APIs. The following routing modes
 are supported:
 
-- ROUTING_RULE_THEN_API_MAPPING – Use this mode to send traffic to
+- ROUTING\_RULE\_THEN\_API\_MAPPING – Use this mode to send traffic to
   your APIs with both routing rules and API mappings. In this mode, all routing rules take priority over any API
   mappings. For an example of this mode, see [Example 2: Routing rules and API mappings](rest-api-routing-rules-examples.md#rest-api-routing-rules-examples-rule-and-mappings "rest-api-routing-rules-examples.md#rest-api-routing-rules-examples-rule-and-mappings").
-- ROUTING_RULE_ONLY – Use this mode to only allow routing rules to
+- ROUTING\_RULE\_ONLY – Use this mode to only allow routing rules to
   send traffic to your APIs. When your custom domain name uses this mode, you can't create an API mapping, but
   you can use the [get-api-mappings](../../../cli/latest/reference/apigatewayv2/get-api-mappings.md "../../../cli/latest/reference/apigatewayv2/get-api-mappings.md") command
   to view them. API callers can’t use API mappings to access this domain name.
-- API_MAPPING_ONLY – Use this mode to only allow API mappings to send
+- API\_MAPPING\_ONLY – Use this mode to only allow API mappings to send
   traffic to your APIs. When your custom domain name uses this mode, you can't create a routing rule, but you
   can use the `list-routing-rules` command to view them. API callers can’t use routing rules to
   access this domain name.
@@ -30,7 +30,7 @@ unsupported routing modes.
 AWS Management Console1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway"). 2. Choose **Custom domain names** from the main navigation
 pane. 3. Choose a custom domain name. 4. For **Domain details**, choose
 **Edit**. 5. For **Routing mode**, choose
-**ROUTING_RULE_THEN_API_MAPPING**. 6. Choose **Save**.
+**ROUTING\_RULE\_THEN\_API\_MAPPING**. 6. Choose **Save**.
 
 If you change the routing mode to `ROUTING_RULE_ONLY` or `API_MAPPING_ONLY`, any
 API mappings or routing rules you've created are removed from the domain name details page of the console. If you

@@ -32,10 +32,10 @@ user account in the IAM Management Console. 4. To add a bucket named `amzn-s3-de
     4. Choose **Send** to submit the request. If successful, you should receive a `200 OK` response with an empty payload.
 
 5. To add a text file to a bucket, follow the instructions above. If you specify a bucket name of
-   `amzn-s3-demo-bucket` for `{folder}` and a file name of
-   `Readme.txt` for `{item}` in the URL and provide a text
-   string of `Hello, World!` as the file contents (thereby making it the request payload),
-   the request becomes
+`amzn-s3-demo-bucket` for `{folder}` and a file name of
+`Readme.txt` for `{item}` in the URL and provide a text
+string of `Hello, World!` as the file contents (thereby making it the request payload),
+the request becomes
 
 ```
 PUT /S3/amzn-s3-demo-bucket/Readme.txt HTTP/1.1
@@ -104,4 +104,4 @@ this request.
 
 ###### Note
 
-To upload or download an image, you need to set content handling to CONVERT_TO_BINARY.
+To upload or download an image, you need to set content handling to CONVERT\_TO\_BINARY.

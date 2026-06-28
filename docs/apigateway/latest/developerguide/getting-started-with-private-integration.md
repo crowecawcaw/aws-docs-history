@@ -56,7 +56,7 @@ uses an Application Load Balancer.
 9. Choose **Next**, and then choose **Submit**.
 
 CloudFormation provisions the ECS service, which can take a few minutes. When the status of your CloudFormation stack is
-**CREATE_COMPLETE**, you're ready to move on to the next step.
+**CREATE\_COMPLETE**, you're ready to move on to the next step.
 
 ## Step 2: Create a VPC link
 

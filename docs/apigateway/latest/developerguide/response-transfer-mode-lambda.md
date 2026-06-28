@@ -58,7 +58,7 @@ In the output:
 - The `headers` key can only contain single-value headers.
 - The output expects the headers to contain either `Transfer-Encoding: chunked` or
   `Content-length: `number``. If your function doesn't return either of
-these headers, API Gateway appends `Transfer-Encoding: chunked` to the response header.
+  these headers, API Gateway appends `Transfer-Encoding: chunked` to the response header.
 - The `multiValueHeaders` key can contain multi-value headers as
   well as single-value headers. You can use the `multiValueHeaders`
   key to specify all of your extra headers, including any single-value

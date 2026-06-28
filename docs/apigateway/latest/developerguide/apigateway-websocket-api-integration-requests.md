@@ -5,15 +5,14 @@ Setting up an integration request involves the following:
 - Choosing a route key to integrate to the backend.
 - Specifying the backend endpoint to invoke. WebSocket APIs support the following integration types:
 
-      + `AWS_PROXY`
-      + `AWS`
-      + `HTTP_PROXY`
-      + `HTTP`
-      + `MOCK`
-
-  For more information about integration types, see
-  [IntegrationType](../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md#apis-apiid-integrations-integrationid-prop-integration-integrationtype "../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md#apis-apiid-integrations-integrationid-prop-integration-integrationtype") in the API
-  Gateway V2 REST API.
+  - `AWS_PROXY`
+  - `AWS`
+  - `HTTP_PROXY`
+  - `HTTP`
+  - `MOCK`
+    For more information about integration types, see
+    [IntegrationType](../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md#apis-apiid-integrations-integrationid-prop-integration-integrationtype "../../../apigatewayv2/latest/api-reference/apis-apiid-integrations-integrationid.md#apis-apiid-integrations-integrationid-prop-integration-integrationtype") in the API
+    Gateway V2 REST API.
 
 - Configuring how to transform the route request data, if necessary, into
   integration request data by specifying one or more request templates.

@@ -49,7 +49,7 @@ Lambda function that serves as the backend of your API. You create the private A
    account.
 9. Choose **Next**, and then choose **Submit**.
    CloudFormation provisions the dependencies for your API, which can take a few minutes. When
-   the status of your CloudFormation stack is **CREATE_COMPLETE**, choose **Outputs**. Note
+   the status of your CloudFormation stack is **CREATE\_COMPLETE**, choose **Outputs**. Note
    your VPC endpoint ID. You need it for later steps in this tutorial.
 
 ## Step 2: Create a private API

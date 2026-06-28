@@ -16,13 +16,13 @@ JavaScript v3
 
 Python
 
-- [create_rest_api](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_rest_api.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_rest_api.html")
-- [create_resource](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_resource.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_resource.html")
-- [put_method](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_method.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_method.html")
-- [put_method_response](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_method_response.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_method_response.html")
-- [put_integration](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_integration.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_integration.html")
-- [put_integration_response](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_integration_response.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_integration_response.html")
-- [create_deployment](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_deployment.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_deployment.html")
+- [create\_rest\_api](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_rest_api.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_rest_api.html")
+- [create\_resource](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_resource.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_resource.html")
+- [put\_method](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_method.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_method.html")
+- [put\_method\_response](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_method_response.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_method_response.html")
+- [put\_integration](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_integration.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_integration.html")
+- [put\_integration\_response](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_integration_response.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/put_integration_response.html")
+- [create\_deployment](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_deployment.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway/client/create_deployment.html")
 
 AWS CLI
 

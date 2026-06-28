@@ -48,7 +48,7 @@ connected clients.
 9. Choose **Next**, and then choose **Submit**.
 
 CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-your resources. When the status of your CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
+your resources. When the status of your CloudFormation stack is **CREATE\_COMPLETE**, you're ready to move
 on to the next step.
 
 ## Step 2: Create a WebSocket API
@@ -67,9 +67,9 @@ created in Step 1.
    route selection expression determines the route that API Gateway invokes when a client sends a message.
 6. Choose **Next**.
 7. For **Predefined routes**, choose **Add $connect**, **Add
-   $disconnect**, and **Add $default**. The **$connect** and
+ $disconnect**, and **Add $default**. The **$connect** and
    **$disconnect** routes are special routes that API Gateway invokes automatically when a client
-   connects to or disconnects from an API. API Gateway invokes the `$default` route when no other routes
+ connects to or disconnects from an API. API Gateway invokes the `$default` route when no other routes
    match a request.
 8. For **Custom routes**, choose **Add custom route**. For **Route
    key**, enter `sendmessage`. This custom route handles messages that are sent

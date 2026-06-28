@@ -52,7 +52,7 @@ JSON
 
 The following procedure describes how to create an edge-optimized custom domain name for an API.
 
-AWS Management Console1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway"). 2. Choose **Custom domain names** from the main navigation pane. 3. Choose **Add domain name**. 4. For **Domain name**, enter a domain name. 5. For **Routing mode**, choose **API_MAPPING_ONLY**. 6. For **API endpoint type**, choose **Edge-optimized**. 7. Choose a minimum TLS version. 8. Choose an ACM certificate. 9. Choose **Add domain name**.
+AWS Management Console1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway"). 2. Choose **Custom domain names** from the main navigation pane. 3. Choose **Add domain name**. 4. For **Domain name**, enter a domain name. 5. For **Routing mode**, choose **API\_MAPPING\_ONLY**. 6. For **API endpoint type**, choose **Edge-optimized**. 7. Choose a minimum TLS version. 8. Choose an ACM certificate. 9. Choose **Add domain name**.
 
 REST API
 

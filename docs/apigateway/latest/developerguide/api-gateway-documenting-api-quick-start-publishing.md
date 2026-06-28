@@ -374,9 +374,9 @@ OpenAPI 2.0
 ```
 
 For an OpenAPI-compliant attribute defined in the `properties` map of a documentation part, API Gateway inserts the attribute into
-the associated API entity definition. An attribute of `x-`something``is a standard OpenAPI
- extension. This extension gets propagated into the API entity definition. For
- example, see the`x-example`attribute for the`GET`method. An attribute like`foo` is not part of the OpenAPI specification and is not injected into
+the associated API entity definition. An attribute of `x-`something`` is a standard OpenAPI
+extension. This extension gets propagated into the API entity definition. For
+example, see the `x-example` attribute for the `GET` method. An attribute like `foo` is not part of the OpenAPI specification and is not injected into
 its associated API entity definitions.
 
 If a documentation-rendering tool (e.g., [OpenAPI UI](https://swagger.io/tools/swagger-ui/ "https://swagger.io/tools/swagger-ui/")) parses the API entity

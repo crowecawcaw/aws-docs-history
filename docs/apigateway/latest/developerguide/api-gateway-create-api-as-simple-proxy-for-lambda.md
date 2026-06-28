@@ -44,7 +44,7 @@ you create the API. 3. Choose **Functions** in the navigation pane. 4. Choose **
     7. Choose **Create function**.
 
 7. Under **Function code**, in the inline code editor,
-   copy/paste the following code:
+copy/paste the following code:
 
 Node.js
 

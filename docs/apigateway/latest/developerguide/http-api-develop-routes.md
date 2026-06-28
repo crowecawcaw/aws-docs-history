@@ -30,7 +30,7 @@ are included in a request to an HTTP API.
 
 For example, when a client sends a request to
 `https://`api-id`.execute-api.`us-east-2`.amazonaws.com/pets`?id=4&type=dog``,
- the query string parameters `?id=4&type=dog` are sent to your
+the query string parameters `?id=4&type=dog` are sent to your
 integration.
 
 ## Working with the `$default` route

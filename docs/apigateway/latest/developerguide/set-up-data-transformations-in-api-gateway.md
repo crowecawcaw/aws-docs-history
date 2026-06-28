@@ -39,7 +39,7 @@ rest of the steps in the API Gateway console.
 9. Choose **Next**, and then choose **Submit**.
 
 CloudFormation provisions the resources specified in the template. It can take a few minutes to finish provisioning
-your resources. When the status of your CloudFormation stack is **CREATE_COMPLETE**, you're ready to move
+your resources. When the status of your CloudFormation stack is **CREATE\_COMPLETE**, you're ready to move
 on to the next step.
 
 ###### To test the `GET` integration response

@@ -3,19 +3,18 @@
 Setting up a method request involves performing the following tasks, after creating a
 [RestApi](../api/API_RestApi.md "../api/API_RestApi.md") resource:
 
-1.  Creating a new API or choosing an existing API [Resource](../api/API_Resource.md "../api/API_Resource.md") entity.
-2.  Creating an API [Method](../api/API_Method.md "../api/API_Method.md")
-    resource that is a specific HTTP verb on the new or chosen API
-    `Resource`. This task can be further divided into the following
-    sub tasks:
+1. Creating a new API or choosing an existing API [Resource](../api/API_Resource.md "../api/API_Resource.md") entity.
+2. Creating an API [Method](../api/API_Method.md "../api/API_Method.md")
+   resource that is a specific HTTP verb on the new or chosen API
+   `Resource`. This task can be further divided into the following
+   sub tasks:
 
-        * Adding an HTTP method to the method request
-        * Configuring request parameters
-        * Defining a model for the request body
-        * Enacting an authorization scheme
-        * Enabling request validation
-
-    You can perform these tasks using the following methods:
+   - Adding an HTTP method to the method request
+   - Configuring request parameters
+   - Defining a model for the request body
+   - Enacting an authorization scheme
+   - Enabling request validation
+     You can perform these tasks using the following methods:
 
 - [API Gateway
   console](how-to-set-up-method-using-console.md#how-to-method-settings-callers-console "how-to-set-up-method-using-console.md#how-to-method-settings-callers-console")

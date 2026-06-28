@@ -10,7 +10,7 @@ to perform the same operation:
 - The `GET /?a=...&b=...&op=...` method uses the query parameters
   to specify the input.
 - The `POST /` method uses a JSON payload of `{"a":"Number",
-"b":"Number", "op":"string"}` to specify the input.
+ "b":"Number", "op":"string"}` to specify the input.
 - The `GET /{a}/{b}/{op}` method uses the path parameters to specify the
   input.
   If not defined, API Gateway generates the corresponding SDK method name by combining the HTTP

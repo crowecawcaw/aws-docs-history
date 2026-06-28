@@ -99,7 +99,7 @@ more about using ARNs in AWS Identity and Access Management policies, see [How A
 | HTTP API and REST API endpoint \* | `arn:`partition`:execute-api:`region`:`account-id`:`api-id`/`stage`/`http-method`/`resource-path`` |
 | Lambda authorizer \*\*            | `arn:`partition`:execute-api:`region`:`account-id`:`api-id`/authorizers/`authorizer-id``           |
 
-\* The ARN for the `$default` route endpoint for HTTP APIs is `arn:`partition`:execute-api:`region`:`account-id`:`api-id`/`\*`/$default`.
+\* The ARN for the `$default` route endpoint for HTTP APIs is `arn:`partition`:execute-api:`region`:`account-id`:`api-id`/`*`/$default`.
 
 \*\* This ARN is applicable only when setting the `SourceArn` condition in the
 [resource policy](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md")

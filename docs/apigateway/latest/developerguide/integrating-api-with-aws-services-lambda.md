@@ -14,7 +14,7 @@ create a REST API and integrate it with the Lambda function in the following way
 
 1. By exposing a `GET` method on the `/calc` resource to invoke
    the Lambda function, supplying the input as query string parameters. (`AWS
-Service` integration)
+ Service` integration)
 2. By exposing a `POST` method on the `/calc` resource to
    invoke the Lambda function, supplying the input in the method request payload.
    (`AWS Service` integration)
@@ -132,21 +132,23 @@ window, do the following:
     	2. Choose **Create Policy**.
 
 8. In the original **Create Role** console window, do the
-   following:
+following:
 
-   1. Under **Attach permissions policies**, choose your
-      `lambda_execute` policy from the dropdown
-      list.
+    1. Under **Attach permissions policies**, choose your
+     `lambda_execute` policy from the dropdown
+     list.
 
-   If you don't see your policy in the list, choose the refresh button at
-   the top of the list. (Don't refresh the browser page!) 2. Choose **Next:Tags**. 3. Choose **Next:Review**. 4. For the **Role name**, type a name such as
-   `lambda_invoke_function_assume_apigw_role`. 5. Choose **Create role**.
+
+    If you don't see your policy in the list, choose the refresh button at
+     the top of the list. (Don't refresh the browser page!)
+    2. Choose **Next:Tags**.
+    3. Choose **Next:Review**.
+    4. For the **Role name**, type a name such as
+     `lambda_invoke_function_assume_apigw_role`.
+    5. Choose **Create role**.
 
 9. Choose your `lambda_invoke_function_assume_apigw_role`
-   from the list of roles.
-10. Choose the **Trust relationships** tab.
-11. Choose **Edit trust relationship**.
-12. Replace the existing policy with the following:
+from the list of roles. 10. Choose the **Trust relationships** tab. 11. Choose **Edit trust relationship**. 12. Replace the existing policy with the following:
 
 JSON
 

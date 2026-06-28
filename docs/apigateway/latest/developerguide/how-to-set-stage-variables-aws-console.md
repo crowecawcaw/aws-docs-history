@@ -82,14 +82,10 @@ a query string parameter to the method's URL, choose the **Method request** tab,
     2. For **Name**, enter `stageName`.
     3. Keep **Required** and **Caching** turned off.
 
-3. Choose **Save**.
-4. Choose the **Integration request** tab, and then in the **Integration request settings** section, choose **Edit**.
-5. For **Endpoint URL**, append `?stageName=${stageVariables.stageName}` to the previously defined URL
-   value, so the entire **Endpoint URL** is `http://${stageVariables.url}?stageName=${stageVariables.stageName}`.
-6. Choose **Deploy API** and select the **beta** stage.
-7. In the main navigation pane, choose **Stages**. In the **Stages**
-   navigation pane, choose **beta**. Under **Stage details**, choose the
-   copy icon to copy your API's invoke URL, and then enter your API's invoke URL in a web browser.
+3. Choose **Save**. 4. Choose the **Integration request** tab, and then in the **Integration request settings** section, choose **Edit**. 5. For **Endpoint URL**, append `?stageName=${stageVariables.stageName}` to the previously defined URL
+value, so the entire **Endpoint URL** is `http://${stageVariables.url}?stageName=${stageVariables.stageName}`. 6. Choose **Deploy API** and select the **beta** stage. 7. In the main navigation pane, choose **Stages**. In the **Stages**
+navigation pane, choose **beta**. Under **Stage details**, choose the
+copy icon to copy your API's invoke URL, and then enter your API's invoke URL in a web browser.
 
 ###### Note
 
@@ -165,10 +161,9 @@ Then, do the following:
     ![AWS CLI command to add permission to the Lambda function to be invoked by the method you created.](images/stageVariables-new-console-add-permission-to-lambda-function.png)
     5. Choose **Create method**.
 
-4. Deploy the API to both the **prod** and **beta** stages.
-5. In the main navigation pane, choose **Stages**. In the **Stages**
-   navigation pane, choose **beta**. Under **Stage details**, choose the
-   copy icon to copy your API's invoke URL, and then enter your API's invoke URL in a web browser. Append `/lambdav1` to the URL before you press enter.
+4. Deploy the API to both the **prod** and **beta** stages. 5. In the main navigation pane, choose **Stages**. In the **Stages**
+navigation pane, choose **beta**. Under **Stage details**, choose the
+copy icon to copy your API's invoke URL, and then enter your API's invoke URL in a web browser. Append `/lambdav1` to the URL before you press enter.
 
 You get the following response.
 
@@ -196,10 +191,7 @@ Then, do the following:
      Lambda function that will be assigned to the `function` stage variable.
     6. Choose **Create method**.
 
-2. Choose the **Integration request** tab, and then in the **Integration request settings** section, choose **Edit**.
-3. Choose **Mapping templates**, and then choose **Add mapping template**.
-4. For **Content type**, enter `application/json`.
-5. For **Template body**, enter the following template:
+2. Choose the **Integration request** tab, and then in the **Integration request settings** section, choose **Edit**. 3. Choose **Mapping templates**, and then choose **Add mapping template**. 4. For **Content type**, enter `application/json`. 5. For **Template body**, enter the following template:
 
 ```
 #set($inputRoot = $input.path('$'))
@@ -242,20 +234,26 @@ must be referenced without quotes (as in `${stageVariables.function}`). 6. Choos
 
 9. To use the **Test** feature to pass stage-specific metadata, do the following:
 
-   1. In the **Resources** navigation pane, choose the **Test** tab. You might need to choose the right arrow button to show the tab.
-   2. For **function**, enter `HelloWorld`.
-   3. For **stageName**, enter `beta`.
-   4. Choose **Test**. You do not need to add a body to your `POST` request.
+    1. In the **Resources** navigation pane, choose the **Test** tab. You might need to choose the right arrow button to show the tab.
+    2. For **function**, enter `HelloWorld`.
+    3. For **stageName**, enter `beta`.
+    4. Choose **Test**. You do not need to add a body to your `POST` request.
 
-   You get the following response.
 
-   ```
-   "Hello, World! I'm calling from the beta stage."
-   ```
-   5. You can repeat the previous steps to test the **Prod** stage. For **stageName**, enter `Prod`.
+    You get the following response.
 
-   You get the following response.
 
-   ```
-   "Hello, World! I'm calling from the prod stage."
-   ```
+
+    ```
+    "Hello, World! I'm calling from the beta stage."
+    ```
+    5. You can repeat the previous steps to test the **Prod** stage. For **stageName**, enter `Prod`.
+
+
+    You get the following response.
+
+
+
+    ```
+    "Hello, World! I'm calling from the prod stage."
+    ```

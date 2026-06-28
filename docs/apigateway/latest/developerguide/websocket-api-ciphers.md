@@ -12,30 +12,30 @@ policy accepts TLS 1.2 and TLS 1.3 traffic and rejects TLS 1.0 traffic.
 
 The following table describes the supported TLS protocols for WebSocket APIs.
 
-| **TLS protocols** | **TLS_1_2 security policy** |
-| ----------------- | --------------------------- |
-| TLSv1.3           | Yes                         |
-| TLSv1.2           | Yes                         |
+| **TLS protocols** | **TLS\_1\_2 security policy** |
+| ----------------- | ----------------------------- |
+| TLSv1.3           | Yes                           |
+| TLSv1.2           | Yes                           |
 
-The following table describes the TLS ciphers that are available for the TLS 1_2 security policy for WebSocket APIs.
+The following table describes the TLS ciphers that are available for the TLS 1\_2 security policy for WebSocket APIs.
 
-| **TLS ciphers**               | **TLS_1_2 security policy** |
-| ----------------------------- | --------------------------- |
-| TLS_AES_128_GCM_SHA256        | Yes                         |
-| TLS_AES_256_GCM_SHA384        | Yes                         |
-| TLS_CHACHA20_POLY1305_SHA256  | Yes                         |
-| ECDHE-ECDSA-AES128-GCM-SHA256 | Yes                         |
-| ECDHE-RSA-AES128-GCM-SHA256   | Yes                         |
-| ECDHE-ECDSA-AES128-SHA256     | Yes                         |
-| ECDHE-RSA-AES128-SHA256       | Yes                         |
-| ECDHE-ECDSA-AES256-GCM-SHA384 | Yes                         |
-| ECDHE-RSA-AES256-GCM-SHA384   | Yes                         |
-| ECDHE-ECDSA-AES256-SHA384     | Yes                         |
-| ECDHE-RSA-AES256-SHA384       | Yes                         |
-| AES128-GCM-SHA256             | Yes                         |
-| AES128-SHA256                 | Yes                         |
-| AES256-GCM-SHA384             | Yes                         |
-| AES256-SHA256                 | Yes                         |
+| **TLS ciphers**                 | **TLS\_1\_2 security policy** |
+| ------------------------------- | ----------------------------- |
+| TLS\_AES\_128\_GCM\_SHA256      | Yes                           |
+| TLS\_AES\_256\_GCM\_SHA384      | Yes                           |
+| TLS\_CHACHA20\_POLY1305\_SHA256 | Yes                           |
+| ECDHE-ECDSA-AES128-GCM-SHA256   | Yes                           |
+| ECDHE-RSA-AES128-GCM-SHA256     | Yes                           |
+| ECDHE-ECDSA-AES128-SHA256       | Yes                           |
+| ECDHE-RSA-AES128-SHA256         | Yes                           |
+| ECDHE-ECDSA-AES256-GCM-SHA384   | Yes                           |
+| ECDHE-RSA-AES256-GCM-SHA384     | Yes                           |
+| ECDHE-ECDSA-AES256-SHA384       | Yes                           |
+| ECDHE-RSA-AES256-SHA384         | Yes                           |
+| AES128-GCM-SHA256               | Yes                           |
+| AES128-SHA256                   | Yes                           |
+| AES256-GCM-SHA384               | Yes                           |
+| AES256-SHA256                   | Yes                           |
 
 ## OpenSSL and RFC cipher names
 

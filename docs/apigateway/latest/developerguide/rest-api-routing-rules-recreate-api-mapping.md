@@ -11,7 +11,7 @@ access logs to log the routing rule ID API Gateway uses to send traffic to your 
 
 AWS Management Console
 
-###### To set the routing mode to ROUTING_RULE_THEN_API_MAPPING
+###### To set the routing mode to ROUTING\_RULE\_THEN\_API\_MAPPING
 
 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
 2. Choose **Custom domain names** from the main navigation
@@ -20,7 +20,7 @@ AWS Management Console
 4. For **Domain details**, choose
    **Edit**.
 5. For **Routing mode**, choose
-   **ROUTING_RULE_THEN_API_MAPPING**.
+   **ROUTING\_RULE\_THEN\_API\_MAPPING**.
 6. Choose **Save**
 
 After you set the routing mode, you create the routing rule.
@@ -56,7 +56,7 @@ This log group records the routing rule ID that API Gateway used to send traffic
 information, see [I can't tell how API Gateway sent traffic to my APIs](rest-api-routing-rules-troubleshoot.md#rest-api-routing-rules-logging "rest-api-routing-rules-troubleshoot.md#rest-api-routing-rules-logging"). 6. Choose **Save**.
 
 After you update your access logs, invoke your custom domain name. The following is an example curl
-command to invoke the custom domain name `https://`api.example.com``with the base path
+command to invoke the custom domain name `https://`api.example.com`` with the base path
 `orders/v2/items/categories/5`.
 
 ```

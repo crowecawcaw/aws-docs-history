@@ -342,10 +342,10 @@ ensure that all of the required data is defined. For this example, you create a
 
 9. Choose **HTTP request headers** and do the following:
 
-   1. Choose **Add header**.
-   2. For **Name**, enter `day`.
-   3. Turn on **Required**.
-   4. Keep **Caching** turned off.
+    1. Choose **Add header**.
+    2. For **Name**, enter `day`.
+    3. Turn on **Required**.
+    4. Keep **Caching** turned off.
 
 10. Choose **Create method**.
 
@@ -404,7 +404,7 @@ In this test request, you'll set `ANY` to `POST`, set
 5. For **Headers**, enter
    `day:Wednesday`.
 6. For **Request Body**, enter `{ "callerName": "John"
-}`.
+ }`.
 7. Choose **Test**.
 
 Verify that the returned response payload is as follows:
@@ -473,8 +473,8 @@ The input must be UTF-8 encoded (i.e., unlocalized) text. 4. (Optional) For **De
 Under **Stage details**, choose the copy icon to copy your API's invoke URL. The general
 pattern of the API's base URL is
 `https://`api-id`.`region`.amazonaws.com/`stageName``.
- For example, the base URL of the API (`beags1mnid`) created in the `us-west-2`region and
- deployed to the`test`stage is
+For example, the base URL of the API (`beags1mnid`) created in the `us-west-2` region and
+deployed to the `test` stage is
 `https://beags1mnid.execute-api.us-west-2.amazonaws.com/test`.
 
 ## Test the API in a deployment stage

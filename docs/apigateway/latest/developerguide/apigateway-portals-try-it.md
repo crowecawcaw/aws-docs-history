@@ -19,12 +19,11 @@ The following considerations might impact how you use try it:
 - Try it is not supported when you preview a portal.
 - Try it is not supported for the REST APIs with the following features:
 
-      + Private APIs
-      + APIs that use mutual TLS
-      + APIs that use private or self signed SSL certificates
-
-  As the portal owner you are responsible for communicating with your API consumers the reasoning of the why
-  try it button isn't there for any REST APIs that aren't supported. API Gateway does not explain this for you.
+  - Private APIs
+  - APIs that use mutual TLS
+  - APIs that use private or self signed SSL certificates
+    As the portal owner you are responsible for communicating with your API consumers the reasoning of the why
+    try it button isn't there for any REST APIs that aren't supported. API Gateway does not explain this for you.
 
 ## Enable try it for a product REST endpoint
 

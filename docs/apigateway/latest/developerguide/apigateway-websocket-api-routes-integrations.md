@@ -162,8 +162,8 @@ unique ID of the integration to be associated with the route.
   - In integration responses, the template selection expression
     supports
     `$request.body.`<json_path_expression>``,
-`$integration.response.statuscode`,
-`$integration.response.header.`<headerName>``, and static values.
+   `$integration.response.statuscode`,
+   `$integration.response.header.`<headerName>``, and static values.
 
 In the HTTP protocol, in which requests and responses are sent synchronously;
 communication is essentially one-way. In the WebSocket protocol, communication is

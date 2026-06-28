@@ -7,10 +7,12 @@ This simplified syntax is an abbreviated way that you can refer to an API resour
 instead of specifying the full Amazon Resource Name (ARN). API Gateway converts the
 abbreviated syntax to the full ARN when you save the policy. For example, you can
 specify the resource
-`execute-api:/`stage-name`/`GET`/`pets``  in a resource policy. API Gateway converts the resource to
- `arn:aws:execute-api:us-east-2:123456789012:aabbccddee/stage-name/GET/pets` when you save the resource policy. API Gateway builds the full ARN by using the current
- Region, your AWS account ID, and the ID of the REST API that the resource
- policy is associated with. You can use`execute-api:/\*` to represent all
+`execute-api:/`stage-name`/`GET`/`pets``
+in a resource policy. API Gateway converts the resource to
+`arn:aws:execute-api:us-east-2:123456789012:aabbccddee/stage-name/GET/pets`
+when you save the resource policy. API Gateway builds the full ARN by using the current
+Region, your AWS account ID, and the ID of the REST API that the resource
+policy is associated with. You can use `execute-api:/*` to represent all
 stages, methods, and paths in the current API. For information about access policy
 language, see [Access policy language overview for Amazon API Gateway](apigateway-control-access-policy-language-overview.md "apigateway-control-access-policy-language-overview.md").
 

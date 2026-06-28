@@ -16,7 +16,7 @@ and how to change it. The value specifies the new data for the parameter.
 The following table shows supported keys.
 
 | Type         | Syntax           |
-| ------------ | ---------------- | --------- | -------------------------------------- |
+| ------------ | ---------------- |
 | Header       | `append          | overwrite | remove:header.`headername``            |
 | Query string | `append          | overwrite | remove:querystring.`querystring-name`` |
 | Path         | `overwrite:path` |
@@ -52,7 +52,7 @@ value specifies the new data for the parameter.
 The following table shows supported keys.
 
 | Type        | Syntax                 |
-| ----------- | ---------------------- | --------- | --------------------------- |
+| ----------- | ---------------------- |
 | Header      | `append                | overwrite | remove:header.`headername`` |
 | Status code | `overwrite:statuscode` |
 

@@ -100,15 +100,14 @@ def lambda_handler(event, context):
   mapping template provides an integration request. This request sends the following details to a non-proxy
   integration:
 
-      + Connection ID
-      + Domain name
-      + Stage name
-      + Path
-      + Headers
-      + Query strings
-
-  This request sends the connection ID, domain name, stage name, paths, headers, and query strings to a
-  non-proxy integration.
+  - Connection ID
+  - Domain name
+  - Stage name
+  - Path
+  - Headers
+  - Query strings
+    This request sends the connection ID, domain name, stage name, paths, headers, and query strings to a
+    non-proxy integration.
 
 ```
 {

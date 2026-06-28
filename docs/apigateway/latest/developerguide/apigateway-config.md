@@ -16,15 +16,14 @@ AWS Config can track changes to:
 
 - **API configuration**, such as:
 
-      + endpoint configuration
-      + version
-      + protocol
-      + tags
-
-  In addition, the AWS Config Rules feature enables you to define configuration rules and automatically
-  detect, track, and alert violations to these rules. By tracking changes to these resource
-  configuration properties, you can also author change-triggered AWS Config rules for your API Gateway
-  resources, and test your resource configurations against best practices.
+  - endpoint configuration
+  - version
+  - protocol
+  - tags
+    In addition, the AWS Config Rules feature enables you to define configuration rules and automatically
+    detect, track, and alert violations to these rules. By tracking changes to these resource
+    configuration properties, you can also author change-triggered AWS Config rules for your API Gateway
+    resources, and test your resource configurations against best practices.
 
 You can enable AWS Config in your account by using the AWS Config console or the AWS CLI. Select the
 resource types for which you want to track changes. If you previously configured AWS Config to

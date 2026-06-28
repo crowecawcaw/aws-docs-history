@@ -461,8 +461,7 @@ Your method must have a non-proxy integration. 4. Choose the **Method response**
     2. For **item**, enter `integration.response.multivalueheader.item`
     3. For **location**, enter `integration.response.body.redirect.url`
 
-10. Choose **Save**.
-11. Redeploy your API for the changes to take effect.
+10. Choose **Save**. 11. Redeploy your API for the changes to take effect.
 
 CloudFormation
 
