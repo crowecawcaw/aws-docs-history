@@ -8,7 +8,7 @@ use a MySQL, Aurora MySQL-Compatible Edition or Aurora MySQL-Compatible Edition 
 - [Validate if Binary Log transaction compression is disabled](#CHAP_Tasks.AssessmentReport.MySQL.BinaryLogTransaction "#CHAP_Tasks.AssessmentReport.MySQL.BinaryLogTransaction")
 - [Validate if DMS user has REPLICATION CLIENT and REPLICATION SLAVE permissions for the source database](#CHAP_Tasks.AssessmentReport.MySQL.ReplicationClientPermissions "#CHAP_Tasks.AssessmentReport.MySQL.ReplicationClientPermissions")
 - [Validate if DMS user has SELECT permissions for the source database tables](#CHAP_Tasks.AssessmentReport.MySQL.DMSUserSelectPermissions "#CHAP_Tasks.AssessmentReport.MySQL.DMSUserSelectPermissions")
-- [Validate if the server_id is set to 1 or greater in the source database](#CHAP_Tasks.AssessmentReport.MySQL.ServerID "#CHAP_Tasks.AssessmentReport.MySQL.ServerID")
+- [Validate if the server\_id is set to 1 or greater in the source database](#CHAP_Tasks.AssessmentReport.MySQL.ServerID "#CHAP_Tasks.AssessmentReport.MySQL.ServerID")
 - [Validate if DMS user has necessary permissions for the MySQL database as a target](#CHAP_Tasks.AssessmentReport.MySQL.UserNecessaryPermissions "#CHAP_Tasks.AssessmentReport.MySQL.UserNecessaryPermissions")
 - [Validate if automatic removal of binary logs is set for the source database](#CHAP_Tasks.AssessmentReport.MySQL.BinaryLogAutomaticRemoval "#CHAP_Tasks.AssessmentReport.MySQL.BinaryLogAutomaticRemoval")
 - [Validate that limited LOB mode only is used when BatchApplyEnabled is set to true](#CHAP_Tasks.AssessmentReport.MySQL.LimitedLOBMode "#CHAP_Tasks.AssessmentReport.MySQL.LimitedLOBMode")
@@ -16,13 +16,13 @@ use a MySQL, Aurora MySQL-Compatible Edition or Aurora MySQL-Compatible Edition 
 - [Validate if auto-increment is enabled on any tables used for migration](#CHAP_Tasks.AssessmentReport.MySQL.AutoIncrement "#CHAP_Tasks.AssessmentReport.MySQL.AutoIncrement")
 - [Validate if the database binlog image is set to FULL to support DMS CDC](#CHAP_Tasks.AssessmentReport.MySQL.BinlogImage "#CHAP_Tasks.AssessmentReport.MySQL.BinlogImage")
 - [Validate if the source database is a MySQL Read-Replica](#CHAP_Tasks.AssessmentReport.MySQL.ReadReplica "#CHAP_Tasks.AssessmentReport.MySQL.ReadReplica")
-- [Validate if a table has partitions, and recommend target_table_prep_mode for full-load task settings](#CHAP_Tasks.AssessmentReport.MySQL.FullLoadTaskSettings "#CHAP_Tasks.AssessmentReport.MySQL.FullLoadTaskSettings")
+- [Validate if a table has partitions, and recommend target\_table\_prep\_mode for full-load task settings](#CHAP_Tasks.AssessmentReport.MySQL.FullLoadTaskSettings "#CHAP_Tasks.AssessmentReport.MySQL.FullLoadTaskSettings")
 - [Validate if DMS supports the database version](#CHAP_Tasks.AssessmentReport.MySQL.DatabaseVersion "#CHAP_Tasks.AssessmentReport.MySQL.DatabaseVersion")
-- [Validate if the target database is configured to set local_infile to 1](#CHAP_Tasks.AssessmentReport.MySQL.LocalInfile "#CHAP_Tasks.AssessmentReport.MySQL.LocalInfile")
+- [Validate if the target database is configured to set local\_infile to 1](#CHAP_Tasks.AssessmentReport.MySQL.LocalInfile "#CHAP_Tasks.AssessmentReport.MySQL.LocalInfile")
 - [Validate if target database has tables with foreign keys](#CHAP_Tasks.AssessmentReport.MySQL.ForeignKeys "#CHAP_Tasks.AssessmentReport.MySQL.ForeignKeys")
 - [Validate if source tables in the task scope have cascade constraints](#CHAP_Tasks.AssessmentReport.MySQL.Cascade "#CHAP_Tasks.AssessmentReport.MySQL.Cascade")
 - [Validate if the timeout values are appropriate for a MySQL source or target](#CHAP_Tasks.AssessmentReport.MySQL.Timeout "#CHAP_Tasks.AssessmentReport.MySQL.Timeout")
-- [Validate max_statement_time database parameter](#CHAP_Tasks.AssessmentReport.MySQL.max_statement_time "#CHAP_Tasks.AssessmentReport.MySQL.max_statement_time")
+- [Validate max\_statement\_time database parameter](#CHAP_Tasks.AssessmentReport.MySQL.max_statement_time "#CHAP_Tasks.AssessmentReport.MySQL.max_statement_time")
 - [Validate if Primary Key or Unique Index exist on target for Batch Apply](#CHAP_Tasks.AssessmentReport.MySQL.batchapply_absence "#CHAP_Tasks.AssessmentReport.MySQL.batchapply_absence")
 - [Validate if both Primary Key and Unique index exist on target for Batch Apply](#CHAP_Tasks.AssessmentReport.MySQL.batchapply_simul "#CHAP_Tasks.AssessmentReport.MySQL.batchapply_simul")
 - [Validate if secondary indexes are enabled during full load on the target database](#CHAP_Tasks.AssessmentReport.MySQL.secondaryindexes "#CHAP_Tasks.AssessmentReport.MySQL.secondaryindexes")
@@ -41,7 +41,7 @@ use a MySQL, Aurora MySQL-Compatible Edition or Aurora MySQL-Compatible Edition 
 - [Validate that at least one selected object exists in the source database](#CHAP_Tasks.AssessmentReport.MYSQL.selection.rules "#CHAP_Tasks.AssessmentReport.MYSQL.selection.rules")
 - [Validate that tables with generated columns exist in the source database](#CHAP_Tasks.AssessmentReport.MYSQL.generated.columns "#CHAP_Tasks.AssessmentReport.MYSQL.generated.columns")
 - [Validate that skipTableSuspensionForPartitionDdl is enabled for partitioned tables](#CHAP_Tasks.AssessmentReport.MYSQL.tablepartition.ddl "#CHAP_Tasks.AssessmentReport.MYSQL.tablepartition.ddl")
-- [Validate that max_allowed_packet size can handle source LOB columns](#CHAP_Tasks.AssessmentReport.MYSQL.maxallowed.packetlob "#CHAP_Tasks.AssessmentReport.MYSQL.maxallowed.packetlob")
+- [Validate that max\_allowed\_packet size can handle source LOB columns](#CHAP_Tasks.AssessmentReport.MYSQL.maxallowed.packetlob "#CHAP_Tasks.AssessmentReport.MYSQL.maxallowed.packetlob")
 - [Validate that secondary constraints and indexes (non-primary) are present in the source database](#CHAP_Tasks.AssessmentReport.MYSQL.secondary.constraints "#CHAP_Tasks.AssessmentReport.MYSQL.secondary.constraints")
 - [Validate that row size of net changes table does not exceed 65535 when batch apply is enabled](#CHAP_Tasks.AssessmentReport.MYSQL.batchapply.mysql "#CHAP_Tasks.AssessmentReport.MYSQL.batchapply.mysql")
 - [Validate that the target endpoint is not a read replica](#CHAP_Tasks.AssessmentReport.MYSQL.read.replica "#CHAP_Tasks.AssessmentReport.MYSQL.read.replica")
@@ -80,7 +80,7 @@ connection settings has SELECT permissions for the source database tables.
 For more information, see
 [Using any MySQL-compatible database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.Prerequisites "CHAP_Source.MySQL.md#CHAP_Source.MySQL.Prerequisites").
 
-## Validate if the server_id is set to 1 or greater in the source database
+## Validate if the server\_id is set to 1 or greater in the source database
 
 **API key:** `mysql-check-server-id`
 
@@ -144,7 +144,7 @@ For more information about MySQL endpoint limitations, see
 **API key:** `mysql-check-auto-increment`
 
 This premigration assessment validates whether the source tables that are used in the task have
-auto-increment enabled. DMS doesn't migrate the AUTO_INCREMENT attribute on a column to a target database.
+auto-increment enabled. DMS doesn't migrate the AUTO\_INCREMENT attribute on a column to a target database.
 
 For more information about MySQL endpoint limitations, see
 [Limitations on using a MySQL database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.Limitations "CHAP_Source.MySQL.md#CHAP_Source.MySQL.Limitations"). For information about handling identity columns in MySQL,
@@ -215,7 +215,7 @@ DMS. For more information about supported MySQL versions, see [Source endpoints 
 **API key:** `mysql-check-target-localinfile-set`
 
 This premigration assessment checks whether the `local_infile` parameter in the
-target database is set to 1. DMS requires the 'local_infile' parameter to be set to 1 during full
+target database is set to 1. DMS requires the 'local\_infile' parameter to be set to 1 during full
 load in your target database. For more information, see
 [Migrating from MySQL to MySQL using AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.Homogeneous "CHAP_Source.MySQL.md#CHAP_Source.MySQL.Homogeneous").
 
@@ -471,7 +471,7 @@ and verifies the `skipTableSuspensionForPartitionDdl` parameter setting. Failure
 to set this parameter may result in unnecessary table suspensions during migration.
 For more details, refer to the following link: [Limitations on using a MySQL database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.Limitations "CHAP_Source.MySQL.md#CHAP_Source.MySQL.Limitations").
 
-## Validate that max_allowed_packet size can handle source LOB columns
+## Validate that max\_allowed\_packet size can handle source LOB columns
 
 **API key**:
 `mysql-check-max-allowed-packet-lob`

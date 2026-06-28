@@ -13,7 +13,7 @@ For more information about using DMS Schema Conversion with a source Oracle data
 The following privileges are required for Oracle Data Warehouse as a source:
 
 - CONNECT
-- SELECT_CATALOG_ROLE
+- SELECT\_CATALOG\_ROLE
 - SELECT ANY DICTIONARY
 
 ## Oracle Data Warehouse to Amazon Redshift conversion settings
@@ -35,14 +35,13 @@ include comments for all action items in your converted code, choose **All messa
   This setting sets the maximum number of tables that DMS can apply to your target Amazon Redshift cluster. Amazon Redshift has quotas that limit the
   use tables for different cluster node types. This setting supports the following values:
 
-      + **Auto**: DMS determines the number of tables to apply to your target Amazon Redshift cluster depending on the node type.
-      + **Set a value**: Set the number of tables manually.
-
-  DMS converts all your source tables, even if the number of tables is more than your Amazon Redshift cluster can store.
-  DMS stores the converted code in your project and doesn't apply it to the target database. If
-  you reach the Amazon Redshift cluster quota for the tables when you apply the converted code, DMS displays a
-  warning message. Also, DMS applies tables to your target Amazon Redshift cluster until the number of tables
-  reaches the limit.
+  - **Auto**: DMS determines the number of tables to apply to your target Amazon Redshift cluster depending on the node type.
+  - **Set a value**: Set the number of tables manually.
+    DMS converts all your source tables, even if the number of tables is more than your Amazon Redshift cluster can store.
+    DMS stores the converted code in your project and doesn't apply it to the target database. If
+    you reach the Amazon Redshift cluster quota for the tables when you apply the converted code, DMS displays a
+    warning message. Also, DMS applies tables to your target Amazon Redshift cluster until the number of tables
+    reaches the limit.
 
 For information about Amazon Redshift table quotas, see
 [Quotas and limits in Amazon Redshift](../../../redshift/latest/mgmt/amazon-redshift-limits.md "../../../redshift/latest/mgmt/amazon-redshift-limits.md").

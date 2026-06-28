@@ -124,7 +124,7 @@ The following limitations apply when using a MySQL compatible database as a sour
   - Can't contain any of the following: single quote ('), double quote ("), semicolon (;) or space.
 
 - AWS DMS homogeneous data migrations creates unencrypted MySQL and MariaDB objects on the target Amazon RDS instances even if the source objects were encrypted.
-  RDS for MySQL doesn't support the MySQL keyring_aws AWS Keyring Plugin required for encrypted objects.
+  RDS for MySQL doesn't support the MySQL keyring\_aws AWS Keyring Plugin required for encrypted objects.
   Refer to the [MySQL Keyring Plugin not supported documentation](../../../AmazonRDS/latest/UserGuide/MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.KeyRing "../../../AmazonRDS/latest/UserGuide/MySQL.KnownIssuesAndLimitations.md#MySQL.Concepts.Limits.KeyRing") in the Amazon RDS User Guide
 - AWS DMS does not use Global Transaction Identifiers (GTIDs) for for data
   replication even if the source data contains them.

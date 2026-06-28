@@ -118,16 +118,16 @@ resources listed previously.
    dms-fleetadvisor-ads-iam-s3** page, do the
    following:
 
-   1. Select the \***\*I acknowledge that
+   1. Select the ****I acknowledge that
       CloudFormation might create IAM resources with custom
-      names\*\*** check box.
+      names**** check box.
    2. Choose **Submit**.CloudFormation creates the S3 bucket and IAM roles and user that
       DMS Fleet Advisor requires. In the left panel, when
       **dms-fleetadvisor-iam-slr-s3**,
       **dms-fleetadvisor-iam-s3**,
       **dms-fleetadvisor-ads-iam-slr-s3**, or
       **dms-fleetadvisor-ads-iam-s3** shows
-      **CREATE_COMPLETE**, proceed to the next
+      **CREATE\_COMPLETE**, proceed to the next
       step.
 
 7. In the left panel, choose

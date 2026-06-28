@@ -12,38 +12,37 @@ Target metadata settings include the following. For information about how to use
   are managed. If you set `SupportLobs=true`, you must set one
   of the following to `true`:
 
-      + `FullLobMode` – If you set this option to
-       `true`, then you must enter a value for the
-       `LobChunkSize` option. Enter the size, in kilobytes,
-       of the LOB chunks to use when replicating the data to the target.
-       The `FullLobMode` option works best for very large LOB
-       sizes but tends to cause slower loading. The recommended value for
-       `LobChunkSize` is 64 kilobytes. Increasing the value
-       for `LobChunkSize` above 64 kilobytes can cause task
-       failures.
-      + `InlineLobMaxSize` – This value determines
-       which LOBs AWS DMS transfers inline during a full load.
-       Transferring small LOBs is more efficient than looking them up
-       from a source table. During a full load, AWS DMS checks all
-       LOBs and performs an inline transfer for the LOBs that are
-       smaller than `InlineLobMaxSize`. AWS DMS transfers
-       all LOBs larger than the `InlineLobMaxSize` in
-       `FullLobMode`. The default value for
-       `InlineLobMaxSize` is 0 and the range is 1
-       –102400 kilobytes (100 MB). Set a value for
-       `InlineLobMaxSize` only if you know that most of
-       the LOBs are smaller than the value specified in
-       `InlineLobMaxSize`.
-      + `LimitedSizeLobMode` – If you set this
-       option to `true`, then you must enter a value for the
-       `LobMaxSize` option. Enter the maximum size, in
-       kilobytes, for an individual LOB. The maximum value for
-       `LobMaxSize` is 102400 kilobytes (100 MB).
-
-  For more information about the criteria for using these task LOB
-  settings, see [Setting LOB support for source databases in an AWS DMS task](CHAP_Tasks.LOBSupport.md "CHAP_Tasks.LOBSupport.md"). You can also control the
-  management of LOBs for individual tables. For more information, see
-  [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md").
+  - `FullLobMode` – If you set this option to
+    `true`, then you must enter a value for the
+    `LobChunkSize` option. Enter the size, in kilobytes,
+    of the LOB chunks to use when replicating the data to the target.
+    The `FullLobMode` option works best for very large LOB
+    sizes but tends to cause slower loading. The recommended value for
+    `LobChunkSize` is 64 kilobytes. Increasing the value
+    for `LobChunkSize` above 64 kilobytes can cause task
+    failures.
+  - `InlineLobMaxSize` – This value determines
+    which LOBs AWS DMS transfers inline during a full load.
+    Transferring small LOBs is more efficient than looking them up
+    from a source table. During a full load, AWS DMS checks all
+    LOBs and performs an inline transfer for the LOBs that are
+    smaller than `InlineLobMaxSize`. AWS DMS transfers
+    all LOBs larger than the `InlineLobMaxSize` in
+    `FullLobMode`. The default value for
+    `InlineLobMaxSize` is 0 and the range is 1
+    –102400 kilobytes (100 MB). Set a value for
+    `InlineLobMaxSize` only if you know that most of
+    the LOBs are smaller than the value specified in
+    `InlineLobMaxSize`.
+  - `LimitedSizeLobMode` – If you set this
+    option to `true`, then you must enter a value for the
+    `LobMaxSize` option. Enter the maximum size, in
+    kilobytes, for an individual LOB. The maximum value for
+    `LobMaxSize` is 102400 kilobytes (100 MB).
+    For more information about the criteria for using these task LOB
+    settings, see [Setting LOB support for source databases in an AWS DMS task](CHAP_Tasks.LOBSupport.md "CHAP_Tasks.LOBSupport.md"). You can also control the
+    management of LOBs for individual tables. For more information, see
+    [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md").
 
 - `BatchApplyEnabled` – Determines if each transaction
   is applied individually or if changes are committed in batches. The

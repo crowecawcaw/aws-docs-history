@@ -45,23 +45,22 @@ examples of how AWS DMS does that:
 - For MySQL, AWS DMS reads changes from the row-based binary logs (binlogs) and
   migrates those changes to the target.
 - For PostgreSQL, AWS DMS sets up logical replication slots and uses the
-  test_decoding plugin to read changes from the source and migrate them to the
+  test\_decoding plugin to read changes from the source and migrate them to the
   target.
 - For Amazon RDS as a source, we recommend ensuring that backups are enabled to set
   up CDC. We also recommend ensuring that the source database is configured to
   retain change logs for a sufficient time—24 hours is usually
   enough. For specific settings for each endpoint, see the following:
 
-      + **Amazon RDS for Oracle:**
-      [Configuring an AWS-managed Oracle source for AWS DMS](CHAP_Source.Oracle.md#CHAP_Source.Oracle.Amazon-Managed.Configuration "CHAP_Source.Oracle.md#CHAP_Source.Oracle.Amazon-Managed.Configuration").
-      + **Amazon RDS for MySQL and Aurora MySQL:**
-      [Using an AWS-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.AmazonManaged "CHAP_Source.MySQL.md#CHAP_Source.MySQL.AmazonManaged").
-      + **Amazon RDS for SQL Server:**
-      [Setting up ongoing replication on a cloud SQL Server DB instance](CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.Configuration "CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.Configuration").
-      + **Amazon RDS for PostgreSQL and Aurora PostgreSQL:**
-       PostgreSQL automatically keeps the required WAL.
-
-  There are two types of ongoing replication tasks:
+  - **Amazon RDS for Oracle:**
+    [Configuring an AWS-managed Oracle source for AWS DMS](CHAP_Source.Oracle.md#CHAP_Source.Oracle.Amazon-Managed.Configuration "CHAP_Source.Oracle.md#CHAP_Source.Oracle.Amazon-Managed.Configuration").
+  - **Amazon RDS for MySQL and Aurora MySQL:**
+    [Using an AWS-managed MySQL-compatible database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.AmazonManaged "CHAP_Source.MySQL.md#CHAP_Source.MySQL.AmazonManaged").
+  - **Amazon RDS for SQL Server:**
+    [Setting up ongoing replication on a cloud SQL Server DB instance](CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.Configuration "CHAP_Source.SQLServer.CDC.md#CHAP_Source.SQLServer.Configuration").
+  - **Amazon RDS for PostgreSQL and Aurora PostgreSQL:**
+    PostgreSQL automatically keeps the required WAL.
+    There are two types of ongoing replication tasks:
 
 - Full load plus CDC – The task migrates existing data and then updates
   the target database based on changes to the source database.

@@ -88,12 +88,12 @@ For additional information about AWS DMS data types, see
 | TIMESTAMP WITH TIME ZONE  | Not supported.                                                                                                                                 |
 
 ROWID columns are migrated by default when the target table prep mode for the task
-is set to DROP_AND_CREATE (the default). Data validation ignores these columns because
+is set to DROP\_AND\_CREATE (the default). Data validation ignores these columns because
 the rows are meaningless outside the specific database and table. To turn off migration
 of these columns, you can do one of the following preparatory steps:
 
 - Pre-create the target table without these columns. Then, set the target
-  table prep mode of the task to either DO_NOTHING or TRUNCATE_BEFORE_LOAD. You
+  table prep mode of the task to either DO\_NOTHING or TRUNCATE\_BEFORE\_LOAD. You
   can use DMS Schema Conversion to pre-create the target table without the
   columns.
 - Add a table mapping rule to a task that filters out these columns so
@@ -164,7 +164,7 @@ collations.
 
 ###### Example Micro Focus data shifts per collation:
 
-**en_us_cp1140m**
+**en\_us\_cp1140m**
 
 Code Shift:
 
@@ -194,7 +194,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**en_us_cp1141m**
+**en\_us\_cp1141m**
 
 Code Shift:
 
@@ -224,7 +224,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**en_us_cp1142m**
+**en\_us\_cp1142m**
 
 Code Shift:
 
@@ -254,7 +254,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**en_us_cp1143m**
+**en\_us\_cp1143m**
 
 Code Shift:
 
@@ -284,7 +284,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**en_us_cp1144m**
+**en\_us\_cp1144m**
 
 Code Shift:
 
@@ -314,7 +314,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**en_us_cp1145m**
+**en\_us\_cp1145m**
 
 Code Shift:
 
@@ -344,7 +344,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**en_us_cp1146m**
+**en\_us\_cp1146m**
 
 Code Shift:
 
@@ -374,7 +374,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**en_us_cp1147m**
+**en\_us\_cp1147m**
 
 Code Shift:
 
@@ -404,7 +404,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**en_us_cp1148m**
+**en\_us\_cp1148m**
 
 Code Shift:
 
@@ -1183,7 +1183,7 @@ Corresponding input mapping for an AWS DMS task:
 
 ```
 
-**fi_FI-278b** and **fi-FI-1143b**
+**fi\_FI-278b** and **fi-FI-1143b**
 
 Code Shift:
 

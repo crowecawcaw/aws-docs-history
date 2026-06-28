@@ -158,13 +158,12 @@ For example, if the column `cust_passport_no` of the source table contains value
 
 - Each Data Masking transformation rule option is supported for specific AWS DMS data types only:
 
-      + Data Masking: Digits Mask is supported for columns of data types: `WSTRING` and `STRING`.
-      + Data Masking: Digits Randomize is supported for columns of data types: `WSTRING, STRING; NUMERIC, INT1, INT2, INT4, and INT8`
-       with unsigned counterparts.
-      + Data Masking: Hashing Mask is supported for columns of data types: `WSTRING` and `STRING`.
-
-  To learn more about the mapping of AWS DMS data types to your source engine's data types, refer to the data type mapping of your source engine with AWS DMS data types.
-  See source data types for [Source data types for Oracle](CHAP_Source.Oracle.md#CHAP_Source.Oracle.DataTypes "CHAP_Source.Oracle.md#CHAP_Source.Oracle.DataTypes"), [Source data types for SQL Server](CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.DataTypes "CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.DataTypes"), [Source data types for PostgreSQL](CHAP_Source.PostgreSQL.md#CHAP_Source-PostgreSQL-DataTypes "CHAP_Source.PostgreSQL.md#CHAP_Source-PostgreSQL-DataTypes"), and [Source data types for MySQL](CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes "CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes").
+  - Data Masking: Digits Mask is supported for columns of data types: `WSTRING` and `STRING`.
+  - Data Masking: Digits Randomize is supported for columns of data types: `WSTRING, STRING; NUMERIC, INT1, INT2, INT4, and INT8`
+    with unsigned counterparts.
+  - Data Masking: Hashing Mask is supported for columns of data types: `WSTRING` and `STRING`.
+    To learn more about the mapping of AWS DMS data types to your source engine's data types, refer to the data type mapping of your source engine with AWS DMS data types.
+    See source data types for [Source data types for Oracle](CHAP_Source.Oracle.md#CHAP_Source.Oracle.DataTypes "CHAP_Source.Oracle.md#CHAP_Source.Oracle.DataTypes"), [Source data types for SQL Server](CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.DataTypes "CHAP_Source.SQLServer.md#CHAP_Source.SQLServer.DataTypes"), [Source data types for PostgreSQL](CHAP_Source.PostgreSQL.md#CHAP_Source-PostgreSQL-DataTypes "CHAP_Source.PostgreSQL.md#CHAP_Source-PostgreSQL-DataTypes"), and [Source data types for MySQL](CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes "CHAP_Source.MySQL.md#CHAP_Source.MySQL.DataTypes").
 
 - Using a Data Masking rule action for a column with an incompatible data type will cause an error in the DMS task. Refer to DataMaskingErrorPolicy in DMS task settings to specify the error handling behavior.
   For more information about `DataMaskingErrorPolicy`, see [Error handling task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ErrorHandling.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ErrorHandling.md").

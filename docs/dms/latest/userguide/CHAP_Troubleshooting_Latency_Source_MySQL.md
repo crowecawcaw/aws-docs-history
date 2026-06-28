@@ -45,7 +45,7 @@ For more information about CDC binary log dump thread states, see
 You can determine the latency by comparing the latest binary log position generated on the source with the
 event DMS is currently processing. To identify the latest binary log on the source, do the following:
 
-- Enable debug logs on the SOURCE_CAPTURE component.
+- Enable debug logs on the SOURCE\_CAPTURE component.
 - Retrieve the DMS processing binary log and position details from the the task debug logs.
 - Use the following query to identify the latest binary log on the source:
 

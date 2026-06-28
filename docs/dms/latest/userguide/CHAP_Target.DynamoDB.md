@@ -622,13 +622,13 @@ as the attribute-sub-type for attribute mapping, as shown in the following examp
 ### Example 1: Using attribute mapping with object mapping
 
 The following example migrates data from two MySQL database tables,
-_nfl_data_ and _sport_team_ , to two
+_nfl\_data_ and _sport\_team_ , to two
 DynamoDB table called _NFLTeams_ and
 _SportTeams_. The structure of the tables and the JSON
 used to map the data from the MySQL database tables to the DynamoDB tables are
 shown following.
 
-The structure of the MySQL database table _nfl_data_ is
+The structure of the MySQL database table _nfl\_data_ is
 shown below:
 
 ```
@@ -654,7 +654,7 @@ mysql> desc nfl_data;
 
 ```
 
-The structure of the MySQL database table _sport_team_ is
+The structure of the MySQL database table _sport\_team_ is
 shown below:
 
 ```

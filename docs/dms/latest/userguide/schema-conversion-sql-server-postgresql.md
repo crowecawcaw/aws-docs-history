@@ -31,7 +31,7 @@ following:
     schema name in PostgreSQL.
   - **SCHEMA** – Uses the SQL Server schema name as a
     schema name in PostgreSQL.
-  - **DB_SCHEMA** – Uses a combination of the SQL
+  - **DB\_SCHEMA** – Uses a combination of the SQL
     Server database and schema names as a schema name in
     PostgreSQL.
 

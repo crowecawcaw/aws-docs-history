@@ -14,9 +14,9 @@ Using Amazon Redshift as a target for DMS Schema Conversion requires the followi
   objects in the database schema.
 - **GRANT USAGE ON LANGUAGE**: Allows DMS to
   create new functions and procedures in the database.
-- **GRANT SELECT ON ALL TABLES IN SCHEMA pg_catalog**:
+- **GRANT SELECT ON ALL TABLES IN SCHEMA pg\_catalog**:
   Provides the user system information about the Amazon Redshift cluster.
-- **GRANT SELECT ON pg_class_info**:
+- **GRANT SELECT ON pg\_class\_info**:
   Provides the user information about the table distribution style.
 
 You can use the following code example to create a database user and grant it permissions. Replace

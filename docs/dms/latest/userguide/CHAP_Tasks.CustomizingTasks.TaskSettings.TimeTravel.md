@@ -153,12 +153,11 @@ Required: No
   specifies a format for the raw data of the DML in a Time Travel log and can be
   presented as:
 
-      + `"TEXT"` – Parsed, readable column names
-       and values for DML events captured during CDC as `Raw` fields.
-      + `"HEX"` – The original hexidecimal for column names
-       and values captured for DML events during CDC.
-
-  This property applies to Oracle and Microsoft SQL Server database sources.
+  - `"TEXT"` – Parsed, readable column names
+    and values for DML events captured during CDC as `Raw` fields.
+  - `"HEX"` – The original hexidecimal for column names
+    and values captured for DML events during CDC.
+    This property applies to Oracle and Microsoft SQL Server database sources.
 
 Type: String
 
@@ -167,14 +166,13 @@ Required: No
 - `OperationsToLog` – Specifies the type of DML operations to log in Time Travel logs. You can specify one
   of the following:
 
-      + `"INSERT"`
-      + `"UPDATE"`
-      + `"DELETE"`
-      + `"COMMIT"`
-      + `"ROLLBACK"`
-      + `"ALL"`
-
-  The default is `"ALL"`.
+  - `"INSERT"`
+  - `"UPDATE"`
+  - `"DELETE"`
+  - `"COMMIT"`
+  - `"ROLLBACK"`
+  - `"ALL"`
+    The default is `"ALL"`.
 
 Type: String
 

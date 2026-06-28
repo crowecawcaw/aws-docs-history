@@ -104,7 +104,7 @@ source table.
 
 ###### Note
 
-The operation_indicator column is best suited for streaming targets (such as Amazon Kinesis and
+The operation\_indicator column is best suited for streaming targets (such as Amazon Kinesis and
 Apache Kafka) and object-based targets (such as Amazon S3) where primary key uniqueness is not enforced.
 For relational database targets (such as Oracle, SQL Server, PostgreSQL, or MySQL), use `operation_indicator` only when source
 records with the same primary key are never re-inserted after deletion.
@@ -117,14 +117,14 @@ expression that includes the table column header.
 
 You can use the following column headers in expressions.
 
-| Header                | Value in ongoing replication                                                                                                                                                                                                     | Value in full load                                                     | Data type          |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------ |
-| AR_H_STREAM_POSITION  | The stream position value from the source.<br>This value might be the system change number (SCN) or the<br>log sequence number (LSN), depending on the source<br>endpoint.                                                       | An empty string.                                                       | STRING             |
-| AR_H_TIMESTAMP        | A timestamp indicating the time of the<br>change.                                                                                                                                                                                | A timestamp indicating the current time data<br>arrives at the target. | DATETIME (scale=7) |
-| AR_H_COMMIT_TIMESTAMP | A timestamp indicating the time of the<br>commit.                                                                                                                                                                                | A timestamp indicating the current<br>time.                            | DATETIME (scale=7) |
-| AR_H_OPERATION        | INSERT, UPDATE, or DELETE                                                                                                                                                                                                        | INSERT                                                                 | STRING             |
-| AR_H_USER             | The user name, ID, or any other information<br>that the source provides about the user that made the<br>change. This header is supported on the SQL Server and<br>Oracle (version 11.2.0.3 and higher) source endpoints<br>only. | An empty string.                                                       | STRING             |
-| AR_H_CHANGE_SEQ       | A unique incrementing number from the source<br>database that consists of a timestamp and an auto incrementing number.<br>The value depends on the source database system.                                                       | An empty string.                                                       | STRING             |
+| Header                   | Value in ongoing replication                                                                                                                                                                                                     | Value in full load                                                     | Data type          |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------ |
+| AR\_H\_STREAM\_POSITION  | The stream position value from the source.<br>This value might be the system change number (SCN) or the<br>log sequence number (LSN), depending on the source<br>endpoint.                                                       | An empty string.                                                       | STRING             |
+| AR\_H\_TIMESTAMP         | A timestamp indicating the time of the<br>change.                                                                                                                                                                                | A timestamp indicating the current time data<br>arrives at the target. | DATETIME (scale=7) |
+| AR\_H\_COMMIT\_TIMESTAMP | A timestamp indicating the time of the<br>commit.                                                                                                                                                                                | A timestamp indicating the current<br>time.                            | DATETIME (scale=7) |
+| AR\_H\_OPERATION         | INSERT, UPDATE, or DELETE                                                                                                                                                                                                        | INSERT                                                                 | STRING             |
+| AR\_H\_USER              | The user name, ID, or any other information<br>that the source provides about the user that made the<br>change. This header is supported on the SQL Server and<br>Oracle (version 11.2.0.3 and higher) source endpoints<br>only. | An empty string.                                                       | STRING             |
+| AR\_H\_CHANGE\_SEQ       | A unique incrementing number from the source<br>database that consists of a timestamp and an auto incrementing number.<br>The value depends on the source database system.                                                       | An empty string.                                                       | STRING             |
 
 The following example adds a new column to the target by using the stream
 position value from the source. For SQL Server, the stream position value is
@@ -155,7 +155,7 @@ the SCN for the source endpoint.
 The following example adds a new column to the target that has a unique
 incrementing number from the source. This value represents a 35 digit unique
 number at task level. The first 16 digits are part of a timestamp, and the last
-19 digits are the record_id number incremented by the DBMS.
+19 digits are the record\_id number incremented by the DBMS.
 
 ```
 {
@@ -333,7 +333,7 @@ through transformation rule:
 
 ###### Source Table (Oracle GUID format)
 
-T_COL2
+T\_COL2
 
 ```
 06F6949D234911EE80670242AC120002
@@ -343,7 +343,7 @@ F5E4D3C2B1A011EE80670242AC120004
 
 ###### Target Table (PostgreSQL UUID format)
 
-T_COL2_TMP
+T\_COL2\_TMP
 
 ```
 06f6949d-2349-11ee-8067-0242ac120002

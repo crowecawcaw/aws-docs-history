@@ -56,9 +56,9 @@ AWS Support case.
 
 ###### Topics
 
-- [awsdms_support_collector_postgres.sql script](#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script "#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script")
+- [awsdms\_support\_collector\_postgres.sql script](#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script "#CHAP_SupportScripts.PostgreSQL.Awsdms_Support_Collector_PostgreSQL_Script")
 
-## awsdms_support_collector_postgres.sql script
+## awsdms\_support\_collector\_postgres.sql script
 
 Download the [`awsdms_support_collector_postgres.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_postgres.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_postgres.sql") script.
 

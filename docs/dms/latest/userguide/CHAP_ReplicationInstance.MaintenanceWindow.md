@@ -64,7 +64,7 @@ To adjust the preferred maintenance window, use the AWS DMS API [`ModifyReplicat
 following parameters.
 
 - `ReplicationInstanceIdentifier =
-`myrepinstance``
+ `myrepinstance``
 - `PreferredMaintenanceWindow = `Tue:04:00-Tue:04:30``
 
 ###### Example

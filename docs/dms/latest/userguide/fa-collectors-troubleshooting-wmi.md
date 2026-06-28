@@ -25,7 +25,7 @@ for Windows Server 2008 and higher versions.
 
 `* Inbound TCP/IP at local port 1025 – 5000` for Windows Server 2003 and lower versions.
 
-**WMI: Access is denied. (Exception from HRESULT: 0x80070005 (E_ACCESSDENIED))**
+**WMI: Access is denied. (Exception from HRESULT: 0x80070005 (E\_ACCESSDENIED))**
 
 Try the following:
 

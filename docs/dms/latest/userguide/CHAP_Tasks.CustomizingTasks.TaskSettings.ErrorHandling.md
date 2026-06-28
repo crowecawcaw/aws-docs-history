@@ -180,17 +180,17 @@ a fatal error occurs, DMS stops making restart attempts in most scenarios.
 
   ###### Note
 
-      - **In Transactional Apply
-       mode**: In this process, the system first
-       attempts to insert the record. If the insert fails due
-       to a primary key conflict, it deletes the existing
-       record and then inserts the new one.
-      - **In Batch Apply mode**:
-       The process removes all existing records in the target
-       batch before inserting the complete set of new records,
-       ensuring a clean replacement of data.
-      - This process prevents data duplication, but incurs some performance cost compared to the default policy.
-       The exact performance impact depends on your specific workload characteristics.
+        - **In Transactional Apply
+         mode**: In this process, the system first
+         attempts to insert the record. If the insert fails due
+         to a primary key conflict, it deletes the existing
+         record and then inserts the new one.
+        - **In Batch Apply mode**:
+         The process removes all existing records in the target
+         batch before inserting the complete set of new records,
+         ensuring a clean replacement of data.
+        - This process prevents data duplication, but incurs some performance cost compared to the default policy.
+         The exact performance impact depends on your specific workload characteristics.
 
 - `ApplyErrorUpdatePolicy` – Determines what action
   AWS DMS takes when there is a missing data conflict with an UPDATE operation.
@@ -218,22 +218,22 @@ a fatal error occurs, DMS stops making restart attempts in most scenarios.
 
   ###### Note
 
-      - **In Transactional Apply
-       mode**: In this process, the system first
-       attempts to update the record. If the update fails due
-       to a missing record on target, it run a delete for the
-       failed record and then inserts the new one. This process
-       requires full supplemental logging for Oracle source
-       databases and DMS disables LOB column support for this
-       task.
-      - **In Batch Apply mode**:
-       The process removes all existing records in the target
-       batch before inserting the complete set of new records,
-       ensuring a clean replacement of data.
+        - **In Transactional Apply
+         mode**: In this process, the system first
+         attempts to update the record. If the update fails due
+         to a missing record on target, it run a delete for the
+         failed record and then inserts the new one. This process
+         requires full supplemental logging for Oracle source
+         databases and DMS disables LOB column support for this
+         task.
+        - **In Batch Apply mode**:
+         The process removes all existing records in the target
+         batch before inserting the complete set of new records,
+         ensuring a clean replacement of data.
 
 - `ApplyErrorEscalationPolicy` – Determines what
   action AWS DMS takes when the maximum number of errors (set using the
-  `ApplyErrorEscalationCount` parameter) is reached. The default is LOG_ERROR:
+  `ApplyErrorEscalationCount` parameter) is reached. The default is LOG\_ERROR:
 
   - `LOG_ERROR` – The task continues and the
     error is written to the task log.
@@ -289,7 +289,7 @@ option is set to `true`, the task fails.
 
 Table load errors in Redshift as a target are reported
 in `STL_LOAD_ERRORS`. For more information, see
-[STL_LOAD_ERRORS](../../../redshift/latest/dg/r_STL_LOAD_ERRORS.md "../../../redshift/latest/dg/r_STL_LOAD_ERRORS.md")
+[STL\_LOAD\_ERRORS](../../../redshift/latest/dg/r_STL_LOAD_ERRORS.md "../../../redshift/latest/dg/r_STL_LOAD_ERRORS.md")
 in the _Amazon Redshift Database Developer Guide_.
 
 ###### Note

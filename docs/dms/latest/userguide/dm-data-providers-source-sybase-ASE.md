@@ -13,12 +13,12 @@ You can use DMS Schema Conversion to convert database code objects from SAP ASE 
 The following privileges are required when using SAP ASE (Sybase ASE) as a source database:
 
 - USE master
-- select on dbo.spt_values
+- select on dbo.spt\_values
 - select on asehostname
 
 For each database to be migrated, grant the following privileges:
 
-- USE db_name _(Replace db_name with the name of the database being migrated)_
+- USE db\_name _(Replace db\_name with the name of the database being migrated)_
 - select on dbo.sysusers
 - select on dbo.sysobjects
 - select on dbo.sysindexes

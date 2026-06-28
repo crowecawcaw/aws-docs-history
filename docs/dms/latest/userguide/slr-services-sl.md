@@ -50,7 +50,8 @@ again.
 ###### To delete AWS DMS resources used by the AWSServiceRoleForDMSServerless
 
 1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. In the navigation pane, choose **Serverless replications** under \***\*Migrate data\*\***. The
+2. In the navigation pane, choose **Serverless replications** under
+   ****Migrate data****. The
    **Serverless** page opens.
 3. Choose your serverless replication and choose **Delete**.
 4. To confirm deletion, enter the serverless replication name in the text input field.

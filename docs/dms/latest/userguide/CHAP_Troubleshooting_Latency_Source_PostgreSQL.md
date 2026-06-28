@@ -20,7 +20,7 @@ To review long-running transactions, do one of the following:
 - Use the `pg_replication_slots` view. If the `restart_lsn`
   value isn't updating, it is likely that PostgreSQL is unable to release Write Ahead Logs (WALs) due to long-running
   active transactions. For information about the `pg_replication_slots` view, see
-  [pg_replication_slots](https://www.postgresql.org/docs/15/view-pg-replication-slots.html "https://www.postgresql.org/docs/15/view-pg-replication-slots.html")
+  [pg\_replication\_slots](https://www.postgresql.org/docs/15/view-pg-replication-slots.html "https://www.postgresql.org/docs/15/view-pg-replication-slots.html")
   in the [PostgreSQL 15.4 Documentation](https://www.postgresql.org/docs/15/ "https://www.postgresql.org/docs/15/").
 - Use the following query to return a list of all active queries in the database, along with
   related information:

@@ -126,7 +126,7 @@ AWS DMS:
   supported.
 - The ROWVERSION data type requires a table mapping rule that removes the column
   name from the table during the migration task.
-- The sql_variant data type isn't supported.
+- The sql\_variant data type isn't supported.
 - Full LOB mode is supported. Using SQL Server as a source endpoint requires
   the SQL Server Endpoint Connection Attribute setting `ForceFullLob=True`
   to be set in order for LOBs to be migrated to the target endpoint.
@@ -148,7 +148,7 @@ AWS DMS:
   a precision value of 6 for your target table when using these data types. For
   Babelfish versions 2.2.0 and higher, when using TIME(7) and DATETIME2(7), the
   seventh digit of precision is always zero.
-- In DO_NOTHING mode, DMS checks to see if the table already exists. If the
+- In DO\_NOTHING mode, DMS checks to see if the table already exists. If the
   table doesn't exist in the target schema, DMS creates the table based on
   the source table definition, and maps any user defined data types to their base
   data type.

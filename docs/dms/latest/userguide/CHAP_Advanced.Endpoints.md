@@ -44,5 +44,5 @@ You must consider the following additional configuration information:
 
 - From your replication instance, you can perform a DNS lookup to ensure it
   resolves the VPC endpoint: `nslookup
-secretsmanager.<region>amazonaws.com`. It must return the Ip
+ secretsmanager.<region>amazonaws.com`. It must return the Ip
   address associated with your VPC endpoint

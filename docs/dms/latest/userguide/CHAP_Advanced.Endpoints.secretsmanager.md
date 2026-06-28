@@ -103,7 +103,7 @@ following:
       checkbox.
    2. In the **Connection attributes** field, add:
       `secretsManagerEndpointOverride=<copied DNS
-name>`.
+  name>`.
 
    ###### Note
 

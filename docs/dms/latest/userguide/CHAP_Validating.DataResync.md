@@ -9,7 +9,7 @@ Data resync feature operates by reading validation failures from a control table
 the target database and executing appropriate fix-up operations. When a mismatch is
 detected, the current data is retrived from the source using the primary key stored in
 the failure record, and it is applied to the target while respecting any configured
-transformations. For more information, see [awsdms_validation_failures_v2 control table](CHAP_Validating.md#CHAP_DataResync.Troubleshooting.v2table "CHAP_Validating.md#CHAP_DataResync.Troubleshooting.v2table").
+transformations. For more information, see [awsdms\_validation\_failures\_v2 control table](CHAP_Validating.md#CHAP_DataResync.Troubleshooting.v2table "CHAP_Validating.md#CHAP_DataResync.Troubleshooting.v2table").
 
 The behavior varies depending on your migration type. For full-load-only tasks, Data
 resync runs once after the initial load and validation complete. For tasks with change
@@ -96,7 +96,7 @@ In your existing DMS full-load migration task, you can do the
 following:
 
 - Enable validation: `Validation with data migration =
-true`.
+ true`.
 - Enable resync: `Data resync = true`
 
 **Scenario 2: Full load and CDC, CDC only task - run
@@ -106,10 +106,10 @@ In your existing DMS CDC migration task, you can do the
 following:
 
 - Enable validation: `Validation with data migration =
-true`.
+ true`.
 - Enable resync: `Data resync = true`
-- Specify resync schedule: `"ResyncSchedule": "0 0,2,4,6 \*
-- \*"`.
+- Specify resync schedule: `"ResyncSchedule": "0 0,2,4,6 *
+- *"`.
 - Specify resync time: `MaxResyncTime": 60`
 
 **Scenario 3: Full load and CDC or CDC only task for
@@ -127,10 +127,10 @@ You must note down and specify the ID of this task during
 Data resync.
 
 - In your primary CDC task, disable validation: `Data
-validation = false`.
+ validation = false`.
 - Enable resync: `Data resync = true`
-- Specify resync schedule: `"ResyncSchedule": "0 0,2,4,6 \*
-- \*"`.
+- Specify resync schedule: `"ResyncSchedule": "0 0,2,4,6 *
+- *"`.
 - Specify resync time: `MaxResyncTime": 60`.
 - Specify the ID of the validation only DMS CDC task. Validation
   only task ID is appended at the end of ARN. Example ARN:

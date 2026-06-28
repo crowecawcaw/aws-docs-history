@@ -699,7 +699,7 @@ to do the following:
 ###### Note
 
 You should either configure the MS-REPLICATION distributor as local or in a way that allows
-access to non-sysadmin users via the associated linked server. 3. If the **Exclusively use sp_repldone within a single task** endpoint option is
+access to non-sysadmin users via the associated linked server. 3. If the **Exclusively use sp\_repldone within a single task** endpoint option is
 enabled, stop the MS-REPLICATION Log Reader job. 4. Perform the following steps on each replica:
 
     1. Create the `[awsdms]`[awsdms] schema in the master database:
@@ -1195,7 +1195,7 @@ GO
    - The parameter `@pollinginterval` is measured in seconds with a
      recommended value set to 86399. This means that the transaction log retains
      changes for 86,399 seconds (one day) when `@pollinginterval =
-86399`. The procedure `exec sp_cdc_start_job 'capture'`
+  86399`. The procedure `exec sp_cdc_start_job 'capture'`
      initiates the settings.
 
    ###### Note

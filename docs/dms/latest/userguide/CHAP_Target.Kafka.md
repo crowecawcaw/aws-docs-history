@@ -656,7 +656,7 @@ The following limitations apply when using Apache Kafka as a target:
   settings, see [The default Amazon MSK configuration](../../../msk/latest/developerguide/msk-default-configuration.md "../../../msk/latest/developerguide/msk-default-configuration.md") in the
   _Amazon Managed Streaming for Apache Kafka Developer Guide_. If you need to modify an existing
   Kafka cluster created using Amazon MSK, run the AWS CLI command `aws kafka
-create-configuration` to update your Kafka configuration, as in
+ create-configuration` to update your Kafka configuration, as in
   the following example:
 
 ```

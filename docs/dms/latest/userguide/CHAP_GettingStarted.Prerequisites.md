@@ -49,38 +49,37 @@ resources that a VPC contains before you can delete the VPC.
 
 ###### To create a VPC for use with AWS DMS
 
-1.  Sign in to the AWS Management Console and open the Amazon VPC console at
-    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  On the navigation pane, choose **VPC Dashboard**, and then choose
-    **Create VPC**.
-3.  On the **Create VPC** page, enter the following
-    options:
+1. Sign in to the AWS Management Console and open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. On the navigation pane, choose **VPC Dashboard**, and then choose
+   **Create VPC**.
+3. On the **Create VPC** page, enter the following
+   options:
 
-        * **Resources to create**: **VPC and more**
-        * **Name tag auto generation**: Choose **Auto-generate**,
-         and enter `DMSVPC`.
-        * **IPv4 block**: `10.0.1.0/24`
-        * **IPv6 CIDR block**: **No IPv6 CIDR block**
-        * **Tenancy**: **Default**
-        * **Number of availability zones**: 2
-        * **Number of public subnets**: 2
-        * **Number of private subnets**: 2
-        * **NAT gateways ($)**: **None**
-        * **VPC endpoints**: **None**
+   - **Resources to create**: **VPC and more**
+   - **Name tag auto generation**: Choose **Auto-generate**,
+     and enter `DMSVPC`.
+   - **IPv4 block**: `10.0.1.0/24`
+   - **IPv6 CIDR block**: **No IPv6 CIDR block**
+   - **Tenancy**: **Default**
+   - **Number of availability zones**: 2
+   - **Number of public subnets**: 2
+   - **Number of private subnets**: 2
+   - **NAT gateways ($)**: **None**
+   - **VPC endpoints**: **None**
+     Choose **Create VPC**.
 
-    Choose **Create VPC**.
-
-4.  On the navigation pane, choose **Your VPCs**. Note the VPC ID for
-    **DMSVPC**.
-5.  On the navigation pane, choose **Security Groups**.
-6.  Choose the group named **default** that has a **VPC ID**
-    that matches the ID that you noted for **DMSVPC**.
-7.  Choose the **Inbound rules** tab, and choose **Edit inbound
-    rules**.
-8.  Choose **Add rule**. Add a rule of type **MySQL/Aurora** and
-    choose **Anywhere-IPv4** for **Source**.
-9.  Choose **Add rule** again. Add a rule of type **PostgreSQL**
-    and choose **Anywhere-IPv4** for **Source**.
+4. On the navigation pane, choose **Your VPCs**. Note the VPC ID for
+   **DMSVPC**.
+5. On the navigation pane, choose **Security Groups**.
+6. Choose the group named **default** that has a **VPC ID**
+   that matches the ID that you noted for **DMSVPC**.
+7. Choose the **Inbound rules** tab, and choose **Edit inbound
+   rules**.
+8. Choose **Add rule**. Add a rule of type **MySQL/Aurora** and
+   choose **Anywhere-IPv4** for **Source**.
+9. Choose **Add rule** again. Add a rule of type **PostgreSQL**
+   and choose **Anywhere-IPv4** for **Source**.
 10. Choose **Save rules**.
 
 ## Create Amazon RDS parameter groups
@@ -112,8 +111,8 @@ sure to configure the following:
    **dms-mariadb-parameters** page, choose **Edit**.
 6. Set the following parameters to the following values:
 
-   - **binlog_checksum**: **NONE**
-   - **binlog_format**: **ROW**Choose **Save changes**.
+   - **binlog\_checksum**: **NONE**
+   - **binlog\_format**: **ROW**Choose **Save changes**.
 
 7. On the **Parameter groups** page, choose **Create parameter group** again.
 8. On the **Create parameter group** page, enter the following settings:
@@ -124,8 +123,8 @@ sure to configure the following:
 
 9. On the **Parameter groups** page, choose **dms-postgresql-parameters**.
 10. On the **dms-postgresql-parameters** page, choose **Edit**,
-    and set **session_replication_role
-    parameter** to **replica**. Note that the **session_replication_role** parameter is not on the first page of parameters. Use the pagination controls or the search
+    and set **session\_replication\_role
+    parameter** to **replica**. Note that the **session\_replication\_role** parameter is not on the first page of parameters. Use the pagination controls or the search
     field to find the parameter.
 11. Choose **Save changes**.
 
@@ -247,34 +246,33 @@ accessing your databases over the internet:
 
 ###### To create and configure an Amazon EC2 client to populate your source database
 
-1.  Open the Amazon EC2 console at
-    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2.  On the **Dashboard**, choose **Launch instance**.
-3.  On the **Launch an Instance** page, enter the following values:
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. On the **Dashboard**, choose **Launch instance**.
+3. On the **Launch an Instance** page, enter the following values:
 
-    1.  In the **Name and tags** section, enter `DMSClient` for **Name**.
-    2.  In the **Application and OS Images (Amazon Machine Image)** section, leave the settings as they are.
-    3.  In the **Instance Type** section, choose **t2.xlarge**.
-    4.  In the **Key pair (login)** section, choose **Create a new key pair**.
-    5.  On the **Create key pair** page, enter the following:
+   1. In the **Name and tags** section, enter `DMSClient` for **Name**.
+   2. In the **Application and OS Images (Amazon Machine Image)** section, leave the settings as they are.
+   3. In the **Instance Type** section, choose **t2.xlarge**.
+   4. In the **Key pair (login)** section, choose **Create a new key pair**.
+   5. On the **Create key pair** page, enter the following:
 
-            * **Key pair name**: `DMSKeyPair`
-            * **Key pair type**: Leave as **RSA**.
-            * **Private key file format**: Choose
-             **pem** for OpenSSH on MacOS or Linux, or **ppk** for PuTTY on Windows.
-
+      - **Key pair name**: `DMSKeyPair`
+      - **Key pair type**: Leave as **RSA**.
+      - **Private key file format**: Choose
+        **pem** for OpenSSH on MacOS or Linux, or **ppk** for PuTTY on Windows.
         Save the key file when prompted.
 
-    ###### Note
+   ###### Note
 
-    You can also use an existing Amazon EC2 key pair rather than creating a new one. 6. In the **Network Settings** section, choose **Edit**. Choose the following settings:
+   You can also use an existing Amazon EC2 key pair rather than creating a new one. 6. In the **Network Settings** section, choose **Edit**. Choose the following settings:
 
         * **VPC - *required***: Choose the VPC with the ID that you recorded for the
          **DMSVPC-vpc** VPC.
         * **Subnet**: Choose the first public subnet.
         * **Auto-assign public IP**: Choose **Enable**.
 
-    Leave the rest of the settings as they are, and choose **Launch instance**.
+   Leave the rest of the settings as they are, and choose **Launch instance**.
 
 ## Populate your source database
 

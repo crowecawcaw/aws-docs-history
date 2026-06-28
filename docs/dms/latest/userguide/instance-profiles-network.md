@@ -67,13 +67,13 @@ The following examples show ingress rules for a database security group. In
 these examples, `sg-1234567890abcdef0` is the security group associated
 with DMS Schema Conversion. Use the port that your database is configured to listen on.
 
-| Example inbound rules for database security group | Type | Protocol  | Port range           | Source                                   | Description |
-| ------------------------------------------------- | ---- | --------- | -------------------- | ---------------------------------------- | ----------- |
-| Oracle-RDS                                        | TCP  | 1521      | sg-1234567890abcdef0 | Oracle database                          |
-| MySQL/Aurora                                      | TCP  | 3306      | sg-1234567890abcdef0 | MySQL or Aurora MySQL database           |
-| PostgreSQL                                        | TCP  | 5432      | sg-1234567890abcdef0 | PostgreSQL or Aurora PostgreSQL database |
-| MSSQL                                             | TCP  | 1433      | sg-1234567890abcdef0 | Microsoft SQL Server database            |
-| Custom TCP                                        | TCP  | Your port | sg-1234567890abcdef0 | Any other database using a custom port   |
+Example inbound rules for database security group| Type | Protocol | Port range | Source | Description |
+| --- | --- | --- | --- | --- |
+| Oracle-RDS | TCP | 1521 | sg-1234567890abcdef0 | Oracle database |
+| MySQL/Aurora | TCP | 3306 | sg-1234567890abcdef0 | MySQL or Aurora MySQL database |
+| PostgreSQL | TCP | 5432 | sg-1234567890abcdef0 | PostgreSQL or Aurora PostgreSQL database |
+| MSSQL | TCP | 1433 | sg-1234567890abcdef0 | Microsoft SQL Server database |
+| Custom TCP | TCP | Your port | sg-1234567890abcdef0 | Any other database using a custom port |
 
 ## Using multiple VPCs for source and target data providers
 
@@ -116,13 +116,13 @@ port that your database is configured to listen on. If both VPCs are in the same
 Region and account, we recommend using a security group reference instead of a CIDR
 range for tighter access control.
 
-| Example inbound rules for database security group (VPC peering) | Type | Protocol  | Port range    | Source                                   | Description |
-| --------------------------------------------------------------- | ---- | --------- | ------------- | ---------------------------------------- | ----------- |
-| Oracle-RDS                                                      | TCP  | 1521      | 172.31.1.0/24 | Oracle database                          |
-| MySQL/Aurora                                                    | TCP  | 3306      | 172.31.1.0/24 | MySQL or Aurora MySQL database           |
-| PostgreSQL                                                      | TCP  | 5432      | 172.31.1.0/24 | PostgreSQL or Aurora PostgreSQL database |
-| MSSQL                                                           | TCP  | 1433      | 172.31.1.0/24 | Microsoft SQL Server database            |
-| Custom TCP                                                      | TCP  | Your port | 172.31.1.0/24 | Any other database using a custom port   |
+Example inbound rules for database security group (VPC peering)| Type | Protocol | Port range | Source | Description |
+| --- | --- | --- | --- | --- |
+| Oracle-RDS | TCP | 1521 | 172.31.1.0/24 | Oracle database |
+| MySQL/Aurora | TCP | 3306 | 172.31.1.0/24 | MySQL or Aurora MySQL database |
+| PostgreSQL | TCP | 5432 | 172.31.1.0/24 | PostgreSQL or Aurora PostgreSQL database |
+| MSSQL | TCP | 1433 | 172.31.1.0/24 | Microsoft SQL Server database |
+| Custom TCP | TCP | Your port | 172.31.1.0/24 | Any other database using a custom port |
 
 ## Using shared VPCs for source and target data providers
 
@@ -231,9 +231,9 @@ You might see the following error message when DMS Schema Conversion can't
 reach your source or target database:
 
 - `Could not connect to your `{origin}`
-database at '`{serverName}`:`{port}`'.
-Verify your network configuration, security groups, and that the
-database server is reachable.`
+ database at '`{serverName}`:`{port}`'.
+ Verify your network configuration, security groups, and that the
+ database server is reachable.`
 
 Where `{origin}` is either
 `source` or `target`,

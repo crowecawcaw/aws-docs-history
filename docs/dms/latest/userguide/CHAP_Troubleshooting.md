@@ -430,8 +430,8 @@ source and target databases.
 
 In another of these issues, national language support (NLS) settings differ
 between the two databases. A common cause of this error is when the source database
-NLS_LENGTH_SEMANTICS parameter is set to CHAR and the target database
-NLS_LENGTH_SEMANTICS parameter is set to BYTE.
+NLS\_LENGTH\_SEMANTICS parameter is set to CHAR and the target database
+NLS\_LENGTH\_SEMANTICS parameter is set to BYTE.
 
 ### NUMBER data type being misinterpreted
 
@@ -467,7 +467,7 @@ see [Setting up supplemental logging](CHAP_Source.Oracle.md#CHAP_Source.Oracle.S
 
 ### Error: Cannot retrieve Oracle archived Redo log destination ids
 
-This error occurs when your Oracle source doesn't have any archive logs generated or V$ARCHIVED_LOG is empty.
+This error occurs when your Oracle source doesn't have any archive logs generated or V$ARCHIVED\_LOG is empty.
 You can resolve the error by switching logs manually.
 
 For an Amazon RDS database, run the following procedure to switch log files. The `switch_logfile`
@@ -554,7 +554,7 @@ Path to redo or archive log file []:
   [Oracle diagnostic support script](CHAP_SupportScripts.Oracle.md "CHAP_SupportScripts.Oracle.md")
   on the endpoint, review Wait Time, Load Profile, and IO Profile sections. Then
   adjust any abnormal configuration that might improve read performance. For example,
-  if your redo log files are up to 2 GB, try increasing LOG_BUFFER to 200 MB to help
+  if your redo log files are up to 2 GB, try increasing LOG\_BUFFER to 200 MB to help
   improve performance.
 - Review [AWS DMS Best Practices](CHAP_BestPractices.md "CHAP_BestPractices.md") to
   make sure your DMS replication instance, task, and endpoints are configured
@@ -897,7 +897,7 @@ PostgreSQL databases.
 - [Preventing PostgreSQL from capturing DDL](#CHAP_Troubleshooting.PostgreSQL.NoCaptureDDL "#CHAP_Troubleshooting.PostgreSQL.NoCaptureDDL")
 - [Selecting the schema where database objects for capturing DDL are created](#CHAP_Troubleshooting.PostgreSQL.SchemaDDL "#CHAP_Troubleshooting.PostgreSQL.SchemaDDL")
 - [Oracle tables missing after migrating to PostgreSQL](#CHAP_Troubleshooting.PostgreSQL.OracleTablesMissing "#CHAP_Troubleshooting.PostgreSQL.OracleTablesMissing")
-- [ReplicationSlotDiskUsage increases and restart_lsn stops moving forward during long transactions, such as ETL workloads](#CHAP_Troubleshooting.PostgreSQL.AvoidLongTransactions "#CHAP_Troubleshooting.PostgreSQL.AvoidLongTransactions")
+- [ReplicationSlotDiskUsage increases and restart\_lsn stops moving forward during long transactions, such as ETL workloads](#CHAP_Troubleshooting.PostgreSQL.AvoidLongTransactions "#CHAP_Troubleshooting.PostgreSQL.AvoidLongTransactions")
 - [Task using view as a source has no rows copied](#CHAP_Troubleshooting.PostgreSQL.ViewTask "#CHAP_Troubleshooting.PostgreSQL.ViewTask")
 - [Invalid byte sequence for encoding "UTF8"](#CHAP_Troubleshooting.PostgreSQL.invalidbyte "#CHAP_Troubleshooting.PostgreSQL.invalidbyte")
 
@@ -944,7 +944,7 @@ types. In such cases, the data type is created as "character varying" in the tar
 
 ### Error: No schema has been selected to create in
 
-In some case, you might see the error "SQL_ERROR SqlState: 3F000 NativeError:
+In some case, you might see the error "SQL\_ERROR SqlState: 3F000 NativeError:
 7 Message: ERROR: no schema has been selected to create in".
 
 This error can occur when your JSON table mapping contains a wildcard value for
@@ -1003,7 +1003,7 @@ If you migrated your tables without using transformation rules to convert the ca
 of your table names, enclose your table names in quotation marks when referencing
 them.
 
-### ReplicationSlotDiskUsage increases and restart_lsn stops moving forward during long transactions, such as ETL workloads
+### ReplicationSlotDiskUsage increases and restart\_lsn stops moving forward during long transactions, such as ETL workloads
 
 When logical replication is enabled, the maximum number of changes kept in memory
 per transaction is 4MB. After that, changes are spilled to disk. As a result
@@ -1082,7 +1082,7 @@ MAZ instances, under certain circumstances the secondary database owner can be s
 ```
 
 To fix this, follow the steps in
-[Changing the db_owner to the rdsa account for your database](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md"), and then resume your DMS task.
+[Changing the db\_owner to the rdsa account for your database](../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md "../../../AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.ChangeDBowner.md"), and then resume your DMS task.
 
 ### Errors capturing changes for SQL server database
 
@@ -1193,11 +1193,11 @@ Amazon Redshift databases.
 ###### Topics
 
 - [Loading in to an Amazon Redshift cluster in a different AWS Region](#CHAP_Troubleshooting.Redshift.Regions "#CHAP_Troubleshooting.Redshift.Regions")
-- [Error: Relation "awsdms_apply_exceptions" already exists](#CHAP_Troubleshooting.Redshift.AlreadyExists "#CHAP_Troubleshooting.Redshift.AlreadyExists")
-- [Errors with tables whose name begins with "awsdms_changes"](#CHAP_Troubleshooting.Redshift.Changes "#CHAP_Troubleshooting.Redshift.Changes")
-- [Seeing tables in clusters with names like dms.awsdms_changes000000000XXXX](#CHAP_Troubleshooting.Redshift.TempTables "#CHAP_Troubleshooting.Redshift.TempTables")
+- [Error: Relation "awsdms\_apply\_exceptions" already exists](#CHAP_Troubleshooting.Redshift.AlreadyExists "#CHAP_Troubleshooting.Redshift.AlreadyExists")
+- [Errors with tables whose name begins with "awsdms\_changes"](#CHAP_Troubleshooting.Redshift.Changes "#CHAP_Troubleshooting.Redshift.Changes")
+- [Seeing tables in clusters with names like dms.awsdms\_changes000000000XXXX](#CHAP_Troubleshooting.Redshift.TempTables "#CHAP_Troubleshooting.Redshift.TempTables")
 - [Permissions required to work with Amazon Redshift](#CHAP_Troubleshooting.Redshift.Permissions "#CHAP_Troubleshooting.Redshift.Permissions")
-- [Error: column "TASK_NAME" of relation "awsdms_apply_exceptions" does not exist](#CHAP_Troubleshooting.Redshift.CaseSensitivity "#CHAP_Troubleshooting.Redshift.CaseSensitivity")
+- [Error: column "TASK\_NAME" of relation "awsdms\_apply\_exceptions" does not exist](#CHAP_Troubleshooting.Redshift.CaseSensitivity "#CHAP_Troubleshooting.Redshift.CaseSensitivity")
 
 ### Loading in to an Amazon Redshift cluster in a different AWS Region
 
@@ -1205,20 +1205,20 @@ You can't load into an Amazon Redshift cluster in a different AWS Region than yo
 replication instance. DMS requires that your replication instance and your Amazon Redshift
 cluster be in the same Region.
 
-### Error: Relation "awsdms_apply_exceptions" already exists
+### Error: Relation "awsdms\_apply\_exceptions" already exists
 
-The error "Relation 'awsdms_apply_exceptions' already exists" often occurs when a
+The error "Relation 'awsdms\_apply\_exceptions' already exists" often occurs when a
 Redshift endpoint is specified as a PostgreSQL endpoint. To fix this issue, modify
 the endpoint and change the **Target engine** to "redshift."
 
-### Errors with tables whose name begins with "awsdms_changes"
+### Errors with tables whose name begins with "awsdms\_changes"
 
-Table error messages with names that begin with "awsdms_changes" can
+Table error messages with names that begin with "awsdms\_changes" can
 occur when two tasks trying to load data into the same Amazon Redshift cluster run
 concurrently. Due to the way temporary tables are named, concurrent tasks can
 conflict when updating the same table.
 
-### Seeing tables in clusters with names like dms.awsdms_changes000000000XXXX
+### Seeing tables in clusters with names like dms.awsdms\_changes000000000XXXX
 
 AWS DMS creates temporary tables when data is being loaded from files stored in
 Amazon S3. The names of these temporary tables each have the prefix `dms.awsdms_changes`.
@@ -1236,7 +1236,7 @@ have the following permissions:
 
 To see the prerequisites required for using Amazon Redshift as a target, see [Using an Amazon Redshift database as a target for AWS Database Migration Service](CHAP_Target.Redshift.md "CHAP_Target.Redshift.md").
 
-### Error: column "TASK_NAME" of relation "awsdms_apply_exceptions" does not exist
+### Error: column "TASK\_NAME" of relation "awsdms\_apply\_exceptions" does not exist
 
 This error occurs when the case sensitivity setting
 (`enable_case_sensitive_identifier`) on the Amazon Redshift cluster does not
@@ -1278,11 +1278,11 @@ Amazon Aurora MySQL databases.
 
 If you are using Amazon Aurora MySQL as a target, you might see an error like the
 following in the logs. This type of error usually indicates that you have
-ANSI_QUOTES as part of the SQL_MODE parameter. Having ANSI_QUOTES as part of the
-SQL_MODE parameter causes double quotation marks to be handled like quotation marks
+ANSI\_QUOTES as part of the SQL\_MODE parameter. Having ANSI\_QUOTES as part of the
+SQL\_MODE parameter causes double quotation marks to be handled like quotation marks
 and can create issues when you run a task.
 
-To fix this error, remove ANSI_QUOTES from the SQL_MODE parameter.
+To fix this error, remove ANSI\_QUOTES from the SQL\_MODE parameter.
 
 ```
 
@@ -1304,7 +1304,7 @@ SAP ASE databases.
 ### Error: LOB columns have NULL values when source has a composite unique index with NULL values
 
 When using SAP ASE as a source with tables configured with a composite unique index that allows NULL values,
-LOB values might not migrate during ongoing replication. This behavior is usually the result of ANSI_NULL set to 1 by default
+LOB values might not migrate during ongoing replication. This behavior is usually the result of ANSI\_NULL set to 1 by default
 on the DMS replication instance client.
 
 To ensure that LOB fields migrate correctly, include the Endpoint setting `'AnsiNull=0'`

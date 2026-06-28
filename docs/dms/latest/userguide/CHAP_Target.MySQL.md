@@ -169,7 +169,7 @@ following:
 - The data definition language (DDL) statements TRUNCATE PARTITION, DROP
   TABLE, and RENAME TABLE.
 - Using an `ALTER TABLE `table_name`ADD
-COLUMN`column_name`` statement to add
+ COLUMN`column_name`` statement to add
   columns to the beginning or the middle of a table.
 - When loading data to a MySQL-compatible target in a full load task, AWS DMS doesn't
   report errors caused by constraints in the task logs, which can cause duplicate key errors
@@ -184,7 +184,7 @@ COLUMN`column_name`` statement to add
   behavior isn't technically an error, it is different from how the
   situation is handled by other database engines. For example, Oracle performs
   an update of one row. For MySQL-compatible databases, AWS DMS generates an
-  entry in the awsdms_apply_exceptions control table and logs the following
+  entry in the awsdms\_apply\_exceptions control table and logs the following
   warning.
 
 ```

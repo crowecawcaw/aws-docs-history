@@ -157,8 +157,8 @@ elements:
 
   mode. `ColumnLength` is valid for the following data types:
 
-      - BYTE
-      - STRING
+        - BYTE
+        - STRING
   - `ColumnNullable` – a Boolean value that is
     `true` if this column can contain NULL values
     (default=`false`).
@@ -474,11 +474,10 @@ The following AWS DMS data types are used with Amazon S3 as a source:
 - NUMERIC – Requires `ColumnPrecision` and
   `ColumnScale`. AWS DMS supports the following maximum values:
 
-      + **ColumnPrecision: 38**
-      + **ColumnScale: 31**
-
-  For more information and an example, see the
-  NUMERIC type example in [Defining external tables for Amazon S3 as a source for AWS DMS](#CHAP_Source.S3.ExternalTableDef "#CHAP_Source.S3.ExternalTableDef").
+  - **ColumnPrecision: 38**
+  - **ColumnScale: 31**
+    For more information and an example, see the
+    NUMERIC type example in [Defining external tables for Amazon S3 as a source for AWS DMS](#CHAP_Source.S3.ExternalTableDef "#CHAP_Source.S3.ExternalTableDef").
 
 - REAL4
 - REAL8

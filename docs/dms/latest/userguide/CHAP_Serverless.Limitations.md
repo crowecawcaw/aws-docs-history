@@ -14,14 +14,13 @@ AWS DMS Serverless has the following limitations:
 - Serverless replications need to access dependencies by using VPC endpoints. You must use VPC endpoints to access the
   following endpoint types:
 
-      + Amazon Amazon S3
-      + Amazon Kinesis
-      + AWS Secrets Manager
-      + Amazon DynamoDB
-      + Amazon Redshift
-      + Amazon OpenSearch Service
-
-  For information about setting up VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
+  - Amazon Amazon S3
+  - Amazon Kinesis
+  - AWS Secrets Manager
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon OpenSearch Service
+    For information about setting up VPC endpoints, see [Configuring VPC endpoints for AWS DMS](CHAP_VPC_Endpoints.md "CHAP_VPC_Endpoints.md").
 
 - AWS DMS serverless does not support views.
 - AWS DMS Serverless does not support SSL connections for DB2 endpoints.

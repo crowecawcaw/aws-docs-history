@@ -98,9 +98,9 @@ Support case.
 
 ###### Topics
 
-- [awsdms_support_collector_oracle.sql script](#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script "#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script")
+- [awsdms\_support\_collector\_oracle.sql script](#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script "#CHAP_SupportScripts.Oracle.Awsdms_Support_Collector_Oracle_Script")
 
-## awsdms_support_collector_oracle.sql script
+## awsdms\_support\_collector\_oracle.sql script
 
 Download the [`awsdms_support_collector_oracle.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_oracle.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_oracle.sql") script.
 

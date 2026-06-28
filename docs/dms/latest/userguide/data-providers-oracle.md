@@ -26,6 +26,6 @@ For more information about using DMS Schema Conversion with a source Oracle data
 The following privileges are required for Oracle as a source:
 
 - CONNECT
-- SELECT_CATALOG_ROLE
+- SELECT\_CATALOG\_ROLE
 - SELECT ANY DICTIONARY
 - SELECT ON SYS.ARGUMENT$

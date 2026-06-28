@@ -87,7 +87,7 @@ EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$INSTANCE', 'dms_user', 'SELECT'
 - [Validate that limited LOB mode only is used when BatchApplyEnabled is enabled](#CHAP_Tasks.AssessmentReport.Oracle.LimitedLOBMode "#CHAP_Tasks.AssessmentReport.Oracle.LimitedLOBMode")
 - [Validate if tables on the source has columns without scale specified for the Number data type](#CHAP_Tasks.AssessmentReport.Oracle.NumberTypeWithoutScale "#CHAP_Tasks.AssessmentReport.Oracle.NumberTypeWithoutScale")
 - [Validate triggers on the target database](#CHAP_Tasks.AssessmentReport.Oracle.TriggersOnTargetDatabase "#CHAP_Tasks.AssessmentReport.Oracle.TriggersOnTargetDatabase")
-- [Validate if source has archivelog DEST_ID set to 0](#CHAP_Tasks.AssessmentReport.Oracle.UseZeroDestIDTrue "#CHAP_Tasks.AssessmentReport.Oracle.UseZeroDestIDTrue")
+- [Validate if source has archivelog DEST\_ID set to 0](#CHAP_Tasks.AssessmentReport.Oracle.UseZeroDestIDTrue "#CHAP_Tasks.AssessmentReport.Oracle.UseZeroDestIDTrue")
 - [Validate if secondary indexes are enabled on the target database during full-load](#CHAP_Tasks.AssessmentReport.Oracle.SecondaryIndexesEnabled "#CHAP_Tasks.AssessmentReport.Oracle.SecondaryIndexesEnabled")
 - [Validate if tables used in the DMS task scope with BatchApplyEnabled have more than 999 columns](#CHAP_Tasks.AssessmentReport.Oracle.SetBatchApplyEnabledTrue "#CHAP_Tasks.AssessmentReport.Oracle.SetBatchApplyEnabledTrue")
 - [Check supplemental logging on database level](#CHAP_Tasks.AssessmentReport.Oracle.SupplementalLogging "#CHAP_Tasks.AssessmentReport.Oracle.SupplementalLogging")
@@ -158,7 +158,7 @@ EXEC RDSADMIN.RDSADMIN_UTIL.GRANT_SYS_OBJECT('V_$INSTANCE', 'dms_user', 'SELECT'
 - [Validate that target foreign key constraints are disabled for migration](#CHAP_Tasks.AssessmentReport.Oracle.target.foreign.key.constraints.check "#CHAP_Tasks.AssessmentReport.Oracle.target.foreign.key.constraints.check")
 - [Validate that the Oracle database and AWS DMS versions are compatible](#CHAP_Tasks.AssessmentReport.Oracle.dms.compatibility.version.check "#CHAP_Tasks.AssessmentReport.Oracle.dms.compatibility.version.check")
 - [Validate that secondary constraints and indexes (non-primary) are present in the source database](#CHAP_Tasks.AssessmentReport.Oracle.all.check.secondary.constraints "#CHAP_Tasks.AssessmentReport.Oracle.all.check.secondary.constraints")
-- [Validate that session timeout settings (IDLE_TIME) are set to UNLIMITED](#CHAP_Tasks.AssessmentReport.Oracle.check.idle.time "#CHAP_Tasks.AssessmentReport.Oracle.check.idle.time")
+- [Validate that session timeout settings (IDLE\_TIME) are set to UNLIMITED](#CHAP_Tasks.AssessmentReport.Oracle.check.idle.time "#CHAP_Tasks.AssessmentReport.Oracle.check.idle.time")
 - [Validate that the AWS DMS user has all required permissions on the source database](#CHAP_Tasks.AssessmentReport.Oracle.validate.permissions.on.source "#CHAP_Tasks.AssessmentReport.Oracle.validate.permissions.on.source")
 - [Validate that XMLTYPE or LOB columns exist when Oracle LogMiner is used](#CHAP_Tasks.AssessmentReport.Oracle.update.lob.columns "#CHAP_Tasks.AssessmentReport.Oracle.update.lob.columns")
 - [Validate that the target endpoint is not a read replica](#CHAP_Tasks.AssessmentReport.Oracle.read.replica "#CHAP_Tasks.AssessmentReport.Oracle.read.replica")
@@ -224,7 +224,7 @@ For more information,
 
 Tables with batch optimized apply mode enabled can't have more than a total of 999 columns.
 Tables that have more than 999 columns will cause AWS DMS to process the batch one by one, which increases latency.
-DMS uses the formula **2 \* columns_in_original_table + columns_in_primary_key <= 999**
+DMS uses the formula **2 \* columns\_in\_original\_table + columns\_in\_primary\_key <= 999**
 to calculate the total number of columns per table supported in batch-optimized apply mode.
 
 For more information, see
@@ -253,7 +253,7 @@ valid for a full-load only migration.
 
 **API key:** `oracle-validate-standby-dblink`
 
-This premigration assessment validates if Dblink is created for the Oracle standby database source. AWSDMS_DBLINK is a
+This premigration assessment validates if Dblink is created for the Oracle standby database source. AWSDMS\_DBLINK is a
 prerequisite for using a standby database as a source. When using Oracle Standby as a source,
 AWS DMS does not validate open transactions by default.
 

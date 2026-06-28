@@ -9,7 +9,7 @@ API key for the `Include` parameter of the
 
 ###### Topics
 
-- [Validate if the server_id is set to 1 or greater in the source database](#CHAP_Tasks.AssessmentReport.MariaDB.ServerID "#CHAP_Tasks.AssessmentReport.MariaDB.ServerID")
+- [Validate if the server\_id is set to 1 or greater in the source database](#CHAP_Tasks.AssessmentReport.MariaDB.ServerID "#CHAP_Tasks.AssessmentReport.MariaDB.ServerID")
 - [Validate if automatic removal of binary logs is set for the source database](#CHAP_Tasks.AssessmentReport.MariaDB.AutomaticRemovalBinaryLogs "#CHAP_Tasks.AssessmentReport.MariaDB.AutomaticRemovalBinaryLogs")
 - [Validate that limited LOB mode only is used when BatchApplyEnabled is set to true](#CHAP_Tasks.AssessmentReport.MariaDB.LimitedLOBMode "#CHAP_Tasks.AssessmentReport.MariaDB.LimitedLOBMode")
 - [Validate if Binary Log transaction compression is disabled](#CHAP_Tasks.AssessmentReport.MariaDB.BinaryLogTransactionCompression "#CHAP_Tasks.AssessmentReport.MariaDB.BinaryLogTransactionCompression")
@@ -21,15 +21,15 @@ API key for the `Include` parameter of the
 - [Validate if the database binlog format is set to ROW to support DMS CDC](#CHAP_Tasks.AssessmentReport.MariaDB.BinlogFormat "#CHAP_Tasks.AssessmentReport.MariaDB.BinlogFormat")
 - [Validate if the database binlog image is set to FULL to support DMS CDC](#CHAP_Tasks.AssessmentReport.MariaDB.BinlogImage "#CHAP_Tasks.AssessmentReport.MariaDB.BinlogImage")
 - [Validate if the source database is a MariaDB Read-Replica](#CHAP_Tasks.AssessmentReport.MariaDB.ReadReplica "#CHAP_Tasks.AssessmentReport.MariaDB.ReadReplica")
-- [Validate if a table has partitions, and recommend TRUNCATE_BEFORE_LOAD or DO_NOTHING for full-load task settings](#CHAP_Tasks.AssessmentReport.MariaDB.FullLoadTaskSettings "#CHAP_Tasks.AssessmentReport.MariaDB.FullLoadTaskSettings")
+- [Validate if a table has partitions, and recommend TRUNCATE\_BEFORE\_LOAD or DO\_NOTHING for full-load task settings](#CHAP_Tasks.AssessmentReport.MariaDB.FullLoadTaskSettings "#CHAP_Tasks.AssessmentReport.MariaDB.FullLoadTaskSettings")
 - [Validate if DMS supports the database version](#CHAP_Tasks.AssessmentReport.MariaDB.DatabaseVersion "#CHAP_Tasks.AssessmentReport.MariaDB.DatabaseVersion")
-- [Validate if the target database is configured to set local_infile to 1](#CHAP_Tasks.AssessmentReport.MariaDB.LocalInfile "#CHAP_Tasks.AssessmentReport.MariaDB.LocalInfile")
+- [Validate if the target database is configured to set local\_infile to 1](#CHAP_Tasks.AssessmentReport.MariaDB.LocalInfile "#CHAP_Tasks.AssessmentReport.MariaDB.LocalInfile")
 - [Validate if target database has tables with foreign keys](#CHAP_Tasks.AssessmentReport.MariaDB.ForeignKeys "#CHAP_Tasks.AssessmentReport.MariaDB.ForeignKeys")
 - [Validate if source tables in the task scope have cascade constraints](#CHAP_Tasks.AssessmentReport.MariaDB.Cascade "#CHAP_Tasks.AssessmentReport.MariaDB.Cascade")
 - [Validate if source tables in the task scope have generated columns](#CHAP_Tasks.AssessmentReport.MariaDB.GeneratedColumns "#CHAP_Tasks.AssessmentReport.MariaDB.GeneratedColumns")
 - [Validate if the timeout values are appropriate for a MariaDB source](#CHAP_Tasks.AssessmentReport.MariaDB.Timeout.Source "#CHAP_Tasks.AssessmentReport.MariaDB.Timeout.Source")
 - [Validate if the timeout values are appropriate for a MariaDB target](#CHAP_Tasks.AssessmentReport.MariaDB.Timeout.Target "#CHAP_Tasks.AssessmentReport.MariaDB.Timeout.Target")
-- [Validate max_statement_time database parameter](#CHAP_Tasks.AssessmentReport.MariaDB.database.parameter "#CHAP_Tasks.AssessmentReport.MariaDB.database.parameter")
+- [Validate max\_statement\_time database parameter](#CHAP_Tasks.AssessmentReport.MariaDB.database.parameter "#CHAP_Tasks.AssessmentReport.MariaDB.database.parameter")
 - [Validate if Primary Key or Unique Index exist on target for Batch Apply](#CHAP_Tasks.AssessmentReport.MariaDB.batchapply "#CHAP_Tasks.AssessmentReport.MariaDB.batchapply")
 - [Validate if both Primary Key and Unique index exist on target for Batch Apply](#CHAP_Tasks.AssessmentReport.MariaDB.batchapply.simultaneous "#CHAP_Tasks.AssessmentReport.MariaDB.batchapply.simultaneous")
 - [Validate if secondary indexes are enabled during full load on the target database](#CHAP_Tasks.AssessmentReport.MariaDB.secondary.indexes "#CHAP_Tasks.AssessmentReport.MariaDB.secondary.indexes")
@@ -140,7 +140,7 @@ For more information about MariaDB endpoint limitations, see
 **API key:** `mariadb-check-auto-increment`
 
 This premigration assessment validates whether the source tables that are used in the task have
-auto-increment enabled. DMS doesn't migrate the AUTO_INCREMENT attribute on a column to a target database.
+auto-increment enabled. DMS doesn't migrate the AUTO\_INCREMENT attribute on a column to a target database.
 
 For more information about MariaDB endpoint limitations, see
 [Limitations on using a MySQL database as a source for AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.Limitations "CHAP_Source.MySQL.md#CHAP_Source.MySQL.Limitations"). For information about handling identity columns in MariaDB,
@@ -237,7 +237,7 @@ MariaDB versions, see [Source endpoints for data migration](CHAP_Introduction.So
 **API key:** `mariadb-check-target-localinfile-set`
 
 This premigration assessment checks whether the `local_infile` parameter in the
-target database is set to 1. DMS requires the 'local_infile' parameter to be set to 1 during full
+target database is set to 1. DMS requires the 'local\_infile' parameter to be set to 1 during full
 load in your target database. For more information, see
 [Migrating from MySQL to MySQL using AWS DMS](CHAP_Source.MySQL.md#CHAP_Source.MySQL.Homogeneous "CHAP_Source.MySQL.md#CHAP_Source.MySQL.Homogeneous").
 

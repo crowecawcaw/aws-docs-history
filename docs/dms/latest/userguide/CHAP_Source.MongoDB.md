@@ -59,7 +59,7 @@ document are consolidated into the `_doc` column.
 
 |                          |                                 |
 | ------------------------ | ------------------------------- |
-| oid_id                   | \_doc                           |
+| oid\_id                  | \_doc                           |
 | 5a94815f40bd44d1b02bdfe0 | `{ "a" : 1, "b" : 2, "c" : 3 }` |
 | 5a94815f40bd44d1b02bdfe1 | `{ "a" : 4, "b" : 5, "c" : 6 }` |
 
@@ -98,7 +98,7 @@ previous example into the following table.
 
 |                          |     |     |     |
 | ------------------------ | --- | --- | --- |
-| oid_id                   | a   | b   | c   |
+| oid\_id                  | a   | b   | c   |
 | 5a94815f40bd44d1b02bdfe0 | 1   | 2   | 3   |
 | 5a94815f40bd44d1b02bdfe1 | 4   | 5   | 6   |
 

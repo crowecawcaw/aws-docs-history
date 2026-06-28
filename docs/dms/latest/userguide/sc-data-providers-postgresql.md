@@ -9,7 +9,7 @@ to the following targets:
 - Aurora MySQL
   The privileges required for PostgreSQL as a source are as follows:
 
-- CONNECT ON DATABASE <database_name>
-- USAGE ON SCHEMA <database_name>
-- SELECT ON ALL TABLES IN SCHEMA <database_name>
-- SELECT ON ALL SEQUENCES IN SCHEMA <database_name>
+- CONNECT ON DATABASE <database\_name>
+- USAGE ON SCHEMA <database\_name>
+- SELECT ON ALL TABLES IN SCHEMA <database\_name>
+- SELECT ON ALL SEQUENCES IN SCHEMA <database\_name>

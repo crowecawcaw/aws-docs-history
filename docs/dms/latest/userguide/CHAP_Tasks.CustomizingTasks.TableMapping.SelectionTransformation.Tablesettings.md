@@ -444,91 +444,80 @@ parameters:
 - `mode` – Specifies the mechanism for handling LOB
   migration for the selected table or view as follows:
 
-      + `limited` – The default limited LOB mode is
-       the fastest and most efficient mode. Use this mode only if all
-       of your LOBs are small (within 100 MB in size) or the target
-       endpoint doesn't support an unlimited LOB size. Also if you
-       use `limited`, all LOBs need to be within the size
-       that you set for `bulk-max-size`.
+  - `limited` – The default limited LOB mode is
+    the fastest and most efficient mode. Use this mode only if all
+    of your LOBs are small (within 100 MB in size) or the target
+    endpoint doesn't support an unlimited LOB size. Also if you
+    use `limited`, all LOBs need to be within the size
+    that you set for `bulk-max-size`.
 
+  In this mode for a full load task, the replication instance
+  migrates all LOBs inline together with other column data types
+  as part of main table or view storage. However, the instance
+  truncates any migrated LOB larger than your
+  `bulk-max-size` value to the specified size. For
+  a change data capture (CDC) load task, the instance migrates all
+  LOBs using a source table lookup, as in standard full LOB mode
+  (see the following).
 
-      In this mode for a full load task, the replication instance
-       migrates all LOBs inline together with other column data types
-       as part of main table or view storage. However, the instance
-       truncates any migrated LOB larger than your
-       `bulk-max-size` value to the specified size. For
-       a change data capture (CDC) load task, the instance migrates all
-       LOBs using a source table lookup, as in standard full LOB mode
-       (see the following).
+  ###### Note
 
+  You can migrate views for full-load tasks only.
+  - `unlimited` – The migration mechanism for
+    full LOB mode depends on the value you set for
+    `bulk-max-size` as follows:
 
-      ###### Note
+    - **Standard full LOB
+      mode** – When you set
+      `bulk-max-size` to zero, the replication
+      instance migrates all LOBs using standard full LOB mode.
+      This mode requires a lookup in the source table or view
+      to migrate every LOB, regardless of size. This approach
+      typically results in a much slower migration than for
+      limited LOB mode. Use this mode only if all or most of
+      your LOBs are large (1 GB or larger).
+    - **Combination full LOB
+      mode** – When you set
+      `bulk-max-size` to a nonzero value, this
+      full LOB mode uses a combination of limited LOB mode and
+      standard full LOB mode. That is for a full load task, if
+      a LOB size is within your `bulk-max-size`
+      value, the instance migrates the LOB inline as in
+      limited LOB mode. If the LOB size is greater than this
+      value, the instance migrates the LOB using a source
+      table or view lookup as in standard full LOB mode. For a
+      change data capture (CDC) load task, the instance
+      migrates all LOBs using a source table lookup, as in
+      standard full LOB mode (see the following). It does so
+      regardless of LOB size.
 
-      You can migrate views for full-load tasks only.
-      + `unlimited` – The migration mechanism for
-       full LOB mode depends on the value you set for
-       `bulk-max-size` as follows:
+    ###### Note
 
+    You can migrate views for full-load tasks
+    only.
 
+    This mode results in a migration speed that is a
+    compromise between the faster, limited LOB mode and the
+    slower, standard full LOB mode. Use this mode only when
+    you have a mix of small and large LOBs, and most of the
+    LOBs are small.
 
+    This combination full LOB mode is available only for
+    the following endpoints:
 
-      	- **Standard full LOB
-      	 mode** – When you set
-      	 `bulk-max-size` to zero, the replication
-      	 instance migrates all LOBs using standard full LOB mode.
-      	 This mode requires a lookup in the source table or view
-      	 to migrate every LOB, regardless of size. This approach
-      	 typically results in a much slower migration than for
-      	 limited LOB mode. Use this mode only if all or most of
-      	 your LOBs are large (1 GB or larger).
-      	- **Combination full LOB
-      	 mode** – When you set
-      	 `bulk-max-size` to a nonzero value, this
-      	 full LOB mode uses a combination of limited LOB mode and
-      	 standard full LOB mode. That is for a full load task, if
-      	 a LOB size is within your `bulk-max-size`
-      	 value, the instance migrates the LOB inline as in
-      	 limited LOB mode. If the LOB size is greater than this
-      	 value, the instance migrates the LOB using a source
-      	 table or view lookup as in standard full LOB mode. For a
-      	 change data capture (CDC) load task, the instance
-      	 migrates all LOBs using a source table lookup, as in
-      	 standard full LOB mode (see the following). It does so
-      	 regardless of LOB size.
+          * IBM Db2 as source
+          * SAP ASE as source or target
 
-
-      	###### Note
-
-      	You can migrate views for full-load tasks
-      	 only.
-
-
-      	This mode results in a migration speed that is a
-      	 compromise between the faster, limited LOB mode and the
-      	 slower, standard full LOB mode. Use this mode only when
-      	 you have a mix of small and large LOBs, and most of the
-      	 LOBs are small.
-
-
-      	This combination full LOB mode is available only for
-      	 the following endpoints:
-
-
-
-
-      		* IBM Db2 as source
-      		* SAP ASE as source or target
-      Regardless of the mechanism you specify for
-       `unlimited` mode, the instance migrates all LOBs
-       fully, without truncation.
-      + `none` – The replication instance migrates
-       LOBs in the selected table or view using your task LOB settings.
-       Use this option to help compare migration results with and
-       without LOB settings for the selected table or view.
-
-  If the specified table or view has LOBs included in the replication,
-  you can set the `BatchApplyEnabled` task setting to
-  `true` only when using `limited` LOB mode.
+  Regardless of the mechanism you specify for
+  `unlimited` mode, the instance migrates all LOBs
+  fully, without truncation.
+  - `none` – The replication instance migrates
+    LOBs in the selected table or view using your task LOB settings.
+    Use this option to help compare migration results with and
+    without LOB settings for the selected table or view.
+    If the specified table or view has LOBs included in the replication,
+    you can set the `BatchApplyEnabled` task setting to
+    `true` only when using `limited` LOB mode.
 
 In some cases, you might set `BatchApplyEnabled` to
 `true` and `BatchApplyPreserveTransaction` to

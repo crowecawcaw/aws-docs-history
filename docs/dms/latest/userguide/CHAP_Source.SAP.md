@@ -95,9 +95,9 @@ To use an SAP ASE database as a source in an AWS DMS task, you need to grant
 permissions. Grant the user account specified in the AWS DMS database definitions the
 following permissions in the SAP ASE database:
 
-- sa_role
-- replication_role
-- sybase_ts_role
+- sa\_role
+- replication\_role
+- sybase\_ts\_role
 - By default, where you need to have permission to run the
   `sp_setreptable` stored procedure, AWS DMS enables the SAP ASE
   replication option. If you want to run `sp_setreptable` on a

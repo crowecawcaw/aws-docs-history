@@ -243,19 +243,18 @@ certain source or target endpoints:
 - Roles with permissions to allow AWS DMS access to the following source
   and target endpoints (or their resources):
 
-      + Amazon DynamoDB as a target – For more information see [Prerequisites for using DynamoDB as a target for AWS Database Migration Service](CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.Prerequisites "CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.Prerequisites").
-      + OpenSearch as a target – For more information see [Prerequisites for using Amazon OpenSearch Service as a target for AWS Database Migration Service](CHAP_Target.Elasticsearch.md#CHAP_Target.Elasticsearch.Prerequisites "CHAP_Target.Elasticsearch.md#CHAP_Target.Elasticsearch.Prerequisites").
-      + Amazon Kinesis as a target – For more information see [Prerequisites for using a Kinesis data stream as a target for AWS Database Migration Service](CHAP_Target.Kinesis.md#CHAP_Target.Kinesis.Prerequisites "CHAP_Target.Kinesis.md#CHAP_Target.Kinesis.Prerequisites").
-      + Amazon Redshift as a target – You need to create the specified role only
-       for creating a custom KMS encryption key to encrypt the target data or
-       for specifying a custom S3 bucket to hold intermediate task storage. For
-       more information, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys") or [Amazon S3 bucket settings](CHAP_Target.Redshift.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.Redshift.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
-      + Amazon S3 as a source or as a target – For more information, see
-       [Prerequisites when using Amazon S3 as a source for AWS DMS](CHAP_Source.S3.md#CHAP_Source.S3.Prerequisites "CHAP_Source.S3.md#CHAP_Source.S3.Prerequisites") or [Prerequisites for using Amazon S3 as a target](CHAP_Target.S3.md#CHAP_Target.S3.Prerequisites "CHAP_Target.S3.md#CHAP_Target.S3.Prerequisites").
-
-  For example, to read data from an S3 source endpoint or to push data to an
-  S3 target endpoint, you must create a service role as a prerequisite to
-  accessing S3 for each of these endpoint operations.
+  - Amazon DynamoDB as a target – For more information see [Prerequisites for using DynamoDB as a target for AWS Database Migration Service](CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.Prerequisites "CHAP_Target.DynamoDB.md#CHAP_Target.DynamoDB.Prerequisites").
+  - OpenSearch as a target – For more information see [Prerequisites for using Amazon OpenSearch Service as a target for AWS Database Migration Service](CHAP_Target.Elasticsearch.md#CHAP_Target.Elasticsearch.Prerequisites "CHAP_Target.Elasticsearch.md#CHAP_Target.Elasticsearch.Prerequisites").
+  - Amazon Kinesis as a target – For more information see [Prerequisites for using a Kinesis data stream as a target for AWS Database Migration Service](CHAP_Target.Kinesis.md#CHAP_Target.Kinesis.Prerequisites "CHAP_Target.Kinesis.md#CHAP_Target.Kinesis.Prerequisites").
+  - Amazon Redshift as a target – You need to create the specified role only
+    for creating a custom KMS encryption key to encrypt the target data or
+    for specifying a custom S3 bucket to hold intermediate task storage. For
+    more information, see [Creating and using AWS KMS keys to encrypt Amazon Redshift target data](CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys "CHAP_Target.Redshift.md#CHAP_Target.Redshift.KMSKeys") or [Amazon S3 bucket settings](CHAP_Target.Redshift.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets "CHAP_Target.Redshift.md#CHAP_Target.Redshift.EndpointSettings.S3Buckets").
+  - Amazon S3 as a source or as a target – For more information, see
+    [Prerequisites when using Amazon S3 as a source for AWS DMS](CHAP_Source.S3.md#CHAP_Source.S3.Prerequisites "CHAP_Source.S3.md#CHAP_Source.S3.Prerequisites") or [Prerequisites for using Amazon S3 as a target](CHAP_Target.S3.md#CHAP_Target.S3.Prerequisites "CHAP_Target.S3.md#CHAP_Target.S3.Prerequisites").
+    For example, to read data from an S3 source endpoint or to push data to an
+    S3 target endpoint, you must create a service role as a prerequisite to
+    accessing S3 for each of these endpoint operations.
 
 - Roles with permissions required to use the AWS DMS console, the AWS CLI and AWS DMS API –
   Two IAM roles that you need to create are `dms-vpc-role` and

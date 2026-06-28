@@ -46,7 +46,7 @@ This section describes individual premigration assessments for migration tasks t
 - [Validate that secondary constraints and indexes (non-primary) are present in the source database](#CHAP_Tasks.AssessmentReport.Sqlserver.secondary.constraints "#CHAP_Tasks.AssessmentReport.Sqlserver.secondary.constraints")
 - [Validate that target endpoint is not a read replica](#CHAP_Tasks.AssessmentReport.Sqlserver.target.replica "#CHAP_Tasks.AssessmentReport.Sqlserver.target.replica")
 - [Validate backup chain](#CHAP_Tasks.AssessmentReport.Sqlserver.backup.chain "#CHAP_Tasks.AssessmentReport.Sqlserver.backup.chain")
-- [Check database user permissions for applying EXCLUSIVE_AUTOMATIC_TRUNCATION safeguard policy](#CHAP_Tasks.AssessmentReport.Sqlserver.safeguard.permission "#CHAP_Tasks.AssessmentReport.Sqlserver.safeguard.permission")
+- [Check database user permissions for applying EXCLUSIVE\_AUTOMATIC\_TRUNCATION safeguard policy](#CHAP_Tasks.AssessmentReport.Sqlserver.safeguard.permission "#CHAP_Tasks.AssessmentReport.Sqlserver.safeguard.permission")
 - [Validate that secondary node connection and required safeguard attributes for AWS DMS source endpoint](#CHAP_Tasks.AssessmentReport.Sqlserver.node.safeguard.policy "#CHAP_Tasks.AssessmentReport.Sqlserver.node.safeguard.policy")
 - [Validate that endpoint has all required extra connection attributes (ECAs) when AWS DMS is connected to secondary node](#CHAP_Tasks.AssessmentReport.Sqlserver.node.without.eca "#CHAP_Tasks.AssessmentReport.Sqlserver.node.without.eca")
 
@@ -372,7 +372,7 @@ For more information, see [AWS DMS data validation](CHAP_Validating.md "CHAP_Val
 **API
 Key:**`sqlserver-check-target-privileges`
 
-The AWS DMS user must have must have at least the db_owner user role on the
+The AWS DMS user must have must have at least the db\_owner user role on the
 target database.
 
 For more information, see [Security requirements when using SQL Server as a target for AWS Database Migration Service](CHAP_Target.SQLServer.md#CHAP_Target.SQLServer.Security "CHAP_Target.SQLServer.md#CHAP_Target.SQLServer.Security").

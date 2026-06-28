@@ -131,9 +131,9 @@ can't be modified for a task after that task is created.
 
 ###### Note
 
-For an Oracle endpoint, AWS DMS uses DBMS_CRYPTO to validate BLOBs. If your
+For an Oracle endpoint, AWS DMS uses DBMS\_CRYPTO to validate BLOBs. If your
 Oracle endpoint uses BLOBs, grant the `execute` permission for
-DBMS_CRYPTO to the user account that accesses the Oracle endpoint. To do
+DBMS\_CRYPTO to the user account that accesses the Oracle endpoint. To do
 this, run the following statement.
 
 ```

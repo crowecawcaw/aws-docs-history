@@ -88,17 +88,17 @@ information that is logged, as shown in the following list.
 The levels of severity are in order from lowest to highest level of
 information. The higher levels always include information from the lower levels.
 
-- LOGGER_SEVERITY_ERROR – Error messages are written to the
+- LOGGER\_SEVERITY\_ERROR – Error messages are written to the
   log.
-- LOGGER_SEVERITY_WARNING – Warnings and error messages are
+- LOGGER\_SEVERITY\_WARNING – Warnings and error messages are
   written to the log.
-- LOGGER_SEVERITY_INFO – Informational messages, warnings, and
+- LOGGER\_SEVERITY\_INFO – Informational messages, warnings, and
   error messages are written to the log.
-- LOGGER_SEVERITY_DEFAULT – Informational messages, warnings, and
+- LOGGER\_SEVERITY\_DEFAULT – Informational messages, warnings, and
   error messages are written to the log.
-- LOGGER_SEVERITY_DEBUG – Debug messages, informational messages,
+- LOGGER\_SEVERITY\_DEBUG – Debug messages, informational messages,
   warnings, and error messages are written to the log.
-- LOGGER_SEVERITY_DETAILED_DEBUG – All information is written to
+- LOGGER\_SEVERITY\_DETAILED\_DEBUG – All information is written to
   the log.
   The following JSON example shows task settings for logging all actions and
   levels of severity.

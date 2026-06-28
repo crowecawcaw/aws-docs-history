@@ -30,8 +30,10 @@ grant replication client on *.* to `username`;
 ```
 
 3. ```
-   grant execute on procedure mysql.rds_show_configuration to `username`;
+
    ```
+
+grant execute on procedure mysql.rds_show_configuration to `username`;
 
 ```
 The following topics describe how to download, review, and run each support script

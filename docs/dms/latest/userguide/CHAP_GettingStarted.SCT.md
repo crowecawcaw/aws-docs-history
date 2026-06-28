@@ -27,31 +27,28 @@ then choose **MySQL**, and choose **Next**. 5. In the **Add source** page, set t
     * **Password**: `changeit`
 
 6. Choose **Add target** to add a target Amazon RDS for PostgreSQL
-   database to your project, then choose **Amazon RDS for PostgreSQL**.
-   Choose **Next**.
-7. In the **Add target** page, set the following values:
+database to your project, then choose **Amazon RDS for PostgreSQL**.
+Choose **Next**. 7. In the **Add target** page, set the following values:
 
-   - **Connection name**: `target`
-   - **Server name**: Enter the endpoint for the PostgreSQL database that you
+    * **Connection name**: `target`
+    * **Server name**: Enter the endpoint for the PostgreSQL database that you
      noted previously.
-   - **Server port**: `5432`
-   - **Database**: Enter the name of your PostgreSQL database.
-   - **User name**: `postgres`
-   - **Password**: `changeit`
+    * **Server port**: `5432`
+    * **Database**: Enter the name of your PostgreSQL database.
+    * **User name**: `postgres`
+    * **Password**: `changeit`
 
-8. In the left pane, choose **dms_sample** under **Schemas**.
-   In the right pane, choose your target Amazon RDS for PostgreSQL database. Choose
-   **Create mapping**. You can add multiple mapping rules to a
-   single AWS SCT project. For more information about mapping rules, see [Creating
-   mapping rules](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md").
-9. Choose **Main view**.
-10. In the left pane, choose **dms_sample** under **Schemas**.
-    Open the context (right-click) menu and choose **Convert schema**.
-    Confirm the action.
+8. In the left pane, choose **dms\_sample** under **Schemas**.
+In the right pane, choose your target Amazon RDS for PostgreSQL database. Choose
+**Create mapping**. You can add multiple mapping rules to a
+single AWS SCT project. For more information about mapping rules, see [Creating
+mapping rules](../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md "../../../SchemaConversionTool/latest/userguide/CHAP_Mapping.md"). 9. Choose **Main view**. 10. In the left pane, choose **dms\_sample** under **Schemas**.
+Open the context (right-click) menu and choose **Convert schema**.
+Confirm the action.
 
-After the tool converts the schema, the **dms_sample** schema appears
+After the tool converts the schema, the **dms\_sample** schema appears
 in the right pane. 11. In the right pane, under **Schemas**, open the context (right-click) menu for
-**dms_sample** and choose **Apply to database**.
+**dms\_sample** and choose **Apply to database**.
 Confirm the action.
 Verify that the schema migration completed. Perform the following steps.
 

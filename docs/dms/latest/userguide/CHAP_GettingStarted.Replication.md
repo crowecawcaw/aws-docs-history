@@ -196,18 +196,17 @@ dms_sample=> select * from dms_sample.person where first_name = 'Test';
 (0 rows)
 ```
 
-7.  While your migration task is running, you can monitor the progress of your database migration
-    as it happens:
+7. While your migration task is running, you can monitor the progress of your database migration
+   as it happens:
 
-        * In the DMS console navigation pane, choose **Database migration
-         tasks**.
-        * Choose **dms-task**.
-        * Choose **Table statistics**.
+   - In the DMS console navigation pane, choose **Database migration
+     tasks**.
+   - Choose **dms-task**.
+   - Choose **Table statistics**.
+     For more information about monitoring, see [Monitoring AWS DMS tasks](CHAP_Monitoring.md "CHAP_Monitoring.md").
 
-    For more information about monitoring, see [Monitoring AWS DMS tasks](CHAP_Monitoring.md "CHAP_Monitoring.md").
-
-8.  After replication completes, query the target database again for the new record. AWS DMS migrates the new record after
-    initial replication completes.
+8. After replication completes, query the target database again for the new record. AWS DMS migrates the new record after
+   initial replication completes.
 
 ```
 dms_sample=> select * from dms_sample.person where first_name = 'Test';

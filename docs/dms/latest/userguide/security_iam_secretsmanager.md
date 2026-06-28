@@ -254,18 +254,16 @@ connect to your endpoint database from this point forward. 4. In the **Plaintext
     ```
 
 5. Select an AWS KMS encryption key to encrypt the secret. You can accept the
-   default encryption key created for your service by AWS Secrets Manager
-   or select a AWS KMS key that you create.
-6. Specify a name to reference this secret and an optional description. This is
-   the friendly name that you use as the value for
-   `SecretsManagerSecretId` or
-   `SecretsManagerOracleAsmSecretId`.
-7. If you want to enable automatic rotation in the secret, you need to select or
-   create an AWS Lambda function with permission to rotate the credentials
-   for the secret as described. However, before setting automatic rotation to use
-   your Lambda function, ensure that the configuration settings for the function add
-   the following four characters to the value of the `EXCLUDE_CHARACTERS`
-   environment variable.
+default encryption key created for your service by AWS Secrets Manager
+or select a AWS KMS key that you create. 6. Specify a name to reference this secret and an optional description. This is
+the friendly name that you use as the value for
+`SecretsManagerSecretId` or
+`SecretsManagerOracleAsmSecretId`. 7. If you want to enable automatic rotation in the secret, you need to select or
+create an AWS Lambda function with permission to rotate the credentials
+for the secret as described. However, before setting automatic rotation to use
+your Lambda function, ensure that the configuration settings for the function add
+the following four characters to the value of the `EXCLUDE_CHARACTERS`
+environment variable.
 
 ```
 ;.:+{}*&,%\

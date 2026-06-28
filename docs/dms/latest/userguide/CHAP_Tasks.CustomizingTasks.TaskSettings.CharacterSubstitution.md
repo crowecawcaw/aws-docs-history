@@ -20,19 +20,18 @@ target databases:
 
 - Target databases:
 
-      + Oracle
-      + Microsoft SQL Server
-      + MySQL
-      + MariaDB
-      + PostgreSQL
-      + SAP Adaptive Server Enterprise (ASE)
-      + Amazon Redshift
-
-  You can specify character substitutions using the
-  `CharacterSetSettings` parameter in your task settings. These
-  character substitutions occur for characters specified using the Unicode code
-  point value in hexadecimal notation. You can implement the substitutions in two
-  phases, in the following order if both are specified:
+  - Oracle
+  - Microsoft SQL Server
+  - MySQL
+  - MariaDB
+  - PostgreSQL
+  - SAP Adaptive Server Enterprise (ASE)
+  - Amazon Redshift
+    You can specify character substitutions using the
+    `CharacterSetSettings` parameter in your task settings. These
+    character substitutions occur for characters specified using the Unicode code
+    point value in hexadecimal notation. You can implement the substitutions in two
+    phases, in the following order if both are specified:
 
 1. **Individual character replacement**
    – AWS DMS can replace the values of selected characters on the

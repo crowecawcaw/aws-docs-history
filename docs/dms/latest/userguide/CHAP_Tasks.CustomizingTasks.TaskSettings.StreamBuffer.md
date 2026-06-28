@@ -17,8 +17,8 @@ following. For information about how to use a task configuration file to set tas
   receive a message in the log files that the stream buffer size is
   insufficient. When calculating the size of this option, you can use the
   following equation: `[Max LOB size (or LOB chunk size)]*[number of
-LOB columns]*[number of stream buffers]*[number of tables loading in
-parallel per task(MaxFullLoadSubTasks)]*3`
+ LOB columns]*[number of stream buffers]*[number of tables loading in
+ parallel per task(MaxFullLoadSubTasks)]*3`
 - `CtrlStreamBufferSizeInMB` – Use this option to set
   the size of the control stream buffer. The value is in megabytes, and
   can be 1–8. The default value is 5. You might need to increase

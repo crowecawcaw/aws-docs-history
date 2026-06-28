@@ -165,7 +165,7 @@ However, you can add a transformation rule to coerce
 `ContactDetails` to a JSON object. For example, suppose that the
 original source column name is `ContactDetails`. To coerce the data
 type as Nested JSON, the column at source endpoint needs to be renamed as
-json_ContactDetails” either by adding “\*json\_\*“ prefix on the source manually or
+json\_ContactDetails” either by adding “\*json\_\*“ prefix on the source manually or
 through transformation rules. For example, you can use the below transformation
 rule:
 
@@ -291,19 +291,18 @@ into AWS DMS as described following.
 
 ###### To import the public key (.pem) file
 
-1.  Open the AWS DMS console at [https://console.aws.amazon.com/dms](https://console.aws.amazon.com/dms "https://console.aws.amazon.com/dms").
-2.  In the navigation pane, choose
-    **Certificates**.
-3.  Choose **Import certificate** and do the
-    following:
+1. Open the AWS DMS console at [https://console.aws.amazon.com/dms](https://console.aws.amazon.com/dms "https://console.aws.amazon.com/dms").
+2. In the navigation pane, choose
+   **Certificates**.
+3. Choose **Import certificate** and do the
+   following:
 
-        * For **Certificate identifier**, enter a unique name for the certificate, for
-         example `docdb-cert`.
-        * For **Import file**, navigate to the location
-         where you saved the .pem file.
-
-    When the settings are as you want them, choose **Add new CA
-    certificate**.
+   - For **Certificate identifier**, enter a unique name for the certificate, for
+     example `docdb-cert`.
+   - For **Import file**, navigate to the location
+     where you saved the .pem file.
+     When the settings are as you want them, choose **Add new CA
+     certificate**.
 
 #### AWS CLI
 

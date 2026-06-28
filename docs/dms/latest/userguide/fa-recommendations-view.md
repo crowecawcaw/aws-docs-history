@@ -25,24 +25,23 @@ migration considerations.
 
 ###### To explore the recommendation in detail
 
-1.  Generate target recommendations with DMS Fleet Advisor. For more information, see [Generating target
-    recommendations](fa-recommendations-generate.md "fa-recommendations-generate.md").
-2.  Choose the recommendation name from the **Recommendations** table. The
-    recommendation page opens.
-3.  If your recommendation includes more than one target options, then for **Target
-    recommendations**, choose the target option.
-4.  Expand the **Source utilization and capacity** section. DMS Fleet Advisor displays
-    resource utilization charts for the following metrics.
+1. Generate target recommendations with DMS Fleet Advisor. For more information, see [Generating target
+   recommendations](fa-recommendations-generate.md "fa-recommendations-generate.md").
+2. Choose the recommendation name from the **Recommendations** table. The
+   recommendation page opens.
+3. If your recommendation includes more than one target options, then for **Target
+   recommendations**, choose the target option.
+4. Expand the **Source utilization and capacity** section. DMS Fleet Advisor displays
+   resource utilization charts for the following metrics.
 
-        * Number of CPUs
-        * Memory
-        * I/O throughput
-        * Input/output operations per second (IOPS)
-        * Storage
-        * Number of active database server connections
-
-    Use these charts to compare your source database metrics from your DMS data collector to the metrics
-    of the selected target engine.
+   - Number of CPUs
+   - Memory
+   - I/O throughput
+   - Input/output operations per second (IOPS)
+   - Storage
+   - Number of active database server connections
+     Use these charts to compare your source database metrics from your DMS data collector to the metrics
+     of the selected target engine.
 
 If you can't see charts after you expand the **Source utilization and capacity**
 section, make sure that you granted your IAM user with permissions to view Amazon CloudWatch dashboards. For

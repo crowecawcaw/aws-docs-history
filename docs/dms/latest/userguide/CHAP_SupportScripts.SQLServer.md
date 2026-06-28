@@ -74,9 +74,9 @@ Support case.
 
 ###### Topics
 
-- [awsdms_support_collector_sql_server.sql script](#CHAP_SupportScripts.SQLServer.Awsdms_Support_Collector_SQLServer_Script "#CHAP_SupportScripts.SQLServer.Awsdms_Support_Collector_SQLServer_Script")
+- [awsdms\_support\_collector\_sql\_server.sql script](#CHAP_SupportScripts.SQLServer.Awsdms_Support_Collector_SQLServer_Script "#CHAP_SupportScripts.SQLServer.Awsdms_Support_Collector_SQLServer_Script")
 
-### awsdms_support_collector_sql_server.sql script
+### awsdms\_support\_collector\_sql\_server.sql script
 
 Download the [`awsdms_support_collector_sql_server.sql`](https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_sql_server.sql "https://d2pwp9zz55emqw.cloudfront.net/scripts/awsdms_support_collector_sql_server.sql") script.
 
@@ -112,8 +112,8 @@ The specified sqlcmd command parameters include the following:
     * `-d` – SQL Server database name.
 
 2. After the script completes, review the output HTML file and remove any information that
-   you are uncomfortable sharing. When the HTML is acceptable for you to share, upload the file
-   to your AWS Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
+you are uncomfortable sharing. When the HTML is acceptable for you to share, upload the file
+to your AWS Support case. For more information on uploading this file, see [Working with diagnostic support scripts in AWS DMS](CHAP_SupportScripts.md "CHAP_SupportScripts.md").
 
 With Amazon RDS for SQL Server, you can't connect using the sqlcmd command line utility, so
 use the following procedure.

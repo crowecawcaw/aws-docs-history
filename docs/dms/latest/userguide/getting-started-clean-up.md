@@ -23,25 +23,24 @@ resources.
 
 ###### To clean up your DMS Schema Conversion resources
 
-1.  Sign in to the AWS Management Console and open the AWS DMS console.
-2.  In the navigation pane, choose **Migration projects**.
+1. Sign in to the AWS Management Console and open the AWS DMS console.
+2. In the navigation pane, choose **Migration projects**.
 
-    1. Choose `sc-project`.
-    2. Choose **Schema conversion**, and then choose
-       **Close schema conversion**.
-    3. Choose **Delete** and confirm your choice.
+   1. Choose `sc-project`.
+   2. Choose **Schema conversion**, and then choose
+      **Close schema conversion**.
+   3. Choose **Delete** and confirm your choice.
 
-3.  In the navigation pane, choose **Instance profiles**.
+3. In the navigation pane, choose **Instance profiles**.
 
-    1. Choose `sc-instance`.
-    2. Choose **Delete** and confirm your choice.
+   1. Choose `sc-instance`.
+   2. Choose **Delete** and confirm your choice.
 
-4.  In the navigation pane, choose **Data providers**.
+4. In the navigation pane, choose **Data providers**.
 
-        1. Select `sc-source` and
-         `sc-target`.
-        2. Choose **Delete** and confirm your choice.
-
-    Also, make sure that you clean up other AWS resources that you created, such as your
-    Amazon S3 bucket, database secrets in AWS Secrets Manager, IAM roles, and virtual private cloud
-    (VPC).
+   1. Select `sc-source` and
+      `sc-target`.
+   2. Choose **Delete** and confirm your choice.
+      Also, make sure that you clean up other AWS resources that you created, such as your
+      Amazon S3 bucket, database secrets in AWS Secrets Manager, IAM roles, and virtual private cloud
+      (VPC).

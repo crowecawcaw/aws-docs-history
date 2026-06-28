@@ -4,9 +4,9 @@ You can use [Homogeneous data migrations](data-migrations.md "data-migrations.md
 AWS DMS creates a serverless environment for your data migration. For different types of data migrations,
 AWS DMS uses different native PostgreSQL database tools.
 
-For homogeneous data migrations of the **Full load** type, AWS DMS uses pg_dump to read data from
+For homogeneous data migrations of the **Full load** type, AWS DMS uses pg\_dump to read data from
 your source database and store it on the disk attached to the serverless environment. After AWS DMS reads
-all your source data, it uses pg_restore in the target database to restore your data.
+all your source data, it uses pg\_restore in the target database to restore your data.
 
 For homogeneous data migrations of the **Full load and change data capture (CDC)** type, AWS DMS uses
 `pg_dump` to read schema objects without table data from your source database and store them on the disk attached to the serverless
@@ -58,10 +58,10 @@ to RDS for PostgreSQL or Aurora PostgreSQL.
   `max_logical_replication_workers` and `max_sync_workers_per_subscription`. Increasing
   these values enhances table synchronization speed.
 
-  - **max_logical_replication_workers** –
+  - **max\_logical\_replication\_workers** –
     Specifies maximum number of logical replication workers. This includes both the apply workers on the
     subscriber side and the table synchronization workers.
-  - **max_sync_workers_per_subscription** –
+  - **max\_sync\_workers\_per\_subscription** –
     Increasing `max_sync_workers_per_subscription` only affects the number of tables
     that are synchronized in parallel, not the number of workers per table.
 

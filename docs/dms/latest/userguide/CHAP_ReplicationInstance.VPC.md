@@ -194,9 +194,9 @@ the _Amazon VPC User Guide_.
 
 ### Configuration with an RDS DB instance not in a VPC to a DB instance in a VPC using ClassicLink
 
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| We are retiring EC2-Classic on August 15, 2022. We recommend<br>that you migrate from EC2-Classic to a VPC. For more information, see<br>[Migrate from EC2-Classic to a VPC](../../../AWSEC2/latest/UserGuide/vpc-migrate.md "../../../AWSEC2/latest/UserGuide/vpc-migrate.md")<br>in the \*Amazon EC2 User Guide<br>• and the blog<br>[EC2-Classic Networking is Retiring – Here’s How to Prepare](https://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/ "https://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/"). |
+|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| We are retiring EC2-Classic on August 15, 2022. We recommend<br>that you migrate from EC2-Classic to a VPC. For more information, see<br>[Migrate from EC2-Classic to a VPC](../../../AWSEC2/latest/UserGuide/vpc-migrate.md "../../../AWSEC2/latest/UserGuide/vpc-migrate.md")<br>in the *Amazon EC2 User Guide<br>• and the blog<br>[EC2-Classic Networking is Retiring – Here’s How to Prepare](https://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/ "https://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/"). |
 
 To connect an Amazon RDS DB instance not in a VPC to a DMS replication server and
 DB instance in a VPC, you can use ClassicLink with a proxy server.
@@ -364,21 +364,20 @@ To set up a proxy server on an EC2 Classic instance
     ```
 
 4. Create a ClassicLink connection between the proxy server and the
-   target VPC that contains the target DB instance and the replication
-   instance:
+target VPC that contains the target DB instance and the replication
+instance:
 
-   1. Open the EC2 console and choose the EC2 Classic instance that is running the proxy
-      server.
-   2. For **Actions**, choose **ClassicLink**, then choose
-      **Link to VPC**.
-   3. Choose the security group that you used earlier in this
-      procedure.
-   4. Choose **Link to VPC**.
+    1. Open the EC2 console and choose the EC2 Classic instance that is running the proxy
+     server.
+    2. For **Actions**, choose **ClassicLink**, then choose
+     **Link to VPC**.
+    3. Choose the security group that you used earlier in this
+     procedure.
+    4. Choose **Link to VPC**.
 
 5. Step 5: Create AWS DMS endpoints using the procedure at [Step 2: Specify source and target endpoints](CHAP_GettingStarted.Replication.md#CHAP_GettingStarted.Replication.Endpoints "CHAP_GettingStarted.Replication.md#CHAP_GettingStarted.Replication.Endpoints"). Make sure to
-   use the internal EC2 DNS hostname of the proxy as the server name
-   when specifying the source endpoint.
-6. Create an AWS DMS task using the procedure in [Step 3: Create a task and migrate data](CHAP_GettingStarted.Replication.md#CHAP_GettingStarted.Replication.Tasks "CHAP_GettingStarted.Replication.md#CHAP_GettingStarted.Replication.Tasks").
+use the internal EC2 DNS hostname of the proxy as the server name
+when specifying the source endpoint. 6. Create an AWS DMS task using the procedure in [Step 3: Create a task and migrate data](CHAP_GettingStarted.Replication.md#CHAP_GettingStarted.Replication.Tasks "CHAP_GettingStarted.Replication.md#CHAP_GettingStarted.Replication.Tasks").
 
 ### Configuration for a network connecting to AWS services
 

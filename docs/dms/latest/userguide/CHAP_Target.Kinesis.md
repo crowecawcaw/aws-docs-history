@@ -11,7 +11,7 @@ _Amazon Kinesis Data Streams Developer Guide._
 
 AWS Database Migration Service publishes records to a Kinesis data stream using JSON. During conversion, AWS DMS
 serializes each record from the source database into an attribute-value pair in JSON
-format or a JSON_UNFORMATTED message format. A JSON_UNFORMATTED message format is a single line
+format or a JSON\_UNFORMATTED message format. A JSON\_UNFORMATTED message format is a single line
 JSON string with new line
 delimiter. It allows Amazon Data Firehose to deliver Kinesis data to an Amazon
 S3 destination, and then query it using various query engines including Amazon Athena.
@@ -812,7 +812,7 @@ When `partition-key-type` is set to `attribute-name` in a table mapping rule, yo
 
 ### Message format for Kinesis Data Streams
 
-The JSON output is simply a list of key-value pairs. A JSON_UNFORMATTED message
+The JSON output is simply a list of key-value pairs. A JSON\_UNFORMATTED message
 format is a single line JSON string with new line delimiter.
 
 AWS DMS provides the following reserved fields to make it easier to consume the data from the Kinesis Data Streams:

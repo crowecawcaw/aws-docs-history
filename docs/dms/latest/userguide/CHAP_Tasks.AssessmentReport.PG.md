@@ -13,16 +13,16 @@ This section describes individual premigration assessments for migration tasks t
 - [Validate if any table of the target database has secondary indexes for the full-load migration task](#CHAP_Tasks.AssessmentReport.PG.TargetDatabaseSecondaryIndexes "#CHAP_Tasks.AssessmentReport.PG.TargetDatabaseSecondaryIndexes")
 - [Validate that limited LOB mode only is used when BatchApplyEnabled is set to true](#CHAP_Tasks.AssessmentReport.PG.LimitedLOBMode "#CHAP_Tasks.AssessmentReport.PG.LimitedLOBMode")
 - [Validate if source database version is supported by DMS for migration](#CHAP_Tasks.AssessmentReport.PG.SourceVersion "#CHAP_Tasks.AssessmentReport.PG.SourceVersion")
-- [Validate the logical_decoding_work_mem parameter on the source database](#CHAP_Tasks.AssessmentReport.PG.LogicalDecoding "#CHAP_Tasks.AssessmentReport.PG.LogicalDecoding")
+- [Validate the logical\_decoding\_work\_mem parameter on the source database](#CHAP_Tasks.AssessmentReport.PG.LogicalDecoding "#CHAP_Tasks.AssessmentReport.PG.LogicalDecoding")
 - [Validate whether the source database has any long running transactions](#CHAP_Tasks.AssessmentReport.PG.LongRunning "#CHAP_Tasks.AssessmentReport.PG.LongRunning")
-- [Validate the source database parameter max_slot_wal_keep_size](#CHAP_Tasks.AssessmentReport.PG. "#CHAP_Tasks.AssessmentReport.PG.")
+- [Validate the source database parameter max\_slot\_wal\_keep\_size](#CHAP_Tasks.AssessmentReport.PG. "#CHAP_Tasks.AssessmentReport.PG.")
 - [Check if the source database parameter postgres-check-maxwalsenders is set to support CDC.](#CHAP_Tasks.AssessmentReport.PG.MaxWalSenders "#CHAP_Tasks.AssessmentReport.PG.MaxWalSenders")
 - [Check if the source database is configured for PGLOGICAL](#CHAP_Tasks.AssessmentReport.PG.pglogical "#CHAP_Tasks.AssessmentReport.PG.pglogical")
 - [Validate if the source table primary key is of LOB Datatype](#CHAP_Tasks.AssessmentReport.PG.pklob "#CHAP_Tasks.AssessmentReport.PG.pklob")
 - [Validate if the source table has a primary key](#CHAP_Tasks.AssessmentReport.PG.pk "#CHAP_Tasks.AssessmentReport.PG.pk")
 - [Validate if prepared transactions are present on the source database](#CHAP_Tasks.AssessmentReport.PG.preparedtransactions "#CHAP_Tasks.AssessmentReport.PG.preparedtransactions")
-- [Validate if wal_sender_timeout is set to a minimum required value to support DMS CDC](#CHAP_Tasks.AssessmentReport.PG.waltime "#CHAP_Tasks.AssessmentReport.PG.waltime")
-- [Validate if wal_level is set to logical on the source database](#CHAP_Tasks.AssessmentReport.PG.wallevel "#CHAP_Tasks.AssessmentReport.PG.wallevel")
+- [Validate if wal\_sender\_timeout is set to a minimum required value to support DMS CDC](#CHAP_Tasks.AssessmentReport.PG.waltime "#CHAP_Tasks.AssessmentReport.PG.waltime")
+- [Validate if wal\_level is set to logical on the source database](#CHAP_Tasks.AssessmentReport.PG.wallevel "#CHAP_Tasks.AssessmentReport.PG.wallevel")
 - [Validate if both Primary Key and Unique index exist on target for Batch Apply](#CHAP_Tasks.AssessmentReport.PG.batchapply "#CHAP_Tasks.AssessmentReport.PG.batchapply")
 - [Recommend Max LOB setting when LOB objects are found](#CHAP_Tasks.AssessmentReport.PG.lobsize "#CHAP_Tasks.AssessmentReport.PG.lobsize")
 - [Validate if table has primary key or unique index and its state is well when DMS validation is enabled](#CHAP_Tasks.AssessmentReport.PG.pkvalidity "#CHAP_Tasks.AssessmentReport.PG.pkvalidity")
@@ -41,7 +41,7 @@ This section describes individual premigration assessments for migration tasks t
 - [Validate that REPLICA IDENTITY FULL conflicts with pglogical plugin usage](#CHAP_Tasks.AssessmentReport.PG.repl.identity.full "#CHAP_Tasks.AssessmentReport.PG.repl.identity.full")
 - [Validate that secondary constraints and indexes (non-primary) are present in the source database](#CHAP_Tasks.AssessmentReport.PG.secondary.constraints "#CHAP_Tasks.AssessmentReport.PG.secondary.constraints")
 - [Validate CHAR/VARCHAR columns compatibility for migration to Oracle](#CHAP_Tasks.AssessmentReport.PG.varchar.columns "#CHAP_Tasks.AssessmentReport.PG.varchar.columns")
-- [Validate that idle_in_transaction_session_timeout setting is configured on the source database](#CHAP_Tasks.AssessmentReport.PG.transaction.session "#CHAP_Tasks.AssessmentReport.PG.transaction.session")
+- [Validate that idle\_in\_transaction\_session\_timeout setting is configured on the source database](#CHAP_Tasks.AssessmentReport.PG.transaction.session "#CHAP_Tasks.AssessmentReport.PG.transaction.session")
 - [Validate that AWS DMS user has required roles for AWS-managed PostgreSQL databases](#CHAP_Tasks.AssessmentReport.PG.rds.roles "#CHAP_Tasks.AssessmentReport.PG.rds.roles")
 - [Validate that the target endpoint is not a read replica](#CHAP_Tasks.AssessmentReport.PG.read.replica "#CHAP_Tasks.AssessmentReport.PG.read.replica")
 - [Verify source Aurora PostgreSQL read replica version](#CHAP_Tasks.AssessmentReport.PG.Aurorasource.replica.version "#CHAP_Tasks.AssessmentReport.PG.Aurorasource.replica.version")
@@ -261,7 +261,7 @@ For more information, see [AWS DMS data validation](CHAP_Validating.md "CHAP_Val
 **API key:**
 `postgres-check-target-privileges`
 
-The AWS DMS user must have at least the db_owner user role on the target
+The AWS DMS user must have at least the db\_owner user role on the target
 database.
 
 For more information, see [Security requirements when using a PostgreSQL database as a target for AWS Database Migration Service](CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Security "CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Security").
@@ -373,8 +373,8 @@ For more information, see [Limitations on using a PostgreSQL database as a DMS s
 **API key**:
 `postgres-check-pglogical-replica-identity-full`
 
-This premigration assessment detects tables using REPLICA IDENTITY FULL. While REPLICA IDENTITY FULL is supported using the test_decoding plugin, using it with pglogical will prevent updates from being replicated correctly.
-Either change the REPLICA IDENTITY setting to DEFAULT/INDEX, or switch to a test_decoding plugin to maintain REPLICA IDENTITY FULL
+This premigration assessment detects tables using REPLICA IDENTITY FULL. While REPLICA IDENTITY FULL is supported using the test\_decoding plugin, using it with pglogical will prevent updates from being replicated correctly.
+Either change the REPLICA IDENTITY setting to DEFAULT/INDEX, or switch to a test\_decoding plugin to maintain REPLICA IDENTITY FULL
 
 For more information, see [Enabling change data capture (CDC) using logical replication](CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.Security "CHAP_Source.PostgreSQL.md#CHAP_Source.PostgreSQL.Security").
 

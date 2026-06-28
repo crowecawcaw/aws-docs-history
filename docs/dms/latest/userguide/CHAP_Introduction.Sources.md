@@ -34,11 +34,11 @@ You can use the following data stores as source endpoints for data migration usi
 
 ###### Note
 
-| MySQL and DMS Compatibility | MySQL Version   | DMS Version | Compressed transaction payload supporting |
-| --------------------------- | --------------- | ----------- | ----------------------------------------- |
-| 8                           | 3.4.0 and above | No          |
-| 8.0 (Google Cloud)          | 3.4.6 and above | No          |
-| 8.4                         | 3.5.4 and above | No          |
+MySQL and DMS Compatibility| MySQL Version | DMS Version | Compressed transaction payload supporting |
+| --- | --- | --- |
+| 8 | 3.4.0 and above | No |
+| 8.0 (Google Cloud) | 3.4.6 and above | No |
+| 8.4 | 3.5.4 and above | No |
 
 - MariaDB (supported as a MySQL-compatible data source) versions 10.0 (only
   versions 10.0.24 and higher), 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.3 to
@@ -100,11 +100,11 @@ supported for full-load only replication.
 
 ###### Note
 
-| MySQL and DMS Compatibility | MySQL Version   | DMS Version | Compressed transaction payload supporting |
-| --------------------------- | --------------- | ----------- | ----------------------------------------- |
-| 8                           | 3.4.0 and above | No          |
-| 8.0 (Google Cloud)          | 3.4.6 and above | No          |
-| 8.4                         | 3.5.4 and above | No          |
+MySQL and DMS Compatibility| MySQL Version | DMS Version | Compressed transaction payload supporting |
+| --- | --- | --- |
+| 8 | 3.4.0 and above | No |
+| 8.0 (Google Cloud) | 3.4.6 and above | No |
+| 8.4 | 3.5.4 and above | No |
 
 - MariaDB (supported as a MySQL-compatible data source) versions 10.0.24 to
   10.0.28, 10.2, 10.3, 10.4, 10.5, 10.6, 10.11, and 11.4.3 to 11.4.7.
