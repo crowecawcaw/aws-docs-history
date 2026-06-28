@@ -106,7 +106,7 @@ only showing top 20 rows
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeErrors "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describe "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describe")
 
-## \_\_call\_\_(dfc, key, transformation_ctx = "")
+## \_\_call\_\_(dfc, key, transformation\_ctx = "")
 
 Gets one `DynamicFrame` from a `DynamicFrameCollection`.
 

@@ -56,12 +56,12 @@ second advertisement introducing the car on their website. All the “clicks“ 
 a 10 minute window and group it by city to see which city has the highest demand. The following is the
 output of the aggregation.
 
-| window_start_time   | window_end_time     | city    | total_clicks |
-| ------------------- | ------------------- | ------- | ------------ |
-| 2023-07-10 17:00:00 | 2023-07-10 17:10:00 | Dallas  | 75           |
-| 2023-07-10 17:00:00 | 2023-07-10 17:10:00 | Chicago | 10           |
-| 2023-07-10 17:20:00 | 2023-07-10 17:30:00 | Dallas  | 20           |
-| 2023-07-10 17:20:00 | 2023-07-10 17:30:00 | Chicago | 50           |
+| window\_start\_time | window\_end\_time   | city    | total\_clicks |
+| ------------------- | ------------------- | ------- | ------------- |
+| 2023-07-10 17:00:00 | 2023-07-10 17:10:00 | Dallas  | 75            |
+| 2023-07-10 17:00:00 | 2023-07-10 17:10:00 | Chicago | 10            |
+| 2023-07-10 17:20:00 | 2023-07-10 17:30:00 | Dallas  | 20            |
+| 2023-07-10 17:20:00 | 2023-07-10 17:30:00 | Chicago | 50            |
 
 As explained above, these event-time-windows are different from trigger-time intervals.
 For example, even if your trigger time is every minute, the output results will only show 10 minute
@@ -87,7 +87,7 @@ parsed_df = kinesis_raw_df \
 ```
 
 2. Process data in a tumbling window. In the example below, data is grouped based on the
-   input field “event_time” in 10 minute tumbling windows and writing the output to an
+   input field “event\_time” in 10 minute tumbling windows and writing the output to an
    Amazon S3 data lake.
 
 ```
@@ -138,13 +138,13 @@ The credit card processing system is sending a steam of transaction events to ki
 card-id along with the country. An AWS Glue job runs the analysis and produces the
 following aggregated output.
 
-| window_start_time   | window_end_time     | card_last_four | country   | total_amount |
-| ------------------- | ------------------- | -------------- | --------- | ------------ |
-| 2023-07-10 17:00:00 | 2023-07-10 17:10:00 | 6544           | US        | 85           |
-| 2023-07-10 17:00:00 | 2023-07-10 17:10:00 | 6544           | Australia | 10           |
-| 2023-07-10 17:05:45 | 2023-07-10 17:15:45 | 6544           | US        | 50           |
-| 2023-07-10 17:10:45 | 2023-07-10 17:20:45 | 6544           | US        | 50           |
-| 2023-07-10 17:10:45 | 2023-07-10 17:20:45 | 6544           | Australia | 150          |
+| window\_start\_time | window\_end\_time   | card\_last\_four | country   | total\_amount |
+| ------------------- | ------------------- | ---------------- | --------- | ------------- |
+| 2023-07-10 17:00:00 | 2023-07-10 17:10:00 | 6544             | US        | 85            |
+| 2023-07-10 17:00:00 | 2023-07-10 17:10:00 | 6544             | Australia | 10            |
+| 2023-07-10 17:05:45 | 2023-07-10 17:15:45 | 6544             | US        | 50            |
+| 2023-07-10 17:10:45 | 2023-07-10 17:20:45 | 6544             | US        | 50            |
+| 2023-07-10 17:10:45 | 2023-07-10 17:20:45 | 6544             | Australia | 150           |
 
 Based on the above aggregation, you can see the 10 minute window sliding every 5 minutes,summed by
 transaction amount. The anomaly is detected in the 17:10 - 17:20 window where there is an outlier,
@@ -180,14 +180,14 @@ decision that if there is no check-ins for a period of 15 minutes, the event-tim
 closed. The next event-time-window will start again when there is a new check-in. The output looks
 as follows.
 
-| window_start_time   | window_end_time     | city    | total_checkins |
-| ------------------- | ------------------- | ------- | -------------- |
-| 2023-07-10 17:02:00 | 2023-07-10 17:30:00 | Dallas  | 50             |
-| 2023-07-10 17:02:00 | 2023-07-10 17:30:00 | Chicago | 25             |
-| 2023-07-10 17:40:00 | 2023-07-10 18:20:00 | Dallas  | 75             |
-| 2023-07-10 18:50:45 | 2023-07-10 19:15:45 | Dallas  | 20             |
+| window\_start\_time | window\_end\_time   | city    | total\_checkins |
+| ------------------- | ------------------- | ------- | --------------- |
+| 2023-07-10 17:02:00 | 2023-07-10 17:30:00 | Dallas  | 50              |
+| 2023-07-10 17:02:00 | 2023-07-10 17:30:00 | Chicago | 25              |
+| 2023-07-10 17:40:00 | 2023-07-10 18:20:00 | Dallas  | 75              |
+| 2023-07-10 18:50:45 | 2023-07-10 19:15:45 | Dallas  | 20              |
 
-The first check-in occurred at event_time=17:02. The aggregation event-time-window will
+The first check-in occurred at event\_time=17:02. The aggregation event-time-window will
 start at 17:02. This aggregation will continue as long as we receive events within 15 minute duration.
 In the above example, the last event we received was at 17:15 and then for the next 15 minutes there
 were no events. As a result, Spark closed that event-time-window at 17:15+15min = 17:30 and set it
@@ -242,17 +242,17 @@ In the above diagram, we are calculating the total volume over a tumbling 10 min
 We have the trigger at 17:00, 17:10 and 17:20. Above the timeline arrow, we have the input data
 stream and below is the unbounded results table.
 
-In the first 10 minute tumbling window we aggregated based on event_time and the total_volume was
-calculated as 30. In the second event-time-window, spark got the first data event with event_time=17:02.
-Since this is the max event_time seen thus far by spark, the watermark threshold is set 10 minutes back
-(that is, watermark_event_time=16:52). Any data event with an event_time after 16:52 will be considered
+In the first 10 minute tumbling window we aggregated based on event\_time and the total\_volume was
+calculated as 30. In the second event-time-window, spark got the first data event with event\_time=17:02.
+Since this is the max event\_time seen thus far by spark, the watermark threshold is set 10 minutes back
+(that is, watermark\_event\_time=16:52). Any data event with an event\_time after 16:52 will be considered
 for time bound aggregation and any data event before that will be dropped. This allows spark to maintain
 an intermediate state for additional 10 minutes to accommodate late data. Around wall clock time 17:08
-Spark received an event with an event_time=16:54 which was within threshold. Hence spark recalculated the
+Spark received an event with an event\_time=16:54 which was within threshold. Hence spark recalculated the
 “16:50 - 17:00“ event-time-window and the total volume was updated from 30 to 60.
 
-However, at the trigger time 17:20, when spark received event with event_time=17:15 it set the
-watermark_event_time=17:05. Hence the late data event with event_time=17:03 was considered “too late”
+However, at the trigger time 17:20, when spark received event with event\_time=17:15 it set the
+watermark\_event\_time=17:05. Hence the late data event with event\_time=17:03 was considered “too late”
 and ignored.
 
 ```

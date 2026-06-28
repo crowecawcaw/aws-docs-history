@@ -119,11 +119,11 @@ Optional map of keys which may be returned.
 
 ## Operations
 
-- [ListEntities action (Python: list_entities)](#aws-glue-api-catalog-connections-connections-metadata-ListEntities "#aws-glue-api-catalog-connections-connections-metadata-ListEntities")
-- [DescribeEntity action (Python: describe_entity)](#aws-glue-api-catalog-connections-connections-metadata-DescribeEntity "#aws-glue-api-catalog-connections-connections-metadata-DescribeEntity")
-- [GetEntityRecords action (Python: get_entity_records)](#aws-glue-api-catalog-connections-connections-metadata-GetEntityRecords "#aws-glue-api-catalog-connections-connections-metadata-GetEntityRecords")
+- [ListEntities action (Python: list\_entities)](#aws-glue-api-catalog-connections-connections-metadata-ListEntities "#aws-glue-api-catalog-connections-connections-metadata-ListEntities")
+- [DescribeEntity action (Python: describe\_entity)](#aws-glue-api-catalog-connections-connections-metadata-DescribeEntity "#aws-glue-api-catalog-connections-connections-metadata-DescribeEntity")
+- [GetEntityRecords action (Python: get\_entity\_records)](#aws-glue-api-catalog-connections-connections-metadata-GetEntityRecords "#aws-glue-api-catalog-connections-connections-metadata-GetEntityRecords")
 
-## ListEntities action (Python: list_entities)
+## ListEntities action (Python: list\_entities)
 
 Returns the available entities supported by the connection type.
 
@@ -172,7 +172,7 @@ A continuation token, present if the current segment is not the last.
 - `FederationSourceException`
 - `AccessDeniedException`
 
-## DescribeEntity action (Python: describe_entity)
+## DescribeEntity action (Python: describe\_entity)
 
 Provides details regarding the entity used with the connection type,
 with a description of the data model for each field in the selected entity.
@@ -225,7 +225,7 @@ A continuation token, present if the current segment is not the last.
 - `FederationSourceException`
 - `AccessDeniedException`
 
-## GetEntityRecords action (Python: get_entity_records)
+## GetEntityRecords action (Python: get\_entity\_records)
 
 This API is used to query preview data from a given connection type or from
 a native Amazon S3 based AWS Glue Data Catalog.

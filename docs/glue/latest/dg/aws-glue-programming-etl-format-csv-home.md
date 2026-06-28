@@ -36,7 +36,7 @@ We provide a custom CSV reader with performance optimizations for common workflo
 see [Optimize read performance with vectorized SIMD CSV reader](#aws-glue-programming-etl-format-simd-csv-reader "#aws-glue-programming-etl-format-simd-csv-reader").
 
 Python
-For this example, use the [create_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
+For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
 
 ```
 # Example: Read CSV from S3
@@ -123,7 +123,7 @@ operation writes the contents of your files in `format_options`. For details, se
 AWS Glue ETL script shows the process of writing CSV files and folders to S3.
 
 Python
-For this example, use the [write_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options") method.
+For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options") method.
 
 ```
 # Example: Write CSV to S3

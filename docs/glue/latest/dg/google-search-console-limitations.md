@@ -11,7 +11,7 @@ The following are limitations or notes for Google Search Console:
 
 - Default values are set for the `start_end_date` and `dataState` fields.
 
-| Field name     | Default filter expression                                                                                        | Expression to override default values                |
-| -------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| start_end_date | start_end_date between <30 days ago from current date> AND <yesterday: that is, 1 day ago from the current date> | start_end_date between "2024-01-01" AND "2024-05-05" |
-| dateState      | dataState="all"                                                                                                  | dataState="final"                                    |
+| Field name       | Default filter expression                                                                                          | Expression to override default values                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| start\_end\_date | start\_end\_date between <30 days ago from current date> AND <yesterday: that is, 1 day ago from the current date> | start\_end\_date between "2024-01-01" AND "2024-05-05" |
+| dateState        | dataState="all"                                                                                                    | dataState="final"                                      |

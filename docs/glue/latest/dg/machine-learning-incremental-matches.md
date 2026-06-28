@@ -12,12 +12,12 @@ For more information, see the blog post on [Incremental data matching](https://a
 
 For the following procedure, suppose the following:
 
-- You have crawled the existing dataset into the table _first_records_. The _first_records_ dataset must be a matched dataset, or the output of the matched job.
+- You have crawled the existing dataset into the table _first\_records_. The _first\_records_ dataset must be a matched dataset, or the output of the matched job.
 - You have created and trained a Find matches transform with AWS Glue version 2.0. This is the only version of AWS Glue that supports incremental matches.
 - The ETL language is Scala. Note that Python is also supported.
 - The model already generated is called `demo-xform`.
 
-1. Crawl the incremental dataset to the table _second_records_.
+1. Crawl the incremental dataset to the table _second\_records_.
 2. On the AWS Glue console, in the navigation pane, choose **Jobs**.
 3. Choose **Add job**, and follow the steps in the wizard to create an ETL Spark job with a generated script. Choose the following property values for your transform:
 
@@ -28,11 +28,11 @@ For the following procedure, suppose the following:
    4. For **Script file name**, choose
       **demo-etl**. This is the file name of the Scala script.
    5. For **Data source**, choose
-      **first_records**. The data source you choose must match the
+      **first\_records**. The data source you choose must match the
       machine learning transform data source schema.
    6. For **Transform type**, choose **Find matching
       records** to create a job using a machine learning transform.
-   7. Select the incremental matching option, and for **Data Source** select the table named **second_records**.
+   7. Select the incremental matching option, and for **Data Source** select the table named **second\_records**.
    8. For **Transform**, choose
       **demo-xform**, the machine learning transform used by the
       job.

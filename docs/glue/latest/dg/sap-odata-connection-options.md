@@ -4,7 +4,7 @@ The following are connection options for SAP OData:
 
 - `ENTITY_NAME`(String) - (Required) Used for Read. The name of your object in SAP OData.
 
-For example: /sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrder
+For example: /sap/opu/odata/sap/API\_SALES\_ORDER\_SRV/A\_SalesOrder
 
 - `API_VERSION`(String) - (Optional) Used for Read. SAP OData Rest API version you want to use. Example: 2.0.
 - `SELECTED_FIELDS`(List<String>) - Default: empty(SELECT \*). Used for Read. Columns you want to select for the object.

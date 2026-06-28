@@ -75,13 +75,13 @@ The resource URIs for the function.
 
 ## Operations
 
-- [CreateUserDefinedFunction action (Python: create_user_defined_function)](#aws-glue-api-catalog-functions-CreateUserDefinedFunction "#aws-glue-api-catalog-functions-CreateUserDefinedFunction")
-- [UpdateUserDefinedFunction action (Python: update_user_defined_function)](#aws-glue-api-catalog-functions-UpdateUserDefinedFunction "#aws-glue-api-catalog-functions-UpdateUserDefinedFunction")
-- [DeleteUserDefinedFunction action (Python: delete_user_defined_function)](#aws-glue-api-catalog-functions-DeleteUserDefinedFunction "#aws-glue-api-catalog-functions-DeleteUserDefinedFunction")
-- [GetUserDefinedFunction action (Python: get_user_defined_function)](#aws-glue-api-catalog-functions-GetUserDefinedFunction "#aws-glue-api-catalog-functions-GetUserDefinedFunction")
-- [GetUserDefinedFunctions action (Python: get_user_defined_functions)](#aws-glue-api-catalog-functions-GetUserDefinedFunctions "#aws-glue-api-catalog-functions-GetUserDefinedFunctions")
+- [CreateUserDefinedFunction action (Python: create\_user\_defined\_function)](#aws-glue-api-catalog-functions-CreateUserDefinedFunction "#aws-glue-api-catalog-functions-CreateUserDefinedFunction")
+- [UpdateUserDefinedFunction action (Python: update\_user\_defined\_function)](#aws-glue-api-catalog-functions-UpdateUserDefinedFunction "#aws-glue-api-catalog-functions-UpdateUserDefinedFunction")
+- [DeleteUserDefinedFunction action (Python: delete\_user\_defined\_function)](#aws-glue-api-catalog-functions-DeleteUserDefinedFunction "#aws-glue-api-catalog-functions-DeleteUserDefinedFunction")
+- [GetUserDefinedFunction action (Python: get\_user\_defined\_function)](#aws-glue-api-catalog-functions-GetUserDefinedFunction "#aws-glue-api-catalog-functions-GetUserDefinedFunction")
+- [GetUserDefinedFunctions action (Python: get\_user\_defined\_functions)](#aws-glue-api-catalog-functions-GetUserDefinedFunctions "#aws-glue-api-catalog-functions-GetUserDefinedFunctions")
 
-## CreateUserDefinedFunction action (Python: create_user_defined_function)
+## CreateUserDefinedFunction action (Python: create\_user\_defined\_function)
 
 Creates a new function definition in the Data Catalog.
 
@@ -115,7 +115,7 @@ in the Data Catalog.
 - `ResourceNumberLimitExceededException`
 - `GlueEncryptionException`
 
-## UpdateUserDefinedFunction action (Python: update_user_defined_function)
+## UpdateUserDefinedFunction action (Python: update\_user\_defined\_function)
 
 Updates an existing function definition in the Data Catalog.
 
@@ -151,7 +151,7 @@ the Data Catalog.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## DeleteUserDefinedFunction action (Python: delete_user_defined_function)
+## DeleteUserDefinedFunction action (Python: delete\_user\_defined\_function)
 
 Deletes an existing function definition from the Data Catalog.
 
@@ -181,7 +181,7 @@ The name of the function definition to be deleted.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetUserDefinedFunction action (Python: get_user_defined_function)
+## GetUserDefinedFunction action (Python: get\_user\_defined\_function)
 
 Retrieves a specified function definition from the Data Catalog.
 
@@ -214,7 +214,7 @@ The requested function definition.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## GetUserDefinedFunctions action (Python: get_user_defined_functions)
+## GetUserDefinedFunctions action (Python: get\_user\_defined\_functions)
 
 Retrieves multiple function definitions from the Data Catalog.
 

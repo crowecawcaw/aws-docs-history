@@ -251,7 +251,7 @@ sensitized based on the selected action. In the case, we would have a rows that 
 ```
 
 In the above script, the `Phone Number` was partially redacted with `#`. The `Passport No` was changed
-into a SHA256 hash. The `DL NO#` was detected as a USA driver license number and was redacted to “USA_DL” just like it was
+into a SHA256 hash. The `DL NO#` was detected as a USA driver license number and was redacted to “USA\_DL” just like it was
 stated in the `detectionParameters`.
 
 ###### Note

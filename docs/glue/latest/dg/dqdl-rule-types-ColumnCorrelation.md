@@ -11,12 +11,12 @@ strength and direction of the relationship.
 ColumnCorrelation `<COL_1_NAME>` `<COL_2_NAME>` `<EXPRESSION>`
 ```
 
-- **COL_1_NAME** – The name of the first column that you want
+- **COL\_1\_NAME** – The name of the first column that you want
   to evaluate the data quality rule against.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 
-- **COL_2_NAME** – The name of the second column that you
+- **COL\_2\_NAME** – The name of the second column that you
   want to evaluate the data quality rule against.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short

@@ -624,7 +624,7 @@ To perform these operations and create, update, or view the schema information, 
 
 ### Adding a table or updating the schema for a table
 
-Adding a new table from an existing schema binds the table to a specific schema version. Once new schema versions get registered, you can update this table definition from the View table page in the AWS Glue console or using the [UpdateTable action (Python: update_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable") API.
+Adding a new table from an existing schema binds the table to a specific schema version. Once new schema versions get registered, you can update this table definition from the View table page in the AWS Glue console or using the [UpdateTable action (Python: update\_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable") API.
 
 #### Adding a table from an existing schema
 
@@ -638,7 +638,7 @@ When calling the `CreateTable` API, you will pass a `TableInput` that contains a
 
 To create a table from the AWS Glue console:
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](<https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue">).
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue\").
 2. In the navigation pane, under **Data catalog**, choose **Tables**.
 3. In the **Add Tables** menu, choose **Add table from existing schema**.
 4. Configure the table properties and data store per the AWS Glue Developer Guide.
@@ -651,7 +651,7 @@ The schema and version applied to the table appears in the **Glue schema** colum
 
 #### Updating the schema for a table
 
-When a new schema version becomes available, you may want to update a table's schema using the [UpdateTable action (Python: update_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable") API or the AWS Glue console.
+When a new schema version becomes available, you may want to update a table's schema using the [UpdateTable action (Python: update\_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-UpdateTable") API or the AWS Glue console.
 
 ###### Important
 
@@ -665,7 +665,7 @@ When calling the `UpdateTable` API, you will pass a `TableInput` that contains a
 
 To update the schema for a table from the AWS Glue console:
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](<https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue">).
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue\").
 2. In the navigation pane, under **Data catalog**, choose **Tables**.
 3. View the table from the list of tables.
 4. Click **Update schema** in the box that informs you about a new version.
@@ -719,7 +719,7 @@ final KStream<String, GenericRecord> source = builder.stream("avro-input");
 
 ```
 
-3. Process the data records (the example filters out those records whose value of favorite_color is pink or where the value of amount is 15).
+3. Process the data records (the example filters out those records whose value of favorite\_color is pink or where the value of amount is 15).
 
 ```
 final KStream<String, GenericRecord> result = source
@@ -745,7 +745,7 @@ streams.start();
 
 #### Implementation results
 
-These results show the filtering process of records that were filtered out in step 3 as a favorite_color of "pink" or value of "15.0".
+These results show the filtering process of records that were filtered out in step 3 as a favorite\_color of "pink" or value of "15.0".
 
 Records before filtering:
 
@@ -831,7 +831,7 @@ else
 fi
 ```
 
-4. If using bash, run the below commands to set-up your CLASSPATH in your bash_profile. For any other shell, update the environment accordingly.
+4. If using bash, run the below commands to set-up your CLASSPATH in your bash\_profile. For any other shell, update the environment accordingly.
 
 ```
 echo 'export GSR_LIB_BASE_DIR=<>' >>~/.bash_profile

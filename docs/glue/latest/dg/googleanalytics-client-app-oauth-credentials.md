@@ -8,9 +8,11 @@ For more information, see [Google Analytics4 API documentation](https://develope
    Set up the property with required details. Once all the details
    provided corresponding property id will be generated.
 3. Add Data Stream for the created property by choosing **Data Streams** > **Add Stream**
-   > **Web** from the drop-down. Provide the website details such as URL and other required fields.
-   > After providing all details, the corresponding **stream id** and **measurement id**
-   > will be generated.
+
+> **Web** from the drop-down. Provide the website details such as URL and other required fields.
+> After providing all details, the corresponding **stream id** and **measurement id**
+> will be generated.
+
 4. Set up Google Analytics in your website by copying the measurement id and add to your website's configuration.
 5. Create Report from Google Analytics by navigating to **Reports** and generating the required report.
 6. Authorize your app by navigating to [console.cloud.google.com](https://console.cloud.google.com " https://console.cloud.google.com") and search for Google Analytics Data API, then enable the API.

@@ -28,33 +28,33 @@ Datadog_read = glueContext.create_dynamic_frame.from_options(
 
 **Datadog entity and field details**
 
-| Entity             | Field    | Data Type        | **Supported Operators** |
-| ------------------ | -------- | ---------------- | ----------------------- |
-| Metrics Timeseries | error    | String           | NA                      |
-| aggr               | String   | NA               |
-| attributes         | Struct   | NA               |
-| display_name       | String   | NA               |
-| end                | DateTime | NA               |
-| expression         | String   | NA               |
-| interval           | Integer  | NA               |
-| length             | Integer  | NA               |
-| metric             | String   | NA               |
-| pointlist          | List     | NA               |
-| query_index        | Integer  | NA               |
-| scope              | String   | NA               |
-| start              | DateTime | NA               |
-| tag_set            | List     | NA               |
-| unit               | Struct   | NA               |
-| from_to_date       | DateTime | BETWEEN          |
-| query              | String   | EQUAL_TO         |
-| status             | String   | NA               |
-| type               | String   | NA               |
-| host               | String   | NA               |
-| Log Queries        | id       | String           | NA                      |
-| attributes         | Struct   | NA               |
-| timestamp          | DateTime | NA               |
-| type               | String   | NA               |
-| from               | DateTime | BETWEEN,EQUAL_TO |
-| indexes            | List     | EQUAL_TO         |
-| storage_tier       | String   | EQUAL_TO         |
-| query              | String   | EQUAL_TO         |
+| Entity             | Field    | Data Type         | **Supported Operators** |
+| ------------------ | -------- | ----------------- | ----------------------- |
+| Metrics Timeseries | error    | String            | NA                      |
+| aggr               | String   | NA                |
+| attributes         | Struct   | NA                |
+| display\_name      | String   | NA                |
+| end                | DateTime | NA                |
+| expression         | String   | NA                |
+| interval           | Integer  | NA                |
+| length             | Integer  | NA                |
+| metric             | String   | NA                |
+| pointlist          | List     | NA                |
+| query\_index       | Integer  | NA                |
+| scope              | String   | NA                |
+| start              | DateTime | NA                |
+| tag\_set           | List     | NA                |
+| unit               | Struct   | NA                |
+| from\_to\_date     | DateTime | BETWEEN           |
+| query              | String   | EQUAL\_TO         |
+| status             | String   | NA                |
+| type               | String   | NA                |
+| host               | String   | NA                |
+| Log Queries        | id       | String            | NA                      |
+| attributes         | Struct   | NA                |
+| timestamp          | DateTime | NA                |
+| type               | String   | NA                |
+| from               | DateTime | BETWEEN,EQUAL\_TO |
+| indexes            | List     | EQUAL\_TO         |
+| storage\_tier      | String   | EQUAL\_TO         |
+| query              | String   | EQUAL\_TO         |

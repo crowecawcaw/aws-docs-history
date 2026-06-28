@@ -2,7 +2,7 @@
 
 You can now create data processing jobs more efficiently with query based context-aware and PySpark DataFrame code generation in
 Amazon Q Data Integration. For example, you can use this prompt to generate PySpark code: “create a job to load sales data from
-Redshift table ‘analytics.salesorder’ using connection ‘erp_conn’, filter order_amount below 50 dollars, and save to Amazon S3 in parquet
+Redshift table ‘analytics.salesorder’ using connection ‘erp\_conn’, filter order\_amount below 50 dollars, and save to Amazon S3 in parquet
 format.”
 
 Amazon Q will generate the script based on your prompt and setup data integration workflow setup with the details provided from your

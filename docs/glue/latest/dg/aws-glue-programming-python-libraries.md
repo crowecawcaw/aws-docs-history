@@ -200,7 +200,7 @@ endpoint in question, check the box beside it, and choose **Update
 ETL libraries** from the **Action** menu.
 
 In a similar way, you can specify library files using the AWS Glue APIs.
-When you create a development endpoint by calling [CreateDevEndpoint action (Python: create_dev_endpoint)](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-CreateDevEndpoint "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-CreateDevEndpoint"),
+When you create a development endpoint by calling [CreateDevEndpoint action (Python: create\_dev\_endpoint)](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-CreateDevEndpoint "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-CreateDevEndpoint"),
 you can specify one or more full paths to libraries in the `ExtraPythonLibsS3Path`
 parameter, in a call that looks this:
 
@@ -219,7 +219,7 @@ dep = glue.create_dev_endpoint(
 When you update a development endpoint, you can also update the libraries it loads
 using a [DevEndpointCustomLibraries](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-DevEndpointCustomLibraries "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-DevEndpointCustomLibraries") object
 and setting the `UpdateEtlLibraries` parameter to `True`
-when calling [UpdateDevEndpoint (update_dev_endpoint)](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-UpdateDevEndpoint "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-UpdateDevEndpoint").
+when calling [UpdateDevEndpoint (update\_dev\_endpoint)](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-UpdateDevEndpoint "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-UpdateDevEndpoint").
 
 ## Using Python libraries in a job or JobRun
 
@@ -231,7 +231,7 @@ the full Amazon S3 library path(s) in the same way you would when creating a dev
 s3://bucket/prefix/lib_A.zip,s3://bucket_B/prefix/lib_X.zip
 ```
 
-If you are calling [CreateJob (create_job)](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob"),
+If you are calling [CreateJob (create\_job)](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob"),
 you can specify one or more full paths to default libraries using the `--extra-py-files`
 default parameter, like this:
 
@@ -383,7 +383,7 @@ AWS Glue version 5.1 includes the following Python modules out of the box:
 - simplejson==3.20.2
 - six==1.17.0
 - tenacity==9.1.2
-- typing_extensions==4.15.0
+- typing\_extensions==4.15.0
 - tzdata==2025.2
 - urllib3==2.5.0
 - uv==0.9.7
@@ -500,7 +500,7 @@ AWS Glue version 4.0 includes the following Python modules out of the box:
 - tbats==1.1.0
 - threadpoolctl==3.1.0
 - tqdm==4.64.1
-- typing_extensions==4.4.0
+- typing\_extensions==4.4.0
 - urllib3==1.25.11
 - wheel==0.37.0
 - wrapt==1.14.1
@@ -569,7 +569,7 @@ AWS Glue version 3.0 includes the following Python modules out of the box:,
 - tbats==1.1.0
 - threadpoolctl==3.1.0
 - tqdm==4.64.1
-- typing_extensions==4.4.0
+- typing\_extensions==4.4.0
 - urllib3==1.25.11
 - wheel==0.37.0
 - wrapt==1.14.1
@@ -717,13 +717,13 @@ rm requirements.txt
 
 ## Appendix B: AWS Glue environment details
 
-| Glue Version Compatibility and Installation Methods | AWS Glue version | Python version                                                                                                                  | Base image | glibc version                                                          | Compatible platform tags |
-| --------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------- | ---------------------------------------------------------------------- | ------------------------ |
-| 5.1                                                 | 3.11             | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34       | manylinux_2_34_x86_64<br>manylinux_2_28_x86_64<br>manylinux2014_x86_64 |
-| 5.0                                                 | 3.11             | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34       | manylinux_2_34_x86_64<br>manylinux_2_28_x86_64<br>manylinux2014_x86_64 |
-| 4.0                                                 | 3.10             | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")                         | 2.26       | manylinux2014_x86_64                                                   |
-| 3.0                                                 | 3.7              | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/")                         | 2.26       | manylinux2014_x86_64                                                   |
-| 2.0                                                 | 3.7              | [Amazon Linux AMI (AL1)](https://aws.amazon.com/amazon-linux-ami/ "https://aws.amazon.com/amazon-linux-ami/")                   | 2.17       | manylinux2014_x86_64                                                   |
+Glue Version Compatibility and Installation Methods| AWS Glue version | Python version | Base image | glibc version | Compatible platform tags |
+| --- | --- | --- | --- | --- |
+| 5.1 | 3.11 | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34 | manylinux\_2\_34\_x86\_64<br>manylinux\_2\_28\_x86\_64<br>manylinux2014\_x86\_64 |
+| 5.0 | 3.11 | [Amazon Linux 2023 (AL2023)](https://aws.amazon.com/linux/amazon-linux-2023/ "https://aws.amazon.com/linux/amazon-linux-2023/") | 2.34 | manylinux\_2\_34\_x86\_64<br>manylinux\_2\_28\_x86\_64<br>manylinux2014\_x86\_64 |
+| 4.0 | 3.10 | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/") | 2.26 | manylinux2014\_x86\_64 |
+| 3.0 | 3.7 | [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2/ "https://aws.amazon.com/amazon-linux-2/") | 2.26 | manylinux2014\_x86\_64 |
+| 2.0 | 3.7 | [Amazon Linux AMI (AL1)](https://aws.amazon.com/amazon-linux-ami/ "https://aws.amazon.com/amazon-linux-ami/") | 2.17 | manylinux2014\_x86\_64 |
 
 Under the [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"), you are responsible for the management of additional Python modules, libraries, and their dependencies
 that you use with your AWS Glue ETL jobs. This includes applying updates and security patches.

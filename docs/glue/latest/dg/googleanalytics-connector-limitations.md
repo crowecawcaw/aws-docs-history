@@ -26,7 +26,7 @@ The following are limitations for the Google Analytics 4 connector:
 
     - As per limitation from SAAS - requests are allowed up to 9 dimensions and up to 10 metrics only (that is,
       a request can contain a maximum of 19 fields(metrics + dimension).
-    - As per the implementation - If user utilizes SELECT_ALL or selected fields more than 25, then default
+    - As per the implementation - If user utilizes SELECT\_ALL or selected fields more than 25, then default
       fields will be pass in the request.
     - The following fields are considered as default fields for Core Report -
       "country", "city", "eventName", "cityId", "browser", "date", "currencyCode", "deviceCategory",
@@ -37,7 +37,7 @@ The following are limitations for the Google Analytics 4 connector:
   - Real-Time Report
 
     - As per limitation from SAAS requests are allowed up to 4 dimensions.
-    - If user pass SELECT_ALL or selected fields more than 15, then default fields will be pass in the request.
+    - If user pass SELECT\_ALL or selected fields more than 15, then default fields will be pass in the request.
     - The following fields are considered as default fields for RealTime Report -
       "country", "deviceCategory", "city", "cityId", "activeUsers", "conversions", "eventCount",
       "screenPageViews".

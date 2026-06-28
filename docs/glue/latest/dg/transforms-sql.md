@@ -61,6 +61,5 @@ schema** section of the page:
     ) to the far right of the Key name.
 
 7. When you finish specifying the output schema, choose **Apply** to
-   save your changes and exit the schema editor. If you do not want to save you changes,
-   choose **Cancel** to edit the schema editor.
-8. (Optional) After configuring the node properties and transform properties, you can preview the modified dataset by choosing the **Data preview** tab in the node details panel. The first time you choose this tab for any node in your job, you are prompted to provide an IAM role to access the data. There is a cost associated with using this feature, and billing starts as soon as you provide an IAM role.
+save your changes and exit the schema editor. If you do not want to save you changes,
+choose **Cancel** to edit the schema editor. 8. (Optional) After configuring the node properties and transform properties, you can preview the modified dataset by choosing the **Data preview** tab in the node details panel. The first time you choose this tab for any node in your job, you are prompted to provide an IAM role to access the data. There is a cost associated with using this feature, and billing starts as soon as you provide an IAM role.

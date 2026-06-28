@@ -17,7 +17,7 @@ To configure a Zendesk connection:
 2. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
 
    1. When selecting a **Connection type**, select Zendesk.
-   2. Provide the INSTANCE_URL of the Zendesk you want to connect to.
+   2. Provide the INSTANCE\_URL of the Zendesk you want to connect to.
    3. Provide the Zendesk environment.
    4. Select the AWS IAM role which AWS Glue can assume and has permissions for following actions:
 

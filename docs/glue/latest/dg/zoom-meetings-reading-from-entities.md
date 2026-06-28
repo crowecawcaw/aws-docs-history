@@ -33,68 +33,68 @@ zoom_read = glueContext.create_dynamic_frame.from_options(
 
 Zoom Meetings dynamically loads the available fields under the selected entity. Depending on the data type of the field, it supports the following filter operators.
 
-| Entity              | Field       | Data type | Supported operators |
-| ------------------- | ----------- | --------- | ------------------- |
-| Zoom Room           | status      | String    | =                   |
-| type                | String      | =         |
-| unassigned_rooms    | Boolean     | =         |
-| location_id         | String      | =         |
-| room_id             | String      | N/A       |
-| activation_code     | String      | N/A       |
-| id                  | String      | N/A       |
-| name                | String      | N/A       |
-| tag_ids             | String      | N/A       |
-| query_name          | String      | N/A       |
-| Daily Report        | month       | Date      | =                   |
-| date                | Date        | N/A       |
-| meeting_minutes     | Integer     | N/A       |
-| meetings            | Integer     | N/A       |
-| new_users           | Integer     | N/A       |
-| participants        | Integer     | N/A       |
-| group_id            | String      | N/A       |
-| User                | created_at  | DateTime  | N/A                 |
-| dept                | String      | N/A       |
-| email               | String      | N/A       |
-| employee_unique_id  | String      | N/A       |
-| first_name          | String      | N/A       |
-| group_ids           | List        | N/A       |
-| host_key            | String      | N/A       |
-| id                  | String      | N/A       |
-| im_group_ids        | String      | N/A       |
-| last_client_version | String      | N/A       |
-| last_login_time     | DateTime    | N/A       |
-| last_name           | String      | N/A       |
-| plan_united_type    | String      | N/A       |
-| custom_attributes   | List        | N/A       |
-| pmi                 | BigInteger  | N/A       |
-| role_id             | String      | =         |
-| status              | String      | =         |
-| timezone            | String      | N/A       |
-| type                | Integer     | N/A       |
-| verified            | Integer     | N/A       |
-| user_created_at     | DateTime    | N/A       |
-| display_name        | String      | N/A       |
-| phone_number        | String      | N/A       |
-| language            | String      | N/A       |
-| license             | String      | =         |
-| Group               | id          | String    | N/A                 |
-| name                | String      | N/A       |
-| total_members       | Integer     | N/A       |
-| Group Member        | email       | String    | N/A                 |
-| first_name          | String      | N/A       |
-| id                  | String      | N/A       |
-| last_name           | String      | N/A       |
-| type                | Integer     | N/A       |
-| primary_group       | Boolean     | N/A       |
-| member_id           | String      | N/A       |
-| Group Admin         | id          | String    | N/A                 |
-| email               | String      | N/A       |
-| name                | String      | N/A       |
-| role                | description | String    | N/A                 |
-| id                  | String      | N/A       |
-| name                | String      | N/A       |
-| total_members       | Integer     | N/A       |
-| type                | String      | =         |
+| Entity                | Field       | Data type | Supported operators |
+| --------------------- | ----------- | --------- | ------------------- |
+| Zoom Room             | status      | String    | =                   |
+| type                  | String      | =         |
+| unassigned\_rooms     | Boolean     | =         |
+| location\_id          | String      | =         |
+| room\_id              | String      | N/A       |
+| activation\_code      | String      | N/A       |
+| id                    | String      | N/A       |
+| name                  | String      | N/A       |
+| tag\_ids              | String      | N/A       |
+| query\_name           | String      | N/A       |
+| Daily Report          | month       | Date      | =                   |
+| date                  | Date        | N/A       |
+| meeting\_minutes      | Integer     | N/A       |
+| meetings              | Integer     | N/A       |
+| new\_users            | Integer     | N/A       |
+| participants          | Integer     | N/A       |
+| group\_id             | String      | N/A       |
+| User                  | created\_at | DateTime  | N/A                 |
+| dept                  | String      | N/A       |
+| email                 | String      | N/A       |
+| employee\_unique\_id  | String      | N/A       |
+| first\_name           | String      | N/A       |
+| group\_ids            | List        | N/A       |
+| host\_key             | String      | N/A       |
+| id                    | String      | N/A       |
+| im\_group\_ids        | String      | N/A       |
+| last\_client\_version | String      | N/A       |
+| last\_login\_time     | DateTime    | N/A       |
+| last\_name            | String      | N/A       |
+| plan\_united\_type    | String      | N/A       |
+| custom\_attributes    | List        | N/A       |
+| pmi                   | BigInteger  | N/A       |
+| role\_id              | String      | =         |
+| status                | String      | =         |
+| timezone              | String      | N/A       |
+| type                  | Integer     | N/A       |
+| verified              | Integer     | N/A       |
+| user\_created\_at     | DateTime    | N/A       |
+| display\_name         | String      | N/A       |
+| phone\_number         | String      | N/A       |
+| language              | String      | N/A       |
+| license               | String      | =         |
+| Group                 | id          | String    | N/A                 |
+| name                  | String      | N/A       |
+| total\_members        | Integer     | N/A       |
+| Group Member          | email       | String    | N/A                 |
+| first\_name           | String      | N/A       |
+| id                    | String      | N/A       |
+| last\_name            | String      | N/A       |
+| type                  | Integer     | N/A       |
+| primary\_group        | Boolean     | N/A       |
+| member\_id            | String      | N/A       |
+| Group Admin           | id          | String    | N/A                 |
+| email                 | String      | N/A       |
+| name                  | String      | N/A       |
+| role                  | description | String    | N/A                 |
+| id                    | String      | N/A       |
+| name                  | String      | N/A       |
+| total\_members        | Integer     | N/A       |
+| type                  | String      | =         |
 
 ## Partitioning queries
 

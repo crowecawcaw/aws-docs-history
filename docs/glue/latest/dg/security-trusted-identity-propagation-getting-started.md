@@ -187,7 +187,7 @@ to have the `sts:SetContext` permission as depicted below.
 
 As AWS Glue sessions leverage
 [Identity-enhanced credentials](../../../singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-identity-enhanced-iam-role-sessions.md")  
- to propagate identity to downstream AWS services, its runtime role's trust-policy need to have addition permission
+to propagate identity to downstream AWS services, its runtime role's trust-policy need to have addition permission
 `sts:SetContext` to allow identity propagation to downstream services (Amazon S3 access-grant, Lake Formation, Amazon Redshift). To learn more about how to
 create a runtime role, see
 [Setting up a runtime role](create-service-role.md "create-service-role.md").

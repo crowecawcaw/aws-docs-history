@@ -30,9 +30,9 @@ Specify one of the following:
      activated.
 
 4. Complete the trigger wizard. On the **Review** page, you can
-   activate **Schedule** and **Job events**
-   (conditional) triggers immediately by selecting **Enable trigger on
-   creation**.
+activate **Schedule** and **Job events**
+(conditional) triggers immediately by selecting **Enable trigger on
+creation**.
 
 ###### To add a trigger (AWS CLI)
 

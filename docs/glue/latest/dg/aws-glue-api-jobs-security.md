@@ -217,18 +217,18 @@ The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 
 ## Operations
 
-- [GetDataCatalogEncryptionSettings action (Python: get_data_catalog_encryption_settings)](#aws-glue-api-jobs-security-GetDataCatalogEncryptionSettings "#aws-glue-api-jobs-security-GetDataCatalogEncryptionSettings")
-- [PutDataCatalogEncryptionSettings action (Python: put_data_catalog_encryption_settings)](#aws-glue-api-jobs-security-PutDataCatalogEncryptionSettings "#aws-glue-api-jobs-security-PutDataCatalogEncryptionSettings")
-- [PutResourcePolicy action (Python: put_resource_policy)](#aws-glue-api-jobs-security-PutResourcePolicy "#aws-glue-api-jobs-security-PutResourcePolicy")
-- [GetResourcePolicy action (Python: get_resource_policy)](#aws-glue-api-jobs-security-GetResourcePolicy "#aws-glue-api-jobs-security-GetResourcePolicy")
-- [DeleteResourcePolicy action (Python: delete_resource_policy)](#aws-glue-api-jobs-security-DeleteResourcePolicy "#aws-glue-api-jobs-security-DeleteResourcePolicy")
-- [CreateSecurityConfiguration action (Python: create_security_configuration)](#aws-glue-api-jobs-security-CreateSecurityConfiguration "#aws-glue-api-jobs-security-CreateSecurityConfiguration")
-- [DeleteSecurityConfiguration action (Python: delete_security_configuration)](#aws-glue-api-jobs-security-DeleteSecurityConfiguration "#aws-glue-api-jobs-security-DeleteSecurityConfiguration")
-- [GetSecurityConfiguration action (Python: get_security_configuration)](#aws-glue-api-jobs-security-GetSecurityConfiguration "#aws-glue-api-jobs-security-GetSecurityConfiguration")
-- [GetSecurityConfigurations action (Python: get_security_configurations)](#aws-glue-api-jobs-security-GetSecurityConfigurations "#aws-glue-api-jobs-security-GetSecurityConfigurations")
-- [GetResourcePolicies action (Python: get_resource_policies)](#aws-glue-api-jobs-security-GetResourcePolicies "#aws-glue-api-jobs-security-GetResourcePolicies")
+- [GetDataCatalogEncryptionSettings action (Python: get\_data\_catalog\_encryption\_settings)](#aws-glue-api-jobs-security-GetDataCatalogEncryptionSettings "#aws-glue-api-jobs-security-GetDataCatalogEncryptionSettings")
+- [PutDataCatalogEncryptionSettings action (Python: put\_data\_catalog\_encryption\_settings)](#aws-glue-api-jobs-security-PutDataCatalogEncryptionSettings "#aws-glue-api-jobs-security-PutDataCatalogEncryptionSettings")
+- [PutResourcePolicy action (Python: put\_resource\_policy)](#aws-glue-api-jobs-security-PutResourcePolicy "#aws-glue-api-jobs-security-PutResourcePolicy")
+- [GetResourcePolicy action (Python: get\_resource\_policy)](#aws-glue-api-jobs-security-GetResourcePolicy "#aws-glue-api-jobs-security-GetResourcePolicy")
+- [DeleteResourcePolicy action (Python: delete\_resource\_policy)](#aws-glue-api-jobs-security-DeleteResourcePolicy "#aws-glue-api-jobs-security-DeleteResourcePolicy")
+- [CreateSecurityConfiguration action (Python: create\_security\_configuration)](#aws-glue-api-jobs-security-CreateSecurityConfiguration "#aws-glue-api-jobs-security-CreateSecurityConfiguration")
+- [DeleteSecurityConfiguration action (Python: delete\_security\_configuration)](#aws-glue-api-jobs-security-DeleteSecurityConfiguration "#aws-glue-api-jobs-security-DeleteSecurityConfiguration")
+- [GetSecurityConfiguration action (Python: get\_security\_configuration)](#aws-glue-api-jobs-security-GetSecurityConfiguration "#aws-glue-api-jobs-security-GetSecurityConfiguration")
+- [GetSecurityConfigurations action (Python: get\_security\_configurations)](#aws-glue-api-jobs-security-GetSecurityConfigurations "#aws-glue-api-jobs-security-GetSecurityConfigurations")
+- [GetResourcePolicies action (Python: get\_resource\_policies)](#aws-glue-api-jobs-security-GetResourcePolicies "#aws-glue-api-jobs-security-GetResourcePolicies")
 
-## GetDataCatalogEncryptionSettings action (Python: get_data_catalog_encryption_settings)
+## GetDataCatalogEncryptionSettings action (Python: get\_data\_catalog\_encryption\_settings)
 
 Retrieves the security configuration for a specified catalog.
 
@@ -251,7 +251,7 @@ The requested security configuration.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## PutDataCatalogEncryptionSettings action (Python: put_data_catalog_encryption_settings)
+## PutDataCatalogEncryptionSettings action (Python: put\_data\_catalog\_encryption\_settings)
 
 Sets the security configuration for a specified catalog. After the configuration
 has been set, the specified encryption is applied to every catalog write thereafter.
@@ -277,7 +277,7 @@ The security configuration to set.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## PutResourcePolicy action (Python: put_resource_policy)
+## PutResourcePolicy action (Python: put\_resource\_policy)
 
 Sets the Data Catalog resource policy for access control.
 
@@ -331,7 +331,7 @@ call that overwrites or updates this policy.
 - `InvalidInputException`
 - `ConditionCheckFailureException`
 
-## GetResourcePolicy action (Python: get_resource_policy)
+## GetResourcePolicy action (Python: get\_resource\_policy)
 
 Retrieves a specified resource policy.
 
@@ -369,7 +369,7 @@ The date and time at which the policy was last updated.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## DeleteResourcePolicy action (Python: delete_resource_policy)
+## DeleteResourcePolicy action (Python: delete\_resource\_policy)
 
 Deletes a specified policy.
 
@@ -396,7 +396,7 @@ deleted.
 - `InvalidInputException`
 - `ConditionCheckFailureException`
 
-## CreateSecurityConfiguration action (Python: create_security_configuration)
+## CreateSecurityConfiguration action (Python: create\_security\_configuration)
 
 Creates a new security configuration. A security configuration is a set
 of security properties that can be used by AWS Glue. You can use a security
@@ -432,7 +432,7 @@ The time at which the new security configuration was created.
 - `OperationTimeoutException`
 - `ResourceNumberLimitExceededException`
 
-## DeleteSecurityConfiguration action (Python: delete_security_configuration)
+## DeleteSecurityConfiguration action (Python: delete\_security\_configuration)
 
 Deletes a specified security configuration.
 
@@ -453,7 +453,7 @@ The name of the security configuration to delete.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetSecurityConfiguration action (Python: get_security_configuration)
+## GetSecurityConfiguration action (Python: get\_security\_configuration)
 
 Retrieves a specified security configuration.
 
@@ -476,7 +476,7 @@ The requested security configuration.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetSecurityConfigurations action (Python: get_security_configurations)
+## GetSecurityConfigurations action (Python: get\_security\_configurations)
 
 Retrieves a list of all security configurations.
 
@@ -507,7 +507,7 @@ A continuation token, if there are more security configurations to return.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetResourcePolicies action (Python: get_resource_policies)
+## GetResourcePolicies action (Python: get\_resource\_policies)
 
 Retrieves the resource policies set on individual resources by AWS Resource Access Manager during cross-account permission grants. Also retrieves the
 Data Catalog resource policy.

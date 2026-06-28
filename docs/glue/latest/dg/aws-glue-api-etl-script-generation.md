@@ -134,12 +134,12 @@ The target type.
 
 ## Operations
 
-- [CreateScript action (Python: create_script)](#aws-glue-api-etl-script-generation-CreateScript "#aws-glue-api-etl-script-generation-CreateScript")
-- [GetDataflowGraph action (Python: get_dataflow_graph)](#aws-glue-api-etl-script-generation-GetDataflowGraph "#aws-glue-api-etl-script-generation-GetDataflowGraph")
-- [GetMapping action (Python: get_mapping)](#aws-glue-api-etl-script-generation-GetMapping "#aws-glue-api-etl-script-generation-GetMapping")
-- [GetPlan action (Python: get_plan)](#aws-glue-api-etl-script-generation-GetPlan "#aws-glue-api-etl-script-generation-GetPlan")
+- [CreateScript action (Python: create\_script)](#aws-glue-api-etl-script-generation-CreateScript "#aws-glue-api-etl-script-generation-CreateScript")
+- [GetDataflowGraph action (Python: get\_dataflow\_graph)](#aws-glue-api-etl-script-generation-GetDataflowGraph "#aws-glue-api-etl-script-generation-GetDataflowGraph")
+- [GetMapping action (Python: get\_mapping)](#aws-glue-api-etl-script-generation-GetMapping "#aws-glue-api-etl-script-generation-GetMapping")
+- [GetPlan action (Python: get\_plan)](#aws-glue-api-etl-script-generation-GetPlan "#aws-glue-api-etl-script-generation-GetPlan")
 
-## CreateScript action (Python: create_script)
+## CreateScript action (Python: create\_script)
 
 Transforms a directed acyclic graph (DAG) into code.
 
@@ -173,7 +173,7 @@ The Scala code generated from the DAG.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetDataflowGraph action (Python: get_dataflow_graph)
+## GetDataflowGraph action (Python: get\_dataflow\_graph)
 
 Transforms a Python script into a directed acyclic graph (DAG).
 
@@ -199,7 +199,7 @@ A list of the edges in the resulting DAG.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetMapping action (Python: get_mapping)
+## GetMapping action (Python: get\_mapping)
 
 Creates mappings.
 
@@ -230,7 +230,7 @@ A list of mappings to the specified targets.
 - `OperationTimeoutException`
 - `EntityNotFoundException`
 
-## GetPlan action (Python: get_plan)
+## GetPlan action (Python: get\_plan)
 
 Gets code to perform a specified mapping.
 

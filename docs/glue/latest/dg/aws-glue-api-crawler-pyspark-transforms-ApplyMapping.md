@@ -4,8 +4,8 @@ Applies a mapping in a `DynamicFrame`.
 
 ## Example
 
-We recommend that you use the [DynamicFrame.apply_mapping()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping")
-method to apply a mapping in a `DynamicFrame`. To view a code example, see [Example: Use apply_mapping to rename fields and change field types](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-apply_mapping-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-apply_mapping-example").
+We recommend that you use the [DynamicFrame.apply\_mapping()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping")
+method to apply a mapping in a `DynamicFrame`. To view a code example, see [Example: Use apply\_mapping to rename fields and change field types](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-apply_mapping-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-apply_mapping-example").
 
 ## Methods
 
@@ -18,7 +18,7 @@ method to apply a mapping in a `DynamicFrame`. To view a code example, see [Exam
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-ApplyMapping-describeErrors "#aws-glue-api-crawler-pyspark-transforms-ApplyMapping-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-ApplyMapping-describe "#aws-glue-api-crawler-pyspark-transforms-ApplyMapping-describe")
 
-## \_\_call\_\_(frame, mappings, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, mappings, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Applies a declarative mapping to a specified `DynamicFrame`.
 
@@ -28,7 +28,8 @@ Applies a declarative mapping to a specified `DynamicFrame`.
   (source column, source type, target column, target type).
 
 If the source column has a dot "`.`" in the name, you must place
-back-ticks "````" around it. For example, to map `this.old.name` (string) to`thisNewName`, you would use the following tuple:
+back-ticks "````" around it. For example, to map `this.old.name`
+(string) to `thisNewName`, you would use the following tuple:
 
 ```
 ("`this.old.name`", "string", "thisNewName", "string")

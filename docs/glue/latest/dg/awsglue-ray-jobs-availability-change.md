@@ -224,23 +224,23 @@ environment settings.
 
 #### Job Argument Mapping
 
-| Mapping AWS Glue for Ray Arguments to Ray on EKS Equivalents | AWS Glue for Ray argument                   | What it does in AWS Glue for Ray                                                                                                                                                  | Ray on Amazon Elastic Kubernetes Service equivalent |
-| ------------------------------------------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| `--min-workers`                                              | Minimum workers the job must allocate.      | `workerGroupSpecs[].minReplicas` in your<br>RayCluster                                                                                                                            |
-| `--working-dir`                                              | Distributes a zip (S3 URI) to all nodes.    | Use Ray runtime env: `working_dir` if you're<br>submitting from local files; `py_modules` for S3 zips<br>to point at the S3 artifact                                              |
-| `--s3-py-modules`                                            | Adds Python wheels/dists from S3.           | Use Ray runtime env: `py_modules: ["s3://.../xxx.whl",<br>...]`                                                                                                                   |
-| `--pip-install`                                              | Installs extra PyPI packages for the job.   | Ray runtime env: `pip: ["pkg==ver", ...]` (Ray Job<br>CLI `--runtime-env-json` or RayJob<br>`runtimeEnvYAML`).                                                                    |
-| `--object_store_memory_head`                                 | % of memory for head node's Plasma store.   | `headGroupSpec[].rayStartParams.object-store-memory`<br>in your RayCluster. Note this should be in bytes. AWS Glue uses<br>percentage, while Ray uses bytes.                      |
-| `--object_store_memory_worker`                               | % of memory for worker nodes' Plasma store. | Same as above but set in each worker group's<br>`rayStartParams.object-store-memory`<br>(bytes).                                                                                  |
-| `--object_spilling_config`                                   | Configure Ray object spilling.              | `headGroupSpec[].rayStartParams.object-spilling-config`                                                                                                                           |
-| `--logging_configuration`                                    | AWS Glue-managed logs (CloudWatch, S3).     | Check pod stdout/stderr: use `kubectl -n ray logs<br><pod-name> --follow`. Check logs from Ray<br>Dashboard (port-forward to :8265), you can also see task and job<br>logs there. |
+Mapping AWS Glue for Ray Arguments to Ray on EKS Equivalents| AWS Glue for Ray argument | What it does in AWS Glue for Ray | Ray on Amazon Elastic Kubernetes Service equivalent |
+| --- | --- | --- |
+| `--min-workers` | Minimum workers the job must allocate. | `workerGroupSpecs[].minReplicas` in your<br>RayCluster |
+| `--working-dir` | Distributes a zip (S3 URI) to all nodes. | Use Ray runtime env: `working_dir` if you're<br>submitting from local files; `py_modules` for S3 zips<br>to point at the S3 artifact |
+| `--s3-py-modules` | Adds Python wheels/dists from S3. | Use Ray runtime env: `py_modules: ["s3://.../xxx.whl",<br>...]` |
+| `--pip-install` | Installs extra PyPI packages for the job. | Ray runtime env: `pip: ["pkg==ver", ...]` (Ray Job<br>CLI `--runtime-env-json` or RayJob<br>`runtimeEnvYAML`). |
+| `--object_store_memory_head` | % of memory for head node's Plasma store. | `headGroupSpec[].rayStartParams.object-store-memory`<br>in your RayCluster. Note this should be in bytes. AWS Glue uses<br>percentage, while Ray uses bytes. |
+| `--object_store_memory_worker` | % of memory for worker nodes' Plasma store. | Same as above but set in each worker group's<br>`rayStartParams.object-store-memory`<br>(bytes). |
+| `--object_spilling_config` | Configure Ray object spilling. | `headGroupSpec[].rayStartParams.object-spilling-config` |
+| `--logging_configuration` | AWS Glue-managed logs (CloudWatch, S3). | Check pod stdout/stderr: use `kubectl -n ray logs<br><pod-name> --follow`. Check logs from Ray<br>Dashboard (port-forward to :8265), you can also see task and job<br>logs there. |
 
 #### Job Configuration Mapping
 
-| Mapping AWS Glue for Ray Job Configurations to Ray on EKS Equivalents | Configuration                                                                                             | What it does in AWS Glue for Ray                                                                                                                                                                                                           | Ray on EKS equivalent |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
-| Worker type                                                           | Set the type of predefined worker that is allowed when a job<br>runs. Default to Z 2X (8vCPU, 64 GB RAM). | Nodegroup instance type in EKS (e.g., r7g.2xlarge ≈ 8 vCPU /<br>64 GB for ARM, r7a.2xlarge for x86).                                                                                                                                       |
-| Maximum number of workers                                             | The number of workers you want AWS Glue to allocate to this<br>job.                                       | Set `workerGroupSpecs[].maxReplicas` to the same<br>number of what you used in AWS Glue. This is the upper bound for<br>autoscaling. Similarly set `minReplicas` as lower<br>bound. You can start with `replicas: 0`,<br>`minReplicas: 0`. |
+Mapping AWS Glue for Ray Job Configurations to Ray on EKS Equivalents| Configuration | What it does in AWS Glue for Ray | Ray on EKS equivalent |
+| --- | --- | --- |
+| Worker type | Set the type of predefined worker that is allowed when a job<br>runs. Default to Z 2X (8vCPU, 64 GB RAM). | Nodegroup instance type in EKS (e.g., r7g.2xlarge ≈ 8 vCPU /<br>64 GB for ARM, r7a.2xlarge for x86). |
+| Maximum number of workers | The number of workers you want AWS Glue to allocate to this<br>job. | Set `workerGroupSpecs[].maxReplicas` to the same<br>number of what you used in AWS Glue. This is the upper bound for<br>autoscaling. Similarly set `minReplicas` as lower<br>bound. You can start with `replicas: 0`,<br>`minReplicas: 0`. |
 
 ### Step 3. Setup Amazon Elastic Kubernetes Service
 

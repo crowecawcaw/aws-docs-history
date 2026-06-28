@@ -18,7 +18,7 @@ We recommend that you use the [DynamicFrame.join()](aws-glue-api-crawler-pyspark
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-join-describeErrors "#aws-glue-api-crawler-pyspark-transforms-join-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-join-describe "#aws-glue-api-crawler-pyspark-transforms-join-describe")
 
-## \_\_call\_\_(frame1, frame2, keys1, keys2, transformation_ctx = "")
+## \_\_call\_\_(frame1, frame2, keys1, keys2, transformation\_ctx = "")
 
 Performs an equality join on two `DynamicFrames`.
 

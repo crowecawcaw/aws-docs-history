@@ -104,7 +104,7 @@ The transformation successfully extracts the month name from various date/time f
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-MonthName-describeErrors "#aws-glue-api-crawler-pyspark-transforms-MonthName-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-MonthName-describe "#aws-glue-api-crawler-pyspark-transforms-MonthName-describe")
 
-## \_\_call\_\_(spark_context, data_frame, target_column, source_column=None, value=None)
+## \_\_call\_\_(spark\_context, data\_frame, target\_column, source\_column=None, value=None)
 
 The `MonthName` transform creates a new column containing the name of the month, from a string that represents a date.
 

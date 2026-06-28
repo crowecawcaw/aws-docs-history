@@ -32,8 +32,8 @@ For more information about how to turn on metrics and interpret the graphs, see
 
 The ETL Data Movement graph shows the following metrics:
 
-- The number of bytes read from Amazon S3 by all executors—[glue.ALL.s3.filesystem.read_bytes](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.read_bytes "monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.read_bytes")
-- The number of bytes written to Amazon S3 by all executors—[glue.ALL.s3.filesystem.write_bytes](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.write_bytes "monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.write_bytes")
+- The number of bytes read from Amazon S3 by all executors—[glue.ALL.s3.filesystem.read\_bytes](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.read_bytes "monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.read_bytes")
+- The number of bytes written to Amazon S3 by all executors—[glue.ALL.s3.filesystem.write\_bytes](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.write_bytes "monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.s3.filesystem.write_bytes")
 
 ![The graph for ETL Data Movement in the Metrics tab of the AWS Glue console.](images/job_detailed_etl.png)
 

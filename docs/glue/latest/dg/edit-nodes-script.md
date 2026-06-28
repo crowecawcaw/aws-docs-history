@@ -90,7 +90,7 @@ are needed.
    boilerplate code**.
 3. Choose the **Job details** tab and set
    **Language** to `Scala` (instead of `Python
-3`).
+ 3`).
 
 ###### Note
 

@@ -81,7 +81,7 @@ JSON
 
 ```
 
-The AWS Glue crawler creates two folders: \_glue_job_crawler and \_crawler.
+The AWS Glue crawler creates two folders: \_glue\_job\_crawler and \_crawler.
 
 If the driver jar is located in the
 `s3://amzn-s3-demo-bucket/driver.jar"` folder, add the following

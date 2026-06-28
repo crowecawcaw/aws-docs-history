@@ -55,4 +55,4 @@ by following the steps below:
     5. Select the network options if you want to use your network.
 
 3. Grant the IAM role associated with your AWS Glue job permission to read
-   `secretName`.
+`secretName`.

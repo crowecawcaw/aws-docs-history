@@ -25,8 +25,8 @@ The Data Catalog settings contains options to set encryption and permissions opt
    When you enable this option, choose an AWS KMS key, or choose **Enter a key
    ARN** and provide the Amazon Resource Name (ARN) for the key. Enter the ARN in the form
    `arn:aws:kms:`region`:`account-id`:key/`key-id``.
- You can also provide the ARN as a key alias, such as
- `arn:aws:kms:`region`:`account-id`:alias/`alias-name``.
+  You can also provide the ARN as a key alias, such as
+  `arn:aws:kms:`region`:`account-id`:alias/`alias-name``.
 
    ###### Important
 

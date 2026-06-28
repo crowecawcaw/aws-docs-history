@@ -34,7 +34,7 @@ Iceberg also provides support for data versioning, which allows users to track c
 This enables the time travel feature, which allows users to access and query historical versions of data and analyze changes to the data between updates and deletes.
 
 You can use AWS Glue or Lake Formation console or the `CreateTable` operation in the
-AWS Glue API to create an Iceberg table in the Data Catalog. For more information, see [CreateTable action (Python: create_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable").
+AWS Glue API to create an Iceberg table in the Data Catalog. For more information, see [CreateTable action (Python: create\_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable").
 
 When you create an Iceberg table in the Data Catalog, you must specify the table format and
 metadata file path in Amazon S3 to be able to perform reads and writes.

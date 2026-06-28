@@ -22,7 +22,7 @@ These options correspond to specific enumeration values that you'll use when cal
 | `"NULL"`             | Ignore                    |
 | `"M"`                | StructType (TOP/NOUNNEST) |
 
-No unnesting - NO_UNNEST
+No unnesting - NO\_UNNEST
 
 **API value: `NO_UNNEST`**
 
@@ -30,7 +30,7 @@ Preserves the original nested structure of Amazon DynamoDB items. Maps and lists
 
 Best for: Preserving the exact structure of your Amazon DynamoDB data when your analytics tools can work with nested data.
 
-Top level - TOP_LEVEL
+Top level - TOP\_LEVEL
 
 **API value: `TOP_LEVEL`**
 
@@ -97,15 +97,15 @@ Consider a DynamoDB item with the following structure:
 }
 ```
 
-### NO_UNNEST example
+### NO\_UNNEST example
 
-With NO_UNNEST, the entire row is stored within one column plus the primary key. DynamoDB type information is preserved. This maintains compatibility with Redshift querying patterns.
+With NO\_UNNEST, the entire row is stored within one column plus the primary key. DynamoDB type information is preserved. This maintains compatibility with Redshift querying patterns.
 
-Resulting Iceberg table (assuming col_1 is primary key):
+Resulting Iceberg table (assuming col\_1 is primary key):
 
-| col_1 (string) | value (struct)                                                                                                                                             |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| value_1        | `<br>{<br>"col_2": {<br>"M": {<br>"col_3": {<br>"M": {<br>"id": {<br>"S": "value_3"<br>}<br>}<br>},<br>"col_4": {<br>"BOOL": true<br>}<br>}<br>}<br>}<br>` |
+| col\_1 (string) | value (struct)                                                                                                                                             |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| value\_1        | `<br>{<br>"col_2": {<br>"M": {<br>"col_3": {<br>"M": {<br>"id": {<br>"S": "value_3"<br>}<br>}<br>},<br>"col_4": {<br>"BOOL": true<br>}<br>}<br>}<br>}<br>` |
 
 Queries would need to use struct and array access patterns:
 
@@ -117,15 +117,15 @@ SELECT
 FROM product_table;
 ```
 
-### TOP_LEVEL example
+### TOP\_LEVEL example
 
-With TOP_LEVEL, only the top-level fields are unnested while keeping nested fields intact as structs. DynamoDB type information is removed and typing is maintained. Converts to string type when schema conflicts occur.
+With TOP\_LEVEL, only the top-level fields are unnested while keeping nested fields intact as structs. DynamoDB type information is removed and typing is maintained. Converts to string type when schema conflicts occur.
 
 Resulting Glue table after replication:
 
-| col_1 (string) | col_2 (struct)                                                           |
-| -------------- | ------------------------------------------------------------------------ |
-| value_1        | `<br>{<br>"col_3": {<br>"id": "value_3"<br>},<br>"col_4": true<br>}<br>` |
+| col\_1 (string) | col\_2 (struct)                                                          |
+| --------------- | ------------------------------------------------------------------------ |
+| value\_1        | `<br>{<br>"col_3": {<br>"id": "value_3"<br>},<br>"col_4": true<br>}<br>` |
 
 Queries would be simplified for the first level:
 
@@ -139,13 +139,13 @@ FROM product_table;
 
 ### FULL example
 
-With FULL unnesting, both top-level fields and nested struct/map fields are flattened. Dot notation is used for nested fields (e.g., "col_2.col_3.id"). Array elements remain unnested. Each leaf node becomes a top-level column.
+With FULL unnesting, both top-level fields and nested struct/map fields are flattened. Dot notation is used for nested fields (e.g., "col\_2.col\_3.id"). Array elements remain unnested. Each leaf node becomes a top-level column.
 
 Resulting Glue table after replication:
 
-| col_1 (string) | col_2.col_3.id (string) | col_2.col_4 (boolean) |
-| -------------- | ----------------------- | --------------------- |
-| value_1        | value_3                 | TRUE                  |
+| col\_1 (string) | col\_2.col\_3.id (string) | col\_2.col\_4 (boolean) |
+| --------------- | ------------------------- | ----------------------- |
+| value\_1        | value\_3                  | TRUE                    |
 
 Queries would be fully flattened:
 

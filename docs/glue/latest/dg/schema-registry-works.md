@@ -2,7 +2,7 @@
 
 This section describes how the serialization and deserialization processes in schema registry work.
 
-1. Register a schema: If the schema doesn’t already exist in the registry, the schema can be registered with a schema name equal to the name of the destination (e.g., test_topic, test_stream, prod_firehose) or the producer can provide a custom name for the schema. Producers can also add key-value pairs to the schema as metadata, such as source: msk_kafka_topic_A, or apply AWS tags to schemas on schema creation. Once a schema is registered the Schema Registry returns the schema version ID to the serializer. If the schema exists but the serializer is using a new version that doesn’t exist, the Schema Registry will check the schema reference a compatibility rule to ensure the new version is compatible before registering it as a new version.
+1. Register a schema: If the schema doesn’t already exist in the registry, the schema can be registered with a schema name equal to the name of the destination (e.g., test\_topic, test\_stream, prod\_firehose) or the producer can provide a custom name for the schema. Producers can also add key-value pairs to the schema as metadata, such as source: msk\_kafka\_topic\_A, or apply AWS tags to schemas on schema creation. Once a schema is registered the Schema Registry returns the schema version ID to the serializer. If the schema exists but the serializer is using a new version that doesn’t exist, the Schema Registry will check the schema reference a compatibility rule to ensure the new version is compatible before registering it as a new version.
 
 There are two methods of registering a schema: manual registration and auto-registration. You can register a schema manually via the AWS Glue console or CLI/SDK.
 

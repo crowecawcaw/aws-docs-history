@@ -1,0 +1,2012 @@
+# Business context APIs
+
+The business context API describes the data types and operations for managing
+assets, asset types, form types, glossaries, glossary terms, attachments,
+and search in the AWS Glue Data Catalog.
+
+## Data types
+
+- [AssetFormEntry structure](#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry")
+- [AssetTypeFormReference structure](#aws-glue-api-catalog-aws-glue-api-semantics-AssetTypeFormReference "#aws-glue-api-catalog-aws-glue-api-semantics-AssetTypeFormReference")
+- [IterableFormEntry structure](#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormEntry")
+- [IterableFormItem structure](#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormItem "#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormItem")
+- [IterableFormListItem structure](#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormListItem "#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormListItem")
+- [SearchResultItem structure](#aws-glue-api-catalog-aws-glue-api-semantics-SearchResultItem "#aws-glue-api-catalog-aws-glue-api-semantics-SearchResultItem")
+- [SearchSort structure](#aws-glue-api-catalog-aws-glue-api-semantics-SearchSort "#aws-glue-api-catalog-aws-glue-api-semantics-SearchSort")
+- [SearchFilterClause structure](#aws-glue-api-catalog-aws-glue-api-semantics-SearchFilterClause "#aws-glue-api-catalog-aws-glue-api-semantics-SearchFilterClause")
+- [SearchAttributeFilter structure](#aws-glue-api-catalog-aws-glue-api-semantics-SearchAttributeFilter "#aws-glue-api-catalog-aws-glue-api-semantics-SearchAttributeFilter")
+- [SearchFilterValue structure](#aws-glue-api-catalog-aws-glue-api-semantics-SearchFilterValue "#aws-glue-api-catalog-aws-glue-api-semantics-SearchFilterValue")
+- [ItemError structure](#aws-glue-api-catalog-aws-glue-api-semantics-ItemError "#aws-glue-api-catalog-aws-glue-api-semantics-ItemError")
+- [GetAssetOutput structure](#aws-glue-api-catalog-aws-glue-api-semantics-GetAssetOutput "#aws-glue-api-catalog-aws-glue-api-semantics-GetAssetOutput")
+- [SearchOutput structure](#aws-glue-api-catalog-aws-glue-api-semantics-SearchOutput "#aws-glue-api-catalog-aws-glue-api-semantics-SearchOutput")
+
+## AssetFormEntry structure
+
+A form on an asset, consisting of the form type identifier and its JSON content.
+
+###### Fields
+
+- `FormTypeId` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the form type that defines this form's schema.
+
+- `Content` – UTF-8 string.
+
+The JSON content of the form, conforming to the schema of the specified
+form type.
+
+## AssetTypeFormReference structure
+
+A reference to a form type that is included in an asset type.
+
+###### Fields
+
+- `FormTypeIdentifier` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the referenced form type.
+
+## IterableFormEntry structure
+
+An iterable form available on an asset, identified by its form type.
+
+###### Fields
+
+- `FormTypeId` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The form type identifier of the iterable form (for example, `columns`),
+used to retrieve its items via `ListIterableForms` or `BatchGetIterableForms`.
+
+## IterableFormItem structure
+
+A full iterable form item with its forms.
+
+###### Fields
+
+- `ItemId` – UTF-8 string.
+
+The unique identifier of the item.
+
+- `ItemName` – UTF-8 string.
+
+The name of the item.
+
+- `GlossaryTerms` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+The identifiers of the glossary terms associated with the item.
+
+- `Forms` – A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a An [AssetFormEntry](#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry") object.
+
+The forms on the item, keyed by form name.
+
+- `Attachments` – A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a An [AssetFormEntry](#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry") object.
+
+Additional attachments on the item for more context, keyed by attachment
+name.
+
+## IterableFormListItem structure
+
+A summary of an item in an iterable form.
+
+###### Fields
+
+- `ItemId` – UTF-8 string.
+
+The unique identifier of the item.
+
+- `ItemName` – UTF-8 string.
+
+The name of the item.
+
+- `Description` – UTF-8 string.
+
+The description of the item.
+
+- `GlossaryTerms` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+The identifiers of the glossary terms associated with the item.
+
+## SearchResultItem structure
+
+A single search result item representing a matched asset.
+
+###### Fields
+
+- `Id` – UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the matched asset.
+
+- `AssetName` – UTF-8 string.
+
+The name of the matched asset.
+
+- `AssetDescription` – UTF-8 string.
+
+The description of the matched asset.
+
+- `UpdatedAt` – Timestamp.
+
+The timestamp at which the matched asset was last updated.
+
+- `AssetTypeId` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the asset type for the matched asset.
+
+## SearchSort structure
+
+The sort criteria for search results.
+
+###### Fields
+
+- `Attribute` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+
+The attribute to sort by.
+
+- `Order` – UTF-8 string (valid values: `ASCENDING` | `DESCENDING`).
+
+The sort order. Valid values are `ASCENDING` and `DESCENDING`.
+
+## SearchFilterClause structure
+
+A filter clause that supports nested boolean logic. Exactly one of `andAllFilters`,
+`orAnyFilters`, `attributeFilter`, or `mapFilter`
+must be specified.
+
+###### Fields
+
+- `AndAllFilters` – An array of SearchFilterClause objects, not less than 1 or more than 10 structures.
+
+A list of filter clauses that must all match (logical AND).
+
+- `OrAnyFilters` – An array of SearchFilterClause objects, not less than 1 or more than 10 structures.
+
+A list of filter clauses where at least one must match (logical OR).
+
+- `AttributeFilter` – A [SearchAttributeFilter](#aws-glue-api-catalog-aws-glue-api-semantics-SearchAttributeFilter "#aws-glue-api-catalog-aws-glue-api-semantics-SearchAttributeFilter") object.
+
+A filter on a single attribute value.
+
+- `MapFilter` – .
+
+A filter on a map attribute's key-value pair.
+
+## SearchAttributeFilter structure
+
+A filter that compares an attribute value using an operator.
+
+###### Fields
+
+- `Attribute` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long.
+
+The attribute name to filter on.
+
+- `Operator` – _Required:_ UTF-8 string (valid values: `equals` | `greaterThan` | `greaterThanOrEquals` | `lessThan` | `lessThanOrEquals` | `notExists`).
+
+The comparison operator. Valid values are `equals`, `greaterThan`,
+`greaterThanOrEquals`, `lessThan`, `lessThanOrEquals`,
+and `notExists`.
+
+- `Value` – A [SearchFilterValue](#aws-glue-api-catalog-aws-glue-api-semantics-SearchFilterValue "#aws-glue-api-catalog-aws-glue-api-semantics-SearchFilterValue") object.
+
+The value to compare against.
+
+## SearchFilterValue structure
+
+A filter value. Exactly one of `stringValue` or `longValue`
+must be specified.
+
+###### Fields
+
+- `StringValue` – UTF-8 string, not more than 256 bytes long.
+
+A string filter value.
+
+- `LongValue` – Number (long).
+
+A long integer filter value.
+
+## ItemError structure
+
+An error that occurred when retrieving an iterable form item.
+
+###### Fields
+
+- `ItemIdentifier` – UTF-8 string, not less than 1 or more than 1087 bytes long.
+
+The identifier of the item that caused the error.
+
+- `Code` – UTF-8 string.
+
+The error code.
+
+- `Message` – UTF-8 string.
+
+The error message.
+
+## GetAssetOutput structure
+
+The response structure for the `GetAsset` operation.
+
+###### Fields
+
+- `Id` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+- `Name` – UTF-8 string.
+
+The name of the asset.
+
+- `Description` – UTF-8 string.
+
+The description of the asset.
+
+- `CreatedAt` – Timestamp.
+
+The timestamp at which the asset was created.
+
+- `UpdatedAt` – Timestamp.
+
+The timestamp at which the asset was last updated.
+
+- `CreatedBy` – .
+
+The identity of the principal that created the asset.
+
+- `UpdatedBy` – .
+
+The identity of the principal that last updated the asset.
+
+- `AssetTypeId` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the asset type for this asset.
+
+- `GlossaryTerms` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+The identifiers of the glossary terms associated with the asset.
+
+- `Forms` – A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a An [AssetFormEntry](#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry") object.
+
+The forms on the asset, keyed by form name.
+
+- `Attachments` – A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a An [AssetFormEntry](#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry") object.
+
+Additional attachments on the asset for more context, keyed by attachment
+name.
+
+- `IterableForms` – A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a An [IterableFormEntry](#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormEntry") object.
+
+The iterable forms available on the asset, keyed by form name (for example,
+`columns`). Use the form name with `ListIterableForms`
+or `BatchGetIterableForms` to retrieve the form's items.
+
+## SearchOutput structure
+
+The response structure for the `Search` operation.
+
+###### Fields
+
+- `Items` – An array of [SearchResultItem](#aws-glue-api-catalog-aws-glue-api-semantics-SearchResultItem "#aws-glue-api-catalog-aws-glue-api-semantics-SearchResultItem") objects.
+
+The list of assets matching the search criteria.
+
+- `TotalCount` – Number (integer).
+
+The total number of assets matching the search criteria.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, present if the current segment is not the last.
+
+- `Aggregations` – An array of objects.
+
+The aggregation results for the requested attributes.
+
+## Operations
+
+- [GetAsset action (Python: get\_asset)](#aws-glue-api-catalog-aws-glue-api-semantics-GetAsset "#aws-glue-api-catalog-aws-glue-api-semantics-GetAsset")
+- [PutAsset action (Python: put\_asset)](#aws-glue-api-catalog-aws-glue-api-semantics-PutAsset "#aws-glue-api-catalog-aws-glue-api-semantics-PutAsset")
+- [DeleteAsset action (Python: delete\_asset)](#aws-glue-api-catalog-aws-glue-api-semantics-DeleteAsset "#aws-glue-api-catalog-aws-glue-api-semantics-DeleteAsset")
+- [PutAssetType action (Python: put\_asset\_type)](#aws-glue-api-catalog-aws-glue-api-semantics-PutAssetType "#aws-glue-api-catalog-aws-glue-api-semantics-PutAssetType")
+- [GetAssetType action (Python: get\_asset\_type)](#aws-glue-api-catalog-aws-glue-api-semantics-GetAssetType "#aws-glue-api-catalog-aws-glue-api-semantics-GetAssetType")
+- [DeleteAssetType action (Python: delete\_asset\_type)](#aws-glue-api-catalog-aws-glue-api-semantics-DeleteAssetType "#aws-glue-api-catalog-aws-glue-api-semantics-DeleteAssetType")
+- [ListAssetTypes action (Python: list\_asset\_types)](#aws-glue-api-catalog-aws-glue-api-semantics-ListAssetTypes "#aws-glue-api-catalog-aws-glue-api-semantics-ListAssetTypes")
+- [PutFormType action (Python: put\_form\_type)](#aws-glue-api-catalog-aws-glue-api-semantics-PutFormType "#aws-glue-api-catalog-aws-glue-api-semantics-PutFormType")
+- [GetFormType action (Python: get\_form\_type)](#aws-glue-api-catalog-aws-glue-api-semantics-GetFormType "#aws-glue-api-catalog-aws-glue-api-semantics-GetFormType")
+- [DeleteFormType action (Python: delete\_form\_type)](#aws-glue-api-catalog-aws-glue-api-semantics-DeleteFormType "#aws-glue-api-catalog-aws-glue-api-semantics-DeleteFormType")
+- [ListFormTypes action (Python: list\_form\_types)](#aws-glue-api-catalog-aws-glue-api-semantics-ListFormTypes "#aws-glue-api-catalog-aws-glue-api-semantics-ListFormTypes")
+- [PutAttachment action (Python: put\_attachment)](#aws-glue-api-catalog-aws-glue-api-semantics-PutAttachment "#aws-glue-api-catalog-aws-glue-api-semantics-PutAttachment")
+- [DeleteAttachment action (Python: delete\_attachment)](#aws-glue-api-catalog-aws-glue-api-semantics-DeleteAttachment "#aws-glue-api-catalog-aws-glue-api-semantics-DeleteAttachment")
+- [ListIterableForms action (Python: list\_iterable\_forms)](#aws-glue-api-catalog-aws-glue-api-semantics-ListIterableForms "#aws-glue-api-catalog-aws-glue-api-semantics-ListIterableForms")
+- [BatchGetIterableForms action (Python: batch\_get\_iterable\_forms)](#aws-glue-api-catalog-aws-glue-api-semantics-BatchGetIterableForms "#aws-glue-api-catalog-aws-glue-api-semantics-BatchGetIterableForms")
+- [CreateGlossary action (Python: create\_glossary)](#aws-glue-api-catalog-aws-glue-api-semantics-CreateGlossary "#aws-glue-api-catalog-aws-glue-api-semantics-CreateGlossary")
+- [GetGlossary action (Python: get\_glossary)](#aws-glue-api-catalog-aws-glue-api-semantics-GetGlossary "#aws-glue-api-catalog-aws-glue-api-semantics-GetGlossary")
+- [UpdateGlossary action (Python: update\_glossary)](#aws-glue-api-catalog-aws-glue-api-semantics-UpdateGlossary "#aws-glue-api-catalog-aws-glue-api-semantics-UpdateGlossary")
+- [DeleteGlossary action (Python: delete\_glossary)](#aws-glue-api-catalog-aws-glue-api-semantics-DeleteGlossary "#aws-glue-api-catalog-aws-glue-api-semantics-DeleteGlossary")
+- [ListGlossaries action (Python: list\_glossaries)](#aws-glue-api-catalog-aws-glue-api-semantics-ListGlossaries "#aws-glue-api-catalog-aws-glue-api-semantics-ListGlossaries")
+- [CreateGlossaryTerm action (Python: create\_glossary\_term)](#aws-glue-api-catalog-aws-glue-api-semantics-CreateGlossaryTerm "#aws-glue-api-catalog-aws-glue-api-semantics-CreateGlossaryTerm")
+- [GetGlossaryTerm action (Python: get\_glossary\_term)](#aws-glue-api-catalog-aws-glue-api-semantics-GetGlossaryTerm "#aws-glue-api-catalog-aws-glue-api-semantics-GetGlossaryTerm")
+- [UpdateGlossaryTerm action (Python: update\_glossary\_term)](#aws-glue-api-catalog-aws-glue-api-semantics-UpdateGlossaryTerm "#aws-glue-api-catalog-aws-glue-api-semantics-UpdateGlossaryTerm")
+- [DeleteGlossaryTerm action (Python: delete\_glossary\_term)](#aws-glue-api-catalog-aws-glue-api-semantics-DeleteGlossaryTerm "#aws-glue-api-catalog-aws-glue-api-semantics-DeleteGlossaryTerm")
+- [ListGlossaryTerms action (Python: list\_glossary\_terms)](#aws-glue-api-catalog-aws-glue-api-semantics-ListGlossaryTerms "#aws-glue-api-catalog-aws-glue-api-semantics-ListGlossaryTerms")
+- [AssociateGlossaryTerms action (Python: associate\_glossary\_terms)](#aws-glue-api-catalog-aws-glue-api-semantics-AssociateGlossaryTerms "#aws-glue-api-catalog-aws-glue-api-semantics-AssociateGlossaryTerms")
+- [DisassociateGlossaryTerms action (Python: disassociate\_glossary\_terms)](#aws-glue-api-catalog-aws-glue-api-semantics-DisassociateGlossaryTerms "#aws-glue-api-catalog-aws-glue-api-semantics-DisassociateGlossaryTerms")
+- [Search action (Python: search)](#aws-glue-api-catalog-aws-glue-api-semantics-Search "#aws-glue-api-catalog-aws-glue-api-semantics-Search")
+
+## GetAsset action (Python: get\_asset)
+
+Retrieves the metadata for an asset in AWS Glue Data Catalog,
+including its forms, additional attachments, and associated glossary terms.
+
+###### Example
+
+The following example retrieves an asset by its identifier.
+
+```
+aws glue get-asset --identifier quarterly-sales-2026q1
+
+    {
+        "Id": "quarterly-sales-2026q1",
+        "Name": "Quarterly Sales 2026 Q1",
+        "Description": "Aggregated quarterly sales metrics",
+        "CreatedAt": "2026-06-16T06:42:00.442Z",
+        "AssetTypeId": "DataSet",
+        "GlossaryTerms": [],
+        "Forms": {
+            "DataClassification": {
+                "FormTypeId": "DataClassification",
+                "Content": "{\"classification\":\"internal\",\"owner\":\"data-platform-team\"}"
+            }
+        },
+        "Attachments": {},
+        "IterableForms": {}
+    }
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset to retrieve.
+
+###### Response
+
+The response structure for the `GetAsset` operation.
+
+- `GetAssetOutput` –
+  A [GetAssetOutput](#aws-glue-api-catalog-aws-glue-api-semantics-GetAssetOutput "#aws-glue-api-catalog-aws-glue-api-semantics-GetAssetOutput") object.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `ThrottlingException`
+- `InvalidInputException`
+
+## PutAsset action (Python: put\_asset)
+
+Creates or updates an asset in AWS Glue Data Catalog. If the
+asset already exists, this operation updates it; otherwise, a new asset is created.
+
+###### Example
+
+The following example creates an asset with a form.
+
+```
+aws glue put-asset \
+        --asset-type-id DataSet \
+        --identifier quarterly-sales-2026q1 \
+        --name "Quarterly Sales 2026 Q1" \
+        --description "Aggregated quarterly sales metrics" \
+        --forms '{"DataClassification":{"FormTypeId":"DataClassification","Content":"{\"classification\":\"internal\",\"owner\":\"data-platform-team\"}"}}'
+
+    {
+        "Id": "quarterly-sales-2026q1",
+        "Name": "Quarterly Sales 2026 Q1",
+        "Description": "Aggregated quarterly sales metrics",
+        "CreatedAt": "2026-06-16T06:42:00.442Z",
+        "Forms": {
+            "DataClassification": {
+                "FormTypeId": "DataClassification",
+                "Content": "{\"classification\":\"internal\",\"owner\":\"data-platform-team\"}"
+            }
+        }
+    }
+```
+
+###### Request
+
+- `AssetTypeId` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the asset type for the asset.
+
+- `Identifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset. If an asset with this identifier already
+exists, it is updated.
+
+- `Name` – _Required:_ UTF-8 string.
+
+The name of the asset.
+
+- `Description` – UTF-8 string.
+
+The description of the asset.
+
+- `Forms` – _Required:_ A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a An [AssetFormEntry](#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry") object.
+
+The forms to set on the asset, keyed by form name. Each entry specifies the
+form type and its JSON content.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Id` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+- `Name` – _Required:_ UTF-8 string.
+
+The name of the asset.
+
+- `Description` – UTF-8 string.
+
+The description of the asset.
+
+- `CreatedAt` – Timestamp.
+
+The timestamp at which the asset was created.
+
+- `Forms` – A map array of key-value pairs.
+
+Each key is a UTF-8 string.
+
+Each value is a An [AssetFormEntry](#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry "#aws-glue-api-catalog-aws-glue-api-semantics-AssetFormEntry") object.
+
+The forms attached to the asset, keyed by form name.
+
+###### Errors
+
+- `AccessDeniedException`
+- `ConcurrentModificationException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## DeleteAsset action (Python: delete\_asset)
+
+Deletes an asset from AWS Glue Data Catalog.
+
+###### Example
+
+The following example deletes an asset by its identifier.
+
+```
+aws glue delete-asset --identifier quarterly-sales-2026q1
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset to delete.
+
+###### Response
+
+- _No Response parameters._
+
+###### Errors
+
+- `AccessDeniedException`
+- `ConcurrentModificationException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## PutAssetType action (Python: put\_asset\_type)
+
+Creates or updates an asset type in AWS Glue Data Catalog. An
+asset type defines the structure of assets by specifying which forms they include.
+If an asset type with the given name already exists, it is updated.
+
+###### Example
+
+The following example creates an asset type that references a form type.
+
+```
+aws glue put-asset-type \
+        --name DataSet \
+        --forms '{"DataClassification":{"FormTypeIdentifier":"DataClassification"}}'
+
+    {
+        "Id": "DataSet",
+        "Name": "DataSet",
+        "Forms": {
+            "DataClassification": {
+                "FormTypeIdentifier": "DataClassification"
+            }
+        }
+    }
+```
+
+###### Request
+
+- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+The name of the asset type.
+
+- `Forms` – _Required:_ A map array of key-value pairs, not less than 1 or more than 100 pairs.
+
+Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+Each value is a An [AssetTypeFormReference](#aws-glue-api-catalog-aws-glue-api-semantics-AssetTypeFormReference "#aws-glue-api-catalog-aws-glue-api-semantics-AssetTypeFormReference") object.
+
+The forms that make up the asset type, keyed by form name. Each entry references
+the form type that defines the form's schema.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Id` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the asset type.
+
+- `Name` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+The name of the asset type.
+
+- `Forms` – A map array of key-value pairs, not less than 1 or more than 100 pairs.
+
+Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+Each value is a An [AssetTypeFormReference](#aws-glue-api-catalog-aws-glue-api-semantics-AssetTypeFormReference "#aws-glue-api-catalog-aws-glue-api-semantics-AssetTypeFormReference") object.
+
+The forms that make up the asset type, keyed by form name.
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## GetAssetType action (Python: get\_asset\_type)
+
+Retrieves an asset type in AWS Glue Data Catalog by its identifier.
+
+###### Example
+
+The following example retrieves an asset type by its identifier.
+
+```
+aws glue get-asset-type --identifier DataSet
+
+    {
+        "Id": "DataSet",
+        "Name": "DataSet",
+        "Forms": {
+            "DataClassification": {
+                "FormTypeIdentifier": "DataClassification"
+            }
+        }
+    }
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the asset type to retrieve.
+
+###### Response
+
+- `Id` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the asset type.
+
+- `Name` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+The name of the asset type.
+
+- `Forms` – A map array of key-value pairs, not less than 1 or more than 100 pairs.
+
+Each key is a UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+Each value is a An [AssetTypeFormReference](#aws-glue-api-catalog-aws-glue-api-semantics-AssetTypeFormReference "#aws-glue-api-catalog-aws-glue-api-semantics-AssetTypeFormReference") object.
+
+The forms that make up the asset type, keyed by form name.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## DeleteAssetType action (Python: delete\_asset\_type)
+
+Deletes an asset type from AWS Glue Data Catalog.
+
+###### Example
+
+The following example deletes an asset type by its identifier.
+
+```
+aws glue delete-asset-type --identifier DataSet
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the asset type to delete.
+
+###### Response
+
+- _No Response parameters._
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## ListAssetTypes action (Python: list\_asset\_types)
+
+Lists the asset types defined in AWS Glue Data Catalog.
+
+###### Example
+
+The following example lists the asset types in the account.
+
+```
+aws glue list-asset-types --max-results 20
+
+    {
+        "Items": [
+            {
+                "Id": "DataSet",
+                "Name": "DataSet"
+            }
+        ]
+    }
+```
+
+###### Request
+
+- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+
+The maximum number of results to return in the response.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, if this is a continuation call.
+
+###### Response
+
+- `Items` – An array of objects.
+
+The list of asset type items.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, present if the current segment is not the last.
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## PutFormType action (Python: put\_form\_type)
+
+Creates or updates a form type in AWS Glue Data Catalog. A form
+type defines the schema for structured metadata that can be attached to assets.
+
+###### Example
+
+The following example creates a form type with a Smithy schema.
+
+```
+aws glue put-form-type \
+        --name DataClassification \
+        --schema 'structure DataClassification {
+        classification: String
+        owner: String
+    }'
+
+    {
+        "Id": "DataClassification",
+        "Name": "DataClassification",
+        "Schema": "structure DataClassification {\n    classification: String\n    owner: String\n}"
+    }
+```
+
+###### Request
+
+- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+The name of the form type. Must start with an uppercase letter.
+
+- `Schema` – _Required:_ UTF-8 string, not less than 1 or more than 100000 bytes long.
+
+The Smithy IDL schema definition for the form type.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Id` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the form type.
+
+- `Name` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+The name of the form type.
+
+- `Schema` – UTF-8 string, not less than 1 or more than 100000 bytes long.
+
+The Smithy IDL schema of the form type.
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## GetFormType action (Python: get\_form\_type)
+
+Retrieves a form type in AWS Glue Data Catalog by its identifier.
+
+###### Example
+
+The following example retrieves a form type by its identifier.
+
+```
+aws glue get-form-type --identifier DataClassification
+
+    {
+        "Id": "DataClassification",
+        "Name": "DataClassification",
+        "Schema": "structure DataClassification {\n    classification: String\n    owner: String\n}"
+    }
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the form type to retrieve.
+
+###### Response
+
+- `Id` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the form type.
+
+- `Name` – UTF-8 string, not less than 1 or more than 128 bytes long, matching the `String`.
+
+The name of the form type.
+
+- `Schema` – UTF-8 string, not less than 1 or more than 100000 bytes long.
+
+The Smithy IDL schema of the form type.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## DeleteFormType action (Python: delete\_form\_type)
+
+Deletes a form type from AWS Glue Data Catalog. A form type cannot
+be deleted if it is still referenced by an asset type.
+
+###### Example
+
+The following example deletes a form type by its identifier.
+
+```
+aws glue delete-form-type --identifier DataClassification
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the form type to delete.
+
+###### Response
+
+- _No Response parameters._
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ConflictException`
+- `ThrottlingException`
+
+## ListFormTypes action (Python: list\_form\_types)
+
+Lists the form types defined in AWS Glue Data Catalog.
+
+###### Example
+
+The following example lists the form types in the account.
+
+```
+aws glue list-form-types --max-results 20
+
+    {
+        "Items": [
+            {
+                "Id": "DataClassification",
+                "Name": "DataClassification"
+            }
+        ]
+    }
+```
+
+###### Request
+
+- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+
+The maximum number of results to return in the response.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, if this is a continuation call.
+
+###### Response
+
+- `Items` – _Required:_ An array of objects.
+
+The list of form type items.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, present if the current segment is not the last.
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## PutAttachment action (Python: put\_attachment)
+
+Attaches a form to an asset or an iterable form item in AWS Glue Data Catalog. If an attachment with the same name already exists, it is overwritten.
+
+###### Example
+
+The following example attaches a form to an asset.
+
+```
+aws glue put-attachment \
+        --asset-identifier quarterly-sales-2026q1 \
+        --attachment-name reviewNote \
+        --form-type-id DataClassification \
+        --content '{"classification":"internal","owner":"analytics-team"}'
+
+    {
+        "AssetId": "quarterly-sales-2026q1",
+        "AttachmentName": "reviewNote",
+        "FormTypeId": "DataClassification"
+    }
+```
+
+###### Request
+
+- `AssetIdentifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset to attach the form to.
+
+- `IterableFormName` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the `String`.
+
+The name of the iterable form. When specified along with `itemIdentifier`,
+the attachment targets an item within the iterable form rather than the asset
+itself.
+
+- `ItemIdentifier` – UTF-8 string, not less than 1 or more than 1087 bytes long.
+
+The identifier of the item within the iterable form. Required when `iterableFormName`
+is specified.
+
+- `AttachmentName` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long, matching the `String`.
+
+The name of the attachment.
+
+- `Content` – _Required:_ UTF-8 string.
+
+The JSON content of the form, conforming to the schema of the specified
+form type.
+
+- `FormTypeId` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the form type for this attachment.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `AssetId` – UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+- `IterableFormName` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the `String`.
+
+The name of the iterable form, if the attachment targets an item.
+
+- `ItemIdentifier` – UTF-8 string, not less than 1 or more than 1087 bytes long.
+
+The identifier of the item within the iterable form, if applicable.
+
+- `AttachmentName` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the `String`.
+
+The name of the attachment.
+
+- `FormTypeId` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The identifier of the form type for this attachment.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## DeleteAttachment action (Python: delete\_attachment)
+
+Deletes a form attachment from an asset in AWS Glue Data Catalog.
+
+###### Example
+
+The following example deletes an attachment from an asset.
+
+```
+aws glue delete-attachment \
+        --identifier quarterly-sales-2026q1 \
+        --attachment-name reviewNote
+
+    {
+        "Identifier": "quarterly-sales-2026q1"
+    }
+```
+
+###### Request
+
+- `AssetIdentifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset from which to delete the attachment.
+
+- `AttachmentName` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long, matching the `String`.
+
+The name of the attachment to delete.
+
+###### Response
+
+- `Identifier` – UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## ListIterableForms action (Python: list\_iterable\_forms)
+
+Lists the items in an iterable form on an asset in AWS Glue Data
+Catalog. For example, lists the columns of a table asset.
+
+###### Example
+
+The following example lists the columns of an asset.
+
+```
+aws glue list-iterable-forms \
+        --asset-identifier quarterly-sales-2026q1 \
+        --iterable-form-name columns \
+        --max-results 20
+
+    {
+        "AssetId": "quarterly-sales-2026q1",
+        "IterableFormName": "columns",
+        "Items": [
+            {
+                "ItemId": "quarterly-sales-2026q1#region",
+                "ItemName": "region",
+                "Description": "AWS region of the sales record",
+                "GlossaryTerms": []
+            },
+            {
+                "ItemId": "quarterly-sales-2026q1#amount",
+                "ItemName": "amount",
+                "Description": "Sales amount in USD",
+                "GlossaryTerms": []
+            }
+        ]
+    }
+```
+
+###### Request
+
+- `AssetIdentifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+- `IterableFormName` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long, matching the `String`.
+
+The name of the iterable form to list items from.
+
+- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+
+The maximum number of results to return in the response.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, if this is a continuation call.
+
+###### Response
+
+- `AssetId` – UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+- `IterableFormName` – UTF-8 string, not less than 1 or more than 256 bytes long, matching the `String`.
+
+The name of the iterable form.
+
+- `Items` – An array of [IterableFormListItem](#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormListItem "#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormListItem") objects.
+
+The list of iterable form items.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, present if the current segment is not the last.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `ThrottlingException`
+- `InvalidInputException`
+
+## BatchGetIterableForms action (Python: batch\_get\_iterable\_forms)
+
+Retrieves multiple items from an iterable form on an asset in AWS Glue Data Catalog in a single request.
+
+###### Example
+
+The following example retrieves specific columns by identifier.
+
+```
+aws glue batch-get-iterable-forms \
+        --asset-identifier quarterly-sales-2026q1 \
+        --iterable-form-name columns \
+        --item-identifiers region amount
+
+    {
+        "Items": [
+            {
+                "ItemId": "quarterly-sales-2026q1#region",
+                "ItemName": "region",
+                "GlossaryTerms": [],
+                "Forms": {
+                    "columns": {
+                        "FormTypeId": "amazon.glue::Column",
+                        "Content": "{\"type\":\"string\"}"
+                    }
+                },
+                "Attachments": {}
+            },
+            {
+                "ItemId": "quarterly-sales-2026q1#amount",
+                "ItemName": "amount",
+                "GlossaryTerms": [],
+                "Forms": {
+                    "columns": {
+                        "FormTypeId": "amazon.glue::Column",
+                        "Content": "{\"type\":\"double\"}"
+                    }
+                },
+                "Attachments": {}
+            }
+        ],
+        "Errors": []
+    }
+```
+
+###### Request
+
+- `AssetIdentifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+- `IterableFormName` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long, matching the `String`.
+
+The name of the iterable form to retrieve items from.
+
+- `ItemIdentifiers` – _Required:_ An array of UTF-8 strings, not less than 1 or more than 100 strings.
+
+The list of item identifiers to retrieve. Each identifier can be an item
+ID or item name.
+
+###### Response
+
+- `Items` – An array of [IterableFormItem](#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormItem "#aws-glue-api-catalog-aws-glue-api-semantics-IterableFormItem") objects.
+
+The list of retrieved iterable form items.
+
+- `Errors` – An array of [ItemError](#aws-glue-api-catalog-aws-glue-api-semantics-ItemError "#aws-glue-api-catalog-aws-glue-api-semantics-ItemError") objects.
+
+The list of errors for items that could not be retrieved.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## CreateGlossary action (Python: create\_glossary)
+
+Creates a business glossary in AWS Glue Data Catalog. A glossary
+is a container for glossary terms that define business concepts.
+
+###### Example
+
+The following example creates a business glossary.
+
+```
+aws glue create-glossary \
+        --name "Sales Terms" \
+        --description "Glossary of sales-domain business terms"
+
+    {
+        "Id": "6n5f21s641nbjb",
+        "Name": "Sales Terms",
+        "Description": "Glossary of sales-domain business terms"
+    }
+```
+
+###### Request
+
+- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The name of the glossary.
+
+- `Description` – UTF-8 string, not less than 1 or more than 2048 bytes long.
+
+The description of the glossary.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Id` – UTF-8 string.
+
+The unique identifier of the glossary.
+
+- `Name` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The name of the glossary.
+
+- `Description` – UTF-8 string, not less than 1 or more than 2048 bytes long.
+
+The description of the glossary.
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+- `AlreadyExistsException`
+
+## GetGlossary action (Python: get\_glossary)
+
+Retrieves a business glossary in AWS Glue Data Catalog by its
+identifier.
+
+###### Example
+
+The following example retrieves a glossary by its identifier.
+
+```
+aws glue get-glossary --identifier 6n5f21s641nbjb
+
+    {
+        "Id": "6n5f21s641nbjb",
+        "Name": "Sales Terms",
+        "Description": "Glossary of sales-domain business terms"
+    }
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string.
+
+The unique identifier of the glossary to retrieve.
+
+###### Response
+
+- `Id` – UTF-8 string.
+
+The unique identifier of the glossary.
+
+- `Name` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The name of the glossary.
+
+- `Description` – UTF-8 string, not less than 1 or more than 2048 bytes long.
+
+The description of the glossary.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `ThrottlingException`
+
+## UpdateGlossary action (Python: update\_glossary)
+
+Updates a business glossary in AWS Glue Data Catalog.
+
+###### Example
+
+The following example updates a glossary's description.
+
+```
+aws glue update-glossary \
+        --identifier 6n5f21s641nbjb \
+        --name "Sales Terms" \
+        --description "Glossary of sales and revenue business terms"
+
+    {
+        "Id": "6n5f21s641nbjb",
+        "Name": "Sales Terms",
+        "Description": "Glossary of sales and revenue business terms"
+    }
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string.
+
+The unique identifier of the glossary to update.
+
+- `Name` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The updated name of the glossary.
+
+- `Description` – UTF-8 string, not less than 1 or more than 2048 bytes long.
+
+The updated description of the glossary.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Id` – UTF-8 string.
+
+The unique identifier of the glossary.
+
+- `Name` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The name of the glossary.
+
+- `Description` – UTF-8 string, not less than 1 or more than 2048 bytes long.
+
+The description of the glossary.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+- `AlreadyExistsException`
+
+## DeleteGlossary action (Python: delete\_glossary)
+
+Deletes a business glossary from AWS Glue Data Catalog. A glossary
+cannot be deleted if it still contains glossary terms.
+
+###### Example
+
+The following example deletes a glossary by its identifier.
+
+```
+aws glue delete-glossary --identifier 6n5f21s641nbjb
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string.
+
+The unique identifier of the glossary to delete.
+
+###### Response
+
+- _No Response parameters._
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConflictException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## ListGlossaries action (Python: list\_glossaries)
+
+Lists business glossaries in AWS Glue Data Catalog.
+
+###### Example
+
+The following example lists the glossaries in the account.
+
+```
+aws glue list-glossaries --max-results 20
+
+    {
+        "Items": [
+            {
+                "Id": "6n5f21s641nbjb",
+                "Name": "Sales Terms",
+                "Description": "Glossary of sales and revenue business terms"
+            }
+        ]
+    }
+```
+
+###### Request
+
+- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+
+The maximum number of results to return in the response.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, if this is a continuation call.
+
+###### Response
+
+- `Items` – An array of objects.
+
+The list of glossary items.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, present if the current segment is not the last.
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## CreateGlossaryTerm action (Python: create\_glossary\_term)
+
+Creates a glossary term within a business glossary in AWS Glue Data Catalog.
+
+###### Example
+
+The following example creates a glossary term.
+
+```
+aws glue create-glossary-term \
+        --glossary-identifier 6n5f21s641nbjb \
+        --name "Net Revenue" \
+        --short-description "Revenue after returns, allowances, and discounts." \
+        --long-description "Net revenue is gross revenue minus returns, allowances, and discounts over a reporting period."
+
+    {
+        "Id": "avugvxvsul6izr",
+        "GlossaryId": "6n5f21s641nbjb",
+        "Name": "Net Revenue",
+        "ShortDescription": "Revenue after returns, allowances, and discounts.",
+        "LongDescription": "Net revenue is gross revenue minus returns, allowances, and discounts over a reporting period."
+    }
+```
+
+###### Request
+
+- `GlossaryIdentifier` – _Required:_ UTF-8 string.
+
+The unique identifier of the glossary in which to create the term.
+
+- `Name` – _Required:_ UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The name of the glossary term.
+
+- `ShortDescription` – UTF-8 string, not less than 1 or more than 1024 bytes long.
+
+A short description of the glossary term.
+
+- `LongDescription` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+A long description of the glossary term.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Id` – UTF-8 string.
+
+The unique identifier of the glossary term.
+
+- `GlossaryId` – UTF-8 string.
+
+The unique identifier of the glossary containing this term.
+
+- `Name` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The name of the glossary term.
+
+- `ShortDescription` – UTF-8 string, not less than 1 or more than 1024 bytes long.
+
+The short description of the glossary term.
+
+- `LongDescription` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+The long description of the glossary term.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+- `AlreadyExistsException`
+
+## GetGlossaryTerm action (Python: get\_glossary\_term)
+
+Retrieves a glossary term in AWS Glue Data Catalog by its identifier.
+
+###### Example
+
+The following example retrieves a glossary term by its identifier.
+
+```
+aws glue get-glossary-term --identifier avugvxvsul6izr
+
+    {
+        "Id": "avugvxvsul6izr",
+        "GlossaryId": "6n5f21s641nbjb",
+        "Name": "Net Revenue",
+        "ShortDescription": "Revenue after returns, allowances, and discounts.",
+        "LongDescription": "Net revenue is gross revenue minus returns, allowances, and discounts over a reporting period."
+    }
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string.
+
+The unique identifier of the glossary term to retrieve.
+
+###### Response
+
+- `Id` – UTF-8 string.
+
+The unique identifier of the glossary term.
+
+- `GlossaryId` – UTF-8 string.
+
+The unique identifier of the glossary containing this term.
+
+- `Name` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The name of the glossary term.
+
+- `ShortDescription` – UTF-8 string, not less than 1 or more than 1024 bytes long.
+
+The short description of the glossary term.
+
+- `LongDescription` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+The long description of the glossary term.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `ThrottlingException`
+
+## UpdateGlossaryTerm action (Python: update\_glossary\_term)
+
+Updates a glossary term in AWS Glue Data Catalog.
+
+###### Example
+
+The following example updates a glossary term's short description.
+
+```
+aws glue update-glossary-term \
+        --identifier avugvxvsul6izr \
+        --name "Net Revenue" \
+        --short-description "Gross revenue minus returns, allowances, and discounts." \
+        --long-description "Net revenue is gross revenue minus returns, allowances, and discounts over a reporting period."
+
+    {
+        "Id": "avugvxvsul6izr",
+        "GlossaryId": "6n5f21s641nbjb",
+        "Name": "Net Revenue",
+        "ShortDescription": "Gross revenue minus returns, allowances, and discounts.",
+        "LongDescription": "Net revenue is gross revenue minus returns, allowances, and discounts over a reporting period."
+    }
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string.
+
+The unique identifier of the glossary term to update.
+
+- `Name` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The updated name of the glossary term.
+
+- `ShortDescription` – UTF-8 string, not less than 1 or more than 1024 bytes long.
+
+The updated short description of the glossary term.
+
+- `LongDescription` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+The updated long description of the glossary term.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Id` – UTF-8 string.
+
+The unique identifier of the glossary term.
+
+- `GlossaryId` – UTF-8 string.
+
+The unique identifier of the glossary containing this term.
+
+- `Name` – UTF-8 string, not less than 1 or more than 256 bytes long.
+
+The name of the glossary term.
+
+- `ShortDescription` – UTF-8 string, not less than 1 or more than 1024 bytes long.
+
+The short description of the glossary term.
+
+- `LongDescription` – UTF-8 string, not less than 1 or more than 4096 bytes long.
+
+The long description of the glossary term.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+- `AlreadyExistsException`
+
+## DeleteGlossaryTerm action (Python: delete\_glossary\_term)
+
+Deletes a glossary term from AWS Glue Data Catalog.
+
+###### Example
+
+The following example deletes a glossary term by its identifier.
+
+```
+aws glue delete-glossary-term --identifier avugvxvsul6izr
+```
+
+###### Request
+
+- `Identifier` – _Required:_ UTF-8 string.
+
+The unique identifier of the glossary term to delete.
+
+###### Response
+
+- _No Response parameters._
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## ListGlossaryTerms action (Python: list\_glossary\_terms)
+
+Lists glossary terms within a business glossary in AWS Glue
+Data Catalog.
+
+###### Example
+
+The following example lists the terms in a glossary.
+
+```
+aws glue list-glossary-terms \
+        --glossary-identifier 6n5f21s641nbjb \
+        --max-results 20
+
+    {
+        "Items": [
+            {
+                "Id": "avugvxvsul6izr",
+                "Name": "Net Revenue",
+                "ShortDescription": "Gross revenue minus returns, allowances, and discounts."
+            }
+        ]
+    }
+```
+
+###### Request
+
+- `GlossaryIdentifier` – _Required:_ UTF-8 string.
+
+The unique identifier of the glossary whose terms to list.
+
+- `MaxResults` – Number (integer), not less than 1 or more than 1000.
+
+The maximum number of results to return in the response.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, if this is a continuation call.
+
+###### Response
+
+- `GlossaryId` – UTF-8 string.
+
+The unique identifier of the glossary.
+
+- `Items` – An array of objects.
+
+The list of glossary term items.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, present if the current segment is not the last.
+
+###### Errors
+
+- `AccessDeniedException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ThrottlingException`
+
+## AssociateGlossaryTerms action (Python: associate\_glossary\_terms)
+
+Associates one or more glossary terms with an asset in AWS Glue Data Catalog.
+
+###### Example
+
+The following example associates a glossary term with an asset.
+
+```
+aws glue associate-glossary-terms \
+        --identifier quarterly-sales-2026q1 \
+        --glossary-term-identifiers avugvxvsul6izr
+
+    {
+        "Identifier": "quarterly-sales-2026q1",
+        "GlossaryTerms": [
+            "avugvxvsul6izr"
+        ]
+    }
+```
+
+###### Request
+
+- `AssetIdentifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset to associate glossary terms with.
+
+- `GlossaryTermIdentifiers` – _Required:_ An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+The list of glossary term identifiers to associate with the asset.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Identifier` – UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+- `GlossaryTerms` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+The glossary terms now associated with the asset.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## DisassociateGlossaryTerms action (Python: disassociate\_glossary\_terms)
+
+Removes the association of one or more glossary terms from an asset in AWS Glue Data Catalog.
+
+###### Example
+
+The following example removes a glossary term from an asset.
+
+```
+aws glue disassociate-glossary-terms \
+        --identifier quarterly-sales-2026q1 \
+        --glossary-term-identifiers avugvxvsul6izr
+
+    {
+        "Identifier": "quarterly-sales-2026q1",
+        "GlossaryTerms": []
+    }
+```
+
+###### Request
+
+- `AssetIdentifier` – _Required:_ UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset to disassociate glossary terms from.
+
+- `GlossaryTermIdentifiers` – _Required:_ An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+The list of glossary term identifiers to disassociate from the asset.
+
+- `ClientToken` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Single-line string pattern](aws-glue-api-common.md#aws-glue-api-regex-oneLine "aws-glue-api-common.md#aws-glue-api-regex-oneLine").
+
+A unique, case-sensitive identifier that you provide to ensure the idempotency
+of the request.
+
+###### Response
+
+- `Identifier` – UTF-8 string, not less than 1 or more than 1087 bytes long, matching the `String`.
+
+The unique identifier of the asset.
+
+- `GlossaryTerms` – An array of UTF-8 strings, not less than 1 or more than 10 strings.
+
+The remaining glossary terms associated with the asset.
+
+###### Errors
+
+- `AccessDeniedException`
+- `EntityNotFoundException`
+- `InternalServiceException`
+- `InvalidInputException`
+- `ConcurrentModificationException`
+- `ThrottlingException`
+
+## Search action (Python: search)
+
+Searches for assets in AWS Glue Data Catalog using full-text
+search, filters, sorting, and aggregations. Returns matching assets with relevance-ranked
+results.
+
+###### Example
+
+The following example runs a full-text search for assets.
+
+```
+aws glue search --search-text "sales" --max-results 10
+
+    {
+        "Items": [
+            {
+                "Id": "quarterly-sales-2026q1",
+                "AssetName": "Quarterly Sales 2026 Q1",
+                "AssetDescription": "Aggregated quarterly sales metrics",
+                "UpdatedAt": "2026-06-16T06:42:00.442Z",
+                "AssetTypeId": "DataSet"
+            }
+        ]
+    }
+```
+
+###### Example
+
+The following example searches with a filter clause and sort order.
+
+```
+aws glue search \
+        --search-text "sales" \
+        --max-results 10 \
+        --filter-clause '{"AttributeFilter":{"Attribute":"AssetTypeId","Operator":"equals","Value":{"StringValue":"DataSet"}}}' \
+        --sort '{"Attribute":"name","Order":"ASCENDING"}'
+
+    {
+        "Items": [
+            {
+                "Id": "quarterly-sales-2026q1",
+                "AssetName": "Quarterly Sales 2026 Q1",
+                "AssetDescription": "Aggregated quarterly sales metrics",
+                "UpdatedAt": "2026-06-16T06:42:00.442Z",
+                "AssetTypeId": "DataSet"
+            }
+        ]
+    }
+```
+
+###### Example
+
+The following example filters on a field defined by a form. A form field
+is referenced by the form's asset type identifier and the field name, joined with
+a dot — here, the `databaseName` field of the `amazon.glue::GlueTable`
+form. Asset type identifiers for built-in types carry the `::` prefix
+shown in each result's `AssetTypeId`.
+
+```
+aws glue search \
+        --filter-clause '{"AttributeFilter":{"Attribute":"amazon.glue::GlueTable.databaseName","Operator":"equals","Value":{"StringValue":"sales"}}}' \
+        --max-results 10
+
+    {
+        "Items": [
+            {
+                "Id": "arn:aws:glue:us-east-1:123456789012:table/sales/transactions",
+                "AssetName": "transactions",
+                "AssetDescription": "Raw sales transactions",
+                "UpdatedAt": "2026-06-16T06:42:00.442Z",
+                "AssetTypeId": "amazon.glue::GlueTable"
+            }
+        ]
+    }
+```
+
+###### Example
+
+The following example combines a common asset field and a form field with
+a logical AND. Common asset fields such as `name`, `type`,
+`region`, and `catalogId` are referenced directly;
+fields defined by a form use the `assetTypeId.fieldName` notation.
+
+```
+aws glue search \
+        --filter-clause '{"AndAllFilters":[{"AttributeFilter":{"Attribute":"type","Operator":"equals","Value":{"StringValue":"Table"}}},{"AttributeFilter":{"Attribute":"amazon.glue::GlueTable.databaseName","Operator":"equals","Value":{"StringValue":"sales"}}}]}' \
+        --max-results 10
+
+    {
+        "Items": [
+            {
+                "Id": "arn:aws:glue:us-east-1:123456789012:table/sales/transactions",
+                "AssetName": "transactions",
+                "AssetDescription": "Raw sales transactions",
+                "UpdatedAt": "2026-06-16T06:42:00.442Z",
+                "AssetTypeId": "amazon.glue::GlueTable"
+            }
+        ]
+    }
+```
+
+###### Request
+
+- `SearchText` – UTF-8 string, not less than 1 or more than 1000 bytes long.
+
+The text to search for. At least one of `searchText` or `filterClause`
+must be provided.
+
+- `MaxResults` – Number (integer), not less than 1 or more than 100.
+
+The maximum number of results to return in the response.
+
+- `NextToken` – UTF-8 string.
+
+A continuation token, if this is a continuation call.
+
+- `Sort` – A [SearchSort](#aws-glue-api-catalog-aws-glue-api-semantics-SearchSort "#aws-glue-api-catalog-aws-glue-api-semantics-SearchSort") object.
+
+The sort criteria for the search results.
+
+- `FilterClause` – A [SearchFilterClause](#aws-glue-api-catalog-aws-glue-api-semantics-SearchFilterClause "#aws-glue-api-catalog-aws-glue-api-semantics-SearchFilterClause") object.
+
+The filter clause to apply to the search. Supports nested AND/OR logic
+with attribute-level and map-level filters.
+
+###### Response
+
+The response structure for the `Search` operation.
+
+- `SearchOutput` –
+  A [SearchOutput](#aws-glue-api-catalog-aws-glue-api-semantics-SearchOutput "#aws-glue-api-catalog-aws-glue-api-semantics-SearchOutput") object.
+
+###### Errors
+
+- `AccessDeniedException`
+- `InvalidInputException`
+- `InternalServiceException`
+- `ThrottlingException`

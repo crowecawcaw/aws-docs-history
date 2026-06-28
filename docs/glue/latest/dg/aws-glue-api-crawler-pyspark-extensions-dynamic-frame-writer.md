@@ -3,9 +3,9 @@
 ##  methods
 
 - [\_\_init\_\_](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-__init__ "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-__init__")
-- [from_options](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_options "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_options")
-- [from_catalog](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_catalog "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_catalog")
-- [from_jdbc_conf](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_jdbc_conf "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_jdbc_conf")
+- [from\_options](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_options "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_options")
+- [from\_catalog](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_catalog "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_catalog")
+- [from\_jdbc\_conf](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_jdbc_conf "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-writer-from_jdbc_conf")
 
 ## \_\_init\_\_
 
@@ -13,7 +13,7 @@
 
 - `glue_context` – The [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md") to use.
 
-## from_options
+## from\_options
 
 ###### `from_options(frame, connection_type, connection_options={}, format=None, format_options={}, transformation_ctx="")`
 
@@ -51,7 +51,7 @@ For more information, see [Connection types and options for ETL in AWS Glue for 
   for the formats that are supported.
 - `transformation_ctx` – A transformation context to use (optional).
 
-## from_catalog
+## from\_catalog
 
 ###### `from_catalog(frame, name_space, table_name, redshift_tmp_dir="", transformation_ctx="")`
 
@@ -93,7 +93,7 @@ glueContext.write_dynamic_frame.from_catalog(
 glueContext.commit_transaction(txId)
 ```
 
-## from_jdbc_conf
+## from\_jdbc\_conf
 
 ###### `from_jdbc_conf(frame, catalog_connection, connection_options={}, redshift_tmp_dir = "", transformation_ctx="")`
 
@@ -107,7 +107,7 @@ information.
 - `redshift_tmp_dir` – An Amazon Redshift temporary directory to use (optional).
 - `transformation_ctx` – A transformation context to use (optional).
 
-## Example for write_dynamic_frame
+## Example for write\_dynamic\_frame
 
 This example writes the output locally using a `connection_type` of S3 with a
 POSIX path argument in `connection_options`, which allows writing to local

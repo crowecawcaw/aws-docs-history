@@ -14,7 +14,7 @@ This transform extracts string fragments using a regular expression and creates 
 
 If the regex uses groups, there has be a corresponding column name separated by comma but you can skip groups by leaving the column name empty.
 
-For example, if you have a column "purchase_date" with a string using both long and short ISO date formats, then you want to extract the year, month, day and hour, when available. Notice the hour group is optional, otherwise in the rows where not available, all the extracted groups would be empty strings (because the regex didn’t match). In this case, we don't want the group to make the time optional but the inner one, so we leave the name empty and it doesn’t get extracted (that group would include the T character).
+For example, if you have a column "purchase\_date" with a string using both long and short ISO date formats, then you want to extract the year, month, day and hour, when available. Notice the hour group is optional, otherwise in the rows where not available, all the extracted groups would be empty strings (because the regex didn’t match). In this case, we don't want the group to make the time optional but the inner one, so we leave the name empty and it doesn’t get extracted (that group would include the T character).
 
 ![The screenshot shows configuring a regular expression for the Regex extractor.](images/regex-extractor-1.png)
 

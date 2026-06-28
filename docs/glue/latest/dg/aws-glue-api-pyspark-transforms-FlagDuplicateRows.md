@@ -79,7 +79,7 @@ to "True", and the `false\_string` is set to "False". The `target\_index` is set
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-FlagDuplicateRows-describeErrors "#aws-glue-api-crawler-pyspark-transforms-FlagDuplicateRows-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-FlagDuplicateRows-describe "#aws-glue-api-crawler-pyspark-transforms-FlagDuplicateRows-describe")
 
-## \_\_call\_\_(spark_context, data_frame, target_column, true_string=DEFAULT_TRUE_STRING, false_string=DEFAULT_FALSE_STRING, target_index=None)
+## \_\_call\_\_(spark\_context, data\_frame, target\_column, true\_string=DEFAULT\_TRUE\_STRING, false\_string=DEFAULT\_FALSE\_STRING, target\_index=None)
 
 The `FlagDuplicateRows` transform returns a new column with a specified value in each row
 that indicates whether that row is an exact match of an earlier row in the dataset. When matches are found,

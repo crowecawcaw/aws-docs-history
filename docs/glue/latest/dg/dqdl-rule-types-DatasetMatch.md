@@ -13,9 +13,9 @@ ruletypes such as **AggregateMatch** to match on summary data.
 DatasetMatch `<REFERENCE_DATASET_ALIAS>` `<JOIN CONDITION WITH MAPPING>` `<OPTIONAL_MATCH_COLUMN_MAPPINGS>` `<EXPRESSION>`
 ```
 
-- **REFERENCE_DATASET_ALIAS** – The alias of the reference dataset with which you compare data from the primary dataset.
-- **KEY_COLUMN_MAPPINGS** – A comma-separated list of column names that form a key in the datasets. If the column names are not the same in both datasets, you must separated them with a `->`
-- **OPTIONAL_MATCH_COLUMN_MAPPINGS** – You can supply this parameter if you want to check for matching data only in certain columns. It uses the same syntax as the key column mappings. If this parameter is not provided, we will match the data in all remaining columns. The remaining, non-key columns must have the same names in both datasets.
+- **REFERENCE\_DATASET\_ALIAS** – The alias of the reference dataset with which you compare data from the primary dataset.
+- **KEY\_COLUMN\_MAPPINGS** – A comma-separated list of column names that form a key in the datasets. If the column names are not the same in both datasets, you must separated them with a `->`
+- **OPTIONAL\_MATCH\_COLUMN\_MAPPINGS** – You can supply this parameter if you want to check for matching data only in certain columns. It uses the same syntax as the key column mappings. If this parameter is not provided, we will match the data in all remaining columns. The remaining, non-key columns must have the same names in both datasets.
 - **EXPRESSION** – An expression to run against the rule type response in order to produce a Boolean value. For more information, see [Expressions](dqdl.md#dqdl-syntax-rule-expressions "dqdl.md#dqdl-syntax-rule-expressions").
   **Example: Match set datasets using ID column**
 

@@ -96,7 +96,7 @@ DataFrame contains the original `id` column and the decrypted `phone` column.
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-Decrypt-describeErrors "#aws-glue-api-crawler-pyspark-transforms-Decrypt-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-Decrypt-describe "#aws-glue-api-crawler-pyspark-transforms-Decrypt-describe")
 
-## \_\_call\_\_(spark_context, data_frame, source_columns, kms_key_arn)
+## \_\_call\_\_(spark\_context, data\_frame, source\_columns, kms\_key\_arn)
 
 The `Decrypt` transform decrypts inside of AWS Glue. Your data can also be decrypted outside of
 AWS Glue with the AWS Encryption SDK. If the provided KMS key ARN does not match what was used to encrypt the

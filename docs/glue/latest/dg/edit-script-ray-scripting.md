@@ -57,8 +57,8 @@ In the managed `Ray2.4` runtime environment, we do not support:
 
 - Other debugging tools:
 
-  - [ray.util.pdb.set_trace](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.pdb.set_trace.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.pdb.set_trace.html")
-  - [ray.util.inspect_serializability](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.inspect_serializability.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.inspect_serializability.html")
+  - [ray.util.pdb.set\_trace](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.pdb.set_trace.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.pdb.set_trace.html")
+  - [ray.util.inspect\_serializability](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.inspect_serializability.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.inspect_serializability.html")
   - [ray.timeline](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.timeline.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.timeline.html")
 
 ## What is Ray Data?

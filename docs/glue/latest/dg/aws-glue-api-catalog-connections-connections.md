@@ -548,7 +548,7 @@ The OAuth2 grant type. For example, `AUTHORIZATION_CODE`,
 
 - `OAuth2ClientApplication` – An [OAuth2ClientApplication](#aws-glue-api-catalog-connections-connections-OAuth2ClientApplication "#aws-glue-api-catalog-connections-connections-OAuth2ClientApplication") object.
 
-The client application type. For example, AWS_MANAGED or USER_MANAGED.
+The client application type. For example, AWS\_MANAGED or USER\_MANAGED.
 
 - `TokenUrl` – UTF-8 string, not more than 256 bytes long, matching the [Custom string pattern #40](aws-glue-api-common.md#regex_40 "aws-glue-api-common.md#regex_40").
 
@@ -675,15 +675,15 @@ The JSON Web Token (JWT) used when the authentication type is OAuth2.
 
 ## Operations
 
-- [CreateConnection action (Python: create_connection)](#aws-glue-api-catalog-connections-connections-CreateConnection "#aws-glue-api-catalog-connections-connections-CreateConnection")
-- [DeleteConnection action (Python: delete_connection)](#aws-glue-api-catalog-connections-connections-DeleteConnection "#aws-glue-api-catalog-connections-connections-DeleteConnection")
-- [GetConnection action (Python: get_connection)](#aws-glue-api-catalog-connections-connections-GetConnection "#aws-glue-api-catalog-connections-connections-GetConnection")
-- [GetConnections action (Python: get_connections)](#aws-glue-api-catalog-connections-connections-GetConnections "#aws-glue-api-catalog-connections-connections-GetConnections")
-- [UpdateConnection action (Python: update_connection)](#aws-glue-api-catalog-connections-connections-UpdateConnection "#aws-glue-api-catalog-connections-connections-UpdateConnection")
-- [TestConnection action (Python: test_connection)](#aws-glue-api-catalog-connections-connections-TestConnection "#aws-glue-api-catalog-connections-connections-TestConnection")
-- [BatchDeleteConnection action (Python: batch_delete_connection)](#aws-glue-api-catalog-connections-connections-BatchDeleteConnection "#aws-glue-api-catalog-connections-connections-BatchDeleteConnection")
+- [CreateConnection action (Python: create\_connection)](#aws-glue-api-catalog-connections-connections-CreateConnection "#aws-glue-api-catalog-connections-connections-CreateConnection")
+- [DeleteConnection action (Python: delete\_connection)](#aws-glue-api-catalog-connections-connections-DeleteConnection "#aws-glue-api-catalog-connections-connections-DeleteConnection")
+- [GetConnection action (Python: get\_connection)](#aws-glue-api-catalog-connections-connections-GetConnection "#aws-glue-api-catalog-connections-connections-GetConnection")
+- [GetConnections action (Python: get\_connections)](#aws-glue-api-catalog-connections-connections-GetConnections "#aws-glue-api-catalog-connections-connections-GetConnections")
+- [UpdateConnection action (Python: update\_connection)](#aws-glue-api-catalog-connections-connections-UpdateConnection "#aws-glue-api-catalog-connections-connections-UpdateConnection")
+- [TestConnection action (Python: test\_connection)](#aws-glue-api-catalog-connections-connections-TestConnection "#aws-glue-api-catalog-connections-connections-TestConnection")
+- [BatchDeleteConnection action (Python: batch\_delete\_connection)](#aws-glue-api-catalog-connections-connections-BatchDeleteConnection "#aws-glue-api-catalog-connections-connections-BatchDeleteConnection")
 
-## CreateConnection action (Python: create_connection)
+## CreateConnection action (Python: create\_connection)
 
 Creates a connection definition in the Data Catalog.
 
@@ -725,7 +725,7 @@ with token exchange over VPC.
 - `ResourceNumberLimitExceededException`
 - `GlueEncryptionException`
 
-## DeleteConnection action (Python: delete_connection)
+## DeleteConnection action (Python: delete\_connection)
 
 Deletes a connection from the Data Catalog.
 
@@ -749,7 +749,7 @@ The name of the connection to delete.
 - `EntityNotFoundException`
 - `OperationTimeoutException`
 
-## GetConnection action (Python: get_connection)
+## GetConnection action (Python: get\_connection)
 
 Retrieves a connection definition from the Data Catalog.
 
@@ -791,7 +791,7 @@ The requested connection definition.
 - `InvalidInputException`
 - `GlueEncryptionException`
 
-## GetConnections action (Python: get_connections)
+## GetConnections action (Python: get\_connections)
 
 Retrieves a list of connection definitions from the Data Catalog.
 
@@ -841,7 +841,7 @@ the last of the filtered connections.
 - `InvalidInputException`
 - `GlueEncryptionException`
 
-## UpdateConnection action (Python: update_connection)
+## UpdateConnection action (Python: update\_connection)
 
 Updates a connection definition in the Data Catalog.
 
@@ -873,7 +873,7 @@ in question.
 - `InvalidInputException`
 - `GlueEncryptionException`
 
-## TestConnection action (Python: test_connection)
+## TestConnection action (Python: test\_connection)
 
 Tests a connection to a service to validate the service credentials that
 you provide.
@@ -915,7 +915,7 @@ A structure that is used to specify testing a connection to a service.
 - `ConflictException`
 - `InternalServiceException`
 
-## BatchDeleteConnection action (Python: batch_delete_connection)
+## BatchDeleteConnection action (Python: batch\_delete\_connection)
 
 Deletes a list of connection definitions from the Data Catalog.
 

@@ -47,13 +47,13 @@ web UI. These templates are samples that you should modify to meet your requirem
 | Middle East (Bahrain)     | [Orange button labeled "Launch Stack" with an arrow icon.](https://console.aws.amazon.com/cloudformation/home?region=me-south-1#/stacks/new?templateURL=https%3A%2F%2Faws-glue-sparkui-prod-me-south-1.s3.me-south-1.amazonaws.com/public/cfn/glue-4_0/sparkui.yaml&stackName=spark-ui-glue4 "https://console.aws.amazon.com/cloudformation/home?region=me-south-1#/stacks/new?templateURL=https%3A%2F%2Faws-glue-sparkui-prod-me-south-1.s3.me-south-1.amazonaws.com/public/cfn/glue-4_0/sparkui.yaml&stackName=spark-ui-glue4")                         |
 | South America (São Paulo) | [Orange button labeled "Launch Stack" with an arrow icon.](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/new?templateURL=https%3A%2F%2Faws-glue-sparkui-prod-sa-east-1.s3.sa-east-1.amazonaws.com/public/cfn/glue-4_0/sparkui.yaml&stackName=spark-ui-glue4 "https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/new?templateURL=https%3A%2F%2Faws-glue-sparkui-prod-sa-east-1.s3.sa-east-1.amazonaws.com/public/cfn/glue-4_0/sparkui.yaml&stackName=spark-ui-glue4")                               |
 
-2.  On the **Specify template** page, choose **Next**.
-3.  On the **Specify stack details** page, enter the **Stack
-    name**. Enter additional information under **Parameters**.
+2. On the **Specify template** page, choose **Next**.
+3. On the **Specify stack details** page, enter the **Stack
+   name**. Enter additional information under **Parameters**.
 
-    1. ###### Spark UI configuration
+   1. ###### Spark UI configuration
 
-    Provide the following information:
+   Provide the following information:
 
         * **IP address range** — The IP address range that can be
          used to view the Spark UI. If you want to restrict access from a specific IP address
@@ -68,9 +68,10 @@ web UI. These templates are samples that you should modify to meet your requirem
         * **Keystore path** — SSL/TLS keystore path for HTTPS. If you want to use a custom keystore file, you can specify the S3 path `s3://path_to_your_keystore_file` here. If you leave this parameter empty, a self-signed certificate based keystore is generated and used.
         * **Keystore password** — Enter a SSL/TLS
          keystore password for HTTPS.
-    2. ###### EC2 instance configuration
 
-    Provide the following information:
+   2. ###### EC2 instance configuration
+
+   Provide the following information:
 
         * **Instance type** — The type of Amazon EC2 instance that hosts the Spark history server. Because this template launches Amazon EC2 instance in your account, Amazon EC2 cost will be charged in your account separately.
         * **Latest AMI ID** — The AMI ID of Amazon Linux 2 for the
@@ -83,13 +84,14 @@ web UI. These templates are samples that you should modify to meet your requirem
          instance. You can use any of the subnets in your VPC. You must be able to reach the
          network from your client to the subnet. If you want to access via the internet, you
          must use a public subnet that has the internet gateway in the route table.
-    3. Choose **Next**.
 
-4.  On the **Configure stack options** page, to use the current user
-    credentials for determining how CloudFormation can create, modify, or delete resources in the
-    stack, choose **Next**. You can also specify a role in the **Permissions** section to use instead of the current user permissions, and then
-    choose **Next**.
-5.  On the **Review** page, review the template.
+   3. Choose **Next**.
+
+4. On the **Configure stack options** page, to use the current user
+   credentials for determining how CloudFormation can create, modify, or delete resources in the
+   stack, choose **Next**. You can also specify a role in the **Permissions** section to use instead of the current user permissions, and then
+   choose **Next**.
+5. On the **Review** page, review the template.
 
 Select **I acknowledge that CloudFormation might create IAM resources**, and
 then choose **Create stack**. 6. Wait for the stack to be created. 7. Open the **Outputs** tab.
@@ -100,8 +102,8 @@ then choose **Create stack**. 6. Wait for the stack to be created. 7. Open the *
      subnet.
 
 8. Open a web browser, and paste in the URL. This lets you access the server using HTTPS
-   on the specified port. Your browser may not recognize the server's certificate, in which
-   case you have to override its protection and proceed anyway.
+on the specified port. Your browser may not recognize the server's certificate, in which
+case you have to override its protection and proceed anyway.
 
 ## Launching the Spark history server and viewing the Spark UI using Docker
 
@@ -128,8 +130,7 @@ AWS.
      credentials](../../../IAM/latest/UserGuide/id_credentials_temp_request.md "../../../IAM/latest/UserGuide/id_credentials_temp_request.md")
 
 3. Determine the location of your event log directory, to use in the `docker
-run` command.
-4. Build the Docker image using the files in the local directory, using the name `glue/sparkui`, and the tag `latest`.
+ run` command. 4. Build the Docker image using the files in the local directory, using the name `glue/sparkui`, and the tag `latest`.
 
 ```
 $ docker build -t glue/sparkui:latest .

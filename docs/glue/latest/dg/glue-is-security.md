@@ -105,11 +105,11 @@ the TagOnCreate feature to 'tag' a session with a given tag only during session 
 This also means those tags will be removed on DeleteSession, aka UntagOnDelete.
 
 TagOnCreate offers a powerful security mechanism to make your session private to the creator of the session.
-For example, you can attach an IAM policy with "owner" RequestTag and value of ${aws:userId} to a client principal (such as an user)
-in order to allow creating a session only if an "owner" tag with matching value of the callers userId is provided as userId tag in
-CreateSession request. This policy allows AWS Glue interactive sessions to create a session resource and tag the session with
-the userId tag only during session creation time. In addition to it you can scope down the access (like running statements) to your
-session only to the creator (aka owner tag with value ${aws:userId}) of the session by attaching an IAM policy with "owner"
+For example, you can attach an IAM policy with "owner" RequestTag and value of ${aws:userId} to a client principal (such as an user) 
+ in order to allow creating a session only if an "owner" tag with matching value of the callers userId is provided as userId tag in 
+ CreateSession request. This policy allows AWS Glue interactive sessions to create a session resource and tag the session with 
+ the userId tag only during session creation time. In addition to it you can scope down the access (like running statements) to your 
+ session only to the creator (aka owner tag with value ${aws:userId}) of the session by attaching an IAM policy with "owner"
 ResourceTag to the execution role you passed in during CreateSession.
 
 In order to make it easier for you to use TagOnCreate feature to make a session private to the session
@@ -118,8 +118,8 @@ creator, AWS Glue provides specialized managed policies and service roles.
 If you want to create a AWS Glue Interactive Session using an IAM AssumeRole principal (that is, using credential vended
 by assuming an IAM role) and you want to make the session private to the creator, then use policies similar to the **AWSGlueSessionUserRestrictedNotebookPolicy**
 and **AWSGlueSessionUserRestrictedNotebookServiceRole**
-respectively. These policies allow AWS Glue to use ${aws:PrincipalTag} to extract the owner tag value.
-This requires you to pass a userId tag with value ${aws:userId} as SessionTag in the assume role credential. See
+respectively. These policies allow AWS Glue to use ${aws:PrincipalTag} to extract the owner tag value. 
+ This requires you to pass a userId tag with value ${aws:userId} as SessionTag in the assume role credential. See
 [ID session tags](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md") .
 If you are using an Amazon EC2 instance with an instance profile vending the credential and you want to create a session or
 interact with the session from within the Amazon EC2 instance , then you would require to pass a userId tag with value ${aws:userId} as
@@ -250,11 +250,11 @@ Amazon S3 buckets, writing CloudWatch logs, creating and deleting tags for Amazo
 You can attach the **AWSGlueSessionUserRestrictedPolicy** to IAM roles attached to
 each of the users in your account to restrict them from creating a session only with an owner tag with a value
 matching their own ${aws:userId}. Instead of using the
-**AWSGlueSessionUserRestrictedNotebookPolicy** and
-**AWSGlueSessionUserRestrictedNotebookServiceRole** you need to use policies similar to the
-**AWSGlueSessionUserRestrictedPolicy** and
-**AWSGlueSessionUserRestrictedServiceRole** respectively. For more information, see [Using-identity based
-policies](using-identity-based-policies.md "using-identity-based-policies.md") . This policy scopes down the access to a session only to the creator, the ${aws:userId}
+ **AWSGlueSessionUserRestrictedNotebookPolicy** and
+ **AWSGlueSessionUserRestrictedNotebookServiceRole** you need to use policies similar to the
+ **AWSGlueSessionUserRestrictedPolicy** and
+ **AWSGlueSessionUserRestrictedServiceRole** respectively. For more information, see [Using-identity based
+ policies](using-identity-based-policies.md "using-identity-based-policies.md") . This policy scopes down the access to a session only to the creator, the ${aws:userId}
 of the user who created the session with an owner tag bearing their own ${aws:userId}. If you have created
 the execution role yourself using the IAM console by following the steps in [Setting up a runtime role](#glue-is-runtime-role "#glue-is-runtime-role"), then in
 addition to attaching the **AwsGlueSessionUserRestrictedPolicy** managed policy, also attach the

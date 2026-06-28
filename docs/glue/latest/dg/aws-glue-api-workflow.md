@@ -472,29 +472,29 @@ and will be used to create the workflow and other entities of a workflow.
 
 ## Operations
 
-- [CreateWorkflow action (Python: create_workflow)](#aws-glue-api-workflow-CreateWorkflow "#aws-glue-api-workflow-CreateWorkflow")
-- [UpdateWorkflow action (Python: update_workflow)](#aws-glue-api-workflow-UpdateWorkflow "#aws-glue-api-workflow-UpdateWorkflow")
-- [DeleteWorkflow action (Python: delete_workflow)](#aws-glue-api-workflow-DeleteWorkflow "#aws-glue-api-workflow-DeleteWorkflow")
-- [GetWorkflow action (Python: get_workflow)](#aws-glue-api-workflow-GetWorkflow "#aws-glue-api-workflow-GetWorkflow")
-- [ListWorkflows action (Python: list_workflows)](#aws-glue-api-workflow-ListWorkflows "#aws-glue-api-workflow-ListWorkflows")
-- [BatchGetWorkflows action (Python: batch_get_workflows)](#aws-glue-api-workflow-BatchGetWorkflows "#aws-glue-api-workflow-BatchGetWorkflows")
-- [GetWorkflowRun action (Python: get_workflow_run)](#aws-glue-api-workflow-GetWorkflowRun "#aws-glue-api-workflow-GetWorkflowRun")
-- [GetWorkflowRuns action (Python: get_workflow_runs)](#aws-glue-api-workflow-GetWorkflowRuns "#aws-glue-api-workflow-GetWorkflowRuns")
-- [GetWorkflowRunProperties action (Python: get_workflow_run_properties)](#aws-glue-api-workflow-GetWorkflowRunProperties "#aws-glue-api-workflow-GetWorkflowRunProperties")
-- [PutWorkflowRunProperties action (Python: put_workflow_run_properties)](#aws-glue-api-workflow-PutWorkflowRunProperties "#aws-glue-api-workflow-PutWorkflowRunProperties")
-- [CreateBlueprint action (Python: create_blueprint)](#aws-glue-api-workflow-CreateBlueprint "#aws-glue-api-workflow-CreateBlueprint")
-- [UpdateBlueprint action (Python: update_blueprint)](#aws-glue-api-workflow-UpdateBlueprint "#aws-glue-api-workflow-UpdateBlueprint")
-- [DeleteBlueprint action (Python: delete_blueprint)](#aws-glue-api-workflow-DeleteBlueprint "#aws-glue-api-workflow-DeleteBlueprint")
-- [ListBlueprints action (Python: list_blueprints)](#aws-glue-api-workflow-ListBlueprints "#aws-glue-api-workflow-ListBlueprints")
-- [BatchGetBlueprints action (Python: batch_get_blueprints)](#aws-glue-api-workflow-BatchGetBlueprints "#aws-glue-api-workflow-BatchGetBlueprints")
-- [StartBlueprintRun action (Python: start_blueprint_run)](#aws-glue-api-workflow-StartBlueprintRun "#aws-glue-api-workflow-StartBlueprintRun")
-- [GetBlueprintRun action (Python: get_blueprint_run)](#aws-glue-api-workflow-GetBlueprintRun "#aws-glue-api-workflow-GetBlueprintRun")
-- [GetBlueprintRuns action (Python: get_blueprint_runs)](#aws-glue-api-workflow-GetBlueprintRuns "#aws-glue-api-workflow-GetBlueprintRuns")
-- [StartWorkflowRun action (Python: start_workflow_run)](#aws-glue-api-workflow-StartWorkflowRun "#aws-glue-api-workflow-StartWorkflowRun")
-- [StopWorkflowRun action (Python: stop_workflow_run)](#aws-glue-api-workflow-StopWorkflowRun "#aws-glue-api-workflow-StopWorkflowRun")
-- [ResumeWorkflowRun action (Python: resume_workflow_run)](#aws-glue-api-workflow-ResumeWorkflowRun "#aws-glue-api-workflow-ResumeWorkflowRun")
+- [CreateWorkflow action (Python: create\_workflow)](#aws-glue-api-workflow-CreateWorkflow "#aws-glue-api-workflow-CreateWorkflow")
+- [UpdateWorkflow action (Python: update\_workflow)](#aws-glue-api-workflow-UpdateWorkflow "#aws-glue-api-workflow-UpdateWorkflow")
+- [DeleteWorkflow action (Python: delete\_workflow)](#aws-glue-api-workflow-DeleteWorkflow "#aws-glue-api-workflow-DeleteWorkflow")
+- [GetWorkflow action (Python: get\_workflow)](#aws-glue-api-workflow-GetWorkflow "#aws-glue-api-workflow-GetWorkflow")
+- [ListWorkflows action (Python: list\_workflows)](#aws-glue-api-workflow-ListWorkflows "#aws-glue-api-workflow-ListWorkflows")
+- [BatchGetWorkflows action (Python: batch\_get\_workflows)](#aws-glue-api-workflow-BatchGetWorkflows "#aws-glue-api-workflow-BatchGetWorkflows")
+- [GetWorkflowRun action (Python: get\_workflow\_run)](#aws-glue-api-workflow-GetWorkflowRun "#aws-glue-api-workflow-GetWorkflowRun")
+- [GetWorkflowRuns action (Python: get\_workflow\_runs)](#aws-glue-api-workflow-GetWorkflowRuns "#aws-glue-api-workflow-GetWorkflowRuns")
+- [GetWorkflowRunProperties action (Python: get\_workflow\_run\_properties)](#aws-glue-api-workflow-GetWorkflowRunProperties "#aws-glue-api-workflow-GetWorkflowRunProperties")
+- [PutWorkflowRunProperties action (Python: put\_workflow\_run\_properties)](#aws-glue-api-workflow-PutWorkflowRunProperties "#aws-glue-api-workflow-PutWorkflowRunProperties")
+- [CreateBlueprint action (Python: create\_blueprint)](#aws-glue-api-workflow-CreateBlueprint "#aws-glue-api-workflow-CreateBlueprint")
+- [UpdateBlueprint action (Python: update\_blueprint)](#aws-glue-api-workflow-UpdateBlueprint "#aws-glue-api-workflow-UpdateBlueprint")
+- [DeleteBlueprint action (Python: delete\_blueprint)](#aws-glue-api-workflow-DeleteBlueprint "#aws-glue-api-workflow-DeleteBlueprint")
+- [ListBlueprints action (Python: list\_blueprints)](#aws-glue-api-workflow-ListBlueprints "#aws-glue-api-workflow-ListBlueprints")
+- [BatchGetBlueprints action (Python: batch\_get\_blueprints)](#aws-glue-api-workflow-BatchGetBlueprints "#aws-glue-api-workflow-BatchGetBlueprints")
+- [StartBlueprintRun action (Python: start\_blueprint\_run)](#aws-glue-api-workflow-StartBlueprintRun "#aws-glue-api-workflow-StartBlueprintRun")
+- [GetBlueprintRun action (Python: get\_blueprint\_run)](#aws-glue-api-workflow-GetBlueprintRun "#aws-glue-api-workflow-GetBlueprintRun")
+- [GetBlueprintRuns action (Python: get\_blueprint\_runs)](#aws-glue-api-workflow-GetBlueprintRuns "#aws-glue-api-workflow-GetBlueprintRuns")
+- [StartWorkflowRun action (Python: start\_workflow\_run)](#aws-glue-api-workflow-StartWorkflowRun "#aws-glue-api-workflow-StartWorkflowRun")
+- [StopWorkflowRun action (Python: stop\_workflow\_run)](#aws-glue-api-workflow-StopWorkflowRun "#aws-glue-api-workflow-StopWorkflowRun")
+- [ResumeWorkflowRun action (Python: resume\_workflow\_run)](#aws-glue-api-workflow-ResumeWorkflowRun "#aws-glue-api-workflow-ResumeWorkflowRun")
 
-## CreateWorkflow action (Python: create_workflow)
+## CreateWorkflow action (Python: create\_workflow)
 
 Creates a new workflow.
 
@@ -552,7 +552,7 @@ The name of the workflow which was provided as part of the request.
 - `ResourceNumberLimitExceededException`
 - `ConcurrentModificationException`
 
-## UpdateWorkflow action (Python: update_workflow)
+## UpdateWorkflow action (Python: update\_workflow)
 
 Updates an existing workflow.
 
@@ -600,7 +600,7 @@ The name of the workflow which was specified in input.
 - `OperationTimeoutException`
 - `ConcurrentModificationException`
 
-## DeleteWorkflow action (Python: delete_workflow)
+## DeleteWorkflow action (Python: delete\_workflow)
 
 Deletes a workflow.
 
@@ -623,7 +623,7 @@ Name of the workflow specified in input.
 - `OperationTimeoutException`
 - `ConcurrentModificationException`
 
-## GetWorkflow action (Python: get_workflow)
+## GetWorkflow action (Python: get\_workflow)
 
 Retrieves resource metadata for a workflow.
 
@@ -651,7 +651,7 @@ The resource metadata for the workflow.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## ListWorkflows action (Python: list_workflows)
+## ListWorkflows action (Python: list\_workflows)
 
 Lists names of workflows created in the account.
 
@@ -681,7 +681,7 @@ A continuation token, if not all workflow names have been returned.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## BatchGetWorkflows action (Python: batch_get_workflows)
+## BatchGetWorkflows action (Python: batch\_get\_workflows)
 
 Returns a list of resource metadata for a given list of workflow names.
 After calling the `ListWorkflows` operation, you can call this
@@ -717,7 +717,7 @@ A list of names of workflows not found.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## GetWorkflowRun action (Python: get_workflow_run)
+## GetWorkflowRun action (Python: get\_workflow\_run)
 
 Retrieves the metadata for a given workflow run. Job run history is accessible
 for 90 days for your workflow and job run.
@@ -749,7 +749,7 @@ The requested workflow run metadata.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetWorkflowRuns action (Python: get_workflow_runs)
+## GetWorkflowRuns action (Python: get\_workflow\_runs)
 
 Retrieves metadata for all runs of a given workflow.
 
@@ -788,7 +788,7 @@ A continuation token, if not all requested workflow runs have been returned.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetWorkflowRunProperties action (Python: get_workflow_run_properties)
+## GetWorkflowRunProperties action (Python: get\_workflow\_run\_properties)
 
 Retrieves the workflow run properties which were set during the run.
 
@@ -819,7 +819,7 @@ The workflow run properties which were set during the specified run.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## PutWorkflowRunProperties action (Python: put_workflow_run_properties)
+## PutWorkflowRunProperties action (Python: put\_workflow\_run\_properties)
 
 Puts the specified workflow run properties for the given workflow run.
 If a property already exists for the specified run, then it overrides the value
@@ -862,7 +862,7 @@ within the workflow run.
 - `ResourceNumberLimitExceededException`
 - `ConcurrentModificationException`
 
-## CreateBlueprint action (Python: create_blueprint)
+## CreateBlueprint action (Python: create\_blueprint)
 
 Registers a blueprint with AWS Glue.
 
@@ -902,7 +902,7 @@ Returns the name of the blueprint that was registered.
 - `InternalServiceException`
 - `ResourceNumberLimitExceededException`
 
-## UpdateBlueprint action (Python: update_blueprint)
+## UpdateBlueprint action (Python: update\_blueprint)
 
 Updates a registered blueprint.
 
@@ -935,7 +935,7 @@ Returns the name of the blueprint that was updated.
 - `InternalServiceException`
 - `IllegalBlueprintStateException`
 
-## DeleteBlueprint action (Python: delete_blueprint)
+## DeleteBlueprint action (Python: delete\_blueprint)
 
 Deletes an existing blueprint.
 
@@ -957,7 +957,7 @@ Returns the name of the blueprint that was deleted.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## ListBlueprints action (Python: list_blueprints)
+## ListBlueprints action (Python: list\_blueprints)
 
 Lists all the blueprint names in an account.
 
@@ -995,7 +995,7 @@ A continuation token, if not all blueprint names have been returned.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## BatchGetBlueprints action (Python: batch_get_blueprints)
+## BatchGetBlueprints action (Python: batch\_get\_blueprints)
 
 Retrieves information about a list of blueprints.
 
@@ -1030,7 +1030,7 @@ Returns a list of `BlueprintNames` that were not found.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## StartBlueprintRun action (Python: start_blueprint_run)
+## StartBlueprintRun action (Python: start\_blueprint\_run)
 
 Starts a new run of the specified blueprint.
 
@@ -1063,7 +1063,7 @@ The run ID for this blueprint run.
 - `EntityNotFoundException`
 - `IllegalBlueprintStateException`
 
-## GetBlueprintRun action (Python: get_blueprint_run)
+## GetBlueprintRun action (Python: get\_blueprint\_run)
 
 Retrieves the details of a blueprint run.
 
@@ -1089,7 +1089,7 @@ Returns a `BlueprintRun` object.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetBlueprintRuns action (Python: get_blueprint_runs)
+## GetBlueprintRuns action (Python: get\_blueprint\_runs)
 
 Retrieves the details of blueprint runs for a specified blueprint.
 
@@ -1124,7 +1124,7 @@ A continuation token, if not all blueprint runs have been returned.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## StartWorkflowRun action (Python: start_workflow_run)
+## StartWorkflowRun action (Python: start\_workflow\_run)
 
 Starts a new run of the specified workflow.
 
@@ -1162,7 +1162,7 @@ An Id for the new run.
 - `ResourceNumberLimitExceededException`
 - `ConcurrentRunsExceededException`
 
-## StopWorkflowRun action (Python: stop_workflow_run)
+## StopWorkflowRun action (Python: stop\_workflow\_run)
 
 Stops the execution of the specified workflow run.
 
@@ -1188,7 +1188,7 @@ The ID of the workflow run to stop.
 - `OperationTimeoutException`
 - `IllegalWorkflowStateException`
 
-## ResumeWorkflowRun action (Python: resume_workflow_run)
+## ResumeWorkflowRun action (Python: resume\_workflow\_run)
 
 Restarts selected nodes of a previous partially completed workflow run
 and resumes the workflow run. The selected nodes and all nodes that are downstream

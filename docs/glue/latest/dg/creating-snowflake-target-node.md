@@ -13,15 +13,15 @@ Your job and data preview roles in AWS Glue Studio must have permission to read 
 
 ###### To create a Snowflake target node:
 
-1.  Choose an existing Snowflake table as the target, or enter a new table name.
-2.  When you use the **Data target - Snowflake** target node, you can choose from the following options:
+1. Choose an existing Snowflake table as the target, or enter a new table name.
+2. When you use the **Data target - Snowflake** target node, you can choose from the following options:
 
-    - **APPEND** – If a table already exists, dump all the new data into the table as an insert.
-      If the table doesn't exist, create it and then insert all new data.
-    - **MERGE** – AWS Glue will update or append data to your target table
-      based on the conditions you specify.
+   - **APPEND** – If a table already exists, dump all the new data into the table as an insert.
+     If the table doesn't exist, create it and then insert all new data.
+   - **MERGE** – AWS Glue will update or append data to your target table
+     based on the conditions you specify.
 
-    Choose options:
+   Choose options:
 
         + **Choose keys and simple actions** – choose the columns to be used as
          matching keys between the source data and your target data set.
@@ -43,9 +43,9 @@ Your job and data preview roles in AWS Glue Studio must have permission to read 
         	- Do nothing.
         + **Enter custom MERGE statement** – You can then choose **Validate
          Merge statement** to verify that the statement is valid or invalid.
-    - **TRUNCATE** – If a table already exists, truncate the table data by first clearing the
-      contents of the target table. If truncate is successful, then insert all data. If the table doesn't exist, create the
-      table and insert all data. If truncate is not successful, the operation will fail.
-    - **DROP** – If a table already exists, delete the table metadata and data. If deletion is successful,
-      then insert all data. If the table doesn't exist, create the table and insert all data. If drop is not successful,
-      the operation will fail.
+   - **TRUNCATE** – If a table already exists, truncate the table data by first clearing the
+     contents of the target table. If truncate is successful, then insert all data. If the table doesn't exist, create the
+     table and insert all data. If truncate is not successful, the operation will fail.
+   - **DROP** – If a table already exists, delete the table metadata and data. If deletion is successful,
+     then insert all data. If the table doesn't exist, create the table and insert all data. If drop is not successful,
+     the operation will fail.

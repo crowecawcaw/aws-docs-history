@@ -60,11 +60,11 @@ salesforce_read = glueContext.create_dynamic_frame.from_options(
 )
 ```
 
-## FILTER_PREDICATE option
+## FILTER\_PREDICATE option
 
-**FILTER_PREDICATE**: It is an optional parameter. This option is used for query filter.
+**FILTER\_PREDICATE**: It is an optional parameter. This option is used for query filter.
 
-Examples of **FILTER_PREDICATE**:
+Examples of **FILTER\_PREDICATE**:
 
 ```
      Case 1: FILTER_PREDICATE with single criterion

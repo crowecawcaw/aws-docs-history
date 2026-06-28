@@ -10,15 +10,15 @@ Checks the ratio of two column aggregations against a given expression. This rul
 AggregateMatch `<AGG_OPERATION>` (`<OPTIONAL_REFERENCE_ALIAS>`.`<COL_NAME>`)
 ```
 
-- **AGG_OPERATION** – The operation to use for the aggregation. Currently, `sum` and `avg` are supported.
+- **AGG\_OPERATION** – The operation to use for the aggregation. Currently, `sum` and `avg` are supported.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 
-- **OPTIONAL_REFERENCE_ALIAS** – This parameter needs to be provided if the column is from a reference dataset and not the primary dataset. If you are using this rule in the AWS Glue Data Catalog, your reference alias must follow the format "<database_name>.<table_name>.<column_name>
+- **OPTIONAL\_REFERENCE\_ALIAS** – This parameter needs to be provided if the column is from a reference dataset and not the primary dataset. If you are using this rule in the AWS Glue Data Catalog, your reference alias must follow the format "<database\_name>.<table\_name>.<column\_name>
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 
-- **COL_NAME** – The name of the column to aggregate.
+- **COL\_NAME** – The name of the column to aggregate.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 **Example: Average**
@@ -45,13 +45,13 @@ AggregateMatch `<AGG_OPERATION>` (`<OPTIONAL_REFERENCE_ALIAS>`.`<COL_NAME>`)
 AggregateMatch `<AGG_EXP_1>` `<AGG_EXP_2>` `<EXPRESSION>`
 ```
 
-- **AGG_EXP_1** – The first column aggregation.
+- **AGG\_EXP\_1** – The first column aggregation.
 
 Supported column types: Byte, Decimal, Double, Float, Integer, Long, Short
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 
-- **AGG_EXP_2** – The second column aggregation.
+- **AGG\_EXP\_2** – The second column aggregation.
 
 Supported column types: Byte, Decimal, Double, Float, Integer, Long, Short
 

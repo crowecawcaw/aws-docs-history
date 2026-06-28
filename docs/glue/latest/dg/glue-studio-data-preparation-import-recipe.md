@@ -22,11 +22,11 @@ For additional information about security in AWS Glue, see
 The following table lists the permissions that a user needs if importing an existing AWS Glue DataBrew
 recipe.
 
-| Data Preparation Recipe transform actions | Action                                                              | Description |
-| ----------------------------------------- | ------------------------------------------------------------------- | ----------- |
-| `databrew:ListRecipes`                    | Grants permission to retrieve AWS Glue DataBrew recipes.            |
-| `databrew:ListRecipeVersions`             | Grants permission to retrieve AWS Glue DataBrew recipe versions.    |
-| `databrew:DescribeRecipe`                 | Grants permission to retrieve AWS Glue DataBrew recipe description. |
+Data Preparation Recipe transform actions| Action | Description |
+| --- | --- |
+| `databrew:ListRecipes` | Grants permission to retrieve AWS Glue DataBrew recipes. |
+| `databrew:ListRecipeVersions` | Grants permission to retrieve AWS Glue DataBrew recipe versions. |
+| `databrew:DescribeRecipe` | Grants permission to retrieve AWS Glue DataBrew recipe description. |
 
 The role you’re using for accessing this functionality should have a policy that allows several
 AWS Glue DataBrew actions. You can achieve this by either using the `AWSGlueConsoleFullAccess` policy
@@ -57,9 +57,9 @@ JSON
 To use the Data Preparation Recipe transform, you must add the `IAM:PassRole` action to the
 permissions policy.
 
-| Additional required permissions | Action                                                                  | Description |
-| ------------------------------- | ----------------------------------------------------------------------- | ----------- |
-| `iam:PassRole`                  | Grants permission for IAM to allow the user to pass the approved roles. |
+Additional required permissions| Action | Description |
+| --- | --- |
+| `iam:PassRole` | Grants permission for IAM to allow the user to pass the approved roles. |
 
 Without these permissions the following error occurs:
 
@@ -104,7 +104,7 @@ Choose **Save** to save your job and recipe.
 
 ###### Note
 
-JOIN, UNION, GROUP_BY, PIVOT, UNPIVOT, TRANSPOSE are not supported for recipe import, nor will they be
+JOIN, UNION, GROUP\_BY, PIVOT, UNPIVOT, TRANSPOSE are not supported for recipe import, nor will they be
 available in recipe authoring mode. 11. Optionally, you can finish authoring the job by adding other transformations nodes as needed and add
 Data target node(s).
 

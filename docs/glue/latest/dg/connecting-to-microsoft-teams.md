@@ -58,7 +58,7 @@ video chats and document sharing, all designed to aid worker productivity in a u
 18. Check all the following permissions:
 
     - User.Read
-    - Offline_access
+    - Offline\_access
     - User.Read.All
     - User.ReadWrite.All
     - TeamsTab.ReadWriteForTeam

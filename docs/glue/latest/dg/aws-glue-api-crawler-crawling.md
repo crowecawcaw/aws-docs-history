@@ -734,19 +734,19 @@ data, this can be left as null.
 
 ## Operations
 
-- [CreateCrawler action (Python: create_crawler)](#aws-glue-api-crawler-crawling-CreateCrawler "#aws-glue-api-crawler-crawling-CreateCrawler")
-- [DeleteCrawler action (Python: delete_crawler)](#aws-glue-api-crawler-crawling-DeleteCrawler "#aws-glue-api-crawler-crawling-DeleteCrawler")
-- [GetCrawler action (Python: get_crawler)](#aws-glue-api-crawler-crawling-GetCrawler "#aws-glue-api-crawler-crawling-GetCrawler")
-- [GetCrawlers action (Python: get_crawlers)](#aws-glue-api-crawler-crawling-GetCrawlers "#aws-glue-api-crawler-crawling-GetCrawlers")
-- [GetCrawlerMetrics action (Python: get_crawler_metrics)](#aws-glue-api-crawler-crawling-GetCrawlerMetrics "#aws-glue-api-crawler-crawling-GetCrawlerMetrics")
-- [UpdateCrawler action (Python: update_crawler)](#aws-glue-api-crawler-crawling-UpdateCrawler "#aws-glue-api-crawler-crawling-UpdateCrawler")
-- [StartCrawler action (Python: start_crawler)](#aws-glue-api-crawler-crawling-StartCrawler "#aws-glue-api-crawler-crawling-StartCrawler")
-- [StopCrawler action (Python: stop_crawler)](#aws-glue-api-crawler-crawling-StopCrawler "#aws-glue-api-crawler-crawling-StopCrawler")
-- [BatchGetCrawlers action (Python: batch_get_crawlers)](#aws-glue-api-crawler-crawling-BatchGetCrawlers "#aws-glue-api-crawler-crawling-BatchGetCrawlers")
-- [ListCrawlers action (Python: list_crawlers)](#aws-glue-api-crawler-crawling-ListCrawlers "#aws-glue-api-crawler-crawling-ListCrawlers")
-- [ListCrawls action (Python: list_crawls)](#aws-glue-api-crawler-crawling-ListCrawls "#aws-glue-api-crawler-crawling-ListCrawls")
+- [CreateCrawler action (Python: create\_crawler)](#aws-glue-api-crawler-crawling-CreateCrawler "#aws-glue-api-crawler-crawling-CreateCrawler")
+- [DeleteCrawler action (Python: delete\_crawler)](#aws-glue-api-crawler-crawling-DeleteCrawler "#aws-glue-api-crawler-crawling-DeleteCrawler")
+- [GetCrawler action (Python: get\_crawler)](#aws-glue-api-crawler-crawling-GetCrawler "#aws-glue-api-crawler-crawling-GetCrawler")
+- [GetCrawlers action (Python: get\_crawlers)](#aws-glue-api-crawler-crawling-GetCrawlers "#aws-glue-api-crawler-crawling-GetCrawlers")
+- [GetCrawlerMetrics action (Python: get\_crawler\_metrics)](#aws-glue-api-crawler-crawling-GetCrawlerMetrics "#aws-glue-api-crawler-crawling-GetCrawlerMetrics")
+- [UpdateCrawler action (Python: update\_crawler)](#aws-glue-api-crawler-crawling-UpdateCrawler "#aws-glue-api-crawler-crawling-UpdateCrawler")
+- [StartCrawler action (Python: start\_crawler)](#aws-glue-api-crawler-crawling-StartCrawler "#aws-glue-api-crawler-crawling-StartCrawler")
+- [StopCrawler action (Python: stop\_crawler)](#aws-glue-api-crawler-crawling-StopCrawler "#aws-glue-api-crawler-crawling-StopCrawler")
+- [BatchGetCrawlers action (Python: batch\_get\_crawlers)](#aws-glue-api-crawler-crawling-BatchGetCrawlers "#aws-glue-api-crawler-crawling-BatchGetCrawlers")
+- [ListCrawlers action (Python: list\_crawlers)](#aws-glue-api-crawler-crawling-ListCrawlers "#aws-glue-api-crawler-crawling-ListCrawlers")
+- [ListCrawls action (Python: list\_crawls)](#aws-glue-api-crawler-crawling-ListCrawls "#aws-glue-api-crawler-crawling-ListCrawls")
 
-## CreateCrawler action (Python: create_crawler)
+## CreateCrawler action (Python: create\_crawler)
 
 Creates a new crawler with specified targets, role, configuration, and
 optional schedule. At least one crawl target must be specified, in the `s3Targets`
@@ -840,7 +840,7 @@ to the crawler. For more information about tags in AWS Glue, see [AWS Tags in AW
 - `OperationTimeoutException`
 - `ResourceNumberLimitExceededException`
 
-## DeleteCrawler action (Python: delete_crawler)
+## DeleteCrawler action (Python: delete\_crawler)
 
 Removes a specified crawler from the AWS Glue Data Catalog, unless
 the crawler state is `RUNNING`.
@@ -862,7 +862,7 @@ The name of the crawler to remove.
 - `SchedulerTransitioningException`
 - `OperationTimeoutException`
 
-## GetCrawler action (Python: get_crawler)
+## GetCrawler action (Python: get\_crawler)
 
 Retrieves metadata for a specified crawler.
 
@@ -883,7 +883,7 @@ The metadata for the specified crawler.
 - `EntityNotFoundException`
 - `OperationTimeoutException`
 
-## GetCrawlers action (Python: get_crawlers)
+## GetCrawlers action (Python: get\_crawlers)
 
 Retrieves metadata for all crawlers defined in the customer account.
 
@@ -912,7 +912,7 @@ defined in this customer account.
 
 - `OperationTimeoutException`
 
-## GetCrawlerMetrics action (Python: get_crawler_metrics)
+## GetCrawlerMetrics action (Python: get\_crawler\_metrics)
 
 Retrieves metrics about specified crawlers.
 
@@ -945,7 +945,7 @@ available.
 
 - `OperationTimeoutException`
 
-## UpdateCrawler action (Python: update_crawler)
+## UpdateCrawler action (Python: update\_crawler)
 
 Updates a crawler. If a crawler is running, you must stop it using `StopCrawler`
 before updating it.
@@ -1029,7 +1029,7 @@ used by this crawler.
 - `CrawlerRunningException`
 - `OperationTimeoutException`
 
-## StartCrawler action (Python: start_crawler)
+## StartCrawler action (Python: start\_crawler)
 
 Starts a crawl using the specified crawler, regardless of what is scheduled.
 If the crawler is already running, returns a [CrawlerRunningException](aws-glue-api-exceptions.md#aws-glue-api-exceptions-CrawlerRunningException "aws-glue-api-exceptions.md#aws-glue-api-exceptions-CrawlerRunningException").
@@ -1050,7 +1050,7 @@ Name of the crawler to start.
 - `CrawlerRunningException`
 - `OperationTimeoutException`
 
-## StopCrawler action (Python: stop_crawler)
+## StopCrawler action (Python: stop\_crawler)
 
 If the specified crawler is running, stops the crawl.
 
@@ -1071,7 +1071,7 @@ Name of the crawler to stop.
 - `CrawlerStoppingException`
 - `OperationTimeoutException`
 
-## BatchGetCrawlers action (Python: batch_get_crawlers)
+## BatchGetCrawlers action (Python: batch\_get\_crawlers)
 
 Returns a list of resource metadata for a given list of crawler names. After
 calling the `ListCrawlers` operation, you can call this operation
@@ -1100,7 +1100,7 @@ A list of names of crawlers that were not found.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## ListCrawlers action (Python: list_crawlers)
+## ListCrawlers action (Python: list\_crawlers)
 
 Retrieves the names of all crawler resources in this AWS account, or the resources with the specified tag. This operation allows you
 to see which resources are available in your account, and their names.
@@ -1143,7 +1143,7 @@ available.
 
 - `OperationTimeoutException`
 
-## ListCrawls action (Python: list_crawls)
+## ListCrawls action (Python: list\_crawls)
 
 Returns all the crawls of a specified crawler. Returns only the crawls
 that have occurred since the launch date of the crawler history feature, and only

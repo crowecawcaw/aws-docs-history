@@ -220,21 +220,21 @@ A list of connections used by the job.
 
 ## Operations
 
-- [CreateSession action (Python: create_session)](#aws-glue-api-interactive-sessions-CreateSession "#aws-glue-api-interactive-sessions-CreateSession")
-- [StopSession action (Python: stop_session)](#aws-glue-api-interactive-sessions-StopSession "#aws-glue-api-interactive-sessions-StopSession")
-- [DeleteSession action (Python: delete_session)](#aws-glue-api-interactive-sessions-DeleteSession "#aws-glue-api-interactive-sessions-DeleteSession")
-- [GetSession action (Python: get_session)](#aws-glue-api-interactive-sessions-GetSession "#aws-glue-api-interactive-sessions-GetSession")
-- [ListSessions action (Python: list_sessions)](#aws-glue-api-interactive-sessions-ListSessions "#aws-glue-api-interactive-sessions-ListSessions")
-- [RunStatement action (Python: run_statement)](#aws-glue-api-interactive-sessions-RunStatement "#aws-glue-api-interactive-sessions-RunStatement")
-- [CancelStatement action (Python: cancel_statement)](#aws-glue-api-interactive-sessions-CancelStatement "#aws-glue-api-interactive-sessions-CancelStatement")
-- [GetStatement action (Python: get_statement)](#aws-glue-api-interactive-sessions-GetStatement "#aws-glue-api-interactive-sessions-GetStatement")
-- [ListStatements action (Python: list_statements)](#aws-glue-api-interactive-sessions-ListStatements "#aws-glue-api-interactive-sessions-ListStatements")
-- [GetGlueIdentityCenterConfiguration action (Python: get_glue_identity_center_configuration)](#aws-glue-api-interactive-sessions-GetGlueIdentityCenterConfiguration "#aws-glue-api-interactive-sessions-GetGlueIdentityCenterConfiguration")
-- [UpdateGlueIdentityCenterConfiguration action (Python: update_glue_identity_center_configuration)](#aws-glue-api-interactive-sessions-UpdateGlueIdentityCenterConfiguration "#aws-glue-api-interactive-sessions-UpdateGlueIdentityCenterConfiguration")
-- [CreateGlueIdentityCenterConfiguration action (Python: create_glue_identity_center_configuration)](#aws-glue-api-interactive-sessions-CreateGlueIdentityCenterConfiguration "#aws-glue-api-interactive-sessions-CreateGlueIdentityCenterConfiguration")
-- [DeleteGlueIdentityCenterConfiguration action (Python: delete_glue_identity_center_configuration)](#aws-glue-api-interactive-sessions-DeleteGlueIdentityCenterConfiguration "#aws-glue-api-interactive-sessions-DeleteGlueIdentityCenterConfiguration")
+- [CreateSession action (Python: create\_session)](#aws-glue-api-interactive-sessions-CreateSession "#aws-glue-api-interactive-sessions-CreateSession")
+- [StopSession action (Python: stop\_session)](#aws-glue-api-interactive-sessions-StopSession "#aws-glue-api-interactive-sessions-StopSession")
+- [DeleteSession action (Python: delete\_session)](#aws-glue-api-interactive-sessions-DeleteSession "#aws-glue-api-interactive-sessions-DeleteSession")
+- [GetSession action (Python: get\_session)](#aws-glue-api-interactive-sessions-GetSession "#aws-glue-api-interactive-sessions-GetSession")
+- [ListSessions action (Python: list\_sessions)](#aws-glue-api-interactive-sessions-ListSessions "#aws-glue-api-interactive-sessions-ListSessions")
+- [RunStatement action (Python: run\_statement)](#aws-glue-api-interactive-sessions-RunStatement "#aws-glue-api-interactive-sessions-RunStatement")
+- [CancelStatement action (Python: cancel\_statement)](#aws-glue-api-interactive-sessions-CancelStatement "#aws-glue-api-interactive-sessions-CancelStatement")
+- [GetStatement action (Python: get\_statement)](#aws-glue-api-interactive-sessions-GetStatement "#aws-glue-api-interactive-sessions-GetStatement")
+- [ListStatements action (Python: list\_statements)](#aws-glue-api-interactive-sessions-ListStatements "#aws-glue-api-interactive-sessions-ListStatements")
+- [GetGlueIdentityCenterConfiguration action (Python: get\_glue\_identity\_center\_configuration)](#aws-glue-api-interactive-sessions-GetGlueIdentityCenterConfiguration "#aws-glue-api-interactive-sessions-GetGlueIdentityCenterConfiguration")
+- [UpdateGlueIdentityCenterConfiguration action (Python: update\_glue\_identity\_center\_configuration)](#aws-glue-api-interactive-sessions-UpdateGlueIdentityCenterConfiguration "#aws-glue-api-interactive-sessions-UpdateGlueIdentityCenterConfiguration")
+- [CreateGlueIdentityCenterConfiguration action (Python: create\_glue\_identity\_center\_configuration)](#aws-glue-api-interactive-sessions-CreateGlueIdentityCenterConfiguration "#aws-glue-api-interactive-sessions-CreateGlueIdentityCenterConfiguration")
+- [DeleteGlueIdentityCenterConfiguration action (Python: delete\_glue\_identity\_center\_configuration)](#aws-glue-api-interactive-sessions-DeleteGlueIdentityCenterConfiguration "#aws-glue-api-interactive-sessions-DeleteGlueIdentityCenterConfiguration")
 
-## CreateSession action (Python: create_session)
+## CreateSession action (Python: create\_session)
 
 Creates a new session.
 
@@ -370,7 +370,7 @@ Returns the session object in the response.
 - `AlreadyExistsException`
 - `ResourceNumberLimitExceededException`
 
-## StopSession action (Python: stop_session)
+## StopSession action (Python: stop\_session)
 
 Stops the session.
 
@@ -399,7 +399,7 @@ Returns the Id of the stopped session.
 - `IllegalSessionStateException`
 - `ConcurrentModificationException`
 
-## DeleteSession action (Python: delete_session)
+## DeleteSession action (Python: delete\_session)
 
 Deletes the session.
 
@@ -428,7 +428,7 @@ Returns the ID of the deleted session.
 - `IllegalSessionStateException`
 - `ConcurrentModificationException`
 
-## GetSession action (Python: get_session)
+## GetSession action (Python: get\_session)
 
 Retrieves the session.
 
@@ -456,7 +456,7 @@ The session object is returned in the response.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## ListSessions action (Python: list_sessions)
+## ListSessions action (Python: list\_sessions)
 
 Retrieve a list of sessions.
 
@@ -503,7 +503,7 @@ The token for the next set of results, or null if there are no more result.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## RunStatement action (Python: run_statement)
+## RunStatement action (Python: run\_statement)
 
 Executes the statement.
 
@@ -538,7 +538,7 @@ Returns the Id of the statement that was run.
 - `ResourceNumberLimitExceededException`
 - `IllegalSessionStateException`
 
-## CancelStatement action (Python: cancel_statement)
+## CancelStatement action (Python: cancel\_statement)
 
 Cancels the statement.
 
@@ -569,7 +569,7 @@ The origin of the request to cancel the statement.
 - `InvalidInputException`
 - `IllegalSessionStateException`
 
-## GetStatement action (Python: get_statement)
+## GetStatement action (Python: get\_statement)
 
 Retrieves the statement.
 
@@ -602,7 +602,7 @@ Returns the statement.
 - `InvalidInputException`
 - `IllegalSessionStateException`
 
-## ListStatements action (Python: list_statements)
+## ListStatements action (Python: list\_statements)
 
 Lists statements for the session.
 
@@ -639,7 +639,7 @@ A continuation token, if not all statements have yet been returned.
 - `InvalidInputException`
 - `IllegalSessionStateException`
 
-## GetGlueIdentityCenterConfiguration action (Python: get_glue_identity_center_configuration)
+## GetGlueIdentityCenterConfiguration action (Python: get\_glue\_identity\_center\_configuration)
 
 Retrieves the current AWS Glue Identity Center configuration
 details, including the associated Identity Center instance and application
@@ -678,7 +678,7 @@ levels for the AWS Glue configuration.
 - `AccessDeniedException`
 - `ConcurrentModificationException`
 
-## UpdateGlueIdentityCenterConfiguration action (Python: update_glue_identity_center_configuration)
+## UpdateGlueIdentityCenterConfiguration action (Python: update\_glue\_identity\_center\_configuration)
 
 Updates the existing AWS Glue Identity Center configuration,
 allowing modification of scopes and permissions for the integration.
@@ -705,7 +705,7 @@ access levels for the AWS Glue configuration.
 - `AccessDeniedException`
 - `ConcurrentModificationException`
 
-## CreateGlueIdentityCenterConfiguration action (Python: create_glue_identity_center_configuration)
+## CreateGlueIdentityCenterConfiguration action (Python: create\_glue\_identity\_center\_configuration)
 
 Creates a new AWS Glue Identity Center configuration to enable
 integration between AWS Glue and AWS IAM Identity
@@ -743,7 +743,7 @@ was created for the AWS Glue configuration.
 - `AccessDeniedException`
 - `ConcurrentModificationException`
 
-## DeleteGlueIdentityCenterConfiguration action (Python: delete_glue_identity_center_configuration)
+## DeleteGlueIdentityCenterConfiguration action (Python: delete\_glue\_identity\_center\_configuration)
 
 Deletes the existing AWS Glue Identity Center configuration,
 removing the integration between AWS Glue and AWS

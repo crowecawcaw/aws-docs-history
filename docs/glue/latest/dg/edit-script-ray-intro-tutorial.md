@@ -47,12 +47,11 @@ steps.
 - Create a bucket by following the steps in [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md") in the
   _Amazon S3 User Guide_.
 
-      + When choosing a bucket name, take note of `yourBucketName`, which
-       you will refer to in later steps.
-      + For other configuration, the suggested settings provided in the Amazon S3 console should work
-       fine in this tutorial.
-
-  As an example, the bucket creation dialog box might look like this in the Amazon S3 console.
+  - When choosing a bucket name, take note of `yourBucketName`, which
+    you will refer to in later steps.
+  - For other configuration, the suggested settings provided in the Amazon S3 console should work
+    fine in this tutorial.
+    As an example, the bucket creation dialog box might look like this in the Amazon S3 console.
 
 ![A dialog box in the Amazon S3 console that is used in configuring a new bucket.](images/ray-tutorial-create-bucket.jpg)
 
@@ -65,7 +64,7 @@ Your job will need an AWS Identity and Access Management (IAM) role with the fol
 - `Read` access level permissions for the `nyc-tlc/*` Amazon S3
   resource.
 - `Write` access level permissions for the
-  ``yourBucketName`/\*` Amazon S3 resource.
+  ``yourBucketName`/*` Amazon S3 resource.
 - A trust relationship that allows the `glue.amazonaws.com` principal to assume the
   role.
 
@@ -89,7 +88,7 @@ options about how to provision IAM resources, see the [AWS Identity and Access M
      - Read access level permissions for the `nyc-tlc/*` Amazon S3
        resource.
      - Write access level permissions for the
-       ``yourBucketName`/\*` Amazon S3 resource.
+       ``yourBucketName`/*` Amazon S3 resource.
 
    - When selecting the policy name, take note of `YourPolicyName`,
      which you will refer to in a later step.

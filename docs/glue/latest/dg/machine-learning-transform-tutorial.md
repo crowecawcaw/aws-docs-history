@@ -69,7 +69,7 @@ table created by the crawler named `demo-crawl-dblp-acm`.
       [Create an IAM Role for
       AWS Glue](create-an-iam-role.md "create-an-iam-role.md") in the _AWS Glue Developer Guide_.
    3. For **Data source**, choose the table named
-      **dblp_acm_records_csv** in database
+      **dblp\_acm\_records\_csv** in database
       **demo-db-dblp-acm**.
    4. For **Primary key**, choose the primary key column for the table,
       **id**.
@@ -145,7 +145,7 @@ use**, you can use it in an ETL job.
       **demo-etl-dblp-acm**. This is the file name of the Scala script
       (same as the job name).
    5. For **Data source**, choose
-      **dblp_acm_records_csv**. The data source you choose must match the
+      **dblp\_acm\_records\_csv**. The data source you choose must match the
       machine learning transform data source schema.
    6. For **Transform type**, choose **Find matching
       records** to create a job using a machine learning transform.
@@ -159,7 +159,7 @@ use**, you can use it in an ETL job.
       tables with the following properties:
 
       - **Data store type** — `Amazon
-S3`
+  S3`
       - **Format** — `CSV`
       - **Compression type** —
         `None`

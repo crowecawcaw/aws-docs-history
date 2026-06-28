@@ -62,13 +62,12 @@ When creating Key/value pairs, specify keys and values as followings:
     * For `spark.hadoop.google.cloud.auth.service.account.json.keyfile` key, specify the `s3secretpath`.
 
 5. In the AWS Glue Data Catalog, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md").
-   After creating the connection, keep the connection name, `connectionName`, for the next step.
+After creating the connection, keep the connection name, `connectionName`, for the next step.
 
-   - When selecting a **Connection type**, select Google BigQuery.
-   - When selecting an **AWS Secret**, provide `secretName`.
+    * When selecting a **Connection type**, select Google BigQuery.
+    * When selecting an **AWS Secret**, provide `secretName`.
 
-6. Grant the IAM role associated with your AWS Glue job permission to read `secretName`.
-7. In your AWS Glue job configuration, provide `connectionName` as an **Additional network connection**.
+6. Grant the IAM role associated with your AWS Glue job permission to read `secretName`. 7. In your AWS Glue job configuration, provide `connectionName` as an **Additional network connection**.
 
 ## Reading from BigQuery tables
 

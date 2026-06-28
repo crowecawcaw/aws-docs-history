@@ -192,7 +192,7 @@ S3bucket_node1 = glueContext.create_dynamic_frame.from_catalog(
 ###### To extract data from a source
 
 1. Examine the documentation to find a method on `GlueContext` to extract data from a
-   source defined in the AWS Glue Data Catalog. These methods are documented in [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md"). Choose the [create_dynamic_frame.from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog") method. Call this method on `glueContext`.
+   source defined in the AWS Glue Data Catalog. These methods are documented in [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md"). Choose the [create\_dynamic\_frame.from\_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog") method. Call this method on `glueContext`.
 2. Examine the documentation for `create_dynamic_frame.from_catalog`. This method requires
    `database` and `table_name` parameters. Provide the necessary parameters to
    `create_dynamic_frame.from_catalog`.
@@ -207,10 +207,10 @@ following section, [Optional - Enable job bookmarks](#aws-glue-programming-intro
 
 **Common methods for extracting data**
 
-[create_dynamic_frame_from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog") is used to connect to tables in the AWS Glue Data Catalog.
+[create\_dynamic\_frame\_from\_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog") is used to connect to tables in the AWS Glue Data Catalog.
 
 If you need to directly provide your job with configuration that describes the structure and location
-of your source, see the [create_dynamic_frame_from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options")
+of your source, see the [create\_dynamic\_frame\_from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options")
 method. You will need to provide more detailed parameters describing your data than when using
 `create_dynamic_frame.from_catalog`.
 
@@ -220,7 +220,7 @@ provide your script information about your source data format, see [Data format 
 information about your source data location, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 
 If you're reading information from a streaming source, you provide your job with source information
-through the [create_data_frame_from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog") or [create_data_frame_from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options") methods.
+through the [create\_data\_frame\_from\_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog") or [create\_data\_frame\_from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options") methods.
 Note that these methods return Apache Spark `DataFrames`.
 
 Our generated code calls `create_dynamic_frame.from_catalog` while the reference
@@ -312,7 +312,7 @@ return value.
 
 Rather than calling `apply`, you can call the same transform with the
 `apply_mapping` method on the `DynamicFrame` to create more fluent,
-readable code. For more information, see [apply_mapping](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping"). 2. Examine the documentation for `ApplyMapping` to identify required parameters. See [ApplyMapping class](aws-glue-api-crawler-pyspark-transforms-ApplyMapping.md "aws-glue-api-crawler-pyspark-transforms-ApplyMapping.md"). You will find that this method
+readable code. For more information, see [apply\_mapping](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping"). 2. Examine the documentation for `ApplyMapping` to identify required parameters. See [ApplyMapping class](aws-glue-api-crawler-pyspark-transforms-ApplyMapping.md "aws-glue-api-crawler-pyspark-transforms-ApplyMapping.md"). You will find that this method
 requires `frame` and `mappings` parameters. Provide the necessary parameters
 to `ApplyMapping`. 3. **Optional** – Provide `transformation_ctx` to the
 method to support job bookmarks. You can learn about job bookmarks in the following section, [Optional - Enable job bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
@@ -360,7 +360,7 @@ S3bucket_node3 = glueContext.write_dynamic_frame.from_options(
 
 1. Examine the documentation to find a method to load data into a target Amazon S3 bucket. These methods
    are documented in [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md"). Choose the
-   [write_dynamic_frame_from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options")
+   [write\_dynamic\_frame\_from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options")
    method. Call this method on `glueContext`.
 
 ###### Note
@@ -370,14 +370,14 @@ S3bucket_node3 = glueContext.write_dynamic_frame.from_options(
 `write_dynamic_frame.from_options` is the most common method used to load data. It
 supports all targets that are available in AWS Glue.
 
-If you're writing to a JDBC target defined in an AWS Glue connection, use the [write_dynamic_frame_from_jdbc_conf](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_jdbc_conf "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_jdbc_conf") method. AWS Glue connections store information about how to connect to a data source. This
+If you're writing to a JDBC target defined in an AWS Glue connection, use the [write\_dynamic\_frame\_from\_jdbc\_conf](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_jdbc_conf "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_jdbc_conf") method. AWS Glue connections store information about how to connect to a data source. This
 removes the need to provide that information in `connection_options`. However, you
 still need to use `connection_options` to provide `dbtable`.
 
 `write_dynamic_frame.from_catalog` is not a common method for loading data. This
 method updates the AWS Glue Data Catalog without updating the underlying dataset, and is used in
 combination with other processes that change the underlying dataset. For more information, see
-[Updating the schema, and adding new partitions in the Data Catalog using AWS Glue ETL jobs](update-from-job.md "update-from-job.md"). 2. Examine the documentation for [write_dynamic_frame_from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options").
+[Updating the schema, and adding new partitions in the Data Catalog using AWS Glue ETL jobs](update-from-job.md "update-from-job.md"). 2. Examine the documentation for [write\_dynamic\_frame\_from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options").
 This method requires `frame`, `connection_type`, `format`,
 `connection_options`, and `format_options`. Call this method on
 `glueContext`.
@@ -392,8 +392,8 @@ This method requires `frame`, `connection_type`, `format`,
      method has a similar configuration to `create_dynamic_frame.from_options`.
 
 3. **Optional** – Provide `transformation_ctx` to
-   `write_dynamic_frame.from_options` to support job bookmarks. You can learn about job
-   bookmarks in the following section, [Optional - Enable job bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
+`write_dynamic_frame.from_options` to support job bookmarks. You can learn about job
+bookmarks in the following section, [Optional - Enable job bookmarks](#aws-glue-programming-intro-tutorial-create-job-bookmarks "#aws-glue-programming-intro-tutorial-create-job-bookmarks").
 
 ## Step 6. Commit the `Job` object
 
@@ -448,7 +448,7 @@ the click of a button, as in the AWS Glue Studio visual editor.
 2. Navigate to the **Job details** tab. Assign your job an **IAM
    Role**. You can use the one created by the CloudFormation template in the prerequisites for the
    AWS Glue Studio tutorial. If you have completed that tutorial, it should be available as `AWS Glue
-StudioRole`.
+ StudioRole`.
 3. Choose **Save** to save your script.
 4. Choose **Run** to run your job.
 5. Navigate to the **Runs** tab to verify that your job completes.

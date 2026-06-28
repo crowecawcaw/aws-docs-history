@@ -153,16 +153,16 @@ For existing jobs, change the `Glue version` from the previous version to
 `Glue 5.0` in the job configuration.
 
 - In AWS Glue Studio, choose `Glue 5.0 - Supports Spark 3.5.4,
-Scala 2, Python 3` in `Glue version`.
+ Scala 2, Python 3` in `Glue version`.
 - In the API, choose `5.0` in the `GlueVersion`
   parameter in the [`UpdateJob`](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-UpdateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-UpdateJob") API operation.
 
 For new jobs, choose `Glue 5.0` when you create a job.
 
 - In the console, choose `Spark 3.5.4, Python 3 (Glue Version 5.0) or Spark
-3.5.4, Scala 2 (Glue Version 5.0)` in `Glue version`.
+ 3.5.4, Scala 2 (Glue Version 5.0)` in `Glue version`.
 - In AWS Glue Studio, choose `Glue 5.0 - Supports Spark 3.5.4,
-Scala 2, Python 3` in `Glue version`.
+ Scala 2, Python 3` in `Glue version`.
 - In the API, choose `5.0` in the `GlueVersion`
   parameter in the [`CreateJob`](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob") API operation.
 

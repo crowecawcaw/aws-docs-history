@@ -50,11 +50,10 @@ For redirect URI and its pattern, see the following:
 
 7. Add the following scopes:
 
-   - `openid`
-   - `read_organizations`
-   - `additional_info.projectedProductContext`
-   - `additional_info.job_function`
+    * `openid`
+    * `read_organizations`
+    * `additional_info.projectedProductContext`
+    * `additional_info.job_function`
 
-8. Choose **Save credential**.
-9. After the app is created, copy the `Client ID` and `Client
-Secret` values to a text file.
+8. Choose **Save credential**. 9. After the app is created, copy the `Client ID` and `Client
+ Secret` values to a text file.

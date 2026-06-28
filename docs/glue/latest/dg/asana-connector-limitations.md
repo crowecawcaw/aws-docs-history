@@ -9,7 +9,7 @@ The following are limitations for the Asana connector:
   above.
 - `Audit Log Event Entity` – In the connector,
   `start_at` and `end_at` fields are combined into a
-  single field "start_end_at" to support filtering and incremental
+  single field "start\_end\_at" to support filtering and incremental
   transfer.
 - Partitioning cannot be supported for the `Date` field, even though it supports
   greater-than-or-equal-to and less-than-or-equal-to operators. Scenario: Created
@@ -19,12 +19,12 @@ The following are limitations for the Asana connector:
   filter part of the endpoint URL is created as follows:
 
   - partition1:
-    due_on.before=2019-09-14&due_on.after=2019-09-14
-  - partition2: due_on.before=2019-09-15&due_on.after=2019-09-15
+    due\_on.before=2019-09-14&due\_on.after=2019-09-14
+  - partition2: due\_on.before=2019-09-15&due\_on.after=2019-09-15
     Output:
-  - In partition1, we get data with due_date as 2019-09-14 and
+  - In partition1, we get data with due\_date as 2019-09-14 and
     2019-09-15
-  - In partition2, we get the same data with due_date as 2019-09-15 (which
+  - In partition2, we get the same data with due\_date as 2019-09-15 (which
     was in partition1) along with other data, causing data
     duplication.
 
@@ -32,8 +32,8 @@ The following are limitations for the Asana connector:
   thrown from the SaaS end.
 - The Task entity requires a minimum of 1 field in filter criteria. There is a limitation
   with Asana where pagination is not identified without sorting the records based
-  on a time-based field. Hence, the Created_at field is used along with pagination
-  to distinguish the next set of records. The Created_at field is marked as
+  on a time-based field. Hence, the Created\_at field is used along with pagination
+  to distinguish the next set of records. The Created\_at field is marked as
   mandatory in the filter, with a default value of 2000-01-01T00:00:00Z if not
   provided. For more information about Pagination, see [Tasks
   in a workspace](https://developers.asana.com/reference/searchtasksforworkspace "https://developers.asana.com/reference/searchtasksforworkspace").

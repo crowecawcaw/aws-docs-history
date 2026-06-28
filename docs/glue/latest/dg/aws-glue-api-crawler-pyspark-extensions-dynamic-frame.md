@@ -162,26 +162,26 @@ with `numPartitions` partitions.
 
 ##  — transforms —
 
-- [apply_mapping](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping")
-- [drop_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields")
+- [apply\_mapping](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-apply_mapping")
+- [drop\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields")
 - [filter](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-filter "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-filter")
 - [join](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-join "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-join")
 - [map](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-map "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-map")
 - [mergeDynamicFrame](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-merge "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-merge")
 - [relationalize](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-relationalize "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-relationalize")
-- [rename_field](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field")
+- [rename\_field](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field")
 - [resolveChoice](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-resolveChoice "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-resolveChoice")
-- [select_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields")
+- [select\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields")
 - [spigot](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-spigot "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-spigot")
-- [split_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields")
-- [split_rows](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows")
+- [split\_fields](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields")
+- [split\_rows](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows")
 - [unbox](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unbox "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unbox")
 - [union](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-union "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-union")
 - [unnest](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest")
-- [unnest_ddb_json](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest_ddb_json "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest_ddb_json")
+- [unnest\_ddb\_json](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest_ddb_json "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-unnest_ddb_json")
 - [write](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-write "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-write")
 
-## apply_mapping
+## apply\_mapping
 
 ###### `apply_mapping(mappings, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
@@ -193,7 +193,8 @@ Unspecified fields are omitted from the new `DynamicFrame`.
   (source column, source type, target column, target type).
 
 If the source column has a dot "`.`" in the name, you must place
-backticks "````" around it. For example, to map `this.old.name` (string) to`thisNewName`, you would use the following tuple:
+backticks "````" around it. For example, to map `this.old.name`
+(string) to `thisNewName`, you would use the following tuple:
 
 ```
 ("`this.old.name`", "string", "thisNewName", "string")
@@ -210,7 +211,7 @@ backticks "````" around it. For example, to map `this.old.name` (string) to`this
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use apply_mapping to rename fields and change field types
+### Example: Use apply\_mapping to rename fields and change field types
 
 The following code example shows how to use the `apply_mapping` method to rename selected fields and change field types.
 
@@ -291,7 +292,7 @@ root
 
 ```
 
-## drop_fields
+## drop\_fields
 
 ###### `drop_fields(paths, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
@@ -318,7 +319,7 @@ If a field node has a literal `.` in the name, you must enclose the name in back
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use drop_fields to remove fields from a `DynamicFrame`
+### Example: Use drop\_fields to remove fields from a `DynamicFrame`
 
 This code example uses the `drop_fields` method to remove selected top-level and nested fields from a `DynamicFrame`.
 
@@ -1069,7 +1070,7 @@ root
 +---+-----+------------------------+-------------------------+
 ```
 
-## rename_field
+## rename\_field
 
 ###### `rename_field(oldName, newName, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
@@ -1079,7 +1080,8 @@ Renames a field in this `DynamicFrame` and returns a new
 - `oldName` – The full path to the node you want to rename.
 
 If the old name has dots in it, `RenameField` doesn't work unless you place
-backticks around it (```). For example, to replace `this.old.name` with`thisNewName`, you would call rename_field as follows.
+backticks around it (```). For example, to replace `this.old.name`
+with `thisNewName`, you would call rename\_field as follows.
 
 ```
 newDyF = oldDyF.rename_field("`this.old.name`", "thisNewName")
@@ -1097,7 +1099,7 @@ newDyF = oldDyF.rename_field("`this.old.name`", "thisNewName")
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use rename_field to rename fields in a `DynamicFrame`
+### Example: Use rename\_field to rename fields in a `DynamicFrame`
 
 This code example uses the `rename_field` method to rename fields in a `DynamicFrame`. Notice that the example uses method chaining to rename multiple fields at the same time.
 
@@ -1450,7 +1452,7 @@ only showing top 20 rows
 
 ```
 
-## select_fields
+## select\_fields
 
 ###### `select_fields(paths, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
@@ -1469,7 +1471,7 @@ Returns a new `DynamicFrame` that contains the selected fields.
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use select_fields to create a new `DynamicFrame` with chosen fields
+### Example: Use select\_fields to create a new `DynamicFrame` with chosen fields
 
 The following code example shows how to use the `select_fields` method to create a new `DynamicFrame` with a chosen list of fields from an existing `DynamicFrame`.
 
@@ -1568,7 +1570,7 @@ only showing top 20 rows
 
 ```
 
-## simplify_ddb_json
+## simplify\_ddb\_json
 
 **`simplify_ddb_json(): DynamicFrame`**
 
@@ -1623,7 +1625,7 @@ root
 |-- nullValue: null
 ```
 
-### Example: Use simplify_ddb_json to invoke a DynamoDB JSON simplify
+### Example: Use simplify\_ddb\_json to invoke a DynamoDB JSON simplify
 
 This code example uses the `simplify_ddb_json` method to use the AWS Glue DynamoDB export connector, invoke a DynamoDB JSON simplify, and print the number of partitions.
 
@@ -1783,7 +1785,7 @@ contains the first 10 records.
 
 ```
 
-## split_fields
+## split\_fields
 
 ###### `split_fields(paths, name1, name2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
@@ -1808,7 +1810,7 @@ that have been split off, and the second contains the nodes that remain.
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use split_fields to split selected fields into a separate `DynamicFrame`
+### Example: Use split\_fields to split selected fields into a separate `DynamicFrame`
 
 This code example uses the `split_fields` method to split a list of specified fields into a separate `DynamicFrame`.
 
@@ -1885,7 +1887,7 @@ root
 
 ```
 
-## split_rows
+## split\_rows
 
 ###### `split_rows(comparison_dict, name1, name2, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)`
 
@@ -1915,7 +1917,7 @@ have been split off, and the second contains the rows that remain.
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 
-### Example: Use split_rows to split rows in a `DynamicFrame`
+### Example: Use split\_rows to split rows in a `DynamicFrame`
 
 This code example uses the `split_rows` method to split rows in a
 `DynamicFrame` based on the `id` field value.
@@ -2298,7 +2300,7 @@ root
 
 ```
 
-## unnest_ddb_json
+## unnest\_ddb\_json
 
 Unnests nested columns in a `DynamicFrame` that are specifically in the DynamoDB JSON structure, and returns a new unnested `DynamicFrame`. Columns that are of an array of struct types will not be unnested. Note that this is a specific type of unnesting transform that behaves differently from the regular `unnest` transform and requires the data to already be in the DynamoDB JSON structure. For more information, see [DynamoDB JSON](../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data "../../../amazondynamodb/latest/developerguide/DataExport.Output.md#DataExport.Output.Data").
 

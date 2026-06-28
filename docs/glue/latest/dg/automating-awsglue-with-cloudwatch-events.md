@@ -60,37 +60,34 @@ Only one event is generated per job run status when the job delay notification t
   Note that you cannot write a program that depends on the order or existence of notification events, as they might be out of sequence or missing. Events are emitted on a best effort basis.
   In the details of the notification:
 
-      + The `typeOfChange` contains the name of the API operation.
-      + The `databaseName` contains the name of the database that contains the affected resources.
-      + The `tableName` contains the name of the affected table.
-      + The `changedPartitions` specifies up to 100 affected partitions in one notification. When partition names are long, multiple notifications might be created.
+  - The `typeOfChange` contains the name of the API operation.
+  - The `databaseName` contains the name of the database that contains the affected resources.
+  - The `tableName` contains the name of the affected table.
+  - The `changedPartitions` specifies up to 100 affected partitions in one notification. When partition names are long, multiple notifications might be created.
 
+  For example if there are two partition keys, `Year` and `Month`, then
+  `"2018,01", "2018,02"` modifies the partition where `"Year=2018" and "Month=01"` and the partition where `"Year=2018" and "Month=02"`.
 
-      For example if there are two partition keys, `Year` and `Month`, then
-       `"2018,01", "2018,02"` modifies the partition where `"Year=2018" and "Month=01"` and the partition where `"Year=2018" and "Month=02"`.
+  ```
+  {
+      "version":"0",
+      "id":"abcdef00-1234-5678-9abc-def012345678",
+      "detail-type":"Glue Data Catalog Table State Change",
+      "source":"aws.glue",
+      "account":"123456789012",
+      "time":"2017-09-07T18:57:21Z",
+      "region":"us-west-2",
+      "resources":["arn:aws:glue:us-west-2:123456789012:database/default/foo"],
+      "detail":{
+          "changedPartitions": [
+              "2018,01",
+              "2018,02"
+          ],
+          "databaseName": "default",
+          "tableName": "foo",
+          "typeOfChange": "BatchCreatePartition"
+          }
+  }
+  ```
 
-
-
-      ```
-      {
-          "version":"0",
-          "id":"abcdef00-1234-5678-9abc-def012345678",
-          "detail-type":"Glue Data Catalog Table State Change",
-          "source":"aws.glue",
-          "account":"123456789012",
-          "time":"2017-09-07T18:57:21Z",
-          "region":"us-west-2",
-          "resources":["arn:aws:glue:us-west-2:123456789012:database/default/foo"],
-          "detail":{
-              "changedPartitions": [
-                  "2018,01",
-                  "2018,02"
-              ],
-              "databaseName": "default",
-              "tableName": "foo",
-              "typeOfChange": "BatchCreatePartition"
-              }
-      }
-      ```
-
-  For more information, see the [Amazon CloudWatch Events User Guide](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md"). For events specific to AWS Glue, see [AWS Glue Events](../../../AmazonCloudWatch/latest/events/EventTypes.md#glue-event-types "../../../AmazonCloudWatch/latest/events/EventTypes.md#glue-event-types").
+For more information, see the [Amazon CloudWatch Events User Guide](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md"). For events specific to AWS Glue, see [AWS Glue Events](../../../AmazonCloudWatch/latest/events/EventTypes.md#glue-event-types "../../../AmazonCloudWatch/latest/events/EventTypes.md#glue-event-types").

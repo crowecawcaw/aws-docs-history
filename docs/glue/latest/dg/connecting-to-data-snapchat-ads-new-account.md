@@ -61,4 +61,4 @@
    ad account. When you’re done, save your members.
 
 For more information about ad accounts, see
-[https://businesshelp.snapchat.com/s/article/roles-permissions?language=en_US](https://businesshelp.snapchat.com/s/article/roles-permissions?language=en_US "https://businesshelp.snapchat.com/s/article/roles-permissions?language=en_US")https://businesshelp.snapchat.com/s/article/roles-permissions?language=en\_US
+[https://businesshelp.snapchat.com/s/article/roles-permissions?language=en\_US](https://businesshelp.snapchat.com/s/article/roles-permissions?language=en_US "https://businesshelp.snapchat.com/s/article/roles-permissions?language=en_US")https://businesshelp.snapchat.com/s/article/roles-permissions?language=en\_US

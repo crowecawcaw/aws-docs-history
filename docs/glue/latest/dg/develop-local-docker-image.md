@@ -16,7 +16,7 @@ The following Docker images are available for AWS Glue on [Amazon ECR:](https://
 
 ###### Note
 
-AWS Glue Docker images are compatible with both x86_64 and arm64.
+AWS Glue Docker images are compatible with both x86\_64 and arm64.
 
 In this example, we use `public.ecr.aws/glue/aws-glue-libs:5` and run the container on a local machine (Mac, Windows, or Linux).
 This container image has been tested for AWS Glue version 5.0 Spark jobs. The image contains the following:
@@ -248,7 +248,7 @@ The major changes between the AWS Glue 4.0 and AWS Glue 5.0 Docker image:
 
 The above list is specific to the Docker image. To learn more about AWS Glue 5.0 updates, see
 [Introducing AWS Glue 5.0 for Apache Spark](https://aws.amazon.com/blogs/big-data/introducing-aws-glue-5-0-for-apache-spark/ "https://aws.amazon.com/blogs/big-data/introducing-aws-glue-5-0-for-apache-spark/")  
- and [Migrating AWS Glue for Spark jobs to AWS Glue version 5.0](migrating-version-50.md "migrating-version-50.md").
+and [Migrating AWS Glue for Spark jobs to AWS Glue version 5.0](migrating-version-50.md "migrating-version-50.md").
 
 ## Considerations
 

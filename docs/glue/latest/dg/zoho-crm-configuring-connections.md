@@ -1,6 +1,6 @@
 # Configuring Zoho CRM connections
 
-The grant type determines how AWS Glue communicates with Zoho CRM to request access to your data. Your choice affects the requirements that you must meet before you create the connection. Zoho CRM supports only the AUTHORIZATION_CODE grant type for OAuth 2.0.
+The grant type determines how AWS Glue communicates with Zoho CRM to request access to your data. Your choice affects the requirements that you must meet before you create the connection. Zoho CRM supports only the AUTHORIZATION\_CODE grant type for OAuth 2.0.
 
 - This grant type is considered "three-legged" OAuth as it relies on redirecting users to a third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console. The AWS Glue console will redirect the user to Zoho CRM where the user must login and allow Glue the requested permissions to access their Zoho CRM instance.
 - Users may still opt to create their own connected app in Zoho CRM and provide their own client ID, Auth URL, Token URL, and Instance URL when creating connections through the AWS Glue console. In this scenario, they will still be redirected to Zoho CRM to login and authorize AWS Glue to access their resources.

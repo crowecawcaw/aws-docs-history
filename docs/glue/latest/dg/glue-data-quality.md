@@ -195,13 +195,13 @@ The following new features are available with the general availability of AWS Gl
 - ML-powered anomaly detection capabilities are now available in AWS Glue ETL and AWS Glue Studio.
   With this, you can now detect anomalies and hard-to-detect data quality issues
 - [Dynamic Rules allows you to provide dynamic thresholds (ex: `RowCount>
-avg(last(10))`)](dqdl.md#dqdl-dynamic-rules "dqdl.md#dqdl-dynamic-rules")
+ avg(last(10))`)](dqdl.md#dqdl-dynamic-rules "dqdl.md#dqdl-dynamic-rules")
 
 ### Mar 12, 2024
 
 - DQDL improvements
 
-  - [Support for Keywords like NULL, BLANKS, WHITESPACES_ONLY](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
+  - [Support for Keywords like NULL, BLANKS, WHITESPACES\_ONLY](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
   - [Options to specify how AWS Glue Data Quality must handle Composite rules](dqdl.md#dqdl-syntax-rule-composition "dqdl.md#dqdl-syntax-rule-composition")
   - [ColumnValues rule type will not allow NULL values to pass during comparisons](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
   - [Support for NOT operator in DQDL](dqdl.md#dqdl-syntax-rule-expressions "dqdl.md#dqdl-syntax-rule-expressions")

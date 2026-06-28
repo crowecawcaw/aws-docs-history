@@ -35,9 +35,9 @@ netsuiteerp_read = glueContext.create_dynamic_frame.from_options(
 )
 ```
 
-| LinkedIn entity and field details | **Field Data Type** | **Supported Filter Operators** |
-| --------------------------------- | ------------------- | ------------------------------ |
-| String                            | =                   |
-| DateTime                          | BETWEEN, =          |
-| Numeric                           | =                   |
-| Boolean                           | =                   |
+LinkedIn entity and field details| **Field Data Type** | **Supported Filter Operators** |
+| --- | --- |
+| String | = |
+| DateTime | BETWEEN, = |
+| Numeric | = |
+| Boolean | = |

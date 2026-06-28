@@ -304,7 +304,7 @@ AWS Glue cross-account access has the following limitations:
   databases and tables using Amazon Athena orAmazon Redshift Spectrum prior to a region's support for
   AWS Glue and the resource owner account has not migrated the
   Amazon Athena data catalog to AWS Glue. You can find the current migration
-  status using the [GetCatalogImportStatus (get_catalog_import_status)](aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-GetCatalogImportStatus "aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-GetCatalogImportStatus").
+  status using the [GetCatalogImportStatus (get\_catalog\_import\_status)](aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-GetCatalogImportStatus "aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-GetCatalogImportStatus").
   For more details on how to migrate an Athena catalog to AWS Glue, see
   [Upgrading to
   the AWS Glue Data Catalog step-by-step](../../../athena/latest/ug/glue-upgrade.md "../../../athena/latest/ug/glue-upgrade.md") in the _Amazon Athena

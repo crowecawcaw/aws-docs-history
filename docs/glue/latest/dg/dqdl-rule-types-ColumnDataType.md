@@ -9,13 +9,13 @@ check for a subset of the values in the column.
 ColumnDataType `<COL_NAME>` = `<EXPECTED_TYPE>`
 ```
 
-- **COL_NAME** – The name of the column that you want to evaluate the data quality rule against.
+- **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
 
 Supported column types: String type
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 
-- **EXPECTED_TYPE** – The expected type of the values in the column.
+- **EXPECTED\_TYPE** – The expected type of the values in the column.
 
 Supported values: Boolean, Date, Timestamp, Integer, Double, Float, Long
 

@@ -1,6 +1,6 @@
 # Configuring Microsoft Dynamics 365 CRM connections
 
-**AUTHORIZATION_CODE Grant Type**
+**AUTHORIZATION\_CODE Grant Type**
 
 - This grant type is considered “three-legged” OAuth as it relies on redirecting users to the third party authorization server to
   authenticate the user. It is used when creating connections via the AWS Glue Console. The AWS Glue Console will redirect the user to
@@ -28,7 +28,7 @@ To configure a Microsoft Dynamics 365 CRM connection:
 2. In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
 
    1. When selecting a **Data Source**, select Microsoft Dynamics 365 CRM.
-   2. Select the **INSTANCE_URL** of the Microsoft Dynamics 365 CRM instance you want to connect to.
+   2. Select the **INSTANCE\_URL** of the Microsoft Dynamics 365 CRM instance you want to connect to.
    3. Select the IAM role that AWS Glue can assume and has permissions for following actions:
 
    JSON

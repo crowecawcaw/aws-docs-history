@@ -10,7 +10,7 @@ For systems or entities that do not support **ODP (Operational Data Provisioning
 
 **Timestamp based Incremental Transfers**
 
-For non-ODP enabled entities(or for ODP enabled entities that don’t use the ENABLE_CDC flag), we can use a `filteringExpression` option in the connector to indicate the `datetime` interval for which we want to retrieve data. This method relies on a timestamp field in you data that represents when each record was last created/modified.
+For non-ODP enabled entities(or for ODP enabled entities that don’t use the ENABLE\_CDC flag), we can use a `filteringExpression` option in the connector to indicate the `datetime` interval for which we want to retrieve data. This method relies on a timestamp field in you data that represents when each record was last created/modified.
 
 **Example**
 

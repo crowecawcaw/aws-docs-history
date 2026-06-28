@@ -78,13 +78,13 @@ The date and time when the usage profile was last modified.
 
 ## Operations
 
-- [CreateUsageProfile action (Python: create_usage_profile)](#aws-glue-api-usage-profiles-CreateUsageProfile "#aws-glue-api-usage-profiles-CreateUsageProfile")
-- [GetUsageProfile action (Python: get_usage_profile)](#aws-glue-api-usage-profiles-GetUsageProfile "#aws-glue-api-usage-profiles-GetUsageProfile")
-- [UpdateUsageProfile action (Python: update_usage_profile)](#aws-glue-api-usage-profiles-UpdateUsageProfile "#aws-glue-api-usage-profiles-UpdateUsageProfile")
-- [DeleteUsageProfile action (Python: delete_usage_profile)](#aws-glue-api-usage-profiles-DeleteUsageProfile "#aws-glue-api-usage-profiles-DeleteUsageProfile")
-- [ListUsageProfiles action (Python: list_usage_profiles)](#aws-glue-api-usage-profiles-ListUsageProfiles "#aws-glue-api-usage-profiles-ListUsageProfiles")
+- [CreateUsageProfile action (Python: create\_usage\_profile)](#aws-glue-api-usage-profiles-CreateUsageProfile "#aws-glue-api-usage-profiles-CreateUsageProfile")
+- [GetUsageProfile action (Python: get\_usage\_profile)](#aws-glue-api-usage-profiles-GetUsageProfile "#aws-glue-api-usage-profiles-GetUsageProfile")
+- [UpdateUsageProfile action (Python: update\_usage\_profile)](#aws-glue-api-usage-profiles-UpdateUsageProfile "#aws-glue-api-usage-profiles-UpdateUsageProfile")
+- [DeleteUsageProfile action (Python: delete\_usage\_profile)](#aws-glue-api-usage-profiles-DeleteUsageProfile "#aws-glue-api-usage-profiles-DeleteUsageProfile")
+- [ListUsageProfiles action (Python: list\_usage\_profiles)](#aws-glue-api-usage-profiles-ListUsageProfiles "#aws-glue-api-usage-profiles-ListUsageProfiles")
 
-## CreateUsageProfile action (Python: create_usage_profile)
+## CreateUsageProfile action (Python: create\_usage\_profile)
 
 Creates an AWS Glue usage profile.
 
@@ -126,7 +126,7 @@ The name of the usage profile that was created.
 - `ResourceNumberLimitExceededException`
 - `OperationNotSupportedException`
 
-## GetUsageProfile action (Python: get_usage_profile)
+## GetUsageProfile action (Python: get\_usage\_profile)
 
 Retrieves information about the specified AWS Glue usage
 profile.
@@ -168,7 +168,7 @@ The date and time when the usage profile was last modified.
 - `OperationTimeoutException`
 - `OperationNotSupportedException`
 
-## UpdateUsageProfile action (Python: update_usage_profile)
+## UpdateUsageProfile action (Python: update\_usage\_profile)
 
 Update an AWS Glue usage profile.
 
@@ -202,7 +202,7 @@ The name of the usage profile that was updated.
 - `OperationNotSupportedException`
 - `ConcurrentModificationException`
 
-## DeleteUsageProfile action (Python: delete_usage_profile)
+## DeleteUsageProfile action (Python: delete\_usage\_profile)
 
 Deletes the AWS Glue specified usage profile.
 
@@ -223,7 +223,7 @@ The name of the usage profile to delete.
 - `OperationTimeoutException`
 - `OperationNotSupportedException`
 
-## ListUsageProfiles action (Python: list_usage_profiles)
+## ListUsageProfiles action (Python: list\_usage\_profiles)
 
 List all the AWS Glue usage profiles.
 

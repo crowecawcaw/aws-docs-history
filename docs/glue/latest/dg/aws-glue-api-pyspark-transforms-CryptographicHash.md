@@ -87,7 +87,7 @@ from the original `input\_df` DataFrame, plus the additional `id\_hashed` and `p
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-CryptographicHash-describeErrors "#aws-glue-api-crawler-pyspark-transforms-CryptographicHash-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-CryptographicHash-describe "#aws-glue-api-crawler-pyspark-transforms-CryptographicHash-describe")
 
-## \_\_call\_\_(spark_context, data_frame, source_columns, secret_id, algorithm=None, secret_version=None, create_secret_if_missing=False, output_format=None, entity_type_filter=None)
+## \_\_call\_\_(spark\_context, data\_frame, source\_columns, secret\_id, algorithm=None, secret\_version=None, create\_secret\_if\_missing=False, output\_format=None, entity\_type\_filter=None)
 
 The `CryptographicHash` transform applies an algorithm to hash values in the column.
 
@@ -100,7 +100,7 @@ The `CryptographicHash` transform applies an algorithm to hash values in the col
 - `create_secret_if_missing` – Optional boolean. If true will attempt to create the secret on
   behalf of the caller.
 - `algorithm` – The algorithm used to hash your data. Valid enum values: MD5, SHA1, SHA256, SHA512,
-  HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA512.
+  HMAC\_MD5, HMAC\_SHA1, HMAC\_SHA256, HMAC\_SHA512.
 
 ## apply(cls, \*args, \*\*kwargs)
 

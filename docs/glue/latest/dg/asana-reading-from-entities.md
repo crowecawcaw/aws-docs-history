@@ -82,8 +82,8 @@ Entity-wise partitioning field support details are captured in the following tab
 
 | Entity Name | Partitioning Field | Data Type |
 | ----------- | ------------------ | --------- |
-| Task        | created_at         | DateTime  |
-| Task        | modified_at        | DateTime  |
+| Task        | created\_at        | DateTime  |
+| Task        | modified\_at       | DateTime  |
 
 **Example**
 

@@ -46,7 +46,7 @@ For the Lake Formation managed tables, the IAM role selected during the catalog 
     	* Set orphan file retention period in days - default is 3 days.
 
 7. Choose **Save**.
-   Use the following CLI command to update an existing catalog with optimizer settings:
+Use the following CLI command to update an existing catalog with optimizer settings:
 
 ###### Example Update catalog with optimizer settings
 

@@ -19,7 +19,7 @@ to all records in a `DynamicFrame`. To view a code example, see [Example: Use ma
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-map-describeErrors "#aws-glue-api-crawler-pyspark-transforms-map-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-map-describe "#aws-glue-api-crawler-pyspark-transforms-map-describe")
 
-## \_\_call\_\_(frame, f, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0)
+## \_\_call\_\_(frame, f, transformation\_ctx="", info="", stageThreshold=0, totalThreshold=0)
 
 Returns a new `DynamicFrame` that results from applying the specified function to
 all `DynamicRecords` in the original `DynamicFrame`.

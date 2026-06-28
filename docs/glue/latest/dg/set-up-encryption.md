@@ -151,10 +151,10 @@ configuration, choose any of the following options:
 
 9. In the navigation pane, choose **Connections**.
 
-   1. Choose **Add connection** to create a connection to the Java
-      Database Connectivity (JDBC) data store that is the target of your ETL job.
-   2. To enforce that Secure Sockets Layer (SSL) encryption is used, select
-      **Require SSL connection**, and test your connection.
+    1. Choose **Add connection** to create a connection to the Java
+     Database Connectivity (JDBC) data store that is the target of your ETL job.
+    2. To enforce that Secure Sockets Layer (SSL) encryption is used, select
+     **Require SSL connection**, and test your connection.
 
 10. In the navigation pane, choose **Jobs**.
 
@@ -162,5 +162,5 @@ configuration, choose any of the following options:
     2. In the job definition, choose the security configuration that you created.
 
 11. On the AWS Glue console, run your job on demand. Verify that any Amazon S3 data written by the
-    job, the CloudWatch Logs written by the job, and the job bookmarks are all
-    encrypted.
+job, the CloudWatch Logs written by the job, and the job bookmarks are all
+encrypted.

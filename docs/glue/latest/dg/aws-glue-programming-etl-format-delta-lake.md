@@ -94,7 +94,7 @@ dataFrame.write.format("delta")
 The following AWS Glue ETL script reads the Delta Lake table that you created in [Example: Write a Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write").
 
 Python
-For this example, use the [create_data_frame.from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog") method.
+For this example, use the [create\_data\_frame.from\_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog") method.
 
 ```
 # Example: Read a Delta Lake table from Glue Data Catalog
@@ -142,7 +142,7 @@ This example requires you to set the `--enable-glue-datacatalog` job parameter i
 To learn more, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md").
 
 Python
-For this example, use the [write_data_frame.from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog") method.
+For this example, use the [write\_data\_frame.from\_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog") method.
 
 ```
 # Example: Insert into a Delta Lake table in S3 using Glue Data Catalog

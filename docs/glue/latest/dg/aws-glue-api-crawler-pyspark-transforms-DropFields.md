@@ -4,8 +4,8 @@ Drops fields within a `DynamicFrame`.
 
 ## Example
 
-We recommend that you use the [DynamicFrame.drop_fields()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields") method to drop
-fields from a `DynamicFrame`. To view a code example, see [Example: Use drop_fields to remove fields from a DynamicFrame](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-drop_fields-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-drop_fields-example").
+We recommend that you use the [DynamicFrame.drop\_fields()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-drop_fields") method to drop
+fields from a `DynamicFrame`. To view a code example, see [Example: Use drop\_fields to remove fields from a DynamicFrame](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-drop_fields-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-drop_fields-example").
 
 ## Methods
 
@@ -18,7 +18,7 @@ fields from a `DynamicFrame`. To view a code example, see [Example: Use drop_fie
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-DropFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-DropFields-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-DropFields-describe "#aws-glue-api-crawler-pyspark-transforms-DropFields-describe")
 
-## \_\_call\_\_(frame, paths, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, paths, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Drops nodes within a `DynamicFrame`.
 

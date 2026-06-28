@@ -42,7 +42,7 @@ JSON
 
 ```
 
-**AUTHORIZATION_CODE Grant Type**
+**AUTHORIZATION\_CODE Grant Type**
 
 This grant type is considered “three-legged” OAuth as it relies on redirecting users to the third party authorization server
 to authenticate the user. It is used when creating connections via the AWS Glue Console. The AWS Glue Console will redirect the user to Google Sheets

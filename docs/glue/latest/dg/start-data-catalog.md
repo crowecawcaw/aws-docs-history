@@ -63,7 +63,7 @@ request by including the `DatabaseInput` (required) parameters.
 For example:
 
 The following are examples of how you can use the CLI, Boto3, or
-DDL to define a table based on the same flights_data.csv file from
+DDL to define a table based on the same flights\_data.csv file from
 the S3 bucket that you used in the tutorial.
 
 CLI
@@ -126,11 +126,10 @@ registries](schema-registry.md#schema-registry-schemas.html "schema-registry.md#
     4. Choose **Add**.
 
 11. You are asked to add partition
-    indexes.
-    This is optional. To skip this step, choose **Next**.
-12. A summary of the table properties is displayed. If everything looks as
-    expected, choose **Create**. Otherwise, choose
-    **Back** and make edits as needed.
+indexes.
+This is optional. To skip this step, choose **Next**. 12. A summary of the table properties is displayed. If everything looks as
+expected, choose **Create**. Otherwise, choose
+**Back** and make edits as needed.
 
 Congratulations, you've successfully created a table manually and associated it to a
 database. Your newly created table will appear in the Tables dashboard. From the
@@ -161,7 +160,7 @@ including:
   Boto3, or data definition language (DDL)
 
 The following are examples of how you can use the CLI, Boto3, or
-DDL to define a table based on the same flights_data.csv file from
+DDL to define a table based on the same flights\_data.csv file from
 the S3 bucket that you used in the tutorial.
 
 See the documentation on how to structure an AWS CLI command.

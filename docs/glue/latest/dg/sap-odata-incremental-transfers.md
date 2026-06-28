@@ -4,7 +4,7 @@ To enable Incremental Transfer using Change Data Capture (CDC) for ODP-enabled e
 
 1. Create the Incremental Transfer job in script mode.
 2. When creating the DataFrame or Glue DynamicFrame, you need to pass the option `"ENABLE_CDC": "True"`. This option ensures that you will receive a Delta Token from SAP, which can be used for subsequent retrieval of changed data.
-   The delta token will be present in the last row of the dataframe, in the DELTA_TOKEN column. This token can be used as a connector option in subsequent calls to incrementally retrieve the next set of data.
+   The delta token will be present in the last row of the dataframe, in the DELTA\_TOKEN column. This token can be used as a connector option in subsequent calls to incrementally retrieve the next set of data.
 
 **Example**
 
@@ -43,8 +43,8 @@ Note that the last record, in which the `DELTA_TOKEN` is present, is not a trans
 
 Apart from the `DELTA_TOKEN`, the following fields are returned in each row of the dataframe.
 
-- **GLUE_FETCH_SQ**: This is a sequence field, generated from the EPOC timestamp in the order the record was received, and is unique for each record. This can be used if you need to know or establish the order of changes in the source system. This field will be present only for ODP enabled entities.
-- **DML_STATUS**: This will show `UPDATED` for all newly inserted and updated records from the source, and `DELETED` for records that have been deleted from source.
+- **GLUE\_FETCH\_SQ**: This is a sequence field, generated from the EPOC timestamp in the order the record was received, and is unique for each record. This can be used if you need to know or establish the order of changes in the source system. This field will be present only for ODP enabled entities.
+- **DML\_STATUS**: This will show `UPDATED` for all newly inserted and updated records from the source, and `DELETED` for records that have been deleted from source.
   For more details about how to manage state and reuse the delta token to retrieve changed records through an example refer to the [Using the SAP OData state management script](sap-odata-state-management-script.md "sap-odata-state-management-script.md") section.
 
 ## Delta Token Invalidation

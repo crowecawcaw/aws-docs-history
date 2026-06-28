@@ -313,24 +313,20 @@ Under the `Glue Data Quality` namespace, you can see metrics being emitted per t
     1. For **Statistic**, choose **Sum**.
     2. For **Period**, choose **1 minute**.
 
-8.  Under the **Conditions** section:
+8. Under the **Conditions** section:
 
-        1. For **Threshold type**, choose **Static**.
-        2. For **Whenever glue.data.quality.rules.failed is...**, select **Greater/Equal**.
-        3. For **than...**, enter **1** as the threshold value.
+    1. For **Threshold type**, choose **Static**.
+    2. For **Whenever glue.data.quality.rules.failed is...**, select **Greater/Equal**.
+    3. For **than...**, enter **1** as the threshold value.
 
-    These selections imply that if the `glue.data.quality.rules.failed` metric emits a value greater than or equal to 1, we will trigger an alarm. However, if there is no data, we will treat it as acceptable.
-
-9.  Choose **Next**.
-10. On **Configure actions**:
+These selections imply that if the `glue.data.quality.rules.failed` metric emits a value greater than or equal to 1, we will trigger an alarm. However, if there is no data, we will treat it as acceptable. 9. Choose **Next**. 10. On **Configure actions**:
 
     1. For the **Alarm state trigger** section, choose **In alarm**.
     2. For **Send a notification to the following SNS topic** section, choose **Create a new topic to send a notification via a new SNS topic**.
     3. For **Email endpoints that will receive the notification** enter your email address. Then click **Create Topic**.
     4. Choose **Next**.
 
-11. For **Alarm name**, enter `myFirstDQAlarm`, then choose **Next**.
-12. You see a summary page of all the selections. Choose **Create alarm** at the bottom.
+11. For **Alarm name**, enter `myFirstDQAlarm`, then choose **Next**. 12. You see a summary page of all the selections. Choose **Create alarm** at the bottom.
 
 You can now see the alarm being created from the Amazon CloudWatch alarms dashboard.
 

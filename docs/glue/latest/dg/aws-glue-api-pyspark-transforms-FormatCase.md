@@ -44,7 +44,7 @@ the `case\_type="LOWER"` parameter. The resulting `df\_output` DataFrame will co
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeErrors "#aws-glue-api-crawler-pyspark-transforms-FormatCase-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-FormatCase-describe "#aws-glue-api-crawler-pyspark-transforms-FormatCase-describe")
 
-## \_\_call\_\_(spark_context, data_frame, source_column, case_type)
+## \_\_call\_\_(spark\_context, data\_frame, source\_column, case\_type)
 
 The `FormatCase` transform changes each string in a column to the specified case type.
 

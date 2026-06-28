@@ -100,8 +100,8 @@ at the same level as the JDBC driver in your Amazon S3 bucket. For example, if t
 `<s3-path/driver_folder/driver.jar>`, then the following folders
 will be created if they do not already exist:
 
-- <s3-path/driver_folder/\_crawler>
-- <s3-path/driver_folder/\_glue_job_crawler>
+- <s3-path/driver\_folder/\_crawler>
+- <s3-path/driver\_folder/\_glue\_job\_crawler>
 
 Optionally, you can add a security configuration to a crawler to specify at-rest encryption options.
 

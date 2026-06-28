@@ -26,11 +26,11 @@ The state of the schedule.
 
 ## Operations
 
-- [UpdateCrawlerSchedule action (Python: update_crawler_schedule)](#aws-glue-api-crawler-scheduler-UpdateCrawlerSchedule "#aws-glue-api-crawler-scheduler-UpdateCrawlerSchedule")
-- [StartCrawlerSchedule action (Python: start_crawler_schedule)](#aws-glue-api-crawler-scheduler-StartCrawlerSchedule "#aws-glue-api-crawler-scheduler-StartCrawlerSchedule")
-- [StopCrawlerSchedule action (Python: stop_crawler_schedule)](#aws-glue-api-crawler-scheduler-StopCrawlerSchedule "#aws-glue-api-crawler-scheduler-StopCrawlerSchedule")
+- [UpdateCrawlerSchedule action (Python: update\_crawler\_schedule)](#aws-glue-api-crawler-scheduler-UpdateCrawlerSchedule "#aws-glue-api-crawler-scheduler-UpdateCrawlerSchedule")
+- [StartCrawlerSchedule action (Python: start\_crawler\_schedule)](#aws-glue-api-crawler-scheduler-StartCrawlerSchedule "#aws-glue-api-crawler-scheduler-StartCrawlerSchedule")
+- [StopCrawlerSchedule action (Python: stop\_crawler\_schedule)](#aws-glue-api-crawler-scheduler-StopCrawlerSchedule "#aws-glue-api-crawler-scheduler-StopCrawlerSchedule")
 
-## UpdateCrawlerSchedule action (Python: update_crawler_schedule)
+## UpdateCrawlerSchedule action (Python: update\_crawler\_schedule)
 
 Updates the schedule of a crawler using a `cron` expression.
 
@@ -59,7 +59,7 @@ day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
 - `SchedulerTransitioningException`
 - `OperationTimeoutException`
 
-## StartCrawlerSchedule action (Python: start_crawler_schedule)
+## StartCrawlerSchedule action (Python: start\_crawler\_schedule)
 
 Changes the schedule state of the specified crawler to `SCHEDULED`,
 unless the crawler is already running or the schedule state is already `SCHEDULED`.
@@ -82,7 +82,7 @@ Name of the crawler to schedule.
 - `NoScheduleException`
 - `OperationTimeoutException`
 
-## StopCrawlerSchedule action (Python: stop_crawler_schedule)
+## StopCrawlerSchedule action (Python: stop\_crawler\_schedule)
 
 Sets the schedule state of the specified crawler to `NOT_SCHEDULED`,
 but does not stop the crawler if it is already running.

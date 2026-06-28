@@ -24,7 +24,7 @@ propagation requires collaboration between the administrators of connected AWS s
 
 The AWS Glue interactive sessions integration with IAM Identity Center
 [Trusted identity propagation](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md")  
- provides the following benefits:
+provides the following benefits:
 
 - The ability to enforce table-level authorization and fine grained access control with Identity Center identities on Lake Formation managed
   AWS Glue data catalog tables.

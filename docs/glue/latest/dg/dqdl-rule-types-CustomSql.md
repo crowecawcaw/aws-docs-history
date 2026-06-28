@@ -10,7 +10,7 @@ This rule type has been extended to support two use cases:
 CustomSql `<SQL_STATEMENT>` `<EXPRESSION>`
 ```
 
-- **SQL_STATEMENT** – A SQL statement that returns a single
+- **SQL\_STATEMENT** – A SQL statement that returns a single
   numeric value, surrounded by double quotes.
 - **EXPRESSION** – An expression to run against the rule type response in order to produce a Boolean value. For more information, see [Expressions](dqdl.md#dqdl-syntax-rule-expressions "dqdl.md#dqdl-syntax-rule-expressions").
   **Example: Custom SQL to retrieve an overall rule outcome**
@@ -67,8 +67,8 @@ To do this:
 
   - `select count(*) from primary` is a valid query for OVERALL CustomSQL DQ rule but not for Row Level Custom SQL.
   - This rule will throw an error during evaluation: `The output from CustomSQL must contain at least one column that matches the input dataset 
-for AWS Glue Data Quality to provide row level results. The SQL query is a valid query but the columns from the SQL result are not present in the 
-Input Dataset. Ensure that matching columns are returned from the SQL.`
+   for AWS Glue Data Quality to provide row level results. The SQL query is a valid query but the columns from the SQL result are not present in the 
+   Input Dataset. Ensure that matching columns are returned from the SQL.`
 
 - In your SQL query, select a `Primary Key` from your table or select a set of columns that form a composite key. Not doing so may result in
   inconsistent results due to matching of duplicate rows and degraded performance.

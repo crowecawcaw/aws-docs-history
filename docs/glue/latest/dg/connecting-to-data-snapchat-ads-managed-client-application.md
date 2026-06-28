@@ -8,6 +8,6 @@ To activate access to Snapchat’s Marketing API, make sure you have a business 
 3. Enter your App Name and Add following URL as Snap Redirect URI
    `https://<aws-region>.console.aws.amazon.com/gluestudio/oauth`. For example, if using the
    us-west-1 region, the URL would be `https://us-west-1.console.aws.amazon.com/gluestudio/oauth) and choose 
-**Create OAuth App**`. Choose **Create OAuth App**.
+ **Create OAuth App**`. Choose **Create OAuth App**.
 4. Your app credentials (Client ID and client Secret) will be displayed. Save them as they will be
    required to create a connection.

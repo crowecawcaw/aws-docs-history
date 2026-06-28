@@ -1,6 +1,6 @@
 # Configuring Pipedrive connections
 
-Pipedrive supports AUTHORIZATION_CODE grant type for OAuth2.
+Pipedrive supports AUTHORIZATION\_CODE grant type for OAuth2.
 
 - This grant type is considered “three-legged” OAuth as it relies on redirecting users to the third party authorization server to
   authenticate the user. It is used when creating connections via the AWS Glue Console. The user creating a connection may by default rely on a
@@ -14,13 +14,13 @@ Pipedrive supports AUTHORIZATION_CODE grant type for OAuth2.
   without user interaction using the refresh token.
 - For more information, see
   [documentation on creating a connected app for
-  AUTHORIZATION_CODE OAuth flow](https://developers.pipedrive.com/docs/api/v1/Oauth "https://developers.pipedrive.com/docs/api/v1/Oauth").
+  AUTHORIZATION\_CODE OAuth flow](https://developers.pipedrive.com/docs/api/v1/Oauth "https://developers.pipedrive.com/docs/api/v1/Oauth").
   To configure a Pipedrive connection:
 
 1. In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
    each connection in AWS Glue.
 
-   1. For customer managed connected app - Secret should contain the connected app Consumer Secret with USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET as key.
+   1. For customer managed connected app - Secret should contain the connected app Consumer Secret with USER\_MANAGED\_CLIENT\_APPLICATION\_CLIENT\_SECRET as key.
 
 2. In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
 

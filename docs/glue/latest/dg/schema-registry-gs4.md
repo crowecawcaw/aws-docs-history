@@ -6,7 +6,7 @@ You can create a schema using the AWS Glue APIs or the AWS Glue console.
 
 You can use these steps to perform this task using the AWS Glue APIs.
 
-To add a new schema, use the [CreateSchema action (Python: create_schema)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-CreateSchema "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-CreateSchema") API.
+To add a new schema, use the [CreateSchema action (Python: create\_schema)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-CreateSchema "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-CreateSchema") API.
 
 Specify a `RegistryId` structure to indicate a registry for the schema. Or, omit the `RegistryId` to use the default registry.
 
@@ -61,7 +61,7 @@ aws glue create-schema --registry-id RegistryArn="arn:aws:glue:us-east-2:9012345
 To add a new schema using the AWS Glue console:
 
 1. Sign in to the AWS Management Console and open the AWS Glue console at
-   [https://console.aws.amazon.com/glue/](<https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue">).
+   [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue\").
 2. In the navigation pane, under **Data catalog**, choose **Schemas**.
 3. Choose **Add schema**.
 4. Enter a **Schema name**, consisting of letters, numbers, hyphens, underscores, dollar signs, or hashmarks. This name cannot be changed.

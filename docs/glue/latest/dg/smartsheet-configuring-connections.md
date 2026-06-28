@@ -13,7 +13,7 @@ This grant type results in a refresh token and access token. The access token is
 lived, and may be refreshed automatically without user interaction using the refresh
 token.
 
-For public Smartsheet documentation on creating a connected app for AUTHORIZATION_CODE
+For public Smartsheet documentation on creating a connected app for AUTHORIZATION\_CODE
 OAuth flow, see [Smartsheet APIs](https://smartsheet.redoc.ly/#section/OAuth-Walkthrough "https://smartsheet.redoc.ly/#section/OAuth-Walkthrough") .
 
 To configure a Smartsheet connection:
@@ -69,4 +69,4 @@ by following the steps below:
     5. Select the network options if you want to use your network.
 
 3. Grant the IAM role associated with your AWS Glue job permission to read
-   `secretName`.
+`secretName`.

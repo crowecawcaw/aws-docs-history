@@ -5,12 +5,12 @@ describing connection types.
 
 ## Connection management APIs
 
-- [DescribeConnectionType action (Python: describe_connection_type)](#aws-glue-api-catalog-connections-connections-type-DescribeConnectionType "#aws-glue-api-catalog-connections-connections-type-DescribeConnectionType")
-- [ListConnectionTypes action (Python: list_connection_types)](#aws-glue-api-catalog-connections-connections-type-ListConnectionTypes "#aws-glue-api-catalog-connections-connections-type-ListConnectionTypes")
+- [DescribeConnectionType action (Python: describe\_connection\_type)](#aws-glue-api-catalog-connections-connections-type-DescribeConnectionType "#aws-glue-api-catalog-connections-connections-type-DescribeConnectionType")
+- [ListConnectionTypes action (Python: list\_connection\_types)](#aws-glue-api-catalog-connections-connections-type-ListConnectionTypes "#aws-glue-api-catalog-connections-connections-type-ListConnectionTypes")
 - [ConnectionTypeBrief structure](#aws-glue-api-catalog-connections-connections-type-ConnectionTypeBrief "#aws-glue-api-catalog-connections-connections-type-ConnectionTypeBrief")
 - [ConnectionTypeVariant structure](#aws-glue-api-catalog-connections-connections-type-ConnectionTypeVariant "#aws-glue-api-catalog-connections-connections-type-ConnectionTypeVariant")
 
-## DescribeConnectionType action (Python: describe_connection_type)
+## DescribeConnectionType action (Python: describe\_connection\_type)
 
 The `DescribeConnectionType` API provides full details
 of the supported options for a given connection type in AWS Glue.
@@ -105,7 +105,7 @@ Connection properties specific to the Spark compute environment.
 - `InvalidInputException`
 - `InternalServiceException`
 
-## ListConnectionTypes action (Python: list_connection_types)
+## ListConnectionTypes action (Python: list\_connection\_types)
 
 The `ListConnectionTypes` API provides a discovery mechanism
 to learn available connection types in AWS Glue. The response contains

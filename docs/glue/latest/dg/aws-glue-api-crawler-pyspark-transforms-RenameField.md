@@ -4,8 +4,8 @@ Renames a node within a `DynamicFrame`.
 
 ## Example
 
-We recommend that you use the [DynamicFrame.rename_field()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field")
-method to rename a field in a `DynamicFrame`. To view a code example, see [Example: Use rename_field to rename fields in a DynamicFrame](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-rename_field-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-rename_field-example").
+We recommend that you use the [DynamicFrame.rename\_field()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-rename_field")
+method to rename a field in a `DynamicFrame`. To view a code example, see [Example: Use rename\_field to rename fields in a DynamicFrame](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-rename_field-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-rename_field-example").
 
 ## Methods
 
@@ -18,7 +18,7 @@ method to rename a field in a `DynamicFrame`. To view a code example, see [Examp
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-RenameField-describeErrors "#aws-glue-api-crawler-pyspark-transforms-RenameField-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-RenameField-describe "#aws-glue-api-crawler-pyspark-transforms-RenameField-describe")
 
-## \_\_call\_\_(frame, old_name, new_name, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, old\_name, new\_name, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Renames a node within a `DynamicFrame`.
 
@@ -27,7 +27,7 @@ Renames a node within a `DynamicFrame`.
 - `old_name` – The full path to the node to rename (required).
 
 If the old name has dots in it, RenameField will not work unless you place backticks
-around it (````). For example, to replace `this.old.name`with
+around it (````). For example, to replace `this.old.name` with
 `thisNewName`, you would call RenameField as follows:
 
 ```

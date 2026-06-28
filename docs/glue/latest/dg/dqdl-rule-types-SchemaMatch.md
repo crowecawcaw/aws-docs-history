@@ -8,7 +8,7 @@ Checks if the schema of the primary dataset matches the schema of a reference da
 SchemaMatch `<REFERENCE_DATASET_ALIAS>` `<EXPRESSION>`
 ```
 
-- **REFERENCE_DATASET_ALIAS** – The alias of the reference dataset against which to compare schemas.
+- **REFERENCE\_DATASET\_ALIAS** – The alias of the reference dataset against which to compare schemas.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 

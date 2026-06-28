@@ -22,7 +22,7 @@ DynamicRules are only supported in AWS Glue ETL.
 
   - [Expressions](dqdl.md#dqdl-syntax-rule-expressions "dqdl.md#dqdl-syntax-rule-expressions")
 
-    - [Keywords for NULL, EMPTY and WHITESPACES_ONLY](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
+    - [Keywords for NULL, EMPTY and WHITESPACES\_ONLY](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
     - [Filtering with Where Clause](dqdl.md#dqdl-filtering-data-in-dqdl "dqdl.md#dqdl-filtering-data-in-dqdl")
 
   - [Constants](dqdl.md#dqdl-constants "dqdl.md#dqdl-constants")
@@ -273,24 +273,24 @@ a Boolean response.
 
 The following table lists expressions that you can use in DQDL rules.
 
-| Supported DQDL expressions                               | Expression                                                                                                                                                      | Description                                                                                                                                                                                                 | Example |
-| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| =`x`                                                     | Resolves to `true` if the rule type response is equal to<br>`x`.                                                                                                | `<br>Completeness "colA" = "1.0",<br>ColumnValues "colA" = "2022-06-30"<br>`                                                                                                                                |
-| !=`x`                                                    | x Resolves to true if the rule type response is not equal to `x`.                                                                                               | `<br>ColumnValues "colA" != "a",<br>ColumnValues "colA" != "2022-06-30"<br>`                                                                                                                                |
-| > `x`                                                    | Resolves to `true` if the rule type response is greater than<br>`x`.                                                                                            | `<br>ColumnValues "colA" > 10<br>`                                                                                                                                                                          |
-| < `x`                                                    | Resolves to `true` if the rule type response is less than<br>`x`.                                                                                               | `<br>ColumnValues "colA" < 1000,<br>ColumnValues "colA" < "2022-06-30"<br>`                                                                                                                                 |
-| >= `x`                                                   | Resolves to `true` if the rule type response is greater than or<br>equal to `x`.                                                                                | `<br>ColumnValues "colA" >= 10<br>`                                                                                                                                                                         |
-| <= `x`                                                   | Resolves to `true` if the rule type response is less than or equal<br>to `x`.                                                                                   | `<br>ColumnValues "colA" <= 1000<br>`                                                                                                                                                                       |
-| between `x` and `y`                                      | Resolves to `true` if the rule type response falls in a specified<br>range (exclusive). Only use this expression type for numeric and date types.               | ``<br>`Mean "colA" between 8 and 100`,<br>ColumnValues "colA" between "2022-05-31" and "2022-06-30"<br>``                                                                                                   |
-| not between `x` and `y`                                  | Resolves to true if the rule type response does not fall in a specified range (inclusive). You should only use this expression type for numeric and date types. | `<br>ColumnValues "colA" not between "2022-05-31" and "2022-06-30"<br>`                                                                                                                                     |
-| in [`a, b, c, ...`]                                      | Resolves to `true` if the rule type response is in the specified<br>set.                                                                                        | `<br>ColumnValues "colA" in [ 1, 2, 3 ],<br>ColumnValues "colA" in [ "a", "b", "c" ]<br>`                                                                                                                   |
-| not in [`a, b, c, ...`]                                  | Resolves to `true` if the rule type response is not in the specified<br>set.                                                                                    | `<br>ColumnValues "colA" not in [ 1, 2, 3 ],<br>ColumnValues "colA" not in [ "a", "b", "c" ]<br>`                                                                                                           |
-| matches `/ab+c/i`                                        | Resolves to `true` if the rule type response matches a regular<br>expression.                                                                                   | ``<br>`ColumnValues "colA" matches "[a-zA-Z]*"`<br>``                                                                                                                                                       |
-| not matches `/ab+c/i`                                    | Resolves to `true` if the rule type response does not match a regular<br>expression.                                                                            | ``<br>`ColumnValues "colA" not matches "[a-zA-Z]*"`<br>``                                                                                                                                                   |
-| `now()`                                                  | Works only with the `ColumnValues` rule type to create a date<br>expression.                                                                                    | `<br>ColumnValues "load_date" > (now()<br>• 3 days)<br>`                                                                                                                                                    |
-| matches/in […]/not matches/not in [...] `with threshold` | Specifies the percentage of values that match the rule conditions. Works only<br>with the `ColumnValues`, `ColumnDataType`, and `CustomSQL` rule types.         | `<br>ColumnValues "colA" in ["A", "B"] with threshold > 0.8,<br>ColumnValues "colA" matches "[a-zA-Z]*" with threshold between 0.2 and 0.9<br>ColumnDataType "colA" = "Timestamp" with threshold > 0.9<br>` |
+Supported DQDL expressions| Expression | Description | Example |
+| --- | --- | --- |
+| =`x` | Resolves to `true` if the rule type response is equal to<br>`x`. | `<br>Completeness "colA" = "1.0",<br>ColumnValues "colA" = "2022-06-30"<br>` |
+| !=`x` | x Resolves to true if the rule type response is not equal to `x`. | `<br>ColumnValues "colA" != "a",<br>ColumnValues "colA" != "2022-06-30"<br>` |
+| > `x` | Resolves to `true` if the rule type response is greater than<br>`x`. | `<br>ColumnValues "colA" > 10<br>` |
+| < `x` | Resolves to `true` if the rule type response is less than<br>`x`. | `<br>ColumnValues "colA" < 1000,<br>ColumnValues "colA" < "2022-06-30"<br>` |
+| >= `x` | Resolves to `true` if the rule type response is greater than or<br>equal to `x`. | `<br>ColumnValues "colA" >= 10<br>` |
+| <= `x` | Resolves to `true` if the rule type response is less than or equal<br>to `x`. | `<br>ColumnValues "colA" <= 1000<br>` |
+| between `x` and `y` | Resolves to `true` if the rule type response falls in a specified<br>range (exclusive). Only use this expression type for numeric and date types. | ``<br>`Mean "colA" between 8 and 100`,<br>ColumnValues "colA" between "2022-05-31" and "2022-06-30"<br>`` |
+| not between `x` and `y` | Resolves to true if the rule type response does not fall in a specified range (inclusive). You should only use this expression type for numeric and date types. | `<br>ColumnValues "colA" not between "2022-05-31" and "2022-06-30"<br>` |
+| in [`a, b, c, ...`] | Resolves to `true` if the rule type response is in the specified<br>set. | `<br>ColumnValues "colA" in [ 1, 2, 3 ],<br>ColumnValues "colA" in [ "a", "b", "c" ]<br>` |
+| not in [`a, b, c, ...`] | Resolves to `true` if the rule type response is not in the specified<br>set. | `<br>ColumnValues "colA" not in [ 1, 2, 3 ],<br>ColumnValues "colA" not in [ "a", "b", "c" ]<br>` |
+| matches `/ab+c/i` | Resolves to `true` if the rule type response matches a regular<br>expression. | ``<br>`ColumnValues "colA" matches "[a-zA-Z]*"`<br>`` |
+| not matches `/ab+c/i` | Resolves to `true` if the rule type response does not match a regular<br>expression. | ``<br>`ColumnValues "colA" not matches "[a-zA-Z]*"`<br>`` |
+| `now()` | Works only with the `ColumnValues` rule type to create a date<br>expression. | `<br>ColumnValues "load_date" > (now()<br>• 3 days)<br>` |
+| matches/in […]/not matches/not in [...] `with threshold` | Specifies the percentage of values that match the rule conditions. Works only<br>with the `ColumnValues`, `ColumnDataType`, and `CustomSQL` rule types. | `<br>ColumnValues "colA" in ["A", "B"] with threshold > 0.8,<br>ColumnValues "colA" matches "[a-zA-Z]*" with threshold between 0.2 and 0.9<br>ColumnDataType "colA" = "Timestamp" with threshold > 0.9<br>` |
 
-#### Keywords for NULL, EMPTY and WHITESPACES_ONLY
+#### Keywords for NULL, EMPTY and WHITESPACES\_ONLY
 
 If you want to validate if a string column has a null, empty or a string with only whitespaces you can use the
 following keywords:
@@ -312,7 +312,7 @@ either have a null value or have length >5. _Note that this will require the use
 either empty, “a” or “b”. _Note that this requires the use of the
 “compositeRuleEvaluation.method” = “ROW” option._
 
-- WHITESPACES_ONLY / whitespaces_only – This keyword resolves to true for a string with only whitespaces (“ ”)
+- WHITESPACES\_ONLY / whitespaces\_only – This keyword resolves to true for a string with only whitespaces (“ ”)
   value in a string column.
 
 `ColumnValues "colA" not in ["a", "b", WHITESPACES_ONLY]` would return true if a row is neither

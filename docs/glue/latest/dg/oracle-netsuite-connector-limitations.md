@@ -2,7 +2,7 @@
 
 The following are limitations or notes for the Oracle NetSuite connector:
 
-- The values of the access_token and refresh_token parameters are in JSON Web Token (JWT) format. The access token is valid for 60 minutes whereas the refresh_token is valid for seven days.
+- The values of the access\_token and refresh\_token parameters are in JSON Web Token (JWT) format. The access token is valid for 60 minutes whereas the refresh\_token is valid for seven days.
 - During client ID and client secret generation, if you select "PUBLIC CLIENT" along with "AUTHORIZATION CODE GRANT", then the refresh token is only valid for three hours and is for one-time use only.
 - You can fetch at most 1,00,000 records using the connector. For more information, refer to [Executing SuiteQL Queries Through REST Web Services](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157909186990.html "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157909186990.html").
 - Partitions are created such that each partition will fetch records in multiples of 1000, except possibly the last one which will fetch the remaining records.

@@ -8,10 +8,10 @@ The following are limitations for the Google Ads connector:
   access limitations based on whether `MANAGER_ID` is included or not
   in a connection.
 
-| MANAGER_ID provided when creating connection? | Accessible customers                                                                       |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Yes                                           | The customers listed under the provided MANAGER_ID along with<br>the MANAGER_ID.           |
-| No                                            | All customers will be listed, but customers underlying any manager will not be accessible. |
+| MANAGER\_ID provided when creating connection? | Accessible customers                                                                       |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Yes                                            | The customers listed under the provided MANAGER\_ID along with<br>the MANAGER\_ID.         |
+| No                                             | All customers will be listed, but customers underlying any manager will not be accessible. |
 
 - When a manager account is chosen as the object, only `Account` will appear as a sub-object. In the Google Ads connector, entities such as campaigns, ads, etc., are retrieved based on individual client accounts, not the manager account.
 - You cannot retrieve metrics for the manager account. You can retrieve metrics for individual client accounts instead.

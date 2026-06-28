@@ -88,16 +88,16 @@ df.write.format("<DATA SINK CONNECTOR CLASSNAME>")...
 
 The following table lists the Spark connector `ClassName` of the supported data source in AWS Glue for DataFrames.
 
-| Data source        | ClassName                                         |
-| ------------------ | ------------------------------------------------- |
-| MongoDB/DocumentDB | glue.spark.mongodb                                |
-| Redshift           | io.github.spark_redshift_community.spark.redshift |
-| AzureCosmos        | cosmos.oltp                                       |
-| AzureSQL           | com.microsoft.sqlserver.jdbc.spark                |
-| BigQuery           | com.google.cloud.spark.bigquery                   |
-| OpenSearch         | org.opensearch.spark.sql                          |
-| Snowflake          | net.snowflake.spark.snowflake                     |
-| Vertica            | com.vertica.spark.datasource.VerticaSource        |
+| Data source        | ClassName                                           |
+| ------------------ | --------------------------------------------------- |
+| MongoDB/DocumentDB | glue.spark.mongodb                                  |
+| Redshift           | io.github.spark\_redshift\_community.spark.redshift |
+| AzureCosmos        | cosmos.oltp                                         |
+| AzureSQL           | com.microsoft.sqlserver.jdbc.spark                  |
+| BigQuery           | com.google.cloud.spark.bigquery                     |
+| OpenSearch         | org.opensearch.spark.sql                            |
+| Snowflake          | net.snowflake.spark.snowflake                       |
+| Vertica            | com.vertica.spark.datasource.VerticaSource          |
 
 ### Specifying the connection Options
 

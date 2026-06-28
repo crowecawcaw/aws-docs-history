@@ -177,17 +177,16 @@ a source:
 - `"partitionerOptions"` (Optional): Options for the designated
   partitioner. The following options are supported for each partitioner:
 
-      + `MongoSamplePartitioner`: `partitionKey`,
-       `partitionSizeMB`, `samplesPerPartition`
-      + `MongoShardedPartitioner`: `shardkey`
-      + `MongoSplitVectorPartitioner`: `partitionKey`,
-       partitionSizeMB
-      + `MongoPaginateByCountPartitioner`: `partitionKey`,
-       `numberOfPartitions`
-      + `MongoPaginateBySizePartitioner`: `partitionKey`,
-       partitionSizeMB
-
-  For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf "https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf") in the MongoDB documentation.
+  - `MongoSamplePartitioner`: `partitionKey`,
+    `partitionSizeMB`, `samplesPerPartition`
+  - `MongoShardedPartitioner`: `shardkey`
+  - `MongoSplitVectorPartitioner`: `partitionKey`,
+    partitionSizeMB
+  - `MongoPaginateByCountPartitioner`: `partitionKey`,
+    `numberOfPartitions`
+  - `MongoPaginateBySizePartitioner`: `partitionKey`,
+    partitionSizeMB
+    For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf "https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf") in the MongoDB documentation.
 
 ### "connectionType": "Documentdb" as sink
 

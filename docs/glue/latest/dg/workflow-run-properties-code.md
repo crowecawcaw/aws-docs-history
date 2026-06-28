@@ -41,5 +41,5 @@ glue_client.put_workflow_run_properties(Name=workflow_name, RunId=workflow_run_i
 
 For more information, see the following:
 
-- [GetWorkflowRunProperties action (Python: get_workflow_run_properties)](aws-glue-api-workflow.md#aws-glue-api-workflow-GetWorkflowRunProperties "aws-glue-api-workflow.md#aws-glue-api-workflow-GetWorkflowRunProperties")
-- [PutWorkflowRunProperties action (Python: put_workflow_run_properties)](aws-glue-api-workflow.md#aws-glue-api-workflow-PutWorkflowRunProperties "aws-glue-api-workflow.md#aws-glue-api-workflow-PutWorkflowRunProperties")
+- [GetWorkflowRunProperties action (Python: get\_workflow\_run\_properties)](aws-glue-api-workflow.md#aws-glue-api-workflow-GetWorkflowRunProperties "aws-glue-api-workflow.md#aws-glue-api-workflow-GetWorkflowRunProperties")
+- [PutWorkflowRunProperties action (Python: put\_workflow\_run\_properties)](aws-glue-api-workflow.md#aws-glue-api-workflow-PutWorkflowRunProperties "aws-glue-api-workflow.md#aws-glue-api-workflow-PutWorkflowRunProperties")

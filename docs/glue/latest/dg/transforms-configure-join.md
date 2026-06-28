@@ -39,24 +39,24 @@ either:
 
 6. Choose the type of join in the **Join type** list.
 
-   - **Inner join**: Returns a row with columns from both datasets
+    * **Inner join**: Returns a row with columns from both datasets
      for every match based on the join condition. Rows that don't satisfy the join
      condition aren't returned.
-   - **Left join**: All rows from the left dataset and only the rows
+    * **Left join**: All rows from the left dataset and only the rows
      from the right dataset that satisfy the join condition.
-   - **Right join**: All rows from the right dataset and only the
+    * **Right join**: All rows from the right dataset and only the
      rows from the left dataset that satisfy the join condition.
-   - **Outer join**: All rows from both datasets.
-   - **Left semi join**: All rows from the left dataset that have a
+    * **Outer join**: All rows from both datasets.
+    * **Left semi join**: All rows from the left dataset that have a
      match in the right dataset based on the join condition.
-   - **Left anti join**: All rows in the left dataset that don't
+    * **Left anti join**: All rows in the left dataset that don't
      have a match in the right dataset based on join condition.
 
 7. On the **Transform** tab, under the heading
-   **Join conditions**, choose **Add condition**.
-   Choose a property key from each dataset to compare.
-   Property keys on the left side of the comparison operator are referred to as the left
-   dataset and property keys on the right are referred to as the right dataset.
+**Join conditions**, choose **Add condition**.
+Choose a property key from each dataset to compare.
+Property keys on the left side of the comparison operator are referred to as the left
+dataset and property keys on the right are referred to as the right dataset.
 
 For more complex join conditions, you can add additional matching keys by choosing
 **Add condition** more than once. If you accidentally add a

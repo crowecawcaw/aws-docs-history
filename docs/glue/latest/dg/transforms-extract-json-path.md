@@ -10,6 +10,6 @@ This transform extracts new columns from a JSON string column. This transform is
    the job diagram. If a node parent isn't already selected, choose a node from the
    **Node parents** list to use as the input source for the
    transform.
-3. On the **Transform** tab, select the column containing the JSON string. Enter one of more JSON path expressions separated by commas, each one referencing how to extract a value out of the JSON array or object. For instance, if the JSON column contained an objects with properties "prop_1" and "prop2" you could extract both specifying their names "prop_1, prop_2".
+3. On the **Transform** tab, select the column containing the JSON string. Enter one of more JSON path expressions separated by commas, each one referencing how to extract a value out of the JSON array or object. For instance, if the JSON column contained an objects with properties "prop\_1" and "prop2" you could extract both specifying their names "prop\_1, prop\_2".
 
 If the JSON field has special characters, for instance to extract the property from this JSON `{"a. a": 1}` you could use the path `$['a. a']`. The exception is the comma because it is reserved to separate paths. Then enter the corresponding column names for each path, separated by commas. 4. (Optional) On the **Transform** tab, you can check to drop the JSON column once extracted, this makes sense when you don't need the rest of the JSON data once you have extracted the parts you need.

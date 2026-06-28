@@ -125,7 +125,7 @@ target_link_libraries(${PROJECT_NAME}
 
 ```
 
-Code for the hello_glue.cpp source file.
+Code for the hello\_glue.cpp source file.
 
 ```
 #include <aws/core/Aws.h>

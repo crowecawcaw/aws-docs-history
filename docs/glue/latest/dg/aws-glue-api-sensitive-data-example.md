@@ -85,7 +85,7 @@ and `classifyColumns()` APIs:
 In the example, the job is performing the following actions using the `detect()` APIs:
 
 - reading data from an Amazon S3 bucket and turns it into a dynamicFrame
-- detecting sensitive data types for “USA_PTIN”, “ BANK_ACCOUNT”, “USA_SSN”, “USA_PASSPORT_NUMBER” , and “PHONE_NUMBER” in
+- detecting sensitive data types for “USA\_PTIN”, “ BANK\_ACCOUNT”, “USA\_SSN”, “USA\_PASSPORT\_NUMBER” , and “PHONE\_NUMBER” in
   the dynamicFrame
 - returning a dynamicFrame with modified masked values plus one column which encompasses detection result for each row
 - writing the returned dynamicFrame in another Amazon S3 path
@@ -221,7 +221,7 @@ of `entityTypesToDetect`.
 
 If you have specific sensitive data types in your data (such as 'Employee
 Id'), you can create custom entities by calling the `CreateCustomEntityType()`
-API. The following example defines the custom entity type 'EMPLOYEE_ID' to the
+API. The following example defines the custom entity type 'EMPLOYEE\_ID' to the
 `CreateCustomEntityType()` API with the request parameters:
 
 ```
@@ -235,7 +235,7 @@ API. The following example defines the custom entity type 'EMPLOYEE_ID' to the
 ```
 
 Then, modify the job to use the new custom sensitive data type by adding
-the custom entity type (EMPLOYEE_ID) to the `EntityDetector()`
+the custom entity type (EMPLOYEE\_ID) to the `EntityDetector()`
 API:
 
 ```
@@ -308,8 +308,8 @@ the following key-value pairs:
 - **entityType** – The detected entity type.
 - **start** – The starting position of the detected entity in the original data.
 - **end** – The ending position of the detected entity in the original data.
-- **actionUsed** – The action performed on the detected entity (e.g., "DETECT," "REDACT," "PARTIAL_REDACT,"
-  "SHA256_HASH").
+- **actionUsed** – The action performed on the detected entity (e.g., "DETECT," "REDACT," "PARTIAL\_REDACT,"
+  "SHA256\_HASH").
 
 Example:
 
@@ -370,7 +370,7 @@ Parameters:
 
 If no settings are included, default values will be used.
 
-- **action** – (type: `String`, options: "DETECT", "REDACT", "PARTIAL_REDACT", "SHA256_HASH")
+- **action** – (type: `String`, options: "DETECT", "REDACT", "PARTIAL\_REDACT", "SHA256\_HASH")
   Specifies the action to be performed on the entity. Required. Note that actions that perform masking (all but "DETECT") can only
   perform one action per column. This is a preventative measure for masking coalesced entities.
 - **sourceColumns** – (type: `List[String]`, default: [“\*”]) List of source column names to
@@ -381,13 +381,13 @@ If no settings are included, default values will be used.
   `IllegalArgumentException` if an invalid column name is used.
 - **actionOptions** – Additional options based on the specified action:
 
-  - For "DETECT" and "SHA256_HASH", no options are allowed.
+  - For "DETECT" and "SHA256\_HASH", no options are allowed.
   - For "REDACT":
 
     - **redactText** – (type: `String`, default: "\*\*\*\*\*") Text to replace the detected
       entity.
 
-  - For "PARTIAL_REDACT":
+  - For "PARTIAL\_REDACT":
 
     - **redactChar** – (type: `String`, default: "\*") Character to replace each
       detected character in the entity.

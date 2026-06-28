@@ -14,7 +14,7 @@ Applies a transform to each `DynamicFrame` in the specified
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-MapToCollection-describeErrors "#aws-glue-api-crawler-pyspark-transforms-MapToCollection-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-MapToCollection-describe "#aws-glue-api-crawler-pyspark-transforms-MapToCollection-describe")
 
-## \_\_call\_\_(dfc, BaseTransform, frame_name, transformation_ctx = "", \*\*base_kwargs)
+## \_\_call\_\_(dfc, BaseTransform, frame\_name, transformation\_ctx = "", \*\*base\_kwargs)
 
 Applies a transform function to each `DynamicFrame` in the specified
 `DynamicFrameCollection`.

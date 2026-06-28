@@ -19,7 +19,7 @@ in a `DynamicFrame`. To view a code example, see [Example: Use filter to get a f
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-filter-describeErrors "#aws-glue-api-crawler-pyspark-transforms-filter-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-filter-describe "#aws-glue-api-crawler-pyspark-transforms-filter-describe")
 
-## \_\_call\_\_(frame, f, transformation_ctx="", info="", stageThreshold=0, totalThreshold=0))
+## \_\_call\_\_(frame, f, transformation\_ctx="", info="", stageThreshold=0, totalThreshold=0))
 
 Returns a new `DynamicFrame` that is built by selecting records from the input
 `DynamicFrame` that satisfy a specified predicate function.

@@ -72,7 +72,7 @@ root
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-EvaluateDataQuality-describeErrors "#aws-glue-api-crawler-pyspark-transforms-EvaluateDataQuality-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-EvaluateDataQuality-describe "#aws-glue-api-crawler-pyspark-transforms-EvaluateDataQuality-describe")
 
-## \_\_call\_\_(frame, ruleset, publishing_options = {})
+## \_\_call\_\_(frame, ruleset, publishing\_options = {})
 
 - `frame` – The `DynamicFrame` that you want evaluate the
   data quality of.

@@ -34,7 +34,7 @@ specify your `s3path`. You can configure how the reader interacts with S3 in the
 The following AWS Glue ETL script shows the process of reading ORC files or folders from S3:
 
 Python
-For this example, use the [create_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
+For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
 
 ```
 from pyspark.context import SparkContext
@@ -99,7 +99,7 @@ You can further alter how the writer interacts with S3 in the
 The following code example shows the process:
 
 Python
-For this example, use the [write_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options") method.
+For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options") method.
 
 ```
 from pyspark.context import SparkContext

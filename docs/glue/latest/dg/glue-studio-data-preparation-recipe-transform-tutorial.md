@@ -57,8 +57,8 @@ undoing a step, and re-ordering steps. For example:
      is invalid.
 
 8. Once you've applied a step, the Transform panel will show you all the steps in your recipe. You can
-   clear all the steps to start over, add more steps by choosing the add icon, or choose
-   **Done Authoring Recipe**.
+clear all the steps to start over, add more steps by choosing the add icon, or choose
+**Done Authoring Recipe**.
 
 ![The screenshot shows the Transform panel with steps added to your recipe. When done, choose Done Authoring Recipe or choose the add icon to add more steps to the recipe.](images/author-recipe-done-authoring-recipe.png) 9. Choose **Save** at the top right side of your screen. Your recipe steps will not be saved until you
 save your job.

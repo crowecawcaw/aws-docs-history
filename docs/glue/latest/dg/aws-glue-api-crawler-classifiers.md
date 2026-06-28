@@ -449,13 +449,13 @@ want the crawler to do the detection.
 
 ## Operations
 
-- [CreateClassifier action (Python: create_classifier)](#aws-glue-api-crawler-classifiers-CreateClassifier "#aws-glue-api-crawler-classifiers-CreateClassifier")
-- [DeleteClassifier action (Python: delete_classifier)](#aws-glue-api-crawler-classifiers-DeleteClassifier "#aws-glue-api-crawler-classifiers-DeleteClassifier")
-- [GetClassifier action (Python: get_classifier)](#aws-glue-api-crawler-classifiers-GetClassifier "#aws-glue-api-crawler-classifiers-GetClassifier")
-- [GetClassifiers action (Python: get_classifiers)](#aws-glue-api-crawler-classifiers-GetClassifiers "#aws-glue-api-crawler-classifiers-GetClassifiers")
-- [UpdateClassifier action (Python: update_classifier)](#aws-glue-api-crawler-classifiers-UpdateClassifier "#aws-glue-api-crawler-classifiers-UpdateClassifier")
+- [CreateClassifier action (Python: create\_classifier)](#aws-glue-api-crawler-classifiers-CreateClassifier "#aws-glue-api-crawler-classifiers-CreateClassifier")
+- [DeleteClassifier action (Python: delete\_classifier)](#aws-glue-api-crawler-classifiers-DeleteClassifier "#aws-glue-api-crawler-classifiers-DeleteClassifier")
+- [GetClassifier action (Python: get\_classifier)](#aws-glue-api-crawler-classifiers-GetClassifier "#aws-glue-api-crawler-classifiers-GetClassifier")
+- [GetClassifiers action (Python: get\_classifiers)](#aws-glue-api-crawler-classifiers-GetClassifiers "#aws-glue-api-crawler-classifiers-GetClassifiers")
+- [UpdateClassifier action (Python: update\_classifier)](#aws-glue-api-crawler-classifiers-UpdateClassifier "#aws-glue-api-crawler-classifiers-UpdateClassifier")
 
-## CreateClassifier action (Python: create_classifier)
+## CreateClassifier action (Python: create\_classifier)
 
 Creates a classifier in the user's account. This can be a `GrokClassifier`,
 an `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`,
@@ -492,7 +492,7 @@ A `CsvClassifier` object specifying the classifier to create.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## DeleteClassifier action (Python: delete_classifier)
+## DeleteClassifier action (Python: delete\_classifier)
 
 Removes a classifier from the Data Catalog.
 
@@ -511,7 +511,7 @@ Name of the classifier to remove.
 - `EntityNotFoundException`
 - `OperationTimeoutException`
 
-## GetClassifier action (Python: get_classifier)
+## GetClassifier action (Python: get\_classifier)
 
 Retrieve a classifier by name.
 
@@ -532,7 +532,7 @@ The requested classifier.
 - `EntityNotFoundException`
 - `OperationTimeoutException`
 
-## GetClassifiers action (Python: get_classifiers)
+## GetClassifiers action (Python: get\_classifiers)
 
 Lists all classifier objects in the Data Catalog.
 
@@ -560,7 +560,7 @@ A continuation token.
 
 - `OperationTimeoutException`
 
-## UpdateClassifier action (Python: update_classifier)
+## UpdateClassifier action (Python: update\_classifier)
 
 Modifies an existing classifier (a `GrokClassifier`, an
 `XMLClassifier`, a `JsonClassifier`, or a `CsvClassifier`,

@@ -8,11 +8,11 @@ Checks to what extent the values of a set of columns in the primary dataset are 
 ReferentialIntegrity `<PRIMARY_COLS>` `<REFERENCE_DATASET_COLS>` `<EXPRESSION>`
 ```
 
-- **PRIMARY_COLS** – A comma-separated list of column names in the primary dataset.
+- **PRIMARY\_COLS** – A comma-separated list of column names in the primary dataset.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 
-- **REFERENCE_DATASET_COLS** – This parameter contains two parts separated by a period. The first part is the alias of the reference dataset. The second part is the comma-separated list of column names in the reference dataset enclosed in braces.
+- **REFERENCE\_DATASET\_COLS** – This parameter contains two parts separated by a period. The first part is the alias of the reference dataset. The second part is the comma-separated list of column names in the reference dataset enclosed in braces.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 

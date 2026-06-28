@@ -133,10 +133,10 @@ spark = SparkSession.builder \
 
 Key configurations:
 
-- `spark.sql.catalog.glue_catalog`: Registers a catalog named "glue_catalog" that uses
+- `spark.sql.catalog.glue_catalog`: Registers a catalog named "glue\_catalog" that uses
   the GlueCatalog implementation
 - `spark.sql.catalog.glue_catalog.glue.lakeformation-enabled`: Explicitly enables AWS Lake Formation integration for this catalog
-- The catalog name ("glue_catalog" in this example) can be customized, but must be
+- The catalog name ("glue\_catalog" in this example) can be customized, but must be
   consistent in both configuration settings
 
 #### Hive
@@ -338,9 +338,9 @@ type:
 
 Replace the placeholders:
 
-- S3_DATA_LOCATION: `s3://amzn-s3-demo-bucket`
+- S3\_DATA\_LOCATION: `s3://amzn-s3-demo-bucket`
 - REGION: `AWS Region (e.g., us-east-1)`
-- ACCOUNT_ID: `Your AWS Account ID`
+- ACCOUNT\_ID: `Your AWS Account ID`
 
 ###### Note
 

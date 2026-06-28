@@ -21,7 +21,7 @@ from awsglueml.transforms import FillMissingValues
 
 - [Apply](#aws-glue-api-crawler-pyspark-transforms-fillmissingvalues-apply "#aws-glue-api-crawler-pyspark-transforms-fillmissingvalues-apply")
 
-## apply(frame, missing_values_column, output_column ="", transformation_ctx ="", info ="", stageThreshold = 0, totalThreshold = 0)
+## apply(frame, missing\_values\_column, output\_column ="", transformation\_ctx ="", info ="", stageThreshold = 0, totalThreshold = 0)
 
 Fills a dynamic frame's missing values in a specified column and returns a new frame with estimates in a new column. For rows without missing values, the specified column's value is duplicated to the new column.
 

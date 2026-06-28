@@ -16,8 +16,8 @@ matching columns.
    if the lookup key is composed. Enter the list of key columns separated by commas. If one or more of the key columns don’t have the
    same name then you need to define the match mapping.
 
-For example, if the data columns are “user_id” and “region” and in the users table the corresponding columns are named
-“id” and “region“, then in the **Columns to match** field, enter: ”user_id=id, region“. You could do region=region but
+For example, if the data columns are “user\_id” and “region” and in the users table the corresponding columns are named
+“id” and “region“, then in the **Columns to match** field, enter: ”user\_id=id, region“. You could do region=region but
 it’s not needed since they are the same. 4. Finally, enter the columns to bring from the row matched in the lookup table to incorporate them into the data. If no match was found
 those columns will be set to NULL.
 

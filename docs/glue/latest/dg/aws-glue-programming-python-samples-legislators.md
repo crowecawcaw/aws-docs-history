@@ -18,13 +18,12 @@ Using this data, this tutorial shows you how to do the following:
 - Write a Python extract, transfer, and load (ETL) script that uses the metadata in the
   Data Catalog to do the following:
 
-      + Join the data in the different source files together into a single data table (that is,
-       denormalize the data).
-      + Filter the joined table into separate tables by type of legislator.
-      + Write out the resulting data to separate Apache Parquet files for later analysis.
-
-  The preferred way to debug Python or PySpark scripts while running on AWS is to use
-  [Notebooks on AWS Glue Studio](../ug/notebooks-chapter.md "../ug/notebooks-chapter.md").
+  - Join the data in the different source files together into a single data table (that is,
+    denormalize the data).
+  - Filter the joined table into separate tables by type of legislator.
+  - Write out the resulting data to separate Apache Parquet files for later analysis.
+    The preferred way to debug Python or PySpark scripts while running on AWS is to use
+    [Notebooks on AWS Glue Studio](../ug/notebooks-chapter.md "../ug/notebooks-chapter.md").
 
 ## Step 1: Crawl the data in the Amazon S3 bucket
 

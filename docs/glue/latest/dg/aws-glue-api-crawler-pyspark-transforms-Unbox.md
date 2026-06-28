@@ -18,7 +18,7 @@ method to unbox a field in a `DynamicFrame`. To view a code example, see [Exampl
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-Unbox-describeErrors "#aws-glue-api-crawler-pyspark-transforms-Unbox-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-Unbox-describe "#aws-glue-api-crawler-pyspark-transforms-Unbox-describe")
 
-## \_\_call\_\_(frame, path, format, transformation_ctx = "", info="", stageThreshold=0, totalThreshold=0, \*\*options)
+## \_\_call\_\_(frame, path, format, transformation\_ctx = "", info="", stageThreshold=0, totalThreshold=0, \*\*options)
 
 Unboxes a string field in a `DynamicFrame`.
 

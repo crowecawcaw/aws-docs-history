@@ -6,6 +6,7 @@ with catalogs in AWS Glue.
 ###### Topics
 
 - [Catalogs API](aws-glue-api-catalog-catalogs.md "aws-glue-api-catalog-catalogs.md")
+- [Business context APIs](aws-glue-api-catalog-aws-glue-api-semantics.md "aws-glue-api-catalog-aws-glue-api-semantics.md")
 - [Database API](aws-glue-api-catalog-databases.md "aws-glue-api-catalog-databases.md")
 - [Table API](aws-glue-api-catalog-tables.md "aws-glue-api-catalog-tables.md")
 - [Partition API](aws-glue-api-catalog-partitions.md "aws-glue-api-catalog-partitions.md")

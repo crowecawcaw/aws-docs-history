@@ -170,13 +170,13 @@ ODBC, or other supported connection protocols.
 
 ## Operations
 
-- [CreateDatabase action (Python: create_database)](#aws-glue-api-catalog-databases-CreateDatabase "#aws-glue-api-catalog-databases-CreateDatabase")
-- [UpdateDatabase action (Python: update_database)](#aws-glue-api-catalog-databases-UpdateDatabase "#aws-glue-api-catalog-databases-UpdateDatabase")
-- [DeleteDatabase action (Python: delete_database)](#aws-glue-api-catalog-databases-DeleteDatabase "#aws-glue-api-catalog-databases-DeleteDatabase")
-- [GetDatabase action (Python: get_database)](#aws-glue-api-catalog-databases-GetDatabase "#aws-glue-api-catalog-databases-GetDatabase")
-- [GetDatabases action (Python: get_databases)](#aws-glue-api-catalog-databases-GetDatabases "#aws-glue-api-catalog-databases-GetDatabases")
+- [CreateDatabase action (Python: create\_database)](#aws-glue-api-catalog-databases-CreateDatabase "#aws-glue-api-catalog-databases-CreateDatabase")
+- [UpdateDatabase action (Python: update\_database)](#aws-glue-api-catalog-databases-UpdateDatabase "#aws-glue-api-catalog-databases-UpdateDatabase")
+- [DeleteDatabase action (Python: delete\_database)](#aws-glue-api-catalog-databases-DeleteDatabase "#aws-glue-api-catalog-databases-DeleteDatabase")
+- [GetDatabase action (Python: get\_database)](#aws-glue-api-catalog-databases-GetDatabase "#aws-glue-api-catalog-databases-GetDatabase")
+- [GetDatabases action (Python: get\_databases)](#aws-glue-api-catalog-databases-GetDatabases "#aws-glue-api-catalog-databases-GetDatabases")
 
-## CreateDatabase action (Python: create_database)
+## CreateDatabase action (Python: create\_database)
 
 Creates a new database in a Data Catalog.
 
@@ -216,7 +216,7 @@ The tags you assign to the database.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## UpdateDatabase action (Python: update_database)
+## UpdateDatabase action (Python: update\_database)
 
 Updates an existing database definition in a Data Catalog.
 
@@ -253,7 +253,7 @@ of the metadata database in the catalog.
 - `FederationSourceRetryableException`
 - `AlreadyExistsException`
 
-## DeleteDatabase action (Python: delete_database)
+## DeleteDatabase action (Python: delete\_database)
 
 Removes a specified database from a Data Catalog.
 
@@ -297,7 +297,7 @@ all lowercase.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## GetDatabase action (Python: get_database)
+## GetDatabase action (Python: get\_database)
 
 Retrieves the definition of a specified database.
 
@@ -329,7 +329,7 @@ The definition of the specified database in the Data Catalog.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## GetDatabases action (Python: get_databases)
+## GetDatabases action (Python: get\_databases)
 
 Retrieves all databases defined in a given Data Catalog.
 

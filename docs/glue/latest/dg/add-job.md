@@ -110,15 +110,15 @@ The resources available on AWS Glue workers are measured in DPUs. A DPU is a rel
 
 The following table provides detailed specifications for all available G worker types:
 
-| G Worker Type Specifications | Worker Type | DPU per Node | vCPU    | Memory (GB) | Disk (GB) | Free Disk Space (GB) | Spark Executors per Node |
-| ---------------------------- | ----------- | ------------ | ------- | ----------- | --------- | -------------------- | ------------------------ |
-| G.025X                       | 0.25        | 2            | 4       | 84          | 34        | 1                    |
-| G.1X                         | 1           | 4            | 16      | 94          | 44        | 1                    |
-| G.2X                         | 2           | 8            | 32      | 138         | 78        | 1                    |
-| G.4X                         | 4           | 16           | 64      | 256         | 230       | 1                    |
-| G.8X                         | 8           | 32           | 128     | 512         | 485       | 1                    |
-| **G.12X**                    | **12**      | **48**       | **192** | **768**     | **741**   | **1**                |
-| **G.16X**                    | **16**      | **64**       | **256** | **1024**    | **996**   | **1**                |
+G Worker Type Specifications| Worker Type | DPU per Node | vCPU | Memory (GB) | Disk (GB) | Free Disk Space (GB) | Spark Executors per Node |
+| --- | --- | --- | --- | --- | --- | --- |
+| G.025X | 0.25 | 2 | 4 | 84 | 34 | 1 |
+| G.1X | 1 | 4 | 16 | 94 | 44 | 1 |
+| G.2X | 2 | 8 | 32 | 138 | 78 | 1 |
+| G.4X | 4 | 16 | 64 | 256 | 230 | 1 |
+| G.8X | 8 | 32 | 128 | 512 | 485 | 1 |
+| **G.12X** | **12** | **48** | **192** | **768** | **741** | **1** |
+| **G.16X** | **16** | **64** | **256** | **1024** | **996** | **1** |
 
 **Important:** G.12X and G.16X worker types, as well as all R worker types
 (R.1X through R.8X), have higher startup latency.

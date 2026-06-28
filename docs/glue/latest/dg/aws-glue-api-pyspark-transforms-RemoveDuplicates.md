@@ -71,7 +71,7 @@ DataFrame, as the duplicates have been removed based on the `source_column_1` co
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeErrors "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describe "#aws-glue-api-crawler-pyspark-transforms-RemoveDuplicates-describe")
 
-## \_\_call\_\_(spark_context, data_frame, source_column)
+## \_\_call\_\_(spark\_context, data\_frame, source\_column)
 
 The `RemoveDuplicates` transform deletes an entire row, if a duplicate value is encountered in a
 selected source column.

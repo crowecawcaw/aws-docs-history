@@ -12,8 +12,8 @@ Another use case is generating AWS Glue ETL job scripts. You can ask a question 
 ## Amazon Q chat interactions
 
 On the AWS Glue console, start authoring a new job, and ask Amazon Q:
-_"Create a Glue ETL flow connect to two Glue catalog tables venue and event in my database glue_db, join the results
-on the venue's venueid and event's e_venueid, and then filter on venue state with condition as venuestate=='DC' and write
+_"Create a Glue ETL flow connect to two Glue catalog tables venue and event in my database glue\_db, join the results
+on the venue's venueid and event's e\_venueid, and then filter on venue state with condition as venuestate=='DC' and write
 to s3://amzn-s3-demo-bucket/codegen/BDB-9999/output/ in CSV format.""_
 
 ![An example of asking Amazon Q data integration in AWS Glue for a generated ETL script.](/images/glue/latest/dg/images/Q-SIDEPANEL-GS.gif)
@@ -31,7 +31,7 @@ The Amazon Q Data integration experience in AWS Glue Studio notebook still focus
 
 Add a new cell and enter your comment to describe what you want to achieve. After you press **Tab** and **Enter**, the recommended code is shown.
 
-First intent is to extract the data: _"Give me code that reads a Glue Data Catalog table"_, followed by _"Give me code to apply a filter transform with star_rating>3"_ and _"Give me code that writes the frame into S3 as Parquet"_.
+First intent is to extract the data: _"Give me code that reads a Glue Data Catalog table"_, followed by _"Give me code to apply a filter transform with star\_rating>3"_ and _"Give me code that writes the frame into S3 as Parquet"_.
 
 ![An example of using an AWS Glue Studio notebook to ask Amazon Q data integration in AWS Glue for a generated ETL script.](images/q-notebook-experience-1.gif)
 

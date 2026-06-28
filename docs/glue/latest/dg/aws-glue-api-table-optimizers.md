@@ -497,14 +497,14 @@ The duration of the job in hours.
 
 ## Operations
 
-- [GetTableOptimizer action (Python: get_table_optimizer)](#aws-glue-api-table-optimizers-GetTableOptimizer "#aws-glue-api-table-optimizers-GetTableOptimizer")
-- [BatchGetTableOptimizer action (Python: batch_get_table_optimizer)](#aws-glue-api-table-optimizers-BatchGetTableOptimizer "#aws-glue-api-table-optimizers-BatchGetTableOptimizer")
-- [ListTableOptimizerRuns action (Python: list_table_optimizer_runs)](#aws-glue-api-table-optimizers-ListTableOptimizerRuns "#aws-glue-api-table-optimizers-ListTableOptimizerRuns")
-- [CreateTableOptimizer action (Python: create_table_optimizer)](#aws-glue-api-table-optimizers-CreateTableOptimizer "#aws-glue-api-table-optimizers-CreateTableOptimizer")
-- [DeleteTableOptimizer action (Python: delete_table_optimizer)](#aws-glue-api-table-optimizers-DeleteTableOptimizer "#aws-glue-api-table-optimizers-DeleteTableOptimizer")
-- [UpdateTableOptimizer action (Python: update_table_optimizer)](#aws-glue-api-table-optimizers-UpdateTableOptimizer "#aws-glue-api-table-optimizers-UpdateTableOptimizer")
+- [GetTableOptimizer action (Python: get\_table\_optimizer)](#aws-glue-api-table-optimizers-GetTableOptimizer "#aws-glue-api-table-optimizers-GetTableOptimizer")
+- [BatchGetTableOptimizer action (Python: batch\_get\_table\_optimizer)](#aws-glue-api-table-optimizers-BatchGetTableOptimizer "#aws-glue-api-table-optimizers-BatchGetTableOptimizer")
+- [ListTableOptimizerRuns action (Python: list\_table\_optimizer\_runs)](#aws-glue-api-table-optimizers-ListTableOptimizerRuns "#aws-glue-api-table-optimizers-ListTableOptimizerRuns")
+- [CreateTableOptimizer action (Python: create\_table\_optimizer)](#aws-glue-api-table-optimizers-CreateTableOptimizer "#aws-glue-api-table-optimizers-CreateTableOptimizer")
+- [DeleteTableOptimizer action (Python: delete\_table\_optimizer)](#aws-glue-api-table-optimizers-DeleteTableOptimizer "#aws-glue-api-table-optimizers-DeleteTableOptimizer")
+- [UpdateTableOptimizer action (Python: update\_table\_optimizer)](#aws-glue-api-table-optimizers-UpdateTableOptimizer "#aws-glue-api-table-optimizers-UpdateTableOptimizer")
 
-## GetTableOptimizer action (Python: get_table_optimizer)
+## GetTableOptimizer action (Python: get\_table\_optimizer)
 
 Returns the configuration of all optimizers associated with a specified
 table.
@@ -553,7 +553,7 @@ The optimizer associated with the specified table.
 - `InternalServiceException`
 - `ThrottlingException`
 
-## BatchGetTableOptimizer action (Python: batch_get_table_optimizer)
+## BatchGetTableOptimizer action (Python: batch\_get\_table\_optimizer)
 
 Returns the configuration for the specified table optimizers.
 
@@ -582,7 +582,7 @@ A list of errors from the operation.
 - `InternalServiceException`
 - `ThrottlingException`
 
-## ListTableOptimizerRuns action (Python: list_table_optimizer_runs)
+## ListTableOptimizerRuns action (Python: list\_table\_optimizer\_runs)
 
 Lists the history of previous optimizer runs for a specific table.
 
@@ -644,7 +644,7 @@ A list of the optimizer runs associated with a table.
 - `InternalServiceException`
 - `ThrottlingException`
 
-## CreateTableOptimizer action (Python: create_table_optimizer)
+## CreateTableOptimizer action (Python: create\_table\_optimizer)
 
 Creates a new table optimizer for a specific function.
 
@@ -685,7 +685,7 @@ the configuration of a table optimizer.
 - `InternalServiceException`
 - `ThrottlingException`
 
-## DeleteTableOptimizer action (Python: delete_table_optimizer)
+## DeleteTableOptimizer action (Python: delete\_table\_optimizer)
 
 Deletes an optimizer and all associated metadata for a table. The optimization
 will no longer be performed on the table.
@@ -720,7 +720,7 @@ The type of table optimizer.
 - `InternalServiceException`
 - `ThrottlingException`
 
-## UpdateTableOptimizer action (Python: update_table_optimizer)
+## UpdateTableOptimizer action (Python: update\_table\_optimizer)
 
 Updates the configuration for an existing table optimizer.
 

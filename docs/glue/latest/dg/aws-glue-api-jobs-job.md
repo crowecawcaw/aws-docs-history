@@ -614,15 +614,15 @@ The value of an authorization token.
 
 ## Operations
 
-- [CreateJob action (Python: create_job)](#aws-glue-api-jobs-job-CreateJob "#aws-glue-api-jobs-job-CreateJob")
-- [UpdateJob action (Python: update_job)](#aws-glue-api-jobs-job-UpdateJob "#aws-glue-api-jobs-job-UpdateJob")
-- [GetJob action (Python: get_job)](#aws-glue-api-jobs-job-GetJob "#aws-glue-api-jobs-job-GetJob")
-- [GetJobs action (Python: get_jobs)](#aws-glue-api-jobs-job-GetJobs "#aws-glue-api-jobs-job-GetJobs")
-- [DeleteJob action (Python: delete_job)](#aws-glue-api-jobs-job-DeleteJob "#aws-glue-api-jobs-job-DeleteJob")
-- [ListJobs action (Python: list_jobs)](#aws-glue-api-jobs-job-ListJobs "#aws-glue-api-jobs-job-ListJobs")
-- [BatchGetJobs action (Python: batch_get_jobs)](#aws-glue-api-jobs-job-BatchGetJobs "#aws-glue-api-jobs-job-BatchGetJobs")
+- [CreateJob action (Python: create\_job)](#aws-glue-api-jobs-job-CreateJob "#aws-glue-api-jobs-job-CreateJob")
+- [UpdateJob action (Python: update\_job)](#aws-glue-api-jobs-job-UpdateJob "#aws-glue-api-jobs-job-UpdateJob")
+- [GetJob action (Python: get\_job)](#aws-glue-api-jobs-job-GetJob "#aws-glue-api-jobs-job-GetJob")
+- [GetJobs action (Python: get\_jobs)](#aws-glue-api-jobs-job-GetJobs "#aws-glue-api-jobs-job-GetJobs")
+- [DeleteJob action (Python: delete\_job)](#aws-glue-api-jobs-job-DeleteJob "#aws-glue-api-jobs-job-DeleteJob")
+- [ListJobs action (Python: list\_jobs)](#aws-glue-api-jobs-job-ListJobs "#aws-glue-api-jobs-job-ListJobs")
+- [BatchGetJobs action (Python: batch\_get\_jobs)](#aws-glue-api-jobs-job-BatchGetJobs "#aws-glue-api-jobs-job-BatchGetJobs")
 
-## CreateJob action (Python: create_job)
+## CreateJob action (Python: create\_job)
 
 Creates a new job definition.
 
@@ -930,7 +930,7 @@ The unique name that was provided for this job definition.
 - `ResourceNumberLimitExceededException`
 - `ConcurrentModificationException`
 
-## UpdateJob action (Python: update_job)
+## UpdateJob action (Python: update\_job)
 
 Updates an existing job definition. The previous job definition is completely
 overwritten by this information.
@@ -964,7 +964,7 @@ Returns the name of the updated job definition.
 - `OperationTimeoutException`
 - `ConcurrentModificationException`
 
-## GetJob action (Python: get_job)
+## GetJob action (Python: get\_job)
 
 Retrieves an existing job definition.
 
@@ -987,7 +987,7 @@ The requested job definition.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetJobs action (Python: get_jobs)
+## GetJobs action (Python: get\_jobs)
 
 Retrieves all current job definitions.
 
@@ -1018,7 +1018,7 @@ A continuation token, if not all job definitions have yet been returned.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## DeleteJob action (Python: delete_job)
+## DeleteJob action (Python: delete\_job)
 
 Deletes a specified job definition. If the job definition is not found,
 no exception is thrown.
@@ -1041,7 +1041,7 @@ The name of the job definition that was deleted.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## ListJobs action (Python: list_jobs)
+## ListJobs action (Python: list\_jobs)
 
 Retrieves the names of all job resources in this AWS account,
 or the resources with the specified tag. This operation allows you to see which
@@ -1087,7 +1087,7 @@ available.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## BatchGetJobs action (Python: batch_get_jobs)
+## BatchGetJobs action (Python: batch\_get\_jobs)
 
 Returns a list of resource metadata for a given list of job names. After
 calling the `ListJobs` operation, you can call this operation to

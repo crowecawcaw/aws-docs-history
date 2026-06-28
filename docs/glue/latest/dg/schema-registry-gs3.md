@@ -9,7 +9,7 @@ You can use these steps to perform this task using the AWS Glue APIs.
 To use the AWS CLI for the AWS Glue Schema Registry APIs, make sure to update your AWS CLI to the latest version.
 
 To add a new registry, use the
-[CreateRegistry action (Python: create_registry)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-CreateRegistry "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-CreateRegistry")
+[CreateRegistry action (Python: create\_registry)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-CreateRegistry "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-CreateRegistry")
 API. Specify `RegistryName` as the name of the registry to be created, with a max length of 255, containing
 only letters, numbers, hyphens, underscores, dollar signs, or hash marks.
 
@@ -28,7 +28,7 @@ When your registry is created it is assigned an Amazon Resource Name (ARN), whic
 
 To add a new registry in the AWS Glue console:
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](<https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue">).
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue\").
 2. In the navigation pane, under **Data catalog**, choose **Schema registries**.
 3. Choose **Add registry**.
 4. Enter a **Registry name** for the registry, consisting of letters, numbers, hyphens, or underscores. This name cannot be changed.

@@ -8,7 +8,7 @@ Checks whether the length of each row in a column conforms to a given expression
 ColumnLength `<COL_NAME>``<EXPRESSION>`
 ```
 
-- **COL_NAME** – The name of the column that you want to evaluate the data quality rule against.
+- **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
 
 **Supported column types**: String
 

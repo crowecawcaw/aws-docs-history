@@ -21,9 +21,9 @@ Data Catalog and its objects.
 To create, insert, or delete data in Lake Formation managed objects, you must set up specific
 permissions for the IAM user or role.
 
-- CREATE_CATALOG – Required to create catalogs
-- CREATE_DATABASE – Required to create databases
-- CREATE_TABLE – Required to create tables
+- CREATE\_CATALOG – Required to create catalogs
+- CREATE\_DATABASE – Required to create databases
+- CREATE\_TABLE – Required to create tables
 - DELETE – Required to delete data from a table
 - DESCRIBE – Required to read metadata
 - DROP – Required to drop/delete a table or database
@@ -188,7 +188,7 @@ General information| **Operation name** | CreateTable |
 | **Type** | Iceberg REST Catalog API |
 | **REST path** | GET /iceberg/v1/catalogs/{catalog}/namespaces/{ns}/tables |
 | **IAM action** | glue:CreateTable |
-| **Lake Formation permissions** | ALL, CREATE_TABLE |
+| **Lake Formation permissions** | ALL, CREATE\_TABLE |
 | **CloudTrail event** | glue:CreateTable |
 | **Open API definition** | https://github.com/apache/iceberg/blob/apache-iceberg-1.6.1/open-api/rest-catalog-open-api.yaml#L497 |
 
@@ -204,13 +204,13 @@ General information| **Operation name** | CreateTable |
   workaround.
 - The
   `CreateTable` API operation doesn't support the option `state-create =
-TRUE`.
+ TRUE`.
 
 General information| **Operation name** | CreateTable |
 | **Type** | AWS Glue extensions API |
 | **REST path** | POST/extensions/v1/catalogs/{catalog}/namespaces/{ns}/tables |
 | **IAM action** | glue:CreateTable |
-| **Lake Formation permissions** | ALL, CREATE_TABLE |
+| **Lake Formation permissions** | ALL, CREATE\_TABLE |
 | **CloudTrail event** | glue:CreateTable |
 | **Open API definition** | https://github.com/awslabs/glue-extensions-for-iceberg/blob/main/glue-extensions-api.yaml#L107 |
 
@@ -264,16 +264,16 @@ General information| Operation name | LoadTable |
   - provides the following additional parameters in the config field of the
     response:
 
-  | Additional parameters                      | Config key                                                                                                                                            | Description |
-  | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-  | aws.server-side-capabilities.scan-planning | Indiactes if the table can be scanned using the PreparePlan table<br>and PlanTable APIs.                                                              |
-  | aws.server-side-capabilities.data-commit   | Indicates if the table can be committed using the StartUpdateTable<br>transaction.                                                                    |
-  | aws.glue.staging.location                  | Used for server side scan planning or data commit, a<br>service-managed staging location that can be used for engine to write<br>temporary data files |
-  | aws.glue.staging.access-key-id             | Used for server side scan planning or data commit, a part of the<br>temporary AWS credentials to access the service-managed staging<br>location       |
-  | aws.glue.staging.secret-access-key         | Used for server side scan planning or data commit, a part of the<br>temporary AWS credentials to access the service-managed staging<br>location.      |
-  | aws.glue.staging.session-token             | Used for server side scan planning or data commit, a part of the<br>temporary AWS credentials to access the service-managed staging<br>location.      |
-  | aws.glue.staging.expiration-ms             | Used for server side scan planning or data commit, expiration time<br>of the credentials to access the service-managed staging.<br>location.          |
-  | aws.glue.staging.data-transfer-role-arn    | Used for server side scan planning or data commit, an IAM role<br>that can be assumed to taccess the service-managed staging<br>location.             |
+  Additional parameters| Config key | Description |
+  | --- | --- |
+  | aws.server-side-capabilities.scan-planning | Indiactes if the table can be scanned using the PreparePlan table<br>and PlanTable APIs. |
+  | aws.server-side-capabilities.data-commit | Indicates if the table can be committed using the StartUpdateTable<br>transaction. |
+  | aws.glue.staging.location | Used for server side scan planning or data commit, a<br>service-managed staging location that can be used for engine to write<br>temporary data files |
+  | aws.glue.staging.access-key-id | Used for server side scan planning or data commit, a part of the<br>temporary AWS credentials to access the service-managed staging<br>location |
+  | aws.glue.staging.secret-access-key | Used for server side scan planning or data commit, a part of the<br>temporary AWS credentials to access the service-managed staging<br>location. |
+  | aws.glue.staging.session-token | Used for server side scan planning or data commit, a part of the<br>temporary AWS credentials to access the service-managed staging<br>location. |
+  | aws.glue.staging.expiration-ms | Used for server side scan planning or data commit, expiration time<br>of the credentials to access the service-managed staging.<br>location. |
+  | aws.glue.staging.data-transfer-role-arn | Used for server side scan planning or data commit, an IAM role<br>that can be assumed to taccess the service-managed staging<br>location. |
 
 General information| Operation name | PreplanTable |
 | Type | AWS Glue extensions API |
@@ -350,7 +350,7 @@ General information| Operation name | StartUpdateTableTransaction |
   formation, see the [Namespace path parameter](connect-glu-iceberg-rest.md#ns-path-param "connect-glu-iceberg-rest.md#ns-path-param") section.
 - The API is asynchronous, and returns a transaction ID that that you can use for
   tracking using the `CheckTransactionStatus` API call.
-- A `RenamTable` operation can also be performed through this API. When that happens, the caller must also ahve glue:CreateTable or LakeFormation CREATE_TABLE permission for the table to be renamed to.
+- A `RenamTable` operation can also be performed through this API. When that happens, the caller must also ahve glue:CreateTable or LakeFormation CREATE\_TABLE permission for the table to be renamed to.
 - You can use this API only if the `ExtendedLoadTable` API response contains `aws.server-side-capabilities.scan-planning=true`.
 
 General information| Operation name | DeleteTable |
@@ -369,7 +369,7 @@ General information| Operation name | DeleteTable |
 - `DeleteTable` API operation supports a purge option. When purge is set to `true`, the table data is
   deleted, otherwise data is not deleted. For tables in Amazon S3, the operation does not delete
   table data. The operation fails when table is stored in Amazon S3, and `purge =
-TRUE,` .
+ TRUE,` .
 
 For tables stored in Amazon Redshift managed storage, the operation will delete table data, similar to `DROP TABLE`behavior in Amazon Redshift.
 The operation fails when table is stored in Amazon Redshift and `purge = FALSE`.

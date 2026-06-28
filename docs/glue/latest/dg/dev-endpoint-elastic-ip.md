@@ -53,7 +53,7 @@ address**. 9. On the **Associate address** page, do the following:
     * Choose **Associate**.
 
 10. Confirm that the newly associated Elastic IP address is reachable with the SSH private key
-    that is associated with the development endpoint, as in the following example.
+that is associated with the development endpoint, as in the following example.
 
 ```
 

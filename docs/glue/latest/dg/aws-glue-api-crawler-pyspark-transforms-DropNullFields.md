@@ -160,7 +160,7 @@ root
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describe "#aws-glue-api-crawler-pyspark-transforms-DropNullFields-describe")
 
-## \_\_call\_\_(frame, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Drops all null fields in a `DynamicFrame` whose type is `NullType`.
 These are fields with missing or null values in every record in the `DynamicFrame`

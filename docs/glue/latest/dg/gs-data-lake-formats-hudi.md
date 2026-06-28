@@ -35,8 +35,7 @@ In **Additional options** choose from the following options under **Schema infer
      view the file that was automatically selected.
     * Choose a sample file from Amazon S3 — choose the Amazon S3 file to use by clicking **Browse Amazon S3**.
 
-6. Click **Infer schema**. You can then view the output schema by clicking on the **Output schema** tab.
-7. Choose **Additional options** to enter a key-value pair.
+6. Click **Infer schema**. You can then view the output schema by clicking on the **Output schema** tab. 7. Choose **Additional options** to enter a key-value pair.
 
 ![The screenshot shows the Additional options section in the Data source properties tab for an Amazon S3 data source node.](images/data_lake_formats_additional_options.png)
 
@@ -77,7 +76,7 @@ Enter values or select from the available options to configure Apache Hudi forma
 - **Hudi Precombine Field** — this is the field used in preCombining before actual write.
   When two records have the same key value, AWS Glue Studio will pick the one with the largest value for the
   precombine field.
-  Set a field with incremental value (e.g. updated_at) belongs to.
+  Set a field with incremental value (e.g. updated\_at) belongs to.
 - **Compression Type** — choose from one of the compression type options: Uncompressed, GZIP, LZO, or
   Snappy.
 - **Amazon S3 Target Location** — choose the Amazon S3 target location by clicking **Browse S3**.

@@ -9,7 +9,7 @@ value.
 IsUnique `<COL_NAME>`
 ```
 
-- **COL_NAME** – The name of the column that you want to evaluate the data quality rule against.
+- **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
 
 **Supported column types**: Any column type
 **Examples**

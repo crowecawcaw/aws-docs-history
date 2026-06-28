@@ -23,13 +23,12 @@ specified methods in the `GlueContext` class.
 
 - Python
 
-      + `connection_options`: Use with
-       `create_data_frame_from_options`, `write_dynamic_frame_from_options`
-      + `additional_options`: Use with
-       `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
-      + `options`: Use with `getSource`, `getSink`
-
-  For notes and restrictions about Streaming ETL jobs, consult [Streaming ETL notes and restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
+  - `connection_options`: Use with
+    `create_data_frame_from_options`, `write_dynamic_frame_from_options`
+  - `additional_options`: Use with
+    `create_data_frame_from_catalog`, `write_dynamic_frame_from_catalog`
+  - `options`: Use with `getSource`, `getSink`
+    For notes and restrictions about Streaming ETL jobs, consult [Streaming ETL notes and restrictions](add-job-streaming.md#create-job-streaming-restrictions "add-job-streaming.md#create-job-streaming-restrictions").
 
 ## Configure Kinesis
 
@@ -188,7 +187,7 @@ Example in Avro schema format
 - `"avroSchema"`: (Deprecated) Used for Read. Parameter used to specify a schema of Avro data
   when Avro format is used. This parameter is now deprecated. Use the `schema` parameter.
 - `"addRecordTimestamp"`: (Optional) Used for Read. When this option is set to 'true', the data
-  output will contain an additional column named "\_\_src_timestamp" that indicates the time when the
+  output will contain an additional column named "\_\_src\_timestamp" that indicates the time when the
   corresponding record received by the stream. The default value is 'false'. This option is supported in
   AWS Glue version 4.0 or later.
 - `"emitConsumerLagMetrics"`: (Optional) Used for Read. When the option is set to 'true', for

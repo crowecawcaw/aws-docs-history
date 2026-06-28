@@ -16,7 +16,7 @@ information about editing the properties of a table, see [Viewing and managing t
 enable parallel reads when you call the ETL (extract, transform, and load) methods
 `create_dynamic_frame_from_options` and
 `create_dynamic_frame_from_catalog`. For more information about specifying
-options in these methods, see [from_options](aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_options "aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_options") and [from_catalog](aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_catalog "aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_catalog").
+options in these methods, see [from\_options](aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_options "aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_options") and [from\_catalog](aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_catalog "aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_catalog").
 
 You can use this method for JDBC tables, that is, most tables whose base data is a JDBC data store.
 These properties are ignored when reading Amazon Redshift and Amazon S3 tables.

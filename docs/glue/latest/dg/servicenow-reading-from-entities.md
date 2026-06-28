@@ -2,7 +2,7 @@
 
 **Prerequisite**
 
-A ServiceNow Tables object you would like to read from. You will need the object name such as pa_bucket or incident.
+A ServiceNow Tables object you would like to read from. You will need the object name such as pa\_bucket or incident.
 
 **Example**:
 
@@ -55,10 +55,10 @@ these parameters, the original query would be split into `NUM_PARTITIONS`
 number of sub-queries that can be executed by Spark tasks
 concurrently.
 
-| Entity name                    | Partitioning fields | Data type |
-| ------------------------------ | ------------------- | --------- |
-| Dynamic Entity                 | sys_mod_count       | Integer   |
-| sys_created_on, sys_updated_on | DateTime            |
+| Entity name                        | Partitioning fields | Data type |
+| ---------------------------------- | ------------------- | --------- |
+| Dynamic Entity                     | sys\_mod\_count     | Integer   |
+| sys\_created\_on, sys\_updated\_on | DateTime            |
 
 - `PARTITION_FIELD`: the name of the field to be used to partition the query.
 - `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.

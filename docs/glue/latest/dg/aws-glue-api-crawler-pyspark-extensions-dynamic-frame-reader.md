@@ -3,9 +3,9 @@
 ##  — methods —
 
 - [\_\_init\_\_](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-__init__ "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-__init__")
-- [from_rdd](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_rdd "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_rdd")
-- [from_options](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_options "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_options")
-- [from_catalog](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_catalog "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_catalog")
+- [from\_rdd](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_rdd "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_rdd")
+- [from\_options](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_options "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_options")
+- [from\_catalog](#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_catalog "#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-reader-from_catalog")
 
 ## \_\_init\_\_
 
@@ -13,7 +13,7 @@
 
 - `glue_context` – The [GlueContext class](aws-glue-api-crawler-pyspark-extensions-glue-context.md "aws-glue-api-crawler-pyspark-extensions-glue-context.md") to use.
 
-## from_rdd
+## from\_rdd
 
 ###### `from_rdd(data, name, schema=None, sampleRatio=None)`
 
@@ -24,7 +24,7 @@ Reads a `DynamicFrame` from a Resilient Distributed Dataset (RDD).
 - `schema` – The schema to read (optional).
 - `sampleRatio` – The sample ratio (optional).
 
-## from_options
+## from\_options
 
 ###### `from_options(connection_type, connection_options={}, format=None, format_options={}, transformation_ctx="")`
 
@@ -68,7 +68,7 @@ For more information, see [Reading from JDBC tables in parallel](run-jdbc-parall
 - `transformation_ctx` – The transformation context to use (optional).
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset. For more information, see [Pre-Filtering Using Pushdown Predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 
-## from_catalog
+## from\_catalog
 
 ###### `from_catalog(database, table_name, redshift_tmp_dir="", transformation_ctx="", push_down_predicate="", additional_options={})`
 

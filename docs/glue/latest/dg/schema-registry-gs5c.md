@@ -2,7 +2,7 @@
 
 When you add a schema version, you will need to compare the versions to make sure the new schema will be accepted.
 
-To add a new version to an existing schema, use the [RegisterSchemaVersion action (Python: register_schema_version)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-RegisterSchemaVersion "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-RegisterSchemaVersion") API.
+To add a new version to an existing schema, use the [RegisterSchemaVersion action (Python: register\_schema\_version)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-RegisterSchemaVersion "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-RegisterSchemaVersion") API.
 
 Specify a `SchemaId` structure to indicate the schema for which you want to add a version, and a `SchemaDefinition` to define the schema.
 
@@ -16,7 +16,7 @@ aws glue register-schema-version --schema-definition "{\"type\": \"record\", \"n
 aws glue register-schema-version --schema-definition "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}" --schema-id SchemaName="testschema",RegistryName="testregistry"
 ```
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](<https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue">).
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue\").
 2. In the navigation pane, under **Data catalog**, choose **Schemas**.
 3. Choose the schema from the the list of schemas, by checking its box.
 4. Choose one or more schemas from the list, by checking the boxes.

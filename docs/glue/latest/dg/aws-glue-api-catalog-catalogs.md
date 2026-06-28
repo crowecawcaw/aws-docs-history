@@ -389,13 +389,13 @@ the protocol or method for connection to the external data source.
 
 ## Operations
 
-- [CreateCatalog action (Python: create_catalog)](#aws-glue-api-catalog-catalogs-CreateCatalog "#aws-glue-api-catalog-catalogs-CreateCatalog")
-- [UpdateCatalog action (Python: update_catalog)](#aws-glue-api-catalog-catalogs-UpdateCatalog "#aws-glue-api-catalog-catalogs-UpdateCatalog")
-- [DeleteCatalog action (Python: delete_catalog)](#aws-glue-api-catalog-catalogs-DeleteCatalog "#aws-glue-api-catalog-catalogs-DeleteCatalog")
-- [GetCatalog action (Python: get_catalog)](#aws-glue-api-catalog-catalogs-GetCatalog "#aws-glue-api-catalog-catalogs-GetCatalog")
-- [GetCatalogs action (Python: get_catalogs)](#aws-glue-api-catalog-catalogs-GetCatalogs "#aws-glue-api-catalog-catalogs-GetCatalogs")
+- [CreateCatalog action (Python: create\_catalog)](#aws-glue-api-catalog-catalogs-CreateCatalog "#aws-glue-api-catalog-catalogs-CreateCatalog")
+- [UpdateCatalog action (Python: update\_catalog)](#aws-glue-api-catalog-catalogs-UpdateCatalog "#aws-glue-api-catalog-catalogs-UpdateCatalog")
+- [DeleteCatalog action (Python: delete\_catalog)](#aws-glue-api-catalog-catalogs-DeleteCatalog "#aws-glue-api-catalog-catalogs-DeleteCatalog")
+- [GetCatalog action (Python: get\_catalog)](#aws-glue-api-catalog-catalogs-GetCatalog "#aws-glue-api-catalog-catalogs-GetCatalog")
+- [GetCatalogs action (Python: get\_catalogs)](#aws-glue-api-catalog-catalogs-GetCatalogs "#aws-glue-api-catalog-catalogs-GetCatalogs")
 
-## CreateCatalog action (Python: create_catalog)
+## CreateCatalog action (Python: create\_catalog)
 
 Creates a new catalog in the AWS Glue Data Catalog.
 
@@ -438,7 +438,7 @@ not more than 256 bytes long. The tags you assign to the catalog.
 - `FederatedResourceAlreadyExistsException`
 - `FederationSourceException`
 
-## UpdateCatalog action (Python: update_catalog)
+## UpdateCatalog action (Python: update\_catalog)
 
 Updates an existing catalog's properties in the AWS Glue Data
 Catalog.
@@ -469,7 +469,7 @@ an existing catalog.
 - `AccessDeniedException`
 - `FederationSourceException`
 
-## DeleteCatalog action (Python: delete_catalog)
+## DeleteCatalog action (Python: delete\_catalog)
 
 Removes the specified catalog from the AWS Glue Data Catalog.
 
@@ -508,7 +508,7 @@ The ID of the catalog.
 - `AccessDeniedException`
 - `FederationSourceException`
 
-## GetCatalog action (Python: get_catalog)
+## GetCatalog action (Python: get\_catalog)
 
 The name of the Catalog to retrieve. This should be all lowercase.
 
@@ -538,7 +538,7 @@ in the AWS Glue Data Catalog.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## GetCatalogs action (Python: get_catalogs)
+## GetCatalogs action (Python: get\_catalogs)
 
 Retrieves all catalogs defined in a catalog in the AWS Glue
 Data Catalog. For a Redshift-federated catalog use case, this operation returns

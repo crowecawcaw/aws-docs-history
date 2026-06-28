@@ -58,7 +58,7 @@ TBLPROPERTIES ('table_type' = 'DELTA')
 
 Using the AWS Glue API, specify the table type within the table parameters map. The table parameters need to include the
 following key/value pair. For more information on how to create a table, see
-[Boto3 documentation for create_table](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/create_table.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/create_table.html") .
+[Boto3 documentation for create\_table](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/create_table.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue/client/create_table.html") .
 
 ```
 {

@@ -8,7 +8,7 @@ The default registry can be deleted using the AWS CLI.
 
 ###### AWS Glue API
 
-To delete the entire registry including the schema and all of its versions, call the [DeleteRegistry action (Python: delete_registry)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-DeleteRegistry "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-DeleteRegistry") API. Specify a `RegistryId` structure to identify the registry.
+To delete the entire registry including the schema and all of its versions, call the [DeleteRegistry action (Python: delete\_registry)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-DeleteRegistry "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-DeleteRegistry") API. Specify a `RegistryId` structure to identify the registry.
 
 For example:
 
@@ -26,7 +26,7 @@ To get the status of the delete operation, you can call the `GetRegistry` API af
 
 To delete a registry from the AWS Glue console:
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](<https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue">).
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue\").
 2. In the navigation pane, under **Data catalog**, choose **Schema registries**.
 3. Choose a registry from the list, by checking a box.
 4. In the **Action** menu, choose **Delete registry**.

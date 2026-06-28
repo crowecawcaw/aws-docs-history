@@ -10,7 +10,7 @@ You can also add tables to the Data Catalog manually in the following ways:
 - Use the AWS Glue console to manually create a table in the AWS Glue Data Catalog. For more
   information, see [Creating tables using the console](#console-tables "#console-tables").
 - Use the `CreateTable` operation in the [AWS Glue API](aws-glue-api.md "aws-glue-api.md") to create a table in the AWS Glue Data Catalog. For more
-  information, see [CreateTable action (Python: create_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable").
+  information, see [CreateTable action (Python: create\_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-CreateTable").
 - Use CloudFormation templates. For more information, see [AWS CloudFormation for AWS Glue](populate-with-cloudformation-templates.md "populate-with-cloudformation-templates.md").
   When you define a table manually using the console or an API, you specify the table schema
   and the value of a classification field that indicates the type and format of the data in

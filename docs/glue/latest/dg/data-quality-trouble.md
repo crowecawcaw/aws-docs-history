@@ -19,7 +19,7 @@ If you encounter errors in AWS Glue Data Quality, use the following solutions to
 - [CustomSQL errors](data-quality-trouble.md#data-quality-trouble-error-13 "data-quality-trouble.md#data-quality-trouble-error-13")
 - [Dynamic Rules](data-quality-trouble.md#data-quality-trouble-error-14 "data-quality-trouble.md#data-quality-trouble-error-14")
 - [Exception in User Class: org.apache.spark.sql.AnalysisException: org.apache.hadoop.hive.ql.metadata.HiveException](data-quality-trouble.md#data-quality-trouble-error-15 "data-quality-trouble.md#data-quality-trouble-error-15")
-- [UNCLASSIFIED_ERROR; IllegalArgumentException: Parsing Error: No rules or analyzers provided., no viable alternative at input](data-quality-trouble.md#data-quality-trouble-error-16 "data-quality-trouble.md#data-quality-trouble-error-16")
+- [UNCLASSIFIED\_ERROR; IllegalArgumentException: Parsing Error: No rules or analyzers provided., no viable alternative at input](data-quality-trouble.md#data-quality-trouble-error-16 "data-quality-trouble.md#data-quality-trouble-error-16")
 
 ## Error: missing AWS Glue Data Quality module
 
@@ -31,7 +31,7 @@ If you encounter errors in AWS Glue Data Quality, use the following solutions to
 
 **Error message**: Exception in User Class:
 `com.amazonaws.services.glue.model.AccessDeniedException`:
-Insufficient Lake Formation permission(s) on impact_sdg_involvement (Service: AWS Glue; Status Code: 400; Error Code:
+Insufficient Lake Formation permission(s) on impact\_sdg\_involvement (Service: AWS Glue; Status Code: 400; Error Code:
 AccessDeniedException; Request ID: 465ae693-b7ba-4df0-a4e4-6b17xxxxxxxx; Proxy: null).
 
 **Resolution**: You must provide sufficient permissions in AWS Lake Formation.
@@ -214,7 +214,7 @@ produce a list that can't be meaningfully compared to the current row count.
 **Error condition**:
 
 - `Rule threshold results in list, and a single value is expected. Use aggregation functions to produce a single value. 
-Valid example: sum(last(10)), avg(last(10)).`
+ Valid example: sum(last(10)), avg(last(10)).`
 - `Rule threshold results in empty list, and a single value is expected.`
 
 **Cause**: Dynamic rules can be used to compare some feature
@@ -237,7 +237,7 @@ Invalid example: `RowCount > last(5)`.
 
 - `Function index used in threshold requires positive integer argument.`
 - `Index argument must be an integer. Valid syntax example: `RowCount > index(last(10, 2))`, which means 
-`RowCount` must be greater than third most recent execution from last 10 job runs.`
+ `RowCount` must be greater than third most recent execution from last 10 job runs.`
 
 **Resolution**: When authoring dynamic rules, you can use the `index` aggregation function
 to select one historical value from a list. For example, `RowCount > index(last(5)`, 1) will check whether the row
@@ -270,7 +270,7 @@ AWS Glue Data Catalog is empty.
 One way to fix this is to use “primary“ or add catalog name `glue_catalog.` to `<database>.<table>
  in Custom ruletype` .
 
-## UNCLASSIFIED_ERROR; IllegalArgumentException: Parsing Error: No rules or analyzers provided., no viable alternative at input
+## UNCLASSIFIED\_ERROR; IllegalArgumentException: Parsing Error: No rules or analyzers provided., no viable alternative at input
 
 **Error condition**`: UNCLASSIFIED_ERROR; IllegalArgumentException: Parsing Error: No rules or 
  analyzers provided., no viable alternative at input`

@@ -17,11 +17,9 @@ Check that your browser does not block third-party cookies. Any browser that blo
     * [Safari](https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac "https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac")
 
 4. Choose the **Jobs** link in the left-side navigation
-   menu.
-5. Choose **Jupyter notebook** and then choose
-   **Create** to start a new notebook session.
-6. On the **Create job in Jupyter notebook** page, provide the job
-   name, and choose the IAM role to use. Choose **Create job**.
+menu. 5. Choose **Jupyter notebook** and then choose
+**Create** to start a new notebook session. 6. On the **Create job in Jupyter notebook** page, provide the job
+name, and choose the IAM role to use. Choose **Create job**.
 
 After a short time period, the notebook editor appears. 7. After you add the code you must execute the cell to initiate a session. There are multiple ways to execute the cell:
 

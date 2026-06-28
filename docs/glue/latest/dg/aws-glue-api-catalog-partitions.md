@@ -369,20 +369,20 @@ A mapping of skewed values to the columns that contain them.
 
 ## Operations
 
-- [CreatePartition action (Python: create_partition)](#aws-glue-api-catalog-partitions-CreatePartition "#aws-glue-api-catalog-partitions-CreatePartition")
-- [BatchCreatePartition action (Python: batch_create_partition)](#aws-glue-api-catalog-partitions-BatchCreatePartition "#aws-glue-api-catalog-partitions-BatchCreatePartition")
-- [UpdatePartition action (Python: update_partition)](#aws-glue-api-catalog-partitions-UpdatePartition "#aws-glue-api-catalog-partitions-UpdatePartition")
-- [DeletePartition action (Python: delete_partition)](#aws-glue-api-catalog-partitions-DeletePartition "#aws-glue-api-catalog-partitions-DeletePartition")
-- [BatchDeletePartition action (Python: batch_delete_partition)](#aws-glue-api-catalog-partitions-BatchDeletePartition "#aws-glue-api-catalog-partitions-BatchDeletePartition")
-- [GetPartition action (Python: get_partition)](#aws-glue-api-catalog-partitions-GetPartition "#aws-glue-api-catalog-partitions-GetPartition")
-- [GetPartitions action (Python: get_partitions)](#aws-glue-api-catalog-partitions-GetPartitions "#aws-glue-api-catalog-partitions-GetPartitions")
-- [BatchGetPartition action (Python: batch_get_partition)](#aws-glue-api-catalog-partitions-BatchGetPartition "#aws-glue-api-catalog-partitions-BatchGetPartition")
-- [BatchUpdatePartition action (Python: batch_update_partition)](#aws-glue-api-catalog-partitions-BatchUpdatePartition "#aws-glue-api-catalog-partitions-BatchUpdatePartition")
-- [GetColumnStatisticsForPartition action (Python: get_column_statistics_for_partition)](#aws-glue-api-catalog-partitions-GetColumnStatisticsForPartition "#aws-glue-api-catalog-partitions-GetColumnStatisticsForPartition")
-- [UpdateColumnStatisticsForPartition action (Python: update_column_statistics_for_partition)](#aws-glue-api-catalog-partitions-UpdateColumnStatisticsForPartition "#aws-glue-api-catalog-partitions-UpdateColumnStatisticsForPartition")
-- [DeleteColumnStatisticsForPartition action (Python: delete_column_statistics_for_partition)](#aws-glue-api-catalog-partitions-DeleteColumnStatisticsForPartition "#aws-glue-api-catalog-partitions-DeleteColumnStatisticsForPartition")
+- [CreatePartition action (Python: create\_partition)](#aws-glue-api-catalog-partitions-CreatePartition "#aws-glue-api-catalog-partitions-CreatePartition")
+- [BatchCreatePartition action (Python: batch\_create\_partition)](#aws-glue-api-catalog-partitions-BatchCreatePartition "#aws-glue-api-catalog-partitions-BatchCreatePartition")
+- [UpdatePartition action (Python: update\_partition)](#aws-glue-api-catalog-partitions-UpdatePartition "#aws-glue-api-catalog-partitions-UpdatePartition")
+- [DeletePartition action (Python: delete\_partition)](#aws-glue-api-catalog-partitions-DeletePartition "#aws-glue-api-catalog-partitions-DeletePartition")
+- [BatchDeletePartition action (Python: batch\_delete\_partition)](#aws-glue-api-catalog-partitions-BatchDeletePartition "#aws-glue-api-catalog-partitions-BatchDeletePartition")
+- [GetPartition action (Python: get\_partition)](#aws-glue-api-catalog-partitions-GetPartition "#aws-glue-api-catalog-partitions-GetPartition")
+- [GetPartitions action (Python: get\_partitions)](#aws-glue-api-catalog-partitions-GetPartitions "#aws-glue-api-catalog-partitions-GetPartitions")
+- [BatchGetPartition action (Python: batch\_get\_partition)](#aws-glue-api-catalog-partitions-BatchGetPartition "#aws-glue-api-catalog-partitions-BatchGetPartition")
+- [BatchUpdatePartition action (Python: batch\_update\_partition)](#aws-glue-api-catalog-partitions-BatchUpdatePartition "#aws-glue-api-catalog-partitions-BatchUpdatePartition")
+- [GetColumnStatisticsForPartition action (Python: get\_column\_statistics\_for\_partition)](#aws-glue-api-catalog-partitions-GetColumnStatisticsForPartition "#aws-glue-api-catalog-partitions-GetColumnStatisticsForPartition")
+- [UpdateColumnStatisticsForPartition action (Python: update\_column\_statistics\_for\_partition)](#aws-glue-api-catalog-partitions-UpdateColumnStatisticsForPartition "#aws-glue-api-catalog-partitions-UpdateColumnStatisticsForPartition")
+- [DeleteColumnStatisticsForPartition action (Python: delete\_column\_statistics\_for\_partition)](#aws-glue-api-catalog-partitions-DeleteColumnStatisticsForPartition "#aws-glue-api-catalog-partitions-DeleteColumnStatisticsForPartition")
 
-## CreatePartition action (Python: create_partition)
+## CreatePartition action (Python: create\_partition)
 
 Creates a new partition.
 
@@ -420,7 +420,7 @@ be created.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## BatchCreatePartition action (Python: batch_create_partition)
+## BatchCreatePartition action (Python: batch\_create\_partition)
 
 Creates one or more partitions in a batch operation.
 
@@ -460,7 +460,7 @@ The errors encountered when trying to create the requested partitions.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## UpdatePartition action (Python: update_partition)
+## UpdatePartition action (Python: update\_partition)
 
 Updates a partition.
 
@@ -502,7 +502,7 @@ the partition key values for a partition, delete and recreate the partition.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## DeletePartition action (Python: delete_partition)
+## DeletePartition action (Python: delete\_partition)
 
 Deletes a specified partition.
 
@@ -536,7 +536,7 @@ The values that define the partition.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## BatchDeletePartition action (Python: batch_delete_partition)
+## BatchDeletePartition action (Python: batch\_delete\_partition)
 
 Deletes one or more partitions in a batch operation.
 
@@ -573,7 +573,7 @@ The errors encountered when trying to delete the requested partitions.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetPartition action (Python: get_partition)
+## GetPartition action (Python: get\_partition)
 
 Retrieves information about a specified partition.
 
@@ -612,7 +612,7 @@ The requested information, in the form of a `Partition` object.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## GetPartitions action (Python: get_partitions)
+## GetPartitions action (Python: get\_partitions)
 
 Retrieves information about the partitions in a table.
 
@@ -816,7 +816,7 @@ the last one.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## BatchGetPartition action (Python: batch_get_partition)
+## BatchGetPartition action (Python: batch\_get\_partition)
 
 Retrieves partitions in a batch request.
 
@@ -861,7 +861,7 @@ not returned.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## BatchUpdatePartition action (Python: batch_update_partition)
+## BatchUpdatePartition action (Python: batch\_update\_partition)
 
 Updates one or more partitions in a batch operation.
 
@@ -900,7 +900,7 @@ A list of `BatchUpdatePartitionFailureEntry` objects.
 - `InternalServiceException`
 - `GlueEncryptionException`
 
-## GetColumnStatisticsForPartition action (Python: get_column_statistics_for_partition)
+## GetColumnStatisticsForPartition action (Python: get\_column\_statistics\_for\_partition)
 
 Retrieves partition statistics of columns.
 
@@ -948,7 +948,7 @@ Error occurred during retrieving column statistics data.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## UpdateColumnStatisticsForPartition action (Python: update_column_statistics_for_partition)
+## UpdateColumnStatisticsForPartition action (Python: update\_column\_statistics\_for\_partition)
 
 Creates or updates partition statistics of columns.
 
@@ -992,7 +992,7 @@ Error occurred during updating column statistics data.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## DeleteColumnStatisticsForPartition action (Python: delete_column_statistics_for_partition)
+## DeleteColumnStatisticsForPartition action (Python: delete\_column\_statistics\_for\_partition)
 
 Delete the partition column statistics of a column.
 

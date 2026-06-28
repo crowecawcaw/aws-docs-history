@@ -10,7 +10,7 @@ options in order to take advantage of the newer capabilities that are available.
 [AWS Glue Spark and PySpark jobs](spark_and_pyspark.md "spark_and_pyspark.md") allow you to run your workloads in a
 distributed fashion. Since both AWS Glue Python Shell jobs and AWS Glue Spark jobs run on the same platform, it's easy to migrate, and you can continue using
 existing AWS Glue features that you're using with Python Shell jobs, such as AWS Glue Workflows, AWS Glue Triggers, AWS Glue's Amazon EventBridge integration, \
- PIP-based package installation, and so on.
+PIP-based package installation, and so on.
 
 However, AWS Glue Spark jobs are designed to run Spark workloads, and the minimum number of workers is 2. If you migrate from Python Shell jobs without
 modifying your scripts, only one worker will be actually used, and the other workers will remain idle. This will increase your costs.

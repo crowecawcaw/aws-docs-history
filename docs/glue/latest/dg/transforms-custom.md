@@ -156,27 +156,24 @@ the page:
     ![An outline of a trash can](images/delete-icon-black.png)
     ) to the far right of the key name.
 
-4.  If your custom transform code uses multiple `DynamicFrames`, you can
-    add additional output schemas.
+4. If your custom transform code uses multiple `DynamicFrames`, you can
+add additional output schemas.
 
-        * To add a new, empty schema, choose the **Overflow** (
-        ![An ellipsis (...)](images/edit-schema-actions-button.png)
-        ) icon, and then choose **Add output
-         schema**.
-        * To copy an existing schema to a new output schema, make sure the schema you
-         want to copy is displayed in the schema selector. Choose the
-         **Overflow** (
-        ![An ellipsis (...)](images/edit-schema-actions-button.png)
-        ) icon, and then choose **Duplicate**.
-
-    If you want to remove an output schema, make sure the schema you want to copy is
-    displayed in the schema selector. Choose the **Overflow** (
+    * To add a new, empty schema, choose the **Overflow** (
     ![An ellipsis (...)](images/edit-schema-actions-button.png)
-    ) icon, and then choose **Delete**.
+    ) icon, and then choose **Add output
+     schema**.
+    * To copy an existing schema to a new output schema, make sure the schema you
+     want to copy is displayed in the schema selector. Choose the
+     **Overflow** (
+    ![An ellipsis (...)](images/edit-schema-actions-button.png)
+    ) icon, and then choose **Duplicate**.
 
-5.  Add new root keys to the new schema or edit the duplicated keys.
-6.  When you are modifying the output schemas, choose the **Apply**
-    button to save your changes and exit the schema editor.
+If you want to remove an output schema, make sure the schema you want to copy is
+displayed in the schema selector. Choose the **Overflow** (
+![An ellipsis (...)](images/edit-schema-actions-button.png)
+) icon, and then choose **Delete**. 5. Add new root keys to the new schema or edit the duplicated keys. 6. When you are modifying the output schemas, choose the **Apply**
+button to save your changes and exit the schema editor.
 
 If you do not want to save your changes, choose the **Cancel**
 button.

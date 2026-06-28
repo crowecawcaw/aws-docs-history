@@ -408,8 +408,8 @@ performance. If you do not specify this parameter, the permitted WCU per Spark t
 calculated by the following formula:
 
 - - `numPartitions = dynamicframe.getNumPartitions()`
-  - `numSlots` (as defined previously in this section)
-  - `numParallelTasks = min(numPartitions, numSlots)`
+    - `numSlots` (as defined previously in this section)
+    - `numParallelTasks = min(numPartitions, numSlots)`
 - Example 1. DPU=10, WorkerType=Standard. Input DynamicFrame has 100 RDD
   partitions.
 

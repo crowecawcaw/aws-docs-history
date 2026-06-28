@@ -53,7 +53,7 @@ The resulting `df\_output` DataFrame will contain all columns from the original 
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-FlagDuplicatesInColumn-describeErrors "#aws-glue-api-crawler-pyspark-transforms-FlagDuplicatesInColumn-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-FlagDuplicatesInColumn-describe "#aws-glue-api-crawler-pyspark-transforms-FlagDuplicatesInColumn-describe")
 
-## \_\_call\_\_(spark_context, data_frame, source_column, target_column, true_string=DEFAULT_TRUE_STRING, false_string=DEFAULT_FALSE_STRING)
+## \_\_call\_\_(spark\_context, data\_frame, source\_column, target\_column, true\_string=DEFAULT\_TRUE\_STRING, false\_string=DEFAULT\_FALSE\_STRING)
 
 The `FlagDuplicatesInColumn` transform returns a new column with a specified value in each row
 that indicates whether the value in the row's source column matches a value in an earlier row of

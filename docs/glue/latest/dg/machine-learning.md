@@ -91,7 +91,7 @@ consider the following:
      and resave the file as **UTF-8 without BOM**.
 
 2. On the AWS Glue console, create a job, and choose the **Find matches** transform
-   type.
+type.
 
 ###### Important
 
@@ -103,8 +103,7 @@ records for each `labeling_set_id` so that you can review those groupings. You l
      rows, upload the file to Amazon Simple Storage Service (Amazon S3). For information about the format of the
      labeling file, see [Labeling file format](#machine-learning-labeling-file "#machine-learning-labeling-file"). Proceed to step 4.
 
-4. Download the labeling file and label the file as described in the [Labeling](#machine-learning-labeling "#machine-learning-labeling") section.
-5. Upload the corrected labelled file. AWS Glue runs tasks to teach the transform how to find matches.
+4. Download the labeling file and label the file as described in the [Labeling](#machine-learning-labeling "#machine-learning-labeling") section. 5. Upload the corrected labelled file. AWS Glue runs tasks to teach the transform how to find matches.
 
 On the **Machine learning transforms** list page, choose the
 **History** tab. This page indicates when AWS Glue performs the
@@ -116,9 +115,8 @@ following tasks:
     * **Estimate quality**
 
 6. To create a better transform, you can iteratively download, label, and upload the labelled
-   file. In the initial runs, a lot more records might be mismatched. But AWS Glue learns as
-   you continue to teach it by verifying the labeling file.
-7. Evaluate and tune your transform by evaluating performance and results of finding matches. For more information, see [Tuning machine learning transforms in AWS Glue](add-job-machine-learning-transform-tuning.md "add-job-machine-learning-transform-tuning.md").
+file. In the initial runs, a lot more records might be mismatched. But AWS Glue learns as
+you continue to teach it by verifying the labeling file. 7. Evaluate and tune your transform by evaluating performance and results of finding matches. For more information, see [Tuning machine learning transforms in AWS Glue](add-job-machine-learning-transform-tuning.md "add-job-machine-learning-transform-tuning.md").
 
 #### Labeling
 
@@ -175,21 +173,21 @@ might not correctly represent your data.
 
 The following is an example of labeling the data:
 
-| labeling_set_id | label | first_name | last_name    | Birthday   |
-| --------------- | ----- | ---------- | ------------ | ---------- |
-| ABC123          | A     | John       | Doe          | 04/01/1980 |
-| ABC123          | B     | Jane       | Smith        | 04/03/1980 |
-| ABC123          | A     | Johnny     | Doe          | 04/01/1980 |
-| ABC123          | A     | Jon        | Doe          | 04/01/1980 |
-| DEF345          | A     | Richard    | Jones        | 12/11/1992 |
-| DEF345          | A     | Rich       | Jones        | 11/12/1992 |
-| DEF345          | B     | Sarah      | Jones        | 12/11/1992 |
-| DEF345          | C     | Richie     | Jones Jr.    | 05/06/2017 |
-| DEF345          | B     | Sarah      | Jones-Walker | 12/11/1992 |
-| GHI678          | A     | Robert     | Miller       | 1/3/1999   |
-| GHI678          | A     | Bob        | Miller       | 1/3/1999   |
-| XYZABC          | A     | William    | Robinson     | 2/5/2001   |
-| XYZABC          | B     | Andrew     | Robinson     | 2/5/1971   |
+| labeling\_set\_id | label | first\_name | last\_name   | Birthday   |
+| ----------------- | ----- | ----------- | ------------ | ---------- |
+| ABC123            | A     | John        | Doe          | 04/01/1980 |
+| ABC123            | B     | Jane        | Smith        | 04/03/1980 |
+| ABC123            | A     | Johnny      | Doe          | 04/01/1980 |
+| ABC123            | A     | Jon         | Doe          | 04/01/1980 |
+| DEF345            | A     | Richard     | Jones        | 12/11/1992 |
+| DEF345            | A     | Rich        | Jones        | 11/12/1992 |
+| DEF345            | B     | Sarah       | Jones        | 12/11/1992 |
+| DEF345            | C     | Richie      | Jones Jr.    | 05/06/2017 |
+| DEF345            | B     | Sarah       | Jones-Walker | 12/11/1992 |
+| GHI678            | A     | Robert      | Miller       | 1/3/1999   |
+| GHI678            | A     | Bob         | Miller       | 1/3/1999   |
+| XYZABC            | A     | William     | Robinson     | 2/5/2001   |
+| XYZABC            | B     | Andrew      | Robinson     | 2/5/1971   |
 
 - In the above example we identify John/Johnny/Jon Doe as being a match and we teach the system that these records do not match Jane Smith. Separately, we teach the system that Richard and Rich Jones are the same person, but that these records are not a match to Sarah Jones/Jones-Walker and Richie Jones Jr.
 - As you can see, the scope of the labels is limited to the `labeling_set_id`. So labels do not cross

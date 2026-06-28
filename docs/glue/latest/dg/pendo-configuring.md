@@ -6,7 +6,7 @@ requirements:
 ## Minimum requirements
 
 - You have a Pendo account with an `apiKey` with `write
-access` enabled.
+ access` enabled.
 - Your Pendo account has API access with a valid license.
 
 If you meet these requirements, you’re ready to connect AWS Glue to your Pendo

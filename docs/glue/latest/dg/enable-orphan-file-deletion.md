@@ -57,7 +57,7 @@ table. The key parameters are:
 - enabled – Set to true to enable the optimizer.
 - orphanFileRetentionPeriodInDays – The number of days to retain orphan
   files before deleting them (minimum 1 day).
-- type – Set to orphan_file_deletion to create an orphan file deletion
+- type – Set to orphan\_file\_deletion to create an orphan file deletion
   optimizer.
 
 After creating the table optimizer, it will run orphan file deletion periodically

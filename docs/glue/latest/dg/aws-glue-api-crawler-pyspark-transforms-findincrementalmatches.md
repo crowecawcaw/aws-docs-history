@@ -12,7 +12,7 @@ from awsglueml.transforms import FindIncrementalMatches
 
 - [Apply](#aws-glue-api-crawler-pyspark-transforms-findincrementalmatches-apply "#aws-glue-api-crawler-pyspark-transforms-findincrementalmatches-apply")
 
-## apply(existingFrame, incrementalFrame, transformId, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0, enforcedMatches = none, computeMatchConfidenceScores = 0)
+## apply(existingFrame, incrementalFrame, transformId, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0, enforcedMatches = none, computeMatchConfidenceScores = 0)
 
 Identifies matching records in the input `DynamicFrame` and creates a new `DynamicFrame` with a unique identifier assigned to each group of matching records.
 

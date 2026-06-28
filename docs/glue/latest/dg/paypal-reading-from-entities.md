@@ -27,25 +27,25 @@ paypal_read = glueContext.create_dynamic_frame.from_options(
 
 Entities with static metadata:
 
-| Entity                         | Field                       | Data type | Supported operators |
-| ------------------------------ | --------------------------- | --------- | ------------------- |
-| transaction                    | transaction_initiation_date | DateTime  | Between             |
-| last_refreshed_datetime        | String                      | N/A       |
-| payment_instrument_type        | String                      | =         |
-| balance_affecting_records_only | String                      | =         |
-| store_id                       | String                      | =         |
-| terminal_id                    | String                      | =         |
-| transaction_currency           | String                      | =         |
-| transaction_id                 | String                      | N/A       |
-| transaction_status             | String                      | N/A       |
-| transaction_type               | String                      | N/A       |
-| transaction_info               | Struct                      | N/A       |
-| payer_info                     | Struct                      | N/A       |
-| shipping_info                  | Struct                      | N/A       |
-| cart_info                      | Struct                      | N/A       |
-| store_info                     | Struct                      | N/A       |
-| auction_info                   | Struct                      | N/A       |
-| incentive_info                 | Struct                      | N/A       |
+| Entity                            | Field                         | Data type | Supported operators |
+| --------------------------------- | ----------------------------- | --------- | ------------------- |
+| transaction                       | transaction\_initiation\_date | DateTime  | Between             |
+| last\_refreshed\_datetime         | String                        | N/A       |
+| payment\_instrument\_type         | String                        | =         |
+| balance\_affecting\_records\_only | String                        | =         |
+| store\_id                         | String                        | =         |
+| terminal\_id                      | String                        | =         |
+| transaction\_currency             | String                        | =         |
+| transaction\_id                   | String                        | N/A       |
+| transaction\_status               | String                        | N/A       |
+| transaction\_type                 | String                        | N/A       |
+| transaction\_info                 | Struct                        | N/A       |
+| payer\_info                       | Struct                        | N/A       |
+| shipping\_info                    | Struct                        | N/A       |
+| cart\_info                        | Struct                        | N/A       |
+| store\_info                       | Struct                        | N/A       |
+| auction\_info                     | Struct                        | N/A       |
+| incentive\_info                   | Struct                        | N/A       |
 
 ## Partitioning queries
 
@@ -72,9 +72,9 @@ Examples of valid value:
 
 The following field is supported for entity-wise partitioning:
 
-| Entity name | Partitioning fields         | Data type |
-| ----------- | --------------------------- | --------- |
-| transaction | transaction_initiation_date | DateTime  |
+| Entity name | Partitioning fields           | Data type |
+| ----------- | ----------------------------- | --------- |
+| transaction | transaction\_initiation\_date | DateTime  |
 
 Example:
 

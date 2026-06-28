@@ -93,7 +93,7 @@ dynf1 = DynamicFrame.fromDF(df1, glueContext, None)
 
 ```
 
-4. Test to validate the “custom_filter_state” with different arguments:
+4. Test to validate the “custom\_filter\_state” with different arguments:
 
 ![The screenshot shows a cell in a AWS Glue notebook with the arguments passed to the dynamicFrame.show function.](images/dynamic-transform-notebook-test-python.png) 5. After running several tests, save the code
 with the .py extension and name the .py file with a name that mirrors the .json file name.

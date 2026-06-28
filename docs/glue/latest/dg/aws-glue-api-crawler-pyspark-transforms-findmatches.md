@@ -12,7 +12,7 @@ from awsglueml.transforms import FindMatches
 
 - [Apply](#aws-glue-api-crawler-pyspark-transforms-findmatches-apply "#aws-glue-api-crawler-pyspark-transforms-findmatches-apply")
 
-## apply(frame, transformId, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0, enforcedMatches = none, computeMatchConfidenceScores = 0)
+## apply(frame, transformId, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0, enforcedMatches = none, computeMatchConfidenceScores = 0)
 
 Identifies matching records in the input `DynamicFrame` and creates a new `DynamicFrame` with a unique identifier assigned to each group of matching records.
 

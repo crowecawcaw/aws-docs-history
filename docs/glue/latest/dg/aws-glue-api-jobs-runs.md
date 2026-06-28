@@ -274,7 +274,8 @@ during the lifecycle of a job run in seconds, multiplied by a DPU factor (1 for 
 may be different than the `executionEngineRuntime` \* `MaxCapacity`
 as in the case of Auto Scaling jobs, as the number of executors running at a given
 time may be less than the `MaxCapacity`. Therefore, it is possible
-that the value of `DPUSeconds` is less than `executionEngineRuntime` \* `MaxCapacity`.
+that the value of `DPUSeconds` is less than `executionEngineRuntime`
+\* `MaxCapacity`.
 
 - `ExecutionClass` – UTF-8 string, not more than 16 bytes long (valid values: `FLEX=""` | `STANDARD=""`).
 
@@ -414,15 +415,15 @@ run delay notification.
 
 ## Operations
 
-- [StartJobRun action (Python: start_job_run)](#aws-glue-api-jobs-runs-StartJobRun "#aws-glue-api-jobs-runs-StartJobRun")
-- [BatchStopJobRun action (Python: batch_stop_job_run)](#aws-glue-api-jobs-runs-BatchStopJobRun "#aws-glue-api-jobs-runs-BatchStopJobRun")
-- [GetJobRun action (Python: get_job_run)](#aws-glue-api-jobs-runs-GetJobRun "#aws-glue-api-jobs-runs-GetJobRun")
-- [GetJobRuns action (Python: get_job_runs)](#aws-glue-api-jobs-runs-GetJobRuns "#aws-glue-api-jobs-runs-GetJobRuns")
-- [GetJobBookmark action (Python: get_job_bookmark)](#aws-glue-api-jobs-runs-GetJobBookmark "#aws-glue-api-jobs-runs-GetJobBookmark")
-- [GetJobBookmarks action (Python: get_job_bookmarks)](#aws-glue-api-jobs-runs-GetJobBookmarks "#aws-glue-api-jobs-runs-GetJobBookmarks")
-- [ResetJobBookmark action (Python: reset_job_bookmark)](#aws-glue-api-jobs-runs-ResetJobBookmark "#aws-glue-api-jobs-runs-ResetJobBookmark")
+- [StartJobRun action (Python: start\_job\_run)](#aws-glue-api-jobs-runs-StartJobRun "#aws-glue-api-jobs-runs-StartJobRun")
+- [BatchStopJobRun action (Python: batch\_stop\_job\_run)](#aws-glue-api-jobs-runs-BatchStopJobRun "#aws-glue-api-jobs-runs-BatchStopJobRun")
+- [GetJobRun action (Python: get\_job\_run)](#aws-glue-api-jobs-runs-GetJobRun "#aws-glue-api-jobs-runs-GetJobRun")
+- [GetJobRuns action (Python: get\_job\_runs)](#aws-glue-api-jobs-runs-GetJobRuns "#aws-glue-api-jobs-runs-GetJobRuns")
+- [GetJobBookmark action (Python: get\_job\_bookmark)](#aws-glue-api-jobs-runs-GetJobBookmark "#aws-glue-api-jobs-runs-GetJobBookmark")
+- [GetJobBookmarks action (Python: get\_job\_bookmarks)](#aws-glue-api-jobs-runs-GetJobBookmarks "#aws-glue-api-jobs-runs-GetJobBookmarks")
+- [ResetJobBookmark action (Python: reset\_job\_bookmark)](#aws-glue-api-jobs-runs-ResetJobBookmark "#aws-glue-api-jobs-runs-ResetJobBookmark")
 
-## StartJobRun action (Python: start_job_run)
+## StartJobRun action (Python: start\_job\_run)
 
 Starts a job run using a job definition.
 
@@ -634,7 +635,7 @@ The ID assigned to this job run.
 - `ResourceNumberLimitExceededException`
 - `ConcurrentRunsExceededException`
 
-## BatchStopJobRun action (Python: batch_stop_job_run)
+## BatchStopJobRun action (Python: batch\_stop\_job\_run)
 
 Stops one or more job runs for a specified job definition.
 
@@ -667,7 +668,7 @@ details about the error.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetJobRun action (Python: get_job_run)
+## GetJobRun action (Python: get\_job\_run)
 
 Retrieves the metadata for a given job run. Job run history is accessible
 for 365 days for your workflow and job run.
@@ -699,7 +700,7 @@ The requested job-run metadata.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetJobRuns action (Python: get_job_runs)
+## GetJobRuns action (Python: get\_job\_runs)
 
 Retrieves metadata for all runs of a given job definition.
 
@@ -737,7 +738,7 @@ A continuation token, if not all requested job runs have been returned.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetJobBookmark action (Python: get_job_bookmark)
+## GetJobBookmark action (Python: get\_job\_bookmark)
 
 Returns information on a job bookmark entry.
 
@@ -778,7 +779,7 @@ A structure that defines a point that a job can resume processing.
 - `OperationTimeoutException`
 - `ValidationException`
 
-## GetJobBookmarks action (Python: get_job_bookmarks)
+## GetJobBookmarks action (Python: get\_job\_bookmarks)
 
 Returns information on the job bookmark entries. The list is ordered on
 decreasing version numbers.
@@ -825,7 +826,7 @@ or > 1 if not all requested job runs have been returned.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## ResetJobBookmark action (Python: reset_job_bookmark)
+## ResetJobBookmark action (Python: reset\_job\_bookmark)
 
 Resets a bookmark entry.
 

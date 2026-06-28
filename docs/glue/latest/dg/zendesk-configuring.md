@@ -42,5 +42,5 @@ To create a client app and OAuth 2.0 credentials:
    For example: https://us-east-1.console.aws.amazon.com/gluestudio/oauth
 
 7. Click **Save**.
-8. After the page refreshes, a new pre-populated **Secret** field appears on the lower side. This is the "client_secret" value specified in the OAuth2 spec. Copy the Secret value to your clipboard and save it somewhere safe. Note: The characters may extend past the width of the text box, so make sure to select everything before copying.
+8. After the page refreshes, a new pre-populated **Secret** field appears on the lower side. This is the "client\_secret" value specified in the OAuth2 spec. Copy the Secret value to your clipboard and save it somewhere safe. Note: The characters may extend past the width of the text box, so make sure to select everything before copying.
 9. Click **Save**.

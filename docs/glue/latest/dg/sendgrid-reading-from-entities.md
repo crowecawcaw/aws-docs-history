@@ -35,78 +35,78 @@ sendgrid_read = glueContext.create_dynamic_frame.from_options(
 
 Entities with static metadata:
 
-| Entity                               | Field      | Data type         | Supported operators |
-| ------------------------------------ | ---------- | ----------------- | ------------------- |
-| Lists                                | id         | String            | N/A                 |
-| name                                 | String     | N/A               |
-| contact_count                        | Integer    | N/A               |
-| \_metadata                           | Struct     | N/A               |
-| Single Sends                         | id         | String            | N/A                 |
-| name                                 | String     | EQUAL_TO          |
-| abtest                               | Struct     | N/A               |
-| status                               | String     | EQUAL_TO          |
-| categories                           | List       | EQUAL_TO          |
-| send_at                              | String     | N/A               |
-| is_abtest                            | Boolean    | N/A               |
-| updated_at                           | String     | N/A               |
-| created_at                           | String     | N/A               |
-| channels                             | List       | N/A               |
-| Marketing Campaign Stats-Automations | id         | String            | N/A                 |
-| aggregation                          | String     | N/A               |
-| step_id                              | String     | N/A               |
-| stats                                | Struct     | N/A               |
-| automation_ids                       | List       | EQUAL_TO          |
-| Marketing Campaign Stats-Singlesends | id         | String            | N/A                 |
-| ab_variation                         | String     | N/A               |
-| ab_phase                             | String     | N/A               |
-| aggregation                          | String     | N/A               |
-| stats                                | Struct     | N/A               |
-| singlesend_ids                       | List       | EQUAL_TO          |
-| Segments                             | id         | String            | N/A                 |
-| name                                 | String     | N/A               |
-| query_version                        | String     | N/A               |
-| contacts_count                       | Integer    | N/A               |
-| sample_updated_at                    | String     | N/A               |
-| next_sample_update                   | String     | N/A               |
-| created_at                           | String     | N/A               |
-| updated_at                           | String     | N/A               |
-| parent_list_id                       | String     | N/A               |
-| status                               | Struct     | N/A               |
-| parent_list_ids                      | String     | EQUAL_TO          |
-| no_parent_list_id                    | Boolean    | EQUAL_TO          |
-| Contacts                             | id         | String            | N/A                 |
-| first_name                           | String     | N/A               |
-| last_name                            | String     | N/A               |
-| unique_name                          | String     | N/A               |
-| email                                | String     | N/A               |
-| alternate_emails                     | List       | N/A               |
-| address_line_1                       | String     | N/A               |
-| address_line_2                       | String     | N/A               |
-| city                                 | String     | N/A               |
-| state_province_region                | String     | N/A               |
-| country                              | String     | N/A               |
-| postal_code                          | String     | N/A               |
-| phone_number                         | String     | N/A               |
-| whatsapp                             | String     | N/A               |
-| line                                 | String     | N/A               |
-| facebook                             | String     | N/A               |
-| list_ids                             | List       | N/A               |
-| custom_fields                        | Struct     | N/A               |
-| created_at                           | String     | N/A               |
-| updated_at                           | String     | N/A               |
-| \_metadata                           | Struct     | N/A               |
-| event_timestamp                      | DateTime   | BETWEEN           |
-| Category                             | categories | List              | N/A                 |
-| Stats                                | date       | String            | N/A                 |
-| stats                                | List       | N/A               |
-| start_date                           | DateTime   | EQUAL_TO, BETWEEN |
-| aggregated_by                        | String     | EQUAL_TO          |
-| Unsubscribe Groups                   | id         | Integer           | EQUAL_TO            |
-| name                                 | String     | N/A               |
-| description                          | String     | N/A               |
-| last_email_sent_at                   | Integer    | N/A               |
-| is_default                           | Boolean    | N/A               |
-| unsubscribes                         | Integer    | N/A               |
+| Entity                               | Field      | Data type          | Supported operators |
+| ------------------------------------ | ---------- | ------------------ | ------------------- |
+| Lists                                | id         | String             | N/A                 |
+| name                                 | String     | N/A                |
+| contact\_count                       | Integer    | N/A                |
+| \_metadata                           | Struct     | N/A                |
+| Single Sends                         | id         | String             | N/A                 |
+| name                                 | String     | EQUAL\_TO          |
+| abtest                               | Struct     | N/A                |
+| status                               | String     | EQUAL\_TO          |
+| categories                           | List       | EQUAL\_TO          |
+| send\_at                             | String     | N/A                |
+| is\_abtest                           | Boolean    | N/A                |
+| updated\_at                          | String     | N/A                |
+| created\_at                          | String     | N/A                |
+| channels                             | List       | N/A                |
+| Marketing Campaign Stats-Automations | id         | String             | N/A                 |
+| aggregation                          | String     | N/A                |
+| step\_id                             | String     | N/A                |
+| stats                                | Struct     | N/A                |
+| automation\_ids                      | List       | EQUAL\_TO          |
+| Marketing Campaign Stats-Singlesends | id         | String             | N/A                 |
+| ab\_variation                        | String     | N/A                |
+| ab\_phase                            | String     | N/A                |
+| aggregation                          | String     | N/A                |
+| stats                                | Struct     | N/A                |
+| singlesend\_ids                      | List       | EQUAL\_TO          |
+| Segments                             | id         | String             | N/A                 |
+| name                                 | String     | N/A                |
+| query\_version                       | String     | N/A                |
+| contacts\_count                      | Integer    | N/A                |
+| sample\_updated\_at                  | String     | N/A                |
+| next\_sample\_update                 | String     | N/A                |
+| created\_at                          | String     | N/A                |
+| updated\_at                          | String     | N/A                |
+| parent\_list\_id                     | String     | N/A                |
+| status                               | Struct     | N/A                |
+| parent\_list\_ids                    | String     | EQUAL\_TO          |
+| no\_parent\_list\_id                 | Boolean    | EQUAL\_TO          |
+| Contacts                             | id         | String             | N/A                 |
+| first\_name                          | String     | N/A                |
+| last\_name                           | String     | N/A                |
+| unique\_name                         | String     | N/A                |
+| email                                | String     | N/A                |
+| alternate\_emails                    | List       | N/A                |
+| address\_line\_1                     | String     | N/A                |
+| address\_line\_2                     | String     | N/A                |
+| city                                 | String     | N/A                |
+| state\_province\_region              | String     | N/A                |
+| country                              | String     | N/A                |
+| postal\_code                         | String     | N/A                |
+| phone\_number                        | String     | N/A                |
+| whatsapp                             | String     | N/A                |
+| line                                 | String     | N/A                |
+| facebook                             | String     | N/A                |
+| list\_ids                            | List       | N/A                |
+| custom\_fields                       | Struct     | N/A                |
+| created\_at                          | String     | N/A                |
+| updated\_at                          | String     | N/A                |
+| \_metadata                           | Struct     | N/A                |
+| event\_timestamp                     | DateTime   | BETWEEN            |
+| Category                             | categories | List               | N/A                 |
+| Stats                                | date       | String             | N/A                 |
+| stats                                | List       | N/A                |
+| start\_date                          | DateTime   | EQUAL\_TO, BETWEEN |
+| aggregated\_by                       | String     | EQUAL\_TO          |
+| Unsubscribe Groups                   | id         | Integer            | EQUAL\_TO           |
+| name                                 | String     | N/A                |
+| description                          | String     | N/A                |
+| last\_email\_sent\_at                | Integer    | N/A                |
+| is\_default                          | Boolean    | N/A                |
+| unsubscribes                         | Integer    | N/A                |
 
 ###### Note
 

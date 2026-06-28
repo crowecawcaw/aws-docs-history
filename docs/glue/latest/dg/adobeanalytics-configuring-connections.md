@@ -14,7 +14,7 @@ This grant type results in a refresh token and access token. The access token is
 lived, and may be refreshed automatically without user interaction using the refresh
 token.
 
-For public Adobe Analytics documentation on creating a connected app for AUTHORIZATION_CODE OAuth flow, see [Adobe Analytics APIs](https://adobedocs.github.io/analytics-2.0-apis/ "https://adobedocs.github.io/analytics-2.0-apis/") .
+For public Adobe Analytics documentation on creating a connected app for AUTHORIZATION\_CODE OAuth flow, see [Adobe Analytics APIs](https://adobedocs.github.io/analytics-2.0-apis/ "https://adobedocs.github.io/analytics-2.0-apis/") .
 
 To configure a Adobe Analytics connection:
 
@@ -68,4 +68,4 @@ by following the steps below:
     5. Select the network options if you want to use your network.
 
 3. Grant the IAM role associated with your AWS Glue job permission to read
-   `secretName`.
+`secretName`.

@@ -29,7 +29,7 @@ Frequently Asked Questions](https://github.com/aws-samples/aws-glue-samples/blob
 - [Error: Amazon S3 service token expired](#error-s3-service-token-expired "#error-s3-service-token-expired")
 - [Error: No private DNS for network interface found](#error-no-private-DNS "#error-no-private-DNS")
 - [Error: Development endpoint provisioning failed](#error-development-endpoint-failed "#error-development-endpoint-failed")
-- [Error: Notebook server CREATE_FAILED](#error-notebook-server-ec2-instance-profile "#error-notebook-server-ec2-instance-profile")
+- [Error: Notebook server CREATE\_FAILED](#error-notebook-server-ec2-instance-profile "#error-notebook-server-ec2-instance-profile")
 - [Error: Local notebook fails to start](#error-local-notebook-fails-to-start "#error-local-notebook-fails-to-start")
 - [Error: Running crawler failed](#error-running-crawler-failed "#error-running-crawler-failed")
 - [Error: Partitions were not updated](#error-update-from-job-partitions "#error-update-from-job-partitions")
@@ -253,7 +253,7 @@ problem in the network setup.
 - If the cluster remains in the PROVISIONING state, contact
   AWS Support.
 
-## Error: Notebook server CREATE_FAILED
+## Error: Notebook server CREATE\_FAILED
 
 If AWS Glue fails to create the notebook server for a development endpoint, it might be because of
 one of the following problems:
@@ -374,19 +374,18 @@ Summary: an AWS Glue connection is selected at the time a job run is submitted. 
 issues, (lack of IP addresses, connectivity to source, routing problem), the job run will fail. If retries are
 configured, AWS Glue will retry with the same connection.
 
-1.  For each run attempt, AWS Glue will check the connections health in the order listed in the job configuration, given until it finds one it can use. In the case of an Availability Zone (AZ) failure, the connections from that AZ will fail the check and will be skipped.
-2.  AWS Glue validates the connection with the following:
+1. For each run attempt, AWS Glue will check the connections health in the order listed in the job configuration, given until it finds one it can use. In the case of an Availability Zone (AZ) failure, the connections from that AZ will fail the check and will be skipped.
+2. AWS Glue validates the connection with the following:
 
-        * checks for valid Amazon VPC id and subnet.
-        * checks that a NAT gateway or Amazon VPC endpoint exists.
-        * checks that the subnet has more than 0 allocated IP addresses.
-        * checks that the AZ is healthy.
+   - checks for valid Amazon VPC id and subnet.
+   - checks that a NAT gateway or Amazon VPC endpoint exists.
+   - checks that the subnet has more than 0 allocated IP addresses.
+   - checks that the AZ is healthy.
+     AWS Glue cannot verify connectivity at the time of job run submission.
 
-    AWS Glue cannot verify connectivity at the time of job run submission.
-
-3.  For jobs using Amazon VPC, all drivers and executors will be created in the same AZ with the
-    connection selected at the time of job run submission.
-4.  If retries are configured, AWS Glue will retry with the same connection. This is because
-    we cannot guarantee problems with this connection are long-running. If an AZ fails, existing job
-    runs (depending on the stage of the job run) in that AZ can fail. A retry should detect an AZ
-    failure and choose another AZ for the new run.
+3. For jobs using Amazon VPC, all drivers and executors will be created in the same AZ with the
+   connection selected at the time of job run submission.
+4. If retries are configured, AWS Glue will retry with the same connection. This is because
+   we cannot guarantee problems with this connection are long-running. If an AZ fails, existing job
+   runs (depending on the stage of the job run) in that AZ can fail. A retry should detect an AZ
+   failure and choose another AZ for the new run.

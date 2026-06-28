@@ -19,12 +19,10 @@ will recognize null objects, but some values such as empty strings, strings that
     * -1 integer - fields that contain a -1 (negative one) integer will be removed
 
 3. If needed, you can also specify custom null values. These are null values that may
-   be unique to your dataset. To add a custom null value, choose **Add new
-   value**.
-4. Enter the custom null value. For example, this can zero, or any value that is being
-   used to represent a null in the dataset.
-5. Choose the data type in the drop-down field. Data types can either be String or
-   Integer.
+be unique to your dataset. To add a custom null value, choose **Add new
+value**. 4. Enter the custom null value. For example, this can zero, or any value that is being
+used to represent a null in the dataset. 5. Choose the data type in the drop-down field. Data types can either be String or
+Integer.
 
 ###### Note
 

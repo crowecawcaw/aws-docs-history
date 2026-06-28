@@ -54,7 +54,7 @@ Appflow redirect URLs are subject to change post redirect URLs for AWS Glue plat
 Client ID and Client Secret are from the settings for your OAuth 2.0 client ID.
 
 | Redirect URL can be one of the following                    |
-| ----------------------------------------------------------- | --------------------------------------------------------- |
+| ----------------------------------------------------------- |
 | Redirect URL for Gamma environment                          |
 | https://us-west-2.console.aws.amazon.com/appflow/oauth      | https://us-east-1.awsc-integ.aws.amazon.com/appflow/oauth |
 | https://us-east-2.console.aws.amazon.com/appflow/oauth      |                                                           |

@@ -37,7 +37,7 @@ Reference](#aws-glue-programming-etl-format-avro-reference "#aws-glue-programmin
 The following AWS Glue ETL script shows the process of reading Avro files or folders from S3:
 
 Python
-For this example, use the [create_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
+For this example, use the [create\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
 
 ```
 from pyspark.context import SparkContext
@@ -91,7 +91,7 @@ Reference](#aws-glue-programming-etl-format-avro-reference "#aws-glue-programmin
 The following AWS Glue ETL script shows the process of writing Avro files or folders to S3.
 
 Python
-For this example, use the [write_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options") method.
+For this example, use the [write\_dynamic\_frame.from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options") method.
 
 ```
 from pyspark.context import SparkContext
@@ -173,10 +173,10 @@ Spark version. The version of Spark available in your job is determined by your 
 see [AWS Glue versions](release-notes.md "release-notes.md"). This plugin is maintained by Apache, we do not make specific guarantees of support.
 
 In AWS Glue 2.0 - use version 2.4.3 of the Spark Avro plugin. You can find this JAR on Maven Central, see
-[org.apache.spark:spark-avro_2.12:2.4.3](https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar "https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar").
+[org.apache.spark:spark-avro\_2.12:2.4.3](https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar "https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar").
 
 In AWS Glue 3.0 - use version 3.1.1 of the Spark Avro plugin. You can find this JAR on Maven Central,
-see [org.apache.spark:spark-avro_2.12:3.1.1](https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar "https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar").
+see [org.apache.spark:spark-avro\_2.12:3.1.1](https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar "https://search.maven.org/artifact/org.apache.spark/spark-avro_2.12/3.1.1/jar").
 
 To include extra JARs in a AWS Glue ETL job, use the `--extra-jars` job parameter. For more information about job parameters, see
 [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md"). You can also configure this parameter in the AWS Management Console.

@@ -7,8 +7,8 @@ statement.
 
 ## Example
 
-We recommend that you use the [DynamicFrame.select_fields()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields") method to select
-fields from a `DynamicFrame`. To view a code example, see [Example: Use select_fields to create a new DynamicFrame with chosen fields](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-select_fields-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-select_fields-example").
+We recommend that you use the [DynamicFrame.select\_fields()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-select_fields") method to select
+fields from a `DynamicFrame`. To view a code example, see [Example: Use select\_fields to create a new DynamicFrame with chosen fields](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-select_fields-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-select_fields-example").
 
 ## Methods
 
@@ -21,7 +21,7 @@ fields from a `DynamicFrame`. To view a code example, see [Example: Use select_f
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-SelectFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-SelectFields-describeErrors")
 - [Describe](#aws-glue-api-crawler-pyspark-transforms-SelectFields-describe "#aws-glue-api-crawler-pyspark-transforms-SelectFields-describe")
 
-## \_\_call\_\_(frame, paths, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, paths, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Gets fields (nodes) in a `DynamicFrame`.
 

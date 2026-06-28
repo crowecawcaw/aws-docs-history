@@ -11,17 +11,17 @@ To migrate from a third-party schema registry to the AWS Glue Schema Registry:
 1. Create a registry in the AWS Glue Schema Registry, or use the default registry.
 2. Stop the consumer. Modify it to include AWS Glue Schema Registry as the primary deserializer, and the third-party schema registry as the secondary.
 
-   - Set the consumer properties. In this example, the secondary_deserializer is set to a different
+   - Set the consumer properties. In this example, the secondary\_deserializer is set to a different
      deserializer. The behavior is as follows: the consumer retrieves
      records from Amazon MSK and first tries to use the
      `AWSKafkaAvroDeserializer`. If it is unable to read
      the magic byte that contains the Avro Schema ID for the AWS Glue Schema
      Registry schema, the `AWSKafkaAvroDeserializer` then
      tries to use the deserializer class provided in the
-     secondary_deserializer. The properties specific to the secondary
+     secondary\_deserializer. The properties specific to the secondary
      deserializer also need to be provided in the consumer properties,
-     such as the schema_registry_url_config and
-     specific_avro_reader_config, as shown below.
+     such as the schema\_registry\_url\_config and
+     specific\_avro\_reader\_config, as shown below.
 
    ```
    consumerProps.setProperty(ConsumerConfig.**KEY\_DESERIALIZER\_CLASS\_CONFIG**, StringDeserializer.class.getName());

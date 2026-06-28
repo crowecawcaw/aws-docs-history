@@ -7,16 +7,16 @@
 
 **Supported entities**
 
-| Entity          | API_Version | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| --------------- | ----------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
-| Admins          | v2.5        | No              | No             | No                | Yes                | No                    |
-| Companies       | v2.5        | No              | Yes            | No                | Yes                | No                    |
-| Conversations   | v2.5        | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Data Attributes | v2.5        | No              | No             | No                | Yes                | No                    |
-| Contacts        | v2.5        | Yes             | Yes            | Yes               | Yes                | Yes                   |
-| Segments        | v2.5        | No              | No             | No                | Yes                | No                    |
-| Tags            | v2.5        | No              | No             | No                | Yes                | No                    |
-| Teams           | v2.5        | No              | No             | No                | Yes                | No                    |
+| Entity          | API\_Version | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
+| --------------- | ------------ | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
+| Admins          | v2.5         | No              | No             | No                | Yes                | No                    |
+| Companies       | v2.5         | No              | Yes            | No                | Yes                | No                    |
+| Conversations   | v2.5         | Yes             | Yes            | Yes               | Yes                | Yes                   |
+| Data Attributes | v2.5         | No              | No             | No                | Yes                | No                    |
+| Contacts        | v2.5         | Yes             | Yes            | Yes               | Yes                | Yes                   |
+| Segments        | v2.5         | No              | No             | No                | Yes                | No                    |
+| Tags            | v2.5         | No              | No             | No                | Yes                | No                    |
+| Teams           | v2.5         | No              | No             | No                | Yes                | No                    |
 
 **Example**
 
@@ -33,181 +33,181 @@ Intercom_read = glueContext.create_dynamic_frame.from_options(
 
 **Intercom entity and field details**
 
-| Entity          | Field                                     | Data Type | Supported Operators                             |
-| --------------- | ----------------------------------------- | --------- | ----------------------------------------------- |
-| Admins          | type                                      | String    | NA                                              |
-| Admins          | id                                        | String    | NA                                              |
-| Admins          | avatar                                    | Struct    | NA                                              |
-| Admins          | name                                      | String    | NA                                              |
-| Admins          | email                                     | String    | NA                                              |
-| Admins          | away_mode_enabled                         | Boolean   | NA                                              |
-| Admins          | away_mode_reassign                        | Boolean   | NA                                              |
-| Admins          | has_inbox_seat                            | Boolean   | NA                                              |
-| Admins          | teams_ids                                 | List      | NA                                              |
-| Admins          | job_title                                 | String    | NA                                              |
-| Companies       | type                                      | String    | NA                                              |
-| Companies       | id                                        | String    | NA                                              |
-| Companies       | app_id                                    | String    | NA                                              |
-| Companies       | created_at                                | DateTime  | NA                                              |
-| Companies       | remote_created_at                         | DateTime  | NA                                              |
-| Companies       | updated_at                                | DateTime  | NA                                              |
-| Companies       | last_request_at                           | DateTime  | NA                                              |
-| Companies       | plan                                      | Struct    | NA                                              |
-| Companies       | company_id                                | String    | NA                                              |
-| Companies       | name                                      | String    | NA                                              |
-| Companies       | custom_attributes                         | Struct    | NA                                              |
-| Companies       | session_count                             | Integer   | NA                                              |
-| Companies       | monthly_spend                             | Integer   | NA                                              |
-| Companies       | user_count                                | Integer   | NA                                              |
-| Companies       | industry                                  | String    | NA                                              |
-| Companies       | size                                      | Integer   | NA                                              |
-| Companies       | website                                   | String    | NA                                              |
-| Companies       | tags                                      | Struct    | NA                                              |
-| Companies       | segments                                  | Struct    | NA                                              |
-| Contacts        | id                                        | String    | EQUAL_TO.NOT_EQUAL_TO                           |
-| Contacts        | type                                      | String    | NA                                              |
-| Contacts        | workspace_id                              | String    | NA                                              |
-| Contacts        | external_id                               | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | role                                      | String    | EQUAL_TO.NOT_EQUAL_TO                           |
-| Contacts        | email                                     | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | phone                                     | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | name                                      | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | avatar                                    | String    | NA                                              |
-| Contacts        | owner_id                                  | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Contacts        | social_profiles                           | Struct    | NA                                              |
-| Contacts        | has_hard_bounced                          | Boolean   | EQUAL_TO                                        |
-| Contacts        | marked_email_as_spam                      | Boolean   | EQUAL_TO                                        |
-| Contacts        | unsubscribed_from_emails                  | Boolean   | EQUAL_TO                                        |
-| Contacts        | created_at                                | DateTime  | EQUAL_TO, GREATER_THAN, LESS_THAN               |
-| Contacts        | updated_at                                | DateTime  | EQUAL_TO, GREATER_THAN, LESS_THAN               |
-| Contacts        | signed_up_at                              | DateTime  | EQUAL_TO, GREATER_THAN, LESS_THAN               |
-| Contacts        | last_seen_at                              | DateTime  | EQUAL_TO, GREATER_THAN, LESS_THAN               |
-| Contacts        | last_replied_at                           | DateTime  | EQUAL_TO, GREATER_THAN, LESS_THAN               |
-| Contacts        | last_contacted_at                         | DateTime  | EQUAL_TO, GREATER_THAN, LESS_THAN               |
-| Contacts        | last_email_opened_at                      | DateTime  | EQUAL_TO, GREATER_THAN, LESS_THAN               |
-| Contacts        | last_email_clicked_at                     | DateTime  | EQUAL_TO, GREATER_THAN, LESS_THAN               |
-| Contacts        | language_override                         | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | browser                                   | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | browser_version                           | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | browser_language                          | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | os                                        | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | location                                  | Struct    | NA                                              |
-| Contacts        | location_country                          | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | location_region                           | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | location_city                             | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | android_app_name                          | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | android_app_version                       | String    | NA                                              |
-| Contacts        | android_device                            | String    | NA                                              |
-| Contacts        | android_os_version                        | String    | NA                                              |
-| Contacts        | android_sdk_version                       | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | android_last_seen_at                      | Date      | NA                                              |
-| Contacts        | ios_app_name                              | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | ios_app_version                           | String    | NA                                              |
-| Contacts        | ios_device                                | String    | NA                                              |
-| Contacts        | ios_os_version                            | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | ios_sdk_version                           | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Contacts        | ios_last_seen_at                          | DateTime  | NA                                              |
-| Contacts        | custom_attributes                         | Struct    | NA                                              |
-| Contacts        | tags                                      | Struct    | NA                                              |
-| Contacts        | notes                                     | Struct    | NA                                              |
-| Contacts        | companies                                 | Struct    | NA                                              |
-| Contacts        | unsubscribed_from_sms                     | Boolean   | NA                                              |
-| Contacts        | sms_consent                               | Boolean   | NA                                              |
-| Contacts        | opted_out_subscription_types              | Struct    | NA                                              |
-| Contacts        | referrer                                  | String    | NA                                              |
-| Contacts        | utm_campaign                              | String    | NA                                              |
-| Contacts        | utm_content                               | String    | NA                                              |
-| Contacts        | utm_medium                                | String    | NA                                              |
-| Contacts        | utm_source                                | String    | NA                                              |
-| Contacts        | utm_term                                  | String    | NA                                              |
-| Conversations   | type                                      | String    | NA                                              |
-| Conversations   | id                                        | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | created_at                                | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | updated_at                                | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | source                                    | Struct    | NA                                              |
-| Conversations   | source_id                                 | String    | EQUAL_TO, NOT_EQUAL_TO                          |
-| Conversations   | source_type                               | String    | EQUAL_TO, NOT_EQUAL_TO,                         |
-| Conversations   | source_delivered_as                       | String    | EQUAL_TO, NOT_EQUAL_TO,                         |
-| Conversations   | source_subject                            | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | source_body                               | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | source_author_id                          | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | source_author_type                        | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | source_author_name                        | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | source_author_email                       | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | source_url                                | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | contacts                                  | Struct    | NA                                              |
-| Conversations   | teammates                                 | Struct    | NA                                              |
-| Conversations   | title                                     | String    | NA                                              |
-| Conversations   | admin_assignee_id                         | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | team_assignee_id                          | Integer   | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | custom_attributes                         | Struct    | NA                                              |
-| Conversations   | open                                      | Boolean   | EQUAL_TO                                        |
-| Conversations   | state                                     | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | read                                      | Boolean   | EQUAL_TO                                        |
-| Conversations   | waiting_since                             | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | snoozed_until                             | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | tags                                      | Struct    | NA                                              |
-| Conversations   | first_contact_reply                       | Struct    | NA                                              |
-| Conversations   | priority                                  | String    | EQUAL_TO, NOT_EQUAL_TO                          |
-| Conversations   | topics                                    | Struct    | NA                                              |
-| Conversations   | sla_applied                               | Struct    | NA                                              |
-| Conversations   | conversation_rating                       | Struct    | NA                                              |
-| Conversations   | conversation_rating_requested_at          | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | conversation_rating_replied_at            | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | conversation_rating_score                 | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | conversation_rating_remark                | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | conversation_rating_contact_id            | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | conversation_rating_admin_id              | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | statistics                                | Struct    | NA                                              |
-| Conversations   | statistics_time_to_assignment             | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_time_to_admin_reply            | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_time_to_first_close            | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_time_to_last_close             | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_median_time_to_reply           | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_first_contact_reply_at         | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_first_assignment_at            | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_first_admin_reply_at           | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_first_close_at                 | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_last_assignment_at             | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_last_assignment_admin_reply_at | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_last_contact_reply_at          | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_last_admin_reply_at            | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_last_close_at                  | DateTime  | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_last_closed_by_id              | String    | CONTAINS, EQUAL_TO, NOT_EQUAL_TO                |
-| Conversations   | statistics_count_reopens                  | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_count_assignments              | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | statistics_count_conversation_parts       | Integer   | EQUAL_TO, NOT_EQUAL_TO, GREATER_THAN, LESS_THAN |
-| Conversations   | conversation_parts                        | List      | NA                                              |
-| Data Attributes | id                                        | Integer   | NA                                              |
-| Data Attributes | type                                      | String    | NA                                              |
-| Data Attributes | model                                     | String    | NA                                              |
-| Data Attributes | name                                      | String    | NA                                              |
-| Data Attributes | full_name                                 | String    | NA                                              |
-| Data Attributes | label                                     | String    | NA                                              |
-| Data Attributes | description                               | String    | NA                                              |
-| Data Attributes | data_type                                 | String    | NA                                              |
-| Data Attributes | options                                   | List      | NA                                              |
-| Data Attributes | api_writable                              | Boolean   | NA                                              |
-| Data Attributes | ui_writable                               | Boolean   | NA                                              |
-| Data Attributes | custom                                    | Boolean   | NA                                              |
-| Data Attributes | archived                                  | Boolean   | NA                                              |
-| Data Attributes | created_at                                | Boolean   | NA                                              |
-| Data Attributes | updated_at                                | DateTime  | NA                                              |
-| Data Attributes | admin_id                                  | String    | NA                                              |
-| Segments        | type                                      | String    | NA                                              |
-| Segments        | id                                        | String    | NA                                              |
-| Segments        | name                                      | String    | NA                                              |
-| Segments        | created_at                                | DateTime  | NA                                              |
-| Segments        | updated_at                                | DateTime  | NA                                              |
-| Segments        | person_type                               | String    | NA                                              |
-| Segments        | count                                     | Integer   | NA                                              |
-| Tags            | type                                      | String    | NA                                              |
-| Tags            | id                                        | String    | NA                                              |
-| Tags            | name                                      | String    | NA                                              |
-| Teams           | type                                      | String    | NA                                              |
-| Teams           | id                                        | String    | NA                                              |
-| Teams           | name                                      | String    | NA                                              |
-| Teams           | admin_ids                                 | List      | NA                                              |
+| Entity          | Field                                          | Data Type | Supported Operators                                  |
+| --------------- | ---------------------------------------------- | --------- | ---------------------------------------------------- |
+| Admins          | type                                           | String    | NA                                                   |
+| Admins          | id                                             | String    | NA                                                   |
+| Admins          | avatar                                         | Struct    | NA                                                   |
+| Admins          | name                                           | String    | NA                                                   |
+| Admins          | email                                          | String    | NA                                                   |
+| Admins          | away\_mode\_enabled                            | Boolean   | NA                                                   |
+| Admins          | away\_mode\_reassign                           | Boolean   | NA                                                   |
+| Admins          | has\_inbox\_seat                               | Boolean   | NA                                                   |
+| Admins          | teams\_ids                                     | List      | NA                                                   |
+| Admins          | job\_title                                     | String    | NA                                                   |
+| Companies       | type                                           | String    | NA                                                   |
+| Companies       | id                                             | String    | NA                                                   |
+| Companies       | app\_id                                        | String    | NA                                                   |
+| Companies       | created\_at                                    | DateTime  | NA                                                   |
+| Companies       | remote\_created\_at                            | DateTime  | NA                                                   |
+| Companies       | updated\_at                                    | DateTime  | NA                                                   |
+| Companies       | last\_request\_at                              | DateTime  | NA                                                   |
+| Companies       | plan                                           | Struct    | NA                                                   |
+| Companies       | company\_id                                    | String    | NA                                                   |
+| Companies       | name                                           | String    | NA                                                   |
+| Companies       | custom\_attributes                             | Struct    | NA                                                   |
+| Companies       | session\_count                                 | Integer   | NA                                                   |
+| Companies       | monthly\_spend                                 | Integer   | NA                                                   |
+| Companies       | user\_count                                    | Integer   | NA                                                   |
+| Companies       | industry                                       | String    | NA                                                   |
+| Companies       | size                                           | Integer   | NA                                                   |
+| Companies       | website                                        | String    | NA                                                   |
+| Companies       | tags                                           | Struct    | NA                                                   |
+| Companies       | segments                                       | Struct    | NA                                                   |
+| Contacts        | id                                             | String    | EQUAL\_TO.NOT\_EQUAL\_TO                             |
+| Contacts        | type                                           | String    | NA                                                   |
+| Contacts        | workspace\_id                                  | String    | NA                                                   |
+| Contacts        | external\_id                                   | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | role                                           | String    | EQUAL\_TO.NOT\_EQUAL\_TO                             |
+| Contacts        | email                                          | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | phone                                          | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | name                                           | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | avatar                                         | String    | NA                                                   |
+| Contacts        | owner\_id                                      | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Contacts        | social\_profiles                               | Struct    | NA                                                   |
+| Contacts        | has\_hard\_bounced                             | Boolean   | EQUAL\_TO                                            |
+| Contacts        | marked\_email\_as\_spam                        | Boolean   | EQUAL\_TO                                            |
+| Contacts        | unsubscribed\_from\_emails                     | Boolean   | EQUAL\_TO                                            |
+| Contacts        | created\_at                                    | DateTime  | EQUAL\_TO, GREATER\_THAN, LESS\_THAN                 |
+| Contacts        | updated\_at                                    | DateTime  | EQUAL\_TO, GREATER\_THAN, LESS\_THAN                 |
+| Contacts        | signed\_up\_at                                 | DateTime  | EQUAL\_TO, GREATER\_THAN, LESS\_THAN                 |
+| Contacts        | last\_seen\_at                                 | DateTime  | EQUAL\_TO, GREATER\_THAN, LESS\_THAN                 |
+| Contacts        | last\_replied\_at                              | DateTime  | EQUAL\_TO, GREATER\_THAN, LESS\_THAN                 |
+| Contacts        | last\_contacted\_at                            | DateTime  | EQUAL\_TO, GREATER\_THAN, LESS\_THAN                 |
+| Contacts        | last\_email\_opened\_at                        | DateTime  | EQUAL\_TO, GREATER\_THAN, LESS\_THAN                 |
+| Contacts        | last\_email\_clicked\_at                       | DateTime  | EQUAL\_TO, GREATER\_THAN, LESS\_THAN                 |
+| Contacts        | language\_override                             | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | browser                                        | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | browser\_version                               | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | browser\_language                              | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | os                                             | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | location                                       | Struct    | NA                                                   |
+| Contacts        | location\_country                              | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | location\_region                               | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | location\_city                                 | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | android\_app\_name                             | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | android\_app\_version                          | String    | NA                                                   |
+| Contacts        | android\_device                                | String    | NA                                                   |
+| Contacts        | android\_os\_version                           | String    | NA                                                   |
+| Contacts        | android\_sdk\_version                          | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | android\_last\_seen\_at                        | Date      | NA                                                   |
+| Contacts        | ios\_app\_name                                 | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | ios\_app\_version                              | String    | NA                                                   |
+| Contacts        | ios\_device                                    | String    | NA                                                   |
+| Contacts        | ios\_os\_version                               | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | ios\_sdk\_version                              | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Contacts        | ios\_last\_seen\_at                            | DateTime  | NA                                                   |
+| Contacts        | custom\_attributes                             | Struct    | NA                                                   |
+| Contacts        | tags                                           | Struct    | NA                                                   |
+| Contacts        | notes                                          | Struct    | NA                                                   |
+| Contacts        | companies                                      | Struct    | NA                                                   |
+| Contacts        | unsubscribed\_from\_sms                        | Boolean   | NA                                                   |
+| Contacts        | sms\_consent                                   | Boolean   | NA                                                   |
+| Contacts        | opted\_out\_subscription\_types                | Struct    | NA                                                   |
+| Contacts        | referrer                                       | String    | NA                                                   |
+| Contacts        | utm\_campaign                                  | String    | NA                                                   |
+| Contacts        | utm\_content                                   | String    | NA                                                   |
+| Contacts        | utm\_medium                                    | String    | NA                                                   |
+| Contacts        | utm\_source                                    | String    | NA                                                   |
+| Contacts        | utm\_term                                      | String    | NA                                                   |
+| Conversations   | type                                           | String    | NA                                                   |
+| Conversations   | id                                             | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | created\_at                                    | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | updated\_at                                    | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | source                                         | Struct    | NA                                                   |
+| Conversations   | source\_id                                     | String    | EQUAL\_TO, NOT\_EQUAL\_TO                            |
+| Conversations   | source\_type                                   | String    | EQUAL\_TO, NOT\_EQUAL\_TO,                           |
+| Conversations   | source\_delivered\_as                          | String    | EQUAL\_TO, NOT\_EQUAL\_TO,                           |
+| Conversations   | source\_subject                                | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | source\_body                                   | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | source\_author\_id                             | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | source\_author\_type                           | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | source\_author\_name                           | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | source\_author\_email                          | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | source\_url                                    | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | contacts                                       | Struct    | NA                                                   |
+| Conversations   | teammates                                      | Struct    | NA                                                   |
+| Conversations   | title                                          | String    | NA                                                   |
+| Conversations   | admin\_assignee\_id                            | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | team\_assignee\_id                             | Integer   | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | custom\_attributes                             | Struct    | NA                                                   |
+| Conversations   | open                                           | Boolean   | EQUAL\_TO                                            |
+| Conversations   | state                                          | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | read                                           | Boolean   | EQUAL\_TO                                            |
+| Conversations   | waiting\_since                                 | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | snoozed\_until                                 | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | tags                                           | Struct    | NA                                                   |
+| Conversations   | first\_contact\_reply                          | Struct    | NA                                                   |
+| Conversations   | priority                                       | String    | EQUAL\_TO, NOT\_EQUAL\_TO                            |
+| Conversations   | topics                                         | Struct    | NA                                                   |
+| Conversations   | sla\_applied                                   | Struct    | NA                                                   |
+| Conversations   | conversation\_rating                           | Struct    | NA                                                   |
+| Conversations   | conversation\_rating\_requested\_at            | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | conversation\_rating\_replied\_at              | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | conversation\_rating\_score                    | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | conversation\_rating\_remark                   | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | conversation\_rating\_contact\_id              | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | conversation\_rating\_admin\_id                | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | statistics                                     | Struct    | NA                                                   |
+| Conversations   | statistics\_time\_to\_assignment               | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_time\_to\_admin\_reply             | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_time\_to\_first\_close             | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_time\_to\_last\_close              | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_median\_time\_to\_reply            | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_first\_contact\_reply\_at          | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_first\_assignment\_at              | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_first\_admin\_reply\_at            | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_first\_close\_at                   | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_last\_assignment\_at               | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_last\_assignment\_admin\_reply\_at | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_last\_contact\_reply\_at           | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_last\_admin\_reply\_at             | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_last\_close\_at                    | DateTime  | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_last\_closed\_by\_id               | String    | CONTAINS, EQUAL\_TO, NOT\_EQUAL\_TO                  |
+| Conversations   | statistics\_count\_reopens                     | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_count\_assignments                 | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | statistics\_count\_conversation\_parts         | Integer   | EQUAL\_TO, NOT\_EQUAL\_TO, GREATER\_THAN, LESS\_THAN |
+| Conversations   | conversation\_parts                            | List      | NA                                                   |
+| Data Attributes | id                                             | Integer   | NA                                                   |
+| Data Attributes | type                                           | String    | NA                                                   |
+| Data Attributes | model                                          | String    | NA                                                   |
+| Data Attributes | name                                           | String    | NA                                                   |
+| Data Attributes | full\_name                                     | String    | NA                                                   |
+| Data Attributes | label                                          | String    | NA                                                   |
+| Data Attributes | description                                    | String    | NA                                                   |
+| Data Attributes | data\_type                                     | String    | NA                                                   |
+| Data Attributes | options                                        | List      | NA                                                   |
+| Data Attributes | api\_writable                                  | Boolean   | NA                                                   |
+| Data Attributes | ui\_writable                                   | Boolean   | NA                                                   |
+| Data Attributes | custom                                         | Boolean   | NA                                                   |
+| Data Attributes | archived                                       | Boolean   | NA                                                   |
+| Data Attributes | created\_at                                    | Boolean   | NA                                                   |
+| Data Attributes | updated\_at                                    | DateTime  | NA                                                   |
+| Data Attributes | admin\_id                                      | String    | NA                                                   |
+| Segments        | type                                           | String    | NA                                                   |
+| Segments        | id                                             | String    | NA                                                   |
+| Segments        | name                                           | String    | NA                                                   |
+| Segments        | created\_at                                    | DateTime  | NA                                                   |
+| Segments        | updated\_at                                    | DateTime  | NA                                                   |
+| Segments        | person\_type                                   | String    | NA                                                   |
+| Segments        | count                                          | Integer   | NA                                                   |
+| Tags            | type                                           | String    | NA                                                   |
+| Tags            | id                                             | String    | NA                                                   |
+| Tags            | name                                           | String    | NA                                                   |
+| Teams           | type                                           | String    | NA                                                   |
+| Teams           | id                                             | String    | NA                                                   |
+| Teams           | name                                           | String    | NA                                                   |
+| Teams           | admin\_ids                                     | List      | NA                                                   |
 
 **Partitioning queries**
 
@@ -227,11 +227,11 @@ Example of valid values: `"2024-02-06"`.
 
 Entity-wise partitioning field support details are captured in the following table.
 
-| Entity Name   | Partitioning Field                  | Data Type |
-| ------------- | ----------------------------------- | --------- |
-| Contacts      | created_at, updated_at,last_seen_at | DateTime  |
-| Conversations | id                                  | Integer   |
-| Conversations | created_at, updated_at              | DateTime  |
+| Entity Name   | Partitioning Field                      | Data Type |
+| ------------- | --------------------------------------- | --------- |
+| Contacts      | created\_at, updated\_at,last\_seen\_at | DateTime  |
+| Conversations | id                                      | Integer   |
+| Conversations | created\_at, updated\_at                | DateTime  |
 
 **Example**
 

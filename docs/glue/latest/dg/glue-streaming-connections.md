@@ -166,7 +166,7 @@ an offset represents `"latest"`.
   read from Kafka. The default value is null, which means that the number of spark
   partitions is equal to the number of Kafka partitions.
 - `"includeHeaders"`: (Optional) Whether to include the Kafka headers.
-  When the option is set to "true", the data output will contain an additional column named "glue_streaming_kafka_headers"
+  When the option is set to "true", the data output will contain an additional column named "glue\_streaming\_kafka\_headers"
   with type `Array[Struct(key: String, value: String)]`. The default value is "false".
   This option is available in AWS Glue version 3.0 or later.
 - `"schema"`: (Required when inferSchema set to false) The schema to use to process the payload. If classification is `avro` the provided schema must be in the Avro schema format. If the classification is not `avro` the provided schema must be in the DDL schema format.
@@ -210,7 +210,7 @@ Example in Avro schema format
 
 - `"inferSchema"`: (Optional) The default value is 'false'. If set to 'true', the schema will be detected at runtime from the payload within `foreachbatch`.
 - `"avroSchema"`: (Deprecated) Parameter used to specify a schema of Avro data when Avro format is used. This parameter is now deprecated. Use the `schema` parameter.
-- `"addRecordTimestamp"`: (Optional) When this option is set to 'true', the data output will contain an additional column named "\_\_src_timestamp" that indicates the time when the corresponding record received by the topic. The default value is 'false'. This option is supported in AWS Glue version 4.0 or later.
+- `"addRecordTimestamp"`: (Optional) When this option is set to 'true', the data output will contain an additional column named "\_\_src\_timestamp" that indicates the time when the corresponding record received by the topic. The default value is 'false'. This option is supported in AWS Glue version 4.0 or later.
 - `"emitConsumerLagMetrics"`: (Optional) When the option is set to 'true', for each batch, it will emit the metrics for the duration between the oldest record received by the topic and the time it arrives in AWS Glue to CloudWatch. The metric's name is "glue.driver.streaming.maxConsumerLagInMs". The default value is 'false'. This option is supported in AWS Glue version 4.0 or later.
 
 When writing, use the following connection options with `"connectionType": "kafka"`:
@@ -441,7 +441,7 @@ Example in Avro schema format
 - `"avroSchema"`: (Deprecated) Used for Read. Parameter used to specify a schema of Avro data
   when Avro format is used. This parameter is now deprecated. Use the `schema` parameter.
 - `"addRecordTimestamp"`: (Optional) Used for Read. When this option is set to 'true', the data
-  output will contain an additional column named "\_\_src_timestamp" that indicates the time when the
+  output will contain an additional column named "\_\_src\_timestamp" that indicates the time when the
   corresponding record received by the stream. The default value is 'false'. This option is supported in
   AWS Glue version 4.0 or later.
 - `"emitConsumerLagMetrics"`: (Optional) Used for Read. When the option is set to 'true', for

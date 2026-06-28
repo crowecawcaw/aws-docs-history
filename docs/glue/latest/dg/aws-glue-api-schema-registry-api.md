@@ -236,28 +236,28 @@ The name of the schema registry that contains the schema.
 
 ## Operations
 
-- [CreateRegistry action (Python: create_registry)](#aws-glue-api-schema-registry-api-CreateRegistry "#aws-glue-api-schema-registry-api-CreateRegistry")
-- [CreateSchema action (Python: create_schema)](#aws-glue-api-schema-registry-api-CreateSchema "#aws-glue-api-schema-registry-api-CreateSchema")
-- [GetSchema action (Python: get_schema)](#aws-glue-api-schema-registry-api-GetSchema "#aws-glue-api-schema-registry-api-GetSchema")
-- [ListSchemaVersions action (Python: list_schema_versions)](#aws-glue-api-schema-registry-api-ListSchemaVersions "#aws-glue-api-schema-registry-api-ListSchemaVersions")
-- [GetSchemaVersion action (Python: get_schema_version)](#aws-glue-api-schema-registry-api-GetSchemaVersion "#aws-glue-api-schema-registry-api-GetSchemaVersion")
-- [GetSchemaVersionsDiff action (Python: get_schema_versions_diff)](#aws-glue-api-schema-registry-api-GetSchemaVersionsDiff "#aws-glue-api-schema-registry-api-GetSchemaVersionsDiff")
-- [ListRegistries action (Python: list_registries)](#aws-glue-api-schema-registry-api-ListRegistries "#aws-glue-api-schema-registry-api-ListRegistries")
-- [ListSchemas action (Python: list_schemas)](#aws-glue-api-schema-registry-api-ListSchemas "#aws-glue-api-schema-registry-api-ListSchemas")
-- [RegisterSchemaVersion action (Python: register_schema_version)](#aws-glue-api-schema-registry-api-RegisterSchemaVersion "#aws-glue-api-schema-registry-api-RegisterSchemaVersion")
-- [UpdateSchema action (Python: update_schema)](#aws-glue-api-schema-registry-api-UpdateSchema "#aws-glue-api-schema-registry-api-UpdateSchema")
-- [CheckSchemaVersionValidity action (Python: check_schema_version_validity)](#aws-glue-api-schema-registry-api-CheckSchemaVersionValidity "#aws-glue-api-schema-registry-api-CheckSchemaVersionValidity")
-- [UpdateRegistry action (Python: update_registry)](#aws-glue-api-schema-registry-api-UpdateRegistry "#aws-glue-api-schema-registry-api-UpdateRegistry")
-- [GetSchemaByDefinition action (Python: get_schema_by_definition)](#aws-glue-api-schema-registry-api-GetSchemaByDefinition "#aws-glue-api-schema-registry-api-GetSchemaByDefinition")
-- [GetRegistry action (Python: get_registry)](#aws-glue-api-schema-registry-api-GetRegistry "#aws-glue-api-schema-registry-api-GetRegistry")
-- [PutSchemaVersionMetadata action (Python: put_schema_version_metadata)](#aws-glue-api-schema-registry-api-PutSchemaVersionMetadata "#aws-glue-api-schema-registry-api-PutSchemaVersionMetadata")
-- [QuerySchemaVersionMetadata action (Python: query_schema_version_metadata)](#aws-glue-api-schema-registry-api-QuerySchemaVersionMetadata "#aws-glue-api-schema-registry-api-QuerySchemaVersionMetadata")
-- [RemoveSchemaVersionMetadata action (Python: remove_schema_version_metadata)](#aws-glue-api-schema-registry-api-RemoveSchemaVersionMetadata "#aws-glue-api-schema-registry-api-RemoveSchemaVersionMetadata")
-- [DeleteRegistry action (Python: delete_registry)](#aws-glue-api-schema-registry-api-DeleteRegistry "#aws-glue-api-schema-registry-api-DeleteRegistry")
-- [DeleteSchema action (Python: delete_schema)](#aws-glue-api-schema-registry-api-DeleteSchema "#aws-glue-api-schema-registry-api-DeleteSchema")
-- [DeleteSchemaVersions action (Python: delete_schema_versions)](#aws-glue-api-schema-registry-api-DeleteSchemaVersions "#aws-glue-api-schema-registry-api-DeleteSchemaVersions")
+- [CreateRegistry action (Python: create\_registry)](#aws-glue-api-schema-registry-api-CreateRegistry "#aws-glue-api-schema-registry-api-CreateRegistry")
+- [CreateSchema action (Python: create\_schema)](#aws-glue-api-schema-registry-api-CreateSchema "#aws-glue-api-schema-registry-api-CreateSchema")
+- [GetSchema action (Python: get\_schema)](#aws-glue-api-schema-registry-api-GetSchema "#aws-glue-api-schema-registry-api-GetSchema")
+- [ListSchemaVersions action (Python: list\_schema\_versions)](#aws-glue-api-schema-registry-api-ListSchemaVersions "#aws-glue-api-schema-registry-api-ListSchemaVersions")
+- [GetSchemaVersion action (Python: get\_schema\_version)](#aws-glue-api-schema-registry-api-GetSchemaVersion "#aws-glue-api-schema-registry-api-GetSchemaVersion")
+- [GetSchemaVersionsDiff action (Python: get\_schema\_versions\_diff)](#aws-glue-api-schema-registry-api-GetSchemaVersionsDiff "#aws-glue-api-schema-registry-api-GetSchemaVersionsDiff")
+- [ListRegistries action (Python: list\_registries)](#aws-glue-api-schema-registry-api-ListRegistries "#aws-glue-api-schema-registry-api-ListRegistries")
+- [ListSchemas action (Python: list\_schemas)](#aws-glue-api-schema-registry-api-ListSchemas "#aws-glue-api-schema-registry-api-ListSchemas")
+- [RegisterSchemaVersion action (Python: register\_schema\_version)](#aws-glue-api-schema-registry-api-RegisterSchemaVersion "#aws-glue-api-schema-registry-api-RegisterSchemaVersion")
+- [UpdateSchema action (Python: update\_schema)](#aws-glue-api-schema-registry-api-UpdateSchema "#aws-glue-api-schema-registry-api-UpdateSchema")
+- [CheckSchemaVersionValidity action (Python: check\_schema\_version\_validity)](#aws-glue-api-schema-registry-api-CheckSchemaVersionValidity "#aws-glue-api-schema-registry-api-CheckSchemaVersionValidity")
+- [UpdateRegistry action (Python: update\_registry)](#aws-glue-api-schema-registry-api-UpdateRegistry "#aws-glue-api-schema-registry-api-UpdateRegistry")
+- [GetSchemaByDefinition action (Python: get\_schema\_by\_definition)](#aws-glue-api-schema-registry-api-GetSchemaByDefinition "#aws-glue-api-schema-registry-api-GetSchemaByDefinition")
+- [GetRegistry action (Python: get\_registry)](#aws-glue-api-schema-registry-api-GetRegistry "#aws-glue-api-schema-registry-api-GetRegistry")
+- [PutSchemaVersionMetadata action (Python: put\_schema\_version\_metadata)](#aws-glue-api-schema-registry-api-PutSchemaVersionMetadata "#aws-glue-api-schema-registry-api-PutSchemaVersionMetadata")
+- [QuerySchemaVersionMetadata action (Python: query\_schema\_version\_metadata)](#aws-glue-api-schema-registry-api-QuerySchemaVersionMetadata "#aws-glue-api-schema-registry-api-QuerySchemaVersionMetadata")
+- [RemoveSchemaVersionMetadata action (Python: remove\_schema\_version\_metadata)](#aws-glue-api-schema-registry-api-RemoveSchemaVersionMetadata "#aws-glue-api-schema-registry-api-RemoveSchemaVersionMetadata")
+- [DeleteRegistry action (Python: delete\_registry)](#aws-glue-api-schema-registry-api-DeleteRegistry "#aws-glue-api-schema-registry-api-DeleteRegistry")
+- [DeleteSchema action (Python: delete\_schema)](#aws-glue-api-schema-registry-api-DeleteSchema "#aws-glue-api-schema-registry-api-DeleteSchema")
+- [DeleteSchemaVersions action (Python: delete\_schema\_versions)](#aws-glue-api-schema-registry-api-DeleteSchemaVersions "#aws-glue-api-schema-registry-api-DeleteSchemaVersions")
 
-## CreateRegistry action (Python: create_registry)
+## CreateRegistry action (Python: create\_registry)
 
 Creates a new registry which may be used to hold a collection of schemas.
 
@@ -314,7 +314,7 @@ The tags for the registry.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## CreateSchema action (Python: create_schema)
+## CreateSchema action (Python: create\_schema)
 
 Creates a new schema set and registers the schema definition. Returns
 an error if the schema set already exists without actually registering the version.
@@ -478,7 +478,7 @@ The status of the first schema version created.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## GetSchema action (Python: get_schema)
+## GetSchema action (Python: get\_schema)
 
 Describes the specified schema in detail.
 
@@ -559,7 +559,7 @@ The date and time the schema was updated.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## ListSchemaVersions action (Python: list_schema_versions)
+## ListSchemaVersions action (Python: list\_schema\_versions)
 
 Returns a list of schema versions that you have created, with minimal information.
 Schema versions in Deleted status will not be included in the results. Empty results
@@ -607,7 +607,7 @@ if the current segment of the list is not the last.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## GetSchemaVersion action (Python: get_schema_version)
+## GetSchemaVersion action (Python: get\_schema\_version)
 
 Get the specified schema by its unique ID assigned when a version of the
 schema is created or registered. Schema versions in Deleted status will not be
@@ -675,7 +675,7 @@ The date and time the schema version was created.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## GetSchemaVersionsDiff action (Python: get_schema_versions_diff)
+## GetSchemaVersionsDiff action (Python: get\_schema\_versions\_diff)
 
 Fetches the schema version difference in the specified difference type
 between two stored schema versions in the Schema Registry.
@@ -722,7 +722,7 @@ The difference between schemas as a string in JsonPatch format.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## ListRegistries action (Python: list_registries)
+## ListRegistries action (Python: list\_registries)
 
 Returns a list of registries that you have created, with minimal registry
 information. Registries in the `Deleting` status will not be included
@@ -758,7 +758,7 @@ if the current segment of the list is not the last.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## ListSchemas action (Python: list_schemas)
+## ListSchemas action (Python: list\_schemas)
 
 Returns a list of schemas with minimal details. Schemas in Deleting status
 will not be included in the results. Empty results will be returned if there are
@@ -803,7 +803,7 @@ if the current segment of the list is not the last.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## RegisterSchemaVersion action (Python: register_schema_version)
+## RegisterSchemaVersion action (Python: register\_schema\_version)
 
 Adds a new version to the existing schema. Returns an error if new version
 of schema does not meet the compatibility requirements of the schema set. This
@@ -862,7 +862,7 @@ The status of the schema version.
 - `ConcurrentModificationException`
 - `InternalServiceException`
 
-## UpdateSchema action (Python: update_schema)
+## UpdateSchema action (Python: update\_schema)
 
 Updates the description, compatibility setting, or version checkpoint
 for a schema set.
@@ -927,7 +927,7 @@ The name of the registry that contains the schema.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## CheckSchemaVersionValidity action (Python: check_schema_version_validity)
+## CheckSchemaVersionValidity action (Python: check\_schema\_version\_validity)
 
 Validates the supplied schema. This call has no side effects, it simply
 validates using the supplied schema using `DataFormat` as the format.
@@ -961,7 +961,7 @@ A validation failure error message.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## UpdateRegistry action (Python: update_registry)
+## UpdateRegistry action (Python: update\_registry)
 
 Updates an existing registry which is used to hold a collection of schemas.
 The updated properties relate to the registry, and do not modify any of the schemas
@@ -998,7 +998,7 @@ The Amazon Resource name (ARN) of the updated registry.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## GetSchemaByDefinition action (Python: get_schema_by_definition)
+## GetSchemaByDefinition action (Python: get\_schema\_by\_definition)
 
 Retrieves a schema by the `SchemaDefinition`. The schema
 definition is sent to the Schema Registry, canonicalized, and hashed. If the
@@ -1054,7 +1054,7 @@ The date and time the schema was created.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## GetRegistry action (Python: get_registry)
+## GetRegistry action (Python: get\_registry)
 
 Describes the specified registry in detail.
 
@@ -1099,7 +1099,7 @@ The date and time the registry was updated.
 - `ThrottlingException`
 - `InternalServiceException`
 
-## PutSchemaVersionMetadata action (Python: put_schema_version_metadata)
+## PutSchemaVersionMetadata action (Python: put\_schema\_version\_metadata)
 
 Puts the metadata key value pair for a specified schema version ID. A maximum
 of 10 key value pairs will be allowed per schema version. They can be added over
@@ -1166,7 +1166,7 @@ The value of the metadata key.
 - `ThrottlingException`
 - `ResourceNumberLimitExceededException`
 
-## QuerySchemaVersionMetadata action (Python: query_schema_version_metadata)
+## QuerySchemaVersionMetadata action (Python: query\_schema\_version\_metadata)
 
 Queries for the schema version metadata information.
 
@@ -1225,7 +1225,7 @@ if the current segment of the list is not the last.
 - `ThrottlingException`
 - `EntityNotFoundException`
 
-## RemoveSchemaVersionMetadata action (Python: remove_schema_version_metadata)
+## RemoveSchemaVersionMetadata action (Python: remove\_schema\_version\_metadata)
 
 Removes a key value pair from the schema version metadata for the specified
 schema version ID.
@@ -1290,7 +1290,7 @@ The value of the metadata key.
 - `ThrottlingException`
 - `EntityNotFoundException`
 
-## DeleteRegistry action (Python: delete_registry)
+## DeleteRegistry action (Python: delete\_registry)
 
 Delete the entire registry including schema and all of its versions. To
 get the status of the delete operation, you can call the `GetRegistry`
@@ -1328,7 +1328,7 @@ status.
 - `ThrottlingException`
 - `ConcurrentModificationException`
 
-## DeleteSchema action (Python: delete_schema)
+## DeleteSchema action (Python: delete\_schema)
 
 Deletes the entire schema set, including the schema set and all of its versions.
 To get the status of the delete operation, you can call `GetSchema`
@@ -1365,11 +1365,11 @@ The status of the schema.
 - `ThrottlingException`
 - `ConcurrentModificationException`
 
-## DeleteSchemaVersions action (Python: delete_schema_versions)
+## DeleteSchemaVersions action (Python: delete\_schema\_versions)
 
 Remove versions from the specified schema. A version number or range may
 be supplied. If the compatibility mode forbids deleting of a version that is necessary,
-such as BACKWARDS_FULL, an error is returned. Calling the `GetSchemaVersions`
+such as BACKWARDS\_FULL, an error is returned. Calling the `GetSchemaVersions`
 API after this call will list the status of the deleted versions.
 
 When the range of version numbers contain check pointed version, the API
@@ -1384,7 +1384,7 @@ the attached `SchemaVersionMetadata` under the schema versions.
 Hard deletes will be enforced on the database.
 
 If the compatibility mode forbids deleting of a version that is necessary,
-such as BACKWARDS_FULL, an error is returned.
+such as BACKWARDS\_FULL, an error is returned.
 
 ###### Request
 

@@ -165,7 +165,7 @@ format before applying the partition function. This conversion is specified usin
 }
 ```
 
-This partitions data by month based on the "created_at" column, which contains Unix epoch timestamps in milliseconds.
+This partitions data by month based on the "created\_at" column, which contains Unix epoch timestamps in milliseconds.
 
 AWS Glue Zero-ETL supports the following time-based partition functions:
 
@@ -176,8 +176,8 @@ AWS Glue Zero-ETL supports the following time-based partition functions:
 
 AWS Glue Zero-ETL supports the following timestamp formats through the `ConversionSpec` parameter:
 
-- **epoch_sec:** Unix epoch timestamps in seconds
-- **epoch_milli:** Unix epoch timestamps in milliseconds
+- **epoch\_sec:** Unix epoch timestamps in seconds
+- **epoch\_milli:** Unix epoch timestamps in milliseconds
 - **iso:** ISO 8601 formatted timestamps
 
 ###### Note
@@ -206,7 +206,7 @@ This is useful for optimizing different types of queries against the same datase
 }
 ```
 
-This creates a two-level partitioning scheme: first by month (from the "created_at" column), then by region.
+This creates a two-level partitioning scheme: first by month (from the "created\_at" column), then by region.
 This enables efficient queries that filter by date ranges, specific regions, or a combination of these dimensions.
 
 When designing multi-level partitioning schemes, consider:
@@ -239,7 +239,7 @@ When designing multi-level partitioning schemes, consider:
 
 ### Partition FunctionSpec/ConversionSpec selection
 
-- Specify the correct ConversionSpec (epoch_sec | epoch_milli | iso) that represents format of column values chosen for timestamp based
+- Specify the correct ConversionSpec (epoch\_sec | epoch\_milli | iso) that represents format of column values chosen for timestamp based
   partitioning when using timestamp-based partition functions. AWS Glue Zero-ETL uses this parameter to correctly transform source data into timestamp
   format before partitioning.
 - Use appropriate granularity (year/month/day/hour) based on data volume.
@@ -248,9 +248,9 @@ When designing multi-level partitioning schemes, consider:
 
 ## Error handling
 
-### NEEDS_ATTENTION State
+### NEEDS\_ATTENTION State
 
-An integration enters the NEEDS_ATTENTION state when:
+An integration enters the NEEDS\_ATTENTION state when:
 
 - Specified partition columns do not exist in the source
 - Timestamp conversion fails for partition columns

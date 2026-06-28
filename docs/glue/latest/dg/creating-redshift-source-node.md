@@ -40,7 +40,7 @@ created (UTC) and last updated (UTC) timestamps. 3. Choose a Amazon Redshift sou
      tables based on your custom query.
 
 4. If you chose a single table, choose the Amazon Redshift schema. The list of available schema to choose from is
-   determined by the selected table.
+determined by the selected table.
 
 Or, choose **Enter custom query**. Choose this option to access a custom dataset from multiple
 Amazon Redshift tables. When you choose this option, enter the Amazon Redshift query.

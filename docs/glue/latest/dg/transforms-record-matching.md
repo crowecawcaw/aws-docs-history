@@ -2,7 +2,7 @@
 
 This transform invokes an existing Record Matching machine learning data classification transform.
 
-The transform evaluates the current data against the trained model based on labels. A column "match_id" is added to assign each row to a group of items that are considered equivalent based on the algorithm training. For more information, see [Record matching with Lake Formation FindMatches](machine-learning.md "machine-learning.md").
+The transform evaluates the current data against the trained model based on labels. A column "match\_id" is added to assign each row to a group of items that are considered equivalent based on the algorithm training. For more information, see [Record matching with Lake Formation FindMatches](machine-learning.md "machine-learning.md").
 
 ###### Note
 

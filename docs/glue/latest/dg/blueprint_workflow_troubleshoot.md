@@ -102,14 +102,14 @@ Provide a valid [cron](https://en.wikipedia.org/wiki/Cron "https://en.wikipedia.
 
 ## Error: a trigger with the same name already exists
 
-AWS Glue returns the error "Trigger with name 'foo_starting_trigger' already submitted with different configuration".
+AWS Glue returns the error "Trigger with name 'foo\_starting\_trigger' already submitted with different configuration".
 
 A blueprint does not require you to define triggers in the layout script for workflow creation. Trigger creation is managed by the blueprint library based on the dependencies defined between two actions.
 
 The naming for the triggers is as follows:
 
-- For the starting trigger in the workflow the naming is <workflow_name>\_starting_trigger.
-- For a node(job/crawler) in the workflow that depends on the completion of either one or multiple upstream nodes; AWS Glue defines a trigger with the name <workflow_name>\_<node_name>\_trigger
+- For the starting trigger in the workflow the naming is <workflow\_name>\_starting\_trigger.
+- For a node(job/crawler) in the workflow that depends on the completion of either one or multiple upstream nodes; AWS Glue defines a trigger with the name <workflow\_name>\_<node\_name>\_trigger
 
 This error means a trigger with same name already exists. You can delete the existing trigger and re-run the workflow creation.
 
@@ -123,7 +123,7 @@ The workflow name should be unique. Please try with a different name.
 
 ## Error: module not found in specified layoutGenerator path
 
-AWS Glue returns the error "Unknown error executing layout generator function ModuleNotFoundError: No module named 'crawl_s3_locations'".
+AWS Glue returns the error "Unknown error executing layout generator function ModuleNotFoundError: No module named 'crawl\_s3\_locations'".
 
 ```
 layoutGenerator": "crawl_s3_locations.layout.generate_layout"

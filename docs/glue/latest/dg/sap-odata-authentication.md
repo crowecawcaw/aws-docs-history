@@ -12,7 +12,7 @@ For public SAP OData documentation for Basic Auth flow, see [HTTP Basic Authenti
 
 AWS Glue also supports OAuth 2.0 as a secure authentication mechanism for establishing connections to your SAP systems. This enables seamless integration while ensuring compliance with modern authentication standards and enhancing the security of data access.
 
-## AUTHORIZATION_CODE Grant Type
+## AUTHORIZATION\_CODE Grant Type
 
 The grant type determines how AWS Glue communicates with SAP OData to request access to your data. SAP OData supports only the `AUTHORIZATION_CODE` grant type.
 This grant type is considered "three-legged" OAuth as it relies on redirecting users to the third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console.

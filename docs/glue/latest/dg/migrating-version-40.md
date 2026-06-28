@@ -82,16 +82,16 @@ For existing jobs, change the `Glue version` from the previous version to
 `Glue 4.0` in the job configuration.
 
 - In AWS Glue Studio, choose `Glue 4.0 - Supports Spark 3.3,
-Scala 2, Python 3` in `Glue version`.
+ Scala 2, Python 3` in `Glue version`.
 - In the API, choose `4.0` in the `GlueVersion`
   parameter in the [`UpdateJob`](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-UpdateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-UpdateJob") API operation.
 
 For new jobs, choose `Glue 4.0` when you create a job.
 
 - In the console, choose `Spark 3.3, Python 3 (Glue Version 4.0) or Spark
-3.3, Scala 2 (Glue Version 3.0)` in `Glue version`.
+ 3.3, Scala 2 (Glue Version 3.0)` in `Glue version`.
 - In AWS Glue Studio, choose `Glue 4.0 - Supports Spark 3.3,
-Scala 2, Python 3` in `Glue version`.
+ Scala 2, Python 3` in `Glue version`.
 - In the API, choose `4.0` in the `GlueVersion`
   parameter in the [`CreateJob`](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-CreateJob") API operation.
 
@@ -497,10 +497,10 @@ For the versions of JDBC and data lake connectors that were upgraded, see:
 - Added more metadata tables to show delete files in the metadata
   tree.
 - The drop table behavior changed. In Iceberg 0.13.1, running `DROP
-TABLE` removes the table from the catalog and deletes the table
+ TABLE` removes the table from the catalog and deletes the table
   contents as well. In Iceberg 1.0.0, `DROP TABLE` only removes the
   table from the catalog. To delete the table contents use `DROP TABLE
-PURGE`.
+ PURGE`.
 - Parquet vectorized reads are enabled by default in Iceberg 1.0.0. If you
   want to disable vectorized reads, set
   `read.parquet.vectorization.enabled` to

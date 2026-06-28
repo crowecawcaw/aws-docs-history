@@ -107,7 +107,7 @@ val additionalOptions = Map(
 
 ###### Note
 
-If `customer_tbl` has a different name in your Data Catalog and underlying datastore, you must provide the underlying table name in sample_query, since the query
+If `customer_tbl` has a different name in your Data Catalog and underlying datastore, you must provide the underlying table name in sample\_query, since the query
 is passed to the underlying datastore.
 
 You can also query against JDBC tables without integrating with the AWS Glue Data Catalog. Instead of providing username and password as parameters to the method, you can reuse

@@ -108,12 +108,12 @@ Setting these in the job run argument is equivalent to running the following com
 
 In the driver:
 
-- export CUSTOMER_KEY1=VAL1
-- export CUSTOMER_KEY2="val2,val2 val2"
+- export CUSTOMER\_KEY1=VAL1
+- export CUSTOMER\_KEY2="val2,val2 val2"
 
 In the executor:
 
-- export CUSTOMER_KEY3=VAL3
+- export CUSTOMER\_KEY3=VAL3
 
 Then, in the job script itself, you can retrieve the environment variables using `os.environ.get("CUSTOMER_KEY1")` or `System.getenv("CUSTOMER_KEY1")`.
 

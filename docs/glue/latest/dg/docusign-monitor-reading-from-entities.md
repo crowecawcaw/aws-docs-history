@@ -64,7 +64,7 @@ Entities with static metadata:
 | referencedUserId             | String    | N/A       |
 | device                       | String    | N/A       |
 | browser                      | String    | N/A       |
-| cursor                       | DateTime  | EQUAL_TO  |
+| cursor                       | DateTime  | EQUAL\_TO |
 
 **Partitioning queries**
 

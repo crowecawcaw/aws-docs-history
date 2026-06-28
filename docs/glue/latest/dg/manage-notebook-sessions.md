@@ -30,7 +30,7 @@ to add them to your session:
 
 ```
 
-All arguments to additional_python_modules are passed to `pip3 install -m <>`
+All arguments to additional\_python\_modules are passed to `pip3 install -m <>`
 
 For a list of available Python modules, see
 [Using Python libraries with AWS Glue](aws-glue-programming-python-libraries.md "aws-glue-programming-python-libraries.md").

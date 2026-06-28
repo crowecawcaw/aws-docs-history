@@ -70,7 +70,7 @@ Entities list:
 
 ## Partitioning queries
 
-In Pipedrive, only one field (due_date) from Activities entity supports field-based partitioning. It is a Date field.
+In Pipedrive, only one field (due\_date) from Activities entity supports field-based partitioning. It is a Date field.
 
 Additional spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`,
 `NUM_PARTITIONS` can be provided if you want to utilize concurrency in Spark. With these parameters,

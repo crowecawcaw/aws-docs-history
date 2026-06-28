@@ -1,6 +1,6 @@
 # Configuring Instagram Ads connections
 
-Instagram Ads supports the AUTHORIZATION_CODE grant type for OAuth2.
+Instagram Ads supports the AUTHORIZATION\_CODE grant type for OAuth2.
 
 - This grant type is considered three-legged OAuth as it relies on redirecting users to the third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console.
 - Users may opt to create their own connected app in Instagram Ads and provide their own client ID and client secret when creating connections through the AWS Glue console. In this scenario, they will still be redirected to Instagram Ads to login and authorize AWS Glue to access their resources.

@@ -13,14 +13,14 @@ Spark platform.
 
 - [\_\_init\_\_](#aws-glue-api-crawler-pyspark-extensions-glue-context-__init__ "#aws-glue-api-crawler-pyspark-extensions-glue-context-__init__")
 - [getSource](#aws-glue-api-crawler-pyspark-extensions-glue-context-get-source "#aws-glue-api-crawler-pyspark-extensions-glue-context-get-source")
-- [create_dynamic_frame_from_rdd](#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_rdd "#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_rdd")
-- [create_dynamic_frame_from_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog")
-- [create_dynamic_frame_from_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options")
-- [create_sample_dynamic_frame_from_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-create-sample-dynamic-frame-from-catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-create-sample-dynamic-frame-from-catalog")
-- [create_sample_dynamic_frame_from_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-create-sample-dynamic-frame-from-options "#aws-glue-api-crawler-pyspark-extensions-glue-context-create-sample-dynamic-frame-from-options")
-- [add_ingestion_time_columns](#aws-glue-api-crawler-pyspark-extensions-glue-context-add-ingestion-time-columns "#aws-glue-api-crawler-pyspark-extensions-glue-context-add-ingestion-time-columns")
-- [create_data_frame_from_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog")
-- [create_data_frame_from_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options "#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options")
+- [create\_dynamic\_frame\_from\_rdd](#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_rdd "#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_rdd")
+- [create\_dynamic\_frame\_from\_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog")
+- [create\_dynamic\_frame\_from\_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options")
+- [create\_sample\_dynamic\_frame\_from\_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-create-sample-dynamic-frame-from-catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-create-sample-dynamic-frame-from-catalog")
+- [create\_sample\_dynamic\_frame\_from\_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-create-sample-dynamic-frame-from-options "#aws-glue-api-crawler-pyspark-extensions-glue-context-create-sample-dynamic-frame-from-options")
+- [add\_ingestion\_time\_columns](#aws-glue-api-crawler-pyspark-extensions-glue-context-add-ingestion-time-columns "#aws-glue-api-crawler-pyspark-extensions-glue-context-add-ingestion-time-columns")
+- [create\_data\_frame\_from\_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog")
+- [create\_data\_frame\_from\_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options "#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-options")
 - [forEachBatch](#aws-glue-api-crawler-pyspark-extensions-glue-context-forEachBatch "#aws-glue-api-crawler-pyspark-extensions-glue-context-forEachBatch")
 
 ## getSource
@@ -47,7 +47,7 @@ The following is an example of using `getSource`.
 
 ```
 
-## create_dynamic_frame_from_rdd
+## create\_dynamic\_frame\_from\_rdd
 
 ###### `create_dynamic_frame_from_rdd(data, name, schema=None, sample_ratio=None, transformation_ctx="")`
 
@@ -60,7 +60,7 @@ Dataset (RDD).
 - `sample_ratio` – The sample ratio to use (optional).
 - `transformation_ctx` – The transformation context to use (optional).
 
-## create_dynamic_frame_from_catalog
+## create\_dynamic\_frame\_from\_catalog
 
 ###### `create_dynamic_frame_from_catalog(database, table_name, redshift_tmp_dir, transformation_ctx = "", push_down_predicate= "", additional_options = {}, catalog_id = None)`
 
@@ -83,7 +83,7 @@ table and other options through the `additional_options` argument.
 
 - `catalog_id` — The catalog ID (account ID) of the Data Catalog being accessed. When None, the default account ID of the caller is used.
 
-## create_dynamic_frame_from_options
+## create\_dynamic\_frame\_from\_options
 
 ###### `create_dynamic_frame_from_options(connection_type, connection_options={}, format=None, format_options={}, transformation_ctx = "")`
 
@@ -122,7 +122,7 @@ For more information, see [Connection types and options for ETL in AWS Glue for 
 - `transformation_ctx` – The transformation context to use (optional).
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset. For supported sources and limitations, see [Optimizing reads with pushdown in AWS Glue ETL](aws-glue-programming-pushdown.md "aws-glue-programming-pushdown.md"). For more information, see [Pre-Filtering Using Pushdown Predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 
-## create_sample_dynamic_frame_from_catalog
+## create\_sample\_dynamic\_frame\_from\_catalog
 
 ###### `create_sample_dynamic_frame_from_catalog(database, table_name, num, redshift_tmp_dir, transformation_ctx = "", push_down_predicate= "", additional_options = {}, sample_options = {}, catalog_id = None)`
 
@@ -151,7 +151,7 @@ Returns a sample `DynamicFrame` that is created using a Data Catalog database an
   account ID of the Data Catalog). Set to `None` by default. `None`
   defaults to the catalog ID of the calling account in the service.
 
-## create_sample_dynamic_frame_from_options
+## create\_sample\_dynamic\_frame\_from\_options
 
 ###### `create_sample_dynamic_frame_from_options(connection_type, connection_options={}, num, sample_options={}, format=None, format_options={}, transformation_ctx = "")`
 
@@ -179,7 +179,7 @@ Returns a sample `DynamicFrame` created with the specified connection and format
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset.
   For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 
-## add_ingestion_time_columns
+## add\_ingestion\_time\_columns
 
 ###### `add_ingestion_time_columns(dataFrame, timeGranularity = "")`
 
@@ -207,7 +207,7 @@ Example:
 dynamic_frame = DynamicFrame.fromDF(glueContext.add_ingestion_time_columns(dataFrame, "hour"))
 ```
 
-## create_data_frame_from_catalog
+## create\_data\_frame\_from\_catalog
 
 ###### `create_data_frame_from_catalog(database, table_name, transformation_ctx = "", additional_options = {})`
 
@@ -233,11 +233,11 @@ table.
   Using `create_data_frame_from_catalog` with
   `useSparkDataSource` has the following benefits:
 
-      - Directly returns a `DataFrame` and provides an alternative to
-       `create_dynamic_frame.from_catalog().toDF()`.
-      - Supports AWS Lake Formation table-level permission control for native formats.
-      - Supports reading data lake formats without AWS Lake Formation table-level permission
-       control. For more information, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
+        - Directly returns a `DataFrame` and provides an alternative to
+         `create_dynamic_frame.from_catalog().toDF()`.
+        - Supports AWS Lake Formation table-level permission control for native formats.
+        - Supports reading data lake formats without AWS Lake Formation table-level permission
+         control. For more information, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
 
   When you enable `useSparkDataSource`, you can also add any of the
   [Spark Data
@@ -258,13 +258,12 @@ option:
   Spark session.
 - Spark DataFrame partition filtering doesn't work with the following AWS Glue features.
 
-      + [Job bookmarks](monitor-continuations.md "monitor-continuations.md")
-      + [Excluding Amazon S3 storage classes](aws-glue-programming-etl-storage-classes.md#aws-glue-programming-etl-storage-classes-dynamic-frame "aws-glue-programming-etl-storage-classes.md#aws-glue-programming-etl-storage-classes-dynamic-frame")
-      + [Catalog partition predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates")
-
-  To use partition filtering with these features, you can use the AWS Glue pushdown
-  predicate. For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns"). Filtering on
-  non-partitioned columns is not affected.
+  - [Job bookmarks](monitor-continuations.md "monitor-continuations.md")
+  - [Excluding Amazon S3 storage classes](aws-glue-programming-etl-storage-classes.md#aws-glue-programming-etl-storage-classes-dynamic-frame "aws-glue-programming-etl-storage-classes.md#aws-glue-programming-etl-storage-classes-dynamic-frame")
+  - [Catalog partition predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates")
+    To use partition filtering with these features, you can use the AWS Glue pushdown
+    predicate. For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns"). Filtering on
+    non-partitioned columns is not affected.
 
 The following example script demonstrates the incorrect way to perform partition
 filtering with the `excludeStorageClasses` option.
@@ -320,7 +319,7 @@ read_df = glueContext.create_data_frame.from_catalog(
 )
 ```
 
-## create_data_frame_from_options
+## create\_data\_frame\_from\_options
 
 ###### `create_data_frame_from_options(connection_type, connection_options={}, format=None, format_options={}, transformation_ctx = "")`
 
@@ -425,17 +424,17 @@ def processBatch(data_frame, batchId):
 
 ## Working with datasets in Amazon S3
 
-- [purge_table](#aws-glue-api-crawler-pyspark-extensions-glue-context-purge_table "#aws-glue-api-crawler-pyspark-extensions-glue-context-purge_table")
-- [purge_s3_path](#aws-glue-api-crawler-pyspark-extensions-glue-context-purge_s3_path "#aws-glue-api-crawler-pyspark-extensions-glue-context-purge_s3_path")
-- [transition_table](#aws-glue-api-crawler-pyspark-extensions-glue-context-transition_table "#aws-glue-api-crawler-pyspark-extensions-glue-context-transition_table")
-- [transition_s3_path](#aws-glue-api-crawler-pyspark-extensions-glue-context-transition_s3_path "#aws-glue-api-crawler-pyspark-extensions-glue-context-transition_s3_path")
+- [purge\_table](#aws-glue-api-crawler-pyspark-extensions-glue-context-purge_table "#aws-glue-api-crawler-pyspark-extensions-glue-context-purge_table")
+- [purge\_s3\_path](#aws-glue-api-crawler-pyspark-extensions-glue-context-purge_s3_path "#aws-glue-api-crawler-pyspark-extensions-glue-context-purge_s3_path")
+- [transition\_table](#aws-glue-api-crawler-pyspark-extensions-glue-context-transition_table "#aws-glue-api-crawler-pyspark-extensions-glue-context-transition_table")
+- [transition\_s3\_path](#aws-glue-api-crawler-pyspark-extensions-glue-context-transition_s3_path "#aws-glue-api-crawler-pyspark-extensions-glue-context-transition_s3_path")
 
-## purge_table
+## purge\_table
 
 ###### `purge_table(catalog_id=None, database="", table_name="", options={}, transformation_ctx="")`
 
 Deletes files from Amazon S3 for the specified catalog's database and table. If all files in
-a partition are deleted, that partition is also deleted from the catalog. We don't support purge_table action on tables registered with Lake Formation.
+a partition are deleted, that partition is also deleted from the catalog. We don't support purge\_table action on tables registered with Lake Formation.
 
 If you want to be able to recover deleted objects, you can turn on [object
 versioning](../../../AmazonS3/latest/dev/ObjectVersioning.md "../../../AmazonS3/latest/dev/ObjectVersioning.md") on the Amazon S3 bucket. When an object is deleted from a bucket that
@@ -471,7 +470,7 @@ Knowledge Center.
 glueContext.purge_table("database", "table", {"partitionPredicate": "(month=='march')", "retentionPeriod": 1, "excludeStorageClasses": ["STANDARD_IA"], "manifestFilePath": "s3://bucketmanifest/"})
 ```
 
-## purge_s3_path
+## purge\_s3\_path
 
 ###### `purge_s3_path(s3_path, options={}, transformation_ctx="")`
 
@@ -507,7 +506,7 @@ the Support Knowledge Center.
 glueContext.purge_s3_path("s3://bucket/path/", {"retentionPeriod": 1, "excludeStorageClasses": ["STANDARD_IA"], "manifestFilePath": "s3://bucketmanifest/"})
 ```
 
-## transition_table
+## transition\_table
 
 ###### `transition_table(database, table_name, transition_to, options={}, transformation_ctx="", catalog_id=None)`
 
@@ -546,7 +545,7 @@ Classes](aws-glue-programming-etl-storage-classes.md "aws-glue-programming-etl-s
 glueContext.transition_table("database", "table", "STANDARD_IA", {"retentionPeriod": 1, "excludeStorageClasses": ["STANDARD_IA"], "manifestFilePath": "s3://bucketmanifest/", "accountId": "12345678901", "roleArn": "arn:aws:iam::123456789012:user/example-username"})
 ```
 
-## transition_s3_path
+## transition\_s3\_path
 
 ###### `transition_s3_path(s3_path, transition_to, options={}, transformation_ctx="")`
 
@@ -586,9 +585,9 @@ glueContext.transition_s3_path("s3://bucket/prefix/", "STANDARD_IA", {"retention
 
 ## Extracting
 
-- [extract_jdbc_conf](#aws-glue-api-crawler-pyspark-extensions-glue-context-extract_jdbc_conf "#aws-glue-api-crawler-pyspark-extensions-glue-context-extract_jdbc_conf")
+- [extract\_jdbc\_conf](#aws-glue-api-crawler-pyspark-extensions-glue-context-extract_jdbc_conf "#aws-glue-api-crawler-pyspark-extensions-glue-context-extract_jdbc_conf")
 
-## extract_jdbc_conf
+## extract\_jdbc\_conf
 
 ###### `extract_jdbc_conf(connection_name, catalog_id = None)`
 
@@ -614,11 +613,11 @@ print(jdbc_conf)
 
 ## Transactions
 
-- [start_transaction](#aws-glue-api-pyspark-extensions-glue-context-start-transaction "#aws-glue-api-pyspark-extensions-glue-context-start-transaction")
-- [commit_transaction](#aws-glue-api-pyspark-extensions-glue-context-commit-transaction "#aws-glue-api-pyspark-extensions-glue-context-commit-transaction")
-- [cancel_transaction](#aws-glue-api-pyspark-extensions-glue-cancel-transaction "#aws-glue-api-pyspark-extensions-glue-cancel-transaction")
+- [start\_transaction](#aws-glue-api-pyspark-extensions-glue-context-start-transaction "#aws-glue-api-pyspark-extensions-glue-context-start-transaction")
+- [commit\_transaction](#aws-glue-api-pyspark-extensions-glue-context-commit-transaction "#aws-glue-api-pyspark-extensions-glue-context-commit-transaction")
+- [cancel\_transaction](#aws-glue-api-pyspark-extensions-glue-cancel-transaction "#aws-glue-api-pyspark-extensions-glue-cancel-transaction")
 
-## start_transaction
+## start\_transaction
 
 ###### `start_transaction(read_only)`
 
@@ -628,7 +627,7 @@ Start a new transaction. Internally calls the Lake Formation [startTransaction](
 
 Returns the transaction ID.
 
-## commit_transaction
+## commit\_transaction
 
 ###### `commit_transaction(transaction_id, wait_for_commit = True)`
 
@@ -639,7 +638,7 @@ Attempts to commit the specified transaction. `commit_transaction` may return be
 
 Returns a Boolean to indicate whether the commit is done or not.
 
-## cancel_transaction
+## cancel\_transaction
 
 ###### `cancel_transaction(transaction_id)`
 
@@ -650,12 +649,12 @@ Attempts to cancel the specified transaction. Returns a `TransactionCommittedExc
 ## Writing
 
 - [getSink](#aws-glue-api-crawler-pyspark-extensions-glue-context-get-sink "#aws-glue-api-crawler-pyspark-extensions-glue-context-get-sink")
-- [write_dynamic_frame_from_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options")
-- [write_from_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_from_options "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_from_options")
-- [write_dynamic_frame_from_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_catalog")
-- [write_data_frame_from_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog")
-- [write_dynamic_frame_from_jdbc_conf](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_jdbc_conf "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_jdbc_conf")
-- [write_from_jdbc_conf](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_from_jdbc_conf "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_from_jdbc_conf")
+- [write\_dynamic\_frame\_from\_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_options")
+- [write\_from\_options](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_from_options "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_from_options")
+- [write\_dynamic\_frame\_from\_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_catalog")
+- [write\_data\_frame\_from\_catalog](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog")
+- [write\_dynamic\_frame\_from\_jdbc\_conf](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_jdbc_conf "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_dynamic_frame_from_jdbc_conf")
+- [write\_from\_jdbc\_conf](#aws-glue-api-crawler-pyspark-extensions-glue-context-write_from_jdbc_conf "#aws-glue-api-crawler-pyspark-extensions-glue-context-write_from_jdbc_conf")
 
 ## getSink
 
@@ -689,7 +688,7 @@ Example:
 
 ```
 
-## write_dynamic_frame_from_options
+## write\_dynamic\_frame\_from\_options
 
 ###### `write_dynamic_frame_from_options(frame, connection_type, connection_options={}, format=None, format_options={}, transformation_ctx = "")`
 
@@ -730,7 +729,7 @@ For more information, see [Connection types and options for ETL in AWS Glue for 
   for the formats that are supported.
 - `transformation_ctx` – A transformation context to use (optional).
 
-## write_from_options
+## write\_from\_options
 
 ###### `write_from_options(frame_or_dfc, connection_type, connection_options={}, format={}, format_options={}, transformation_ctx = "")`
 
@@ -770,7 +769,7 @@ For more information, see [Connection types and options for ETL in AWS Glue for 
   for the formats that are supported.
 - `transformation_ctx` – A transformation context to use (optional).
 
-## write_dynamic_frame_from_catalog
+## write\_dynamic\_frame\_from\_catalog
 
 ###### `write_dynamic_frame_from_catalog(frame, database, table_name, redshift_tmp_dir, transformation_ctx = "", additional_options = {}, catalog_id = None)`
 
@@ -787,7 +786,7 @@ and table.
   pairs.
 - `catalog_id` — The catalog ID (account ID) of the Data Catalog being accessed. When None, the default account ID of the caller is used.
 
-## write_data_frame_from_catalog
+## write\_data\_frame\_from\_catalog
 
 ###### `write_data_frame_from_catalog(frame, database, table_name, redshift_tmp_dir, transformation_ctx = "", additional_options = {}, catalog_id = None)`
 
@@ -850,7 +849,7 @@ glueContext.write_data_frame.from_catalog(
 )
 ```
 
-## write_dynamic_frame_from_jdbc_conf
+## write\_dynamic\_frame\_from\_jdbc\_conf
 
 ###### `write_dynamic_frame_from_jdbc_conf(frame, catalog_connection, connection_options={}, redshift_tmp_dir = "", transformation_ctx = "", catalog_id = None)`
 
@@ -865,7 +864,7 @@ information.
 - `transformation_ctx` – A transformation context to use (optional).
 - `catalog_id` — The catalog ID (account ID) of the Data Catalog being accessed. When None, the default account ID of the caller is used.
 
-## write_from_jdbc_conf
+## write\_from\_jdbc\_conf
 
 ###### `write_from_jdbc_conf(frame_or_dfc, catalog_connection, connection_options={}, redshift_tmp_dir = "", transformation_ctx = "", catalog_id = None)`
 

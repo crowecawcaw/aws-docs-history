@@ -393,15 +393,13 @@ missing. The number in the callout indicates how many missing fields were detect
   ![A red triangle with an exclamation point in the center](images/edit-graph-warning_icon.png)
   .
 
-      1. Choose the node. In the node details panel, a red callout appears on the tab
-       where the missing or incorrect information is located.
-      2. Choose the tab in the node details panel that shows a red callout, and then
-       locate the problem fields, which are highlighted. An error message below the fields
-       provides additional information about the problem.
+  1.  Choose the node. In the node details panel, a red callout appears on the tab
+      where the missing or incorrect information is located.
+  2.  Choose the tab in the node details panel that shows a red callout, and then
+      locate the problem fields, which are highlighted. An error message below the fields
+      provides additional information about the problem.
 
-
-
-      ![A screenshot showing the Visual tab in the job editor, which is marked with a callout labeled 2. The data source node, which is marked with a warning label, is selected. In the node details panel, the Data source properties tab has a callout labeled 2, and is selected. Two fields, Database and Table are outlined in red and have messages beneath them indicating a value is required in those fields.](images/screenshot-save-job-error-in-graph2.png)
+  ![A screenshot showing the Visual tab in the job editor, which is marked with a callout labeled 2. The data source node, which is marked with a warning label, is selected. In the node details panel, the Data source properties tab has a callout labeled 2, and is selected. Two fields, Database and Table are outlined in red and have messages beneath them indicating a value is required in those fields.](images/screenshot-save-job-error-in-graph2.png)
 
 - If there is a problem with the job properties, the
   **Job details** tab shows a red callout. Choose that tab and

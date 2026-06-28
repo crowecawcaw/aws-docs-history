@@ -6,14 +6,14 @@ values onto top level fields, assuming that each token has a meaning we know bef
 the tokens is irrelevant (for instance, a set of categories), you can use the **Explode** transform to generate a separate row
 for each value.
 
-For example, you can split a the column “categories” using a comma as a pattern to add a column “categories_arr”.
+For example, you can split a the column “categories” using a comma as a pattern to add a column “categories\_arr”.
 
-| product_id | categories            | categories_arr            |
-| ---------- | --------------------- | ------------------------- |
-| 1          | sports,winter         | [sports, winter]          |
-| 2          | garden,tools          | [garden, tools]           |
-| 3          | videogames            | [videogames]              |
-| 4          | game,boardgame,social | [game, boardgame, social] |
+| product\_id | categories            | categories\_arr           |
+| ----------- | --------------------- | ------------------------- |
+| 1           | sports,winter         | [sports, winter]          |
+| 2           | garden,tools          | [garden, tools]           |
+| 3           | videogames            | [videogames]              |
+| 4           | game,boardgame,social | [game, boardgame, social] |
 
 ###### To add a Split String transform:
 

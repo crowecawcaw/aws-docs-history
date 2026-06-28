@@ -23,7 +23,7 @@ table.
    - **Partition predicate**: (For Amazon S3 data sources
      only) Enter a Boolean expression based on Spark SQL that includes only the
      partitioning columns. For example: `"(year=='2020' and
-month=='04')"`
+  month=='04')"`
    - **Temporary directory**: (For Amazon Redshift data sources only) Enter a
      path for the location of a working directory in Amazon S3 where your ETL job
      can write temporary intermediate results.

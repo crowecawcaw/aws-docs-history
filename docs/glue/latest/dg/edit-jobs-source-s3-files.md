@@ -13,43 +13,43 @@ If you choose Amazon S3 as your data source, then you can choose either:
 
 ###### To configure a data source node that reads directly from files in Amazon S3
 
-1.  Go to the visual editor for a new or saved job.
-2.  Choose a data source node in the job diagram for an Amazon S3 source.
-3.  Choose the **Data source properties** tab, and then enter the following
-    information:
+1. Go to the visual editor for a new or saved job.
+2. Choose a data source node in the job diagram for an Amazon S3 source.
+3. Choose the **Data source properties** tab, and then enter the following
+   information:
 
-    - **S3 source type**: (For Amazon S3 data sources only)
-      Choose the option **S3 location**.
-    - **S3 URL**: Enter the path to the Amazon S3 bucket,
-      folder, or file that contains the data for your job. You can choose **Browse
-      S3** to select the path from the locations available to your account.
-    - **Recursive**: Choose this option if you want AWS Glue to read
-      data from files in child folders at the S3 location.
+   - **S3 source type**: (For Amazon S3 data sources only)
+     Choose the option **S3 location**.
+   - **S3 URL**: Enter the path to the Amazon S3 bucket,
+     folder, or file that contains the data for your job. You can choose **Browse
+     S3** to select the path from the locations available to your account.
+   - **Recursive**: Choose this option if you want AWS Glue to read
+     data from files in child folders at the S3 location.
 
-    If the child folders contain partitioned data, AWS Glue doesn't add any partition
-    information that's specified in the folder names to the Data Catalog. For example,
-    consider the following folders in Amazon S3:
+   If the child folders contain partitioned data, AWS Glue doesn't add any partition
+   information that's specified in the folder names to the Data Catalog. For example,
+   consider the following folders in Amazon S3:
 
-    ```
-    S3://sales/year=2019/month=Jan/day=1
-    S3://sales/year=2019/month=Jan/day=2
-    ```
+   ```
+   S3://sales/year=2019/month=Jan/day=1
+   S3://sales/year=2019/month=Jan/day=2
+   ```
 
-    If you choose **Recursive** and select the `sales`
-    folder as your S3 location, then AWS Glue reads the data in all the child folders, but
-    doesn't create partitions for year, month or day.
-    - **Data format**: Choose the format that the data is stored in.
-      You can choose JSON, CSV, or Parquet. The value you select tells the AWS Glue job how
-      to read the data from the source file.
+   If you choose **Recursive** and select the `sales`
+   folder as your S3 location, then AWS Glue reads the data in all the child folders, but
+   doesn't create partitions for year, month or day.
+   - **Data format**: Choose the format that the data is stored in.
+     You can choose JSON, CSV, or Parquet. The value you select tells the AWS Glue job how
+     to read the data from the source file.
 
-    ###### Note
+   ###### Note
 
-    If you don't select the correct format for your data, AWS Glue might infer the
-    schema correctly, but the job won't be able to correctly parse the data from the
-    source file.
+   If you don't select the correct format for your data, AWS Glue might infer the
+   schema correctly, but the job won't be able to correctly parse the data from the
+   source file.
 
-    You can enter additional configuration options, depending on the format you
-    choose.
+   You can enter additional configuration options, depending on the format you
+   choose.
 
         + **JSON** (JavaScript Object Notation)
 
@@ -111,24 +111,23 @@ If you choose Amazon S3 as your data source, then you can choose either:
 
         There are no additional settings to configure for data stored in Excel
          format.
-    - **Partition predicate**: To partition the data that is read
-      from the data source, enter a Boolean expression based on Spark SQL that includes
-      only the partitioning columns. For example: `"(year=='2020' and
-month=='04')"`
-    - **Advanced options**: Expand this section if you want AWS Glue to
-      detect the schema of your data based on a specific file.
+   - **Partition predicate**: To partition the data that is read
+     from the data source, enter a Boolean expression based on Spark SQL that includes
+     only the partitioning columns. For example: `"(year=='2020' and
+  month=='04')"`
+   - **Advanced options**: Expand this section if you want AWS Glue to
+     detect the schema of your data based on a specific file.
 
-          + **Schema inference**: Choose the option
-           **Choose a sample file from S3** if you want to use a
-           specific file instead of letting AWS Glue choose a file. Schema inference is not available for the Excel source.
-          + **Auto-sampled file**: Enter the path to the file in
-           Amazon S3 to use for inferring the schema.
+     - **Schema inference**: Choose the option
+       **Choose a sample file from S3** if you want to use a
+       specific file instead of letting AWS Glue choose a file. Schema inference is not available for the Excel source.
+     - **Auto-sampled file**: Enter the path to the file in
+       Amazon S3 to use for inferring the schema.
+       If you're editing a data source node and change the selected sample file, choose
+       **Reload schema** to detect the schema by using the new sample
+       file.
 
-      If you're editing a data source node and change the selected sample file, choose
-      **Reload schema** to detect the schema by using the new sample
-      file.
-
-4.  Choose the **Infer schema** button to detect the schema from the
-    sources files in Amazon S3. If you change the Amazon S3 location or the
-    sample file, you must choose **Infer schema** again to infer the schema
-    using the new information.
+4. Choose the **Infer schema** button to detect the schema from the
+   sources files in Amazon S3. If you change the Amazon S3 location or the
+   sample file, you must choose **Infer schema** again to infer the schema
+   using the new information.

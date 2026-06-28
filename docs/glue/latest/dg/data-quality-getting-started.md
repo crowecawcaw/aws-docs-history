@@ -664,20 +664,20 @@ FROM `mydatabase.mytable`
 
 ## Supported source types
 
-| Table type support by AWS Lake Formation configuration | Table Type     | AWS Lake Formation<br>• All Table Access | AWS Lake Formation Enabled with Columns | AWS Lake Formation Enabled with Data Filters | Cross-Account AWS Lake Formation Support<br>• All Table Access | AWS Lake Formation Disabled |
-| ------------------------------------------------------ | -------------- | ---------------------------------------- | --------------------------------------- | -------------------------------------------- | -------------------------------------------------------------- | --------------------------- |
-| Parquet                                                | Supported      | Not Supported                            | Not Supported                           | Supported                                    | Supported                                                      |
-| ORC                                                    | Supported      | Not Supported                            | Not Supported                           | Supported                                    | Supported                                                      |
-| CSV, JSON, TSV                                         | Supported      | Not Supported                            | Not Supported                           | Supported                                    | Supported                                                      |
-| Avro                                                   | Supported      | Not Supported                            | Not Supported                           | Supported                                    | Supported                                                      |
-| JSON                                                   | Supported      | Not Supported                            | Not Supported                           | Supported                                    | Supported                                                      |
-| Iceberg                                                | Supported      | Not Supported                            | Not Supported                           | Supported                                    | Supported                                                      |
-| HUDI                                                   | Not Supported  | Not Supported                            | Not Supported                           | Not Supported                                | Supported                                                      |
-| Delta                                                  | Not Supported  | Not Supported                            | Not Supported                           | Not Supported                                | Supported                                                      |
-| RMS                                                    | Supported\*    | Supported\*                              | Supported\*                             | Not Supported                                | Not Supported                                                  |
-| Amazon S3 Tables                                       | Supported\*    | Not Supported                            | Not Supported                           | Not applicable                               | Supported                                                      |
-| Amazon RDS and Aurora                                  | Not applicable | Not applicable                           | Not applicable                          | Not applicable                               | Not Supported                                                  |
-| JDBC                                                   | Not applicable | Not applicable                           | Not applicable                          | Not applicable                               | Supported                                                      |
+Table type support by AWS Lake Formation configuration| Table Type | AWS Lake Formation<br>• All Table Access | AWS Lake Formation Enabled with Columns | AWS Lake Formation Enabled with Data Filters | Cross-Account AWS Lake Formation Support<br>• All Table Access | AWS Lake Formation Disabled |
+| --- | --- | --- | --- | --- | --- |
+| Parquet | Supported | Not Supported | Not Supported | Supported | Supported |
+| ORC | Supported | Not Supported | Not Supported | Supported | Supported |
+| CSV, JSON, TSV | Supported | Not Supported | Not Supported | Supported | Supported |
+| Avro | Supported | Not Supported | Not Supported | Supported | Supported |
+| JSON | Supported | Not Supported | Not Supported | Supported | Supported |
+| Iceberg | Supported | Not Supported | Not Supported | Supported | Supported |
+| HUDI | Not Supported | Not Supported | Not Supported | Not Supported | Supported |
+| Delta | Not Supported | Not Supported | Not Supported | Not Supported | Supported |
+| RMS | Supported\* | Supported\* | Supported\* | Not Supported | Not Supported |
+| Amazon S3 Tables | Supported\* | Not Supported | Not Supported | Not applicable | Supported |
+| Amazon RDS and Aurora | Not applicable | Not applicable | Not applicable | Not applicable | Not Supported |
+| JDBC | Not applicable | Not applicable | Not applicable | Not applicable | Supported |
 
 \* Amazon S3 tables and SageMaker Lakehouse support in AWS Glue Console is not supported. Currently, Amazon S3 table and SageMaker Lakehouse Data Catalog
 Recommendation Runs and Data Catalog Data Quality Evaluation runs are only supported via the CLI.

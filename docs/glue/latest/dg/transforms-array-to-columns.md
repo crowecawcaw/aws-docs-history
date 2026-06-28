@@ -4,15 +4,15 @@ The Array To Columns transform allows you extract some or all the elements of a 
 the new columns as much as possible if the array has enough values to extract, optionally taking the elements in the positions specified.
 
 For instance, if you have an array column “subnet”, which was the result of applying the “Split String” transform on a ip v4 subnet, you can
-extract the first and forth positions into new columns “first_octect” and “forth_octect”.
+extract the first and forth positions into new columns “first\_octect” and “forth\_octect”.
 The output of the transform in this example would be (notice the last two rows have shorter arrays than expected):
 
-| subnet              | first_octect | fourth_octect |
-| ------------------- | ------------ | ------------- |
-| [54, 240, 197, 238] | 54           | 238           |
-| [192, 168, 0, 1]    | 192          | 1             |
-| [192, 168]          | 192          |               |
-| []                  |              |               |
+| subnet              | first\_octect | fourth\_octect |
+| ------------------- | ------------- | -------------- |
+| [54, 240, 197, 238] | 54            | 238            |
+| [192, 168, 0, 1]    | 192           | 1              |
+| [192, 168]          | 192           |                |
+| []                  |               |                |
 
 ###### To add a Array To Columns transform:
 

@@ -3,7 +3,7 @@
 Over time, hundreds of thousands of partitions get added to a table. The [GetPartitions API](../webapi/API_GetPartitions.md "../webapi/API_GetPartitions.md") is used to fetch the partitions in the table.
 The API returns partitions that match the expression provided in the request.
 
-Lets take a _sales_data_ table as an example which is partitioned by the
+Lets take a _sales\_data_ table as an example which is partitioned by the
 keys _Country_, _Category_, _Year_,
 _Month_, and _creationDate_. If you want to obtain
 sales data for all the items sold for the _Books_ category in the year
@@ -28,7 +28,7 @@ If no partition indexes are present on the table, AWS Glue loads all the partiti
 When you create a partition index, you specify a list of partition keys that already exist
 on a given table. Partition index is sub list of partition keys defined in the table. A
 partition index can be created on any permutation of partition keys defined on the
-table. For the above _sales_data_ table, the possible indexes are
+table. For the above _sales\_data_ table, the possible indexes are
 (country, category, creationDate), (country, category, year), (country, category),
 (country), (category, country, year, month), and so on.
 
@@ -65,11 +65,11 @@ To add a partition index to an existing table, use the `CreatePartitionIndex` op
 
 The index status for an added partition is set to CREATING and the creation of the index data is started. If the process for creating the indexes is successful, the indexStatus is updated to ACTIVE and for an unsuccessful process, the index status is updated to FAILED. Index creation can fail for multiple reasons, and you can use the `GetPartitionIndexes` operation to retrieve the failure details. The possible failures are:
 
-- ENCRYPTED_PARTITION_ERROR — Index creation on a table with encrypted partitions is not supported.
-- INVALID_PARTITION_TYPE_DATA_ERROR — Observed when the `partitionKey` value is not a valid value for the corresponding `partitionKey` data type. For example: a `partitionKey` with the 'int' datatype has a value 'foo'.
-- MISSING_PARTITION_VALUE_ERROR — Observed when the `partitionValue` for an `indexedKey` is not present. This can happen when a table is not partitioned consistently.
-- UNSUPPORTED_PARTITION_CHARACTER_ERROR — Observed when the value for an indexed partition key contains the characters \u0000, \u0001 or \u0002
-- INTERNAL_ERROR — An internal error occurred while indexes were being created.
+- ENCRYPTED\_PARTITION\_ERROR — Index creation on a table with encrypted partitions is not supported.
+- INVALID\_PARTITION\_TYPE\_DATA\_ERROR — Observed when the `partitionKey` value is not a valid value for the corresponding `partitionKey` data type. For example: a `partitionKey` with the 'int' datatype has a value 'foo'.
+- MISSING\_PARTITION\_VALUE\_ERROR — Observed when the `partitionValue` for an `indexedKey` is not present. This can happen when a table is not partitioned consistently.
+- UNSUPPORTED\_PARTITION\_CHARACTER\_ERROR — Observed when the value for an indexed partition key contains the characters \u0000, \u0001 or \u0002
+- INTERNAL\_ERROR — An internal error occurred while indexes were being created.
 
 ## Describing partition indexes on a table
 
@@ -93,7 +93,7 @@ Once you have created a partition index, note these changes to table and partiti
 
 ###### New partition creation (after Index Addition)
 
-After a partition index is created on a table, all new partitions added to the table will be validated for the data type checks for indexed keys. The partition value of the indexed keys will be validated for data type format. If the data type check fails, the create partition operation will fail. For the _sales_data_ table, if an index is created for keys (category, year) where the category is of type `string` and year of type `int`, the creation of the new partition with a value of YEAR as "foo" will fail.
+After a partition index is created on a table, all new partitions added to the table will be validated for the data type checks for indexed keys. The partition value of the indexed keys will be validated for data type format. If the data type check fails, the create partition operation will fail. For the _sales\_data_ table, if an index is created for keys (category, year) where the category is of type `string` and year of type `int`, the creation of the new partition with a value of YEAR as "foo" will fail.
 
 After indexes are enabled, the addition of partitions with indexed key values having the characters U+0000, U+00001, and U+0002 will start to fail.
 
@@ -105,7 +105,7 @@ Once a partition index is created on a table, you cannot modify the partition ke
 
 When you call `GetPartitions` on a table with an index, you can include an expression, and if applicable the Data Catalog will use an index if possible. The first key of the index should be passed in the expression for the indexes to be used in filtering. Index optimization in filtering is applied as a best effort. The Data Catalog tries to use index optimization as much as possible, but in case of a missing index, or unsupported operator, it falls back to the existing implementation of loading all partitions.
 
-For the _sales_data_ table above, lets add the index [Country, Category, Year]. If "Country" is not passed in the expression, the registered index will not be able to filter partitions using indexes. You can add up to 3 indexes to support various query patterns.
+For the _sales\_data_ table above, lets add the index [Country, Category, Year]. If "Country" is not passed in the expression, the registered index will not be able to filter partitions using indexes. You can add up to 3 indexes to support various query patterns.
 
 Lets take some example expressions and see how indexes work on them:
 

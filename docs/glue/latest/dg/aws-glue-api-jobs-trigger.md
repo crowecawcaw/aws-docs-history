@@ -221,17 +221,17 @@ Window starts when first event is received.
 
 ## Operations
 
-- [CreateTrigger action (Python: create_trigger)](#aws-glue-api-jobs-trigger-CreateTrigger "#aws-glue-api-jobs-trigger-CreateTrigger")
-- [StartTrigger action (Python: start_trigger)](#aws-glue-api-jobs-trigger-StartTrigger "#aws-glue-api-jobs-trigger-StartTrigger")
-- [GetTrigger action (Python: get_trigger)](#aws-glue-api-jobs-trigger-GetTrigger "#aws-glue-api-jobs-trigger-GetTrigger")
-- [GetTriggers action (Python: get_triggers)](#aws-glue-api-jobs-trigger-GetTriggers "#aws-glue-api-jobs-trigger-GetTriggers")
-- [UpdateTrigger action (Python: update_trigger)](#aws-glue-api-jobs-trigger-UpdateTrigger "#aws-glue-api-jobs-trigger-UpdateTrigger")
-- [StopTrigger action (Python: stop_trigger)](#aws-glue-api-jobs-trigger-StopTrigger "#aws-glue-api-jobs-trigger-StopTrigger")
-- [DeleteTrigger action (Python: delete_trigger)](#aws-glue-api-jobs-trigger-DeleteTrigger "#aws-glue-api-jobs-trigger-DeleteTrigger")
-- [ListTriggers action (Python: list_triggers)](#aws-glue-api-jobs-trigger-ListTriggers "#aws-glue-api-jobs-trigger-ListTriggers")
-- [BatchGetTriggers action (Python: batch_get_triggers)](#aws-glue-api-jobs-trigger-BatchGetTriggers "#aws-glue-api-jobs-trigger-BatchGetTriggers")
+- [CreateTrigger action (Python: create\_trigger)](#aws-glue-api-jobs-trigger-CreateTrigger "#aws-glue-api-jobs-trigger-CreateTrigger")
+- [StartTrigger action (Python: start\_trigger)](#aws-glue-api-jobs-trigger-StartTrigger "#aws-glue-api-jobs-trigger-StartTrigger")
+- [GetTrigger action (Python: get\_trigger)](#aws-glue-api-jobs-trigger-GetTrigger "#aws-glue-api-jobs-trigger-GetTrigger")
+- [GetTriggers action (Python: get\_triggers)](#aws-glue-api-jobs-trigger-GetTriggers "#aws-glue-api-jobs-trigger-GetTriggers")
+- [UpdateTrigger action (Python: update\_trigger)](#aws-glue-api-jobs-trigger-UpdateTrigger "#aws-glue-api-jobs-trigger-UpdateTrigger")
+- [StopTrigger action (Python: stop\_trigger)](#aws-glue-api-jobs-trigger-StopTrigger "#aws-glue-api-jobs-trigger-StopTrigger")
+- [DeleteTrigger action (Python: delete\_trigger)](#aws-glue-api-jobs-trigger-DeleteTrigger "#aws-glue-api-jobs-trigger-DeleteTrigger")
+- [ListTriggers action (Python: list\_triggers)](#aws-glue-api-jobs-trigger-ListTriggers "#aws-glue-api-jobs-trigger-ListTriggers")
+- [BatchGetTriggers action (Python: batch\_get\_triggers)](#aws-glue-api-jobs-trigger-BatchGetTriggers "#aws-glue-api-jobs-trigger-BatchGetTriggers")
 
-## CreateTrigger action (Python: create_trigger)
+## CreateTrigger action (Python: create\_trigger)
 
 Creates a new trigger.
 
@@ -312,7 +312,7 @@ The name of the trigger.
 - `ResourceNumberLimitExceededException`
 - `ConcurrentModificationException`
 
-## StartTrigger action (Python: start_trigger)
+## StartTrigger action (Python: start\_trigger)
 
 Starts an existing trigger. See [Triggering
 Jobs](trigger-job.md "trigger-job.md") for information about how different types of trigger are started.
@@ -338,7 +338,7 @@ The name of the trigger that was started.
 - `ResourceNumberLimitExceededException`
 - `ConcurrentRunsExceededException`
 
-## GetTrigger action (Python: get_trigger)
+## GetTrigger action (Python: get\_trigger)
 
 Retrieves the definition of a trigger.
 
@@ -361,7 +361,7 @@ The requested trigger definition.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetTriggers action (Python: get_triggers)
+## GetTriggers action (Python: get\_triggers)
 
 Gets all the triggers associated with a job.
 
@@ -397,7 +397,7 @@ A continuation token, if not all the requested triggers have yet been returned.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## UpdateTrigger action (Python: update_trigger)
+## UpdateTrigger action (Python: update\_trigger)
 
 Updates a trigger definition.
 
@@ -430,7 +430,7 @@ The resulting trigger definition.
 - `OperationTimeoutException`
 - `ConcurrentModificationException`
 
-## StopTrigger action (Python: stop_trigger)
+## StopTrigger action (Python: stop\_trigger)
 
 Stops a specified trigger.
 
@@ -454,7 +454,7 @@ The name of the trigger that was stopped.
 - `OperationTimeoutException`
 - `ConcurrentModificationException`
 
-## DeleteTrigger action (Python: delete_trigger)
+## DeleteTrigger action (Python: delete\_trigger)
 
 Deletes a specified trigger. If the trigger is not found, no exception
 is thrown.
@@ -478,7 +478,7 @@ The name of the trigger that was deleted.
 - `OperationTimeoutException`
 - `ConcurrentModificationException`
 
-## ListTriggers action (Python: list_triggers)
+## ListTriggers action (Python: list\_triggers)
 
 Retrieves the names of all trigger resources in this AWS account, or the resources with the specified tag. This operation allows you
 to see which resources are available in your account, and their names.
@@ -529,7 +529,7 @@ available.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## BatchGetTriggers action (Python: batch_get_triggers)
+## BatchGetTriggers action (Python: batch\_get\_triggers)
 
 Returns a list of resource metadata for a given list of trigger names. After
 calling the `ListTriggers` operation, you can call this operation

@@ -1,6 +1,6 @@
 # Configuring Jira Cloud connections
 
-Jira Cloud supports the AUTHORIZATION_CODE grant type for OAuth2.
+Jira Cloud supports the AUTHORIZATION\_CODE grant type for OAuth2.
 
 - This grant type is considered "three-legged" OAuth as it relies on redirecting users to a third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console. The AWS Glue console will redirect the user to Jira Cloud where the user must login and allow AWS Glue the requested permissions to access their Jira Cloud instance.
 - Users may still opt to create their own connected app in Jira Cloud and provide their own client ID and client secret when creating connections through the AWS Glue console. In this scenario, they will still be redirected to Jira Cloud to login and authorize AWS Glue to access their resources.

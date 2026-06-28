@@ -34,13 +34,13 @@ If no context words are passed only a regular expression is checked.
 
 ## Operations
 
-- [CreateCustomEntityType action (Python: create_custom_entity_type)](#aws-glue-api-sensitive-data-api-CreateCustomEntityType "#aws-glue-api-sensitive-data-api-CreateCustomEntityType")
-- [DeleteCustomEntityType action (Python: delete_custom_entity_type)](#aws-glue-api-sensitive-data-api-DeleteCustomEntityType "#aws-glue-api-sensitive-data-api-DeleteCustomEntityType")
-- [GetCustomEntityType action (Python: get_custom_entity_type)](#aws-glue-api-sensitive-data-api-GetCustomEntityType "#aws-glue-api-sensitive-data-api-GetCustomEntityType")
-- [BatchGetCustomEntityTypes action (Python: batch_get_custom_entity_types)](#aws-glue-api-sensitive-data-api-BatchGetCustomEntityTypes "#aws-glue-api-sensitive-data-api-BatchGetCustomEntityTypes")
-- [ListCustomEntityTypes action (Python: list_custom_entity_types)](#aws-glue-api-sensitive-data-api-ListCustomEntityTypes "#aws-glue-api-sensitive-data-api-ListCustomEntityTypes")
+- [CreateCustomEntityType action (Python: create\_custom\_entity\_type)](#aws-glue-api-sensitive-data-api-CreateCustomEntityType "#aws-glue-api-sensitive-data-api-CreateCustomEntityType")
+- [DeleteCustomEntityType action (Python: delete\_custom\_entity\_type)](#aws-glue-api-sensitive-data-api-DeleteCustomEntityType "#aws-glue-api-sensitive-data-api-DeleteCustomEntityType")
+- [GetCustomEntityType action (Python: get\_custom\_entity\_type)](#aws-glue-api-sensitive-data-api-GetCustomEntityType "#aws-glue-api-sensitive-data-api-GetCustomEntityType")
+- [BatchGetCustomEntityTypes action (Python: batch\_get\_custom\_entity\_types)](#aws-glue-api-sensitive-data-api-BatchGetCustomEntityTypes "#aws-glue-api-sensitive-data-api-BatchGetCustomEntityTypes")
+- [ListCustomEntityTypes action (Python: list\_custom\_entity\_types)](#aws-glue-api-sensitive-data-api-ListCustomEntityTypes "#aws-glue-api-sensitive-data-api-ListCustomEntityTypes")
 
-## CreateCustomEntityType action (Python: create_custom_entity_type)
+## CreateCustomEntityType action (Python: create\_custom\_entity\_type)
 
 Creates a custom pattern that is used to detect sensitive data across the
 columns and rows of your structured data.
@@ -93,7 +93,7 @@ The name of the custom pattern you created.
 - `OperationTimeoutException`
 - `ResourceNumberLimitExceededException`
 
-## DeleteCustomEntityType action (Python: delete_custom_entity_type)
+## DeleteCustomEntityType action (Python: delete\_custom\_entity\_type)
 
 Deletes a custom pattern by specifying its name.
 
@@ -117,7 +117,7 @@ The name of the custom pattern you deleted.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## GetCustomEntityType action (Python: get_custom_entity_type)
+## GetCustomEntityType action (Python: get\_custom\_entity\_type)
 
 Retrieves the details of a custom pattern by specifying its name.
 
@@ -152,7 +152,7 @@ the data will not be detected as sensitive data.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## BatchGetCustomEntityTypes action (Python: batch_get_custom_entity_types)
+## BatchGetCustomEntityTypes action (Python: batch\_get\_custom\_entity\_types)
 
 Retrieves the details for the custom patterns specified by a list of names.
 
@@ -179,7 +179,7 @@ A list of the names of custom patterns that were not found.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## ListCustomEntityTypes action (Python: list_custom_entity_types)
+## ListCustomEntityTypes action (Python: list\_custom\_entity\_types)
 
 Lists all the custom patterns that have been created.
 

@@ -22,7 +22,7 @@ Attach the following IAM policy to grant the required permissions:
     "Statement": [{
         "Effect": "Allow",
         "Action": [
-            "glue:Search", "glue:PutAsset", "glue:GetAsset", "glue:DeleteAsset",
+            "glue:SearchAssets", "glue:PutAsset", "glue:GetAsset", "glue:DeleteAsset",
             "glue:PutAssetType", "glue:GetAssetType", "glue:DeleteAssetType", "glue:ListAssetTypes",
             "glue:CreateGlossary", "glue:UpdateGlossary", "glue:GetGlossary", "glue:ListGlossaries", "glue:DeleteGlossary",
             "glue:CreateGlossaryTerm", "glue:UpdateGlossaryTerm", "glue:GetGlossaryTerm", "glue:ListGlossaryTerms", "glue:DeleteGlossaryTerm",
@@ -91,10 +91,10 @@ aws glue associate-glossary-terms \
 
 ## Step 2: Search for data using business context
 
-Use the `Search` API to find assets by business meaning.
+Use the `SearchAssets` API to find assets by business meaning.
 
 ```
-aws glue search \
+aws glue search-assets \
   --search-text "active users"
 ```
 
@@ -111,9 +111,18 @@ Example output:
 To filter results by asset type:
 
 ```
-aws glue search \
+aws glue search-assets \
   --search-text "active users" \
   --filter-clause '{"AttributeFilter":{"Attribute":"type","Operator":"equals","Value":{"StringValue":"Table"}}}' \
+  --max-results 10
+```
+
+To filter to only AWS Glue tables (excluding tables from other source systems):
+
+```
+aws glue search-assets \
+  --search-text "active users" \
+  --filter-clause '{"AndAllFilters":[{"AttributeFilter":{"Attribute":"type","Operator":"equals","Value":{"StringValue":"Table"}}},{"AttributeFilter":{"Attribute":"namespace","Operator":"equals","Value":{"StringValue":"amazon.glue"}}}]}' \
   --max-results 10
 ```
 

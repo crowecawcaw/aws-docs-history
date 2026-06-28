@@ -268,7 +268,7 @@ status (CREATED/UPDATED) in the Sync mode. The `CONTAINS/LIKE` operator is not s
 | appId             | Integer      | N/A       |
 | appName           | String       | N/A       |
 | lastUpdatedTime   | Long         | N/A       |
-| Contact_List      | dynamic      | Boolean   | N/A                 |
+| Contact\_List     | dynamic      | Boolean   | N/A                 |
 | name              | String       | N/A       |
 | portalId          | Integer      | N/A       |
 | createdAt         | Long         | N/A       |
@@ -285,7 +285,7 @@ status (CREATED/UPDATED) in the Sync mode. The `CONTAINS/LIKE` operator is not s
 | internal          | Boolean      | N/A       |
 | readOnly          | Boolean      | N/A       |
 | parentId          | Integer      | N/A       |
-| Email_Event       | id           | String    | N/A                 |
+| Email\_Event      | id           | String    | N/A                 |
 | type              | String       | N/A       |
 | recipient         | String       | N/A       |
 | portalId          | Integer      | N/A       |
@@ -312,7 +312,7 @@ status (CREATED/UPDATED) in the Sync mode. The `CONTAINS/LIKE` operator is not s
 | deviceType        | String       | N/A       |
 | suppressedReason  | String       | N/A       |
 | suppressedMessage | String       | N/A       |
-| CRM_Pipeline      | pipelineId   | String    | N/A                 |
+| CRM\_Pipeline     | pipelineId   | String    | N/A                 |
 |                   | createdAt    | Long      | N/A                 |
 |                   | updatedAt    | Long      | N/A                 |
 |                   | objectType   | String    | N/A                 |
@@ -343,32 +343,32 @@ Examples of valid value:
 
 The following table describes the entity partitioning field support details:
 
-| Entity name                                    | Partitioning fields | Data type |
-| ---------------------------------------------- | ------------------- | --------- |
-| contact                                        | hs_object_id        | Long      |
-| createdate, lastmodifieddate                   | DateTime            |
-| company                                        | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| deal                                           | hs_object_id        | Long      |
-| createdate, hs_createdate, hs_lastmodifieddate | DateTime            |
-| ticket                                         | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| product                                        | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| custom_object                                  | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| call                                           | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| email                                          | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| meeting                                        | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| note                                           | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| task                                           | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
-| postal_mail                                    | hs_object_id        | Long      |
-| createdate, hs_lastmodifieddate                | DateTime            |
+| Entity name                                      | Partitioning fields | Data type |
+| ------------------------------------------------ | ------------------- | --------- |
+| contact                                          | hs\_object\_id      | Long      |
+| createdate, lastmodifieddate                     | DateTime            |
+| company                                          | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| deal                                             | hs\_object\_id      | Long      |
+| createdate, hs\_createdate, hs\_lastmodifieddate | DateTime            |
+| ticket                                           | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| product                                          | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| custom\_object                                   | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| call                                             | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| email                                            | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| meeting                                          | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| note                                             | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| task                                             | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
+| postal\_mail                                     | hs\_object\_id      | Long      |
+| createdate, hs\_lastmodifieddate                 | DateTime            |
 
 Example:
 

@@ -940,7 +940,7 @@ conjunction with `"awsSTSRoleARN"`.
 - `AddRecordTimestamp` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
 
 When this option is set to 'true', the data output will contain an additional
-column named "\_\_src_timestamp" that indicates the time when the corresponding
+column named "\_\_src\_timestamp" that indicates the time when the corresponding
 record received by the stream. The default value is 'false'. This option is supported
 in AWS Glue version 4.0 or later.
 
@@ -1114,7 +1114,7 @@ of Kafka partitions.
 - `IncludeHeaders` – Boolean.
 
 Whether to include the Kafka headers. When the option is set to "true",
-the data output will contain an additional column named "glue_streaming_kafka_headers"
+the data output will contain an additional column named "glue\_streaming\_kafka\_headers"
 with type `Array[Struct(key: String, value: String)]`. The default
 value is "false". This option is available in AWS Glue version 3.0
 or later only.
@@ -1122,7 +1122,7 @@ or later only.
 - `AddRecordTimestamp` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
 
 When this option is set to 'true', the data output will contain an additional
-column named "\_\_src_timestamp" that indicates the time when the corresponding
+column named "\_\_src\_timestamp" that indicates the time when the corresponding
 record received by the topic. The default value is 'false'. This option is supported
 in AWS Glue version 4.0 or later.
 
@@ -3275,10 +3275,10 @@ Indicates the type of PIIDetection transform.
 Indicates the types of entities the PIIDetection transform will identify
 as PII data.
 
-PII type entities include: PERSON_NAME, DATE, USA_SNN, EMAIL, USA_ITIN,
-USA_PASSPORT_NUMBER, PHONE_NUMBER, BANK_ACCOUNT, IP_ADDRESS, MAC_ADDRESS,
-USA_CPT_CODE, USA_HCPCS_CODE, USA_NATIONAL_DRUG_CODE, USA_MEDICARE_BENEFICIARY_IDENTIFIER,
-USA_HEALTH_INSURANCE_CLAIM_NUMBER,CREDIT_CARD,USA_NATIONAL_PROVIDER_IDENTIFIER,USA_DEA_NUMBER,USA_DRIVING_LICENSE
+PII type entities include: PERSON\_NAME, DATE, USA\_SNN, EMAIL, USA\_ITIN,
+USA\_PASSPORT\_NUMBER, PHONE\_NUMBER, BANK\_ACCOUNT, IP\_ADDRESS, MAC\_ADDRESS,
+USA\_CPT\_CODE, USA\_HCPCS\_CODE, USA\_NATIONAL\_DRUG\_CODE, USA\_MEDICARE\_BENEFICIARY\_IDENTIFIER,
+USA\_HEALTH\_INSURANCE\_CLAIM\_NUMBER,CREDIT\_CARD,USA\_NATIONAL\_PROVIDER\_IDENTIFIER,USA\_DEA\_NUMBER,USA\_DRIVING\_LICENSE
 
 - `OutputColumnName` – UTF-8 string, matching the [Custom string pattern #61](aws-glue-api-common.md#regex_61 "aws-glue-api-common.md#regex_61").
 
@@ -3449,8 +3449,8 @@ will be applied.
 Specifies the aggregation function to apply.
 
 Possible aggregation functions include: avg countDistinct, count,
-first, last, kurtosis, max, min, skewness, stddev_samp, stddev_pop, sum, sumDistinct,
-var_samp, var_pop
+first, last, kurtosis, max, min, skewness, stddev\_samp, stddev\_pop, sum, sumDistinct,
+var\_samp, var\_pop
 
 ## GlueSchema structure
 

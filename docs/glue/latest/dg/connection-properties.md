@@ -83,18 +83,18 @@ The following properties are used to set up an Amazon DocumentDB connection.
 
 (Required, STRING) The port number. The value must be a valid port number.
 
-**ENFORCE_SSL**
+**ENFORCE\_SSL**
 
 (Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
 value is `false`. Allowed values: `true`,
 `false`.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional connection parameters.
 
@@ -146,7 +146,7 @@ The port open on the endpoint.
 The **Secret name** of a secret in AWS Secrets Manager. AWS Glue will connect to
 OpenSearch Service using the keys of your secret.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
@@ -191,18 +191,18 @@ The following properties are used to set up an Amazon Redshift connection.
 
 (Required, STRING) The name of the Amazon Redshift database to connect to.
 
-**ENFORCE_SSL**
+**ENFORCE\_SSL**
 
 (Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
 value is `false`. Allowed values: `true`,
 `false`.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional JDBC parameters for the connection.
 
@@ -244,16 +244,16 @@ attached to your VPC subnet.
 The following properties are used to set up a Google BigQuery connection used in AWS Glue ETL jobs. For more
 information, see [BigQuery connections](aws-glue-programming-etl-connect-bigquery-home.md "aws-glue-programming-etl-connect-bigquery-home.md").
 
-**PROJECT_ID**
+**PROJECT\_ID**
 
 (Required, STRING) The project ID within Google Cloud Platform.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**CATALOG_CASING_FILTER**
+**CATALOG\_CASING\_FILTER**
 
 (Optional, STRING) Controls how entity names are processed and which names
 are accepted from the external source. This property applies only when the
@@ -308,22 +308,22 @@ The following properties are used to set up a MySQL unified connection.
 
 (Required, STRING) The name of the database to connect to.
 
-**ENFORCE_SSL**
+**ENFORCE\_SSL**
 
 (Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
 value is `false`. Allowed values: `true`,
 `false`.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional JDBC parameters for the connection.
 
-**CATALOG_CASING_FILTER**
+**CATALOG\_CASING\_FILTER**
 
 (Optional, STRING) Controls how entity names are processed and which names
 are accepted from the external source. This property applies only when the
@@ -378,22 +378,22 @@ The following properties are used to set up an Oracle unified connection.
 
 (Required, STRING) The name of the database to connect to.
 
-**ENFORCE_SSL**
+**ENFORCE\_SSL**
 
 (Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
 value is `false`. Allowed values: `true`,
 `false`.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional JDBC parameters for the connection.
 
-**CATALOG_CASING_FILTER**
+**CATALOG\_CASING\_FILTER**
 
 (Optional, STRING) Controls how entity names are processed and which names
 are accepted from the external source. This property applies only when the
@@ -449,22 +449,22 @@ The following properties are used to set up a PostgreSQL unified connection.
 
 (Required, STRING) The name of the database to connect to.
 
-**ENFORCE_SSL**
+**ENFORCE\_SSL**
 
 (Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
 value is `false`. Allowed values: `true`,
 `false`.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional JDBC parameters for the connection.
 
-**CATALOG_CASING_FILTER**
+**CATALOG\_CASING\_FILTER**
 
 (Optional, STRING) Controls how entity names are processed and which names
 are accepted from the external source. This property applies only when the
@@ -520,16 +520,16 @@ The following properties are used to set up a SAP HANA connection for AWS Glue E
 
 (Optional, STRING) The name of the SAP HANA database to connect to.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional JDBC parameters for the connection.
 
-**CATALOG_CASING_FILTER**
+**CATALOG\_CASING\_FILTER**
 
 (Optional, STRING) Controls how entity names are processed and which names
 are accepted from the external source. This property applies only when the
@@ -598,11 +598,11 @@ Your Accounts](https://docs.snowflake.com/en/user-guide/organizations-connect "h
 
 (Optional, STRING) The Snowflake warehouse name.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional JDBC parameters for the Snowflake connection.
 
-**CATALOG_CASING_FILTER**
+**CATALOG\_CASING\_FILTER**
 
 (Optional, STRING) Controls how entity names are processed and which names
 are accepted from the external source. This property applies only when the
@@ -612,7 +612,7 @@ connection is used with Data Catalog APIs and catalog federation. It does not
 apply to AWS Glue ETL jobs or other connection-related APIs. The default value is `UPPERCASE_ONLY`.
 Allowed values: `LOWERCASE_ONLY`, `UPPERCASE_ONLY`.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
@@ -668,22 +668,22 @@ The following properties are used to set up a SQL Server unified connection.
 
 (Required, STRING) The name of the database to connect to.
 
-**ENFORCE_SSL**
+**ENFORCE\_SSL**
 
 (Optional, BOOLEAN) Whether to enforce SSL for the connection. The default
 value is `false`. Allowed values: `true`,
 `false`.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional JDBC parameters for the connection.
 
-**CATALOG_CASING_FILTER**
+**CATALOG\_CASING\_FILTER**
 
 (Optional, STRING) Controls how entity names are processed and which names
 are accepted from the external source. This property applies only when the
@@ -738,12 +738,12 @@ The following properties are used to set up a Teradata Vantage connection for AW
 
 (Required, STRING) The name of the Teradata database to connect to.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Optional, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.
 
-**JDBC_PARAMS**
+**JDBC\_PARAMS**
 
 (Optional, STRING) Additional JDBC parameters for the connection.
 
@@ -852,19 +852,19 @@ Azure SQL using the keys of your secret.
 
 The following properties are used to set up a Salesforce connection.
 
-**INSTANCE_URL**
+**INSTANCE\_URL**
 
 (Required, STRING) The Salesforce instance URL. The value must be a valid
 Salesforce URL (for example,
 `https://mycompany.my.salesforce.com`).
 
-**SALESFORCE_ENVIRONMENT**
+**SALESFORCE\_ENVIRONMENT**
 
 (Required, STRING) The Salesforce environment to connect to. The default
 value is `Production`. Allowed values:
 `Production`, `Sandbox`.
 
-**ROLE_ARN**
+**ROLE\_ARN**
 
 (Required, STRING) The IAM role ARN used to access AWS Secrets Manager and to
 assign an IP address if a Amazon VPC is specified.

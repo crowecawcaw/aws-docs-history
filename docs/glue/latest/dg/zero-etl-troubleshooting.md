@@ -6,7 +6,7 @@ Use the following sections to help troubleshoot problems that you have with AWS 
 
 ### Missing RBAC policy or point-in-time recovery on source DynamoDB table
 
-Before creating the integration, source must be configured properly. If the source DynamoDB table is missing the RBAC policy with appropriate permissions or if the point-in-time recovery is disabled, then integration will go into Needs_Attention state. To resolve this issue, fix the permissions and/or enable the point-in-time recovery. The integration should automatically recover after some time once you fix the missing configurations.
+Before creating the integration, source must be configured properly. If the source DynamoDB table is missing the RBAC policy with appropriate permissions or if the point-in-time recovery is disabled, then integration will go into Needs\_Attention state. To resolve this issue, fix the permissions and/or enable the point-in-time recovery. The integration should automatically recover after some time once you fix the missing configurations.
 
 ## Troubleshooting zero-ETL integrations with SaaS sources (using AWS Glue connection)
 
@@ -18,21 +18,21 @@ If the AWS Glue connection is not configured properly, the integration may fail 
 
 ### Target-role is missing permissions
 
-If the target role is missing the appropriate permissions or setup incorrectly, it will cause the integration to go into NEEDS_ATTENTION state. Please refer to the section for target role configuration to fix the issue. Integration should be automatically recovered after some time once you fix the issue.
+If the target role is missing the appropriate permissions or setup incorrectly, it will cause the integration to go into NEEDS\_ATTENTION state. Please refer to the section for target role configuration to fix the issue. Integration should be automatically recovered after some time once you fix the issue.
 
 ### Target Catalog RBAC policy is incorrectly configured
 
-If the target catalog resource policy is incorrectly configured, it will also cause the integration to go into NEEDS_ATTENTION state. Please refer to the section for target role configuration to fix the issue. Integration should be automatically recovered after some time once you fix the issue.
+If the target catalog resource policy is incorrectly configured, it will also cause the integration to go into NEEDS\_ATTENTION state. Please refer to the section for target role configuration to fix the issue. Integration should be automatically recovered after some time once you fix the issue.
 
 ## Troubleshooting zero-ETL integrations with Amazon S3-Table target
 
 ### Target-role is missing permissions
 
-If the target role is missing the appropriate permissions or setup incorrectly, it will cause the integration to go into NEEDS_ATTENTION state. Please refer to the section for target role configuration to fix the issue. Integration should be automatically recovered after some time once you fix the issue.
+If the target role is missing the appropriate permissions or setup incorrectly, it will cause the integration to go into NEEDS\_ATTENTION state. Please refer to the section for target role configuration to fix the issue. Integration should be automatically recovered after some time once you fix the issue.
 
 ### Target Catalog RBAC policy is incorrectly configured
 
-If the target catalog resource policy is incorrectly configured, it will also cause the integration to go into NEEDS_ATTENTION state. Please refer to the section for target role configuration to fix the issue. Integration should be automatically recovered after some time once you fix the issue.
+If the target catalog resource policy is incorrectly configured, it will also cause the integration to go into NEEDS\_ATTENTION state. Please refer to the section for target role configuration to fix the issue. Integration should be automatically recovered after some time once you fix the issue.
 
 ## General troubleshooting guide for AWS Glue zero-ETL integration errors
 

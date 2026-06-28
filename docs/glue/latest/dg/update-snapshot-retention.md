@@ -56,7 +56,7 @@ The request parameters include:
 - databaseName (optional): The name of the database containing the table
 - tableName (optional): The name of the table
 - type (required): The type of table optimizer (compaction, retention, or
-  orphan_file_deletion)
+  orphan\_file\_deletion)
 - retentionConfiguration (required): The updated configuration for the table optimizer,
   including role ARN, enabled status, retention configuration, and orphan file
   removal configuration.

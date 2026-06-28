@@ -6,8 +6,8 @@ contains all remaining rows.
 
 ## Example
 
-We recommend that you use the [DynamicFrame.split_rows()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows")
-method to split rows in a `DynamicFrame`. To view a code example, see [Example: Use split_rows to split rows in a DynamicFrame](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-split_rows-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-split_rows-example").
+We recommend that you use the [DynamicFrame.split\_rows()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_rows")
+method to split rows in a `DynamicFrame`. To view a code example, see [Example: Use split\_rows to split rows in a DynamicFrame](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-split_rows-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-split_rows-example").
 
 ## Methods
 
@@ -20,7 +20,7 @@ method to split rows in a `DynamicFrame`. To view a code example, see [Example: 
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-SplitRows-describeErrors "#aws-glue-api-crawler-pyspark-transforms-SplitRows-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-SplitRows-describe "#aws-glue-api-crawler-pyspark-transforms-SplitRows-describe")
 
-## \_\_call\_\_(frame, comparison_dict, name1="frame1", name2="frame2", transformation_ctx = "", info = none, stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, comparison\_dict, name1="frame1", name2="frame2", transformation\_ctx = "", info = none, stageThreshold = 0, totalThreshold = 0)
 
 Splits one or more rows in a `DynamicFrame` off into a new
 `DynamicFrame`.

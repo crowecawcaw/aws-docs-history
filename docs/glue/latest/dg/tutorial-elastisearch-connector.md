@@ -171,29 +171,28 @@ more information, see [Configure a VPC for your ETL job](getting-started-vpc-con
 
 ###### To create a job that uses the Elasticsearch Spark Connector
 
-1.  In AWS Glue Studio, choose **Connectors**.
-2.  In the **Your connections** list, select the connection you just created
-    and choose **Create job**.
-3.  In the visual job editor, choose the Data source node. On the right, on the
-    **Data source properties - Connector** tab, configure additional information for
-    the connector.
+1. In AWS Glue Studio, choose **Connectors**.
+2. In the **Your connections** list, select the connection you just created
+   and choose **Create job**.
+3. In the visual job editor, choose the Data source node. On the right, on the
+   **Data source properties - Connector** tab, configure additional information for
+   the connector.
 
-    1.  Choose **Add schema** and enter the schema of the data set in the data
-        source. Connections do not use tables stored in the Data Catalog, which means that AWS Glue Studio doesn't
-        know the schema of the data. You must manually provide this schema information. For
-        instructions on how to use the schema editor, see [Editing the schema in a custom transform node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
-    2.  Expand **Connection options**.
-    3.  Choose **Add new option** and enter the information needed for the
-        connector that was not entered in the AWS secret:
+   1. Choose **Add schema** and enter the schema of the data set in the data
+      source. Connections do not use tables stored in the Data Catalog, which means that AWS Glue Studio doesn't
+      know the schema of the data. You must manually provide this schema information. For
+      instructions on how to use the schema editor, see [Editing the schema in a custom transform node](transforms-custom.md#transforms-custom-editschema "transforms-custom.md#transforms-custom-editschema").
+   2. Expand **Connection options**.
+   3. Choose **Add new option** and enter the information needed for the
+      connector that was not entered in the AWS secret:
 
-            * **es.nodes**: https://*<OpenSearch domain endpoint>*
-            * **es.port**: 443
-            * **path**: test
-            * **es.nodes.wan.only**: true
-
+      - **es.nodes**: https://_<OpenSearch domain endpoint>_
+      - **es.port**: 443
+      - **path**: test
+      - **es.nodes.wan.only**: true
         For an explanation of these connection options, refer to: [https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html](https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html "https://www.elastic.co/guide/en/elasticsearch/hadoop/current/configuration.html").
 
-4.  Add a target node to the graph.
+4. Add a target node to the graph.
 
 Your data target can be Amazon S3, or it can use information from an AWS Glue Data Catalog
 or a connector to write data in a different location. For example, you can use a Data Catalog table

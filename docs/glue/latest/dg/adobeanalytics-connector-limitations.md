@@ -9,7 +9,7 @@ The following are limitations for the Adobe Analytics connector:
   response is not being filtered based on these parameters, which is causing
   issues with the filter and incremental flow for this entity.
 - For the `Annotation`, `Calculated Metrics`, `Calculated Metrics
-Function`, `Date Ranges`, `Dimension`,
+ Function`, `Date Ranges`, `Dimension`,
   `Metric`, `Project`, `Report Top Items`,
   and `Segment` entities, the `locale` query parameter
   specifies which language is to be used for localized sections of responses and

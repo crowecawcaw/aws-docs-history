@@ -28,11 +28,11 @@ value is case-sensitive, and must not contain the prefix aws.
 
 ## Operations
 
-- [TagResource action (Python: tag_resource)](#aws-glue-api-tags-TagResource "#aws-glue-api-tags-TagResource")
-- [UntagResource action (Python: untag_resource)](#aws-glue-api-tags-UntagResource "#aws-glue-api-tags-UntagResource")
-- [GetTags action (Python: get_tags)](#aws-glue-api-tags-GetTags "#aws-glue-api-tags-GetTags")
+- [TagResource action (Python: tag\_resource)](#aws-glue-api-tags-TagResource "#aws-glue-api-tags-TagResource")
+- [UntagResource action (Python: untag\_resource)](#aws-glue-api-tags-UntagResource "#aws-glue-api-tags-UntagResource")
+- [GetTags action (Python: get\_tags)](#aws-glue-api-tags-GetTags "#aws-glue-api-tags-GetTags")
 
-## TagResource action (Python: tag_resource)
+## TagResource action (Python: tag\_resource)
 
 Adds tags to a resource. A tag is a label you can assign to an AWS resource. In AWS Glue, you can tag only certain resources. For information
 about what resources you can tag, see [AWS Tags in AWS Glue](monitor-tags.md "monitor-tags.md").
@@ -65,7 +65,7 @@ Tags to add to this resource.
 
 - `ResourceNotFoundException`
 
-## UntagResource action (Python: untag_resource)
+## UntagResource action (Python: untag\_resource)
 
 Removes the specified tags from an integration resource.
 
@@ -87,7 +87,7 @@ A list of metadata tags to be removed from the resource.
 
 - `ResourceNotFoundException`
 
-## GetTags action (Python: get_tags)
+## GetTags action (Python: get\_tags)
 
 Retrieves a list of tags associated with a resource.
 

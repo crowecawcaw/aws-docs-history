@@ -96,8 +96,7 @@ The notebook has all necessary instructions to continue the tutorial. You can ei
     3. Derive new columns (serial\_identifier, ingest\_year, ingest\_month and ingest\_day).
     4. Store the results into an Amazon S3 bucket and also create a partitioned AWS Glue catalog table
 
-8. In the last cell, you trigger the process batch every 10 seconds. Run the cell and wait for about 30 seconds for it to populate the Amazon S3 bucket and the AWS Glue catalog table.
-9. Finally, browse the stored data using the Amazon Athena query editor. You can see the renamed column and also the new partitions.
+8. In the last cell, you trigger the process batch every 10 seconds. Run the cell and wait for about 30 seconds for it to populate the Amazon S3 bucket and the AWS Glue catalog table. 9. Finally, browse the stored data using the Amazon Athena query editor. You can see the renamed column and also the new partitions.
 
 ![The screenshot shows browsing the stored data in the Amazon Athena query editor.](images/streaming-tutorial-2f.png)
 

@@ -29,39 +29,39 @@ in the Teradata documentation.
 
 ###### To configure a AWS Glue Teradata connection:
 
-1.  In your Teradata configuration, identify or create a user and password AWS Glue will connect with, `teradataUser` and `teradataPassword`. For more information,
-    consult [Vantage Security Overview](https://docs.teradata.com/r/Configuring-Teradata-VantageTM-After-Installation/January-2021/Security-Overview/Vantage-Security-Overview "https://docs.teradata.com/r/Configuring-Teradata-VantageTM-After-Installation/January-2021/Security-Overview/Vantage-Security-Overview")
-    in the Teradata documentation.
-2.  In AWS Secrets Manager, create a secret using your Teradata credentials.
-    To create a secret in Secrets Manager, follow the tutorial available in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the AWS Secrets Manager documentation.
-    After creating the secret, keep the Secret name, `secretName` for the next step.
+1. In your Teradata configuration, identify or create a user and password AWS Glue will connect with, `teradataUser` and `teradataPassword`. For more information,
+   consult [Vantage Security Overview](https://docs.teradata.com/r/Configuring-Teradata-VantageTM-After-Installation/January-2021/Security-Overview/Vantage-Security-Overview "https://docs.teradata.com/r/Configuring-Teradata-VantageTM-After-Installation/January-2021/Security-Overview/Vantage-Security-Overview")
+   in the Teradata documentation.
+2. In AWS Secrets Manager, create a secret using your Teradata credentials.
+   To create a secret in Secrets Manager, follow the tutorial available in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the AWS Secrets Manager documentation.
+   After creating the secret, keep the Secret name, `secretName` for the next step.
 
-    - When selecting **Key/value pairs**, create a pair for
-      the key `user` with the value `teradataUsername`.
-    - When selecting **Key/value pairs**, create a pair for
-      the key `password` with the value `teradataPassword`.
+   - When selecting **Key/value pairs**, create a pair for
+     the key `user` with the value `teradataUsername`.
+   - When selecting **Key/value pairs**, create a pair for
+     the key `password` with the value `teradataPassword`.
 
-3.  In the AWS Glue console, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md").
-    After creating the connection, keep the connection name, `connectionName`, for the next step.
+3. In the AWS Glue console, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md").
+   After creating the connection, keep the connection name, `connectionName`, for the next step.
 
-    - When selecting a **Connection type**, select Teradata.
-    - When providing **JDBC URL**, provide the URL for your instance. You can also hardcode
-      certain comma separated connection parameters in your JDBC URL. The URL must conform to the
-      following format:
-      `jdbc:teradata://`teradataHostname`/`ParameterName`=`ParameterValue`,`ParameterName`=`ParameterValue``
+   - When selecting a **Connection type**, select Teradata.
+   - When providing **JDBC URL**, provide the URL for your instance. You can also hardcode
+     certain comma separated connection parameters in your JDBC URL. The URL must conform to the
+     following format:
+     `jdbc:teradata://`teradataHostname`/`ParameterName`=`ParameterValue`,`ParameterName`=`ParameterValue``
 
-    Supported URL parameters include:
+   Supported URL parameters include:
 
         + `DATABASE`– name of database on host to access by default.
         + `DBS_PORT`– the database port, used when running on a nonstandard port.
-    - When selecting a **Credential type**, select **AWS Secrets Manager**, then set **AWS Secret** to `secretName`.
+   - When selecting a **Credential type**, select **AWS Secrets Manager**, then set **AWS Secret** to `secretName`.
 
-4.  In the following situations, you may require additional configuration:
+4. In the following situations, you may require additional configuration:
 
-    - For Teradata instances hosted on AWS in an Amazon VPC
+   - For Teradata instances hosted on AWS in an Amazon VPC
 
-      - You will need to provide Amazon VPC connection information to the AWS Glue connection that defines your Teradata security credentials. When creating or updating your connection,
-        set **VPC**, **Subnet** and **Security groups** in **Network options**.
+     - You will need to provide Amazon VPC connection information to the AWS Glue connection that defines your Teradata security credentials. When creating or updating your connection,
+       set **VPC**, **Subnet** and **Security groups** in **Network options**.
 
 After creating a AWS Glue Teradata connection, you will need to perform the following steps before calling your connection method.
 

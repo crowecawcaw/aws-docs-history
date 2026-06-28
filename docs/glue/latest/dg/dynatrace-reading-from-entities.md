@@ -27,33 +27,33 @@ Dynatrace_read = glueContext.create_dynamic_frame.from_options(
 
 Dynatrace provides endpoints to fetch metadata dynamically for supported entities. Accordingly, operator support is captured at the datatype level.
 
-| Entity             | Field            | Data type         | Supported operators |
-| ------------------ | ---------------- | ----------------- | ------------------- |
-| Problem            | affectedEntities | List              | EQUAL_TO            |
-| displayId          | String           | EQUAL_TO          |
-| endTime            | DateTime         |                   |
-| entityTags         | List             |                   |
-| evidenceDetails    | Struct           |                   |
-| impactAnalysis     | Struct           |                   |
-| impactLevel        | String           | EQUAL_TO          |
-| impactedEntities   | List             | EQUAL_TO          |
-| linkedProblemInfo  | Struct           |                   |
-| managementZones    | List             | EQUAL_TO          |
-| problemFilters     | List             |                   |
-| recentComments     | Struct           |                   |
-| rootCauseEntity    | Struct           | EQUAL_TO          |
-| problemId          | String           | EQUAL_TO          |
-| severityLevel      | String           | EQUAL_TO          |
-| startTime          | DateTime         | BETWEEN           |
-| status             | String           | EQUAL_TO          |
-| title              | String           |                   |
-| from               | DateTime         | EQUAL_TO, BETWEEN |
-| problemFilterIds   | String           | EQUAL_TO          |
-| problemFilterNames | String           | EQUAL_TO          |
-| managementZoneIds  | String           | EQUAL_TO          |
-| text               | String           | EQUAL_TO          |
-| underMaintenance   | Boolean          | EQUAL_TO          |
-| message            | String           |                   |
+| Entity             | Field            | Data type          | Supported operators |
+| ------------------ | ---------------- | ------------------ | ------------------- |
+| Problem            | affectedEntities | List               | EQUAL\_TO           |
+| displayId          | String           | EQUAL\_TO          |
+| endTime            | DateTime         |                    |
+| entityTags         | List             |                    |
+| evidenceDetails    | Struct           |                    |
+| impactAnalysis     | Struct           |                    |
+| impactLevel        | String           | EQUAL\_TO          |
+| impactedEntities   | List             | EQUAL\_TO          |
+| linkedProblemInfo  | Struct           |                    |
+| managementZones    | List             | EQUAL\_TO          |
+| problemFilters     | List             |                    |
+| recentComments     | Struct           |                    |
+| rootCauseEntity    | Struct           | EQUAL\_TO          |
+| problemId          | String           | EQUAL\_TO          |
+| severityLevel      | String           | EQUAL\_TO          |
+| startTime          | DateTime         | BETWEEN            |
+| status             | String           | EQUAL\_TO          |
+| title              | String           |                    |
+| from               | DateTime         | EQUAL\_TO, BETWEEN |
+| problemFilterIds   | String           | EQUAL\_TO          |
+| problemFilterNames | String           | EQUAL\_TO          |
+| managementZoneIds  | String           | EQUAL\_TO          |
+| text               | String           | EQUAL\_TO          |
+| underMaintenance   | Boolean          | EQUAL\_TO          |
+| message            | String           |                    |
 
 ## Partitioning queries
 

@@ -28,10 +28,10 @@ The name of the person who initiated the migration.
 
 ## Operations
 
-- [ImportCatalogToGlue action (Python: import_catalog_to_glue)](#aws-glue-api-catalog-migration-ImportCatalogToGlue "#aws-glue-api-catalog-migration-ImportCatalogToGlue")
-- [GetCatalogImportStatus action (Python: get_catalog_import_status)](#aws-glue-api-catalog-migration-GetCatalogImportStatus "#aws-glue-api-catalog-migration-GetCatalogImportStatus")
+- [ImportCatalogToGlue action (Python: import\_catalog\_to\_glue)](#aws-glue-api-catalog-migration-ImportCatalogToGlue "#aws-glue-api-catalog-migration-ImportCatalogToGlue")
+- [GetCatalogImportStatus action (Python: get\_catalog\_import\_status)](#aws-glue-api-catalog-migration-GetCatalogImportStatus "#aws-glue-api-catalog-migration-GetCatalogImportStatus")
 
-## ImportCatalogToGlue action (Python: import_catalog_to_glue)
+## ImportCatalogToGlue action (Python: import\_catalog\_to\_glue)
 
 Imports an existing Amazon Athena Data Catalog to AWS Glue.
 
@@ -50,7 +50,7 @@ The ID of the catalog to import. Currently, this should be the AWS account ID.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## GetCatalogImportStatus action (Python: get_catalog_import_status)
+## GetCatalogImportStatus action (Python: get\_catalog\_import\_status)
 
 Retrieves the status of a migration operation.
 

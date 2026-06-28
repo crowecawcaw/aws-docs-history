@@ -182,7 +182,7 @@ The following parameters are used generally when connecting to Snowflake.
   string. The private key for the Snowflake user. It is common to copy this out of a PEM file. For more information, see [Key-pair authentication and key-pair
   rotation](https://docs.snowflake.com/en/user-guide/key-pair-auth "https://docs.snowflake.com/en/user-guide/key-pair-auth") in the Snowflake documentation.
 - `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` — (Required when using OAuth Authentication) Used for both read and write operations.
-  This value corresponds to the OAUTH_CLIENT_SECRET, which can be obtained from the Snowflake security integration configured to enable OAuth-based authentication for your account.
+  This value corresponds to the OAUTH\_CLIENT\_SECRET, which can be obtained from the Snowflake security integration configured to enable OAuth-based authentication for your account.
   For more details, refer to your Snowflake OAuth security integration setup documentation - [Configure Snowflake OAuth for custom clients](https://docs.snowflake.com/en/user-guide/oauth-custom "https://docs.snowflake.com/en/user-guide/oauth-custom").
 - `query` — Required when reading with a query. Used for Read. The exact query (`SELECT` statement) to run
 
@@ -210,7 +210,7 @@ AWS Glue supports the following authentication methods for connecting to Snowfla
 
 - **Basic authentication:** Provide `sfUser` and `sfPassword` parameters.
 - **Key-pair authentication:** Provide `sfUser` and `pem_private_key` parameters. When using key-pair authentication, the `sfPassword` parameter is not required.
-- **OAuth authentication:** The Snowflake Connector supports the AUTHORIZATION_CODE grant type to request access to your Snowflake data.
+- **OAuth authentication:** The Snowflake Connector supports the AUTHORIZATION\_CODE grant type to request access to your Snowflake data.
   This grant type is referred to as “3-legged OAuth”, as it involves redirecting users to a third-party authorization server where they can authenticate and approve access.
   This method is used when creating a connection through the AWS Glue Console.
 
@@ -222,8 +222,8 @@ AWS Glue supports the following authentication methods for connecting to Snowfla
       If you are creating the connection in the DUB (eu-west-1) region, your redirect URI should be: `https://eu-west-1.console.aws.amazon.com/gluestudio/oauth`
     - After creating the security integration, retain the following information for use when creating the Glue connection:
 
-      - OAUTH_CLIENT_ID: This value should be provided as User Managed Client Application Client ID on the Glue connection creation page.
-      - OAUTH_CLIENT_SECRET: This value should be stored in the AWS Secret used for the connection, under the key USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET.
+      - OAUTH\_CLIENT\_ID: This value should be provided as User Managed Client Application Client ID on the Glue connection creation page.
+      - OAUTH\_CLIENT\_SECRET: This value should be stored in the AWS Secret used for the connection, under the key USER\_MANAGED\_CLIENT\_APPLICATION\_CLIENT\_SECRET.
 
   - OAuth Scopes — (Optional) Defines the specific permissions or levels of access requested from the Snowflake account. For example, a scope might limit access to a particular resource or operation.
 
@@ -242,7 +242,7 @@ AWS Glue supports the following authentication methods for connecting to Snowfla
   - AWS Secret — (Required) Refers to an AWS Secrets Manager secret containing the following key-value pairs:
 
     - sfUser - The Snowflake username
-    - USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET - The client secret associated with the OAuth client application
+    - USER\_MANAGED\_CLIENT\_APPLICATION\_CLIENT\_SECRET - The client secret associated with the OAuth client application
 
 All three authentication methods are fully supported and can be configured using any combination of connection options, Glue connections, or AWS Secrets Manager secrets.
 

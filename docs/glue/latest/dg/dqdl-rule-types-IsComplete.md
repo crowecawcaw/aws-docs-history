@@ -8,7 +8,7 @@ Checks whether all of the values in a column are complete (non-null).
 IsComplete `<COL_NAME>`
 ```
 
-- **COL_NAME** – The name of the column that you want to evaluate the data quality rule against.
+- **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
 
 **Supported column types**: Any column type
 **Example: Null values**

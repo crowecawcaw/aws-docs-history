@@ -23,4 +23,4 @@ The test begins and can take several minutes to complete. If the test fails,
 choose **Troubleshoot** to view the steps to resolve the issue. 6. Choose **Logs** to view the logs in CloudWatch. You must have the required IAM
 permissions to view the logs. For more information, see
 [AWS Managed (Predefined) Policies for CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.md#managed-policies-cwl "../../../AmazonCloudWatch/latest/logs/iam-identity-based-access-control-cwl.md#managed-policies-cwl")  
- in the _Amazon CloudWatch Logs User Guide_.
+in the _Amazon CloudWatch Logs User Guide_.

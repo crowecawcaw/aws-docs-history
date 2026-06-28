@@ -5,7 +5,7 @@ You can create a schedule for the crawler using the AWS Glue console or AWS CLI.
 AWS Management Console
 
 1. Sign in to the AWS Management Console, and open the AWS Glue console at
-   [https://console.aws.amazon.com/glue/](<https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue">).
+   [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue\").
 2. Choose **Crawlers** in the navigation
    pane.
 3. Follow steps 1-3 in the [Configuring a crawler](define-crawler.md "define-crawler.md")

@@ -13,28 +13,28 @@ The following table lists the permissions that a user needs in order to perform 
 AWS Glue Data Quality operations. To set fine-grained authorization for AWS Glue Data Quality, you can specify these
 actions in the `Action` element of an IAM policy statement.
 
-| AWS Glue Data Quality actions                 | Action                                                                                                                                                                                                                                                | Description                                    | Resource types |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | -------------- |
-| `glue:CreateDataQualityRuleset`               | Grants permission to create a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                  |
-| `glue:DeleteDataQualityRuleset`               | Grants permission to delete a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                  |
-| `glue:GetDataQualityRuleset`                  | Grants permission to retrieve a data quality ruleset.                                                                                                                                                                                                 | `::dataQualityRuleset/<name>`                  |
-| `glue:ListDataQualityRulesets`                | Grants permission to retrieve all data quality rulesets.                                                                                                                                                                                              | `::dataQualityRuleset/*`                       |
-| `glue:UpdateDataQualityRuleset`               | Grants permission to update a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                  |
-| `glue:GetDataQualityResult`                   | Grants permission to retrieve a data quality task run result. This IAM action also provides permissions to the following<br>APIS:<br>• `BatchGetDataQualityQualityResult`<br>• `ListDataQualityStatistics`<br>• `ListDataQualityStatisticAnnotations` | `::dataQualityRuleset/<name>`                  |
-| `glue:ListDataQualityResults`                 | Grants permission to retrieve all data quality task run results.                                                                                                                                                                                      | `::dataQualityRuleset/*`                       |
-| `glue:CancelDataQualityRuleRecommendationRun` | Grants permission to stop an in-progress data quality recommendation task<br>run.                                                                                                                                                                     | `::dataQualityRuleset/*`                       |
-| `glue:GetDataQualityRuleRecommendationRun`    | Grants permission to retrieve a data quality recommendation task run.                                                                                                                                                                                 | `::dataQualityRuleset/*`                       |
-| `glue:ListDataQualityRuleRecommendationRuns`  | Grants permission to retrieve all data quality recommendation task runs.                                                                                                                                                                              | `::dataQualityRuleset/*`                       |
-| `glue:StartDataQualityRuleRecommendationRun`  | Grants permission to start a data quality recommendation task run.                                                                                                                                                                                    | `::dataQualityRuleset/*`                       |
-| `glue:CancelDataQualityRulesetEvaluationRun`  | Grants permission to stop an in-progress data quality task run.                                                                                                                                                                                       | `::dataQualityRuleset/*`                       |
-| `glue:GetDataQualityRulesetEvaluationRun`     | Grants permission to retrieve a data quality task run.                                                                                                                                                                                                | `::dataQualityRuleset/*`                       |
-| `glue:ListDataQualityRulesetEvaluationRuns`   | Grants permission to retrieve all data quality task runs.                                                                                                                                                                                             | `::dataQualityRuleset/*`                       |
-| `glue:StartDataQualityRulesetEvaluationRun`   | Grants permission to start a data quality task run.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                  |
-| `glue:PublishDataQuality`                     | Grants permission to publish data quality results.                                                                                                                                                                                                    | `::dataQualityRuleset/<name>`                  |
-| `glue:GetDataQualityModel`                    | Grants permission to retrieve Data Quality Model.                                                                                                                                                                                                     | `::dataQualityRuleset/<name>,<br>::job/<name>` |
-| `glue:GetDataQualityModelResult`              | Grants permission to retrieve Data Quality Model Results.                                                                                                                                                                                             | `::dataQualityRuleset/<name>,<br>::job/<name>` |
-| `glue:PutDataQualityStatisticAnnotation`      | Grants permission to add annotations to Statistics. This IAM action also provides permissions to the following<br>APIS:<br>• `BatchPutDataQualityStatisticAnnotation`                                                                                 | `::dataQualityRuleset/<name>,<br>::job/<name>` |
-| `glue:PutDataQualityProfileAnnotation`        | Grants permission to put annotations to all Statistics in a Profile.                                                                                                                                                                                  | `::dataQualityRuleset/<name>,<br>::job/<name>` |
+AWS Glue Data Quality actions| Action | Description | Resource types |
+| --- | --- | --- |
+| `glue:CreateDataQualityRuleset` | Grants permission to create a data quality ruleset. | `::dataQualityRuleset/<name>` |
+| `glue:DeleteDataQualityRuleset` | Grants permission to delete a data quality ruleset. | `::dataQualityRuleset/<name>` |
+| `glue:GetDataQualityRuleset` | Grants permission to retrieve a data quality ruleset. | `::dataQualityRuleset/<name>` |
+| `glue:ListDataQualityRulesets` | Grants permission to retrieve all data quality rulesets. | `::dataQualityRuleset/*` |
+| `glue:UpdateDataQualityRuleset` | Grants permission to update a data quality ruleset. | `::dataQualityRuleset/<name>` |
+| `glue:GetDataQualityResult` | Grants permission to retrieve a data quality task run result. This IAM action also provides permissions to the following<br>APIS:<br>• `BatchGetDataQualityQualityResult`<br>• `ListDataQualityStatistics`<br>• `ListDataQualityStatisticAnnotations` | `::dataQualityRuleset/<name>` |
+| `glue:ListDataQualityResults` | Grants permission to retrieve all data quality task run results. | `::dataQualityRuleset/*` |
+| `glue:CancelDataQualityRuleRecommendationRun` | Grants permission to stop an in-progress data quality recommendation task<br>run. | `::dataQualityRuleset/*` |
+| `glue:GetDataQualityRuleRecommendationRun` | Grants permission to retrieve a data quality recommendation task run. | `::dataQualityRuleset/*` |
+| `glue:ListDataQualityRuleRecommendationRuns` | Grants permission to retrieve all data quality recommendation task runs. | `::dataQualityRuleset/*` |
+| `glue:StartDataQualityRuleRecommendationRun` | Grants permission to start a data quality recommendation task run. | `::dataQualityRuleset/*` |
+| `glue:CancelDataQualityRulesetEvaluationRun` | Grants permission to stop an in-progress data quality task run. | `::dataQualityRuleset/*` |
+| `glue:GetDataQualityRulesetEvaluationRun` | Grants permission to retrieve a data quality task run. | `::dataQualityRuleset/*` |
+| `glue:ListDataQualityRulesetEvaluationRuns` | Grants permission to retrieve all data quality task runs. | `::dataQualityRuleset/*` |
+| `glue:StartDataQualityRulesetEvaluationRun` | Grants permission to start a data quality task run. | `::dataQualityRuleset/<name>` |
+| `glue:PublishDataQuality` | Grants permission to publish data quality results. | `::dataQualityRuleset/<name>` |
+| `glue:GetDataQualityModel` | Grants permission to retrieve Data Quality Model. | `::dataQualityRuleset/<name>,<br>::job/<name>` |
+| `glue:GetDataQualityModelResult` | Grants permission to retrieve Data Quality Model Results. | `::dataQualityRuleset/<name>,<br>::job/<name>` |
+| `glue:PutDataQualityStatisticAnnotation` | Grants permission to add annotations to Statistics. This IAM action also provides permissions to the following<br>APIS:<br>• `BatchPutDataQualityStatisticAnnotation` | `::dataQualityRuleset/<name>,<br>::job/<name>` |
+| `glue:PutDataQualityProfileAnnotation` | Grants permission to put annotations to all Statistics in a Profile. | `::dataQualityRuleset/<name>,<br>::job/<name>` |
 
 ## IAM setup required for scheduling evaluation runs
 
@@ -42,9 +42,9 @@ actions in the `Action` element of an IAM policy statement.
 
 To run scheduled Data Quality evaluation runs, you must add the `IAM:PassRole` action to the permissions policy.
 
-| AWS EventBridge Scheduler required permissions | Action                                                                  | Description                                                         | Resource types |
-| ---------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------- |
-| `iam:PassRole`                                 | Grants permission for IAM to allow the user to pass the approved roles. | ARN of the role used to call `StartDataQualityRulesetEvaluationRun` |
+AWS EventBridge Scheduler required permissions| Action | Description | Resource types |
+| --- | --- | --- |
+| `iam:PassRole` | Grants permission for IAM to allow the user to pass the approved roles. | ARN of the role used to call `StartDataQualityRulesetEvaluationRun` |
 
 Without these permissions the following error occurs:
 

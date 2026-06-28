@@ -5,11 +5,10 @@
 - A Salesforce Marketing object you wish to write to. You will need to specify the object’s name such as `List` or `Campaigns` or any of the other entities outlined in the table below.
 - The Salesforce Marketing Cloud connector supports three write operations:
 
-      + INSERT
-      + UPSERT
-      + UPDATEWhen using the `UPDATE` and `UPSERT` write operations, you must provide the `ID_FIELD_NAMES` option to specify the external ID field for the records.
-
-  **Supported entities for destination**:
+  - INSERT
+  - UPSERT
+  - UPDATEWhen using the `UPDATE` and `UPSERT` write operations, you must provide the `ID_FIELD_NAMES` option to specify the external ID field for the records.
+    **Supported entities for destination**:
 
 | Entity                          | Priority | Interface (REST, SOAP, etc) | Can be Inserted     | Can be Updated      | Can be Upserted |
 | ------------------------------- | -------- | --------------------------- | ------------------- | ------------------- | --------------- |

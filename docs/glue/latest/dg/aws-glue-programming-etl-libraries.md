@@ -14,10 +14,9 @@ When you develop and test your AWS Glue for Spark job scripts, there are multipl
 
 - Docker image
 
-      + Local development
-      + Remote development
-
-  You can choose any of the above options based on your requirements.
+  - Local development
+  - Remote development
+    You can choose any of the above options based on your requirements.
 
 If you prefer no code or less code experience, the AWS Glue Studio visual editor is a good choice.
 

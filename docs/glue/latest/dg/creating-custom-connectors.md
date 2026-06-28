@@ -73,7 +73,7 @@ connection"**}, transformation_ctx = "DataSource0")
      projections. This allows your ETL job to load filtered data faster from data stores
      that support push-downs. An example SQL query pushed down to a JDBC data source is:
      `SELECT
-id, name, department FROM department WHERE id < 200.`
+  id, name, department FROM department WHERE id < 200.`
 
    ```
    DataSource = glueContext.create_dynamic_frame.from_options(connection_type =

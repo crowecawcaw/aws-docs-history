@@ -128,11 +128,11 @@ Zero-ETL integrations with an SAP OData source now supports entities starting wi
 
 #### Support for special SAP entities
 
-AWS Glue zero-ETL supports SAP OData entities that use SAP's Operational Data Provisioning (ODP) framework as well as those that do not use the ODP framework (non-ODP entities). The list of supported entities includes: ODP_SAP (Business Warehouse or BW extractors), ODP_CDS (Core Data Services or CDS Views) and non-ODP based OData services for SAP APIs. AWS Glue zero-ETL supports full snapshot and incremental change data capture for ODP and non-ODP SAP entities. For ODP entities, incremental changes are captured using delta links. For non-ODP entities, if a queryable field that can be used for timestamp based ingestion is selected, then zero-ETL will use that field for incremental ingestion.
+AWS Glue zero-ETL supports SAP OData entities that use SAP's Operational Data Provisioning (ODP) framework as well as those that do not use the ODP framework (non-ODP entities). The list of supported entities includes: ODP\_SAP (Business Warehouse or BW extractors), ODP\_CDS (Core Data Services or CDS Views) and non-ODP based OData services for SAP APIs. AWS Glue zero-ETL supports full snapshot and incremental change data capture for ODP and non-ODP SAP entities. For ODP entities, incremental changes are captured using delta links. For non-ODP entities, if a queryable field that can be used for timestamp based ingestion is selected, then zero-ETL will use that field for incremental ingestion.
 
 While ingesting data from SAP entities using AWS Glue zero-ETL, the following things should be noted:
 
-- Zero-ETL can only ingest SAP entities which have been configured for GET_ENTITYSET method in SAP.
+- Zero-ETL can only ingest SAP entities which have been configured for GET\_ENTITYSET method in SAP.
 - For non-ODP SAP entities, if a timestamp field is not selected for incremental updates, AWS Glue zero-ETL supports a full data extraction and replication with upserts only (no deletions).
 - For ODP extractor entities, we determine the valid primary key sets during data processing. Other SAP entities require an extra step of providing the valid primary key set as input, specifically SAP entities that start with `EntityOf`. When an `EntityOf` entity is selected, you will be directed to provide the set of primary keys.
 

@@ -1,6 +1,6 @@
 # Configuring Docusign Monitor connections
 
-Docusign Monitor supports the AUTHORIZATION_CODE grant type.
+Docusign Monitor supports the AUTHORIZATION\_CODE grant type.
 
 - This grant type is considered three-legged OAuth as it relies on redirecting users to the third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console.
 - Users may opt to create their own connected app in Docusign Monitor and provide their own client ID and client secret when creating connections through the AWS Glue console. In this scenario, they will still be redirected to Docusign Monitor to login and authorize AWS Glue to access their resources.

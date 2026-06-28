@@ -65,7 +65,7 @@ previous job run, resulting in the subsequent job run reprocessing data only fro
 bookmarked job run.
 
 If you intend to reprocess all the data using the same job, reset the job bookmark. To
-reset the job bookmark state, use the AWS Glue console, the [ResetJobBookmark action (Python: reset_job_bookmark)](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-ResetJobBookmark "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-ResetJobBookmark") API operation, or the AWS CLI. For
+reset the job bookmark state, use the AWS Glue console, the [ResetJobBookmark action (Python: reset\_job\_bookmark)](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-ResetJobBookmark "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-ResetJobBookmark") API operation, or the AWS CLI. For
 example, enter the following command using the AWS CLI:
 
 ```

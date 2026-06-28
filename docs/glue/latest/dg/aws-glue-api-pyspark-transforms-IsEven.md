@@ -57,7 +57,7 @@ The output will be:
 
 ```
 
-The `IsEven` transformation takes the `source\_column` as "source_column" and the `target\_column` as "target_column".
+The `IsEven` transformation takes the `source\_column` as "source\_column" and the `target\_column` as "target\_column".
 It checks if the value in the `"source\_column"` is even or not. If the value is even, it sets the `"target\_column"`
 value to the `true\_string` "Even". If the value is odd, it sets the `"target\_column"` value to the `false\_string` "Not even".
 If the `"source\_column"` value is `null`, the `"target\_column"` value is set to `null`.
@@ -77,7 +77,7 @@ the `"target\_column"` value is set to `null`.
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-IsEven-describeErrors "#aws-glue-api-crawler-pyspark-transforms-IsEven-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-IsEven-describe "#aws-glue-api-crawler-pyspark-transforms-IsEven-describe")
 
-## \_\_call\_\_(spark_context, data_frame, target_column, source_column=None, true_string=DEFAULT_TRUE_STRING, false_string=DEFAULT_FALSE_STRING, value=None)
+## \_\_call\_\_(spark\_context, data\_frame, target\_column, source\_column=None, true\_string=DEFAULT\_TRUE\_STRING, false\_string=DEFAULT\_FALSE\_STRING, value=None)
 
 The `IsEven` transform returns a Boolean value in a new column that indicates whether the source
 column or value is even. If the source column or value is a decimal, the result is false.

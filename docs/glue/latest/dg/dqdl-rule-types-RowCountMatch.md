@@ -8,7 +8,7 @@ Checks the ratio of the row count of the primary dataset and the row count of a 
 RowCountMatch `<REFERENCE_DATASET_ALIAS>` `<EXPRESSION>`
 ```
 
-- **REFERENCE_DATASET_ALIAS** – The alias of the reference dataset against which to compare row counts.
+- **REFERENCE\_DATASET\_ALIAS** – The alias of the reference dataset against which to compare row counts.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 

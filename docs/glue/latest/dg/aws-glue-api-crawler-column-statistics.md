@@ -174,19 +174,19 @@ An error message associated with the last column statistics task run.
 
 ## Operations
 
-- [StartColumnStatisticsTaskRun action (Python: start_column_statistics_task_run)](#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRun "#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRun")
-- [GetColumnStatisticsTaskRun action (Python: get_column_statistics_task_run)](#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRun "#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRun")
-- [GetColumnStatisticsTaskRuns action (Python: get_column_statistics_task_runs)](#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRuns "#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRuns")
-- [ListColumnStatisticsTaskRuns action (Python: list_column_statistics_task_runs)](#aws-glue-api-crawler-column-statistics-ListColumnStatisticsTaskRuns "#aws-glue-api-crawler-column-statistics-ListColumnStatisticsTaskRuns")
-- [StopColumnStatisticsTaskRun action (Python: stop_column_statistics_task_run)](#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRun "#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRun")
-- [CreateColumnStatisticsTaskSettings action (Python: create_column_statistics_task_settings)](#aws-glue-api-crawler-column-statistics-CreateColumnStatisticsTaskSettings "#aws-glue-api-crawler-column-statistics-CreateColumnStatisticsTaskSettings")
-- [UpdateColumnStatisticsTaskSettings action (Python: update_column_statistics_task_settings)](#aws-glue-api-crawler-column-statistics-UpdateColumnStatisticsTaskSettings "#aws-glue-api-crawler-column-statistics-UpdateColumnStatisticsTaskSettings")
-- [GetColumnStatisticsTaskSettings action (Python: get_column_statistics_task_settings)](#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskSettings "#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskSettings")
-- [DeleteColumnStatisticsTaskSettings action (Python: delete_column_statistics_task_settings)](#aws-glue-api-crawler-column-statistics-DeleteColumnStatisticsTaskSettings "#aws-glue-api-crawler-column-statistics-DeleteColumnStatisticsTaskSettings")
-- [StartColumnStatisticsTaskRunSchedule action (Python: start_column_statistics_task_run_schedule)](#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRunSchedule "#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRunSchedule")
-- [StopColumnStatisticsTaskRunSchedule action (Python: stop_column_statistics_task_run_schedule)](#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRunSchedule "#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRunSchedule")
+- [StartColumnStatisticsTaskRun action (Python: start\_column\_statistics\_task\_run)](#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRun "#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRun")
+- [GetColumnStatisticsTaskRun action (Python: get\_column\_statistics\_task\_run)](#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRun "#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRun")
+- [GetColumnStatisticsTaskRuns action (Python: get\_column\_statistics\_task\_runs)](#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRuns "#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskRuns")
+- [ListColumnStatisticsTaskRuns action (Python: list\_column\_statistics\_task\_runs)](#aws-glue-api-crawler-column-statistics-ListColumnStatisticsTaskRuns "#aws-glue-api-crawler-column-statistics-ListColumnStatisticsTaskRuns")
+- [StopColumnStatisticsTaskRun action (Python: stop\_column\_statistics\_task\_run)](#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRun "#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRun")
+- [CreateColumnStatisticsTaskSettings action (Python: create\_column\_statistics\_task\_settings)](#aws-glue-api-crawler-column-statistics-CreateColumnStatisticsTaskSettings "#aws-glue-api-crawler-column-statistics-CreateColumnStatisticsTaskSettings")
+- [UpdateColumnStatisticsTaskSettings action (Python: update\_column\_statistics\_task\_settings)](#aws-glue-api-crawler-column-statistics-UpdateColumnStatisticsTaskSettings "#aws-glue-api-crawler-column-statistics-UpdateColumnStatisticsTaskSettings")
+- [GetColumnStatisticsTaskSettings action (Python: get\_column\_statistics\_task\_settings)](#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskSettings "#aws-glue-api-crawler-column-statistics-GetColumnStatisticsTaskSettings")
+- [DeleteColumnStatisticsTaskSettings action (Python: delete\_column\_statistics\_task\_settings)](#aws-glue-api-crawler-column-statistics-DeleteColumnStatisticsTaskSettings "#aws-glue-api-crawler-column-statistics-DeleteColumnStatisticsTaskSettings")
+- [StartColumnStatisticsTaskRunSchedule action (Python: start\_column\_statistics\_task\_run\_schedule)](#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRunSchedule "#aws-glue-api-crawler-column-statistics-StartColumnStatisticsTaskRunSchedule")
+- [StopColumnStatisticsTaskRunSchedule action (Python: stop\_column\_statistics\_task\_run\_schedule)](#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRunSchedule "#aws-glue-api-crawler-column-statistics-StopColumnStatisticsTaskRunSchedule")
 
-## StartColumnStatisticsTaskRun action (Python: start_column_statistics_task_run)
+## StartColumnStatisticsTaskRun action (Python: start\_column\_statistics\_task\_run)
 
 Starts a column statistics task run, for a specified table and columns.
 
@@ -239,7 +239,7 @@ The identifier for the column statistics task run.
 - `ResourceNumberLimitExceededException`
 - `InvalidInputException`
 
-## GetColumnStatisticsTaskRun action (Python: get_column_statistics_task_run)
+## GetColumnStatisticsTaskRun action (Python: get\_column\_statistics\_task\_run)
 
 Get the associated metadata/information for a task run, given a task run
 ID.
@@ -263,7 +263,7 @@ of the column stats run.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## GetColumnStatisticsTaskRuns action (Python: get_column_statistics_task_runs)
+## GetColumnStatisticsTaskRuns action (Python: get\_column\_statistics\_task\_runs)
 
 Retrieves information about all runs associated with the specified table.
 
@@ -299,7 +299,7 @@ A continuation token, if not all task runs have yet been returned.
 
 - `OperationTimeoutException`
 
-## ListColumnStatisticsTaskRuns action (Python: list_column_statistics_task_runs)
+## ListColumnStatisticsTaskRuns action (Python: list\_column\_statistics\_task\_runs)
 
 List all task runs for a particular account.
 
@@ -327,7 +327,7 @@ A continuation token, if not all task run IDs have yet been returned.
 
 - `OperationTimeoutException`
 
-## StopColumnStatisticsTaskRun action (Python: stop_column_statistics_task_run)
+## StopColumnStatisticsTaskRun action (Python: stop\_column\_statistics\_task\_run)
 
 Stops a task run for the specified table.
 
@@ -352,7 +352,7 @@ The name of the table.
 - `ColumnStatisticsTaskStoppingException`
 - `OperationTimeoutException`
 
-## CreateColumnStatisticsTaskSettings action (Python: create_column_statistics_task_settings)
+## CreateColumnStatisticsTaskSettings action (Python: create\_column\_statistics\_task\_settings)
 
 Creates settings for a column statistics task.
 
@@ -413,7 +413,7 @@ A map of tags.
 - `ResourceNumberLimitExceededException`
 - `ColumnStatisticsTaskRunningException`
 
-## UpdateColumnStatisticsTaskSettings action (Python: update_column_statistics_task_settings)
+## UpdateColumnStatisticsTaskSettings action (Python: update\_column\_statistics\_task\_settings)
 
 Updates settings for a column statistics task.
 
@@ -464,7 +464,7 @@ logs.
 - `VersionMismatchException`
 - `OperationTimeoutException`
 
-## GetColumnStatisticsTaskSettings action (Python: get_column_statistics_task_settings)
+## GetColumnStatisticsTaskSettings action (Python: get\_column\_statistics\_task\_settings)
 
 Gets settings for a column statistics task.
 
@@ -491,7 +491,7 @@ the settings for the column statistics task.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## DeleteColumnStatisticsTaskSettings action (Python: delete_column_statistics_task_settings)
+## DeleteColumnStatisticsTaskSettings action (Python: delete\_column\_statistics\_task\_settings)
 
 Deletes settings for a column statistics task.
 
@@ -515,7 +515,7 @@ The name of the table for which to delete column statistics.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## StartColumnStatisticsTaskRunSchedule action (Python: start_column_statistics_task_run_schedule)
+## StartColumnStatisticsTaskRunSchedule action (Python: start\_column\_statistics\_task\_run\_schedule)
 
 Starts a column statistics task run schedule.
 
@@ -540,7 +540,7 @@ The name of the table for which to start a column statistic task run schedule.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## StopColumnStatisticsTaskRunSchedule action (Python: stop_column_statistics_task_run_schedule)
+## StopColumnStatisticsTaskRunSchedule action (Python: stop\_column\_statistics\_task\_run\_schedule)
 
 Stops a column statistics task run schedule.
 

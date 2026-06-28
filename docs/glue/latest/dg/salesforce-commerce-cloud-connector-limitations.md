@@ -4,7 +4,7 @@ The following are limitations for the Salesforce Commerce Cloud connector:
 
 - The Contains filter is not working as expected when partitioning.
 - CDN Zones' entity doesn't support sandbox instances, and it supports only Development and production instance types.
-  For more information, see [https://help.salesforce.com/s/articleView?id=cc.b2c_embedded_cdn_overview.htm](https://help.salesforce.com/s/articleView?id=cc.b2c_embedded_cdn_overview.htm "https://help.salesforce.com/s/articleView?id=cc.b2c_embedded_cdn_overview.htm") .
+  For more information, see [https://help.salesforce.com/s/articleView?id=cc.b2c\_embedded\_cdn\_overview.htm](https://help.salesforce.com/s/articleView?id=cc.b2c_embedded_cdn_overview.htm "https://help.salesforce.com/s/articleView?id=cc.b2c_embedded_cdn_overview.htm") .
 - In Salesforce Commerce Cloud, there is no API endpoint to fetch Dynamic Metadata. As a result, there is no provision to
   support the custom fields in the Product and Category entity.
 - Site id is a mandatory query parameter. You must pass the Site Id value through the Custom Connector Setting. For more information, see

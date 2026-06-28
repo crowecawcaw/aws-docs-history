@@ -21,7 +21,7 @@ To configure an Intercom connection:
    each connection in AWS Glue.
 
    1. For customer managed connected app – Secret should contain the connected app access token,
-      refresh token, client_id, and client_secret.
+      refresh token, client\_id, and client\_secret.
 
 2. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
 

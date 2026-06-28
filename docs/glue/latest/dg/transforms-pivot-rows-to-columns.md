@@ -31,10 +31,10 @@ column. In the table below, you have new columns for **de**,
 
 If instead you want to pivot both the month and county, you get a column for each combination of the values of those columns:
 
-| year | Jan_de | Jan_uk | Jan_us | Feb_de | Feb_uk | Feb_us |
-| ---- | ------ | ------ | ------ | ------ | ------ | ------ |
-| 2020 | 42     | 32     | 64     | 11     | 67     | 18     |
-| 2021 |        |        | 90     |        |        |        |
+| year | Jan\_de | Jan\_uk | Jan\_us | Feb\_de | Feb\_uk | Feb\_us |
+| ---- | ------- | ------- | ------- | ------- | ------- | ------- |
+| 2020 | 42      | 32      | 64      | 11      | 67      | 18      |
+| 2021 |         |         | 90      |         |         |         |
 
 ###### To add a Pivot Rows To Columns transform:
 

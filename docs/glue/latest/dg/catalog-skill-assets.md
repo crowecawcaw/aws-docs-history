@@ -26,7 +26,7 @@ and loads the URI content into its reasoning context.
 There are two kinds of skills:
 
 - **Custom skills** – Created by you, searchable
-  via the Search API. Identifiers must not begin with `amazon.`
+  via the `SearchAssets` API. Identifiers must not begin with `amazon.`
 - **Built-in skills** – Amazon-owned, immutable,
   accessed by ID directly (for example, `amazon.skill::querying-aws-s3`).
 
@@ -67,8 +67,8 @@ Attach inline when creating the asset (`PutAsset --forms`) or afterward
 ## Searching for skill assets
 
 ```
-aws glue search \
-    --filter-clause '{"AttributeFilter":{"Attribute":"type","Operator":"equals","Value":{"StringValue":"amazon::Skill"}}}' \
+aws glue search-assets \
+    --filter-clause '{"AttributeFilter":{"Attribute":"type","Operator":"equals","Value":{"StringValue":"Skill"}}}' \
     --max-results 20
 ```
 

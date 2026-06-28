@@ -9,7 +9,7 @@ The following are limitations or notes for the Zoho CRM connector:
   - You can fetch a maximum of 50 fields from SaaS for both the GET and POST call.
   - If you want to have data for some specific field that does not belong in the first 50 fields, you will need to manually provide the list of selected fields.
   - If more than 50 fields are selected, any fields beyond the 50 fields will be trimmed and will contain null data in Amazon S3.
-  - In case of a filter expression, if the user-provided list of 50 fields does not include "id" and "Created_Time," a custom exception will be raised to prompt the user to include these fields.
+  - In case of a filter expression, if the user-provided list of 50 fields does not include "id" and "Created\_Time," a custom exception will be raised to prompt the user to include these fields.
 
 - Filter operators may vary from field-to-field despite of having the same data type. Therefore, you must manually specify a different operator for any field that triggers an error in the SaaS platform.
 - For Sort By functionality:

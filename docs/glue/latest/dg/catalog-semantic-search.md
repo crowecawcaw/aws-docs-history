@@ -9,16 +9,17 @@ Semantic search enables you to discover data assets by meaning in addition
 to exact keyword matching. Results are ranked by semantic similarity to your query. You
 can narrow results using filters on asset type, metadata fields, and glossary terms.
 
-## Using the Search API
+## Using the SearchAssets API
 
-The `Search` API requires at least one of `SearchText` or
-`FilterClause`. Optional parameters: `Sort`,
-`Aggregations`, `MaxResults`, `NextToken`.
+The `SearchAssets` API accepts `SearchText`,
+`FilterClause`, or both. When neither is provided, it returns all assets.
+Optional parameters: `Sort`,
+`MaxResults`, `NextToken`.
 
 ### Text search
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "customer purchases"
 ```
 
@@ -27,16 +28,15 @@ Example output:
 ```
 {
     "Items": [
-        {"Id": "c9vq7sh2fk4t2h", "AssetName": "Customer Sales Transactions", "AssetTypeId": "glue-table"}
-    ],
-    "TotalCount": 2
+        {"Id": "c9vq7sh2fk4t2h", "AssetName": "Customer Sales Transactions", "AssetTypeId": "Table"}
+    ]
 }
 ```
 
 Limit results with `--max-results`:
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "quarterly revenue" \
     --max-results 5
 ```
@@ -48,8 +48,6 @@ Use `FilterClause` to narrow results. Supported filter types:
 - **AttributeFilter** – Operators:
   `equals`, `greaterThan`, `greaterThanOrEquals`,
   `lessThan`, `lessThanOrEquals`, `notExists`.
-- **MapFilter** – Filters on a map
-  attribute's key-value pair.
 - **AndAllFilters** – All filters must
   match (logical AND).
 - **OrAnyFilters** – At least one must
@@ -60,13 +58,13 @@ Use `FilterClause` to narrow results. Supported filter types:
 Filter to table assets only:
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "revenue" \
     --filter-clause '{
         "AttributeFilter": {
-            "Attribute": "assetTypeId",
+            "Attribute": "type",
             "Operator": "equals",
-            "Value": {"StringValue": "glue-table"}
+            "Value": {"StringValue": "Table"}
         }
     }'
 ```
@@ -76,11 +74,11 @@ aws glue search \
 Find table assets updated after a timestamp:
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "customer data" \
     --filter-clause '{
         "AndAllFilters": [
-            {"AttributeFilter": {"Attribute": "assetTypeId", "Operator": "equals", "Value": {"StringValue": "glue-table"}}},
+            {"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Table"}}},
             {"AttributeFilter": {"Attribute": "updatedAt", "Operator": "greaterThan", "Value": {"LongValue": 1718400000}}}
         ]
     }'
@@ -88,49 +86,49 @@ aws glue search \
 
 ###### To combine filters with OR logic
 
-Search for tables or views:
+Search for tables or skill assets:
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "customer data" \
     --filter-clause '{
         "OrAnyFilters": [
-            {"AttributeFilter": {"Attribute": "assetTypeId", "Operator": "equals", "Value": {"StringValue": "glue-table"}}},
-            {"AttributeFilter": {"Attribute": "assetTypeId", "Operator": "equals", "Value": {"StringValue": "glue-view"}}}
+            {"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Table"}}},
+            {"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Skill"}}}
         ]
     }'
 ```
 
-###### To filter by a map attribute
+###### To filter by glossary term
 
-Filter by glossary term key-value pair:
+Filter to assets tagged with a specific glossary term (by term ID):
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "financial data" \
     --filter-clause '{
-        "MapFilter": {
+        "AttributeFilter": {
             "Attribute": "glossaryTerms",
-            "Key": "classification",
-            "Value": {"StringValue": "PII"}
+            "Operator": "equals",
+            "Value": {"StringValue": "`glossary-term-id`"}
         }
     }'
 ```
 
 ###### To use nested AND and OR filters
 
-Find table or view assets with a specific glossary term:
+Find table or skill assets with a specific glossary term:
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "customer" \
     --filter-clause '{
         "AndAllFilters": [
             {"OrAnyFilters": [
-                {"AttributeFilter": {"Attribute": "assetTypeId", "Operator": "equals", "Value": {"StringValue": "glue-table"}}},
-                {"AttributeFilter": {"Attribute": "assetTypeId", "Operator": "equals", "Value": {"StringValue": "glue-view"}}}
+                {"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Table"}}},
+                {"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Skill"}}}
             ]},
-            {"MapFilter": {"Attribute": "glossaryTerms", "Key": "term", "Value": {"StringValue": "Revenue"}}}
+            {"AttributeFilter": {"Attribute": "glossaryTerms", "Operator": "equals", "Value": {"StringValue": "`glossary-term-id`"}}}
         ]
     }'
 ```
@@ -140,13 +138,13 @@ aws glue search \
 By default, results are sorted by semantic relevance. To sort by attribute:
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "customer purchases" \
     --sort '{"Attribute": "assetName", "Order": "ASCENDING"}'
 ```
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "customer purchases" \
     --sort '{"Attribute": "updatedAt", "Order": "DESCENDING"}'
 ```
@@ -156,45 +154,13 @@ aws glue search \
 When you specify a sort attribute, results are ordered by that attribute
 rather than by semantic relevance.
 
-### Computing aggregations
-
-Use `Aggregations` to compute counts grouped by attribute values.
-
-```
-aws glue search \
-    --search-text "customer data" \
-    --aggregations '[{"Attribute": "assetTypeId"}]'
-```
-
-Example output:
-
-```
-{
-    "TotalCount": 15,
-    "Aggregations": [
-        {"Attribute": "assetTypeId", "Items": [
-            {"Value": "glue-table", "Count": 10},
-            {"Value": "glue-view", "Count": 3}
-        ]}
-    ]
-}
-```
-
-Request multiple aggregations in a single call:
-
-```
-aws glue search \
-    --search-text "financial data" \
-    --aggregations '[{"Attribute": "assetTypeId"}, {"Attribute": "glossaryTerms"}]'
-```
-
 ### Paginating search results
 
 When results exceed `MaxResults`, the response includes a
 `NextToken`. Use it to retrieve additional pages.
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "customer data" \
     --max-results 10 \
     --next-token "eyJsYXN0RXZhbHVhdGVkS2V5Ijp7ImlkIjp7InMiOiJhMWIyYzNkNCJ9fX0="
@@ -208,15 +174,15 @@ Use only `FilterClause` without `SearchText` to list assets
 without semantic ranking.
 
 ```
-aws glue search \
-    --filter-clause '{"AttributeFilter": {"Attribute": "assetTypeId", "Operator": "equals", "Value": {"StringValue": "glue-table"}}}' \
+aws glue search-assets \
+    --filter-clause '{"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Table"}}}' \
     --max-results 20
 ```
 
 ###### Note
 
-You must provide at least one of `SearchText` or
-`FilterClause`.
+When you omit both `SearchText` and
+`FilterClause`, the API returns all assets.
 
 ## Examples
 
@@ -225,24 +191,23 @@ You must provide at least one of `SearchText` or
 Find skill assets related to sales data:
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "sales domain usage rules" \
-    --filter-clause '{"AttributeFilter": {"Attribute": "assetTypeId", "Operator": "equals", "Value": {"StringValue": "skill-asset"}}}'
+    --filter-clause '{"AttributeFilter": {"Attribute": "type", "Operator": "equals", "Value": {"StringValue": "Skill"}}}'
 ```
 
 ###### Note
 
 This query returns only custom skill assets. Managed skills are not
-returned by the Search API.
+returned by the `SearchAssets` API.
 
-###### To combine text search, aggregations, and sorting
+###### To combine text search and sorting
 
 Get a comprehensive view of matching assets:
 
 ```
-aws glue search \
+aws glue search-assets \
     --search-text "customer" \
-    --aggregations '[{"Attribute": "assetTypeId"}]' \
     --sort '{"Attribute": "updatedAt", "Order": "DESCENDING"}' \
     --max-results 10
 ```

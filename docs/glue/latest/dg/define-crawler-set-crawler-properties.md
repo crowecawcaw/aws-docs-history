@@ -2,7 +2,7 @@
 
 ###### To configure a crawler
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](<https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue">).
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue\ "https://console.aws.amazon.com/glue\").
    Choose **Crawlers** in the navigation pane.
 2. Choose **Create crawler**, and follow the instructions in the
    **Add crawler** wizard. The wizard will guide you the steps required to create a crawler.

@@ -458,7 +458,7 @@ learning transforms.
 - `Status` – UTF-8 string (valid values: `NOT_READY` | `READY` | `DELETING`).
 
 Filters the list of machine learning transforms by the last known status
-of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY",
+of the transforms (to indicate whether a transform can be used or not). One of "NOT\_READY",
 "READY", or "DELETING".
 
 - `GlueVersion` – UTF-8 string, not less than 1 or more than 255 bytes long, matching the [Custom string pattern #48](aws-glue-api-common.md#regex_48 "aws-glue-api-common.md#regex_48").
@@ -705,21 +705,21 @@ The column importance score for the column, as a decimal.
 
 ## Operations
 
-- [CreateMLTransform action (Python: create_ml_transform)](#aws-glue-api-machine-learning-api-CreateMLTransform "#aws-glue-api-machine-learning-api-CreateMLTransform")
-- [UpdateMLTransform action (Python: update_ml_transform)](#aws-glue-api-machine-learning-api-UpdateMLTransform "#aws-glue-api-machine-learning-api-UpdateMLTransform")
-- [DeleteMLTransform action (Python: delete_ml_transform)](#aws-glue-api-machine-learning-api-DeleteMLTransform "#aws-glue-api-machine-learning-api-DeleteMLTransform")
-- [GetMLTransform action (Python: get_ml_transform)](#aws-glue-api-machine-learning-api-GetMLTransform "#aws-glue-api-machine-learning-api-GetMLTransform")
-- [GetMLTransforms action (Python: get_ml_transforms)](#aws-glue-api-machine-learning-api-GetMLTransforms "#aws-glue-api-machine-learning-api-GetMLTransforms")
-- [ListMLTransforms action (Python: list_ml_transforms)](#aws-glue-api-machine-learning-api-ListMLTransforms "#aws-glue-api-machine-learning-api-ListMLTransforms")
-- [StartMLEvaluationTaskRun action (Python: start_ml_evaluation_task_run)](#aws-glue-api-machine-learning-api-StartMLEvaluationTaskRun "#aws-glue-api-machine-learning-api-StartMLEvaluationTaskRun")
-- [StartMLLabelingSetGenerationTaskRun action (Python: start_ml_labeling_set_generation_task_run)](#aws-glue-api-machine-learning-api-StartMLLabelingSetGenerationTaskRun "#aws-glue-api-machine-learning-api-StartMLLabelingSetGenerationTaskRun")
-- [GetMLTaskRun action (Python: get_ml_task_run)](#aws-glue-api-machine-learning-api-GetMLTaskRun "#aws-glue-api-machine-learning-api-GetMLTaskRun")
-- [GetMLTaskRuns action (Python: get_ml_task_runs)](#aws-glue-api-machine-learning-api-GetMLTaskRuns "#aws-glue-api-machine-learning-api-GetMLTaskRuns")
-- [CancelMLTaskRun action (Python: cancel_ml_task_run)](#aws-glue-api-machine-learning-api-CancelMLTaskRun "#aws-glue-api-machine-learning-api-CancelMLTaskRun")
-- [StartExportLabelsTaskRun action (Python: start_export_labels_task_run)](#aws-glue-api-machine-learning-api-StartExportLabelsTaskRun "#aws-glue-api-machine-learning-api-StartExportLabelsTaskRun")
-- [StartImportLabelsTaskRun action (Python: start_import_labels_task_run)](#aws-glue-api-machine-learning-api-StartImportLabelsTaskRun "#aws-glue-api-machine-learning-api-StartImportLabelsTaskRun")
+- [CreateMLTransform action (Python: create\_ml\_transform)](#aws-glue-api-machine-learning-api-CreateMLTransform "#aws-glue-api-machine-learning-api-CreateMLTransform")
+- [UpdateMLTransform action (Python: update\_ml\_transform)](#aws-glue-api-machine-learning-api-UpdateMLTransform "#aws-glue-api-machine-learning-api-UpdateMLTransform")
+- [DeleteMLTransform action (Python: delete\_ml\_transform)](#aws-glue-api-machine-learning-api-DeleteMLTransform "#aws-glue-api-machine-learning-api-DeleteMLTransform")
+- [GetMLTransform action (Python: get\_ml\_transform)](#aws-glue-api-machine-learning-api-GetMLTransform "#aws-glue-api-machine-learning-api-GetMLTransform")
+- [GetMLTransforms action (Python: get\_ml\_transforms)](#aws-glue-api-machine-learning-api-GetMLTransforms "#aws-glue-api-machine-learning-api-GetMLTransforms")
+- [ListMLTransforms action (Python: list\_ml\_transforms)](#aws-glue-api-machine-learning-api-ListMLTransforms "#aws-glue-api-machine-learning-api-ListMLTransforms")
+- [StartMLEvaluationTaskRun action (Python: start\_ml\_evaluation\_task\_run)](#aws-glue-api-machine-learning-api-StartMLEvaluationTaskRun "#aws-glue-api-machine-learning-api-StartMLEvaluationTaskRun")
+- [StartMLLabelingSetGenerationTaskRun action (Python: start\_ml\_labeling\_set\_generation\_task\_run)](#aws-glue-api-machine-learning-api-StartMLLabelingSetGenerationTaskRun "#aws-glue-api-machine-learning-api-StartMLLabelingSetGenerationTaskRun")
+- [GetMLTaskRun action (Python: get\_ml\_task\_run)](#aws-glue-api-machine-learning-api-GetMLTaskRun "#aws-glue-api-machine-learning-api-GetMLTaskRun")
+- [GetMLTaskRuns action (Python: get\_ml\_task\_runs)](#aws-glue-api-machine-learning-api-GetMLTaskRuns "#aws-glue-api-machine-learning-api-GetMLTaskRuns")
+- [CancelMLTaskRun action (Python: cancel\_ml\_task\_run)](#aws-glue-api-machine-learning-api-CancelMLTaskRun "#aws-glue-api-machine-learning-api-CancelMLTaskRun")
+- [StartExportLabelsTaskRun action (Python: start\_export\_labels\_task\_run)](#aws-glue-api-machine-learning-api-StartExportLabelsTaskRun "#aws-glue-api-machine-learning-api-StartExportLabelsTaskRun")
+- [StartImportLabelsTaskRun action (Python: start\_import\_labels\_task\_run)](#aws-glue-api-machine-learning-api-StartImportLabelsTaskRun "#aws-glue-api-machine-learning-api-StartImportLabelsTaskRun")
 
-## CreateMLTransform action (Python: create_ml_transform)
+## CreateMLTransform action (Python: create\_ml\_transform)
 
 Creates an AWS Glue machine learning transform. This operation
 creates the transform and all the necessary parameters to train it.
@@ -877,7 +877,7 @@ A unique identifier that is generated for the transform.
 - `ResourceNumberLimitExceededException`
 - `IdempotentParameterMismatchException`
 
-## UpdateMLTransform action (Python: update_ml_transform)
+## UpdateMLTransform action (Python: update\_ml\_transform)
 
 Updates an existing machine learning transform. Call this operation
 to tune the algorithm parameters to achieve better results.
@@ -971,7 +971,7 @@ The unique identifier for the transform that was updated.
 - `InternalServiceException`
 - `AccessDeniedException`
 
-## DeleteMLTransform action (Python: delete_ml_transform)
+## DeleteMLTransform action (Python: delete\_ml\_transform)
 
 Deletes an AWS Glue machine learning transform. Machine learning
 transforms are a special type of transform that use machine learning to learn
@@ -1000,7 +1000,7 @@ The unique identifier of the transform that was deleted.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## GetMLTransform action (Python: get_ml_transform)
+## GetMLTransform action (Python: get\_ml\_transform)
 
 Gets an AWS Glue machine learning transform artifact and all
 its corresponding metadata. Machine learning transforms are a special type
@@ -1034,7 +1034,7 @@ A description of the transform.
 - `Status` – UTF-8 string (valid values: `NOT_READY` | `READY` | `DELETING`).
 
 The last known status of the transform (to indicate whether it can be used
-or not). One of "NOT_READY", "READY", or "DELETING".
+or not). One of "NOT\_READY", "READY", or "DELETING".
 
 - `CreatedOn` – Timestamp.
 
@@ -1130,7 +1130,7 @@ S3 using KMS.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## GetMLTransforms action (Python: get_ml_transforms)
+## GetMLTransforms action (Python: get\_ml\_transforms)
 
 Gets a sortable, filterable list of existing AWS Glue machine
 learning transforms. Machine learning transforms are a special type of transform
@@ -1173,7 +1173,7 @@ A pagination token, if more results are available.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## ListMLTransforms action (Python: list_ml_transforms)
+## ListMLTransforms action (Python: list\_ml\_transforms)
 
 Retrieves a sortable, filterable list of existing AWS Glue
 machine learning transforms in this AWS account, or the resources
@@ -1229,7 +1229,7 @@ available.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## StartMLEvaluationTaskRun action (Python: start_ml_evaluation_task_run)
+## StartMLEvaluationTaskRun action (Python: start\_ml\_evaluation\_task\_run)
 
 Starts a task to estimate the quality of the transform.
 
@@ -1261,7 +1261,7 @@ The unique identifier associated with this run.
 - `ConcurrentRunsExceededException`
 - `MLTransformNotReadyException`
 
-## StartMLLabelingSetGenerationTaskRun action (Python: start_ml_labeling_set_generation_task_run)
+## StartMLLabelingSetGenerationTaskRun action (Python: start\_ml\_labeling\_set\_generation\_task\_run)
 
 Starts the active learning workflow for your machine learning transform
 to improve the transform's quality by generating label sets and adding labels.
@@ -1308,7 +1308,7 @@ The unique run identifier that is associated with this task run.
 - `InternalServiceException`
 - `ConcurrentRunsExceededException`
 
-## GetMLTaskRun action (Python: get_ml_task_run)
+## GetMLTaskRun action (Python: get\_ml\_task\_run)
 
 Gets details for a specific task run on a machine learning transform. Machine
 learning task runs are asynchronous tasks that AWS Glue runs on your
@@ -1375,7 +1375,7 @@ The amount of time (in seconds) that the task run consumed resources.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## GetMLTaskRuns action (Python: get_ml_task_runs)
+## GetMLTaskRuns action (Python: get\_ml\_task\_runs)
 
 Gets a list of runs for a machine learning transform. Machine learning
 task runs are asynchronous tasks that AWS Glue runs on your behalf
@@ -1427,7 +1427,7 @@ A pagination token, if more results are available.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## CancelMLTaskRun action (Python: cancel_ml_task_run)
+## CancelMLTaskRun action (Python: cancel\_ml\_task\_run)
 
 Cancels (stops) a task run. Machine learning task runs are asynchronous
 tasks that AWS Glue runs on your behalf as part of various machine learning
@@ -1466,7 +1466,7 @@ The status for this run.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## StartExportLabelsTaskRun action (Python: start_export_labels_task_run)
+## StartExportLabelsTaskRun action (Python: start\_export\_labels\_task\_run)
 
 Begins an asynchronous task to export all labeled data for a particular
 transform. This task is the only label-related API call that is not part of the
@@ -1501,7 +1501,7 @@ The unique identifier for the task run.
 - `OperationTimeoutException`
 - `InternalServiceException`
 
-## StartImportLabelsTaskRun action (Python: start_import_labels_task_run)
+## StartImportLabelsTaskRun action (Python: start\_import\_labels\_task\_run)
 
 Enables you to provide additional labels (examples of truth) to be used
 to teach the machine learning transform and improve its quality. This API operation

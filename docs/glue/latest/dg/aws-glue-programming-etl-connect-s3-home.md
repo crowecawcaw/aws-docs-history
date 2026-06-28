@@ -46,7 +46,7 @@ information through data format options. For more information about format optio
 AWS Glue Data Catalog.
 
 For an example of the distinction between connection options and format options, consider how
-the [create_dynamic_frame_from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method
+the [create\_dynamic\_frame\_from\_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method
 takes `connection_type`, `connection_options`, `format` and
 `format_options`. This section specifically discusses parameters provided to
 `connection_options`.
@@ -89,7 +89,7 @@ Use the following connection options with `"connectionType": "s3"`:
 - `"catalogPartitionPredicate"`: (Optional) Used for Read. The contents of a SQL `WHERE`
   clause. Used when reading from Data Catalog tables with a very large quantity of partitions.
   Retrieves matching partitions from Data Catalog indices. Used with `push_down_predicate`, an option on the
-  [create_dynamic_frame_from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog")
+  [create\_dynamic\_frame\_from\_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_catalog")
   method (and other similar methods). For more information, see [Server-side filtering using catalog partition predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates").
 - `"partitionKeys"`: (Optional) Used for Write. An array of column label strings.
   AWS Glue will partition your data as specified by this configuration. For more information, see [Writing partitions](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-writing "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-writing").

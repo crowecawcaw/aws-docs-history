@@ -8,7 +8,7 @@ Checks the sum of all the values in a column against a given expression.
 Sum `<COL_NAME>` `<EXPRESSION>`
 ```
 
-- **COL_NAME** – The name of the column that you want to evaluate the data quality rule against.
+- **COL\_NAME** – The name of the column that you want to evaluate the data quality rule against.
 
 **Supported column types**: Byte, Decimal, Double, Float, Integer, Long, Short
 

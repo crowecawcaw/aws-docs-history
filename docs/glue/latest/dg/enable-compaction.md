@@ -40,9 +40,9 @@ Follow the steps below to update an existing IAM role:
      code shown in the Prerequisites into the policy editor field.
 
 6. If you have security policy configurations where the Iceberg table
-   optimizer needs to access Amazon S3 buckets from a specific Virtual Private
-   Cloud (VPC), create an AWS Glue network connection or use an existing
-   one.
+optimizer needs to access Amazon S3 buckets from a specific Virtual Private
+Cloud (VPC), create an AWS Glue network connection or use an existing
+one.
 
 If you don't have an AWS Glue VPC connection set up already,
 create a new one by following the steps in the [Creating connections for connectors](creating-connections.md "creating-connections.md") section using the AWS Glue console or the AWS CLI/SDK. 7. Choose a compaction strategy. The available options are:
@@ -82,11 +82,9 @@ create a new one by following the steps in the [Creating connections for connect
      while minimizing unnecessary file scans.
 
 8. **Minimum input files** – The number of
-   data files required in a partition before compaction is triggered.
-9. **Delete files threshold** – Minimum
-   delete operations required in a data file before it becomes eligible for
-   compaction.
-10. Choose **Enable optimization**.
+data files required in a partition before compaction is triggered. 9. **Delete files threshold** – Minimum
+delete operations required in a data file before it becomes eligible for
+compaction. 10. Choose **Enable optimization**.
 
 AWS CLI
 The following example shows how to enable compaction. Replace the account ID

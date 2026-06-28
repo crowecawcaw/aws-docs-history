@@ -119,7 +119,7 @@ the `EXTERNAL_TABLE` type. Other services, such as Athena, may create tables wit
 
 AWS Glue related table types:
 
-EXTERNAL_TABLE
+EXTERNAL\_TABLE
 
 Hive compatible attribute - indicates a non-Hive managed table.
 
@@ -238,7 +238,7 @@ the `EXTERNAL_TABLE` type. Other services, such as Athena, may create tables wit
 
 AWS Glue related table types:
 
-EXTERNAL_TABLE
+EXTERNAL\_TABLE
 
 Hive compatible attribute - indicates a non-Hive managed table.
 
@@ -1070,25 +1070,25 @@ All columns request for audit.
 
 ## Operations
 
-- [CreateTable action (Python: create_table)](#aws-glue-api-catalog-tables-CreateTable "#aws-glue-api-catalog-tables-CreateTable")
-- [UpdateTable action (Python: update_table)](#aws-glue-api-catalog-tables-UpdateTable "#aws-glue-api-catalog-tables-UpdateTable")
-- [DeleteTable action (Python: delete_table)](#aws-glue-api-catalog-tables-DeleteTable "#aws-glue-api-catalog-tables-DeleteTable")
-- [BatchDeleteTable action (Python: batch_delete_table)](#aws-glue-api-catalog-tables-BatchDeleteTable "#aws-glue-api-catalog-tables-BatchDeleteTable")
-- [GetTable action (Python: get_table)](#aws-glue-api-catalog-tables-GetTable "#aws-glue-api-catalog-tables-GetTable")
-- [GetTables action (Python: get_tables)](#aws-glue-api-catalog-tables-GetTables "#aws-glue-api-catalog-tables-GetTables")
-- [GetTableVersion action (Python: get_table_version)](#aws-glue-api-catalog-tables-GetTableVersion "#aws-glue-api-catalog-tables-GetTableVersion")
-- [GetTableVersions action (Python: get_table_versions)](#aws-glue-api-catalog-tables-GetTableVersions "#aws-glue-api-catalog-tables-GetTableVersions")
-- [DeleteTableVersion action (Python: delete_table_version)](#aws-glue-api-catalog-tables-DeleteTableVersion "#aws-glue-api-catalog-tables-DeleteTableVersion")
-- [BatchDeleteTableVersion action (Python: batch_delete_table_version)](#aws-glue-api-catalog-tables-BatchDeleteTableVersion "#aws-glue-api-catalog-tables-BatchDeleteTableVersion")
-- [SearchTables action (Python: search_tables)](#aws-glue-api-catalog-tables-SearchTables "#aws-glue-api-catalog-tables-SearchTables")
-- [GetPartitionIndexes action (Python: get_partition_indexes)](#aws-glue-api-catalog-tables-GetPartitionIndexes "#aws-glue-api-catalog-tables-GetPartitionIndexes")
-- [CreatePartitionIndex action (Python: create_partition_index)](#aws-glue-api-catalog-tables-CreatePartitionIndex "#aws-glue-api-catalog-tables-CreatePartitionIndex")
-- [DeletePartitionIndex action (Python: delete_partition_index)](#aws-glue-api-catalog-tables-DeletePartitionIndex "#aws-glue-api-catalog-tables-DeletePartitionIndex")
-- [GetColumnStatisticsForTable action (Python: get_column_statistics_for_table)](#aws-glue-api-catalog-tables-GetColumnStatisticsForTable "#aws-glue-api-catalog-tables-GetColumnStatisticsForTable")
-- [UpdateColumnStatisticsForTable action (Python: update_column_statistics_for_table)](#aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable "#aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable")
-- [DeleteColumnStatisticsForTable action (Python: delete_column_statistics_for_table)](#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable "#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable")
+- [CreateTable action (Python: create\_table)](#aws-glue-api-catalog-tables-CreateTable "#aws-glue-api-catalog-tables-CreateTable")
+- [UpdateTable action (Python: update\_table)](#aws-glue-api-catalog-tables-UpdateTable "#aws-glue-api-catalog-tables-UpdateTable")
+- [DeleteTable action (Python: delete\_table)](#aws-glue-api-catalog-tables-DeleteTable "#aws-glue-api-catalog-tables-DeleteTable")
+- [BatchDeleteTable action (Python: batch\_delete\_table)](#aws-glue-api-catalog-tables-BatchDeleteTable "#aws-glue-api-catalog-tables-BatchDeleteTable")
+- [GetTable action (Python: get\_table)](#aws-glue-api-catalog-tables-GetTable "#aws-glue-api-catalog-tables-GetTable")
+- [GetTables action (Python: get\_tables)](#aws-glue-api-catalog-tables-GetTables "#aws-glue-api-catalog-tables-GetTables")
+- [GetTableVersion action (Python: get\_table\_version)](#aws-glue-api-catalog-tables-GetTableVersion "#aws-glue-api-catalog-tables-GetTableVersion")
+- [GetTableVersions action (Python: get\_table\_versions)](#aws-glue-api-catalog-tables-GetTableVersions "#aws-glue-api-catalog-tables-GetTableVersions")
+- [DeleteTableVersion action (Python: delete\_table\_version)](#aws-glue-api-catalog-tables-DeleteTableVersion "#aws-glue-api-catalog-tables-DeleteTableVersion")
+- [BatchDeleteTableVersion action (Python: batch\_delete\_table\_version)](#aws-glue-api-catalog-tables-BatchDeleteTableVersion "#aws-glue-api-catalog-tables-BatchDeleteTableVersion")
+- [SearchTables action (Python: search\_tables)](#aws-glue-api-catalog-tables-SearchTables "#aws-glue-api-catalog-tables-SearchTables")
+- [GetPartitionIndexes action (Python: get\_partition\_indexes)](#aws-glue-api-catalog-tables-GetPartitionIndexes "#aws-glue-api-catalog-tables-GetPartitionIndexes")
+- [CreatePartitionIndex action (Python: create\_partition\_index)](#aws-glue-api-catalog-tables-CreatePartitionIndex "#aws-glue-api-catalog-tables-CreatePartitionIndex")
+- [DeletePartitionIndex action (Python: delete\_partition\_index)](#aws-glue-api-catalog-tables-DeletePartitionIndex "#aws-glue-api-catalog-tables-DeletePartitionIndex")
+- [GetColumnStatisticsForTable action (Python: get\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-GetColumnStatisticsForTable "#aws-glue-api-catalog-tables-GetColumnStatisticsForTable")
+- [UpdateColumnStatisticsForTable action (Python: update\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable "#aws-glue-api-catalog-tables-UpdateColumnStatisticsForTable")
+- [DeleteColumnStatisticsForTable action (Python: delete\_column\_statistics\_for\_table)](#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable "#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable")
 
-## CreateTable action (Python: create_table)
+## CreateTable action (Python: create\_table)
 
 Creates a new table definition in the Data Catalog.
 
@@ -1146,7 +1146,7 @@ an open format table.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## UpdateTable action (Python: update_table)
+## UpdateTable action (Python: update\_table)
 
 Updates a metadata table in the Data Catalog.
 
@@ -1218,7 +1218,7 @@ such as Apache Iceberg.
 - `FederationSourceRetryableException`
 - `AlreadyExistsException`
 
-## DeleteTable action (Python: delete_table)
+## DeleteTable action (Python: delete\_table)
 
 Removes a table definition from the Data Catalog.
 
@@ -1270,7 +1270,7 @@ The transaction ID at which to delete the table contents.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## BatchDeleteTable action (Python: batch_delete_table)
+## BatchDeleteTable action (Python: batch\_delete\_table)
 
 Deletes multiple tables at once.
 
@@ -1322,7 +1322,7 @@ A list of errors encountered in attempting to delete the specified tables.
 - `GlueEncryptionException`
 - `ResourceNotReadyException`
 
-## GetTable action (Python: get_table)
+## GetTable action (Python: get\_table)
 
 Retrieves the `Table` definition in a Data Catalog for a specified
 table.
@@ -1380,7 +1380,7 @@ The `Table` object that defines the specified table.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## GetTables action (Python: get_tables)
+## GetTables action (Python: get\_tables)
 
 Retrieves the definitions of some or all of the tables in a given `Database`.
 
@@ -1459,7 +1459,7 @@ A continuation token, present if the current list segment is not the last.
 - `FederationSourceException`
 - `FederationSourceRetryableException`
 
-## GetTableVersion action (Python: get_table_version)
+## GetTableVersion action (Python: get\_table\_version)
 
 Retrieves a specified version of a table.
 
@@ -1498,7 +1498,7 @@ The requested table version.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## GetTableVersions action (Python: get_table_versions)
+## GetTableVersions action (Python: get\_table\_versions)
 
 Retrieves a list of strings that identify available versions of a specified
 table.
@@ -1546,7 +1546,7 @@ the last one.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## DeleteTableVersion action (Python: delete_table_version)
+## DeleteTableVersion action (Python: delete\_table\_version)
 
 Deletes a specified version of a table.
 
@@ -1582,7 +1582,7 @@ a string representation of an integer. Each version is incremented by 1.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## BatchDeleteTableVersion action (Python: batch_delete_table_version)
+## BatchDeleteTableVersion action (Python: batch\_delete\_table\_version)
 
 Deletes a specified batch of versions of a table.
 
@@ -1621,7 +1621,7 @@ versions.
 - `InternalServiceException`
 - `OperationTimeoutException`
 
-## SearchTables action (Python: search_tables)
+## SearchTables action (Python: search\_tables)
 
 Searches a set of tables based on properties in the table metadata as well
 as on the parent database. You can search against text or filter conditions.
@@ -1705,7 +1705,7 @@ response returns only the tables that you have access to.
 - `InvalidInputException`
 - `OperationTimeoutException`
 
-## GetPartitionIndexes action (Python: get_partition_indexes)
+## GetPartitionIndexes action (Python: get\_partition\_indexes)
 
 Retrieves the partition indexes associated with a table.
 
@@ -1747,7 +1747,7 @@ A continuation token, present if the current list segment is not the last.
 - `EntityNotFoundException`
 - `ConflictException`
 
-## CreatePartitionIndex action (Python: create_partition_index)
+## CreatePartitionIndex action (Python: create\_partition\_index)
 
 Creates a specified partition index in an existing table.
 
@@ -1785,7 +1785,7 @@ index in an existing table.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## DeletePartitionIndex action (Python: delete_partition_index)
+## DeletePartitionIndex action (Python: delete\_partition\_index)
 
 Deletes a specified partition index from an existing table.
 
@@ -1821,7 +1821,7 @@ The name of the partition index to be deleted.
 - `ConflictException`
 - `GlueEncryptionException`
 
-## GetColumnStatisticsForTable action (Python: get_column_statistics_for_table)
+## GetColumnStatisticsForTable action (Python: get\_column\_statistics\_for\_table)
 
 Retrieves table statistics of columns.
 
@@ -1865,7 +1865,7 @@ List of ColumnStatistics that failed to be retrieved.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## UpdateColumnStatisticsForTable action (Python: update_column_statistics_for_table)
+## UpdateColumnStatisticsForTable action (Python: update\_column\_statistics\_for\_table)
 
 Creates or updates table statistics of columns.
 
@@ -1905,7 +1905,7 @@ List of ColumnStatisticsErrors.
 - `OperationTimeoutException`
 - `GlueEncryptionException`
 
-## DeleteColumnStatisticsForTable action (Python: delete_column_statistics_for_table)
+## DeleteColumnStatisticsForTable action (Python: delete\_column\_statistics\_for\_table)
 
 Retrieves table statistics of columns.
 

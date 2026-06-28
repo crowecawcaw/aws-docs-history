@@ -3,9 +3,9 @@
 _Flatten_ the fields of nested structs in the data, so they become top level fields.
 The new fields are named using the field name prefixed with the names of the struct fields to reach it, separated by dots.
 
-For example, if the data has a field of type Struct named “phone_numbers”,
-which among other fields has one of type “Struct” named “home_phone” with two fields: “country_code” and “number”.
-Once flattened, these two fields will become top level fields named: “phone_numbers.home_phone.country_code” and “phone_numbers.home_phone.number” respectively.
+For example, if the data has a field of type Struct named “phone\_numbers”,
+which among other fields has one of type “Struct” named “home\_phone” with two fields: “country\_code” and “number”.
+Once flattened, these two fields will become top level fields named: “phone\_numbers.home\_phone.country\_code” and “phone\_numbers.home\_phone.number” respectively.
 
 ###### To add a _Flatten_ transform node in your job diagram
 

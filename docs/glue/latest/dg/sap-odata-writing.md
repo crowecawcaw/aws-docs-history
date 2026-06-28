@@ -12,7 +12,7 @@ This section describes how to write data to your SAP OData Service using the AWS
 
 - INSERT
 - UPDATE
-  While using the UPDATE write operation, ID_FIELD_NAMES must be provided to specify the external ID field for the records.
+  While using the UPDATE write operation, ID\_FIELD\_NAMES must be provided to specify the external ID field for the records.
 
 **Example:**
 

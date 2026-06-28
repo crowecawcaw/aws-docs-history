@@ -4,8 +4,8 @@ The following are connection options for Zendesk:
 
 - `ENTITY_NAME`(String) - (Required) Used for Read. The name of your Object in Zendesk.
 - `API_VERSION`(String) - (Required) Used for Read. Zendesk Rest API version you want to use. For example: v2.
-- `SELECTED_FIELDS`(List<String>) - Default: empty(SELECT \*). Used for Read. Columns you want to select for the object. For example: id, name, url, created_at
-- `FILTER_PREDICATE`(String) - Default: empty. Used for Read. It should be in the Spark SQL format. For example: group_id = 100
+- `SELECTED_FIELDS`(List<String>) - Default: empty(SELECT \*). Used for Read. Columns you want to select for the object. For example: id, name, url, created\_at
+- `FILTER_PREDICATE`(String) - Default: empty. Used for Read. It should be in the Spark SQL format. For example: group\_id = 100
 - `QUERY`(String) - Default: empty. Used for Read. Full Spark SQL query. For example: "SELECT id,url FROM users WHERE role=\"end-user\""
 - `PARTITION_FIELD`(String) - Used for Read. Field to be used to partition query. Default field is `update_at` for entities supporting the incremental export API (`created_at` for `ticket-events` and `time` for `ticket-metric-events`).
 - `LOWER_BOUND`(String)- Used for Read. An inclusive lower bound value of the chosen partition field.

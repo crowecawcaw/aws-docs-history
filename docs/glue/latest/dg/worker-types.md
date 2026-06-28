@@ -83,18 +83,18 @@ The resources available on AWS Glue workers are measured in DPUs. A DPU is a rel
 
 ## Worker type specifications table
 
-| Worker Type Specifications | Worker Type | DPU per Node | vCPU | Memory (GB) | Disk (GB) | Approximate Free Disk Space (GB) | Spark Executors per Node |
-| -------------------------- | ----------- | ------------ | ---- | ----------- | --------- | -------------------------------- | ------------------------ |
-| G.1X                       | 1           | 4            | 16   | 94          | 44        | 1                                |
-| G.2X                       | 2           | 8            | 32   | 138         | 78        | 1                                |
-| G.4X                       | 4           | 16           | 64   | 256         | 230       | 1                                |
-| G.8X                       | 8           | 32           | 128  | 512         | 485       | 1                                |
-| G.12X                      | 12          | 48           | 192  | 768         | 741       | 1                                |
-| G.16X                      | 16          | 64           | 256  | 1024        | 996       | 1                                |
-| R.1X                       | 1           | 4            | 32   | 94          | 44        | 1                                |
-| R.2X                       | 2           | 8            | 64   | 138         | 78        | 1                                |
-| R.4X                       | 4           | 16           | 128  | 256         | 230       | 1                                |
-| R.8X                       | 8           | 32           | 256  | 512         | 485       | 1                                |
+Worker Type Specifications| Worker Type | DPU per Node | vCPU | Memory (GB) | Disk (GB) | Approximate Free Disk Space (GB) | Spark Executors per Node |
+| --- | --- | --- | --- | --- | --- | --- |
+| G.1X | 1 | 4 | 16 | 94 | 44 | 1 |
+| G.2X | 2 | 8 | 32 | 138 | 78 | 1 |
+| G.4X | 4 | 16 | 64 | 256 | 230 | 1 |
+| G.8X | 8 | 32 | 128 | 512 | 485 | 1 |
+| G.12X | 12 | 48 | 192 | 768 | 741 | 1 |
+| G.16X | 16 | 64 | 256 | 1024 | 996 | 1 |
+| R.1X | 1 | 4 | 32 | 94 | 44 | 1 |
+| R.2X | 2 | 8 | 64 | 138 | 78 | 1 |
+| R.4X | 4 | 16 | 128 | 256 | 230 | 1 |
+| R.8X | 8 | 32 | 256 | 512 | 485 | 1 |
 
 _Note_: R worker types have memory-optimized configurations with specifications optimized for memory-intensive workloads.
 

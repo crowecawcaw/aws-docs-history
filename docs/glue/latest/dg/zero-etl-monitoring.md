@@ -130,5 +130,5 @@ The following table includes zero-ETL integration events:
 | AWS Glue Zero ETL Ingestion Failed            | Individual execution for an entity has completed unsuccessfully (either with a client or system error). |
 | AWS Glue Zero ETL Integration Resynced        | Integration has been RESYNCED.                                                                          |
 | AWS Glue Zero ETL Integration Failed          | Integration status has changed to FAILED due to an error.                                               |
-| AWS Glue Zero ETL Integration Needs Attention | Integration status has changed to NEEDS_ATTENTION due to an error.                                      |
+| AWS Glue Zero ETL Integration Needs Attention | Integration status has changed to NEEDS\_ATTENTION due to an error.                                     |
 | AWS Glue Zero ETL Ingestion In Progress       | Individual execution for an entity has made partial progress towards completion.                        |

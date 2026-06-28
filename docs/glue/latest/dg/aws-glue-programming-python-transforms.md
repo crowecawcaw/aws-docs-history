@@ -28,7 +28,7 @@ as methods of the `DynamicFrame` class. For more information, see [DynamicFrame 
 - [ResolveChoice class](aws-glue-api-crawler-pyspark-transforms-ResolveChoice.md "aws-glue-api-crawler-pyspark-transforms-ResolveChoice.md")
 - [SelectFields class](aws-glue-api-crawler-pyspark-transforms-SelectFields.md "aws-glue-api-crawler-pyspark-transforms-SelectFields.md")
 - [SelectFromCollection class](aws-glue-api-crawler-pyspark-transforms-SelectFromCollection.md "aws-glue-api-crawler-pyspark-transforms-SelectFromCollection.md")
-- [Simplify_ddb_json class](aws-glue-api-crawler-pyspark-transforms-simplify-ddb-json.md "aws-glue-api-crawler-pyspark-transforms-simplify-ddb-json.md")
+- [Simplify\_ddb\_json class](aws-glue-api-crawler-pyspark-transforms-simplify-ddb-json.md "aws-glue-api-crawler-pyspark-transforms-simplify-ddb-json.md")
 - [Spigot class](aws-glue-api-crawler-pyspark-transforms-spigot.md "aws-glue-api-crawler-pyspark-transforms-spigot.md")
 - [SplitFields class](aws-glue-api-crawler-pyspark-transforms-SplitFields.md "aws-glue-api-crawler-pyspark-transforms-SplitFields.md")
 - [SplitRows class](aws-glue-api-crawler-pyspark-transforms-SplitRows.md "aws-glue-api-crawler-pyspark-transforms-SplitRows.md")

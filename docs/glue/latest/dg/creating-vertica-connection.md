@@ -31,37 +31,34 @@ NAT Gateways and Peering connections.
 
 ###### To configure a connection to Vertica:
 
-1.  In AWS Secrets Manager, create a secret using your Vertica credentials,
-    `verticaUsername` and `verticaPassword`. To create
-    a secret in Secrets Manager, follow the tutorial available in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in
-    the AWS Secrets Manager documentation. After creating the secret, keep the Secret name,
-    `secretName` for the next step.
+1. In AWS Secrets Manager, create a secret using your Vertica credentials,
+   `verticaUsername` and `verticaPassword`. To create
+   a secret in Secrets Manager, follow the tutorial available in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in
+   the AWS Secrets Manager documentation. After creating the secret, keep the Secret name,
+   `secretName` for the next step.
 
-    - When selecting **Key/value pairs**, create a pair for the key
-      `user` with the value `verticaUsername`.
-    - When selecting **Key/value pairs**, create a pair for the key
-      `password` with the value `verticaPassword`.
+   - When selecting **Key/value pairs**, create a pair for the key
+     `user` with the value `verticaUsername`.
+   - When selecting **Key/value pairs**, create a pair for the key
+     `password` with the value `verticaPassword`.
 
-2.  In the AWS Glue console, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md").
-    After creating the connection, keep the connection name, `connectionName`, for the next step.
+2. In the AWS Glue console, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md").
+   After creating the connection, keep the connection name, `connectionName`, for the next step.
 
-    - When selecting a **Connection type**, select Vertica.
-    - When selecting **Vertica Host**, provide the hostname of your Vertica installation.
-    - When selecting **Vertica Port**, the port your Vertica installation is available through.
-    - When selecting an **AWS Secret**, provide `secretName`.
+   - When selecting a **Connection type**, select Vertica.
+   - When selecting **Vertica Host**, provide the hostname of your Vertica installation.
+   - When selecting **Vertica Port**, the port your Vertica installation is available through.
+   - When selecting an **AWS Secret**, provide `secretName`.
 
-3.  In the following situations, you may require additional configuration:
+3. In the following situations, you may require additional configuration:
 
-        * For Vertica instances hosted on AWS in an Amazon VPC
+   - For Vertica instances hosted on AWS in an Amazon VPC
 
-
-
-        	+ Provide Amazon VPC connection information to the AWS Glue connection that
-        	 defines your Vertica security credentials. When creating or updating your
-        	 connection, set **VPC**, **Subnet** and
-        	 **Security groups** in **Network options**.
-
-    You will need to perform the following steps before running your AWS Glue job:
+     - Provide Amazon VPC connection information to the AWS Glue connection that
+       defines your Vertica security credentials. When creating or updating your
+       connection, set **VPC**, **Subnet** and
+       **Security groups** in **Network options**.
+       You will need to perform the following steps before running your AWS Glue job:
 
 - Grant the IAM role associated with your AWS Glue job permissions to `tempS3Path`.
 - Grant the IAM role associated with your AWS Glue job permission to read `secretName`.

@@ -9,7 +9,7 @@ The following Regions are available with AWS Glue Zero-ETL:
 | Asia Pacific (Tokyo)      | Available         |
 | Asia Pacific (Seoul)      | Available         |
 | Asia Pacific (Osaka)      | Not available     |
-| Asia Pacific (Mumbai)     | Not available     |
+| Asia Pacific (Mumbai)     | Available         |
 | Asia Pacific (Hyderabad)  | Not available     |
 | Asia Pacific (Singapore)  | Available         |
 | Asia Pacific (Sydney)     | Available         |

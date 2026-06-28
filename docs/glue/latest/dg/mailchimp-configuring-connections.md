@@ -32,7 +32,7 @@ Mailchimp supports following two types for authentication mechanism:
      Secret should contain the connected app Consumer Secret with
      `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
    - Custom auth – For customer managed connected app: Secret should
-     contain the connected app Consumer Secret with “api_key” as key.
+     contain the connected app Consumer Secret with “api\_key” as key.
 
 ###### Note
 
@@ -90,5 +90,4 @@ by following the steps below:
     7. Select the network options if you want to use your network.
 
 3. Grant the IAM role associated with your AWS Glue job permission to read
-   `secretName`.
-4. In your AWS Glue job configuration, provide `connectionName` as an Additional network connection.
+`secretName`. 4. In your AWS Glue job configuration, provide `connectionName` as an Additional network connection.

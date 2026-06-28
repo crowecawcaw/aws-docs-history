@@ -23,9 +23,9 @@ running job:
      running.
 
 4. For older jobs, you can also view the real-time logs under the **Job
-   History** view by choosing **Logs**. This action takes you to
-   the CloudWatch console that shows all Spark driver, executor, and progress bar log streams for
-   that job run.
+History** view by choosing **Logs**. This action takes you to
+the CloudWatch console that shows all Spark driver, executor, and progress bar log streams for
+that job run.
 
 ###### To view real-time logs using the CloudWatch console dashboard
 

@@ -74,7 +74,7 @@ jiracloud_read = glueContext.create_dynamic_frame.from_options(
 | component                           | String          | "=, !="                        |
 | creator                             | String          | "=, !="                        |
 | due                                 | DateTime        | N/A                            |
-| epic_link                           | String          | "=, !="                        |
+| epic\_link                          | String          | "=, !="                        |
 | filter                              | String          | "=, !="                        |
 | fixVersion                          | String          | "=, !="                        |
 | hierarchyLevel                      | Integer         | "=, !="                        |

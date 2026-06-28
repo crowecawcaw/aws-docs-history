@@ -4,8 +4,8 @@ Splits a `DynamicFrame` into two new ones, by specified fields.
 
 ## Example
 
-We recommend that you use the [DynamicFrame.split_fields()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields")
-method to split fields in a `DynamicFrame`. To view a code example, see [Example: Use split_fields to split selected fields into a separate DynamicFrame](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-split_fields-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-split_fields-example").
+We recommend that you use the [DynamicFrame.split\_fields()](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#aws-glue-api-crawler-pyspark-extensions-dynamic-frame-split_fields")
+method to split fields in a `DynamicFrame`. To view a code example, see [Example: Use split\_fields to split selected fields into a separate DynamicFrame](aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-split_fields-example "aws-glue-api-crawler-pyspark-extensions-dynamic-frame.md#pyspark-split_fields-example").
 
 ## Methods
 
@@ -18,7 +18,7 @@ method to split fields in a `DynamicFrame`. To view a code example, see [Example
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-SplitFields-describeErrors "#aws-glue-api-crawler-pyspark-transforms-SplitFields-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-SplitFields-describe "#aws-glue-api-crawler-pyspark-transforms-SplitFields-describe")
 
-## \_\_call\_\_(frame, paths, name1 = none, name2 = none, transformation_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
+## \_\_call\_\_(frame, paths, name1 = none, name2 = none, transformation\_ctx = "", info = "", stageThreshold = 0, totalThreshold = 0)
 
 Splits one or more fields in a `DynamicFrame` off into a new
 `DynamicFrame`, and creates another new `DynamicFrame` that contains

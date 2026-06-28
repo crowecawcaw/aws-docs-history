@@ -350,7 +350,7 @@ result = spark.sql("""
 """)
 ```
 
-The Spark optimizer automatically rewrites this query to use the customer_orders
+The Spark optimizer automatically rewrites this query to use the customer\_orders
 materialized view instead of processing the base orders table, provided the materialized
 view is current.
 
@@ -369,8 +369,8 @@ spark.sql("""
 ```
 
 In the execution plan, look for the materialized view name in the BatchScan operation.
-If the plan shows BatchScan glue_catalog.analytics.customer_orders instead of BatchScan
-glue_catalog.sales.orders, the query has been automatically rewritten to use the
+If the plan shows BatchScan glue\_catalog.analytics.customer\_orders instead of BatchScan
+glue\_catalog.sales.orders, the query has been automatically rewritten to use the
 materialized view.
 
 Note that automatic query rewrite requires time for the Spark metadata cache to populate
@@ -534,7 +534,7 @@ The definer role must have the following AWS Lake Formation permissions:
 
 - On source tables – SELECT or ALL permissions without row, column, or cell
   filters
-- On the target database – CREATE_TABLE permission
+- On the target database – CREATE\_TABLE permission
 - On the AWS Glue Data Catalog – GetTable and CreateTable API permissions
 
 When you create a materialized view, the definer role's ARN is stored in the view
@@ -907,11 +907,11 @@ Consider the following when using materialized views with AWS Glue:
   materialized view definitions.
 - Cross-Region and cross-account source tables are not supported.
 - Tables referenced in the view query must use three-part naming convention (e.g.,
-  glue_catalog.my_db.my_table) because automatic refresh does not use default catalog and
+  glue\_catalog.my\_db.my\_table) because automatic refresh does not use default catalog and
   database settings.
 - Full refresh operations override the entire table and make previous snapshots
   unavailable.
-- Non-deterministic functions such as rand() or current_timestamp() are not supported in
+- Non-deterministic functions such as rand() or current\_timestamp() are not supported in
   materialized view definitions.
 - AWS Lake Formation fine-grained access control (row-level security, column-level security,
   cell-level security) on materialized views is not currently supported.

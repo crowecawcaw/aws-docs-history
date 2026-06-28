@@ -16,7 +16,7 @@ Salesforce Commerce Cloud supports CLIENT CREDENTIALS grant type for OAuth2.
    each connection in AWS Glue.
 
    1. For customer managed connected app - Secret should contain the connected app Consumer Secret with
-      USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET as key.
+      USER\_MANAGED\_CLIENT\_APPLICATION\_CLIENT\_SECRET as key.
 
 2. In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
 

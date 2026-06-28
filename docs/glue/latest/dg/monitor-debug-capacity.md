@@ -112,8 +112,8 @@ The three job runs shown in the following table summarize the job execution time
 DPUs, 55 DPUs, and 100 DPUs. You can find the DPU capacity to improve the job execution time
 using the estimates you established by monitoring the first job run.
 
-| Job ID                     | Number of DPUs | Execution time |
-| -------------------------- | -------------- | -------------- |
-| jr_c894524c8ef5048a4d9...  | 10             | 6 min.         |
-| jr_1a466cf2575e7ffe6856... | 55             | 3 min.         |
-| jr_34fa1ed4c6aa9ff0a814... | 100            | 3 min.         |
+| Job ID                      | Number of DPUs | Execution time |
+| --------------------------- | -------------- | -------------- |
+| jr\_c894524c8ef5048a4d9...  | 10             | 6 min.         |
+| jr\_1a466cf2575e7ffe6856... | 55             | 3 min.         |
+| jr\_34fa1ed4c6aa9ff0a814... | 100            | 3 min.         |

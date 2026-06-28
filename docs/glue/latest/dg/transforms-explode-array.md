@@ -7,28 +7,28 @@ columns in the row.
 
 For example, if we have this dataset which has a “category” array column with multiple values.
 
-| product_id | category                  |
-| ---------- | ------------------------- |
-| 1          | [sports, winter]          |
-| 2          | [garden, tools]           |
-| 3          | [videogames]              |
-| 4          | [game, boardgame, social] |
-| 5          | []                        |
+| product\_id | category                  |
+| ----------- | ------------------------- |
+| 1           | [sports, winter]          |
+| 2           | [garden, tools]           |
+| 3           | [videogames]              |
+| 4           | [game, boardgame, social] |
+| 5           | []                        |
 
 If you explode the 'category' column into a column with the same name, you will override the column. You can select that you want NULLs
 included to get the following (ordered for illustration purposes):
 
-| product_id | category   |
-| ---------- | ---------- |
-| 1          | sports     |
-| 1          | winter     |
-| 2          | garden     |
-| 2          | tool       |
-| 3          | videogames |
-| 4          | game       |
-| 4          | boardgame  |
-| 4          | social     |
-| 5          |            |
+| product\_id | category   |
+| ----------- | ---------- |
+| 1           | sports     |
+| 1           | winter     |
+| 2           | garden     |
+| 2           | tool       |
+| 3           | videogames |
+| 4           | game       |
+| 4           | boardgame  |
+| 4           | social     |
+| 5           |            |
 
 ###### To add a Explode Array Or Map Into Rows transform:
 

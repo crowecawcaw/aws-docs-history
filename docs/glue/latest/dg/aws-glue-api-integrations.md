@@ -312,22 +312,22 @@ The optional name of a target table.
 
 ## Operations
 
-- [CreateIntegration action (Python: create_integration)](#aws-glue-api-integrations-CreateIntegration "#aws-glue-api-integrations-CreateIntegration")
-- [ModifyIntegration action (Python: modify_integration)](#aws-glue-api-integrations-ModifyIntegration "#aws-glue-api-integrations-ModifyIntegration")
-- [DescribeIntegrations action (Python: describe_integrations)](#aws-glue-api-integrations-DescribeIntegrations "#aws-glue-api-integrations-DescribeIntegrations")
-- [DeleteIntegration action (Python: delete_integration)](#aws-glue-api-integrations-DeleteIntegration "#aws-glue-api-integrations-DeleteIntegration")
-- [DescribeInboundIntegrations action (Python: describe_inbound_integrations)](#aws-glue-api-integrations-DescribeInboundIntegrations "#aws-glue-api-integrations-DescribeInboundIntegrations")
-- [CreateIntegrationTableProperties action (Python: create_integration_table_properties)](#aws-glue-api-integrations-CreateIntegrationTableProperties "#aws-glue-api-integrations-CreateIntegrationTableProperties")
-- [UpdateIntegrationTableProperties action (Python: update_integration_table_properties)](#aws-glue-api-integrations-UpdateIntegrationTableProperties "#aws-glue-api-integrations-UpdateIntegrationTableProperties")
-- [GetIntegrationTableProperties action (Python: get_integration_table_properties)](#aws-glue-api-integrations-GetIntegrationTableProperties "#aws-glue-api-integrations-GetIntegrationTableProperties")
-- [DeleteIntegrationTableProperties action (Python: delete_integration_table_properties)](#aws-glue-api-integrations-DeleteIntegrationTableProperties "#aws-glue-api-integrations-DeleteIntegrationTableProperties")
-- [CreateIntegrationResourceProperty action (Python: create_integration_resource_property)](#aws-glue-api-integrations-CreateIntegrationResourceProperty "#aws-glue-api-integrations-CreateIntegrationResourceProperty")
-- [UpdateIntegrationResourceProperty action (Python: update_integration_resource_property)](#aws-glue-api-integrations-UpdateIntegrationResourceProperty "#aws-glue-api-integrations-UpdateIntegrationResourceProperty")
-- [GetIntegrationResourceProperty action (Python: get_integration_resource_property)](#aws-glue-api-integrations-GetIntegrationResourceProperty "#aws-glue-api-integrations-GetIntegrationResourceProperty")
-- [UntagResource action (Python: untag_resource)](#aws-glue-api-integrations-UntagResource "#aws-glue-api-integrations-UntagResource")
-- [ListTagsForResource action (Python: list_tags_for_resource)](#aws-glue-api-integrations-ListTagsForResource "#aws-glue-api-integrations-ListTagsForResource")
+- [CreateIntegration action (Python: create\_integration)](#aws-glue-api-integrations-CreateIntegration "#aws-glue-api-integrations-CreateIntegration")
+- [ModifyIntegration action (Python: modify\_integration)](#aws-glue-api-integrations-ModifyIntegration "#aws-glue-api-integrations-ModifyIntegration")
+- [DescribeIntegrations action (Python: describe\_integrations)](#aws-glue-api-integrations-DescribeIntegrations "#aws-glue-api-integrations-DescribeIntegrations")
+- [DeleteIntegration action (Python: delete\_integration)](#aws-glue-api-integrations-DeleteIntegration "#aws-glue-api-integrations-DeleteIntegration")
+- [DescribeInboundIntegrations action (Python: describe\_inbound\_integrations)](#aws-glue-api-integrations-DescribeInboundIntegrations "#aws-glue-api-integrations-DescribeInboundIntegrations")
+- [CreateIntegrationTableProperties action (Python: create\_integration\_table\_properties)](#aws-glue-api-integrations-CreateIntegrationTableProperties "#aws-glue-api-integrations-CreateIntegrationTableProperties")
+- [UpdateIntegrationTableProperties action (Python: update\_integration\_table\_properties)](#aws-glue-api-integrations-UpdateIntegrationTableProperties "#aws-glue-api-integrations-UpdateIntegrationTableProperties")
+- [GetIntegrationTableProperties action (Python: get\_integration\_table\_properties)](#aws-glue-api-integrations-GetIntegrationTableProperties "#aws-glue-api-integrations-GetIntegrationTableProperties")
+- [DeleteIntegrationTableProperties action (Python: delete\_integration\_table\_properties)](#aws-glue-api-integrations-DeleteIntegrationTableProperties "#aws-glue-api-integrations-DeleteIntegrationTableProperties")
+- [CreateIntegrationResourceProperty action (Python: create\_integration\_resource\_property)](#aws-glue-api-integrations-CreateIntegrationResourceProperty "#aws-glue-api-integrations-CreateIntegrationResourceProperty")
+- [UpdateIntegrationResourceProperty action (Python: update\_integration\_resource\_property)](#aws-glue-api-integrations-UpdateIntegrationResourceProperty "#aws-glue-api-integrations-UpdateIntegrationResourceProperty")
+- [GetIntegrationResourceProperty action (Python: get\_integration\_resource\_property)](#aws-glue-api-integrations-GetIntegrationResourceProperty "#aws-glue-api-integrations-GetIntegrationResourceProperty")
+- [UntagResource action (Python: untag\_resource)](#aws-glue-api-integrations-UntagResource "#aws-glue-api-integrations-UntagResource")
+- [ListTagsForResource action (Python: list\_tags\_for\_resource)](#aws-glue-api-integrations-ListTagsForResource "#aws-glue-api-integrations-ListTagsForResource")
 
-## CreateIntegration action (Python: create_integration)
+## CreateIntegration action (Python: create\_integration)
 
 Creates a Zero-ETL integration in the caller's account between two resources
 with Amazon Resource Names (ARNs): the `SourceArn` and `TargetArn`.
@@ -460,7 +460,7 @@ The configuration settings.
 - `ResourceNumberLimitExceededException`
 - `InvalidInputException`
 
-## ModifyIntegration action (Python: modify_integration)
+## ModifyIntegration action (Python: modify\_integration)
 
 Modifies a Zero-ETL integration in the caller's account.
 
@@ -570,7 +570,7 @@ The updated configuration settings for the integration.
 - `InvalidStateException`
 - `InvalidInputException`
 
-## DescribeIntegrations action (Python: describe_integrations)
+## DescribeIntegrations action (Python: describe\_integrations)
 
 The API is used to retrieve a list of integrations.
 
@@ -616,7 +616,7 @@ in a subsequent request.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## DeleteIntegration action (Python: delete_integration)
+## DeleteIntegration action (Python: delete\_integration)
 
 Deletes the specified Zero-ETL integration.
 
@@ -705,7 +705,7 @@ Selects source tables for the integration using Maxwell filter syntax.
 - `InvalidStateException`
 - `InvalidInputException`
 
-## DescribeInboundIntegrations action (Python: describe_inbound_integrations)
+## DescribeInboundIntegrations action (Python: describe\_inbound\_integrations)
 
 Returns a list of inbound integrations for the specified integration.
 
@@ -751,7 +751,7 @@ in a subsequent request.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## CreateIntegrationTableProperties action (Python: create_integration_table_properties)
+## CreateIntegrationTableProperties action (Python: create\_integration\_table\_properties)
 
 This API is used to provide optional override properties for the the tables
 that need to be replicated. These properties can include properties for filtering
@@ -799,7 +799,7 @@ A structure for the target table configuration.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## UpdateIntegrationTableProperties action (Python: update_integration_table_properties)
+## UpdateIntegrationTableProperties action (Python: update\_integration\_table\_properties)
 
 This API is used to provide optional override properties for the tables
 that need to be replicated. These properties can include properties for filtering
@@ -844,7 +844,7 @@ A structure for the target table configuration.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## GetIntegrationTableProperties action (Python: get_integration_table_properties)
+## GetIntegrationTableProperties action (Python: get\_integration\_table\_properties)
 
 This API is used to retrieve optional override properties for the tables
 that need to be replicated. These properties can include properties for filtering
@@ -898,7 +898,7 @@ A structure for the target table configuration.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## DeleteIntegrationTableProperties action (Python: delete_integration_table_properties)
+## DeleteIntegrationTableProperties action (Python: delete\_integration\_table\_properties)
 
 Deletes the table properties that have been created for the tables that
 need to be replicated.
@@ -927,7 +927,7 @@ The name of the table to be replicated.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## CreateIntegrationResourceProperty action (Python: create_integration_resource_property)
+## CreateIntegrationResourceProperty action (Python: create\_integration\_resource\_property)
 
 This API can be used for setting up the `ResourceProperty`
 of the AWS Glue connection (for the source) or AWS Glue
@@ -977,7 +977,7 @@ The resource properties associated with the integration target.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## UpdateIntegrationResourceProperty action (Python: update_integration_resource_property)
+## UpdateIntegrationResourceProperty action (Python: update\_integration\_resource\_property)
 
 This API can be used for updating the `ResourceProperty`
 of the AWS Glue connection (for the source) or AWS Glue
@@ -1024,7 +1024,7 @@ The resource properties associated with the integration target.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## GetIntegrationResourceProperty action (Python: get_integration_resource_property)
+## GetIntegrationResourceProperty action (Python: get\_integration\_resource\_property)
 
 This API is used for fetching the `ResourceProperty` of the
 AWS Glue connection (for the source) or AWS Glue database
@@ -1060,7 +1060,7 @@ The resource properties associated with the integration target.
 - `InternalServiceException`
 - `InvalidInputException`
 
-## UntagResource action (Python: untag_resource)
+## UntagResource action (Python: untag\_resource)
 
 Removes the specified tags from an integration resource.
 
@@ -1082,7 +1082,7 @@ A list of metadata tags to be removed from the resource.
 
 - `ResourceNotFoundException`
 
-## ListTagsForResource action (Python: list_tags_for_resource)
+## ListTagsForResource action (Python: list\_tags\_for\_resource)
 
 Lists the metadata tags assigned to the specified resource.
 

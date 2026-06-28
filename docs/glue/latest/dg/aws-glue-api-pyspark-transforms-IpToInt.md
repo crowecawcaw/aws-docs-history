@@ -94,7 +94,7 @@ For `null` values in the `source\_column\_ip` column, the `target\_column` value
 - [describeErrors](#aws-glue-api-crawler-pyspark-transforms-IpToInt-describeErrors "#aws-glue-api-crawler-pyspark-transforms-IpToInt-describeErrors")
 - [describe](#aws-glue-api-crawler-pyspark-transforms-IpToInt-describe "#aws-glue-api-crawler-pyspark-transforms-IpToInt-describe")
 
-## \_\_call\_\_(spark_context, data_frame, target_column, source_column=None, value=None)
+## \_\_call\_\_(spark\_context, data\_frame, target\_column, source\_column=None, value=None)
 
 The `IpToInt` transform converts the Internet Protocol version 4 (IPv4) value of the source column or
 other value to the corresponding integer value in the target column, and returns the result in a new column.

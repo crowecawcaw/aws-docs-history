@@ -20,7 +20,7 @@ You can add additional output groups by choosing **Add group**. For each output 
 group and add filter conditions and a logical operator.
 
 ![The screenshot shows the conditional router transform tab with options to name the output group, logical operator and conditional filter(s).](images/transform-conditional-router-tab.png) 3. Rename the output group name by entering a new name for the group. AWS Glue Studio will automatically name your groups
-for you (for example, 'output_group_1'). 4. Choose a logical operator (**AND**, **OR**) and add a **Filter condition** by specifying the
+for you (for example, 'output\_group\_1'). 4. Choose a logical operator (**AND**, **OR**) and add a **Filter condition** by specifying the
 **Key**, **Operation**, and **Value**. Logical operators allow you to
 implement more than one filter condition and perform the logical operator on each filter condition you specify.
 

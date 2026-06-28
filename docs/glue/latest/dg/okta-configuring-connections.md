@@ -16,10 +16,9 @@ Okta supports two types of authentication mechanisms:
 
 - Custom auth:
 
-      + For public Okta documentation on generating the required API keys for custom authorization, see
-       [Okta documentation](https://developer.okta.com/docs/guides/create-an-api-token/main/#create-the-token "https://developer.okta.com/docs/guides/create-an-api-token/main/#create-the-token") .
-
-  To configure an Okta connection:
+  - For public Okta documentation on generating the required API keys for custom authorization, see
+    [Okta documentation](https://developer.okta.com/docs/guides/create-an-api-token/main/#create-the-token "https://developer.okta.com/docs/guides/create-an-api-token/main/#create-the-token") .
+    To configure an Okta connection:
 
 1. In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
    each connection in AWS Glue.

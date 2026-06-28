@@ -210,33 +210,33 @@ greater than 80% complete (non-null) values.
 
 After creating data quality rules, you can select additional options to specify data quality node output.
 
-1.  In **Data quality transform output**, choose from the following options:
+1. In **Data quality transform output**, choose from the following options:
 
-    - **Original data**
-      –
-      Choose to output original input data. When you choose this
-      option,
-      a new child node “rowLevelOutcomes”
-      is
-      added to the job. The schema
-      matches
-      the schema of the primary dataset
-      that
-      was passed as input to the transform. This option is useful if you just
-      want to pass the data through and fail the job when quality issues
-      occur.
+   - **Original data**
+     –
+     Choose to output original input data. When you choose this
+     option,
+     a new child node “rowLevelOutcomes”
+     is
+     added to the job. The schema
+     matches
+     the schema of the primary dataset
+     that
+     was passed as input to the transform. This option is useful if you just
+     want to pass the data through and fail the job when quality issues
+     occur.
 
-    Another use
-    case is when you want to detect bad records that
-    failed
-    data
-    quality
-    checks. To detect bad records, choose the option
-    **Add
-    new columns to indicate data quality
-    errors**.
-    This action adds four new columns to the schema of the
-    “rowLevelOutcomes” transform.
+   Another use
+   case is when you want to detect bad records that
+   failed
+   data
+   quality
+   checks. To detect bad records, choose the option
+   **Add
+   new columns to indicate data quality
+   errors**.
+   This action adds four new columns to the schema of the
+   “rowLevelOutcomes” transform.
 
         + **DataQualityRulesPass**
          (string array) –
@@ -294,15 +294,15 @@ After creating data quality rules, you can select additional options to specify 
          been successful. In such instances, this field status is
          'Passed'.
 
-2.  **Data quality results**
-    –
-    Choose to output configured rules and their pass or fail status. This option is
-    useful if you want to write your results to Amazon S3 or other databases.
-3.  **Data quality output settings**
-    (Optional) – Choose **Data quality output
-    settings** to reveal the **Data quality result
-    location** field. Then, choose **Browse** to
-    search for an Amazon S3 location to set as the data quality output target.
+2. **Data quality results**
+   –
+   Choose to output configured rules and their pass or fail status. This option is
+   useful if you want to write your results to Amazon S3 or other databases.
+3. **Data quality output settings**
+   (Optional) – Choose **Data quality output
+   settings** to reveal the **Data quality result
+   location** field. Then, choose **Browse** to
+   search for an Amazon S3 location to set as the data quality output target.
 
 ## Step 4. Configure data quality actions
 

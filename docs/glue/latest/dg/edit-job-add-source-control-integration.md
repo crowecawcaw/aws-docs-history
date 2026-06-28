@@ -47,7 +47,7 @@ In order to push jobs to a source control repository, you will need:
 - the username of the repository owner
 - set permissions in the repository to allow AWS Glue Studio to read and write to the repository
 
-  - **GitLab** – set token scopes to api, read_repository, and write_repository
+  - **GitLab** – set token scopes to api, read\_repository, and write\_repository
   - **Bitbucket** – set permissions to:
 
     - **Workspace membership** – read, write

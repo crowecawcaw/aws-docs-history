@@ -57,10 +57,9 @@ to enter additional connection information. This can include:
      your VPC.
 
 6. Set the connection properties in step 3 of the wizard. You can add a description and tags as an optional part of this step.
-   Name is required and is prepopulated with a default value.
-   Choose **Next**.
-7. Review the connection source, details, and properties. If you need to make any changes, choose
-   **Edit** for the step in the wizard. When ready, choose, **Create connection** .
+Name is required and is prepopulated with a default value.
+Choose **Next**. 7. Review the connection source, details, and properties. If you need to make any changes, choose
+**Edit** for the step in the wizard. When ready, choose, **Create connection** .
 
 Choose **Create connection**.
 

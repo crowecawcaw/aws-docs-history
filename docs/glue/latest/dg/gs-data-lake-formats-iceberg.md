@@ -22,7 +22,7 @@ Enter values or select from the available options to configure Apache Iceberg fo
 
   - **Database** – Choose the database from the Data Catalog.
   - **Table Name** – Enter the value for your table name. Apache Iceberg table names must be
-    in all lower case. Use underscores if needed since spaces are not allowed. For example "data_lake_format_tables".
+    in all lower case. Use underscores if needed since spaces are not allowed. For example "data\_lake\_format\_tables".
 
 ![The screenshot shows the Data target properties when using Apache Iceberg framework in Amazon S3 data targets.](images/apache-iceberg-data-target-properties.png)
 

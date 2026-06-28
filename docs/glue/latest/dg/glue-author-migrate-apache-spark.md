@@ -110,7 +110,7 @@ a connection.
 Data Catalog, a service that allows you to curate information about your datasets, and the methods
 available to interact with AWS Glue connections reflect that. If you have an existing auth configuration
 you would like to reuse, for JDBC connections, you can access your AWS Glue connection configuration
-through the `extract_jdbc_conf` method on the `GlueContext`. For more information, see [extract_jdbc_conf](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-extract_jdbc_conf "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-extract_jdbc_conf")
+through the `extract_jdbc_conf` method on the `GlueContext`. For more information, see [extract\_jdbc\_conf](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-extract_jdbc_conf "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-extract_jdbc_conf")
 
 **Console configuration** – AWS Glue Jobs use associated AWS Glue connections to configure connections to Amazon VPC subnets. If you directly
 manage your security materials, you may need to provide a `NETWORK` type **Additional

@@ -244,17 +244,17 @@ bucket you can access and write to.
     	 data to the result path. If you don't want to encrypt your upgrade artifacts, leave this option unchecked.
 
 4. Choose **Run** to start the upgrade analysis. While the analysis is running, you can view the results
-   on the **Upgrade analysis** tab. The analysis details window will show you information about the
-   analysis as well as links to the upgrade artifacts.
+on the **Upgrade analysis** tab. The analysis details window will show you information about the
+analysis as well as links to the upgrade artifacts.
 
-   - **Result path** – this is where the results summary and upgrade script are stored.
-   - **Upgraded script in Amazon S3** – the location of the upgrade script in Amazon S3. You can
+    * **Result path** – this is where the results summary and upgrade script are stored.
+    * **Upgraded script in Amazon S3** – the location of the upgrade script in Amazon S3. You can
      view the script prior to applying the upgrade.
-   - **Upgrade summary in Amazon S3** – the location of the upgrade summary in Amazon S3. You can
+    * **Upgrade summary in Amazon S3** – the location of the upgrade summary in Amazon S3. You can
      view the upgrade summary prior to applying the upgrade.
 
 5. When the upgrade analysis is completed successfully, you can apply the upgrade script to automatically upgrade your job by
-   choosing **Apply upgraded script**.
+choosing **Apply upgraded script**.
 
 Once applied, the AWS Glue version will be updated to 4.0. You can view the new script in the **Script** tab.
 

@@ -219,15 +219,15 @@ You can only use pure Java/Scala libraries with a `DevEndpoint`.
 
 ## Operations
 
-- [CreateDevEndpoint action (Python: create_dev_endpoint)](#aws-glue-api-dev-endpoint-CreateDevEndpoint "#aws-glue-api-dev-endpoint-CreateDevEndpoint")
-- [UpdateDevEndpoint action (Python: update_dev_endpoint)](#aws-glue-api-dev-endpoint-UpdateDevEndpoint "#aws-glue-api-dev-endpoint-UpdateDevEndpoint")
-- [DeleteDevEndpoint action (Python: delete_dev_endpoint)](#aws-glue-api-dev-endpoint-DeleteDevEndpoint "#aws-glue-api-dev-endpoint-DeleteDevEndpoint")
-- [GetDevEndpoint action (Python: get_dev_endpoint)](#aws-glue-api-dev-endpoint-GetDevEndpoint "#aws-glue-api-dev-endpoint-GetDevEndpoint")
-- [GetDevEndpoints action (Python: get_dev_endpoints)](#aws-glue-api-dev-endpoint-GetDevEndpoints "#aws-glue-api-dev-endpoint-GetDevEndpoints")
-- [BatchGetDevEndpoints action (Python: batch_get_dev_endpoints)](#aws-glue-api-dev-endpoint-BatchGetDevEndpoints "#aws-glue-api-dev-endpoint-BatchGetDevEndpoints")
-- [ListDevEndpoints action (Python: list_dev_endpoints)](#aws-glue-api-dev-endpoint-ListDevEndpoints "#aws-glue-api-dev-endpoint-ListDevEndpoints")
+- [CreateDevEndpoint action (Python: create\_dev\_endpoint)](#aws-glue-api-dev-endpoint-CreateDevEndpoint "#aws-glue-api-dev-endpoint-CreateDevEndpoint")
+- [UpdateDevEndpoint action (Python: update\_dev\_endpoint)](#aws-glue-api-dev-endpoint-UpdateDevEndpoint "#aws-glue-api-dev-endpoint-UpdateDevEndpoint")
+- [DeleteDevEndpoint action (Python: delete\_dev\_endpoint)](#aws-glue-api-dev-endpoint-DeleteDevEndpoint "#aws-glue-api-dev-endpoint-DeleteDevEndpoint")
+- [GetDevEndpoint action (Python: get\_dev\_endpoint)](#aws-glue-api-dev-endpoint-GetDevEndpoint "#aws-glue-api-dev-endpoint-GetDevEndpoint")
+- [GetDevEndpoints action (Python: get\_dev\_endpoints)](#aws-glue-api-dev-endpoint-GetDevEndpoints "#aws-glue-api-dev-endpoint-GetDevEndpoints")
+- [BatchGetDevEndpoints action (Python: batch\_get\_dev\_endpoints)](#aws-glue-api-dev-endpoint-BatchGetDevEndpoints "#aws-glue-api-dev-endpoint-BatchGetDevEndpoints")
+- [ListDevEndpoints action (Python: list\_dev\_endpoints)](#aws-glue-api-dev-endpoint-ListDevEndpoints "#aws-glue-api-dev-endpoint-ListDevEndpoints")
 
-## CreateDevEndpoint action (Python: create_dev_endpoint)
+## CreateDevEndpoint action (Python: create\_dev\_endpoint)
 
 Creates a new development endpoint.
 
@@ -470,7 +470,7 @@ version defaults to Python 2.
 - `ValidationException`
 - `ResourceNumberLimitExceededException`
 
-## UpdateDevEndpoint action (Python: update_dev_endpoint)
+## UpdateDevEndpoint action (Python: update\_dev\_endpoint)
 
 Updates a specified development endpoint.
 
@@ -535,7 +535,7 @@ version defaults to Python 2.
 - `InvalidInputException`
 - `ValidationException`
 
-## DeleteDevEndpoint action (Python: delete_dev_endpoint)
+## DeleteDevEndpoint action (Python: delete\_dev\_endpoint)
 
 Deletes a specified development endpoint.
 
@@ -556,7 +556,7 @@ The name of the `DevEndpoint`.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## GetDevEndpoint action (Python: get_dev_endpoint)
+## GetDevEndpoint action (Python: get\_dev\_endpoint)
 
 Retrieves information about a specified development endpoint.
 
@@ -585,7 +585,7 @@ A `DevEndpoint` definition.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## GetDevEndpoints action (Python: get_dev_endpoints)
+## GetDevEndpoints action (Python: get\_dev\_endpoints)
 
 Retrieves all the development endpoints in this AWS account.
 
@@ -623,7 +623,7 @@ have yet been returned.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## BatchGetDevEndpoints action (Python: batch_get_dev_endpoints)
+## BatchGetDevEndpoints action (Python: batch\_get\_dev\_endpoints)
 
 Returns a list of resource metadata for a given list of development endpoint
 names. After calling the `ListDevEndpoints` operation, you can
@@ -659,7 +659,7 @@ A list of `DevEndpoints` not found.
 - `OperationTimeoutException`
 - `InvalidInputException`
 
-## ListDevEndpoints action (Python: list_dev_endpoints)
+## ListDevEndpoints action (Python: list\_dev\_endpoints)
 
 Retrieves the names of all `DevEndpoint` resources in this
 AWS account, or the resources with the specified tag. This operation

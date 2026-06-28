@@ -1,6 +1,6 @@
 # Configuring HubSpot connections
 
-HubSpot supports the AUTHORIZATION_CODE grant type for OAuth2.
+HubSpot supports the AUTHORIZATION\_CODE grant type for OAuth2.
 
 - This grant type is considered "three-legged" OAuth as it relies on redirecting users to a third-party authorization server to authenticate the user. It is used when creating connections via the AWS Glue console. The user creating a connection needs to provide the OAuth related information like Client ID and Client Secret for their HubSpot client application. The AWS Glue console will redirect the user to HubSpot where the user must login and allow AWS Glue the requested permissions to access their HubSpot instance.
 - Users may still opt to create their own connected app in HubSpot and provide their own client id and client secret when creating connections through the AWS Glue console. In this scenario, they will still be redirected to HubSpot to login and authorize AWS Glue to access their resources.

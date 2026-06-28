@@ -10,16 +10,16 @@ The following are limitations or notes for the Freshdesk connector:
 - The following fields are supported for Sync API calls, but are not supported/allowed to be passed in Async API request body.
 
   - id
-  - created_at
-  - updated_at
-  - updated_since
+  - created\_at
+  - updated\_at
+  - updated\_since
   - active
-  - company_id
-  - other_companies
+  - company\_id
+  - other\_companies
   - avatar
-  - view_all_tickets
+  - view\_all\_tickets
   - deleted
-  - other_emails
+  - other\_emails
   - state
   - tag
   - tags
