@@ -146,7 +146,7 @@ When adding a bot client to a Docker image, you may encounter issues during the 
 step. This can occur for both new and existing clients. Below are some common problems you might
 face:
 
-**_Username does not exist:_**
+_**Username does not exist:**_
 
 ![The username is does not exist.](images/wickr-username.png)
 
@@ -154,7 +154,7 @@ face:
 
 Make sure the bot username is correct and exists in the Wickr Admin Console.
 
-**_Incorrect password:_**
+_**Incorrect password:**_
 
 ![The password is incorrect.](images/wickr-incorrect-password.png)
 
@@ -175,7 +175,7 @@ here.
 
 ## Start bot client failures
 
-**_Incorrect password_**
+_**Incorrect password**_
 
 When trying to start a bot client, if you enter an incorrect password, you will get a “Bus
 Error” and see the Docker container has exited.
@@ -187,7 +187,7 @@ Error” and see the Docker container has exited.
 - Remove the stopped container using `docker rm -f (container-name).`
 - Set up the docker container again by sharing a different host volume.
 
-**_Wickr IO client does not start_**
+_**Wickr IO client does not start**_
 
 If your Wickr IO client isn't starting and the previous solutions haven't resolved the
 issue, try the following steps. First, check if the client is running by using the
@@ -209,7 +209,7 @@ commands that can help you diagnose any client issues.
 
 ## Wickr IO command line interface
 
-**_Wickr IO client is not running._**
+_**Wickr IO client is not running.**_
 
 Once the client has started, it should remain in the `Running` state unless it is
 manually paused or deleted. If, at any point, your client enters a `Down` or `Not
@@ -221,7 +221,7 @@ Try restarting the Wickr IO client using the `restart` command. If the issue
 continues, check the provisioning and client logs for more information, and then contact Wickr
 Support.
 
-**_Turn on debugging in Wickr IO CLI_**
+_**Turn on debugging in Wickr IO CLI**_
 
 If you are facing issues with performing any operation using the Wickr IO command line
 interface like adding or deploying a custom bot , this procedure will help you view more detailed
@@ -267,7 +267,7 @@ beneficial.
 
 ## Deploying custom Integrations
 
-**_Cannot import a custom integration_**
+_**Cannot import a custom integration**_
 
 If the necessary files are missing from the software.tar.gz imported into the Docker
 container, you will receive an "install shell file does not exist" error when starting a Wickr
@@ -715,7 +715,7 @@ is sufficient for troubleshooting, with older logs archived to Amazon S3.
 
 ## Common issues
 
-**_Exited Docker container_**
+_**Exited Docker container**_
 
 Once the Wickr IO container is set up, it is designed to run indefinitely unless stopped
 manually. However, unexpected events may occur that could cause your running Docker container to
@@ -726,11 +726,11 @@ exit.
 - Run docker restart (container-name) to get your container back up.
 - Look at Wickr IO client logs to identify the reason for crash. For more information, see
   [Wickr IO clients
-  logging](../wickrioguide/logging.md "../wickrioguide/logging.md").
+  logging](logging.md "logging.md").
 - Check your host’s disk space usage to ensure your host machine has enough disk space to
   support the clients running within the Wickr IO Docker container.
 
-**_Exited Docker container_**
+_**Exited Docker container**_
 
 Once you have a running bot client, you should be able to interact(depends on the
 integration type) with it on Wickr client application. If the bot is not responding as expected
@@ -741,9 +741,9 @@ see the solution below to debug the issue.
 - Ensure the Wickr IO client is in `Running` state on the Wickr IO docker
   CLI. You can list all clients and their state using the `list` command.
 - If the client is running, then see the integration logs for any errors. For more
-  information, see [Wickr IO clients logging](../wickrioguide/logging.md "../wickrioguide/logging.md").
+  information, see [Wickr IO clients logging](logging.md "logging.md").
 
-**_Too many bot devices_**
+_**Too many bot devices**_
 
 Bot clients do not automatically remove old devices upon start-up. If you frequently move a
 bot between different machines, you may reach the limit of 50 devices. Each time you move the bot
@@ -772,8 +772,8 @@ client. For example:
 
 Restart the bot after you have added this to the `.ini` file.
 
-**_Wickr files are not received or
-transmitted_**
+_**Wickr files are not received or
+transmitted**_
 
 If the Wickr IO integration you are using requires sending or receiving files but you're
 experiencing issues with either, it may be due to an inaccurate date and/or time setting on your
@@ -785,7 +785,7 @@ successfully. If these setting are incorrect, file transfers will fail.
 For accuracy, it's recommended to install and run an NTP (Network Time Protocol) service on
 your host system.
 
-**_Network timeouts_**
+_**Network timeouts**_
 
 If your bot is failing to interact with the backend servers and the logs indicate time
 errors, there is a way to increase the timeout for network requests. While this may not resolve
@@ -844,7 +844,7 @@ Possible causes:
 - DNS resolution is failing for the Wickr messaging gateway
   domain.
 - The bot is using the wrong Docker image for its deployment type
-  (for example, the commercial image in or vice versa).
+  (for example, the commercial image in GovCloud or vice versa).
 
 **Resolution**
 
@@ -878,7 +878,7 @@ Wickr IO container requires a direct TLS connection to the
 messaging gateway. Configure a proxy bypass for the Wickr domains
 listed in the allowlist. 5. Verify you are using the correct Docker image for your deployment
 type. Commercial deployments must use
-`wickrio/bot-cloud:latest`. deployments must
+`wickrio/bot-cloud:latest`. GovCloud deployments must
 use `wickrio/bot-cloud-govcloud:latest`. Using the wrong
 image causes the container to connect to the wrong messaging gateway,
 which results in a connection failure.
@@ -909,9 +909,9 @@ registered bot clients.
 Symptoms:
 
 - The WickrIO server log shows `WickrIO Client Server
-configured` but no connection attempts.
+ configured` but no connection attempts.
 - The bot process starts but hangs at `Checking for client
-connection` indefinitely.
+ connection` indefinitely.
 - In interactive mode, the console shows
   `There are no clients currently configured!`
 - In detached mode (`-d`), the WickrIO server may crash
@@ -944,8 +944,9 @@ If the container is running in detached mode (`-d`) with
 the WickrIO server repeatedly attempts to re-register on each restart.
 This can exhaust the Wickr service's registration rate limit, which
 locks the bot username for 24 hours. Stop the container immediately
-with `docker stop `container-name`` if you see`Segmentation fault`or
-`Begin register existing user context`repeating in
+with `docker stop `container-name``
+if you see `Segmentation fault` or
+`Begin register existing user context` repeating in
 `docker logs`.
 
 **Bot is online but CloudWatch alarms are not working**
@@ -1059,7 +1060,7 @@ docker run -v /opt/MyBotName:/opt/WickrIO -p 4001:4001 -d --restart=always --nam
 5. Next, for each bot perform the "upgrade" command. It is possible that the configuration tokens associated with the bot integration has changed, if so you will be prompted for the new values.
 6. After ensuring all the bots have been upgraded, start each bot. When done starting you can perform the "list" command to verify each bot is running. Once verified, you can exit out of the WickrIO CLI.
 
-The following is sample output from upgrading an old WickrIO bot running version v4.64.9.3, with a wickrio_web_interface bot. The version being upgraded to is the 5.116.18.01 version/tag.
+The following is sample output from upgrading an old WickrIO bot running version v4.64.9.3, with a wickrio\_web\_interface bot. The version being upgraded to is the 5.116.18.01 version/tag.
 
 ```
 Enter command:list

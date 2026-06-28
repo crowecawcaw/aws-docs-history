@@ -32,9 +32,9 @@ console.error = function () {
 
 ## Logger Configuration
 
-The logger will look to the processes.json for the log level, max log file size, and max number of log files. These values can be changed by updating the values of LOG_LEVEL, LOG_FILE_SIZE, and LOG_MAX_FILES in the env section of processes.json.
+The logger will look to the processes.json for the log level, max log file size, and max number of log files. These values can be changed by updating the values of LOG\_LEVEL, LOG\_FILE\_SIZE, and LOG\_MAX\_FILES in the env section of processes.json.
 
-Without modifying the log_tokens the log level will be set to info, the max file size will be set to 10MB and the max number of log files will be set to 5.
+Without modifying the log\_tokens the log level will be set to info, the max file size will be set to 10MB and the max number of log files will be set to 5.
 
 ```
 {

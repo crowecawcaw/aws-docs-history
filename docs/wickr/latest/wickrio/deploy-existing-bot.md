@@ -36,11 +36,19 @@ Complete the following procedure to deploy an existing bot.
 
 6. Interact with the bot:
 
-   1. Using your Wickr user, choose the **New Direct Message**
-      button.
+    1. Using your Wickr user, choose the **New Direct Message**
+     button.
 
-   ![The Wickr IO new message button.](images/wickrio-new-message.png) 2. In the search bar, search for your bot by display name.
 
-   ![The Wickr IO search for bot.](images/wickrio-search-bot.png) 3. Select your bot for a direct message, and send a message.
 
-   ![The Wickr IO bot conversation.](images/wickrio-bot-conversation.png)
+    ![The Wickr IO new message button.](images/wickrio-new-message.png)
+    2. In the search bar, search for your bot by display name.
+
+
+
+    ![The Wickr IO search for bot.](images/wickrio-search-bot.png)
+    3. Select your bot for a direct message, and send a message.
+
+
+
+    ![The Wickr IO bot conversation.](images/wickrio-bot-conversation.png)

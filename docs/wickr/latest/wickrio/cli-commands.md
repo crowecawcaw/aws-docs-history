@@ -25,7 +25,7 @@ parameter.
 The following are the general Wickr IO command line interface commands:
 
 | Command          | Description                                                          |
-| ---------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------- | -------------------------------------------------------------------- |
 | `help [command]` | Display the list of commands or help for the specified command.      |
 | `version`        | Displays the current version number of the running Wickr IO Gateway. |
 | `welcome [on     | off]`                                                                | Displays the welcome message or changes whether the welcome message is displayed when<br>you enter the command line interface. |

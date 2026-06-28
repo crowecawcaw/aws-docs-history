@@ -36,17 +36,17 @@ fields that are contained in the message JSON.
 The edit messages are only seen by the compliance bot installations (Wickr Enterprise) or
 by the data retention bot (AWS Wickr).
 
-| Field       | Description                                                                                   |
-| ----------- | --------------------------------------------------------------------------------------------- |
-| control     | JSON object that defines the control message information. Contents described<br>below.        |
-| file        | JSON object that defines the details of a file transfer message. Contents described<br>below. |
-| id          | Unique identifier for the message                                                             |
-| message_id  | The text associated with a text message                                                       |
-| msgtype     | Type of message, values defined in table above.                                               |
-| msg_ts      | The time the message was sent, accurate to the microsecond.                                   |
-| receiver    | Wickr ID of the receiver, for 1-to-1 messages.                                                |
-| sender      | Wickr ID of the sending client.                                                               |
-| sender_type | Indicates if this is a guest user or normal user.                                             |
-| time        | Displayable time message was sent.                                                            |
-| time_iso    | The time in ISO format (YYYY-MM-DD hh:mm:ss.xxx)                                              |
-| vgroupid    | The unique vGroupID of the conversation.                                                      |
+| Field        | Description                                                                                   |
+| ------------ | --------------------------------------------------------------------------------------------- |
+| control      | JSON object that defines the control message information. Contents described<br>below.        |
+| file         | JSON object that defines the details of a file transfer message. Contents described<br>below. |
+| id           | Unique identifier for the message                                                             |
+| message\_id  | The text associated with a text message                                                       |
+| msgtype      | Type of message, values defined in table above.                                               |
+| msg\_ts      | The time the message was sent, accurate to the microsecond.                                   |
+| receiver     | Wickr ID of the receiver, for 1-to-1 messages.                                                |
+| sender       | Wickr ID of the sending client.                                                               |
+| sender\_type | Indicates if this is a guest user or normal user.                                             |
+| time         | Displayable time message was sent.                                                            |
+| time\_iso    | The time in ISO format (YYYY-MM-DD hh:mm:ss.xxx)                                              |
+| vgroupid     | The unique vGroupID of the conversation.                                                      |

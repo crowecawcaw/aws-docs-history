@@ -546,16 +546,16 @@ be missing if they have not been changed.
 The following table has a description of each of the statistics returned by this
 API:
 
-| Statistics                | Description                                                                                                                                                     |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| message_count             | The number of incoming messages that are currently on the Wickr IO client.                                                                                      |
-| pending_messages          | The number of messages that are to be sent from the specific Wickr IO<br>client.                                                                                |
-| sent                      | The number of messages that have been sent by the Wickr IO client.                                                                                              |
-| received                  | The number of messages that the Wickr IO client has received.                                                                                                   |
-| sent_errors               | The number of errors that have occurred while trying to send messages.                                                                                          |
-| recv_errors               | The number of errors that occurred while receiving messages.                                                                                                    |
-| pending_callback_messages | The number of messages on the callback message queue. These are messages received by<br>the Wickr IO client, that are waiting to be send to a callback process. |
-| outbox_sync               | The number of outbox sync messages received. These are messages that were sent by<br>another device for this Wickr IO client.                                   |
+| Statistics                  | Description                                                                                                                                                     |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| message\_count              | The number of incoming messages that are currently on the Wickr IO client.                                                                                      |
+| pending\_messages           | The number of messages that are to be sent from the specific Wickr IO<br>client.                                                                                |
+| sent                        | The number of messages that have been sent by the Wickr IO client.                                                                                              |
+| received                    | The number of messages that the Wickr IO client has received.                                                                                                   |
+| sent\_errors                | The number of errors that have occurred while trying to send messages.                                                                                          |
+| recv\_errors                | The number of errors that occurred while receiving messages.                                                                                                    |
+| pending\_callback\_messages | The number of messages on the callback message queue. These are messages received by<br>the Wickr IO client, that are waiting to be send to a callback process. |
+| outbox\_sync                | The number of outbox sync messages received. These are messages that were sent by<br>another device for this Wickr IO client.                                   |
 
 Example curl script to perform a get statistics:
 

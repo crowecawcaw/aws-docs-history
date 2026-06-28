@@ -145,7 +145,7 @@ new value of the message.
 If the original message contains links, and the "Send Link Previews" option is set for the
 security group, there will be two Edit Content messages sent. One of these messages is
 associated with the text message changes and another that will contain the link image meta
-information. The Edit Content message that contains the "content_edited" with a true value is
+information. The Edit Content message that contains the "content\_edited" with a true value is
 associated with the message text, as seen below:
 
 ```

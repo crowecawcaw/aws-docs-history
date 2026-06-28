@@ -234,34 +234,34 @@ this configuration file is to be placed.
 The following is a list of tokens that are required to start/configure a Wickr Enterprise
 BroadcastBot integration:
 
-- WICKRIO_BOT_NAME - The name of the BroadcastBot Wickr client. This value should be
+- WICKRIO\_BOT\_NAME - The name of the BroadcastBot Wickr client. This value should be
   automatically set.
-- DATABASE_ENCRYPTION_CHOICE - Identifies if you want to encrypt the BroadcastBot
+- DATABASE\_ENCRYPTION\_CHOICE - Identifies if you want to encrypt the BroadcastBot
   information. Choices are 'yes' or 'no'.
-- DATABASE_ENCRYPTION_KEY - A random sequence of bytes used to encrypt the BroadcastBot
+- DATABASE\_ENCRYPTION\_KEY - A random sequence of bytes used to encrypt the BroadcastBot
   information. This string must be at least 16 characters in length. Entering a value with
   less than 16 characters will not encrypt the BroadcastBot information. It is not required to
   be encrypted but is highly recommended.
 - ADMINISTRATORS - A comma separated list of Wickr users that can use the BroadcastBot
   to send broadcast messages. These are the only users that can use the BroadcastBot.
   Additional admin users can be added via the /admin command.
-- WEB_INTERFACE - Identifies if you want to use the Web Interface and/or the REST API
+- WEB\_INTERFACE - Identifies if you want to use the Web Interface and/or the REST API
   interface. Choices are 'yes' or 'no'.
-- WEB_INTERFACE_PORT - The port number to use for the Web Interface and REST API
-  interface. This value is required if WEB_INTERFACE is 'yes'.
-- WEB_INTERFACE_SSL - Identifies if you want to use SSL for the Web Interface and REST API
+- WEB\_INTERFACE\_PORT - The port number to use for the Web Interface and REST API
+  interface. This value is required if WEB\_INTERFACE is 'yes'.
+- WEB\_INTERFACE\_SSL - Identifies if you want to use SSL for the Web Interface and REST API
   interface. Choices are 'yes' or 'no'.
-- WEB_INTERFACE_SSL_KEY_LOCATION - The location of the SSL key file. This value is
-  required if WEB_INTERFACE_SSL is 'yes'.
-- WEB_INTERFACE_SSL_CERT_LOCATION - The location of the SSL certificate file. This value
-  is required if WEB_INTERFACE_SSL is 'yes'.
-- API_AUTH_TOKEN - A random sequence of bytes used as the API authorization token. This
-  value is required if WEB_INTERFACE is 'yes'.
-- HTTPS_CHOICE - Identifies if you want to use HTTPS for the Web Interface. Choices are
+- WEB\_INTERFACE\_SSL\_KEY\_LOCATION - The location of the SSL key file. This value is
+  required if WEB\_INTERFACE\_SSL is 'yes'.
+- WEB\_INTERFACE\_SSL\_CERT\_LOCATION - The location of the SSL certificate file. This value
+  is required if WEB\_INTERFACE\_SSL is 'yes'.
+- API\_AUTH\_TOKEN - A random sequence of bytes used as the API authorization token. This
+  value is required if WEB\_INTERFACE is 'yes'.
+- HTTPS\_CHOICE - Identifies if you want to use HTTPS for the Web Interface. Choices are
   'yes' or 'no'.
-- GOOGLE_MAPS_API_KEY - Your Google Maps API key. This is required if you want to use the
+- GOOGLE\_MAPS\_API\_KEY - Your Google Maps API key. This is required if you want to use the
   /map command.
-- BROADCAST_ENABLED - Enter 'yes' to enable the /broadcast command and allow broadcasts to
+- BROADCAST\_ENABLED - Enter 'yes' to enable the /broadcast command and allow broadcasts to
   the whole network and security groups. Enter 'no' to only allow sending to files with the
   /send command.
 
@@ -615,8 +615,8 @@ value is for display purposes only.
 
 This API can be used to broadcast a message or a file. The destination for this broadcast
 can be either a security group, the entire network or a list of users. If you want to send to
-a security group, you will include the security group ID in the "security_group" value. To
-send to the entire network you will not send the "security_group" and "users" object in the
+a security group, you will include the security group ID in the "security\_group" value. To
+send to the entire network you will not send the "security\_group" and "users" object in the
 request. To send to a list of users you will send the "users" object with the list of users.
 Samples are below.
 
@@ -634,24 +634,24 @@ There are several JSON fields used by this API and depending on the type of mess
 sent. The following table lists all of the JSON fields that are supported by the Send Message
 API.
 
-| KEY            | Description                                                                                                                                                                                                                                                                                                                                |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| message        | String value that is the message to be broadcast. This value is required.                                                                                                                                                                                                                                                                  |
-| security_group | This is the security group ID to send to. Do not include this entry if sending to<br>the entire network.                                                                                                                                                                                                                                   |
-| users          | This is a JSON list of users to send to. Do not include this entry if sending to<br>the entire network or a security group. The object for each user can also include a<br>"meta" object that will be associated with the user's entry for the broadcast message.<br>See the examples below that show different uses of the "meta" object. |
-| acknowledge    | Indicates if an acknowledgement request should be part of the broadcast message.<br>If this is "true" then the acknowledgement request will be included in the broadcast<br>message. This value is optional, if not included an acknowledgement is not<br>requested.                                                                       |
-| repeat_num     | The number of times to repeat the broadcast message. This value is optional, if<br>not included then the message will not be repeated.                                                                                                                                                                                                     |
-| freq_num       | The number of minutes to wait between repeating a broadcast message. This value<br>is optional but is required if the "repeat_num" value is present.                                                                                                                                                                                       |
-| bor            | The burn-on-read value to use when sending the message. This value is optional,<br>will default to the current value set for the conversation.                                                                                                                                                                                             |
-| ttl            | The time-to-live value to use when sending the message (referred to as Expiration<br>Time in clients). This value is optional, will default to the current value set for<br>the conversation.                                                                                                                                              |
-| user_meta      | This is a boolean value (true or false) that indicates whether the meta data<br>associated with each user should be included in the broadcast message status<br>information.                                                                                                                                                               |
+| KEY             | Description                                                                                                                                                                                                                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| message         | String value that is the message to be broadcast. This value is required.                                                                                                                                                                                                                                                                  |
+| security\_group | This is the security group ID to send to. Do not include this entry if sending to<br>the entire network.                                                                                                                                                                                                                                   |
+| users           | This is a JSON list of users to send to. Do not include this entry if sending to<br>the entire network or a security group. The object for each user can also include a<br>"meta" object that will be associated with the user's entry for the broadcast message.<br>See the examples below that show different uses of the "meta" object. |
+| acknowledge     | Indicates if an acknowledgement request should be part of the broadcast message.<br>If this is "true" then the acknowledgement request will be included in the broadcast<br>message. This value is optional, if not included an acknowledgement is not<br>requested.                                                                       |
+| repeat\_num     | The number of times to repeat the broadcast message. This value is optional, if<br>not included then the message will not be repeated.                                                                                                                                                                                                     |
+| freq\_num       | The number of minutes to wait between repeating a broadcast message. This value<br>is optional but is required if the "repeat\_num" value is present.                                                                                                                                                                                      |
+| bor             | The burn-on-read value to use when sending the message. This value is optional,<br>will default to the current value set for the conversation.                                                                                                                                                                                             |
+| ttl             | The time-to-live value to use when sending the message (referred to as Expiration<br>Time in clients). This value is optional, will default to the current value set for<br>the conversation.                                                                                                                                              |
+| user\_meta      | This is a boolean value (true or false) that indicates whether the meta data<br>associated with each user should be included in the broadcast message status<br>information.                                                                                                                                                               |
 
 #### Broadcasting Messages
 
 To broadcast a message, the HTTP Header must include the Content-Type value of
 "application/json". The following is a sample JSON object to send a broadcast to the "only
 bob" security group from the get security group API description above. The security group ID
-for the "only bob" security group is included in the "security_group" JSON object:
+for the "only bob" security group is included in the "security\_group" JSON object:
 
 ```
 {
@@ -733,7 +733,7 @@ The following is a sample of the output for a broadcast to a list of users:
 }
 ```
 
-You can use the "message_id" value returned for subsequent calls to get the broadcast
+You can use the "message\_id" value returned for subsequent calls to get the broadcast
 message's status and report.
 
 #### Broadcasting Files
@@ -773,7 +773,7 @@ The number of broadcasts sent can grow over time so you will have to limit the s
 response by selecting an appropriate "Page" and "Limit" values. The "Page" value starts at 0.
 The "Limit" value identifies the number of message entries in each page. A page size of 1000
 is likely to be okay. If you have more than 1000 broadcast messages, then you will have to
-make multiple calls to page through the messages. Each response will contain a "max_entries"
+make multiple calls to page through the messages. Each response will contain a "max\_entries"
 value which indicates the total number of broadcast messages associated with the Wickr
 user.
 
@@ -817,7 +817,7 @@ example:
 }
 ```
 
-The "max_entries" value identifies how many broadcast entries are associated with the
+The "max\_entries" value identifies how many broadcast entries are associated with the
 "source" user. This value can be used to help identify how many pages of messages you may have
 to download.
 

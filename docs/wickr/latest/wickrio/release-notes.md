@@ -476,7 +476,7 @@ docker exec -ti <dockerimagename/id> bash
 
 - run the "top" command which will show you the processes running inside the docker image.
   The process at the top of the list will have the highest CPU value.
-- The process at the top of the list should be the "wickrio_bot" process, if it is the
+- The process at the top of the list should be the "wickrio\_bot" process, if it is the
   problem we are trying to solve.
 
 ###### Note
@@ -520,10 +520,10 @@ of the supplied bots.
 #### Custom Bots/Integrations
 
 This section applies to you if you have or are developing custom Node-js bots. This does
-not apply to anyone using the REST APIs of the wickrio_web_interface bot.
+not apply to anyone using the REST APIs of the wickrio\_web\_interface bot.
 
 If you are creating custom bots/integrations you will need to use the latest 5.113 version
-of the wickrio-bot-api or the the latest 5.113 version of the wickrio_addon (which ever is
+of the wickrio-bot-api or the the latest 5.113 version of the wickrio\_addon (which ever is
 appropriate for your custom bot).
 
 ### Installation Process

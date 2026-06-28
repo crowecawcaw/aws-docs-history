@@ -6,23 +6,23 @@ Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wick
 
 As of the 5.116 release you can use AWS services to define the bot credentials, token values and other configuration information. You can use Wickr published docker images (i.e. bot-enterprise and bot-cloud) to start the bots. If you do use this method to automatically configure your bots you will not need to use the CLI to add the bots to your running docker image. All the credentials for the bots configured using this method will be secure in the AWS secrets manager service.
 
-To use this method to configure your bots you will need to use the AWS_SECRET_NAME environment variable to identify the AWS secret that contains the configuration information.
+To use this method to configure your bots you will need to use the AWS\_SECRET\_NAME environment variable to identify the AWS secret that contains the configuration information.
 
 ## Secrets Manager Value
 
-The AWS_SECRET_NAME environment variable will identify an ARN that is used to access the specific secret which contains the configuration information needed to start the bots. The following is an example:
+The AWS\_SECRET\_NAME environment variable will identify an ARN that is used to access the specific secret which contains the configuration information needed to start the bots. The following is an example:
 
 ```
 AWS_SECRET_NAME='arn:aws:secretsmanager:us-east-1:999999999999:secret:wickenterprise/beta/my-test-bot-zZzZzz'
 ```
 
-This secret contains the "wickr_config" key with the value being the configuration information needed to configure and start the bots on the docker image. The configuration information is stored in the secret as an escaped JSON string, for example the following is the plaintext secret value:
+This secret contains the "wickr\_config" key with the value being the configuration information needed to configure and start the bots on the docker image. The configuration information is stored in the secret as an escaped JSON string, for example the following is the plaintext secret value:
 
 ```
 {"wickr_config":"{  \"clients\":[  {  \"integration\":\"wickrio-file-bot\",  \"name\":\"user-file-bot\",  \"password\":\"password\",  \"configS3File\": {    \"key\" : \"configs_9-3-21/conf.wickr\",    \"bucket\" : \"bots-for-enterprise\",    \"region\" : \"us-west-2\"  },  \"configPassword\":\"password\",  \"tokens\":[  {  \"name\":\"CLIENT_NAME\",  \"value\":\"user-file-bot\"  },  {  \"name\":\"WICKRIO_BOT_NAME\",  \"value\":\"user-file-bot\"  },  {  \"name\":\"DATABASE_ENCRYPTION_CHOICE\",  \"value\":\"no\"  }  ]  }  ] }"}
 ```
 
-The following is the un-escaped value for the "wickr_config" key, in the specified secret.
+The following is the un-escaped value for the "wickr\_config" key, in the specified secret.
 
 ```
 {

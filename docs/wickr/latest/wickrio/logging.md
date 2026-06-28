@@ -89,7 +89,7 @@ Wickr IO integrations also generate log data, which can be helpful for diagnosin
 specific to the integration type used by the Wickr IO client.
 
 Integration logs are located in the integration-specific directory associated with the
-Wickr IO client. For example, a broadcast bot named "test_bot" is running, its integration logs
+Wickr IO client. For example, a broadcast bot named "test\_bot" is running, its integration logs
 can be found at:
 
 `/opt/WickrIO/clients/test_bot/integration/wickrio-broadcast-bot/logs`

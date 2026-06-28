@@ -21,7 +21,7 @@ var addon = require('wickrio_addon');
 var botapi = require('wickrio-bot-api');
 ```
 
-start(client_username)
+start(client\_username)
 
 This API is used to start the connection with the Wickr IO client and get it ready for
 use. This API uses the Wickr IO addon `clientInit()`, `isConnected()`
@@ -35,7 +35,7 @@ if successful, else returns false.
 
 **Parameters:**
 
-- client_username(REQUIRED) - The string user name of the Wickr IO client that is going
+- client\_username(REQUIRED) - The string user name of the Wickr IO client that is going
   to be used.
 
 **Example:**
