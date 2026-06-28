@@ -44,8 +44,8 @@ setting values for the `AWS_DEFAULT_REGION` and
 `AWS_PROFILE` environment variables or by providing the
 arguments **--plugin-config
 aws-region=${`Region`}** and
-**--plugin-config
-aws-profile=${`profile-name`}**
+ **--plugin-config
+ aws-profile=${`profile-name`}**
 
 In the following example, we're signing an image in the `curl`
 repository with SHA digest

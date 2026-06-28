@@ -50,11 +50,11 @@ with your new profile, and displays the following information:
      revocation if any
 
 7. If you receive a **Failed** under **Signing
-   status**, return to the list of the signing jobs, and choose
-   **Failed** to see the details of the signing
-   job.
-   The **Signing job details** page lists the following
-   information:
+status**, return to the list of the signing jobs, and choose
+**Failed** to see the details of the signing
+job.
+The **Signing job details** page lists the following
+information:
 
 - **Job ID** – The identifier of the signing
   job

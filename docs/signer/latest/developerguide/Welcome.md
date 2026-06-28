@@ -120,7 +120,7 @@ You can also view and adjust quotas using the Service Quotas console.
 
 1. Log in to your AWS account.
 2. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
-3. In the \***\*AWS services\*\***
+3. In the ****AWS services****
    list, enter **signer** into the search box, and
    choose **AWS Signer**. Each quota in the
    **Service quotas** list shows your currently applied quota
