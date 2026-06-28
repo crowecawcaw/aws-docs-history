@@ -35,8 +35,8 @@ There is no need to run the code if you just want to see the CodeGuru Profiler o
 2. In the navigation pane on the left, choose **Profiler**, and then
    choose **Profiling groups**.
 3. On the **Profiling groups** page, choose `{CodeGuru}
-DemoProfilingGroup-WithIssues` and `{CodeGuru}
-DemoProfilingGroup-WithoutIssues` to view runtime performance data and
+ DemoProfilingGroup-WithIssues` and `{CodeGuru}
+ DemoProfilingGroup-WithoutIssues` to view runtime performance data and
    recommendations. To better understand the console, see step 4.
 
 ![Image: Profiler demo groups.](images/profiler-demo.png)

@@ -108,19 +108,18 @@ You can attach policies to IAM identities.
   grant cross-account permissions to another AWS account (for example, Account
   B) or an AWS service, as follows:
 
-      1. Account A administrator creates an IAM role and attaches a
-       permissions policy to the role that grants permissions on resources in
-       Account A.
-      2. Account A administrator attaches a trust policy to the role
-       identifying Account B as the principal who can assume the role.
-      3. Account B administrator can then delegate permissions to assume the
-       role to any users in Account B. Doing this allows users in Account B to
-       create or access resources in Account A. The principal in the trust
-       policy must also be an AWS service principal if you want to grant an
-       AWS service permissions to assume the role.
-
-  For more information about using IAM to delegate permissions, see [Access management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
-  _IAM User Guide_.
+  1.  Account A administrator creates an IAM role and attaches a
+      permissions policy to the role that grants permissions on resources in
+      Account A.
+  2.  Account A administrator attaches a trust policy to the role
+      identifying Account B as the principal who can assume the role.
+  3.  Account B administrator can then delegate permissions to assume the
+      role to any users in Account B. Doing this allows users in Account B to
+      create or access resources in Account A. The principal in the trust
+      policy must also be an AWS service principal if you want to grant an
+      AWS service permissions to assume the role.
+      For more information about using IAM to delegate permissions, see [Access management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
+      _IAM User Guide_.
 
 In CodeGuru Profiler, identity-based policies are used to manage permissions to the resources
 related to artifact management. For example, you can control access to a profiling
