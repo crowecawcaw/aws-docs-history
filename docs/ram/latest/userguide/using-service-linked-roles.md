@@ -117,7 +117,7 @@ To share resources that you own, create a resource share. Here's an overview of 
 ###### Note
 
 If the selected managed permission has multiple versions, then AWS RAM automatically attaches
-the default version. You can attach **_only_** the version that is designated
+the default version. You can attach _**only**_ the version that is designated
 as the default. 3. Specify the principals that you want to have access to the resources.
 
 ###### Considerations
@@ -262,7 +262,7 @@ Choose **Create customer managed permission** to
 construct a customer managed permission that meets the requirements of your sharing use case.
 For more information see [Create a customer managed permission](create-customer-managed-permissions.md#create_cmp "create-customer-managed-permissions.md#create_cmp"). After completing the process, choose
 
-![Refresh icon](/images/ram/latest/userguide/images/refresh_icon.PNG)
+![Refresh icon](images/refresh_icon.PNG)
 and then you can select your new customer managed permission from the
 **Managed permissions** dropdown list.
 
@@ -270,7 +270,7 @@ and then you can select your new customer managed permission from the
 
 If the selected managed permission has multiple versions, then
 AWS RAM automatically attaches the default version. You can attach
-**_only_** the version designated as the
+_**only**_ the version designated as the
 default.
 
 To display the actions that the managed permission allows, expand
@@ -436,13 +436,11 @@ following:
     3. For **Selected principals**, verify that the
      principals you specified appear in the list.
 
-9. Choose **Next**.
-10. In **Step 4: Review and create**, review the
-    configuration details for your resource share. To change the configuration for any
-    step, choose the link that corresponds to the step you want to go back
-    to and make the required changes.
-11. After you finish reviewing the resource share, choose **Create resource
-    share**.
+9. Choose **Next**. 10. In **Step 4: Review and create**, review the
+configuration details for your resource share. To change the configuration for any
+step, choose the link that corresponds to the step you want to go back
+to and make the required changes. 11. After you finish reviewing the resource share, choose **Create resource
+share**.
 
 It can take a few minutes for the resource and principal associations
 to complete. Allow this process to complete before you try to use the

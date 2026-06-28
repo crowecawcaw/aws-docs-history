@@ -180,12 +180,10 @@ update any of the following:
     	 **Selected principals**, select its
     	 checkbox, and then choose **Deselect**.
 
-10. Choose **Next**.
-11. In **Step 4: Review and update**, review the
-    configuration details for your resource share.
-12. To change the configuration for any step, choose the link that
-    corresponds to the step you want to go back to, and then make the
-    required changes.
+10. Choose **Next**. 11. In **Step 4: Review and update**, review the
+configuration details for your resource share. 12. To change the configuration for any step, choose the link that
+corresponds to the step you want to go back to, and then make the
+required changes.
 
 If any managed permissions are still using versions other than the
 default, you have another opportunity to address that by choosing

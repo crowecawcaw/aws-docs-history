@@ -9,129 +9,115 @@ Console
 
 ###### To view details about managed permissions available in AWS RAM
 
-1.  Navigate to the \***\*[Managed permissions library](https://console.aws.amazon.com/ram/home#Permissions: "https://console.aws.amazon.com/ram/home#Permissions:")\*\*** page in
-    the AWS RAM console.
-2.  Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md"). Although all Regions share the same available
-    AWS managed permissions, this affects the number of associated
-    resource shares displayed for each managed permission in [Step 5](#step-5 "#step-5"). Customer managed permissions are only available in the
-    Region that they were created in.
-3.  In the **Managed permissions** list, choose the
-    managed permission for which you want to view details. You can use the
-    search box to filter the list of managed permissions by entering part of
-    a name or a resource type, or choosing a managed permission type from
-    the dropdown list.
-4.  (Optional) To change the display preferences, choose the gear icon in
-    the upper right of the **Managed permissions** panel.
-    You can change the following preferences:
+1. Navigate to the ****[Managed permissions library](https://console.aws.amazon.com/ram/home#Permissions: "https://console.aws.amazon.com/ram/home#Permissions:")**** page in
+   the AWS RAM console.
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md"). Although all Regions share the same available
+   AWS managed permissions, this affects the number of associated
+   resource shares displayed for each managed permission in [Step 5](#step-5 "#step-5"). Customer managed permissions are only available in the
+   Region that they were created in.
+3. In the **Managed permissions** list, choose the
+   managed permission for which you want to view details. You can use the
+   search box to filter the list of managed permissions by entering part of
+   a name or a resource type, or choosing a managed permission type from
+   the dropdown list.
+4. (Optional) To change the display preferences, choose the gear icon in
+   the upper right of the **Managed permissions** panel.
+   You can change the following preferences:
 
-        * **Page size** – The number of resources
-         displayed on each page.
-        * **Wrap lines** – Whether to wrap lines
-         in table rows.
-        * **Columns** – Whether to display or
-         hide information about the resource type and associated
-         shares.
+   - **Page size** – The number of resources
+     displayed on each page.
+   - **Wrap lines** – Whether to wrap lines
+     in table rows.
+   - **Columns** – Whether to display or
+     hide information about the resource type and associated
+     shares.
+     After you finish setting display preferences, choose
+     **Confirm**.
 
-    After you finish setting display preferences, choose
-    **Confirm**.
+5. For each managed permission, the list displays the following
+   information:
 
-5.  For each managed permission, the list displays the following
-    information:
+   - **Managed permission name** – The name
+     of the managed permission.
+   - **Resource type** – The resource type
+     that is associated with the managed permission.
+   - **Managed permission type** – Whether
+     the managed permission is an AWS managed permission or a customer managed permission.
+   - **Associated shares** – The number of
+     resource shares that are associated with the managed permission.
+     If a number appears, then you can choose the number to display a
+     table of resource shares with the following information:
 
-        * **Managed permission name** – The name
-         of the managed permission.
-        * **Resource type** – The resource type
-         that is associated with the managed permission.
-        * **Managed permission type** – Whether
-         the managed permission is an AWS managed permission or a customer managed permission.
-        * **Associated shares** – The number of
-         resource shares that are associated with the managed permission.
-         If a number appears, then you can choose the number to display a
-         table of resource shares with the following information:
+     - **Resource share name** – The
+       name of the resource share that is associated with the managed
+       permission.
+     - **Managed permission version**
+       – The version of the managed permission that is
+       attached to this resource share.
+     - **Owner** – The AWS account
+       number of the resource share owner.
+     - **Allow external principals** –
+       Whether that resource share allows sharing with principals outside
+       the organization in AWS Organizations.
+     - **Status** – The current status
+       of the association between the resource share and the managed
+       permission.
 
+   - **Status** – Describes whether the
+     managed permission is:
 
+     - **Attachable** – You can attach the managed permission to your resource shares.
+     - **Unattachable** – You can't attach the managed permission to your resource shares.
+     - **Deleting** – The managed permission is no longer active
+       and will soon be deleted.
+     - **Deleted** – The managed permission has been deleted.
+       It remains visible for two hours before it disappears from
+       the **Managed permission library**.
+       You can choose the managed permission's name to display more
+       information about that managed permission. The details page for a
+       managed permission displays the following information:
 
+   - **Resource type** – The type of AWS
+     resource to which this managed permission applies.
+   - **Number of versions** – You can have
+     up to five versions of a customer managed permission.
+   - **Default version** – Specifies which
+     version is the default and therefore assigned automatically to
+     all new resource shares that use this managed permission. Any
+     existing resource shares that use different versions display a
+     prompt for you to update the resource share to the default
+     version.
+   - **ARN** – The [Amazon Resource Name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") of the managed
+     permission. The ARNs for AWS managed permissions use the
+     following format:
 
-        	+ **Resource share name** – The
-        	 name of the resource share that is associated with the managed
-        	 permission.
-        	+ **Managed permission version**
-        	 – The version of the managed permission that is
-        	 attached to this resource share.
-        	+ **Owner** – The AWS account
-        	 number of the resource share owner.
-        	+ **Allow external principals** –
-        	 Whether that resource share allows sharing with principals outside
-        	 the organization in AWS Organizations.
-        	+ **Status** – The current status
-        	 of the association between the resource share and the managed
-        	 permission.
-        * **Status** – Describes whether the
-         managed permission is:
+   `arn:aws:ram::aws:permission/AWSRAM`[DefaultPermission]`ShareableResourceType`
 
+   The substring `*[DefaultPermission]*` (without the
+   brackets in an actual ARN) is present in the name of only the
+   one managed permission for that resource type that is designated
+   the default.
+   - **Managed permission versions** – You
+     can choose which version's information to display in the tabs
+     below this dropdown list.
 
+     - **Details** tab:
 
+       - **Creation time** – The
+         date and time when this version of the managed
+         permission was created.
+       - **Last updated time** –
+         The date and time when this version of the managed
+         permission was last updated.
 
-        	+ **Attachable** – You can attach the managed permission to your resource shares.
-        	+ **Unattachable** – You can't attach the managed permission to your resource shares.
-        	+ **Deleting** – The managed permission is no longer active
-        	 and will soon be deleted.
-        	+ **Deleted** – The managed permission has been deleted.
-        	 It remains visible for two hours before it disappears from
-        	 the **Managed permission library**.
-
-    You can choose the managed permission's name to display more
-    information about that managed permission. The details page for a
-    managed permission displays the following information:
-
-        * **Resource type** – The type of AWS
-         resource to which this managed permission applies.
-        * **Number of versions** – You can have
-         up to five versions of a customer managed permission.
-        * **Default version** – Specifies which
-         version is the default and therefore assigned automatically to
-         all new resource shares that use this managed permission. Any
-         existing resource shares that use different versions display a
-         prompt for you to update the resource share to the default
-         version.
-        * **ARN** – The [Amazon Resource Name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") of the managed
-         permission. The ARNs for AWS managed permissions use the
-         following format:
-
-
-        `arn:aws:ram::aws:permission/AWSRAM`[DefaultPermission]``ShareableResourceType``
-
-
-        The substring `*[DefaultPermission]*` (without the
-         brackets in an actual ARN) is present in the name of only the
-         one managed permission for that resource type that is designated
-         the default.
-        * **Managed permission versions** – You
-         can choose which version's information to display in the tabs
-         below this dropdown list.
-
-
-
-
-        	+ **Details** tab:
-
-
-
-
-        		- **Creation time** – The
-        		 date and time when this version of the managed
-        		 permission was created.
-        		- **Last updated time** –
-        		 The date and time when this version of the managed
-        		 permission was last updated.
-        	+ **Policy template** tab – The
-        	 list of service actions and conditions, if applicable,
-        	 that this version of the managed permission allows
-        	 principals to perform on the associated resource
-        	 type.
-        	+ **Associated resource shares**
-        	 – The list of resource shares that use this
-        	 version of the managed permission.
+     - **Policy template** tab – The
+       list of service actions and conditions, if applicable,
+       that this version of the managed permission allows
+       principals to perform on the associated resource
+       type.
+     - **Associated resource shares**
+       – The list of resource shares that use this
+       version of the managed permission.
 
 AWS CLI
 

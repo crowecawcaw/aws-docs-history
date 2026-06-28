@@ -15,7 +15,7 @@ Each managed permission can have one or more versions. One version is designated
 _default_ version for that managed permission.
 Occasionally, AWS updates an AWS managed permission for a resource type by creating a new version and
 designating that new version as the default. You can also update your customer managed permissions by creating new
-versions. Managed permissions that are already attached to a resource share are **_not_** automatically updated. The AWS RAM
+versions. Managed permissions that are already attached to a resource share are _**not**_ automatically updated. The AWS RAM
 console does indicate when a new default version is available, and you can review the
 changes in the new default version compared to the previous one.
 
@@ -114,14 +114,13 @@ customer managed permissions.
   `ec2:Subnet` resource type, the default managed permission allows
   principals to perform the following actions:
 
-      + `ec2:RunInstances`
-      + `ec2:CreateNetworkInterface`
-      + `ec2:DescribeSubnets`
-
-  The names of default AWS managed permissions use the following format:
-  `AWSRAMDefaultPermission`ShareableResourceType``.
- For example, for the `ec2:Subnet`resource type, the name of the
- default AWS managed permission is`AWSRAMDefaultPermissionSubnet`.
+  - `ec2:RunInstances`
+  - `ec2:CreateNetworkInterface`
+  - `ec2:DescribeSubnets`
+    The names of default AWS managed permissions use the following format:
+    `AWSRAMDefaultPermission`ShareableResourceType``.
+    For example, for the `ec2:Subnet` resource type, the name of the
+    default AWS managed permission is `AWSRAMDefaultPermissionSubnet`.
 
 ###### Note
 

@@ -64,7 +64,7 @@ sharing, see [Shareable AWS resources](shareable.md "shareable.md") and view the
 column.
 
 The principals in the consuming account can perform only those actions allowed by
-**_both_** of the
+_**both**_ of the
 following permissions:
 
 - The managed permissions attached to the resource share. These specify the _maximum_ permissions that can be granted to the
@@ -220,7 +220,7 @@ types:
 
 ### Examples of AWS RAM generated resource-based policies
 
-If you share an EC2 Image Builder image resource with an individual **_account_**, AWS RAM generates a
+If you share an EC2 Image Builder image resource with an individual _**account**_, AWS RAM generates a
 policy that looks like the following example and attaches it to any image resources
 that are included in the resource share.
 
@@ -246,7 +246,7 @@ JSON
 
 ```
 
-If you share an EC2 Image Builder image resource with an **_IAM role or user_** in a different
+If you share an EC2 Image Builder image resource with an _**IAM role or user**_ in a different
 AWS account, AWS RAM generates a policy that looks like the following example and
 attaches it to any image resources that are included in the resource share.
 
@@ -315,14 +315,14 @@ policy grants access to all IAM principals in the account that contains the
 resource, subject to any restrictions imposed by a `Condition` element,
 if it exists. Explicit `Deny` statements in any policy that applies to
 the calling principal overrides the permissions granted by this policy. However, an
-**_implicit_**
+_**implicit**_
 `Deny` (meaning the lack of an _explicit_
 `Allow`) in any applicable identity policies, permissions boundary
-policies, or session policies does **_not_** result in a `Deny` to the principals
+policies, or session policies does _**not**_ result in a `Deny` to the principals
 granted access to an action by such a resource-based policy.
 
 If this behavior isn’t desirable for your scenario, then you can limit this
-behavior by adding an **_explicit_**
+behavior by adding an _**explicit**_
 `Deny` statement to an identity policy, permissions boundary, or session
 policy that affects the relevant roles and users.
 

@@ -5,11 +5,11 @@
 You get one of the following errors:
 
 - "**`CannotCreateResourceShare: UnknownResourceException:
-OrganizationalUnit ou-`xxxx` could not be
-found`**"
+ OrganizationalUnit ou-`xxxx` could not be
+ found`**"
 - "**`CannotUpdateResourceShare: UnknownResourceException:
-OrganizationalUnit ou-`xxxx` could not be
-found`**".
+ OrganizationalUnit ou-`xxxx` could not be
+ found`**".
 
 ## Cause
 

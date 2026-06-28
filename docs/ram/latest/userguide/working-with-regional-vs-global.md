@@ -47,7 +47,7 @@ arn:aws:ec2:us-east-1:123456789012:instance/i-0a6f30921424d3eee
 **Global resources**
 
 Some AWS services support resources that you can access _globally_, meaning that you can use the resource
-from **_anywhere_**. You don't specify an AWS Region in a
+from _**anywhere**_. You don't specify an AWS Region in a
 global service's console. To access a global resource, you don't specify a
 `--region` parameter when using the service's AWS CLI and AWS
 SDK operations.
@@ -119,5 +119,5 @@ AWS account.
 - To view a global resource in the AWS RAM console to include it in a resource share, you
   must use the designated home Region, US East (N. Virginia),
   `us-east-1`.
-- You can create a resource share with **_both_** Regional and global resources in only the
+- You can create a resource share with _**both**_ Regional and global resources in only the
   designated home Region, US East (N. Virginia), `us-east-1`.

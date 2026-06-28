@@ -117,7 +117,7 @@ AWS CLI
 
 1. Find the Amazon Resource Name (ARN) of the managed permission for
    which you want create a new version. Do this by calling [list-permissions](../../../cli/latest/reference/ram/list-permissions.md "../../../cli/latest/reference/ram/list-permissions.md") with the `--permission-type
-CUSTOMER_MANAGED` parameter to include only customer managed permissions.
+ CUSTOMER_MANAGED` parameter to include only customer managed permissions.
 
 ```
 `$` `aws ram-cmp list-permissions --permission-type CUSTOMER_MANAGED``{
@@ -320,7 +320,7 @@ AWS CLI
 
 1. Find the ARN of the managed permission you want to delete by
    calling [list-permissions](../../../cli/latest/reference/ram/list-permissions.md "../../../cli/latest/reference/ram/list-permissions.md") with the `--permission-type
-CUSTOMER_MANAGED` parameter to include only customer managed permissions.
+ CUSTOMER_MANAGED` parameter to include only customer managed permissions.
 
 ```
 `$` `aws ram-cmp list-permissions --permission-type CUSTOMER_MANAGED``{
