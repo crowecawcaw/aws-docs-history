@@ -10,7 +10,7 @@ or SSH, also see [Troubleshooting Git credentials (HTTPS)](troubleshooting-gc.md
 - [Git error: Error: RPC failed; result=56, HTTP code = 200 fatal: The remote end hung up unexpectedly](#troubleshooting-ge1 "#troubleshooting-ge1")
 - [Git error: Too many reference update commands](#troubleshooting-ge2 "#troubleshooting-ge2")
 - [Git error: Push via HTTPS is broken in some versions of Git](#troubleshooting-ge3 "#troubleshooting-ge3")
-- [Git error: 'gnutls_handshake() failed'](#troubleshooting-ge4 "#troubleshooting-ge4")
+- [Git error: 'gnutls\_handshake() failed'](#troubleshooting-ge4 "#troubleshooting-ge4")
 - [Git error: Git cannot find the CodeCommit repository or does not have permission to access the repository](#troubleshooting-ge5 "#troubleshooting-ge5")
 - [Git on Windows: No supported authentication methods available (publickey)](#troubleshooting-gw1 "#troubleshooting-gw1")
 
@@ -48,14 +48,14 @@ issues or use an earlier or later version. For more information about mysysgit, 
 Broken](https://github.com/msysgit/git/issues/332 "https://github.com/msysgit/git/issues/332") in the GitHub forums. For more information about Git for Windows
 version issues, see [Version 2.11.0(3) does not ask for username/password](https://github.com/git-for-windows/git/issues/1034 "https://github.com/git-for-windows/git/issues/1034").
 
-## Git error: 'gnutls_handshake() failed'
+## Git error: 'gnutls\_handshake() failed'
 
 **Problem:** In Linux, when you try to use Git to
 communicate with a CodeCommit repository, an error message appears containing the phrase
 `error: gnutls_handshake() failed`.
 
 **Possible fixes:** Compile Git against OpenSSL. For one
-approach, see ["Error: gnutls_handshake() failed" When Connecting to HTTPS Servers](http://askubuntu.com/questions/186847/error-gnutls-handshake-falied-when-connecting-to-https-servers "http://askubuntu.com/questions/186847/error-gnutls-handshake-falied-when-connecting-to-https-servers") in the Ask
+approach, see ["Error: gnutls\_handshake() failed" When Connecting to HTTPS Servers](http://askubuntu.com/questions/186847/error-gnutls-handshake-falied-when-connecting-to-https-servers "http://askubuntu.com/questions/186847/error-gnutls-handshake-falied-when-connecting-to-https-servers") in the Ask
 Ubuntu forums.
 
 Alternatively, use SSH instead of HTTPS to communicate with CodeCommit repositories.
@@ -74,7 +74,7 @@ see an access denied error when you attempt to use commands such as **git
 pull**, **git push**, or **git clone**.
 
 **Possible fixes:** The most common cause for this error is
-that a GIT_SSH environment variable exists on your computer and is configured to support
+that a GIT\_SSH environment variable exists on your computer and is configured to support
 another connection utility, such as PuTTY. To fix this problem, try one of the
 following:
 

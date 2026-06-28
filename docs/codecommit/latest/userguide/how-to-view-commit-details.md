@@ -84,7 +84,7 @@ in the graph of commits.
 3. In the navigation pane, choose **Commits**, and then choose the
    **Commit visualizer** tab.
 
-![A graphical view of a repository in the console](/images/codecommit/latest/userguide/images/codecommit-cv-complex1.png)
+![A graphical view of a repository in the console](images/codecommit-cv-complex1.png)
 
 In the commit graph, the abbreviated commit ID and the subject for each commit
 message appears next to that point in the graph.
@@ -101,7 +101,7 @@ ways:
      that commit.
 
 4. To render a new graph from a commit, choose the point in the graph that corresponds to that commit. The
-   view selector button changes to the abbreviated commit ID.
+view selector button changes to the abbreviated commit ID.
 
 ![A new graph rendered from a specific commit](images/codecommit-cv-commit.png)
 
@@ -125,31 +125,29 @@ following commands:
 
 ### To view information about a commit
 
-1.  Run the **aws codecommit get-commit** command, specifying:
+1. Run the **aws codecommit get-commit** command, specifying:
 
-        * The name of the CodeCommit repository (with the
-         `--repository-name` option).
-        * The full commit ID.
-
-    For example, to view information about a commit with the ID
-    `317f8570EXAMPLE` in a CodeCommit repository named
-    `MyDemoRepo`:
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
+   - The full commit ID.
+     For example, to view information about a commit with the ID
+     `317f8570EXAMPLE` in a CodeCommit repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit get-commit  --repository-name MyDemoRepo  --commit-id 317f8570EXAMPLE
 ```
 
-2.  If successful, the output of this command includes the following:
+2. If successful, the output of this command includes the following:
 
-        * Information about the author of the commit (as configured in Git), including the
-         date in timestamp format and the coordinated universal time (UTC) offset.
-        * Information about the committer (as configured in Git) including the date in
-         timestamp format and the UTC offset.
-        * The ID of the Git tree where the commit exists.
-        * The commit ID of the parent commit.
-        * The commit message.
-
-    Here is some example output, based on the preceding example command:
+   - Information about the author of the commit (as configured in Git), including the
+     date in timestamp format and the coordinated universal time (UTC) offset.
+   - Information about the committer (as configured in Git) including the date in
+     timestamp format and the UTC offset.
+   - The ID of the Git tree where the commit exists.
+   - The commit ID of the parent commit.
+   - The commit message.
+     Here is some example output, based on the preceding example command:
 
 ```
 {
@@ -176,21 +174,20 @@ aws codecommit get-commit  --repository-name MyDemoRepo  --commit-id 317f8570EXA
 
 ### To view information about a merge commit
 
-1.  Run the **get-merge-commit** command, specifying:
+1. Run the **get-merge-commit** command, specifying:
 
-        * A commit specifier for the source of the merge (with the
-         **--source-commit-specifier** option).
-        * A commit specifier for the destination for the merge (with the
-         **--destination-commit-specifier** option).
-        * The merge option you want to use (with the **--merge-option**
-         option).
-        * The name of the repository (with the **--repository-name**
-         option).
-
-    For example, to view information about a merge commit for the source branch named
-    `bugfix-bug1234` with a destination branch named
-    `main` using the `THREE_WAY_MERGE`
-    strategy in a repository named `MyDemoRepo`:
+   - A commit specifier for the source of the merge (with the
+     **--source-commit-specifier** option).
+   - A commit specifier for the destination for the merge (with the
+     **--destination-commit-specifier** option).
+   - The merge option you want to use (with the **--merge-option**
+     option).
+   - The name of the repository (with the **--repository-name**
+     option).
+     For example, to view information about a merge commit for the source branch named
+     `bugfix-bug1234` with a destination branch named
+     `main` using the `THREE_WAY_MERGE`
+     strategy in a repository named `MyDemoRepo`:
 
 ```
 aws codecommit get-merge-commit --source-commit-specifier `bugfix-bug1234` --destination-commit-specifier `main` --merge-option `THREE_WAY_MERGE` --repository-name `MyDemoRepo`
@@ -210,32 +207,30 @@ aws codecommit get-merge-commit --source-commit-specifier `bugfix-bug1234` --des
 
 ### To view information about multiple commits
 
-1.  Run the **batch-get-commits** command, specifying:
+1. Run the **batch-get-commits** command, specifying:
 
-        * The name of the CodeCommit repository (with the
-         `--repository-name` option).
-        * A list of full commit IDs for every commit about which you want to view
-         information.
-
-    For example, to view information about commits with the IDs
-    `317f8570EXAMPLE` and `4c925148EXAMPLE` in a CodeCommit repository
-    named `MyDemoRepo`:
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
+   - A list of full commit IDs for every commit about which you want to view
+     information.
+     For example, to view information about commits with the IDs
+     `317f8570EXAMPLE` and `4c925148EXAMPLE` in a CodeCommit repository
+     named `MyDemoRepo`:
 
 ```
 aws codecommit batch-get-commits  --repository-name MyDemoRepo  --commit-ids 317f8570EXAMPLE 4c925148EXAMPLE
 ```
 
-2.  If successful, the output of this command includes the following:
+2. If successful, the output of this command includes the following:
 
-        * Information about the authors of the commits (as configured in Git), including
-         the date in timestamp format and the coordinated universal time (UTC) offset.
-        * Information about the committers (as configured in Git) including the date in
-         timestamp format and the UTC offset.
-        * The IDs of the Git tree where the commit exists.
-        * The commit IDs of the parent commit.
-        * The commit messages.
-
-    Here is some example output, based on the preceding example command:
+   - Information about the authors of the commits (as configured in Git), including
+     the date in timestamp format and the coordinated universal time (UTC) offset.
+   - Information about the committers (as configured in Git) including the date in
+     timestamp format and the UTC offset.
+   - The IDs of the Git tree where the commit exists.
+   - The commit IDs of the parent commit.
+   - The commit messages.
+     Here is some example output, based on the preceding example command:
 
 ```
 {
@@ -283,34 +278,32 @@ aws codecommit batch-get-commits  --repository-name MyDemoRepo  --commit-ids 317
 
 ### To view information about the changes for a commit specifier
 
-1.  Run the
-    **aws codecommit get-differences**
-    command, specifying:
+1. Run the
+   **aws codecommit get-differences**
+   command, specifying:
 
-        * The name of the CodeCommit repository (with the
-         `--repository-name` option).
-        * The commit specifiers you want to get information about. Only
-         `--after-commit-specifier` is required. If you do not specify
-         `--before-commit-specifier`, all files current as of the
-         `--after-commit-specifier` are shown.
-
-    For example, to view information about the differences between commits with the IDs
-    `317f8570EXAMPLE` and
-    `4c925148EXAMPLE` in a CodeCommit repository named
-    `MyDemoRepo`:
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
+   - The commit specifiers you want to get information about. Only
+     `--after-commit-specifier` is required. If you do not specify
+     `--before-commit-specifier`, all files current as of the
+     `--after-commit-specifier` are shown.
+     For example, to view information about the differences between commits with the IDs
+     `317f8570EXAMPLE` and
+     `4c925148EXAMPLE` in a CodeCommit repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit get-differences  --repository-name MyDemoRepo  --before-commit-specifier 317f8570EXAMPLE --after-commit-specifier 4c925148EXAMPLE
 ```
 
-2.  If successful, the output of this command includes the following:
+2. If successful, the output of this command includes the following:
 
-        * A list of differences, including the change type (A for added, D for deleted, or
-         M for modified).
-        * The mode of the file change type.
-        * The ID of the Git blob object that contains the change.
-
-    Here is some example output, based on the preceding example command:
+   - A list of differences, including the change type (A for added, D for deleted, or
+     M for modified).
+   - The mode of the file change type.
+   - The ID of the Git blob object that contains the change.
+     Here is some example output, based on the preceding example command:
 
 ```
 {
@@ -334,28 +327,26 @@ aws codecommit get-differences  --repository-name MyDemoRepo  --before-commit-sp
 
 ### To view information about a Git blob object
 
-1.  Run the
-    **aws codecommit get-blob**
-    command, specifying:
+1. Run the
+   **aws codecommit get-blob**
+   command, specifying:
 
-        * The name of the CodeCommit repository (with the
-         `--repository-name` option).
-        * The ID of the Git blob (with the `--blob-id` option).
-
-    For example, to view information about a Git blob with the ID of
-    `2eb4af3bEXAMPLE` in a CodeCommit repository named
-    `MyDemoRepo`:
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
+   - The ID of the Git blob (with the `--blob-id` option).
+     For example, to view information about a Git blob with the ID of
+     `2eb4af3bEXAMPLE` in a CodeCommit repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit get-blob  --repository-name MyDemoRepo  --blob-id 2eb4af3bEXAMPLE
 ```
 
-2.  If successful, the output of this command includes the following:
+2. If successful, the output of this command includes the following:
 
-        * The base64-encoded content of the blob, usually a file.
-
-    For example, the output of the previous command might be similar to the
-    following:
+   - The base64-encoded content of the blob, usually a file.
+     For example, the output of the previous command might be similar to the
+     following:
 
 ```
 {

@@ -37,7 +37,7 @@ created with a status of **Closed**.
      created with a status of **Closed**.
 
 6. When you find a pull request in the displayed list that you would like to view, choose
-   it.
+it.
 
 ## View pull requests (AWS CLI)
 
@@ -47,24 +47,23 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI. For more informati
 Follow these steps to use the AWS CLI to view pull requests in an
 CodeCommit repository.
 
-1.  To view a list of pull requests in a repository, run
-    the **list-pull-requests** command, specifying:
+1. To view a list of pull requests in a repository, run
+   the **list-pull-requests** command, specifying:
 
-        * The name of the CodeCommit repository where you want to view pull requests (with the
-         **--repository-name** option).
-        * (Optional) The status of the pull request (with the
-         **--pull-request-status** option).
-        * (Optional) The Amazon Resource Name (ARN) of the IAM user who created the pull
-         request (with the **--author-arn** option).
-        * (Optional) An enumeration token that can be used to return batches of results
-         (with the **--next-token** option)
-        * (Optional) A limit on the number of returned results per request (with the
-         **--max-results** option).
-
-    For example, to list pull requests created by an IAM user with the ARN
-    `arn:aws:iam::111111111111:user/Li_Juan` and the status of
-    `CLOSED` in a CodeCommit repository named
-    `MyDemoRepo`:
+   - The name of the CodeCommit repository where you want to view pull requests (with the
+     **--repository-name** option).
+   - (Optional) The status of the pull request (with the
+     **--pull-request-status** option).
+   - (Optional) The Amazon Resource Name (ARN) of the IAM user who created the pull
+     request (with the **--author-arn** option).
+   - (Optional) An enumeration token that can be used to return batches of results
+     (with the **--next-token** option)
+   - (Optional) A limit on the number of returned results per request (with the
+     **--max-results** option).
+     For example, to list pull requests created by an IAM user with the ARN
+     `arn:aws:iam::111111111111:user/Li_Juan` and the status of
+     `CLOSED` in a CodeCommit repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit list-pull-requests --author-arn `arn:aws:iam::111111111111:user/Li_Juan` --pull-request-status `CLOSED` --repository-name MyDemoRepo
@@ -130,18 +129,17 @@ If successful, this command produces output similar to the following:
 }
 ```
 
-3.  To view approvals on a pull request, run the
-    **get-pull-request-approval-state** command, specifying:
+3. To view approvals on a pull request, run the
+   **get-pull-request-approval-state** command, specifying:
 
-        * The ID of the pull request (using the **--pull-request-id**
-         option).
-        * The revision ID of the pull request (using the **--revision-id
-         option)**. You can get the current revision ID for a pull request by using
-         the [get-pull-request](#get-pull-request "#get-pull-request") command.
-
-    For example, to view approvals on a pull request with an ID of
-    `8` and a revision ID of
-    `9f29d167EXAMPLE`:
+   - The ID of the pull request (using the **--pull-request-id**
+     option).
+   - The revision ID of the pull request (using the **--revision-id
+     option)**. You can get the current revision ID for a pull request by using
+     the [get-pull-request](#get-pull-request "#get-pull-request") command.
+     For example, to view approvals on a pull request with an ID of
+     `8` and a revision ID of
+     `9f29d167EXAMPLE`:
 
 ```
 aws codecommit get-pull-request-approval-state --pull-request-id `8` --revision-id `9f29d167EXAMPLE`
@@ -194,23 +192,22 @@ If successful, this command produces output similar to the following:
 }
 ```
 
-5.  To view whether there are any merge conflicts for a
-    pull request, run the **get-merge-conflicts** command, specifying:
+5. To view whether there are any merge conflicts for a
+   pull request, run the **get-merge-conflicts** command, specifying:
 
-        * The name of the CodeCommit repository (with the **--repository-name**
-         option).
-        * The branch, tag, HEAD, or other fully qualified reference for the source of the
-         changes to use in the merge evaluation (with the
-         **--source-commit-specifier** option).
-        * The branch, tag, HEAD, or other fully qualified reference for the destination of
-         the changes to use in the merge evaluation (with the
-         **--destination-commit-specifier** option).
-        * The merge option to use (with the **--merge-option** option)
-
-    For example, to view whether there are any merge conflicts between the tip of a source
-    branch named `my-feature-branch` and a destination branch named
-    `main` in a repository named
-    `MyDemoRepo`:
+   - The name of the CodeCommit repository (with the **--repository-name**
+     option).
+   - The branch, tag, HEAD, or other fully qualified reference for the source of the
+     changes to use in the merge evaluation (with the
+     **--source-commit-specifier** option).
+   - The branch, tag, HEAD, or other fully qualified reference for the destination of
+     the changes to use in the merge evaluation (with the
+     **--destination-commit-specifier** option).
+   - The merge option to use (with the **--merge-option** option)
+     For example, to view whether there are any merge conflicts between the tip of a source
+     branch named `my-feature-branch` and a destination branch named
+     `main` in a repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit get-merge-conflicts --repository-name `MyDemoRepo` --source-commit-specifier `my-feature-branch` --destination-commit-specifier `main` --merge-option FAST_FORWARD_MERGE

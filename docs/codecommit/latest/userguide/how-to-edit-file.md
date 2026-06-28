@@ -47,7 +47,7 @@ why.
      changes.
 
 6. Choose **Commit changes** to save your changes to the file and commit
-   the changes to the repository.
+the changes to the repository.
 
 ## Edit or delete a file (AWS CLI)
 
@@ -64,24 +64,23 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI. For more informati
 
 ###### To edit a file in a repository
 
-1.  Using a local copy of the file, make the changes you want to add to the CodeCommit
-    repository.
-2.  At the terminal or command line, run the **put-file** command,
-    specifying:
+1. Using a local copy of the file, make the changes you want to add to the CodeCommit
+   repository.
+2. At the terminal or command line, run the **put-file** command,
+   specifying:
 
-        * The repository where you want to add the edited file.
-        * The branch where you want to add the edited file.
-        * The full commit ID of the most recent commit made to that branch, also known as
-         the tip or head commit.
-        * The local location of the file.
-        * The name of the updated file you want to add, including the path where the updated
-         file is stored in the repository, if any.
-        * The user name and email you want associated with this file change.
-        * A commit message that explains the change you made.
-
-    The user name, email address, and commit message are optional, but help other users
-    know who made the change and why. If you do not supply a user name, CodeCommit defaults to
-    using your IAM user name or a derivation of your console login.
+   - The repository where you want to add the edited file.
+   - The branch where you want to add the edited file.
+   - The full commit ID of the most recent commit made to that branch, also known as
+     the tip or head commit.
+   - The local location of the file.
+   - The name of the updated file you want to add, including the path where the updated
+     file is stored in the repository, if any.
+   - The user name and email you want associated with this file change.
+   - A commit message that explains the change you made.
+     The user name, email address, and commit message are optional, but help other users
+     know who made the change and why. If you do not supply a user name, CodeCommit defaults to
+     using your IAM user name or a derivation of your console login.
 
 For example, to add edits made to a file named
 `ExampleSolution.py` to a repository named

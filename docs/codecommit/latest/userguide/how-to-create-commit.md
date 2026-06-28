@@ -34,28 +34,27 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI. For more informati
 
 ## To create the first commit for a repository using the AWS CLI
 
-1.  On your local computer, create the file you want to add as the first file to the CodeCommit
-    repository. A common practice is to create a `README.md` markdown file that
-    explains the purpose of this repository to other repository users. If you include a
-    `README.md` file, the content of the file is displayed automatically at the
-    bottom of the **Code** page for your repository in the CodeCommit
-    console.
-2.  At the terminal or command line, run the **put-file** command,
-    specifying:
+1. On your local computer, create the file you want to add as the first file to the CodeCommit
+   repository. A common practice is to create a `README.md` markdown file that
+   explains the purpose of this repository to other repository users. If you include a
+   `README.md` file, the content of the file is displayed automatically at the
+   bottom of the **Code** page for your repository in the CodeCommit
+   console.
+2. At the terminal or command line, run the **put-file** command,
+   specifying:
 
-        * The name of the repository where you want to add the first file.
-        * The name of the branch you want to create as the default branch.
-        * The local location of the file. The syntax used for this location varies,
-         depending on your local operating system.
-        * The name of the file you want to add, including the path where the updated file is
-         stored in the repository.
-        * The user name and email you want to associate with this file.
-        * A commit message that explains why you added this file.
-
-    The user name, email address, and commit message are optional, but can help other
-    users know who made the change and why. If you do not supply a user name, CodeCommit defaults
-    to using your IAM user name or a derivation of your console login as the author
-    name.
+   - The name of the repository where you want to add the first file.
+   - The name of the branch you want to create as the default branch.
+   - The local location of the file. The syntax used for this location varies,
+     depending on your local operating system.
+   - The name of the file you want to add, including the path where the updated file is
+     stored in the repository.
+   - The user name and email you want to associate with this file.
+   - A commit message that explains why you added this file.
+     The user name, email address, and commit message are optional, but can help other
+     users know who made the change and why. If you do not supply a user name, CodeCommit defaults
+     to using your IAM user name or a derivation of your console login as the author
+     name.
 
 For example, to add a file named `README.md` with
 example base 6
@@ -150,7 +149,7 @@ Changes to be committed:
 
 7. To finalize the commit, run **git commit** with the `-m`
    option (for example, **git commit -m "`Adding bird.txt to the
-repository.`"**) The `-m` option creates the commit
+ repository.`"**) The `-m` option creates the commit
    message.
 8. If you run **git status** again, you should see output similar to the
    following. It indicates that the commit is ready to be pushed from the local repo to
@@ -252,25 +251,24 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI. For more informati
 
 ###### To create a commit
 
-1.  On your local computer, make the changes you want committed to the CodeCommit
-    repository.
-2.  At the terminal or command line, run the **create-commit** command,
-    specifying:
+1. On your local computer, make the changes you want committed to the CodeCommit
+   repository.
+2. At the terminal or command line, run the **create-commit** command,
+   specifying:
 
-        * The repository where you want to commit the changes.
-        * The branch where you want to commit the changes.
-        * The full commit ID of the most recent commit made to that branch, also known as
-         the tip or head commit or the parent commit ID.
-        * Whether to keep any empty folders if the changes you made delete the content of
-         those folders. By default, this value is false.
-        * The information about the files you want added, changed, or deleted.
-        * The user name and email you want associated with these changes.
-        * A commit message that explains why you made these changes.
-
-    The user name, email address, and commit message are optional, but help other users
-    know who made the changes and why. If you do not supply a user name, CodeCommit defaults to
-    using your IAM user name or a derivation of your console login as the author
-    name.
+   - The repository where you want to commit the changes.
+   - The branch where you want to commit the changes.
+   - The full commit ID of the most recent commit made to that branch, also known as
+     the tip or head commit or the parent commit ID.
+   - Whether to keep any empty folders if the changes you made delete the content of
+     those folders. By default, this value is false.
+   - The information about the files you want added, changed, or deleted.
+   - The user name and email you want associated with these changes.
+   - A commit message that explains why you made these changes.
+     The user name, email address, and commit message are optional, but help other users
+     know who made the changes and why. If you do not supply a user name, CodeCommit defaults to
+     using your IAM user name or a derivation of your console login as the author
+     name.
 
 For example, to create a commit for a repository that adds a `README.md`
 file to a repository named `MyDemoRepo` in the

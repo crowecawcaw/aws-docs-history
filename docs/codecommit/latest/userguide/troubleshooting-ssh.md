@@ -64,7 +64,7 @@ or communicate with a CodeCommit repository, an error message appears containing
 
 **Possible fixes:** The most common reason for this error
 is that you have a Windows system environment variable set that directs Windows to use
-another program when you attempt to use SSH. For example, you might have set a GIT_SSH
+another program when you attempt to use SSH. For example, you might have set a GIT\_SSH
 variable to point to one of the PuTTY set of tools (plink.exe). This might be a legacy
 configuration, or it might be required for one or more other programs installed on your
 computer. If you are sure that this environment variable is not required, you can remove
@@ -108,66 +108,66 @@ Are you sure you want to continue connecting (yes/no)?
 Make sure the fingerprint and public key for CodeCommit connections match those documented
 in the SSH setup topics before you continue with the connection.
 
-| Public fingerprints for CodeCommit             | Server | Cryptographic hash type                           | Fingerprint |
-| ---------------------------------------------- | ------ | ------------------------------------------------- | ----------- |
-| git-codecommit.us-east-2.amazonaws.com         | MD5    | `a9:6d:03:ed:08:42:21:be:06:e1:e0:2a:d1:75:31:5e` |
-| git-codecommit.us-east-2.amazonaws.com         | SHA256 | `3lBlW2g5xn/NA2Ck6dyeJIrQOWvn7n8UEs56fG6ZIzQ`     |
-| git-codecommit.us-east-1.amazonaws.com         | MD5    | `a6:9c:7d:bc:35:f5:d4:5f:8b:ba:6f:c8:bc:d4:83:84` |
-| git-codecommit.us-east-1.amazonaws.com         | SHA256 | `eLMY1j0DKA4uvDZcl/KgtIayZANwX6t8+8isPtotBoY`     |
-| git-codecommit.us-west-2.amazonaws.com         | MD5    | `a8:68:53:e3:99:ac:6e:d7:04:7e:f7:92:95:77:a9:77` |
-| git-codecommit.us-west-2.amazonaws.com         | SHA256 | `0pJx9SQpkbPUAHwy58UVIq0IHcyo1fwCpOOuVgcAWPo`     |
-| git-codecommit.eu-west-1.amazonaws.com         | MD5    | `93:42:36:ea:22:1f:f1:0f:20:02:4a:79:ff:ea:12:1d` |
-| git-codecommit.eu-west-1.amazonaws.com         | SHA256 | `tKjRkOL8dmJyTmSbeSdN1S8F/f0iql3RlvqgTOP1UyQ`     |
-| git-codecommit.ap-northeast-1.amazonaws.com    | MD5    | `8e:a3:f0:80:98:48:1c:5c:6f:59:db:a7:8f:6e:c6:cb` |
-| git-codecommit.ap-northeast-1.amazonaws.com    | SHA256 | `Xk/WeYD/K/bnBybzhiuu4dWpBJtXPf7E30jHU7se4Ow`     |
-| git-codecommit.ap-southeast-1.amazonaws.com    | MD5    | `65:e5:27:c3:09:68:0d:8e:b7:6d:94:25:80:3e:93:cf` |
-| git-codecommit.ap-southeast-1.amazonaws.com    | SHA256 | `ZIsVa7OVzxrTIf+Rk4UbhPv6Es22mSB3uTBojfPXIno`     |
-| git-codecommit.ap-southeast-2.amazonaws.com    | MD5    | `7b:d2:c1:24:e6:91:a5:7b:fa:c1:0c:35:95:87:da:a0` |
-| git-codecommit.ap-southeast-2.amazonaws.com    | SHA256 | `nYp+gHas80HY3DqbP4yanCDFhqDVjseefVbHEXqH2Ec`     |
-| git-codecommit.ap-southeast-3.amazonaws.com    | MD5    | `64:d9:e0:53:19:4f:a8:91:9a:c3:53:22:a6:a8:ed:a6` |
-| git-codecommit.ap-southeast-3.amazonaws.com    | SHA256 | `ATdkGSFhpqIu7RqUVT/1RZo6MLxxxUW9NoDVMbAc/6g`     |
-| git-codecommit.me-central-1.amazonaws.com      | MD5    | `bd:fa:e2:f9:05:84:d6:39:6f:bc:d6:8d:fe:de:61:76` |
-| git-codecommit.me-central-1.amazonaws.com      | SHA256 | `grceUDWubo4MzG1NoaKZKUfrgPvfN3ijliOnQr1lTZA`     |
-| git-codecommit.eu-central-1.amazonaws.com      | MD5    | `74:5a:e8:02:fc:b2:9c:06:10:b4:78:84:65:94:22:2d` |
-| git-codecommit.eu-central-1.amazonaws.com      | SHA256 | `MwGrkiEki8QkkBtlAgXbYt0hoZYBnZF62VY5RzGJEUY`     |
-| git-codecommit.ap-northeast-2.amazonaws.com    | MD5    | `9f:68:48:9b:5f:fc:96:69:39:45:58:87:95:b3:69:ed` |
-| git-codecommit.ap-northeast-2.amazonaws.com    | SHA256 | `eegAPQrWY9YsYo9ZHIKOmxetfXBHzAZd8Eya53Qcwko`     |
-| git-codecommit.sa-east-1.amazonaws.com         | MD5    | `74:99:9d:ff:2b:ef:63:c6:4b:b4:6a:7f:62:c5:4b:51` |
-| git-codecommit.sa-east-1.amazonaws.com         | SHA256 | `kW+VKB0jpRaG/ZbXkgbtMQbKgEDK7JnISV3SVoyCmzU`     |
-| git-codecommit.us-west-1.amazonaws.com         | MD5    | `3b:76:18:83:13:2c:f8:eb:e9:a3:d0:51:10:32:e7:d1` |
-| git-codecommit.us-west-1.amazonaws.com         | SHA256 | `gzauWTWXDK2u5KuMMi5vbKTmfyerdIwgSbzYBODLpzg`     |
-| git-codecommit.eu-west-2.amazonaws.com         | MD5    | `a5:65:a6:b1:84:02:b1:95:43:f9:0e:de:dd:ed:61:d3` |
-| git-codecommit.eu-west-2.amazonaws.com         | SHA256 | `r0Rwz5k/IHp/QyrRnfiM9j02D5UEqMbtFNTuDG2hNbs`     |
-| git-codecommit.ap-south-1.amazonaws.com        | MD5    | `da:41:1e:07:3b:9e:76:a0:c5:1e:64:88:03:69:86:21` |
-| git-codecommit.ap-south-1.amazonaws.com        | SHA256 | `hUKwnTj7+Xpx4Kddb6p45j4RazIJ4IhAMD8k29itOfE`     |
-| git-codecommit.ap-south-2.amazonaws.com        | MD5    | `bc:cc:9f:15:f8:f3:58:a2:68:65:21:e2:23:71:8d:ce` |
-| git-codecommit.ap-south-2.amazonaws.com        | SHA256 | `Xe0CyZEOvgR5Xa2YUGqf+jn8/Ut7l7nX/CmslSFNEig`     |
-| git-codecommit.ca-central-1.amazonaws.com      | MD5    | `9f:7c:a2:2f:8c:b5:74:fd:ab:b7:e1:fd:af:46:ed:23` |
-| git-codecommit.ca-central-1.amazonaws.com      | SHA256 | `Qz5puafQdANVprLlj6r0Qyh4lCNsF6ob61dGcPtFS7w`     |
-| git-codecommit.eu-west-3.amazonaws.com         | MD5    | `1b:7f:97:dd:d7:76:8a:32:2c:bd:2c:7b:33:74:6a:76` |
-| git-codecommit.eu-west-3.amazonaws.com         | SHA256 | `uw7c2FL564jVoFgtc+ikzILnKBsZz7t9+CFdSJjKbLI`     |
-| git-codecommit.us-gov-west-1.amazonaws.com     | MD5    | `9f:6c:19:3b:88:cd:e8:88:1b:9c:98:6a:95:31:8a:69` |
-| git-codecommit.us-gov-west-1.amazonaws.com     | SHA256 | `djXQoSIFcg8vHe0KVH1xW/gOF9X37tWTqu4Hkng75x4`     |
-| git-codecommit.us-gov-east-1.amazonaws.com     | MD5    | `00:8d:b5:55:6f:05:78:05:ed:ea:cb:3f:e6:f0:62:f2` |
-| git-codecommit.us-gov-east-1.amazonaws.com     | SHA256 | `fVb+R0z7qW7minenW+rUpAABRCRBTCzmETAJEQrg98`      |
-| git-codecommit.eu-north-1.amazonaws.com        | MD5    | `8e:53:d8:59:35:88:82:fd:73:4b:60:8a:50:70:38:f4` |
-| git-codecommit.eu-north-1.amazonaws.com        | SHA256 | `b6KSK7xKq+V8jl7iuAcjqXsG7zkqoUZZmmhYYFBq1wQ`     |
-| git-codecommit.me-south-1.amazonaws.com        | MD5    | `0e:39:28:56:d5:41:e6:8d:fa:81:45:37:fb:f3:cd:f7` |
-| git-codecommit.me-south-1.amazonaws.com        | SHA256 | `O+NToCGgjrHekiBuOl0ad7ROGEsz+DBLXOd/c9wc0JU`     |
-| git-codecommit.ap-east-1.amazonaws.com         | MD5    | `a8:00:3d:24:52:9d:61:0e:f6:e3:88:c8:96:01:1c:fe` |
-| git-codecommit.ap-east-1.amazonaws.com         | SHA256 | `LafadYwUYW8hONoTRpojbjNs9IRnbEwHtezD3aAIBX0`     |
-| git-codecommit.cn-north-1.amazonaws.com.cn     | MD5    | `11:7e:2d:74:9e:3b:94:a2:69:14:75:6f:5e:22:3b:b3` |
-| git-codecommit.cn-north-1.amazonaws.com.cn     | SHA256 | `IYUXxH2OpTDsyYMLIp+JY8CTLS4UX+ZC5JVZXPRaxc8`     |
-| git-codecommit.cn-northwest-1.amazonaws.com.cn | MD5    | `2e:a7:fb:4c:33:ac:6c:f9:aa:f2:bc:fb:0a:7b:1e:b6` |
-| git-codecommit.cn-northwest-1.amazonaws.com.cn | SHA256 | `wqjd6eHd0+mOBx+dCNuL0omUoCNjaDtZiEpWj5TmCfQ`     |
-| git-codecommit.eu-south-1.amazonaws.com        | MD5    | `b9:f6:5d:e2:48:92:3f:a9:37:1e:c4:d0:32:0e:fb:11` |
-| git-codecommit.eu-south-1.amazonaws.com        | SHA256 | `lyXrWbCg3uQmJrl1XxB/ASR7ugW1Ysf5yzYOJbudHsI`     |
-| git-codecommit.ap-northeast-3.amazonaws.com    | MD5    | `25:17:40:da:b9:d4:18:c3:b6:b3:fb:ed:1c:20:fe:29` |
-| git-codecommit.ap-northeast-3.amazonaws.com    | SHA256 | `2B815B9F0AvwLnRxSVxUz4kDYmtEQUGGdQYP8OQLXhA`     |
-| git-codecommit.af-south-1.amazonaws.com        | MD5    | `21:a0:ba:d7:c1:d1:b5:39:98:8d:4d:7c:96:f5:ca:29` |
-| git-codecommit.af-south-1.amazonaws.com        | SHA256 | `C34ji3x/cnsDZjUpyNGXdE5pjHYimqJrQZ3leTgqJHM`     |
-| git-codecommit.il-central-1.amazonaws.com      | MD5    | `04:74:89:16:98:7a:61:b1:69:46:42:3c:d1:b4:ac:a9` |
-| git-codecommit.il-central-1.amazonaws.com      | SHA256 | `uFxhp51kUWhleTLeYbxQVYm4RnNLNZ5Dbdm1cgdSl/8`     |
+Public fingerprints for CodeCommit| Server | Cryptographic hash type | Fingerprint |
+| --- | --- | --- |
+| git-codecommit.us-east-2.amazonaws.com | MD5 | `a9:6d:03:ed:08:42:21:be:06:e1:e0:2a:d1:75:31:5e` |
+| git-codecommit.us-east-2.amazonaws.com | SHA256 | `3lBlW2g5xn/NA2Ck6dyeJIrQOWvn7n8UEs56fG6ZIzQ` |
+| git-codecommit.us-east-1.amazonaws.com | MD5 | `a6:9c:7d:bc:35:f5:d4:5f:8b:ba:6f:c8:bc:d4:83:84` |
+| git-codecommit.us-east-1.amazonaws.com | SHA256 | `eLMY1j0DKA4uvDZcl/KgtIayZANwX6t8+8isPtotBoY` |
+| git-codecommit.us-west-2.amazonaws.com | MD5 | `a8:68:53:e3:99:ac:6e:d7:04:7e:f7:92:95:77:a9:77` |
+| git-codecommit.us-west-2.amazonaws.com | SHA256 | `0pJx9SQpkbPUAHwy58UVIq0IHcyo1fwCpOOuVgcAWPo` |
+| git-codecommit.eu-west-1.amazonaws.com | MD5 | `93:42:36:ea:22:1f:f1:0f:20:02:4a:79:ff:ea:12:1d` |
+| git-codecommit.eu-west-1.amazonaws.com | SHA256 | `tKjRkOL8dmJyTmSbeSdN1S8F/f0iql3RlvqgTOP1UyQ` |
+| git-codecommit.ap-northeast-1.amazonaws.com | MD5 | `8e:a3:f0:80:98:48:1c:5c:6f:59:db:a7:8f:6e:c6:cb` |
+| git-codecommit.ap-northeast-1.amazonaws.com | SHA256 | `Xk/WeYD/K/bnBybzhiuu4dWpBJtXPf7E30jHU7se4Ow` |
+| git-codecommit.ap-southeast-1.amazonaws.com | MD5 | `65:e5:27:c3:09:68:0d:8e:b7:6d:94:25:80:3e:93:cf` |
+| git-codecommit.ap-southeast-1.amazonaws.com | SHA256 | `ZIsVa7OVzxrTIf+Rk4UbhPv6Es22mSB3uTBojfPXIno` |
+| git-codecommit.ap-southeast-2.amazonaws.com | MD5 | `7b:d2:c1:24:e6:91:a5:7b:fa:c1:0c:35:95:87:da:a0` |
+| git-codecommit.ap-southeast-2.amazonaws.com | SHA256 | `nYp+gHas80HY3DqbP4yanCDFhqDVjseefVbHEXqH2Ec` |
+| git-codecommit.ap-southeast-3.amazonaws.com | MD5 | `64:d9:e0:53:19:4f:a8:91:9a:c3:53:22:a6:a8:ed:a6` |
+| git-codecommit.ap-southeast-3.amazonaws.com | SHA256 | `ATdkGSFhpqIu7RqUVT/1RZo6MLxxxUW9NoDVMbAc/6g` |
+| git-codecommit.me-central-1.amazonaws.com | MD5 | `bd:fa:e2:f9:05:84:d6:39:6f:bc:d6:8d:fe:de:61:76` |
+| git-codecommit.me-central-1.amazonaws.com | SHA256 | `grceUDWubo4MzG1NoaKZKUfrgPvfN3ijliOnQr1lTZA` |
+| git-codecommit.eu-central-1.amazonaws.com | MD5 | `74:5a:e8:02:fc:b2:9c:06:10:b4:78:84:65:94:22:2d` |
+| git-codecommit.eu-central-1.amazonaws.com | SHA256 | `MwGrkiEki8QkkBtlAgXbYt0hoZYBnZF62VY5RzGJEUY` |
+| git-codecommit.ap-northeast-2.amazonaws.com | MD5 | `9f:68:48:9b:5f:fc:96:69:39:45:58:87:95:b3:69:ed` |
+| git-codecommit.ap-northeast-2.amazonaws.com | SHA256 | `eegAPQrWY9YsYo9ZHIKOmxetfXBHzAZd8Eya53Qcwko` |
+| git-codecommit.sa-east-1.amazonaws.com | MD5 | `74:99:9d:ff:2b:ef:63:c6:4b:b4:6a:7f:62:c5:4b:51` |
+| git-codecommit.sa-east-1.amazonaws.com | SHA256 | `kW+VKB0jpRaG/ZbXkgbtMQbKgEDK7JnISV3SVoyCmzU` |
+| git-codecommit.us-west-1.amazonaws.com | MD5 | `3b:76:18:83:13:2c:f8:eb:e9:a3:d0:51:10:32:e7:d1` |
+| git-codecommit.us-west-1.amazonaws.com | SHA256 | `gzauWTWXDK2u5KuMMi5vbKTmfyerdIwgSbzYBODLpzg` |
+| git-codecommit.eu-west-2.amazonaws.com | MD5 | `a5:65:a6:b1:84:02:b1:95:43:f9:0e:de:dd:ed:61:d3` |
+| git-codecommit.eu-west-2.amazonaws.com | SHA256 | `r0Rwz5k/IHp/QyrRnfiM9j02D5UEqMbtFNTuDG2hNbs` |
+| git-codecommit.ap-south-1.amazonaws.com | MD5 | `da:41:1e:07:3b:9e:76:a0:c5:1e:64:88:03:69:86:21` |
+| git-codecommit.ap-south-1.amazonaws.com | SHA256 | `hUKwnTj7+Xpx4Kddb6p45j4RazIJ4IhAMD8k29itOfE` |
+| git-codecommit.ap-south-2.amazonaws.com | MD5 | `bc:cc:9f:15:f8:f3:58:a2:68:65:21:e2:23:71:8d:ce` |
+| git-codecommit.ap-south-2.amazonaws.com | SHA256 | `Xe0CyZEOvgR5Xa2YUGqf+jn8/Ut7l7nX/CmslSFNEig` |
+| git-codecommit.ca-central-1.amazonaws.com | MD5 | `9f:7c:a2:2f:8c:b5:74:fd:ab:b7:e1:fd:af:46:ed:23` |
+| git-codecommit.ca-central-1.amazonaws.com | SHA256 | `Qz5puafQdANVprLlj6r0Qyh4lCNsF6ob61dGcPtFS7w` |
+| git-codecommit.eu-west-3.amazonaws.com | MD5 | `1b:7f:97:dd:d7:76:8a:32:2c:bd:2c:7b:33:74:6a:76` |
+| git-codecommit.eu-west-3.amazonaws.com | SHA256 | `uw7c2FL564jVoFgtc+ikzILnKBsZz7t9+CFdSJjKbLI` |
+| git-codecommit.us-gov-west-1.amazonaws.com | MD5 | `9f:6c:19:3b:88:cd:e8:88:1b:9c:98:6a:95:31:8a:69` |
+| git-codecommit.us-gov-west-1.amazonaws.com | SHA256 | `djXQoSIFcg8vHe0KVH1xW/gOF9X37tWTqu4Hkng75x4` |
+| git-codecommit.us-gov-east-1.amazonaws.com | MD5 | `00:8d:b5:55:6f:05:78:05:ed:ea:cb:3f:e6:f0:62:f2` |
+| git-codecommit.us-gov-east-1.amazonaws.com | SHA256 | `fVb+R0z7qW7minenW+rUpAABRCRBTCzmETAJEQrg98` |
+| git-codecommit.eu-north-1.amazonaws.com | MD5 | `8e:53:d8:59:35:88:82:fd:73:4b:60:8a:50:70:38:f4` |
+| git-codecommit.eu-north-1.amazonaws.com | SHA256 | `b6KSK7xKq+V8jl7iuAcjqXsG7zkqoUZZmmhYYFBq1wQ` |
+| git-codecommit.me-south-1.amazonaws.com | MD5 | `0e:39:28:56:d5:41:e6:8d:fa:81:45:37:fb:f3:cd:f7` |
+| git-codecommit.me-south-1.amazonaws.com | SHA256 | `O+NToCGgjrHekiBuOl0ad7ROGEsz+DBLXOd/c9wc0JU` |
+| git-codecommit.ap-east-1.amazonaws.com | MD5 | `a8:00:3d:24:52:9d:61:0e:f6:e3:88:c8:96:01:1c:fe` |
+| git-codecommit.ap-east-1.amazonaws.com | SHA256 | `LafadYwUYW8hONoTRpojbjNs9IRnbEwHtezD3aAIBX0` |
+| git-codecommit.cn-north-1.amazonaws.com.cn | MD5 | `11:7e:2d:74:9e:3b:94:a2:69:14:75:6f:5e:22:3b:b3` |
+| git-codecommit.cn-north-1.amazonaws.com.cn | SHA256 | `IYUXxH2OpTDsyYMLIp+JY8CTLS4UX+ZC5JVZXPRaxc8` |
+| git-codecommit.cn-northwest-1.amazonaws.com.cn | MD5 | `2e:a7:fb:4c:33:ac:6c:f9:aa:f2:bc:fb:0a:7b:1e:b6` |
+| git-codecommit.cn-northwest-1.amazonaws.com.cn | SHA256 | `wqjd6eHd0+mOBx+dCNuL0omUoCNjaDtZiEpWj5TmCfQ` |
+| git-codecommit.eu-south-1.amazonaws.com | MD5 | `b9:f6:5d:e2:48:92:3f:a9:37:1e:c4:d0:32:0e:fb:11` |
+| git-codecommit.eu-south-1.amazonaws.com | SHA256 | `lyXrWbCg3uQmJrl1XxB/ASR7ugW1Ysf5yzYOJbudHsI` |
+| git-codecommit.ap-northeast-3.amazonaws.com | MD5 | `25:17:40:da:b9:d4:18:c3:b6:b3:fb:ed:1c:20:fe:29` |
+| git-codecommit.ap-northeast-3.amazonaws.com | SHA256 | `2B815B9F0AvwLnRxSVxUz4kDYmtEQUGGdQYP8OQLXhA` |
+| git-codecommit.af-south-1.amazonaws.com | MD5 | `21:a0:ba:d7:c1:d1:b5:39:98:8d:4d:7c:96:f5:ca:29` |
+| git-codecommit.af-south-1.amazonaws.com | SHA256 | `C34ji3x/cnsDZjUpyNGXdE5pjHYimqJrQZ3leTgqJHM` |
+| git-codecommit.il-central-1.amazonaws.com | MD5 | `04:74:89:16:98:7a:61:b1:69:46:42:3c:d1:b4:ac:a9` |
+| git-codecommit.il-central-1.amazonaws.com | SHA256 | `uFxhp51kUWhleTLeYbxQVYm4RnNLNZ5Dbdm1cgdSl/8` |
 
 ## IAM error: 'Invalid format' when attempting to add a public key to IAM
 

@@ -92,11 +92,9 @@ you can resolve them locally using your Git client. For more information, see
      help maintain a complete history of changes to your repository.
 
 8. If you choose the squash or 3-way merge strategy, review the automatically
-   generated commit message and modify it if you want to change the information.
-   Add your name and email address for the commit history.
-9. (Optional) Clear the option to delete the source branch as part of the merge.
-   The default is to delete the source branch when a pull request is merged.
-10. Choose **Merge pull request** to complete the merge.
+generated commit message and modify it if you want to change the information.
+Add your name and email address for the commit history. 9. (Optional) Clear the option to delete the source branch as part of the merge.
+The default is to delete the source branch when a pull request is merged. 10. Choose **Merge pull request** to complete the merge.
 
 ## Merge a pull request (AWS CLI)
 
@@ -106,20 +104,19 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI. For more informati
 **To use the AWS CLI to merge pull requests in a
 CodeCommit repository**
 
-1.  To evaluate whether a pull request has had all of its approval rules satisfied
-    and is ready to be merged, run the
-    **evaluate-pull-request-approval-rules** command,
-    specifying:
+1. To evaluate whether a pull request has had all of its approval rules satisfied
+   and is ready to be merged, run the
+   **evaluate-pull-request-approval-rules** command,
+   specifying:
 
-        * The ID of the pull request (using the
-         **--pull-request-id** option).
-        * The revision ID of the pull request (using the **--revision-id
-         option)**. You can get the current revision ID for a pull
-         request by using the **[get-pull-request](how-to-view-pull-request.md#get-pull-request "how-to-view-pull-request.md#get-pull-request")** command.
-
-    For example, to evaluate the state of approval rules on a pull request with an
-    ID of `27` and a revision ID of
-    `9f29d167EXAMPLE`:
+   - The ID of the pull request (using the
+     **--pull-request-id** option).
+   - The revision ID of the pull request (using the **--revision-id
+     option)**. You can get the current revision ID for a pull
+     request by using the **[get-pull-request](how-to-view-pull-request.md#get-pull-request "how-to-view-pull-request.md#get-pull-request")** command.
+     For example, to evaluate the state of approval rules on a pull request with an
+     ID of `27` and a revision ID of
+     `9f29d167EXAMPLE`:
 
 ```
 aws codecommit evaluate-pull-request-approval-rules --pull-request-id `27` --revision-id `9f29d167EXAMPLE`
@@ -209,39 +206,38 @@ If successful, this command produces output similar to the following:
 }
 ```
 
-3.  To merge and close a pull request
-    using the squash merge strategy, run the
-    **merge-pull-request-by-squash** command, specifying:
+3. To merge and close a pull request
+   using the squash merge strategy, run the
+   **merge-pull-request-by-squash** command, specifying:
 
-        * The ID of the pull request (with the
-         **--pull-request-id** option).
-        * The full commit ID of the tip of the source branch (with the
-         **--source-commit-id** option).
-        * The name of the repository (with the
-         **--repository-name** option).
-        * The level of conflict detail you want to use (with the
-         **--conflict-detail-level** option). If unspecified,
-         the default **`FILE_LEVEL`** is used.
-        * The conflict resolution strategy you want to use (with the
-         **--conflict-resolution-strategy** option). If
-         unspecified, this defaults to `NONE`, and conflicts must be
-         resolved manually.
-        * The commit message to include (with the
-         **--commit-message** option).
-        * The name to use for the commit (with the
-         **--author-name**
-         option).
-        * The email address to use for the commit (with the
-         **--email** option).
-        * Whether to keep any empty folders (with the
-         **--keep-empty-folders** option).
-
-    The following example merges and closes a pull request with the ID of
-    `47` and a source commit ID of
-    `99132ab0EXAMPLE` in a repository named
-    `MyDemoRepo`. It uses the conflict detail
-    of `LINE_LEVEL` and the conflict resolution strategy of
-    `ACCEPT_SOURCE`:
+   - The ID of the pull request (with the
+     **--pull-request-id** option).
+   - The full commit ID of the tip of the source branch (with the
+     **--source-commit-id** option).
+   - The name of the repository (with the
+     **--repository-name** option).
+   - The level of conflict detail you want to use (with the
+     **--conflict-detail-level** option). If unspecified,
+     the default **`FILE_LEVEL`** is used.
+   - The conflict resolution strategy you want to use (with the
+     **--conflict-resolution-strategy** option). If
+     unspecified, this defaults to `NONE`, and conflicts must be
+     resolved manually.
+   - The commit message to include (with the
+     **--commit-message** option).
+   - The name to use for the commit (with the
+     **--author-name**
+     option).
+   - The email address to use for the commit (with the
+     **--email** option).
+   - Whether to keep any empty folders (with the
+     **--keep-empty-folders** option).
+     The following example merges and closes a pull request with the ID of
+     `47` and a source commit ID of
+     `99132ab0EXAMPLE` in a repository named
+     `MyDemoRepo`. It uses the conflict detail
+     of `LINE_LEVEL` and the conflict resolution strategy of
+     `ACCEPT_SOURCE`:
 
 ```
 aws codecommit merge-pull-request-by-squash --pull-request-id `47` --source-commit-id `99132ab0EXAMPLE` --repository-name `MyDemoRepo` --conflict-detail-level LINE_LEVEL --conflict-resolution-strategy ACCEPT_SOURCE --author-name "Jorge Souza" --email "jorge_souza@example.com" --commit-message "Merging pull request 47 by squash and accepting source in merge conflicts"
@@ -293,39 +289,38 @@ fast-forward, output similar to the following:
 }
 ```
 
-4.  To merge and close a pull
-    request using the three-way merge strategy, run the
-    **merge-pull-request-by-three-way** command,
-    specifying:
+4. To merge and close a pull
+   request using the three-way merge strategy, run the
+   **merge-pull-request-by-three-way** command,
+   specifying:
 
-        * The ID of the pull request (with the
-         **--pull-request-id** option).
-        * The full commit ID of the tip of the source branch (with the
-         **--source-commit-id** option).
-        * The name of the repository (with the
-         **--repository-name** option).
-        * The level of conflict detail you want to use (with the
-         **--conflict-detail-level** option). If unspecified,
-         the default **`FILE_LEVEL`** is used.
-        * The conflict resolution strategy you want to use (with the
-         **--conflict-resolution-strategy** option). If
-         unspecified, this defaults to `NONE`, and conflicts must be
-         resolved manually.
-        * The commit message to include (with the
-         **--commit-message** option).
-        * The name to use for the commit (with the
-         **--author-name**
-         option).
-        * The email address to use for the commit (with the
-         **--email** option).
-        * Whether to keep any empty folders (with the
-         **--keep-empty-folders** option).
-
-    The following example merges and closes a pull request with the ID of
-    `47` and a source commit ID of
-    `99132ab0EXAMPLE` in a repository named
-    `MyDemoRepo`. It uses the default options
-    for conflict detail and conflict resolution strategy:
+   - The ID of the pull request (with the
+     **--pull-request-id** option).
+   - The full commit ID of the tip of the source branch (with the
+     **--source-commit-id** option).
+   - The name of the repository (with the
+     **--repository-name** option).
+   - The level of conflict detail you want to use (with the
+     **--conflict-detail-level** option). If unspecified,
+     the default **`FILE_LEVEL`** is used.
+   - The conflict resolution strategy you want to use (with the
+     **--conflict-resolution-strategy** option). If
+     unspecified, this defaults to `NONE`, and conflicts must be
+     resolved manually.
+   - The commit message to include (with the
+     **--commit-message** option).
+   - The name to use for the commit (with the
+     **--author-name**
+     option).
+   - The email address to use for the commit (with the
+     **--email** option).
+   - Whether to keep any empty folders (with the
+     **--keep-empty-folders** option).
+     The following example merges and closes a pull request with the ID of
+     `47` and a source commit ID of
+     `99132ab0EXAMPLE` in a repository named
+     `MyDemoRepo`. It uses the default options
+     for conflict detail and conflict resolution strategy:
 
 ```
 aws codecommit merge-pull-request-by-three-way --pull-request-id `47` --source-commit-id `99132ab0EXAMPLE` --repository-name `MyDemoRepo` --author-name "Maria Garcia" --email "maria_garcia@example.com" --commit-message "Merging pull request 47 by three-way with default options"

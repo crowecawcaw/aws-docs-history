@@ -34,7 +34,7 @@ Do one of the following:
      delete the current value and leave the field blank.
 
 6. When you have finished editing tags, choose
-   **Submit**.
+**Submit**.
 
 ## Edit tags for a repository (AWS CLI)
 

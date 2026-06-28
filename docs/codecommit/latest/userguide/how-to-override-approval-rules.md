@@ -46,20 +46,19 @@ You can use the AWS CLI to override approval rule requirements. You can also use
 
 ## To override approval rule requirements on a pull request
 
-1.  At a terminal or command line, run the
-    **override-pull-request-approval-rules** command,
-    specifying:
+1. At a terminal or command line, run the
+   **override-pull-request-approval-rules** command,
+   specifying:
 
-        * The system-generated ID of the pull request.
-        * The latest revision ID of the pull request. To view this information, use
-         **get-pull-request**.
-        * The status you want for the override, `OVERRIDE` or
-         `REVOKE`. The `REVOKE` status removes the
-         `OVERRIDE` status but is not saved.
-
-    For example, to override approval rules on a pull request with an ID of
-    `34` and a revision ID of
-    `927df8d8EXAMPLE`:
+   - The system-generated ID of the pull request.
+   - The latest revision ID of the pull request. To view this information, use
+     **get-pull-request**.
+   - The status you want for the override, `OVERRIDE` or
+     `REVOKE`. The `REVOKE` status removes the
+     `OVERRIDE` status but is not saved.
+     For example, to override approval rules on a pull request with an ID of
+     `34` and a revision ID of
+     `927df8d8EXAMPLE`:
 
 ```
 aws codecommit override-pull-request-approval-rules --pull-request-id `34` --revision-id `927df8d8dEXAMPLE` --override-status OVERRIDE
@@ -75,16 +74,15 @@ aws codecommit override-pull-request-approval-rules --pull-request-id `34` --rev
 
 ## To get information about the override status of a pull request
 
-1.  At a terminal or command line, run the **get-pull-request-override-state** command,
-    specifying:
+1. At a terminal or command line, run the **get-pull-request-override-state** command,
+   specifying:
 
-        * The system-generated ID of the pull request.
-        * The latest revision ID of the pull request. To view this information, use
-         **get-pull-request**.
-
-    For example, to view the override state for a pull request with an ID of
-    `34` and a revision ID of
-    `927df8d8EXAMPLE`:
+   - The system-generated ID of the pull request.
+   - The latest revision ID of the pull request. To view this information, use
+     **get-pull-request**.
+     For example, to view the override state for a pull request with an ID of
+     `34` and a revision ID of
+     `927df8d8EXAMPLE`:
 
 ```
 aws codecommit get-pull-request-override-state --pull-request-id `34` --revision-id `927df8d8dEXAMPLE`

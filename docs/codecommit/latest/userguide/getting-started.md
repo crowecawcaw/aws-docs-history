@@ -378,22 +378,21 @@ git checkout -b MyNewBranch `commit-ID`
 git push origin MyNewBranch
 ```
 
-3.  Now, pull the branch into the shared repo and check your results:
+3. Now, pull the branch into the shared repo and check your results:
 
-        1. Switch to the shared repo directory (shared-demo-repo).
-        2. Pull in the new branch (**git fetch
-         origin**).
-        3. Confirm that the branch has been pulled in (**git branch --all**
-         displays a list of all branches for the repository).
-        4. Switch to the new branch (**git checkout
-         MyNewBranch**).
-        5. Confirm that you have switched to the `MyNewBranch` branch by
-         running **git status** or **git branch**. The output
-         shows which branch you are on. In this case, it should be
-         `MyNewBranch`.
-        6. View the list of commits in the branch (**git log**).
-
-    Here's the list of Git commands to call:
+   1. Switch to the shared repo directory (shared-demo-repo).
+   2. Pull in the new branch (**git fetch
+      origin**).
+   3. Confirm that the branch has been pulled in (**git branch --all**
+      displays a list of all branches for the repository).
+   4. Switch to the new branch (**git checkout
+      MyNewBranch**).
+   5. Confirm that you have switched to the `MyNewBranch` branch by
+      running **git status** or **git branch**. The output
+      shows which branch you are on. In this case, it should be
+      `MyNewBranch`.
+   6. View the list of commits in the branch (**git log**).
+      Here's the list of Git commands to call:
 
 ```
 git fetch origin
@@ -460,19 +459,18 @@ for some new, relatively unstable feature:
 git tag beta `commit-ID`
 ```
 
-2.  Run **git push --tags** to send the tags to the
-    CodeCommit repository.
-3.  Now pull the tags into the shared repo and check your results:
+2. Run **git push --tags** to send the tags to the
+   CodeCommit repository.
+3. Now pull the tags into the shared repo and check your results:
 
-        1. Switch to the shared repo directory (shared-demo-repo).
-        2. Pull in the new tags (**git fetch
-         origin**).
-        3. Confirm that the tags have been pulled in (**git tag** displays a
-         list of tags for the repository).
-        4. View information about each tag (**git log release**
-         and **git log beta**).
-
-    Here's the list of Git commands to call:
+   1. Switch to the shared repo directory (shared-demo-repo).
+   2. Pull in the new tags (**git fetch
+      origin**).
+   3. Confirm that the tags have been pulled in (**git tag** displays a
+      list of tags for the repository).
+   4. View information about each tag (**git log release**
+      and **git log beta**).
+      Here's the list of Git commands to call:
 
 ```
 git fetch origin

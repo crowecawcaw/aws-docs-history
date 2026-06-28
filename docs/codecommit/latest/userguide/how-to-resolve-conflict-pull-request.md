@@ -60,7 +60,7 @@ any necessary changes until all conflicts have been resolved.
      allows you to resolve the conflicts in a different way.
 
 7. When you are satisfied with your changes, choose **Update pull
-   request**.
+request**.
 
 ###### Note
 
@@ -128,29 +128,28 @@ If successful, this command produces output similar to the following:
 }
 ```
 
-2.  To get a list of files that contain merge conflicts in a merge between two
-    commit specifiers, run the **get-merge-conflicts** command,
-    specifying:
+2. To get a list of files that contain merge conflicts in a merge between two
+   commit specifiers, run the **get-merge-conflicts** command,
+   specifying:
 
-        * A commit specifier for the source of the merge (with the
-         **--source-commit-specifier** option).
-        * A commit specifier for the destination for the merge (with the
-         **--destination-commit-specifier** option).
-        * The name of the repository (with the
-         **--repository-name** option).
-        * The merge option you want to use (with the
-         **--merge-option** option).
-        * (Optional) The level of detail you want about any conflicts (with the
-         **--conflict-detail-level** option).
-        * (Optional) A conflict resolution strategy to use (with the
-         **--conflict-resolution-strategy** option).
-        * (Optional) The maximum number of files with conflicts to return (with
-         the **--max-conflict-files** option).
-
-    For example, to get a list of files that contain conflicts in a merge between
-    a source branch named feature-randomizationfeature and a destination branch
-    named main using the three-way merge strategy in a repository named
-    MyDemoRepo:
+   - A commit specifier for the source of the merge (with the
+     **--source-commit-specifier** option).
+   - A commit specifier for the destination for the merge (with the
+     **--destination-commit-specifier** option).
+   - The name of the repository (with the
+     **--repository-name** option).
+   - The merge option you want to use (with the
+     **--merge-option** option).
+   - (Optional) The level of detail you want about any conflicts (with the
+     **--conflict-detail-level** option).
+   - (Optional) A conflict resolution strategy to use (with the
+     **--conflict-resolution-strategy** option).
+   - (Optional) The maximum number of files with conflicts to return (with
+     the **--max-conflict-files** option).
+     For example, to get a list of files that contain conflicts in a merge between
+     a source branch named feature-randomizationfeature and a destination branch
+     named main using the three-way merge strategy in a repository named
+     MyDemoRepo:
 
 ```
 aws codecommit get-merge-conflicts --source-commit-specifier feature-randomizationfeature --destination-commit-specifier main --merge-option THREE_WAY_MERGE --repository-name MyDemoRepo
@@ -294,35 +293,34 @@ If successful, this command produces output similar to the following:
 }
 ```
 
-4.  To get detailed information about any merge conflicts for a specific file in a
-    merge between two commit specifiers, run the
-    **describe-merge-conflicts** command, specifying:
+4. To get detailed information about any merge conflicts for a specific file in a
+   merge between two commit specifiers, run the
+   **describe-merge-conflicts** command, specifying:
 
-        * A commit specifier for the source of the merge (with the
-         **--source-commit-specifier** option).
-        * A commit specifier for the destination for the merge (with the
-         **--destination-commit-specifier** option).
-        * The merge option you want to use (with the
-         **--merge-option** option).
-        * The path of target file to use to describe the conflicts (with the
-         **--file-path** option).
-        * The name of the repository (with the
-         **--repository-name** option).
-        * (Optional) A conflict resolution strategy to use (with the
-         **--conflict-resolution-strategy** option).
-        * (Optional) The level of detail you want about any conflicts (with the
-         **--conflict-detail-level** option).
-        * (Optional) The maximum number of merge hunks to return (with the
-         **--max-merge-hunks** option).
-        * (Optional) The maximum number of files with conflicts to return (with
-         the **--max-conflict-files** option).
-
-    For example, to determine the merge conflicts for a file named
-    `readme.md` in a source branch named
-    `feature-randomizationfeature` with a destination
-    branch named `main` using the
-    `THREE_WAY_MERGE` strategy in a repository named
-    `MyDemoRepo`:
+   - A commit specifier for the source of the merge (with the
+     **--source-commit-specifier** option).
+   - A commit specifier for the destination for the merge (with the
+     **--destination-commit-specifier** option).
+   - The merge option you want to use (with the
+     **--merge-option** option).
+   - The path of target file to use to describe the conflicts (with the
+     **--file-path** option).
+   - The name of the repository (with the
+     **--repository-name** option).
+   - (Optional) A conflict resolution strategy to use (with the
+     **--conflict-resolution-strategy** option).
+   - (Optional) The level of detail you want about any conflicts (with the
+     **--conflict-detail-level** option).
+   - (Optional) The maximum number of merge hunks to return (with the
+     **--max-merge-hunks** option).
+   - (Optional) The maximum number of files with conflicts to return (with
+     the **--max-conflict-files** option).
+     For example, to determine the merge conflicts for a file named
+     `readme.md` in a source branch named
+     `feature-randomizationfeature` with a destination
+     branch named `main` using the
+     `THREE_WAY_MERGE` strategy in a repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit describe-merge-conflicts --source-commit-specifier `feature-randomizationfeature` --destination-commit-specifier `main` --merge-option `THREE_WAY_MERGE` --file-path `readme.md` --repository-name `MyDemoRepo`
@@ -410,7 +408,7 @@ If successful, this command produces output similar to the following:
      **--keep-empty-folders** option).
      For example, to determine the merge conflicts for merging a source branch
      named `bugfix-1234` with a destination branch named
-     `main` using the ACCEPT_SOURCE strategy in a
+     `main` using the ACCEPT\_SOURCE strategy in a
      repository named `MyDemoRepo`:
 
 ```

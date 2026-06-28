@@ -43,18 +43,17 @@ repositories.
 
 ## To associate a template with a single repository
 
-1.  At the terminal or command line, run the
-    **associate-approval-rule-template-with-repository**
-    command, specifying:
+1. At the terminal or command line, run the
+   **associate-approval-rule-template-with-repository**
+   command, specifying:
 
-        * The name of the approval rule template you want to associate with
-         a repository.
-        * The name of the repository to be associated with the approval rule
-         template.
-
-    For example, to associate an approval rule template named
-    `2-approver-rule-for-main` with a repository
-    named `MyDemoRepo`:
+   - The name of the approval rule template you want to associate with
+     a repository.
+   - The name of the repository to be associated with the approval rule
+     template.
+     For example, to associate an approval rule template named
+     `2-approver-rule-for-main` with a repository
+     named `MyDemoRepo`:
 
 ```
 aws codecommit associate-approval-rule-template-with-repository --repository-name `MyDemoRepo` --approval-rule-template-name `2-approver-rule-for-main`
@@ -64,19 +63,18 @@ aws codecommit associate-approval-rule-template-with-repository --repository-nam
 
 ## To associate a template with multiple repositories
 
-1.  At the terminal or command line, run the
-    **batch-associate-approval-rule-template-with-repositories**
-    command, specifying:
+1. At the terminal or command line, run the
+   **batch-associate-approval-rule-template-with-repositories**
+   command, specifying:
 
-        * The name of the approval rule template you want to associate with
-         a repository.
-        * The names of the repositories to be associated with the approval
-         rule template.
-
-    For example, to associate an approval rule template named
-    `2-approver-rule-for-main` with a repository named
-    `MyDemoRepo` and
-    `MyOtherDemoRepo`:
+   - The name of the approval rule template you want to associate with
+     a repository.
+   - The names of the repositories to be associated with the approval
+     rule template.
+     For example, to associate an approval rule template named
+     `2-approver-rule-for-main` with a repository named
+     `MyDemoRepo` and
+     `MyOtherDemoRepo`:
 
 ```
 aws codecommit batch-associate-approval-rule-template-with-repositories --repository-names "`MyDemoRepo`", "`MyOtherDemoRepo`" --approval-rule-template-name `2-approver-rule-for-main`

@@ -33,16 +33,15 @@ rule template.
 
 ## To disassociate an approval rule template from a repository
 
-1.  At the terminal or command line, run the
-    **disassociate-approval-rule-template-from-repository**
-    command, specifying:
+1. At the terminal or command line, run the
+   **disassociate-approval-rule-template-from-repository**
+   command, specifying:
 
-        * The name of the approval rule template.
-        * The name of the repository.
-
-    For example, to disassociate an approval rule template named
-    `1-approver-rule-for-all-pull-requests` from a
-    repository named `MyDemoRepo`:
+   - The name of the approval rule template.
+   - The name of the repository.
+     For example, to disassociate an approval rule template named
+     `1-approver-rule-for-all-pull-requests` from a
+     repository named `MyDemoRepo`:
 
 ```
 aws codecommit disassociate-approval-rule-template-from-repository --repository-name `MyDemoRepo` --approval-rule-template-name `1-approver-rule-for-all-pull-requests`
@@ -52,17 +51,16 @@ aws codecommit disassociate-approval-rule-template-from-repository --repository-
 
 ## To disassociate an approval rule template from multiple repositories
 
-1.  At the terminal or command line, run the
-    **batch-disassociate-approval-rule-template-from-repositories**
-    command, specifying:
+1. At the terminal or command line, run the
+   **batch-disassociate-approval-rule-template-from-repositories**
+   command, specifying:
 
-        * The name of the approval rule template.
-        * The names of the repositories.
-
-    For example, to disassociate an approval rule template named
-    `1-approver-rule-for-all-pull-requests` from a
-    repository named `MyDemoRepo` and a repository named
-    `MyOtherDemoRepo`:
+   - The name of the approval rule template.
+   - The names of the repositories.
+     For example, to disassociate an approval rule template named
+     `1-approver-rule-for-all-pull-requests` from a
+     repository named `MyDemoRepo` and a repository named
+     `MyOtherDemoRepo`:
 
 ```
 aws codecommit batch-disassociate-approval-rule-template-from-repositories --repository-names "`MyDemoRepo`", "`MyOtherDemoRepo`" --approval-rule-template-name `1-approver-rule-for-all-pull-requests`

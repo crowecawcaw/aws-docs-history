@@ -97,27 +97,26 @@ If successful, this command produces output similar to the following:
 }
 ```
 
-2.  To merge two branches using the squash merge strategy, run the
-    **merge-branches-by-squash** command, specifying:
+2. To merge two branches using the squash merge strategy, run the
+   **merge-branches-by-squash** command, specifying:
 
-        * The name of the source branch that contains the changes you want to
-         merge (with the **--source-commit-specifier** option).
-        * The name of the destination branch where you want to merge your
-         changes (with the **--destination-commit-specifier**
-         option).
-        * The name of the repository (with the
-         **--repository-name** option).
-        * The commit message to include (with the
-         **--commit-message** option).
-        * The name to use for the commit (with the **--name**
-         option).
-        * The email address to use for the commit (with the
-         **--email** option).
-
-    For example, to merge a source branch named
-    `bugfix-bug1234` with a destination branch named
-    `bugfix-quarterly` in a repository named
-    `MyDemoRepo`:
+   - The name of the source branch that contains the changes you want to
+     merge (with the **--source-commit-specifier** option).
+   - The name of the destination branch where you want to merge your
+     changes (with the **--destination-commit-specifier**
+     option).
+   - The name of the repository (with the
+     **--repository-name** option).
+   - The commit message to include (with the
+     **--commit-message** option).
+   - The name to use for the commit (with the **--name**
+     option).
+   - The email address to use for the commit (with the
+     **--email** option).
+     For example, to merge a source branch named
+     `bugfix-bug1234` with a destination branch named
+     `bugfix-quarterly` in a repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit merge-branches-by-squash --source-commit-specifier `bugfix-bug1234` --destination-commit-specifier `bugfix-quarterly` --author-name "`Maria Garcia`" --email "`maria_garcia@example.com`" --commit-message "`Merging in fix branches to prepare for a general patch.`" --repository-name `MyDemoRepo`
@@ -132,26 +131,25 @@ If successful, this command produces output similar to the following:
 }
 ```
 
-3.  To merge two branches using the three-way merge strategy, run the
-    **merge-branches-by-three-way** command, specifying:
+3. To merge two branches using the three-way merge strategy, run the
+   **merge-branches-by-three-way** command, specifying:
 
-        * The name of the source branch that contains the changes you want to
-         merge (with the **--source-commit-specifier** option).
-        * The name of the destination branch where you want to merge your
-         changes (with the **--destination-commit-specifier**
-         option).
-        * The name of the repository (with the
-         **--repository-name** option).
-        * The commit message to include (with the
-         **--commit-message** option).
-        * The name to use for the commit (with the **--name**
-         option).
-        * The email address to use for the commit (with the
-         **--email** option).
-
-    For example, to merge a source branch named `main`
-    with a destination branch named `bugfix-1234` in a
-    repository named `MyDemoRepo`:
+   - The name of the source branch that contains the changes you want to
+     merge (with the **--source-commit-specifier** option).
+   - The name of the destination branch where you want to merge your
+     changes (with the **--destination-commit-specifier**
+     option).
+   - The name of the repository (with the
+     **--repository-name** option).
+   - The commit message to include (with the
+     **--commit-message** option).
+   - The name to use for the commit (with the **--name**
+     option).
+   - The email address to use for the commit (with the
+     **--email** option).
+     For example, to merge a source branch named `main`
+     with a destination branch named `bugfix-1234` in a
+     repository named `MyDemoRepo`:
 
 ```
 aws codecommit merge-branches-by-three-way --source-commit-specifier `main` --destination-commit-specifier `bugfix-bug1234` --author-name "`Jorge Souza`" --email "`jorge_souza@example.com`" --commit-message "`Merging changes from main to bugfix branch before additional testing.`"  --repository-name `MyDemoRepo`

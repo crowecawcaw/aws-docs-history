@@ -91,24 +91,22 @@ then push that branch to the CodeCommit repository. For steps to create an initi
 specify the name of the default branch for an empty repository, see [Create the first commit for a repository using the
 AWS CLI](how-to-create-commit.md#create-first-commit "how-to-create-commit.md#create-first-commit").
 
-1.  Run the **create-branch** command, specifying:
+1. Run the **create-branch** command, specifying:
 
-        * The name of the CodeCommit repository where the branch is created (with the
-         **--repository-name** option).
+   - The name of the CodeCommit repository where the branch is created (with the
+     **--repository-name** option).
 
+   ###### Note
 
-        ###### Note
-
-        To get the name of the CodeCommit repository, run the
-         [list-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli "how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli") command.
-        * The name of the new branch (with the
-         **--branch-name** option).
-        * The ID of the commit to which the new branch points (with the
-         **--commit-id** option).
-
-    For example, to create a branch named `MyNewBranch` that points
-    to commit ID `317f8570EXAMPLE` in a CodeCommit repository named
-    `MyDemoRepo`:
+   To get the name of the CodeCommit repository, run the
+   [list-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli "how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli") command.
+   - The name of the new branch (with the
+     **--branch-name** option).
+   - The ID of the commit to which the new branch points (with the
+     **--commit-id** option).
+     For example, to create a branch named `MyNewBranch` that points
+     to commit ID `317f8570EXAMPLE` in a CodeCommit repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit create-branch --repository-name MyDemoRepo --branch-name MyNewBranch --commit-id 317f8570EXAMPLE

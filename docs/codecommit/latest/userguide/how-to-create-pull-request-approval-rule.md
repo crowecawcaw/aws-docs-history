@@ -83,8 +83,8 @@ Both approver types allow you to use wildcards (\*) in their values. For example
 choose the **IAM user name or assumed role** option, and you specify
 `CodeCommitReview/*`, all users who assume the role of
 `CodeCommitReview` are counted in the approval pool. Their individual role
-session names count toward the required number of approvers. In this way, both Mary_Major and
-Li_Juan are counted as approvals when signed in and assuming the role of
+session names count toward the required number of approvers. In this way, both Mary\_Major and
+Li\_Juan are counted as approvals when signed in and assuming the role of
 `CodeCommitReview`. For more information about IAM ARNs, wildcards, and formats, see
 [IAM
 Identifiers](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns").
@@ -103,38 +103,34 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI. For more informati
 
 - Run the **create-pull-request-approval-rule** command, specifying:
 
-      + The ID of the pull request (with the **--id** option).
-      + The name of the approval rule (with the **--approval-rule-name**
-       option).
-      + The content of the approval rule (with the **--approval-rule-content**
-       option).
+  - The ID of the pull request (with the **--id** option).
+  - The name of the approval rule (with the **--approval-rule-name**
+    option).
+  - The content of the approval rule (with the **--approval-rule-content**
+    option).
+    When you create the approval rule, you can specify approvers in an approval pool in one of
+    two ways:
 
-  When you create the approval rule, you can specify approvers in an approval pool in one of
-  two ways:
+  - **CodeCommitApprovers**: This option only requires an Amazon Web Services account
+    and a resource. It can be used for both IAM users and federated access users whose name
+    matches the provided resource name. This is a very powerful option that offers a great deal
+    of flexibility. For example, if you specify the Amazon Web Services account 123456789012 and
+    `Mary_Major`, all of the following are counted as approvals coming from
+    that user:
 
-      + **CodeCommitApprovers**: This option only requires an Amazon Web Services account
-       and a resource. It can be used for both IAM users and federated access users whose name
-       matches the provided resource name. This is a very powerful option that offers a great deal
-       of flexibility. For example, if you specify the Amazon Web Services account 123456789012 and
-       `Mary_Major`, all of the following are counted as approvals coming from
-       that user:
-
-
-
-
-      	- An IAM user in the account
-      	 (`arn:aws:iam::123456789012:user/Mary_Major`)
-      	- A federated user identified in IAM as Mary\_Major
-      	 (`arn:aws:sts::123456789012:federated-user/Mary_Major`)
+    - An IAM user in the account
+      (`arn:aws:iam::123456789012:user/Mary_Major`)
+    - A federated user identified in IAM as Mary\_Major
+      (`arn:aws:sts::123456789012:federated-user/Mary_Major`)
       This option would not recognize an active session of someone assuming the role of
-       `CodeCommitReview` with a role session name of Mary\_Major
-       (`arn:aws:sts::123456789012:assumed-role/CodeCommitReview/Mary_Major`)
-       unless you include a wildcard (`*Mary_Major`).
-      + **Fully qualified ARN**: This option allows you to specify the fully
-       qualified Amazon Resource Name (ARN) of the IAM user or role.
+      `CodeCommitReview` with a role session name of Mary\_Major
+      (`arn:aws:sts::123456789012:assumed-role/CodeCommitReview/Mary_Major`)
+      unless you include a wildcard (`*Mary_Major`).
 
-  For more information about IAM ARNs, wildcards, and formats, see [IAM
-  Identifiers](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns").
+  - **Fully qualified ARN**: This option allows you to specify the fully
+    qualified Amazon Resource Name (ARN) of the IAM user or role.
+    For more information about IAM ARNs, wildcards, and formats, see [IAM
+    Identifiers](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns").
 
 The
 following example creates an approval rule named `Require two approved approvers`

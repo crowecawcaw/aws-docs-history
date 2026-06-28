@@ -62,8 +62,8 @@ or reopen it. 5. In the pull request, choose **Changes**. 6. Do one of the follo
     ![Adding a comment on a line in a pull request.](images/codecommit-pull-request-comment.png)
 
 7. To reply to comments on a commit, in **Changes** or
-   **Activity**, choose **Reply**. You can
-   reply with text and with emojis.
+**Activity**, choose **Reply**. You can
+reply with text and with emojis.
 
 ![Adding replies and emoji reactions to a comment.](images/codecommit-commenting-commenttab.png)
 
@@ -148,44 +148,40 @@ You can also use emojis with comments in a pull request with the following comma
 **To use the AWS CLI to review pull requests in an
 CodeCommit repository**
 
-1.  To add a comment to a pull request
-    in a repository, run the **post-comment-for-pull-request**
-    command, specifying:
+1. To add a comment to a pull request
+   in a repository, run the **post-comment-for-pull-request**
+   command, specifying:
 
-        * The ID of the pull request (with the
-         **--pull-request-id** option).
-        * The name of the repository that contains the pull request (with the
-         **--repository-name** option).
-        * The full commit ID of the commit in the destination branch where the
-         pull request is merged (with the **--before-commit-id**
-         option).
-        * The full commit ID of the commit in the source branch that is the
-         current tip of the branch for the pull request when you post the comment
-         (with the **--after-commit-id** option).
-        * A unique, client-generated idempotency token (with the
-         **--client-request-token** option).
-        * The content of your comment (with the **--content**
-         option).
-        * A list of location information about where to place the comment,
-         including:
+   - The ID of the pull request (with the
+     **--pull-request-id** option).
+   - The name of the repository that contains the pull request (with the
+     **--repository-name** option).
+   - The full commit ID of the commit in the destination branch where the
+     pull request is merged (with the **--before-commit-id**
+     option).
+   - The full commit ID of the commit in the source branch that is the
+     current tip of the branch for the pull request when you post the comment
+     (with the **--after-commit-id** option).
+   - A unique, client-generated idempotency token (with the
+     **--client-request-token** option).
+   - The content of your comment (with the **--content**
+     option).
+   - A list of location information about where to place the comment,
+     including:
 
-
-
-
-        	+ The name of the file being compared, including its extension
-        	 and subdirectory, if any (with the **filePath**
-        	 attribute).
-        	+ The line number of the change in a compared file (with the
-        	 **filePosition** attribute).
-        	+ Whether the comment on the change is "before" or "after" in
-        	 the comparison between the source and destination branches (with
-        	 the **relativeFileVersion** attribute).
-
-    For example, use this command to add the comment `"These don't
+     - The name of the file being compared, including its extension
+       and subdirectory, if any (with the **filePath**
+       attribute).
+     - The line number of the change in a compared file (with the
+       **filePosition** attribute).
+     - Whether the comment on the change is "before" or "after" in
+       the comparison between the source and destination branches (with
+       the **relativeFileVersion** attribute).
+       For example, use this command to add the comment `"These don't
  appear to be used anywhere. Can we remove them?"` on the change
-    to the `ahs_count.py` file in a pull request with the
-    ID of `47` in a repository named
-    `MyDemoRepo`.
+       to the `ahs_count.py` file in a pull request with the
+       ID of `47` in a repository named
+       `MyDemoRepo`.
 
 ```
 aws codecommit post-comment-for-pull-request --pull-request-id "`47`" --repository-name `MyDemoRepo` --before-commit-id `317f8570EXAMPLE` --after-commit-id `5d036259EXAMPLE` --client-request-token `123Example` --content "`These don't appear to be used anywhere. Can we remove them?`" --location filePath=`ahs_count.py`,filePosition=`367`,relativeFileVersion=AFTER
@@ -220,21 +216,20 @@ If successful, this command produces output similar to the following.
  }
 ```
 
-2.  To view comments for a pull
-    request, run the **get-comments-for-pull-request** command,
-    specifying:
+2. To view comments for a pull
+   request, run the **get-comments-for-pull-request** command,
+   specifying:
 
-        * The name of the CodeCommit repository (with the
-         `--repository-name` option).
-        * The system-generated ID of the pull request (with the
-         `--pull-request-id` option).
-        * (Optional) An enumeration token to return the next batch of the
-         results (with the `--next-token` option).
-        * (Optional) A non-negative integer to limit the number of returned
-         results (with the `--max-results` option).
-
-    For example, use this command to view comments for a pull request with an ID
-    of 42.
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
+   - The system-generated ID of the pull request (with the
+     `--pull-request-id` option).
+   - (Optional) An enumeration token to return the next batch of the
+     results (with the `--next-token` option).
+   - (Optional) A non-negative integer to limit the number of returned
+     results (with the `--max-results` option).
+     For example, use this command to view comments for a pull request with an ID
+     of 42.
 
 ```
 aws codecommit get-comments-for-pull-request --pull-request-id 42
@@ -294,22 +289,21 @@ If successful, this command produces output similar to the following.
 }
 ```
 
-3.  To approve or revoke approval for a pull request, run the
-    **update-pull-request-approval-state** command,
-    specifying:
+3. To approve or revoke approval for a pull request, run the
+   **update-pull-request-approval-state** command,
+   specifying:
 
-        * The ID of the pull request (using the
-         **--pull-request-id** option).
-        * The revision ID of the pull request (using the **--revision-id
-         option)**. You can get the current revision ID for a pull
-         request by using the [get-pull-request](how-to-view-pull-request.md#get-pull-request "how-to-view-pull-request.md#get-pull-request") command.
-        * The approval state you want to apply (using the
-         **--approval-state**) option. Valid approval states
-         include `APPROVE` and `REVOKE`.
-
-    For example, use this command to approve a pull request with the ID of
-    `27` and a revision ID of
-    `9f29d167EXAMPLE`.
+   - The ID of the pull request (using the
+     **--pull-request-id** option).
+   - The revision ID of the pull request (using the **--revision-id
+     option)**. You can get the current revision ID for a pull
+     request by using the [get-pull-request](how-to-view-pull-request.md#get-pull-request "how-to-view-pull-request.md#get-pull-request") command.
+   - The approval state you want to apply (using the
+     **--approval-state**) option. Valid approval states
+     include `APPROVE` and `REVOKE`.
+     For example, use this command to approve a pull request with the ID of
+     `27` and a revision ID of
+     `9f29d167EXAMPLE`.
 
 ```
 aws codecommit update-pull-request-approval-state --pull-request-id `27` --revision-id `9f29d167EXAMPLE` --approval-state "APPROVE"

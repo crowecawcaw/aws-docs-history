@@ -164,17 +164,16 @@ For example, to view details about a CodeCommit repository named
 aws codecommit get-repository --repository-name MyDemoRepo
 ```
 
-2.  If successful, this command outputs a `repositoryMetadata` object with
-    the following information:
+2. If successful, this command outputs a `repositoryMetadata` object with
+   the following information:
 
-        * The repository's name (`repositoryName`).
-        * The repository's description (`repositoryDescription`).
-        * The repository's unique, system-generated ID
-         (`repositoryId`).
-        * The ID of the Amazon Web Services account associated with the repository
-         (`accountId`).
-
-    Here is some example output, based on the preceding example command:
+   - The repository's name (`repositoryName`).
+   - The repository's description (`repositoryDescription`).
+   - The repository's unique, system-generated ID
+     (`repositoryId`).
+   - The ID of the Amazon Web Services account associated with the repository
+     (`accountId`).
+     Here is some example output, based on the preceding example command:
 
 ```
 {
@@ -212,24 +211,20 @@ For example, to view details about two CodeCommit repositories named
 aws codecommit batch-get-repositories --repository-names MyDemoRepo MyOtherDemoRepo
 ```
 
-2.  If successful, this command outputs an object with the following information:
+2. If successful, this command outputs an object with the following information:
 
-        * A list of any CodeCommit repositories that could not be found
-         (`repositoriesNotFound`).
-        * A list of CodeCommit repositories (`repositories`). Each CodeCommit repository
-         name is followed by:
+   - A list of any CodeCommit repositories that could not be found
+     (`repositoriesNotFound`).
+   - A list of CodeCommit repositories (`repositories`). Each CodeCommit repository
+     name is followed by:
 
-
-
-
-        	+ The repository's description
-        	 (`repositoryDescription`).
-        	+ The repository's unique, system-generated ID
-        	 (`repositoryId`).
-        	+ The ID of the Amazon Web Services account associated with the repository
-        	 (`accountId`).
-
-    Here is some example output, based on the preceding example command:
+     - The repository's description
+       (`repositoryDescription`).
+     - The repository's unique, system-generated ID
+       (`repositoryId`).
+     - The ID of the Amazon Web Services account associated with the repository
+       (`accountId`).
+       Here is some example output, based on the preceding example command:
 
 ```
 {

@@ -48,14 +48,13 @@ CodeCommit repository**
   repository from `OPEN` to `CLOSED`, run the
   **update-pull-request-status** command, specifying:
 
-      + The ID of the pull request (with the **--pull-request-id**
-       option).
-      + The status of the pull request (with the **--pull-request-status**
-       option).
-
-  For example, to update the status of a pull request with the ID of
-  `42` to a status of `CLOSED` in a
-  CodeCommit repository named `MyDemoRepo`:
+  - The ID of the pull request (with the **--pull-request-id**
+    option).
+  - The status of the pull request (with the **--pull-request-status**
+    option).
+    For example, to update the status of a pull request with the ID of
+    `42` to a status of `CLOSED` in a
+    CodeCommit repository named `MyDemoRepo`:
 
 ```
 aws codecommit update-pull-request-status --pull-request-id `42` --pull-request-status `CLOSED`

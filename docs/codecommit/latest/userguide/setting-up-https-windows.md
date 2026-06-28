@@ -247,11 +247,11 @@ The Git credential helper writes the following to the .gitconfig file:
      run the configuration for each AWS credential profile.
 
 2. Run **git config --global --edit** to verify the preceding values have been written to the
-   .gitconfig file for your user profile (by default, `%HOME%\.gitconfig` or
-   ``drive`:\Users\`UserName`\.gitconfig`).
-   If successful, you should see the preceding values (in addition to values that might already exist in the Git
-   global configuration file). To exit, typically you would type `:q` and then press
-   Enter.
+.gitconfig file for your user profile (by default, `%HOME%\.gitconfig` or
+``drive`:\Users\`UserName`\.gitconfig`).
+If successful, you should see the preceding values (in addition to values that might already exist in the Git
+global configuration file). To exit, typically you would type `:q` and then press
+Enter.
 
 ## Step 4: Connect to the CodeCommit console and clone the repository
 

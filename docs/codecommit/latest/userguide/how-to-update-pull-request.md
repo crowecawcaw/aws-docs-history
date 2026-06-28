@@ -49,15 +49,14 @@ You might also be interested in the following commands:
 **To use the AWS CLI to update pull requests in a
 CodeCommit repository**
 
-1.  To update the title of a pull request in a
-    repository, run the **update-pull-request-title** command, specifying:
+1. To update the title of a pull request in a
+   repository, run the **update-pull-request-title** command, specifying:
 
-        * The ID of the pull request (with the **--pull-request-id**
-         option).
-        * The title of the pull request (with the **--title** option).
-
-    For example, to update the title of a pull request with the ID of
-    `47`:
+   - The ID of the pull request (with the **--pull-request-id**
+     option).
+   - The title of the pull request (with the **--title** option).
+     For example, to update the title of a pull request with the ID of
+     `47`:
 
 ```
 aws codecommit update-pull-request-title --pull-request-id `47` --title "`Consolidation of global variables - updated review`"

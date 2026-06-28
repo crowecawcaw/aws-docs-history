@@ -134,64 +134,57 @@ following command:
 nano /usr/local/git/etc/gitconfig
 ```
 
-3.  Modify the configuration using one of the following strategies:
+3. Modify the configuration using one of the following strategies:
 
-        * Comment out or delete the credential section that contains
-         `helper = osxkeychain`. For example:
+   - Comment out or delete the credential section that contains
+     `helper = osxkeychain`. For example:
 
+   ```
+   # helper = osxkeychain
+   ```
+   - Update both the `aws credential helper` and
+     `osxkeychain` credential helper sections to have context.
+     For example, if `osxkeychain` is used to authenticate to
+     GitHub:
 
+   ```
+   [credential "https://git-codecommit.us-east-1.amazonaws\.com"]
+     helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
+     UseHttpPath = true
+   [credential "https://github.com"]
+     helper = osxkeychain
+   ```
 
-        ```
-        # helper = osxkeychain
-        ```
-        * Update both the `aws credential helper` and
-         `osxkeychain` credential helper sections to have context.
-         For example, if `osxkeychain` is used to authenticate to
-         GitHub:
+   In this configuration, Git will use the `osxkeychain`
+   helper when the remote host matches "`https://github.com`"
+   and the credential helper when the remote host matches
+   "`https://git-codecommit\.us-east-1\.amazonaws.com`".
+   - Include an empty string helper before the credential helper. For
+     example, to not use the `osxkeychain` helper when using the
+     profile named `CodeCommitProfile` with the
+     CLI:
 
+   ```
+   [credential]
+     helper =
+     helper = !aws --profile `CodeCommitProfile` codecommit credential-helper $@
+     UseHttpPath = true
+   ```
 
+   ###### Tip
 
-        ```
-        [credential "https://git-codecommit.us-east-1.amazonaws\.com"]
-          helper = !aws --profile CodeCommitProfile codecommit credential-helper $@
-          UseHttpPath = true
-        [credential "https://github.com"]
-          helper = osxkeychain
-        ```
+   You could also configure the line following the empty string
+   helper line to not match CodeCommit if you want it to exclude all
+   profiles:
 
-        In this configuration, Git will use the `osxkeychain`
-         helper when the remote host matches "`https://github.com`"
-         and the credential helper when the remote host matches
-         "`https://git-codecommit\.us-east-1\.amazonaws.com`".
-        * Include an empty string helper before the credential helper. For
-         example, to not use the `osxkeychain` helper when using the
-         profile named `CodeCommitProfile` with the
-         CLI:
+   ```
+   helper = !aws codecommit credential-helper $@
+   ```
 
-
-
-        ```
-        [credential]
-          helper =
-          helper = !aws --profile `CodeCommitProfile` codecommit credential-helper $@
-          UseHttpPath = true
-        ```
-
-        ###### Tip
-
-        You could also configure the line following the empty string
-         helper line to not match CodeCommit if you want it to exclude all
-         profiles:
-
-
-        ```
-        helper = !aws codecommit credential-helper $@
-        ```
-
-    Alternatively, if you want to continue to use the Keychain Access utility to
-    cache credentials for other Git repositories, modify the header instead of
-    commenting out the line. For example, to allow cached credentials for GitHub,
-    you could modify the header as follows:
+Alternatively, if you want to continue to use the Keychain Access utility to
+cache credentials for other Git repositories, modify the header instead of
+commenting out the line. For example, to allow cached credentials for GitHub,
+you could modify the header as follows:
 
 ```
 [credential "https://github.com"]
@@ -284,31 +277,26 @@ for that Region. For more information, see [Step 1: Initial configuration for Co
   or another credential management utility and you do not want to uninstall it, you can modify your
   `.gitconfig` file and add credential management for CodeCommit:
 
-      1. Open **Control Panel**, choose **Credential Manager**,
-       and remove any stored credentials for CodeCommit.
-      2. Open your `.gitconfig` file in any plain-text editor, such as
-       Notepad.
+  1.  Open **Control Panel**, choose **Credential Manager**,
+      and remove any stored credentials for CodeCommit.
+  2.  Open your `.gitconfig` file in any plain-text editor, such as
+      Notepad.
 
+  ###### Note
 
-      ###### Note
+  If you work with multiple Git profiles, you might have both local and global
+  `.gitconfig` files. Be sure to edit the appropriate file. 3. Add the following section to your `.gitconfig` file:
 
-      If you work with multiple Git profiles, you might have both local and global
-       `.gitconfig` files. Be sure to edit the appropriate file.
-      3. Add the following section to your `.gitconfig` file:
-
-
-
-      ```
-      [credential "https://git-codecommit.*.amazonaws.com"]
-          helper = !aws codecommit credential-helper $@
-          UseHttpPath = true
-      ```
-      4. Save the file, and then open a new command line session before you attempt to connect
-       again.
-
-  You can also use this approach if you want to use the credential helper for AWS CodeCommit when you
-  connect to CodeCommit repositories and another credential management system when you connect to other
-  hosted repositories, such as GitHub repositories.
+  ```
+  [credential "https://git-codecommit.*.amazonaws.com"]
+      helper = !aws codecommit credential-helper $@
+      UseHttpPath = true
+  ```
+  4.  Save the file, and then open a new command line session before you attempt to connect
+      again.
+      You can also use this approach if you want to use the credential helper for AWS CodeCommit when you
+      connect to CodeCommit repositories and another credential management system when you connect to other
+      hosted repositories, such as GitHub repositories.
 
 To reset which credential helper is used as the default, you can use the
 **--system** option instead of **--global** or

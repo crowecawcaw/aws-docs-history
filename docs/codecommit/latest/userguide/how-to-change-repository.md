@@ -88,29 +88,27 @@ of the following commands:
 
 ### To change a CodeCommit repository's description
 
-1.  Run the **update-repository-description** command,
-    specifying:
+1. Run the **update-repository-description** command,
+   specifying:
 
-        * The name of the CodeCommit repository (with the
-         `--repository-name` option).
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
 
+   ###### Tip
 
-        ###### Tip
+   To get the name of the CodeCommit repository, run the
+   **[list-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli "how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli")** command.
+   - The new repository description (with the
+     `--repository-description`
+     option).
 
-        To get the name of the CodeCommit repository, run the
-         **[list-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli "how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli")** command.
-        * The new repository description (with the
-         `--repository-description`
-         option).
+   ###### Note
 
-         ###### Note
-
-        The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters.
-        If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display
-        the repository description field in a web browser, see the [CodeCommit API Reference](../APIReference.md "../APIReference.md").
-
-    For example, to change the description for the CodeCommit repository named
-    `MyDemoRepo` to `This description was
+   The description field displays Markdown in the console and accepts all HTML characters and valid Unicode characters.
+   If you are an application developer who is using the `GetRepository` or `BatchGetRepositories` APIs and you plan to display
+   the repository description field in a web browser, see the [CodeCommit API Reference](../APIReference.md "../APIReference.md").
+   For example, to change the description for the CodeCommit repository named
+   `MyDemoRepo` to `This description was
  changed`:
 
 ```
@@ -127,22 +125,20 @@ The output of the command shows the changed text in
 
 ### To change a CodeCommit repository's name
 
-1.  Run the **update-repository-name** command,
-    specifying:
+1. Run the **update-repository-name** command,
+   specifying:
 
-        * The current name of the CodeCommit repository (with the
-         `--old-name` option).
+   - The current name of the CodeCommit repository (with the
+     `--old-name` option).
 
+   ###### Tip
 
-        ###### Tip
-
-        To get the CodeCommit repository's name, run the [list-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli "how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli")
-         command.
-        * The new name of the CodeCommit repository (with the
-         `--new-name` option).
-
-    For example, to change the repository named `MyDemoRepo`
-    to `MyRenamedDemoRepo`:
+   To get the CodeCommit repository's name, run the [list-repositories](how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli "how-to-view-repository-details.md#how-to-view-repository-details-no-name-cli")
+   command.
+   - The new name of the CodeCommit repository (with the
+     `--new-name` option).
+     For example, to change the repository named `MyDemoRepo`
+     to `MyRenamedDemoRepo`:
 
 ```
 aws codecommit update-repository-name --old-name MyDemoRepo --new-name MyRenamedDemoRepo

@@ -39,21 +39,21 @@ branch, and then choose it from the list. 4. Choose **Add file**, and then choos
      file**.
 
 5. Provide information to other users about who added this file to the repository and
-   why.
+why.
 
-   - In **Author name**, enter your name. This name is used as both
+    * In **Author name**, enter your name. This name is used as both
      the author name and the committer name in the commit information. CodeCommit defaults to
      using your IAM user name or a derivation of your console login as the author
      name.
-   - In **Email address**, enter an email address so that other
+    * In **Email address**, enter an email address so that other
      repository users can contact you about this change.
-   - In **Commit message**, enter a brief description. This is
+    * In **Commit message**, enter a brief description. This is
      optional, but highly recommended. Otherwise, a default commit message is used.
 
 6. Do one of the following:
 
-   - If you are uploading a file, choose the file from your local computer.
-   - If you are creating a file, enter the content you want to add in the code editor,
+    * If you are uploading a file, choose the file from your local computer.
+    * If you are creating a file, enter the content you want to add in the code editor,
      and provide a name for the file.
 
 7. Choose **Commit changes**.
@@ -71,26 +71,25 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI. For more informati
 
 ###### To add a file to a repository
 
-1.  On your local computer, create the file you want to add to the CodeCommit
-    repository.
-2.  At the terminal or command line, run the **put-file** command,
-    specifying:
+1. On your local computer, create the file you want to add to the CodeCommit
+   repository.
+2. At the terminal or command line, run the **put-file** command,
+   specifying:
 
-        * The repository where you want to add the file.
-        * The branch where you want to add the file.
-        * The full commit ID of the most recent commit made to that branch, also known as
-         the tip or head commit.
-        * The local location of the file. The syntax used for this location varies,
-         depending on your local operating system.
-        * The name of the file you want to add, including the path where the updated file is
-         stored in the repository, if any.
-        * The user name and email you want associated with this file.
-        * A commit message that explains why you added this file.
-
-    The user name, email address, and commit message are optional, but help other users
-    know who made the change and why. If you do not supply a user name, CodeCommit defaults to
-    using your IAM user name or a derivation of your console login as the author
-    name.
+   - The repository where you want to add the file.
+   - The branch where you want to add the file.
+   - The full commit ID of the most recent commit made to that branch, also known as
+     the tip or head commit.
+   - The local location of the file. The syntax used for this location varies,
+     depending on your local operating system.
+   - The name of the file you want to add, including the path where the updated file is
+     stored in the repository, if any.
+   - The user name and email you want associated with this file.
+   - A commit message that explains why you added this file.
+     The user name, email address, and commit message are optional, but help other users
+     know who made the change and why. If you do not supply a user name, CodeCommit defaults to
+     using your IAM user name or a derivation of your console login as the author
+     name.
 
 For example, to add a file named `ExampleSolution.py` to a
 repository named `MyDemoRepo` to a branch named

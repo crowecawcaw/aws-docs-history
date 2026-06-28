@@ -91,7 +91,7 @@ comment with an emoji, choose the emoji you want from the list. You can only cho
 emoji per comment. If you want to change your emoji reaction, choose a different one
 from the list, or choose **None** to remove your reaction.
 
-![Adding replies and emoji reactions to a comment.](images/codecommit-commenting-commenttab.png)
+![Adding replies and emoji reactions to a comment.](/images/codecommit/latest/userguide/images/codecommit-commenting-commenttab.png)
 
 ### Add and reply to comments when comparing two commit specifiers
 
@@ -105,7 +105,7 @@ You can add comments to a comparison between branches, tags, or commits.
 3. In the navigation pane, choose **Commits**, and then choose the
    **Compare commits** tab.
 
-![Compare any two commit specifiers](/images/codecommit/latest/userguide/images/codecommit-compare-1.png) 4. Use the **Destination** and **Source** fields to compare two
+![Compare any two commit specifiers](images/codecommit-compare-1.png) 4. Use the **Destination** and **Source** fields to compare two
 commit specifiers. Use the drop-down lists or paste in commit IDs. Choose **Compare**.
 
 ![A sample result when comparing a commit ID to a branch](images/codecommit-compare-4.png) 5. Do one or more of the following:
@@ -131,22 +131,21 @@ following commands:
 
 ### To view comments on a commit
 
-1.  Run the **get-comments-for-compared-commit** command,
-    specifying:
+1. Run the **get-comments-for-compared-commit** command,
+   specifying:
 
-        * The name of the CodeCommit repository (with the
-         `--repository-name` option).
-        * The full commit ID of the after commit, to establish the directionality of the
-         comparison (with the `--after-commit-id option`).
-        * The full commit ID of the before commit, to establish the directionality of the
-         comparison (with the `--before-commit-id` option).
-        * (Optional) An enumeration token to return the next batch of the results (with
-         the `--next-token` option).
-        * (Optional) A non-negative integer to limit the number of returned results (with
-         the `--max-results` option).
-
-    For example, to view comments made on the comparison between two commits in a
-    repository named `MyDemoRepo`:
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
+   - The full commit ID of the after commit, to establish the directionality of the
+     comparison (with the `--after-commit-id option`).
+   - The full commit ID of the before commit, to establish the directionality of the
+     comparison (with the `--before-commit-id` option).
+   - (Optional) An enumeration token to return the next batch of the results (with
+     the `--next-token` option).
+   - (Optional) A non-negative integer to limit the number of returned results (with
+     the `--max-results` option).
+     For example, to view comments made on the comparison between two commits in a
+     repository named `MyDemoRepo`:
 
 ```
 aws codecommit get-comments-for-compared-commit --repository-name `MyDemoRepo` --before-commit-id `6e147360EXAMPLE` --after-commit-id `317f8570EXAMPLE`
@@ -274,37 +273,33 @@ AWSCodeCommitFullAccess policy applied, or if you have the
 
 ### To create a comment on a commit
 
-1.  Run the **post-comment-for-compared-commit** command,
-    specifying:
+1. Run the **post-comment-for-compared-commit** command,
+   specifying:
 
-        * The name of the CodeCommit repository (with the
-         `--repository-name` option).
-        * The full commit ID of the after commit, to establish the directionality of the
-         comparison (with the `--after-commit-id` option).
-        * The full commit ID of the before commit, to establish the directionality of the
-         comparison (with the `--before-commit-id` option).
-        * A unique, client-generated idempotency token (with the
-         **--client-request-token** option).
-        * The content of your comment (with the **--content**
-         option).
-        * A list of location information about where to place the comment,
-         including:
+   - The name of the CodeCommit repository (with the
+     `--repository-name` option).
+   - The full commit ID of the after commit, to establish the directionality of the
+     comparison (with the `--after-commit-id` option).
+   - The full commit ID of the before commit, to establish the directionality of the
+     comparison (with the `--before-commit-id` option).
+   - A unique, client-generated idempotency token (with the
+     **--client-request-token** option).
+   - The content of your comment (with the **--content**
+     option).
+   - A list of location information about where to place the comment,
+     including:
 
-
-
-
-        	+ The name of the file being compared, including its extension and
-        	 subdirectory, if any (with the **filePath** attribute).
-        	+ The line number of the change within a compared file (with the
-        	 **filePosition** attribute).
-        	+ Whether the comment on the change is before or after in the comparison
-        	 between the source and destination branches (with the
-        	 **relativeFileVersion** attribute).
-
-    For example, to add the comment `"Can you add a test case for
+     - The name of the file being compared, including its extension and
+       subdirectory, if any (with the **filePath** attribute).
+     - The line number of the change within a compared file (with the
+       **filePosition** attribute).
+     - Whether the comment on the change is before or after in the comparison
+       between the source and destination branches (with the
+       **relativeFileVersion** attribute).
+       For example, to add the comment `"Can you add a test case for
  this?"` on the change to the `cl_sample.js` file
-    in the comparison between two commits in a repository named
-    `MyDemoRepo`:
+       in the comparison between two commits in a repository named
+       `MyDemoRepo`:
 
 ```
 aws codecommit post-comment-for-compared-commit --repository-name MyDemoRepo --before-commit-id 317f8570EXAMPLE --after-commit-id 5d036259EXAMPLE --client-request-token 123Example --content "Can you add a test case for this?" --location filePath=cl_sample.js,filePosition=1232,relativeFileVersion=AFTER
@@ -384,7 +379,7 @@ aws codecommit update-comment --comment-id `442b498bEXAMPLE5756813` --content "F
      **--client-request-token** option).
    - The content of your reply (with the **--content** option).
      For example, to add the reply `"Good catch. I'll remove
-them."` to the comment with the system-generated ID of
+ them."` to the comment with the system-generated ID of
      `abcd1234EXAMPLEb5678efgh`:
 
 ```
@@ -423,21 +418,21 @@ aws codecommit post-comment-reply --in-reply-to `abcd1234EXAMPLEb5678efgh` --con
 
 The following values are supported for emojis in CodeCommit:
 
-| Emoji | Shortcode       | Unicode |
-| ----- | --------------- | ------- |
-| 👍    | :thumbsup:      | U+1F44D |
-| 👎    | :thumbsdown:    | U+1F44E |
-| 😄    | :smile:         | U+1F604 |
-| ❤     | :heart:         | U+2764  |
-| 😠    | :angry:         | U+1F620 |
-| 😕    | :confused:      | U+1F615 |
-| 😱    | :scream:        | U+1F631 |
-| 😭    | :sob:           | U+1F62D |
-| 👏    | :clap:          | U+1F44F |
-| 🎊    | :confetti_ball: | U+1F38A |
-| 🚢    | :ship:          | U+1F6A2 |
-| 👀    | :eyes:          | U+1F440 |
-|       | none            | U+0000  |
+| Emoji | Shortcode        | Unicode |
+| ----- | ---------------- | ------- |
+| 👍    | :thumbsup:       | U+1F44D |
+| 👎    | :thumbsdown:     | U+1F44E |
+| 😄    | :smile:          | U+1F604 |
+| ❤     | :heart:          | U+2764  |
+| 😠    | :angry:          | U+1F620 |
+| 😕    | :confused:       | U+1F615 |
+| 😱    | :scream:         | U+1F631 |
+| 😭    | :sob:            | U+1F62D |
+| 👏    | :clap:           | U+1F44F |
+| 🎊    | :confetti\_ball: | U+1F38A |
+| 🚢    | :ship:           | U+1F6A2 |
+| 👀    | :eyes:           | U+1F440 |
+|       | none             | U+0000  |
 
 For example, to add the emoji `:thumbsup:` to the comment
 with the system-generated ID of `abcd1234EXAMPLEb5678efgh`:

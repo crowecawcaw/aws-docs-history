@@ -96,88 +96,80 @@ You must configure your local computer to use the access credentials by
 installing [**git-remote-codecommit**](https://pypi.org/project/git-remote-codecommit/ "https://pypi.org/project/git-remote-codecommit/") and
 configuring a profile in the AWS CLI.
 
-1.  Follow the instructions in [Setting up](setting-up.md "setting-up.md") to set up the AWS CLI. Use the **aws
-    configure** command to configure one or more profiles. Consider
-    creating a named profile to use when you connect to CodeCommit repositories using
-    rotating credentials.
-2.  You can associate the credentials with the user's AWS CLI named profile in one of the following
-    ways.
+1. Follow the instructions in [Setting up](setting-up.md "setting-up.md") to set up the AWS CLI. Use the **aws
+   configure** command to configure one or more profiles. Consider
+   creating a named profile to use when you connect to CodeCommit repositories using
+   rotating credentials.
+2. You can associate the credentials with the user's AWS CLI named profile in one of the following
+   ways.
 
-        * If you are assuming a role to access CodeCommit,
-         configure a named profile with the information required to assume that
-         role. For example, if you want to assume a role named
-         `CodeCommitAccess` in the Amazon Web Services account
-         111111111111, you can configure a default profile to use when
-         working with other AWS resources and a named profile to use when
-         assuming that role. The following commands create a named profile named
-         `CodeAccess` that assumes a role named
-         `CodeCommitAccess`. The user name
-         `Maria_Garcia`
-         is associated with the session and the default profile is set as the
-         source of its AWS credentials:
+   - If you are assuming a role to access CodeCommit,
+     configure a named profile with the information required to assume that
+     role. For example, if you want to assume a role named
+     `CodeCommitAccess` in the Amazon Web Services account
+     111111111111, you can configure a default profile to use when
+     working with other AWS resources and a named profile to use when
+     assuming that role. The following commands create a named profile named
+     `CodeAccess` that assumes a role named
+     `CodeCommitAccess`. The user name
+     `Maria_Garcia`
+     is associated with the session and the default profile is set as the
+     source of its AWS credentials:
 
+   ```
+   aws configure set role_arn arn:aws:iam::111111111111:role/`CodeCommitAccess` --profile `CodeAccess`
+   aws configure set source_profile default --profile `CodeAccess`
+   aws configure set role_session_name "`Maria_Garcia`" --profile `CodeAccess`
+   ```
 
+   If you want to verify the changes, manually view or edit the
+   `~/.aws/config` file (for Linux) or the
+   `%UserProfile%.aws\config` file (for Windows) and review the
+   information under the named profile. For example, your file might look similar to the
+   following:
 
-        ```
-        aws configure set role_arn arn:aws:iam::111111111111:role/`CodeCommitAccess` --profile `CodeAccess`
-        aws configure set source_profile default --profile `CodeAccess`
-        aws configure set role_session_name "`Maria_Garcia`" --profile `CodeAccess`
-        ```
+   ```
+   [default]
+   region = us-east-1
+   output = json
 
-        If you want to verify the changes, manually view or edit the
-         `~/.aws/config` file (for Linux) or the
-         `%UserProfile%.aws\config` file (for Windows) and review the
-         information under the named profile. For example, your file might look similar to the
-         following:
+   [profile CodeAccess]
+   source_profile = default
+   role_session_name = Maria_Garcia
+   role_arn = arn:aws:iam::111111111111:role/`CodeCommitAccess`
+   ```
 
+   After you have configured your named profile, you can then clone
+   CodeCommit repositories with the **git-remote-codecommit**
+   utility using the named profile. For example, to clone a repository
+   named `MyDemoRepo`:
 
+   ```
+   git clone codecommit://`CodeAccess`@`MyDemoRepo`
+   ```
+   - If you are using web identity federation and OpenID Connect (OIDC),
+     configure a named profile that makes the AWS Security Token Service (AWS STS)
+     `AssumeRoleWithWebIdentity` API call on your behalf to
+     refresh temporary credentials. Use the **aws configure
+     set** command or manually edit the
+     `~/.aws/credentials` file (for Linux) or the
+     `%UserProfile%.aws\credentials` file (for
+     Windows) to add an AWS CLI named profile with the required setting values.
+     For example, to create a profile that assumes the
+     `CodeCommitAccess` role and uses a web
+     identity token file
+     ~/`my-credentials``/my-token-file`:
 
-        ```
-        [default]
-        region = us-east-1
-        output = json
+   ```
+   [`CodeCommitWebIdentity`]
+   role_arn = arn:aws:iam::111111111111:role/`CodeCommitAccess`
+   web_identity_token_file=`~/`my-credentials``/my-token-file``
+   role_session_name = Maria_Garcia
+   ```
 
-        [profile CodeAccess]
-        source_profile = default
-        role_session_name = Maria_Garcia
-        role_arn = arn:aws:iam::111111111111:role/`CodeCommitAccess`
-        ```
-
-         After you have configured your named profile, you can then clone
-         CodeCommit repositories with the **git-remote-codecommit**
-         utility using the named profile. For example, to clone a repository
-         named `MyDemoRepo`:
-
-
-
-        ```
-        git clone codecommit://`CodeAccess`@`MyDemoRepo`
-        ```
-        * If you are using web identity federation and OpenID Connect (OIDC),
-         configure a named profile that makes the AWS Security Token Service (AWS STS)
-         `AssumeRoleWithWebIdentity` API call on your behalf to
-         refresh temporary credentials. Use the **aws configure
-         set** command or manually edit the
-         `~/.aws/credentials` file (for Linux) or the
-         `%UserProfile%.aws\credentials` file (for
-         Windows) to add an AWS CLI named profile with the required setting values.
-         For example, to create a profile that assumes the
-         `CodeCommitAccess` role and uses a web
-         identity token file
-         ~/`my-credentials``/my-token-file`:
-
-
-
-        ```
-        [`CodeCommitWebIdentity`]
-        role_arn = arn:aws:iam::111111111111:role/`CodeCommitAccess`
-        web_identity_token_file=`~/`my-credentials``/my-token-file``
-        role_session_name = Maria_Garcia
-        ```
-
-    For more information, see [Configuring the
-    AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") and [Using an IAM Role in
-    the AWS CLI](../../../cli/latest/userguide/cli-configure-role.md "../../../cli/latest/userguide/cli-configure-role.md") in the _AWS Command Line Interface User Guide_.
+For more information, see [Configuring the
+AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") and [Using an IAM Role in
+the AWS CLI](../../../cli/latest/userguide/cli-configure-role.md "../../../cli/latest/userguide/cli-configure-role.md") in the _AWS Command Line Interface User Guide_.
 
 ## Step 4: Access the CodeCommit repositories
 

@@ -39,7 +39,7 @@ want to edit or delete from the list. Do one of the following:
      instructions for verifying the deletion of the rule.
 
 6. In **Edit approval rule**, make the changes you want to the rule, and
-   then choose **Submit**.
+then choose **Submit**.
 
 ![Editing an approval rule](images/codecommit-pull-request-edit-rule.png) 7. When you have finished configuring the approval rule, choose
 **Submit**.
@@ -66,34 +66,32 @@ You might also be interested in the following commands:
 **To use the AWS CLI to edit or delete an approval rule for a pull
 request in a CodeCommit repository**
 
-1.  To edit an approval rule, run the
-    **update-pull-request-approval-rule-content** command, specifying:
+1. To edit an approval rule, run the
+   **update-pull-request-approval-rule-content** command, specifying:
 
-        * The ID of the pull request (with the **--id** option).
-        * The name of the approval rule (with the **--approval-rule-name**
-         option).
-        * The content of the approval rule (with the
-         **--approval-rule-content** option).
-
-    This example updates an approval rule named `Require two approved
+   - The ID of the pull request (with the **--id** option).
+   - The name of the approval rule (with the **--approval-rule-name**
+     option).
+   - The content of the approval rule (with the
+     **--approval-rule-content** option).
+     This example updates an approval rule named `Require two approved
  approvers` for a pull request with the ID of `27`.
-    The rule requires one user approval from an approval pool that includes any IAM user in
-    the `123456789012` Amazon Web Services account:
+     The rule requires one user approval from an approval pool that includes any IAM user in
+     the `123456789012` Amazon Web Services account:
 
 ```
 aws codecommit update-pull-request-approval-rule-content --pull-request-id `27` --approval-rule-name "`Require two approved approvers`" --approval-rule-content "{Version: 2018-11-08, Statements: [{Type: \"Approvers\", NumberOfApprovalsNeeded: 1, ApprovalPoolMembers:[\"CodeCommitApprovers:`123456789012`:user/*\"]}]}}"
 ```
 
-2.  To delete an approval rule, run the
-    **delete-pull-request-approval-rule** command, specifying:
+2. To delete an approval rule, run the
+   **delete-pull-request-approval-rule** command, specifying:
 
-        * The ID of the pull request (with the **--id** option).
-        * The name of the approval rule (with the **--approval-rule-name**
-         option).
-
-    For example, to delete an approval rule with the name `My Approval
+   - The ID of the pull request (with the **--id** option).
+   - The name of the approval rule (with the **--approval-rule-name**
+     option).
+     For example, to delete an approval rule with the name `My Approval
  Rule` for a pull request with the ID of
-    `15`:
+     `15`:
 
 ```
 aws codecommit delete-pull-request-approval-rule --pull-request-id `15` --approval-rule-name "`My Approval Rule`"

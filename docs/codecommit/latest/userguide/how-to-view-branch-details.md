@@ -116,15 +116,14 @@ Here is some example output based on the preceding example command:
 
 ### To view information about a branch
 
-1.  Run the **get-branch** command, specifying:
+1. Run the **get-branch** command, specifying:
 
-        * The repository name (with the **--repository-name**
-         option).
-        * The branch name (with the **--branch-name** option).
-
-    For example, to view information about a branch named
-    `MyNewBranch` in a CodeCommit repository named
-    `MyDemoRepo`:
+   - The repository name (with the **--repository-name**
+     option).
+   - The branch name (with the **--branch-name** option).
+     For example, to view information about a branch named
+     `MyNewBranch` in a CodeCommit repository named
+     `MyDemoRepo`:
 
 ```
 aws codecommit get-branch --repository-name MyDemoRepo --branch-name MyNewBranch

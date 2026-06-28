@@ -56,30 +56,27 @@ CodeCommit repository**
 
 - Run the **create-pull-request** command, specifying:
 
-      + The name of the pull request (with the **--title** option).
-      + The description of the pull request (with the **--description**
-       option).
-      + A list of targets for the **create-pull-request** command,
-       including:
+  - The name of the pull request (with the **--title** option).
+  - The description of the pull request (with the **--description**
+    option).
+  - A list of targets for the **create-pull-request** command,
+    including:
 
+    - The name of the CodeCommit repository where the pull request is created (with the
+      **repositoryName** attribute).
+    - The name of the branch that contains the code changes you want reviewed, also known as
+      the source branch (with the **sourceReference** attribute).
+    - (Optional) The name of the branch where you intend to merge your code changes, also
+      known as the destination branch, if you do not want to merge to the default branch (with
+      the **destinationReference** attribute).
 
-
-
-      	- The name of the CodeCommit repository where the pull request is created (with the
-      	 **repositoryName** attribute).
-      	- The name of the branch that contains the code changes you want reviewed, also known as
-      	 the source branch (with the **sourceReference** attribute).
-      	- (Optional) The name of the branch where you intend to merge your code changes, also
-      	 known as the destination branch, if you do not want to merge to the default branch (with
-      	 the **destinationReference** attribute).
-      + A unique, client-generated idempotency token (with the
-       **--client-request-token** option).
-
-  This example creates a pull request named `Pronunciation difficulty
+  - A unique, client-generated idempotency token (with the
+    **--client-request-token** option).
+    This example creates a pull request named `Pronunciation difficulty
  analyzer` with a description of `Please review these changes by
  Tuesday` that targets the `jane-branch` source branch.
-  The pull request is to be merged into the default branch `main` in a
-  CodeCommit repository named `MyDemoRepo`:
+    The pull request is to be merged into the default branch `main` in a
+    CodeCommit repository named `MyDemoRepo`:
 
 ```
 aws codecommit create-pull-request --title "`Pronunciation difficulty analyzer`" --description "`Please review these changes by Tuesday`" --client-request-token 123Example --targets repositoryName=MyDemoRepo,sourceReference=jane-branch
