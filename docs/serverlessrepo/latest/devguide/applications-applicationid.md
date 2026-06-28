@@ -12,22 +12,22 @@
 
 Gets the specified application.
 
-| Path parameters | Name   | Type | Required                                           | Description |
-| --------------- | ------ | ---- | -------------------------------------------------- | ----------- |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
 | `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
 
-| Query parameters  | Name   | Type  | Required                                        | Description |
-| ----------------- | ------ | ----- | ----------------------------------------------- | ----------- |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
 | `semanticVersion` | String | False | The semantic version of the application to get. |
 
-| Responses | Status code                    | Response model                                                                                 | Description |
-| --------- | ------------------------------ | ---------------------------------------------------------------------------------------------- | ----------- |
-| `200`     | `Application`                  | Success                                                                                        |
-| `400`     | `BadRequestException`          | One of the parameters in the request is invalid.                                               |
-| `403`     | `ForbiddenException`           | The client is not authenticated.                                                               |
-| `404`     | `NotFoundException`            | The resource (for example, an access policy statement) specified in the request doesn't exist. |
-| `429`     | `TooManyRequestsException`     | The client is sending more than the allowed number of requests per unit of time.               |
-| `500`     | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error.               |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `Application` | Success |
+| `400` | `BadRequestException` | One of the parameters in the request is invalid. |
+| `403` | `ForbiddenException` | The client is not authenticated. |
+| `404` | `NotFoundException` | The resource (for example, an access policy statement) specified in the request doesn't exist. |
+| `429` | `TooManyRequestsException` | The client is sending more than the allowed number of requests per unit of time. |
+| `500` | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
 
 ### DELETE
 
@@ -35,29 +35,29 @@ Gets the specified application.
 
 Deletes the specified application.
 
-| Path parameters | Name   | Type | Required                                           | Description |
-| --------------- | ------ | ---- | -------------------------------------------------- | ----------- |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
 | `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
 
-| Responses | Status code                    | Response model                                                                                 | Description |
-| --------- | ------------------------------ | ---------------------------------------------------------------------------------------------- | ----------- |
-| `204`     | None                           | Success                                                                                        |
-| `400`     | `BadRequestException`          | One of the parameters in the request is invalid.                                               |
-| `403`     | `ForbiddenException`           | The client is not authenticated.                                                               |
-| `404`     | `NotFoundException`            | The resource (for example, an access policy statement) specified in the request doesn't exist. |
-| `409`     | `ConflictException`            | The resource already exists.                                                                   |
-| `429`     | `TooManyRequestsException`     | The client is sending more than the allowed number of requests per unit of time.               |
-| `500`     | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error.               |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `204` | None | Success |
+| `400` | `BadRequestException` | One of the parameters in the request is invalid. |
+| `403` | `ForbiddenException` | The client is not authenticated. |
+| `404` | `NotFoundException` | The resource (for example, an access policy statement) specified in the request doesn't exist. |
+| `409` | `ConflictException` | The resource already exists. |
+| `429` | `TooManyRequestsException` | The client is sending more than the allowed number of requests per unit of time. |
+| `500` | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
 
 ### OPTIONS
 
-| Path parameters | Name   | Type | Required                                           | Description |
-| --------------- | ------ | ---- | -------------------------------------------------- | ----------- |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
 | `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ### PATCH
 
@@ -65,19 +65,19 @@ Deletes the specified application.
 
 Updates the specified application.
 
-| Path parameters | Name   | Type | Required                                           | Description |
-| --------------- | ------ | ---- | -------------------------------------------------- | ----------- |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
 | `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
 
-| Responses | Status code                    | Response model                                                                                 | Description |
-| --------- | ------------------------------ | ---------------------------------------------------------------------------------------------- | ----------- |
-| `200`     | `Application`                  | Success                                                                                        |
-| `400`     | `BadRequestException`          | One of the parameters in the request is invalid.                                               |
-| `403`     | `ForbiddenException`           | The client is not authenticated.                                                               |
-| `404`     | `NotFoundException`            | The resource (for example, an access policy statement) specified in the request doesn't exist. |
-| `409`     | `ConflictException`            | The resource already exists.                                                                   |
-| `429`     | `TooManyRequestsException`     | The client is sending more than the allowed number of requests per unit of time.               |
-| `500`     | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error.               |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `Application` | Success |
+| `400` | `BadRequestException` | One of the parameters in the request is invalid. |
+| `403` | `ForbiddenException` | The client is not authenticated. |
+| `404` | `NotFoundException` | The resource (for example, an access policy statement) specified in the request doesn't exist. |
+| `409` | `ConflictException` | The resource already exists. |
+| `429` | `TooManyRequestsException` | The client is sending more than the allowed number of requests per unit of time. |
+| `500` | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
 
 ## Schemas
 
@@ -199,7 +199,7 @@ Updates the specified application.
 Details about the application.
 
 | Property            | Type                                                                                             | Required | Description                                                                                                                                                                                                                                                                           |
-| ------------------- | ------------------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| ------------------- | ------------------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `applicationId`     | string                                                                                           | True     | The application Amazon Resource Name (ARN).                                                                                                                                                                                                                                           |
 | `author`            | string                                                                                           | True     | The name of the author publishing the app.Minimum length=1. Maximum length=127.Pattern "^[a-z0-9](([a-z0-9]                                                                                                                                                                           | -(?!-))\*[a-z0-9])?$"; |
 | `creationTime`      | string                                                                                           | False    | The date and time this resource was created.                                                                                                                                                                                                                                          |
@@ -273,7 +273,7 @@ The resource (for example, an access policy statement) specified in the request 
 Parameters supported by the application.
 
 | Property                | Type                 | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------------------- | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `allowedPattern`        | string               | False    | A regular expression that represents the patterns to allow for `String` types.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `allowedValues`         | Array of type string | False    | An array containing the list of values allowed for the parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `constraintDescription` | string               | False    | A string that explains a constraint when the constraint is violated. For example, without a constraint<br>description, a parameter that has an allowed pattern of `[A-Za-z0-9]+` displays the following error<br>message when the user specifies an invalid value:<br>`Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+`<br>By adding a constraint description, such as "must contain only uppercase and lowercase letters and numbers,"<br>you can display the following customized error message:<br>`Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers.` |
@@ -302,7 +302,7 @@ The client is sending more than the allowed number of requests per unit of time.
 Update the application request.
 
 | Property      | Type                 | Required | Description                                                                                                                                                   |
-| ------------- | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| ------------- | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `author`      | string               | False    | The name of the author publishing the app.Minimum length=1. Maximum length=127.Pattern "^[a-z0-9](([a-z0-9]                                                   | -(?!-))\*[a-z0-9])?$"; |
 | `description` | string               | False    | The description of the application.Minimum length=1. Maximum length=256                                                                                       |
 | `homePageUrl` | string               | False    | A URL with more information about the application, for example the location of your GitHub repository for the<br>application.                                 |

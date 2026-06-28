@@ -12,18 +12,18 @@
 
 Retrieves the policy for the application.
 
-| Path parameters | Name   | Type | Required                                           | Description |
-| --------------- | ------ | ---- | -------------------------------------------------- | ----------- |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
 | `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
 
-| Responses | Status code                    | Response model                                                                                 | Description |
-| --------- | ------------------------------ | ---------------------------------------------------------------------------------------------- | ----------- |
-| `200`     | `ApplicationPolicy`            | Success                                                                                        |
-| `400`     | `BadRequestException`          | One of the parameters in the request is invalid.                                               |
-| `403`     | `ForbiddenException`           | The client is not authenticated.                                                               |
-| `404`     | `NotFoundException`            | The resource (for example, an access policy statement) specified in the request doesn't exist. |
-| `429`     | `TooManyRequestsException`     | The client is sending more than the allowed number of requests per unit of time.               |
-| `500`     | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error.               |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `ApplicationPolicy` | Success |
+| `400` | `BadRequestException` | One of the parameters in the request is invalid. |
+| `403` | `ForbiddenException` | The client is not authenticated. |
+| `404` | `NotFoundException` | The resource (for example, an access policy statement) specified in the request doesn't exist. |
+| `429` | `TooManyRequestsException` | The client is sending more than the allowed number of requests per unit of time. |
+| `500` | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
 
 ### PUT
 
@@ -33,28 +33,28 @@ Sets the permission policy for an application. For the list of actions supported
 [Application
 Permissions](access-control-resource-based.md#application-permissions "access-control-resource-based.md#application-permissions") .
 
-| Path parameters | Name   | Type | Required                                           | Description |
-| --------------- | ------ | ---- | -------------------------------------------------- | ----------- |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
 | `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
 
-| Responses | Status code                    | Response model                                                                                 | Description |
-| --------- | ------------------------------ | ---------------------------------------------------------------------------------------------- | ----------- |
-| `200`     | `ApplicationPolicy`            | Success                                                                                        |
-| `400`     | `BadRequestException`          | One of the parameters in the request is invalid.                                               |
-| `403`     | `ForbiddenException`           | The client is not authenticated.                                                               |
-| `404`     | `NotFoundException`            | The resource (for example, an access policy statement) specified in the request doesn't exist. |
-| `429`     | `TooManyRequestsException`     | The client is sending more than the allowed number of requests per unit of time.               |
-| `500`     | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error.               |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `ApplicationPolicy` | Success |
+| `400` | `BadRequestException` | One of the parameters in the request is invalid. |
+| `403` | `ForbiddenException` | The client is not authenticated. |
+| `404` | `NotFoundException` | The resource (for example, an access policy statement) specified in the request doesn't exist. |
+| `429` | `TooManyRequestsException` | The client is sending more than the allowed number of requests per unit of time. |
+| `500` | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
 
 ### OPTIONS
 
-| Path parameters | Name   | Type | Required                                           | Description |
-| --------------- | ------ | ---- | -------------------------------------------------- | ----------- |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
 | `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 

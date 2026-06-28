@@ -80,7 +80,7 @@ sam init --runtime python3.6
 
      - `hello_world/` directory –
        Contains the application code, which returns `hello
-world` when you run it.
+   world` when you run it.
 
 ###### Note
 
@@ -124,7 +124,7 @@ making a simple modification: change the message string that's returned.
 
 1. Edit the `/hello_world/app.py` file to change the message
    string from `'hello world'` to `'Hello
-World!'`.
+ World!'`.
 2. Reload the test URL in your browser and observe the new string.
 
 You will notice that your new code is loaded dynamically, without your having restart

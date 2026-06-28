@@ -12,30 +12,30 @@
 
 Creates an application version.
 
-| Path parameters   | Name   | Type | Required                                           | Description |
-| ----------------- | ------ | ---- | -------------------------------------------------- | ----------- |
-| `applicationId`   | String | True | The Amazon Resource Name (ARN) of the application. |
-| `semanticVersion` | String | True | The semantic version of the new version.           |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
+| `semanticVersion` | String | True | The semantic version of the new version. |
 
-| Responses | Status code                    | Response model                                                                   | Description |
-| --------- | ------------------------------ | -------------------------------------------------------------------------------- | ----------- |
-| `201`     | `Version`                      | Success                                                                          |
-| `400`     | `BadRequestException`          | One of the parameters in the request is invalid.                                 |
-| `403`     | `ForbiddenException`           | The client is not authenticated.                                                 |
-| `409`     | `ConflictException`            | The resource already exists.                                                     |
-| `429`     | `TooManyRequestsException`     | The client is sending more than the allowed number of requests per unit of time. |
-| `500`     | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `201` | `Version` | Success |
+| `400` | `BadRequestException` | One of the parameters in the request is invalid. |
+| `403` | `ForbiddenException` | The client is not authenticated. |
+| `409` | `ConflictException` | The resource already exists. |
+| `429` | `TooManyRequestsException` | The client is sending more than the allowed number of requests per unit of time. |
+| `500` | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
 
 ### OPTIONS
 
-| Path parameters   | Name   | Type | Required                                           | Description |
-| ----------------- | ------ | ---- | -------------------------------------------------- | ----------- |
-| `applicationId`   | String | True | The Amazon Resource Name (ARN) of the application. |
-| `semanticVersion` | String | True | The semantic version of the new version.           |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `applicationId` | String | True | The Amazon Resource Name (ARN) of the application. |
+| `semanticVersion` | String | True | The semantic version of the new version. |
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 
@@ -186,7 +186,7 @@ The AWS Serverless Application Repository service encountered an internal error.
 Parameters supported by the application.
 
 | Property                | Type                 | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------------------- | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `allowedPattern`        | string               | False    | A regular expression that represents the patterns to allow for `String` types.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `allowedValues`         | Array of type string | False    | An array containing the list of values allowed for the parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `constraintDescription` | string               | False    | A string that explains a constraint when the constraint is violated. For example, without a constraint<br>description, a parameter that has an allowed pattern of `[A-Za-z0-9]+` displays the following error<br>message when the user specifies an invalid value:<br>`Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+`<br>By adding a constraint description, such as "must contain only uppercase and lowercase letters and numbers,"<br>you can display the following customized error message:<br>`Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers.` |

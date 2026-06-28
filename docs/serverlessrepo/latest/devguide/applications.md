@@ -12,18 +12,18 @@
 
 Lists applications owned by the requester.
 
-| Query parameters | Name   | Type  | Required                                      | Description |
-| ---------------- | ------ | ----- | --------------------------------------------- | ----------- |
-| `maxItems`       | String | False | The total number of items to return.          |
-| `nextToken`      | String | False | A token to specify where to start paginating. |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `maxItems` | String | False | The total number of items to return. |
+| `nextToken` | String | False | A token to specify where to start paginating. |
 
-| Responses | Status code                    | Response model                                                                                 | Description |
-| --------- | ------------------------------ | ---------------------------------------------------------------------------------------------- | ----------- |
-| `200`     | `ApplicationPage`              | Success                                                                                        |
-| `400`     | `BadRequestException`          | One of the parameters in the request is invalid.                                               |
-| `403`     | `ForbiddenException`           | The client is not authenticated.                                                               |
-| `404`     | `NotFoundException`            | The resource (for example, an access policy statement) specified in the request doesn't exist. |
-| `500`     | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error.               |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `ApplicationPage` | Success |
+| `400` | `BadRequestException` | One of the parameters in the request is invalid. |
+| `403` | `ForbiddenException` | The client is not authenticated. |
+| `404` | `NotFoundException` | The resource (for example, an access policy statement) specified in the request doesn't exist. |
+| `500` | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
 
 ### POST
 
@@ -32,20 +32,20 @@ Lists applications owned by the requester.
 Creates an application, optionally including an AWS SAM file to create the first application
 version in the same call.
 
-| Responses | Status code                    | Response model                                                                   | Description |
-| --------- | ------------------------------ | -------------------------------------------------------------------------------- | ----------- |
-| `201`     | `Application`                  | Success                                                                          |
-| `400`     | `BadRequestException`          | One of the parameters in the request is invalid.                                 |
-| `403`     | `ForbiddenException`           | The client is not authenticated.                                                 |
-| `409`     | `ConflictException`            | The resource already exists.                                                     |
-| `429`     | `TooManyRequestsException`     | The client is sending more than the allowed number of requests per unit of time. |
-| `500`     | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `201` | `Application` | Success |
+| `400` | `BadRequestException` | One of the parameters in the request is invalid. |
+| `403` | `ForbiddenException` | The client is not authenticated. |
+| `409` | `ConflictException` | The resource already exists. |
+| `429` | `TooManyRequestsException` | The client is sending more than the allowed number of requests per unit of time. |
+| `500` | `InternalServerErrorException` | The AWS Serverless Application Repository service encountered an internal error. |
 
 ### OPTIONS
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 
@@ -196,7 +196,7 @@ version in the same call.
 Details about the application.
 
 | Property            | Type                                                                 | Required | Description                                                                                                                                                                                                                                                                           |
-| ------------------- | -------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| ------------------- | -------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `applicationId`     | string                                                               | True     | The application Amazon Resource Name (ARN).                                                                                                                                                                                                                                           |
 | `author`            | string                                                               | True     | The name of the author publishing the app.Minimum length=1. Maximum length=127.Pattern "^[a-z0-9](([a-z0-9]                                                                                                                                                                           | -(?!-))\*[a-z0-9])?$"; |
 | `creationTime`      | string                                                               | False    | The date and time this resource was created.                                                                                                                                                                                                                                          |
@@ -225,7 +225,7 @@ A list of application details.
 Summary of details about the application.
 
 | Property        | Type                 | Required | Description                                                                                                                                                   |
-| --------------- | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| --------------- | -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `applicationId` | string               | True     | The application Amazon Resource Name (ARN).                                                                                                                   |
 | `author`        | string               | True     | The name of the author publishing the app.Minimum length=1. Maximum length=127.Pattern "^[a-z0-9](([a-z0-9]                                                   | -(?!-))\*[a-z0-9])?$"; |
 | `creationTime`  | string               | False    | The date and time this resource was created.                                                                                                                  |
@@ -267,7 +267,7 @@ The resource already exists.
 Create an application request.
 
 | Property               | Type                 | Required | Description                                                                                                                                                                                                                                                                                   |
-| ---------------------- | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| ---------------------- | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `author`               | string               | True     | The name of the author publishing the app.Minimum length=1. Maximum length=127.Pattern "^[a-z0-9](([a-z0-9]                                                                                                                                                                                   | -(?!-))\*[a-z0-9])?$"; |
 | `description`          | string               | True     | The description of the application.Minimum length=1. Maximum length=256                                                                                                                                                                                                                       |
 | `homePageUrl`          | string               | False    | A URL with more information about the application, for example the location of your GitHub repository for the<br>application.                                                                                                                                                                 |
@@ -316,7 +316,7 @@ The resource (for example, an access policy statement) specified in the request 
 Parameters supported by the application.
 
 | Property                | Type                 | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ----------------------- | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | -------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `allowedPattern`        | string               | False    | A regular expression that represents the patterns to allow for `String` types.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `allowedValues`         | Array of type string | False    | An array containing the list of values allowed for the parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `constraintDescription` | string               | False    | A string that explains a constraint when the constraint is violated. For example, without a constraint<br>description, a parameter that has an allowed pattern of `[A-Za-z0-9]+` displays the following error<br>message when the user specifies an invalid value:<br>`Malformed input-Parameter MyParameter must match pattern [A-Za-z0-9]+`<br>By adding a constraint description, such as "must contain only uppercase and lowercase letters and numbers,"<br>you can display the following customized error message:<br>`Malformed input-Parameter MyParameter must contain only uppercase and lowercase letters and numbers.` |
