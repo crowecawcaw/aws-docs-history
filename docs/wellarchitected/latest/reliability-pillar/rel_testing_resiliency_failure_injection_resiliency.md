@@ -17,9 +17,9 @@ to gain confidence that your workload can survive component failure and can reco
 - Not running chaos experiments both as part of your CI/CD pipeline, as well as outside of deployments.
 - Neglecting to use past post-incident analyses when determining which faults to experiment with.
 
-  **Benefits of establishing this best practice:** Injecting faults to
-  verify the resilience of your workload allows you to gain confidence that the recovery procedures of
-  your resilient design will work in the case of a real fault.
+**Benefits of establishing this best practice:** Injecting faults to
+verify the resilience of your workload allows you to gain confidence that the recovery procedures of
+your resilient design will work in the case of a real fault.
 
 **Level of risk exposed if this best practice is not established:** Medium
 

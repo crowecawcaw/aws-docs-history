@@ -46,7 +46,7 @@ DR strategy that uses multiple Regions.
 When architecting a DR strategy across multiple Regions, you should
 choose one of the following strategies. They are listed in
 increasing order of cost and complexity, and decreasing order of RTO
-and RPO. *Recovery Region* refers to an AWS Region other than the primary one used for your workload.
+and RPO. _Recovery Region_ refers to an AWS Region other than the primary one used for your workload.
 
 ![Diagram showing DR strategies](images/disaster-recovery-strategies.png)
 _Figure 17: Disaster recovery (DR) strategies_
@@ -167,7 +167,7 @@ Standby](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architec
 
 **Warm standby**
 
-The *warm standby* approach involves ensuring that there is a
+The _warm standby_ approach involves ensuring that there is a
 scaled down, but fully functional, copy of your production environment in another Region.
 This approach extends the pilot light concept and decreases the time to recovery because
 your workload is always-on in another Region. If the recovery Region is deployed at full
@@ -188,7 +188,7 @@ Standby](https://aws.amazon.com/blogs/architecture/disaster-recovery-dr-architec
 **Multi-site active/active**
 
 You can run your workload simultaneously in multiple Regions as part of
-a *multi-site active/active* strategy. Multi-site active/active
+a _multi-site active/active_ strategy. Multi-site active/active
 serves traffic from all regions to which it is deployed. Customers may select this
 strategy for reasons other than DR. It can be used to increase availability, or when
 deploying a workload to a global audience (to put the endpoint closer to users and/or to
