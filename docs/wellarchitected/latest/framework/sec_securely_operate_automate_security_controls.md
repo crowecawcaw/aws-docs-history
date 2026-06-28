@@ -54,8 +54,8 @@ need distinct security controls, you can standardize some security
 controls across your organization.  Examples include integrating
 centralized identity providers, defining networks and firewalls,
 and configuring standard locations for storing and analyzing logs.
- In the same way you can use *infrastructure as
-code* (IaC) to apply the same rigor of application code
+ In the same way you can use _infrastructure as
+code_ (IaC) to apply the same rigor of application code
 development to infrastructure provisioning, you can use IaC to
 define and deploy your standard security controls as well.
 
@@ -82,7 +82,7 @@ technique allows a central security team to manage these
 definitions and provide them to workload teams through a
 self-service approach.  One way to achieve this is by using
 [Service Catalog](https://aws.amazon.com/servicecatalog/ "https://aws.amazon.com/servicecatalog/"), where you can publish templates as
-*products* that workload teams can incorporate
+_products_ that workload teams can incorporate
 into their own pipeline deployments.  If you are using
 [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/"), some templates and controls are available as
 a starting point.  Control Tower also provides

@@ -183,7 +183,7 @@ idempotency tokens and related state include:
      The choice of storage service typically depends on factors such as the volume of idempotency-related data, the required performance characteristics, the need for durability and availability, and how the idempotency mechanism integrates with the overall workload architecture.
 
 4. **Implement idempotent
-   operations**
+operations**
 
 Design your API and workload components to be idempotent.
 Incorporate idempotency checks into your workload

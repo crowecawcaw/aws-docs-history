@@ -91,8 +91,8 @@ on, and that any actions taken using these roles are logged.
 
 It is strongly recommended that both the IAM accounts and the IAM roles are
 clearly named to allow them to be easily found in CloudTrail logs. An example of this would be to
-name the IAM accounts ``<USER_ID>`-BREAK-GLASS`and
- the IAM roles`BREAK-GLASS-ROLE`.
+name the IAM accounts ``<USER_ID>`-BREAK-GLASS` and
+the IAM roles `BREAK-GLASS-ROLE`.
 
 [CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") is used to log API activity in your AWS accounts and should be used to [configure
 alerts on usage of the incident response roles](https://aws.amazon.com/blogs/security/how-to-receive-notifications-when-your-aws-accounts-root-access-keys-are-used/ "https://aws.amazon.com/blogs/security/how-to-receive-notifications-when-your-aws-accounts-root-access-keys-are-used/"). Refer to the blog post on configuring alerts

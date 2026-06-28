@@ -1,7 +1,7 @@
 # SEC05-BP04 Automate network protection
 
 Automate the deployment of your network protections using DevOps
-practices, such as *infrastructure as code* (IaC)
+practices, such as _infrastructure as code_ (IaC)
 and CI/CD pipelines.  These practices can help you track changes in
 your network protections through a version control system, reduce
 the time it takes to deploy changes, and help detect if your network
@@ -134,4 +134,4 @@ the individual workload teams and their respective accounts.
 
 - [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
 - [AWS CloudFormation Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md")
-- [cfn_nag](https://github.com/stelligent/cfn_nag "https://github.com/stelligent/cfn_nag")
+- [cfn\_nag](https://github.com/stelligent/cfn_nag "https://github.com/stelligent/cfn_nag")

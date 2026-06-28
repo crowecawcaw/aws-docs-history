@@ -1,6 +1,6 @@
 # SEC10-BP08 Establish a framework for learning from incidents
 
-Implementing a *lessons learned* framework and
+Implementing a _lessons learned_ framework and
 root cause analysis capability can not only help improve incident
 response capabilities, but also help prevent the incident from
 recurring. By learning from each incident, you can help avoid

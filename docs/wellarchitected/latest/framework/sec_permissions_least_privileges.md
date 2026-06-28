@@ -146,14 +146,14 @@ Boundary](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../
   approach can simplify and reduce the number of permission
   policies in your organization.
 
-      + It is recommended that ABAC only be used for access
-       control when both the principals and resources are owned
-       by your AWS Organization. External parties may use the
-       same tag names and values as your organization for their
-       own principals and resources. If you rely solely on
-       these name-value pairs for granting access to external
-       party principals or resources, you may provide
-       unintended permissions.
+  - It is recommended that ABAC only be used for access
+    control when both the principals and resources are owned
+    by your AWS Organization. External parties may use the
+    same tag names and values as your organization for their
+    own principals and resources. If you rely solely on
+    these name-value pairs for granting access to external
+    party principals or resources, you may provide
+    unintended permissions.
 
 - **Use service control policies for AWS Organizations:**
   [Service

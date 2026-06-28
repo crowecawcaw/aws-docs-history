@@ -31,10 +31,10 @@ individual workload owners.
 - Assigning permissions based on least privilege, but not placing
   guardrails on the maximum set of permissions that can be
   granted.
-- Relying on the *implicit deny* foundation of
+- Relying on the _implicit deny_ foundation of
   AWS IAM to restrict permissions, trusting that policies will not
-  grant an undesired *explicit
-  allow* permission.
+  grant an undesired _explicit
+  allow_ permission.
 - Running multiple workload environments in the same AWS account,
   and then relying on mechanisms such as VPCs, tags, or resource
   policies to enforce permission boundaries.
@@ -133,8 +133,8 @@ complete their work while mitigating risks of having IAM
 administrative access.
 
 A more granular step is to implement _privileged access
-management_ (PAM) and *temporary elevated
-access management* (TEAM) techniques.  One example of
+management_ (PAM) and _temporary elevated
+access management_ (TEAM) techniques.  One example of
 PAM is to require principals to perform multi-factor
 authentication before taking privileged actions.  For more
 information, see

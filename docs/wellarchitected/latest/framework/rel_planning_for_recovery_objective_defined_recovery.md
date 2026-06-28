@@ -5,10 +5,10 @@ can cause service interruption (downtime). Second, failures can
 cause data to become lost, inconsistent, or stale. In order to guide
 how you respond and recover from failures, define a Recovery Time
 Objective (RTO) and Recovery Point Objective (RPO) for each
-workload. *Recovery Time Objective (RTO)* is the
+workload. _Recovery Time Objective (RTO)_ is the
 maximum acceptable delay between the interruption of service and
-restoration of service. *Recovery Point Objective
-(RPO)*  is the maximum acceptable time after the last data
+restoration of service. _Recovery Point Objective
+(RPO)_  is the maximum acceptable time after the last data
 recovery point.
 
 **Desired outcome:** Every workload has a designated RTO and RPO based on technical
