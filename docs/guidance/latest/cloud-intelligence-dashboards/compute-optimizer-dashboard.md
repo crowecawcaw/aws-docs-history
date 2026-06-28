@@ -21,10 +21,10 @@ to):
 
 ![architecture](images/images/architecture/compute-optimizer-architecture.png)
 
-1. AWS Compute Optimizer Collects the data about running instances and uses Machine Learning to generate recommendations
-2. CID Data Collection has a Lambda functions that on schedule assume a role in Management account(s) to trigger an export of AWS Compute Optimizer in each region configured in data collection stack. By default it i scheduled for every 14 days, but it can be changed in the parameters of the Data Collection Stack.
+1. AWS Compute Optimizer collects data about running instances and uses Machine Learning to generate recommendations
+2. CID Data Collection has a Lambda function that on schedule assumes a role in Management account(s) to trigger an export of AWS Compute Optimizer in each region configured in data collection stack. By default it is scheduled for every 14 days, but it can be changed in the parameters of the Data Collection Stack.
 3. The AWS Compute Optimizer exports data to regional buckets.
-4. The replication mechanisms consolidates all data from regional buckets to one data bucket. All exports on regional bucket will be deleted after 1 day as per lifecycle policy.
+4. The replication mechanism consolidates all data from regional buckets to one data bucket. All exports on regional bucket will be deleted after 1 day as per lifecycle policy.
 5. Quick Sight Dataset refreshes daily to show the latest state on the dashboard.
 
 ## Learn more
@@ -34,7 +34,7 @@ to):
 
 See also:
 
-- A basics of Compute Optimizer Right Sizing in a
+- The basics of Compute Optimizer Right Sizing in a
   [lab
   200 Rightsizing with Compute Optimizer](https://wellarchitectedlabs.com/cost/200_labs/200_aws_resource_optimization/ "https://wellarchitectedlabs.com/cost/200_labs/200_aws_resource_optimization/")
 - [AWS Compute Optimizer
@@ -42,7 +42,7 @@ See also:
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=compute-optimizer-dashboard "https://cid.workshops.aws.dev/demo?dashboard=compute-optimizer-dashboard")
 
@@ -76,13 +76,13 @@ instructions [here](deployment-in-global-regions.md "deployment-in-global-region
 this dashboard).
 
 Command Line
-Alternative method to install dashboards is the
+An alternative method to install dashboards is the
 [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
 tool.
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Open up a command-line interface with permissions to run API requests
-   in your AWS account. We recommend to use
+   in your AWS account. We recommend using
    [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download
    and install the CID CLI tool:
@@ -101,20 +101,20 @@ cid-cmd deploy --dashboard-id compute-optimizer-dashboard
 Please follow the instructions from the deployment wizard. More info
 about command line options are in the
 [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
-or `cid-cmd --help`. 5. You can provide also additional tag names. This dashboard supports 2
+or `cid-cmd --help`. 5. You can also provide additional tag names. This dashboard supports 2
 tags: Primary and Secondary. Tags are the "key" part of the
-Resource Tag. Please note that Tags here are case sensitive and they not
+Resource Tag. Please note that Tags here are case sensitive and they are not
 AWS Cost Allocation Tags.
 
 Recommendation: You can use one Tag to define ownership of resource and
 another tag to define if this particular resource is eligible for
 RightSizing (default) or must be excluded for valid reason (DRP, Vendor
 Compliance, Test, or any other reason for resource to be
-over-provisioned).If your are not using tags, leave defaults.
+over-provisioned).If you are not using tags, leave defaults.
 
 Tags that are using a dash as separator (`-`) are not supported by
 default. If you have this kind of tags you might need additional
-customization of a dataset compute_optimizer_all_options. For example in
+customization of a dataset compute\_optimizer\_all\_options. For example in
 `primary_tag` field you can use
 `parseJson(replace(tags, '-', '_'),'$.My_Tag')`
 
@@ -124,7 +124,7 @@ You can also define these tags later and apply to dashboard using
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command
 in your command-line interface:
 
@@ -136,9 +136,8 @@ cid-cmd update --dashboard-id compute-optimizer-dashboard
 
 **Manage Business Units Map**
 
-For managing Business Units please modify business_units_map view. You
-can update view definition providing your values, or you can create an
-csv file upload to s3, create a table and set business_units_map view to
+For managing Business Units please modify business\_units\_map view. You
+can update view definition providing your values, or you can create a CSV file and upload it to S3, create a table and set business\_units\_map view to
 select from this table.
 
 ```
@@ -152,12 +151,12 @@ FROM
     ) ignored_table_name (account_id, account_name, bu)
 ```
 
-Also you can use business_units_map view as a
+Also you can use business\_units\_map view as a
 proxy to other data sources.
 
-In case if you do not need Business Units functionality and you have
-CUDOS dashboard installed with account_map, you can use this view to
-SELECT from account_map.
+In case you do not need Business Units functionality and you have
+CUDOS dashboard installed with account\_map, you can use this view to
+SELECT from account\_map.
 
 ```
 CREATE OR REPLACE VIEW business_units_map AS

@@ -112,7 +112,7 @@ Management/Payer Accounts).
 
 ### Verify Dashboard Status
 
-Run the following command to check dataset status in Amazon QuickSight:
+Run the following command to check dataset status in Amazon Quick Sight:
 
 ```
 cid-cmd status --dashboard-id focus-dashboard

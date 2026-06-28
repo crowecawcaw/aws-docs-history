@@ -14,7 +14,7 @@ Now that you have the Cloud Intelligence Dashboards deployed, you can
 follow some of these steps to customize your deployment as per your
 business needs. The amount of customization you can do is unlimited, so
 here we will attempt to show you how to get started with some common
-customization requests. Have an idea for another one? please send it to
+customization requests. Have an idea for another one? Please send it to
 us at the e-mail address above.
 
 ## Customization Guides

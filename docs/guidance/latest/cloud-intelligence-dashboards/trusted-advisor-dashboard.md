@@ -27,7 +27,7 @@ Support Plan.
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=tao "https://cid.workshops.aws.dev/demo?dashboard=tao")
 
@@ -60,13 +60,13 @@ instructions [here](deployment-in-global-regions.md "deployment-in-global-region
 this dashboard).
 
 Command Line
-Alternative method to install dashboards is the
+An alternative method to install dashboards is the
 [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
 tool.
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Open up a command-line interface with permissions to run API requests
-   in your AWS account. We recommend to use
+   in your AWS account. We recommend using
    [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download
    and install the CID CLI tool:
@@ -90,7 +90,7 @@ or `cid-cmd --help`.
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command
 in your command-line interface:
 

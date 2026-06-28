@@ -110,7 +110,7 @@ module,policy_type,principal,regions,payload
 
 ### Examples
 
-**Allow all modules at the root OU level, then deny all regions to one accounts but only us-east-1 to another:**
+**Allow all modules at the root OU level, then deny all regions to one account but only us-east-1 to another:**
 
 ```
 *,A,r-xxxx,,
@@ -132,7 +132,7 @@ inventory-ec2-instances,D,234567890123,us-east-1
 
 ###### Note
 
-The Inventory module has several sub-modules and you must define each one you with to control
+The Inventory module has several sub-modules and you must define each one you wish to control
 
 **Allow an entire OU for the backup module:**
 
@@ -153,7 +153,7 @@ backup,D,345678901234,*
 *,D,456789012345,us-east-1:eu-west-1
 ```
 
-**Deny specifc regions for all accounts for all modules:**
+**Deny specific regions for all accounts for all modules:**
 
 ```
 *,D,*,us-east-1:eu-west-1

@@ -3,7 +3,7 @@
 ## Introduction
 
 The Amazon Connect Cost Insight Dashboard leverages AWS Cost and Usage
-Report data to provide visualizations that helps optimizing cloud
+Report data to provide visualizations that help optimize cloud
 spending and enhance operational efficiency within the
 [Amazon Connect contact center](https://aws.amazon.com/pm/connect "https://aws.amazon.com/pm/connect")
 infrastructure.
@@ -26,7 +26,7 @@ helping you effectively monitor your contact center operations.
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=amazon-connect-cost-insight-dashboard "https://cid.workshops.aws.dev/demo?dashboard=amazon-connect-cost-insight-dashboard")
 
@@ -46,20 +46,20 @@ CloudFormation
 
 **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Amazon-Connect-Cost-Insight-Dashboard&param_DashboardId=amazon-connect-cost-insight-dashboard "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Amazon-Connect-Cost-Insight-Dashboard¶m_DashboardId=amazon-connect-cost-insight-dashboard") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Amazon-Connect-Cost-Insight-Dashboard&param_DashboardId=amazon-connect-cost-insight-dashboard "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Amazon-Connect-Cost-Insight-Dashboard&param_DashboardId=amazon-connect-cost-insight-dashboard") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 
 **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
 
 Command Line
-Alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool.
+An alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool.
 
-1. Log in to to your **Data Collection** Account.
-2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend to use [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
+1. Log in to your **Data Collection** Account.
+2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
@@ -122,7 +122,7 @@ For detailed instructions, refer to the [Terraform Deployment README](https://gi
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command
 in your command-line interface:
 
@@ -134,7 +134,7 @@ cid-cmd update --dashboard-id amazon-connect-cost-insight-dashboard
 
 1. Unleash your data creativity! Dive into custom analysis by creating your own visuals from this dashboard. Follow our quick [guide](create-analysis.md "create-analysis.md") to get started.
 2. To integrate CID with AWS Organizations for enhanced cost visibility across multiple accounts and organizational units follow this [documentation](add-org-taxonomy.md "add-org-taxonomy.md")
-3. To replace Amazon Connect instance IDs with more readable custom labels in your dashboard check following section [link](#replace-connect-instance-id-with-custom-names "#replace-connect-instance-id-with-custom-names")
+3. To replace Amazon Connect instance IDs with more readable custom labels in your dashboard check the following section [link](#replace-connect-instance-id-with-custom-names "#replace-connect-instance-id-with-custom-names")
 4. To set up granular billing for a detailed view of your Amazon Connect usage follow this [documentation](../../../connect/latest/adminguide/granular-billing.md "../../../connect/latest/adminguide/granular-billing.md")
 
 ### Replacing Connect Instance IDs with Custom Names in Amazon Connect Dashboard
@@ -144,7 +144,7 @@ This process allows you to replace Amazon Connect instance IDs with more readabl
 **Steps**
 
 1. Create an Analysis. Refer to [How do I edit or customize the dashboards](faq.md#faq-how-do-i-edit-or-customize-the-dashboards "faq.md#faq-how-do-i-edit-or-customize-the-dashboards")
-2. Edit the Calculated Field: Under Data >> Dataset 'resource_connect_view' edit **\_\_connect_instance_name** field
+2. Edit the Calculated Field: Under Data >> Dataset 'resource\_connect\_view' edit **\_\_connect\_instance\_name** field
 
 ![Connect Instance Name](images/connect/instance_name.png)
 You’ll find an example that you can uncomment to provide your instance ID and preferred label
@@ -168,7 +168,7 @@ Save the calculated field and verify the changes in the Overview tab’s verific
 
 **Notes**
 
-- Each instance ID mapping should follow the format: {#connect_instance_id}="instance-id","custom-name"
+- Each instance ID mapping should follow the format: {#connect\_instance\_id}="instance-id","custom-name"
 - Maintain the default 'phone numbers' handling and fallback options
 - Multiple instances can be added by repeating the mapping line
 - Remember to include the comma between each condition

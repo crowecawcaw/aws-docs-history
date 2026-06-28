@@ -56,7 +56,7 @@ You can get insights into Graviton migration savings opportunities with [Gravito
 
 ### Snapshots and AMIs
 
-When a AMI gets created it takes a Snapshot of the volume. This is then
+When an AMI gets created it takes a Snapshot of the volume. This is then
 needed to be kept in the account whilst the AMI is used. Once the AMI is
 released the Snapshot can no longer be used but it still incurs costs.
 Using this query we can identify Snapshots that have the "AMI
@@ -111,9 +111,9 @@ There is an option to add pricing data to this query. This assumes you have depl
 
 1. Go to AWS Athena
 2. Go to _Saved queries_ at the top of the screen
-3. Run the _pricing_ec2_create_table_ Query to create a pricing table
-4. In _Saved queries_ Run the _pricing_region_names_ Query to create a normalized region name table
-5. In _Saved queries_ run _inventory_snapshot_connected_to_ami_with_pricing_ to create a view
+3. Run the _pricing\_ec2\_create\_table_ Query to create a pricing table
+4. In _Saved queries_ Run the _pricing\_region\_names_ Query to create a normalized region name table
+5. In _Saved queries_ run _inventory\_snapshot\_connected\_to\_ami\_with\_pricing_ to create a view
 6. Run the below to see your data
 
 ```
@@ -126,8 +126,8 @@ You must have access to your Cost and Usage data in the same account and region 
 
 1. Go to AWS Athena
 2. Go to _Saved queries_ at the top of the screen
-3. In _Saved queries_ run _inventory_snapshot_connected_to_ami_with_cur_ to create a view
-4. Change the value ${table_name} to your Cost and Usage report database and name and your ${date_filter} to look at a certain month/year
+3. In _Saved queries_ run _inventory\_snapshot\_connected\_to\_ami\_with\_cur_ to create a view
+4. Change the value ${table\_name} to your Cost and Usage report database and name and your ${date\_filter} to look at a certain month/year
 5. You will see the price of all Snapshots and how much they cost based on their connection with AMIS
    Please note that if you delete the snapshot and it is part of a lineage you may only make a small saving
 
@@ -157,8 +157,8 @@ There is an option to add pricing data to this query.
 1. Go to AWS Athena and run the below
 2. Go to **Saved queries** at the top of the screen
 3. Run the **ec2-view** Query to create a view of ebs and ta data
-4. Run the **ec2_pricing** Query to create a pricing table
-5. In **Saved queries** run the **region_names** Query to create a normalized region name table
+4. Run the **ec2\_pricing** Query to create a pricing table
+5. In **Saved queries** run the **region\_names** Query to create a normalized region name table
 6. In **Saved queries** run **ebs-ta-query-pricing** to create a view
 7. Run the below to see your data
 
@@ -171,8 +171,8 @@ The section below will bring in opportunities to move EBS volumes to gp3
 1. Go to AWS Athena and run the below
 2. Go to **Saved queries** at the top of the screen
 3. Run the **ec2-view** Query to create a view of ebs and ta data
-4. Run the **ec2_pricing** Query to create a pricing table
-5. In **Saved queries** run the **region_names** Query to create a normalized region name table
+4. Run the **ec2\_pricing** Query to create a pricing table
+5. In **Saved queries** run the **region\_names** Query to create a normalized region name table
 6. In **Saved queries** run **gp3-opportunity** to create a view
 
 ### AWS EBS Volumes and Snapshots
@@ -295,17 +295,17 @@ within a Cluster
 
 1. Navigate to the Athena service
 2. Select the "optimization data" database
-3. In **Saved Queries** find **"cluster_metadata_view"** Change "BU" to the tag you wish to do chargeback for
+3. In **Saved Queries** find **"cluster\_metadata\_view"** Change "BU" to the tag you wish to do chargeback for
 4. Click the **Run** button
-5. In **Saved Queries** find **"ec2_cluster_costs_view"** - Replace ${CUR} in the "FROM" clause with your CUR table name - For example, "curdb"."ecs_services_clusters_data"
+5. In **Saved Queries** find **"ec2\_cluster\_costs\_view"** - Replace ${CUR} in the "FROM" clause with your CUR table name - For example, "curdb"."ecs\_services\_clusters\_data"
 6. Click the **Run** button
-7. In **Saved Queries** find **"bu_usage_view"** - Replace ${CUR} in the "FROM" clause with your CUR table name - For example, "curdb"."ecs_services_clusters_data"
+7. In **Saved Queries** find **"bu\_usage\_view"** - Replace ${CUR} in the "FROM" clause with your CUR table name - For example, "curdb"."ecs\_services\_clusters\_data"
 8. Click the **Run** button
    Now your views are created you can run your report
 
 **Manually execute billing report**
 
-- In **Saved Queries** find **"ecs_chargeback_report"** - Replace "bu_usage_view.month" value with the appropriate month desired for the report - For example, a value of "2" returns the charges for February
+- In **Saved Queries** find **"ecs\_chargeback\_report"** - Replace "bu\_usage\_view.month" value with the appropriate month desired for the report - For example, a value of "2" returns the charges for February
 - Click the **Run** button
 
 **Example Output**
@@ -313,9 +313,9 @@ within a Cluster
 ![Example output of query results of ECS chargeback query](images/Example_output.png)
 Breakdown:
 
-- task_usage: total memory resources reserved (in GBs) by all tasks over the billing period (i.e. -- monthly)
-- percent: task_usage / total_usage
-- ec2_cost: monthly cost for EC2 instance in $
+- task\_usage: total memory resources reserved (in GBs) by all tasks over the billing period (i.e. -- monthly)
+- percent: task\_usage / total\_usage
+- ec2\_cost: monthly cost for EC2 instance in $
 - Services: Name of service
 - servicearn: Arn of service
 - Value: Value of specified tag for the ECS service (could be App, TeamID, etc?)
@@ -332,8 +332,8 @@ corresponding proportional cost of the total central amount.
 
 1. Navigate to the Athena service and open **Saved Queries**.
 2. Select your database where you have your Cost and Usage Report
-3. In **Saved Queries** find **"tgw_chargeback_cur"**
-4. Replace `CURDatabase` with your database name in the tgw_chargeback_cur. For example:
+3. In **Saved Queries** find **"tgw\_chargeback\_cur"**
+4. Replace `CURDatabase` with your database name in the tgw\_chargeback\_cur. For example:
 
 ```
 "cur"."cost_and_usage_report"
@@ -345,8 +345,8 @@ regions, you need to specify it in `"product_location LIKE '%US%'"`
 line.
 
 1. Click the **Run** button
-2. In **Saved Queries** find **"tgw_chargeback_cw"**
+2. In **Saved Queries** find **"tgw\_chargeback\_cw"**
 3. Select the "optimization data" database
-4. Replace `CURDatabase` with your database name in the tgw_chargeback_cw.
+4. Replace `CURDatabase` with your database name in the tgw\_chargeback\_cw.
 5. Click the **Run** button
    Now your views are created and you can run your report.

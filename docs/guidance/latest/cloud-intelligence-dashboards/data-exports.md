@@ -58,15 +58,15 @@ s3://<prefix>-<destination-account-id>-data-exports/
 
 ## Costs
 
-- Estimated costs of the data storage in Amazon S3 bucket should be <$10 a month for medium size organization, depending on the volume of the data it can vary.
+- Estimated costs of the data storage in an Amazon S3 bucket should be <$10 a month for a medium-sized organization, depending on the volume of the data it can vary.
 
 ## Before you start
 
-1. **Define the Region** Deployment can be only done in any region. Please
-   carefully choose region as it should be the same region where you are
+1. **Define the Region** Deployment can be done in any region. Please
+   carefully choose the region as it should be the same region where you are
    planning to deploy Amazon Quick Sight Dashboards to avoid cross region
    Amazon S3 costs. AWS Data Exports are available only in us-east-1, so
-   when deployed in other regions, CFN creates Data Exports using Custom
+   when deployed in other regions, CloudFormation creates Data Exports using Custom
    Resources.
 2. **Define the Destination Account** Make sure to note your Destination
    Account Id. It should be the same account where you plan to deploy
@@ -80,7 +80,7 @@ s3://<prefix>-<destination-account-id>-data-exports/
 
 ## Prerequisites
 
-If you plan to activate Data Export for Cost Optimization Hub you need to activate [the service](https://console.aws.amazon.com/costmanagement/home#/cost-optimization-hub "https://console.aws.amazon.com/costmanagement/home#/cost-optimization-hub") first.
+If you plan to activate Data Export for Cost Optimization Hub, you need to activate [the service](https://console.aws.amazon.com/costmanagement/home#/cost-optimization-hub "https://console.aws.amazon.com/costmanagement/home#/cost-optimization-hub") first.
 
 ## Deployment
 
@@ -93,26 +93,26 @@ The deployment process consists of 2 required steps and 1 optional step. First, 
 1. Login to your **Data Collection Account**. Make sure you use the target region.
 2. Click the **Launch Stack button** below to open the **stack template** in your AWS CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination¶m_ManageCUR2=yes¶m_ManageCOH=yes¶m_ManageCarbon=yes¶m_LegacyLocalBucket=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID")
 
 1. Enter a **Stack name** for your template such as **CID-DataExports-Destination**.
 2. Enter your **Destination Account ID** parameter (Your Data Collection Account, where you will deploy dashboards).
 3. Choose the exports to manage. For selected types, the Destination account stack will create the S3 bucket, Athena Tables, and allow delivery from Source Accounts.
 4. Enter your **Source Account IDs** parameter as a comma separated list of all accounts that must deliver AWS Data Exports. In a rare case if you need the Data Collection account to produce AWS Data Export (for testing or single account deployment), you need to specify this Account Id first in the list, and skip "Step 2 of 3".
 5. Review the configuration, click **I acknowledge that AWS CloudFormation might create IAM resources, and click Create stack**.
-6. You will see the stack will start with **CREATE_IN_PROGRESS**. This step can take ~5 mins. Once complete, the stack will show **CREATE_COMPLETE**.
+6. You will see the stack will start with **CREATE\_IN\_PROGRESS**. This step can take ~5 mins. Once complete, the stack will show **CREATE\_COMPLETE**.
 
 ### Step 2 of 3. (In Management/Payer/Source Account) Create AWS Data Exports
 
 1. Click the **Launch Stack button** below to open the **stack template** in your AWS CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds= "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source¶m_ManageCUR2=yes¶m_ManageCOH=yes¶m_ManageCarbon=yes¶m_LegacyLocalBucket=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs¶m_SourceAccountIds=")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds= "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=yes&param_ManageCarbon=yes&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds=")
 
 1. Enter a **Stack name** for your template such as **CID-DataExports-Source**.
 2. Enter your **Destination Account ID** parameter (Your Data Collection Account, where you will deploy dashboards).
 3. Choose the exports to manage. For selected types, the Source account stack will create data exports with direct delivery to the Destination Account S3 bucket. Please keep the choice consistent with the same configuration in the Data Collection Account.
 4. Review the configuration, click **I acknowledge that AWS CloudFormation might create IAM resources, and click Create stack**.
-5. You will see the stack will start with **CREATE_IN_PROGRESS**. This step can take ~5 mins. Once complete, the stack will show **CREATE_COMPLETE**.
+5. You will see the stack will start with **CREATE\_IN\_PROGRESS**. This step can take ~5 mins. Once complete, the stack will show **CREATE\_COMPLETE**.
 6. Repeat for other Source Accounts.
    It will typically take about 24 hours for the first delivery of AWS Data
    Exports to the Destination Account, but it might take up to
@@ -160,13 +160,13 @@ aws support create-case \
 Make sure you create the case from your Source Accounts (Typically
 Management/Payer Accounts).
 
-### Step 3 of 3. (Optional) (In Destination/Data Collection Account) Allow QuickSight access to Database and Bucket
+### Step 3 of 3. (Optional) (In Destination/Data Collection Account) Allow Quick Sight access to Database and Bucket
 
 ###### Note
 
 This step is only required if you already have Cloud Intelligence Dashboards deployed and want to migrate them to use the new Data Exports as a data source. If you are deploying dashboards for the first time, you can skip this step — the necessary permissions will be configured automatically during the dashboard deployment.
 
-In order to allow Amazon QuickSight access to the Data Exports bucket and Glue database, you need to extend the role that QuickSight uses.
+In order to allow Amazon Quick Sight access to the Data Exports bucket and Glue database, you need to extend the role that Quick Sight uses.
 
 #### Option A: If you use CID Foundational dashboards (CUDOS, KPI, Cost Intelligence) installed via CloudFormation or with Terraform
 
@@ -293,7 +293,7 @@ To add a new Source Account:
 ## Usage
 
 1. You can query tables in `cid_data_exports` database in Amazon Athena.
-2. Now you can proceed with installation of [Dashboard](dashboards.md "dashboards.md") of your choice. Please note that only FOCUS dashboard supported for now.
+2. Now you can proceed with installation of [Dashboard](dashboards.md "dashboards.md") of your choice. Please note that only the FOCUS dashboard is supported for now.
 
 ## Teardown
 
@@ -308,4 +308,4 @@ If you need to delete the stack, you can do that by deleting all stacks in all S
 
 ## Feedback & Support
 
-Follow [Feedback & Support](feedback-support.md "feedback-support.md") guide
+Follow the [Feedback & Support](feedback-support.md "feedback-support.md") guide

@@ -24,27 +24,27 @@ GitHub](https://github.com/awslabs/cid-framework/tree/main/data-collection#modul
 Resources for this workshop are deployed with AWS CloudFormation in
 several accounts:
 
-1.  **Data Collection Stack**. This stack deploys common
-    and module-specific resources in the **Data Collection Account**. Each
-    data collection module is optional. We recommend using a dedicated **Data
-    Collection Account** rather than using the Management Account for this
-    stack.
-2.  **Read Permissions Stack** This stack is deployed in one or
-    several Management Accounts. It deploys several entities:
+1. **Data Collection Stack**. This stack deploys common
+   and module-specific resources in the **Data Collection Account**. Each
+   data collection module is optional. We recommend using a dedicated **Data
+   Collection Account** rather than using the Management Account for this
+   stack.
+2. **Read Permissions Stack** This stack is deployed in one or
+   several Management Accounts. It deploys several entities:
 
-        * **Management Role Stack** This stack deploys an AWS IAM Role granting read-only access
-        to AWS Organizations as well as other roles that are required for the
-        various modules that you elect to install.
-        * **Linked Accounts StackSet** - Some information can be collected only on the level of each individual
-        Linked Account, and this StackSet will deploy a Stack to each of those
-        accounts with an AWS IAM Role granting the permissions required for your
-        selected module.
-        * **Linked Accounts Role Stack for Management Account** -
-        (optional) CloudFormation StackSets only deploy resources into Linked
-        Accounts and do not deploy into the Management Account. This stack is
-        only needed if you deploy any modules that collect data directly from
-        Linked Accounts and the Management Account also contains relevant
-        resources that you want to additionally include.
+   - **Management Role Stack** This stack deploys an AWS IAM Role granting read-only access
+     to AWS Organizations as well as other roles that are required for the
+     various modules that you elect to install.
+   - **Linked Accounts StackSet** - Some information can be collected only on the level of each individual
+     Linked Account, and this StackSet will deploy a Stack to each of those
+     accounts with an AWS IAM Role granting the permissions required for your
+     selected module.
+   - **Linked Accounts Role Stack for Management Account** -
+     (optional) CloudFormation StackSets only deploy resources into Linked
+     Accounts and do not deploy into the Management Account. This stack is
+     only needed if you deploy any modules that collect data directly from
+     Linked Accounts and the Management Account also contains relevant
+     resources that you want to additionally include.
 
 ![Data Collection architecture diagram](images/data-collection/architecture.png)
 
@@ -60,7 +60,7 @@ several accounts:
 4. This Data Collection Lambda assumes a role in the Management Account
    or in each Linked Account (depending on the module) and retrieves
    respective data via the AWS SDK for Python. The retrieved data is then
-   stored an Amazon S3 bucket.
+   stored in an Amazon S3 bucket.
 5. Once data is stored in the S3 bucket, the Step Function triggers an
    [AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/") crawler which creates or updates
    the table in the Glue Data Catalog.

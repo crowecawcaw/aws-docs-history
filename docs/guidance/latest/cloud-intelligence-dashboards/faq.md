@@ -12,7 +12,7 @@ Follow [Feedback & Support](feedback-support.md "feedback-support.md") guide
 
 ### Which dashboards are available for installation?
 
-Full list can be found [here](dashboards.md "dashboards.md").
+The full list can be found [here](dashboards.md "dashboards.md").
 
 ### How can I install the Cloud Intelligence Dashboards?
 
@@ -29,14 +29,14 @@ CUR documentation can be found
 
 On average, CURs are updated up to 3 times daily, but that will
 fluctuate depending on the size of the file/amount of user usage and
-many other factors. you can monitor your CUR S3 bucket to see the
+many other factors. You can monitor your CUR S3 bucket to see the
 date/time the new month’s file is deposited. Within the CUR itself you
 can see the corresponding usage dates/times to infer which usage is
 reflected within that file.
 
 ### Can I use an existing Cost and Usage Report (CUR) instead of the one created by CID?
 
-For CUR2 we do not support exports other then deployed by cid Data
+For CUR2 we do not support exports other than those deployed by the CID Data
 Exports Stack. For Legacy CUR we do not recommend using an existing CUR
 unless it is for an installation within a Management (Payer) Account AND
 the existing Legacy CUR strictly conforms to the CID requirements:
@@ -65,16 +65,16 @@ complexity.
 
 ### I want more than 7 months in my CUDOS / CID Dashboard
 
-By default CUDOS has 7 months of data, If you need to pull more data,
+By default CUDOS has 7 months of data. If you need to pull more data,
 you can follow below steps as long as you have that additional data in
 CUR.
 
 - Go to Athena
-- Edit/Show query for summary_view view
+- Edit/Show query for summary\_view view
 - Modify the line towards the bottom that has 2 entries saying "7" months (6 past + 1 current) and replace them with your desired months
 - Run the query and it should complete successfully and that will automatically update the view.
 - Go to Quick Sight and select Dataset in the left tab
-- Select the summary_view and click on refresh dataset and do a full refresh. It might take some time depending on data. If you run into
+- Select the summary\_view and click on refresh dataset and do a full refresh. It might take some time depending on data. If you run into
   SPICE issues, make sure to adjust spice capacity in your Quick Sight account as needed.
 - Once it is done, check your Quick Sight dashboard and select a visual and click on view dashboard filter to modify the date to either Relative
   date or Date and Time range to verify the data for the past years.
@@ -82,13 +82,13 @@ CUR.
 Note: Some visuals are additionally limited by filters. Feel free to
 adjust them within dashboard as needed.
 
-### In which regions can the Cloud Intelligence Dashboards be deployed in?
+### In which regions can the Cloud Intelligence Dashboards be deployed?
 
-CID requires Quick Sight, Athena and Glue. Cost Usage Reports (CUR)
-Bucket has to be in the same region as those services. CUR bucket can be
+CID requires Quick Sight, Athena and Glue. The Cost Usage Reports (CUR)
+bucket has to be in the same region as those services. CUR bucket can be
 replicated to the region that supports CIDs via S3 bucket replication.
 When using the cid-cmd, you can define the Region to deploy the
-dashboard in as a parameter e.g. _cid-cmd --region_name eu-west-2 deploy_.
+dashboard in as a parameter e.g. _cid-cmd --region\_name eu-west-2 deploy_.
 
 - [Quick Sight](../../../general/latest/gr/quicksight.md "../../../general/latest/gr/quicksight.md")
 - [Glue](../../../general/latest/gr/glue.md "../../../general/latest/gr/glue.md")
@@ -188,9 +188,9 @@ dashboard that it belongs to. For more information, see the following:
   everyone in your Amazon Quick Sight account access to a dashboard](../../../quicksight/latest/user/share-a-dashboard-grant-access-everyone.md "../../../quicksight/latest/user/share-a-dashboard-grant-access-everyone.md")
 - See more in [share section of this workshop](share-dashboards.md "share-dashboards.md").
 
-### How is the Unit Cost is being calculated?
+### How is the Unit Cost calculated?
 
-In general- spend in $/usage_quantity For example for Compute/RDS we
+In general - spend in $/usage\_quantity For example for Compute/RDS we
 take only instances running hours cost and divide by usage, for S3 we
 take only storage cost and divide by storage size
 
@@ -213,7 +213,7 @@ Click on a specific visual, click on the 3 dots → Export to CSV
 On KPI dashboard, under Set KPI Goals tab. Choose a specific KPI and
 adjust the bar according to your KPI value
 
-### How I can consolidate data from multiple AWS Organizations
+### How can I consolidate data from multiple AWS Organizations
 
 You can add data collection from multiple AWS Organizations to be
 visualized in the same dashboards and then use Row Level Security to
@@ -221,17 +221,17 @@ restrict access if needed.
 
 1. In Data Collection account (where you have dashboards) you need to update CID-CUR-Destination stack and add to a comma separated list
    `SourceAccountIds` all additional Management Account Id(s).
-2. In each Management Account account (Payer) you need to install
+2. In each Management Account (Payer) you need to install
    CID-CUR-Source as described in [step 2 here](deployment-in-global-regions.md "deployment-in-global-regions.md").
 3. In each Management Account request a backfill of CUR with the name `cid` with up to 3 years of historical data via a support case.
    You can expect the CUR to appear 24h after the backfill request
    completed.
 
-4. Follow Data Collection instructions to install permissions each Management Account account (Payer) as described in [here](data-collection-deployment.md "data-collection-deployment.md").
+4. Follow Data Collection instructions to install permissions in each Management Account (Payer) as described in [here](data-collection-deployment.md "data-collection-deployment.md").
 5. In Data Collection Account update the Data Collection Stack and add new Management Accounts as a comma separated list.
 6. Trigger data collection as per documentation [here](data-collection-deployment.md "data-collection-deployment.md").
    For Data Collection the backfill is not possible. You can check
-   dashboards in after 24h or trigger refresh of all related datasets
+   dashboards after 24h or trigger refresh of all related datasets
    manually.
 
 ### How can I visualize GovCloud usage and spend in CID?
@@ -258,7 +258,7 @@ GovCloud workloads usage and spend.
 Due to a recent change in CUR2.0 data some customers can
 experience inconsistencies in data. We invite customers to
 [modify
-Athena Views](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/commit/b11e8a500a549c9bf7fe379e870a3b1af65a5465 "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/commit/b11e8a500a549c9bf7fe379e870a3b1af65a5465") (summary_view, hourly_view and resource_view), and then
+Athena Views](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/commit/b11e8a500a549c9bf7fe379e870a3b1af65a5465 "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/commit/b11e8a500a549c9bf7fe379e870a3b1af65a5465") (summary\_view, hourly\_view and resource\_view), and then
 refresh corresponding datasets in Quick Sight. Alternatively customers
 can use [recursive update](update-dashboards.md "update-dashboards.md").
 
@@ -290,7 +290,7 @@ can use [recursive update](update-dashboards.md "update-dashboards.md").
 ### Savings Plans which returned within 7 days window incorrectly shown as a negative value in the amortized cost - what do I do?
 
 Make sure you’re using the latest version of the
-[summary_view](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cid/summary_view.sql "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cid/summary_view.sql")
+[summary\_view](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cid/summary_view.sql "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cid/summary_view.sql")
 in Athena which includes
 [following
 change](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/commit/7e30cb509cbd78cf63b5efcc954cf68227cfa449 "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/commit/7e30cb509cbd78cf63b5efcc954cf68227cfa449") to handle Savings Plans returns in the amortized cost.
@@ -301,7 +301,7 @@ views to the latest versions.
 
 Please use cid tool of version = 4.2.3 for both command line updates and CloudFormation use cases.
 
-### I am getting the error "SOURCE_RESOURCE_LIMIT_EXCEEDED" on dataset update - what do I do?
+### I am getting the error "SOURCE\_RESOURCE\_LIMIT\_EXCEEDED" on dataset update - what do I do?
 
 Athena may face processing limitations if the CUR has a significant
 volume. To overcome this, one possible solution is to change the CUR
@@ -327,22 +327,22 @@ LakeFormation"
 
 ![Choose '`yes’ if Lake Formation permission model is in place for the account](images/Lakeformation.png)
 
-#### How do I fix the "product_cache_engine" or "product_database_engine" cannot be resolved error?
+#### How do I fix the "product\_cache\_engine" or "product\_database\_engine" cannot be resolved error?
 
-Some CID views dependent on having or historically having an RDS
+Some CID views are dependent on having or historically having an RDS
 database instance and an ElastiCache instance run in your organization.
 
 The CloudFormation
-deployment do not have this dependency.
+deployment does not have this dependency.
 
 For fixing this in existing deployment you can simply run at least one
 RDS database and at least one ElastiCache instance for a couple of
 minutes.
 
-If you get the error that the column _product_database_engine_ or
-_product_deployment_option_ does not exist, then you need to run an RDS
+If you get the error that the column _product\_database\_engine_ or
+_product\_deployment\_option_ does not exist, then you need to run an RDS
 database instance. If you get the error that the column
-_product_cache_engine_ does not exist, then you need to spin up an
+_product\_cache\_engine_ does not exist, then you need to spin up an
 ElastiCache instance.
 
 After you run these instances, on the next CUR generation and Crawler
@@ -352,7 +352,7 @@ Typically this takes 24 hours.
 #### I’m getting an error in Quick Sight that is saying Athena timed out.
 
 For very large CUR files, Athena may time out trying to query the data
-for summary_view. In Athena, find the summary_view view, click the three
+for summary\_view. In Athena, find the summary\_view view, click the three
 dots next to it and select show/edit query. Modify the following:
 
 - [Request Athena](https://docs.amazonaws.cn/en_us/athena/latest/ug/service-limits.html? "https://docs.amazonaws.cn/en_us/athena/latest/ug/service-limits.html?") DML query timeout increase via support case.
@@ -360,7 +360,7 @@ dots next to it and select show/edit query. Modify the following:
 - Or, adjust the look back from "7" months to desired time-frame in row 75.
 - In Quick Sight, refresh your dataset.
 
-#### HIVE_PARTITION_SCHEMA_MISMATCH There is a mismatch between the table and partition schemas. The types are incompatible and cannot be coerced
+#### HIVE\_PARTITION\_SCHEMA\_MISMATCH There is a mismatch between the table and partition schemas. The types are incompatible and cannot be coerced
 
 Edit your Glue
 crawler to refresh the metadata from the partitions by following
@@ -412,9 +412,9 @@ Pricing Calculator](https://calculator.aws/#/estimate?id=991281b8b57ced55853631c
 
 ### Is there additional cost for Advanced and Additional dashboards?
 
-It depends on the the frequency of scans, number of regions and accounts
+It depends on the frequency of scans, number of regions and accounts
 and a volume of the workloads. Generally for customers with a monthly
-bill 1M$ the cost of data collection is less then $50/month for
+bill 1M$ the cost of data collection is less than $50/month for
 default scan frequency.
 
 ## Customization
@@ -442,13 +442,13 @@ a significant obstacle to automatic translation.
 
 ## Migration
 
-### I am planning a migration of AWS Accounts to a different AWS Organization. What changes I need to make in CloudFormation stack in destination account?
+### I am planning a migration of AWS Accounts to a different AWS Organization. What changes do I need to make in the CloudFormation stack in the destination account?
 
-Maintain current configuration until billing cycle completion to ensure accurate post-migration invoice adjustments and upfront charges. After billing cycle completion, terminate Cost and Usage Report replication from the migrating account by removing its stack and deleting its account ID from the data exports stack in the destination account. Adjust queries to only use cur if source_account_id is equal to payer account(Can be done even before migration).
+Maintain current configuration until billing cycle completion to ensure accurate post-migration invoice adjustments and upfront charges. After billing cycle completion, terminate Cost and Usage Report replication from the migrating account by removing its stack and deleting its account ID from the data exports stack in the destination account. Adjust queries to only use cur if source\_account\_id is equal to payer account(Can be done even before migration).
 
 ###### Important
 
-It is important to request a backfill of your CUR before transferring AWS Accounts. Once an account leaves an AWS Organization you loose the ability to backfill CUR data.
+It is important to request a backfill of your CUR before transferring AWS Accounts. Once an account leaves an AWS Organization you lose the ability to backfill CUR data.
 
 ###### Note
 
@@ -470,7 +470,7 @@ added as needed.
 
 Set up CID in the Organization and use Athena command
 [UNLOAD](../../../athena/latest/ug/unload.md "../../../athena/latest/ug/unload.md") in the
-source account to export a selection of data into parquet format. Please note, Legacy CUR is partitioned by "partitioned_by=ARRAY['year','month']" vs CUR 2.0 by partitioned_by=ARRAY['billing\_period']
+source account to export a selection of data into parquet format. Please note, Legacy CUR is partitioned by "partitioned\_by=ARRAY['year','month']" vs CUR 2.0 by partitioned\_by=ARRAY['billing\_period']
 
 ```
 UNLOAD (
@@ -534,7 +534,7 @@ WHERE line_item_usage_account_id IN( '(account ID)', '(account ID)', '(account I
 
 If you need to regularly export this data, you can deploy this as a Lambda to run on schedule.
 
-### I have an archive of Cost and Usage Report (CUR). How I integrate to CID after migration?
+### I have an archive of Cost and Usage Report (CUR). How do I integrate with CID after migration?
 
 It is recommended to setup CUR replication before migration. You can
 reuse historical data if you have an existing CUR export, and if it
@@ -545,14 +545,14 @@ strictly conforms to the CID requirements.
 - Report Versioning: **Overwrite existing report**
 - Report data integration for: **Amazon Athena**
 - Compression type: **Parquet**
-  If you respect the above requirements, on an single tenant account or an
+  If you respect the above requirements, on a single tenant account or an
   organization (**FromOrg**), you are able to copy the CUR to another CID
   deployment, in another organization (**ToOrg**).
 
 For the import process to work, the imported data should comply with a
 strict S3 mapping structure. S3 mapping is based on the CUR name and
 bucket prefix. In order to migrate existing reports, S3 mappings should
-be compliant. This will require to rename before transfer the data to
+be compliant. This will require renaming the data before transfer to
 the cid bucket of the destination organization.
 
 Assumptions:
@@ -667,7 +667,7 @@ by other services, like key administrators policy.
 CUR bucket replication is the preferred method because it is tested and
 documented. Technically you can use cross-account methods but it is
 untested. It is true that CUR bucket replication will create more cost
-as the you will have to store the CUR twice, although you could think of
+as you will have to store the CUR twice, although you could think of
 it as a backup in case something happens to the payer accounts. We
 recommend CUR bucket replication also because the Athena tables are
 created/updated via a Glue crawler where you get all CUR schema changes
@@ -678,7 +678,7 @@ significantly more complicated if KMS encryption is used.
 
 ### How can I implement backup and disaster recovery for CID?
 
-We recommend installation from scratch in case if you fully lost the access to your Quick Sight account. But you may want to backup data, collected by CID as well as your custom dashboards.
+We recommend installation from scratch in case you fully lost access to your Quick Sight account. But you may want to backup data, collected by CID as well as your custom dashboards.
 
 **Backup:**
 
@@ -727,7 +727,7 @@ management account to only those that must be managed in the management
 account." from
 [here](../../../whitepapers/latest/organizing-your-aws-environment/design-principles-for-organizing-your-aws-accounts.md "../../../whitepapers/latest/organizing-your-aws-environment/design-principles-for-organizing-your-aws-accounts.md").
 
-1. As there are lambda function deployed in the account these could
+1. As there are Lambda functions deployed in the account these could
    benefit from Compute Savings plans. This means that there could be
    higher savings missed in other accounts because they are used on the
    lambdas first:
@@ -737,15 +737,15 @@ the owner account’s usage, and then to other accounts’ usage. This
 occurs only if you have sharing enabled." from
 [here](../../../savingsplans/latest/userguide/sp-applying.md "../../../savingsplans/latest/userguide/sp-applying.md").
 
-### My Athena database has tables in called year and payer
+### My Athena database has tables called year and payer
 
 We have upgraded the lab to work for multi-payers. For this we added a
-new partition of payer_id=your_payer_id which can upset the crawler.
+new partition of payer\_id=your\_payer\_id which can upset the crawler.
 
 To fix please follow the steps below:
 
 1. Ensure your costoptimization bucket does have the new
-   **payer_id=your_payer_id** folder in your data.
+   **payer\_id=your\_payer\_id** folder in your data.
 2. Delete your new tables with names that have long hashs attached to
    them and start with payer or year
 3. Run the following [python script](samples/s3_files_migration.py.zip.md "samples/s3_files_migration.py.zip.md")
@@ -760,25 +760,25 @@ This will move all current files into the new format
 
 ## CUDOS v5 FAQS
 
-### What’s new in CUDOS v5 compare to previous version?
+### What’s new in CUDOS v5 compared to the previous version?
 
 To improve performance in CUDOS v5 we’ve re-designed dataset structure.
 All datasets used by CUDOS v5 use fast Quick Sight SPICE storage which
 reduces time required to load visuals. CUDOS v5 is using 3 datasets:
 
-- **summary_view** with historical data for last 7 months (by default) and
+- **summary\_view** with historical data for last 7 months (by default) and
   with daily granularity for latest 3 months without resource details. See
   source code
   [here](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cid/summary_view.sql "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cid/summary_view.sql")
-- **resource_view** with cost and usage details for every resource for
+- **resource\_view** with cost and usage details for every resource for
   last 30 days with daily granularity. See source code
   [here](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cudos/resource_view.sql "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cudos/resource_view.sql")
-- **hourly_view** with hourly granularity for last 30 days without
+- **hourly\_view** with hourly granularity for last 30 days without
   resource level details. See source code
   [here](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cudos/hourly_view.sql "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/cid/builtin/core/data/queries/cudos/hourly_view.sql")
 
-Datasets **customer_all**, **ec2_running_cost** and
-**savings_plans_eligible_spend** are not used by CUDOS v5. Also we’ve
+Datasets **customer\_all**, **ec2\_running\_cost** and
+**savings\_plans\_eligible\_spend** are not used by CUDOS v5. Also we’ve
 added new features to MoM Trends, AI/ML and other tabs. You can find
 full list of changes
 [here](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-cudos.md "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-cudos.md")
@@ -835,16 +835,16 @@ If you would like to delete previous version of CUDOS you can run `cid-cmd delet
 2. **Performance**: CUDOS v5 has significant performance improvements for
    resource level visuals and we are going to release more resource
    specific insights in the future.
-3. **Spice capacity**: resource_view and hourly_view datasets will require
+3. **Spice capacity**: resource\_view and hourly\_view datasets will require
    additional SPICE capacity which you might need to allocate. In case of
    insufficient capacity you will see error message during the dataset
    refresh.
 4. **Reduced amount of Athena data scans**: Having all CUDOS v5 datasets in
-   SPICE reduces amount of data scanned by Athena compare to previous
+   SPICE reduces the amount of data scanned by Athena compared to the previous
    version.
 5. **Row level security (RLS)**: If you are using row level security
    feature of Quick Sight you would need to apply RLS to new datasets
-   hourly_view and resource_view before sharing dashboard with your users.
+   hourly\_view and resource\_view before sharing dashboard with your users.
 6. **Share CUDOS v5 dashboard with users**: CUDOS v5 has a new URL to the
    dashboard https://quicksight.aws.amazon.com/sn/dashboards/cudos-v5. You
    would need to share CUDOS v5 dashboard with all users who have access to

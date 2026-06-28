@@ -5,10 +5,10 @@ This content is DEPRECATED. Please use [Organizational Taxonomy Guide](add-org-t
 ## Introduction
 
 Attribution of cost and operational data to Business Units, Divisions,
-Project or Teams is important phase. This can attribute ownership of
+Projects, or Teams is an important phase. This can attribute ownership of
 assets and actions and follow up in scale.
 
-If you use AWS Organizations, and your Organizational Units are align
+If you use AWS Organizations, and your Organizational Units are aligned
 with your actual organizational structure, you probably would like to
 incorporate Organizational Units(OU) information into your Cloud
 Intelligence Dashboards, creating filters, views and visualizations of
@@ -60,7 +60,7 @@ You will need to create a new view `organization_map`.
    versions of [Data Collection Stack](data-collection.md "data-collection.md") the name of
    data base was `optimization_data` and you will need to adapt SQL
    accordingly).
-3. Confirm that you have the table, organization_data and there is data in that table.
+3. Confirm that you have the table, organization\_data and there is data in that table.
 4. Create the following view:
 
 ```
@@ -102,30 +102,30 @@ can see the added fields to use them in your Dashboards and Analyses.
    - Select DataSource from the first drop down.
    - Next select the same DataSource that issued for `summary_view`.
    - Leave the Catalog as AwsDataCatalog.
-   - Select cid_data as the database.
+   - Select cid\_data as the database.
 
    ![Add data dialog with all selections displayed](images/customizations/out-integration/ou-integration-04.png)
    - Search for the view `organization_map`, check the box.
 
 1. Click Select.
-1. Select the join between **summary_view** and **organization_map**.
+1. Select the join between **summary\_view** and **organization\_map**.
 1. Ensure the join type is set to left.
 
 ![Join configuration dialog showing the join clause details](images/customizations/out-integration/ou-integration-05.png)
 
-1. Set the join clause to be; _linked_account_id = account_id_.
+1. Set the join clause to be; _linked\_account\_id = account\_id_.
 2. Click Apply.
 3. Save and Publish the dataset.
 
 ![Quick Sight dataset designer showing the summary view dataset with the save and publish button highlighted](images/customizations/out-integration/ou-integration-06.png)
 
-1. Now you can do the same for all other datasets (hourly_view, resource_view and others).
+1. Now you can do the same for all other datasets (hourly\_view, resource\_view and others).
 2. Once the dataset
    finishes loading successfully, you will then be able to incorporate
    payer account name in your dashboards, analysis to visuals, controls or
    filters.
 
-## Method 2- Incorporating organization data into account_map
+## Method 2- Incorporating organization data into account\_map
 
 ### Step 1. Modify View in Athena
 
@@ -147,7 +147,7 @@ back if this happens.
    `account_map` and click on the vertical ellipses next to the view and select _Show/edit query_ from the context menu.
 3. First, make a copy of
    the view as backup, naming the new view something like
-   _account_map_original_.
+   _account\_map\_original_.
 4. Select the entire view and replace it with this query:
 
 ```
@@ -173,7 +173,7 @@ Please explore `organization_data` table for more options that you can use in th
 
 ## Managing complex organization
 
-Some organization can have a complex multi level structure. In these
+Some organizations can have a complex multi-level structure. In these
 cases we recommend adding multiple OU levels or leveraging
 [AWS
 Organization Tags](../../../organizations/latest/userguide/orgs_tagging.md "../../../organizations/latest/userguide/orgs_tagging.md"). You can define a set of Tags. Ex: `MyEnterprise`,
@@ -189,7 +189,7 @@ Organization.
 
 1. Navigate to Athena and the cur database (default: `cid_cur`).
 2. Locate the `account_map` and click on the vertical ellipses (`⋮`) next to the view and select _Show/edit query_ from the context menu.
-3. First, make a copy of the view as backup, naming the new view something like _account_map_original_.
+3. First, make a copy of the view as backup, naming the new view something like _account\_map\_original_.
 4. Select the entire view and replace it with this query adjusted to your needs:
 
 ```
@@ -258,7 +258,7 @@ organization.
 ![Quick Sight save as dialog](images/customizations/out-integration/ou-integration-07.png)
 
 1. In that analysis, select the "Invoiced Spend by Payer Account" visual on the "Executive: Billing Summary" sheet.
-2. Locate the "ou" field that was added in the field list for the _summary_view_ dataset.
+2. Locate the "ou" field that was added in the field list for the _summary\_view_ dataset.
 
 ![Quick Sight analysis showing the field list](images/customizations/out-integration/ou-integration-08.png)
 
@@ -351,7 +351,7 @@ as a control.
    7. Name: **Organization**
    8. Style: **Dropdown**
    9. Values: **Link to dataset field**
-   10. Dataset: **summary_view**
+   10. Dataset: **summary\_view**
    11. Field: **ou**
    12. Click _Add_.
    13. Select a visual from the sheet and click on the _filters_ icon from the analysis menu.
@@ -377,7 +377,7 @@ your data quickly. You can add _Organization_ or any other control you
 would like, such as _tags_ to add more flexibility to filter data on
 this sheet.
 
-After adding the control, it will be in as a drop down at the top of the
+After adding the control, it will appear as a dropdown at the top of the
 sheet. Follow these steps to move the control to the sheet.
 
 1. Follow the steps in the optional step for adding controls

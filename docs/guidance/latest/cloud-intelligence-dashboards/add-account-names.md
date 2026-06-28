@@ -5,7 +5,7 @@
 The Cost & Usage Report data doesn’t currently contain account names and
 other business or organization specific mapping so you can create a view
 that enhances your CUR data. There are a few options you can leverage to
-create your account_map view to provide opportunities to leverage
+create your account\_map view to provide opportunities to leverage
 your existing mapping tables, organization information, or other
 business mappings allowing for deeper insights. This view will be used
 to create the **Account Map** for your dashboards.
@@ -27,7 +27,7 @@ explore other modules of this lab as well.
 
 [Click to navigate to Optimization Data Collection Lab](data-collection-deployment.md "data-collection-deployment.md")
 
-After successful deployment create or update your account_map view by
+After successful deployment create or update your account\_map view by
 running the following query in Athena Query Editor.
 
 ```
@@ -73,7 +73,7 @@ consolidating data from other payer accounts
 
 For lookback period select the second option **Apply cost category rules
 starting any specified month from the previous 12 months** and then
-choose a month which is atleast 3 months prior to the current month.
+choose a month which is at least 3 months prior to the current month.
 Select **Next**
 
 ![Creating Cost Category name](images/cur/cc_name_option.png)
@@ -90,20 +90,20 @@ Select **create cost category**
 The CUR will now have a column called **CostCategory/accountname** with
 the account names populated in them. Please note, it might take **24-48
 hours** for the CUR to be updated. In Athena the column name in the CUR
-table will be something similar to **cost_category_accountname**
+table will be something similar to **cost\_category\_accountname**
 
 Once the cost category is available in your CUR Athena table, update
-your account_map view with the below query with the following
+your account\_map view with the below query with the following
 modifications
 
-On line 4 and line 9, replace **cost_category_accountname** with the name
+On line 4 and line 9, replace **cost\_category\_accountname** with the name
 of the cost category you chose for account name. If you chose just
 accountname as shown in the example above then no change is needed.
 
 On line 8, replace **(database).(tablename)** with your CUR database and
-table name (e.g. cid_cur.cur)
+table name (e.g. cid\_cur.cur)
 
-Run the query after the modification. Your account_map view will now
+Run the query after the modification. Your account\_map view will now
 have account names from the cost category created.
 
 ```
@@ -126,14 +126,14 @@ AWS. You can leverage your existing mapping data by creating a csv file
 with your account mapping data including any additional organization
 attributes.
 
-**Create your account_map csv file**
+**Create your account\_map csv file**
 
-This example will show you how to create using a sample account_map csv file
+This example will show you how to create using a sample account\_map csv file
 
-1. Create an account_map csv file locally, you can use the sample here and requirements below as a starting point: [account_map.csv](samples/account_map.csv.zip.md "samples/account_map.csv.zip.md")
-2. Update your account_map csv with your account mapping data
+1. Create an account\_map csv file locally, you can use the sample here and requirements below as a starting point: [account\_map.csv](samples/account_map.csv.zip.md "samples/account_map.csv.zip.md")
+2. Update your account\_map csv with your account mapping data
 
-**Upload your account_map csv file to Amazon S3**
+**Upload your account\_map csv file to Amazon S3**
 
 1. Navigate to **Amazon S3**
 2. Select **Create Bucket**
@@ -168,7 +168,7 @@ This example will show you how to create using a sample account_map csv file
 
 ![account-map folder page with upload button highlighted](images/cur/view0_upload.png)
 
-1. In your newly created folder, **drag and drop** your account_map.csv file then select **Upload**
+1. In your newly created folder, **drag and drop** your account\_map.csv file then select **Upload**
 
 ![Amazon S3 upload page with the drag and drop file upload section and upload button highlighted](images/cur/view0_upload_csv.png)
 
@@ -176,11 +176,11 @@ This example will show you how to create using a sample account_map csv file
 
 ![Amazon S3 upload status page with destination part highlighted](images/cur/view0_copy.png)
 
-**Create your account_mapping Athena table**
+**Create your account\_mapping Athena table**
 
 1. Navigate to **Amazon Athena**
-2. Modify the below query with your account_map.csv information. Replace
-   the **(S3.Destination) value in row 15** with your account_map folder S3
+2. Modify the below query with your account\_map.csv information. Replace
+   the **(S3.Destination) value in row 15** with your account\_map folder S3
    destination from step 8 of the last section (e.g. cost-account-map-123456789012/account-map)
 
 ###### Note
@@ -208,16 +208,16 @@ TBLPROPERTIES (
     'skip.header.line.count'='1')
 ```
 
-**Create your account_map Athena view**
+**Create your account\_map Athena view**
 
-The account_map Athena view ensures any new
+The account\_map Athena view ensures any new
 accounts are not missed in your dashboard by creating a view off of your
-CUR table and account_mapping Athena table.
+CUR table and account\_mapping Athena table.
 
 Modify the following query with your table names:
 
-1. Replace **(database).(tablename)** in line 13 with your CUR database and table name (e.g. cid_cur.cur)
-2. Replace **(database).(tablename)** in line 23 with your account_mapping database and table name (e.g. cid_cur.account_mapping)
+1. Replace **(database).(tablename)** in line 13 with your CUR database and table name (e.g. cid\_cur.cur)
+2. Replace **(database).(tablename)** in line 23 with your account\_mapping database and table name (e.g. cid\_cur.account\_mapping)
 
 ```
 CREATE OR REPLACE VIEW account_map AS
@@ -250,7 +250,7 @@ Cloud-Intelligence-Dashboards stack in CloudFormation. Please make
 sure that you configure there the same bucket name as in
 [Data Collection Lab](data-collection.md "data-collection.md").
 
-Alternatively you can also choose to do an one-time update of your
+Alternatively you can also choose to do a one-time update of your
 account map view using one of the options below
 
 ```
@@ -259,7 +259,7 @@ cid-cmd map --account-map-source csv --account-map-file FILE.CSV
 
 ### Final Steps
 
-Once you update and test the account_map view in Athena, you need to
+Once you update and test the account\_map view in Athena, you need to
 make sure Quick Sight has access to the bucket containing Optimization
-Data Collection data and then refresh summary_view dataset in
+Data Collection data and then refresh summary\_view dataset in
 Quick Sight.

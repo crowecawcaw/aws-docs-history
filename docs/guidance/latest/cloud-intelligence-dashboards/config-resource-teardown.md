@@ -8,7 +8,7 @@ Follow these steps to remove the dashboard.
 
 1. Log into the AWS Console of the account where you deployed the dashboard. This is the AWS account ID that you specified in the `Dashboard account ID` parameter of the CloudFormation template.
 2. Open AWS CloudShell in the AWS Region where the dashboard is deployed.
-3. You need to use the dahboard YAML file corresponding to your [CRCD release](https://github.com/aws-samples/config-resource-compliance-dashboard/releases "https://github.com/aws-samples/config-resource-compliance-dashboard/releases"). Upload both `cid-crcd.yaml` and `cid-crcd-definition.yaml` on the `dashboard_template` directory to AWS CloudShell.
+3. You need to use the dashboard YAML file corresponding to your [CRCD release](https://github.com/aws-samples/config-resource-compliance-dashboard/releases "https://github.com/aws-samples/config-resource-compliance-dashboard/releases"). Upload both `cid-crcd.yaml` and `cid-crcd-definition.yaml` on the `dashboard_template` directory to AWS CloudShell.
 4. Execute the following command to delete the dashboard:
 
 ```

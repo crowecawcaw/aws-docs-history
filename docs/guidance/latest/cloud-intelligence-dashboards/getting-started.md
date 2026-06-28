@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cloud Intelligence Dashboards is an open-source framework from [AWS Enterprise Support](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/") lovingly maintained by AWS experts that provides customers with comprehensive insights into their cloud cost, usage, and operations data.
+Cloud Intelligence Dashboards is an open-source framework from [AWS Enterprise Support](https://aws.amazon.com/premiumsupport/plans/enterprise/ "https://aws.amazon.com/premiumsupport/plans/enterprise/"), lovingly maintained by AWS experts, that provides customers with comprehensive insights into their cloud cost, usage, and operations data.
 
 As a part of the [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/ "https://aws.amazon.com/architecture/well-architected/"), it helps customers with their Cloud Optimization Journey across all six Pillars with visuals and KPIs based on proven Best Practices and White Papers.
 

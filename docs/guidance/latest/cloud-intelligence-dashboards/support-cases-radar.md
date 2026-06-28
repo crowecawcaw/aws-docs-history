@@ -12,7 +12,7 @@ maximize the value delivered by AWS Support.
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=support-cases-radar "https://cid.workshops.aws.dev/demo?dashboard=support-cases-radar")
 
@@ -47,22 +47,22 @@ CloudFormation
 
 **Prerequisite:** To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Support-Cases-Radar-Dashboard&param_DashboardId=support-cases-radar&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Support-Cases-Radar-Dashboard¶m_DashboardId=support-cases-radar¶m_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Support-Cases-Radar-Dashboard&param_DashboardId=support-cases-radar&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Support-Cases-Radar-Dashboard&param_DashboardId=support-cases-radar&param_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 7. You can check the stack output for dashboard URLs.
 
 **Troubleshooting:** If you see error "No export named cid-CidExecArn
 found" during stack deployment, make sure you have completed
 prerequisite steps.
 
 Command Line
-Alternative method to install dashboards is the
+An alternative method to install dashboards is the
 [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
 tool.
 
-1. Log in to to your **Data Collection** Account.
-2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend to use [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
+1. Log in to your **Data Collection** Account.
+2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
@@ -87,7 +87,7 @@ additional capabilities such as a generative AI case summarization.
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command
 in your command-line interface:
 

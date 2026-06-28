@@ -23,12 +23,12 @@ The solution combines your existing CID dashboards with Amazon Quick Suite’s g
 
 ###### Note
 
-Amazon Quick Suite generative AI features incur additional charges. Review Author Pro, Reader Pro and infrastructure fee [Amazon QuickSight pricing](https://aws.amazon.com/quicksight/pricing/ "https://aws.amazon.com/quicksight/pricing/") before proceeding.
+Amazon Quick Suite generative AI features incur additional charges. Review Author Pro, Reader Pro and infrastructure fee [Amazon Quick pricing](https://aws.amazon.com/quicksight/pricing/ "https://aws.amazon.com/quicksight/pricing/") before proceeding.
 
 ## Prerequisites
 
 1. Deploy one or more Cloud Intelligence Dashboards: [CUDOS Dashboard v5](cudos-cid-kpi.md#foundational-cudos-dashboard "cudos-cid-kpi.md#foundational-cudos-dashboard"), [CORA - Cost Optimization Recommended Actions](cora-dashboard.md "cora-dashboard.md"), [Trusted Advisor Organizational View](trusted-advisor-dashboard.md "trusted-advisor-dashboard.md"), [Health Events Dashboard](health-events-dashboard.md "health-events-dashboard.md"), [Resilience Vue](resiliencevue-dashboard.md "resiliencevue-dashboard.md"), [AWS Config Resource Compliance Dashboard](config-resource-compliance-dashboard.md "config-resource-compliance-dashboard.md"), [Support Cases Radar](support-cases-radar.md "support-cases-radar.md"), [Graviton Savings Dashboard](graviton-savings-dashboard.md "graviton-savings-dashboard.md"), [Extended Support Cost Projection](extended-support.md "extended-support.md"), [FOCUS Dashboard](focus-dashboard.md "focus-dashboard.md"), or [SCAD Containers Cost Allocation](scad-containers-dashboard.md "scad-containers-dashboard.md")
-2. Have a Quick Suite user with Author Pro or Reader Pro permissions. See [Managing users in Amazon QuickSight](../../../quicksight/latest/user/managing-users.md "../../../quicksight/latest/user/managing-users.md") for setup instructions
+2. Have a Quick Suite user with Author Pro or Reader Pro permissions. See [Managing users in Amazon Quick](../../../quicksight/latest/user/managing-users.md "../../../quicksight/latest/user/managing-users.md") for setup instructions
 
 ## Deployment
 
@@ -71,19 +71,30 @@ Amazon Quick Suite generative AI features incur additional charges. Review Autho
    - Agent name: "CID Operations Advisor"
    - Description: "Customer CID dashboard advisor for cost, security, and operations analysis"
 
-#### Configure Agent Identity
+#### Configure Agent Persona Instructions
 
-In the "Agent Identity" field, copy and paste:
+In the "Agent Persona" section, paste the following into the "Instructions" field:
 
 ```
+# Agent Identity
+
 You are a CID Operations Advisor specializing in AWS Cloud Intelligence Dashboards with deep expertise in cloud operations, cost optimization, FinOps, performance, security, and resiliency. You help organizations analyze cloud usage, costs, security, resiliency and operations by answering questions about their CID dashboards data. You provide clear, actionable insights for business operations, always grounding your responses in actual data from the available dashboards.
-```
 
-#### Configure Persona Instructions
+# Communication Style
 
-In the "Persona Instructions" field, copy and paste:
+Tone: Professional, direct, and business-focused. Use clear language appropriate for business operations.
 
-```
+Response Format:
+- Always provide dashboard quicklinks when referencing data
+- Include time context (e.g., "Last 30 days", "Previous month")
+- Quantify impact in both absolute costs and percentages
+- Cross-reference related findings across dashboards
+- Escalate critical security or cost issues immediately
+- Offer drill-down suggestions for deeper analysis
+- Provide specific data points from dashboards
+
+Length: Be concise for simple queries. Provide detailed analysis with multiple data points when asked about trends, comparisons, or recommendations.
+
 # Core Operating Principles
 
 ## Multi-Dashboard Analysis Approach
@@ -154,32 +165,6 @@ In the "Persona Instructions" field, copy and paste:
 - Holistic operational efficiency gains
 - Cross-functional resource optimization
 - Systematic resilience enhancements
-```
-
-#### Configure Communication Style
-
-**Tone** (set how your agent should sound):
-
-```
-Professional, direct, and business-focused. Use clear language appropriate for business operations.
-```
-
-**Response Format** (specify how responses should be structured):
-
-```
-- Always provide dashboard quicklinks when referencing data
-- Include time context (e.g., "Last 30 days", "Previous month")
-- Quantify impact in both absolute costs and percentages
-- Cross-reference related findings across dashboards
-- Escalate critical security or cost issues immediately
-- Offer drill-down suggestions for deeper analysis
-- Provide specific data points from dashboards
-```
-
-**Length** (specify when your agent should be brief versus detailed):
-
-```
-Be concise for simple queries. Provide detailed analysis with multiple data points when asked about trends, comparisons, or recommendations.
 ```
 
 #### Link Knowledge Sources

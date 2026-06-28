@@ -18,7 +18,7 @@ Usage Optimizations include:
 - Idle resource detection
 - Migration and Upgrade recommendations
 
-Rate Optimization consist of:
+Rate Optimization consists of:
 
 - Savings Plans Recommendations
 - Reserved Instances recommendations
@@ -35,7 +35,7 @@ actions locally to maximize cost savings.
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=cora "https://cid.workshops.aws.dev/demo?dashboard=cora")
 
@@ -65,15 +65,15 @@ CloudFormation
 
 **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=CORA-Dashboard&param_DashboardId=cora&param_RequiresDataExports=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=CORA-Dashboard¶m_DashboardId=cora¶m_RequiresDataExports=yes")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=CORA-Dashboard&param_DashboardId=cora&param_RequiresDataExports=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=CORA-Dashboard&param_DashboardId=cora&param_RequiresDataExports=yes")
 
 1. You can change **Stack name** for your template if you wish.
-2. Leave **Parameters** values as it is.
+2. Leave **Parameters** values as they are.
 3. Review the configuration and click **Create stack**.
-4. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE**
+4. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE**
 5. You can check the stack output for dashboard URLs.
 
 ###### Note
@@ -81,10 +81,10 @@ CloudFormation
 **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
 
 Command Line
-Alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool.
+An alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool.
 
-1. Log in to to your **Data Collection** Account.
-2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend to use [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
+1. Log in to your **Data Collection** Account.
+2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
@@ -146,7 +146,7 @@ For detailed instructions, refer to the [Terraform Deployment README](https://gi
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command
 in your command-line interface:
 
@@ -161,11 +161,11 @@ Summary. Here you can see the biggest recommendation categories, the
 potential savings they represent along with effort required for each
 resource and the number of resources.
 
-We recommend first estimate your Rightsizing, Upgrade, Migration and
+We recommend you first estimate your Rightsizing, Upgrade, Migration and
 Stop-Idle opportunities. Typically it takes time to implement these
-recommendations especially in the scale. We recommend you proceed with
+recommendations especially at scale. We recommend you proceed with
 commitment (reserved instances and savings plan) for the volume that
-take into account your rightsizing plan.
+takes into account your rightsizing plan.
 
 ## Using Cost Allocation Tags
 
@@ -184,11 +184,11 @@ Donut chart with a special
 [deduplication](https://aws.amazon.com/aws-cost-management/cost-optimization-hub/faqs/#:~:text=How%20does%20Cost%20Optimization%20Hub%20ensure%20savings%20from%20multiple%20recommendations%20are%20not%20double%20counted%3F "https://aws.amazon.com/aws-cost-management/cost-optimization-hub/faqs/#:~:text=How%20does%20Cost%20Optimization%20Hub%20ensure%20savings%20from%20multiple%20recommendations%20are%20not%20double%20counted%3F").
 Commitment savings are shown accounting for the potential impact of
 implementing rightsizing recommendations. However, the Data Export of
-Cost Optimization do not have data for this level of adjustment.
+Cost Optimization does not have data for this level of adjustment.
 
 The dashboard deduplicates recommendations by resource ID. Please note
 that dashboard shows recommendations for Rate Optimization and Usage
-Optimization deduplicated separately. But Rate Optimization are NOT
+Optimization deduplicated separately. But Rate Optimization is NOT
 taking into account the results of Usage Optimization (Rightsizing,
 Stop, Upgrade and such).
 

@@ -44,7 +44,7 @@ The dashboard has three tabs:
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following [this link](https://cid.workshops.aws.dev/demo/?dashboard=scad-containers-cost-allocation "https://cid.workshops.aws.dev/demo/?dashboard=scad-containers-cost-allocation")
 
 **SCAD - Containers Cost Allocation Dashboard**
@@ -59,7 +59,7 @@ The CID framework has two Containers Cost Allocation dashboards:
 - The [Kubecost Containers Cost Allocation Dashboard](kubecost-containers-dashboard.md "kubecost-containers-dashboard.md"), which is based on data collection
   from Kubecost
 
-Please visit review the [Containers Cost Allocation dashboards comparison in the FAQs](faq.md#faq-scad-kubecost-dashboard-difference "faq.md#faq-scad-kubecost-dashboard-difference") for more information.
+Please review the [Containers Cost Allocation dashboards comparison in the FAQs](faq.md#faq-scad-kubecost-dashboard-difference "faq.md#faq-scad-kubecost-dashboard-difference") for more information.
 
 - [Prerequisites](scad-containers-dashboard-prerequisites.md "scad-containers-dashboard-prerequisites.md")
 - [Deployment](scad-containers-dashboard-deployment.md "scad-containers-dashboard-deployment.md")

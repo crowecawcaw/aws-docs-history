@@ -23,7 +23,7 @@ difference?" … Simply stated: with unit metrics.
 
 This hands-on lab will guide you through the steps required to add your
 business data to a visualization that represents a "cost-per" unit
-metric. This will provide context to as to whether changes to your AWS
+metric. This will provide context as to whether changes to your AWS
 Cloud architecture and operations are improving, maintaining, or eroding
 gross profit margins.
 
@@ -46,14 +46,14 @@ format](../../../quicksight/latest/user/supported-date-formats.md "../../../quic
 Change it if it is not.
 
 ![Dataset results with the date field header highlighted](images/customizations/saas/customizations_dateformat.png) 5. Click **Save & Publish** and return to the list of your datasets in
-Quick Sight. 6. Click on summary_view and select **EDIT DATASET**.
+Quick Sight. 6. Click on summary\_view and select **EDIT DATASET**.
 
 ![Summary view with edit dataset button highlighted](images/customizations/saas/customizations_editdataset.png) 7. Click on **Add data**. Select from a dataset. Find your uploaded dataset
 and click **Select**.
 
 ![Add dataset with arrows pointing to each of the steps to find your dataset](images/customizations/saas/customizations_adddata.png) 8. Click on the two pink dots next to your dataset. Select **Left** in the
-join clauses section below select the _Usage_Date_ field on the left for
-**Summary_View** and the _Date_ field from your uploaded dataset on the
+join clauses section below select the _Usage\_Date_ field on the left for
+**Summary\_View** and the _Date_ field from your uploaded dataset on the
 right. Click **Apply**. Then click **Save & publish**.
 
 ![Edit dataset with arrows and numbers pointing out each of the steps to add and apply the join clause](images/customizations/saas/customization_joinclauses.png)
@@ -67,7 +67,7 @@ the earlier part of this lab.
    by adding a new tab on the far right side of the dashboard. Rename it to
    "Unit Metrics".
 
-![Dashboard showing several tabs with an arrow pointing to the Unit Metrics tab](images/customizations/saas/customizations_newtab.png) 2. Lets start by creating a _per API cost_ field. On the top right click
+![Dashboard showing several tabs with an arrow pointing to the Unit Metrics tab](images/customizations/saas/customizations_newtab.png) 2. Let’s start by creating a _per API cost_ field. On the top right click
 **Insert** and then **Add calculated field**.
 
 ![Add calculated date field](images/customizations/saas/customizations_addcalculatedfield.png) 3. Call it _Cost per API Call_ and add syntax to divide your Cost field
@@ -78,10 +78,10 @@ day. Click **Visualize** and select **Add visual**. Drag over your new Cost
 Per API Call field into the new visuals.
 
 ![Displaying the result of add visual to the analysis](images/customizations/saas/customizations_addingcostperapicallfield.png) 5. Let’s change this to a line graph that shows day-over-day trends.
-Click on the Line Chart visual type. Next, add the usage_date field to
+Click on the Line Chart visual type. Next, add the usage\_date field to
 your X axis.
 
-![Analysis with red arrows and numbers indicating the steps to add usage date to the x axis field well](images/customizations/saas/customizations_createlinegraph.png) 6. We now see our per API call unit cost day-over-day. Lets map the
+![Analysis with red arrows and numbers indicating the steps to add usage date to the x axis field well](images/customizations/saas/customizations_createlinegraph.png) 6. We now see our per API call unit cost day-over-day. Let’s map the
 number of API calls on top of this to see the correlation.
 
 ![Analysis with arrows indicating where to move the api count metric to in the field well](images/customizations/saas/customizations_addapicounttograph.png) 7. Tough to see it if our AWS spend is small. Let’s give the API count
@@ -114,9 +114,9 @@ we created in step 3 to be Cost/{Adjusted API Count}.
 
 ![Arrow pointing to the Adjusted API count value indicating what to swap](images/customizations/saas/customizations_swapadjustedcostvalue.png) 12. Now when you select a multiplier from your drop down or list, the cost
 per API call amounts in the graph should change by that order of
-magnitude. 13. Lets add a few more visuals to get you familiar with what else you can
+magnitude. 13. Let’s add a few more visuals to get you familiar with what else you can
 do. Create a new visual, and in the **Visual Types** section choose KPI
-indicator. 14. In the Field Wells along the top of the dashboard put the **usage_date**
+indicator. 14. In the Field Wells along the top of the dashboard put the **usage\_date**
 in as the Trend group, click on the arrow next to it and select
 **Aggregate** and choose month. Next, put the Cost Per API call field into
 the Value box. And finally, to get rid of all those decimal places,
@@ -124,11 +124,11 @@ select the Cost per API call field in the well, click on the down arrow
 next to it and select **Show as: Currency**.
 
 ![Showing how to change a field to display as currency](images/customizations/saas/customizations_showascurency.png) 15. Now we can see how our cost per API call month-over-month changed from
-this month to the prior month. Finally, lets add a table where you can
+this month to the prior month. Finally, let’s add a table where you can
 dig into the details and see cost per API call per service, per tag, per
 business unit, per account, per region, etc. 16. Create a new visual and set the visual type to **Pivot Table**. In the
 Values field well put Cost Per API Call set to Currency. In columns put
-usage_date set to aggregate monthly. In rows, put the dimensions you
+usage\_date set to aggregate monthly. In rows, put the dimensions you
 want to group on, for example tags, service, and operation.
 
 ![Analysis dashboard focused on the pivot table visualization](images/customizations/saas/customizations_detailedtable.png)

@@ -90,7 +90,7 @@ Deployment process consists of 3 main steps:
    template** in your CloudFormation console. This Stack will create bucket
    open for replication and Athena Tables.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination&param_CreateCUR=False&param_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination¶m_CreateCUR=False¶m_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination&param_CreateCUR=False&param_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Destination&param_CreateCUR=False&param_DestinationAccountId=REPLACE%20WITH%20THE%20CURRENT%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20ID")
 
 ### Step 2. [Source/Management Account] Create CUR and Configure Replication
 
@@ -98,7 +98,7 @@ Deployment process consists of 3 main steps:
 2. Click the Launch Stack button below to open the **pre-populated stack
    template** in your CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication&param_CreateCUR=True&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds= "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication¶m_CreateCUR=True¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication&param_CreateCUR=True&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds= "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cur-aggregation.yaml&stackName=CID-CUR-Replication&param_CreateCUR=True&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=")
 
 ### Step 3. [Data Collection Account] Deploy Dashboards
 
@@ -108,32 +108,30 @@ Deployment process consists of 3 main steps:
 
 Quick Suite is only available in cn-north-1 Beijing region for AWS China
 
-1.  Sign in to your Data Collection Account and navigate to the AWS
-    Management Console and search for **Quick Suite** in the services menu.
-2.  Select **Sign up for Quick Suite** if this is your first time accessing
-    the service.
-3.  On the Quick Suite setup page, you’ll need to choose an authentication
-    method:
+1. Sign in to your Data Collection Account and navigate to the AWS
+   Management Console and search for **Quick Suite** in the services menu.
+2. Select **Sign up for Quick Suite** if this is your first time accessing
+   the service.
+3. On the Quick Suite setup page, you’ll need to choose an authentication
+   method:
 
-        * **IAM Identity Center** - Recommended for simplified user management and
-        SSO capabilities
-        * **Active Directory** - Suitable for enterprises with existing AD
-        infrastructure
+   - **IAM Identity Center** - Recommended for simplified user management and
+     SSO capabilities
+   - **Active Directory** - Suitable for enterprises with existing AD
+     infrastructure
 
+   You cannot change authentication method after the initial setup. You
+   will need to re-create the Amazon Quick Suite account.
 
-        You cannot change authentication method after the initial setup. You
-        will need to re-create the Amazon Quick Suite account.
+4. If selecting IAM Identity Center:
 
-4.  If selecting IAM Identity Center:
+   - Configure user groups for Quick Suite access levels (Admin/Reader)
+   - Follow the
+     [IAM
+     Identity Center user management guide](../../../singlesignon/latest/userguide/addusers.md "../../../singlesignon/latest/userguide/addusers.md") to set up groups and permissions
+     Note: Choose your authentication method based on your organization’s requirements and existing identity management infrastructure.
 
-        * Configure user groups for Quick Suite access levels (Admin/Reader)
-        * Follow the
-        [IAM
-        Identity Center user management guide](../../../singlesignon/latest/userguide/addusers.md "../../../singlesignon/latest/userguide/addusers.md") to set up groups and permissions
-
-    Note: Choose your authentication method based on your organization’s requirements and existing identity management infrastructure.
-
-5.  At the bottom of the sign up page, there is an optional add-on for Pixel-Perfect Reports:
+5. At the bottom of the sign up page, there is an optional add-on for Pixel-Perfect Reports:
 
 ###### Note
 
@@ -161,7 +159,7 @@ China.
 2. Click the Launch Stack button below to open the **pre-populated stack
    template** in your CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes&param_CreateLocalAssetsBucket=yes&param_CURVersion=1.0&param_KeepLegacyCURTable=yes&param_CurrencySymbol=JPY "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards¶m_DeployCUDOSv5=yes¶m_DeployKPIDashboard=yes¶m_DeployCostIntelligenceDashboard=yes¶m_CreateLocalAssetsBucket=yes¶m_CURVersion=1.0¶m_KeepLegacyCURTable=yes¶m_CurrencySymbol=JPY") 3. Configure stack parameters:
+[![Launch Stack button](images/LaunchStack.svg)](https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes&param_CreateLocalAssetsBucket=yes&param_CURVersion=1.0&param_KeepLegacyCURTable=yes&param_CurrencySymbol=JPY "https://console.amazonaws.cn/cloudformation/home?region=cn-north-1#/stacks/quickcreate?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes&param_CreateLocalAssetsBucket=yes&param_CURVersion=1.0&param_KeepLegacyCURTable=yes&param_CurrencySymbol=JPY") 3. Configure stack parameters:
 
 - Enter a Stack name for your template such as
   Cloud-Intelligence-Dashboards
@@ -171,12 +169,10 @@ China.
 - Copy and paste your **Quick SightUserName** into the parameter text box.
   To find your Quick Sight username:
 
-      + Open a new tab or window and navigate to the **Quick Sight** console
-      + Find your username from the person icon in the top right corner
+  - Open a new tab or window and navigate to the **Quick Sight** console
+  - Find your username from the person icon in the top right corner
 
-
-
-      ![Quick Sight page with username drop down in the top right highlighted](images/cd_dash_qs_china.png)
+  ![Quick Sight page with username drop down in the top right highlighted](images/cd_dash_qs_china.png)
 
 - Select the Dashboards you want to install. We recommend deploying all
   three: Cost Intelligence Dashboard, CUDOS, and the KPI Dashboard.
@@ -188,9 +184,9 @@ China.
 - Review the configuration, select the checkbox **I acknowledge that
   Amazon CloudFormation might create IAM resources with custom names**, and
   click **Create stack**.
-- You will see the stack will start in **CREATE_IN_PROGRESS**. This step
+- You will see the stack will start in **CREATE\_IN\_PROGRESS**. This step
   can take ~20 minutes. Once complete, the stack will show
-  **CREATE_COMPLETE**
+  **CREATE\_COMPLETE**
 
 ###### Note
 
@@ -230,7 +226,7 @@ After successful deployment:
 1. Amazon S3 replicates AWS CUR data from a Management account in Global
    region to a Data Collection Account.
 2. Cloud Intelligence Dashboards leverage Amazon Athena and Amazon
-   Quick Sight for viualization.
+   Quick Sight for visualization.
 3. [Data Transfer Hub](https://github.com/aws-solutions/data-transfer-hub "https://github.com/aws-solutions/data-transfer-hub")
    moves data from China region to the Data collection account in Global
    Region.
@@ -240,6 +236,6 @@ After successful deployment:
 ### What dashboards are available in China?
 
 - At the moment only Foundational Dashboards (CUDOS, CID, KPI) are
-  available. We are working on other dashboard as well.
+  available. We are working on other dashboards as well.
 
 Other questions? Visit our [FAQs](faq.md "faq.md").

@@ -26,8 +26,7 @@ If you already have Data Exports Stack deployed for other dashboards
 (CORA or FOCUS) please just make sure you have CUR2 option activated.
 
 If you do not have Data Exports Stack please install it using
-[this guide](data-exports.md "data-exports.md"). Please do not forget to request Back
-Fill from source accounts for up to 36 months. If you need more then
+[this guide](data-exports.md "data-exports.md"). Please do not forget to request a backfill from source accounts for up to 36 months. If you need more than
 this it can be possible to migrate your Legacy CUR data to the dataset
 that will be close enough to CUR2 schema.
 
@@ -124,7 +123,7 @@ on how it was created.
 2. Double check that Quick Sight has permissions to read from your CUR bucket. If you use a default Quick Sight Role please add manually permissions to read from `cid-ACCOUNTID-data-exports` bucket.
 3. Check if data are in Athena table and view `SELECT * FROM summary_view LIMIT 10`
 
-### How I can rollback
+### How can I roll back
 
 If you need to revert to the previous version
 
@@ -141,4 +140,4 @@ asked
 
 ## Feedback
 
-Please [contact the team](feedback-support.md "feedback-support.md") if any issue.
+Please [contact the team](feedback-support.md "feedback-support.md") if you encounter any issue.

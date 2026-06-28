@@ -14,7 +14,7 @@ The CID Health Events Dashboard uses data collected from
 [AWS
 Health Organizational View API](../../../health/latest/ug/aggregate-events.md "../../../health/latest/ug/aggregate-events.md") and creates a variety of visualizations
 for your past, current, and upcoming AWS Health events. The dashboard’s
-charts allow you analyze individual or multiple events to raise
+charts allow you to analyze individual or multiple events to raise
 awareness and facilitate your operational planning.
 
 Some of the features of this dashboard include:
@@ -34,7 +34,7 @@ the AWS Health data. See more in [prerequisites](#health-event-dashboard-prerequ
 ###### Note
 
 Please note that the data on this dashboard may have a lag of
-48 hour or more. Please do not use this dashboard for monitoring or real
+48 hours or more. Please do not use this dashboard for monitoring or real
 time operational events. This dashboard is exclusively for review and
 longer term operational planning. Please use
 [AWS
@@ -61,18 +61,18 @@ Collection Account (Can be the same with your other CID dashboards).
 1. The [Data Collection Stack](data-collection.md "data-collection.md") provides an
    Amazon Lambda function that assumes a role in one or multiple Management
    accounts to retrieve daily the AWS Health Data and store it on Amazon
-   S3. The Lambda only pulls data that are updated since the last
+   S3. The Lambda only pulls data that has been updated since the last
    retrieval. The stack also provides AWS Glue Tables to query collected
    data.
 2. Cloud Intelligence Dashboards provide Amazon Athena views for querying
    data directly from the S3 bucket using an AWS Glue tables and Amazon
-   Quick Sight Datasets and Dashboards, allowing Operation Teams acceding
+   Quick Sight Datasets and Dashboards, allowing Operations Teams to access
    AWS Health data. Access can be secured through AWS IAM, IIC (SSO), and
    optional Row Level Security.
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo/?dashboard=health-events-dashboard "https://cid.workshops.aws.dev/demo/?dashboard=health-events-dashboard")
 
@@ -166,8 +166,7 @@ order to finish creating your account.
 
     ![Quick Sight Amazon S3 bucket selection dialog](images/co_qs_v3.png)
 
-5. Click **Finish** & wait for the congratulations screen to display
-6. Click **Go to Amazon Quick Sight**
+5. Click **Finish** & wait for the congratulations screen to display 6. Click **Go to Amazon Quick Sight**
 
 ![Amazon Quick Sight finished configuration page with button to go to Quick Sight](images/co_qs_v4.png) 7. Check you have **Amazon Quick Sight Enterprise Edition**
 
@@ -183,22 +182,22 @@ CloudFormation
 
 **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
 
-1. Log in to to your **Data Collection** Account. 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
+1. Log in to your **Data Collection** Account. 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Health-Events-Dashboard&param_DashboardId=health-events-dashboard&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Health-Events-Dashboard¶m_DashboardId=health-events-dashboard¶m_RequiresDataCollection=yes") 2. You can change **Stack name** for your template if you wish. 3. Leave **Parameters** values as it is. 4. Review the configuration and click **Create stack**. 5. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 6. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Health-Events-Dashboard&param_DashboardId=health-events-dashboard&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Health-Events-Dashboard&param_DashboardId=health-events-dashboard&param_RequiresDataCollection=yes") 2. You can change **Stack name** for your template if you wish. 3. Leave **Parameters** values as they are. 4. Review the configuration and click **Create stack**. 5. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 6. You can check the stack output for dashboard URLs.
 
 ###### Note
 
 **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
 
 Command Line
-Alternative method to install dashboards is the
+An alternative method to install dashboards is the
 [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
 tool.
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Open up a command-line interface with permissions to run API requests
-   in your AWS account. We recommend to use
+   in your AWS account. We recommend using
    [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download
    and install the CID CLI tool:
@@ -222,7 +221,7 @@ or `cid-cmd --help`.
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command in your command-line interface:
 
 ```

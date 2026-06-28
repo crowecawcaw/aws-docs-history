@@ -19,7 +19,7 @@ Follow the below process to add cost allocation tags to the dashboard.
 ###### Note
 
 The Athena view already includes the [Kubernetes Recommended Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/ "https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/"), and the labels `app`, `chart`, `release`, `version`, `component`, `type` and `created-by`.
-The dashboard also already inclueds these labels, in the "Workloads Explorer" sheet (as group-by dimensions and as filters) and in the "Labels/Tags Explorer" sheet.
+The dashboard also already includes these labels, in the "Workloads Explorer" sheet (as group-by dimensions and as filters) and in the "Labels/Tags Explorer" sheet.
 If you’d like to use them in the dashboard, there’s no need for any additional action except for activating the respective cost allocation tags.
 If you have other labels or tags you’d like to use, please continue reading the below, to learn how to add them to the Athena view.
 

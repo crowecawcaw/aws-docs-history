@@ -57,7 +57,7 @@ The dashboard has five tabs:
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this [Link]
 (https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace)
 
@@ -79,20 +79,20 @@ CloudFormation
 
 **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Marketplace-SPG-Dashboard&param_DashboardId=aws-marketplace&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Marketplace-SPG-Dashboard¶m_DashboardId=aws-marketplace¶m_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Marketplace-SPG-Dashboard&param_DashboardId=aws-marketplace&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Marketplace-SPG-Dashboard&param_DashboardId=aws-marketplace&param_RequiresDataCollection=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 
 **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
 
 Command Line
-Alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool.
+An alternative method to install dashboards is the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool.
 
-1. Log in to to your **Data Collection** Account.
-2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend to use [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
+1. Log in to your **Data Collection** Account.
+2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download and install the CID CLI tool:
 
 ```
@@ -154,7 +154,7 @@ For detailed instructions, refer to the [Terraform Deployment README](https://gi
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command
 in your command-line interface:
 
@@ -173,8 +173,8 @@ the **Granted and Entitled Licenses** tab, follow these steps:
 - Go to the [Amazon Athena](https://console.aws.amazon.com/athena/ "https://console.aws.amazon.com/athena/") Query
   Editor.
 - Select the database that has the views for CID. By default it can be
-  **cid_cur** database.
-- Run the following query to update **marketplace_licenses_grants_view**
+  **cid\_cur** database.
+- Run the following query to update **marketplace\_licenses\_grants\_view**
   view in Amazon Athena.
 
 ```
@@ -215,7 +215,7 @@ In the SPG Dashboard, to view the AWS Marketplace Agreements in the **Marketplac
 
 - Deploy the [Data Collection](data-collection-deployment.md "data-collection-deployment.md"), make sure to select **yes** for the _Include Marketplace Data Collection Module_ parameter.
 - Go to the [Amazon Athena](https://console.aws.amazon.com/athena/ "https://console.aws.amazon.com/athena/") Query Editor.
-- Select the database that has the views for CID. By default it can be **cid_cur** database.
+- Select the database that has the views for CID. By default it can be **cid\_cur** database.
 - Run the following queries to update **terms** and **agreements** views in Amazon Athena.
 
 ```
@@ -244,7 +244,7 @@ Workshop](https://catalog.workshops.aws/aws-marketplace-buyer/en-US/costmanageme
 ## Authors
 
 - Ramya Vijayaraghavan, Ex-Amazonian
-- Kaushik Raha, Prinipal Specialist, AWS Marketplace
+- Kaushik Raha, Principal Specialist, AWS Marketplace
 - Soumya Vanga, Solutions Architect, AWS Marketplace
 
 ## Feedback & Support

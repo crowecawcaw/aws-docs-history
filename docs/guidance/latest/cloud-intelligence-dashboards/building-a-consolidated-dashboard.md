@@ -10,14 +10,14 @@ The Cloud Intelligence Dashboards are a suite of multiple dashboards, each focus
 
 By following this guide, you can build a consolidated dashboard that brings together the most relevant visuals from across all of your Cloud Intelligence Dashboards into a single view. This gives stakeholders a unified summary without needing to navigate between individual dashboards, making it easier to spot trends, correlate data, and drive action from one place.
 
-In this guide, you will learn how to create a new QuickSight analysis that references datasets from your existing Cloud Intelligence Dashboards, add visuals from multiple sources onto shared sheets, and publish the result as a single consolidated dashboard.
+In this guide, you will learn how to create a new Quick Sight analysis that references datasets from your existing Cloud Intelligence Dashboards, add visuals from multiple sources onto shared sheets, and publish the result as a single consolidated dashboard.
 
 ## Prerequisites
 
 For this solution you must have the following:
 
 - Ability to save a dashboard to create a new analysis
-- Ability to save and publish dashboards in Amazon QuickSight
+- Ability to save and publish dashboards in Amazon Quick Sight
 
 ## Step 1 - Creating A New Analysis and Sheet
 

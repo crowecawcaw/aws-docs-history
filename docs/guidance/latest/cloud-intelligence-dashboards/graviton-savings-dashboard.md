@@ -23,7 +23,7 @@ Main features of Graviton Savings Dashboard:
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=graviton-savings-dashboard "https://cid.workshops.aws.dev/demo?dashboard=graviton-savings-dashboard").
 
@@ -56,12 +56,12 @@ CloudFormation
 
 **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
 
-1. Log in to to your **Data Collection** Account. 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
+1. Log in to your **Data Collection** Account. 1. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Graviton-Savings-Dashboard&param_DashboardId=graviton-savings&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Graviton-Savings-Dashboard¶m_DashboardId=graviton-savings¶m_RequiresDataCollection=yes")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Graviton-Savings-Dashboard&param_DashboardId=graviton-savings&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Graviton-Savings-Dashboard&param_DashboardId=graviton-savings&param_RequiresDataCollection=yes")
 
     1. You can change **Stack name** for your template if you wish.
-    2. Leave **Parameters** values as it is.
+    2. Leave **Parameters** values as they are.
     3. Review the configuration and click **Create stack**.
     4. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE**
     5. You can check the stack output for dashboard URLs.
@@ -73,13 +73,13 @@ CloudFormation
     **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
 
 Command Line
-Alternative method to install dashboards is the
+An alternative method to install dashboards is the
 [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
 tool.
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Open up a command-line interface with permissions to run API requests
-   in your AWS account. We recommend to use
+   in your AWS account. We recommend using
    [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download
    and install the CID CLI tool:
@@ -103,7 +103,7 @@ or `cid-cmd --help`.
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command
 in your command-line interface:
 
@@ -230,7 +230,7 @@ you context into the eligibility of Graviton usage.
 
 **Graviton Opportunities**
 
-OpenSearch Graviton eligibility is a bit more straight forward than
+OpenSearch Graviton eligibility is a bit more straightforward than
 other AWS Managed Services. The below table describes eligibility for
 both Amazon ElasticSearch and AmazonOpenSearch:
 

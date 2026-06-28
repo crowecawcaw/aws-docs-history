@@ -4,7 +4,7 @@
 
 You can check the version of your existing Data Collection in the
 description of the CloudFormation stack. If it does not contain any
-version reference, then it is less then v3 and you need to [update from legacy versions](#data-collection-update-from-legacy-versions "#data-collection-update-from-legacy-versions").
+version reference, then it is less than v3 and you need to [update from legacy versions](#data-collection-update-from-legacy-versions "#data-collection-update-from-legacy-versions").
 
 Please check the full
 [Change
@@ -25,9 +25,9 @@ Log on GitHub](https://github.com/awslabs/cid-framework/blob/main/data-collectio
 The Data Collection gets updated to increase performance and add the new
 data collection modules. If you already have this lab installed via Well
 Architected Labs site, you have a version 1 or 2. This update procedure
-will help you updated both to the latest v3. You can check the
+will help you update both to the latest v3. You can check the
 description of Data Collection Stack. If the description of the stack
-does not contain version (ex: 3.0.0).
+does not contain a version (ex: 3.0.0).
 
 Watch [demo of update process from legacy version to v3](https://www.youtube.com/watch?v=vpRNkwmuOEM "https://www.youtube.com/watch?v=vpRNkwmuOEM")
 
@@ -40,7 +40,7 @@ Watch [demo of update process from legacy version to v3](https://www.youtube.com
 
 1. Install the Permission Stack in your Management/Payer Account by clicking Launch Stack below
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionDataReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_AllowModuleReadInMgmt=yes&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeCostAnomalyModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=no&param_IncludeTransitGatewayModule=no "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionDataReadPermissionsStack¶m_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_AllowModuleReadInMgmt=yes¶m_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID¶m_IncludeBudgetsModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeRightsizingModule=no¶m_IncludeTAModule=no¶m_IncludeTransitGatewayModule=no")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionDataReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_AllowModuleReadInMgmt=yes&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeCostAnomalyModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=no&param_IncludeTransitGatewayModule=no "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionDataReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_AllowModuleReadInMgmt=yes&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeCostAnomalyModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=no&param_IncludeTransitGatewayModule=no")
 
 ###### Note
 
@@ -108,7 +108,7 @@ the parameter `<your_bucket_name>` which is the bucket of data
 collection stack. Default in legacy versions of this lab is
 `costoptimizationdata<account_id>`.
 
-You can run following commands from your AWS CloudShell
+You can run the following commands from your AWS CloudShell
 
 ```
 curl https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-collection/source/s3_files_migration.py -o s3_files_migration.py

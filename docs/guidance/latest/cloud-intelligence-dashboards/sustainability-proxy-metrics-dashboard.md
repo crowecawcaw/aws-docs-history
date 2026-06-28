@@ -23,8 +23,8 @@ Get more familiar with the Sustainability Proxy Metrics and Carbon Emissions Das
 Command Line
 Install the dashboard using the [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool:
 
-1. Log in to to your **Data Collection** Account.
-2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend to use [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
+1. Log in to your **Data Collection** Account.
+2. Open up a command-line interface with permissions to run API requests in your AWS account. We recommend using [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. Check that the regional setup within the console is correct by overriding it to the region where you deployed the previous CloudFormation templates (Example: `us-east-1`):
 
 ```
@@ -52,10 +52,10 @@ Please follow the instructions from the deployment wizard. During deployment, yo
     * **Tag**: A tag name used to categorize workloads. This gives you a list of all cost allocation tags. Select a tag that you apply to categorize workloads, like "workloadId". If you do not tag workloads, you can select "none".
 
 
-    You will also be asked if you want to "Share the dashboard". This shares the dashboard with all Quick Sight users setup in your AWS account. If you want to restrict access, you can say no, which means only the current user can see it. You can share with selective users later using [QuickSight sharing features](../../../quicksight/latest/user/sharing-a-dashboard.md "../../../quicksight/latest/user/sharing-a-dashboard.md").
+    You will also be asked if you want to "Share the dashboard". This shares the dashboard with all Quick Sight users setup in your AWS account. If you want to restrict access, you can say no, which means only the current user can see it. You can share with selective users later using [Quick sharing features](../../../quicksight/latest/user/sharing-a-dashboard.md "../../../quicksight/latest/user/sharing-a-dashboard.md").
 
 
-    More info about command line options are in the
+    More info about command line options is in the
     [Readme](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
     or `cid-cmd --help`.
 
@@ -65,10 +65,10 @@ CloudFormation
 
 **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard").
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Sustainability-Proxy-Metrics-Dashboard&param_DashboardId=sustainability-proxy-metrics&param_RequiresDataExports=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Sustainability-Proxy-Metrics-Dashboard¶m_DashboardId=sustainability-proxy-metrics¶m_RequiresDataExports=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as it is. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE** 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Sustainability-Proxy-Metrics-Dashboard&param_DashboardId=sustainability-proxy-metrics&param_RequiresDataExports=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Sustainability-Proxy-Metrics-Dashboard&param_DashboardId=sustainability-proxy-metrics&param_RequiresDataExports=yes") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and click **Create stack**. 6. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 

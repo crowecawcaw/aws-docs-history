@@ -62,9 +62,9 @@ Visualize the results of AWS Config Managed Rule [required-tags](../../../config
 
 ### Contributors to AWS Config costs
 
-AWS Config cost is driven by the number of rule evaluations and configuration item changes being recorded. AWS Config cost are complex and calculating them precisely is outside the scope of this dashboard. To help you analyze AWS Config cost contributors and reduce operational costs while maintaining robust security and compliance monitoring, the dashboard reports the number of configuration items changes that are recorded and the number of AWS Config rule evaluations over time. The dashboard also covers other use cases that contribute to unnecessary AWS Config costs:
+AWS Config cost is driven by the number of rule evaluations and configuration item changes being recorded. AWS Config costs are complex and calculating them precisely is outside the scope of this dashboard. To help you analyze AWS Config cost contributors and reduce operational costs while maintaining robust security and compliance monitoring, the dashboard reports the number of configuration items changes that are recorded and the number of AWS Config rule evaluations over time. The dashboard also covers other use cases that contribute to unnecessary AWS Config costs:
 
-- **Conformance pack rules that cannot be evaluated.** Conformance pack rules that have a compliance status of INSUFFICIENT_DATA do not have AWS resources in scope. Since you are charged for each rule evaluation regardless of the outcome, rules that return INSUFFICIENT_DATA still incur costs without delivering any compliance information.
+- **Conformance pack rules that cannot be evaluated.** Conformance pack rules that have a compliance status of INSUFFICIENT\_DATA do not have AWS resources in scope. Since you are charged for each rule evaluation regardless of the outcome, rules that return INSUFFICIENT\_DATA still incur costs without delivering any compliance information.
 - **Redundant AWS Config rules.** While AWS Config provides multiple deployment options—including individual rules, conformance packs, Security Hub standards, and AWS Control Tower controls—many customers inadvertently implement duplicate rules across these services. This duplication leads to significant disadvantages: unnecessary costs from redundant evaluations, governance complexity that complicates compliance management, and potentially inconsistent remediation actions for the same compliance issues. To optimize compliance efforts and reduce costs, organizations should develop a strategic approach that eliminates rule duplication across their AWS environments. The dashboard will help you identify the rules that are deployed multiple times.
 
 ![CRCD Dashboard](/images/guidance/latest/cloud-intelligence-dashboards/images/images/dashboards/crcd-cost-drivers.png)
@@ -77,7 +77,7 @@ The AWS Config Dashboards shows the timeline of your configuration changes. Find
 
 ## Steps
 
-There are two possible ways to deploy the AWS Config dashboard on AWS Organizations. Read the [Perequisites](config-resource-prerequisites.md "config-resource-prerequisites.md") page to understand which deployment setup is better for you. If you install the dashboard on a standalone account that is not part of an AWS Organization, follow the installation instructions in the Log Archive account.
+There are two possible ways to deploy the AWS Config dashboard on AWS Organizations. Read the [Prerequisites](config-resource-prerequisites.md "config-resource-prerequisites.md") page to understand which deployment setup is better for you. If you install the dashboard on a standalone account that is not part of an AWS Organization, follow the installation instructions in the Log Archive account.
 
 - [Prerequisites](config-resource-prerequisites.md "config-resource-prerequisites.md")
 - [Deployment: Log Archive account](config-resource-log-archive.md "config-resource-log-archive.md")
@@ -91,7 +91,7 @@ These dashboards and their content: (a) are for informational purposes only, (b)
 
 ## Update instructions
 
-If you already have installed the AWS Config Dasboard, you can check our [GitHub repository upgrade page](https://github.com/aws-samples/config-resource-compliance-dashboard/blob/main/documentation/upgrade.md "https://github.com/aws-samples/config-resource-compliance-dashboard/blob/main/documentation/upgrade.md") to see if there are instructions on how to upgrade to the latest version.
+If you already have installed the AWS Config Dashboard, you can check our [GitHub repository upgrade page](https://github.com/aws-samples/config-resource-compliance-dashboard/blob/main/documentation/upgrade.md "https://github.com/aws-samples/config-resource-compliance-dashboard/blob/main/documentation/upgrade.md") to see if there are instructions on how to upgrade to the latest version.
 
 ## Authors
 

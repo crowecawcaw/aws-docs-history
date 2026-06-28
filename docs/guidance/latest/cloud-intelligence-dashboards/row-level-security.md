@@ -30,8 +30,8 @@ For CID dashboards, RLS dataset requires four essential fields:
 
 - **UserName**: The Quick Suite user identifier (must match exactly)
 - **GroupName**: The Quick Suite group identifier
-- **account_id**: Comma-separated list of AWS accounts the user/group can access
-- **payer_account_id**: Comma-separated list of billing accounts (management accounts)
+- **account\_id**: Comma-separated list of AWS accounts the user/group can access
+- **payer\_account\_id**: Comma-separated list of billing accounts (management accounts)
 
 CID provides ready to use RLS Dataset as a part of the RLS Dashboard, that helps you manage and control your RLS Dataset.
 
@@ -66,7 +66,7 @@ The RLS implementation follows this workflow:
    3. Users and groups with Management Account access inherit access to all organization accounts
 
 2. **(Optional) Organization Data Collection**: Lambda function in Data Collection Stack assumes a role in Management Account, retrieves account and OU information, and stores it in S3
-3. **QuickSight Data Collection**: Lambda function collects user information from Amazon Quick Suite in the local account and stores it in the same S3 bucket
+3. **Quick Sight Data Collection**: Lambda function collects user information from Amazon Quick Suite in the local account and stores it in the same S3 bucket
 4. **RLS Dataset Formation**: Glue Tables and Athena Views create the RLS dataset based on AWS Organization Tags and Quick Suite data
 5. **RLS Application**: CID Admin applies RLS to all datasets using the CID-CMD tool
 6. **Access Control**: Users see only data from accounts configured for their Quick Suite group or user
@@ -78,31 +78,31 @@ CID constructs an RLS dataset from several sources.
 
 ![RLS Details](images/customizations/rls2/rls-views-details.png)
 
-1. **full_access_users** - is a view or a table that contains a list of emails of users who are supposed to have a full unrestricted access to protected datasets. This view can be edited in Athena directly (https://docs.aws.amazon.com/athena/latest/ug/views-managing.html) as [linline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with the tables that comes from other sources (your identity management or a simple csv file on Amazon S3). We do not recommend using individual users for this and rather prioritize user management with groups, but it can be handy on the initial setup phase. Please make sure you put exactly the same email as you have in Quick Suite.
-2. **full_access_groups** - is a view or a table that contains a list of Quick Suite Groups with users who will to have a full unrestricted access to protected datasets. This view can be edited in Athena directly (https://docs.aws.amazon.com/athena/latest/ug/views-managing.html) as [linline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with the tables that comes from other sources (your identity management or a simple csv file on Amazon S3).
-3. **account_access** - a view or a table that has the following fields:
+1. **full\_access\_users** - is a view or a table that contains a list of emails of users who are supposed to have a full unrestricted access to protected datasets. This view can be edited in Athena directly (https://docs.aws.amazon.com/athena/latest/ug/views-managing.html) as an [inline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with tables that come from other sources (your identity management or a simple csv file on Amazon S3). We do not recommend using individual users for this and rather prioritize user management with groups, but it can be handy on the initial setup phase. Please make sure you put exactly the same email as you have in Quick Suite.
+2. **full\_access\_groups** - is a view or a table that contains a list of Quick Suite Groups with users who will to have a full unrestricted access to protected datasets. This view can be edited in Athena directly (https://docs.aws.amazon.com/athena/latest/ug/views-managing.html) as an [inline table](https://prestodb.io/docs/current/sql/values.htm "https://prestodb.io/docs/current/sql/values.htm") or it can be replaced with tables that come from other sources (your identity management or a simple csv file on Amazon S3).
+3. **account\_access** - a view or a table that has the following fields:
 
    1. `account_id` - AWS Account Id (12 digits)
    2. `payer_account_id` - an AWS Management Account Id. Users and groups that have access to the `account_id` == `payer_id` will have access to all accounts under the AWS Organization with this management account id. The tool supports multiple AWS Organizations.
    3. `emails` - a list of emails of users who will have access to the account information (note that it is not a comma separated list but it must be Athena type `ARRAY<VARCHAR>`)
    4. `groups` - a list of Quick Suite Groups who will have access to the account information (note that it is not a comma separated list but it must be Athena type `ARRAY<VARCHAR>`)
 
-4. **permission view** - is a union of several sub tables based on **full_access_users**, **full_access_groups** and **account_access**. It results to a following fields:
+4. **permission view** - is a union of several sub tables based on **full\_access\_users**, **full\_access\_groups** and **account\_access**. It results in the following fields:
 
    1. `email` - email of users
    2. `group` - a Quick Suite Group
    3. `payer_account_id` - a comma separated list of accounts
    4. `account_id` - a comma separated list of accounts
 
-5. **quickSight_users** table contains emails and UserName of QS User.
-6. **rls_view** is the final form and represents the same fields as **permission view** but instead of user email it will have the QS User Names needed for RLS Dataset.
+5. **quickSight\_users** table contains emails and UserName of QS User.
+6. **rls\_view** is the final form and represents the same fields as **permission view** but instead of user email it will have the QS User Names needed for RLS Dataset.
 
 ###### Note
 
-###### In RLS dataset an empty string will result to the full access on the given field.
+###### In RLS dataset an empty string will result in full access on the given field.
 
 - if both `payer_account_id` and `account_id` are empty then the user or the group in this line will have a full access
-- if only `payer_account_id` is provided but `account_id` is empty, the user or the group will have access to all account in the AWS Organization of the given payer Account
+- if only `payer_account_id` is provided but `account_id` is empty, the user or the group will have access to all accounts in the AWS Organization of the given payer Account
 - If user/group is not present in the table, no access will be granted - user will see an empty dashboard
 
 ## Deployment
@@ -111,7 +111,7 @@ CID constructs an RLS dataset from several sources.
 
 Before implementing RLS, ensure you have:
 
-1. **(Recommended) QuickSight Configuration**: [Identity Source/SSO](sso-application-legacy.md "sso-application-legacy.md") configured for your Quick Suite environment
+1. **(Recommended) Quick Sight Configuration**: [Identity Source/SSO](sso-application-legacy.md "sso-application-legacy.md") configured for your Quick Suite environment
 2. **CID Foundation**: [Foundational dashboards](cudos-cid-kpi.md "cudos-cid-kpi.md") already installed
 3. **Account Access**: Admin access to the Data Collection/Dashboard Account
 4. **Management Account Access** (Optional): Required only for AWS Organization Tags option. Alternative options available if not accessible
@@ -121,22 +121,21 @@ Before implementing RLS, ensure you have:
 
 Choose one of the three options described [above](#source-of-rls-data "#source-of-rls-data") to define your RLS data source:
 
-If you have already [CID Data Collection Stack](data-collection.md "data-collection.md") you can just check if Quick Suite (IncludeQuickSightModule parameter) and OrganizationData (IncludeOrgDataModule parameter) modules are activated, and continue to the next step.
+If you already have the [CID Data Collection Stack](data-collection.md "data-collection.md") you can just check if Quick Sight (IncludeQuickSightModule parameter) and OrganizationData (IncludeOrgDataModule parameter) modules are activated, and continue to the next step.
 
 Here we will use the minimal setup for managing access from AWS Organization OU and Account Tags.
 
 1. Login to Management Account(s) and install the Permission Stack by clicking Launch Stack below
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID%20OR%20EMPTY&param_AllowModuleReadInMgmt=no&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID%20OR%20EMPTY&param_IncludeBackupModule=no&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeCostAnomalyModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeCostOptimizationHubModule=no&param_IncludeLicenseManagerModule=no "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionReadPermissionsStack¶m_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID%20OR%20EMPTY¶m_AllowModuleReadInMgmt=no¶m_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID%20OR%20EMPTY¶m_IncludeBackupModule=no¶m_IncludeBudgetsModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeRightsizingModule=no¶m_IncludeTAModule=no¶m_IncludeTransitGatewayModule=no¶m_IncludeHealthEventsModule=no¶m_IncludeCostOptimizationHubModule=no¶m_IncludeLicenseManagerModule=no") 2. Login to Data Collection/Dashboard Account and install the Data Collection Stack by clicking Launch Stack below. Put Management Account Ids parameter as a comma separated list of your Management Accounts. Make sure you’ve set to 'yes' Quick Suite (IncludeQuickSightModule parameter) and OrganizationData (IncludeOrgDataModule parameter) modules.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID%20OR%20EMPTY&param_AllowModuleReadInMgmt=no&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID%20OR%20EMPTY&param_IncludeBackupModule=no&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeCostAnomalyModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeCostOptimizationHubModule=no&param_IncludeLicenseManagerModule=no "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-read-permissions.yaml&stackName=CidDataCollectionReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID%20OR%20EMPTY&param_AllowModuleReadInMgmt=no&param_OrganizationalUnitID=REPLACE%20WITH%20ORGANIZATIONAL%20UNIT%20ID%20OR%20EMPTY&param_IncludeBackupModule=no&param_IncludeBudgetsModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeCostAnomalyModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeRightsizingModule=no&param_IncludeTAModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeCostOptimizationHubModule=no&param_IncludeLicenseManagerModule=no") 2. Login to Data Collection/Dashboard Account and install the Data Collection Stack by clicking Launch Stack below. Put Management Account Ids parameter as a comma separated list of your Management Accounts. Make sure you’ve set to 'yes' Quick Suite (IncludeQuickSightModule parameter) and OrganizationData (IncludeOrgDataModule parameter) modules.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=REPLACE%20WITH%20MANAGEMENT%20ACCOUNT%20ID&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=yes&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack¶m_ManagementAccountID=REPLACE%20WITH%20MANAGEMENT%20ACCOUNT%20ID¶m_IncludeTAModule=no¶m_IncludeRightsizingModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeOrgDataModule=yes¶m_IncludeBudgetsModule=no¶m_IncludeTransitGatewayModule=no¶m_IncludeHealthEventsModule=no¶m_IncludeQuickSightModule=yes") 3. Once installed, you can go to AWS Organization in the Management Account and configure tags as follows:
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=REPLACE%20WITH%20MANAGEMENT%20ACCOUNT%20ID&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=yes&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=REPLACE%20WITH%20MANAGEMENT%20ACCOUNT%20ID&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=yes&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes") 3. Once installed, you can go to AWS Organization in the Management Account and configure tags as follows:
 
     1. `cid_groups` as colon-separated (`:`) Quick Suite Groups.
     2. and/or `cid_users` as colon-separated (`:`) emails of individual users
 
 4. After update you can launch execution of the data collection by triggering `CID-DC-organizations-StateMachine` and `CID-DC-quicksight-StateMachine`
-   [StepFunctions](https://console.aws.amazon.com/states/home "https://console.aws.amazon.com/states/home").
-5. You can validate data using the following query:
+[StepFunctions](https://console.aws.amazon.com/states/home "https://console.aws.amazon.com/states/home"). 5. You can validate data using the following query:
 
 ```
 SELECT * FROM "optimization_data"."organization_data"
@@ -149,7 +148,7 @@ The Data Collection is needed to collect data from local Quick Suite account and
 
 1. Login to Data Collection/Dashboard Account and install the Data Collection Stack by clicking Launch Stack below. If you have already [CID Data Collection Stack](data-collection.md "data-collection.md") you can just check if Quick Suite and OrgData modules are activated, and continue to the next item.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack¶m_ManagementAccountID=¶m_IncludeTAModule=no¶m_IncludeRightsizingModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeOrgDataModule=no¶m_IncludeBudgetsModule=no¶m_IncludeTransitGatewayModule=no¶m_IncludeHealthEventsModule=no¶m_IncludeQuickSightModule=yes") 2. Create an inline Athena Table that simulates Data Collection organization_data, but can be edited directly in Athena to manage access.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes") 2. Create an inline Athena Table that simulates Data Collection organization\_data, but can be edited directly in Athena to manage access.
 
 ```
 CREATE OR REPLACE VIEW "optimization_data"."organization_data" AS
@@ -174,7 +173,7 @@ FROM accounts
 
 1. Login to Data Collection/Dashboard Account and install the Data Collection Stack by clicking Launch Stack below
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack¶m_ManagementAccountID=¶m_IncludeTAModule=no¶m_IncludeRightsizingModule=no¶m_IncludeCostAnomalyModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeComputeOptimizerModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeOrgDataModule=no¶m_IncludeBudgetsModule=no¶m_IncludeTransitGatewayModule=no¶m_IncludeHealthEventsModule=no¶m_IncludeQuickSightModule=yes") 2. Create a CSV file (ex: `file.csv`):
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-data-collection.yaml&stackName=CidDataCollectionStack&param_ManagementAccountID=&param_IncludeTAModule=no&param_IncludeRightsizingModule=no&param_IncludeCostAnomalyModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeComputeOptimizerModule=no&param_IncludeECSChargebackModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeOrgDataModule=no&param_IncludeBudgetsModule=no&param_IncludeTransitGatewayModule=no&param_IncludeHealthEventsModule=no&param_IncludeQuickSightModule=yes") 2. Create a CSV file (ex: `file.csv`):
 
 ```
 account_id, payer_account_id, emails, groups
@@ -219,7 +218,7 @@ TBLPROPERTIES (
 SELECT * FROM "optimization_data"."my_accounts"
 ```
 
-6. Create a view that simulates organization_data table
+6. Create a view that simulates organization\_data table
 
 ```
 CREATE OR REPLACE VIEW "optimization_data"."organization_data" AS
@@ -249,7 +248,7 @@ cid-cmd deploy --dashboard-id cid-rls
 ```
 
 4. **Verify Dashboard**: Check the dashboard in Quick Suite. Ensure the dataset updates and displays data (may take several minutes after deployment)
-5. **Configure Admin Access**: Edit Athena views **full_access_users** and **full_access_groups** replace placeholders with your admin users and groups for full dashboard access. After modifying data, refresh the `rls_dataset` dataset.
+5. **Configure Admin Access**: Edit Athena views **full\_access\_users** and **full\_access\_groups** replace placeholders with your admin users and groups for full dashboard access. After modifying data, refresh the `rls_dataset` dataset.
 
 ## Step 3: Apply RLS to Dashboards
 
@@ -280,7 +279,7 @@ cid-cmd update --force --recursive --rls ENABLED
 
 ### How can I manage users and groups with full access?
 
-- **Athena Views**: Edit the **full_access_users** and **full_access_groups** views in Athena as inline tables
+- **Athena Views**: Edit the **full\_access\_users** and **full\_access\_groups** views in Athena as inline tables
 - **Dataset Refresh**: After modifications, refresh the `cid_rls` dataset in Quick Suite
 - **CSV Alternative**: Configure a CSV file on S3 for more flexibility (views remain customizable and won’t be overwritten during updates)
 
@@ -292,7 +291,9 @@ Use the CID-CMD tool to enable RLS on any dashboard:
 cid-cmd update --force --recursive --rls ENABLED
 ```
 
-**Management Options**: \* Disable: `--rls DISABLED` \* Remove: `--rls CLEAR`
+**Management Options**:
+\* Disable: `--rls DISABLED`
+\* Remove: `--rls CLEAR`
 
 ### How do I check the RLS status for all datasets?
 

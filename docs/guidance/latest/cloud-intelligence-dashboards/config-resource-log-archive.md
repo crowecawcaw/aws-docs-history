@@ -38,7 +38,7 @@ Ensure you are in the Region where both your Log Archive bucket and Amazon Quick
 
 
     	+ CloudFormation will create an IAM policy that grants Amazon Quick Sight permissions to use the key for decrypt operations.
-    	+ You may prefer managing key permissions on the key policy, rather than IAM. In his case, leave the parameter empty. You’ll have to manually grant key permissions in the key policy (more details below).
+    	+ You may prefer managing key permissions on the key policy, rather than IAM. In this case, leave the parameter empty. You’ll have to manually grant key permissions in the key policy (more details below).
     * `Dashboard account ID` Enter the same value as the `Log Archive account ID` (Required).
     * `Dashboard bucket` Enter the same value as the `Log Archive bucket` (Required).
     * `ARN of the KMS key that encrypts the Dashboard bucket` Leave empty, this parameter is ignored in this deployment mode.
@@ -89,7 +89,7 @@ Follow these steps to [edit](../../../kms/latest/developerguide/key-policy-modif
 
 Where:
 
-- `ACCOUNT_ID` is the AWS account ID where you installed thedashboard.
+- `ACCOUNT_ID` is the AWS account ID where you installed the dashboard.
 - `QUICKSIGHT_DATASOURCE_ROLE` is the value of the output `Quick SightDataSourceRole` from the CloudFormation template.
 
 **Manual setup of S3 event notification**

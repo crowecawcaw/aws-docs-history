@@ -23,10 +23,10 @@ AWS IAM Identity Center as the authentication method.
 
 ###### Important
 
-This guide requires to configuring Quick Sight access through IAM
+This guide requires configuring Quick Sight access through IAM
 Identity Center. Currently it is not possible to enable IAM Identity
 Center support for existing Quick Sight installation. For existing
-Quick Sight that do not have this option enabled please use the
+Quick Sight installations that do not have this option enabled please use the
 [legacy guide](sso-application-legacy.md "sso-application-legacy.md")
 
 ## Prerequisites

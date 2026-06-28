@@ -16,12 +16,12 @@ understand AWS cost and usage data in your organization by exploring
 interactive dashboards. To simplify access for users you can now set up
 an SSO application for them to enter into. We recommend combining this
 with the Row Level Security customization to ensure they see the data
-they really matters to them.
+that really matters to them.
 
 ###### Important
 
 This is a legacy guide, for a new fresh setup of Quick Sight we
-recomend to setup Quick Sight with IAM Identity Center integration.
+recommend setting up Quick Sight with IAM Identity Center integration.
 Please follow
 [Publishing as single sign-on (SSO) Application](publishing-as-sso-application.md "publishing-as-sso-application.md") guide
 
@@ -107,7 +107,7 @@ For this solution you must have the following:
 
 ![Images/sso_iic_qs_url.png](images/customizations/sso_legacy/sso_iic_qs_url.png)
 
-1. Click into your application and slick **Assign Users**
+1. Click into your application and click **Assign Users**
 
 ![Images/sso_iic_assign.png](images/customizations/sso_legacy/sso_iic_assign.png)
 

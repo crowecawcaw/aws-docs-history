@@ -9,7 +9,7 @@
 You can enable SCAD for ECS, SCAD for EKS or both. If you enable SCAD for EKS, selecting "Resource requests"
 will include only resource requests data, without actual usage. To have
 actual usage data for your pods in CUR, either select the "Amazon
-Managed Service for Promentheus" option and follow
+Managed Service for Prometheus" option and follow
 [this
 guide](../../../cur/latest/userguide/split-cost-allocation-data-resource-amp.md "../../../cur/latest/userguide/split-cost-allocation-data-resource-amp.md"), or select the "Amazon CloudWatch Container Insights" option
 and follow
@@ -91,7 +91,7 @@ on ECS):
 ![SCAD CUR Athena Table AWS Batch Tags Columns](images/scad_cur_athena_table_batch_tags_columns.png)
 
 CUR 2.0
-Run the following Athena queryin against the CUR 2.0 table:
+Run the following Athena query against the CUR 2.0 table:
 
 EKS cost allocation tags columns (relevant only if you’re using EKS):
 

@@ -25,16 +25,16 @@ For this solution you must have the following:
 ### Step 1 of 2. Modify Queries in Athena
 
 You will need to modify several queries in Athena to remove discounts.
-Queries that you can modify to remove specific charge type are:
+Queries that you can modify to remove a specific charge type are:
 
-- summary_view
-- resource_view
+- summary\_view
+- resource\_view
 
 Navigate in the AWS Console to the **Athena** service
 
 1. Select the **AwsDataCatalog** in the **DataSource** drop down.
 2. In the **Database** drop down select the database where your CUR table is located.
-3. Under Views, scroll down until you locate the **summary_view**.
+3. Under Views, scroll down until you locate the **summary\_view**.
 4. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
 ![Athena Query editor highlighting the summary view query and its context menu to select show edit query](images/cust_showedit_qry.png)
@@ -52,7 +52,7 @@ AND line_item_line_item_type NOT IN ('Refund',  'Credit' , 'Tax')   -- New Line:
 
 ![Inset show the run again button of the query window and the successful result](images/cust_runagain.png)
 
-1. Repeat the steps above on the **resource_view** dataset.
+1. Repeat the steps above on the **resource\_view** dataset.
 
 ### Step 2 of 2. Update DataSet in Amazon Quick Sight
 
@@ -63,8 +63,8 @@ view the changes immediately.
 
 ![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
-dataset. 4. Click on the **Refresh** tab in the top left of the page. 5. Click on **Refresh Now** button in the top right of the page. 6. Repeat the steps to refresh **resource_view** dataset as well.
+![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary\_view** in the list of datasets and click on the
+dataset. 4. Click on the **Refresh** tab in the top left of the page. 5. Click on **Refresh Now** button in the top right of the page. 6. Repeat the steps to refresh **resource\_view** dataset as well.
 
 ## Test
 

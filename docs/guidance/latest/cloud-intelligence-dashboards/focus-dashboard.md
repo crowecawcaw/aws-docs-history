@@ -13,7 +13,7 @@ transferable across clouds, tools, and organizations.
 
 The CID FOCUS Dashboard is an open-source and customizable dashboard that
 provides pre-defined visuals to get actionable insights from FOCUS data
-in Amazon QuickSight. It allows you to quickly get started with using
+in Amazon Quick Sight. It allows you to quickly get started with using
 FOCUS in your organization. The FOCUS Dashboard provides the following
 features:
 
@@ -30,7 +30,7 @@ features:
 1. AWS Data Exports service provides FOCUS data (currently supporting FOCUS 1.2 for AWS). Use the CID [Data Exports](data-exports.md "data-exports.md") stack to activate it in your Management (Payer) Account and automatically configure the replication to a Data Collection Account.
 2. Install [CID FOCUS Dashboard](#focus-dashboard-deployment "#focus-dashboard-deployment") that leverages FOCUS data and provides a dynamically generated consolidated view in Amazon Athena. This view can be extended once you add FOCUS data from other providers.
 3. Install the FOCUS data collection stack(s) that collect data from other providers. Currently we provide integrations to collect FOCUS data from [Microsoft Azure](https://catalog.workshops.aws/cidforazure/en-US/03-setup "https://catalog.workshops.aws/cidforazure/en-US/03-setup"), [Google Cloud Platform](https://catalog.workshops.aws/cid-gcp-cost-dashboard/en-US/02-solution-design "https://catalog.workshops.aws/cid-gcp-cost-dashboard/en-US/02-solution-design"), and [Oracle Cloud Infrastructure](https://github.com/awslabs/cid-oci-cost-dashboard/ "https://github.com/awslabs/cid-oci-cost-dashboard/"). [Learn more](#focus-dashboard-add-focus-data-from-other-cloud-providers "#focus-dashboard-add-focus-data-from-other-cloud-providers") about integration of FOCUS data. Typically these stacks leverage scheduled AWS Lambda or AWS Glue Jobs and retrieve data via APIs using credentials stored in AWS Secrets Manager. The data is encrypted with custom KMS keys to protect sensitive billing information from unauthorized access.
-4. Update the focus_consolidation_view in Athena to include tables with FOCUS data from other cloud providers.
+4. Update the focus\_consolidation\_view in Athena to include tables with FOCUS data from other cloud providers.
 5. You can also export cost data from on-premises datacenters or SaaS providers in the same format and integrate them in a similar way.
 
 ## Demo Dashboard
@@ -69,7 +69,7 @@ CloudFormation
 1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=FOCUS-Dashboard&param_DashboardId=focus-dashboard&param_RequiresDataExports=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=FOCUS-Dashboard¶m_DashboardId=focus-dashboard¶m_RequiresDataExports=yes") 3. You can change the **Stack name** if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and click **Create stack**. 6. The stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE**. 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=FOCUS-Dashboard&param_DashboardId=focus-dashboard&param_RequiresDataExports=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=FOCUS-Dashboard&param_DashboardId=focus-dashboard&param_RequiresDataExports=yes") 3. You can change the **Stack name** if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and click **Create stack**. 6. The stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE**. 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 

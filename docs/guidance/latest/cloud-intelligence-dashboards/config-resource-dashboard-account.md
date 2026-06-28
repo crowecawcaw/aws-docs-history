@@ -38,7 +38,7 @@ Ensure you are in the AWS Region where both your Log Archive bucket and Amazon Q
    - `Log Archive bucket` Enter the name of the Amazon S3 bucket that collects AWS Config data (Required).
    - `ARN of the KMS key that encrypts the Log Archive bucket` If you encrypt the Log Archive bucket with a KMS key, copy the key’s ARN here.
 
-     - If a KMS key ARN is passed here, the CloudFormation template will create a new KMS key and use it to encrypt the the Dashboard bucket.
+     - If a KMS key ARN is passed here, the CloudFormation template will create a new KMS key and use it to encrypt the Dashboard bucket.
 
    - `Dashboard account ID` Enter the AWS account ID where you are currently logged in (Required).
    - `Dashboard bucket` Enter the name of the Amazon S3 bucket that will collect AWS Config data. The CloudFormation template will create this bucket on the Dashboard account (Required).

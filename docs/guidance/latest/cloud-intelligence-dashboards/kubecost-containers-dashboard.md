@@ -47,7 +47,7 @@ You can also check AWS Native [SCAD Containers Cost Allocation Dashboard](scad-c
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo/?dashboard=containers-cost-allocation "https://cid.workshops.aws.dev/demo/?dashboard=containers-cost-allocation")
 
@@ -60,7 +60,7 @@ The CID framework has two Containers Cost Allocation dashboards:
 - This one, which is based on data collection from Kubecost
 - The [SCAD Containers Cost Allocation Dashboard](scad-containers-dashboard.md "scad-containers-dashboard.md"), which is based on CUR’s Split Cost Allocation Data (SCAD)
 
-Please visit review the [Containers Cost Allocation dashboards comparison in the FAQs](faq.md#faq-scad-kubecost-dashboard-difference "faq.md#faq-scad-kubecost-dashboard-difference") for more information.
+Please review the [Containers Cost Allocation dashboards comparison in the FAQs](faq.md#faq-scad-kubecost-dashboard-difference "faq.md#faq-scad-kubecost-dashboard-difference") for more information.
 
 ## Deployment
 
@@ -87,20 +87,20 @@ instructions in the Containers Cost Allocation Dashboard GitHub repo](https://gi
   [launch
   blog post](https://aws.amazon.com/blogs/containers/aws-and-kubecost-collaborate-to-deliver-cost-monitoring-for-eks-customers/ "https://aws.amazon.com/blogs/containers/aws-and-kubecost-collaborate-to-deliver-cost-monitoring-for-eks-customers/")
 
-      + Read on more features of this bundle such as
-      [AMP
-      integration](https://aws.amazon.com/blogs/mt/integrating-kubecost-with-amazon-managed-service-for-prometheus/ "https://aws.amazon.com/blogs/mt/integrating-kubecost-with-amazon-managed-service-for-prometheus/"),
-      [multi-cluster
-      visibility](https://aws.amazon.com/blogs/containers/multi-cluster-cost-monitoring-using-kubecost-with-amazon-eks-and-amazon-managed-service-for-prometheus/ "https://aws.amazon.com/blogs/containers/multi-cluster-cost-monitoring-using-kubecost-with-amazon-eks-and-amazon-managed-service-for-prometheus/") and
-      [securing
-      access with Amazon Cognito](https://aws.amazon.com/blogs/containers/securing-kubecost-access-with-amazon-cognito/ "https://aws.amazon.com/blogs/containers/securing-kubecost-access-with-amazon-cognito/")
-      + See EKS-optimized bundle installation steps in the
-      [EKS
-      cost monitoring user guide](../../../eks/latest/userguide/cost-monitoring.md "../../../eks/latest/userguide/cost-monitoring.md")
-      + Review comparison between the EKS-optimized bundle and other Kubecost
-      tiers in the first question in the
-      [EKS
-      cost monitoring FAQs](../../../eks/latest/userguide/cost-monitoring.md#cost-monitoring-faq "../../../eks/latest/userguide/cost-monitoring.md#cost-monitoring-faq")
+  - Read on more features of this bundle such as
+    [AMP
+    integration](https://aws.amazon.com/blogs/mt/integrating-kubecost-with-amazon-managed-service-for-prometheus/ "https://aws.amazon.com/blogs/mt/integrating-kubecost-with-amazon-managed-service-for-prometheus/"),
+    [multi-cluster
+    visibility](https://aws.amazon.com/blogs/containers/multi-cluster-cost-monitoring-using-kubecost-with-amazon-eks-and-amazon-managed-service-for-prometheus/ "https://aws.amazon.com/blogs/containers/multi-cluster-cost-monitoring-using-kubecost-with-amazon-eks-and-amazon-managed-service-for-prometheus/") and
+    [securing
+    access with Amazon Cognito](https://aws.amazon.com/blogs/containers/securing-kubecost-access-with-amazon-cognito/ "https://aws.amazon.com/blogs/containers/securing-kubecost-access-with-amazon-cognito/")
+  - See EKS-optimized bundle installation steps in the
+    [EKS
+    cost monitoring user guide](../../../eks/latest/userguide/cost-monitoring.md "../../../eks/latest/userguide/cost-monitoring.md")
+  - Review comparison between the EKS-optimized bundle and other Kubecost
+    tiers in the first question in the
+    [EKS
+    cost monitoring FAQs](../../../eks/latest/userguide/cost-monitoring.md#cost-monitoring-faq "../../../eks/latest/userguide/cost-monitoring.md#cost-monitoring-faq")
 
 ## Authors
 

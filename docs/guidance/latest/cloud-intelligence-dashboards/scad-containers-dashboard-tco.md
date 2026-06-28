@@ -10,7 +10,7 @@ Starting SCAD Containers Cost Allocation Dashboard v4.0.0, the dashboard can be 
 
 While you can use K8s pods labels and ECS tasks tags in any visual in the dashboard through customization, the following sheets include pre-built functionality:
 
-- The "Workloads Explorer" sheet includes the [Kubernetes Recommended Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/ "https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/") as dimensions in the "Group By" control and as filtes on the left. Also, the common labels `app`, `chart`, `release`, `version`, `component`, `type` and `created-by` are included
+- The "Workloads Explorer" sheet includes the [Kubernetes Recommended Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/ "https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/") as dimensions in the "Group By" control and as filters on the left. Also, the common labels `app`, `chart`, `release`, `version`, `component`, `type` and `created-by` are included
 - The "Labels/Tags Explorer" sheet can be used to implement Total Cost of Ownership (TCO), allocating costs not only to the EKS K8s pods/ECS tasks, but also to AWS resources they’re using, by consistent labeling/tagging
 
 ## Prerequisites
@@ -37,9 +37,9 @@ All examples will be using EKS K8s pods labels, but they apply to ECS tasks tags
 ### Cost Allocation Using K8s Pods Labels/ECS Tasks Tags
 
 Let’s start with a simple use-case - allocating costs to pods/tasks.
-This is a common use-case that is relevant to many organization that would like to allocate cost to pods/tasks using their own definitions that aren’t necessarily available using the common Kubernetes (K8s) objects or ECS constructs.
+This is a common use-case that is relevant to many organizations that would like to allocate cost to pods/tasks using their own definitions that aren’t necessarily available using the common Kubernetes (K8s) objects or ECS constructs.
 For example, you may want to allocate costs to projects, teams, business units, applications, and more.
-Let’s walk though an example of using the "Workloads Explorer" sheet to allocate costs by K8s pods labels.
+Let’s walk through an example of using the "Workloads Explorer" sheet to allocate costs by K8s pods labels.
 
 Let’s first do it using the [Kubernetes Recommended Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/ "https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/").
 Once in the dashboard, navigate to the "Workloads Explorer" sheet, and open the "Group By" control.
@@ -82,7 +82,7 @@ Add your label cost allocation tag below it. Here’s an example of how the new 
 ${GroupByWorkloadsExplorer} = "Amazon EKS: K8s Label business_unit" AND {cat_business_unit} = "No K8s label/AWS tag key: business_unit", "Exclude",
 ```
 
-Save the calculated field. Now, we’ll add the label to the "Group By" control. Edit the "Group By" control, and add the text "Amazon EKS: K8s Label app.kubernetes.io/business_unit" anywhere in the control options (below one of the existing options).
+Save the calculated field. Now, we’ll add the label to the "Group By" control. Edit the "Group By" control, and add the text "Amazon EKS: K8s Label app.kubernetes.io/business\_unit" anywhere in the control options (below one of the existing options).
 No need to save. Now, open the "Group By" control and select your label. You should see the chart and pivot table change to show the values for this label key.
 
 Now, let’s add a filter. We start by creating a new parameter. Here’s how it should be configured if your label is `business_unit`:
@@ -146,7 +146,7 @@ In the first visual, you can see mapping of the different values of this label k
 From this visual, we can learn that for the label key we selected, the label value `cost-analyzer` (on the left part of the visual) is applied to EKS pods (designated as "EKS Pods" on the right side of the visual) and AWS resources (designated as "Other AWS Services", also on the right side of the visual). We can also learn that other values of this label key are only applied to EKS pods.
 If you hover with your mouse on a section of the visual, you can see the cost value.
 On the pie chart right next to the Sankey diagram visual, you can see the cost distribution between EKS pods and other AWS services.
-The Sankey diagram visual is interactive - click on the `cost-analyzer` value, and it’ll fliter other visuals in this sheet.
+The Sankey diagram visual is interactive - click on the `cost-analyzer` value, and it’ll filter other visuals in this sheet.
 
 Let’s continue to the 2nd Sankey diagram visual below, where we can see mapping of the different values of the label key we selected, to AWS services.
 Here’s how it looks like after we filtered it by clicking on the `cost-analyzer` value on the previous visual:

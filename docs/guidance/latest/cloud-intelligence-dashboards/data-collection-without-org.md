@@ -14,7 +14,7 @@ multiple CID dashboards independently without requiring AWS
 Organizations access, providing flexibility even without centralized
 organizational visibility.
 
-Following dashboards are available without access to AWS Organization:
+The following dashboards are available without access to AWS Organizations:
 
 | Dashboard                              | Requirement     | Details                          |
 | -------------------------------------- | --------------- | -------------------------------- |
@@ -29,14 +29,14 @@ Following dashboards are available without access to AWS Organization:
 | Graviton Savings Dashboard             | Data Collection | Inventory and Pricing<br>Modules |
 | AWS News Feeds                         | Data Collection | AWS Feeds Module                 |
 
-Following Dashboards are not available without access to AWS
-Organization:
+The following dashboards are not available without access to AWS
+Organizations:
 
 - Health Events Dashboards, Compute Optimizer Dashboards, Anomaly Detection Dashboard, AWS Budgets Dashboard
 
 ## Data Exports without AWS Organizations
 
-Foundational dashboards like CUDOS, CID, and KPI are only depend on AWS
+Foundational dashboards like CUDOS, CID, and KPI only depend on AWS
 Cost and Usage report in AWS Data Exports. Also CORA and FOCUS depend on
 Cost Optimization Hub and Focus reports respectively.
 
@@ -71,9 +71,9 @@ API.
 ![Architecture Data Collection](images/customizations/data-collection-without-org/data-collect-without-org-architecture.png)
 
 1. An administrator user uploads a list of accounts to S3 bucket (can be easily automated).
-2. A scheduled event trigger an execution of Lambda Function. By default every 14 days.
+2. A scheduled event triggers an execution of a Lambda function. By default every 14 days.
 3. The Account Collection Lambda can detect an account list on s3 bucket.
-4. The data collection Lambda goes to each account and assume the role to read the information
+4. The data collection Lambda goes to each account and assumes the role to read the information
 5. The Lambda Stores collected data to S3
 6. Customer can query tables via Athena
 7. or deploy Quick Sight Dashboards on top of these data.
@@ -100,7 +100,7 @@ Note, not all Data Collection modules will work without AWS Organizations. The f
 
 1. If you have not done so already, deploy the permissions stack into each Linked Account in scope. You should adjust the template parameters to choose the modules you wish to use, using the list of supported modules above.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_IncludeBudgetsModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack¶m_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_IncludeBudgetsModule=no¶m_IncludeECSChargebackModule=no¶m_IncludeInventoryCollectorModule=no¶m_IncludeRDSUtilizationModule=no¶m_IncludeTAModule=yes¶m_IncludeTransitGatewayModule=no") 2. Follow [Step 2](data-collection-deployment.md "data-collection-deployment.md") of the standard Data Collection deployment to deploy the Data Collection tooling. Select the same modules that you selected with your permissions stack deployment. 3. Create either a JSON or CSV file with your Linked Account information.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_IncludeBudgetsModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards-us-east-1.s3.amazonaws.com/cfn/data-collection/deploy-in-linked-account.yaml&stackName=CidDataCollectionLinkedAccountReadPermissionsStack&param_DataCollectionAccountID=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_IncludeBudgetsModule=no&param_IncludeECSChargebackModule=no&param_IncludeInventoryCollectorModule=no&param_IncludeRDSUtilizationModule=no&param_IncludeTAModule=yes&param_IncludeTransitGatewayModule=no") 2. Follow [Step 2](data-collection-deployment.md "data-collection-deployment.md") of the standard Data Collection deployment to deploy the Data Collection tooling. Select the same modules that you selected with your permissions stack deployment. 3. Create either a JSON or CSV file with your Linked Account information.
 For either format, declare each account as on a separate line, per the
 following examples. Note there is no header row for the CSV but the
 order is the same as the JSON: `account_id, account_name, payer_id`.

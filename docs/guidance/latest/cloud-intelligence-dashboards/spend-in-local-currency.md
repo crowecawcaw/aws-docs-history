@@ -55,7 +55,7 @@ This customization requires several manual steps:
 
 1. Prepare currency conversion csv as mentioned in Prerequisites.
 2. Navigate to cid S3 bucket `s3://cid-{account_id}-shared/`, create a
-   new folder named `CurrencyConversionRate` with in the bucket and
+   new folder named `CurrencyConversionRate` within the bucket and
    upload the csv file to newly created CurrencyConversionRate folder. You
    can automate this step via Amazon Lambda function (outside of this
    guide).
@@ -85,7 +85,7 @@ This customization requires several manual steps:
 
 ![Preview Table](images/customizations/currency-conversion/preview-external-table.png)
 
-1. In Quick Sight, go to "Datasets" section and select summary_view
+1. In Quick Sight, go to "Datasets" section and select summary\_view
    dataset. Click on "Edit", then click on "Add data" in the top right
    corner. From the dropdown menu, choose "Data source". In the data
    source options, select CID datasource and then choose the
@@ -93,15 +93,15 @@ This customization requires several manual steps:
 
 ![Add data](images/customizations/currency-conversion/add-data.png)
 
-1. Select "Left Join" as the join type, and join the "billing_period"
-   column from the "summary_view" table with the "month" column from
+1. Select "Left Join" as the join type, and join the "billing\_period"
+   column from the "summary\_view" table with the "month" column from
    the "currencyconversionrate" table. After this, apply the changes and
    then save and publish the dataset.
 
 ![Add join](images/customizations/currency-conversion/add-join.png)
 
 1. In the Quick Sight, go to the dashboards, then click CUDOS Dashboard
-   and save it as new analyses.
+   and save it as a new analysis.
 
 ![Save analysis](images/customizations/currency-conversion/save-analysis.png)
 
@@ -127,7 +127,7 @@ This customization requires several manual steps:
 ![Control options](images/customizations/currency-conversion/control-option.png)
 
 1. Now, we need to edit the calculated fields to convert the cost into
-   the currency selected in the control. Select "cost_unblended" and
+   the currency selected in the control. Select "cost\_unblended" and
    click on the three dots located on the right side. Then, click on "Edit
    calculated field".
 
@@ -189,18 +189,18 @@ switch( ${Currency},
 1. If you select the currency "£", it will convert the cost to "£"
    based on the month and conversion rate provided in the initial CSV file.
    Note that you will still see the "$" symbol in the cost in both cases
-   because the "cost_unblended" format is fixed as currency type and
+   because the "cost\_unblended" format is fixed as currency type and
    cannot be changed dynamically.
 
 ![Cost in GBP](images/customizations/currency-conversion/cost-gbp.png)
 
 ### Changing the symbol
 
-As of today (Feb 2025) Amazon Quick Sight do not allow dynamically
+As of today (Feb 2025) Amazon Quick does not allow dynamically
 changing a symbol on labels, so the only way to indicate changing
 currency is to use titles of visuals.
 
-1. To change symbol, you’ll first need first to convert the format to a
+1. To change symbol, you’ll first need to convert the format to a
    number.
 
 ![Change format](images/customizations/currency-conversion/change-format.png)

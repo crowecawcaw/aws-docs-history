@@ -25,11 +25,11 @@ By default, the datasets for the CRCD dashboard are refreshed once a day. You ca
 
 If you followed our recommendations in the [prerequisites](config-resource-prerequisites.md "config-resource-prerequisites.md"), AWS Config delivers a configuration snapshot file every 24 hours, so you will probably start seeing data in a couple of days, depending on when the configuration snapshot files are generated and when the Quick Sight datasets are refreshed.
 
-AWS Config generates history records approximately 6 hours after a resource is changed. These records will be loaded on the dasboard faster, and be visible on the **Configuration Item Events** tab.
+AWS Config generates history records approximately 6 hours after a resource is changed. These records will be loaded on the dashboard faster, and be visible on the **Configuration Item Events** tab.
 
 Follow these steps to have AWS Config generate a configuration snapshot and visualize its data on the dashboard:
 
-1. Log into the AWS Management Console of an account of you organization.
+1. Log into the AWS Management Console of an account in your organization.
 2. Open [AWS CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell") in the AWS Region whose data you want to export.
 3. Run the following command:
 

@@ -21,7 +21,7 @@ ensure your financial resources are being used efficiently.
 
 ## Demo Dashboard
 
-Get more familiar with Dashboard using the live, interactive demo
+Get more familiar with the Dashboard using the live, interactive demo
 dashboard following this
 [link](https://cid.workshops.aws.dev/demo?dashboard=aws-budgets "https://cid.workshops.aws.dev/demo?dashboard=aws-budgets")
 
@@ -50,8 +50,7 @@ budgets, tags allow customers to:
 
 By leveraging tags with AWS Budgets, customers can create a more
 organized and insightful budgeting system that aligns with their
-organization’s structure and financial practices (refer the below
-diagram). This approach provides greater visibility into AWS spend and
+organization’s structure and financial practices (refer to the diagram below). This approach provides greater visibility into AWS spend and
 helps make more informed decisions about resource allocation and cost
 optimization.
 
@@ -66,7 +65,7 @@ This Dashboard shows budgets with a specific tag key
    sure Budgets and Organization Data collection modules are enabled.
    Version 3.0.3 or higher required.
 2. Tagging your budgets enables the option of introducing hierarchy
-   within the organizational budgets. To achieve this, we recommend to set
+   within the organizational budgets. To achieve this, we recommend setting
    the tags with a key value pair as below:
 
 ```
@@ -84,15 +83,15 @@ CloudFormation
 
 **Prerequisite**: To install this dashboard using CloudFormation, you need to install Foundational Dashboards CFN with version v4.0.0 or above as described [here](deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard "deployment-in-global-regions.md#deployment-in-global-region-deploy-dashboard")
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Budgets-Dashboard&param_DashboardId=aws-budgets&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Budgets-Dashboard¶m_DashboardId=aws-budgets¶m_RequiresDataCollection=yes")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Budgets-Dashboard&param_DashboardId=aws-budgets&param_RequiresDataCollection=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=AWS-Budgets-Dashboard&param_DashboardId=aws-budgets&param_RequiresDataCollection=yes")
 
 1. You can change **Stack name** for your template if you wish.
-2. Leave **Parameters** values as it is.
+2. Leave **Parameters** values as they are.
 3. Review the configuration and click **Create stack**.
-4. You will see the stack will start in **CREATE_IN_PROGRESS**. Once complete, the stack will show **CREATE_COMPLETE**
+4. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE**
 5. You can check the stack output for dashboard URLs.
 
 ###### Note
@@ -100,13 +99,13 @@ CloudFormation
 **Troubleshooting:** If you see error "No export named cid-CidExecArn found" during stack deployment, make sure you have completed prerequisite steps.
 
 Command Line
-Alternative method to install dashboards is the
+An alternative method to install dashboards is the
 [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd")
 tool.
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Open up a command-line interface with permissions to run API requests
-   in your AWS account. We recommend to use
+   in your AWS account. We recommend using
    [CloudShell](https://console.aws.amazon.com/cloudshell "https://console.aws.amazon.com/cloudshell").
 3. In your command-line interface run the following command to download
    and install the CID CLI tool:
@@ -130,7 +129,7 @@ or `cid-cmd --help`.
 ## Update
 
 Please note that dashboards are not updated with update of
-CloudFormation Stack. When new version of the dashboard template is
+CloudFormation Stack. When a new version of the dashboard template is
 released, you can update your dashboard by running the following command
 in your command-line interface:
 
@@ -140,7 +139,7 @@ cid-cmd update --dashboard-id aws-budgets
 
 ## Troubleshooting
 
-**Column "optimization_data.budgets_data.tags" cannot be resolved**
+**Column "optimization\_data.budgets\_data.tags" cannot be resolved**
 
 If you see this issue on deployment please make sure you have updated
 the Data Collection stack to the version required on Prerequisites.

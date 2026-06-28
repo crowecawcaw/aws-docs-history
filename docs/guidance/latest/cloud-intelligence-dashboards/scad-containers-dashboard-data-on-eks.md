@@ -23,12 +23,12 @@ The following K8s pods labels cost allocations tags should be activated (some of
 
 Here’s a breakdown of the labels cost allocation tags you need to activate, for each use-case (in case you want to selectively activate only the labels cost allocation tags you need):
 
-- If you’re running Spark applications (regardless of wether they’re running directly on EKS or on EMR on EKS, and regardless of how you submit them), activate the following labels: `spark-app-selector`, `spark-app-name`, `spark-exec-id`, `spark-exec-resourceprofile-id`, `spark-role`, `spark-version`
-- If you’re running Spark applications (regardless of wether they’re running directly on EKS or on EMR on EKS) and are submitting them using Spark Operator, activate all the cost allocation tags from the first bullet, and also: `sparkoperator.k8s.io/launched-by-spark-operator`, `sparkoperator.k8s.io/submission-id`
-- If you’re running Spark applications (regardless of wether they’re running directly on EKS or on EMR on EKS) and are submitting them using Apache Livy, activate all the cost allocation tags from the first bullet, and also: `created-by`, `spark-app-tag`
-- If you’re running Spark applications (regardless of wether they’re running directly on EKS or on EMR on EKS) and are submitting them using Spark Submit, activate all the cost allocation tags from the first bullet
+- If you’re running Spark applications (regardless of whether they’re running directly on EKS or on EMR on EKS, and regardless of how you submit them), activate the following labels: `spark-app-selector`, `spark-app-name`, `spark-exec-id`, `spark-exec-resourceprofile-id`, `spark-role`, `spark-version`
+- If you’re running Spark applications (regardless of whether they’re running directly on EKS or on EMR on EKS) and are submitting them using Spark Operator, activate all the cost allocation tags from the first bullet, and also: `sparkoperator.k8s.io/launched-by-spark-operator`, `sparkoperator.k8s.io/submission-id`
+- If you’re running Spark applications (regardless of whether they’re running directly on EKS or on EMR on EKS) and are submitting them using Apache Livy, activate all the cost allocation tags from the first bullet, and also: `created-by`, `spark-app-tag`
+- If you’re running Spark applications (regardless of whether they’re running directly on EKS or on EMR on EKS) and are submitting them using Spark Submit, activate all the cost allocation tags from the first bullet
 - If you’re using EMR on EKS (regardless of which framework, Spark or Flink, you’re using, and regardless of how you’re submitting them), activate all the cost allocation tags from the first bullet and from other bullets based on submission method, and also: `emr-containers.amazonaws.com/virtual-cluster-id`, `emr-containers.amazonaws.com/job.id`, `eks-subscription.amazonaws.com/emr.internal.id`, `emr-containers.amazonaws.com/resource.type`, `emr-containers.amazonaws.com/component`
-- If you’re running Flink applications (regardless of wether they’re running directly on EKS or on EMR on EKS, and regardless of how you submit them), activate the following labels: `type`, `app`, `component`
+- If you’re running Flink applications (regardless of whether they’re running directly on EKS or on EMR on EKS, and regardless of how you submit them), activate the following labels: `type`, `app`, `component`
 
 ## How to Allocate Costs to Spark and Flink Applications
 
@@ -46,7 +46,7 @@ We’ll click on the Virtual cluster ID, which will redirect us to the list of E
 
 ![SCAD - Containers Cost Allocation Dashboard - EMR on EKS Jobs](images/scad_emr_on_eks_jobs.png)
 
-Since new data in CUR isn’t updated in real-time, we’ll choose a job id that was running around 2 days before the time this guide was written. We’l use job id `000000036gr7qbcelvv`.
+Since new data in CUR isn’t updated in real-time, we’ll choose a job id that was running around 2 days before the time this guide was written. We’ll use job id `000000036gr7qbcelvv`.
 Copy the job id, then navigate to the "Data on EKS" sheet on the SCAD dashboard, and in it, to the "Data on EKS Workloads Explorer - Interactive Spark/Flink Jobs Visuals" section.
 This section provides a set of interactive visuals to easily drill down into your Spark and Flink applications costs:
 
@@ -54,7 +54,7 @@ This section provides a set of interactive visuals to easily drill down into you
 
 ![SCAD - Containers Cost Allocation Dashboard - Data on EKS Workloads Explorer Part 2](images/scad_data_on_eks_workloads_explorer_part2.png)
 
-Open the "EMR on EKS Job ID" filter control above the stacked-bar chart, and paste the job id you copied into it, to fliter the visuals based on this job id.
+Open the "EMR on EKS Job ID" filter control above the stacked-bar chart, and paste the job id you copied into it, to filter the visuals based on this job id.
 Once done, all visuals on the sheet will be filtered. The 2 visuals in the "Data on EKS Workloads Explorer - Interactive Spark/Flink Jobs Visuals" section (the stacked-bar chart and pivot table) are grouped by cluster name by default, so they’ll still show the cluster name, but will only show the cost of job id `000000036gr7qbcelvv`.
 You can then group by another dimension which may be interesting to you, but in this example, we’ll scroll down to the "Data on EKS Breakdown" section in the same sheet, to view more details on the job in question:
 

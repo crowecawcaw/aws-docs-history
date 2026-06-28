@@ -20,20 +20,20 @@ Net Amortized cost.
 You will need to modify several views in Athena to include net amortized
 cost. Views that you need to modify are:
 
-- summary_view
-- hourly_view
-- resource_view
+- summary\_view
+- hourly\_view
+- resource\_view
 
 Navigate in the AWS Console to the **Athena** service
 
 1. Select the **AwsDataCatalog** in the **DataSource** drop down
 2. In the **Database** drop down select the database where your CUR table is located.
-3. Under Views, scroll down until you locate the **summary_view**.
+3. Under Views, scroll down until you locate the **summary\_view**.
 4. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
 ![Athena Query editor highlighting the summary view query and its context menu to select show edit query](images/cust_showedit_qry.png)
 
-1. Find the line which ends with "amortized_cost" and add the below
+1. Find the line which ends with "amortized\_cost" and add the below
    snippet
 
 ```
@@ -52,9 +52,9 @@ ELSE 0 END) "net_amortized_cost"
 
 ![Inset show the run again button of the query window and the successful result](images/cust_runagain.png)
 
-1. Under Views, locate **resource_view**, Select the three dots to the
+1. Under Views, locate **resource\_view**, Select the three dots to the
    right of the view and select **Show/edit query** from the context menu.
-2. Find the line which ends with "unblended_cost" , add the below
+2. Find the line which ends with "unblended\_cost" , add the below
    snippet
 
 ```
@@ -65,9 +65,9 @@ ELSE 0 END) "net_amortized_cost"
 
 1. click the **Run again** button and confirm that the query view updates
    successfully.
-2. Under Views, locate **hourly_view**, Select the three dots to the right
+2. Under Views, locate **hourly\_view**, Select the three dots to the right
    of the view and select **Show/edit query** from the context menu.
-3. Find the line which ends with "unblended_cost" , add the below
+3. Find the line which ends with "unblended\_cost" , add the below
    snippet
 
 ```
@@ -88,22 +88,22 @@ see the added fields and use them in your analysis and dashboard.
 
 ![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the
+![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary\_view** in the list of datasets and click on the
 dataset. 4. Click on Edit Dataset under the **summary** tab in the top right of the
 page.
 
 ![Quick Sight edit dataset button](images/cust_editds.png) 5. Allow the dataset preview windows to load. 6. Click on **Save & Publish** button in the top right of the page. this
-will trigger a refresh of the dataset and import net_amortized field
+will trigger a refresh of the dataset and import net\_amortized field
 
-![Save and Publish the dataset to trigger full refresh and import new columns](images/net_dataset_save_publish.png) 7. Repeat the steps to refresh **resource_view** and **hourly_view** dataset
+![Save and Publish the dataset to trigger full refresh and import new columns](images/net_dataset_save_publish.png) 7. Repeat the steps to refresh **resource\_view** and **hourly\_view** dataset
 as well.
 
 ### Step 3 of 3. Create/Modify CUDOS Dashboard Analysis
 
-After the dataset has been updated you can now add the net_amortized
+After the dataset has been updated you can now add the net\_amortized
 cost to different visualizations. Here we will demonstrate how you can
-update the CUDOS dashboard to use the net_amortized cost along with
-amortized_cost
+update the CUDOS dashboard to use the net\_amortized cost along with
+amortized\_cost
 
 ###### Note
 
@@ -116,12 +116,12 @@ and published dashboard changes
 2. Open the CUDOS dashboard and select the save icon, selecting "save
    as" in the drop-down selection to save the dashboard as an analysis.
 
-![Save Dashboard as an analysis](images/net_save_analysis.png) 3. open the saved analysis.
+![Save Dashboard as an analysis](images/net_save_analysis.png) 3. Open the saved analysis.
 
 ### Step 3a. Create a parameter and control
 
 We will create a new parameter and control/filter so we can switch
-between unblended cost and net_amortized cost for all the visuals
+between unblended cost and net\_amortized cost for all the visuals
 
 1. Click on Insert → Add Parameter from the top left menu bar
 
@@ -150,10 +150,10 @@ The control has to be re-added to each sheet in the analysis
 ### Step 3b. Bind this control to calculated fields in datasets
 
 Now that we’ve created the parameter and control we need to associate it
-with few calculated fields in order to have an effect in our analysis
+with a few calculated fields in order to have an effect in our analysis
 visualizations.
 
-1. Click on Dataset from the left navigation and select the dataset **hourly_view**
+1. Click on Dataset from the left navigation and select the dataset **hourly\_view**
 
 ![Select Hourly view dataset](images/net_hourlyview_dataset.png)
 
@@ -172,7 +172,7 @@ ifelse(
 )
 ```
 
-![Edit calculated filed in hourly view](images/net_hourly_view_amortized_cost.png) 2. Now select the dataset **resource_view** and find the calculated field
+![Edit calculated filed in hourly view](images/net_hourly_view_amortized_cost.png) 2. Now select the dataset **resource\_view** and find the calculated field
 **amortized cost**. Make changes as shown below and save
 
 ```
@@ -201,8 +201,8 @@ below and click on Save
 sum(Cost)/distinct_count({Workspace ID})
 ```
 
-![Edit calculated filed in hourly view](images/net_resource_view_workspace_average_cost.png) 5. Now Select the dataset **summary_view** and find the calculated filed
-**Cost_Amortized** . edit the calculated field as shown below and click on
+![Edit calculated filed in hourly view](images/net_resource_view_workspace_average_cost.png) 5. Now Select the dataset **summary\_view** and find the calculated filed
+**Cost\_Amortized** . edit the calculated field as shown below and click on
 save
 
 ```
@@ -213,4 +213,4 @@ NULL)
 ```
 
 ![Edit calculated filed in hourly view](images/net_Summary_view_cost_amortized.png) 6. Publish the modified analysis as a new dashboard which now has option
-to switch between both unblended and net_amortized cost.
+to switch between both unblended and net\_amortized cost.

@@ -58,13 +58,13 @@ with a filter in order to have an effect in our analysis visualizations.
 
 ###### Note
 
-To apply this to all sheets in you analysis, repeat these steps on each sheet of your analysis.
+To apply this to all sheets in your analysis, repeat these steps on each sheet of your analysis.
 
 ## Step 3 Publish your analysis
 
 Now that you have customized your analysis, you can publish that
 analysis as a dashboard to share with other users to allow them to
-leveraged additional fields for filtering.
+leverage additional fields for filtering.
 
 ## Additional information
 

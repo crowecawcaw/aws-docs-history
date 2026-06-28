@@ -58,7 +58,7 @@ Currently only foundational dashboards, CORA, Sustainability and FOCUS Dashboard
 1. Sign in to your Data Collection Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation console. This stack will create an S3 bucket with a bucket policy allowing write access for the AWS Data Exports service, and Athena Tables.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination¶m_ManageCUR2=yes¶m_ManageCOH=no¶m_LegacyLocalBucket=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID¶m_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Destination&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20ID&param_SourceAccountIds=PUT%20HERE%20PAYER%20ACCOUNT%20IDS")
 
 - Update `DestinationAccountId` parameter as your **Data Collection**
   Account ID (Current Account ID).
@@ -75,9 +75,9 @@ Currently only foundational dashboards, CORA, Sustainability and FOCUS Dashboard
   skip Step 2.
 - Review the configuration, click **I acknowledge that AWS CloudFormation
   might create IAM resources** and click **Create stack**.
-- You will see the stack will start with **CREATE_IN_PROGRESS**. This step
+- You will see the stack will start with **CREATE\_IN\_PROGRESS**. This step
   can take 5 - 15 mins. Once complete, the stack will show
-  **CREATE_COMPLETE**.
+  **CREATE\_COMPLETE**.
 
 You can only have one instance of this Stack in
 your Account. If you see errors indicating that one of exports exists
@@ -92,7 +92,7 @@ Account parameter.
 1. Click the **Launch Stack button** below to open the **stack template** in
    your AWS CloudFormation console.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds= "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source¶m_ManageCUR2=yes¶m_ManageCOH=no¶m_LegacyLocalBucket=no¶m_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs¶m_SourceAccountIds=")
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds= "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?&templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/data-exports-aggregation.yaml&stackName=CID-DataExports-Source&param_ManageCUR2=yes&param_ManageCOH=no&param_LegacyLocalBucket=no&param_DestinationAccountId=REPLACE%20WITH%20DATA%20COLLECTION%20ACCOUNT%20IDs&param_SourceAccountIds=")
 
 1. Enter a **Stack name** for your template such as
    **CID-DataExports-Source**.
@@ -102,9 +102,9 @@ Account parameter.
    configuration in the Data Collection Account (as in Step 1).
 4. Review the configuration, click **I acknowledge that AWS
    CloudFormation might create IAM resources**, and click **Create stack**.
-5. You will see the stack will start with **CREATE_IN_PROGRESS**. This
+5. You will see the stack will start with **CREATE\_IN\_PROGRESS**. This
    step can take ~5 mins. Once completed, the stack will show
-   **CREATE_COMPLETE**.
+   **CREATE\_COMPLETE**.
 6. Repeat for other Source Accounts.
    It will typically take about 24 hours for the first delivery of AWS Data
    Exports to the Destination Account, but it might take up to
@@ -206,10 +206,10 @@ CLI tool](https://github.com/aws-solutions-library-samples/cloud-intelligence-da
 
 CloudFormation
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Click the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards¶m_DeployCUDOSv5=yes¶m_DeployKPIDashboard=yes¶m_DeployCostIntelligenceDashboard=yes") 3. Enter a **Stack name** for your template such as **Cloud-Intelligence-Dashboards** 4. Review **Common Parameters** and confirm prerequisites before specifying the other parameters. You must answer `yes` to both prerequisites questions. 5. Copy and paste your **Quick SightUserName** into the parameter text box. To find your Quick Sight username:
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml&stackName=Cloud-Intelligence-Dashboards&param_DeployCUDOSv5=yes&param_DeployKPIDashboard=yes&param_DeployCostIntelligenceDashboard=yes") 3. Enter a **Stack name** for your template such as **Cloud-Intelligence-Dashboards** 4. Review **Common Parameters** and confirm prerequisites before specifying the other parameters. You must answer `yes` to both prerequisites questions. 5. Copy and paste your **Quick SightUserName** into the parameter text box. To find your Quick Sight username:
 
     * Open a new tab or window and navigate to the **Quick Sight** console
     * Find your username from the person icon in the top right corner
@@ -218,24 +218,21 @@ CloudFormation
 
     ![Quick Sight page with username drop down in the top right highlighted](images/cf_dash_qs_2.png)
 
-6. Select the Dashboards you want to install. We recommend deploying all three: Cost Intelligence Dashboard, CUDOS, and the KPI Dashboard.
-7. Review the configuration, click **I acknowledge that AWS CloudFormation might create IAM resources, and click Create stack**.
-8. You will see the stack will start in **CREATE_IN_PROGRESS**. This step can take ~15 minutes. Once complete, the stack will show **CREATE_COMPLETE**
-9. You can check the stack output for dashboard URLs. Please note that dashboards will be empty by this point. We recommend initiate a backfill via a Support Cases (see [Backfill](#deployment-global-backfill-data-export "#deployment-global-backfill-data-export") section).
+6. Select the Dashboards you want to install. We recommend deploying all three: Cost Intelligence Dashboard, CUDOS, and the KPI Dashboard. 7. Review the configuration, click **I acknowledge that AWS CloudFormation might create IAM resources, and click Create stack**. 8. You will see the stack will start in **CREATE\_IN\_PROGRESS**. This step can take ~15 minutes. Once complete, the stack will show **CREATE\_COMPLETE** 9. You can check the stack output for dashboard URLs. Please note that dashboards will be empty by this point. We recommend initiating a backfill via a Support Case (see [Backfill](#deployment-global-backfill-data-export "#deployment-global-backfill-data-export") section).
 
 **Troubleshooting:**
 
 **No export named cid-DataExports-ReadAccessPolicyARN found.**
 
-If you see `No export named cid-DataExports-ReadAccessPolicyARN found.` then you probably did not installed CUR2 with Cloud formation stack as per Step
+If you see `No export named cid-DataExports-ReadAccessPolicyARN found.` then you probably did not install CUR2 with Cloud formation stack as per Step
 
 1. Alternatively you can also use Legacy CUR but in this case you need explicitly specify the parameter `CurVersion=1.0`.
 
 Command Line
-Alternative method to install dashboards is the
+An alternative method to install dashboards is the
 [cid-cmd](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/CID-CMD.md#command-line-tool-cid-cmd") tool.
 
-1. Log in to to your **Data Collection** Account.
+1. Log in to your **Data Collection** Account.
 2. Open [AWS CloudShell](https://console.aws.amazon.com/cloudshell/home "https://console.aws.amazon.com/cloudshell/home")
 3. Install cid-cmd tool. Run the following command and make sure you hit enter :
 
@@ -308,7 +305,7 @@ You can check the latest Cloud Formation Stack [Here](https://aws-managed-cost-i
 3. Choose to update the template and insert this link: https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-cfn.yml
 4. Review the parameters. Please make sure to choose the right version of
    CUR in CurVersion parameter. Choose 1.0 to stay on CUR1. Choose 2.0 to
-   switch all new dashboards to CUR 2. To preform a full migration please
+   switch all new dashboards to CUR 2. To perform a full migration please
    reference [CUR2 migration guide](migration-to-cur.md "migration-to-cur.md").
 
 ## Troubleshooting

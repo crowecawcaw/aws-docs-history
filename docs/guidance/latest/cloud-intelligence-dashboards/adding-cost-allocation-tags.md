@@ -15,7 +15,7 @@ group some of the visuals by tags you’re using. Common use cases include
 seeing spend by application, identifying opportunity by cost category,
 or building charge-back mechanisms to business units.
 
-If you have cost allocation tags or cost categories setup in your AWS
+If you have cost allocation tags or cost categories set up in your AWS
 account, you will see those tags in your CUR. They show up as their own
 column. You can confirm that these tags are present by going to Athena
 and expanding your CUR table. If you scroll down, you should find your
@@ -45,9 +45,9 @@ CUR data, and for Amazon Quick Sight to refresh datasets.
 You will need to modify several queries in Athena to add the tags.
 Queries that you can modify to enable tags are:
 
-- summary_view
-- hourly_view
-- resource_view
+- summary\_view
+- hourly\_view
+- resource\_view
 
 Follow instructions depending on the CUR version you use:
 
@@ -60,9 +60,9 @@ Legacy CUR
 3. In the **Database** drop down select the database where your CUR table is located.
 4. We’ll first confirm that we see the tags in the CUR table.
 5. In the tables list, locate your CUR table and click the plus sign next to the table to expand all the fields for that table.
-6. Above the table list type in **resource_tags\_** and the list of either AWS or user tags that were enabled in Cost Explorer are displayed.
+6. Above the table list type in **resource\_tags\_** and the list of either AWS or user tags that were enabled in Cost Explorer are displayed.
 7. After confirming that the tags you would like to add are available, clear your search and we’ll modify the first view.
-8. Under Views, scroll down until you locate the **summary_view**.
+8. Under Views, scroll down until you locate the **summary\_view**.
 9. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 
 ![Athena Query editor highlighting the summary view query and its context menu to select show edit query](images/cust_showedit_qry.png)
@@ -84,7 +84,7 @@ Legacy CUR
 ::
 ```
 
-2. From the table list, expand your cur table and filter on **resource_tags\_**.
+2. From the table list, expand your cur table and filter on **resource\_tags\_**.
 3. Double-click on the first tag that you want to add. Remove the trailing comma that is added and place a comma at the beginning of that line. It will look like this:
 
 ```
@@ -101,7 +101,7 @@ SELECT
 , "line_item_line_item_type" "charge_type"...
 ```
 
-4. Add a **friendly name** to the field. In our example we’ll add **cost_center_tag**
+4. Add a **friendly name** to the field. In our example we’ll add **cost\_center\_tag**
 5. Scroll down and add the next highest number in the **GROUP BY** clause.
 
 ```
@@ -111,7 +111,7 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 6. For each additional tag that you want, create a blank line below the preceding one and repeat the same steps.
 7. When you’ve completed adding all of the fields, click the **RUN** button and confirm that the query view updates successfully.
 
-![Inset show the run again button of the query window and the successful result](images/cust_runagain.png) 8. Repeat the steps above on the **hourly_view** and **resource_view** datasets.
+![Inset show the run again button of the query window and the successful result](images/cust_runagain.png) 8. Repeat the steps above on the **hourly\_view** and **resource\_view** datasets.
 
 CUR 2.0
 
@@ -127,7 +127,7 @@ CUR 2.0
 ```
 
 5. After confirming that the tags you would like to add are available, we can start with the first view.
-6. Under Views, scroll down until you locate the **summary_view**.
+6. Under Views, scroll down until you locate the **summary\_view**.
 7. Select the three dots to the right of the view and select **Show/edit query** from the context menu.
 8. On the line after `, "line_item_usage_account_id" "linked_account_id"` in the query add a blank line below that.
 
@@ -145,7 +145,7 @@ CUR 2.0
   , "line_item_line_item_type" "charge_type"...
 ```
 
-9. Add a **friendly name** to the field. In our example we’ll add **cost_center_tag**
+9. Add a **friendly name** to the field. In our example we’ll add **cost\_center\_tag**
 10. Scroll down and add the next highest number in the **GROUP BY** clause.
 
 ```
@@ -155,7 +155,7 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 11. For each additional tag that you want, create a blank line below the preceding one and repeat the same steps.
 12. When you’ve completed adding all of the fields, click the **RUN** button and confirm that the query view updates successfully.
 
-![Inset show the run again button of the query window and the successful result](images/cust_runagain.png) 13. Repeat the steps above on the **hourly_view** and **resource_view** datasets.
+![Inset show the run again button of the query window and the successful result](images/cust_runagain.png) 13. Repeat the steps above on the **hourly\_view** and **resource\_view** datasets.
 
 ### Step 2. Modify Data Set in Amazon Quick Sight
 
@@ -166,7 +166,7 @@ can see the added fields to use them in your Dashboards and Analyses.
 
 ![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the dataset. 4. Click on the **EDIT DATASET** button in the top right of the page.
+![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary\_view** in the list of datasets and click on the dataset. 4. Click on the **EDIT DATASET** button in the top right of the page.
 
 ![Quick Sight edit dataset button](images/cust_editds.png) 5. Allow the fields and dataset preview windows to load. 6. Confirm that you can see the fields you’ve added in the list. This can
 be accomplished by entering the **friendly name** of the field in the
@@ -176,7 +176,7 @@ search fields input.
 
 ![Quick Sight save & publish button](images/cust_savepublish.png) 8. A refresh of the dataset will be triggered. Monitor the status to confirm that it completed successfully.
 
-![Summary view dataset summary tab showing dataset refresh status](images/cust_ds_load.png) 9. Repeat the steps above on the **hourly_view** and **resource_view**
+![Summary view dataset summary tab showing dataset refresh status](images/cust_ds_load.png) 9. Repeat the steps above on the **hourly\_view** and **resource\_view**
 datasets.
 
 ###### Note
@@ -225,7 +225,7 @@ change.
 The CUDOS dashboard has a sheet titled **TAGsplorer** which has visuals
 that are intended to sort data by a "primary" and "secondary" tag.
 These tags can be any two of the tags you would like to see in these
-visualizations. You must have updated your **resource_view** dataset to
+visualizations. You must have updated your **resource\_view** dataset to
 include tags using the above steps.
 
 1. Select the **Cost Per Primary TAG Previous Month** visual.

@@ -7,7 +7,7 @@
 We recommend customers updating both cid-cmd tool and CID Cloud Formation stack to a version 4.2.3 or more recent.
 
 We always improve Cloud Intelligence Dashboards by adding new actionable
-insights and recommendations. All new dashboard versions announced in
+insights and recommendations. All new dashboard versions are announced in
 our
 [Changelog](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/changes "https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/tree/main/changes").
 You can find your current dashboard version on About tab of each of the
@@ -42,8 +42,8 @@ datasets are fully refreshed
 ### Recursive Update
 
 In some cases the update of underlying
-Quick Sight Datasets and views is required. This can be useful also to
-reset dashboards to factory settings if any issue. Please note that it
+Quick Sight Datasets and views is required. This can also be useful to
+reset dashboards to factory settings if there is any issue. Please note that it
 might impact customizations you did on the dashboards. The tool will
 provide you an interactive prompt when it will detect the difference and
 you can accept the changes or keep existing.
