@@ -72,81 +72,86 @@ of your solutions and the following details about each solution:
     * **Build errors** — The number
      of build errors in a solution after it has been assessed.
 
-3.  The status of your assessment appears at the top of the page. Choose
-    **View details** to see an overview of your solution
-    assessment, which includes a breakdown of the incompatible NuGet packages
-    and APIs. You can also view the project references and source files from
-    this page.
-4.  From the solution assessment page, choose **Export assessment
-    report** to download a .csv file with your report details.
-    Under the overview, you can choose the following tabs:
+3. The status of your assessment appears at the top of the page. Choose
+**View details** to see an overview of your solution
+assessment, which includes a breakdown of the incompatible NuGet packages
+and APIs. You can also view the project references and source files from
+this page. 4. From the solution assessment page, choose **Export assessment
+report** to download a .csv file with your report details.
+Under the overview, you can choose the following tabs:
 
-    - **Projects** — this tab lists
-      the projects in your solution, the **Target
-      framework** for the solution, the number of
-      **Referenced projects** in the solution, the
-      number of **Incompatible packages** in the
-      solution, the number of **Incompatible APIs** in
-      the solution, the **Portability score** (the number
-      of compatible APIs over the number of incompatible APIs in the
-      solution, represented as a percentage), and the **Port
-      status** (ported or not ported) of the solution.
-    - **Project references** — this
-      tab displays the project references graph, which is a graphical
-      representation of your projects and references. Select a node to see
-      its project dependencies. To port your projects, we recommend that
-      you start by selecting the base of your library, and then moving
-      outward to test each layer. You should first port base libraries
-      with the most dependencies from other projects. In other words, port
-      libraries that show more inward arrows than outward arrows.
+    * **Projects** — this tab lists
+     the projects in your solution, the **Target
+     framework** for the solution, the number of
+     **Referenced projects** in the solution, the
+     number of **Incompatible packages** in the
+     solution, the number of **Incompatible APIs** in
+     the solution, the **Portability score** (the number
+     of compatible APIs over the number of incompatible APIs in the
+     solution, represented as a percentage), and the **Port
+     status** (ported or not ported) of the solution.
+    * **Project references** — this
+     tab displays the project references graph, which is a graphical
+     representation of your projects and references. Select a node to see
+     its project dependencies. To port your projects, we recommend that
+     you start by selecting the base of your library, and then moving
+     outward to test each layer. You should first port base libraries
+     with the most dependencies from other projects. In other words, port
+     libraries that show more inward arrows than outward arrows.
+
 
     To view details about a node, select the node and choose
-    **View details**.
-    - **NuGet packages** — this tab
-      lists the number of NuGet packages in your solutions file, the
-      **Name** of the NuGet packages, the
-      **Version** number of the packages, the
-      **Source files** in the package, the number of
-      compatible **APIs** in the package, the
-      compatibility **Status** of each package
-      (compatible/incompatible), and the **Suggested
-      replacement** for each package.
-    - **APIs** — this tab lists the
-      **Name** of each API call in the solution, the
-      name of the **Package** within which the API call
-      appears, the number of **Source files** that
-      include each API call, the **Suggested
-      replacement** for the API call, and the compatibility
-      **Status** of the API call
-      (compatible/incompatible).
+     **View details**.
+    * **NuGet packages** — this tab
+     lists the number of NuGet packages in your solutions file, the
+     **Name** of the NuGet packages, the
+     **Version** number of the packages, the
+     **Source files** in the package, the number of
+     compatible **APIs** in the package, the
+     compatibility **Status** of each package
+     (compatible/incompatible), and the **Suggested
+     replacement** for each package.
+    * **APIs** — this tab lists the
+     **Name** of each API call in the solution, the
+     name of the **Package** within which the API call
+     appears, the number of **Source files** that
+     include each API call, the **Suggested
+     replacement** for the API call, and the compatibility
+     **Status** of the API call
+     (compatible/incompatible).
+
 
     ###### Note
 
     A small number of APIs might show an "Incompatible" status.
-    This can happen when an API is not found in the Porting Assistant for .NET
-    database and the status is unknown to the Porting Assistant for .NET
-    system.
-    - **Source files** — this tab
-      lists the **Source file name** in the solution, the
-      number of **Incompatible API calls** over the total
-      number of API calls for each source file, and the
-      **Portability score** of the source file, which
-      is the number of compatible APIs over the number of incompatible
-      APIs in the solution, represented as a percentage. You can select a
-      source file to view the incompatible API calls and replacement
-      suggestions in the source code.
+     This can happen when an API is not found in the Porting Assistant for .NET
+     database and the status is unknown to the Porting Assistant for .NET
+     system.
+    * **Source files** — this tab
+     lists the **Source file name** in the solution, the
+     number of **Incompatible API calls** over the total
+     number of API calls for each source file, and the
+     **Portability score** of the source file, which
+     is the number of compatible APIs over the number of incompatible
+     APIs in the solution, represented as a percentage. You can select a
+     source file to view the incompatible API calls and replacement
+     suggestions in the source code.
+
 
     In each source file, any section of code that is detected as
-    incompatible will be highlighted as follows:
+     incompatible will be highlighted as follows:
 
-        + **Porting action** — code that
-         initiates a porting action in the project.
-        + **Incompatible method invocation**
-         — an API that is incompatible with .NET Core.
 
-5.  After you make changes to your solution file, you can choose
-    **Reassess solution** to start a new assessment of your
-    solution.
+
+
+    	+ **Porting action** — code that
+    	 initiates a porting action in the project.
+    	+ **Incompatible method invocation**
+    	 — an API that is incompatible with .NET Core.
+
+5. After you make changes to your solution file, you can choose
+**Reassess solution** to start a new assessment of your
+solution.
 
 The following example shows the sample .csv output for a NuGet assessment
 report, as part of the larger compatibility assessment report.
