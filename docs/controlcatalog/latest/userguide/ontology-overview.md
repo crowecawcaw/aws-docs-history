@@ -12,14 +12,13 @@ Amazon-specific frameworks, including the Well-Architected framework.
   Common controls.** The ontology helps organize and group related
   controls into three levels—
 
-      + L1: Control domain,
-      + L2: Control objective,
-      + L3: Common control.
-
-  These levels have a strict hierarchical relationship. That is, each domain has
-  multiple control objectives, but each control objective must have a single parent
-  domain. Each control objective has multiple common controls, but each common control
-  has a single parent objective.
+  - L1: Control domain,
+  - L2: Control objective,
+  - L3: Common control.
+    These levels have a strict hierarchical relationship. That is, each domain has
+    multiple control objectives, but each control objective must have a single parent
+    domain. Each control objective has multiple common controls, but each common control
+    has a single parent objective.
 
 - **Mapping to regulatory standards.** The ontology has a
   concept called a _Standard control_ (L4) that represents a
