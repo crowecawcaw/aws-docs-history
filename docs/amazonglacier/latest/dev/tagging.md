@@ -64,7 +64,7 @@ Tag value restrictions are as follows:
 - Tag values must be from 0 to 255 Unicode characters in length.
 - Tag values can be blank. Otherwise, they must consist of the following characters:
   Unicode letters, digits, spaces, and any of the following special characters: `_ . /
-= + - @`.
+ = + - @`.
 
 ## Tracking Costs Using Tagging
 

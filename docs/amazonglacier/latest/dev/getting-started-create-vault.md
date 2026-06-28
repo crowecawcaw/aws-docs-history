@@ -33,20 +33,22 @@ The following are the vault-naming requirements:
      (hyphen), and **.** (period).
 
 6. Under **Event notifications**, to turn on or off notifications on a vault
-   for when a job is completed, choose one of the following settings:
+for when a job is completed, choose one of the following settings:
 
-   - **Turn off notifications** – Notifications are turned off, and
+    * **Turn off notifications** – Notifications are turned off, and
      notifications are not sent to an Amazon Simple Notification Service (Amazon SNS) topic when a
      specified job is completed.
 
-   - **Turn on notifications** – Notifications are turned on, and
+
+    * **Turn on notifications** – Notifications are turned on, and
      notifications are sent to the provided Amazon SNS topic when a specified job
      is completed.
 
-   If you chose **Turn on notifications**, see [Configuring Vault Notifications by Using the Amazon Glacier
-   Console](configuring-notifications-console.md "configuring-notifications-console.md").
+
+    If you chose **Turn on notifications**, see [Configuring Vault Notifications by Using the Amazon Glacier
+     Console](configuring-notifications-console.md "configuring-notifications-console.md").
 
 7. If the AWS Region and vault name are correct, then choose **Create
-   vault**.
-   Your new vault is now listed on the **Vaults** page in the Amazon Glacier
-   console.
+vault**.
+Your new vault is now listed on the **Vaults** page in the Amazon Glacier
+console.

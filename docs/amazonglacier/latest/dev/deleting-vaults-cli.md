@@ -55,8 +55,10 @@ profile are used.
   archives.
 
   - ```
-    aws glacier delete-vault --vault-name `awsexamplevault` --account-id `111122223333`
+
     ```
+
+  aws glacier delete-vault --vault-name `awsexamplevault` --account-id `111122223333`
 
   ```
 

@@ -50,9 +50,9 @@ PowerShell
 
 **Tools for PowerShell V4**
 
-\*\*Example 1: Downloads the archive content that was scheduled for retrieval in the specified job and stores the contents into a file on disk. The download validates the checksum for you, if one is available.
+**Example 1: Downloads the archive content that was scheduled for retrieval in the specified job and stores the contents into a file on disk. The download validates the checksum for you, if one is available.
 
-If desired the entire response including the checksum can be returned by specifying `-Select '*'`.\*\*
+If desired the entire response including the checksum can be returned by specifying `-Select '*'`.**
 
 ```
 Read-GLCJobOutput -VaultName myvault -JobId "HSWjArc...Zq2XLiW" -FilePath "c:\temp\blue.bin"
@@ -65,9 +65,9 @@ Read-GLCJobOutput -VaultName myvault -JobId "HSWjArc...Zq2XLiW" -FilePath "c:\te
 
 **Tools for PowerShell V5**
 
-\*\*Example 1: Downloads the archive content that was scheduled for retrieval in the specified job and stores the contents into a file on disk. The download validates the checksum for you, if one is available.
+**Example 1: Downloads the archive content that was scheduled for retrieval in the specified job and stores the contents into a file on disk. The download validates the checksum for you, if one is available.
 
-If desired the entire response including the checksum can be returned by specifying `-Select '*'`.\*\*
+If desired the entire response including the checksum can be returned by specifying `-Select '*'`.**
 
 ```
 Read-GLCJobOutput -VaultName myvault -JobId "HSWjArc...Zq2XLiW" -FilePath "c:\temp\blue.bin"

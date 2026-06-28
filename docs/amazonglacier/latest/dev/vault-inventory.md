@@ -33,18 +33,15 @@ job, you have the following options:
   post a notification after the job is completed. You can specify Amazon SNS topic
   using the following methods:
 
-      + Specify an Amazon SNS topic per job basis.
+  - Specify an Amazon SNS topic per job basis.
 
+  When you initiate a job, you can optionally specify an Amazon SNS
+  topic.
+  - Set notification configuration on the vault.
 
-      When you initiate a job, you can optionally specify an Amazon SNS
-       topic.
-      + Set notification configuration on the vault.
-
-
-      You can set notification configuration for specific events on the vault (see [Configuring Vault Notifications in Amazon Glacier](configuring-notifications.md "configuring-notifications.md")). Amazon Glacier sends a
-       message to the specified SNS topic any time the specific event
-       occur.
-
+  You can set notification configuration for specific events on the vault (see [Configuring Vault Notifications in Amazon Glacier](configuring-notifications.md "configuring-notifications.md")). Amazon Glacier sends a
+  message to the specified SNS topic any time the specific event
+  occur.
   If you have notification configuration set on the vault and you also specify an Amazon SNS
   topic when you initiate a job, Amazon Glacier sends job completion message to
   both the topics.

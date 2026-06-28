@@ -16,15 +16,15 @@ retrieve and the range to download must be _tree hash aligned_ in
 order to receive checksum values when you download your data. The definition of these
 two types of range alignments are as follows:
 
-- Megabyte aligned - A range [*StartByte*,
-  *EndBytes*] is megabyte (1024\*1024) aligned when
+- Megabyte aligned - A range [_StartByte_,
+  _EndBytes_] is megabyte (1024\*1024) aligned when
   _StartBytes_ is divisible by 1 MB and
   _EndBytes_ plus 1 is divisible by 1 MB or is equal to
   the end of the archive specified (archive byte size minus 1). A range used
   in the Initiate Job API, if specified, is required to be megabyte
   aligned.
-- Tree-hash aligned - A range [*StartBytes*,
-  *EndBytes*] is tree hash aligned with respect to an
+- Tree-hash aligned - A range [_StartBytes_,
+  _EndBytes_] is tree hash aligned with respect to an
   archive if and only if the root of the tree hash built over the range is
   equivalent to a node in the tree hash of the whole archive. Both the range
   to retrieve and range to download must be tree hash aligned in order to
@@ -68,9 +68,9 @@ portion of an archive and you specify the range of data to retrieve and the rang
 download from the retrieved data. If both of these ranges are tree-hash aligned, then
 you will receive checksum data when you download the data.
 
-A range [*A*, *B*] is _tree-hash
+A range [_A_, _B_] is _tree-hash
 aligned_ with respect to an archive if and only if when a new tree
-hash is built over [*A*, *B*], the root of the
+hash is built over [_A_, _B_], the root of the
 tree hash of that range is equivalent to a node in the tree hash of the whole
 archive. You can see this shown in the diagram in [Tree Hash Example: Retrieving an archive range that is tree-hash aligned](#checksum-calculations-upload-archive-with-ranges "#checksum-calculations-upload-archive-with-ranges"). In this section, we
 provide the specification for tree-hash alignment.
@@ -78,7 +78,7 @@ provide the specification for tree-hash alignment.
 Consider [_P_, _Q_) as the range query for
 an archive of _N_ megabytes (MB) and _P_ and
 _Q_ are multiples of one MB. Note that the actual inclusive
-range is [*P* MB, *Q* MB – 1 byte], but for
+range is [_P_ MB, _Q_ MB – 1 byte], but for
 simplicity, we show it as [_P_, _Q_). With
 these considerations, then
 
