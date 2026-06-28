@@ -45,19 +45,18 @@ see [Including passthrough streams in an MPTS](crud-mpts-pasthrough-streams.md "
 - You might want to suppress some or all of the tables that
   Elemental Statmux usually generates.
 
-      + You must suppress table generation for a specific
-       table if you are also passing through that table.
-       Elemental Statmux won't allow two tables with the same
-       PID.
-      + You can optionally suppress table generation even
-       if you aren't passing through the table. For
-       example, you can suppress the PAT, even if you
-       aren't passing it through. The MPTS won't include a
-       PAT.
-
-  For detailed instructions about suppressing table
-  generation, see [Advanced tab – Suppressing generation of SI/PSI tables](step-create-mpts-tab-advanced.md "step-create-mpts-tab-advanced.md").
-  **Handling by Elemental Statmux**
+  - You must suppress table generation for a specific
+    table if you are also passing through that table.
+    Elemental Statmux won't allow two tables with the same
+    PID.
+  - You can optionally suppress table generation even
+    if you aren't passing through the table. For
+    example, you can suppress the PAT, even if you
+    aren't passing it through. The MPTS won't include a
+    PAT.
+    For detailed instructions about suppressing table
+    generation, see [Advanced tab – Suppressing generation of SI/PSI tables](step-create-mpts-tab-advanced.md "step-create-mpts-tab-advanced.md").
+    **Handling by Elemental Statmux**
 
 When passing through this type of stream, Elemental Statmux reads the PID of
 a passthrough table, to ensure that it doesn't conflict with other

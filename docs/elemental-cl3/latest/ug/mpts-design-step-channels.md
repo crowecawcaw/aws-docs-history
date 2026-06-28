@@ -29,67 +29,64 @@ This section assumes the following:
 You perform these steps in Conductor Live. You don't perform them on
 Elemental Live.
 
-1.  Design the profile for each SPTS channel.
+1. Design the profile for each SPTS channel.
 
-    - Identify the input or inputs. The SPTS channel
-      can use any Elemental Live inputs.
-    - Identify the features you want to enable. For
-      example, ad avails via SCTE-35 and motion
-      overlay. There are no special rules about
-      features that can be enabled in an MPTS channel.
-      The channel follows the same rules as a regular
-      Live event.
-    - Identify the outputs you want to
-      create:
+   - Identify the input or inputs. The SPTS channel
+     can use any Elemental Live inputs.
+   - Identify the features you want to enable. For
+     example, ad avails via SCTE-35 and motion
+     overlay. There are no special rules about
+     features that can be enabled in an MPTS channel.
+     The channel follows the same rules as a regular
+     Live event.
+   - Identify the outputs you want to
+     create:
 
-      - You must always include one UDP/TS
-        output that you configure for the MPTS.
-        This output is called an _MPTS
-        output_.
-      - You can also include other UDP/TS
-        outputs, for delivery to a regular UDP
-        server.
-      - You can include any number of outputs
-        of another type. For example, you can
-        include an HLS output group in order to
-        produce an ABR stack for an OTT
-        workflow.
+     - You must always include one UDP/TS
+       output that you configure for the MPTS.
+       This output is called an _MPTS
+       output_.
+     - You can also include other UDP/TS
+       outputs, for delivery to a regular UDP
+       server.
+     - You can include any number of outputs
+       of another type. For example, you can
+       include an HLS output group in order to
+       produce an ABR stack for an OTT
+       workflow.
 
-    - Identify fields in the profile that you must
-      set up as profile parameters. For more
-      information about profile parameters, see [Working with channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
+   - Identify fields in the profile that you must
+     set up as profile parameters. For more
+     information about profile parameters, see [Working with channel parameters in a profile](creating-a-profile-with-channel-parameters.md "creating-a-profile-with-channel-parameters.md").
 
-2.  As part of the design of the _MPTS_ output (in the UDP/TS output
-    group), consider the following:
+2. As part of the design of the _MPTS_ output (in the UDP/TS output
+   group), consider the following:
 
-        * You must set up to include the SI/PSI tables
-         that Elemental Statmux requires — the PAT and the
-         PMT.
+   - You must set up to include the SI/PSI tables
+     that Elemental Statmux requires — the PAT and the
+     PMT.
 
+   - You can include or exclude the NIT, SDT, and
+     TDT tables. In the MPTS, you have the
+     opportunity to configure them again, for the
+     entire MPTS.
+   - You don't set the PIDs for the video, the
+     audio, most captions, or the PCR.
 
-        * You can include or exclude the NIT, SDT, and
-         TDT tables. In the MPTS, you have the
-         opportunity to configure them again, for the
-         entire MPTS.
-        * You don't set the PIDs for the video, the
-         audio, most captions, or the PCR.
+   - You can choose to include ancillary data such
+     as SCTE 35 and Nielsen ID3 data. But in all
+     cases, you don't set the PIDs.
+     When Elemental Live creates the output, it creates a PMT that
+     references all the included streams, and it creates a
+     PAT. It creates other tables according to the channel
+     instructions.
 
-
-        * You can choose to include ancillary data such
-         as SCTE 35 and Nielsen ID3 data. But in all
-         cases, you don't set the PIDs.
-
-    When Elemental Live creates the output, it creates a PMT that
-    references all the included streams, and it creates a
-    PAT. It creates other tables according to the channel
-    instructions.
-
-3.  Create the profile. For more information, see [Creating a profile from scratch](creating-a-profile-from-scratch.md "creating-a-profile-from-scratch.md").
-4.  Create the channels for all the profiles that you have
-    created. Create the channel in the way that you create
-    any channel using Conductor Live. You can create the channel
-    [from
-    scratch](creating-a-channel.md "creating-a-channel.md"), or you can [duplicate](creating-a-channel-by-duplicating.md "creating-a-channel-by-duplicating.md") an existing channel.
+3. Create the profile. For more information, see [Creating a profile from scratch](creating-a-profile-from-scratch.md "creating-a-profile-from-scratch.md").
+4. Create the channels for all the profiles that you have
+   created. Create the channel in the way that you create
+   any channel using Conductor Live. You can create the channel
+   [from
+   scratch](creating-a-channel.md "creating-a-channel.md"), or you can [duplicate](creating-a-channel-by-duplicating.md "creating-a-channel-by-duplicating.md") an existing channel.
 
 **Rules**
 

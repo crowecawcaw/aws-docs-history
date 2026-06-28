@@ -29,12 +29,10 @@ channel must have these characteristics:
      Mode, it can be used in unlimited MPTSes.
 
 5. When you select the channel, it is added to the list of
-   channels for this MPTS. The list has several tabs.
-6. Complete the fields in the tabs as appropriate. For more
-   information about the significant fields, see the sections
-   after this procedure.
-7. Choose **Save**.
-   The MPTS is now ready to start. See [Starting or stopping an MPTS](starting-an-mpts-output.md "starting-an-mpts-output.md").
+channels for this MPTS. The list has several tabs. 6. Complete the fields in the tabs as appropriate. For more
+information about the significant fields, see the sections
+after this procedure. 7. Choose **Save**.
+The MPTS is now ready to start. See [Starting or stopping an MPTS](starting-an-mpts-output.md "starting-an-mpts-output.md").
 
 ###### Topics
 

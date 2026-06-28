@@ -32,11 +32,10 @@ For more information about planning node redundancy, see [Setup: Planning resili
 
 - Resiliency features in different types of workflows:
 
-      + Encoding workflows: workflows that involve only Elemental Live.
-      + MPTS workflows: workflows that involve Elemental Live and Elemental Statmux.
-
-  As part of the design procedure for a workflow, decide which
-  resiliency features you want to implement. An encoding workflow and in an
-  MPTS workflow have slightly different resiliency options.
+  - Encoding workflows: workflows that involve only Elemental Live.
+  - MPTS workflows: workflows that involve Elemental Live and Elemental Statmux.
+    As part of the design procedure for a workflow, decide which
+    resiliency features you want to implement. An encoding workflow and in an
+    MPTS workflow have slightly different resiliency options.
 
 For more information about resiliency features, see [Resiliency features in Elemental Statmux](worker-nodes-other-resiliency.md "worker-nodes-other-resiliency.md").

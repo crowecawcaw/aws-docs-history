@@ -96,7 +96,7 @@ Backup tab.
 
 3. To investigate the failed node (either now or later):
 
-   - Go to the **Status** -
+    * Go to the **Status** -
      **Nodes** page. The node should
      have an orange icon in the
      **Status** column. Choose this
@@ -104,11 +104,11 @@ Backup tab.
      **Alerts & Messages** page
      appears, filtered to show only the information for
      that node.
-   - Review the alerts and messages to determine why
+    * Review the alerts and messages to determine why
      the node failed.
 
 4. Make sure you have the desired number of backup nodes
-   set up.
+set up.
 
 ### How worker node failover occurs
 
@@ -126,9 +126,9 @@ Backup tab.
    group.
 3. Conductor Live then attempts to move all channels (in the case
    of a failed Elemental Live node) or MPTSes (in the case of a failed
-   Elemental Statmux node) to node_Y and restart the previously running
+   Elemental Statmux node) to node\_Y and restart the previously running
    channels or MPTS outputs on this new node. The role for
-   node_Y changes from **reserve** to
+   node\_Y changes from **reserve** to
    **active**. This node is no longer
    eligible to be selected as a failover node if another
    active node fails.
@@ -150,18 +150,18 @@ returns to the status it had when it failed: Active or Backup.
 
 ### Dealing with a false failure
 
-Conductor Live may determine that node_X has failed, when in fact it
+Conductor Live may determine that node\_X has failed, when in fact it
 has only become disconnected from the management network (and is
 continuing to run channels) but has not shut down.
 
 Meanwhile, because Conductor Live has determined that a failure has
 occurred, it attempts to perform a fail over. The fail over
 routine does not include any attempt to stop the channels running
-on node_X. If the fail over succeeds, the channels are running on
-both node_X and the fail over node.
+on node\_X. If the fail over succeeds, the channels are running on
+both node\_X and the fail over node.
 
 However, if the network connection is later re-established (so
-that Conductor Live can now view activity on node_X), Conductor Live attempts to
+that Conductor Live can now view activity on node\_X), Conductor Live attempts to
 shut down the channels or MPTSes that are running there.
 
 ### If a node does not fail over

@@ -34,9 +34,9 @@ you've already set up the following:
   workflow doesn't stop if one Conductor Live node
   fails.
 
-Assume that the redundancy group is named CL_pair.
+Assume that the redundancy group is named CL\_pair.
 
-Assume that the two nodes are called CL_1 and CL_2.
+Assume that the two nodes are called CL\_1 and CL\_2.
 
 - A pair of Elemental Statmux node in a 1-to-1 redundancy
   group. Both nodes actively process the same MPTS, which
@@ -46,9 +46,9 @@ Assume that the two nodes are called CL_1 and CL_2.
   fails.
 
 Assume that the redundancy group is named
-SM_1-to-1_hot.
+SM\_1-to-1\_hot.
 
-Assume that the nodes are called SM_X and SM_Y.
+Assume that the nodes are called SM\_X and SM\_Y.
 
 - Several Elemental Live nodes in an N-to-M redundancy group.
   Let's say there are three active nodes and one backup node
@@ -56,13 +56,13 @@ Assume that the nodes are called SM_X and SM_Y.
   encoding of the SPTS channels can quickly recover if the
   active Elemental Live node fails.
 
-Assume that the redundancy group is named Live_NM.
+Assume that the redundancy group is named Live\_NM.
 
-Assume that the three active nodes are called EL_A, EL_B,
-and EL_C.
+Assume that the three active nodes are called EL\_A, EL\_B,
+and EL\_C.
 
-Assume that the two backup nodes are called EL_D and
-EL_E.
+Assume that the two backup nodes are called EL\_D and
+EL\_E.
 
 When you've read this tutorial, you can get more
 information about [redundancy](cl3-resiliency.md "cl3-resiliency.md").
@@ -74,7 +74,7 @@ is set up in this way:
   **Nodes** on the Conductor Live main menu, you
   would see the following:
 
-  - **CL_1**, with the following
+  - **CL\_1**, with the following
     information:
 
   A key icon that indicates that it is currently the
@@ -82,10 +82,10 @@ is set up in this way:
 
   The redundancy type set as
   **HA**.
-  - **CL_2**, with the same
+  - **CL\_2**, with the same
     information, but without the key icon.
-  - **SM_X** and
-    **SM_Y** with the following
+  - **SM\_X** and
+    **SM\_Y** with the following
     information:
 
   The name of the redundancy group.
@@ -120,15 +120,15 @@ is set up in this way:
   **Redundancy** on the Conductor Live
   main menu, you would see the following:
 
-  - In the **CL_pair** redundancy
+  - In the **CL\_pair** redundancy
     group, you would see **HA**.
-  - In the **SM_1-to-1_hot**
+  - In the **SM\_1-to-1\_hot**
     redundancy group, you would see two nodes in the
     **Active Nodes** tab, and no
     nodes in the **Backup Nodes** tab.
     This is a 1-to-1 redundancy group, so it doesn't
     have backup nodes.
-  - In the **Live_NM** redundancy
+  - In the **Live\_NM** redundancy
     group, you would see three nodes in the
     **Active Nodes** tab, and two
     nodes in the **Backup Nodes**
@@ -194,7 +194,7 @@ Channels screen.
    Channel** (on the top right corner of the
    page).
 2. Give the channel a name such as
-   **Program_A**. Select the profile you
+   **Program\_A**. Select the profile you
    just created.
 3. In **Node**, choose the Elemental Live node where
    you want the channel to run. Note that the dropdown list
@@ -202,7 +202,7 @@ Channels screen.
    nodes or any Elemental Statmux nodes.
 4. Choose **Save**.
 5. Repeat these steps to create the second channel. Name the
-   channel **Program_B**. Choose the same
+   channel **Program\_B**. Choose the same
    profile as you did for the first channel. Choose the same
    Elemental Live node.
 
@@ -243,7 +243,7 @@ Therefore, you can choose either node.
     For example, `MyMPTS`.
 
   For example, choose the node
-  **SM_X**.
+  **SM\_X**.
   - **Transport Stream Bitrate**.
     Enter a value here. This value is the total bitrate
     for the MPTS. All the SPTS channels in the MPTS will

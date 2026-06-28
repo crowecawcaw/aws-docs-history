@@ -45,4 +45,4 @@ Note the following about these sample validation values:
      correctly formatted.
 
 5. When you save the profile, Elemental Live verifies that the validation value
-   you've entered is valid.
+you've entered is valid.

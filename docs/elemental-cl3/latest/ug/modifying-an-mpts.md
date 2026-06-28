@@ -22,19 +22,17 @@ the muxer starts using the new value immediately.
 You can add or delete channels, even if the MPTS has been started
 and is running.
 
-1.  Choose the **Channels** tab.
-2.  Choose the action:
+1. Choose the **Channels** tab.
+2. Choose the action:
 
-        * To add a channel, choose **Add a
-         Channel**.
+   - To add a channel, choose **Add a
+     Channel**.
 
-
-        * To delete a channel, select the
-         **Delete** icon to the right of the
-         channel.
-
-    **Change the properties of one or more
-    channels**
+   - To delete a channel, select the
+     **Delete** icon to the right of the
+     channel.
+     **Change the properties of one or more
+     channels**
 
 You can modify the properties of any channel, even if the MPTS has
 been started and is running.

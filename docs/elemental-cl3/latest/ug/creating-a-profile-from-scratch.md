@@ -48,20 +48,20 @@ encodes, you must create two profiles.
 
 ## Create the profile
 
-1.  On the AWS Elemental Conductor Live main menu, choose **Profiles**.
-2.  On the **Profiles** page, choose **New
-    Profile**. The **New Profile** page
-    appears.
-3.  Complete the profile. You can accept all the defaults, but you must
-    at least complete the following:
+1. On the AWS Elemental Conductor Live main menu, choose **Profiles**.
+2. On the **Profiles** page, choose **New
+   Profile**. The **New Profile** page
+   appears.
+3. Complete the profile. You can accept all the defaults, but you must
+   at least complete the following:
 
-    - **Name**: Enter a profile name.
-    - **Restart on Failure**: Check to restart the
-      channel automatically if it fails (recommended).
-    - **Add Input**: Provide information for at least
-      one video input: Specify the type , and the source location.
+   - **Name**: Enter a profile name.
+   - **Restart on Failure**: Check to restart the
+     channel automatically if it fails (recommended).
+   - **Add Input**: Provide information for at least
+     one video input: Specify the type , and the source location.
 
-    Note the following:
+   Note the following:
 
         + If you do not want to specify the input source in the profile,
          you can specify a “channel parameter” as a placeholder that you
@@ -72,13 +72,13 @@ encodes, you must create two profiles.
          important information.
         + If your input is an SDI Router Input, see [Use case: Using SDI router input in a profile and channel](using-sdi-router-input-in-a-profile-and-channel.md "using-sdi-router-input-in-a-profile-and-channel.md") for
          important information.
-    - **Output Group**: A channel must always contain at
-      least one output group. Set up the output group with all its contents
-      and features.
-    - **Output** and **Stream**: A
-      channel must always contain at least one output and one stream in each
-      output group that you want to create. Each output must use one
-      stream.
+   - **Output Group**: A channel must always contain at
+     least one output group. Set up the output group with all its contents
+     and features.
+   - **Output** and **Stream**: A
+     channel must always contain at least one output and one stream in each
+     output group that you want to create. Each output must use one
+     stream.
 
-4.  Choose **Save** to save the profile. The profile
-    appears in the list on the **Profiles** page.
+4. Choose **Save** to save the profile. The profile
+   appears in the list on the **Profiles** page.
