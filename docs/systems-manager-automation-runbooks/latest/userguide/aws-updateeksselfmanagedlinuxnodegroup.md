@@ -125,7 +125,7 @@ node group to use.
 Type: String
 
 Default:
-/aws/service/eks/optimized-ami/1.21/amazon-linux-2/recommended/image_id
+/aws/service/eks/optimized-ami/1.21/amazon-linux-2/recommended/image\_id
 
 Description: (Optional) The public Systems Manager parameter for the AMI that you
 want the node group to use.

@@ -161,7 +161,7 @@ Follow these steps to configure the automation:
    function uses the credentials from this role to sign requests to the
    Amazon OpenSearch Service domain. If fine-grained access control is enabled on the Amazon OpenSearch Service
    domain, you must map this role to an OpenSearch Service Dashboards backend role with a
-   minimum of "cluster_monitor" permission.
+   minimum of "cluster\_monitor" permission.
    - **LambdaInvocationRoleForStepFunctions
      (Optional):**
 
@@ -237,11 +237,12 @@ Follow these steps to configure the automation:
      `AWSSupport-TroubleshootOpenSearchHighCPU` runbook.
 
 8. After completed, review the Outputs section for the detailed results of the
-   execution.
+execution.
 
-   - **finalStatus.FinalOutput:**
+    * **finalStatus.FinalOutput:**
 
-   Provides the CloudWatch log group where the diagnostic data is stored.
+
+    Provides the CloudWatch log group where the diagnostic data is stored.
 
 ![Outputs section showing finalStatus.FinalOutput with hot thread data collection completion message and CloudWatch log group reference.](images/awssupport-troubleshoot-opensearch-high-cpu_outputs.png)
 

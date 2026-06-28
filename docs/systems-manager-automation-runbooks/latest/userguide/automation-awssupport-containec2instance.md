@@ -287,7 +287,7 @@ Follow these steps to configure the automation:
      - Description: (Optional) A comma separated map of security group
        ingress rules with Cidr, IpProtocol, FromPort and ToPort in the
        format `[{"Cidr": "1.2.3.4/32", "IpProtocol": "tcp",
-"FromPort":"22", "ToPort":"22"}]` to be applied to the
+   "FromPort":"22", "ToPort":"22"}]` to be applied to the
        Amazon EC2 instance. If no rules are provided, a security group without
        any ingress rules will be attached to the Amazon EC2 instance,
        effectively isolating it from any incoming traffic.
@@ -300,7 +300,7 @@ Follow these steps to configure the automation:
      - Description: (Optional) A comma separated map of security group
        egress rules with Cidr, IpProtocol, FromPort and ToPort in the
        format `[{"Cidr": "1.2.3.4/32", "IpProtocol": "tcp",
-"FromPort":"22", "ToPort":"22"}]` to be applied to the
+   "FromPort":"22", "ToPort":"22"}]` to be applied to the
        Amazon Amazon EC2 instance. If no rules are provided, a security group
        without any egress rules will be attached to the Amazon EC2 instance,
        effectively preventing all outgoing traffic.

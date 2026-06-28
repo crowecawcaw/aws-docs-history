@@ -178,7 +178,7 @@ Description: (Optional) Collect metadata about Microsoft Windows Registry
 keys. For more information about how to collect this type of Inventory data,
 see [Working with file and Windows registry inventory](../../../systems-manager/latest/userguide/sysman-inventory-file-and-registry.md "../../../systems-manager/latest/userguide/sysman-inventory-file-and-registry.md") . Requires
 SSM Agent version 2.2.64.0 or later. Example: [
-{"Path":"HKEY_CURRENT_CONFIG\System","Recursive":true},{"Path":"HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\MachineImage",
+{"Path":"HKEY\_CURRENT\_CONFIG\System","Recursive":true},{"Path":"HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\MachineImage",
 "ValueNames":["AMIName"]}]
 
 - WindowsRoles

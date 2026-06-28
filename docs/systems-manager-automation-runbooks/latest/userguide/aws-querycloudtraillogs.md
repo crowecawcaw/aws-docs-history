@@ -50,7 +50,7 @@ Type: String
 
 Description: (Optional) The name of the Athena table created by the automation.
 
-Default: cloudtrail_logs
+Default: cloudtrail\_logs
 **Required IAM permissions**
 
 The `AutomationAssumeRole` parameter requires the following actions to

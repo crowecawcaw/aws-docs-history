@@ -357,7 +357,7 @@ Example **AutomationAssumeRole** policy for **cross-account replication**:
 ###### Note
 
 - The Policy statements (KMSSourceKeyReadOperations and KMSSourceKeyMutatingOperations) are only required when the source bucket uses SSE-KMS encryption.
-- Replace CROSS_ACCOUNT_REPLICATION_ROLE_ARN with the actual CrossAccountReplicationRole parameter value you provide to the automation.
+- Replace CROSS\_ACCOUNT\_REPLICATION\_ROLE\_ARN with the actual CrossAccountReplicationRole parameter value you provide to the automation.
   Example **CrossAccountReplicationRole** policy:
 
 ```
@@ -429,7 +429,7 @@ Example CrossAccountReplicationRole trust policy:
 
 ###### Note
 
-Replace AUTOMATION_ASSUME_ROLE_ARN with the actual AutomationAssumeRole parameter value you provide to the automation.
+Replace AUTOMATION\_ASSUME\_ROLE\_ARN with the actual AutomationAssumeRole parameter value you provide to the automation.
 
 Example **S3ReplicationRole** policy:
 

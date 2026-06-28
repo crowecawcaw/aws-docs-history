@@ -136,7 +136,7 @@ Follow these steps to configure the automation:
 
    Read the complete details of the actions performed by this automation
    runbook and if you agree, type `Yes, I understand and
- acknowledge`.
+  acknowledge`.
 
 ![Input parameters form with fields for InstanceId, AutomationAssumeRole, CaptureProcessDump, and other configuration options.](images/awssupport-troubleshoot-windows-performance_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
 
@@ -235,7 +235,7 @@ Follow these steps to configure the automation:
      unresponsive.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
 Execution where the target instance has all required prerequisites.
 

@@ -69,24 +69,22 @@ Windows
 - For instances that use a Bring Your Own License (BYOL) SQL Server version,
   the following additional prerequisites apply:
 
-      + Provide an EBS snapshot ID that includes the target SQL Server
-       installation media. To do this:
+  - Provide an EBS snapshot ID that includes the target SQL Server
+    installation media. To do this:
 
+    1. Verify that the EC2 instance is running Windows Server
+       2008 R2 or later.
+    2. Create a 6 GB EBS volume in the same Availability Zone
+       where the instance is running. Attach the volume to the
+       instance. Mount it, for example, as drive D.
+    3. Right-click the ISO and mount it to an instance as, for
+       example, drive E.
+    4. Copy the content of the ISO from drive E:\ to drive
+       D:\
+    5. Create an EBS snapshot of the 6 GB volume created in step
+    6.
 
-
-      	1. Verify that the EC2 instance is running Windows Server
-      	 2008 R2 or later.
-      	2. Create a 6 GB EBS volume in the same Availability Zone
-      	 where the instance is running. Attach the volume to the
-      	 instance. Mount it, for example, as drive D.
-      	3. Right-click the ISO and mount it to an instance as, for
-      	 example, drive E.
-      	4. Copy the content of the ISO from drive E:\ to drive
-      	 D:\
-      	5. Create an EBS snapshot of the 6 GB volume created in step
-      	 2.
-
-  **Limitations**
+**Limitations**
 
 - The upgrade can be performed on only a SQL Server using Windows
   authentication.

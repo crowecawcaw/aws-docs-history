@@ -207,7 +207,7 @@ Follow these steps to configure the automation:
    - **MaxEvents (Optional):**
 
      - Description: (Optional) The maximum number of CloudTrail `Access
-Denied` events returned when searching for events. Valid
+   Denied` events returned when searching for events. Valid
        range: `1` to `5` events.
      - Type: Integer
      - Allow Pattern: `^([1-9]|1[0-9]|2[0-4])$`
@@ -231,7 +231,7 @@ Denied` events returned when searching for events. Valid
 
    Validates and deconstructs the `RequesterArn` ARN, retrieving
    information about the target IAM user or role.
-   - **GetCloudTrailEvents\*\***WithAccessDeniedError\*\*
+   - **GetCloudTrailEvents\****WithAccessDeniedError**
 
    Queries the CloudTrail events for recent `Access Denied` events
    related to the specified IAM entity and AWS service

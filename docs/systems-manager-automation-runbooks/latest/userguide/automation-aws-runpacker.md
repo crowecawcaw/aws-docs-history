@@ -85,8 +85,8 @@ using the Packer tool.
 
 RunPackerProcessTemplate.output – The stdout from the Packer tool.
 
-RunPackerProcessTemplate.fixed_template_key – The name of the template
+RunPackerProcessTemplate.fixed\_template\_key – The name of the template
 stored in an S3 bucket to use only when running in "Fix" mode.
 
-RunPackerProcessTemplate.s3_bucket – The name of the S3 bucket that
+RunPackerProcessTemplate.s3\_bucket – The name of the S3 bucket that
 contains the fixed template to use only when running in "Fix" mode.

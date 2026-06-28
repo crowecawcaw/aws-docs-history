@@ -194,7 +194,7 @@ use the runbook successfully.
     Generates output based on previous steps.
 
 7. After completing, the URI for the assessment report HTML file is
-   provided:
+provided:
 
 **S3 Console link and Amazon S3 URI for the Report on
 successful execution of the runbook**

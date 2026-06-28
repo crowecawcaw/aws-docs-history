@@ -69,7 +69,7 @@ request matches the conditions of the rule.
 
 Type: String
 
-Valid values: REGULAR | RATE_BASED | GROUP
+Valid values: REGULAR | RATE\_BASED | GROUP
 
 Default: REGULAR
 

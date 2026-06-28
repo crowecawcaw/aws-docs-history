@@ -152,64 +152,74 @@ Follow these steps to configure the automation:
      each step.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
-   - **Checking the Amazon MWAA environment execution role
+    * **Checking the Amazon MWAA environment execution role
      permissions:**
 
-   Verifies if the execution role has the required permissions for Amazon MWAA,
-   Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. If a Customer Managed AWS KMS key
-   is detected, the automation validates the key's required permissions.
-   - **Checking the Amazon MWAA environment AWS KMS key
+
+    Verifies if the execution role has the required permissions for Amazon MWAA,
+     Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. If a Customer Managed AWS KMS key
+     is detected, the automation validates the key's required permissions.
+    * **Checking the Amazon MWAA environment AWS KMS key
      policy:**
 
-   Verifies whether the execution role possesses the necessary permissions
-   for Amazon MWAA, Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. Additionally, if a
-   Customer Managed AWS KMS key is detected, the automation checks for the key's
-   required permissions.
-   - **Checking the Amazon MWAA environment CloudWatch logs
+
+    Verifies whether the execution role possesses the necessary permissions
+     for Amazon MWAA, Amazon S3, CloudWatch Logs, CloudWatch, and Amazon SQS resources. Additionally, if a
+     Customer Managed AWS KMS key is detected, the automation checks for the key's
+     required permissions.
+    * **Checking the Amazon MWAA environment CloudWatch logs
      groups:**
 
-   Checks whether the required CloudWatch Log Groups for the Amazon MWAA environment
-   exist. If they do not, the automation then checks CloudTrail to locate
-   `CreateLogGroup` and `DeleteLogGroup`
-   events.
-   - **Checking the Amazon MWAA environment Route
+
+    Checks whether the required CloudWatch Log Groups for the Amazon MWAA environment
+     exist. If they do not, the automation then checks CloudTrail to locate
+     `CreateLogGroup` and `DeleteLogGroup`
+     events.
+    * **Checking the Amazon MWAA environment Route
      Tables:**
 
-   Checks whether the Amazon VPC route tables in the Amazon MWAA environment are
-   properly configured.
-   - **Checking the Amazon MWAA environment Security
+
+    Checks whether the Amazon VPC route tables in the Amazon MWAA environment are
+     properly configured.
+    * **Checking the Amazon MWAA environment Security
      Groups:**
 
-   Checks if the Amazon MWAA environment Amazon VPC security groups are properly
-   configured.
-   - **Checking the Amazon MWAA environment Network
+
+    Checks if the Amazon MWAA environment Amazon VPC security groups are properly
+     configured.
+    * **Checking the Amazon MWAA environment Network
      ACLs:**
 
-   Checks whether the Amazon VPC security groups in the Amazon MWAA environment are
-   properly configured.
-   - **Checking the Amazon MWAA environment
+
+    Checks whether the Amazon VPC security groups in the Amazon MWAA environment are
+     properly configured.
+    * **Checking the Amazon MWAA environment
      Subnets:**
 
-   Verifies whether the Amazon MWAA environment's subnets are private.
-   - **Checking the Amazon MWAA environment required endpoints
+
+    Verifies whether the Amazon MWAA environment's subnets are private.
+    * **Checking the Amazon MWAA environment required endpoints
      connectivity:**
 
-   Verifies whether the Amazon MWAA environment can access the required endpoints.
-   For this purpose, the automation invokes the
-   `AWSSupport-ConnectivityTroubleshooter` automation.
-   - **Checking the Amazon MWAA environment Amazon S3
+
+    Verifies whether the Amazon MWAA environment can access the required endpoints.
+     For this purpose, the automation invokes the
+     `AWSSupport-ConnectivityTroubleshooter` automation.
+    * **Checking the Amazon MWAA environment Amazon S3
      bucket:**
 
-   Checks whether the Amazon MWAA environment's Amazon S3 bucket has `Block Public
- Access` enabled and also reviews the account's Amazon S3 Block Public
-   Access settings.
-   - **Checking the Amazon MWAA environment CloudWatch logs groups
+
+    Checks whether the Amazon MWAA environment's Amazon S3 bucket has `Block Public
+     Access` enabled and also reviews the account's Amazon S3 Block Public
+     Access settings.
+    * **Checking the Amazon MWAA environment CloudWatch logs groups
      errors:**
 
-   Parses the existing CloudWatch log groups of the Amazon MWAA environment to locate
-   errors.
+
+    Parses the existing CloudWatch log groups of the Amazon MWAA environment to locate
+     errors.
 
 ![MMAA environment troubleshooting report showing successful configuration checks and connectivity tests.](images/awssupport-troubleshoot-mwaa-environment-creation_outputs.png)
 

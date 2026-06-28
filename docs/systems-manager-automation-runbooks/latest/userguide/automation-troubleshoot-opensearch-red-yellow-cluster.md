@@ -192,16 +192,18 @@ control](../../../opensearch-service/latest/developerguide/fgac.md "../../../ope
      account.
 
 8. After completed, review the Outputs section for the detailed results of the
-   execution.
+execution.
 
-   - **RootCause:**
+    * **RootCause:**
 
-   Provides an overview of the identified cause for cluster health to be in
-   red or yellow state.
-   - **IssueDescription:**
 
-   Provides details for why the cluster is in red or yellow state and
-   possible steps to return the cluster to green state.
+    Provides an overview of the identified cause for cluster health to be in
+     red or yellow state.
+    * **IssueDescription:**
+
+
+    Provides details for why the cluster is in red or yellow state and
+     possible steps to return the cluster to green state.
 
 **References**
 

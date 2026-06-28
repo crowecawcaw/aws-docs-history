@@ -121,12 +121,12 @@ Follow these steps to configure the automation:
    - **S3OutputPrefix (Optional):**
 
      - Description: (Optional) The analysis output files are stored in
-       the input bucket under the name 'saml_analysis\_<executionID of
-       the runbook>.json'. You can use this parameter if you want to
+       the input bucket under the name 'saml\_analysis\_<executionID of
+          the runbook>.json'. You can use this parameter if you want to
        output a file with a specific prefix. The default value is
        "output/", in which case the file URI that output the result will be
-       's3://bucket-name/output/saml_analysis\_<executionID of the
-       runbook>.json'.
+       's3://bucket-name/output/saml\_analysis\_<executionID of the
+          runbook>.json'.
      - Type: String
      - Allow Pattern: `^[a-zA-Z0-9+=,.@\\-_/]*/$`
 
@@ -209,15 +209,15 @@ Follow these steps to configure the automation:
 9. The Amazon S3 object in the analysis results is a Json file containing the following
    information:
 
-   - **validation_result**: contains basic
+   - **validation\_result**: contains basic
      validation results of the SAML response.
 
-     - **saml_info**: key SAML information
+     - **saml\_info**: key SAML information
        including issuer, signatures, and assertions.
-     - **schema_validation**: results of
+     - **schema\_validation**: results of
        SAML schema validation.
 
-   - **verification_result**: provides more
+   - **verification\_result**: provides more
      detailed diagnostic results.
 
      - **signature**: results of signature

@@ -35,7 +35,7 @@ the user that starts this runbook.
 
 Type: String
 
-Valid values: PROVISIONED | PAY_PER_REQUEST
+Valid values: PROVISIONED | PAY\_PER\_REQUEST
 
 Description: (Required) The desired read/write capacity mode. When
 switching from on-demand(pay-per-request) to provisioned capacity, initial

@@ -526,7 +526,7 @@ following parameters:
     Deletes the CloudFormation stack.
 
 8. After completed, review the Outputs section for the results of the
-   execution:
+execution:
 
 ![Outputs section showing validation script results with one InvalidCredentials error.](images/awssupport-validate-fsxwindows-adconfig_outputs.png)
 

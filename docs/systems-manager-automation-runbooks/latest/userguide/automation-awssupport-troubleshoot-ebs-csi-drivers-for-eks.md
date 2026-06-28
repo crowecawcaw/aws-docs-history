@@ -276,13 +276,13 @@ Choose **Create access entry**.
      created for SSM automation in the previous step.
     * For *Type*, select `Standard`.
 
-4.  Add an access policy:
+4. Add an access policy:
 
-        * For *Access scope*, select `Cluster`.
-        * For *Policy name*, select
-         `AmazonEKSAdminViewPolicy`.
+    * For *Access scope*, select `Cluster`.
+    * For *Policy name*, select
+     `AmazonEKSAdminViewPolicy`.
 
-    Choose **Add policy**.
+Choose **Add policy**.
 
 If you are not using access entries to manage Kubernetes API permissions, you must
 update the `aws-auth` ConfigMap and create a role binding between your
@@ -307,89 +307,85 @@ API permissions:
     * GET `/api/v1/namespaces/{namespace}/pods/{name}/log`
     * GET `/api/v1/events`
 
-5.  Run the automation [AWSSupport-TroubleshootEbsCsiDriversForEks (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEbsCsiDriversForEks/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEbsCsiDriversForEks/description")
-6.  Select **Execute automation**.
-7.  For the input parameters, enter the following:
+5. Run the automation [AWSSupport-TroubleshootEbsCsiDriversForEks (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEbsCsiDriversForEks/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEbsCsiDriversForEks/description") 6. Select **Execute automation**. 7. For the input parameters, enter the following:
 
-        * **AutomationAssumeRole (Optional):**
+    * **AutomationAssumeRole (Optional):**
 
 
 
 
-        	+ Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-        	 (IAM) role that allows SSM Automation to perform the actions on
-        	 your behalf. The role needs to be added to your Amazon EKS cluster access
-        	 entry or RBAC permission to allow Kubernetes API calls.
-        	+ Type: `AWS::IAM::Role::Arn`
-        	+ Example:
-        	 `TroubleshootEbsCsiDriversForEks-SSM-Role`
-        * **EksClusterName:**
+    	+ Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
+    	 (IAM) role that allows SSM Automation to perform the actions on
+    	 your behalf. The role needs to be added to your Amazon EKS cluster access
+    	 entry or RBAC permission to allow Kubernetes API calls.
+    	+ Type: `AWS::IAM::Role::Arn`
+    	+ Example:
+    	 `TroubleshootEbsCsiDriversForEks-SSM-Role`
+    * **EksClusterName:**
 
 
 
 
-        	+ Description: The name of the target Amazon Elastic Kubernetes Service (Amazon EKS)
-        	 cluster.
-        	+ Type: `String`
-        * **ApplicationPodName:**
+    	+ Description: The name of the target Amazon Elastic Kubernetes Service (Amazon EKS)
+    	 cluster.
+    	+ Type: `String`
+    * **ApplicationPodName:**
 
 
 
 
-        	+ Description: The name of the Kubernetes application pod having
-        	 issues with the Amazon EBS CSI driver.
-        	+ Type: `String`
-        * **ApplicationNamespace:**
+    	+ Description: The name of the Kubernetes application pod having
+    	 issues with the Amazon EBS CSI driver.
+    	+ Type: `String`
+    * **ApplicationNamespace:**
 
 
 
 
-        	+ Description: The Kubernetes namespace for the application pod
-        	 having issues with the Amazon EBS CSI driver.
-        	+ Type: `String`
-        * **EbsCsiControllerDeploymentName
-         (Optional):**
+    	+ Description: The Kubernetes namespace for the application pod
+    	 having issues with the Amazon EBS CSI driver.
+    	+ Type: `String`
+    * **EbsCsiControllerDeploymentName
+     (Optional):**
 
 
 
 
-        	+ Description: (Optional) The deployment name for the Amazon EBS CSI
-        	 controller pod.
-        	+ Type: `String`
-        	+ Default: `ebs-csi-controller`
-        * **EbsCsiControllerNamespace
-         (Optional):**
+    	+ Description: (Optional) The deployment name for the Amazon EBS CSI
+    	 controller pod.
+    	+ Type: `String`
+    	+ Default: `ebs-csi-controller`
+    * **EbsCsiControllerNamespace
+     (Optional):**
 
 
 
 
-        	+ Description: (Optional) The Kubernetes namespace for the Amazon EBS CSI
-        	 controller pod.
-        	+ Type: `String`
-        	+ Default: `kube-system`
-        * **S3BucketName (Optional):**
+    	+ Description: (Optional) The Kubernetes namespace for the Amazon EBS CSI
+    	 controller pod.
+    	+ Type: `String`
+    	+ Default: `kube-system`
+    * **S3BucketName (Optional):**
 
 
 
 
-        	+ Description: (Optional) The target Amazon S3 bucket name where the
-        	 troubleshooting logs will be uploaded.
-        	+ Type: `AWS::S3::Bucket::Name`
-        * **LambdaRoleArn (Optional):**
+    	+ Description: (Optional) The target Amazon S3 bucket name where the
+    	 troubleshooting logs will be uploaded.
+    	+ Type: `AWS::S3::Bucket::Name`
+    * **LambdaRoleArn (Optional):**
 
 
 
 
-        	+ Description: (Optional) The ARN of the IAM role that allows
-        	 the AWS Lambda function to access the required AWS services and
-        	 resources.
-        	+ Type: `AWS::IAM::Role::Arn`
+    	+ Description: (Optional) The ARN of the IAM role that allows
+    	 the AWS Lambda function to access the required AWS services and
+    	 resources.
+    	+ Type: `AWS::IAM::Role::Arn`
 
-    Select **Execute**.
-
-8.  After completed, review the _Outputs_ section for the detailed
-    results of the execution.
-    **References**
+Select **Execute**. 8. After completed, review the _Outputs_ section for the detailed
+results of the execution.
+**References**
 
 Systems Manager Automation
 

@@ -200,13 +200,14 @@ Follow these steps to configure the automation:
      file.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
-   - **GenerateReport.OutputPayload**
+    * **GenerateReport.OutputPayload**
 
-   Output that tells you the runbook successfully retrieved contact flow logs
-   for the specified contact. This report also contains Amazon S3 console URL and an
-   example AWS CLI command so that you can download the log file.
+
+    Output that tells you the runbook successfully retrieved contact flow logs
+     for the specified contact. This report also contains Amazon S3 console URL and an
+     example AWS CLI command so that you can download the log file.
 
 ![Output showing successful retrieval of Contact Flow log with S3 Console URL and AWS CLI command.](images/automation-collect-amazon-connect-contact-flow-log_outputs.png)
 

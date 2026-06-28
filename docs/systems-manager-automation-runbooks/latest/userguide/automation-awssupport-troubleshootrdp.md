@@ -244,7 +244,7 @@ you can run the automation successfully.
       SubnetId
 
    (Use the provided instance's subnet) If SubnetId is
-   SELECTED_INSTANCE_SUBNET
+   SELECTED\_INSTANCE\_SUBNET
 
    `aws:executeAwsApi` - Retrieve the current instance's
    subnet.
@@ -252,7 +252,7 @@ you can run the automation successfully.
    `aws:executeAutomation` - Run
    `AWSSupport-ExecuteEC2Rescue` with provided
    instance's subnet. 4. (Use the provided custom subnet) If SubnetId is not
-   SELECTED_INSTANCE_SUBNET
+   SELECTED\_INSTANCE\_SUBNET
 
    `aws:executeAutomation` - Run
    `AWSSupport-ExecuteEC2Rescue` with provided SubnetId

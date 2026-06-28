@@ -296,7 +296,7 @@ Follow these steps to configure the automation:
        user, IAM role, or Identity Center user.
      - Type: String
      - Allowed Values: `IAM user|IAM role|Identity Center
-user`
+   user`
 
    - **PrincipalName (Required):**
 

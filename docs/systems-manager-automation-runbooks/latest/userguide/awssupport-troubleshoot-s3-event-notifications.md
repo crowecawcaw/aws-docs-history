@@ -242,26 +242,29 @@ Follow these steps to configure the automation:
      bucket.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
-   - **Amazon SQS Event Notifications**
+    * **Amazon SQS Event Notifications**
 
-   If there are Amazon SQS destination notifications configured with the Amazon S3
-   bucket, a list of the Amazon SQS Queues is displayed alongside the results of the
-   checks. The report includes Amazon SQS resource check, Amazon SQS access policy check,
-   AWS KMS key check, AWS KMS key status check, and AWS KMS key policy check.
-   - **Amazon SNS Event Notifications**
 
-   If there are Amazon SNS destination notifications configured with the Amazon S3
-   bucket, a list of the Amazon SNS Topics is displayed alongside the results of the
-   checks. The report includes Amazon SNS resource check, Amazon SNS access policy check,
-   AWS KMS key check, AWS KMS key status check, and AWS KMS key policy check.
-   - **AWS Lambda Event Notifications**
+    If there are Amazon SQS destination notifications configured with the Amazon S3
+     bucket, a list of the Amazon SQS Queues is displayed alongside the results of the
+     checks. The report includes Amazon SQS resource check, Amazon SQS access policy check,
+     AWS KMS key check, AWS KMS key status check, and AWS KMS key policy check.
+    * **Amazon SNS Event Notifications**
 
-   If there are AWS Lambda destination notifications configured with the Amazon S3
-   bucket, a list of the Lambda functions is displayed alongside the results of
-   the checks. The report includes Lambda resource check and Lambda access policy
-   check.
+
+    If there are Amazon SNS destination notifications configured with the Amazon S3
+     bucket, a list of the Amazon SNS Topics is displayed alongside the results of the
+     checks. The report includes Amazon SNS resource check, Amazon SNS access policy check,
+     AWS KMS key check, AWS KMS key status check, and AWS KMS key policy check.
+    * **AWS Lambda Event Notifications**
+
+
+    If there are AWS Lambda destination notifications configured with the Amazon S3
+     bucket, a list of the Lambda functions is displayed alongside the results of
+     the checks. The report includes Lambda resource check and Lambda access policy
+     check.
 
 ![AWSSupport-TroubleshootS3EventNotification runbook sample execution output.](images/awssupport-troubleshoot-s3-event-notifications_outputs.png)
 

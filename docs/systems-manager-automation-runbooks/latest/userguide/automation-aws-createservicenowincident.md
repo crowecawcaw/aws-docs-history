@@ -96,8 +96,8 @@ Default Value: None
 
 **Document Steps**
 
-Push_incident – Pushes the incident information to ServiceNow.
+Push\_incident – Pushes the incident information to ServiceNow.
 
 **Outputs**
 
-Push_incident.incidentID – The created incident ID.
+Push\_incident.incidentID – The created incident ID.

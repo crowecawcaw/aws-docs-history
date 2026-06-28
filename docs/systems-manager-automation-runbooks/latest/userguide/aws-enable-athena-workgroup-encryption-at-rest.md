@@ -39,9 +39,9 @@ Description: (Required) The workgroup that you want to enable encryption at rest
 
 Type: String
 
-Valid Values: SSE_S3 | SSE_KMS | CSE_KMS
+Valid Values: SSE\_S3 | SSE\_KMS | CSE\_KMS
 
-Description: (Required) Specifies which encryption option is used. You can choose server-side encryption with Amazon S3 managed keys (SSE_S3), server-side encryption with AWS KMS managed keys (SSE_KMS), or client-side encryption with AWS KMS managed keys (CSE_KMS).
+Description: (Required) Specifies which encryption option is used. You can choose server-side encryption with Amazon S3 managed keys (SSE\_S3), server-side encryption with AWS KMS managed keys (SSE\_KMS), or client-side encryption with AWS KMS managed keys (CSE\_KMS).
 
 - KmsKeyId
 

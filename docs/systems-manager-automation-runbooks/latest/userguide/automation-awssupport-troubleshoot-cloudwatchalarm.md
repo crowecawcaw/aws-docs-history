@@ -105,7 +105,7 @@ Follow these steps to configure the automation:
      - Description: (Required) The name of the Amazon CloudWatch (CloudWatch) metric
        Alarm to troubleshoot.
      - Allowed Pattern: `^[a-zA-Z0-9.:;,\\-_&()
-]{1,255}$`
+   ]{1,255}$`
 
    - **AlarmTriggerTimestamp (Required):**
 

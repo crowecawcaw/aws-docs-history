@@ -73,38 +73,38 @@ use the runbook successfully.
 
 Follow these steps to configure the automation:
 
-1.  Navigate to the [`AWSSupport-TroubleshootEC2InstanceConnect`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEC2InstanceConnect/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEC2InstanceConnect/description") in the
-    AWS Systems Manager console.
-2.  Select Execute automation.
-3.  For the input parameters, enter the following:
+1. Navigate to the [`AWSSupport-TroubleshootEC2InstanceConnect`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEC2InstanceConnect/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEC2InstanceConnect/description") in the
+   AWS Systems Manager console.
+2. Select Execute automation.
+3. For the input parameters, enter the following:
 
-    - **InstanceId (Required):**
+   - **InstanceId (Required):**
 
-    The ID of the target Amazon EC2 instance that you could not connect to using
-    Amazon EC2 Instance Connect.
-    - **AutomationAssumeRole (Optional):**
+   The ID of the target Amazon EC2 instance that you could not connect to using
+   Amazon EC2 Instance Connect.
+   - **AutomationAssumeRole (Optional):**
 
-    The ARN of the IAM role that allows Systems Manager Automation to perform the
-    actions on your behalf. If no role is specified, Systems Manager Automation uses the
-    permissions of the user who starts this runbook.
-    - **Username (Required):**
+   The ARN of the IAM role that allows Systems Manager Automation to perform the
+   actions on your behalf. If no role is specified, Systems Manager Automation uses the
+   permissions of the user who starts this runbook.
+   - **Username (Required):**
 
-    The username used to connect to the Amazon EC2 instance using Amazon EC2 Instance
-    Connect. It is used to evaluate if IAM access is granted for this
-    particular user.
-    - **EC2InstanceConnectRoleOrUser
-      (Required):**
+   The username used to connect to the Amazon EC2 instance using Amazon EC2 Instance
+   Connect. It is used to evaluate if IAM access is granted for this
+   particular user.
+   - **EC2InstanceConnectRoleOrUser
+     (Required):**
 
-    The ARN of the IAM role or user that is leveraging Amazon EC2 Instance
-    Connect to push keys to the instance.
-    - **SSHPort (Optional):**
+   The ARN of the IAM role or user that is leveraging Amazon EC2 Instance
+   Connect to push keys to the instance.
+   - **SSHPort (Optional):**
 
-    The SSH port configured on the Amazon EC2 instance. Default value is
-    `22`. The port number must be between
-    `1-65535`.
-    - **SourceNetworkType (Optional):**
+   The SSH port configured on the Amazon EC2 instance. Default value is
+   `22`. The port number must be between
+   `1-65535`.
+   - **SourceNetworkType (Optional):**
 
-    The network access method to the Amazon EC2 instance:
+   The network access method to the Amazon EC2 instance:
 
         + **Browser:** You connect from the
          AWS Management Console.
@@ -113,14 +113,14 @@ Follow these steps to configure the automation:
          your local computer).
         + **Private:** You connect through the
          instance's private IP address.
-    - **SourceIpCIDR (Optional):**
+   - **SourceIpCIDR (Optional):**
 
-    The source CIDR that includes the IP address of the device (such as your
-    local computer) you will log from using Amazon EC2 Instance Connect. Example:
-    172.31.48.6/32. If no value is provided with public or private access mode,
-    the runbook will not evaluate if the Amazon EC2 instance security group and
-    network ACL rules allow SSH traffic. It will display SSH-related rules
-    instead.
+   The source CIDR that includes the IP address of the device (such as your
+   local computer) you will log from using Amazon EC2 Instance Connect. Example:
+   172.31.48.6/32. If no value is provided with public or private access mode,
+   the runbook will not evaluate if the Amazon EC2 instance security group and
+   network ACL rules allow SSH traffic. It will display SSH-related rules
+   instead.
 
 ![Input parameters form for EC2 Instance Connect troubleshooting with various fields.](images/awssupport-troubleshoot-ec2-instance-connect_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
 
@@ -198,7 +198,7 @@ Follow these steps to configure the automation:
     Consolidates the output of all previous steps.
 
 7. After completed, review the **Outputs** section for
-   the detailed results of the execution:
+the detailed results of the execution:
 
 Execution where the target instance has all required prerequisites:
 

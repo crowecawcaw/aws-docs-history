@@ -140,7 +140,7 @@ Follow these steps to configure the automation:
      volumes attached to the Amazon EC2 instance.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
 ![Outputs section showing CloudWatch Dashboard URL and success message for dashboard creation.](images/awssupport-calculate-ebs-performance-metrics_outputs.png)
 

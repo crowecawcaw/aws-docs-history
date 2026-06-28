@@ -230,7 +230,7 @@ Follow these steps to configure the automation:
      bucket.
 
 6. After completed, review the Outputs section for the detailed results of the
-   execution.
+execution.
 
 ![Outputs section showing volume details, AMI file upload confirmation, and snapshot details.](images/awssupport-analyze-ebs-resource-usage_outputs.png)
 

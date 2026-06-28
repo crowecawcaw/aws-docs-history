@@ -97,7 +97,7 @@ Follow these steps to configure the automation:
      the errors found and troubleshooting recommendations.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
 ![Output showing validation success, kernel package error, and troubleshooting steps for installation.](images/automation-troublshoot-linux-mngdrs-agent-logs_outputs.png)
 

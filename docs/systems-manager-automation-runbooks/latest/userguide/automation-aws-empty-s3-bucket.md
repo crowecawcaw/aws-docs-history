@@ -70,68 +70,68 @@ runbook:
 
 Follow these steps to configure the automation:
 
-1.  Navigate to [`AWSSupport-EmptyS3Bucket`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-EmptyS3Bucket/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-EmptyS3Bucket/description") in Systems Manager under
-    Documents.
-2.  Select Execute automation.
-3.  For the input parameters, enter the following:
+1. Navigate to [`AWSSupport-EmptyS3Bucket`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-EmptyS3Bucket/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-EmptyS3Bucket/description") in Systems Manager under
+   Documents.
+2. Select Execute automation.
+3. For the input parameters, enter the following:
 
-    - **AutomationAssumeRole (Optional):**
+   - **AutomationAssumeRole (Optional):**
 
-    The Amazon Resource Name (ARN) of the AWS AWS Identity and Access Management (IAM) role that
-    allows Systems Manager Automation to perform the actions on your behalf. If no role is
-    specified, Systems Manager Automation uses the permissions of the user who starts this
-    runbook.
-    - **S3BucketName:**
+   The Amazon Resource Name (ARN) of the AWS AWS Identity and Access Management (IAM) role that
+   allows Systems Manager Automation to perform the actions on your behalf. If no role is
+   specified, Systems Manager Automation uses the permissions of the user who starts this
+   runbook.
+   - **S3BucketName:**
 
-    The name of the Amazon S3 bucket you want to empty.
-    - **SNSTopicArn:**
+   The name of the Amazon S3 bucket you want to empty.
+   - **SNSTopicArn:**
 
-    Provide the ARN of the Amazon SNS Topic for approval notification. This Amazon SNS
-    topic is used to send approval notifications during required during the
-    automation execution.
-    - **ApproverIAM:**
+   Provide the ARN of the Amazon SNS Topic for approval notification. This Amazon SNS
+   topic is used to send approval notifications during required during the
+   automation execution.
+   - **ApproverIAM:**
 
-    Provide a list of AWS authenticated principals who are able to either
-    approve or reject the action. The maximum number of approvers is
-    `10`. You can specify principals by using any of these
-    formats, an AWS Identity and Access Management (IAM) user name, an IAM user ARN, an IAM role
-    ARN, or an IAM assume role user ARN.
-    - **MinimumRequiredApprovals
-      (Optional):**
+   Provide a list of AWS authenticated principals who are able to either
+   approve or reject the action. The maximum number of approvers is
+   `10`. You can specify principals by using any of these
+   formats, an AWS Identity and Access Management (IAM) user name, an IAM user ARN, an IAM role
+   ARN, or an IAM assume role user ARN.
+   - **MinimumRequiredApprovals
+     (Optional):**
 
-    The minimum number of approvals required to resume the automation. If you
-    don't specify a value, the system defaults to `1`. The value for
-    this parameter must be a positive number. The value for this parameter can't
-    exceed the number of approvers defined by the ApproverIAM parameter.
-    - **NoncurrentVersionExpirationDays
-      (Optional):**
+   The minimum number of approvals required to resume the automation. If you
+   don't specify a value, the system defaults to `1`. The value for
+   this parameter must be a positive number. The value for this parameter can't
+   exceed the number of approvers defined by the ApproverIAM parameter.
+   - **NoncurrentVersionExpirationDays
+     (Optional):**
 
-    Specify the number of days when noncurrent object versions expire. Upon
-    expiration, Amazon S3 permanently deletes the noncurrent object versions.
-
-        + Default: `1`
-        + Maximum Value: `365`
-    - **ExpirationDays (Optional):**
-
-    Specify the expiration for the lifecycle of the object in the form
-    days.
+   Specify the number of days when noncurrent object versions expire. Upon
+   expiration, Amazon S3 permanently deletes the noncurrent object versions.
 
         + Default: `1`
         + Maximum Value: `365`
-    - **AbortIncompleteMultipartUpload
-      (Optional):**
+   - **ExpirationDays (Optional):**
 
-    Specify the days since the initiation of an incomplete multipart upload
-    that Amazon S3 will wait before permanently removing all parts of the
-    upload.
+   Specify the expiration for the lifecycle of the object in the form
+   days.
 
         + Default: `1`
         + Maximum Value: `365`
-    - **Acknowledgement:**
+   - **AbortIncompleteMultipartUpload
+     (Optional):**
 
-    Please read the complete details of the actions performed by this
-    automation runbook and provide consent `Yes, I understand and
- acknowledge` if you acknowledge the steps.
+   Specify the days since the initiation of an incomplete multipart upload
+   that Amazon S3 will wait before permanently removing all parts of the
+   upload.
+
+        + Default: `1`
+        + Maximum Value: `365`
+   - **Acknowledgement:**
+
+   Please read the complete details of the actions performed by this
+   automation runbook and provide consent `Yes, I understand and
+  acknowledge` if you acknowledge the steps.
 
 ![Image containing sample input parameters for AWSSupport-EmptyS3Bucket document.](images/awssupport-empty-s3-bucket_input_parameters.png) 4. Select Execute. 5. The automation initiates. 6. The document performs the following steps:
 
@@ -194,7 +194,7 @@ Follow these steps to configure the automation:
     Restores the enabled versioning state of the specified Amazon S3 bucket.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
 ![Image containing the output of the AWSSupport-EmptyS3Bucket document's execution showing successful execution and configured lifecycle policy.](images/awssupport-empty-s3-bucket_outputs.png)
 

@@ -310,7 +310,7 @@ Follow these steps to configure the automation:
      known issues files that were created in the Amazon EMR logs bucket.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
 **Output provides three links for Athena query
 results:**

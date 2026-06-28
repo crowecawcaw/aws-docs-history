@@ -39,48 +39,48 @@ the target OS
 
 Windows:
 
-| Variable                                     | Description                                      | Example value                        |
-| -------------------------------------------- | ------------------------------------------------ | ------------------------------------ |
-| $env:EC2RESCUE_ACCOUNT_ID                    | {{ global:ACCOUNT\_ID }}                         | 123456789012                         |
-| $env:EC2RESCUE_DATE                          | {{ global:DATE }}                                | 2018-09-07                           |
-| $env:EC2RESCUE_DATE_TIME                     | {{ global:DATE\_TIME }}                          | 2018-09-07_18.09.59                  |
-| $env:EC2RESCUE_EC2RW_DIR                     | EC2Rescue for Windows installation path          | C:\Program Files\Amazon\EC2Rescue    |
-| $env:EC2RESCUE_EC2RW_DIR                     | EC2Rescue for Windows installation path          | C:\Program Files\Amazon\EC2Rescue    |
-| $env:EC2RESCUE_EXECUTION_ID                  | {{ automation:EXECUTION\_ID }}                   | 7ef8008e-219b-4aca-8bb5-65e2e898e20b |
-| $env:EC2RESCUE_OFFLINE_CURRENT_CONTROL_SET   | Offline Windows Current Control Set path         | `HKLM:\AWSTempSystem\ControlSet001`  |
-| $env:EC2RESCUE_OFFLINE_DRIVE                 | Offline Windows drive letter                     | D:\                                  |
-| $env:EC2RESCUE_OFFLINE_EBS_DEVICE            | Offline root volume EBS device                   | xvdf                                 |
-| $env:EC2RESCUE_OFFLINE_KERNEL_VER            | Offline Windows Kernel version                   | 6.1.7601.24214                       |
-| $env:EC2RESCUE_OFFLINE_OS_ARCHITECTURE       | Offline Windows architecture                     | AMD64                                |
-| $env:EC2RESCUE_OFFLINE_OS_CAPTION            | Offline Windows caption                          | Windows Server 2008 R2 Datacenter    |
-| $env:EC2RESCUE_OFFLINE_OS_TYPE               | Offline Windows OS type                          | Server                               |
-| $env:EC2RESCUE_OFFLINE_PROGRAM_FILES_DIR     | Offline Windows Program files directory path     | D:\Program Files                     |
-| $env:EC2RESCUE_OFFLINE_PROGRAM_FILES_X86_DIR | Offline Windows Program files x86 directory path | D:\Program Files (x86)               |
-| $env:EC2RESCUE_OFFLINE_REGISTRY_DIR          | Offline Windows registry directory path          | D:\Windows\System32\config           |
-| $env:EC2RESCUE_OFFLINE_SYSTEM_ROOT           | Offline Windows system root directory path       | D:\Windows                           |
-| $env:EC2RESCUE_REGION                        | {{ global:REGION }}                              | us-west-1                            |
-| $env:EC2RESCUE_S3_BUCKET                     | {{ S3BucketName }}                               | amzn-s3-demo-bucket                  |
-| $env:EC2RESCUE_S3_PREFIX                     | {{ S3Prefix }}                                   | myprefix/                            |
-| $env:EC2RESCUE_SOURCE_INSTANCE               | {{ InstanceId }}                                 | i-abcdefgh123456789                  |
-| $script:EC2RESCUE_OFFLINE_WINDOWS_INSTALL    | Offline Windows Installation metadata            | Customer Powershell Object           |
+| Variable                                          | Description                                      | Example value                        |
+| ------------------------------------------------- | ------------------------------------------------ | ------------------------------------ |
+| $env:EC2RESCUE\_ACCOUNT\_ID                       | {{ global:ACCOUNT\_ID }}                         | 123456789012                         |
+| $env:EC2RESCUE\_DATE                              | {{ global:DATE }}                                | 2018-09-07                           |
+| $env:EC2RESCUE\_DATE\_TIME                        | {{ global:DATE\_TIME }}                          | 2018-09-07\_18.09.59                 |
+| $env:EC2RESCUE\_EC2RW\_DIR                        | EC2Rescue for Windows installation path          | C:\Program Files\Amazon\EC2Rescue    |
+| $env:EC2RESCUE\_EC2RW\_DIR                        | EC2Rescue for Windows installation path          | C:\Program Files\Amazon\EC2Rescue    |
+| $env:EC2RESCUE\_EXECUTION\_ID                     | {{ automation:EXECUTION\_ID }}                   | 7ef8008e-219b-4aca-8bb5-65e2e898e20b |
+| $env:EC2RESCUE\_OFFLINE\_CURRENT\_CONTROL\_SET    | Offline Windows Current Control Set path         | `HKLM:\AWSTempSystem\ControlSet001`  |
+| $env:EC2RESCUE\_OFFLINE\_DRIVE                    | Offline Windows drive letter                     | D:\                                  |
+| $env:EC2RESCUE\_OFFLINE\_EBS\_DEVICE              | Offline root volume EBS device                   | xvdf                                 |
+| $env:EC2RESCUE\_OFFLINE\_KERNEL\_VER              | Offline Windows Kernel version                   | 6.1.7601.24214                       |
+| $env:EC2RESCUE\_OFFLINE\_OS\_ARCHITECTURE         | Offline Windows architecture                     | AMD64                                |
+| $env:EC2RESCUE\_OFFLINE\_OS\_CAPTION              | Offline Windows caption                          | Windows Server 2008 R2 Datacenter    |
+| $env:EC2RESCUE\_OFFLINE\_OS\_TYPE                 | Offline Windows OS type                          | Server                               |
+| $env:EC2RESCUE\_OFFLINE\_PROGRAM\_FILES\_DIR      | Offline Windows Program files directory path     | D:\Program Files                     |
+| $env:EC2RESCUE\_OFFLINE\_PROGRAM\_FILES\_X86\_DIR | Offline Windows Program files x86 directory path | D:\Program Files (x86)               |
+| $env:EC2RESCUE\_OFFLINE\_REGISTRY\_DIR            | Offline Windows registry directory path          | D:\Windows\System32\config           |
+| $env:EC2RESCUE\_OFFLINE\_SYSTEM\_ROOT             | Offline Windows system root directory path       | D:\Windows                           |
+| $env:EC2RESCUE\_REGION                            | {{ global:REGION }}                              | us-west-1                            |
+| $env:EC2RESCUE\_S3\_BUCKET                        | {{ S3BucketName }}                               | amzn-s3-demo-bucket                  |
+| $env:EC2RESCUE\_S3\_PREFIX                        | {{ S3Prefix }}                                   | myprefix/                            |
+| $env:EC2RESCUE\_SOURCE\_INSTANCE                  | {{ InstanceId }}                                 | i-abcdefgh123456789                  |
+| $script:EC2RESCUE\_OFFLINE\_WINDOWS\_INSTALL      | Offline Windows Installation metadata            | Customer Powershell Object           |
 
 Linux:
 
-| Variable                      | Description                           | Example value                        |
-| ----------------------------- | ------------------------------------- | ------------------------------------ |
-| EC2RESCUE_ACCOUNT_ID          | {{ global:ACCOUNT\_ID }}              | 123456789012                         |
-| EC2RESCUE_DATE                | {{ global:DATE }}                     | 2018-09-07                           |
-| EC2RESCUE_DATE_TIME           | {{ global:DATE\_TIME }}               | 2018-09-07_18.09.59                  |
-| EC2RESCUE_EC2RL_DIR           | EC2Rescue for Linux installation path | /usr/local/ec2rl-1.1.3               |
-| EC2RESCUE_EXECUTION_ID        | {{ automation:EXECUTION\_ID }}        | 7ef8008e-219b-4aca-8bb5-65e2e898e20b |
-| EC2RESCUE_OFFLINE_DEVICE      | Offline device name                   | /dev/xvdf1                           |
-| EC2RESCUE_OFFLINE_EBS_DEVICE  | Offline root volume EBS device        | /dev/sdf                             |
-| EC2RESCUE_OFFLINE_SYSTEM_ROOT | Offline root volume mount point       | /mnt/mount                           |
-| EC2RESCUE_PYTHON              | Python version                        | python2.7                            |
-| EC2RESCUE_REGION              | {{ global:REGION }}                   | us-west-1                            |
-| EC2RESCUE_S3_BUCKET           | {{ S3BucketName }}                    | amzn-s3-demo-bucket                  |
-| EC2RESCUE_S3_PREFIX           | {{ S3Prefix }}                        | myprefix/                            |
-| EC2RESCUE_SOURCE_INSTANCE     | {{ InstanceId }}                      | i-abcdefgh123456789                  |
+| Variable                         | Description                           | Example value                        |
+| -------------------------------- | ------------------------------------- | ------------------------------------ |
+| EC2RESCUE\_ACCOUNT\_ID           | {{ global:ACCOUNT\_ID }}              | 123456789012                         |
+| EC2RESCUE\_DATE                  | {{ global:DATE }}                     | 2018-09-07                           |
+| EC2RESCUE\_DATE\_TIME            | {{ global:DATE\_TIME }}               | 2018-09-07\_18.09.59                 |
+| EC2RESCUE\_EC2RL\_DIR            | EC2Rescue for Linux installation path | /usr/local/ec2rl-1.1.3               |
+| EC2RESCUE\_EXECUTION\_ID         | {{ automation:EXECUTION\_ID }}        | 7ef8008e-219b-4aca-8bb5-65e2e898e20b |
+| EC2RESCUE\_OFFLINE\_DEVICE       | Offline device name                   | /dev/xvdf1                           |
+| EC2RESCUE\_OFFLINE\_EBS\_DEVICE  | Offline root volume EBS device        | /dev/sdf                             |
+| EC2RESCUE\_OFFLINE\_SYSTEM\_ROOT | Offline root volume mount point       | /mnt/mount                           |
+| EC2RESCUE\_PYTHON                | Python version                        | python2.7                            |
+| EC2RESCUE\_REGION                | {{ global:REGION }}                   | us-west-1                            |
+| EC2RESCUE\_S3\_BUCKET            | {{ S3BucketName }}                    | amzn-s3-demo-bucket                  |
+| EC2RESCUE\_S3\_PREFIX            | {{ S3Prefix }}                        | myprefix/                            |
+| EC2RESCUE\_SOURCE\_INSTANCE      | {{ InstanceId }}                      | i-abcdefgh123456789                  |
 
 **Document type**
 

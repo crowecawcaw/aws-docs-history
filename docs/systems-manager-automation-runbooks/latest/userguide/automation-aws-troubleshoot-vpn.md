@@ -136,62 +136,52 @@ configured for your VPN tunnel logging, when the logging Output format is JSON.
 
 Follow these steps to configure the automation:
 
-1.  Navigate to the [AWSSupport-TroubleshootVPN](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootVPN/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootVPN/description") in the AWS Systems Manager console.
-2.  For the input parameters enter the following:
+1. Navigate to the [AWSSupport-TroubleshootVPN](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootVPN/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootVPN/description") in the AWS Systems Manager console.
+2. For the input parameters enter the following:
 
-        * **AutomationAssumeRole (Optional):**
+   - **AutomationAssumeRole (Optional):**
 
+   The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager
+   Automation to perform the actions on your behalf. If no role is specified,
+   Systems Manager Automation uses the permissions of the user that starts this
+   runbook.
+   - **LogGroupName (Required):**
 
-        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager
-         Automation to perform the actions on your behalf. If no role is specified,
-         Systems Manager Automation uses the permissions of the user that starts this
-         runbook.
-        * **LogGroupName (Required):**
+   The Amazon CloudWatch log group name to be validated. This must be the CloudWatch log
+   group which is configured for VPN to send logs to.
+   - **VpnConnectionId (Required):**
 
+   The AWS Site-to-Site VPN connection id whose log group is traced for VPN
+   error.
+   - **TunnelAIPAddress (Required):**
 
-        The Amazon CloudWatch log group name to be validated. This must be the CloudWatch log
-         group which is configured for VPN to send logs to.
-        * **VpnConnectionId (Required):**
+   The tunnel A IP address associated with your AWS Site-to-Site VPN connection.
+   - **TunnelBIPAddress (Optional):**
 
+   The tunnel B IP address associated with your AWS Site-to-Site VPN connection.
+   - **IKEVersion (Required):**
 
-        The AWS Site-to-Site VPN connection id whose log group is traced for VPN
-         error.
-        * **TunnelAIPAddress (Required):**
+   Select what IKEversion you are using. Allowed values : IKEv1,
+   IKEv2.
+   - **StartTimeinEpoch (Optional):**
 
+   The beginning of the time range to query for error. The range is
+   inclusive, so the specified start time is included in the query. Specified
+   as epoch time, the number of seconds since January 1, 1970, 00:00:00
+   UTC.
+   - **EndTimeinEpoch (Optional):**
 
-        The tunnel A IP address associated with your AWS Site-to-Site VPN connection.
-        * **TunnelBIPAddress (Optional):**
+   The end of the time range to query for errors. The range is inclusive, so
+   the specified end time is included in the query. Specified as epoch time,
+   the number of seconds since January 1, 1970, 00:00:00 UTC.
+   - **LookBackPeriod (Required):**
 
-
-        The tunnel B IP address associated with your AWS Site-to-Site VPN connection.
-        * **IKEVersion (Required):**
-
-
-        Select what IKEversion you are using. Allowed values : IKEv1,
-         IKEv2.
-        * **StartTimeinEpoch (Optional):**
-
-
-        The beginning of the time range to query for error. The range is
-         inclusive, so the specified start time is included in the query. Specified
-         as epoch time, the number of seconds since January 1, 1970, 00:00:00
-         UTC.
-        * **EndTimeinEpoch (Optional):**
-
-
-        The end of the time range to query for errors. The range is inclusive, so
-         the specified end time is included in the query. Specified as epoch time,
-         the number of seconds since January 1, 1970, 00:00:00 UTC.
-        * **LookBackPeriod (Required):**
-
-
-        Time in hours to look back to query for error.
-
-    **Note:** Configure a StartTimeinEpoch,
-    EndTimeinEpoch, or LookBackPeriod to fix the time range for log analysis. Give a
-    two-digit number in hours to check for errors in the past from the automation start
-    time. Or, if the error is in the past within a specific time range, include
-    StartTimeinEpoch and EndTimeinEpoch, instead of LookBackPeriod.
+   Time in hours to look back to query for error.
+   **Note:** Configure a StartTimeinEpoch,
+   EndTimeinEpoch, or LookBackPeriod to fix the time range for log analysis. Give a
+   two-digit number in hours to check for errors in the past from the automation start
+   time. Or, if the error is in the past within a specific time range, include
+   StartTimeinEpoch and EndTimeinEpoch, instead of LookBackPeriod.
 
 ![Input parameters form for AWS Site-to-Site VPN connection validation and log analysis.](images/awssupport-troubleshoot-vpn_input_parameters.png) 3. Select **Execute.** 4. The automation initiates. 5. The automation runbook performs the following steps:
 
@@ -228,7 +218,7 @@ Follow these steps to configure the automation:
      resolution.
 
 6. After completed, review the Outputs section for the detailed results of the
-   execution.
+execution.
 
 ![Output section showing parameter validation results and error messages for VPN tunnels.](images/awssupport-troubleshoot-vpn_outputs.png)
 

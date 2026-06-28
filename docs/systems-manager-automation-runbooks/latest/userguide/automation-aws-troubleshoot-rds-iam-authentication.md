@@ -305,33 +305,37 @@ use the runbook successfully.
 
 7. When the automation is complete, review the **Outputs** section for the detailed results:
 
-   - **Checking the IAM User/Role
+    * **Checking the IAM User/Role
      permission to connect to
      Database:**
 
-   Verifies if the required IAM permissions are present
-   in the IAM user/role passed to enable the IAM
-   credentials to authenticate into the Amazon RDS Instance
-   for the specified Database User (if any).
-   - **Checking IAM-Based
+
+    Verifies if the required IAM permissions are present
+     in the IAM user/role passed to enable the IAM
+     credentials to authenticate into the Amazon RDS Instance
+     for the specified Database User (if any).
+    * **Checking IAM-Based
      Authentication Attribute for the
      Database:**
 
-   Verifies if the feature of the IAM authentication is
-   enabled for the specified Amazon RDS Database/Aurora
-   Cluster.
-   - **Checking Connectivity from Amazon EC2
+
+    Verifies if the feature of the IAM authentication is
+     enabled for the specified Amazon RDS Database/Aurora
+     Cluster.
+    * **Checking Connectivity from Amazon EC2
      Instance to Amazon RDS Instance:**
 
-   Verifies if the required network configurations
-   (Amazon VPC, Security Groups, NACL, Amazon RDS availability)
-   are in place so that you can connect from the Amazon EC2
-   instance to the Amazon RDS Instance.
-   - **Next Steps:**
 
-   Lists the commands and steps to refer to and perform,
-   to connect to the Amazon RDS Instance using the IAM
-   credentials.
+    Verifies if the required network configurations
+     (Amazon VPC, Security Groups, NACL, Amazon RDS availability)
+     are in place so that you can connect from the Amazon EC2
+     instance to the Amazon RDS Instance.
+    * **Next Steps:**
+
+
+    Lists the commands and steps to refer to and perform,
+     to connect to the Amazon RDS Instance using the IAM
+     credentials.
 
 ![Troubleshooting results showing IAM permissions verified, IAM authentication enabled, and no source EC2 instance provided.](images/awssupport-troubleshoot-rds-iam-authentication_outputs.png)
 

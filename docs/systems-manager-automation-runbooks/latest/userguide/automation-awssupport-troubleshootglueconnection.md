@@ -28,7 +28,7 @@ found. The tags used are:
 
 - `AWSSupport-TroubleshootGlueConnection`: true
 - `AutomationExecutionId`: `Amazon EC2 Systems Manager Execution
-Id`
+ Id`
 
 **How does it work?**
 
@@ -403,27 +403,33 @@ Follow these steps to configure the automation:
      connection test failure).
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
-   - **Automation Results**
+    * **Automation Results**
 
-   In this section, you will find scenarios describing possible causes for
-   the test connection operation to fail (findings) and how they can be fixed
-   (next steps). If the automation cannot find the cause of the test failure,
-   this will be informed in this section as well.
-   - **Successful Tests**
 
-   In this section, you will find scenarios informing what has been
-   successfully tested by this automation. Succeeded tests are useful in case
-   the automation is not able to identify the cause of the test connection
-   failure as they reduce the scope of the investigation by informing what is
-   not contributing for the issue.
-   - **Automation Errors**
 
-   In this section, you will find scenarios describing issues that happened
-   during the automation, that may have limited the number of tests the
-   automation could perform. The description of the scenario will inform which
-   step has failed.
+     In this section, you will find scenarios describing possible causes for
+     the test connection operation to fail (findings) and how they can be fixed
+     (next steps). If the automation cannot find the cause of the test failure,
+     this will be informed in this section as well.
+    * **Successful Tests**
+
+
+
+     In this section, you will find scenarios informing what has been
+     successfully tested by this automation. Succeeded tests are useful in case
+     the automation is not able to identify the cause of the test connection
+     failure as they reduce the scope of the investigation by informing what is
+     not contributing for the issue.
+    * **Automation Errors**
+
+
+
+     In this section, you will find scenarios describing issues that happened
+     during the automation, that may have limited the number of tests the
+     automation could perform. The description of the scenario will inform which
+     step has failed.
 
 ![AWS Glue connection troubleshooting automation results showing DNS, IAM , and security issues.](images/awssupport-troubleshootglueconnection_outputs.png)
 

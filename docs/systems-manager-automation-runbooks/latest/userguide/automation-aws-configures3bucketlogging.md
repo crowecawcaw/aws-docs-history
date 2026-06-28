@@ -54,7 +54,7 @@ configure logging.
 
 Type: String
 
-Valid values: FULL_CONTROL | READ | WRITE
+Valid values: FULL\_CONTROL | READ | WRITE
 
 Description: (Required) Logging permissions assigned to the grantee for
 the bucket.

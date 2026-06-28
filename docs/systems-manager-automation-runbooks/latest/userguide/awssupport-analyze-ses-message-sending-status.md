@@ -114,13 +114,14 @@ Follow these steps to configure the automation:
      `AnalyzeSESMessageSendingStatus` step failed.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
-   - **Output of analysis on an undelivered email message
+    * **Output of analysis on an undelivered email message
      because of a bounce**
 
-   Output of an automation execution for an email message that didn't reach
-   the destination mailbox because of a bounce.
+
+    Output of an automation execution for an email message that didn't reach
+     the destination mailbox because of a bounce.
 
 ![Example of automation execution output of a message ID that received a bounce from the destination email server.](images/awssupport-analyze-ses-message-sending-status_outputs.png)
 

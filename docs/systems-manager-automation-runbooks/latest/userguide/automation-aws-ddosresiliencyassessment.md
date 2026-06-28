@@ -348,7 +348,7 @@ JSON
      Amazon S3 bucket.
 
 7. After completed, the URI for the assessment report HTML file is
-   provided in the Amazon S3 bucket:
+provided in the Amazon S3 bucket:
 
 **S3 Console link and Amazon S3 URI for the Report on
 successful execution of the runbook**

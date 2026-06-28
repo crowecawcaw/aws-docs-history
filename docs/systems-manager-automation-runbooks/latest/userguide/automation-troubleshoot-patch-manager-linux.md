@@ -121,7 +121,7 @@ Follow these steps to configure the automation:
      identified problem and suggested solution.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
 ![Troubleshooting results showing S3 download error with network connectivity solutions.](images/awssupport-troubleshoot-patch-manager-linux_outputs.png)
 

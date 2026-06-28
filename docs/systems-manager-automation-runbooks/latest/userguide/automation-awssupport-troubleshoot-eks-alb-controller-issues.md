@@ -225,9 +225,11 @@ In the Amazon EKS console, navigate to your cluster and follow these steps:
     * Choose **Add policy**.
     * Verify the details and choose **Create**.
 
-4.  Create an IAM role for the Lambda function (referenced as `LambdaRoleArn` in the input parameters):
+4. Create an IAM role for the Lambda function (referenced as `LambdaRoleArn` in the input parameters):
 
-    - Create a new IAM role with the following trust policy:
+    * Create a new IAM role with the following trust policy:
+
+
 
     ```
     {
@@ -243,147 +245,147 @@ In the Amazon EKS console, navigate to your cluster and follow these steps:
                 ]
             }
     ```
-    - Attach the following AWS managed policies to this role:
-
-      - `AWSLambdaBasicExecutionRole`
-      - `AWSLambdaVPCAccessExecutionRole`
-
-    - Note the ARN of this role as you will need it for the `LambdaRoleArn` input parameter.
-
-1.  Navigate to [AWSSupport-TroubleshootEKSALBControllerIssues](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEKSALBControllerIssues/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEKSALBControllerIssues/description") in the AWS Systems Manager console.
-1.  Choose **Execute automation**.
-1.  For the input parameters enter the following:
-
-    - **AutomationAssumeRole (Optional):**
-
-    Type: AWS::IAM::Role::Arn
-
-    Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
-
-    Allowed Pattern: ^arn:(?:aws|aws-cn|aws-us-gov):iam::\d{12}:role/?[a-zA-Z\_0-9+=,.@\-\_/]+$
-    - **EksClusterName (Required):**
-
-    Type: String
-
-    Description: (Required) Name of the Amazon Elastic Kubernetes Service (Amazon EKS) cluster.
-
-    Allowed Pattern: ^[0-9A-Za-z][A-Za-z0-9-\_]{0,99}$
-    - **ALBControllerDeploymentName (Optional):**
-
-    Type: String
-
-    Description: (Optional) The name of the AWS Load Balancer Controller deployment in your Amazon EKS cluster. This is typically 'aws-load-balancer-controller' unless you've customized it during installation.
-
-    Allowed Pattern: ^[a-z0-9]([-.a-z0-9]{0,251}[a-z0-9])?$
-
-    Default: aws-load-balancer-controller
-    - **ALBControllerNamespace (Optional):**
-
-    Type: String
-
-    Description: (Optional) The Kubernetes namespace where the AWS Load Balancer Controller is deployed. By default, this is 'kube-system', but it may be different if you've installed the controller in a custom namespace.
-
-    Allowed Pattern: ^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?$
-
-    Default: kube-system
-    - **ServiceAccountName (Optional):**
-
-    Type: String
-
-    Description: (Optional) The name of the Kubernetes Service Account associated with the AWS Load Balancer Controller. This is typically 'aws-load-balancer-controller' unless customized during installation.
-
-    Allowed Pattern: ^[a-z0-9]([-.a-z0-9]{0,251}[a-z0-9])?$
-
-    Default: aws-load-balancer-controller
-    - **ServiceAccountNamespace (Optional):**
-
-    Type: String
-
-    Description: (Optional) The Kubernetes namespace where the Service Account for the AWS Load Balancer Controller is located. This is typically 'kube-system', but may differ if you've used a custom namespace.
-
-    Allowed Pattern: ^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?$
-
-    Default: kube-system
-    - **IngressName (Optional):**
-
-    Type: String
-
-    Description: (Optional) Name of the Ingress resource to validate (Application Load Balancer). If not specified, Ingress validation will be skipped.
-
-    Allowed Pattern: ^$|^[a-z0-9][a-z0-9.-]{0,251}[a-z0-9]$
-
-    Default: "" (empty string)
-    - **IngressNamespace (Optional):**
-
-    Type: String
-
-    Description: (Optional) Namespace of the Ingress resource. Required if `IngressName` is specified.
-
-    Allowed Pattern: ^$|^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$
-
-    Default: "" (empty string)
-    - **ServiceName (Optional):**
-
-    Type: String
-
-    Description: (Optional) Name of a specific Service resource to validate Network Load Balancer (Network Load Balancer) annotations. If not specified, Service resources validation will be skipped.
-
-    Allowed Pattern: ^$|^[a-z0-9][a-z0-9.-]{0,251}[a-z0-9]$
-
-    Default: "" (empty string)
-    - **ServiceNamespace (Optional):**
-
-    Type: String
-
-    Description: (Optional) Namespace of the Service resource. Required if `ServiceName` is specified.
-
-    Allowed Pattern: ^$|^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$
-
-    Default: "" (empty string)
-    - **LambdaRoleArn (Required):**
-
-    Type: AWS::IAM::Role::Arn
-
-    Description: (Required) The ARN of the IAM role that allows the AWS Lambda (Lambda) function to access the required AWS services and resources. Associate the AWS managed policies: `AWSLambdaBasicExecutionRole` and `AWSLambdaVPCAccessExecutionRole` to your lambda function execution IAM role.
-
-    Allowed Pattern: ^arn:(?:aws|aws-cn|aws-us-gov):iam::\d{12}:role/?[a-zA-Z\_0-9+=,.@\-\_/]+$
-
-1.  Choose **Execute**.
-1.  The automation initiates.
-1.  The document performs the following steps:
-
-    1. **ValidateAccessEntryAndOIDCProvider:**
-
-    Validates Amazon EKS cluster IAM setup by checking access entry permissions and OIDC provider configuration. 2. **SetupK8sAuthenticationClient:**
-
-    Execute the SAW Document AWSSupport-SetupK8sApiProxyForEKS to set up a lambda function to run Amazon EKS API calls on the cluster. 3. **VerifyALBControllerAndIRSASetup:**
-
-    Checks whether the given Service Account & Application Load Balancer controller exists in their respective namespaces. Also checks Application Load Balancer controller's Service Account Role Annotation & Trust policy. 4. **VerifyPodIdentityWebhookAndEnv:**
-
-    Checks whether pod-identity-webhook is running. Also checks whether IRSA is injected into pod's ENV variables. 5. **ValidateSubnetRequirements:**
-
-    Check at least two subnets in two AZ's with 8 available IP's, Proper subnet tagging exist for public/private load balancers. 6. **CheckLoadBalancerLimitsAndUsage:**
-
-    Compare the account limit against the number of Application Load Balancer and Network Load Balancer. 7. **CheckIngressOrServiceAnnotations:**
-
-    Checks for correct annotations and specifications in Ingress and Service resources to ensure they are properly configured for Application Load Balancer and Network Load Balancer usage. 8. **CheckWorkerNodeSecurityGroupTags:**
-
-    Verify that exactly one security group attached to the worker nodes has the required cluster tag. 9. **CaptureALBControllerLogs:**
-
-    Retrieves latest diagnostic logs from the AWS Load Balancer Controller pods running in the Amazon EKS cluster. 10. **CleanupK8sAuthenticationClient:**
-
-    Executes the SAW Document 'AWSSupport-SetupK8sApiProxyForEKS' using the 'Cleanup' operation to clean up resources created as part of the automation. 11. **GenerateReport:**
-
-    Generates the automation report.
-
-1.  After the execution completes, review the Outputs section for the detailed results of the execution:
-
-        1. **Report:**
+    * Attach the following AWS managed policies to this role:
 
 
-        Provides a comprehensive summary of all checks performed, including the status of the Amazon EKS cluster, Application Load Balancer Controller setup, IRSA configuration, subnet requirements, load balancer limits, ingress/service annotations, worker node security group tags, and Application Load Balancer Controller logs. It also includes any identified issues and recommended remediation steps.
 
-    **References**
+
+    	+ `AWSLambdaBasicExecutionRole`
+    	+ `AWSLambdaVPCAccessExecutionRole`
+    * Note the ARN of this role as you will need it for the `LambdaRoleArn` input parameter.
+
+1. Navigate to [AWSSupport-TroubleshootEKSALBControllerIssues](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEKSALBControllerIssues/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEKSALBControllerIssues/description") in the AWS Systems Manager console.
+2. Choose **Execute automation**.
+3. For the input parameters enter the following:
+
+   - **AutomationAssumeRole (Optional):**
+
+   Type: AWS::IAM::Role::Arn
+
+   Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
+
+   Allowed Pattern: ^arn:(?:aws|aws-cn|aws-us-gov):iam::\d{12}:role/?[a-zA-Z\_0-9+=,.@\-\_/]+$
+   - **EksClusterName (Required):**
+
+   Type: String
+
+   Description: (Required) Name of the Amazon Elastic Kubernetes Service (Amazon EKS) cluster.
+
+   Allowed Pattern: ^[0-9A-Za-z][A-Za-z0-9-\_]{0,99}$
+   - **ALBControllerDeploymentName (Optional):**
+
+   Type: String
+
+   Description: (Optional) The name of the AWS Load Balancer Controller deployment in your Amazon EKS cluster. This is typically 'aws-load-balancer-controller' unless you've customized it during installation.
+
+   Allowed Pattern: ^[a-z0-9]([-.a-z0-9]{0,251}[a-z0-9])?$
+
+   Default: aws-load-balancer-controller
+   - **ALBControllerNamespace (Optional):**
+
+   Type: String
+
+   Description: (Optional) The Kubernetes namespace where the AWS Load Balancer Controller is deployed. By default, this is 'kube-system', but it may be different if you've installed the controller in a custom namespace.
+
+   Allowed Pattern: ^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?$
+
+   Default: kube-system
+   - **ServiceAccountName (Optional):**
+
+   Type: String
+
+   Description: (Optional) The name of the Kubernetes Service Account associated with the AWS Load Balancer Controller. This is typically 'aws-load-balancer-controller' unless customized during installation.
+
+   Allowed Pattern: ^[a-z0-9]([-.a-z0-9]{0,251}[a-z0-9])?$
+
+   Default: aws-load-balancer-controller
+   - **ServiceAccountNamespace (Optional):**
+
+   Type: String
+
+   Description: (Optional) The Kubernetes namespace where the Service Account for the AWS Load Balancer Controller is located. This is typically 'kube-system', but may differ if you've used a custom namespace.
+
+   Allowed Pattern: ^[a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?$
+
+   Default: kube-system
+   - **IngressName (Optional):**
+
+   Type: String
+
+   Description: (Optional) Name of the Ingress resource to validate (Application Load Balancer). If not specified, Ingress validation will be skipped.
+
+   Allowed Pattern: ^$|^[a-z0-9][a-z0-9.-]{0,251}[a-z0-9]$
+
+   Default: "" (empty string)
+   - **IngressNamespace (Optional):**
+
+   Type: String
+
+   Description: (Optional) Namespace of the Ingress resource. Required if `IngressName` is specified.
+
+   Allowed Pattern: ^$|^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$
+
+   Default: "" (empty string)
+   - **ServiceName (Optional):**
+
+   Type: String
+
+   Description: (Optional) Name of a specific Service resource to validate Network Load Balancer (Network Load Balancer) annotations. If not specified, Service resources validation will be skipped.
+
+   Allowed Pattern: ^$|^[a-z0-9][a-z0-9.-]{0,251}[a-z0-9]$
+
+   Default: "" (empty string)
+   - **ServiceNamespace (Optional):**
+
+   Type: String
+
+   Description: (Optional) Namespace of the Service resource. Required if `ServiceName` is specified.
+
+   Allowed Pattern: ^$|^[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$
+
+   Default: "" (empty string)
+   - **LambdaRoleArn (Required):**
+
+   Type: AWS::IAM::Role::Arn
+
+   Description: (Required) The ARN of the IAM role that allows the AWS Lambda (Lambda) function to access the required AWS services and resources. Associate the AWS managed policies: `AWSLambdaBasicExecutionRole` and `AWSLambdaVPCAccessExecutionRole` to your lambda function execution IAM role.
+
+   Allowed Pattern: ^arn:(?:aws|aws-cn|aws-us-gov):iam::\d{12}:role/?[a-zA-Z\_0-9+=,.@\-\_/]+$
+
+4. Choose **Execute**.
+5. The automation initiates.
+6. The document performs the following steps:
+
+   1. **ValidateAccessEntryAndOIDCProvider:**
+
+   Validates Amazon EKS cluster IAM setup by checking access entry permissions and OIDC provider configuration. 2. **SetupK8sAuthenticationClient:**
+
+   Execute the SAW Document AWSSupport-SetupK8sApiProxyForEKS to set up a lambda function to run Amazon EKS API calls on the cluster. 3. **VerifyALBControllerAndIRSASetup:**
+
+   Checks whether the given Service Account & Application Load Balancer controller exists in their respective namespaces. Also checks Application Load Balancer controller's Service Account Role Annotation & Trust policy. 4. **VerifyPodIdentityWebhookAndEnv:**
+
+   Checks whether pod-identity-webhook is running. Also checks whether IRSA is injected into pod's ENV variables. 5. **ValidateSubnetRequirements:**
+
+   Check at least two subnets in two AZ's with 8 available IP's, Proper subnet tagging exist for public/private load balancers. 6. **CheckLoadBalancerLimitsAndUsage:**
+
+   Compare the account limit against the number of Application Load Balancer and Network Load Balancer. 7. **CheckIngressOrServiceAnnotations:**
+
+   Checks for correct annotations and specifications in Ingress and Service resources to ensure they are properly configured for Application Load Balancer and Network Load Balancer usage. 8. **CheckWorkerNodeSecurityGroupTags:**
+
+   Verify that exactly one security group attached to the worker nodes has the required cluster tag. 9. **CaptureALBControllerLogs:**
+
+   Retrieves latest diagnostic logs from the AWS Load Balancer Controller pods running in the Amazon EKS cluster. 10. **CleanupK8sAuthenticationClient:**
+
+   Executes the SAW Document 'AWSSupport-SetupK8sApiProxyForEKS' using the 'Cleanup' operation to clean up resources created as part of the automation. 11. **GenerateReport:**
+
+   Generates the automation report.
+
+7. After the execution completes, review the Outputs section for the detailed results of the execution:
+
+   1. **Report:**
+
+   Provides a comprehensive summary of all checks performed, including the status of the Amazon EKS cluster, Application Load Balancer Controller setup, IRSA configuration, subnet requirements, load balancer limits, ingress/service annotations, worker node security group tags, and Application Load Balancer Controller logs. It also includes any identified issues and recommended remediation steps.
+   **References**
 
 Systems Manager Automation
 

@@ -32,7 +32,7 @@ The runbook performs the following steps:
 - SSM Agent 1.2.371 or previous versions are not supported.
 - The `AWSSupport-AnalyzeAWSEndpointReachabilityFromEC2` runbook uses
   [`VPC
-Reachability Analyzer`](../../../vpc/latest/reachability/what-is-reachability-analyzer.md "../../../vpc/latest/reachability/what-is-reachability-analyzer.md") to analyze the network connectivity
+ Reachability Analyzer`](../../../vpc/latest/reachability/what-is-reachability-analyzer.md "../../../vpc/latest/reachability/what-is-reachability-analyzer.md") to analyze the network connectivity
   between a source and a service endpoint. You are charged per analysis run
   between a source and destination. For more details, see [Amazon VPC Pricing](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
 - The `AWSSupport-AnalyzeAWSEndpointReachabilityFromEC2` runbook is
@@ -104,7 +104,7 @@ Follow these steps to configure the automation:
    Only relevant if `RunVpcReachabilityAnalyzer` is
    `true`. Specify `true` to retain the network
    insight path and related analyses created by `Reachability
- Analyzer`. By default, those resources are deleted after
+  Analyzer`. By default, those resources are deleted after
    successful analysis. If you choose to retain the analysis, the child runbook
    does not delete the analysis and you can visualize it in the Amazon VPC console.
    The console link will be available in the child automation output. The
@@ -193,7 +193,7 @@ Follow these steps to configure the automation:
     Generates a complete report of all steps.
 
 7. After completed, review the Outputs section for the detailed results of the
-   execution:
+execution:
 
 ![Final report results showing all prerequisite and configuration checks passed with green checkmarks.](images/awssupport-troubleshoot-windows-update_outputs.png)
 

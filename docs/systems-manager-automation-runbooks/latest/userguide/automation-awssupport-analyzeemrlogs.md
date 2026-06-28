@@ -10,28 +10,28 @@ log entries to the Amazon CloudWatch Logs log group of your choosing. This runbo
 looks for the following errors and patterns in log files:
 
 - **`container_out_of_memory – YARN container ran out of
-memory, running job may fail.`**
+ memory, running job may fail.`**
 - **`yarn_nodemanager_health: CORE or TASK node is running low on disk
-space and will not be able to run tasks.`**
+ space and will not be able to run tasks.`**
 - **`node_state_change: CORE or TASK node is unreachable by the MASTER
-node.`**
+ node.`**
 - **`step_failure: An EMR Step has failed.`**
 - **`no_core_nodes_running: No CORE nodes are currently running,
-cluster is unhealthy.`**
+ cluster is unhealthy.`**
 - **`hdfs_missing_blocks: There are missing HDFS blocks which could
-lead to data loss.`**
+ lead to data loss.`**
 - **`hdfs_high_util: HDFS Utilization is high, which may affect jobs
-and cluster health.`**
+ and cluster health.`**
 - **`instance_controller_restart: Instance-Controller process has
-restarted. This process is essential for cluster health.`**
+ restarted. This process is essential for cluster health.`**
 - **`instance_controller_restart_legacy: Instance-Controller process
-has restarted. This process is essential for cluster health.`**
+ has restarted. This process is essential for cluster health.`**
 - **`high_load: High Load Average detected, may affect node health
-reporting or result in timeouts or slowdowns.`**
+ reporting or result in timeouts or slowdowns.`**
 - **`yarn_node_blacklisted: CORE or TASK node has been blacklisted by
-YARN from running tasks.`**
+ YARN from running tasks.`**
 - **`yarn_node_lost: CORE or TASK node has been marked as LOST by
-YARN, possible connectivity issues.`**
+ YARN, possible connectivity issues.`**
   Instances associated with the `ClusterID` that you specify must be
   managed by AWS Systems Manager. You can run this automation once, schedule the automation to
   run at a specific time interval, or remove a schedule created previously by an
@@ -182,7 +182,7 @@ use the runbook successfully.
       specified to run the automation once or on a schedule.
 
       - If the provided operation is `Run
-Once` :
+   Once` :
 
         - `aws:branch` - Branches based on the
           value specified in the

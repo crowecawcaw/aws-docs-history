@@ -179,7 +179,7 @@ Allowed Pattern:
 Type: String
 
 Default:
-UpdateLinuxAmi_from\_{{SourceAmiId}}\_on\_{{global:DATE\_TIME}}
+UpdateLinuxAmi\_from\_{{SourceAmiId}}\_on\_{{global:DATE\_TIME}}
 
 Description: (Optional) The name of the new AMI that will be created.
 Default is a system-generated string including the source AMI id, and the

@@ -77,7 +77,7 @@ WorkSpace.
 
 Type: String
 
-Valid values: ALWAYS_ON | AUTO_STOP
+Valid values: ALWAYS\_ON | AUTO\_STOP
 
 Description: (Required) The running mode of the WorkSpace.
 
