@@ -91,13 +91,11 @@ text with your information:
      data.
 
 2. When you finish, save the file as
-   `RetrieveRecommendationsPolicy.json`.
-3. By using the command line interface, navigate to the directory where you saved
-   the `RetrieveRecommendationsPolicy.json` file.
-4. Enter the following command to create a policy and name it
-   `RetrieveRecommendationsPolicy`. To use a different name, change
-   `RetrieveRecommendationsPolicy` to the name that
-   you want.
+`RetrieveRecommendationsPolicy.json`. 3. By using the command line interface, navigate to the directory where you saved
+the `RetrieveRecommendationsPolicy.json` file. 4. Enter the following command to create a policy and name it
+`RetrieveRecommendationsPolicy`. To use a different name, change
+`RetrieveRecommendationsPolicy` to the name that
+you want.
 
 ```
 `aws iam create-policy --policy-name `RetrieveRecommendationsPolicy` --policy-document file://`RetrieveRecommendationsPolicy.json``
