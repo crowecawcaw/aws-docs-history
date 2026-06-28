@@ -168,252 +168,252 @@ APS3-WhatsApp-IN-MetaTemplateMessageFee-Utility_Regular_TIER_5
 
 ### AWS End User Messaging Social billing ISO codes and MetaTemplateMessageFee mapping
 
-| Supported countries | Two-digit ISO country code                   | Country name                     | WhatsApp conversation billing region |
-| ------------------- | -------------------------------------------- | -------------------------------- | ------------------------------------ |
-| AF                  | Afghanistan                                  | Rest of Asia Pacific             |
-| AX                  | Aland Islands                                | Other                            |
-| AL                  | Albania                                      | Rest of Central & Eastern Europe |
-| DZ                  | Algeria                                      | Rest of Africa                   |
-| AS                  | American Samoa                               | Other                            |
-| AD                  | Andorra                                      | Other                            |
-| AO                  | Angola                                       | Rest of Africa                   |
-| AI                  | Anguilla                                     | Other                            |
-| AQ                  | Antarctica                                   | Other                            |
-| AG                  | Antigua and Barbuda                          | Other                            |
-| AR                  | Argentina                                    | Argentina                        |
-| AM                  | Armenia                                      | Rest of Central & Eastern Europe |
-| AW                  | Aruba                                        | Other                            |
-| AC                  | Ascension Island                             | Other                            |
-| AU                  | Australia                                    | Rest of Asia Pacific             |
-| AT                  | Austria                                      | Rest of Western Europe           |
-| AZ                  | Azerbaijan                                   | Rest of Central & Eastern Europe |
-| BS                  | Bahamas                                      | Other                            |
-| BH                  | Bahrain                                      | Rest of Middle East              |
-| BD                  | Bangladesh                                   | Rest of Asia Pacific             |
-| BB                  | Barbados                                     | Other                            |
-| BY                  | Belarus                                      | Rest of Central & Eastern Europe |
-| BE                  | Belgium                                      | Rest of Western Europe           |
-| BZ                  | Belize                                       | Other                            |
-| BJ                  | Benin                                        | Rest of Africa                   |
-| BM                  | Bermuda                                      | Other                            |
-| BT                  | Bhutan                                       | Other                            |
-| BO                  | Bolivia                                      | Rest of Latin America            |
-| BQ                  | Bonaire                                      | Other                            |
-| BA                  | Bosnia and Herzegovina                       | Other                            |
-| BW                  | Botswana                                     | Rest of Africa                   |
-| BV                  | Bouvet Island                                | Other                            |
-| BR                  | Brazil                                       | Brazil                           |
-| IO                  | British Indian Ocean Territory               | Other                            |
-| VG                  | British Virgin Islands                       | Other                            |
-| BN                  | Brunei Darussalam                            | Other                            |
-| BG                  | Bulgaria                                     | Rest of Central & Eastern Europe |
-| BF                  | BurkinaFaso                                  | Rest of Africa                   |
-| BI                  | Burundi                                      | Rest of Africa                   |
-| KH                  | Cambodia                                     | Rest of Asia Pacific             |
-| CM                  | Cameroon                                     | Rest of Africa                   |
-| CA                  | Canada                                       | North America                    |
-| CV                  | Cape Verde                                   | Other                            |
-| KY                  | Cayman Islands                               | Other                            |
-| CF                  | Central African Republic                     | Other                            |
-| TD                  | Chad                                         | Rest of Africa                   |
-| CL                  | Chile                                        | Chile                            |
-| CN                  | China                                        | Rest of Asia Pacific             |
-| CX                  | Christmas Island                             | Other                            |
-| CC                  | Cocos(Keeling) Islands                       | Other                            |
-| CO                  | Colombia                                     | Colombia                         |
-| KM                  | Comoros                                      | Other                            |
-| CK                  | Cook Islands                                 | Other                            |
-| CR                  | Costa Rica                                   | Rest of Latin America            |
-| CI                  | Cote d'Ivoire                                | Rest of Africa                   |
-| HR                  | Croatia                                      | Rest of Central & Eastern Europe |
-| CW                  | Curacao                                      | Other                            |
-| CY                  | Cyprus                                       | Other                            |
-| CZ                  | Czech Republic                               | Rest of Central & Eastern Europe |
-| CD                  | Democratic Republic of the Congo             | Rest of Africa                   |
-| DK                  | Denmark                                      | Rest of Western Europe           |
-| DJ                  | Djibouti                                     | Other                            |
-| DM                  | Dominica                                     | Other                            |
-| DO                  | Dominican Republic                           | Rest of Latin America            |
-| EC                  | Ecuador                                      | Rest of Latin America            |
-| EG                  | Egypt                                        | Egypt                            |
-| SV                  | El Salvador                                  | Rest of Latin America            |
-| GQ                  | Equatorial Guinea                            | Other                            |
-| ER                  | Eritrea                                      | Rest of Africa                   |
-| EE                  | Estonia                                      | Other                            |
-| ET                  | Ethiopia                                     | Rest of Africa                   |
-| SZ                  | Eswatini                                     | Rest of Africa                   |
-| FK                  | Falkland Islands                             | Other                            |
-| FO                  | Faroe Islands                                | Other                            |
-| FJ                  | Fiji                                         | Other                            |
-| FI                  | Finland                                      | Rest of Western Europe           |
-| FR                  | France                                       | France                           |
-| GF                  | French Guiana                                | Other                            |
-| PF                  | French Polynesia                             | Other                            |
-| TF                  | French Southern Territories                  | Other                            |
-| GA                  | Gabon                                        | Rest of Africa                   |
-| GM                  | Gambia                                       | Rest of Africa                   |
-| GE                  | Georgia                                      | Rest of Central & Eastern Europe |
-| DE                  | Germany                                      | Germany                          |
-| GH                  | Ghana                                        | Rest of Africa                   |
-| GI                  | Gibraltar                                    | Other                            |
-| GR                  | Greece                                       | Rest of Central & Eastern Europe |
-| GL                  | Greenland                                    | Other                            |
-| GD                  | Grenada                                      | Other                            |
-| GP                  | Guadeloupe                                   | Other                            |
-| GU                  | Guam                                         | Other                            |
-| GT                  | Guatemala                                    | Rest of Latin America            |
-| GG                  | Guernsey                                     | Other                            |
-| GN                  | Guinea                                       | Other                            |
-| GW                  | Guinea-Bissau                                | Rest of Africa                   |
-| GY                  | Guyana                                       | Other                            |
-| HT                  | Haiti                                        | Rest of Latin America            |
-| HM                  | Heard and McDonald Islands                   | Other                            |
-| HN                  | Honduras                                     | Rest of Latin America            |
-| HK                  | Hong Kong                                    | Rest of Asia Pacific             |
-| HU                  | Hungary                                      | Rest of Central & Eastern Europe |
-| IS                  | Iceland                                      | Other                            |
-| IN                  | India                                        | India                            |
-| ID                  | Indonesia                                    | Indonesia                        |
-| IQ                  | Iraq                                         | Rest of Middle East              |
-| IE                  | Ireland                                      | Rest of Western Europe           |
-| IM                  | Isle of Man                                  | Other                            |
-| IL                  | Israel                                       | Israel                           |
-| IT                  | Italy                                        | Italy                            |
-| JM                  | Jamaica                                      | Rest of Latin America            |
-| JP                  | Japan                                        | Rest of Asia Pacific             |
-| JE                  | Jersey                                       | Other                            |
-| JO                  | Jordan                                       | Rest of Middle East              |
-| KZ                  | Kazakhstan                                   | Other                            |
-| KE                  | Kenya                                        | Rest of Africa                   |
-| KI                  | Kiribati                                     | Other                            |
-| XK                  | Kosovo                                       | Other                            |
-| KW                  | Kuwait                                       | Rest of Middle East              |
-| KG                  | Kyrgyzstan                                   | Other                            |
-| LA                  | Lao PDR                                      | Rest of Asia Pacific             |
-| LV                  | Latvia                                       | Rest of Central & Eastern Europe |
-| LB                  | Lebanon                                      | Rest of Middle East              |
-| LS                  | Lesotho                                      | Rest of Africa                   |
-| LR                  | Liberia                                      | Rest of Africa                   |
-| LY                  | Libya                                        | Rest of Africa                   |
-| LI                  | Liechtenstein                                | Other                            |
-| LT                  | Lithuania                                    | Rest of Central & Eastern Europe |
-| LU                  | Luxembourg                                   | Other                            |
-| MO                  | Macao                                        | Other                            |
-| MK                  | Macedonia                                    | Rest of Central & Eastern Europe |
-| MG                  | Madagascar                                   | Rest of Africa                   |
-| MW                  | Malawi                                       | Rest of Africa                   |
-| MY                  | Malaysia                                     | Malaysia                         |
-| MV                  | Maldives                                     | Other                            |
-| ML                  | Mali                                         | Rest of Africa                   |
-| MT                  | Malta                                        | Other                            |
-| MH                  | Marshall Islands                             | Other                            |
-| MQ                  | Martinique                                   | Other                            |
-| MR                  | Mauritania                                   | Rest of Africa                   |
-| MU                  | Mauritius                                    | Other                            |
-| YT                  | Mayotte                                      | Other                            |
-| MX                  | Mexico                                       | Mexico                           |
-| FM                  | Micronesia                                   | Other                            |
-| MD                  | Moldova                                      | Rest of Central & Eastern Europe |
-| MC                  | Monaco                                       | Other                            |
-| MN                  | Mongolia                                     | Rest of Asia Pacific             |
-| ME                  | Montenegro                                   | Other                            |
-| MS                  | Montserrat                                   | Other                            |
-| MA                  | Morocco                                      | Rest of Africa                   |
-| MZ                  | Mozambique                                   | Rest of Africa                   |
-| MM                  | Myanmar                                      | Other                            |
-| NA                  | Namibia                                      | Rest of Africa                   |
-| NR                  | Nauru                                        | Other                            |
-| NP                  | Nepal                                        | Rest of Asia Pacific             |
-| NL                  | Netherlands                                  | Netherlands                      |
-| NC                  | New Caledonia                                | Other                            |
-| NZ                  | New Zealand                                  | Rest of Asia Pacific             |
-| NI                  | Nicaragua                                    | Rest of Latin America            |
-| NE                  | Niger                                        | Rest of Africa                   |
-| NG                  | Nigeria                                      | Nigeria                          |
-| NU                  | Niue                                         | Other                            |
-| NF                  | Norfolk Island                               | Other                            |
-| MP                  | Northern Mariana Islands                     | Other                            |
-| NO                  | Norway                                       | Rest of Western Europe           |
-| OM                  | Oman                                         | Rest of Middle East              |
-| PK                  | Pakistan                                     | Pakistan                         |
-| PW                  | Palau                                        | Other                            |
-| PS                  | Palestinian Territory                        | Other                            |
-| PA                  | Panama                                       | Rest of Latin America            |
-| PG                  | Papua New Guinea                             | Rest of Asia Pacific             |
-| PY                  | Paraguay                                     | Rest of Latin America            |
-| PE                  | Peru                                         | Peru                             |
-| PH                  | Philippines                                  | Rest of Asia Pacific             |
-| PN                  | Pitcairn                                     | Other                            |
-| PL                  | Poland                                       | Rest of Central & Eastern Europe |
-| PT                  | Portugal                                     | Rest of Western Europe           |
-| PR                  | Puerto Rico                                  | Rest of Latin America            |
-| QA                  | Qatar                                        | Rest of Middle East              |
-| CG                  | Republic of Congo                            | Other                            |
-| RE                  | Reunion                                      | Other                            |
-| RO                  | Romania                                      | Rest of Central & Eastern Europe |
-| RU                  | Russian Federation                           | Russia                           |
-| RW                  | Rwanda                                       | Rest of Africa                   |
-| SH                  | Saint Helena                                 | Other                            |
-| KN                  | Saint Kitts and Nevis                        | Other                            |
-| LC                  | Saint Lucia                                  | Other                            |
-| PM                  | Saint Pierre and Miquelon                    | Other                            |
-| VC                  | Saint Vincent and Grenadines                 | Other                            |
-| BL                  | Saint-Barthelemy                             | Other                            |
-| MF                  | Saint-Martin                                 | Other                            |
-| WS                  | Samoa                                        | Other                            |
-| SM                  | San Marino                                   | Other                            |
-| ST                  | Sao Tome and Principe                        | Other                            |
-| SA                  | Saudi Arabia                                 | Saudi Arabia                     |
-| SN                  | Senegal                                      | Rest of Africa                   |
-| RS                  | Serbia                                       | Rest of Central & Eastern Europe |
-| SC                  | Seychelles                                   | Other                            |
-| SL                  | Sierra Leone                                 | Rest of Africa                   |
-| SG                  | Singapore                                    | Rest of Asia Pacific             |
-| SX                  | Sint Maarten                                 | Other                            |
-| SK                  | Slovakia                                     | Rest of Central & Eastern Europe |
-| SI                  | Slovenia                                     | Rest of Central & Eastern Europe |
-| SB                  | Solomon Islands                              | Other                            |
-| SO                  | Somalia                                      | Rest of Africa                   |
-| ZA                  | South Africa                                 | South Africa                     |
-| GS                  | South Georgia and the South Sandwich Islands | Other                            |
-| KR                  | South Korea                                  | Other                            |
-| SS                  | South Sudan                                  | Rest of Africa                   |
-| ES                  | Spain                                        | Spain                            |
-| LK                  | Sri Lanka                                    | Rest of Asia Pacific             |
-| SR                  | Suriname                                     | Other                            |
-| SJ                  | Svalbard and Jan Mayen Islands               | Other                            |
-| SE                  | Sweden                                       | Rest of Western Europe           |
-| CH                  | Switzerland                                  | Rest of Western Europe           |
-| TW                  | Taiwan                                       | Rest of Asia Pacific             |
-| TJ                  | Tajikistan                                   | Rest of Asia Pacific             |
-| TZ                  | Tanzania                                     | Rest of Africa                   |
-| TH                  | Thailand                                     | Rest of Asia Pacific             |
-| TL                  | Timor-Leste                                  | Other                            |
-| TG                  | Togo                                         | Rest of Africa                   |
-| TK                  | Tokelau                                      | Other                            |
-| TO                  | Tonga                                        | Other                            |
-| TT                  | Trinidad and Tobago                          | Other                            |
-| TA                  | Tristan da Cunha                             | Other                            |
-| TN                  | Tunisia                                      | Rest of Africa                   |
-| TR                  | Turkey                                       | Turkey                           |
-| TM                  | Turkmenistan                                 | Rest of Asia Pacific             |
-| TC                  | Turks and Caicos Islands                     | Other                            |
-| TV                  | Tuvalu                                       | Other                            |
-| UG                  | Uganda                                       | Rest of Africa                   |
-| UA                  | Ukraine                                      | Rest of Central & Eastern Europe |
-| AE                  | United Arab Emirates                         | United Arab Emirates             |
-| GB                  | United Kingdom                               | United Kingdom                   |
-| US                  | United States                                | North America                    |
-| UY                  | Uruguay                                      | Rest of Latin America            |
-| UM                  | US Minor Outlying Islands                    | Other                            |
-| UZ                  | Uzbekistan                                   | Rest of Asia Pacific             |
-| VU                  | Vanuatu                                      | Other                            |
-| VA                  | Vatican City State                           | Other                            |
-| VE                  | Venezuela                                    | Rest of Latin America            |
-| VN                  | Vietnam                                      | Rest of Asia Pacific             |
-| VI                  | Virgin Islands                               | Other                            |
-| WF                  | Wallis and Futuna Islands                    | Other                            |
-| EH                  | Western Sahara                               | Other                            |
-| YE                  | Yemen                                        | Rest of Middle East              |
-| ZM                  | Zambia                                       | Rest of Africa                   |
-| ZW                  | Zimbabwe                                     | Other                            |
+Supported countries| Two-digit ISO country code | Country name | WhatsApp conversation billing region |
+| --- | --- | --- |
+| AF | Afghanistan | Rest of Asia Pacific |
+| AX | Aland Islands | Other |
+| AL | Albania | Rest of Central & Eastern Europe |
+| DZ | Algeria | Rest of Africa |
+| AS | American Samoa | Other |
+| AD | Andorra | Other |
+| AO | Angola | Rest of Africa |
+| AI | Anguilla | Other |
+| AQ | Antarctica | Other |
+| AG | Antigua and Barbuda | Other |
+| AR | Argentina | Argentina |
+| AM | Armenia | Rest of Central & Eastern Europe |
+| AW | Aruba | Other |
+| AC | Ascension Island | Other |
+| AU | Australia | Rest of Asia Pacific |
+| AT | Austria | Rest of Western Europe |
+| AZ | Azerbaijan | Rest of Central & Eastern Europe |
+| BS | Bahamas | Other |
+| BH | Bahrain | Rest of Middle East |
+| BD | Bangladesh | Rest of Asia Pacific |
+| BB | Barbados | Other |
+| BY | Belarus | Rest of Central & Eastern Europe |
+| BE | Belgium | Rest of Western Europe |
+| BZ | Belize | Other |
+| BJ | Benin | Rest of Africa |
+| BM | Bermuda | Other |
+| BT | Bhutan | Other |
+| BO | Bolivia | Rest of Latin America |
+| BQ | Bonaire | Other |
+| BA | Bosnia and Herzegovina | Other |
+| BW | Botswana | Rest of Africa |
+| BV | Bouvet Island | Other |
+| BR | Brazil | Brazil |
+| IO | British Indian Ocean Territory | Other |
+| VG | British Virgin Islands | Other |
+| BN | Brunei Darussalam | Other |
+| BG | Bulgaria | Rest of Central & Eastern Europe |
+| BF | BurkinaFaso | Rest of Africa |
+| BI | Burundi | Rest of Africa |
+| KH | Cambodia | Rest of Asia Pacific |
+| CM | Cameroon | Rest of Africa |
+| CA | Canada | North America |
+| CV | Cape Verde | Other |
+| KY | Cayman Islands | Other |
+| CF | Central African Republic | Other |
+| TD | Chad | Rest of Africa |
+| CL | Chile | Chile |
+| CN | China | Rest of Asia Pacific |
+| CX | Christmas Island | Other |
+| CC | Cocos(Keeling) Islands | Other |
+| CO | Colombia | Colombia |
+| KM | Comoros | Other |
+| CK | Cook Islands | Other |
+| CR | Costa Rica | Rest of Latin America |
+| CI | Cote d'Ivoire | Rest of Africa |
+| HR | Croatia | Rest of Central & Eastern Europe |
+| CW | Curacao | Other |
+| CY | Cyprus | Other |
+| CZ | Czech Republic | Rest of Central & Eastern Europe |
+| CD | Democratic Republic of the Congo | Rest of Africa |
+| DK | Denmark | Rest of Western Europe |
+| DJ | Djibouti | Other |
+| DM | Dominica | Other |
+| DO | Dominican Republic | Rest of Latin America |
+| EC | Ecuador | Rest of Latin America |
+| EG | Egypt | Egypt |
+| SV | El Salvador | Rest of Latin America |
+| GQ | Equatorial Guinea | Other |
+| ER | Eritrea | Rest of Africa |
+| EE | Estonia | Other |
+| ET | Ethiopia | Rest of Africa |
+| SZ | Eswatini | Rest of Africa |
+| FK | Falkland Islands | Other |
+| FO | Faroe Islands | Other |
+| FJ | Fiji | Other |
+| FI | Finland | Rest of Western Europe |
+| FR | France | France |
+| GF | French Guiana | Other |
+| PF | French Polynesia | Other |
+| TF | French Southern Territories | Other |
+| GA | Gabon | Rest of Africa |
+| GM | Gambia | Rest of Africa |
+| GE | Georgia | Rest of Central & Eastern Europe |
+| DE | Germany | Germany |
+| GH | Ghana | Rest of Africa |
+| GI | Gibraltar | Other |
+| GR | Greece | Rest of Central & Eastern Europe |
+| GL | Greenland | Other |
+| GD | Grenada | Other |
+| GP | Guadeloupe | Other |
+| GU | Guam | Other |
+| GT | Guatemala | Rest of Latin America |
+| GG | Guernsey | Other |
+| GN | Guinea | Other |
+| GW | Guinea-Bissau | Rest of Africa |
+| GY | Guyana | Other |
+| HT | Haiti | Rest of Latin America |
+| HM | Heard and McDonald Islands | Other |
+| HN | Honduras | Rest of Latin America |
+| HK | Hong Kong | Rest of Asia Pacific |
+| HU | Hungary | Rest of Central & Eastern Europe |
+| IS | Iceland | Other |
+| IN | India | India |
+| ID | Indonesia | Indonesia |
+| IQ | Iraq | Rest of Middle East |
+| IE | Ireland | Rest of Western Europe |
+| IM | Isle of Man | Other |
+| IL | Israel | Israel |
+| IT | Italy | Italy |
+| JM | Jamaica | Rest of Latin America |
+| JP | Japan | Rest of Asia Pacific |
+| JE | Jersey | Other |
+| JO | Jordan | Rest of Middle East |
+| KZ | Kazakhstan | Other |
+| KE | Kenya | Rest of Africa |
+| KI | Kiribati | Other |
+| XK | Kosovo | Other |
+| KW | Kuwait | Rest of Middle East |
+| KG | Kyrgyzstan | Other |
+| LA | Lao PDR | Rest of Asia Pacific |
+| LV | Latvia | Rest of Central & Eastern Europe |
+| LB | Lebanon | Rest of Middle East |
+| LS | Lesotho | Rest of Africa |
+| LR | Liberia | Rest of Africa |
+| LY | Libya | Rest of Africa |
+| LI | Liechtenstein | Other |
+| LT | Lithuania | Rest of Central & Eastern Europe |
+| LU | Luxembourg | Other |
+| MO | Macao | Other |
+| MK | Macedonia | Rest of Central & Eastern Europe |
+| MG | Madagascar | Rest of Africa |
+| MW | Malawi | Rest of Africa |
+| MY | Malaysia | Malaysia |
+| MV | Maldives | Other |
+| ML | Mali | Rest of Africa |
+| MT | Malta | Other |
+| MH | Marshall Islands | Other |
+| MQ | Martinique | Other |
+| MR | Mauritania | Rest of Africa |
+| MU | Mauritius | Other |
+| YT | Mayotte | Other |
+| MX | Mexico | Mexico |
+| FM | Micronesia | Other |
+| MD | Moldova | Rest of Central & Eastern Europe |
+| MC | Monaco | Other |
+| MN | Mongolia | Rest of Asia Pacific |
+| ME | Montenegro | Other |
+| MS | Montserrat | Other |
+| MA | Morocco | Rest of Africa |
+| MZ | Mozambique | Rest of Africa |
+| MM | Myanmar | Other |
+| NA | Namibia | Rest of Africa |
+| NR | Nauru | Other |
+| NP | Nepal | Rest of Asia Pacific |
+| NL | Netherlands | Netherlands |
+| NC | New Caledonia | Other |
+| NZ | New Zealand | Rest of Asia Pacific |
+| NI | Nicaragua | Rest of Latin America |
+| NE | Niger | Rest of Africa |
+| NG | Nigeria | Nigeria |
+| NU | Niue | Other |
+| NF | Norfolk Island | Other |
+| MP | Northern Mariana Islands | Other |
+| NO | Norway | Rest of Western Europe |
+| OM | Oman | Rest of Middle East |
+| PK | Pakistan | Pakistan |
+| PW | Palau | Other |
+| PS | Palestinian Territory | Other |
+| PA | Panama | Rest of Latin America |
+| PG | Papua New Guinea | Rest of Asia Pacific |
+| PY | Paraguay | Rest of Latin America |
+| PE | Peru | Peru |
+| PH | Philippines | Rest of Asia Pacific |
+| PN | Pitcairn | Other |
+| PL | Poland | Rest of Central & Eastern Europe |
+| PT | Portugal | Rest of Western Europe |
+| PR | Puerto Rico | Rest of Latin America |
+| QA | Qatar | Rest of Middle East |
+| CG | Republic of Congo | Other |
+| RE | Reunion | Other |
+| RO | Romania | Rest of Central & Eastern Europe |
+| RU | Russian Federation | Russia |
+| RW | Rwanda | Rest of Africa |
+| SH | Saint Helena | Other |
+| KN | Saint Kitts and Nevis | Other |
+| LC | Saint Lucia | Other |
+| PM | Saint Pierre and Miquelon | Other |
+| VC | Saint Vincent and Grenadines | Other |
+| BL | Saint-Barthelemy | Other |
+| MF | Saint-Martin | Other |
+| WS | Samoa | Other |
+| SM | San Marino | Other |
+| ST | Sao Tome and Principe | Other |
+| SA | Saudi Arabia | Saudi Arabia |
+| SN | Senegal | Rest of Africa |
+| RS | Serbia | Rest of Central & Eastern Europe |
+| SC | Seychelles | Other |
+| SL | Sierra Leone | Rest of Africa |
+| SG | Singapore | Rest of Asia Pacific |
+| SX | Sint Maarten | Other |
+| SK | Slovakia | Rest of Central & Eastern Europe |
+| SI | Slovenia | Rest of Central & Eastern Europe |
+| SB | Solomon Islands | Other |
+| SO | Somalia | Rest of Africa |
+| ZA | South Africa | South Africa |
+| GS | South Georgia and the South Sandwich Islands | Other |
+| KR | South Korea | Other |
+| SS | South Sudan | Rest of Africa |
+| ES | Spain | Spain |
+| LK | Sri Lanka | Rest of Asia Pacific |
+| SR | Suriname | Other |
+| SJ | Svalbard and Jan Mayen Islands | Other |
+| SE | Sweden | Rest of Western Europe |
+| CH | Switzerland | Rest of Western Europe |
+| TW | Taiwan | Rest of Asia Pacific |
+| TJ | Tajikistan | Rest of Asia Pacific |
+| TZ | Tanzania | Rest of Africa |
+| TH | Thailand | Rest of Asia Pacific |
+| TL | Timor-Leste | Other |
+| TG | Togo | Rest of Africa |
+| TK | Tokelau | Other |
+| TO | Tonga | Other |
+| TT | Trinidad and Tobago | Other |
+| TA | Tristan da Cunha | Other |
+| TN | Tunisia | Rest of Africa |
+| TR | Turkey | Turkey |
+| TM | Turkmenistan | Rest of Asia Pacific |
+| TC | Turks and Caicos Islands | Other |
+| TV | Tuvalu | Other |
+| UG | Uganda | Rest of Africa |
+| UA | Ukraine | Rest of Central & Eastern Europe |
+| AE | United Arab Emirates | United Arab Emirates |
+| GB | United Kingdom | United Kingdom |
+| US | United States | North America |
+| UY | Uruguay | Rest of Latin America |
+| UM | US Minor Outlying Islands | Other |
+| UZ | Uzbekistan | Rest of Asia Pacific |
+| VU | Vanuatu | Other |
+| VA | Vatican City State | Other |
+| VE | Venezuela | Rest of Latin America |
+| VN | Vietnam | Rest of Asia Pacific |
+| VI | Virgin Islands | Other |
+| WF | Wallis and Futuna Islands | Other |
+| EH | Western Sahara | Other |
+| YE | Yemen | Rest of Middle East |
+| ZM | Zambia | Rest of Africa |
+| ZW | Zimbabwe | Other |

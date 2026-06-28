@@ -27,5 +27,5 @@ In the preceding command, do the following:
 
 - Replace `{BUCKET}` with the name of the Amazon S3
   bucket.
-- Replace `{MEDIA_ID}` with the MEDIA_ID returned from the previous
+- Replace `{MEDIA_ID}` with the MEDIA\_ID returned from the previous
   step.

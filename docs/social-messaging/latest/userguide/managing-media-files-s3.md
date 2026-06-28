@@ -33,7 +33,7 @@ In the preceding command:
      with the name of the new bucket.
 
 2. To copy a file to the Amazon S3 bucket, use the [cp](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-copy "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-copy") AWS CLI command. At the command line, enter the following
-   command:
+command:
 
 ```
 aws s3 cp `SourceFilePathAndName` s3://`BucketName`/`FileName`

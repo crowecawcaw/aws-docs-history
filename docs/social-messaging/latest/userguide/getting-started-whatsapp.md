@@ -104,10 +104,9 @@ or **Create a Meta Business account**.
      in.
     5. (Optional) Choose **Add address** and enter your business's address.
 
-8. Choose **Next**.
-9. For **Choose a WhatsApp Business Account**, choose an existing
-   WhatsApp Business Account (WABA), or if you need to create an account, choose **Create a WhatsApp Business
-   Account**.
+8. Choose **Next**. 9. For **Choose a WhatsApp Business Account**, choose an existing
+WhatsApp Business Account (WABA), or if you need to create an account, choose **Create a WhatsApp Business
+Account**.
 
 For **Create or Select a WhatsApp Business Profile**, choose an existing
 WhatsApp business profile, or **Create a new WhatsApp Business Profile**. 10. Choose **Next**. 11. For **Create a Business Profile**, enter the following information:
@@ -143,17 +142,15 @@ WhatsApp business profile, or **Create a new WhatsApp Business Profile**. 10. Ch
     * Choose **Next**.
 
 12. For **Add a phone number for WhatsApp**, enter a phone number to
-    register. This phone number is displayed to your customers when you send them a message.
-13. For **Choose how you would like to verify your number**, choose either
-    **Text message** or **Phone call**.
+register. This phone number is displayed to your customers when you send them a message. 13. For **Choose how you would like to verify your number**, choose either
+**Text message** or **Phone call**.
 
-    - Once you are ready to receive the verification code, choose
-      **Next**.
-    - Enter the verification code, and then choose **Next**.
+    * Once you are ready to receive the verification code, choose
+     **Next**.
+    * Enter the verification code, and then choose **Next**.
 
 14. Once your number has been verified, you can choose **Next** to close the
-    window from Meta.
-15. For **WhatsApp business account** expand **Tags - optional** to add tags to your WhatsApp business account.
+window from Meta. 15. For **WhatsApp business account** expand **Tags - optional** to add tags to your WhatsApp business account.
 
 Tags are pairs of keys and values that you can optionally apply to your AWS resources to
 control access or usage. Choose **Add new tag** and enter a key-value pair to
@@ -191,9 +188,9 @@ For each phone number under **WhatsApp Phone numbers**:
     	 pair to attach.
 
 18. A WABA can have one message and event destination to log events for the WABA and all
-    resources associated to the WABA. To enable event logging , including logging of
-    receiving a customer message, you need to turn on **Message and event
-    publishing**. For more information, see [Message and event destinations in AWS End User Messaging Social](managing-event-destinations.md "managing-event-destinations.md").
+resources associated to the WABA. To enable event logging , including logging of
+receiving a customer message, you need to turn on **Message and event
+publishing**. For more information, see [Message and event destinations in AWS End User Messaging Social](managing-event-destinations.md "managing-event-destinations.md").
 
 ###### Important
 

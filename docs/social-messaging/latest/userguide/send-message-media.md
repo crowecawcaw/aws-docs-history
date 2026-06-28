@@ -68,8 +68,8 @@ In the preceding command, do the following:
      returned from the previous step.
 
 4. When you no longer need the media file, you can delete it from WhatsApp using
-   the [delete-whatsapp-message-media](../../../cli/latest/reference/socialmessaging/delete-whatsapp-media-message.md "../../../cli/latest/reference/socialmessaging/delete-whatsapp-media-message.md") command. This
-   only removes the media file from WhatsApp and not your Amazon S3 bucket.
+the [delete-whatsapp-message-media](../../../cli/latest/reference/socialmessaging/delete-whatsapp-media-message.md "../../../cli/latest/reference/socialmessaging/delete-whatsapp-media-message.md") command. This
+only removes the media file from WhatsApp and not your Amazon S3 bucket.
 
 ```
 aws socialmessaging delete-whatsapp-message-media --media-id `{MEDIA_ID}` --origination-phone-number-id `{ORIGINATION_PHONE_NUMBER_ID}`

@@ -19,10 +19,10 @@ The following tables list the metrics and dimensions that AWS End User Messaging
 | WhatsAppMessageFeeCount     | Count | The count of WhatsApp message fees      |
 | MetaTemplateMessageFeeCount | Count | The count of Meta template message fees |
 
-| Dimension                      | Description                                                                                                        |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| MessageFeeType                 | Valid fee types are Authentication, Authentication_International, Inbound, Marketing,<br>Service,Standard, Utility |
-| DestinationCountryCode         | The two letter ISO code for the country                                                                            |
-| WhatsAppPhoneNumberArn         | The arn of the phone number                                                                                        |
-| MetaTemplateMessageFeeType     | Valid fee types are regular, free_customer_service, free_entry_point                                               |
-| MetaTemplateMessageFeeCategory | Valid fee categories are service, marketing, utility, authentication,<br>authentication_international              |
+| Dimension                      | Description                                                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| MessageFeeType                 | Valid fee types are Authentication, Authentication\_International, Inbound, Marketing,<br>Service,Standard, Utility |
+| DestinationCountryCode         | The two letter ISO code for the country                                                                             |
+| WhatsAppPhoneNumberArn         | The arn of the phone number                                                                                         |
+| MetaTemplateMessageFeeType     | Valid fee types are regular, free\_customer\_service, free\_entry\_point                                            |
+| MetaTemplateMessageFeeCategory | Valid fee categories are service, marketing, utility, authentication,<br>authentication\_international              |

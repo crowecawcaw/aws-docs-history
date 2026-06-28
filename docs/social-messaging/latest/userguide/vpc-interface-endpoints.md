@@ -32,8 +32,10 @@ console or the AWS Command Line Interface (AWS CLI). For more information, see [
 Create an interface endpoint for AWS End User Messaging Social using the following service name:
 
 - ```
-  com.amazonaws.`region`.social-messaging
+
   ```
+
+com.amazonaws.`region`.social-messaging
 
 ```
 
