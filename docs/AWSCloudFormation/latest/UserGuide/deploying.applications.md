@@ -322,7 +322,7 @@ being installed and configured.
 2. Watch for the `WebServer CREATE_IN_PROGRESS` event. The bootstrap process
    begins after the instance launches.
 3. The bootstrap process typically takes a few minutes. You'll see `WebServer
-CREATE_COMPLETE` when it's finished.
+ CREATE_COMPLETE` when it's finished.
 
 If you want to see what's happening during the bootstrap process, you can check the
 instance logs.
@@ -347,7 +347,7 @@ When your stack shows `CREATE_COMPLETE`, test your web server.
 2. Click on the **WebsiteURL** value to open your web server in a new
    tab.
 3. You should see your custom web page with the message `Congratulations, you have
-successfully launched the AWS CloudFormation sample`.
+ successfully launched the AWS CloudFormation sample`.
 
 ###### Note
 

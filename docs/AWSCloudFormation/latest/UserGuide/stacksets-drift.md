@@ -98,7 +98,7 @@ stack instance:
      resource is displayed to help you identify them.
 
 8. You can sort the resources based on their drift status using the
-   **Drift status** column.
+**Drift status** column.
 
 To view the details on a modified resource:
 

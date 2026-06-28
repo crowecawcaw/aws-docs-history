@@ -154,14 +154,14 @@ cross-account and cross-Region references.
 
 The following table compares the two approaches:
 
-| Comparison of Export with Fn::ImportValue and Fn::GetStackOutput | Capability                                  | Export + `Fn::ImportValue`     | `Fn::GetStackOutput` |
-| ---------------------------------------------------------------- | ------------------------------------------- | ------------------------------ | -------------------- |
-| Same account, same Region                                        | Supported                                   | Supported                      |
-| Cross-account                                                    | Not supported                               | Supported                      |
-| Cross-Region                                                     | Not supported                               | Supported                      |
-| Requires explicit Export                                         | Yes                                         | No                             |
-| Reference type                                                   | Strong (blocks deletion of exporting stack) | Weak (resolved at deploy time) |
-| Referential integrity                                            | Enforced                                    | Not enforced                   |
+Comparison of Export with Fn::ImportValue and Fn::GetStackOutput| Capability | Export + `Fn::ImportValue` | `Fn::GetStackOutput` |
+| --- | --- | --- |
+| Same account, same Region | Supported | Supported |
+| Cross-account | Not supported | Supported |
+| Cross-Region | Not supported | Supported |
+| Requires explicit Export | Yes | No |
+| Reference type | Strong (blocks deletion of exporting stack) | Weak (resolved at deploy time) |
+| Referential integrity | Enforced | Not enforced |
 
 When to use each approach:
 

@@ -38,83 +38,83 @@ process.
 
 ###### To create a Hello world CloudFormation stack with the console
 
-1.  Open the [CloudFormation
-    console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  Choose **Create Stack**.
-3.  On the **Create stack** page, choose **Build from
-    Infrastructure Composer**, and then **Create in Infrastructure Composer**.
-    This takes you to Infrastructure Composer in CloudFormation console mode where you can upload and validate
-    the example template.
-4.  To upload and validate the example template, do the following:
+1. Open the [CloudFormation
+   console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Choose **Create Stack**.
+3. On the **Create stack** page, choose **Build from
+   Infrastructure Composer**, and then **Create in Infrastructure Composer**.
+   This takes you to Infrastructure Composer in CloudFormation console mode where you can upload and validate
+   the example template.
+4. To upload and validate the example template, do the following:
 
-    1. Choose **Template**. Then, copy and paste the following
-       CloudFormation template into the template editor:
+   1. Choose **Template**. Then, copy and paste the following
+      CloudFormation template into the template editor:
 
-    ```
-    AWSTemplateFormatVersion: 2010-09-09
-    Description: CloudFormation Template for WebServer with Security Group and EC2 Instance
+   ```
+   AWSTemplateFormatVersion: 2010-09-09
+   Description: CloudFormation Template for WebServer with Security Group and EC2 Instance
 
-    Parameters:
-      LatestAmiId:
-        Description: The latest Amazon Linux 2 AMI from the Parameter Store
-        Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
-        Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+   Parameters:
+     LatestAmiId:
+       Description: The latest Amazon Linux 2 AMI from the Parameter Store
+       Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
+       Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
 
-      InstanceType:
-        Description: WebServer EC2 instance type
-        Type: String
-        Default: t2.micro
-        AllowedValues:
-          - t3.micro
-          - t2.micro
-        ConstraintDescription: must be a valid EC2 instance type.
+     InstanceType:
+       Description: WebServer EC2 instance type
+       Type: String
+       Default: t2.micro
+       AllowedValues:
+         - t3.micro
+         - t2.micro
+       ConstraintDescription: must be a valid EC2 instance type.
 
-      MyIP:
-        Description: Your IP address in CIDR format (e.g. 203.0.113.1/32).
-        Type: String
-        MinLength: '9'
-        MaxLength: '18'
-        Default: 0.0.0.0/0
-        AllowedPattern: '^(\d{1,3}\.){3}\d{1,3}\/\d{1,2}$'
-        ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.
+     MyIP:
+       Description: Your IP address in CIDR format (e.g. 203.0.113.1/32).
+       Type: String
+       MinLength: '9'
+       MaxLength: '18'
+       Default: 0.0.0.0/0
+       AllowedPattern: '^(\d{1,3}\.){3}\d{1,3}\/\d{1,2}$'
+       ConstraintDescription: must be a valid IP CIDR range of the form x.x.x.x/x.
 
-    Resources:
-      WebServerSecurityGroup:
-        Type: AWS::EC2::SecurityGroup
-        Properties:
-          GroupDescription: Allow HTTP access via my IP address
-          SecurityGroupIngress:
-            - IpProtocol: tcp
-              FromPort: 80
-              ToPort: 80
-              CidrIp: !Ref MyIP
+   Resources:
+     WebServerSecurityGroup:
+       Type: AWS::EC2::SecurityGroup
+       Properties:
+         GroupDescription: Allow HTTP access via my IP address
+         SecurityGroupIngress:
+           - IpProtocol: tcp
+             FromPort: 80
+             ToPort: 80
+             CidrIp: !Ref MyIP
 
-      WebServer:
-        Type: AWS::EC2::Instance
-        Properties:
-          ImageId: !Ref LatestAmiId
-          InstanceType: !Ref InstanceType
-          SecurityGroupIds:
-            - !Ref WebServerSecurityGroup
-          UserData: !Base64 |
-            #!/bin/bash
-            yum update -y
-            yum install -y httpd
-            systemctl start httpd
-            systemctl enable httpd
-            echo "<html><body><h1>Hello World!</h1></body></html>" > /var/www/html/index.html
+     WebServer:
+       Type: AWS::EC2::Instance
+       Properties:
+         ImageId: !Ref LatestAmiId
+         InstanceType: !Ref InstanceType
+         SecurityGroupIds:
+           - !Ref WebServerSecurityGroup
+         UserData: !Base64 |
+           #!/bin/bash
+           yum update -y
+           yum install -y httpd
+           systemctl start httpd
+           systemctl enable httpd
+           echo "<html><body><h1>Hello World!</h1></body></html>" > /var/www/html/index.html
 
-    Outputs:
-      WebsiteURL:
-        Value: !Join
-          - ''
-          - - http://
-            - !GetAtt WebServer.PublicDnsName
-        Description: Website URL
-    ```
+   Outputs:
+     WebsiteURL:
+       Value: !Join
+         - ''
+         - - http://
+           - !GetAtt WebServer.PublicDnsName
+       Description: Website URL
+   ```
 
-    Before you move to the next step, let's take a moment to take a look at the
-    template and understand some key CloudFormation concepts.
+   Before you move to the next step, let's take a moment to take a look at the
+   template and understand some key CloudFormation concepts.
 
         * The `Parameters` section
          declares values that can be passed to the template when you create the
@@ -188,44 +188,43 @@ process.
         	 combine the fixed `http://` with the variable
         	 `PublicDnsName` into a single string, making it easy
         	 to output the full URL of the web server.
-    2. Choose **Validate** to make sure the YAML code is valid
-       before uploading the template.
-    3. Next, choose **Create template** to create the template and
-       add it to an S3 bucket.
-    4. From the dialog box that opens, make a note of the name of the S3 bucket so
-       you can delete it later. Then, choose **Confirm and continue to
-       CloudFormation**. This takes you to the CloudFormation console where the S3
-       path to your template is now specified.
 
-5.  On the **Create stack** page, choose
-    **Next**.
-6.  On the **Specify stack details** page, type a name in the
-    **Stack name** field. The stack name can't contain spaces. For
-    this example, use `MyTestStack`.
-7.  Under **Parameters**, specify parameter values as follows:
+   2. Choose **Validate** to make sure the YAML code is valid
+   before uploading the template. 3. Next, choose **Create template** to create the template and
+   add it to an S3 bucket. 4. From the dialog box that opens, make a note of the name of the S3 bucket so
+   you can delete it later. Then, choose **Confirm and continue to
+   CloudFormation**. This takes you to the CloudFormation console where the S3
+   path to your template is now specified.
 
-    - **LatestAmiId**: This is set by default to the latest
-      Amazon Linux 2 AMI.
-    - **InstanceType**: Choose either
-      **t2.micro** or **t3.micro** for the EC2
-      instance type.
+5. On the **Create stack** page, choose
+   **Next**.
+6. On the **Specify stack details** page, type a name in the
+   **Stack name** field. The stack name can't contain spaces. For
+   this example, use `MyTestStack`.
+7. Under **Parameters**, specify parameter values as follows:
 
-    ###### Note
+   - **LatestAmiId**: This is set by default to the latest
+     Amazon Linux 2 AMI.
+   - **InstanceType**: Choose either
+     **t2.micro** or **t3.micro** for the EC2
+     instance type.
 
-    If you're new to AWS, you can use the free tier to launch and use a
-    `t2.micro` instance for free for 12 months (in Regions where
-    `t2.micro` is unavailable, you can use a `t3.micro`
-    instance under the free tier).
-    - **MyIP**: Specify your actual public IP address with a
-      `/32` suffix. The `/32` suffix is used in CIDR
-      notation to specify that a single IP address is allowed. It essentially means
-      allow traffic to and from this specific IP address, and no others.
+   ###### Note
 
-8.  Choose **Next** twice to go to the **Review and
-    create** page. For this tutorial, you can leave the defaults on the
-    **Configure stack options** page as they are.
-9.  Review the information for the stack. When you're satisfied with the settings,
-    choose **Submit**.
+   If you're new to AWS, you can use the free tier to launch and use a
+   `t2.micro` instance for free for 12 months (in Regions where
+   `t2.micro` is unavailable, you can use a `t3.micro`
+   instance under the free tier).
+   - **MyIP**: Specify your actual public IP address with a
+     `/32` suffix. The `/32` suffix is used in CIDR
+     notation to specify that a single IP address is allowed. It essentially means
+     allow traffic to and from this specific IP address, and no others.
+
+8. Choose **Next** twice to go to the **Review and
+   create** page. For this tutorial, you can leave the defaults on the
+   **Configure stack options** page as they are.
+9. Review the information for the stack. When you're satisfied with the settings,
+   choose **Submit**.
 
 ## Monitor stack creation
 

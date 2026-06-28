@@ -12,35 +12,35 @@ events**.
 The top panel provides the following information about the Git sync configuration for
 the stack.
 
-\***\*Repository\*\***
+****Repository****
 
 A link to the repository that is connected to Git sync
 
-\***\*Repository provider\*\***
+****Repository provider****
 
 The name of the repository provider
 
-\***\*Branch\*\***
+****Branch****
 
 The name of the branch that Git sync is monitoring
 
-\***\*Deployment file path\*\***
+****Deployment file path****
 
 The full path to the stack deployment file for this stack
 
-\***\*Repository sync status\*\***
+****Repository sync status****
 
 The status of the most recent sync operation
 
-\***\*Repository sync status message\*\***
+****Repository sync status message****
 
 The message of the most recent sync operation
 
-\***\*Git sync status\*\***
+****Git sync status****
 
 The status of Git sync for this stack
 
-\***\*Provisioning status\*\***
+****Provisioning status****
 
 The status of the provisioning operation
 

@@ -38,11 +38,10 @@ prerequisites:
   create a StackSet and deploy stacks within a single account, you need the following
   roles in your account:
 
-      + `AWSCloudFormationStackSetAdministrationRole`
-      + `AWSCloudFormationStackSetExecutionRole`
-
-  For detailed instructions on setting up these roles, see [Grant self-managed
-  permissions](stacksets-prereqs-self-managed.md "stacksets-prereqs-self-managed.md").
+  - `AWSCloudFormationStackSetAdministrationRole`
+  - `AWSCloudFormationStackSetExecutionRole`
+    For detailed instructions on setting up these roles, see [Grant self-managed
+    permissions](stacksets-prereqs-self-managed.md "stacksets-prereqs-self-managed.md").
 
 ## Create a StackSet with a sample template from the console
 
@@ -65,10 +64,9 @@ prerequisites.
      **AWSCloudFormationStackSetExecutionRole**.
 
 6. Under **Prerequisite - Prepare template**, choose
-   **Use a sample template**.
-7. Under **Select a sample template**, choose the
-   **Enable AWS Config** template. Then, choose
-   **Next**.
+**Use a sample template**. 7. Under **Select a sample template**, choose the
+**Enable AWS Config** template. Then, choose
+**Next**.
 
 This template creates the necessary resources to enable AWS Config in your account,
 including a configuration recorder and delivery channel. 8. On the **Specify StackSet details** page, for
@@ -98,76 +96,71 @@ follows:
     5. For **Configuration recorder recording frequency**,
      choose **DAILY** recording.
 
-11. Choose **Next** to continue.
-12. On the **Configure StackSet options** page, choose
-    **Add new tag** and add a tag by specifying a key and value
-    pair:
+11. Choose **Next** to continue. 12. On the **Configure StackSet options** page, choose
+**Add new tag** and add a tag by specifying a key and value
+pair:
 
-    1.  For **Key**, enter
-        `Stage`.
-    2.  For **Value**, enter
-        `Test`.Tags that you apply to StackSets are applied to resources that are created
-        by your stacks.
+    1. For **Key**, enter
+     `Stage`.
+    2. For **Value**, enter
+     `Test`.Tags that you apply to StackSets are applied to resources that are created
 
-13. For **Execution configuration**, choose
-    **Active** to enable CloudFormation's optimized operation
-    handling:
+by your stacks. 13. For **Execution configuration**, choose
+**Active** to enable CloudFormation's optimized operation
+handling:
 
-        * Non-conflicting operations run concurrently for faster deployment
-         times.
-        * Conflicting operations are automatically queued and processed in
-         the order they were requested.
+    * Non-conflicting operations run concurrently for faster deployment
+     times.
+    * Conflicting operations are automatically queued and processed in
+     the order they were requested.
 
-    While operations are running or queued, CloudFormation queues all incoming
-    operations even if they're non-conflicting. You can't change execution
-    settings during this time.
+While operations are running or queued, CloudFormation queues all incoming
+operations even if they're non-conflicting. You can't change execution
+settings during this time. 14. Choose **Next**. 15. On the **Set deployment options** page, for **Add
+stacks to StackSet**, choose **Deploy new
+stacks**. 16. For **Accounts**, choose **Deploy stacks in
+accounts**. 17. In the text box, enter your AWS account ID. 18. For **Specify regions**, select the following Regions in this
+order:
 
-14. Choose **Next**.
-15. On the **Set deployment options** page, for **Add
-    stacks to StackSet**, choose **Deploy new
-    stacks**.
-16. For **Accounts**, choose **Deploy stacks in
-    accounts**.
-17. In the text box, enter your AWS account ID.
-18. For **Specify regions**, select the following Regions in this
-    order:
+    1. US West (Oregon) Region (`us-west-2`)
+    2. US East (N. Virginia) Region (`us-east-1`)
 
-        1. US West (Oregon) Region (`us-west-2`)
-        2. US East (N. Virginia) Region (`us-east-1`)
+Use the up arrow next to US West (Oregon) Region to move it to be the first entry in
+the list if needed. The order of the Regions determines their deployment
+order. 19. For **Deployment options**, configure the following
+settings:
 
-    Use the up arrow next to US West (Oregon) Region to move it to be the first entry in
-    the list if needed. The order of the Regions determines their deployment
-    order.
+    1. For **Maximum concurrent accounts**, keep the
+     defaults of **Number** and
+     **1**.
 
-19. For **Deployment options**, configure the following
-    settings:
-
-    1.  For **Maximum concurrent accounts**, keep the
-        defaults of **Number** and
-        **1**.
 
     For multi-account deployments, this setting means that CloudFormation
-    deploys your stack in only one account at a time. 2. For **Failure tolerance**, keep the defaults of
-    **Number** and **0**.
+     deploys your stack in only one account at a time.
+    2. For **Failure tolerance**, keep the defaults of
+     **Number** and **0**.
+
 
     This means that a maximum of zero stack deployments can fail in one of
-    your specified Regions before CloudFormation stops deployment in the current
-    Region and cancels deployments in remaining Regions. 3. For **Region concurrency**, choose
-    **Sequential** (default).
+     your specified Regions before CloudFormation stops deployment in the current
+     Region and cancels deployments in remaining Regions.
+    3. For **Region concurrency**, choose
+     **Sequential** (default).
+
 
     This setting ensures that CloudFormation completes deployments in one
-    Region before moving to the next. 4. For **Concurrency mode**, keep the default of
-    **Strict failure tolerance**.
+     Region before moving to the next.
+    4. For **Concurrency mode**, keep the default of
+     **Strict failure tolerance**.
+
 
     For multi-account deployments, this reduces the account concurrency
-    level when failures occur, staying within **Failure
-    tolerance** +1.
+     level when failures occur, staying within **Failure
+     tolerance** +1.
 
-20. Choose **Next**.
-21. On the **Review** page, review your choices. To make changes,
-    choose **Edit** on the related section.
-22. When you are ready to create your StackSet, choose
-    **Submit**.
+20. Choose **Next**. 21. On the **Review** page, review your choices. To make changes,
+choose **Edit** on the related section. 22. When you are ready to create your StackSet, choose
+**Submit**.
 
 ## Monitor StackSet creation
 
@@ -217,10 +210,10 @@ parameter.
    `my-awsconfig-stackset`.
 2. With the StackSet selected, choose **Edit StackSet details** from
    the **Actions** menu.
-3. On the **Choose a template** page, for \*\*Prerequisite
+3. On the **Choose a template** page, for **Prerequisite
 
 - Prepare template**, choose **Use current
-  template\*\*.
+  template**.
 
 4. Choose **Next**.
 5. On the **Specify StackSet details** page, under

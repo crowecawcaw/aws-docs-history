@@ -113,20 +113,19 @@ Update stack
 
 ###### To preserve successfully provisioned resources during an update stack operation
 
-1.  Sign in to the AWS Management Console and open the CloudFormation console at
-    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  Select the stack you want to update and then choose **Update**.
-3.  On the **Update stack** page, choose a stack template by using one of
-    the following options:
+1. Sign in to the AWS Management Console and open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. Select the stack you want to update and then choose **Update**.
+3. On the **Update stack** page, choose a stack template by using one of
+   the following options:
 
-        * **Use existing template**
-        * **Replace current template**
-        * **Edit template in Infrastructure Composer**
+   - **Use existing template**
+   - **Replace current template**
+   - **Edit template in Infrastructure Composer**
+     Accept your settings and select **Next**.
 
-    Accept your settings and select **Next**.
-
-4.  On the **Specify stack details** page, specify parameters that are
-    defined in your stack template.
+4. On the **Specify stack details** page, specify parameters that are
+   defined in your stack template.
 
 You can use or change any parameters with default values. 5. When you're satisfied with the parameter values, choose
 **Next**. 6. On the **Configure stack options** page, you can set additional

@@ -33,23 +33,17 @@ information about Infrastructure Composer, see [Create templates visually with I
      right of the canvas.
 
 6. To view a specific resource in the console, choose the **Template
-   resources** tab and then choose the physical ID of the resource you
-   want to look at. This takes you to the console for that specific resource. You
-   can also add, remove, and resync resources in the template definition from the
-   **Template resources** tab.
-7. On the **Template definition** tab, IaC generator might issue
-   warnings about resources that contain write-only properties. After reviewing the
-   warnings, you can download the generated template and make any necessary
-   changes. For more information, see [Resolve write-only properties](generate-IaC-write-only-properties.md "generate-IaC-write-only-properties.md").
-8. When you are satisfied with your template definition, on the
-   **Template definition** tab, choose **Import to
-   stack** and then choose **Next**.
-9. On the **Specify stack** panel of the **Specify stack
-   details** page, enter the name of your stack, and then choose
-   **Next**.
-10. Review and enter the parameters for the stack. Choose
-    **Next**.
-11. Review your options on the **Review changes** page and choose
-    **Next**.
-12. Review your details on the **Review and import** page and
-    choose **Import resources**.
+resources** tab and then choose the physical ID of the resource you
+want to look at. This takes you to the console for that specific resource. You
+can also add, remove, and resync resources in the template definition from the
+**Template resources** tab. 7. On the **Template definition** tab, IaC generator might issue
+warnings about resources that contain write-only properties. After reviewing the
+warnings, you can download the generated template and make any necessary
+changes. For more information, see [Resolve write-only properties](generate-IaC-write-only-properties.md "generate-IaC-write-only-properties.md"). 8. When you are satisfied with your template definition, on the
+**Template definition** tab, choose **Import to
+stack** and then choose **Next**. 9. On the **Specify stack** panel of the **Specify stack
+details** page, enter the name of your stack, and then choose
+**Next**. 10. Review and enter the parameters for the stack. Choose
+**Next**. 11. Review your options on the **Review changes** page and choose
+**Next**. 12. Review your details on the **Review and import** page and
+choose **Import resources**.

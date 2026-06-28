@@ -53,30 +53,29 @@ Conditions:
 
 To use conditions, follow these steps:
 
-1.  Add a parameter definition – Define the
-    inputs that your conditions will evaluate in the `Parameters` section
-    of your template. The conditions evaluate to true or false based on these input
-    parameter values. Note that pseudo parameters are automatically available and
-    don't require explicit definition in the `Parameters` section. For
-    more information about pseudo parameters, see [Get AWS values using pseudo parameters](pseudo-parameter-reference.md "pseudo-parameter-reference.md").
-2.  Add a condition definition – Define
-    conditions in the `Conditions` section using intrinsic functions such
-    as `Fn::If` or `Fn::Equals`. These conditions determine
-    when CloudFormation creates the associated resources. The conditions can be based
-    on:
+1. Add a parameter definition – Define the
+   inputs that your conditions will evaluate in the `Parameters` section
+   of your template. The conditions evaluate to true or false based on these input
+   parameter values. Note that pseudo parameters are automatically available and
+   don't require explicit definition in the `Parameters` section. For
+   more information about pseudo parameters, see [Get AWS values using pseudo parameters](pseudo-parameter-reference.md "pseudo-parameter-reference.md").
+2. Add a condition definition – Define
+   conditions in the `Conditions` section using intrinsic functions such
+   as `Fn::If` or `Fn::Equals`. These conditions determine
+   when CloudFormation creates the associated resources. The conditions can be based
+   on:
 
-        * Input or pseudo parameter values
-        * Other conditions
-        * Mapping values
+   - Input or pseudo parameter values
+   - Other conditions
+   - Mapping values
+     However, you can't reference resource logical IDs or their attributes in
+     conditions.
 
-    However, you can't reference resource logical IDs or their attributes in
-    conditions.
-
-3.  Associate conditions with resources or outputs
-    – Reference conditions in resources or outputs using the
-    `Condition` key and a condition's logical ID. Optionally, use
-    `Fn::If` in other parts of the template (such as property values)
-    to set values based on a condition. For more information, see [Using the Condition key](#using-conditions-in-templates "#using-conditions-in-templates").
+3. Associate conditions with resources or outputs
+   – Reference conditions in resources or outputs using the
+   `Condition` key and a condition's logical ID. Optionally, use
+   `Fn::If` in other parts of the template (such as property values)
+   to set values based on a condition. For more information, see [Using the Condition key](#using-conditions-in-templates "#using-conditions-in-templates").
 
 CloudFormation evaluates conditions when creating or updating a stack. CloudFormation creates
 entities that are associated with a true condition and ignores entities that are

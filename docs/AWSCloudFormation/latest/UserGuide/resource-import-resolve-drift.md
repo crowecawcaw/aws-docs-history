@@ -139,31 +139,30 @@ operation, without interrupting services.
 
 ###### To update stack using a `DeletionPolicy` attribute with the `Retain` option
 
-1.  Sign in to the AWS Management Console and open the CloudFormation console at
-    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  On the **Stacks** page, choose the
-    stack that has drifted.
-3.  Choose **Update**, and then choose **Replace
-    current template** from the stack details pane.
-4.  On the **Specify template** page, provide your
-    updated template that contains the `DeletionPolicy` attribute
-    with the `Retain` option using one of the following
-    methods:
+1. Sign in to the AWS Management Console and open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. On the **Stacks** page, choose the
+   stack that has drifted.
+3. Choose **Update**, and then choose **Replace
+   current template** from the stack details pane.
+4. On the **Specify template** page, provide your
+   updated template that contains the `DeletionPolicy` attribute
+   with the `Retain` option using one of the following
+   methods:
 
-        * Choose **Amazon S3 URL**, and then specify
-         the URL for your template in the text box.
-        * Choose **Upload a template file**, and then
-         browse for your template.
+   - Choose **Amazon S3 URL**, and then specify
+     the URL for your template in the text box.
+   - Choose **Upload a template file**, and then
+     browse for your template.
+     Then, choose **Next**.
 
-    Then, choose **Next**.
-
-5.  Review the **Specify stack details** page and choose
-    **Next**.
-6.  Review the **Configure stack options** page and
-    choose **Next**.
-7.  On the **Review
-    `stack-name`** page, choose
-    **Update stack**.
+5. Review the **Specify stack details** page and choose
+   **Next**.
+6. Review the **Configure stack options** page and
+   choose **Next**.
+7. On the **Review
+   `stack-name`** page, choose
+   **Update stack**.
 
 _Results_: On the **Events** page of your
 stack, the status is `UPDATE_COMPLETE`.
@@ -198,27 +197,26 @@ Example YAML
 
 ###### To remove drifted resources, related parameters, and outputs
 
-1.  Choose **Update**, and then choose **Replace
-    current template** from the stack details pane.
-2.  On the **Specify template** page, provide your
-    updated template with its resources, related parameters, and outputs
-    removed from the stack template using one of the following
-    methods:
+1. Choose **Update**, and then choose **Replace
+   current template** from the stack details pane.
+2. On the **Specify template** page, provide your
+   updated template with its resources, related parameters, and outputs
+   removed from the stack template using one of the following
+   methods:
 
-        * Choose **Amazon S3 URL**, and then specify
-         the URL for your template in the text box.
-        * Choose **Upload a template file**, and then
-         browse for your template.
+   - Choose **Amazon S3 URL**, and then specify
+     the URL for your template in the text box.
+   - Choose **Upload a template file**, and then
+     browse for your template.
+     Then, choose **Next**.
 
-    Then, choose **Next**.
-
-3.  Review the **Specify stack details** page and choose
-    **Next**.
-4.  Review the **Configure stack options** page and
-    choose **Next**.
-5.  On the **Review
-    `stack-name`** page, choose
-    **Update stack**.
+3. Review the **Specify stack details** page and choose
+   **Next**.
+4. Review the **Configure stack options** page and
+   choose **Next**.
+5. On the **Review
+   `stack-name`** page, choose
+   **Update stack**.
 
 _Results_: The **Logical ID**
 `GamesTable` has a status of `DELETE_SKIPPED` on the
@@ -317,11 +315,10 @@ target resource. For more information, see [Resource identifiers](import-resourc
     3. Choose **Next**.
 
 5. Review the **Specify stack details** page, and choose
-   **Next**.
-6. On the **Import overview** page, review the resources
-   being imported, and then choose **Import resources**.
-   This will import the `AWS::DynamoDB::Table` resource type
-   back into your stack.
+**Next**. 6. On the **Import overview** page, review the resources
+being imported, and then choose **Import resources**.
+This will import the `AWS::DynamoDB::Table` resource type
+back into your stack.
 
 _Results_: In this example, we resolved the resource drift
 through an import operation, without interrupting services. You can check the

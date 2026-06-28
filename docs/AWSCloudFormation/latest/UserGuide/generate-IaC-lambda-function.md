@@ -62,7 +62,7 @@ template parameters during the import operation.
 
 1. Use the AWS Lambda [`GetFunction`](../../../lambda/latest/api/API_GetFunction.md "../../../lambda/latest/api/API_GetFunction.md") API action
    (for example, by using the [`aws lambda
-get-function`](../../../cli/latest/reference/lambda/get-function.md "../../../cli/latest/reference/lambda/get-function.md") AWS CLI command.
+ get-function`](../../../cli/latest/reference/lambda/get-function.md "../../../cli/latest/reference/lambda/get-function.md") AWS CLI command.
 2. In the response, the `RepositoryType` parameter is `S3` if the
    code is in a Amazon S3 bucket, or `ECR` if the code is in an Amazon ECR
    repository.

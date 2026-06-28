@@ -42,7 +42,7 @@ CloudFormation generates detailed information on each resource in the stack that
 drifted.
 
 CloudFormation detects drift on those AWS resources that support drift detection.
-Resources that don't support drift detection are assigned a drift status of NOT_CHECKED.
+Resources that don't support drift detection are assigned a drift status of NOT\_CHECKED.
 For a list of AWS resources that support drift detection, see [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md").
 
 In addition, CloudFormation supports drift detection on private resource types that are
@@ -110,7 +110,7 @@ The following table lists the drift status codes CloudFormation assigns to stack
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `DRIFTED`     | For stacks: The stack differs, or has<br>_drifted_, from its expected template<br>configuration. A stack is considered to have drifted if one or more<br>of its resources have drifted.<br>For stack instances: A stack instance is considered to have<br>drifted if the stack associated with it has drifted.<br>For stack sets: A stack set is considered to have drifted if one<br>or more stack instances has drifted. |
 | `NOT_CHECKED` | CloudFormation has not checked if the stack, stack set, or stack<br>instance differs from its expected template configuration.                                                                                                                                                                                                                                                                                             |
-| `IN_SYNC`     | The current configuration of each supported resource matches its<br>expected template configuration. A stack, stack set, or stack<br>instance with no resources that support drift detection will also<br>have a status of IN_SYNC.                                                                                                                                                                                        |
+| `IN_SYNC`     | The current configuration of each supported resource matches its<br>expected template configuration. A stack, stack set, or stack<br>instance with no resources that support drift detection will also<br>have a status of IN\_SYNC.                                                                                                                                                                                       |
 
 The following table lists the drift status codes CloudFormation assigns to stack
 resources.

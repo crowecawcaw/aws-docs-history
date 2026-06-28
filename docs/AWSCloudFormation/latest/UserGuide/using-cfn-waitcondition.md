@@ -168,9 +168,9 @@ of the following methods:
      AWS CLI, or an SDK.
 
 3. To send a signal, you send an HTTP request message using the presigned URL.
-   The request method must be `PUT` and the `Content-Type`
-   header must be an empty string or omitted. The request message must be a JSON
-   structure of the form specified in [Wait condition signal syntax](#wait-condition-signal-syntax "#wait-condition-signal-syntax").
+The request method must be `PUT` and the `Content-Type`
+header must be an empty string or omitted. The request message must be a JSON
+structure of the form specified in [Wait condition signal syntax](#wait-condition-signal-syntax "#wait-condition-signal-syntax").
 
 You must send the number of success signals specified by the
 `Count` property in order for CloudFormation to continue stack

@@ -46,7 +46,7 @@ up permissions to specify:
      perform.
 
 3. Create the necessary IAM service roles in your administrator and target
-   accounts to define the permissions you want.
+accounts to define the permissions you want.
 
 Specifically, the two required roles are:
 

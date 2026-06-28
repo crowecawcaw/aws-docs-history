@@ -111,11 +111,10 @@ options and providing account numbers.
      OUs plus additional individual accounts.
 
 14. Under **Automatic deployment**, choose whether to
-    automatically deploy to accounts that are added to the target organization
-    or OUs in the future. For more information, see [Enable or disable automatic deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
-15. If you enabled automatic deployment, under **Account removal
-    behavior**, choose whether stack resources are retained or
-    deleted when an account is removed from a target organization or OU.
+automatically deploy to accounts that are added to the target organization
+or OUs in the future. For more information, see [Enable or disable automatic deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md"). 15. If you enabled automatic deployment, under **Account removal
+behavior**, choose whether stack resources are retained or
+deleted when an account is removed from a target organization or OU.
 
 ###### Note
 
@@ -153,10 +152,9 @@ deploy stacks in. 17. For **Deployment options**, do the following:
      ARNs, staying within 10 dependencies maximum. For more information,
      see [Enable or disable automatic deployments for StackSets in AWS Organizations](stacksets-orgs-manage-auto-deployment.md "stacksets-orgs-manage-auto-deployment.md").
 
-18. Choose **Next** to continue.
-19. On the **Review** page, verify that your StackSet will deploy
-    to the correct accounts in the correct Regions, and then choose
-    **Create StackSet**.
+18. Choose **Next** to continue. 19. On the **Review** page, verify that your StackSet will deploy
+to the correct accounts in the correct Regions, and then choose
+**Create StackSet**.
 
 The **StackSet details** page opens. You can view the
 progress and status of the creation of the stacks in your StackSet.
@@ -219,10 +217,10 @@ aws cloudformation list-stack-sets
      management account.
 
 3. Use the [create-stack-instances](../../../cli/latest/reference/cloudformation/create-stack-instances.md "../../../cli/latest/reference/cloudformation/create-stack-instances.md") command
-   to add stacks to your StackSet. For the
-   `--deployment-targets` option, specify the
-   organization root ID to deploy to all accounts in your
-   organization.
+to add stacks to your StackSet. For the
+`--deployment-targets` option, specify the
+organization root ID to deploy to all accounts in your
+organization.
 
 Set concurrent account processing and other deployment
 preferences using the `--operation-preferences`
@@ -299,9 +297,9 @@ aws cloudformation list-stack-sets
      management account.
 
 3. Use the [create-stack-instances](../../../cli/latest/reference/cloudformation/create-stack-instances.md "../../../cli/latest/reference/cloudformation/create-stack-instances.md") command
-   to add stacks to your StackSet. For the
-   `--deployment-targets` option, specify the OU IDs
-   to deploy to.
+to add stacks to your StackSet. For the
+`--deployment-targets` option, specify the OU IDs
+to deploy to.
 
 Set concurrent account processing and other deployment
 preferences using the `--operation-preferences`

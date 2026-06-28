@@ -209,60 +209,61 @@ The following example target template currently has the
 }
 ```
 
-4.  Repeat steps 2 – 3 to update the source stack again, this time to
-    delete the target resource from the stack.
-5.  Perform an import operation to add `GamesTable` to the target
-    stack.
+4. Repeat steps 2 – 3 to update the source stack again, this time to
+   delete the target resource from the stack.
+5. Perform an import operation to add `GamesTable` to the target
+   stack.
 
-    1. On the **Stacks** page, with the parent stack
-       selected, choose **Stack actions**, and then choose
-       **Import resources into stack**.
+   1. On the **Stacks** page, with the parent stack
+      selected, choose **Stack actions**, and then choose
+      **Import resources into stack**.
 
-    ![The Import resources into stack option in the console.](images/stack-actions-import.png) 2. Read the **Import overview** page for a list of
-    things you're required to provide during this operation. Then, choose
-    **Next**. 3. On the **Specify template** page, complete one of the
-    following, and then choose **Next**.
+   ![The Import resources into stack option in the console.](images/stack-actions-import.png) 2. Read the **Import overview** page for a list of
+   things you're required to provide during this operation. Then, choose
+   **Next**. 3. On the **Specify template** page, complete one of the
+   following, and then choose **Next**.
 
         * Choose **Amazon S3 URL**, and then specify a
          URL in the text box.
         * Choose **Upload a template file**, and then
          browse for a file to upload.
-    4. On the **Identify resources** page, identify the
-       resource you're moving (in this example, `GamesTable`). For
-       more information, see [Resource identifiers](import-resources-manually.md#resource-import-identifiers-unique-ids "import-resources-manually.md#resource-import-identifiers-unique-ids").
 
-       1. Under **Identifier property**, choose the
-          type of resource identifier. For example, an
-          `AWS::DynamoDB::Table` resource can be identified
-          using the `TableName` property.
-       2. Under **Identifier value**, type the actual
-          property value. For example,
-          `GamesTables`.
-       3. Choose **Next**.
+   4. On the **Identify resources** page, identify the
+   resource you're moving (in this example, `GamesTable`). For
+   more information, see [Resource identifiers](import-resources-manually.md#resource-import-identifiers-unique-ids "import-resources-manually.md#resource-import-identifiers-unique-ids").
 
-    5. On the **Specify stack details** page, modify any
-       parameters, and then choose **Next**. This
-       automatically creates a change set.
+        1. Under **Identifier property**, choose the
+         type of resource identifier. For example, an
+         `AWS::DynamoDB::Table` resource can be identified
+         using the `TableName` property.
+        2. Under **Identifier value**, type the actual
+         property value. For example,
+         ``GamesTables``.
+        3. Choose **Next**.
 
-    ###### Important
+   5. On the **Specify stack details** page, modify any
+   parameters, and then choose **Next**. This
+   automatically creates a change set.
 
-    The import operation fails if you modify existing parameters that
-    initiate a create, update, or delete operation. 6. On the **Review
-    `TargetStackName`** page, confirm
-    that the correct resource is being imported, and then choose
-    **Import resources**. This automatically initiates
-    the change set created in the last step. Any [stack-level tags](cfn-console-create-stack.md#configure-stack-options "cfn-console-create-stack.md#configure-stack-options") are
-    applied to imported resources at this time. 7. The **Events** pane of the **Stack
-    details** page for your parent stack displays.
+   ###### Important
 
-    ![The Events tab in the console.](images/import-events.png)
+   The import operation fails if you modify existing parameters that
+   initiate a create, update, or delete operation. 6. On the **Review
+   `TargetStackName`** page, confirm
+   that the correct resource is being imported, and then choose
+   **Import resources**. This automatically initiates
+   the change set created in the last step. Any [stack-level tags](cfn-console-create-stack.md#configure-stack-options "cfn-console-create-stack.md#configure-stack-options") are
+   applied to imported resources at this time. 7. The **Events** pane of the **Stack
+   details** page for your parent stack displays.
 
-    ###### Note
+   ![The Events tab in the console.](images/import-events.png)
 
-    It's not necessary to run drift detection on the parent stack
-    after this import operation because the
-    `AWS::CloudFormation::Stack` resource is already
-    managed by CloudFormation.
+   ###### Note
+
+   It's not necessary to run drift detection on the parent stack
+   after this import operation because the
+   `AWS::CloudFormation::Stack` resource is already
+   managed by CloudFormation.
 
 ## Refactor a stack using the AWS CLI
 

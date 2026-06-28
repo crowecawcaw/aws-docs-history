@@ -33,9 +33,8 @@ CloudFormation opens the template in Infrastructure Composer. 4. Update your tem
      needed.
 
 5. Choose **Validate** to check for any syntax errors in the
-   template.
-6. When you are ready to export changes to CloudFormation, choose **Update
-   template**.
+template. 6. When you are ready to export changes to CloudFormation, choose **Update
+template**.
 
 ###### To update an existing stack template by using the AWS CLI
 

@@ -120,8 +120,7 @@ deployment failures don't exceed a specified failure tolerance.
     4. Choose **Next** to continue.
 
 17. On the **Review** page, review your choices. To make
-    changes, choose **Edit** on the related section.
-18. When you're ready to proceed, choose **Submit**.
+changes, choose **Edit** on the related section. 18. When you're ready to proceed, choose **Submit**.
 
 CloudFormation starts applying your updates to your StackSet, and displays the
 **Operations** tab of the StackSet details page. You can

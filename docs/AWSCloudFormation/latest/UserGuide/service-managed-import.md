@@ -71,7 +71,7 @@ want to import.
    1. Choose **Associate with organization** to use root OU.
    2. Choose **Associate with organizational units (OUs)** to enter parent
       OU IDs for the stacks to import. For example, if `Stack 1` and `Stack
-2` are under `OU1`, and `Stack 3` is under `OU2`,
+  2` are under `OU1`, and `Stack 3` is under `OU2`,
       enter `OU1` and `OU2`.Accept your settings and choose **Next**.
 
 8. Review your settings on the **Review** page and choose
@@ -119,7 +119,7 @@ resource you want to import.
    1. Choose **Associate with organization** to use root OU.
    2. Choose **Associate with organizational units (OUs)** to enter parent
       OU IDs for the stacks to import. For example, if `Stack 1` and `Stack
-2` are under `OU1`, and `Stack 3` is under `OU2`,
+  2` are under `OU1`, and `Stack 3` is under `OU2`,
       enter `OU1` and `OU2`.
 
 8. For **Specify regions** and **Deployment options**,
@@ -153,7 +153,7 @@ Choose your StackSet and identify the stack you want to import.
       1. Choose **Associate with organization** to use root OU.
       2. Choose **Associate with organizational units (OUs)** to enter parent
          OU IDs for the stacks to import. For example, if `Stack 1` and `Stack
-2` are under `OU1`, and `Stack 3` is under `OU2`,
+  2` are under `OU1`, and `Stack 3` is under `OU2`,
          enter `OU1` and `OU2`.Accept your settings and choose **Next**.
 
 5. Review the **Specify overrides** page and choose

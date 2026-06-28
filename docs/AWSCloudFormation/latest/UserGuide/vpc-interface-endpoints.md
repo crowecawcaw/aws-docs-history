@@ -31,20 +31,19 @@ interface endpoint for CloudFormation:
   in a VPC, the VPC endpoint policy must allow users to send responses to the
   following buckets:
 
-      + For custom resources, permit traffic to the
-       `cloudformation-custom-resource-response-`region``
-       bucket. When using custom resources, AWS Region names don't contain
-       dashes. For example, `uswest2`.
-      + For wait conditions, permit traffic to the
-       `cloudformation-waitcondition-`region``
-       bucket. When using wait conditions, AWS Region names do contain
-       dashes. For example, `us-west-2`.
-
-  If the endpoint policy blocks traffic to these buckets, CloudFormation won't
-  receive responses and the stack operation fails. For example, if you have a
-  resource in a VPC in the `us-west-2` Region that must respond to a
-  wait condition, the resource must be able to send a response to the
-  `cloudformation-waitcondition-us-west-2` bucket.
+  - For custom resources, permit traffic to the
+    `cloudformation-custom-resource-response-`region``
+    bucket. When using custom resources, AWS Region names don't contain
+    dashes. For example, `uswest2`.
+  - For wait conditions, permit traffic to the
+    `cloudformation-waitcondition-`region``
+    bucket. When using wait conditions, AWS Region names do contain
+    dashes. For example, `us-west-2`.
+    If the endpoint policy blocks traffic to these buckets, CloudFormation won't
+    receive responses and the stack operation fails. For example, if you have a
+    resource in a VPC in the `us-west-2` Region that must respond to a
+    wait condition, the resource must be able to send a response to the
+    `cloudformation-waitcondition-us-west-2` bucket.
 
 For a list of AWS Regions where CloudFormation is currently available, see the
 [CloudFormation endpoints and quotas](../../../general/latest/gr/cfn.md "../../../general/latest/gr/cfn.md") page

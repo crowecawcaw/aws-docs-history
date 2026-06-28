@@ -545,7 +545,7 @@ text editor on your local machine and add one of the templates. Save the file wi
 
 You can view the status of the stack in the CloudFormation console in the
 **Status** column. When CloudFormation has successfully created the stack, you
-receive a status of **CREATE_COMPLETE**.
+receive a status of **CREATE\_COMPLETE**.
 
 ###### Note
 
@@ -566,7 +566,7 @@ To make sure that you aren't charged for unused sample resources, delete the sta
 3. In the confirmation message, choose **Delete stack**.
 
 The status for **SampleLoadBalancedAppStack** changes to
-**DELETE_IN_PROGRESS**. When CloudFormation completes the deletion of the stack,
+**DELETE\_IN\_PROGRESS**. When CloudFormation completes the deletion of the stack,
 it removes the stack from the list.
 
 Use the sample template from this walkthrough to build your own stack templates. For more

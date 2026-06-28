@@ -58,7 +58,7 @@ Logical names are used to reference resources from other sections of the templat
 Each resource must have a `Type` attribute, which defines the kind of AWS
 resource it is. The `Type` attribute has the format
 `AWS::`ServiceName`::`ResourceType``.
- For example, the `Type`attribute for an Amazon S3 bucket is
+For example, the `Type` attribute for an Amazon S3 bucket is
 `AWS::S3::Bucket`.
 
 For the full list of supported resource types, see the [AWS resource and property types reference](../TemplateReference/aws-template-resource-type-ref.md "../TemplateReference/aws-template-resource-type-ref.md").

@@ -272,7 +272,7 @@ Use the three-part resource naming convention to specify which resource
 types users can work with, from all resources across an organization, down to
 an individual resource type.
 
-``organization`::\*`
+``organization`::*`
 
 Specify all resource types for a given organization.
 
@@ -319,7 +319,7 @@ Use the three-part resource naming convention to specify which resource
 types users can work with, from all resources across an organization, down to
 an individual resource type.
 
-``organization`::\*`
+``organization`::*`
 
 Specify all resource types for a given organization.
 

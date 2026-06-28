@@ -118,20 +118,23 @@ template using one of the following methods, and then choose
      template.
 
 6. On the **Identify resources** page, identify the
-   `AWS::CloudFormation::Stack` resource.
+`AWS::CloudFormation::Stack` resource.
 
-   1. Under **Identifier property**, choose the type of resource
-      identifier. For example, an `AWS::CloudFormation::Stack` resource
-      can be identified using the `StackId` property.
-   2. Under **Identifier value**, type the ARN of the stack
-      you're importing. For example,
-      `arn:aws:cloudformation:us-west-2:12345678910:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10`.
+    1. Under **Identifier property**, choose the type of resource
+     identifier. For example, an `AWS::CloudFormation::Stack` resource
+     can be identified using the `StackId` property.
+    2. Under **Identifier value**, type the ARN of the stack
+     you're importing. For example,
+     ``arn:aws:cloudformation:us-west-2:12345678910:stack/mystack/5b918d10-cd98-11ea-90d5-0a9cd3354c10``.
 
-   ![The Identify resources page in the console.](images/resource-import-stackid.png) 3. Choose **Next**.
+
+
+    ![The Identify resources page in the console.](images/resource-import-stackid.png)
+    3. Choose **Next**.
 
 7. On the **Specify stack details** page, modify any parameters, and
-   then choose **Next**. This automatically creates a change
-   set.
+then choose **Next**. This automatically creates a change
+set.
 
 ###### Important
 

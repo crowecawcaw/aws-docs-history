@@ -460,7 +460,7 @@ The stack we have built so far uses a t3.micro Amazon EC2 instance. Let's suppos
 newly created website is getting more traffic than a t3.micro instance can handle, and now you
 want to move to an m5.large Amazon EC2 instance type. If the architecture of the instance type
 changes, the instance must be created with a different AMI. However, both the t3.micro and
-m5.large use the same CPU architectures and run Amazon Linux 2 (x86_64) AMIs . For more information,
+m5.large use the same CPU architectures and run Amazon Linux 2 (x86\_64) AMIs . For more information,
 see [Compatibility for changing the instance type](../../../AWSEC2/latest/UserGuide/resize-limitations.md "../../../AWSEC2/latest/UserGuide/resize-limitations.md") in the
 _Amazon EC2 User Guide_.
 

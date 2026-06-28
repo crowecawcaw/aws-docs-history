@@ -85,7 +85,7 @@ The artifact contains three files:
      `prod-stack-configuration.json`
 
 2. Extract all of the files, and then use any text editor to modify the template
-   configuration files.
+configuration files.
 
 Open the configuration files to see that they contain key-value pairs that map to the
 WordPress template's parameters. The configuration files specify the parameter values that
@@ -103,7 +103,7 @@ production stack.
      in the region in which you will create your pipeline.
 
 3. Add the modified configuration files to the original artifact (`.zip`)
-   file, replacing duplicate files.
+file, replacing duplicate files.
 
 You now have a customized artifact that you can upload to an S3 bucket. 4. [Upload
 the artifact to an S3 bucket that you own](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md").

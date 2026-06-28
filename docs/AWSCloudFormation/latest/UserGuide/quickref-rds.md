@@ -201,7 +201,7 @@ security group within your `DBSecurityGroup`.
 
 ### YAML
 
-This example is extracted from the following full example: [Drupal_Single_Instance_With_RDS.template](https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance_With_RDS.template "https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance_With_RDS.template")
+This example is extracted from the following full example: [Drupal\_Single\_Instance\_With\_RDS.template](https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance_With_RDS.template "https://s3.amazonaws.com/cloudformation-templates-us-east-1/Drupal_Single_Instance_With_RDS.template")
 
 ```
 DBInstance:

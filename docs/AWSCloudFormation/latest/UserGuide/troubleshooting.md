@@ -62,7 +62,7 @@ following solutions to help you find the source of the problems and fix them.
 - [Insufficient IAM permissions](#troubleshooting-errors-insufficient-iam-permissions "#troubleshooting-errors-insufficient-iam-permissions")
 - [Invalid value or unsupported resource property](#troubleshooting-errors-invalid-value-or-unsupported-resource-property "#troubleshooting-errors-invalid-value-or-unsupported-resource-property")
 - [Quota exceeded](#troubleshooting-errors-limit-exceeded "#troubleshooting-errors-limit-exceeded")
-- [Nested stacks are stuck in UPDATE_COMPLETE_CLEANUP_IN_PROGRESS, UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS, or UPDATE_ROLLBACK_IN_PROGRESS](#troubleshooting-errors-nested-stacks-are-stuck "#troubleshooting-errors-nested-stacks-are-stuck")
+- [Nested stacks are stuck in UPDATE\_COMPLETE\_CLEANUP\_IN\_PROGRESS, UPDATE\_ROLLBACK\_COMPLETE\_CLEANUP\_IN\_PROGRESS, or UPDATE\_ROLLBACK\_IN\_PROGRESS](#troubleshooting-errors-nested-stacks-are-stuck "#troubleshooting-errors-nested-stacks-are-stuck")
 - [No updates to perform](#troubleshooting-errors-no-updates-to-perform "#troubleshooting-errors-no-updates-to-perform")
 - [Resource failed to stabilize during a create, update, or delete stack operation](#troubleshooting-resource-did-not-stabilize "#troubleshooting-resource-did-not-stabilize")
 - [Security group does not exist in VPC](#troubleshooting-errors-security-group-does-not-exist-in-vpc "#troubleshooting-errors-security-group-does-not-exist-in-vpc")

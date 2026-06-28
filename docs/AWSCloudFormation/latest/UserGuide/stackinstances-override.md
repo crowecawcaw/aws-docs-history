@@ -109,11 +109,10 @@ tolerance.
     4. Choose **Next**.
 
 6. On the **Specify Overrides** page, select the checkboxes
-   for the parameters to override, and then choose **Override StackSet
-   value** from the **Edit override value**
-   menu.
-7. On the **Override StackSet parameter values** page, make
-   your changes and then choose **Save changes**.
+for the parameters to override, and then choose **Override StackSet
+value** from the **Edit override value**
+menu. 7. On the **Override StackSet parameter values** page, make
+your changes and then choose **Save changes**.
 
 ###### Note
 

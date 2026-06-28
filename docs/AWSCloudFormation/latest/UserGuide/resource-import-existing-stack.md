@@ -127,18 +127,18 @@ one of the following methods, and then choose **Next**.
      template.
 
 6. On the **Identify resources** page, identify each target resource. For
-   more information, see [Resource identifiers](import-resources-manually.md#resource-import-identifiers-unique-ids "import-resources-manually.md#resource-import-identifiers-unique-ids").
+more information, see [Resource identifiers](import-resources-manually.md#resource-import-identifiers-unique-ids "import-resources-manually.md#resource-import-identifiers-unique-ids").
 
-   1. Under **Identifier property**, choose the type of resource identifier.
-      For example, the `AWS::DynamoDB::Table` resource can be identified using the
-      `TableName` property.
-   2. Under **Identifier value**, type the actual property value. For
-      example, the `TableName` for the `GamesTable` resource in the example
-      template is `Games`.
-   3. Choose **Next**.
+    1. Under **Identifier property**, choose the type of resource identifier.
+     For example, the `AWS::DynamoDB::Table` resource can be identified using the
+     `TableName` property.
+    2. Under **Identifier value**, type the actual property value. For
+     example, the `TableName` for the `GamesTable` resource in the example
+     template is ``Games``.
+    3. Choose **Next**.
 
 7. On the **Specify stack details** page, update any parameters, and then
-   choose **Next**. This automatically creates a change set.
+choose **Next**. This automatically creates a change set.
 
 ###### Note
 

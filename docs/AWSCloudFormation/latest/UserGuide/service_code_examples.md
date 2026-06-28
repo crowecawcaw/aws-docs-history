@@ -105,7 +105,7 @@ PowerShell
 
 **Tools for PowerShell V4**
 
-**Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE_ROLLBACK_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE_ROLLBACK_COMPLETE'.**
+**Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE\_ROLLBACK\_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE\_ROLLBACK\_COMPLETE'.**
 
 ```
 Resume-CFNUpdateRollback -StackName "myStack"
@@ -118,7 +118,7 @@ Resume-CFNUpdateRollback -StackName "myStack"
 
 **Tools for PowerShell V5**
 
-**Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE_ROLLBACK_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE_ROLLBACK_COMPLETE'.**
+**Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE\_ROLLBACK\_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE\_ROLLBACK\_COMPLETE'.**
 
 ```
 Resume-CFNUpdateRollback -StackName "myStack"
@@ -387,7 +387,7 @@ This command produces no output.
 
 After using `FORCE_DELETE_STACK`, you can use the
 `list-stack-resources` command to list the resources that were skipped
-during the stack deletion process. The retained resources will show a DELETE_SKIPPED
+during the stack deletion process. The retained resources will show a DELETE\_SKIPPED
 status. For more information, see [List stack resources](#list-stack-resources-sdk "#list-stack-resources-sdk").
 
 ## Describe stack events
@@ -1173,7 +1173,7 @@ Update-CFNStack -StackName "myStack" `
 
 ```
 
-**Example 5: Updates the stack 'myStack', which is assumed in this example to contain IAM resources, with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. Stacks containing IAM resources require you to specify the -Capabilities "CAPABILITY_IAM" parameter otherwise the update will fail with an 'InsufficientCapabilities' error.**
+**Example 5: Updates the stack 'myStack', which is assumed in this example to contain IAM resources, with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. Stacks containing IAM resources require you to specify the -Capabilities "CAPABILITY\_IAM" parameter otherwise the update will fail with an 'InsufficientCapabilities' error.**
 
 ```
 Update-CFNStack -StackName "myStack" `
@@ -1223,7 +1223,7 @@ Update-CFNStack -StackName "myStack" `
 
 ```
 
-**Example 5: Updates the stack 'myStack', which is assumed in this example to contain IAM resources, with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. Stacks containing IAM resources require you to specify the -Capabilities "CAPABILITY_IAM" parameter otherwise the update will fail with an 'InsufficientCapabilities' error.**
+**Example 5: Updates the stack 'myStack', which is assumed in this example to contain IAM resources, with the specified template, obtained from Amazon S3, and customization parameters. 'PK1' and 'PK2' represent the names of parameters declared in the template, 'PV1' and 'PV2' represents their requested values. The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'. Stacks containing IAM resources require you to specify the -Capabilities "CAPABILITY\_IAM" parameter otherwise the update will fail with an 'InsufficientCapabilities' error.**
 
 ```
 Update-CFNStack -StackName "myStack" `

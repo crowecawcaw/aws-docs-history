@@ -19,24 +19,24 @@ from and the account you're deploying stacks to. For more information, see [Gran
 
 ###### To create a StackSet
 
-1.  Sign in to the AWS Management Console and open the CloudFormation console at
-    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  On the navigation bar at the top of the screen, choose the AWS Region
-    that you want to manage the StackSet from.
-3.  From the navigation pane, choose **StackSets**.
-4.  From the top of the **StackSets** page, choose
-    **Create StackSet**.
-5.  Under **Permissions**, choose **Self-service
-    permissions** and choose the IAM roles you created.
-6.  Under **Prerequisite - Prepare template**, choose
-    **Template is ready**.
-7.  Under **Specify template**, choose to either specify the
-    URL for the S3 bucket that contains your stack template or upload a stack
-    template file. Then, choose **Next**.
-8.  On the **Specify StackSet details** page, provide a name
-    for the StackSet, specify any parameters, and then choose
-    **Next**.
-9.  Choose **Next** to continue.
+1. Sign in to the AWS Management Console and open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. On the navigation bar at the top of the screen, choose the AWS Region
+   that you want to manage the StackSet from.
+3. From the navigation pane, choose **StackSets**.
+4. From the top of the **StackSets** page, choose
+   **Create StackSet**.
+5. Under **Permissions**, choose **Self-service
+   permissions** and choose the IAM roles you created.
+6. Under **Prerequisite - Prepare template**, choose
+   **Template is ready**.
+7. Under **Specify template**, choose to either specify the
+   URL for the S3 bucket that contains your stack template or upload a stack
+   template file. Then, choose **Next**.
+8. On the **Specify StackSet details** page, provide a name
+   for the StackSet, specify any parameters, and then choose
+   **Next**.
+9. Choose **Next** to continue.
 10. On the **Configure StackSet options** page, under
     **Tags**, specify any tags to apply to resources in
     your stack. For more information about how tags are used in AWS, see
@@ -47,14 +47,13 @@ from and the account you're deploying stacks to. For more information, see [Gran
     **Active** to enable CloudFormation's optimized operation
     handling:
 
-        * Non-conflicting operations run concurrently for faster deployment
-         times.
-        * Conflicting operations are automatically queued and processed in
-         the order they were requested.
-
-    While operations are running or queued, CloudFormation queues all incoming
-    operations even if they're non-conflicting. You can't change execution
-    settings during this time.
+    - Non-conflicting operations run concurrently for faster deployment
+      times.
+    - Conflicting operations are automatically queued and processed in
+      the order they were requested.
+      While operations are running or queued, CloudFormation queues all incoming
+      operations even if they're non-conflicting. You can't change execution
+      settings during this time.
 
 12. If your template contains IAM resources, for
     **Capabilities**, choose **I acknowledge that
@@ -99,11 +98,9 @@ deploy stacks in. 17. For **Deployment options**, do the following:
     	 **Maximum concurrent accounts**)
     	 regardless of failures.
 
-18. Choose **Next**.
-19. On the **Review** page, review your choices. To make
-    changes, choose **Edit** on the related section.
-20. When you are ready to create your StackSet, choose
-    **Submit**.
+18. Choose **Next**. 19. On the **Review** page, review your choices. To make
+changes, choose **Edit** on the related section. 20. When you are ready to create your StackSet, choose
+**Submit**.
 
 CloudFormation starts creating your StackSet. View the progress and status of the
 creation of the stacks in your StackSet in the StackSet details page that opens when

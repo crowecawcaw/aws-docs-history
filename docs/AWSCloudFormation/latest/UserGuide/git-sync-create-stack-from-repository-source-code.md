@@ -88,10 +88,9 @@ permissions are included in the role. 12. Enable or turn off comments on pull re
      changes in pull requests when the repo files are updated.
 
 13. For the **Template file path**, specify the full path from
-    the root of your repository for the stack template file.
-14. (Optional) To specify the stack parameters, choose **Add
-    parameter**, provide a key and value for each parameter, and then
-    choose **Next**. For more information, see [Stack deployment file](git-sync-concepts-terms.md#git-sync-concepts-terms-depoyment-file "git-sync-concepts-terms.md#git-sync-concepts-terms-depoyment-file").
+the root of your repository for the stack template file. 14. (Optional) To specify the stack parameters, choose **Add
+parameter**, provide a key and value for each parameter, and then
+choose **Next**. For more information, see [Stack deployment file](git-sync-concepts-terms.md#git-sync-concepts-terms-depoyment-file "git-sync-concepts-terms.md#git-sync-concepts-terms-depoyment-file").
 
 For example, to specify a `port=8080` parameter in your
 stack deployment file, do the following:
@@ -103,11 +102,10 @@ stack deployment file, do the following:
      `8080`.
 
 15. (Optional) To specify stack tags, choose **Add new tag**,
-    provide a tag key and value for each tag, and then choose
-    **Next**. For more information, see [Stack deployment file](git-sync-concepts-terms.md#git-sync-concepts-terms-depoyment-file "git-sync-concepts-terms.md#git-sync-concepts-terms-depoyment-file").
-16. Choose **Next** to continue to **Configure stack
-    options**. For information about configuring stack options, see
-    [Configure stack options](cfn-console-create-stack.md#configure-stack-options "cfn-console-create-stack.md#configure-stack-options").
+provide a tag key and value for each tag, and then choose
+**Next**. For more information, see [Stack deployment file](git-sync-concepts-terms.md#git-sync-concepts-terms-depoyment-file "git-sync-concepts-terms.md#git-sync-concepts-terms-depoyment-file"). 16. Choose **Next** to continue to **Configure stack
+options**. For information about configuring stack options, see
+[Configure stack options](cfn-console-create-stack.md#configure-stack-options "cfn-console-create-stack.md#configure-stack-options").
 
 When you've completed your stack configuration, choose **Next** to
 continue. 17. Review your stack settings and confirm the following:

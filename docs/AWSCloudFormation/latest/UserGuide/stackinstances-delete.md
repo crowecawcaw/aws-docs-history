@@ -17,41 +17,41 @@ StackSet target.
 
 ###### To delete stacks
 
-1.  Sign in to the AWS Management Console and open the CloudFormation console at
-    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2.  On the navigation bar at the top of the screen, choose the AWS Region
-    you created the StackSet in.
-3.  From the navigation pane, choose **StackSets**. On the
-    StackSets page, select the StackSet.
-4.  With your StackSet selected, choose **Delete stacks from
-    StackSet** from the **Actions** menu.
-5.  On the **Set deployment options** page, first choose the
-    accounts and Regions where you want to delete the stacks.
+1. Sign in to the AWS Management Console and open the CloudFormation console at
+   [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
+2. On the navigation bar at the top of the screen, choose the AWS Region
+   you created the StackSet in.
+3. From the navigation pane, choose **StackSets**. On the
+   StackSets page, select the StackSet.
+4. With your StackSet selected, choose **Delete stacks from
+   StackSet** from the **Actions** menu.
+5. On the **Set deployment options** page, first choose the
+   accounts and Regions where you want to delete the stacks.
 
-    1. [Self-managed permissions] For **Accounts**,
-       choose **Deploy stacks in accounts** or
-       **Deploy stacks in organizational
-       units**.
+   1. [Self-managed permissions] For **Accounts**,
+      choose **Deploy stacks in accounts** or
+      **Deploy stacks in organizational
+      units**.
 
-    If you choose **Deploy stacks in accounts**,
-    paste your target account numbers in the **Account
-    numbers** text box, separating multiple numbers with
-    commas.
+   If you choose **Deploy stacks in accounts**,
+   paste your target account numbers in the **Account
+   numbers** text box, separating multiple numbers with
+   commas.
 
-    If you choose **Deploy stacks in organizational
-    units**, paste a target OU ID in the
-    **Organization numbers** text box to target all
-    accounts that are part of the specified organization. 2. [Service-managed permissions] For **Organizational units
-    (OUs)**, specify the target OU IDs.
+   If you choose **Deploy stacks in organizational
+   units**, paste a target OU ID in the
+   **Organization numbers** text box to target all
+   accounts that are part of the specified organization. 2. [Service-managed permissions] For **Organizational units
+   (OUs)**, specify the target OU IDs.
 
-    ###### Important
+   ###### Important
 
-    CloudFormation will delete stacks from both the specified target
-    OUs and their child OUs.
+   CloudFormation will delete stacks from both the specified target
+   OUs and their child OUs.
 
-    For **Account filter type**, you can refine which
-    accounts will have stacks deleted by choosing one of the following
-    options and providing account numbers.
+   For **Account filter type**, you can refine which
+   accounts will have stacks deleted by choosing one of the following
+   options and providing account numbers.
 
         * **None** (default) – Delete stacks
          from all accounts in the specified OUs.
@@ -63,42 +63,43 @@ StackSet target.
          accounts.
         * **Union** – Delete stacks from the
          specified OUs plus additional individual accounts.
-    3. For **Specify regions**, choose the Regions from
-       which you want to delete stacks within the target accounts.
 
-6.  For **Deployment options**, do the following:
+   3. For **Specify regions**, choose the Regions from
+   which you want to delete stacks within the target accounts.
 
-    - For **Maximum concurrent accounts**, specify how
-      many accounts are processed concurrently.
-    - For **Failure tolerance**, specify the maximum
-      number of account failures allowed per Region. The operation will
-      stop and won't proceed to other Regions once this limit is
-      reached.
-    - For **Retain stacks**, enable this option to save
-      the stacks and their associated resources when removing them from
-      your StackSet. The resources stay in their current state but are no
-      longer part of the StackSet.
-    - For **Region concurrency**, choose how to process
-      Regions: **Sequential** (one Region at a time) or
-      **Parallel** (multiple Regions
-      concurrently).
-    - For **Concurrency mode**, choose how concurrency
-      behaves during operation execution.
+6. For **Deployment options**, do the following:
 
-      - **Strict failure tolerance** –
-        Reduces account concurrency level when failures occur,
-        staying within **Failure tolerance**
-        +1.
-      - **Soft failure tolerance** –
-        Maintains your specified concurrency level (the value of
-        **Maximum concurrent accounts**)
-        regardless of failures.
+   - For **Maximum concurrent accounts**, specify how
+     many accounts are processed concurrently.
+   - For **Failure tolerance**, specify the maximum
+     number of account failures allowed per Region. The operation will
+     stop and won't proceed to other Regions once this limit is
+     reached.
+   - For **Retain stacks**, enable this option to save
+     the stacks and their associated resources when removing them from
+     your StackSet. The resources stay in their current state but are no
+     longer part of the StackSet.
+   - For **Region concurrency**, choose how to process
+     Regions: **Sequential** (one Region at a time) or
+     **Parallel** (multiple Regions
+     concurrently).
+   - For **Concurrency mode**, choose how concurrency
+     behaves during operation execution.
 
-7.  Choose **Next**.
-8.  On the **Review** page, review your choices. To make
-    changes, choose **Edit** on the related section.
-9.  When you are ready to remove the stacks from your StackSet, choose
-    **Submit**.
+     - **Strict failure tolerance** –
+       Reduces account concurrency level when failures occur,
+       staying within **Failure tolerance**
+       +1.
+     - **Soft failure tolerance** –
+       Maintains your specified concurrency level (the value of
+       **Maximum concurrent accounts**)
+       regardless of failures.
+
+7. Choose **Next**.
+8. On the **Review** page, review your choices. To make
+   changes, choose **Edit** on the related section.
+9. When you are ready to remove the stacks from your StackSet, choose
+   **Submit**.
 
 After stack deletion is finished, you can verify that stacks were deleted
 from your StackSet in the StackSet detail page, on the **Stack

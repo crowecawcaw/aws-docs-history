@@ -44,9 +44,10 @@ Template parameters
 
 Optional. For parameters in the stack template that aren't a
 `NoEcho` parameter type, use the format
-`param_`parameterName``in the
- URL query string. The URL parameter must include the`param\_` prefix, and the parameter name segment must exactly match the parameter name
- in the template. For example:`param_DBName`.
+`param_`parameterName`` in the
+URL query string. The URL parameter must include the `param_`
+prefix, and the parameter name segment must exactly match the parameter name
+in the template. For example: `param_DBName`.
 
 CloudFormation ignores parameters that don't exist in the template, and any
 parameters defined with their `NoEcho` property set to
@@ -96,44 +97,43 @@ supplied values automatically used for the parameters.
 
 ###### To create a stack using a quick-create link (console)
 
-1.  On the **Quick create stack** page, for
-    **Template**, **Template URL**, confirm
-    the template URL is correct.
-2.  Expand the **View template** section to verify the
-    template.
-3.  For **Stack name**, verify the prepopulated stack
-    name.
-4.  Review the **Parameters** section. Verify that the
-    prepopulated parameter values are correct. Fill in any required parameters that
-    weren't specified in the URL. Modify any prepopulated values if needed.
-5.  Next, you can configure the following settings:
+1. On the **Quick create stack** page, for
+   **Template**, **Template URL**, confirm
+   the template URL is correct.
+2. Expand the **View template** section to verify the
+   template.
+3. For **Stack name**, verify the prepopulated stack
+   name.
+4. Review the **Parameters** section. Verify that the
+   prepopulated parameter values are correct. Fill in any required parameters that
+   weren't specified in the URL. Modify any prepopulated values if needed.
+5. Next, you can configure the following settings:
 
-        * **Tags** — Organize resources with key-value
-         pairs.
-        * **Permissions** — Choose the IAM service
-         role for stack operations.
-        * **Stack failure options** — Choose to roll
-         back (default) or preserve resources.
-        * **Stack policy** — Control resource update
-         permissions.
-        * **Rollback configuration** — Configure CloudWatch
-         alarm-based rollback.
-        * **Notification options** — Set up Amazon SNS
-         notifications for stack events.
-        * **Stack creation options** — Define maximum
-         stack creation time and enable termination protection to prevent
-         accidental deletions.
+   - **Tags** — Organize resources with key-value
+     pairs.
+   - **Permissions** — Choose the IAM service
+     role for stack operations.
+   - **Stack failure options** — Choose to roll
+     back (default) or preserve resources.
+   - **Stack policy** — Control resource update
+     permissions.
+   - **Rollback configuration** — Configure CloudWatch
+     alarm-based rollback.
+   - **Notification options** — Set up Amazon SNS
+     notifications for stack events.
+   - **Stack creation options** — Define maximum
+     stack creation time and enable termination protection to prevent
+     accidental deletions.
+     For more information, see [Configure stack options](cfn-console-create-stack.md#configure-stack-options "cfn-console-create-stack.md#configure-stack-options").
 
-    For more information, see [Configure stack options](cfn-console-create-stack.md#configure-stack-options "cfn-console-create-stack.md#configure-stack-options").
-
-6.  For **Capabilities**, complete any required acknowledgements.
-    For example, if your template contains IAM resources, select **I
-    acknowledge that this template may create IAM resources** to
-    specify that you want to use IAM resources in the template. For more
-    information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
-7.  (Optional) You can create a change set to preview the configuration of the
-    stack before creating it. Choose **Create change set** and
-    follow the directions. For more information, see [Preview the configuration of your stack](cfn-console-create-stack.md#cfn-console-create-stacks-changesets "cfn-console-create-stack.md#cfn-console-create-stacks-changesets").
-8.  When you're ready, choose **Create stack** to launch the
-    stack and then monitor the stack creation progress in the
-    **Events** tab. For more information, see [Monitor stack progress](monitor-stack-progress.md "monitor-stack-progress.md").
+6. For **Capabilities**, complete any required acknowledgements.
+   For example, if your template contains IAM resources, select **I
+   acknowledge that this template may create IAM resources** to
+   specify that you want to use IAM resources in the template. For more
+   information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
+7. (Optional) You can create a change set to preview the configuration of the
+   stack before creating it. Choose **Create change set** and
+   follow the directions. For more information, see [Preview the configuration of your stack](cfn-console-create-stack.md#cfn-console-create-stacks-changesets "cfn-console-create-stack.md#cfn-console-create-stacks-changesets").
+8. When you're ready, choose **Create stack** to launch the
+   stack and then monitor the stack creation progress in the
+   **Events** tab. For more information, see [Monitor stack progress](monitor-stack-progress.md "monitor-stack-progress.md").
