@@ -124,7 +124,7 @@ Crawlers to run on the raw-data S3 buckets. As new IIoT data files arrive (for e
 hourly sensor JSON from Firehose or daily CSVs from SCADA dumps), the crawler will infer
 their schema (data types and columns), register the data, and update corresponding tables
 in the AWS Glue Data Catalog. Each table in the catalog represents a dataset (for example, a
-table for PressMachine_Telemetry linked to the JSON files in s3://data-lake/press1/ path).
+table for PressMachine\_Telemetry linked to the JSON files in s3://data-lake/press1/ path).
 The catalog captures details like the S3 location, file format (like JSON or Parquet), and
 schema and abstracts these implementation details for users.
 
@@ -137,8 +137,8 @@ can directly query the S3 data using the Glue Catalog as well. In effect, the AW
 
 Organize the AWS Glue Data Catalog with a clear database and table naming convention for
 your industrial datasets. For instance, you might have an AWS Glue database called
-factory_production with tables like press1_telemetry, press1_maintenance_logs, and
-assembly_line_yield. This logical grouping makes it straightforward for users to navigate
+factory\_production with tables like press1\_telemetry, press1\_maintenance\_logs, and
+assembly\_line\_yield. This logical grouping makes it straightforward for users to navigate
 the catalog. Consider tagging catalog entries with business-relevant tags (AWS Glue
 supports tagging datasets) such as Line=Assembly4 or Criticality=High, as these tags can
 be used later for search or governance.
@@ -159,7 +159,7 @@ technical and business, the technical details (for example, file format and sche
 the business context (for example, data classification, owner, and retention policy).
 
 Make sure to capture both technical and business details. For example, document that
-the press1_telemetry table contains vibration sensor readings from press machine A sampled
+the press1\_telemetry table contains vibration sensor readings from press machine A sampled
 every minute, and link it to an asset ID or digital twin ID. This context helps end users
 trust and correctly use the data.
 
@@ -172,10 +172,10 @@ For governance, AWS Lake Formation is the primary service to configure. When set
 up your data lake, you'll register your S3 buckets with Lake Formation and define data
 permissions at a fine grain.
 
-For instance, you could allow the DataScienceTeam to query the factory_production.
-press1_telemetry table but deny access to press1_maintenance_logs if it contains sensitive
+For instance, you could allow the DataScienceTeam to query the factory\_production.
+press1\_telemetry table but deny access to press1\_maintenance\_logs if it contains sensitive
 maintenance records. Lake Formation will enforce these rules for access through Amazon Athena, Amazon Redshift, or AWS Glue. It even supports column-level security and row-level
-filters, so you might mask a column operator_name or restrict rows where defect_flag =
+filters, so you might mask a column operator\_name or restrict rows where defect\_flag =
 true to certain users.
 
 This granular security is crucial in manufacturing environments that have trade
@@ -198,7 +198,7 @@ reflects data freshness and retention (through attributes or naming).
 Finally, consider auditing and lineage. AWS Glue itself doesn't automatically store
 detailed data lineage, but you can use AWS Glue jobs or AWS Step Functions workflows to
 track processing pipelines. Storing information about data provenance (for example, that
-table daily_yield is derived using the ETL from press1_telemetry and press1_quality) can
+table daily\_yield is derived using the ETL from press1\_telemetry and press1\_quality) can
 be done by adding descriptions in the catalog or using third-party tools. Amazon DataZone
 features for tracking data usage and lineage across the catalog, like Purview's lineage
 functionality. AWS CloudTrail logs and Lake Formation audit logs will record access

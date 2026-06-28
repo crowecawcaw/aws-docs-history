@@ -1,8 +1,8 @@
 # Application security
 
-| \*_MIDASEC08:_<br>• How do you adhere to regulatory<br>guidelines with application teams in industrial environments? |
-| -------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                      |
+| **MIDASEC08:*<br>• How do you adhere to regulatory<br>guidelines with application teams in industrial environments? |
+| ------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                     |
 
 Application teams must align their security controls with recognized industry standards
 like NIST 800-82, ISO/IEC 27001, and IEC 62443 in industrial environments. Conduct regular
@@ -10,9 +10,9 @@ security awareness training programs for industrial application teams and implem
 automated compliance monitoring tools to maintain adherence to regulatory requirements while
 supporting secure manufacturing operations.
 
-| \*_MIDASEC09:_<br>• What practices do you follow for<br>securing OT application systems? |
-| ---------------------------------------------------------------------------------------- |
-|                                                                                          |
+| **MIDASEC09:*<br>• What practices do you follow for<br>securing OT application systems? |
+| --------------------------------------------------------------------------------------- |
+|                                                                                         |
 
 Implement secure coding practices, regular vulnerability scanning, and automated patch
 management for OT applications and systems. Apply secure coding guidelines for applications

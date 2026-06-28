@@ -73,14 +73,14 @@ Amazon Timestream, a purpose-built time series database optimized for industrial
 data from manufacturing equipment like CNC machines, conveyor systems, and temperature
 sensors. Configure retention policies (typically 30-90 days in memory store, longer
 periods in magnetic store) based on operational requirements such as real-time quality
-control monitoring. Design efficient data models with appropriate tags (equipment_id,
-production_line, and shift) and dimensions (temperature, pressure, and vibration) to
+control monitoring. Design efficient data models with appropriate tags (equipment\_id,
+production\_line, and shift) and dimensions (temperature, pressure, and vibration) to
 support common manufacturing queries like equipment performance analysis and predictive
 maintenance alerts.
 
 Establish data lake architecture: Create an Amazon S3-based data lake with
-appropriate partitioning strategies (by date=2024/01/15, production_line=assembly_1,
-product_type=automotive_parts) to optimize query performance on historical manufacturing
+appropriate partitioning strategies (by date=2024/01/15, production\_line=assembly\_1,
+product\_type=automotive\_parts) to optimize query performance on historical manufacturing
 data. Implement Apache Parquet columnar storage format to improve compression and query
 efficiency for manufacturing analytics such as Overall Equipment Effectiveness (OEE)
 calculations, quality trend analysis, and production optimization studies across
