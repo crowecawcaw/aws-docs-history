@@ -7,8 +7,8 @@ table name in the Athena console.
 
 - Preview table – Shows the first 10 rows
   of all columns by running the `SELECT * FROM
-"`database_name`"."`table_name`"
-LIMIT 10` statement in the Athena query editor.
+ "`database_name`"."`table_name`"
+ LIMIT 10` statement in the Athena query editor.
 - Generate table DDL – Generates a DDL
   statement that you can use to re-create the table by running the `SHOW CREATE TABLE`
   `table_name` statement in the Athena query

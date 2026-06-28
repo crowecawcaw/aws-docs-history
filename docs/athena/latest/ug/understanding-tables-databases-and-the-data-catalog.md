@@ -52,18 +52,17 @@ organization using Athena and vice versa.
 
 - To create a table manually:
 
-      + Use the Athena console to run the **Create Table
-       Wizard**.
-      + Use the Athena console to write Hive DDL statements in the Query
-       Editor.
-      + Use the Athena API or CLI to run a SQL query string with DDL
-       statements.
-      + Use the Athena JDBC or ODBC driver.
-
-  When you create tables and databases manually, Athena uses HiveQL data definition language
-  (DDL) statements such as `CREATE TABLE`, `CREATE DATABASE`, and
-  `DROP TABLE` under the hood to create tables and databases in the
-  AWS Glue Data Catalog.
+  - Use the Athena console to run the **Create Table
+    Wizard**.
+  - Use the Athena console to write Hive DDL statements in the Query
+    Editor.
+  - Use the Athena API or CLI to run a SQL query string with DDL
+    statements.
+  - Use the Athena JDBC or ODBC driver.
+    When you create tables and databases manually, Athena uses HiveQL data definition language
+    (DDL) statements such as `CREATE TABLE`, `CREATE DATABASE`, and
+    `DROP TABLE` under the hood to create tables and databases in the
+    AWS Glue Data Catalog.
 
 To get started, you can use a tutorial in the Athena console or work through a step-by-step
 guide in the Athena documentation.

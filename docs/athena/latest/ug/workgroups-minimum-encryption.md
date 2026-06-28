@@ -12,11 +12,11 @@ query or at the level set in the workgroup.
 The following levels are available:
 
 - Basic – Amazon S3 server side encryption with
-  Amazon S3 managed keys (**SSE_S3**).
+  Amazon S3 managed keys (**SSE\_S3**).
 - Intermediate – Server Side encryption with
-  KMS managed keys (**SSE_KMS**).
+  KMS managed keys (**SSE\_KMS**).
 - Advanced – Client side encryption with KMS
-  managed keys (**CSE_KMS**).
+  managed keys (**CSE\_KMS**).
 
 ## Considerations and limitations
 
@@ -47,8 +47,8 @@ steps to enable minimum encryption.
 2. Select the **Encrypt query results** option.
 3. For **Encryption type**, select the encryption method
    that you want Athena to use for your workgroup's query results
-   (**SSE_S3**, **SSE_KMS**, or
-   **CSE_KMS**). These encryption types correspond to
+   (**SSE\_S3**, **SSE\_KMS**, or
+   **CSE\_KMS**). These encryption types correspond to
    basic, intermediate, and advanced security levels.
 4. To enforce the encryption method that you chose as the minimum level of
    encryption for all users, select **Set

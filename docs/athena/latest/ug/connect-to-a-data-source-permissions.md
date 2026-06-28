@@ -108,12 +108,12 @@
   production environments, scope permissions to specific resources where possible.
   For example, scope Secrets Manager permissions to specific secret ARNs.
 
-  | Explanation of permissions                                                                                                                                                                    | **Allowed actions**                                                               | **Explanation** | **Required** |
-  | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------- | ------------ |
-  | `<br>"glue:ManagedConnector"<br>`                                                                                                                                                             | Allows Athena to invoke the connector.                                            | Required        |
-  | `<br>"secretsmanager:DescribeSecret",<br>"secretsmanager:GetSecretValue",<br>"secretsmanager:PutSecretValue"<br>`                                                                             | Allows connectors to retrieve database credentials stored in AWS Secrets Manager. | Optional        |
-  | `<br>"ec2:DescribeSubnets",<br>"ec2:DescribeSecurityGroups",<br>"ec2:DescribeVpcs",<br>"ec2:CreateNetworkInterface",<br>"ec2:DescribeNetworkInterfaces",<br>"ec2:DeleteNetworkInterface"<br>` | Allows Athena to set up networking if the data source is within a VPC.            | Optional        |
-  | `<br>"dynamodb:DescribeTable",<br>"dynamodb:ListTables",<br>"dynamodb:Scan",<br>"dynamodb:Query",<br>"dynamodb:GetItem",<br>"dynamodb:BatchGetItem"<br>`                                      | Allows Athena to query a DynamoDB data source.                                    | Optional        |
+  Explanation of permissions| **Allowed actions** | **Explanation** | **Required** |
+  | --- | --- | --- |
+  | `<br>"glue:ManagedConnector"<br>` | Allows Athena to invoke the connector. | Required |
+  | `<br>"secretsmanager:DescribeSecret",<br>"secretsmanager:GetSecretValue",<br>"secretsmanager:PutSecretValue"<br>` | Allows connectors to retrieve database credentials stored in AWS Secrets Manager. | Optional |
+  | `<br>"ec2:DescribeSubnets",<br>"ec2:DescribeSecurityGroups",<br>"ec2:DescribeVpcs",<br>"ec2:CreateNetworkInterface",<br>"ec2:DescribeNetworkInterfaces",<br>"ec2:DeleteNetworkInterface"<br>` | Allows Athena to set up networking if the data source is within a VPC. | Optional |
+  | `<br>"dynamodb:DescribeTable",<br>"dynamodb:ListTables",<br>"dynamodb:Scan",<br>"dynamodb:Query",<br>"dynamodb:GetItem",<br>"dynamodb:BatchGetItem"<br>` | Allows Athena to query a DynamoDB data source. | Optional |
 
 ## AWS Glue Data Catalog federated connectors with Lambda permissions
 

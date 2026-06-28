@@ -10,7 +10,7 @@ Displays descriptions of the available magic commands.
 
 ![Using %help.](images/notebooks-spark-magics-2.png)
 
-## %list_sessions
+## %list\_sessions
 
 Lists the sessions associated with the notebook. The information for each session
 includes the session ID, session status, and the date and time that the session
@@ -18,13 +18,13 @@ started and ended.
 
 ![Using %list_sessions.](images/notebooks-spark-magics-3.png)
 
-## %session_id
+## %session\_id
 
 Retrieves the current session ID.
 
 ![Using session_id.](images/notebooks-spark-magics-4.png)
 
-## %set_log_level
+## %set\_log\_level
 
 Sets or resets the logger to use the specified log level. Possible values are
 `DEBUG`, `ERROR`, `FATAL`,`INFO`,

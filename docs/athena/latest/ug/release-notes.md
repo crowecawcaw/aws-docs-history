@@ -803,14 +803,13 @@ For more information, see [Use the cost-based optimizer](cost-based-optimizer.md
   directly. With the Athena integration in Amazon EMR, you can perform the following
   tasks:
 
-      + Perform Athena SQL queries
-      + View query results
-      + View query history
-      + View saved queries
-      + Perform parameterized queries
-      + View databases, tables, and views for a data catalog
-
-  For more information, see Amazon EMR Studio in the [AWS service integrations with Athena](athena-aws-service-integrations.md "athena-aws-service-integrations.md") topic.
+  - Perform Athena SQL queries
+  - View query results
+  - View query history
+  - View saved queries
+  - Perform parameterized queries
+  - View databases, tables, and views for a data catalog
+    For more information, see Amazon EMR Studio in the [AWS service integrations with Athena](athena-aws-service-integrations.md "athena-aws-service-integrations.md") topic.
 
 - Nested access control – Athena
   announces support for Lake Formation access control for nested data. In Lake Formation, you can
@@ -991,7 +990,7 @@ Athena announces the following features and improvements.
 
 - EXPLAIN ANALYZE – Added support for
   queue, analysis, planning, and execution time to the output of `EXPLAIN
-ANALYZE`.
+ ANALYZE`.
 - EXPLAIN – `EXPLAIN` output
   now shows statistics when the query contains aggregations.
 - Parquet Hive SerDe – Added the
@@ -1216,7 +1215,7 @@ Bug fixes:
 - Error in binding prepared statement parameters when converting a C type to SQL
   type.
 - Failure to return data when `EXPLAIN` and `EXPLAIN
-ANALYZE` queries used `SQLPrepare()` and
+ ANALYZE` queries used `SQLPrepare()` and
   `SQLExecute()`.
 
 For more information, and to download the new drivers, release notes, and
@@ -1436,7 +1435,7 @@ Athena announces the following fixes and improvements.
 
 - Fixed an issue with the Amazon Athena DynamoDB connector that caused queries to fail
   with the error message **`KeyConditionExpressions must only contain one
-condition per key`**.
+ condition per key`**.
 
 This issue occurs because Athena engine version 3 recognizes the opportunity to push down more
 kinds of predicates than Athena engine version 2. In Athena engine version 3, clauses like `some_column
@@ -1514,19 +1513,16 @@ For more information, see [Use an external Hive metastore](connect-to-data-sourc
   releases JDBC driver version 2.0.35. The JDBC 2.0.35 driver contains the
   following updates:
 
-      + The driver now uses the following libraries for the Jackson JSON
-       parser.
+  - The driver now uses the following libraries for the Jackson JSON
+    parser.
 
+    - jackson-annotations 2.14.0 (previously 2.13.2)
+    - jackson-core 2.14.0 (previously 2.13.2)
+    - jackson-databind 2.14.0 (previously 2.13.2.2)
 
-
-
-      	- jackson-annotations 2.14.0 (previously 2.13.2)
-      	- jackson-core 2.14.0 (previously 2.13.2)
-      	- jackson-databind 2.14.0 (previously 2.13.2.2)
-      + Support for JDBC version 4.1 has been discontinued.
-
-  For more information, and to download the new driver, release notes, and
-  documentation, see [Connect to Amazon Athena with JDBC](connect-with-jdbc.md "connect-with-jdbc.md").
+  - Support for JDBC version 4.1 has been discontinued.
+    For more information, and to download the new driver, release notes, and
+    documentation, see [Connect to Amazon Athena with JDBC](connect-with-jdbc.md "connect-with-jdbc.md").
 
 ## Athena release notes for 2022
 
@@ -1609,8 +1605,8 @@ features:
   file formats. Support for these formats is in addition to the existing support
   for Parquet.
 - MERGE INTO – Use the `MERGE
-INTO` command to merge data at scale efficiently. `MERGE
-INTO` combines the `INSERT`, `UPDATE`, and
+ INTO` command to merge data at scale efficiently. `MERGE
+ INTO` combines the `INSERT`, `UPDATE`, and
   `DELETE` operations into one transaction. This reduces the
   processing overhead in your data pipeline and takes less SQL to write. For more
   information, see [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md") and [MERGE INTO](merge-into-statement.md "merge-into-statement.md").
@@ -1758,7 +1754,7 @@ table names.
   function.
 - Because AWS Glue supports only lower case table names, when you create a AWS Glue
   table for Neptune, specify the AWS Glue table parameter `"glabel" =
-`table_name``.
+ `table_name``.
 
 For more information about the Neptune connector, see [Amazon Athena Neptune connector](connectors-neptune.md "connectors-neptune.md").
 
@@ -1928,15 +1924,14 @@ Athena announces the following fixes and improvements.
 
 - Iceberg support
 
-      + Introduced support for cross-region queries. Now you can query Iceberg
-       tables in an AWS Region that is different from the AWS Region that
-       you are using. Cross-region querying is not supported in the
-       China Regions.
-      + Introduced support for server side encryption configuration. Now you
-       can use [SSE-S3/SSE-KMS](../../../AmazonS3/latest/userguide/specifying-kms-encryption.md "../../../AmazonS3/latest/userguide/specifying-kms-encryption.md") to encrypt data from Iceberg write
-       operations in Amazon S3.
-
-  For more information about using Apache Iceberg in Athena, see [Query Apache Iceberg tables](querying-iceberg.md "querying-iceberg.md").
+  - Introduced support for cross-region queries. Now you can query Iceberg
+    tables in an AWS Region that is different from the AWS Region that
+    you are using. Cross-region querying is not supported in the
+    China Regions.
+  - Introduced support for server side encryption configuration. Now you
+    can use [SSE-S3/SSE-KMS](../../../AmazonS3/latest/userguide/specifying-kms-encryption.md "../../../AmazonS3/latest/userguide/specifying-kms-encryption.md") to encrypt data from Iceberg write
+    operations in Amazon S3.
+    For more information about using Apache Iceberg in Athena, see [Query Apache Iceberg tables](querying-iceberg.md "querying-iceberg.md").
 
 - JDBC 2.0.30 driver release
 
@@ -2073,7 +2068,7 @@ Athena announces the following fixes and improvements.
 
   - CREATE TABLE (text file or JSON) – In
     `TBLPROPERTIES`, specify `write.compression =
-NONE`.
+   NONE`.
   - CREATE TABLE (Parquet) – In `TBLPROPERTIES`, specify
     `parquet.compression = UNCOMPRESSED`.
   - CREATE TABLE (ORC) – In `TBLPROPERTIES`, specify
@@ -2289,7 +2284,7 @@ GROUP BY orderpriority, custkey
 
 - Addressed memory handling issues for queries that use `DISTINCT`.
   To avoid error messages like **`Query exhausted resources at this scale
-factor`** when you use `DISTINCT` queries, choose
+ factor`** when you use `DISTINCT` queries, choose
   columns that have a low cardinality for `DISTINCT`, or reduce the
   data size of the query.
 - In `SELECT COUNT(*)` queries that do not specify a specific column,
@@ -3431,21 +3426,20 @@ For information about differences introduced with workgroups, see [Use Athena wo
 - Improved the JSON OpenX SerDe used in Athena. The improvements include, but are
   not limited to, the following:
 
-      + Support for the `ConvertDotsInJsonKeysToUnderscores`
-       property. When set to `TRUE`, it allows the SerDe to replace
-       the dots in key names with underscores. For example, if the JSON dataset
-       contains a key with the name `"a.b"`, you can use this
-       property to define the column name to be `"a_b"` in Athena.
-       The default is `FALSE`. By default, Athena does not allow dots
-       in column names.
-      + Support for the `case.insensitive` property. By default,
-       Athena requires that all keys in your JSON dataset use lowercase. Using
-       `WITH SERDE PROPERTIES ("case.insensitive"= FALSE;)`
-       allows you to use case-sensitive key names in your data. The default is
-       `TRUE`. When set to `TRUE`, the SerDe converts
-       all uppercase columns to lowercase.
-
-  For more information, see [OpenX JSON SerDe](openx-json-serde.md "openx-json-serde.md").
+  - Support for the `ConvertDotsInJsonKeysToUnderscores`
+    property. When set to `TRUE`, it allows the SerDe to replace
+    the dots in key names with underscores. For example, if the JSON dataset
+    contains a key with the name `"a.b"`, you can use this
+    property to define the column name to be `"a_b"` in Athena.
+    The default is `FALSE`. By default, Athena does not allow dots
+    in column names.
+  - Support for the `case.insensitive` property. By default,
+    Athena requires that all keys in your JSON dataset use lowercase. Using
+    `WITH SERDE PROPERTIES ("case.insensitive"= FALSE;)`
+    allows you to use case-sensitive key names in your data. The default is
+    `TRUE`. When set to `TRUE`, the SerDe converts
+    all uppercase columns to lowercase.
+    For more information, see [OpenX JSON SerDe](openx-json-serde.md "openx-json-serde.md").
 
 - Fixed an issue where Athena returned `"access denied"` error
   messages, when it processed Amazon S3 objects that were archived to Glacier by Amazon S3
@@ -3573,7 +3567,7 @@ Added support for these DDL-related features and fixed several bugs, as follows:
   for data in Avro.
 - Added support for `INT` and `DOUBLE` in DDL queries.
   `INTEGER` is an alias to `INT`, and `DOUBLE
-PRECISION` is an alias to `DOUBLE`.
+ PRECISION` is an alias to `DOUBLE`.
 - Improved performance of `DROP TABLE` and `DROP DATABASE`
   queries.
 - Removed the creation of `_$folder$` object in Amazon S3 when a data
@@ -3657,8 +3651,8 @@ time you reference the view in your query. For more information, see [Work with 
     an Athena query. Previously, Athena issued an internal error in cases
     of parsing errors. The new error message reads:
     **`"HIVE_BAD_DATA: Error parsing field value for field
-0: java.lang.String cannot be cast to
-org.openx.data.jsonserde.json.JSONObject"`**.
+   0: java.lang.String cannot be cast to
+   org.openx.data.jsonserde.json.JSONObject"`**.
   - Improved error messages about insufficient permissions by adding
     more detail.
 
@@ -3764,7 +3758,7 @@ include:
 - Support for Presto Lambda expressions and functions.
 - Improved performance of the `DECIMAL` type and operators.
 - Support for filtered aggregations, such as `SELECT sum(col_name)
-FILTER`, where `id > 0`.
+ FILTER`, where `id > 0`.
 - Push-down predicates for the `DECIMAL`, `TINYINT`,
   `SMALLINT`, and `REAL` data types.
 - Support for quantified comparison predicates: `ALL`,
@@ -3920,7 +3914,7 @@ with encryption support, improvements, and bug fixes.
 - A new version of the driver supports new encryption features, adds
   improvements, and fixes issues.
 - Added the ability to add, replace, and change columns using `ALTER
-TABLE`. For more information, see [Alter Column](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterColumn "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterColumn") in the Hive documentation.
+ TABLE`. For more information, see [Alter Column](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterColumn "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterColumn") in the Hive documentation.
 - Added support for querying LZO-compressed data.
 
 For more information, see [Encryption at rest](encryption.md "encryption.md").
@@ -3976,7 +3970,7 @@ Added the AWS CloudTrail SerDe, improved performance, fixed partition issues.
 - Fixed a bug where a "table not found error" might occur if no partitions
   are loaded.
 - Fixed a bug to avoid throwing an exception with `ALTER TABLE ADD
-PARTITION IF NOT EXISTS` queries.
+ PARTITION IF NOT EXISTS` queries.
 - Fixed a bug in `DROP PARTITIONS`.
 
 ### February 20, 2017

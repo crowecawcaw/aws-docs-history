@@ -65,9 +65,9 @@ The connector supports the following authentication methods.
 - [SASL/SCRAM](https://kafka.apache.org/documentation/#security_sasl_scram "https://kafka.apache.org/documentation/#security_sasl_scram")
 - SASL/PLAIN
 - SASL/PLAINTEXT
-- NO_AUTH
+- NO\_AUTH
 - Self-managed Kafka and Confluent Platform
-  – SSL, SASL/SCRAM, SASL/PLAINTEXT, NO_AUTH
+  – SSL, SASL/SCRAM, SASL/PLAINTEXT, NO\_AUTH
 - Self-managed Kafka and Confluent Cloud –
   SASL/PLAIN
 
@@ -86,28 +86,28 @@ The connector supports the following input data formats.
 
 Use the parameters in this section to configure the Athena Kafka connector.
 
-- auth_type – Specifies the authentication
+- auth\_type – Specifies the authentication
   type of the cluster. The connector supports the following types of
   authentication:
 
-  - NO_AUTH – Connect directly to
+  - NO\_AUTH – Connect directly to
     Kafka (for example, to a Kafka cluster deployed over an EC2 instance
     that does not use authentication).
-  - SASL_SSL_PLAIN – This method
+  - SASL\_SSL\_PLAIN – This method
     uses the `SASL_SSL` security protocol and the
     `PLAIN` SASL mechanism. For more information, see [SASL configuration](https://kafka.apache.org/documentation/#security_sasl_config "https://kafka.apache.org/documentation/#security_sasl_config") in the Apache Kafka
     documentation.
-  - SASL_PLAINTEXT_PLAIN – This
+  - SASL\_PLAINTEXT\_PLAIN – This
     method uses the `SASL_PLAINTEXT` security protocol and the
     `PLAIN` SASL mechanism. For more information, see [SASL configuration](https://kafka.apache.org/documentation/#security_sasl_config "https://kafka.apache.org/documentation/#security_sasl_config") in the Apache Kafka
     documentation.
-  - SASL_SSL_SCRAM_SHA512 – You can
+  - SASL\_SSL\_SCRAM\_SHA512 – You can
     use this authentication type to control access to your Apache Kafka
     clusters. This method stores the user name and password in AWS Secrets Manager.
     The secret must be associated with the Kafka cluster. For more
     information, see [Authentication using SASL/SCRAM](https://kafka.apache.org/documentation/#security_sasl_scram "https://kafka.apache.org/documentation/#security_sasl_scram") in the Apache Kafka
     documentation.
-  - SASL_PLAINTEXT_SCRAM_SHA512 –
+  - SASL\_PLAINTEXT\_SCRAM\_SHA512 –
     This method uses the `SASL_PLAINTEXT` security protocol and
     the `SCRAM_SHA512 SASL` mechanism. This method uses your user
     name and password stored in AWS Secrets Manager. For more information, see the
@@ -124,24 +124,24 @@ Use the parameters in this section to configure the Athena Kafka connector.
 
   For more information, see [Configuring authentication for the Athena Kafka connector](#connectors-kafka-setup-configuring-authentication "#connectors-kafka-setup-configuring-authentication").
 
-- certificates_s3_reference – The Amazon S3
+- certificates\_s3\_reference – The Amazon S3
   location that contains the certificates (the key store and trust store
   files).
-- disable_spill_encryption – (Optional)
+- disable\_spill\_encryption – (Optional)
   When set to `True`, disables spill encryption. Defaults to
   `False` so that data that is spilled to S3 is encrypted using
   AES-GCM – either using a randomly generated key or KMS to generate keys.
   Disabling spill encryption can improve performance, especially if your spill
   location uses [server-side
   encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md").
-- kafka_endpoint – The endpoint details to
+- kafka\_endpoint – The endpoint details to
   provide to Kafka.
-- schema_registry_url – The URL address
+- schema\_registry\_url – The URL address
   for the schema registry (for example,
   `http://schema-registry.example.org:8081`). Applies to the
   `AVRO` and `PROTOBUF` data formats. Athena only
   supports Confluent schema registry.
-- secrets_manager_secret – The name of the
+- secrets\_manager\_secret – The name of the
   AWS secret in which the credentials are saved.
 - Spill parameters – Lambda functions
   temporarily store ("spill") data that do not fit into memory to Amazon S3. All
@@ -448,7 +448,7 @@ The following table shows the authentication types for the connector and the
 security protocol and SASL mechanism for each. For more information, see the [Security](https://kafka.apache.org/documentation/#security "https://kafka.apache.org/documentation/#security") section
 of the Apache Kafka documentation.
 
-| auth_type                     | security.protocol | sasl.mechanism  | Cluster type compatibility                                        |
+| auth\_type                    | security.protocol | sasl.mechanism  | Cluster type compatibility                                        |
 | ----------------------------- | ----------------- | --------------- | ----------------------------------------------------------------- |
 | `SASL_SSL_PLAIN`              | `SASL_SSL`        | `PLAIN`         | • Self-managed Kafka<br>• Confluent Platform<br>• Confluent Cloud |
 | `SASL_PLAINTEXT_PLAIN`        | `SASL_PLAINTEXT`  | `PLAIN`         | • Self-managed Kafka<br>• Confluent Platform                      |

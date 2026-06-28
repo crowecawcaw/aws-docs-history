@@ -77,7 +77,7 @@ functions. For example, instead of using `row_number` to find the top
 `N` records, you can use `ORDER BY` and
 `LIMIT`. Instead of using `row_number` or
 `rank` to deduplicate records, you can use aggregate functions
-like [max_by](https://trino.io/docs/current/functions/aggregate.html#max_by "https://trino.io/docs/current/functions/aggregate.html#max_by"), [min_by](https://trino.io/docs/current/functions/aggregate.html#min_by "https://trino.io/docs/current/functions/aggregate.html#min_by"), and [arbitrary](https://trino.io/docs/current/functions/aggregate.html#arbitrary "https://trino.io/docs/current/functions/aggregate.html#arbitrary").
+like [max\_by](https://trino.io/docs/current/functions/aggregate.html#max_by "https://trino.io/docs/current/functions/aggregate.html#max_by"), [min\_by](https://trino.io/docs/current/functions/aggregate.html#min_by "https://trino.io/docs/current/functions/aggregate.html#min_by"), and [arbitrary](https://trino.io/docs/current/functions/aggregate.html#arbitrary "https://trino.io/docs/current/functions/aggregate.html#arbitrary").
 
 For example, suppose you have a dataset with updates from a sensor. The sensor
 periodically reports its battery status and includes some metadata like
@@ -193,13 +193,13 @@ aggregate functions](https://trino.io/docs/current/functions/aggregate.html#appr
 values, percentiles (including approximate medians), and creating histograms. Use
 these functions whenever exact values are not needed.
 
-Unlike `COUNT(DISTINCT col)` operations, [approx_distinct](https://trino.io/docs/current/functions/aggregate.html#approx_distinct "https://trino.io/docs/current/functions/aggregate.html#approx_distinct") uses much less memory and runs faster. Similarly, using
-[numeric_histogram](https://trino.io/docs/current/functions/aggregate.html#numeric_histogram "https://trino.io/docs/current/functions/aggregate.html#numeric_histogram") instead of [histogram](https://trino.io/docs/current/functions/aggregate.html#histogram "https://trino.io/docs/current/functions/aggregate.html#histogram") uses approximate methods and therefore less memory.
+Unlike `COUNT(DISTINCT col)` operations, [approx\_distinct](https://trino.io/docs/current/functions/aggregate.html#approx_distinct "https://trino.io/docs/current/functions/aggregate.html#approx_distinct") uses much less memory and runs faster. Similarly, using
+[numeric\_histogram](https://trino.io/docs/current/functions/aggregate.html#numeric_histogram "https://trino.io/docs/current/functions/aggregate.html#numeric_histogram") instead of [histogram](https://trino.io/docs/current/functions/aggregate.html#histogram "https://trino.io/docs/current/functions/aggregate.html#histogram") uses approximate methods and therefore less memory.
 
 ## Optimize LIKE
 
 You can use `LIKE` to find matching strings, but with long strings,
-this is compute intensive. The [regexp_like](https://trino.io/docs/current/functions/regexp.html#regexp_like "https://trino.io/docs/current/functions/regexp.html#regexp_like") function is in most cases a faster alternative, and also
+this is compute intensive. The [regexp\_like](https://trino.io/docs/current/functions/regexp.html#regexp_like "https://trino.io/docs/current/functions/regexp.html#regexp_like") function is in most cases a faster alternative, and also
 provides more flexibility.
 
 Often you can optimize a search by anchoring the substring that you are looking

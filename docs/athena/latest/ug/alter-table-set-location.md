@@ -10,7 +10,7 @@ ALTER TABLE table_name [ PARTITION (partition_spec) ] SET LOCATION 'new location
 
 ## Parameters
 
-**PARTITION (partition_spec)**
+**PARTITION (partition\_spec)**
 
 Specifies the partition with parameters `partition_spec` whose location you want to change. The `partition_spec` specifies a column name/value combination in the form `partition_col_name = partition_col_value`.
 

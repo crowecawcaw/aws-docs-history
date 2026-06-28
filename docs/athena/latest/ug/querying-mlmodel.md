@@ -38,7 +38,7 @@ function](https://aws.amazon.com/blogs/big-data/detecting-anomalous-values-by-in
   allowed to perform the `sagemaker:InvokeEndpoint` action for the
   referenced SageMaker AI model endpoint. For more information, see [Allow access for ML with Athena](machine-learning-iam-access.md "machine-learning-iam-access.md").
 - **ML with Athena functions cannot be used in `GROUP
-BY` clauses directly**
+ BY` clauses directly**
 
 ###### Topics
 

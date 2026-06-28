@@ -24,13 +24,13 @@ where `number` is a zero-based integer and
 executed by the nodes. Fragment types, which provide insight into the layout of
 the data exchange, are described in the following table.
 
-| Distributed plan fragment types | Fragment type                                                                                                   | Description |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
-| `SINGLE`                        | The fragment is executed on a single node.                                                                      |
-| `HASH`                          | The fragment is executed on a fixed number of nodes. The<br>input data is distributed using a hash function.    |
-| `ROUND_ROBIN`                   | The fragment is executed on a fixed number of nodes. The<br>input data is distributed in a round-robin fashion. |
-| `BROADCAST`                     | The fragment is executed on a fixed number of nodes. The<br>input data is broadcast to all nodes.               |
-| `SOURCE`                        | The fragment is executed on nodes where input splits are<br>accessed.                                           |
+Distributed plan fragment types| Fragment type | Description |
+| --- | --- |
+| `SINGLE` | The fragment is executed on a single node. |
+| `HASH` | The fragment is executed on a fixed number of nodes. The<br>input data is distributed using a hash function. |
+| `ROUND_ROBIN` | The fragment is executed on a fixed number of nodes. The<br>input data is distributed in a round-robin fashion. |
+| `BROADCAST` | The fragment is executed on a fixed number of nodes. The<br>input data is broadcast to all nodes. |
+| `SOURCE` | The fragment is executed on nodes where input splits are<br>accessed. |
 
 ## Exchange
 

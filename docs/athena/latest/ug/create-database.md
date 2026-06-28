@@ -39,7 +39,7 @@ properties.
 Specifies the location where database files and metastore will exist as
 `S3_loc`. The location must be an Amazon S3 location.
 
-**[WITH DBPROPERTIES ('property_name' = 'property_value') [, ...] ]**
+**[WITH DBPROPERTIES ('property\_name' = 'property\_value') [, ...] ]**
 
 Allows you to specify custom metadata properties for the database
 definition.

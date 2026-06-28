@@ -33,9 +33,8 @@ file in a text editor. 4. In the JSON file, perform the following steps:
     2. Change the `Name` entry to the new database name.
     3. Remove the `CatalogId` field.
 
-5. Save the file.
-6. At a command prompt, run the following AWS CLI command to use the modified database
-   definition file to create the database with the new name.
+5. Save the file. 6. At a command prompt, run the following AWS CLI command to use the modified database
+definition file to create the database with the new name.
 
 ```
 aws glue create-database --database-input "file://~/Desktop\`new_database_name`.json"
@@ -76,9 +75,8 @@ corresponding closing brace `}` at the end of the file. 5. In the JSON file, rem
     * `CatalogId`
     * `VersionId`
 
-6. Save the table definition file.
-7. At a command prompt, run the following AWS CLI command to recreate the table in the
-   new database:
+6. Save the table definition file. 7. At a command prompt, run the following AWS CLI command to recreate the table in the
+new database:
 
 ```
 aws glue create-table --database-name `new_database_name` --table-input "file://~/Desktop\`table_name`.json"

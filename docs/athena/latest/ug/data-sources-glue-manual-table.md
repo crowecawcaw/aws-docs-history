@@ -76,57 +76,58 @@ only (for example, s3://amzn-s3-demo-bucket/logs/). 6. For **Data Format**, choo
     For more information about using SerDe libraries in Athena, see [Choose a SerDe for your data](supported-serdes.md "supported-serdes.md").
 
 7. For **SerDe properties**, add, edit, or remove properties and
-   values according to the SerDe library that you are using and your
-   requirements.
+values according to the SerDe library that you are using and your
+requirements.
 
-   - To add a SerDe property, choose **Add SerDe
+    * To add a SerDe property, choose **Add SerDe
      property**.
-   - In the **Name** field, enter the name of the property.
-   - In the **Value** field, enter a value for the property.
-   - To remove a SerDe property, choose **Remove**.
+    * In the **Name** field, enter the name of the property.
+    * In the **Value** field, enter a value for the property.
+    * To remove a SerDe property, choose **Remove**.
 
 8. For **Table properties**, choose or edit the table properties
-   according to your requirements.
+according to your requirements.
 
-   - For **Write compression**, choose a compression option.
+    * For **Write compression**, choose a compression option.
      The availability of the write compression option and of the compression
      options available depends on the data format. For more information, see
      [Use compression in Athena](compression-formats.md "compression-formats.md").
-   - For **Encryption**, select **Encrypted data
+    * For **Encryption**, select **Encrypted data
      set** if the underlying data is encrypted in Amazon S3. This option
      sets the `has_encrypted_data` table property to true in the
      `CREATE TABLE` statement.
 
 9. For **Column details**, enter the names and data types of the
-   columns that you want to add to the table.
+columns that you want to add to the table.
 
-   - To add more columns one at a time, choose **Add a
+    * To add more columns one at a time, choose **Add a
      column**.
-   - To quickly add more columns, choose **Bulk add columns**.
+    * To quickly add more columns, choose **Bulk add columns**.
      In the text box, enter a comma separated list of columns in the format
      `column_name`
-     `data_type`, `column_name`
-     `data_type`[, ...], and then choose
+    `data_type`, `column_name`
+    `data_type`[, ...], and then choose
      **Add**.
 
 10. (Optional) For **Partition details**, add one or more column
-    names and data types. Partitioning keeps related data together based on column
-    values and can help reduce the amount of data scanned per query. For information
-    about partitioning, see [Partition your data](partitions.md "partitions.md").
-11. (Optional) For **Bucketing**, you can specify one or more columns
-    that have rows that you want to group together, and then put those rows into
-    multiple buckets. This allows you to query only the bucket that you want to read
-    when the bucketed columns value is specified.
+names and data types. Partitioning keeps related data together based on column
+values and can help reduce the amount of data scanned per query. For information
+about partitioning, see [Partition your data](partitions.md "partitions.md"). 11. (Optional) For **Bucketing**, you can specify one or more columns
+that have rows that you want to group together, and then put those rows into
+multiple buckets. This allows you to query only the bucket that you want to read
+when the bucketed columns value is specified.
 
-    - For **Buckets**, select one or more columns that have a
-      large number of unique values (for example, a primary key) and that are
-      frequently used to filter the data in your queries.
-    - For **Number of buckets**, enter a number that permits
-      files to be of optimal size. For more information, see [Top 10
-      Performance Tuning Tips for Amazon Athena](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/ "https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/") in the AWS Big Data
-      Blog.
-    - To specify your bucketed columns, the `CREATE TABLE` statement
-      will use the following syntax:
+    * For **Buckets**, select one or more columns that have a
+     large number of unique values (for example, a primary key) and that are
+     frequently used to filter the data in your queries.
+    * For **Number of buckets**, enter a number that permits
+     files to be of optimal size. For more information, see [Top 10
+     Performance Tuning Tips for Amazon Athena](https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/ "https://aws.amazon.com/blogs/big-data/top-10-performance-tuning-tips-for-amazon-athena/") in the AWS Big Data
+     Blog.
+    * To specify your bucketed columns, the `CREATE TABLE` statement
+     will use the following syntax:
+
+
 
     ```
     CLUSTERED BY (`bucketed_columns`) INTO `number_of_buckets` BUCKETS

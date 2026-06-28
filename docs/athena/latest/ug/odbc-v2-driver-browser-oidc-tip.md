@@ -44,7 +44,7 @@ The client identifier issued to the application by the OpenID Connect provider.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                     |
 | -------------------------- | ------------------ | ----------------- | ------------------------------------------------- |
-| client_id                  | Required           | `none`            | `client_id=00001111-aaaa-2222-bbbb-3333cccc4444;` |
+| client\_id                 | Required           | `none`            | `client_id=00001111-aaaa-2222-bbbb-3333cccc4444;` |
 
 ## Workgroup ARN
 
@@ -86,7 +86,7 @@ that user.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**     |
 | -------------------------- | ------------------ | ----------------- | --------------------------------- |
-| role_session_name          | Required           | `none`            | `role_session_name=familiarname;` |
+| role\_session\_name        | Required           | `none`            | `role_session_name=familiarname;` |
 
 ## Client secret
 
@@ -98,7 +98,7 @@ by your identity provider administrator.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                        |
 | -------------------------- | ------------------ | ----------------- | -------------------------------------------------------------------- |
-| client_secret              | Optional           | `none`            | `client_secret=s0m3R@nd0mS3cr3tV@lu3Th@tS3cur3lyPr0t3ct5Th3Cl13nt;!` |
+| client\_secret             | Optional           | `none`            | `client_secret=s0m3R@nd0mS3cr3tV@lu3Th@tS3cur3lyPr0t3ct5Th3Cl13nt;!` |
 
 ## Scope
 
@@ -144,8 +144,8 @@ applications](../../../singlesignon/latest/userguide/customermanagedapps.md "../
 
 ## Identity provider port number
 
-The local port number to use for the OAuth 2.0 callback server. This is used as redirect_uri
-and you will need to allowlist this in your IDP application. The default generated redirect_uri is:
+The local port number to use for the OAuth 2.0 callback server. This is used as redirect\_uri
+and you will need to allowlist this in your IDP application. The default generated redirect\_uri is:
 http://localhost:7890/athena
 
 ###### Warning
@@ -163,7 +163,7 @@ mitigate potential port hijacking risks by:
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| listen_port                | Optional           | `7890`            | `listen_port=8080;`           |
+| listen\_port               | Optional           | `7890`            | `listen_port=8080;`           |
 
 ## Identity provider response timeout
 

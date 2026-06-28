@@ -23,7 +23,7 @@ aws athena start-calculation-execution \
 The command gives the following error message:
 
 **``{LARGE_CODE_BLOCK}` at 'codeBlock' failed to satisfy
-constraint: Member must have length less than or equal to 68000`**
+ constraint: Member must have length less than or equal to 68000`**
 
 ## Workaround
 

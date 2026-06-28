@@ -47,7 +47,7 @@ connector provider. These connectors are not tested or supported by AWS.
 - Write operations – Write operations like
   [INSERT INTO](insert-into.md "insert-into.md") are not supported.
   Attempting to do so may result in the error message **`This operation is
-currently not supported for external catalogs`**.
+ currently not supported for external catalogs`**.
 - Pricing – For pricing information, see
   [Amazon Athena
   pricing](https://aws.amazon.com/athena/pricing/ "https://aws.amazon.com/athena/pricing/").
@@ -67,7 +67,7 @@ Certain AWS Glue Data Catalog federated catalog connectors that you create on or
 do not require Lambda.
 
 | Data source                                                                             | AWS Glue Data Catalog federated connectors | Athena data catalog federated connectors |
-| --------------------------------------------------------------------------------------- | ------------------------------------------ | ---------------------------------------- | --- |
+| --------------------------------------------------------------------------------------- | ------------------------------------------ | ---------------------------------------- |
 |                                                                                         | Without Lambda                             | With Lambda                              |     |
 | [Amazon CloudWatch Logs](connectors-cloudwatch.md "connectors-cloudwatch.md")           |                                            | Yes                                      | Yes |
 | [Amazon CloudWatch Metrics](connectors-cwmetrics.md "connectors-cwmetrics.md")          |                                            | Yes                                      | Yes |

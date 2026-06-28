@@ -20,7 +20,7 @@ Console###### To update encryption settings in the Athena console
    **Edit**.
 5. Open **Query result configuration** and choose **Encrypt query
    results**.
-6. For **Encryption type** section, choose **SSE_KMS**
+6. For **Encryption type** section, choose **SSE\_KMS**
    encryption option.
 7. Enter your KMS key under **Choose a different
    AWS KMS key (advanced)**.

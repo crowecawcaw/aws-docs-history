@@ -25,12 +25,12 @@ If you use Amazon EMR along with EMRFS to upload CSE-KMS encrypted Parquet files
 disable multipart uploads by setting
 `fs.s3n.multipart.uploads.enabled` to `false`. If you
 don't do this, Athena is unable to determine the Parquet file length and a
-**HIVE_CANNOT_OPEN_SPLIT** error occurs. For
+**HIVE\_CANNOT\_OPEN\_SPLIT** error occurs. For
 more information, see [Configure
 multipart upload for Amazon S3](../../../emr/latest/ManagementGuide/emr-plan-upload-s3.md#Config_Multipart "../../../emr/latest/ManagementGuide/emr-plan-upload-s3.md#Config_Multipart") in the
 _Amazon EMR Management Guide_.
 
-### Using encryption_option and kms_key table properties
+### Using encryption\_option and kms\_key table properties
 
 In a [CREATE TABLE](create-table.md "create-table.md") statement, use a
 `TBLPROPERTIES` clause that specifies `encryption_option='CSE_KMS'` and
@@ -63,7 +63,7 @@ When these properties are configured,
 - Athena can still read SSE-S3 and SSE-KMS encrypted objects, though mixing server-side
   and client-side encrypted objects is not recommended.
 
-### Using has_encrypted_data table property
+### Using has\_encrypted\_data table property
 
 In a [CREATE TABLE](create-table.md "create-table.md") statement, use a
 `TBLPROPERTIES` clause that specifies
@@ -85,7 +85,7 @@ LOCATION
  'has\_encrypted\_data' = 'true')**
 ```
 
-When the has_encrypted_data table property is specified,
+When the has\_encrypted\_data table property is specified,
 
 - Athena can only read CSE-KMS encrypted objects created by the V1 Amazon S3
   encryption client.

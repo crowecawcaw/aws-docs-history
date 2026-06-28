@@ -26,11 +26,11 @@ the following:
      **Choose**.
 
 6. (Optional) For **Expected bucket owner**, enter the ID of
-   the AWS account that you expect to be the owner of the output location
-   bucket. This is an added security measure. If the account ID of the bucket
-   owner does not match the ID that you specify here, attempts to output to the
-   bucket will fail. For in-depth information, see [Verifying bucket ownership with bucket owner
-   condition](../../../AmazonS3/latest/userguide/bucket-owner-condition.md "../../../AmazonS3/latest/userguide/bucket-owner-condition.md") in the _Amazon S3 User Guide_.
+the AWS account that you expect to be the owner of the output location
+bucket. This is an added security measure. If the account ID of the bucket
+owner does not match the ID that you specify here, attempts to output to the
+bucket will fail. For in-depth information, see [Verifying bucket ownership with bucket owner
+condition](../../../AmazonS3/latest/userguide/bucket-owner-condition.md "../../../AmazonS3/latest/userguide/bucket-owner-condition.md") in the _Amazon S3 User Guide_.
 
 ###### Note
 

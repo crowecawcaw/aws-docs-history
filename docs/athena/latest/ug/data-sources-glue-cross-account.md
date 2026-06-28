@@ -36,18 +36,13 @@ information:
      account ID is the catalog ID.
 
 9. (Optional) For **Tags**, enter key-value pairs that you want to
-   associate with the data source. For more information about tags, see [Tag Athena resources](tags.md "tags.md").
-10. Choose **Next**.
-11. On the **Review and create** page, review the information that
-    you provided, and then choose **Create data source**. The
-    **Data source details** page lists the databases and tags for
-    the data catalog that you registered.
-12. Choose **Data sources and catalogs**. The data catalog that you registered is
-    listed in the **Data source name** column.
-13. To view or edit information about the data catalog, choose the catalog, and then
-    choose **Actions**, **Edit**.
-14. To delete the new data catalog, choose the catalog, and then choose
-    **Actions**, **Delete**.
+associate with the data source. For more information about tags, see [Tag Athena resources](tags.md "tags.md"). 10. Choose **Next**. 11. On the **Review and create** page, review the information that
+you provided, and then choose **Create data source**. The
+**Data source details** page lists the databases and tags for
+the data catalog that you registered. 12. Choose **Data sources and catalogs**. The data catalog that you registered is
+listed in the **Data source name** column. 13. To view or edit information about the data catalog, choose the catalog, and then
+choose **Actions**, **Edit**. 14. To delete the new data catalog, choose the catalog, and then choose
+**Actions**, **Delete**.
 
 ## Register using API operations
 

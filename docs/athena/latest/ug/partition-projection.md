@@ -63,11 +63,11 @@ predictable pattern such as, but not limited to, the following:
 
 - Integers – Any continuous sequence
   of integers such as `[1, 2, 3, 4, ..., 1000]` or `[0500,
-0550, 0600, ..., 2500]`.
+ 0550, 0600, ..., 2500]`.
 - Dates – Any continuous sequence of
   dates or datetimes such as `[20200101, 20200102, ..., 20201231]`
   or `[1-1-2020 00:00:00, 1-1-2020 01:00:00, ..., 12-31-2020
-23:00:00]`.
+ 23:00:00]`.
 - Enumerated values – A finite set of
   enumerated values such as airport codes or AWS Regions.
 - AWS service logs – AWS service
@@ -99,12 +99,12 @@ The following considerations apply:
   rows. For example, if you have time-related data that starts in 2020 and is
   defined as `'projection.timestamp.range'='2020/01/01,NOW'`, a query
   like `SELECT * FROM `table-name` WHERE timestamp =
-'2019/02/02'` will complete successfully, but return zero rows.
+ '2019/02/02'` will complete successfully, but return zero rows.
 - Partition projection is usable only when the table is queried through Athena.
   If the same table is read through another service such as Amazon Redshift Spectrum, Athena for
   Spark, or Amazon EMR, the standard partition metadata is used.
 - Because partition projection is a DML-only feature, `SHOW
-PARTITIONS` does not list partitions that are projected by Athena but
+ PARTITIONS` does not list partitions that are projected by Athena but
   not registered in the AWS Glue catalog or external Hive metastore.
 - Athena does not use the table properties of views as configuration for
   partition projection. To work around this limitation, configure and enable

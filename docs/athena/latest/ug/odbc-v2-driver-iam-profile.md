@@ -40,7 +40,7 @@ _AWS Security Token Service API Reference_.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                        |
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
-| preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
+| preferred\_role            | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
 
 ## Session duration
 
@@ -63,4 +63,4 @@ Type** field of the ODBC Data Source Administrator, but is used only by
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| plugin_name                | Optional           | `none`            | `plugin_name=AzureAD;`        |
+| plugin\_name               | Optional           | `none`            | `plugin_name=AzureAD;`        |

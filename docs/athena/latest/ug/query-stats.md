@@ -55,8 +55,8 @@ To navigate the graph, use the following options:
     * To move the graph around, drag the mouse pointer.
 
 3. To see more details for a stage, choose the stage. The stage details pane on the
-   right shows the number of rows and bytes input and output, and an operator
-   tree.
+right shows the number of rows and bytes input and output, and an operator
+tree.
 
 ![Stage details pane.](images/query-stats-4.png) 4. To see the stage details full width, choose the expand icon at the top right of
 the details pane. 5. To get information about the parts of the stage, expand one or more items in the

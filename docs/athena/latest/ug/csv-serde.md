@@ -83,7 +83,7 @@ follows:
   the column with the null values as `string` and then use
   `CAST` to convert the field in a query to a numeric data
   type, supplying a default value of `0` for nulls. For more
-  information, see [When I query CSV data in Athena, I get the error HIVE_BAD_DATA: Error
+  information, see [When I query CSV data in Athena, I get the error HIVE\_BAD\_DATA: Error
   parsing field value](https://aws.amazon.com/premiumsupport/knowledge-center/athena-hive-bad-data-error-csv/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-hive-bad-data-error-csv/") in the AWS Knowledge Center.
 - For columns specified with the `timestamp` data type in your
   `CREATE TABLE` statement, recognizes `TIMESTAMP`

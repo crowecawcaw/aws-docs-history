@@ -33,7 +33,7 @@ When using ZSTD compression level in Athena, consider the following points.
   Athena engine version 3.
 - The ZSTD `compression_level` property is supported for the
   `ALTER TABLE`, `CREATE TABLE`, `CREATE TABLE
-AS` (CTAS), and `UNLOAD` statements.
+ AS` (CTAS), and `UNLOAD` statements.
 - The `compression_level` property is optional.
 - The `compression_level` property is supported only for ZSTD
   compression.
@@ -74,7 +74,8 @@ SET TBLPROPERTIES ('parquet.compression' = 'ZSTD', 'compression_level' = '4')
 In the [CREATE TABLE](create-table.md "create-table.md") statement
 `TBLPROPERTIES` clause, specify '`write.compression' =
  'ZSTD'` or `'parquet.compression' = 'ZSTD'`, and then use
-`compression_level = `compression_level`` and specify a value from 1 to 22 as a string. If the`compression_level`
+`compression_level = `compression_level``
+and specify a value from 1 to 22 as a string. If the `compression_level`
 property is not specified, the default compression level is 3.
 
 #### Example
@@ -95,8 +96,8 @@ TBLPROPERTIES ('write.compression' = 'ZSTD', 'compression_level' = '4')
 In the [CREATE TABLE AS](create-table-as.md "create-table-as.md") statement
 `WITH` clause, specify `write_compression = 'ZSTD'`, or
 `parquet_compression = 'ZSTD'`, and then use `compression_level
- = `compression_level``and specify a value from 1
- to 22 as an integer. If the`compression_level` property is not
+ = `compression_level`` and specify a value from 1
+to 22 as an integer. If the `compression_level` property is not
 specified, the default compression level is 3.
 
 #### Example
@@ -114,8 +115,9 @@ AS SELECT * FROM old_table
 
 In the [UNLOAD](unload.md "unload.md") statement `WITH`
 clause, specify `compression = 'ZSTD'`, and then use
-`compression_level = `compression_level``  and specify a value from 1 to 22 as an integer. If the
- `compression_level` property is not specified, the default
+`compression_level = `compression_level``
+and specify a value from 1 to 22 as an integer. If the
+`compression_level` property is not specified, the default
 compression level is 3.
 
 #### Example

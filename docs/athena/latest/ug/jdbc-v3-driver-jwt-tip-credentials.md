@@ -26,9 +26,9 @@ allows the same Identity Center access token to be used across driver connection
 We recommend to provide a fresh JWT token upon "Testing Connection" as the exchanged
 token is present only during driver instance is active.
 
-| Parameter name      | Alias                           | Parameter type | Default value |
-| ------------------- | ------------------------------- | -------------- | ------------- |
-| JwtWebIdentityToken | web_identity_token (deprecated) | Required       | none          |
+| Parameter name      | Alias                             | Parameter type | Default value |
+| ------------------- | --------------------------------- | -------------- | ------------- |
+| JwtWebIdentityToken | web\_identity\_token (deprecated) | Required       | none          |
 
 ## WorkgroupArn
 
@@ -54,9 +54,9 @@ ARN. For more information about assuming roles, see [AssumeRole](../../../STS/la
 The name of the session when authenticating with JWT credentials. It can be any
 name of your choice.
 
-| Parameter name     | Alias                          | Parameter type | Default value |
-| ------------------ | ------------------------------ | -------------- | ------------- |
-| JwtRoleSessionName | role_session_name (deprecated) | Required       | none          |
+| Parameter name     | Alias                            | Parameter type | Default value |
+| ------------------ | -------------------------------- | -------------- | ------------- |
+| JwtRoleSessionName | role\_session\_name (deprecated) | Required       | none          |
 
 ## Role session duration
 

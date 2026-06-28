@@ -37,7 +37,7 @@ Delta Lake support in Athena has the following considerations and limitations:
 - **Limited DDL support** – The following DDL statements are
   supported: `CREATE EXTERNAL TABLE`, `SHOW COLUMNS`,
   `SHOW TBLPROPERTIES`, `SHOW PARTITIONS`, `SHOW
-CREATE TABLE`, and `DESCRIBE`. For information on using the
+ CREATE TABLE`, and `DESCRIBE`. For information on using the
   `CREATE EXTERNAL TABLE` statement, see the [Get started with Delta Lake tables](delta-lake-tables-getting-started.md "delta-lake-tables-getting-started.md") section.
 - Skipping Amazon Glacier objects not supported –
   If objects in the Linux Foundation Delta Lake table are in an Amazon Glacier storage class, setting the

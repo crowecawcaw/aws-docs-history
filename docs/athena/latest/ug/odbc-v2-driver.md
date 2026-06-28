@@ -37,9 +37,9 @@ When you use the ODBC 2.x driver, be sure to note the following:
 
 ### Linux
 
-| Driver version                | Download link                                                                                                                                                                                                                                                           |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ODBC 2.2.0.0 for Linux x86_64 | [Linux x86_64 ODBC driver 2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm") |
+| Driver version                 | Download link                                                                                                                                                                                                                                                            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ODBC 2.2.0.0 for Linux x86\_64 | [Linux x86\_64 ODBC driver 2.2.0.0](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.2.0.0/Linux/AmazonAthenaODBC-2.2.0.0-x86_64.rpm") |
 
 ### macOS
 

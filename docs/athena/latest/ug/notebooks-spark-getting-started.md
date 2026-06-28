@@ -101,66 +101,72 @@ options:
     	 control over your query results to the other account.
 
 10. (Optional) Choose **Encrypt query results** if you want your
-    query results to be encrypted.
+query results to be encrypted.
 
-    - For **Encryption type**, choose one of the following
-      options:
-
-      - **SSE_S3** – This option uses
-        server-side encryption (SSE) with Amazon S3-managed encryption
-        keys.
-      - **SSE_KMS** – This option uses
-        server-side encryption (SSE) with AWS KMS-managed keys.
-
-      For **Choose an AWS KMS key**, choose one of
-      the following options.
-
-          - Use AWS owned key
-           – The AWS KMS key is owned and managed by AWS.
-           You are not charged an additional fee for using this
-           key.
-          - Choose a different AWS KMS key
-           (advanced) – For this option, do one
-           of the following:
+    * For **Encryption type**, choose one of the following
+     options:
 
 
 
 
-          	* To use an existing key, use the search box to
-          	 choose an AWS KMS or enter a key ARN.
-          	* To create a key in the AWS KMS console, choose
-          	 **Create an AWS KMS key**. Your
-          	 execution role must have permission to use the key
-          	 that you create. After you finish creating the key
-          	 in the KMS console, return to the **Create
-          	 workgroup** page in Athena console, and
-          	 then use the **Choose an AWS KMS key or
-          	 enter an ARN** search box to choose the
-          	 key that you just created.
+    	+ **SSE\_S3** – This option uses
+    	 server-side encryption (SSE) with Amazon S3-managed encryption
+    	 keys.
+    	+ **SSE\_KMS** – This option uses
+    	 server-side encryption (SSE) with AWS KMS-managed keys.
 
+
+    	For **Choose an AWS KMS key**, choose one of
+    	 the following options.
+
+
+
+
+    		- Use AWS owned key
+    		 – The AWS KMS key is owned and managed by AWS.
+    		 You are not charged an additional fee for using this
+    		 key.
+    		- Choose a different AWS KMS key
+    		 (advanced) – For this option, do one
+    		 of the following:
+
+
+
+
+    			* To use an existing key, use the search box to
+    			 choose an AWS KMS or enter a key ARN.
+    			* To create a key in the AWS KMS console, choose
+    			 **Create an AWS KMS key**. Your
+    			 execution role must have permission to use the key
+    			 that you create. After you finish creating the key
+    			 in the KMS console, return to the **Create
+    			 workgroup** page in Athena console, and
+    			 then use the **Choose an AWS KMS key or
+    			 enter an ARN** search box to choose the
+    			 key that you just created.
     ###### Important
 
     When you change the [AWS KMS key](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") for a workgroup, notebooks managed
-    before the update still reference the old KMS key. Notebooks
-    managed after the update use the new KMS key. To update the old
-    notebooks to reference the new KMS key, export and then import
-    each of the old notebooks. If you delete the old KMS key before
-    you update the old notebook references to the new KMS key, the old
-    notebooks are no longer decryptable and cannot be recovered.
+     before the update still reference the old KMS key. Notebooks
+     managed after the update use the new KMS key. To update the old
+     notebooks to reference the new KMS key, export and then import
+     each of the old notebooks. If you delete the old KMS key before
+     you update the old notebook references to the new KMS key, the old
+     notebooks are no longer decryptable and cannot be recovered.
 
     This behavior also applies for updates to [aliases](../../../kms/latest/developerguide/kms-alias.md "../../../kms/latest/developerguide/kms-alias.md"),
-    which are friendly names for KMS keys. When you update a KMS key
-    alias to point to a new KMS key, notebooks managed before the
-    alias update still reference the old KMS key, and notebooks
-    managed after the alias update use the new KMS key. Consider these
-    points before updating your KMS keys or aliases.
+     which are friendly names for KMS keys. When you update a KMS key
+     alias to point to a new KMS key, notebooks managed before the
+     alias update still reference the old KMS key, and notebooks
+     managed after the alias update use the new KMS key. Consider these
+     points before updating your KMS keys or aliases.
 
 11. For **Additional configurations**, choose **Use
-    defaults**. This option helps you get started with your
-    Spark-enabled workgroup. When you use the defaults, Athena creates an IAM role
-    and calculation results location in Amazon S3 for you. The name of the IAM role and
-    the S3 bucket location to be created are displayed in the box below the
-    **Additional configurations** heading.
+defaults**. This option helps you get started with your
+Spark-enabled workgroup. When you use the defaults, Athena creates an IAM role
+and calculation results location in Amazon S3 for you. The name of the IAM role and
+the S3 bucket location to be created are displayed in the box below the
+**Additional configurations** heading.
 
 If you do not want to use the defaults, continue with the steps in the [(Optional) Specify your own workgroup configurations](#notebooks-spark-getting-started-workgroup-configuration "#notebooks-spark-getting-started-workgroup-configuration")
 section to configure your workgroup manually. 12. (Optional) **Tags** – Use this option to add tags to

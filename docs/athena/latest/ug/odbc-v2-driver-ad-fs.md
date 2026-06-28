@@ -41,7 +41,7 @@ _AWS Security Token Service API Reference_.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                        |
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
-| preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
+| preferred\_role            | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
 
 ## Session duration
 
@@ -59,7 +59,7 @@ The name of the AD FS service host.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**           |
 | -------------------------- | ------------------ | ----------------- | --------------------------------------- |
-| idp_host                   | Require            | `none`            | `idp_host=<server-name>.<company.com>;` |
+| idp\_host                  | Require            | `none`            | `idp_host=<server-name>.<company.com>;` |
 
 ## IdP port
 
@@ -67,7 +67,7 @@ The port to use to connect to the AD FS host.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| idp_port                   | Required           | `none`            | `idp_port=443;`               |
+| idp\_port                  | Required           | `none`            | `idp_port=443;`               |
 
 ## LoginToRP
 

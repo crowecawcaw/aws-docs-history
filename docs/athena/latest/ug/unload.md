@@ -100,13 +100,13 @@ This option does not apply to the `AVRO` format. Athena
 uses `gzip` for the `JSON` and
 `TEXTFILE` formats.
 
-**compression_level = `compression_level`**
+**compression\_level = `compression_level`**
 
 Optional. The compression level to use for ZSTD compression. This
 property applies only to ZSTD compression. For more information, see
 [Use ZSTD compression levels](compression-support-zstd-levels.md "compression-support-zstd-levels.md").
 
-**field_delimiter = '`delimiter`'**
+**field\_delimiter = '`delimiter`'**
 
 Optional. Specifies a single-character field delimiter for files in
 CSV, TSV, and other text formats. The following example specifies a
@@ -120,7 +120,7 @@ Currently, multicharacter field delimiters are not supported. If you
 do not specify a field delimiter, the octal character `\001`
 (^A) is used.
 
-**partitioned_by = ARRAY[ `col_name`[,...] ]**
+**partitioned\_by = ARRAY[ `col_name`[,...] ]**
 
 Optional. An array list of columns by which the output is
 partitioned.

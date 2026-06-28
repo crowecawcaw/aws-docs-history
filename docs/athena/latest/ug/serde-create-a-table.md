@@ -32,8 +32,8 @@ topics:
 - Use `ROW FORMAT SERDE` to explicitly specify the type of SerDe that
   Athena should use when it reads and writes data to the table. The following
   example specifies the LazySimpleSerDe. To specify the delimiters, use `WITH
-SERDEPROPERTIES`. The properties specified by `WITH
-SERDEPROPERTIES` correspond to the separate statements (like
+ SERDEPROPERTIES`. The properties specified by `WITH
+ SERDEPROPERTIES` correspond to the separate statements (like
   `FIELDS TERMINATED BY`) in the `ROW FORMAT DELIMITED`
   example.
 

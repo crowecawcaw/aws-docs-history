@@ -12,7 +12,7 @@ ALTER {DATABASE|SCHEMA} database_name
 
 ## Parameters
 
-**SET DBPROPERTIES ('property_name'='property_value' [, ...]**
+**SET DBPROPERTIES ('property\_name'='property\_value' [, ...]**
 
 Specifies a property or properties for the database named
 `property_name` and establishes the value for each of the

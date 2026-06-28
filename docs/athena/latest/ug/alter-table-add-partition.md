@@ -42,7 +42,7 @@ partition and the Amazon S3 path where the data files for that partition reside.
 Causes the error to be suppressed if a partition with the same definition
 already exists.
 
-**PARTITION (partition_col_name = partition_col_value [,...])**
+**PARTITION (partition\_col\_name = partition\_col\_value [,...])**
 
 Creates a partition with the column name/value combinations that you
 specify. Enclose `partition_col_value` in string characters only
@@ -123,7 +123,7 @@ ALTER TABLE orders ADD IF NOT EXISTS
 If you run an `ALTER TABLE ADD PARTITION` statement and mistakenly specify
 a partition that already exists and an incorrect Amazon S3 location, zero byte placeholder
 files of the format
-``partition_value`\_$folder$` are created
+``partition_value`_$folder$` are created
 in Amazon S3. You must remove these files manually.
 
 To prevent this from happening, use the `ADD IF NOT EXISTS` syntax in your

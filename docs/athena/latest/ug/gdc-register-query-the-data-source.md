@@ -28,5 +28,5 @@ SELECT * FROM "my_catalog/my_subcatalog".my_database.my_table
   4.  For **Database**, choose the database that contains
       the table that you want to query.
   5.  Enter a query like `SELECT * FROM
-`my_table``, and then choose
+   `my_table``, and then choose
       **Run**.

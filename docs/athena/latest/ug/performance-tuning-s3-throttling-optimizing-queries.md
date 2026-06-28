@@ -51,7 +51,7 @@ of columns specified in your `SELECT` statement.
 
 Queries that include clauses such as `LIKE '%string%'` on large strings
 can be very computationally intensive. When you filter for multiple values on a
-string column, use the [regexp_like()](https://trino.io/docs/current/functions/regexp.html#regexp_like "https://trino.io/docs/current/functions/regexp.html#regexp_like") function and a regular expression instead. This is
+string column, use the [regexp\_like()](https://trino.io/docs/current/functions/regexp.html#regexp_like "https://trino.io/docs/current/functions/regexp.html#regexp_like") function and a regular expression instead. This is
 particularly useful when you compare a long list of values.
 
 ## Use the LIMIT clause

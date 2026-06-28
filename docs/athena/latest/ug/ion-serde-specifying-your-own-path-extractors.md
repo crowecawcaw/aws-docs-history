@@ -14,5 +14,5 @@ WITH SERDEPROPERTIES (
 ###### Note
 
 By default, path extractors are case insensitive. To override this setting, set
-the [ion.path_extractor.case_sensitive](ion-serde-using-ion-serde-properties.md#ioncase "ion-serde-using-ion-serde-properties.md#ioncase") SerDe property to
+the [ion.path\_extractor.case\_sensitive](ion-serde-using-ion-serde-properties.md#ioncase "ion-serde-using-ion-serde-properties.md#ioncase") SerDe property to
 `true`.

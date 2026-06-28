@@ -33,7 +33,7 @@ more information, see [Reserved keywords to escape in SQL SELECT statements](res
 
 ## Parameters
 
-**[ WITH with_query [, ....] ]**
+**[ WITH with\_query [, ....] ]**
 
 You can use `WITH` to flatten nested queries, or to simplify
 subqueries.
@@ -66,7 +66,7 @@ Where:
   than the number of columns defined by `subquery`.
 - `subquery` is any query statement.
 
-**[ ALL | DISTINCT ] select_expression**
+**[ ALL | DISTINCT ] select\_expression**
 
 `select_expression` determines the rows to be selected. A
 `select_expression` can use one of the following
@@ -90,7 +90,7 @@ relation.*
 
 - The `expression [ [ AS ] column_alias ]` syntax
   specifies an output column. The optional `[AS]
-column_alias` syntax specifies a custom heading name to be
+ column_alias` syntax specifies a custom heading name to be
   used for the column in the output.
 - For `row_expression.* [ AS ( column_alias [, ...] ) ]`,
   `row_expression` is an arbitrary expression of data
@@ -109,14 +109,14 @@ column_alias` syntax specifies a custom heading name to be
   preexisting column or row field names. If the select expression does
   not have column names, zero-indexed anonymous column names
   (`_col0`, `_col1`, `_col2,
-...`) are displayed in the output.
+ ...`) are displayed in the output.
 - `ALL` is the default. Using `ALL` is treated
   the same as if it were omitted; all rows for all columns are
   selected and duplicates are kept.
 - Use `DISTINCT` to return only distinct values when a
   column contains duplicate values.
 
-**FROM from_item [, ...]**
+**FROM from\_item [, ...]**
 
 Indicates the input to the query, where `from_item` can be a
 view, a join construct, or a subquery as described below.
@@ -134,7 +134,7 @@ output of the `SELECT` statement, and
 **-OR-**
 
 - `join_type from_item [ ON join_condition | USING ( join_column
-[, ...] ) ]`
+ [, ...] ) ]`
 
 Where `join_type` is one of:
 
@@ -165,9 +165,10 @@ The `operator` can be one of the comparators
 The following subquery expressions can also be used in the
 `WHERE` clause.
 
-- `[NOT] BETWEEN `integer_A`AND`integer_B``–
-Specifies a range between two integers, as in the following example.
-If the column data type is`varchar`, the column must be
+- `[NOT] BETWEEN `integer_A`AND
+`integer_B`` –
+  Specifies a range between two integers, as in the following example.
+  If the column data type is `varchar`, the column must be
   cast to integer first.
 
 ```
@@ -177,8 +178,8 @@ ORDER BY processid
 ```
 
 - `[NOT] LIKE `value`` –
-Searches for the pattern specified. Use the percent sign
-(`%`) as a wildcard character, as in the following
+  Searches for the pattern specified. Use the percent sign
+  (`%`) as a wildcard character, as in the following
   example.
 
 ```
@@ -187,7 +188,7 @@ WHERE referrer LIKE '%.org'
 ```
 
 - `[NOT] IN (`value`[,
-`value`[, ...])` –
+ `value`[, ...])` –
   Specifies a list of possible values for a column, as in the
   following example.
 
@@ -196,7 +197,7 @@ SELECT * FROM "webdata"."impressions"
 WHERE referrer IN ('example.com','example.net','example.org')
 ```
 
-**[ GROUP BY [ ALL | DISTINCT ] grouping_expressions [, ...] ]**
+**[ GROUP BY [ ALL | DISTINCT ] grouping\_expressions [, ...] ]**
 
 Divides the output of the `SELECT` statement into rows with
 matching values.
@@ -243,7 +244,7 @@ Controls which groups are selected, eliminating groups that don't satisfy
 `condition`. This filtering occurs after groups and
 aggregates are computed.
 
-**[ { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] union_query] ]**
+**[ { UNION | INTERSECT | EXCEPT } [ ALL | DISTINCT ] union\_query] ]**
 
 `UNION`, `INTERSECT`, and `EXCEPT`
 combine the results of more than one `SELECT` statement into a
@@ -327,7 +328,7 @@ a random value calculated at runtime. `SYSTEM` sampling is
 dependent on the connector. This method does not guarantee independent
 sampling probabilities.
 
-**[ UNNEST (array_or_map) [WITH ORDINALITY] ]**
+**[ UNNEST (array\_or\_map) [WITH ORDINALITY] ]**
 
 Expands an array or map into a relation. Arrays are expanded into a single
 column. Maps are expanded into two columns (_key_,

@@ -101,16 +101,15 @@ JSON
 
 ###### To grant access to the user in account b from the AWS KMS key policy in account a
 
-1.  In the AWS KMS key policy for Account A, grant the role assumed by Account B
-    permissions to the following actions:
+1. In the AWS KMS key policy for Account A, grant the role assumed by Account B
+   permissions to the following actions:
 
-        * `kms:Encrypt`
-        * `kms:Decrypt`
-        * `kms:ReEncrypt*`
-        * `kms:GenerateDataKey*`
-        * `kms:DescribeKey`
-
-    The following example grants key access to only one IAM role.
+   - `kms:Encrypt`
+   - `kms:Decrypt`
+   - `kms:ReEncrypt*`
+   - `kms:GenerateDataKey*`
+   - `kms:DescribeKey`
+     The following example grants key access to only one IAM role.
 
 JSON
 

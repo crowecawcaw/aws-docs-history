@@ -20,26 +20,26 @@ the value of this parameter to `BrowserAzureAD`.
 
 The tenant ID of your Azure AD application
 
-| Parameter name  | Alias                  | Parameter type | Default value |
-| --------------- | ---------------------- | -------------- | ------------- |
-| AzureAdTenantId | tenant_id (deprecated) | Required       | none          |
+| Parameter name  | Alias                   | Parameter type | Default value |
+| --------------- | ----------------------- | -------------- | ------------- |
+| AzureAdTenantId | tenant\_id (deprecated) | Required       | none          |
 
 ## Azure AD client ID
 
 The client ID of your Azure AD application
 
-| Parameter name  | Alias                  | Parameter type | Default value |
-| --------------- | ---------------------- | -------------- | ------------- |
-| AzureAdClientId | client_id (deprecated) | Required       | none          |
+| Parameter name  | Alias                   | Parameter type | Default value |
+| --------------- | ----------------------- | -------------- | ------------- |
+| AzureAdClientId | client\_id (deprecated) | Required       | none          |
 
 ## Identity provider response timeout
 
 The duration, in seconds, before the driver stops waiting for the SAML response
 from Azure AD.
 
-| Parameter name     | Alias                             | Parameter type | Default value |
-| ------------------ | --------------------------------- | -------------- | ------------- |
-| IdpResponseTimeout | idp_response_timeout (deprecated) | Optional       | 120           |
+| Parameter name     | Alias                               | Parameter type | Default value |
+| ------------------ | ----------------------------------- | -------------- | ------------- |
+| IdpResponseTimeout | idp\_response\_timeout (deprecated) | Optional       | 120           |
 
 ## Preferred role
 
@@ -47,9 +47,9 @@ The Amazon Resource Name (ARN) of the role to assume. For information about ARN
 roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the
 _AWS Security Token Service API Reference_.
 
-| Parameter name | Alias                       | Parameter type | Default value |
-| -------------- | --------------------------- | -------------- | ------------- |
-| PreferredRole  | preferred_role (deprecated) | Optional       | none          |
+| Parameter name | Alias                        | Parameter type | Default value |
+| -------------- | ---------------------------- | -------------- | ------------- |
+| PreferredRole  | preferred\_role (deprecated) | Optional       | none          |
 
 ## Role session duration
 

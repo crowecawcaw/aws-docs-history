@@ -20,7 +20,7 @@ ALTER TABLE table_name PARTITION (partition_spec) RENAME TO PARTITION (new_parti
 
 ## Parameters
 
-**PARTITION (partition_spec)**
+**PARTITION (partition\_spec)**
 
 Each `partition_spec` specifies a column name/value combination
 in the form `partition_col_name = partition_col_value

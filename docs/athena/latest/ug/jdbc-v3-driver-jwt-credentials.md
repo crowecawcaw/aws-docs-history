@@ -18,9 +18,9 @@ the value of this parameter to `JWT`.
 The JWT token obtained from an external federated identity provider. This token
 will be used to authenticate with Athena.
 
-| Parameter name      | Alias                           | Parameter type | Default value |
-| ------------------- | ------------------------------- | -------------- | ------------- |
-| JwtWebIdentityToken | web_identity_token (deprecated) | Required       | none          |
+| Parameter name      | Alias                             | Parameter type | Default value |
+| ------------------- | --------------------------------- | -------------- | ------------- |
+| JwtWebIdentityToken | web\_identity\_token (deprecated) | Required       | none          |
 
 ## JWT role ARN
 
@@ -28,18 +28,18 @@ The Amazon Resource Name (ARN) of the role to assume. For information about
 assuming roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the
 _AWS Security Token Service API Reference_.
 
-| Parameter name | Alias                 | Parameter type | Default value |
-| -------------- | --------------------- | -------------- | ------------- |
-| JwtRoleArn     | role_arn (deprecated) | Required       | none          |
+| Parameter name | Alias                  | Parameter type | Default value |
+| -------------- | ---------------------- | -------------- | ------------- |
+| JwtRoleArn     | role\_arn (deprecated) | Required       | none          |
 
 ## JWT role session name
 
 The name of the session when you use JWT credentials for authentication. The name
 can be any name that you choose.
 
-| Parameter name     | Alias                          | Parameter type | Default value |
-| ------------------ | ------------------------------ | -------------- | ------------- |
-| JwtRoleSessionName | role_session_name (deprecated) | Required       | none          |
+| Parameter name     | Alias                            | Parameter type | Default value |
+| ------------------ | -------------------------------- | -------------- | ------------- |
+| JwtRoleSessionName | role\_session\_name (deprecated) | Required       | none          |
 
 ## Role session duration
 

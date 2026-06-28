@@ -45,7 +45,7 @@ For more information about CloudWatch log groups and log streams, see [Working w
 In an Athena for Spark session, you can use the following two global standard
 logger objects to write logs to Amazon CloudWatch:
 
-- athena_user_logger – Sends logs to
+- athena\_user\_logger – Sends logs to
   CloudWatch only. Use this object when you want to log information your Spark
   applications directly to CloudWatch, as in the following example.
 
@@ -59,7 +59,7 @@ The example writes a log event to CloudWatch like the following:
 AthenaForApacheSpark: 2022-01-01 12:00:00,000 INFO builtins: CloudWatch log line.
 ```
 
-- athena_shared_logger – Sends the
+- athena\_shared\_logger – Sends the
   same log both to CloudWatch and to AWS for support purposes. You can use this
   object to share logs with AWS service teams for troubleshooting, as in the
   following example.
@@ -113,7 +113,7 @@ athena_user_logger.info("Hello world.")
 5. Retrieve the current session ID by doing one of the following:
 
    - View the cell output (for example, `...
-session=72c24e73-2c24-8b22-14bd-443bdcd72de4`).
+  session=72c24e73-2c24-8b22-14bd-443bdcd72de4`).
    - In a new cell, run the [magic](notebooks-spark-magics.md "notebooks-spark-magics.md") command
      `%session_id`.
 

@@ -11,7 +11,7 @@ as of a specified snapshot ID.
 ## Time travel queries
 
 To run a time travel query, use `FOR TIMESTAMP AS OF
- `timestamp``after the table name in the
+ `timestamp`` after the table name in the
 `SELECT` statement, as in the following example.
 
 ```
@@ -37,7 +37,7 @@ SELECT * FROM iceberg_table FOR TIMESTAMP AS OF (current_timestamp - interval '1
 
 To execute a version travel query (that is, view a consistent snapshot as of a
 specified version), use `FOR VERSION AS OF
- `version``after the table name in the
+ `version`` after the table name in the
 `SELECT` statement, as in the following example.
 
 ```

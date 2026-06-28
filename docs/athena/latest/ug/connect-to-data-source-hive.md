@@ -145,7 +145,7 @@ When you use Athena Data Connector for External Hive Metastore, consider the fol
   fine-grained access control filtering.
 - Hive hidden system tables like
   ``example_table`$partitions` or
-``example_table`$properties` are not
+ ``example_table`$properties` are not
   supported by fine-grained access control.
 
 ### Permissions

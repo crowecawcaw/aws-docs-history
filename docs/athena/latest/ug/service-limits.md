@@ -15,7 +15,7 @@ the [Amazon Athena endpoints and quotas](../../../general/latest/gr/athena.md#am
 
 - **Active DDL queries** – The number of active DDL
   queries. DDL queries include `CREATE TABLE` and `ALTER TABLE ADD
-PARTITION` queries.
+ PARTITION` queries.
 - **DDL query timeout** – The maximum amount of time in
   minutes a DDL query can run before it gets cancelled.
 - **Active DML queries** – The number of active DML

@@ -37,7 +37,7 @@ statements.
   value for a parameterized term. For example, if you have a column of the
   `date` type that you have parameterized in a query and you want
   to query for the date `2014-07-05`, entering `CAST('2014-07-05'
-AS DATE)` for the parameter value will return the result.
+ AS DATE)` for the parameter value will return the result.
 - Prepared statements are workgroup specific, and prepared statement names must
   be unique within the workgroup.
 - IAM permissions for prepared statements are required. For more information,

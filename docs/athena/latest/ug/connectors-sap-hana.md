@@ -87,8 +87,8 @@ aws glue describe-connection-type --connection-type SAPHANA
 
 The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
 
-- glue_connection – Specifies the name of the Glue connection associated with the federated connector.
-- **casing_mode** – (Optional) Specifies
+- glue\_connection – Specifies the name of the Glue connection associated with the federated connector.
+- **casing\_mode** – (Optional) Specifies
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:
@@ -281,9 +281,9 @@ The column contains partition names of the partitions defined on an SAP HANA tab
 a table that does not have partition names, \* is returned, which is equivalent to a
 single partition. A partition is equivalent to a split.
 
-| Name    | Type    | Description                  |
-| ------- | ------- | ---------------------------- |
-| PART_ID | Integer | Named partition in SAP HANA. |
+| Name     | Type    | Description                  |
+| -------- | ------- | ---------------------------- |
+| PART\_ID | Integer | Named partition in SAP HANA. |
 
 ## Performance
 
@@ -312,12 +312,12 @@ The following Athena SAP HANA connector operators support predicate
 pushdown:
 
 - Boolean: AND, OR, NOT
-- Equality: EQUAL, NOT_EQUAL, LESS_THAN,
-  LESS_THAN_OR_EQUAL, GREATER_THAN, GREATER_THAN_OR_EQUAL, IS_DISTINCT_FROM,
-  NULL_IF, IS_NULL
+- Equality: EQUAL, NOT\_EQUAL, LESS\_THAN,
+  LESS\_THAN\_OR\_EQUAL, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL, IS\_DISTINCT\_FROM,
+  NULL\_IF, IS\_NULL
 - Arithmetic: ADD, SUBTRACT, MULTIPLY,
   DIVIDE, MODULUS, NEGATE
-- Other: LIKE_PATTERN, IN
+- Other: LIKE\_PATTERN, IN
 
 ### Combined pushdown example
 

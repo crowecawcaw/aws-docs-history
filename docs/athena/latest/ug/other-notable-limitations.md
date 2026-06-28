@@ -47,17 +47,17 @@ limitations:
 - Max line length in a text file – The size of
   single line in a text file has an upper limit of 200 MB. Exceeding this limit can
   produce the error message **`TextLineLengthLimitExceededException: Too many
-bytes before newline`**. To work around this limitation, make sure that
+ bytes before newline`**. To work around this limitation, make sure that
   you don't have a single line in a text file exceeding 200 MB.
 - LIMIT clause maximum – The maximum number of
   rows that can be specified for the `LIMIT` clause is
 
-9223372036854776000. When using `ORDER BY`, the maximum number of
-                     supported rows for the LIMIT clause is 2147483647. Exceeding this limit results in
-                     the error message **`NOT_SUPPORTED: ORDER BY LIMIT > 2147483647 is not
-supported`**.
+9223372036854775807. When using `ORDER BY`, the maximum number of
+supported rows for the LIMIT clause is 2147483647. Exceeding this limit results in
+the error message **`NOT_SUPPORTED: ORDER BY LIMIT > 2147483647 is not
+ supported`**.
 
-- information_schema – Querying
+- information\_schema – Querying
   `information_schema` is most performant if you have a small to
   moderate amount of AWS Glue metadata. If you have a large amount of metadata, errors
   can occur. For information about querying the `information_schema`

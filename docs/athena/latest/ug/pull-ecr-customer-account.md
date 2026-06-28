@@ -47,7 +47,7 @@ docker pull `athenaImageURI`
 aws ecr get-login-password --region `regionID` | docker login --username AWS --password-stdin `customer-registry`
 ```
 
-Where `customer-registry` is your ECR registry (e.g., account_id_2.dkr.ecr.us-east-1.amazonaws.com) 5. Tag the pulled image for your repository:
+Where `customer-registry` is your ECR registry (e.g., account\_id\_2.dkr.ecr.us-east-1.amazonaws.com) 5. Tag the pulled image for your repository:
 
 ```
 docker tag `athenaImageURI` `yourImageURI`
@@ -59,10 +59,9 @@ docker tag `athenaImageURI` `yourImageURI`
 docker push `yourImageURI`
 ```
 
-7.  Update your Athena Federation Connector:
+7. Update your Athena Federation Connector:
 
-        1. Navigate to your Lambda function
-        2. Select **Deploy New Image**
-        3. Enter your new image URI
-
-    The Athena federated connector image is now located in your account, which allows you to perform CVE scans on the image.
+   1. Navigate to your Lambda function
+   2. Select **Deploy New Image**
+   3. Enter your new image URI
+      The Athena federated connector image is now located in your account, which allows you to perform CVE scans on the image.

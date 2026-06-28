@@ -193,8 +193,8 @@ account?** dialog box, enter the required information.
      B).
 
 7. Choose **Share**. The shared data connector that you
-   specified is created in Account B. Configuration changes to the connector in
-   Account A apply to the connector in Account B.
+specified is created in Account B. Configuration changes to the connector in
+Account A apply to the connector in Account B.
 
 ## Adding a shared data source from Account A to Account B
 

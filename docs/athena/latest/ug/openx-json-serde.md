@@ -17,7 +17,7 @@ or `struct` key names.
   text is in pretty print format, you may receive an error message like
   **`HIVE_CURSOR_ERROR: Row is not a valid JSON Object`** or
   **`HIVE_CURSOR_ERROR: JsonParseException: Unexpected end-of-input:
-expected close marker for OBJECT`** when you attempt to query the
+ expected close marker for OBJECT`** when you attempt to query the
   table after you create it.
 
 For more information, see [JSON Data
@@ -252,7 +252,7 @@ abbreviated as `t`.
 
 The following table shows the query results.
 
-| #   | Name   | Address      | City    | Item_ID | Order_date |
-| --- | ------ | ------------ | ------- | ------- | ---------- |
-| 1   | Carlos | 123 Main St. | Anytown | 6789    | 11/11/2022 |
-| 2   | Carlos | 123 Main St. | Anytown | 4352    | 12/12/2022 |
+| #   | Name   | Address      | City    | Item\_ID | Order\_date |
+| --- | ------ | ------------ | ------- | -------- | ----------- |
+| 1   | Carlos | 123 Main St. | Anytown | 6789     | 11/11/2022  |
+| 2   | Carlos | 123 Main St. | Anytown | 4352     | 12/12/2022  |

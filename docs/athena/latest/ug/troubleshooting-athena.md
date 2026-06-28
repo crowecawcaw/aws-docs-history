@@ -33,7 +33,7 @@ duplicate CTAS statement for the same location at the same time. Even if a CTAS 
 INSERT INTO statement fails, orphaned data can be left in the data location
 specified in the statement.
 
-### HIVE_TOO_MANY_OPEN_PARTITIONS
+### HIVE\_TOO\_MANY\_OPEN\_PARTITIONS
 
 When you use a CTAS statement to create a table with more than 100 partitions, you
 may receive the error **`HIVE_TOO_MANY_OPEN_PARTITIONS: Exceeded limit of
@@ -58,30 +58,30 @@ Amazon S3 bucket that contains both `.csv` and
 files from the crawler, Athena queries both groups of files. To avoid this, place the
 files that you want to exclude in a different location.
 
-### HIVE_BAD_DATA: Error parsing field value
+### HIVE\_BAD\_DATA: Error parsing field value
 
 This error can occur in the following scenarios:
 
 - The data type defined in the table doesn't match the source data, or a
   single field contains different types of data. For suggested resolutions,
-  see [My Amazon Athena query fails with the error "HIVE_BAD_DATA: Error parsing
+  see [My Amazon Athena query fails with the error "HIVE\_BAD\_DATA: Error parsing
   field value for field x: For input string: "12312845691""](https://aws.amazon.com/premiumsupport/knowledge-center/athena-hive-bad-data-parsing-field-value/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-hive-bad-data-parsing-field-value/") in the
   AWS Knowledge Center.
 - Null values are present in an integer field. One workaround is to create
   the column with the null values as `string` and then use
   `CAST` to convert the field in a query, supplying a default
-  value of `0` for nulls. For more information, see [When I query CSV data in Athena, I get the error "HIVE_BAD_DATA: Error
+  value of `0` for nulls. For more information, see [When I query CSV data in Athena, I get the error "HIVE\_BAD\_DATA: Error
   parsing field value '' for field x: For input string: """](https://aws.amazon.com/premiumsupport/knowledge-center/athena-hive-bad-data-error-csv/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-hive-bad-data-error-csv/") in the
   AWS Knowledge Center.
 
-### HIVE_CANNOT_OPEN_SPLIT: Error opening Hive split s3://amzn-s3-demo-bucket
+### HIVE\_CANNOT\_OPEN\_SPLIT: Error opening Hive split s3://amzn-s3-demo-bucket
 
 This error can occur for any of the following reasons:
 
 - The query exceeded a rate limit in a downstream service such as Amazon S3 or
   Lake Formation. The error message might include additional
   information such as `AmazonS3Exception: Please reduce your request
-rate` or `AWSLakeFormationException: Rate exceeded`.
+ rate` or `AWSLakeFormationException: Rate exceeded`.
   For more information about troubleshooting, see [Reduce throttling at the service level](performance-tuning-s3-throttling-reduce-throttling-at-the-service-level.md "performance-tuning-s3-throttling-reduce-throttling-at-the-service-level.md").
 - The query encountered a malformed file. The error message
   typically includes the Amazon S3 URI of the malformed file, and additional
@@ -93,18 +93,18 @@ rate` or `AWSLakeFormationException: Rate exceeded`.
 - A file was replaced while the query was running. The
   error message typically includes only the Amazon S3 URI of the file.
 
-### HIVE_CURSOR_ERROR: com.amazonaws.services.s3.model.AmazonS3Exception: The specified key does not exist
+### HIVE\_CURSOR\_ERROR: com.amazonaws.services.s3.model.AmazonS3Exception: The specified key does not exist
 
 This error usually occurs when a file is removed when a query is running. Either
 rerun the query, or check your workflow to see if another job or process is
 modifying the files when the query is running.
 
-### HIVE_CURSOR_ERROR: Unexpected end of input stream
+### HIVE\_CURSOR\_ERROR: Unexpected end of input stream
 
 This message indicates the file is either corrupted or empty. Check the integrity
 of the file and rerun the query.
 
-### HIVE_FILESYSTEM_ERROR: Incorrect fileSize `1234567` for file
+### HIVE\_FILESYSTEM\_ERROR: Incorrect fileSize `1234567` for file
 
 This message can occur when a file has changed between query planning and query
 execution. It usually occurs when a file on Amazon S3 is replaced in-place (for example,
@@ -113,7 +113,7 @@ not support deleting or replacing the contents of a file when a query is running
 avoid this error, schedule jobs that overwrite or delete files at times when queries
 do not run, or only write data to new files or partitions.
 
-### HIVE_UNKNOWN_ERROR: Unable to create input format
+### HIVE\_UNKNOWN\_ERROR: Unable to create input format
 
 This error can be a result of issues like the following:
 
@@ -208,7 +208,7 @@ table_catalog = '`your-catalog-name`'" \
 The time taken to get the results depends on the number of tables in your
 catalog.
 
-For more information about troubleshooting federated queries, see [Common_Problems](https://github.com/awslabs/aws-athena-query-federation/wiki/Common_Problems "https://github.com/awslabs/aws-athena-query-federation/wiki/Common_Problems") in the awslabs/aws-athena-query-federation section of
+For more information about troubleshooting federated queries, see [Common\_Problems](https://github.com/awslabs/aws-athena-query-federation/wiki/Common_Problems "https://github.com/awslabs/aws-athena-query-federation/wiki/Common_Problems") in the awslabs/aws-athena-query-federation section of
 GitHub, or see the documentation for the individual [Athena data source connectors](connectors-available.md "connectors-available.md").
 
 ## JSON related errors
@@ -222,7 +222,7 @@ are using the OpenX SerDe, set `ignore.malformed.json` to
 see [I get errors when I try to read JSON data in Amazon Athena](https://aws.amazon.com/premiumsupport/knowledge-center/error-json-athena/ "https://aws.amazon.com/premiumsupport/knowledge-center/error-json-athena/") in the AWS
 Knowledge Center or watch the Knowledge Center [video](https://youtu.be/ME7Pv1qPFLM "https://youtu.be/ME7Pv1qPFLM").
 
-### HIVE_BAD_DATA: Error parsing field value for field 0: java.lang.String cannot be cast to org.openx.data.jsonserde.json.JSONObject
+### HIVE\_BAD\_DATA: Error parsing field value for field 0: java.lang.String cannot be cast to org.openx.data.jsonserde.json.JSONObject
 
 The [OpenX JSON SerDe](openx-json-serde.md "openx-json-serde.md") throws
 this error when it fails to parse a column in an Athena query. This can happen if you
@@ -230,18 +230,18 @@ define a column as a `map` or `struct`, but the underlying
 data is actually a `string`, `int`, or other primitive
 type.
 
-### HIVE_CURSOR_ERROR: Row is not a valid JSON object - JSONException: Duplicate key
+### HIVE\_CURSOR\_ERROR: Row is not a valid JSON object - JSONException: Duplicate key
 
 This error occurs when you use Athena to query AWS Config resources that have multiple
 tags with the same name in different case. The solution is to run `CREATE
  TABLE` using `WITH SERDEPROPERTIES 'case.insensitive'='false'`
 and map the names. For information about `case.insensitive` and mapping,
 see [JSON SerDe libraries](json-serde.md "json-serde.md"). For more information,
-see [How do I resolve "HIVE_CURSOR_ERROR: Row is not a valid JSON object -
+see [How do I resolve "HIVE\_CURSOR\_ERROR: Row is not a valid JSON object -
 JSONException: Duplicate key" when reading files from AWS Config in Athena?](https://aws.amazon.com/premiumsupport/knowledge-center/json-duplicate-key-error-athena-config/ "https://aws.amazon.com/premiumsupport/knowledge-center/json-duplicate-key-error-athena-config/") in
 the AWS Knowledge Center.
 
-### HIVE_CURSOR_ERROR messages with pretty-printed JSON
+### HIVE\_CURSOR\_ERROR messages with pretty-printed JSON
 
 The [Hive JSON SerDe](hive-json-serde.md "hive-json-serde.md") and [OpenX JSON SerDe](openx-json-serde.md "openx-json-serde.md") libraries expect
 each JSON document to be on a single line of text with no line termination
@@ -407,13 +407,13 @@ produces an error like **`INVALID_TABLE_PROPERTY: For input string:
 Ensure that the range values are separated by a comma, not a hyphen. For more
 information, see [Integer type](partition-projection-supported-types.md#partition-projection-integer-type "partition-projection-supported-types.md#partition-projection-integer-type").
 
-### HIVE_UNKNOWN_ERROR: Unable to create input format
+### HIVE\_UNKNOWN\_ERROR: Unable to create input format
 
 One or more of the glue partitions are declared in a different format as each glue
 partition has their own specific input format independently. Please check how your
 partitions are defined in AWS Glue.
 
-### HIVE_PARTITION_SCHEMA_MISMATCH
+### HIVE\_PARTITION\_SCHEMA\_MISMATCH
 
 If the schema of a partition differs from the schema of the table, a query can
 fail with the error message
@@ -452,7 +452,7 @@ Center.
 If you run an `ALTER TABLE ADD PARTITION` statement and mistakenly
 specify a partition that already exists and an incorrect Amazon S3 location, zero byte
 placeholder files of the format
-``partition_value`\_$folder$` are
+``partition_value`_$folder$` are
 created in Amazon S3. You must remove these files manually.
 
 To prevent this from happening, use the `ADD IF NOT EXISTS` syntax in
@@ -469,7 +469,7 @@ resolutions, see [I created a table in
 Amazon Athena with defined partitions, but when I query the table, zero records are
 returned](https://aws.amazon.com/premiumsupport/knowledge-center/athena-empty-results/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-empty-results/") in the AWS Knowledge Center.
 
-See also [HIVE_TOO_MANY_OPEN_PARTITIONS](#troubleshooting-athena-ctas-hive-too-many-open-partitions "#troubleshooting-athena-ctas-hive-too-many-open-partitions").
+See also [HIVE\_TOO\_MANY\_OPEN\_PARTITIONS](#troubleshooting-athena-ctas-hive-too-many-open-partitions "#troubleshooting-athena-ctas-hive-too-many-open-partitions").
 
 ## Permissions
 
@@ -589,12 +589,12 @@ information, see [How
 do I resolve the "function not registered" syntax error in Athena?](https://aws.amazon.com/premiumsupport/knowledge-center/athena-syntax-function-not-registered/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-syntax-function-not-registered/") in the
 AWS Knowledge Center.
 
-### GENERIC_INTERNAL_ERROR exceptions
+### GENERIC\_INTERNAL\_ERROR exceptions
 
 `GENERIC_INTERNAL_ERROR` exceptions can have a variety of causes,
 including the following:
 
-- GENERIC_INTERNAL_ERROR: Null – You
+- GENERIC\_INTERNAL\_ERROR: Null – You
   might see this exception under either of the following conditions:
 
   - You have a schema mismatch between the data type of a column in
@@ -602,17 +602,17 @@ including the following:
   - You are running a `CREATE TABLE AS SELECT` (CTAS) query
     with inaccurate syntax.
 
-- GENERIC_INTERNAL_ERROR: Parent builder is
+- GENERIC\_INTERNAL\_ERROR: Parent builder is
   null – You might see this exception when you query a
   table with columns of data type `array`, and you are using the
   OpenCSVSerDe library. The OpenCSVSerde format doesn't support the
   `array` data type.
-- GENERIC_INTERNAL_ERROR: Value exceeds
-  MAX_INT – You might see this exception when the source
+- GENERIC\_INTERNAL\_ERROR: Value exceeds
+  MAX\_INT – You might see this exception when the source
   data column is defined with the data type `INT` and has a numeric
   value greater than 2,147,483,647.
-- GENERIC_INTERNAL_ERROR: Value exceeds
-  MAX_BYTE – You might see this exception when the source
+- GENERIC\_INTERNAL\_ERROR: Value exceeds
+  MAX\_BYTE – You might see this exception when the source
   data column has a numeric value exceeding the allowable size for the data
   type `BYTE`. The data type `BYTE` is equivalent to
   `TINYINT`. `TINYINT` is an 8-bit signed integer in
@@ -620,7 +620,7 @@ including the following:
 
 127.
 
-- GENERIC_INTERNAL_ERROR: Number of partition values
+- GENERIC\_INTERNAL\_ERROR: Number of partition values
   does not match number of filters – You might see this
   exception if you have inconsistent partitions on Amazon Simple Storage Service(Amazon S3) data. You
   might have inconsistent partitions under either of the following
@@ -632,7 +632,7 @@ including the following:
     the partition metadata.
 
 For more detailed information about each of these errors, see [How do I
-resolve the error "GENERIC_INTERNAL_ERROR" when I query a table in
+resolve the error "GENERIC\_INTERNAL\_ERROR" when I query a table in
 Amazon Athena?](https://aws.amazon.com/premiumsupport/knowledge-center/athena-generic-internal-error/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-generic-internal-error/") in the AWS Knowledge Center.
 
 ### Number of matching groups doesn't match the number of columns
@@ -651,7 +651,7 @@ by splitting long queries into smaller ones. For more information, see [How can 
 increase the maximum query string length in Athena?](https://aws.amazon.com/premiumsupport/knowledge-center/athena-query-string-length/ "https://aws.amazon.com/premiumsupport/knowledge-center/athena-query-string-length/") in the AWS
 Knowledge Center.
 
-### SYNTAX_ERROR: Column cannot be resolved
+### SYNTAX\_ERROR: Column cannot be resolved
 
 This error can occur when you query a table created by an AWS Glue crawler from a
 UTF-8 encoded CSV file that has a byte order mark (BOM). AWS Glue doesn't recognize the

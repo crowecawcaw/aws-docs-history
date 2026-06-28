@@ -42,8 +42,10 @@ sudo yum --nogpgcheck localinstall AmazonAthenaODBC-2.X.Y.Z-x86_64.rpm
    that the driver is installed:
 
    - ```
-     yum list | grep amazon-athena-odbc-driver
+
      ```
+
+   yum list | grep amazon-athena-odbc-driver
 
    ```
 
@@ -205,8 +207,7 @@ download the following to your device.
     * [Athena ODBC RPM signature](https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Linux/signature.bin "https://downloads.athena.us-east-1.amazonaws.com/drivers/ODBC/v2.1.0.0/Linux/signature.bin")
 
 2. Download the Athena ODBC driver, public key, and Athena ODBC RPM signature to
-   your device.
-3. Run the following command to verify ODBC driver signature:
+your device. 3. Run the following command to verify ODBC driver signature:
 
 ```
 openssl dgst -sha256 -verify public_key.pem -signature signature.bin AmazonAthenaODBC-2.1.0.0-x86_64.rpm

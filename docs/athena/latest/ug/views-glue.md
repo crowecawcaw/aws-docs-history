@@ -64,11 +64,11 @@ documentation.
 - You can reference up to 10 tables in the view definition.
 - Tables must not have the `IAMAllowedPrincipals` data lake
   permission in Lake Formation. If present, the error **`Multi Dialect views may
-only reference tables without IAMAllowedPrincipals permissions`**
+ only reference tables without IAMAllowedPrincipals permissions`**
   occurs.
 - The table's Amazon S3 location must be registered as a Lake Formation data lake location. If
   the table is not so registered, the error **`Multi Dialect views may
-only reference Lake Formation managed tables`** occurs. For
+ only reference Lake Formation managed tables`** occurs. For
   information about how to register Amazon S3 locations in Lake Formation, see [Registering an Amazon S3 location](../../../lake-formation/latest/dg/register-location.md "../../../lake-formation/latest/dg/register-location.md") in the _AWS Lake Formation Developer Guide_.
 - The AWS Glue [GetTables](../../../glue/latest/webapi/API_GetTables.md "../../../glue/latest/webapi/API_GetTables.md") and [SearchTables](../../../glue/latest/webapi/API_SearchTables.md "../../../glue/latest/webapi/API_SearchTables.md") API calls do not update the
   `IsRegisteredWithLakeFormation` parameter. To view the correct
@@ -105,7 +105,7 @@ Data Catalog views require three roles: `Lake Formation Admin`, `Definer`, and
 - `Invoker` – Can query the
   Data Catalog view or check its metadata. To show the invoker of a query, you can use
   the `invoker_principal()` DML function. For more information, see
-  [invoker_principal()](functions-env3.md#functions-env3-invoker-principal "functions-env3.md#functions-env3-invoker-principal").
+  [invoker\_principal()](functions-env3.md#functions-env3-invoker-principal "functions-env3.md#functions-env3-invoker-principal").
 
 The `Definer` role's trust relationships must allow the
 `sts:AssumeRole` action for the AWS Glue and Lake Formation service principals. For

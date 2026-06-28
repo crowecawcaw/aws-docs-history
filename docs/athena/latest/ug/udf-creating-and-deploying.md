@@ -39,7 +39,7 @@ If you are working on a development machine that already has Apache Maven, the
 AWS CLI, and the AWS Serverless Application Model build tool installed, you can skip this step.
 
 1. From the root of the `aws-athena-query-federation` directory
-   that you created when you cloned, run the [prepare_dev_env.sh](https://github.com/awslabs/aws-athena-query-federation/blob/master/tools/prepare_dev_env.sh "https://github.com/awslabs/aws-athena-query-federation/blob/master/tools/prepare_dev_env.sh") script that prepares your development
+   that you created when you cloned, run the [prepare\_dev\_env.sh](https://github.com/awslabs/aws-athena-query-federation/blob/master/tools/prepare_dev_env.sh "https://github.com/awslabs/aws-athena-query-federation/blob/master/tools/prepare_dev_env.sh") script that prepares your development
    environment.
 2. Update your shell to source new variables created by the installation
    process or restart your terminal session.
@@ -228,8 +228,8 @@ Run `mvn clean install` to build your project. After it successfully
 builds, a JAR file is created in the `target` folder of your project
 named
 ``artifactId`-`version`.jar`,
- where `artifactId`is the name you provided in the Maven
- project, for example,`my-athena-udfs`.
+where `artifactId` is the name you provided in the Maven
+project, for example, `my-athena-udfs`.
 
 ## Deploy the JAR to AWS Lambda
 

@@ -51,7 +51,7 @@ format.
 'ion.encoding' = 'TEXT'
 ```
 
-**ion.fail_on_overflow**
+**ion.fail\_on\_overflow**
 
 Optional
 
@@ -80,7 +80,7 @@ periods, as in the following example.
 'ion.`<column>`.fail_on_overflow' = 'false'
 ```
 
-**ion.path_extractor.case_sensitive**
+**ion.path\_extractor.case\_sensitive**
 
 Optional
 
@@ -139,7 +139,7 @@ In the second case, `value1` for the `ALIAS` field
 is ignored when case sensitivity is set to `true` and the path
 extractor is specified as `alias`.
 
-**ion.`<column>`.path_extractor**
+**ion.`<column>`.path\_extractor**
 
 Optional
 
@@ -162,7 +162,7 @@ The following example path extractor maps the
 
 For more information about path extractors and search paths, see [Use path extractors](ion-serde-using-path-extractors.md "ion-serde-using-path-extractors.md").
 
-**ion.timestamp.serialization_offset**
+**ion.timestamp.serialization\_offset**
 
 Optional
 
@@ -170,8 +170,8 @@ Default: `'Z'`
 
 Values: `OFFSET`, where `OFFSET` is represented as
 ``<signal>`hh:mm`. Example
- values: `01:00`, `+01:00`, `-09:30`,
- `Z` (UTC, same as 00:00)
+values: `01:00`, `+01:00`, `-09:30`,
+`Z` (UTC, same as 00:00)
 
 Unlike Apache Hive [timestamps](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-timestamp "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types#LanguageManualTypes-timestamp"), which have no built-in time zone and are stored as
 an offset from the UNIX epoch, Amazon Ion timestamps do have an offset. Use
@@ -183,7 +183,7 @@ The following example adds an offset of one hour.
 'ion.timestamp.serialization_offset' = '+01:00'
 ```
 
-**ion.serialize_null**
+**ion.serialize\_null**
 
 Optional
 
@@ -203,7 +203,7 @@ The following example specifies strongly typed nulls.
 'ion.serialize_null'='TYPED'
 ```
 
-**ion.ignore_malformed**
+**ion.ignore\_malformed**
 
 Optional
 
@@ -214,7 +214,7 @@ Values: `true`, `false`
 When `true`, ignores malformed entries or the whole file if the
 SerDe is unable to read it. For more information, see [Ignore malformed](https://github.com/amzn/ion-hive-serde/blob/master/docs/serde-properties.md#ignore-malformed "https://github.com/amzn/ion-hive-serde/blob/master/docs/serde-properties.md#ignore-malformed") in the documentation on GitHub.
 
-**ion.`<column>`.serialize_as**
+**ion.`<column>`.serialize\_as**
 
 Optional
 

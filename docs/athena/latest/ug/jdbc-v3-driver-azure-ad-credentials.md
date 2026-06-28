@@ -42,25 +42,25 @@ The password for the Azure AD user.
 
 The tenant ID of your Azure AD application.
 
-| Parameter name  | Alias                  | Parameter type | Default value |
-| --------------- | ---------------------- | -------------- | ------------- |
-| AzureAdTenantId | tenant_id (deprecated) | Required       | none          |
+| Parameter name  | Alias                   | Parameter type | Default value |
+| --------------- | ----------------------- | -------------- | ------------- |
+| AzureAdTenantId | tenant\_id (deprecated) | Required       | none          |
 
 ## Azure AD client ID
 
 The client ID of your Azure AD application.
 
-| Parameter name  | Alias                  | Parameter type | Default value |
-| --------------- | ---------------------- | -------------- | ------------- |
-| AzureAdClientId | client_id (deprecated) | Required       | none          |
+| Parameter name  | Alias                   | Parameter type | Default value |
+| --------------- | ----------------------- | -------------- | ------------- |
+| AzureAdClientId | client\_id (deprecated) | Required       | none          |
 
 ## Azure AD client secret
 
 The client secret of your Azure AD application.
 
-| Parameter name      | Alias                      | Parameter type | Default value |
-| ------------------- | -------------------------- | -------------- | ------------- |
-| AzureAdClientSecret | client_secret (deprecated) | Required       | none          |
+| Parameter name      | Alias                       | Parameter type | Default value |
+| ------------------- | --------------------------- | -------------- | ------------- |
+| AzureAdClientSecret | client\_secret (deprecated) | Required       | none          |
 
 ## Preferred role
 
@@ -68,9 +68,9 @@ The Amazon Resource Name (ARN) of the role to assume. For information about ARN
 roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the
 _AWS Security Token Service API Reference_.
 
-| Parameter name | Alias                       | Parameter type | Default value |
-| -------------- | --------------------------- | -------------- | ------------- |
-| PreferredRole  | preferred_role (deprecated) | Optional       | none          |
+| Parameter name | Alias                        | Parameter type | Default value |
+| -------------- | ---------------------------- | -------------- | ------------- |
+| PreferredRole  | preferred\_role (deprecated) | Optional       | none          |
 
 ## Role session duration
 

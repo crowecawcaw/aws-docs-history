@@ -27,7 +27,7 @@ _AWS Security Token Service API Reference_.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                        |
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
-| preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
+| preferred\_role            | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
 
 ## Session duration
 
@@ -49,7 +49,7 @@ authentication flow.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                                                                 |
 | -------------------------- | ------------------ | ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| login_url                  | Required           | `none`            | `login_url=https://trial-1234567.okta.com/app/trial-1234567_oktabrowsersaml_1/zzz4izzzAzDFBzZz1234/sso/saml;` |
+| login\_url                 | Required           | `none`            | `login_url=https://trial-1234567.okta.com/app/trial-1234567_oktabrowsersaml_1/zzz4izzzAzDFBzZz1234/sso/saml;` |
 
 ## Listen port
 
@@ -59,7 +59,7 @@ match the IAM Identity Center URL that you configured the IdP with (for example,
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| listen_port                | Optional           | `7890`            | `listen_port=7890;`           |
+| listen\_port               | Optional           | `7890`            | `listen_port=7890;`           |
 
 ## Timeout
 

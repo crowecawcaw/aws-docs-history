@@ -13,9 +13,9 @@ SELECT 'This' || ' is' || ' a' || ' test.' AS Concatenated_String
 
 This query returns:
 
-| #   | Concatenated_String |
-| --- | ------------------- |
-| `1` | `This is a test.`   |
+| #   | Concatenated\_String |
+| --- | -------------------- |
+| `1` | `This is a test.`    |
 
 You can use the `concat()` function to achieve the same result.
 
@@ -25,9 +25,9 @@ SELECT concat('This', ' is', ' a', ' test.') AS Concatenated_String
 
 This query returns:
 
-| #   | Concatenated_String |
-| --- | ------------------- |
-| `1` | `This is a test.`   |
+| #   | Concatenated\_String |
+| --- | -------------------- |
+| `1` | `This is a test.`    |
 
 You can use the `concat_ws()` function to concatenate strings with the
 separator specified in the first argument.
@@ -38,9 +38,9 @@ SELECT concat_ws(' ', 'This', 'is', 'a', 'test.') as Concatenated_String
 
 This query returns:
 
-| #   | Concatenated_String |
-| --- | ------------------- |
-| `1` | `This is a test.`   |
+| #   | Concatenated\_String |
+| --- | -------------------- |
+| `1` | `This is a test.`    |
 
 To concatenate two columns of the string data type using a dot, reference the two
 columns using double quotes, and enclose the dot in single quotes as a hard-coded
@@ -55,7 +55,7 @@ FROM `my_table`
 
 This query returns:
 
-| #   | Concatenated_String                       |
+| #   | Concatenated\_String                      |
 | --- | ----------------------------------------- |
 | `1` | ``col1_string_value`.`col2_string_value`` |
 
@@ -91,7 +91,7 @@ FROM dataset
 
 This query returns:
 
-| #   | welcome_msg                          |
+| #   | welcome\_msg                         |
 | --- | ------------------------------------ |
 | `1` | `[Hello, Amazon, Athena, Hi, Alexa]` |
 

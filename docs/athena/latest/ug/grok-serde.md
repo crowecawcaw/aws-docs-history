@@ -26,8 +26,8 @@ where:
   `input.grokCustomPatterns` expression, use the newline escape
   character (`\n`) to separate them, as follows:
   `'input.grokCustomPatterns'='INSIDE_QS
-([^\"]*)`\n`INSIDE_BRACKETS
-([^\\]]*)')`.
+ ([^\"]*)`\n`INSIDE_BRACKETS
+ ([^\\]]*)')`.
 - The `STORED AS INPUTFORMAT` and `OUTPUTFORMAT` clauses
   are required.
 - The `LOCATION` clause specifies an Amazon S3 bucket, which can contain

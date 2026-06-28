@@ -82,19 +82,19 @@ the table in the AWS Glue Data Catalog, check the following:
 - Amazon S3 object key casing – Make sure that
   the Amazon S3 path is in lower case instead of camel case (for example,
   `userid` instead of `userId`), or use `ALTER
-TABLE ADD PARTITION` to specify the object key names. For more
+ TABLE ADD PARTITION` to specify the object key names. For more
   information, see [Change or redefine the Amazon S3 path](#msck-repair-table-troubleshooting-change-or-redefine-the-amazon-s3-path "#msck-repair-table-troubleshooting-change-or-redefine-the-amazon-s3-path") later in this document.
 - Query timeouts – `MSCK REPAIR
-TABLE` is best used when creating a table for the first time or when
+ TABLE` is best used when creating a table for the first time or when
   there is uncertainty about parity between data and partition metadata. If you
   use `MSCK REPAIR TABLE` to add new partitions frequently (for
   example, on a daily basis) and are experiencing query timeouts, consider using
   [ALTER TABLE ADD PARTITION](alter-table-add-partition.md "alter-table-add-partition.md").
 - Partitions missing from file system – If
   you delete a partition manually in Amazon S3 and then run `MSCK REPAIR
-TABLE`, you may receive the error message **`Partitions
-missing from filesystem`**. This occurs because `MSCK REPAIR
-TABLE` doesn't remove stale partitions from table metadata. To remove
+ TABLE`, you may receive the error message **`Partitions
+ missing from filesystem`**. This occurs because `MSCK REPAIR
+ TABLE` doesn't remove stale partitions from table metadata. To remove
   the deleted partitions from table metadata, run [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md") instead. Note that [SHOW
   PARTITIONS](show-partitions.md "show-partitions.md") similarly lists only the partitions in metadata, not the
   partitions in the file system.

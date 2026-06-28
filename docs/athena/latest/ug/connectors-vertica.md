@@ -109,8 +109,8 @@ aws glue describe-connection-type --connection-type VERTICA
 
 The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
 
-- glue_connection – Specifies the name of the Glue connection associated with the federated connector.
-- **casing_mode** – (Optional) Specifies
+- glue\_connection – Specifies the name of the Glue connection associated with the federated connector.
+- **casing\_mode** – (Optional) Specifies
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:

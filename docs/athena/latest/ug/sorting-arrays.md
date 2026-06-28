@@ -1,6 +1,6 @@
 # Sort arrays
 
-To create a sorted array of unique values from a set of rows, you can use the [array_sort](https://prestodb.io/docs/current/functions/array.html#array_sort "https://prestodb.io/docs/current/functions/array.html#array_sort")
+To create a sorted array of unique values from a set of rows, you can use the [array\_sort](https://prestodb.io/docs/current/functions/array.html#array_sort "https://prestodb.io/docs/current/functions/array.html#array_sort")
 function, as in the following example.
 
 ```

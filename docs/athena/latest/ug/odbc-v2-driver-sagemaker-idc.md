@@ -42,7 +42,7 @@ uses.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                |
 | -------------------------- | ------------------ | ----------------- | ------------------------------------------------------------ |
-| sso_oidc_start_url         | Required           | `none`            | `sso_oidc_start_url=https://d-1234567890.awsapps.com/start;` |
+| sso\_oidc\_start\_url      | Required           | `none`            | `sso_oidc_start_url=https://d-1234567890.awsapps.com/start;` |
 
 ## SSO OIDC region
 
@@ -50,7 +50,7 @@ The AWS Region where the AWS Identity and Access Management Identity Center inst
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| sso_oidc_region            | Required           | `none`            | `sso_oidc_region=us-east-1;`  |
+| sso\_oidc\_region          | Required           | `none`            | `sso_oidc_region=us-east-1;`  |
 
 ## SSO OIDC cache
 
@@ -60,4 +60,4 @@ driver connections from launching multiple browser windows.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| sso_oidc_cache             | Optional           | `false`           | `sso_oidc_cache=true;`        |
+| sso\_oidc\_cache           | Optional           | `false`           | `sso_oidc_cache=true;`        |

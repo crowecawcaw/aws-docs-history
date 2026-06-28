@@ -66,14 +66,14 @@ resources, see [List of ARNs in Data Catalog](../../../glue/latest/dg/glue-speci
 Guide_.
 
 - For any non-delete Athena action on a resource, such as `CREATE
-DATABASE`, `CREATE TABLE`, `SHOW DATABASE`,
+ DATABASE`, `CREATE TABLE`, `SHOW DATABASE`,
   `SHOW TABLE`, or `ALTER TABLE`, you need permissions
   to call this action on the resource (table or database) and all ancestors of the
   resource in the Data Catalog. For example, for a table, its ancestors are the
   database to which it belongs, and the catalog for the account. For a database,
   its ancestor is the catalog for the account. See [Examples of database and table-level permissions](#examples-fine-grained-table-database-policies "#examples-fine-grained-table-database-policies").
 - For a delete action in Athena, such as `DROP DATABASE` or `DROP
-TABLE`, you also need permissions to call the delete action on all
+ TABLE`, you also need permissions to call the delete action on all
   ancestors and descendants of the resource in the Data Catalog. For example, to delete
   a database you need permissions on the database, the catalog, which is its
   ancestor, and all the tables and user defined functions, which are its

@@ -186,10 +186,9 @@ steps:
      corresponding fields.
 
 9. Select the option **I acknowledge that this app creates custom IAM
-   roles and resource policies**, and then choose
-   **Deploy**.
-10. To verify that your application has been updated, choose the
-    **Deployments** tab.
+roles and resource policies**, and then choose
+**Deploy**. 10. To verify that your application has been updated, choose the
+**Deployments** tab.
 
 The **Deployment history** section shows that your update is
 complete.

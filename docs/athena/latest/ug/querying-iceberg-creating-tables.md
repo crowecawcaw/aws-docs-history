@@ -83,7 +83,7 @@ _format_
 | **Allowed property<br>values** | Supported file format and compression combinations vary<br>by Athena engine version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md "compression-support-iceberg.md"). |
 | **Default value**              | parquet                                                                                                                                                                                                          |
 
-_write_compression_
+_write\_compression_
 
 |                                |                                                                                                                                                                                                                  |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -91,7 +91,7 @@ _write_compression_
 | **Allowed property<br>values** | Supported file format and compression combinations vary<br>by Athena engine version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md "compression-support-iceberg.md"). |
 | **Default value**              | Default write compression varies by Athena engine<br>version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md "compression-support-iceberg.md").                        |
 
-_optimize_rewrite_data_file_threshold_
+_optimize\_rewrite\_data\_file\_threshold_
 
 |                                |                                                                                                                                                                                                                                                                                                                      |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -99,7 +99,7 @@ _optimize_rewrite_data_file_threshold_
 | **Allowed property<br>values** | A positive number. Must be less than 50.                                                                                                                                                                                                                                                                             |
 | **Default value**              | 5                                                                                                                                                                                                                                                                                                                    |
 
-_optimize_rewrite_delete_file_threshold_
+_optimize\_rewrite\_delete\_file\_threshold_
 
 |                                |                                                                                                                                                                                                                                                             |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -107,7 +107,7 @@ _optimize_rewrite_delete_file_threshold_
 | **Allowed property<br>values** | A positive number. Must be less than 50.                                                                                                                                                                                                                    |
 | **Default value**              | 2                                                                                                                                                                                                                                                           |
 
-_vacuum_min_snapshots_to_keep_
+_vacuum\_min\_snapshots\_to\_keep_
 
 |                                |                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -115,7 +115,7 @@ _vacuum_min_snapshots_to_keep_
 | **Allowed property<br>values** | A positive number.                                                                                                                                                                                                                                                                                                                                                           |
 | **Default value**              | 1                                                                                                                                                                                                                                                                                                                                                                            |
 
-_vacuum_max_snapshot_age_seconds_
+_vacuum\_max\_snapshot\_age\_seconds_
 
 |                                |                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -123,7 +123,7 @@ _vacuum_max_snapshot_age_seconds_
 | **Allowed property<br>values** | A positive number.                                                                                                                                                                                                                                                                                                                                    |
 | **Default value**              | 432000 seconds (5 days)                                                                                                                                                                                                                                                                                                                               |
 
-_vacuum_max_metadata_files_to_keep_
+_vacuum\_max\_metadata\_files\_to\_keep_
 
 |                                |                                                                                        |
 | ------------------------------ | -------------------------------------------------------------------------------------- |
@@ -131,7 +131,7 @@ _vacuum_max_metadata_files_to_keep_
 | **Allowed property<br>values** | A positive number.                                                                     |
 | **Default value**              | 100                                                                                    |
 
-_write_data_path_enabled_
+_write\_data\_path\_enabled_
 
 |                                |                                                                                                                                                                                                                                                                                                |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

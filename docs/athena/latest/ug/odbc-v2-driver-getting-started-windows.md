@@ -15,7 +15,7 @@ The Windows system you use must meet the following requirements:
 
   - Windows 11, 10, or 8.1
   - Windows Server 2019, 2016, or 2012
-  - Supported processor architecture: x86_64
+  - Supported processor architecture: x86\_64
 
 - At least 100 MB of available disk space
 - [Microsoft Visual C++ Redistributable for Visual Studio](https://visualstudio.microsoft.com/downloads/#microsoft-visual-c-redistributable-for-visual-studio-2022 "https://visualstudio.microsoft.com/downloads/#microsoft-visual-c-redistributable-for-visual-studio-2022") for 64-bit

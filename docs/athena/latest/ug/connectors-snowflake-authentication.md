@@ -128,15 +128,19 @@ Follow these steps to configure a Snowflake user.
     DESC USER `athena_connector_user`;
     ```
 
-4.  **Store private key in AWS Secrets Manager**
+4. **Store private key in AWS Secrets Manager**
 
     1. Convert your private key to the format required by the connector.
+
+
 
     ```
     # Read private key content
     cat rsa_key.p8
     ```
     2. Create a secret in AWS Secrets Manager with the following structure.
+
+
 
     ```
     {
@@ -148,8 +152,10 @@ Follow these steps to configure a Snowflake user.
 
     ###### Note
 
-        * Header and footer are optional.
-        * The private key must be separated by `\n`.
+
+
+    	* Header and footer are optional.
+    	* The private key must be separated by `\n`.
 
 ## Configure OAuth authentication
 
@@ -194,27 +200,32 @@ CREATE SECURITY INTEGRATION `my_snowflake_oauth_integration_a`
 
 2. **Retrieve OAuth client secrets**
 
-   1. Run the following SQL command to get the client credentials.
+    1. Run the following SQL command to get the client credentials.
 
-   ```
-   DESC SECURITY INTEGRATION '`MY_SNOWFLAKE_OAUTH_INTEGRATION_A`';
-   ```
-   2. Retrieve the OAuth client secrets.
 
-   ```
-   SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('`MY_SNOWFLAKE_OAUTH_INTEGRATION_A`');
-   ```
 
-   **Example response**
+    ```
+    DESC SECURITY INTEGRATION '`MY_SNOWFLAKE_OAUTH_INTEGRATION_A`';
+    ```
+    2. Retrieve the OAuth client secrets.
 
-   ````
-   {
-     "OAUTH_CLIENT_SECRET_2": "`wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`",
-     "OAUTH_CLIENT_SECRET": "`je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY`,
-     "OAUTH_CLIENT_ID": "`AIDACKCEVSQ6C2EXAMPLE`"
-   }
-   ```###### Note
-   ````
+
+
+    ```
+    SELECT SYSTEM$SHOW_OAUTH_CLIENT_SECRETS('`MY_SNOWFLAKE_OAUTH_INTEGRATION_A`');
+    ```
+
+    **Example response**
+
+
+
+    ```
+    {
+      "OAUTH_CLIENT_SECRET_2": "`wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`",
+      "OAUTH_CLIENT_SECRET": "`je7MtGbClwBF/2Zp9Utk/h3yCo8nvbEXAMPLEKEY`,
+      "OAUTH_CLIENT_ID": "`AIDACKCEVSQ6C2EXAMPLE`"
+    }
+    ```###### Note
 
 Keep these credentials secure and do not share them. These will be used to configure the OAuth client. 3. **Authorize user and retrieve authorization code**
 

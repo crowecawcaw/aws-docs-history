@@ -19,7 +19,7 @@ When you use the JDBC driver, be sure to note the following requirements:
   attached to the PrivateLink endpoint is open to inbound traffic on port 444. If
   port 444 is blocked, you may receive the error message
   **`[Simba][AthenaJDBC](100123) An error has occurred. Exception
-during column initialization`**.
+ during column initialization`**.
 - athena:GetQueryResultsStream policy –
   Add the `athena:GetQueryResultsStream` policy action to the IAM
   principals that use the JDBC driver. This policy action is not exposed directly

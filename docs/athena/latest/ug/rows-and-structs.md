@@ -11,4 +11,4 @@ arrays, and find keywords using Athena queries.
 - [Filter arrays using the . notation](filtering-with-dot.md "filtering-with-dot.md")
 - [Filter arrays with nested values](filtering-nested-with-dot.md "filtering-nested-with-dot.md")
 - [Filter arrays using UNNEST](filtering-with-unnest.md "filtering-with-unnest.md")
-- [Find keywords in arrays using regexp_like](filtering-with-regexp.md "filtering-with-regexp.md")
+- [Find keywords in arrays using regexp\_like](filtering-with-regexp.md "filtering-with-regexp.md")

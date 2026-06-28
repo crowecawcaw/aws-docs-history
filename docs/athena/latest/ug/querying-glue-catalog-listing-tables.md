@@ -17,9 +17,9 @@ WHERE  table_schema = 'rdspostgresql'
 
 The following table shows a sample result.
 
-|     | table_schema  | table_name                      | table_type |
-| --- | ------------- | ------------------------------- | ---------- |
-| 1   | rdspostgresql | rdspostgresqldb1_public_account | BASE TABLE |
+|     | table\_schema | table\_name                       | table\_type |
+| --- | ------------- | --------------------------------- | ----------- |
+| 1   | rdspostgresql | rdspostgresqldb1\_public\_account | BASE TABLE  |
 
 ###### Example– Searching for a table by name
 
@@ -36,6 +36,6 @@ WHERE  table_name = 'athena1'
 
 The following table shows a sample result.
 
-|     | table_schema | table_name | table_type |
-| --- | ------------ | ---------- | ---------- |
-| 1   | default      | athena1    | BASE TABLE |
+|     | table\_schema | table\_name | table\_type |
+| --- | ------------- | ----------- | ----------- |
+| 1   | default       | athena1     | BASE TABLE  |

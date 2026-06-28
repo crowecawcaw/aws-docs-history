@@ -31,7 +31,6 @@ or remove its custom tags.
      for queries to complete before removing the DPUs.
 
 6. (Optional) For **Tags**, choose
-   **Remove** to remove a tag, or choose **Add new
-   tag** to add a new tag.
-7. Choose **Submit**. The details page for the reservation
-   shows the updated configuration.
+**Remove** to remove a tag, or choose **Add new
+tag** to add a new tag. 7. Choose **Submit**. The details page for the reservation
+shows the updated configuration.

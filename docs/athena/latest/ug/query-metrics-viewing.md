@@ -100,24 +100,20 @@ the metrics display to be updated.
 
 - Do one of the following:
 
-      + To list the metrics for Athena, open a command prompt, and use the
-       following command:
+  - To list the metrics for Athena, open a command prompt, and use the
+    following command:
 
+  ```
+  aws cloudwatch list-metrics --namespace "AWS/Athena"
+  ```
+  - To list all available metrics, use the following command:
 
+  ```
+  aws cloudwatch list-metrics"
+  ```
 
-      ```
-      aws cloudwatch list-metrics --namespace "AWS/Athena"
-      ```
-      + To list all available metrics, use the following command:
-
-
-
-      ```
-      aws cloudwatch list-metrics"
-      ```
-
-  If you've enabled CloudWatch metrics in Athena, it sends the following metrics to CloudWatch per
-  workgroup. The following metrics use the `AWS/Athena` namespace.
+If you've enabled CloudWatch metrics in Athena, it sends the following metrics to CloudWatch per
+workgroup. The following metrics use the `AWS/Athena` namespace.
 
 | Metric name              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -42,7 +42,7 @@ following key-value pair:
      `injected`. For more information, see [Supported types for partition projection](partition-projection-supported-types.md "partition-projection-supported-types.md").
 
 6. Following the guidance in [Supported types for partition projection](partition-projection-supported-types.md "partition-projection-supported-types.md"), add additional
-   key-value pairs according to your configuration requirements.
+key-value pairs according to your configuration requirements.
 
 The following example table configuration configures the `year`
 column for partition projection, restricting the values that can be returned to

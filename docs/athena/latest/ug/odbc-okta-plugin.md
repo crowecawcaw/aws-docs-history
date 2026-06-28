@@ -198,12 +198,10 @@ options:
 
     ![Choose options on the Create role page.](images/odbc-okta-plugin-15.png)
 
-3. Choose **Next**.
-4. On the **Add Permissions** page, for **Filter
-   policies**, enter `AthenaFull`, and then
-   press ENTER.
-5. Select the `AmazonAthenaFullAccess` managed policy, and then
-   choose **Next**.
+3. Choose **Next**. 4. On the **Add Permissions** page, for **Filter
+policies**, enter `AthenaFull`, and then
+press ENTER. 5. Select the `AmazonAthenaFullAccess` managed policy, and then
+choose **Next**.
 
 ![Choose the AmazonAthenaFullAccess managed policy.](images/odbc-okta-plugin-16.png) 6. On the **Name, review, and create** page, for
 **Role name**, enter a name for the role (for example,
@@ -240,26 +238,26 @@ the values described.
 
     ![Enter values for the data source name setup.](images/odbc-okta-plugin-19.png)
 
-5. Choose **Authentication Options**.
-6. In the **Authentication Options** dialog box, choose or enter
-   the following values.
+5. Choose **Authentication Options**. 6. In the **Authentication Options** dialog box, choose or enter
+the following values.
 
-   - For **Authentication Type**, choose
+    * For **Authentication Type**, choose
      **Okta**.
-   - For **User**, enter your Okta user name.
-   - For **Password**, enter your Okta password.
-   - For **IdP Host**, enter the value that you recorded
+    * For **User**, enter your Okta user name.
+    * For **Password**, enter your Okta password.
+    * For **IdP Host**, enter the value that you recorded
      earlier (for example,
      `trial-1234567.okta.com`).
-   - For **IdP Port**, enter
+    * For **IdP Port**, enter
      `443`.
-   - For **App ID**, enter the value that you recorded
+    * For **App ID**, enter the value that you recorded
      earlier (the last two segments of your Okta embed link).
-   - For **Okta App Name**, enter
+    * For **Okta App Name**, enter
      `amazon_aws_redshift`.
 
-   ![Enter the authentication options.](images/odbc-okta-plugin-20.png)
 
-7. Choose **OK**.
-8. Choose **Test** to test the connection or
-   **OK** to finish.
+
+    ![Enter the authentication options.](images/odbc-okta-plugin-20.png)
+
+7. Choose **OK**. 8. Choose **Test** to test the connection or
+**OK** to finish.

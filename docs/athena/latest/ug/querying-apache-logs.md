@@ -35,7 +35,7 @@ custom classifiers](../../../glue/latest/dg/custom-classifier.md#custom-classifi
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 2. Paste the following DDL statement into the Athena Query Editor. Modify the
    values in `LOCATION
-'s3://amzn-s3-demo-bucket/`apache-log-folder`/'`
+ 's3://amzn-s3-demo-bucket/`apache-log-folder`/'`
    to point to your Apache logs in Amazon S3.
 
 ```

@@ -189,7 +189,7 @@ Released 2024-10-30
   Amazon S3 **`Range Not Satisfiable`** exception.
 - Logging – The driver no longer logs
   the message **`Items requested for query execution [...], but
-subscription is cancelled`** after consuming query
+ subscription is cancelled`** after consuming query
   results.
 - Empty parameter strings – The driver
   now handles empty strings present in a connection parameter as if the

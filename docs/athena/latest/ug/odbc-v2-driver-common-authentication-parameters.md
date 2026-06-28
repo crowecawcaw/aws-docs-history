@@ -50,4 +50,4 @@ provider without a valid SSL certificate (for testing purposes only), set
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| SSL_Insecure               | Optional           | `0`               | `SSL_Insecure=1;`             |
+| SSL\_Insecure              | Optional           | `0`               | `SSL_Insecure=1;`             |

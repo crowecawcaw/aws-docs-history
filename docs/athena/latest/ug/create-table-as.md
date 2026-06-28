@@ -32,7 +32,7 @@ AS query
 
 Where:
 
-**WITH ( property_name = expression [, ...] )**
+**WITH ( property\_name = expression [, ...] )**
 
 A list of optional CTAS table properties, some of which are specific to
 the data storage format. See [CTAS table properties](#ctas-table-properties "#ctas-table-properties").

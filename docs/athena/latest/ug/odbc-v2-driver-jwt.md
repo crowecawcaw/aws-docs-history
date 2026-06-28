@@ -18,7 +18,7 @@ roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                        |
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
-| preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
+| preferred\_role            | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
 
 ## Session duration
 
@@ -49,4 +49,4 @@ user.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**     |
 | -------------------------- | ------------------ | ----------------- | --------------------------------- |
-| role_session_name          | Required           | `none`            | `role_session_name=familiarname;` |
+| role\_session\_name        | Required           | `none`            | `role_session_name=familiarname;` |

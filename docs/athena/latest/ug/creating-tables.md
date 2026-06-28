@@ -72,7 +72,7 @@ For more information about specifying a location for your data in Amazon S3, see
 - Tables are EXTERNAL – Except when
   creating [Iceberg](querying-iceberg-creating-tables.md "querying-iceberg-creating-tables.md") tables,
   always use the `EXTERNAL` keyword. If you use `CREATE
-TABLE` without the `EXTERNAL` keyword for non-Iceberg
+ TABLE` without the `EXTERNAL` keyword for non-Iceberg
   tables, Athena issues an error. When you drop a table in Athena, only the
   table metadata is removed; the data remains in Amazon S3.
 - Maximum query string length – The
@@ -82,7 +82,7 @@ TABLE` without the `EXTERNAL` keyword for non-Iceberg
   specifying the `TableType` property and then run a DDL query like
   `SHOW CREATE TABLE` or `MSCK REPAIR TABLE`, you can
   receive the error message **`FAILED: NullPointerException Name is
-null`**.
+ null`**.
 
 To resolve the error, specify a value for the [TableInput](../../../glue/latest/webapi/API_TableInput.md "../../../glue/latest/webapi/API_TableInput.md")
 `TableType` attribute as part of the AWS Glue `CreateTable` API

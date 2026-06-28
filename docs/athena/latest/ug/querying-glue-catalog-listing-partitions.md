@@ -22,8 +22,8 @@ SELECT * FROM default."cloudtrail_logs_test2$partitions" ORDER BY partition_numb
 
 The following table shows sample results.
 
-|     | table_catalog  | table_schema | table_name            | Year | Month | Day |
-| --- | -------------- | ------------ | --------------------- | ---- | ----- | --- |
-| 1   | awsdatacatalog | default      | cloudtrail_logs_test2 | 2020 | 08    | 10  |
-| 2   | awsdatacatalog | default      | cloudtrail_logs_test2 | 2020 | 08    | 11  |
-| 3   | awsdatacatalog | default      | cloudtrail_logs_test2 | 2020 | 08    | 12  |
+|     | table\_catalog | table\_schema | table\_name             | Year | Month | Day |
+| --- | -------------- | ------------- | ----------------------- | ---- | ----- | --- |
+| 1   | awsdatacatalog | default       | cloudtrail\_logs\_test2 | 2020 | 08    | 10  |
+| 2   | awsdatacatalog | default       | cloudtrail\_logs\_test2 | 2020 | 08    | 11  |
+| 3   | awsdatacatalog | default       | cloudtrail\_logs\_test2 | 2020 | 08    | 12  |

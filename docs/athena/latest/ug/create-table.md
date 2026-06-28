@@ -45,7 +45,7 @@ does, the parameter returns `TRUE`, and Amazon Athena cancels the
 `CREATE TABLE` action. Because cancellation occurs before
 Athena calls the data catalog, it doesn't emit a AWS CloudTrail event.
 
-**[db\_name.]table_name**
+**[db\_name.]table\_name**
 
 Specifies a name for the table to be created. The optional
 `db_name` parameter specifies the database where the table
@@ -59,7 +59,7 @@ Athena table names are case-insensitive; however, if you work with Apache
 Spark, Spark requires lowercase table names. For restrictions on table names
 in Athena, see [Name databases, tables, and columns](tables-databases-columns-names.md "tables-databases-columns-names.md").
 
-**[ ( col_name data_type [COMMENT col\_comment] [, ...] ) ]**
+**[ ( col\_name data\_type [COMMENT col\_comment] [, ...] ) ]**
 
 Specifies the name for each column to be created, along with the column's
 data type. Column names do not allow special characters other than
@@ -100,12 +100,12 @@ The `data_type` value can be any of the following:
   follows the IEEE Standard for Floating-Point Arithmetic (IEEE 754).
   Equivalent to the `real` in Presto. In Athena, use
   `float` in DDL statements like `CREATE
-TABLE` and `real` in SQL functions like
+ TABLE` and `real` in SQL functions like
   `SELECT CAST`. The AWS Glue crawler returns values in
   `float`, and Athena translates `real` and
   `float` types internally (see the [June 5, 2018](release-notes.md#release-note-2018-06-05 "release-notes.md#release-note-2018-06-05") release notes).
 - `decimal [ (`precision`,
-`scale`) ]`, where
+ `scale`) ]`, where
   `precision` is the
   total number of digits, and
   `scale` (optional) is the
@@ -146,13 +146,14 @@ Athena; cast them to `varchar` instead.
 - `timestamp` – Date and time instant in a [`java.sql.Timestamp`](https://docs.oracle.com/javase/8/docs/api/java/sql/Timestamp.html "https://docs.oracle.com/javase/8/docs/api/java/sql/Timestamp.html") compatible format
   up to a maximum resolution of milliseconds, such as
   ``yyyy`-`MM`-`dd`
-  `HH`:`mm`:`ss`[.f`...`]`.
- For example, `timestamp '2008-09-15 03:04:05.324'`. An
- exception is the OpenCSVSerDe, which uses `TIMESTAMP`  data in the UNIX numeric format (for example,
- `1579059880000`). For more information, see [Open CSV SerDe for processing CSV](csv-serde.md "csv-serde.md").
-- `array` < data_type >
-- `map` < primitive_type, data_type >
-- `struct` < col_name : data_type [comment
+`HH`:`mm`:`ss`[.f`...`]`.
+  For example, `timestamp '2008-09-15 03:04:05.324'`. An
+  exception is the OpenCSVSerDe, which uses `TIMESTAMP`
+  data in the UNIX numeric format (for example,
+  `1579059880000`). For more information, see [Open CSV SerDe for processing CSV](csv-serde.md "csv-serde.md").
+- `array` < data\_type >
+- `map` < primitive\_type, data\_type >
+- `struct` < col\_name : data\_type [comment
   col\_comment] [, ...] >
 
 **[COMMENT table\_comment]**
@@ -160,7 +161,7 @@ Athena; cast them to `varchar` instead.
 Creates the `comment` table property and populates it with the
 `table_comment` you specify.
 
-**[PARTITIONED BY (col_name data_type [ COMMENT col\_comment ], ... ) ]**
+**[PARTITIONED BY (col\_name data\_type [ COMMENT col\_comment ], ... ) ]**
 
 Creates a partitioned table with one or more partition columns that have
 the `col_name`, `data_type` and
@@ -209,8 +210,8 @@ is `TEXTFILE`.
 
 **--OR--**
 
-- SERDE 'serde_name' [WITH SERDEPROPERTIES ("property_name" =
-  "property_value", "property_name" = "property_value" [, ...]
+- SERDE 'serde\_name' [WITH SERDEPROPERTIES ("property\_name" =
+  "property\_value", "property\_name" = "property\_value" [, ...]
   )]
 
 The `serde_name` indicates the SerDe to use. The
@@ -230,8 +231,8 @@ Specifies the file format for table data. If omitted,
 - PARQUET
 - AVRO
 - ION
-- INPUTFORMAT input_format_classname OUTPUTFORMAT
-  output_format_classname
+- INPUTFORMAT input\_format\_classname OUTPUTFORMAT
+  output\_format\_classname
 
 **[LOCATION 's3://amzn-s3-demo-bucket/[folder]/']**
 
@@ -261,14 +262,14 @@ glob characters.
 
 **[TBLPROPERTIES ( ['has\_encrypted\_data'='true | false',]
 ['encryption\_option'='SSE\_S3 | SSE\_KMS | CSE\_KMS',] ['kms\_key'='aws\_kms\_key\_arn',]
-['classification'='classification\_value',] property_name=property_value [, ...]
+['classification'='classification\_value',] property\_name=property\_value [, ...]
 ) ]**
 
 Specifies custom metadata key-value pairs for the table definition in
 addition to predefined table properties, such as
 `"comment"`.
 
-has_encrypted_data – Athena has a
+has\_encrypted\_data – Athena has a
 built-in property, `has_encrypted_data`. Set this property to
 `true` to indicate that the underlying dataset specified by
 `LOCATION` is CSE-KMS encrypted. If omitted and if the workgroup's
@@ -276,12 +277,12 @@ settings do not override client-side settings, `false` is
 assumed. If omitted or set to `false` when underlying data is
 encrypted, the query results in an error. For more information, see [Encryption at rest](encryption.md "encryption.md").
 
-encryption_option –
+encryption\_option –
 Set this property to either `SSE_S3`, `SSE_KMS`, or `CSE_KMS`
 to indicate the highest level of encryption used in the underlying dataset specified by
 `LOCATION`. For more information, see [Encryption at rest](encryption.md "encryption.md").
 
-kms_key –
+kms\_key –
 Set this property to the AWS KMS key ARN used for encrypting and decrypting table data files.
 Athena uses this key to encrypt table data files when writing with `SSE_KMS` or `CSE_KMS`
 encryption, and to decrypt CSE-KMS encrypted table data files. This property
@@ -300,7 +301,7 @@ console, API, or CLI. For more information, see [Create tables for ETL jobs](sch
 [Authoring Jobs in AWS Glue](../../../glue/latest/dg/author-job.md "../../../glue/latest/dg/author-job.md") in the
 _AWS Glue Developer Guide_.
 
-compression_level – The
+compression\_level – The
 `compression_level` property specifies the compression level
 to use. This property applies only to ZSTD compression. Possible values are
 from 1 to 22. The default value is 3. For more information, see [Use ZSTD compression levels](compression-support-zstd-levels.md "compression-support-zstd-levels.md").

@@ -39,9 +39,9 @@ For shared views, keep in mind the following points:
 - The name of the resource link created on the shared resources must
   match the name of the resource in the owner account. If the name does
   not match, an error message like **`Failed analyzing stored view
-'awsdatacatalog.`my-lf-resource-link`.`my-lf-view`':
-line 3:3: Schema `schema_name` does not
-exist`** occurs.
+ 'awsdatacatalog.`my-lf-resource-link`.`my-lf-view`':
+ line 3:3: Schema `schema_name` does not
+ exist`** occurs.
 
 For more information about cross-account access in Lake Formation, see the following
 resources in the _AWS Lake Formation Developer Guide_:

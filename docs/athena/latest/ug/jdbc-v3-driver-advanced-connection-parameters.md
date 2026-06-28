@@ -33,9 +33,9 @@ The type of encryption to be used for query results as they are stored in Amazon
 For information about query result encryption, see [EncryptionConfiguration](../APIReference/API_EncryptionConfiguration.md "../APIReference/API_EncryptionConfiguration.md") in the
 _Amazon Athena API Reference_.
 
-| Parameter name   | Alias                          | Parameter type | Default value | Possible values          |
-| ---------------- | ------------------------------ | -------------- | ------------- | ------------------------ |
-| EncryptionOption | S3OutputEncOption (deprecated) | Optional       | none          | SSE_S3, SSE_KMS, CSE_KMS |
+| Parameter name   | Alias                          | Parameter type | Default value | Possible values             |
+| ---------------- | ------------------------------ | -------------- | ------------- | --------------------------- |
+| EncryptionOption | S3OutputEncOption (deprecated) | Optional       | none          | SSE\_S3, SSE\_KMS, CSE\_KMS |
 
 ### KMS Key
 
@@ -106,9 +106,9 @@ information about verifying s3 bucket owner, see [Verifying bucket ownership](..
 Indicates that an Amazon S3 canned ACL should be set to control ownership of stored
 query results. For more information about `AclOption`, see [AclConfiguration](../APIReference/API_AclConfiguration.md "../APIReference/API_AclConfiguration.md").
 
-| Parameter name | Alias | Parameter type | Default value | Possible values           |
-| -------------- | ----- | -------------- | ------------- | ------------------------- |
-| AclOption      | none  | Optional       | none          | BUCKET_OWNER_FULL_CONTROL |
+| Parameter name | Alias | Parameter type | Default value | Possible values              |
+| -------------- | ----- | -------------- | ------------- | ---------------------------- |
+| AclOption      | none  | Optional       | none          | BUCKET\_OWNER\_FULL\_CONTROL |
 
 ## Query result reuse parameters
 

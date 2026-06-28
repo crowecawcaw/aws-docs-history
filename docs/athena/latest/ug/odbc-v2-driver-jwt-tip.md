@@ -23,7 +23,7 @@ only during the duration driver instance is active.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                        |
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
-| web_identity_token         | Required           | `none`            | `web_identity_token=eyJhbGc...<remainder of token>;` |
+| web\_identity\_token       | Required           | `none`            | `web_identity_token=eyJhbGc...<remainder of token>;` |
 
 ## Workgroup Arn
 
@@ -53,7 +53,7 @@ that user.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**     |
 | -------------------------- | ------------------ | ----------------- | --------------------------------- |
-| role_session_name          | Required           | `none`            | `role_session_name=familiarname;` |
+| role\_session\_name        | Required           | `none`            | `role_session_name=familiarname;` |
 
 ## Session duration
 

@@ -61,7 +61,7 @@ Only the following connectors support the `ANNOTATION` mode:
 
 ###### Note
 
-It is recommended to use CASE_INSENSITIVE_SEARCH instead of ANNOTATION.
+It is recommended to use CASE\_INSENSITIVE\_SEARCH instead of ANNOTATION.
 
 ### Case-insensitive search support
 

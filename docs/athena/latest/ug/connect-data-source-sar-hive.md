@@ -50,7 +50,7 @@ Lambda function.
      VPC subnet IDs for the Hive metastore.
 
 7. On the bottom right of the **Application details** page, select
-   **I acknowledge that this app creates custom IAM roles**, and
-   then choose **Deploy**.
-   At this point, you can configure Athena to use your Lambda function to connect to your Hive
-   metastore. For steps, see [Configure Athena to use a deployed Hive metastore connector](connect-data-source-hive-existing-lambda.md "connect-data-source-hive-existing-lambda.md").
+**I acknowledge that this app creates custom IAM roles**, and
+then choose **Deploy**.
+At this point, you can configure Athena to use your Lambda function to connect to your Hive
+metastore. For steps, see [Configure Athena to use a deployed Hive metastore connector](connect-data-source-hive-existing-lambda.md "connect-data-source-hive-existing-lambda.md").

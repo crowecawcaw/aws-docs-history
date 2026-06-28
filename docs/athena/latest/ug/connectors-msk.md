@@ -57,7 +57,7 @@ The connector supports the following authentication methods.
 - [SASL/SCRAM](../../../msk/latest/developerguide/msk-password.md "../../../msk/latest/developerguide/msk-password.md")
 - SASL/PLAIN
 - SASL/PLAINTEXT
-- NO_AUTH
+- NO\_AUTH
 
 For more information, see [Configuring authentication for the Athena MSK connector](#connectors-msk-setup-configuring-authentication "#connectors-msk-setup-configuring-authentication").
 
@@ -73,17 +73,17 @@ The connector supports the following input data formats.
 Use the parameters in this section to configure the Athena
 MSK connector.
 
-- auth_type – Specifies the authentication
+- auth\_type – Specifies the authentication
   type of the cluster. The connector supports the following types of
   authentication:
 
-  - NO_AUTH – Connect directly to
+  - NO\_AUTH – Connect directly to
     Kafka with no authentication (for example, to a Kafka cluster deployed
     over an EC2 instance that does not use authentication).
-  - SASL_SSL_PLAIN – This method
+  - SASL\_SSL\_PLAIN – This method
     uses the `SASL_SSL` security protocol and the
     `PLAIN` SASL mechanism.
-  - SASL_PLAINTEXT_PLAIN – This
+  - SASL\_PLAINTEXT\_PLAIN – This
     method uses the `SASL_PLAINTEXT` security protocol and the
     `PLAIN` SASL mechanism.
 
@@ -92,13 +92,13 @@ MSK connector.
   The `SASL_SSL_PLAIN` and
   `SASL_PLAINTEXT_PLAIN` authentication types are
   supported by Apache Kafka but not by Amazon MSK.
-  - SASL_SSL_AWS_MSK_IAM – IAM
+  - SASL\_SSL\_AWS\_MSK\_IAM – IAM
     access control for Amazon MSK enables you to handle both authentication and
     authorization for your MSK cluster. Your user's AWS credentials
     (secret key and access key) are used to connect with the cluster. For
     more information, see [IAM access
     control](../../../msk/latest/developerguide/iam-access-control.md "../../../msk/latest/developerguide/iam-access-control.md") in the Amazon Managed Streaming for Apache Kafka Developer Guide.
-  - SASL_SSL_SCRAM_SHA512 – You can
+  - SASL\_SSL\_SCRAM\_SHA512 – You can
     use this authentication type to control access to your Amazon MSK clusters.
     This method stores the user name and password on AWS Secrets Manager. The secret
     must be associated with the Amazon MSK cluster. For more information, see
@@ -115,20 +115,20 @@ MSK connector.
 
   For more information, see [Configuring authentication for the Athena MSK connector](#connectors-msk-setup-configuring-authentication "#connectors-msk-setup-configuring-authentication").
 
-- certificates_s3_reference – The Amazon S3
+- certificates\_s3\_reference – The Amazon S3
   location that contains the certificates (the key store and trust store
   files).
-- disable_spill_encryption – (Optional)
+- disable\_spill\_encryption – (Optional)
   When set to `True`, disables spill encryption. Defaults to
   `False` so that data that is spilled to S3 is encrypted using
   AES-GCM – either using a randomly generated key or KMS to generate keys.
   Disabling spill encryption can improve performance, especially if your spill
   location uses [server-side
   encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md").
-- kafka_endpoint – The endpoint details to
+- kafka\_endpoint – The endpoint details to
   provide to Kafka. For example, for an Amazon MSK cluster, you provide a [bootstrap
   URL](../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md "../../../msk/latest/developerguide/msk-get-bootstrap-brokers.md") for the cluster.
-- secrets_manager_secret – The name of the
+- secrets\_manager\_secret – The name of the
   AWS secret in which the credentials are saved. This parameter is not required
   for IAM authentication.
 - Spill parameters – Lambda functions
@@ -357,7 +357,7 @@ The following table shows the authentication types for the connector and the
 security protocol and SASL mechanism for each. For more information, see [Authentication and authorization for Apache Kafka APIs](../../../msk/latest/developerguide/kafka_apis_iam.md "../../../msk/latest/developerguide/kafka_apis_iam.md") in the
 Amazon Managed Streaming for Apache Kafka Developer Guide.
 
-| auth_type               | security.protocol | sasl.mechanism  |
+| auth\_type              | security.protocol | sasl.mechanism  |
 | ----------------------- | ----------------- | --------------- |
 | `SASL_SSL_PLAIN`        | `SASL_SSL`        | `PLAIN`         |
 | `SASL_PLAINTEXT_PLAIN`  | `SASL_PLAINTEXT`  | `PLAIN`         |

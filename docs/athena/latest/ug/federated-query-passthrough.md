@@ -62,7 +62,7 @@ Note the following:
   connector name or data catalog name.
 - **system** – The namespace that contains
   the function. All Athena connector implementations use this namespace.
-- **function_name** – The name of the
+- **function\_name** – The name of the
   function that pushes the passthrough query down to the data source. This is
   often called `query`. The combination
   `catalog.system.function_name` is the full resolution path for
@@ -95,8 +95,8 @@ SELECT * FROM TABLE(system.query('query string'))
 If the data source requires more than the query string, use named arguments in the
 order expected by the data source. For example, the expression
 ``arg1` =>
-'`arg1Value`'`contains the first argument and its
- value. The name`arg1` is specific to the data source and can
+ '`arg1Value`'` contains the first argument and its
+value. The name `arg1` is specific to the data source and can
 differ from connector to connector.
 
 ```

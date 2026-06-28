@@ -34,7 +34,7 @@ VACUUM [`database_name`.]`target_table`
   `s3://amzn-s3-demo-bucket/myicebergfolder/`, the
   `VACUUM` statement fails with the error message
   **`GENERIC_INTERNAL_ERROR: Path missing in file system location:
-`s3://amzn-s3-demo-bucket``**.
+ `s3://amzn-s3-demo-bucket``**.
 - For `VACUUM` to be able to delete data files, your query execution
   role must have `s3:DeleteObject` permissions on the bucket where your
   Iceberg tables, metadata, snapshots, and data files are located. If the

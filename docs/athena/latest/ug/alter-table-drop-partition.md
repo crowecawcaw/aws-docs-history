@@ -15,7 +15,7 @@ ALTER TABLE table_name DROP [IF EXISTS] PARTITION (partition_spec) [, PARTITION 
 Suppresses the error message if the partition specified does not
 exist.
 
-**PARTITION (partition_spec)**
+**PARTITION (partition\_spec)**
 
 Each `partition_spec` specifies a column name/value combination
 in the form `partition_col_name = partition_col_value

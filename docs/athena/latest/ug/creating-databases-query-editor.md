@@ -9,8 +9,8 @@ console query editor is straightforward.
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 2. On the **Editor** tab, in the query editor, enter the Hive
    data definition language (DDL) command `CREATE DATABASE
-`myDataBase``. Replace
-`myDatabase` with the name that you want to use.
+ `myDataBase``. Replace
+   `myDatabase` with the name that you want to use.
    For restrictions on database names, see [Name databases, tables, and columns](tables-databases-columns-names.md "tables-databases-columns-names.md").
 3. Choose **Run** or press
    `Ctrl+ENTER`.

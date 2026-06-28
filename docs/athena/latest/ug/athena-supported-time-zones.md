@@ -20,7 +20,7 @@ For a list of supported time zones in Athena, expand the [List of supported time
 
 Following are some additional timezone related functions and examples.
 
-- at_timezone(`timestamp`,
+- at\_timezone(`timestamp`,
   `zone`) – Returns the value of
   `timestamp` in the corresponding local time for
   `zone`.
@@ -37,7 +37,7 @@ SELECT at_timezone(timestamp '2021-08-22 00:00 UTC', 'Canada/Newfoundland')
 2021-08-21 21:30:00.000 Canada/Newfoundland
 ```
 
-- timezone_hour(`timestamp`) –
+- timezone\_hour(`timestamp`) –
   Returns the hour of the time zone offset from timestamp as a
   `bigint`.
 
@@ -53,7 +53,7 @@ SELECT timezone_hour(timestamp '2021-08-22 04:00 UTC' AT TIME ZONE 'Canada/Newfo
 -2
 ```
 
-- timezone_minute(`timestamp`) –
+- timezone\_minute(`timestamp`) –
   Returns the minute of the time zone offset from
   `timestamp` as a `bigint`.
 
@@ -69,7 +69,7 @@ SELECT timezone_minute(timestamp '2021-08-22 04:00 UTC' AT TIME ZONE 'Canada/New
 -30
 ```
 
-- with_timezone(`timestamp`,
+- with\_timezone(`timestamp`,
   `zone`) – Returns a timestamp
   with time zone from the specified `timestamp` and
   `zone` values.

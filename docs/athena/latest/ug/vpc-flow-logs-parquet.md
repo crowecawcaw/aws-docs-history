@@ -69,7 +69,7 @@ TBLPROPERTIES (
 ```
 
 2. Modify the sample `LOCATION
-'s3://amzn-s3-demo-bucket/`prefix`/AWSLogs/'`
+ 's3://amzn-s3-demo-bucket/`prefix`/AWSLogs/'`
    to point to the Amazon S3 path that contains your log data.
 3. Run the query in Athena console.
 4. If your data is in Hive-compatible format, run the following command in the

@@ -33,17 +33,17 @@ The password for the AD FS user.
 
 The address for your AD FS server.
 
-| Parameter name | Alias                 | Parameter type | Default value |
-| -------------- | --------------------- | -------------- | ------------- |
-| AdfsHostName   | IdP_Host (deprecated) | Required       | none          |
+| Parameter name | Alias                  | Parameter type | Default value |
+| -------------- | ---------------------- | -------------- | ------------- |
+| AdfsHostName   | IdP\_Host (deprecated) | Required       | none          |
 
 ## ADFS port number
 
 The port number to use to connect to your AD FS server.
 
-| Parameter name | Alias                 | Parameter type | Default value |
-| -------------- | --------------------- | -------------- | ------------- |
-| AdfsPortNumber | IdP_Port (deprecated) | Required       | none          |
+| Parameter name | Alias                  | Parameter type | Default value |
+| -------------- | ---------------------- | -------------- | ------------- |
+| AdfsPortNumber | IdP\_Port (deprecated) | Required       | none          |
 
 ## ADFS relying party
 
@@ -69,9 +69,9 @@ The Amazon Resource Name (ARN) of the role to assume. For information about ARN
 roles, see [`AssumeRole`](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API
 Reference_.
 
-| Parameter name | Alias                       | Parameter type | Default value |
-| -------------- | --------------------------- | -------------- | ------------- |
-| PreferredRole  | preferred_role (deprecated) | Optional       | none          |
+| Parameter name | Alias                        | Parameter type | Default value |
+| -------------- | ---------------------------- | -------------- | ------------- |
+| PreferredRole  | preferred\_role (deprecated) | Optional       | none          |
 
 ## Role session duration
 

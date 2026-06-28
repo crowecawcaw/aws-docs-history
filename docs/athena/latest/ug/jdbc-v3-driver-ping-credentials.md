@@ -39,17 +39,17 @@ and view the **SSO Application Endpoint** field.
 https://your-pf-host-#:9999/pingfederate/your-pf-app#/spConnections
 ```
 
-| Parameter name | Alias                    | Parameter type | Default value |
-| -------------- | ------------------------ | -------------- | ------------- |
-| PingHostName   | IdP_Host<br>(deprecated) | Required       | none          |
+| Parameter name | Alias                     | Parameter type | Default value |
+| -------------- | ------------------------- | -------------- | ------------- |
+| PingHostName   | IdP\_Host<br>(deprecated) | Required       | none          |
 
 ## PingPortNumber
 
 The port number to use to connect to your IdP host.
 
-| Parameter name | Alias                 | Parameter type | Default value |
-| -------------- | --------------------- | -------------- | ------------- |
-| PingPortNumber | IdP_Port (deprecated) | Required       | none          |
+| Parameter name | Alias                  | Parameter type | Default value |
+| -------------- | ---------------------- | -------------- | ------------- |
+| PingPortNumber | IdP\_Port (deprecated) | Required       | none          |
 
 ## PingPartnerSpId
 
@@ -61,9 +61,9 @@ field.
 https://your-pf-host-#:9999/pingfederate/your-pf-app#/spConnections
 ```
 
-| Parameter name  | Alias                     | Parameter type | Default value |
-| --------------- | ------------------------- | -------------- | ------------- |
-| PingPartnerSpId | Partner_SPID (deprecated) | Required       | none          |
+| Parameter name  | Alias                      | Parameter type | Default value |
+| --------------- | -------------------------- | -------------- | ------------- |
+| PingPartnerSpId | Partner\_SPID (deprecated) | Required       | none          |
 
 ## Preferred role
 
@@ -71,9 +71,9 @@ The Amazon Resource Name (ARN) of the role to assume. For information about ARN
 roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the
 _AWS Security Token Service API Reference_.
 
-| Parameter name | Alias                       | Parameter type | Default value |
-| -------------- | --------------------------- | -------------- | ------------- |
-| PreferredRole  | preferred_role (deprecated) | Optional       | none          |
+| Parameter name | Alias                        | Parameter type | Default value |
+| -------------- | ---------------------------- | -------------- | ------------- |
+| PreferredRole  | preferred\_role (deprecated) | Optional       | none          |
 
 ## Role session duration
 

@@ -27,25 +27,21 @@ Athena publishes the following metric to the CloudWatch console under the
 
 - Do one of the following:
 
-      + To list the metrics for Athena Spark-enabled workgroups, open a command
-       prompt, and use the following command:
+  - To list the metrics for Athena Spark-enabled workgroups, open a command
+    prompt, and use the following command:
 
+  ```
+  aws cloudwatch list-metrics --namespace "AmazonAthenaForApacheSpark"
+  ```
+  - To list all available metrics, use the following command:
 
+  ```
+  aws cloudwatch list-metrics
+  ```
 
-      ```
-      aws cloudwatch list-metrics --namespace "AmazonAthenaForApacheSpark"
-      ```
-      + To list all available metrics, use the following command:
-
-
-
-      ```
-      aws cloudwatch list-metrics
-      ```
-
-  If you've enabled CloudWatch metrics in your Spark-enabled Athena workgroup, Athena sends
-  the following metric to CloudWatch per workgroup. The metric uses the
-  `AmazonAthenaForApacheSpark` namespace.
+If you've enabled CloudWatch metrics in your Spark-enabled Athena workgroup, Athena sends
+the following metric to CloudWatch per workgroup. The metric uses the
+`AmazonAthenaForApacheSpark` namespace.
 
 | Metric name | Description                                                                                                                                                                                                                |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

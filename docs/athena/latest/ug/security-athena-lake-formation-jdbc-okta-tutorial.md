@@ -281,10 +281,9 @@ policy provides access to Athena and the Athena query results location in Amazon
     4. Choose **Next: Permissions**.
 
 3. On the **Attach Permissions policies** page, for
-   **Filter policies**, enter
-   `Athena`.
-4. Select the **AmazonAthenaFullAccess** managed policy, and then
-   choose **Next: Tags**.
+**Filter policies**, enter
+`Athena`. 4. Select the **AmazonAthenaFullAccess** managed policy, and then
+choose **Next: Tags**.
 
 ![Attaching the AmazonAthenaFullAccess managed policy to the IAM role.](images/security-athena-lake-formation-jdbc-okta-tutorial-21.png) 5. On the **Add tags** page, choose **Next:
 Review**. 6. On the **Review** page, for **Role name**,
@@ -440,13 +439,13 @@ attribute:
      `user.login`
 
 6. Under **Group Attribute Statements (optional)**, add the
-   following attribute:
+following attribute:
 
-   - For **Name**, enter
+    * For **Name**, enter
      `https://lakeformation.amazon.com/SAML/Attributes/Groups`.
-   - For **Name format**, enter
+    * For **Name format**, enter
      `Basic`
-   - For **Filter**, choose **Matches
+    * For **Filter**, choose **Matches
      regex**, and then enter `.*` in the
      filter box.
 
@@ -820,7 +819,7 @@ Now you return to the Lake Formation console to configure table permissions for 
      Okta SAML lf-developer group ARN in the following format:
    - For **Columns**, **Choose filter
      type**, choose **Include columns**.
-   - Choose the **trip_type** column.
+   - Choose the **trip\_type** column.
    - For **Table permissions**, choose
      **SELECT**.
 
@@ -838,7 +837,7 @@ available to **athena-ba-user**, who is now a member of the
 3. From the **Statement** window, issue the same SQL statements
    that you ran previously:
 
-This time, the **trip_type** column is displayed.
+This time, the **trip\_type** column is displayed.
 
 ![The fourth column is available for query.](images/security-athena-lake-formation-jdbc-okta-tutorial-verify-access-10.png)
 

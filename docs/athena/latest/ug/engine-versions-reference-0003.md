@@ -81,7 +81,7 @@ FROM (VALUES 'a', 'c', 'b') t(value);
 
 #### Array functions
 
-contains_sequence(x, seq) – Returns true
+contains\_sequence(x, seq) – Returns true
 if array x contains all array seq as a sequential subset (all values in the same
 consecutive order).
 
@@ -100,7 +100,7 @@ SELECT murmur3(from_base64('aaaaaa'));
 
 #### Conversion functions
 
-format_number(number) – Returns a
+format\_number(number) – Returns a
 formatted string using a unit symbol.
 
 ```
@@ -113,14 +113,14 @@ SELECT format_number(1000000); -- '1M'
 
 #### Date and time functions
 
-timezone_hour(timestamp) – Returns the
+timezone\_hour(timestamp) – Returns the
 hour of the time zone offset from timestamp.
 
 ```
 SELECT EXTRACT(TIMEZONE_HOUR FROM TIMESTAMP '2020-05-10 12:34:56 +08:35');
 ```
 
-timezone_minute(timestamp) – Returns the
+timezone\_minute(timestamp) – Returns the
 minute of the time zone offset from timestamp.
 
 ```
@@ -129,7 +129,7 @@ SELECT EXTRACT(TIMEZONE_MINUTE FROM TIMESTAMP '2020-05-10 12:34:56 +08:35');
 
 #### Geospatial functions
 
-to_encoded_polyline(Geometry) – Encodes
+to\_encoded\_polyline(Geometry) – Encodes
 a linestring or multipoint to a polyline.
 
 ```
@@ -137,14 +137,14 @@ SELECT to_encoded_polyline(ST_GeometryFromText(
    'LINESTRING (-120.2 38.5, -120.95 40.7, -126.453 43.252)'));
 ```
 
-from_encoded_polyline(varchar) – Decodes
+from\_encoded\_polyline(varchar) – Decodes
 a polyline to a linestring.
 
 ```
 SELECT ST_AsText(from_encoded_polyline('_p~iF~ps|U_ulLnnqC_mqNvxq`@'));
 ```
 
-to_geojson_geometry(SphericalGeography)
+to\_geojson\_geometry(SphericalGeography)
 – Returns the specified spherical geography in GeoJSON format.
 
 ```
@@ -152,7 +152,7 @@ SELECT to_geojson_geometry(to_spherical_geography(ST_GeometryFromText(
    'LINESTRING (0 0, 1 2, 3 4)')));
 ```
 
-from_geojson_geometry(varchar) – Returns
+from\_geojson\_geometry(varchar) – Returns
 the spherical geography type object from the GeoJSON representation, stripping
 non geometry key/values. `Feature` and `FeatureCollection`
 are not supported.
@@ -162,7 +162,7 @@ SELECT from_geojson_geometry(to_geojson_geometry(to_spherical_geography(ST_Geome
    'LINESTRING (0 0, 1 2, 3 4)'))));
 ```
 
-geometry_nearest_points(Geometry, Geometry)
+geometry\_nearest\_points(Geometry, Geometry)
 – Returns the points on each geometry that are nearest each other. If
 either geometry is empty, returns NULL. Otherwise, returns a row of two
 `Point` objects that have the minimum distance of any two points
@@ -178,7 +178,7 @@ SELECT geometry_nearest_points(ST_GeometryFromText(
 
 #### Set Digest functions
 
-make_set_digest(x) – Composes all input
+make\_set\_digest(x) – Composes all input
 values of x into a setdigest.
 
 ```
@@ -196,7 +196,7 @@ FROM nation
 WHERE SOUNDEX(name) = SOUNDEX('CHYNA'); -- CHINA
 ```
 
-concat_ws(string0, string1, ..., stringN)
+concat\_ws(string0, string1, ..., stringN)
 – Returns the concatenation of `string1, string2, ...,
  stringN` using `string0` as a separator. If
 `string0` is null, then the return value is null. Any null values
@@ -238,12 +238,12 @@ WHERE supplier.name = 'abc';
 - Large prepared statements –
   Increased the default HTTP request/response header size to 2 MB to allow
   large prepared statements.
-- approx_percentile() – The
+- approx\_percentile() – The
   `approx_percentile` function now uses `tdigest`
   instead of `qdigest` to retrieve approximate quantile values from
   distributions. This results in higher performance and lower memory usage.
   Note that as a result of this change, the function returns different results
-  than it did in previous engine versions. For more information, see [The approx_percentile function returns different results](#engine-versions-reference-0003-approx-percentile-function "#engine-versions-reference-0003-approx-percentile-function").
+  than it did in previous engine versions. For more information, see [The approx\_percentile function returns different results](#engine-versions-reference-0003-approx-percentile-function "#engine-versions-reference-0003-approx-percentile-function").
 
 ### Reliability enhancements
 
@@ -274,7 +274,7 @@ SELECT sum(x) over (order by x range 1 preceding)
 FROM (values (1), (1), (2), (2)) t(x);
 ```
 
-MATCH_RECOGNIZE – Added support for row
+MATCH\_RECOGNIZE – Added support for row
 pattern matching, as in the following example.
 
 ```
@@ -361,7 +361,7 @@ Suggested solution: Change occurrences of
 In Athena engine version 3, functions can have no more than 127 arguments. For more
 information, see [Too many arguments for function call](troubleshooting-athena.md#troubleshooting-athena-too-many-arguments "troubleshooting-athena.md#troubleshooting-athena-too-many-arguments").
 
-#### The approx_percentile function returns different results
+#### The approx\_percentile function returns different results
 
 The `approx_percentile` function returns different results in
 Athena engine version 3 than it did in previous engine versions.
@@ -521,7 +521,7 @@ query, enclose it in double quotes.
 
 For more information about reserved words in Athena, see [Escape reserved keywords in queries](reserved-words.md "reserved-words.md").
 
-#### SYSTEM_TIME and SYSTEM_VERSION clauses deprecated for time travel
+#### SYSTEM\_TIME and SYSTEM\_VERSION clauses deprecated for time travel
 
 Error message: **`mismatched input
  'SYSTEM_TIME'. Expecting: 'TIMESTAMP', 'VERSION'`**
@@ -969,7 +969,7 @@ example.
 SELECT CAST('2021-06-06 23:38:46' AS timestamp) AS this_time
 ```
 
-#### to_iso8601() timestamp return value change
+#### to\_iso8601() timestamp return value change
 
 Error message: None
 
@@ -1016,7 +1016,7 @@ Result
 | --- | -------------------------- |
 | `1` | `2023-01-01T00:00:00.000Z` |
 
-#### at_timezone() first parameter must specify a date
+#### at\_timezone() first parameter must specify a date
 
 Issue: In Athena engine version 3, the `at_timezone`
 function cannot take a `time_with_timezone` value as the first
@@ -1052,7 +1052,7 @@ to resource limitations. These limits are not configurable by users.
   of result elements `n` is restricted to 10,000 or less for the
   following functions: `min(col, n)`, `max(col, n)`,
   `min_by(col1, col2, n)`, and `max_by(col1, col2,
-n)`.
+ n)`.
 - GROUPING SETS – The maximum number of
   slices in a grouping set is 2048.
 - Maximum text file line length – The
@@ -1060,7 +1060,7 @@ n)`.
 - Sequence function maximum result size –
   The maximum result size of a sequence function is 50000 entries. For example,
   `SELECT sequence(0,45000,1)` succeeds, but `SELECT
-sequence(0,55000,1)` fails with the error message **`The
-result of the sequence function must not have more than 50000
-entries`**. This limit applies to all input types for sequence
+ sequence(0,55000,1)` fails with the error message **`The
+ result of the sequence function must not have more than 50000
+ entries`**. This limit applies to all input types for sequence
   functions, including timestamps.

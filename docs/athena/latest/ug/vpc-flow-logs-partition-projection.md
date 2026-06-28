@@ -61,7 +61,7 @@ TBLPROPERTIES
 )
 ```
 
-## Example queries for test_table_vpclogs
+## Example queries for test\_table\_vpclogs
 
 The following example queries query the `test_table_vpclogs` created by
 the preceding `CREATE TABLE` statement. Replace

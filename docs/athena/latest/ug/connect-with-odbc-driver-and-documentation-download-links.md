@@ -65,5 +65,5 @@ is enabled, as in the following example:
 
 The `NonProxyHost` connection parameter is passed to the
 `CURLOPT_NOPROXY` curl option. For information about the
-`CURLOPT_NOPROXY` format, see [CURLOPT_NOPROXY](https://curl.se/libcurl/c/CURLOPT_NOPROXY.html "https://curl.se/libcurl/c/CURLOPT_NOPROXY.html") in the
+`CURLOPT_NOPROXY` format, see [CURLOPT\_NOPROXY](https://curl.se/libcurl/c/CURLOPT_NOPROXY.html "https://curl.se/libcurl/c/CURLOPT_NOPROXY.html") in the
 curl documentation.

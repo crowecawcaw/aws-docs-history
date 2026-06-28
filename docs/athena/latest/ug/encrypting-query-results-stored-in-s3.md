@@ -62,8 +62,7 @@ specify an AWS KMS key.
      data.
 
 7. Return to the Athena console and choose the key that you created by alias
-   or ARN.
-8. Choose **Save**.
+or ARN. 8. Choose **Save**.
 
 ## Encrypt Athena query results when you use JDBC or ODBC
 

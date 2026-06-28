@@ -18,11 +18,10 @@ The Iceberg format supports the following schema evolution changes:
   or `list` element. Currently, the following cases are supported for
   Iceberg tables:
 
-      + integer to big integer
-      + float to double
-      + increasing the precision of a decimal type
-
-  You can use the DDL statements in this section to modify Iceberg table schema.
+  - integer to big integer
+  - float to double
+  - increasing the precision of a decimal type
+    You can use the DDL statements in this section to modify Iceberg table schema.
 
 ###### Topics
 

@@ -54,7 +54,7 @@ The following aggregate function for Hive views requires special
 handling.
 
 - Avg – Instead of `avg(INT
-i)`, use `avg(CAST(i AS DOUBLE))`.
+ i)`, use `avg(CAST(i AS DOUBLE))`.
 
 #### Aggregate functions not supported
 

@@ -50,23 +50,29 @@ Settings** section, enter the following values:
     ![Enter SAML settings.](images/okta-saml-sso-4.png)
 
 8. For **Attribute Statements (optional)**, enter the following
-   two name/value pairs. These are required mapping attributes.
+two name/value pairs. These are required mapping attributes.
 
-   - For **Name**, enter the following URL:
+    * For **Name**, enter the following URL:
 
-   `https://aws.amazon.com/SAML/Attributes/Role`
 
-   For **Value**, enter the name of your IAM role. For
-   information about the IAM role format, see [Configuring SAML assertions for the authentication response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md")
-   in the _IAM User Guide_.
-   - For **Name**, enter the following URL:
+    `https://aws.amazon.com/SAML/Attributes/Role`
 
-   `https://aws.amazon.com/SAML/Attributes/RoleSessionName`
 
-   For **Value**, enter
-   `user.email`.
+    For **Value**, enter the name of your IAM role. For
+     information about the IAM role format, see [Configuring SAML assertions for the authentication response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md")
+     in the *IAM User Guide*.
+    * For **Name**, enter the following URL:
 
-   ![Enter SAML attributes for Athena.](images/okta-saml-sso-5.png)
+
+    `https://aws.amazon.com/SAML/Attributes/RoleSessionName`
+
+
+    For **Value**, enter
+     `user.email`.
+
+
+
+    ![Enter SAML attributes for Athena.](images/okta-saml-sso-5.png)
 
 9. Choose **Next**, and then choose **Finish**.
 
@@ -128,9 +134,8 @@ the values described.
     * For **S3 Output Location**, enter the Amazon S3 path where
      you want your output to be stored.
 
-5. Choose **Authentication Options**.
-6. In the **Authentication Options** dialog box, choose or enter
-   the following values.
+5. Choose **Authentication Options**. 6. In the **Authentication Options** dialog box, choose or enter
+the following values.
 
 ![Enter authentication options.](images/okta-saml-sso-12.png)
 
@@ -145,6 +150,5 @@ the values described.
      value in seconds.
 
 7. Choose **OK** to close **Authentication
-   Options**.
-8. Choose **Test** to test the connection, or
-   **OK** to finish.
+Options**. 8. Choose **Test** to test the connection, or
+**OK** to finish.

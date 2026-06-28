@@ -18,14 +18,13 @@ the results path specified by the workgroup.
   that run from the AWS CLI or using the Athena API are saved directly to the
   `QueryResultsLocationInS3`.
 
-      + `QueryName` is the name of the query for
-       which the results are saved. If the query ran but wasn't saved,
-       `Unsaved` is used.
-      + `yyyy/mm/dd` is the date that the query
-       ran.
-
-  Files associated with a `CREATE TABLE AS SELECT` query are stored in a
-  `tables` sub-folder of the above pattern.
+  - `QueryName` is the name of the query for
+    which the results are saved. If the query ran but wasn't saved,
+    `Unsaved` is used.
+  - `yyyy/mm/dd` is the date that the query
+    ran.
+    Files associated with a `CREATE TABLE AS SELECT` query are stored in a
+    `tables` sub-folder of the above pattern.
 
 ## Identify query output files
 
@@ -36,11 +35,11 @@ Athena assigns to each query when it runs.
 
 The following file types are saved:
 
-| File type                | File naming patterns                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Query results files**  | ``QueryID`.csv`<br>``QueryID`.txt`                   | DML query results files are saved in comma-separated values<br>(CSV) format.<br>DDL query results are saved as plain text files.<br>You can download results files from the console from the<br>**Results\*<br>• pane when using the console or<br>from the query **History\*\*. For more<br>information, see [Download query results files using the Athena console](saving-query-results.md "saving-query-results.md"). |
-| **Query metadata files** | ``QueryID`.csv.metadata`<br>``QueryID`.txt.metadata` | DML and DDL query metadata files are saved in binary format<br>and are not human readable. The file extension corresponds to<br>the related query results file. Athena uses the metadata when<br>reading query results using the `GetQueryResults`<br>action. Although these files can be deleted, we do not recommend<br>it because important information about the query is lost.                                       |
-| **Data manifest files**  | ``QueryID`-manifest.csv`                             | Data manifest files are generated to track files that Athena<br>creates in Amazon S3 data source locations when an [INSERT INTO](insert-into.md "insert-into.md") query<br>runs. If a query fails, the manifest also tracks files that the<br>query intended to write. The manifest is useful for identifying<br>orphaned files resulting from a failed query.                                                            |
+| File type                | File naming patterns                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------ | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Query results files**  | ``QueryID`.csv`<br>``QueryID`.txt`                   | DML query results files are saved in comma-separated values<br>(CSV) format.<br>DDL query results are saved as plain text files.<br>You can download results files from the console from the<br>*_Results_<br>• pane when using the console or<br>from the query **History**. For more<br>information, see [Download query results files using the Athena console](saving-query-results.md "saving-query-results.md"). |
+| **Query metadata files** | ``QueryID`.csv.metadata`<br>``QueryID`.txt.metadata` | DML and DDL query metadata files are saved in binary format<br>and are not human readable. The file extension corresponds to<br>the related query results file. Athena uses the metadata when<br>reading query results using the `GetQueryResults`<br>action. Although these files can be deleted, we do not recommend<br>it because important information about the query is lost.                                    |
+| **Data manifest files**  | ``QueryID`-manifest.csv`                             | Data manifest files are generated to track files that Athena<br>creates in Amazon S3 data source locations when an [INSERT INTO](insert-into.md "insert-into.md") query<br>runs. If a query fails, the manifest also tracks files that the<br>query intended to write. The manifest is useful for identifying<br>orphaned files resulting from a failed query.                                                         |
 
 To use the AWS CLI to identify the query output location and result files, run
 the `aws athena get-query-execution` command, as in the following

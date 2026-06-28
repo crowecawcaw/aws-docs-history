@@ -74,15 +74,15 @@ aws glue describe-connection-type --connection-type SNOWFLAKE
 
 The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
 
-- glue_connection – Specifies the name of the Glue connection associated with the federated connector.
-- **casing_mode** – (Optional) Specifies
+- glue\_connection – Specifies the name of the Glue connection associated with the federated connector.
+- **casing\_mode** – (Optional) Specifies
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:
 
   - **NONE** – Do not change case
     of the given schema and table names (run the query as is against Snowflake).
-    This is the default value when **casing_mode**
+    This is the default value when **casing\_mode**
     is not specified.
   - **UPPER** –
     Upper case all given schema and table names in the query before running it against
@@ -90,7 +90,7 @@ The following Lambda environment properties apply only when you use the connecto
   - **LOWER** –
     Lower case all given schema and table names in the query before running it against
     Snowflake.
-  - **CASE_INSENSITIVE_SEARCH** –
+  - **CASE\_INSENSITIVE\_SEARCH** –
     Perform case insensitive searches against schema and tables names in Snowflake. For
     example, you can use this mode when you have a query like `SELECT * FROM EMPLOYEE`
     and Snowflake contains a table called `Employee`. However, in the presence
@@ -117,15 +117,15 @@ specified.
 **Lambda environment properties**
 
 - default – The JDBC connection string to use to connect to the Snowflake database instance. For example, `snowflake://${jdbc_connection_string}`
-- catalog_connection_string – Used by the Multiplexing handler (not supported when using a glue connection). A database instance connection string. Prefix the environment variable with the name of the catalog used in Athena. For example, if the catalog registered with Athena is mysnowflakecatalog, then the environment variable name is mysnowflakecatalog_connection_string.
-- **casing_mode** – (Optional) Specifies
+- catalog\_connection\_string – Used by the Multiplexing handler (not supported when using a glue connection). A database instance connection string. Prefix the environment variable with the name of the catalog used in Athena. For example, if the catalog registered with Athena is mysnowflakecatalog, then the environment variable name is mysnowflakecatalog\_connection\_string.
+- **casing\_mode** – (Optional) Specifies
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:
 
   - **NONE** – Do not change case
     of the given schema and table names (run the query as is against Snowflake).
-    This is the default value when **casing_mode**
+    This is the default value when **casing\_mode**
     is not specified.
   - **UPPER** –
     Upper case all given schema and table names in the query before running it against
@@ -133,34 +133,34 @@ specified.
   - **LOWER** –
     Lower case all given schema and table names in the query before running it against
     Snowflake.
-  - **CASE_INSENSITIVE_SEARCH** –
+  - **CASE\_INSENSITIVE\_SEARCH** –
     Perform case insensitive searches against schema and tables names in Snowflake. For
     example, you can use this mode when you have a query like `SELECT * FROM EMPLOYEE`
     and Snowflake contains a table called `Employee`. However, in the presence
     of name collisions, such as having a table called `EMPLOYEE` and another
     table called `Employee` in Snowflake, the query will fail.
 
-- spill_bucket – Specifies the Amazon S3 bucket
+- spill\_bucket – Specifies the Amazon S3 bucket
   for data that exceeds Lambda function limits.
-- spill_prefix – (Optional) Defaults to a
+- spill\_prefix – (Optional) Defaults to a
   subfolder in the specified `spill_bucket` called
   `athena-federation-spill`. We recommend that you
   configure an Amazon S3 [storage
   lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") on this location to delete spills older than a
   predetermined number of days or hours.
-- spill_put_request_headers – (Optional) A
+- spill\_put\_request\_headers – (Optional) A
   JSON encoded map of request headers and values for the Amazon S3
   `putObject` request that is used for spilling (for example,
   `{"x-amz-server-side-encryption" : "AES256"}`). For other
   possible headers, see [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") in the
   _Amazon Simple Storage Service API Reference_.
-- kms_key_id – (Optional) By default, any
+- kms\_key\_id – (Optional) By default, any
   data that is spilled to Amazon S3 is encrypted using the AES-GCM authenticated
   encryption mode and a randomly generated key. To have your Lambda function use
   stronger encryption keys generated by KMS like
   `a7e63k4b-8loc-40db-a2a1-4d0en2cd8331`, you can specify a KMS key
   ID.
-- disable_spill_encryption – (Optional)
+- disable\_spill\_encryption – (Optional)
   When set to `True`, disables spill encryption. Defaults to
   `False` so that data that is spilled to S3 is encrypted using
   AES-GCM – either using a randomly generated key or KMS to generate keys.
@@ -334,7 +334,7 @@ shows these conversions.
 | DATE                         | TIMESTAMPMILLI               |
 | INTEGER                      | INT                          |
 | DECIMAL                      | BIGINT                       |
-| TIMESTAMP_NTZ                | TIMESTAMPMILLI               |
+| TIMESTAMP\_NTZ               | TIMESTAMPMILLI               |
 
 All other unsupported data types are converted to `VARCHAR`.
 
@@ -372,12 +372,12 @@ The following Athena Snowflake connector operators support predicate
 pushdown:
 
 - Boolean: AND, OR, NOT
-- Equality: EQUAL, NOT_EQUAL, LESS_THAN,
-  LESS_THAN_OR_EQUAL, GREATER_THAN, GREATER_THAN_OR_EQUAL, IS_DISTINCT_FROM,
-  NULL_IF, IS_NULL
+- Equality: EQUAL, NOT\_EQUAL, LESS\_THAN,
+  LESS\_THAN\_OR\_EQUAL, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL, IS\_DISTINCT\_FROM,
+  NULL\_IF, IS\_NULL
 - Arithmetic: ADD, SUBTRACT, MULTIPLY,
   DIVIDE, MODULUS, NEGATE
-- Other: LIKE_PATTERN, IN
+- Other: LIKE\_PATTERN, IN
 
 ### Combined pushdown example
 

@@ -33,7 +33,7 @@ role should be present in the SAML assertion. For more information about ARN rol
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                        |
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
-| preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:iam::123456789012:id/user1;` |
+| preferred\_role            | Optional           | `none`            | `preferred_role=arn:aws:iam::123456789012:id/user1;` |
 
 ## Session duration
 
@@ -56,7 +56,7 @@ https://`your-pf-host-#`:9999/pingfederate/`your-pf-app#`/spConnections
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                      |
 | -------------------------- | ------------------ | ----------------- | -------------------------------------------------- |
-| idp_host                   | Required           | `none`            | `idp_host=ec2-1-83-65-12.compute-1.amazonaws.com;` |
+| idp\_host                  | Required           | `none`            | `idp_host=ec2-1-83-65-12.compute-1.amazonaws.com;` |
 
 ## IdP port
 
@@ -64,7 +64,7 @@ The port number to use to connect to your IdP host.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| idp_port                   | Required           | `None`            | `idp_port=443;`               |
+| idp\_port                  | Required           | `None`            | `idp_port=443;`               |
 
 ## Partner SPID
 
@@ -77,7 +77,7 @@ https://`your-pf-host-#`:9999/pingfederate/`your-pf-app#`/spConnections
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                                               |
 | -------------------------- | ------------------ | ----------------- | --------------------------------------------------------------------------- |
-| partner_spid               | Required           | `None`            | `partner_spid=https://us-east-1.signin.aws.amazon.com/platform/saml/<...>;` |
+| partner\_spid              | Required           | `None`            | `partner_spid=https://us-east-1.signin.aws.amazon.com/platform/saml/<...>;` |
 
 ## Ping URI param
 
@@ -88,4 +88,4 @@ assertion.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**      |
 | -------------------------- | ------------------ | ----------------- | ---------------------------------- |
-| ping_uri_param             | Optional           | `None`            | `ping_uri_param=role=my_iam_role;` |
+| ping\_uri\_param           | Optional           | `None`            | `ping_uri_param=role=my_iam_role;` |

@@ -18,13 +18,13 @@ ALTER TABLE table_name
 
 ## Parameters
 
-**PARTITION (partition_col_name = partition_col_value [,...])**
+**PARTITION (partition\_col\_name = partition\_col\_value [,...])**
 
 Specifies a partition with the column name/value combinations that you
 specify. Enclose `partition_col_value` in quotation marks only if
 the data type of the column is a string.
 
-**REPLACE COLUMNS (col_name data_type [,col\_name data\_type,...])**
+**REPLACE COLUMNS (col\_name data\_type [,col\_name data\_type,...])**
 
 Replaces existing columns with the column names and datatypes
 specified.
@@ -40,7 +40,7 @@ specified.
   `timestamp` datatype in the table instead.
 - Note that even if you are replacing just a single column, the syntax must be
   `ALTER TABLE `table-name` REPLACE
-COLUMNS`, with _columns_ in the plural. You must
+ COLUMNS`, with _columns_ in the plural. You must
   specify not only the column that you want to replace, but the columns that you
   want to keep – if not, the columns that you do not specify will be dropped. This
   syntax and behavior derives from Apache Hive DDL. For reference, see [Add/Replace columns](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Add/ReplaceColumns "https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Add/ReplaceColumns") in the Apache documentation.

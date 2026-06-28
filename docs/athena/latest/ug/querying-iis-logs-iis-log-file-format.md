@@ -26,7 +26,7 @@ that Athena can read the log data.
    following points:
 
    1. To specify the comma delimiter, use `FIELDS TERMINATED BY
-','`.
+  ','`.
    2. Modify the values in LOCATION
       's3://amzn-s3-demo-bucket/`iis-log-file-folder`/'
       to point to your IIS log format log files in Amazon S3.

@@ -87,7 +87,7 @@ Consider the following when exploring CloudTrail log data:
 - Before querying the logs, verify that your logs table looks the same as
   the one in [Create a table for CloudTrail logs in Athena using manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md"). If it is not the first
   table, delete the existing table using the following command: `DROP
-TABLE cloudtrail_logs`.
+ TABLE cloudtrail_logs`.
 - After you drop the existing table, re-create it. For more information, see
   [Create a table for CloudTrail logs in Athena using manual partitioning](create-cloudtrail-table.md "create-cloudtrail-table.md").
 

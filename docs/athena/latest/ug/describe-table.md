@@ -37,7 +37,7 @@ If included, lists the metadata for the partition specified by
 format `(partition_column = partition_col_value, partition_column =
  partition_col_value, ...)`.
 
-**[col_name ( [.field\_name] | [.'$elem$'] | [.'$key$'] | [.'$value$'] )\*
+**[col\_name ( [.field\_name] | [.'$elem$'] | [.'$key$'] | [.'$value$'] )\*
 ]**
 
 Specifies the column and attributes to examine. You can specify

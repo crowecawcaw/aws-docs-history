@@ -86,22 +86,21 @@ operation.
 
 The steps to reproduce the issue are the following:
 
-1.  In Athena for Spark, you use one of the following methods to create or save a
-    Hive managed table:
+1. In Athena for Spark, you use one of the following methods to create or save a
+   Hive managed table:
 
-        * A SQL statement like `CREATE TABLE $tableName`
-        * A PySpark command like
-         `df.write.mode("overwrite").saveAsTable($tableName)` that
-         does not specify the `path` option in the Dataframe
-         API.
+   - A SQL statement like `CREATE TABLE $tableName`
+   - A PySpark command like
+     `df.write.mode("overwrite").saveAsTable($tableName)` that
+     does not specify the `path` option in the Dataframe
+     API.
+     At this point, the AWS Glue console may show an incorrect location in Amazon S3 for
+     the table.
 
-    At this point, the AWS Glue console may show an incorrect location in Amazon S3 for
-    the table.
-
-2.  In Athena for Spark, you use the `DROP TABLE $table_name` statement
-    to drop the table that you created.
-3.  After you run the `DROP TABLE` statement, you notice that the
-    underlying files in Amazon S3 are still present.
+2. In Athena for Spark, you use the `DROP TABLE $table_name` statement
+   to drop the table that you created.
+3. After you run the `DROP TABLE` statement, you notice that the
+   underlying files in Amazon S3 are still present.
 
 To resolve this issue, do one of the following:
 

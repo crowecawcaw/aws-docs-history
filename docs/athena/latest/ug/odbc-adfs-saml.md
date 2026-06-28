@@ -238,20 +238,22 @@ information to create claim rule 3, and then choose
     ![Create the third claim rule.](images/odbc-adfs-saml-20.png)
 
 8. Choose **Add Rule**. Enter the following information to
-   create claim rule 4, and then choose **Finish**.
+create claim rule 4, and then choose **Finish**.
 
-   - For **Claim rule name**, enter
+    * For **Claim rule name**, enter
      `Role`.
-   - For **Rule template**, use **Send Claims
+    * For **Rule template**, use **Send Claims
      Using a Custom Rule**.
-   - For **Custom rule**, enter the following code
+    * For **Custom rule**, enter the following code
      with your account number and name of the SAML provider that you
      created earlier:
 
-   ```
-   c:[Type == "http://temp/variable", Value =~ "(?i)^aws-"]=> issue(Type = "https://aws.amazon.com/SAML/Attributes/Role",
-   Value = RegExReplace(c.Value, "aws-", "arn:aws:iam::AWS_ACCOUNT_NUMBER:saml-provider/adfs-saml-provider,arn:aws:iam:: AWS_ACCOUNT_NUMBER:role/"));
-   ```
+
+
+    ```
+    c:[Type == "http://temp/variable", Value =~ "(?i)^aws-"]=> issue(Type = "https://aws.amazon.com/SAML/Attributes/Role",
+    Value = RegExReplace(c.Value, "aws-", "arn:aws:iam::AWS_ACCOUNT_NUMBER:saml-provider/adfs-saml-provider,arn:aws:iam:: AWS_ACCOUNT_NUMBER:role/"));
+    ```
 
 ![Create the fourth claim rule.](images/odbc-adfs-saml-21.png)
 

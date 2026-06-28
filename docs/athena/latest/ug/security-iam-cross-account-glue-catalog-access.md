@@ -198,21 +198,16 @@ information:
      belongs. The Amazon Web Services account ID is the catalog ID.
 
 8. (Optional) Expand **Tags**, and then enter key-value
-   pairs that you want to associate with the data source. For more information
-   about tags, see [Tag Athena resources](tags.md "tags.md").
-9. Choose **Next**.
-10. On the **Review and create** page, review the information
-    that you provided, and then choose **Create data source**.
-    The **Data source details** page lists the databases and
-    tags for the data catalog that you registered.
-11. Choose **Data sources and catalogs**. The data catalog that you
-    registered is listed in the **Data source name**
-    column.
-12. To view or edit information about the data catalog, choose the catalog,
-    and then choose **Actions**,
-    **Edit**.
-13. To delete the new data catalog, choose the catalog, and then choose
-    **Actions**, **Delete**.
+pairs that you want to associate with the data source. For more information
+about tags, see [Tag Athena resources](tags.md "tags.md"). 9. Choose **Next**. 10. On the **Review and create** page, review the information
+that you provided, and then choose **Create data source**.
+The **Data source details** page lists the databases and
+tags for the data catalog that you registered. 11. Choose **Data sources and catalogs**. The data catalog that you
+registered is listed in the **Data source name**
+column. 12. To view or edit information about the data catalog, choose the catalog,
+and then choose **Actions**,
+**Edit**. 13. To delete the new data catalog, choose the catalog, and then choose
+**Actions**, **Delete**.
 
 ### Step 3: The borrower submits a query
 
@@ -260,9 +255,9 @@ SELECT * FROM "glue:arn:aws:glue:us-east-1:999999999999:catalog".tpch1000.custom
 ```
 
 Use the format "`glue:`<arn>`", where
- `<arn>``is the [AWS Glue Data Catalog ARN](../../../glue/latest/dg/glue-specifying-resource-arns.md#data-catalog-resource-arns "../../../glue/latest/dg/glue-specifying-resource-arns.md#data-catalog-resource-arns") that you want to use. In the example, Athena uses this
- syntax to dynamically point to account 999999999999's AWS Glue data catalog as if you had
- separately created a`DataCatalog` object for it.
+ `<arn>`` is the [AWS Glue Data Catalog ARN](../../../glue/latest/dg/glue-specifying-resource-arns.md#data-catalog-resource-arns "../../../glue/latest/dg/glue-specifying-resource-arns.md#data-catalog-resource-arns") that you want to use. In the example, Athena uses this
+syntax to dynamically point to account 999999999999's AWS Glue data catalog as if you had
+separately created a `DataCatalog` object for it.
 
 ### Notes for using dynamic catalogs
 

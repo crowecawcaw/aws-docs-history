@@ -5,7 +5,7 @@ resources:
 
 - [I
   get errors when I try to read JSON data in Amazon Athena](https://aws.amazon.com/premiumsupport/knowledge-center/error-json-athena/ "https://aws.amazon.com/premiumsupport/knowledge-center/error-json-athena/")
-- [How do I resolve "HIVE_CURSOR_ERROR: Row is not a valid JSON object -
+- [How do I resolve "HIVE\_CURSOR\_ERROR: Row is not a valid JSON object -
   JSONException: Duplicate key" when reading files from AWS Config in
   Athena?](https://aws.amazon.com/premiumsupport/knowledge-center/json-duplicate-key-error-athena-config/ "https://aws.amazon.com/premiumsupport/knowledge-center/json-duplicate-key-error-athena-config/")
 - [The SELECT COUNT query in Amazon Athena returns only one record even though the

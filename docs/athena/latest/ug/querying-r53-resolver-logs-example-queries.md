@@ -3,7 +3,7 @@
 The following examples show some queries that you can perform from Athena on your
 Resolver query logs.
 
-## Example 1 - query logs in descending query_timestamp order
+## Example 1 - query logs in descending query\_timestamp order
 
 The following query displays log results in descending
 `query_timestamp` order.

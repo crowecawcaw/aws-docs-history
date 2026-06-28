@@ -47,7 +47,7 @@ format.
 WITH (format='ION')
 ```
 
-**ion_encoding**
+**ion\_encoding**
 
 Optional
 
@@ -63,7 +63,7 @@ format.
 WITH (format='ION', ion_encoding='TEXT')
 ```
 
-**write_compression**
+**write\_compression**
 
 Optional
 

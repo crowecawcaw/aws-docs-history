@@ -30,9 +30,9 @@ Previously in Athena, if you ran a query without specifying a value for
 setting was not overridden by a workgroup, Athena created a default location for you.
 The default location was
 `aws-athena-query-results-`MyAcctID`-`MyRegion``,
- where `MyAcctID`was the Amazon Web Services account ID of the IAM
- principal that ran the query, and`MyRegion`was the region
- where the query ran (for example,`us-west-1`.)
+where `MyAcctID` was the Amazon Web Services account ID of the IAM
+principal that ran the query, and `MyRegion` was the region
+where the query ran (for example, `us-west-1`.)
 
 Now, before you can run an Athena query in a region in which your account hasn't
 used Athena previously, you must specify a query result location, or use a workgroup

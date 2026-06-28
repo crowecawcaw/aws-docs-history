@@ -28,7 +28,7 @@ points:
   they will be dropped. For more information, see [ALTER TABLE REPLACE COLUMNS](alter-table-replace-columns.md "alter-table-replace-columns.md").
 - For Apache Iceberg tables only, you can use the [ALTER TABLE CHANGE COLUMN](querying-iceberg-alter-table-change-column.md "querying-iceberg-alter-table-change-column.md") statement
   to change the data type of a column. `ALTER TABLE REPLACE
-COLUMNS` is not supported for Iceberg tables. For more
+ COLUMNS` is not supported for Iceberg tables. For more
   information, see [Evolve Iceberg table schema](querying-iceberg-evolving-table-schema.md "querying-iceberg-evolving-table-schema.md").
 
 ###### Important

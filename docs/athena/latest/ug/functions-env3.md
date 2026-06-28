@@ -41,7 +41,7 @@ operators](https://trino.io/docs/current/functions.html "https://trino.io/docs/c
 - [UUID](https://trino.io/docs/current/functions/uuid.html "https://trino.io/docs/current/functions/uuid.html")
 - [Window](https://trino.io/docs/current/functions/window.html "https://trino.io/docs/current/functions/window.html")
 
-## invoker_principal() function
+## invoker\_principal() function
 
 The `invoker_principal` function is unique to Athena engine version 3 and is not found in
 Trino.

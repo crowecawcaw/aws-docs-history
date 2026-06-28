@@ -16,13 +16,13 @@ LIMIT  10;
 
 The following table shows sample results.
 
-|     |                   |
-| --- | ----------------- |
-| 6   | alb-databas1      |
-| 7   | alb_original_cust |
-| 8   | alblogsdatabase   |
-| 9   | athena_db_test    |
-| 10  | athena_ddl_db     |
+|     |                     |
+| --- | ------------------- |
+| 6   | alb-databas1        |
+| 7   | alb\_original\_cust |
+| 8   | alblogsdatabase     |
+| 9   | athena\_db\_test    |
+| 10  | athena\_ddl\_db     |
 
 ###### Example– Searching a specified database
 
@@ -37,6 +37,6 @@ WHERE  schema_name = 'rdspostgresql'
 
 The following table shows sample results.
 
-|     | schema_name   |
+|     | schema\_name  |
 | --- | ------------- |
 | 1   | rdspostgresql |

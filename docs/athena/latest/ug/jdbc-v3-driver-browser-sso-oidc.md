@@ -29,27 +29,27 @@ the value of this parameter to `BrowserSSOOIDC`.
 The URL for the AWS access portal. The IAM Identity Center [RegisterClient](../../../singlesignon/latest/OIDCAPIReference/API_RegisterClient.md "../../../singlesignon/latest/OIDCAPIReference/API_RegisterClient.md") API action uses this value for the
 `issuerUrl` parameter.
 
-| Parameter name | Alias              | Parameter type | Default value |
-| -------------- | ------------------ | -------------- | ------------- |
-| SsoStartUrl    | sso_oidc_start_url | Required       | none          |
+| Parameter name | Alias                 | Parameter type | Default value |
+| -------------- | --------------------- | -------------- | ------------- |
+| SsoStartUrl    | sso\_oidc\_start\_url | Required       | none          |
 
 ## IAM Identity Center region
 
 The AWS Region where IAM Identity Center is configured. The `SSOOIDCClient` and
 `SSOClient` use this value for the `region` parameter.
 
-| Parameter name | Alias           | Parameter type | Default value |
-| -------------- | --------------- | -------------- | ------------- |
-| SsoOidcRegion  | sso_oidc_region | Required       | none          |
+| Parameter name | Alias             | Parameter type | Default value |
+| -------------- | ----------------- | -------------- | ------------- |
+| SsoOidcRegion  | sso\_oidc\_region | Required       | none          |
 
 ## Account ID
 
 The identifier for the AWS account that is assigned to the user. The IAM Identity Center [GetRoleCredentials](../../../singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.md "../../../singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.md") API action uses this value for the
 `accountId` parameter.
 
-| Parameter name   | Alias               | Parameter type | Default value |
-| ---------------- | ------------------- | -------------- | ------------- |
-| SsoOidcAccountId | sso_oidc_account_id | Required       | none          |
+| Parameter name   | Alias                  | Parameter type | Default value |
+| ---------------- | ---------------------- | -------------- | ------------- |
+| SsoOidcAccountId | sso\_oidc\_account\_id | Required       | none          |
 
 ## Role name
 
@@ -58,9 +58,9 @@ for this permission set appears in the AWS access portal as an available role. T
 IAM Identity Center [GetRoleCredentials](../../../singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.md "../../../singlesignon/latest/PortalAPIReference/API_GetRoleCredentials.md") API action uses this value for the
 `roleName` parameter.
 
-| Parameter name  | Alias              | Parameter type | Default value |
-| --------------- | ------------------ | -------------- | ------------- |
-| SsoOidcRoleName | sso_oidc_role_name | Required       | none          |
+| Parameter name  | Alias                 | Parameter type | Default value |
+| --------------- | --------------------- | -------------- | ------------- |
+| SsoOidcRoleName | sso\_oidc\_role\_name | Required       | none          |
 
 ## Listen port
 
@@ -78,18 +78,18 @@ System administrators can mitigate potential port hijacking risks by:
 - Using Windows security policies to restrict port access
 - Implementing network isolation between user sessions
 
-| Parameter name | Alias       | Parameter type | Default value |
-| -------------- | ----------- | -------------- | ------------- |
-| ListenPort     | listen_port | Optional       | 7890          |
+| Parameter name | Alias        | Parameter type | Default value |
+| -------------- | ------------ | -------------- | ------------- |
+| ListenPort     | listen\_port | Optional       | 7890          |
 
 ## Identity provider response timeout
 
 The duration, in seconds, before the driver stops waiting for the SSO authorization
 response. The minimum value is 60 seconds.
 
-| Parameter name     | Alias                | Parameter type | Default value |
-| ------------------ | -------------------- | -------------- | ------------- |
-| IdpResponseTimeout | idp_response_timeout | Optional       | 120           |
+| Parameter name     | Alias                  | Parameter type | Default value |
+| ------------------ | ---------------------- | -------------- | ------------- |
+| IdpResponseTimeout | idp\_response\_timeout | Optional       | 120           |
 
 ## Enable token caching
 

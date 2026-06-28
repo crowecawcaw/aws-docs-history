@@ -34,7 +34,7 @@ The URL for the AWS access portal. The IAM Identity Center [RegisterClient](../.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                          |
 | -------------------------- | ------------------ | ----------------- | ------------------------------------------------------ |
-| sso_oidc_start_url         | Required           | `none`            | `sso_oidc_start_url=https://app_id.awsapps.com/start;` |
+| sso\_oidc\_start\_url      | Required           | `none`            | `sso_oidc_start_url=https://app_id.awsapps.com/start;` |
 
 ## IAM Identity Center Region
 
@@ -44,7 +44,7 @@ parameter.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| sso_oidc_region            | Required           | `none`            | `sso_oidc_region=us-east-1;`  |
+| sso\_oidc\_region          | Required           | `none`            | `sso_oidc_region=us-east-1;`  |
 
 ## Scopes
 
@@ -54,7 +54,7 @@ parameter.
 
 | **Connection string name** | **Parameter type** | **Default value**    | **Connection string example**         |
 | -------------------------- | ------------------ | -------------------- | ------------------------------------- |
-| sso_oidc_scopes            | Optional           | `sso:account:access` | `sso_oidc_scopes=sso:account:access;` |
+| sso\_oidc\_scopes          | Optional           | `sso:account:access` | `sso_oidc_scopes=sso:account:access;` |
 
 ## Account ID
 
@@ -63,7 +63,7 @@ parameter.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**       |
 | -------------------------- | ------------------ | ----------------- | ----------------------------------- |
-| sso_oidc_account_id        | Required           | `none`            | `sso_oidc_account_id=123456789123;` |
+| sso\_oidc\_account\_id     | Required           | `none`            | `sso_oidc_account_id=123456789123;` |
 
 ## Role name
 
@@ -74,7 +74,7 @@ parameter.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**          |
 | -------------------------- | ------------------ | ----------------- | -------------------------------------- |
-| sso_oidc_role_name         | Required           | `none`            | `sso_oidc_role_name=AthenaReadAccess;` |
+| sso\_oidc\_role\_name      | Required           | `none`            | `sso_oidc_role_name=AthenaReadAccess;` |
 
 ## Timeout
 
@@ -82,7 +82,7 @@ The number of seconds the polling SSO API should check for the access token.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| sso_oidc_timeout           | Optional           | `120`             | `sso_oidc_timeout=60;`        |
+| sso\_oidc\_timeout         | Optional           | `120`             | `sso_oidc_timeout=60;`        |
 
 ## Listen port
 
@@ -104,7 +104,7 @@ System administrators can mitigate potential port hijacking risks by:
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| listen_port                | Optional           | `7890`            | `listen_port=8080;`           |
+| listen\_port               | Optional           | `7890`            | `listen_port=8080;`           |
 
 ## Enable file cache
 
@@ -122,4 +122,4 @@ protects locally stored credentials.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| sso_oidc_cache             | Optional           | `1`               | `sso_oidc_cache=0;`           |
+| sso\_oidc\_cache           | Optional           | `1`               | `sso_oidc_cache=0;`           |

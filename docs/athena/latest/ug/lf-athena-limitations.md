@@ -78,7 +78,7 @@ The query results locations in Amazon S3 for Athena cannot be registered with La
 
 Athena query history exposes a list of saved queries and complete query strings. Unless you use workgroups to separate access to query histories, Athena users who are not authorized to query data in Lake Formation are able to view query strings run on that data, including column names, selection criteria, and so on. We recommend that you use workgroups to separate query histories, and align Athena workgroup membership with Lake Formation permissions to limit access. For more information, see [Use workgroups to control query access and costs](workgroups-manage-queries-control-costs.md "workgroups-manage-queries-control-costs.md").
 
-## Query CSE_KMS encrypted tables registered with Lake Formation
+## Query CSE\_KMS encrypted tables registered with Lake Formation
 
 Open Table Format (OTF) tables such as Apache Iceberg that have the following
 characteristics cannot be queried with Athena:

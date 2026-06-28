@@ -27,7 +27,7 @@ following limitations.
   and Athena charges for the amount of data scanned.
 - Row or cell filtering information defined in Lake Formation and query stats information
   are not shown in the output of `EXPLAIN` and `EXPLAIN
-ANALYZE`.
+ ANALYZE`.
 
 ## EXPLAIN syntax
 

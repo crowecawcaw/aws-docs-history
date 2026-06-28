@@ -74,14 +74,12 @@ Note the following points:
      log.
 
 2. Modify the `LOCATION
-'s3://amzn-s3-demo-bucket/`prefix`/AWSLogs/`{account_id}`/vpcflowlogs/`{region_code}`/'`
-   to point to the Amazon S3 bucket that contains your log data.
-3. Run the query in Athena console. After the query completes, Athena registers the
-   `vpc_flow_logs` table, making the data in it ready for you to
-   issue queries.
-4. Create partitions to be able to read the data, as in the following sample
-   query. This query creates a single partition for a specified date. Replace the
-   placeholders for date and location as needed.
+ 's3://amzn-s3-demo-bucket/`prefix`/AWSLogs/`{account_id}`/vpcflowlogs/`{region_code}`/'`
+to point to the Amazon S3 bucket that contains your log data. 3. Run the query in Athena console. After the query completes, Athena registers the
+`vpc_flow_logs` table, making the data in it ready for you to
+issue queries. 4. Create partitions to be able to read the data, as in the following sample
+query. This query creates a single partition for a specified date. Replace the
+placeholders for date and location as needed.
 
 ###### Note
 
@@ -98,7 +96,7 @@ LOCATION 's3://amzn-s3-demo-bucket/`prefix`/AWSLogs/`{account_id}`/vpcflowlogs/`
 
 ```
 
-## Example queries for the vpc_flow_logs table
+## Example queries for the vpc\_flow\_logs table
 
 Use the query editor in the Athena console to run SQL statements on the table that
 you create. You can save the queries, view previous queries, or download query

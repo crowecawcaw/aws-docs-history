@@ -1,7 +1,7 @@
 # Find keywords in arrays using `regexp_like`
 
 The following examples illustrate how to search a dataset for a keyword within an
-element inside an array, using the [regexp_like](https://prestodb.io/docs/current/functions/regexp.html "https://prestodb.io/docs/current/functions/regexp.html")
+element inside an array, using the [regexp\_like](https://prestodb.io/docs/current/functions/regexp.html "https://prestodb.io/docs/current/functions/regexp.html")
 function. It takes as an input a regular expression pattern to evaluate, or a list of
 terms separated by a pipe (|), evaluates the pattern, and determines if the specified
 string contains it.
@@ -21,7 +21,7 @@ To search this dataset for sites with a specific keyword, we use
 because searching for a large number of keywords is more efficient with
 `regexp_like`.
 
-###### Example 1: Using regexp_like
+###### Example 1: Using regexp\_like
 
 The query in this example uses the `regexp_like` function to search for
 terms `'politics|bigdata'`, found in values within arrays:
@@ -80,7 +80,7 @@ This query returns two sites:
 +----------------+
 ```
 
-###### Example 2: Using regexp_like
+###### Example 2: Using regexp\_like
 
 The query in the following example adds up the total popularity scores for the
 sites matching your search terms with the `regexp_like` function, and

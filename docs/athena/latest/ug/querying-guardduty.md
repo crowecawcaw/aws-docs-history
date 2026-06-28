@@ -24,7 +24,7 @@ To query your GuardDuty findings from Athena, you must create a table for them.
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 2. Paste the following DDL statement into the Athena console. Modify the values in
    `LOCATION
-'s3://amzn-s3-demo-bucket`/AWSLogs/``account-id`/GuardDuty/'`
+ 's3://amzn-s3-demo-bucket`/AWSLogs/``account-id`/GuardDuty/'`
    to point to your GuardDuty findings in Amazon S3.
 
 ```

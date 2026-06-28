@@ -32,7 +32,7 @@ roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                        |
 | -------------------------- | ------------------ | ----------------- | ---------------------------------------------------- |
-| preferred_role             | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
+| preferred\_role            | Optional           | `none`            | `preferred_role=arn:aws:IAM::123456789012:id/user1;` |
 
 ## Session duration
 
@@ -52,7 +52,7 @@ steps, see [Retrieve ODBC configuration information from Okta](odbc-okta-plugin.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**     |
 | -------------------------- | ------------------ | ----------------- | --------------------------------- |
-| idp_host                   | Required           | `None`            | `idp_host=dev-99999999.okta.com;` |
+| idp\_host                  | Required           | `None`            | `idp_host=dev-99999999.okta.com;` |
 
 ## IdP port
 
@@ -60,7 +60,7 @@ The port number to use to connect to your IdP host.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| idp_port                   | Required           | `None`            | `idp_port=443;`               |
+| idp\_port                  | Required           | `None`            | `idp_port=443;`               |
 
 ## Okta app ID
 
@@ -73,7 +73,7 @@ and lowercase letters (for example,
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**                       |
 | -------------------------- | ------------------ | ----------------- | --------------------------------------------------- |
-| app_id                     | Required           | `None`            | `app_id=0oa25kx8ze9A3example/alnexamplea0piaWa0g7;` |
+| app\_id                    | Required           | `None`            | `app_id=0oa25kx8ze9A3example/alnexamplea0piaWa0g7;` |
 
 ## Okta app name
 
@@ -81,7 +81,7 @@ The name of the Okta application.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example**   |
 | -------------------------- | ------------------ | ----------------- | ------------------------------- |
-| app_name                   | Required           | `None`            | `app_name=amazon_aws_redshift;` |
+| app\_name                  | Required           | `None`            | `app_name=amazon_aws_redshift;` |
 
 ## Okta wait time
 
@@ -90,7 +90,7 @@ code.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| okta_mfa_wait_time         | Optional           | `10`              | `okta_mfa_wait_time=20;`      |
+| okta\_mfa\_wait\_time      | Optional           | `10`              | `okta_mfa_wait_time=20;`      |
 
 ## Okta MFA type
 
@@ -100,7 +100,7 @@ determine whether or not MFA is required for user login.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Possible values**                                                                 | **Connection string example**       |
 | -------------------------- | ------------------ | ----------------- | ----------------------------------------------------------------------------------- | ----------------------------------- |
-| okta_mfa_type              | `Optional`         | `None`            | `googleauthenticator, smsauthentication, oktaverifywithpush,<br>oktaverifywithtotp` | `okta_mfa_type=oktaverifywithpush;` |
+| okta\_mfa\_type            | `Optional`         | `None`            | `googleauthenticator, smsauthentication, oktaverifywithpush,<br>oktaverifywithtotp` | `okta_mfa_type=oktaverifywithpush;` |
 
 ## Okta phone number
 
@@ -110,7 +110,7 @@ authentication is not used by the security policy, you can ignore this field.
 
 | **Connection string name** | **Parameter type**                              | **Default value** | **Connection string example**        |
 | -------------------------- | ----------------------------------------------- | ----------------- | ------------------------------------ |
-| okta_mfa_phone_number      | Required for MFA enrollment, optional otherwise | `None`            | `okta_mfa_phone_number=19991234567;` |
+| okta\_mfa\_phone\_number   | Required for MFA enrollment, optional otherwise | `None`            | `okta_mfa_phone_number=19991234567;` |
 
 ## Enable Okta file cache
 
@@ -120,4 +120,4 @@ applications. Use this option to avoid the Okta API throttling limit.
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** |
 | -------------------------- | ------------------ | ----------------- | ----------------------------- |
-| okta_cache                 | Optional           | `0`               | `okta_cache=1;`               |
+| okta\_cache                | Optional           | `0`               | `okta_cache=1;`               |

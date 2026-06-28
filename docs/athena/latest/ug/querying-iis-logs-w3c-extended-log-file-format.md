@@ -34,9 +34,9 @@ that Athena can read the log data.
       conventions](tables-databases-columns-names.md "tables-databases-columns-names.md"), the example `CREATE TABLE`
       statement replaces them with underscores (`_`).
    3. To specify the space delimiter, use `FIELDS TERMINATED BY '
-'`.
+  '`.
    4. Modify the values in `LOCATION
-'s3://amzn-s3-demo-bucket/`w3c-log-folder`/'`
+  's3://amzn-s3-demo-bucket/`w3c-log-folder`/'`
       to point to your W3C extended logs in Amazon S3.
 
 ```
@@ -88,7 +88,7 @@ Editor.
 
 The space delimited `date` and `time` fields are separate
 entries in the log source data, but you can combine them into a timestamp if you
-want. Use the [concat()](https://prestodb.io/docs/current/functions/string.html#concat "https://prestodb.io/docs/current/functions/string.html#concat") and [date_parse()](https://prestodb.io/docs/current/functions/datetime.html#date_parse "https://prestodb.io/docs/current/functions/datetime.html#date_parse") functions in a [SELECT](select.md "select.md") or [CREATE TABLE AS SELECT](create-table-as.md "create-table-as.md") query to
+want. Use the [concat()](https://prestodb.io/docs/current/functions/string.html#concat "https://prestodb.io/docs/current/functions/string.html#concat") and [date\_parse()](https://prestodb.io/docs/current/functions/datetime.html#date_parse "https://prestodb.io/docs/current/functions/datetime.html#date_parse") functions in a [SELECT](select.md "select.md") or [CREATE TABLE AS SELECT](create-table-as.md "create-table-as.md") query to
 concatenate and convert the date and time columns into timestamp format. The
 following example uses a CTAS query to create a new table with a
 `derived_timestamp` column.

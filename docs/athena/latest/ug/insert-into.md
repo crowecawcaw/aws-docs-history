@@ -27,7 +27,7 @@ according to your requirements.
   output location that you specify for Athena query results. For
   more information, see [Specify a query result location using the Athena console](query-results-specify-location-console.md "query-results-specify-location-console.md").
 - For ACID compliant `INSERT INTO` statements, see the `INSERT
-INTO` section of [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").
+ INTO` section of [Update Iceberg table data](querying-iceberg-updating-iceberg-table-data.md "querying-iceberg-updating-iceberg-table-data.md").
 
 ### Supported formats and SerDes
 

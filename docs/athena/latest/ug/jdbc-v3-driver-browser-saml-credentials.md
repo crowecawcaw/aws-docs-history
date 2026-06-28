@@ -17,9 +17,9 @@ the value of this parameter to `BrowserSaml`.
 The single sign-on URL for your application on the SAML-based identity
 provider.
 
-| Parameter name | Alias                  | Parameter type | Default value |
-| -------------- | ---------------------- | -------------- | ------------- |
-| SsoLoginUrl    | login_url (deprecated) | Required       | none          |
+| Parameter name | Alias                   | Parameter type | Default value |
+| -------------- | ----------------------- | -------------- | ------------- |
+| SsoLoginUrl    | login\_url (deprecated) | Required       | none          |
 
 ## Listen port
 
@@ -27,18 +27,18 @@ The port number that is used to listen for the SAML response. This value should
 match the URL with which you configured the SAML-based identity provider (for
 example, `http://localhost:7890/athena`).
 
-| Parameter name | Alias                    | Parameter type | Default value |
-| -------------- | ------------------------ | -------------- | ------------- |
-| ListenPort     | listen_port (deprecated) | Optional       | `7890`        |
+| Parameter name | Alias                     | Parameter type | Default value |
+| -------------- | ------------------------- | -------------- | ------------- |
+| ListenPort     | listen\_port (deprecated) | Optional       | `7890`        |
 
 ## Identity provider response timeout
 
 The duration, in seconds, before the driver stops waiting for the SAML response
 from Azure AD.
 
-| Parameter name     | Alias                             | Parameter type | Default value |
-| ------------------ | --------------------------------- | -------------- | ------------- |
-| IdpResponseTimeout | idp_response_timeout (deprecated) | Optional       | 120           |
+| Parameter name     | Alias                               | Parameter type | Default value |
+| ------------------ | ----------------------------------- | -------------- | ------------- |
+| IdpResponseTimeout | idp\_response\_timeout (deprecated) | Optional       | 120           |
 
 ## Preferred role
 
@@ -46,9 +46,9 @@ The Amazon Resource Name (ARN) of the role to assume. For information about ARN
 roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the
 _AWS Security Token Service API Reference_.
 
-| Parameter name | Alias                       | Parameter type | Default value |
-| -------------- | --------------------------- | -------------- | ------------- |
-| PreferredRole  | preferred_role (deprecated) | Optional       | none          |
+| Parameter name | Alias                        | Parameter type | Default value |
+| -------------- | ---------------------------- | -------------- | ------------- |
+| PreferredRole  | preferred\_role (deprecated) | Optional       | none          |
 
 ## Role session duration
 

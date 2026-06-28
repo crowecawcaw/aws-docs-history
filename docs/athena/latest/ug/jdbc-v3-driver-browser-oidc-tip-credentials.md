@@ -81,9 +81,9 @@ or identifier that's associated with the user who is using your application. Tha
 the temporary security credentials that your application will use are associated with
 that user.
 
-| Parameter name     | Alias                          | Parameter type | Default value |
-| ------------------ | ------------------------------ | -------------- | ------------- |
-| JwtRoleSessionName | role_session_name (deprecated) | Required       | none          |
+| Parameter name     | Alias                            | Parameter type | Default value |
+| ------------------ | -------------------------------- | -------------- | ------------- |
+| JwtRoleSessionName | role\_session\_name (deprecated) | Required       | none          |
 
 ## Client secret
 
@@ -104,9 +104,9 @@ Propagation_ mapping. If user identity mapping fails, verify that your scope inc
 permissions and your identity provider is configured to include the required claims in the ID token.
 These claims must match your _Trusted Token Issuer_ mapping configuration in IAM Identity Center.
 
-| Parameter name | Alias | Parameter type | Default value               |
-| -------------- | ----- | -------------- | --------------------------- |
-| Scope          | none  | Optional       | openid email offline_access |
+| Parameter name | Alias | Parameter type | Default value                |
+| -------------- | ----- | -------------- | ---------------------------- |
+| Scope          | none  | Optional       | openid email offline\_access |
 
 ## Role session duration
 
@@ -135,7 +135,7 @@ The ARN of IAM Identity Center customer managed application. For more informatio
 
 ## Identity provider port number
 
-The local port number to use for the OAuth 2.0 callback server. This is used as redirect_uri and you will need to allowlist this in your IDP application. The default generated redirect_uri is: http://localhost:7890/athena
+The local port number to use for the OAuth 2.0 callback server. This is used as redirect\_uri and you will need to allowlist this in your IDP application. The default generated redirect\_uri is: http://localhost:7890/athena
 
 ###### Warning
 
