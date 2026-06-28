@@ -50,7 +50,7 @@ You need to link your AWS account to your Mechanical Turk requester account. Thi
 grants permission to your AWS account to access your requester account using the Mechanical Turk
 APIs.
 
-- Go to [https://requester.mturk.com/developer/](<https://requester.mturk.com/developer\ "https://requester.mturk.com/developer">).
+- Go to [https://requester.mturk.com/developer/](https://requester.mturk.com/developer\ "https://requester.mturk.com/developer\").
 - Choose **Link your AWS Account** and sign in with your AWS
   root user email address and password.
 
@@ -82,11 +82,11 @@ to grant administrator access to this account, you can choose either the
 The only time that you can view or download the secret access key is when you create
 the keys. You cannot recover them later. However, you can create new access keys at any
 time. You must also have permissions to perform the required IAM actions. For more
-information, see [Permissions Required to Access IAM Resources](../../../IAM/latest/UserGuide/access_permissions-required.md "../../../IAM/latest/UserGuide/access_permissions-required.md") in the *IAM User Guide*.
+information, see [Permissions Required to Access IAM Resources](../../../IAM/latest/UserGuide/access_permissions-required.md "../../../IAM/latest/UserGuide/access_permissions-required.md") in the _IAM User Guide_.
 
 ###### To create access keys for an IAM user:
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](<https://console.aws.amazon.com/iam/\ "https://console.aws.amazon.com/iam/">) .
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/\ "https://console.aws.amazon.com/iam/\") .
 2. In the navigation pane, choose **Users**.
 3. Choose the name of the user whose access keys you want to create, and then
    choose the **Security credentials** tab.
@@ -113,10 +113,10 @@ key.
 
 **Related topics**
 
-- [What Is IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the *IAM User
-  Guide*
-- [AWS Security Credentials](../../../general/latest/gr/aws-security-credentials.md "../../../general/latest/gr/aws-security-credentials.md") in *AWS General
-  Reference*
+- [What Is IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the _IAM User
+  Guide_
+- [AWS Security Credentials](../../../general/latest/gr/aws-security-credentials.md "../../../general/latest/gr/aws-security-credentials.md") in _AWS General
+  Reference_
 
 ## Step 5: Configure Your Credentials
 
