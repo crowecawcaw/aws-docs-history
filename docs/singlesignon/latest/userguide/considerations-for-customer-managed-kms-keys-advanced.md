@@ -31,14 +31,14 @@ Identity Store ARNs are not available until after setup. You have the following 
   - For Identity Store SPN:
     "arn:${Partition}:identitystore::${Account}:identitystore/\*".
 
-- Use "purpose:KEY_CONFIGURATION" in the ARN temporarily. This works only for instance
+- Use "purpose:KEY\_CONFIGURATION" in the ARN temporarily. This works only for instance
   enablement and must be replaced with the actual ARN for your IAM Identity Center instance to
   function normally. The advantage of this approach is that you cannot forget to
   replace this after the instance is enabled.
 
-  - For IAM Identity Center SPN, use: "arn:${Partition}:sso:::instance/purpose:KEY_CONFIGURATION"
+  - For IAM Identity Center SPN, use: "arn:${Partition}:sso:::instance/purpose:KEY\_CONFIGURATION"
   - For Identity Store SPN, use:
-    "arn:${Partition}:identitystore::${Account}:identitystore/purpose:KEY_CONFIGURATION"
+    "arn:${Partition}:identitystore::${Account}:identitystore/purpose:KEY\_CONFIGURATION"
 
 ###### Important
 

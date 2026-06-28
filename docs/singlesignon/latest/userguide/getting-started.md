@@ -70,7 +70,7 @@ With IAM Identity Center, you can grant users access to two types of application
     	* After configuring your application, you can [assign your users access to the application](assignuserstoapp.md "assignuserstoapp.md").
 
 5. **Provide your users with sign-in instructions for the
-   AWS access portal**
+AWS access portal**
 
 The AWS access portal is a web portal that provides your users with seamless access to all
 their assigned applications, AWS accounts, or both. New users in IAM Identity Center must activate their

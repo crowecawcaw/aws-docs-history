@@ -78,7 +78,7 @@ identity source, there are two ways to use attributes for ABAC.
   configure your IdP to send SAML assertions with the attribute name
   set to
   `https://aws.amazon.com/SAML/Attributes/AccessControl:`TagKey``,
-replacing `TagKey` with the session tag key
+  replacing `TagKey` with the session tag key
   you want to populate. IAM Identity Center passes the attribute name and value from
   the IdP through for policy evaluation.
 

@@ -25,89 +25,79 @@ In this step, the Amazon EMR Studio administrator creates
 and IAM service role and an IAM user role for EMR
 Studio.
 
-1.  **[Create an EMR Studio service role](../../../emr/latest/ManagementGuide/emr-studio-service-role.md "../../../emr/latest/ManagementGuide/emr-studio-service-role.md")** -
-    EMR Studio assume this IAM role to securely manage workspaces
-    and notebooks, connect to clusters, and handle data
-    interactions.
+1. **[Create an EMR Studio service role](../../../emr/latest/ManagementGuide/emr-studio-service-role.md "../../../emr/latest/ManagementGuide/emr-studio-service-role.md")** -
+   EMR Studio assume this IAM role to securely manage workspaces
+   and notebooks, connect to clusters, and handle data
+   interactions.
 
-        1. Navigate to the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")) and
-         create an IAM role.
-        2. Select **AWS service** as the
-         trusted entity and then choose
-         **Amazon EMR**. Attach the following
-         policies to define the role's permissions and trust
-         relationship.
+   1. Navigate to the IAM console ([https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")) and
+      create an IAM role.
+   2. Select **AWS service** as the
+      trusted entity and then choose
+      **Amazon EMR**. Attach the following
+      policies to define the role's permissions and trust
+      relationship.
 
+   To use these policy, replace the
+   `italicized placeholder
+  text` in the example policy with your
+   own information. For additional directions, see [Create a policy](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") or [Edit a policy](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md").
 
-        To use these policy, replace the
-         `italicized placeholder
-         text` in the example policy with your
-         own information. For additional directions, see [Create a policy](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") or [Edit a policy](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md").
+   JSON
 
+   ```
+   `{
+    "Version":"2012-10-17",
+    "Statement": [
+    {
+    "Sid": "ObjectActions",
+    "Effect": "Allow",
+    "Action": [
+    "s3:PutObject",
+    "s3:GetObject",
+    "s3:DeleteObject"
+    ],
+    "Resource": [
+    "arn:aws:s3:::`Your-S3-Bucket-For-EMR-Studio`/*"
+    ],
+    "Condition": {
+    "StringEquals": {
+    "aws:ResourceAccount": "`Your-AWS-Account-ID`"
+    }
+    }
+    },
+    {
+    "Sid": "BucketActions",
+    "Effect": "Allow",
+    "Action": [
+    "s3:ListBucket",
+    "s3:GetEncryptionConfiguration"
+    ],
+    "Resource": [
+    "arn:aws:s3:::`Your-S3-Bucket-For-EMR-Studio`"
+    ],
+    "Condition": {
+    "StringEquals": {
+    "aws:ResourceAccount": "`Your-AWS-Account-ID`"
+    }
+    }
+    }
+    ]
+   }`
 
+   ```
 
-        JSON
+   [Show moreShow less](# "#")
 
+   For a reference of all the service role permissions,
+   see [EMR Studio service role permissions](../../../emr/latest/ManagementGuide/emr-studio-service-role.md#emr-studio-service-role-permissions-table "../../../emr/latest/ManagementGuide/emr-studio-service-role.md#emr-studio-service-role-permissions-table").
+   [Show moreShow less](# "#")
 
-
-
-
-        ```
-        `{
-         "Version":"2012-10-17",
-         "Statement": [
-         {
-         "Sid": "ObjectActions",
-         "Effect": "Allow",
-         "Action": [
-         "s3:PutObject",
-         "s3:GetObject",
-         "s3:DeleteObject"
-         ],
-         "Resource": [
-         "arn:aws:s3:::`Your-S3-Bucket-For-EMR-Studio`/*"
-         ],
-         "Condition": {
-         "StringEquals": {
-         "aws:ResourceAccount": "`Your-AWS-Account-ID`"
-         }
-         }
-         },
-         {
-         "Sid": "BucketActions",
-         "Effect": "Allow",
-         "Action": [
-         "s3:ListBucket",
-         "s3:GetEncryptionConfiguration"
-         ],
-         "Resource": [
-         "arn:aws:s3:::`Your-S3-Bucket-For-EMR-Studio`"
-         ],
-         "Condition": {
-         "StringEquals": {
-         "aws:ResourceAccount": "`Your-AWS-Account-ID`"
-         }
-         }
-         }
-         ]
-        }`
-
-        ```
-
-        [Show moreShow less](# "#")
-
-
-
-        For a reference of all the service role permissions,
-         see [EMR Studio service role permissions](../../../emr/latest/ManagementGuide/emr-studio-service-role.md#emr-studio-service-role-permissions-table "../../../emr/latest/ManagementGuide/emr-studio-service-role.md#emr-studio-service-role-permissions-table").
-
-    [Show moreShow less](# "#")
-
-2.  **[Create an EMR Studio user role for IAM Identity Center
-    authentication](../../../emr/latest/ManagementGuide/emr-studio-user-permissions.md#emr-studio-create-user-role "../../../emr/latest/ManagementGuide/emr-studio-user-permissions.md#emr-studio-create-user-role")** - EMR Studio assumes
-    this role when a user signs in through IAM Identity Center to manage
-    workspaces, EMR clusters, jobs, git repositories. **This role is used to initiate the trusted
-    identity propagation workflow**.
+2. **[Create an EMR Studio user role for IAM Identity Center
+   authentication](../../../emr/latest/ManagementGuide/emr-studio-user-permissions.md#emr-studio-create-user-role "../../../emr/latest/ManagementGuide/emr-studio-user-permissions.md#emr-studio-create-user-role")** - EMR Studio assumes
+   this role when a user signs in through IAM Identity Center to manage
+   workspaces, EMR clusters, jobs, git repositories. **This role is used to initiate the trusted
+   identity propagation workflow**.
 
 ###### Note
 

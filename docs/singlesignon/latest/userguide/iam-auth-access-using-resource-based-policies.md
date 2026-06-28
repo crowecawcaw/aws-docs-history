@@ -6,7 +6,7 @@ _application policy_ (or [ActorPolicy](../APIReference/API_IamAuthenticationMeth
 such as [`CreateTokenWithIAM`](../OIDCAPIReference/API_CreateTokenWithIAM.md "../OIDCAPIReference/API_CreateTokenWithIAM.md"). The IAM authentication method allows an
 IAM principal, such an IAM role or an AWS service, to authenticate to the IAM Identity Center OIDC
 service by presenting IAM credentials to request or manage access tokens at the
-**/token?aws_iam=t** endpoint.
+**/token?aws\_iam=t** endpoint.
 
 The application policy governs operations for issuing tokens
 (`CreateTokenWithIAM`). The policy also governs permission-only actions that are used only by AWS managed applications for

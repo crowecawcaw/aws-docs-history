@@ -21,32 +21,32 @@ administrator must perform the following steps.
 
 SageMaker Studio uses domains to organize user profiles, applications, and their associated resources. To enable trusted identity propagation, you must create a SageMaker Studio domain or modify an existing domain as described in the following procedure.
 
-1.  Open the SageMaker AI console, navigate to **Domains**, and do either of the following.
+1. Open the SageMaker AI console, navigate to **Domains**, and do either of the following.
 
-    - **Create a new SageMaker Studio domain by using [Setup for organizations](../../../sagemaker/latest/dg/onboard-custom.md#onboard-custom-instructions "../../../sagemaker/latest/dg/onboard-custom.md#onboard-custom-instructions").**
+   - **Create a new SageMaker Studio domain by using [Setup for organizations](../../../sagemaker/latest/dg/onboard-custom.md#onboard-custom-instructions "../../../sagemaker/latest/dg/onboard-custom.md#onboard-custom-instructions").**
 
-    Choose **Set up for
-    organizations**, and then do the following:
+   Choose **Set up for
+   organizations**, and then do the following:
 
         + Choose **AWS Identity Center** as the authentication method.
         + Select the **Enable trusted identity propagation for all users on this domain** check box.
-    - **Modify an existing SageMaker Studio domain.**
+   - **Modify an existing SageMaker Studio domain.**
 
-      - Select an existing domain that uses IAM Identity Center for authentication.
+     - Select an existing domain that uses IAM Identity Center for authentication.
 
-      ###### Important
+     ###### Important
 
-      Trusted identity propagation is only supported in SageMaker Studio domains that use IAM Identity Center for
-      authentication. If the domain uses IAM for
-      authentication, you can't change the authentication
-      method, and therefore you can't enable trusted identity propagation.
-      - [Edit domain
-        settings](../../../sagemaker/latest/dg/domain-edit.md "../../../sagemaker/latest/dg/domain-edit.md"). Edit the
-        **Authentication and
-        permissions** settings to enable trusted
-        identity propagation.
+     Trusted identity propagation is only supported in SageMaker Studio domains that use IAM Identity Center for
+     authentication. If the domain uses IAM for
+     authentication, you can't change the authentication
+     method, and therefore you can't enable trusted identity propagation.
+     - [Edit domain
+       settings](../../../sagemaker/latest/dg/domain-edit.md "../../../sagemaker/latest/dg/domain-edit.md"). Edit the
+       **Authentication and
+       permissions** settings to enable trusted
+       identity propagation.
 
-2.  Proceed to [Step 2: Configure the default domain execution role](#setting-up-trusted-identity-propagation-sagemaker-studio-domain-execution-role "#setting-up-trusted-identity-propagation-sagemaker-studio-domain-execution-role"). This role is required for users of a SageMaker Studio domain to access other AWS services such as Amazon S3.
+2. Proceed to [Step 2: Configure the default domain execution role](#setting-up-trusted-identity-propagation-sagemaker-studio-domain-execution-role "#setting-up-trusted-identity-propagation-sagemaker-studio-domain-execution-role"). This role is required for users of a SageMaker Studio domain to access other AWS services such as Amazon S3.
 
 ## Step 2: Configure the default domain execution role and role trust policy
 

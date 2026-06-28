@@ -17,11 +17,10 @@ in.
 
 - `UserAuthentication`
 
-      + When `CredentialType` is "`EXTERNAL_IDP`" –
-       applies to authentication with an external IdP.
-
-  The value of `UserName` for successful authentications is as follows
-  :
+  - When `CredentialType` is "`EXTERNAL_IDP`" –
+    applies to authentication with an external IdP.
+    The value of `UserName` for successful authentications is as follows
+    :
 
 - When the identity source is an external IdP, the value is equal to the
   `nameID` value in the incoming SAML assertion. This value is equal to

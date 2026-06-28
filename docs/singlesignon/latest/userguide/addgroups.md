@@ -11,11 +11,11 @@ Console
    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
 2. Choose **Groups**.
 3. Choose **Create group**.
-4. Enter a **Group name** and \*\*Description
+4. Enter a **Group name** and **Description
 
-- \*optional**\*. The description should
+- _optional_**. The description should
   provide details on what permissions have been or will be assigned to
-  the group. Under **Add users to group - \*optional\*\*\*,
+  the group. Under **Add users to group - _optional_**,
   locate the users you want to add as members. Then select the check
   box next to each of them.
 

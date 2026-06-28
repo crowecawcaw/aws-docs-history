@@ -62,38 +62,40 @@ the following:
      choose **Next**.
 
 6. For **Step 2: Select permission sets**, on the
-   **Assign permission sets to
-   "`AWS-account-name`"** page, do
-   the following:
+**Assign permission sets to
+"`AWS-account-name`"** page, do
+the following:
 
-   1. Select one or more permission sets. If required, you can create
-      and select new permission sets.
+    1. Select one or more permission sets. If required, you can create
+     and select new permission sets.
 
-      - To select one or more existing permission sets, under
-        **Permission sets**, select the
-        permission sets that you want to apply to the users and
-        groups that you selected in the previous step.
-      - To create one or more new permission sets, choose
-        **Create permission set**, and follow
-        the steps in [Create a permission set](howtocreatepermissionset.md "howtocreatepermissionset.md"). After you
-        create the permission sets that you want to apply, in the
-        IAM Identity Center console, return to **AWS accounts**
-        and follow the instructions until you reach **Step
-        2: Select permission sets**. When you reach
-        this step, select the new permission sets that you created,
-        and proceed to the next step in this procedure.
 
-   2. After you confirm that the correct permission sets are selected,
-      choose **Next**.
+
+
+    	* To select one or more existing permission sets, under
+    	 **Permission sets**, select the
+    	 permission sets that you want to apply to the users and
+    	 groups that you selected in the previous step.
+    	* To create one or more new permission sets, choose
+    	 **Create permission set**, and follow
+    	 the steps in [Create a permission set](howtocreatepermissionset.md "howtocreatepermissionset.md"). After you
+    	 create the permission sets that you want to apply, in the
+    	 IAM Identity Center console, return to **AWS accounts**
+    	 and follow the instructions until you reach **Step
+    	 2: Select permission sets**. When you reach
+    	 this step, select the new permission sets that you created,
+    	 and proceed to the next step in this procedure.
+    2. After you confirm that the correct permission sets are selected,
+     choose **Next**.
 
 7. For **Step 3: Review and Submit**, on the
-   **Review and submit assignments to
-   "`AWS-account-name`"** page, do
-   the following:
+**Review and submit assignments to
+"`AWS-account-name`"** page, do
+the following:
 
-   1. Review the selected users, groups, and permission sets.
-   2. After you confirm that the correct users, groups, and permission
-      sets are selected, choose **Submit**.
+    1. Review the selected users, groups, and permission sets.
+    2. After you confirm that the correct users, groups, and permission
+     sets are selected, choose **Submit**.
 
 ###### Considerations
 
@@ -105,11 +107,11 @@ the following:
     You might need to grant users or groups permissions to operate in the AWS Organizations management account. Because it is a highly privileged account, additional security restrictions require you to have the [IAMFullAccess](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/IAMFullAccess") policy or equivalent permissions before you can set this up. These additional security restrictions are not required for any of the member accounts in your AWS organization.
 
 8. If either of the following applies, follow the steps in [Prompt users for MFA](mfa-getting-started.md "mfa-getting-started.md") to
-   enable MFA for IAM Identity Center:
+enable MFA for IAM Identity Center:
 
-   - You're using the default Identity Center directory as your
+    * You're using the default Identity Center directory as your
      identity source.
-   - You're using an AWS Managed Microsoft AD directory or a self-managed directory
+    * You're using an AWS Managed Microsoft AD directory or a self-managed directory
      in Active Directory as your identity source and you are not using
      RADIUS MFA with AWS Directory Service.
 

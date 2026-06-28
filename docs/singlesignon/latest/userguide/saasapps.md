@@ -64,4 +64,4 @@ the following:
      values.
 
 12. Choose **Submit**. You're taken to the details page
-    of the application that you just added.
+of the application that you just added.

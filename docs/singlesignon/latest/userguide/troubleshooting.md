@@ -127,9 +127,9 @@ The following are a couple of common reasons for this error:
      of these attributes.
 
 2. More than one value for a single attribute is being sent for the user (also known as
-   “multi-value attributes”). For example, the user may have both a work and a home phone
-   number specified in the IdP, or multiple emails or physical addresses, and your IdP is
-   configured to try to synchronize multiple or all values for that attribute.
+“multi-value attributes”). For example, the user may have both a work and a home phone
+number specified in the IdP, or multiple emails or physical addresses, and your IdP is
+configured to try to synchronize multiple or all values for that attribute.
 
 **Error Message:**
 **`"List attribute `emails` exceeds allowed limit of
@@ -149,14 +149,14 @@ The following are a couple of common reasons for this error:
     	 IdP.
 
 3. Your IdP is trying to match users in the target (IAM Identity Center, in this case) based on
-   multiple attributes. Since user names are guaranteed unique within a given IAM Identity Center instance,
-   you only need to specify `username` as the attribute used for matching.
+multiple attributes. Since user names are guaranteed unique within a given IAM Identity Center instance,
+you only need to specify `username` as the attribute used for matching.
 
-   1. **Solution:** Ensure that your SCIM configuration in
-      your IdP is using only a single attribute for matching with users in IAM Identity Center. For
-      example, mapping `username` or `userPrincipalName` in the IdP to
-      the `userName` attribute in SCIM for provisioning to IAM Identity Center will be correct
-      and sufficient for most implementations.
+    1. **Solution:** Ensure that your SCIM configuration in
+     your IdP is using only a single attribute for matching with users in IAM Identity Center. For
+     example, mapping `username` or `userPrincipalName` in the IdP to
+     the `userName` attribute in SCIM for provisioning to IAM Identity Center will be correct
+     and sufficient for most implementations.
 
 ## Duplicate user or group error when provisioning users or groups with an external identity provider
 
@@ -196,9 +196,9 @@ You can experience this problem in the following scenarios:
         Address:**
         `jane_doe@example.com`
 
-            + The external IdP attempts to synchronize and create the user in IAM Identity Center.
-             However, these actions fail as both users have duplicate values for a
-             primary email address which must be unique.
+        - The external IdP attempts to synchronize and create the user in IAM Identity Center.
+          However, these actions fail as both users have duplicate values for a
+          primary email address which must be unique.
 
 The username, primary email address, and externalID must be unique in order for your external
 IdP users to successfully synchronize to IAM Identity Center. Similarly, the group name must

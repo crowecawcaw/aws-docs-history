@@ -80,14 +80,14 @@ affect how you implement provisioning with IAM Identity Center.
     format. This means you need to choose a user attribute that is unique within
     your directory in PingOne, non-null, and formatted as an
     email/UPN (for example, user@domain.com) for your
-    **SAML_SUBJECT** mapping in PingOne.
+    **SAML\_SUBJECT** mapping in PingOne.
     **Email (Work)** is a reasonable value to use for test
     configurations with the PingOne built-in directory.
   - Users in PingOne with an email address containing a
     **+** character may be unable to sign in to IAM Identity Center, with
     errors such as `'SAML_215'` or `'Invalid input'`. To fix
     this, in PingOne, choose the **Advanced** option
-    for the **SAML_SUBJECT** mapping in **Attribute
+    for the **SAML\_SUBJECT** mapping in **Attribute
     Mappings**. Then set **Name ID Format to send to
     SP:** to
     **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**
@@ -145,13 +145,13 @@ provisioning.
    value in IAM Identity Center. Paste that value into the **SCIM URL** field in the
    PingOne IAM Identity Center application. Also, in the previous procedure you copied the
    **Access token** value in IAM Identity Center. Paste that value into the
-   **ACCESS_TOKEN** field in the PingOne IAM Identity Center
+   **ACCESS\_TOKEN** field in the PingOne IAM Identity Center
    application.
-5. For **REMOVE_ACTION**, choose either
+5. For **REMOVE\_ACTION**, choose either
    **Disabled** or **Deleted** (see the description
    text on the page for more details).
 6. On the **Attribute Mapping** page, choose a value to use for
-   the **SAML_SUBJECT** (`NameId`) assertion, following
+   the **SAML\_SUBJECT** (`NameId`) assertion, following
    guidance from [Considerations](#pingone-considerations "#pingone-considerations") earlier on this page. Then choose
    **Continue to Next Step**.
 7. On the **PingOne App Customization - IAM Identity Center**
@@ -195,8 +195,9 @@ feature. For more information about how to do this, see [Enable and configure at
 
    1. In the **Application Attribute** field, enter
       `https://aws.amazon.com/SAML/Attributes/AccessControl:`AttributeName``.
-Replace `AttributeName`with the name of the attribute
-you are expecting in IAM Identity Center. For example,`https://aws.amazon.com/SAML/Attributes/AccessControl:**Email**`.
+      Replace `AttributeName` with the name of the attribute
+      you are expecting in IAM Identity Center. For example,
+      `https://aws.amazon.com/SAML/Attributes/AccessControl:**Email**`.
    2. In the **Identity Bridge Attribute or Literal Value**
       field, choose user attributes from your PingOne directory. For
       example, **Email (Work)**.

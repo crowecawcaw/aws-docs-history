@@ -107,39 +107,38 @@ Leave the Okta admin dashboard open, you will continue using this console in the
 
 ## Step 2: IAM Identity Center: Configure Okta as the identity source for IAM Identity Center
 
-1.  Open the [IAM Identity Center
-    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon") as a user with administrative privileges.
-2.  Choose **Settings** in the left navigation pane.
-3.  On the **Settings** page, choose
-    **Actions**, and then choose **Change identity
-    source**.
-4.  Under **Choose identity source**, select
-    **External identity provider**, and then choose
-    **Next**.
-5.  Under **Configure external identity provider**, do the
-    following:
+1. Open the [IAM Identity Center
+   console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon") as a user with administrative privileges.
+2. Choose **Settings** in the left navigation pane.
+3. On the **Settings** page, choose
+   **Actions**, and then choose **Change identity
+   source**.
+4. Under **Choose identity source**, select
+   **External identity provider**, and then choose
+   **Next**.
+5. Under **Configure external identity provider**, do the
+   following:
 
-    1.  Under **Service provider metadata**, copy the following items to a text file for easy access:
+   1. Under **Service provider metadata**, copy the following items to a text file for easy access:
 
-            * **IAM Identity Center Assertion Consumer Service (ACS)
-             URL** – You have a choice between IPv4-only and
-             dual-stack ACS URLs. Also, if your IAM Identity Center instance is enabled in multiple Regions,
-             each additional Region has its own IPv4-only and dual-stack ACS URLs.
-             For more information on ACS URLs, see [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
-            * **IAM Identity Center issuer URL**
-
+      - **IAM Identity Center Assertion Consumer Service (ACS)
+        URL** – You have a choice between IPv4-only and
+        dual-stack ACS URLs. Also, if your IAM Identity Center instance is enabled in multiple Regions,
+        each additional Region has its own IPv4-only and dual-stack ACS URLs.
+        For more information on ACS URLs, see [ACS endpoints in the primary and additional AWS Regions](multi-region-workforce-access.md#acs-endpoints "multi-region-workforce-access.md#acs-endpoints").
+      - **IAM Identity Center issuer URL**
         You'll need these values later in this tutorial.
 
-    2.  Under **Identity provider metadata**, under
-        **IdP SAML metadata**, select **Choose
-        file** and then select the
-        `metadata.xml` file you created in the
-        previous step.
-    3.  Choose **Next**.
+   2. Under **Identity provider metadata**, under
+      **IdP SAML metadata**, select **Choose
+      file** and then select the
+      `metadata.xml` file you created in the
+      previous step.
+   3. Choose **Next**.
 
-6.  After you read the disclaimer and are ready to proceed, enter
-    **ACCEPT**.
-7.  Choose **Change identity source**.
+6. After you read the disclaimer and are ready to proceed, enter
+   **ACCEPT**.
+7. Choose **Change identity source**.
 
 Leave the AWS console open, you will continue using this console in the
 next step. 8. Return to the Okta admin dashboard and select the **Sign On** tab of
@@ -209,7 +208,7 @@ copied earlier in this step:
      **Access token** value.
 
 8. Choose **Test API Credentials** to verify the credentials
-   entered are valid.
+entered are valid.
 
 The message **AWS IAM Identity Center was verified successfully!**
 displays. 9. Choose **Save**. You're moved to the
@@ -227,45 +226,43 @@ By default, no groups or users are assigned to your Okta IAM Identity Center app
 groups provisions the users that are members of the group. Complete the following
 steps to synchronize groups and users with AWS IAM Identity Center.
 
-1.  In the **Okta IAM Identity Center app** page, choose the
-    **Assignments** tab. You can assign both people and
-    groups to the IAM Identity Center app.
+1. In the **Okta IAM Identity Center app** page, choose the
+   **Assignments** tab. You can assign both people and
+   groups to the IAM Identity Center app.
 
-    1.  To assign people:
+   1. To assign people:
 
-            * In the **Assignments** page, choose
-             **Assign**, and then choose
-             **Assign to people**.
-            * Choose the Okta users that you want to have access to
-             the IAM Identity Center app. Choose **Assign**, choose
-             **Save and Go Back**, and then choose
-             **Done**.
-
+      - In the **Assignments** page, choose
+        **Assign**, and then choose
+        **Assign to people**.
+      - Choose the Okta users that you want to have access to
+        the IAM Identity Center app. Choose **Assign**, choose
+        **Save and Go Back**, and then choose
+        **Done**.
         This starts the process of provisioning the users into
         IAM Identity Center.
 
-    2.  To assign groups:
+   2. To assign groups:
 
-            * In the **Assignments** page, choose
-             **Assign**, and then choose
-             **Assign to groups**.
-            * Choose the Okta groups that you want to have access to
-             the IAM Identity Center app. Choose **Assign**, choose
-             **Save and Go Back**, and then choose
-             **Done**.
-
+      - In the **Assignments** page, choose
+        **Assign**, and then choose
+        **Assign to groups**.
+      - Choose the Okta groups that you want to have access to
+        the IAM Identity Center app. Choose **Assign**, choose
+        **Save and Go Back**, and then choose
+        **Done**.
         This starts the process of provisioning the users in the group
         into IAM Identity Center.
 
-    ###### Note
+   ###### Note
 
-    You might be required to specify additional attributes for the
-    group if they aren't present in all of the user records. The
-    attributes specified for the group will override any individual
-    attribute values.
+   You might be required to specify additional attributes for the
+   group if they aren't present in all of the user records. The
+   attributes specified for the group will override any individual
+   attribute values.
 
-2.  Choose the **Push Groups** tab. Choose the Okta group
-    you want to synchronize with IAM Identity Center. Choose **Save**.
+2. Choose the **Push Groups** tab. Choose the Okta group
+   you want to synchronize with IAM Identity Center. Choose **Save**.
 
 The group status changes to **Active** after the group
 and its members have been pushed to IAM Identity Center. 3. Return to the **Assignments** tab. 4. To add individual Okta users to IAM Identity Center, use the following steps:
@@ -292,8 +289,8 @@ and its members have been pushed to IAM Identity Center. 3. Return to the **Assi
      user or group.
 
 5. Return to the IAM Identity Center console. In the left navigation, select
-   **Users**, you should see the user list populated by
-   your Okta users.
+**Users**, you should see the user list populated by
+your Okta users.
 
 ###### Congratulations!
 
@@ -340,73 +337,72 @@ information, see [Organization and account instances of IAM Identity Center](ide
 
 ### Step 1: IAM Identity Center: Grant Okta users access to accounts
 
-1.  In the IAM Identity Center navigation pane, under **Multi-account
-    permissions**, choose
-    **AWS accounts**.
-2.  On the **AWS accounts** page the
-    **Organizational structure** displays your
-    organizational root with your accounts underneath it in the hierarchy.
-    Select the checkbox for your management account, then select
-    **Assign users or groups**.
-3.  The **Assign users and groups** workflow displays. It
-    consists of three steps:
+1. In the IAM Identity Center navigation pane, under **Multi-account
+   permissions**, choose
+   **AWS accounts**.
+2. On the **AWS accounts** page the
+   **Organizational structure** displays your
+   organizational root with your accounts underneath it in the hierarchy.
+   Select the checkbox for your management account, then select
+   **Assign users or groups**.
+3. The **Assign users and groups** workflow displays. It
+   consists of three steps:
 
-    1.  For **Step 1: Select users and groups**,
-        choose the user that will be performing the administrator job
-        function. Then choose **Next**.
-    2.  For **Step 2: Select permission sets**,
-        choose **Create permission set** to open a new
-        tab that walks you through the three sub-steps involved in
-        creating a permission set.
+   1. For **Step 1: Select users and groups**,
+      choose the user that will be performing the administrator job
+      function. Then choose **Next**.
+   2. For **Step 2: Select permission sets**,
+      choose **Create permission set** to open a new
+      tab that walks you through the three sub-steps involved in
+      creating a permission set.
 
-        1.  For **Step 1: Select permission set
-            type** complete the following:
+      1. For **Step 1: Select permission set
+         type** complete the following:
 
-                * In **Permission set type**,
-                 choose **Predefined permission
-                 set**.
-                * In **Policy for predefined permission
-                 set**, choose
-                 **AdministratorAccess**.
+         - In **Permission set type**,
+           choose **Predefined permission
+           set**.
+         - In **Policy for predefined permission
+           set**, choose
+           **AdministratorAccess**.
+           Choose **Next**.
 
-            Choose **Next**.
+      2. For **Step 2: Specify permission set
+         details**, keep the default settings, and
+         choose **Next**.
 
-        2.  For **Step 2: Specify permission set
-            details**, keep the default settings, and
-            choose **Next**.
+      The default settings create a permission set named
+      `AdministratorAccess` with
+      session duration set to one hour. 3. For **Step 3: Review and create**,
+      verify that the **Permission set type**
+      uses the AWS managed policy
+      **AdministratorAccess**. Choose
+      **Create**. On the
+      **Permission sets** page, a
+      notification appears informing you that the permission
+      set was created. You can close this tab in your web
+      browser now.On the **Assign users and groups** browser
+      tab, you are still on **Step 2: Select permission
+      sets** from which you started the create permission
+      set workflow.
 
-        The default settings create a permission set named
-        `AdministratorAccess` with
-        session duration set to one hour. 3. For **Step 3: Review and create**,
-        verify that the **Permission set type**
-        uses the AWS managed policy
-        **AdministratorAccess**. Choose
-        **Create**. On the
-        **Permission sets** page, a
-        notification appears informing you that the permission
-        set was created. You can close this tab in your web
-        browser now.On the **Assign users and groups** browser
-        tab, you are still on **Step 2: Select permission
-        sets** from which you started the create permission
-        set workflow.
+   In the **Permissions sets** area, choose the
+   **Refresh** button. The
+   `AdministratorAccess` permission
+   set you created appears in the list. Select the checkbox for
+   that permission set and then choose
+   **Next**. 3. For **Step 3: Review and submit**, review the
+   selected user and permission set, then choose
+   **Submit**.
 
-    In the **Permissions sets** area, choose the
-    **Refresh** button. The
-    `AdministratorAccess` permission
-    set you created appears in the list. Select the checkbox for
-    that permission set and then choose
-    **Next**. 3. For **Step 3: Review and submit**, review the
-    selected user and permission set, then choose
-    **Submit**.
+   The page updates with a message that your AWS account is
+   being configured. Wait until the process completes.
 
-    The page updates with a message that your AWS account is
-    being configured. Wait until the process completes.
-
-    You are returned to the AWS accounts page. A notification
-    message informs you that your AWS account has been
-    reprovisioned and the updated permission set applied. When the
-    user signs-in they will have the option of choosing the
-    `AdministratorAccess` role.
+   You are returned to the AWS accounts page. A notification
+   message informs you that your AWS account has been
+   reprovisioned and the updated permission set applied. When the
+   user signs-in they will have the option of choosing the
+   `AdministratorAccess` role.
 
 ### Step 2: Okta: Confirm Okta users access to AWS resources
 
@@ -485,25 +481,25 @@ sections:
   that was once synchronized and then deleted from IAM Identity Center:
 
   - **`Automatic profile push of user `Jane Doe`to app
-AWS IAM Identity Center failed: Error while trying to push profile update
-for`jane_doe@example.com`: No user returned for user
-`xxxxx-xxxxxx-xxxxx-xxxxxxx``**
+   AWS IAM Identity Center failed: Error while trying to push profile update
+   for`jane_doe@example.com`: No user returned for user
+   `xxxxx-xxxxxx-xxxxx-xxxxxxx``**
   - **`Linked group is missing in AWS IAM Identity Center. Change the
-linked group to resume pushing group
-memberships.`**
+   linked group to resume pushing group
+   memberships.`**
 
 - You could also receive the following error message in the
   Okta's Systems Logs for either synchronized and deleted IAM Identity Center
   users or groups:
 
   - **`Okta Error: Eventfailed
-application.provision.user.push_profile : No user returned
-for user `xxxxx-xxxxxx-xxxxx-xxxxxxx``**
+   application.provision.user.push_profile : No user returned
+   for user `xxxxx-xxxxxx-xxxxx-xxxxxxx``**
   - **`Okta Error:
-application.provision.group_push.mapping.update.or.delete.failed.with.error
-: Linked group is missing in AWS IAM Identity Center. Change the linked
-group to resume pushing group
-memberships.`**
+   application.provision.group_push.mapping.update.or.delete.failed.with.error
+   : Linked group is missing in AWS IAM Identity Center. Change the linked
+   group to resume pushing group
+   memberships.`**
 
 ###### Warning
 

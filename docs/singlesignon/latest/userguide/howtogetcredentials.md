@@ -53,16 +53,15 @@ following considerations in mind:
   permission set. IAM roles created by permission sets differ from IAM roles created
   in AWS Identity and Access Management in the following ways:
 
-      + IAM Identity Center owns and secures the roles that are created by permission sets. Only IAM Identity Center
-       can modify these roles.
-      + Only users in IAM Identity Center can assume the roles that correspond to their assigned
-       permission sets. You can’t assign permission set access to IAM users, IAM
-       federated users, or service accounts.
-      + You can’t modify a role trust policy on these roles to allow access to [principals](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal") outside of IAM Identity Center.
-
-  For information about how to get temporary credentials for a role that you create in
-  IAM, see [Using temporary security credentials with the AWS CLI](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli") in the
-  _AWS Identity and Access Management User Guide_.
+  - IAM Identity Center owns and secures the roles that are created by permission sets. Only IAM Identity Center
+    can modify these roles.
+  - Only users in IAM Identity Center can assume the roles that correspond to their assigned
+    permission sets. You can’t assign permission set access to IAM users, IAM
+    federated users, or service accounts.
+  - You can’t modify a role trust policy on these roles to allow access to [principals](../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal "../../../IAM/latest/UserGuide/intro-structure.md#intro-structure-principal") outside of IAM Identity Center.
+    For information about how to get temporary credentials for a role that you create in
+    IAM, see [Using temporary security credentials with the AWS CLI](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md#using-temp-creds-sdk-cli") in the
+    _AWS Identity and Access Management User Guide_.
 
 - **You can set the session duration for permission
   sets** – After you sign in to the AWS access portal, the permission set to

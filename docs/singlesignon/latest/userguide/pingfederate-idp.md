@@ -178,34 +178,30 @@ Active Directory as an LDAP directory:
      **Filter** values as required.
 
 13. On the **Attribute Mapping** page, ensure the following, and
-    then click **Next**:
+then click **Next**:
 
-    1.  The **userName** field must be mapped to an
-        **Attribute** that is formatted as an email
-        (user@domain.com). It must also match the value that the user will use to log in
-        to Ping. This value in turn is populated in the SAML `nameId` claim
-        during federated authentication and used for matching to the user in IAM Identity Center. For
-        example, when using Active Directory, you may choose to specify the
-        `UserPrincipalName` as the **userName**.
-    2.  Other fields suffixed with a **\*** must be mapped to
-        attributes that are non-null for your users.
+    1. The **userName** field must be mapped to an
+     **Attribute** that is formatted as an email
+     (user@domain.com). It must also match the value that the user will use to log in
+     to Ping. This value in turn is populated in the SAML `nameId` claim
+     during federated authentication and used for matching to the user in IAM Identity Center. For
+     example, when using Active Directory, you may choose to specify the
+     `UserPrincipalName` as the **userName**.
+    2. Other fields suffixed with a **\*** must be mapped to
+     attributes that are non-null for your users.
 
 14. On the **Activation & Summary** page, set the
-    **Channel Status** to **Active** to cause the
-    synchronization to start immediately after the configuration is saved.
-15. Confirm that all configuration values on the page are correct, and click
-    **Done**.
-16. On the **Manage Channels** page, click
-    **Save**.
-17. At this point, provisioning starts. To confirm activity, you can view the
-    **provisioner.log** file, located by default in the
-    **pingfederate-<version>/pingfederate/log**
-    directory on your PingFederate server.
-18. To verify that users and groups have been successfully synchronized to IAM Identity Center,
-    return to the IAM Identity Center Console and choose **Users**. Synchronized
-    users from PingFederate appear on the **Users**
-    page. You can also view synchronized groups on the **Groups**
-    page.
+**Channel Status** to **Active** to cause the
+synchronization to start immediately after the configuration is saved. 15. Confirm that all configuration values on the page are correct, and click
+**Done**. 16. On the **Manage Channels** page, click
+**Save**. 17. At this point, provisioning starts. To confirm activity, you can view the
+**provisioner.log** file, located by default in the
+**pingfederate-<version>/pingfederate/log**
+directory on your PingFederate server. 18. To verify that users and groups have been successfully synchronized to IAM Identity Center,
+return to the IAM Identity Center Console and choose **Users**. Synchronized
+users from PingFederate appear on the **Users**
+page. You can also view synchronized groups on the **Groups**
+page.
 
 ## (Optional) Step 3: Configure user attributes in PingFederate for access control in IAM Identity Center
 
@@ -239,8 +235,9 @@ feature. For more information about how to do this, see [Enable and configure at
 
    1. In the text box, enter
       `https://aws.amazon.com/SAML/Attributes/AccessControl:`AttributeName``,
-replace `AttributeName`with the name of the attribute you
-are expecting in IAM Identity Center. For example,`https://aws.amazon.com/SAML/Attributes/AccessControl:**Department**`.
+      replace `AttributeName` with the name of the attribute you
+      are expecting in IAM Identity Center. For example,
+      `https://aws.amazon.com/SAML/Attributes/AccessControl:**Department**`.
    2. For **Attribute Name Format**, choose
       **urn:oasis:names:tc:SAML:2.0:attrname-format:uri**.
    3. Choose **Add**, and then choose

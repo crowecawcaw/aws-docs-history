@@ -231,37 +231,36 @@ you will configure auto provisioning in Google Workspace.
 
 ## Step 5: Google Workspace: Configure auto provisioning
 
-1.  Return to the Google Admin console and your AWS IAM Identity Center
-    application which can be found under **Apps** and
-    **Web and Mobile apps**. In the **Auto
-    provisioning** section, choose **Configure auto
-    provisioning**.
-2.  In the previous procedure, you copied the **Access
-    token** value in IAM Identity Center console. Paste that value into the
-    **Access token** field and choose
-    **Continue**. Also, in the previous procedure, you
-    copied the **SCIM endpoint** value in IAM Identity Center console. Paste
-    that value into the **Endpoint URL** field and choose
-    **Continue**.
-3.  Verify that all mandatory IAM Identity Center attributes (those marked with \*) are
-    mapped to Google Cloud Directory attributes. If not, choose
-    the down arrow and map to the appropriate attribute. Choose
-    **Continue**.
-4.  In **Provisioning scope** section, you can choose a group
-    with your Google Workspace directory to provide access to the Amazon Web Services app. Skip this
-    step and select **Continue**.
-5.  In **Deprovisioning** section, you can choose how to
-    respond to different events that remove access from a user. For each
-    situation you can specify the amount of time before deprovisioning begins
-    to:
+1. Return to the Google Admin console and your AWS IAM Identity Center
+   application which can be found under **Apps** and
+   **Web and Mobile apps**. In the **Auto
+   provisioning** section, choose **Configure auto
+   provisioning**.
+2. In the previous procedure, you copied the **Access
+   token** value in IAM Identity Center console. Paste that value into the
+   **Access token** field and choose
+   **Continue**. Also, in the previous procedure, you
+   copied the **SCIM endpoint** value in IAM Identity Center console. Paste
+   that value into the **Endpoint URL** field and choose
+   **Continue**.
+3. Verify that all mandatory IAM Identity Center attributes (those marked with \*) are
+   mapped to Google Cloud Directory attributes. If not, choose
+   the down arrow and map to the appropriate attribute. Choose
+   **Continue**.
+4. In **Provisioning scope** section, you can choose a group
+   with your Google Workspace directory to provide access to the Amazon Web Services app. Skip this
+   step and select **Continue**.
+5. In **Deprovisioning** section, you can choose how to
+   respond to different events that remove access from a user. For each
+   situation you can specify the amount of time before deprovisioning begins
+   to:
 
-        * within 24 hours
-        * after one day
-        * after seven days
-        * after 30 days
-
-    Each situation has a time setting for when to suspend an account's access
-    and when to delete the account.
+   - within 24 hours
+   - after one day
+   - after seven days
+   - after 30 days
+     Each situation has a time setting for when to suspend an account's access
+     and when to delete the account.
 
 ###### Tip
 
@@ -332,80 +331,79 @@ information, see [Organization and account instances of IAM Identity Center](ide
 
 ### Step 1: IAM Identity Center: Grant Google Workspace users access to accounts
 
-1.  Return to the **IAM Identity Center** console. In the IAM Identity Center navigation
-    pane, under **Multi-account permissions**, choose
-    **AWS accounts**.
-2.  On the **AWS accounts** page the
-    **Organizational structure** displays your
-    organizational root with your accounts underneath it in the hierarchy.
-    Select the checkbox for your management account, then select **Assign
-    users or groups**.
-3.  The **Assign users and groups** workflow displays. It
-    consists of three steps:
+1. Return to the **IAM Identity Center** console. In the IAM Identity Center navigation
+   pane, under **Multi-account permissions**, choose
+   **AWS accounts**.
+2. On the **AWS accounts** page the
+   **Organizational structure** displays your
+   organizational root with your accounts underneath it in the hierarchy.
+   Select the checkbox for your management account, then select **Assign
+   users or groups**.
+3. The **Assign users and groups** workflow displays. It
+   consists of three steps:
 
-    1.  For **Step 1: Select users and groups** choose
-        the user that will be performing the administrator job function.
-        Then choose **Next**.
-    2.  For **Step 2: Select permission sets** choose
-        **Create permission set** to open a new tab
-        that steps you through the three sub-steps involved in creating a
-        permission set.
+   1. For **Step 1: Select users and groups** choose
+      the user that will be performing the administrator job function.
+      Then choose **Next**.
+   2. For **Step 2: Select permission sets** choose
+      **Create permission set** to open a new tab
+      that steps you through the three sub-steps involved in creating a
+      permission set.
 
-        1.  For **Step 1: Select permission set
-            type** complete the following:
+      1. For **Step 1: Select permission set
+         type** complete the following:
 
-                * In **Permission set type**,
-                 choose **Predefined permission
-                 set**.
-                * In **Policy for predefined permission
-                 set**, choose
-                 **AdministratorAccess**.
+         - In **Permission set type**,
+           choose **Predefined permission
+           set**.
+         - In **Policy for predefined permission
+           set**, choose
+           **AdministratorAccess**.
+           Choose **Next**.
 
-            Choose **Next**.
+      2. For **Step 2: Specify permission set
+         details**, keep the default settings, and
+         choose **Next**.
 
-        2.  For **Step 2: Specify permission set
-            details**, keep the default settings, and
-            choose **Next**.
+      The default settings create a permission set named
+      `AdministratorAccess` with
+      session duration set to one hour. 3. For **Step 3: Review and create**, verify
+      that the **Permission set type** uses the
+      AWS managed policy
+      **AdministratorAccess**. Choose
+      **Create**. On the **Permission
+      sets** page a notification appears informing
+      you that the permission set was created. You can close this
+      tab in your web browser now. 4. On the **Assign users and groups**
+      browser tab, you are still on **Step 2: Select
+      permission sets** from which you started the
+      create permission set workflow. 5. In the **Permissions sets** area, choose
+      the **Refresh** button. The
+      `AdministratorAccess`
+      permission set you created appears in the list. Select the
+      checkbox for that permission set and then choose
+      **Next**.
 
-        The default settings create a permission set named
-        `AdministratorAccess` with
-        session duration set to one hour. 3. For **Step 3: Review and create**, verify
-        that the **Permission set type** uses the
-        AWS managed policy
-        **AdministratorAccess**. Choose
-        **Create**. On the **Permission
-        sets** page a notification appears informing
-        you that the permission set was created. You can close this
-        tab in your web browser now. 4. On the **Assign users and groups**
-        browser tab, you are still on **Step 2: Select
-        permission sets** from which you started the
-        create permission set workflow. 5. In the **Permissions sets** area, choose
-        the **Refresh** button. The
-        `AdministratorAccess`
-        permission set you created appears in the list. Select the
-        checkbox for that permission set and then choose
-        **Next**.
+   3. For **Step 3: Review and submit** review the
+      selected user and permission set, then choose
+      **Submit**.
 
-    3.  For **Step 3: Review and submit** review the
-        selected user and permission set, then choose
-        **Submit**.
+   The page updates with a message that your AWS account is being
+   configured. Wait until the process completes.
 
-    The page updates with a message that your AWS account is being
-    configured. Wait until the process completes.
+   You are returned to the AWS accounts page. A notification
+   message informs you that your AWS account has been reprovisioned
+   and the updated permission set applied. When the user sign in they
+   will have the option of choosing the
+   `AdministratorAccess` role.
 
-    You are returned to the AWS accounts page. A notification
-    message informs you that your AWS account has been reprovisioned
-    and the updated permission set applied. When the user sign in they
-    will have the option of choosing the
-    `AdministratorAccess` role.
+   ###### Note
 
-    ###### Note
-
-    SCIM automatic synchronization from Google Workspace only supports
-    provisioning users. Automatic group provisioning is not
-    supported at this time. You cannot create groups for your Google Workspace
-    users using the AWS Management Console. After provisioning users, you can
-    create groups using AWS CLI Identity Store [create-group](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/create-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/create-group.html") command or IAM API [CreateGroup](../../../IAM/latest/APIReference/API_CreateGroup.md "../../../IAM/latest/APIReference/API_CreateGroup.md").
+   SCIM automatic synchronization from Google Workspace only supports
+   provisioning users. Automatic group provisioning is not
+   supported at this time. You cannot create groups for your Google Workspace
+   users using the AWS Management Console. After provisioning users, you can
+   create groups using AWS CLI Identity Store [create-group](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/create-group.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/create-group.html") command or IAM API [CreateGroup](../../../IAM/latest/APIReference/API_CreateGroup.md "../../../IAM/latest/APIReference/API_CreateGroup.md").
 
 ### Step 2: Google Workspace: Confirm Google Workspace users access to AWS resources
 

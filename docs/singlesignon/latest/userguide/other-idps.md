@@ -27,15 +27,14 @@ IAM Identity Center implements the following standards-based protocols for ident
 
 - **SCIM**
 
-      + The IAM Identity Center SCIM implementation is based on SCIM RFCs 7642 ([https://tools.ietf.org/html/rfc7642](https://tools.ietf.org/html/rfc7642 "https://tools.ietf.org/html/rfc7642")), 7643 ([https://tools.ietf.org/html/rfc7643](https://tools.ietf.org/html/rfc7643 "https://tools.ietf.org/html/rfc7643")), and 7644 ([https://tools.ietf.org/html/rfc7644](https://tools.ietf.org/html/rfc7644 "https://tools.ietf.org/html/rfc7644")), and the interoperability requirements
-       laid out in the March 2020 draft of the FastFed Basic SCIM Profile 1.0 ([https://openid.net/specs/fastfed-scim-1\_0-02.html#rfc.section.4](https://openid.net/specs/fastfed-scim-1_0-02.html#rfc.section.4 "https://openid.net/specs/fastfed-scim-1_0-02.html#rfc.section.4")). Any
-       differences between these documents and the current implementation in IAM Identity Center are
-       described in the [Supported API operations](../developerguide/supported-apis.md "../developerguide/supported-apis.md") section of the *IAM Identity Center SCIM Implementation
-       Developer Guide*.
-
-  IdPs that do not conform to the standards and considerations mentioned above are not
-  supported. Please contact your IdP for questions or clarifications regarding the conformance
-  of their products to these standards and considerations.
+  - The IAM Identity Center SCIM implementation is based on SCIM RFCs 7642 ([https://tools.ietf.org/html/rfc7642](https://tools.ietf.org/html/rfc7642 "https://tools.ietf.org/html/rfc7642")), 7643 ([https://tools.ietf.org/html/rfc7643](https://tools.ietf.org/html/rfc7643 "https://tools.ietf.org/html/rfc7643")), and 7644 ([https://tools.ietf.org/html/rfc7644](https://tools.ietf.org/html/rfc7644 "https://tools.ietf.org/html/rfc7644")), and the interoperability requirements
+    laid out in the March 2020 draft of the FastFed Basic SCIM Profile 1.0 ([https://openid.net/specs/fastfed-scim-1\_0-02.html#rfc.section.4](https://openid.net/specs/fastfed-scim-1_0-02.html#rfc.section.4 "https://openid.net/specs/fastfed-scim-1_0-02.html#rfc.section.4")). Any
+    differences between these documents and the current implementation in IAM Identity Center are
+    described in the [Supported API operations](../developerguide/supported-apis.md "../developerguide/supported-apis.md") section of the _IAM Identity Center SCIM Implementation
+    Developer Guide_.
+    IdPs that do not conform to the standards and considerations mentioned above are not
+    supported. Please contact your IdP for questions or clarifications regarding the conformance
+    of their products to these standards and considerations.
 
 If you have any issues connecting your IdP to IAM Identity Center, we recommend that you check:
 

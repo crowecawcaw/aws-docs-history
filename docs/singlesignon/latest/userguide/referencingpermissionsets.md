@@ -84,7 +84,7 @@ renaming risk. The administrative group will always have access without the
 risk of privilege escalation.
 
 - For Amazon EKS clusters that use `aws-auth
-ConfigMap` and AWS KMS: Include a role created in
+ ConfigMap` and AWS KMS: Include a role created in
   IAM.
 
 If you reference role ARNs for permission sets in an `aws-auth

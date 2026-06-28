@@ -18,7 +18,7 @@ after November 15, 2023 use [newer API
 actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") for authorization in the IAM Identity Center console.
 
 | Console operation name used before November 15, 2023 | API action used after November 15, 2023 |
-| ---------------------------------------------------- | --------------------------------------- | ------------------------------------------ | ----------------- |
+| ---------------------------------------------------- | --------------------------------------- |
 | AssociateProfile                                     | CreateApplicationAssignment             |
 | CreateManagedApplicationInstance                     | <br>CreateApplicationInstance           | CreateApplication                          |
 | CreateManagedApplicationInstance                     | PutApplicationAuthenticationMethod      |
@@ -41,7 +41,7 @@ as long as there is no explicit deny on any of the actions. Instances created af
 October 15, 2020 use [newer API actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") for authorization in the IAM Identity Center console.
 
 | Operation name                                   | API actions used before October 15, 2020 | API actions used after October 15, 2020 |
-| ------------------------------------------------ | ---------------------------------------- | --------------------------------------- | --------------------------------------- | ----------------------- |
+| ------------------------------------------------ | ---------------------------------------- | --------------------------------------- |
 | AssociateProfile                                 | AssociateProfile                         | CreateAccountAssignment                 |
 | AttachManagedPolicy                              | PutPermissionsPolicy                     | AttachManagedPolicyToPermissionSet      |
 | CreatePermissionSet                              | CreatePermissionSet                      | CreatePermissionSet                     |

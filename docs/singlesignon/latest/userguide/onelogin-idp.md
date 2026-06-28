@@ -150,8 +150,9 @@ feature. For more information about how to do this, see [Enable and configure at
    1. Choose **+**.
    2. In **Field name**, enter
       `https://aws.amazon.com/SAML/Attributes/AccessControl:`AttributeName``,
-and replace `AttributeName`with the name of the attribute
-you are expecting in IAM Identity Center. For example,`https://aws.amazon.com/SAML/Attributes/AccessControl:**Department**`.
+      and replace `AttributeName` with the name of the attribute
+      you are expecting in IAM Identity Center. For example,
+      `https://aws.amazon.com/SAML/Attributes/AccessControl:**Department**`.
    3. Under **Flags**, check the box next to **Include in
       SAML assertion**, and choose **Save**.
    4. In the **Value** field, use the drop-down list to choose the

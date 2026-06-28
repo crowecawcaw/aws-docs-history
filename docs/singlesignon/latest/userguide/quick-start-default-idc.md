@@ -94,7 +94,7 @@ A new browser tab opens to display the **Create group** page.
      user** browser tab
 
 5. In the **Groups** area, select the **Refresh**
-   button. The `Admin team` group appears in the list.
+button. The `Admin team` group appears in the list.
 
 Select the checkbox next to `Admin team`, and then choose
 **Next**. 6. On the **Review and add user** page, confirm the following:
@@ -114,62 +114,61 @@ resources.
 
 Follow these steps only if you enabled an [organization instance of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
 
-1.  In the IAM Identity Center navigation pane, under **Multi-account permissions**,
-    choose **AWS accounts**.
-2.  On the **AWS accounts** page the **Organizational
-    structure** displays your organization with your accounts underneath it in
-    the hierarchy. Select the checkbox for your management account, then select
-    **Assign users or groups**.
-3.  The **Assign users and groups** workflow displays. It consists of
-    three steps:
+1. In the IAM Identity Center navigation pane, under **Multi-account permissions**,
+   choose **AWS accounts**.
+2. On the **AWS accounts** page the **Organizational
+   structure** displays your organization with your accounts underneath it in
+   the hierarchy. Select the checkbox for your management account, then select
+   **Assign users or groups**.
+3. The **Assign users and groups** workflow displays. It consists of
+   three steps:
 
-    1.  For **Step 1: Select users and groups** choose the
-        `Admin team` group you created. Then choose
-        **Next**.
-    2.  For **Step 2: Select permission sets** choose **Create
-        permission set** to open a new tab that steps you through the three
-        sub-steps involved in creating a permission set.
+   1. For **Step 1: Select users and groups** choose the
+      `Admin team` group you created. Then choose
+      **Next**.
+   2. For **Step 2: Select permission sets** choose **Create
+      permission set** to open a new tab that steps you through the three
+      sub-steps involved in creating a permission set.
 
-        1.  For **Step 1: Select permission set type** complete the
-            following:
+      1. For **Step 1: Select permission set type** complete the
+         following:
 
-                * In **Permission set type**, choose **Predefined
-                 permission set**.
-                * In **Policy for predefined permission set**, choose
-                 **AdministratorAccess**.
+         - In **Permission set type**, choose **Predefined
+           permission set**.
+         - In **Policy for predefined permission set**, choose
+           **AdministratorAccess**.
+           Choose **Next**.
 
-            Choose **Next**.
+      2. For **Step 2: Specify permission set details**, keep the
+         default settings, and choose **Next**.
 
-        2.  For **Step 2: Specify permission set details**, keep the
-            default settings, and choose **Next**.
+      The default settings create a permission set named
+      `AdministratorAccess` with session duration set to
+      one hour. You can change the name of the permission set by entering a new name
+      in the **Permission set name** field. 3. For **Step 3: Review and create**, verify that the
+      **Permission set type** uses the AWS managed policy
+      **AdministratorAccess**. Choose **Create**.
+      On the **Permission sets** page a notification appears
+      informing you that the permission set was created. You can close this tab in
+      your web browser now.On the **Assign users and groups** browser tab, you are still
+      on **Step 2: Select permission sets** from which you started the
+      create permission set workflow.
 
-        The default settings create a permission set named
-        `AdministratorAccess` with session duration set to
-        one hour. You can change the name of the permission set by entering a new name
-        in the **Permission set name** field. 3. For **Step 3: Review and create**, verify that the
-        **Permission set type** uses the AWS managed policy
-        **AdministratorAccess**. Choose **Create**.
-        On the **Permission sets** page a notification appears
-        informing you that the permission set was created. You can close this tab in
-        your web browser now.On the **Assign users and groups** browser tab, you are still
-        on **Step 2: Select permission sets** from which you started the
-        create permission set workflow.
+   In the **Permissions sets** area, choose the
+   **Refresh** button. The
+   `AdministratorAccess` permission set you created appears
+   in the list. Select the check box for that permission set and then choose
+   **Next**. 3. On the **Step 3: Review and submit assignments** page, confirm
+   that the `Admin team` group is selected and that the
+   `AdministratorAccess` permission set is selected, then
+   choose **Submit**.
 
-    In the **Permissions sets** area, choose the
-    **Refresh** button. The
-    `AdministratorAccess` permission set you created appears
-    in the list. Select the check box for that permission set and then choose
-    **Next**. 3. On the **Step 3: Review and submit assignments** page, confirm
-    that the `Admin team` group is selected and that the
-    `AdministratorAccess` permission set is selected, then
-    choose **Submit**.
+   The page updates with a message that your AWS account is being configured.
+   Wait until the process completes.
 
-    The page updates with a message that your AWS account is being configured.
-    Wait until the process completes.
-
-    You are returned to the AWS accounts page. A notification message informs you
-    that your AWS account has been reprovisioned and the updated permission set
-    applied.
+   You are returned to the AWS accounts page. A notification message informs you
+   that your AWS account has been reprovisioned and the updated permission set
+   applied.
 
 ###### Congratulations!
 
@@ -218,8 +217,8 @@ Each permission set has two management methods you can use, either
      information, see [Getting IAM Identity Center user credentials for the AWS CLI or AWS SDKs](howtogetcredentials.md "howtogetcredentials.md").
 
 4. Choose the **Role** link to sign in to the AWS Console Home.
-   You are signed in and navigated to the AWS Console Home page. Explore the console and
-   confirm that you have the access you expected.
+You are signed in and navigated to the AWS Console Home page. Explore the console and
+confirm that you have the access you expected.
 
 Now that you've created an administrative user in IAM Identity Center, you can:
 

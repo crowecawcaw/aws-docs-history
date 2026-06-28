@@ -94,14 +94,13 @@ keep the users and groups in your IAM Identity Center identity store updated:
   either of the following identity sources to your IAM Identity Center identity
   store:
 
-      + **Active Directory** – For
-       more information, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
-      + **External identity provider**
-       – For more information, see [External identity providers](manage-your-identity-source-idp.md "manage-your-identity-source-idp.md").
-
-  If you choose this provisioning method, you continue managing your
-  users and groups from within your identity source, and those changes are
-  synchronized to the IAM Identity Center identity store.
+  - **Active Directory** – For
+    more information, see [Microsoft AD directory](manage-your-identity-source-ad.md "manage-your-identity-source-ad.md").
+  - **External identity provider**
+    – For more information, see [External identity providers](manage-your-identity-source-idp.md "manage-your-identity-source-idp.md").
+    If you choose this provisioning method, you continue managing your
+    users and groups from within your identity source, and those changes are
+    synchronized to the IAM Identity Center identity store.
 
 Whichever identity source you choose, IAM Identity Center can share the user and group
 information with AWS managed applications. That way, you can connect an

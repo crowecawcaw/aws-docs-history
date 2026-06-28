@@ -280,7 +280,7 @@ a user in IAM Identity Center that mirrors the core attributes from Nikki Wolfs 
    4. **Last name** – Enter
       **`Wolf`**
    5. **Display name** – Enter **`Nikki
-Wolf`**
+  Wolf`**
 
 3. Choose **Next** twice, then choose **Add
    user**.
@@ -461,7 +461,7 @@ privileges to manage Regions from the **Accounts** page.
    with any accounts where you've defined permission sets appear.
 2. Choose the account name (for example, `Sandbox`) where
    you applied the permission set (see **`Step
-2.3`**). This will expand the list of permission sets that Nikki
+ 2.3`**). This will expand the list of permission sets that Nikki
    can choose from to manage her account.
 3. Next to **RegionalAdmin** choose **Management
    console** to assume the role you defined in the
@@ -528,7 +528,7 @@ attributes were synced successfully to IAM Identity Center.
    - **Last name** - Enter
      **`Roe`**
    - **Job title** - Enter **`Marketing
-Lead`**
+  Lead`**
    - **Department** - Enter
      **`Sales`**
    - **Employee ID** - Enter
@@ -613,30 +613,29 @@ occurred**
 In this section, you will verify that Richard's user was successfully provisioned
 and that all attributes are displayed in IAM Identity Center.
 
-1.  In the [IAM Identity Center
-    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon"), choose **Users**.
-2.  On the **Users** page, you should see your
-    **RichRoe** user displayed. Notice that in the **Created
-    by** column the value is set to **SCIM**.
-3.  Choose **RichRoe**, under **Profile**, verify
-    that the following attributes were copied from Microsoft Entra ID.
+1. In the [IAM Identity Center
+   console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon"), choose **Users**.
+2. On the **Users** page, you should see your
+   **RichRoe** user displayed. Notice that in the **Created
+   by** column the value is set to **SCIM**.
+3. Choose **RichRoe**, under **Profile**, verify
+   that the following attributes were copied from Microsoft Entra ID.
 
-        * **First name** -
-         **`Richard`**
-        * **Last name** -
-         **`Roe`**
-        * **Department** -
-         **`Sales`**
-        * **Title** - **`Marketing
-         Lead`**
-        * **Employee number** -
-         **`12345`**
-
-    Now that Richard's user has been created in IAM Identity Center, you can assign it to any
-    permission set so you can control the level of access he has to your AWS
-    resources. For example, you could assign **RichRoe** to the
-    `RegionalAdmin` permission set you used earlier to grant
-    Nikki the permissions to manage Regions (see **`Step
+   - **First name** -
+     **`Richard`**
+   - **Last name** -
+     **`Roe`**
+   - **Department** -
+     **`Sales`**
+   - **Title** - **`Marketing
+  Lead`**
+   - **Employee number** -
+     **`12345`**
+     Now that Richard's user has been created in IAM Identity Center, you can assign it to any
+     permission set so you can control the level of access he has to your AWS
+     resources. For example, you could assign **RichRoe** to the
+     `RegionalAdmin` permission set you used earlier to grant
+     Nikki the permissions to manage Regions (see **`Step
  2.3`**) and then test his level of access using **`Step 3.5`**.
 
 ###### Congratulations!
@@ -678,8 +677,9 @@ feature. For more information about how to do this, see [Enable and configure at
    1. Choose **Add new claim**
    2. For **Name**, enter
       `AccessControl:`AttributeName``. Replace
-`AttributeName`with the name of the attribute you
-are expecting in IAM Identity Center. For example,`AccessControl:**Department**`.
+      `AttributeName` with the name of the attribute you
+      are expecting in IAM Identity Center. For example,
+      `AccessControl:**Department**`.
    3. For **Namespace**, enter
       **`https://aws.amazon.com/SAML/Attributes`**.
    4. For **Source**, choose **Attribute**.
@@ -729,61 +729,60 @@ information, see [Organization and account instances of IAM Identity Center](ide
 
 ### Step 1: IAM Identity Center: Grant Microsoft Entra ID users access to accounts
 
-1.  Return to the **IAM Identity Center** console. In the IAM Identity Center navigation pane,
-    under **Multi-account permissions**, choose
-    **AWS accounts**.
-2.  On the **AWS accounts** page the **Organizational
-    structure** displays your organizational root with your accounts underneath
-    it in the hierarchy. Select the checkbox for your management account, then select
-    **Assign users or groups**.
-3.  The **Assign users and groups** workflow displays. It consists of
-    three steps:
+1. Return to the **IAM Identity Center** console. In the IAM Identity Center navigation pane,
+   under **Multi-account permissions**, choose
+   **AWS accounts**.
+2. On the **AWS accounts** page the **Organizational
+   structure** displays your organizational root with your accounts underneath
+   it in the hierarchy. Select the checkbox for your management account, then select
+   **Assign users or groups**.
+3. The **Assign users and groups** workflow displays. It consists of
+   three steps:
 
-    1.  For **Step 1: Select users and groups** choose the user that
-        will be performing the administrator job function. Then choose
-        **Next**.
-    2.  For **Step 2: Select permission sets** choose **Create
-        permission set** to open a new tab that steps you through the three
-        sub-steps involved in creating a permission set.
+   1. For **Step 1: Select users and groups** choose the user that
+      will be performing the administrator job function. Then choose
+      **Next**.
+   2. For **Step 2: Select permission sets** choose **Create
+      permission set** to open a new tab that steps you through the three
+      sub-steps involved in creating a permission set.
 
-        1.  For **Step 1: Select permission set type** complete the
-            following:
+      1. For **Step 1: Select permission set type** complete the
+         following:
 
-                * In **Permission set type**, choose **Predefined
-                 permission set**.
-                * In **Policy for predefined permission set**, choose
-                 **AdministratorAccess**.
+         - In **Permission set type**, choose **Predefined
+           permission set**.
+         - In **Policy for predefined permission set**, choose
+           **AdministratorAccess**.
+           Choose **Next**.
 
-            Choose **Next**.
+      2. For **Step 2: Specify permission set details**, keep the
+         default settings, and choose **Next**.
 
-        2.  For **Step 2: Specify permission set details**, keep the
-            default settings, and choose **Next**.
+      The default settings create a permission set named
+      `AdministratorAccess` with session duration set to
+      one hour. 3. For **Step 3: Review and create**, verify that the
+      **Permission set type** uses the AWS managed policy
+      **AdministratorAccess**. Choose **Create**.
+      On the **Permission sets** page a notification appears
+      informing you that the permission set was created. You can close this tab in
+      your web browser now. 4. On the **Assign users and groups** browser tab, you are
+      still on **Step 2: Select permission sets** from which you
+      started the create permission set workflow. 5. In the **Permissions sets** area, choose the
+      **Refresh** button. The
+      `AdministratorAccess` permission set you created
+      appears in the list. Select the checkbox for that permission set and then choose
+      **Next**.
 
-        The default settings create a permission set named
-        `AdministratorAccess` with session duration set to
-        one hour. 3. For **Step 3: Review and create**, verify that the
-        **Permission set type** uses the AWS managed policy
-        **AdministratorAccess**. Choose **Create**.
-        On the **Permission sets** page a notification appears
-        informing you that the permission set was created. You can close this tab in
-        your web browser now. 4. On the **Assign users and groups** browser tab, you are
-        still on **Step 2: Select permission sets** from which you
-        started the create permission set workflow. 5. In the **Permissions sets** area, choose the
-        **Refresh** button. The
-        `AdministratorAccess` permission set you created
-        appears in the list. Select the checkbox for that permission set and then choose
-        **Next**.
+   3. For **Step 3: Review and submit** review the selected user and
+      permission set, then choose **Submit**.
 
-    3.  For **Step 3: Review and submit** review the selected user and
-        permission set, then choose **Submit**.
+   The page updates with a message that your AWS account is being configured.
+   Wait until the process completes.
 
-    The page updates with a message that your AWS account is being configured.
-    Wait until the process completes.
-
-    You are returned to the AWS accounts page. A notification message informs you
-    that your AWS account has been reprovisioned and the updated permission set
-    applied. When the user sign in they will have the option of choosing the
-    `AdministratorAccess` role.
+   You are returned to the AWS accounts page. A notification message informs you
+   that your AWS account has been reprovisioned and the updated permission set
+   applied. When the user sign in they will have the option of choosing the
+   `AdministratorAccess` role.
 
 ### Step 2: Microsoft Entra ID: Confirm Microsoft Entra ID users access to AWS resources
 

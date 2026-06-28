@@ -47,10 +47,8 @@ following:
      do not need to configure access levels on a per-application
      basis.
 
-10. Choose **Next**.
-11. On the **Review configuration** page, review the
-    choices that you made. To make changes, choose the configuration section
-    that you want, choose **Edit access**, and then make
-    the required changes.
-12. After you are finished, choose **Trust
-    applications**.
+10. Choose **Next**. 11. On the **Review configuration** page, review the
+choices that you made. To make changes, choose the configuration section
+that you want, choose **Edit access**, and then make
+the required changes. 12. After you are finished, choose **Trust
+applications**.

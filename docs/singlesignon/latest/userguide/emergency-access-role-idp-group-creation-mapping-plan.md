@@ -7,13 +7,13 @@ policies enable the emergency access account roles to access the individual work
 The individual workload account roles also have permissions policies for what the role can do in
 the account. The permissions policies can be [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") or [customer managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#customer-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#customer-managed-policies").
 
-| Account                  | Roles to create                                                                                                | Trust policy              | Permissions policy                                       |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------- | ------------------------- | -------------------------------------------------------- |
-| Account 1                | EmergencyAccess_RO                                                                                             | EmergencyAccess_Role1_RO  | arn:aws:iam::aws:policy/ReadOnlyAccess                   |
-| Account 1                | EmergencyAccess_Ops                                                                                            | EmergencyAccess_Role1_Ops | arn:aws:iam::aws:policy/job-function/SystemAdministrator |
-| Account 2                | EmergencyAccess_RO                                                                                             | EmergencyAccess_Role2_RO  | arn:aws:iam::aws:policy/ReadOnlyAccess                   |
-| Account 2                | EmergencyAccess_Ops                                                                                            | EmergencyAccess_Role2_Ops | arn:aws:iam::aws:policy/job-function/SystemAdministrator |
-| Emergency access account | EmergencyAccess_Role1_RO<br>EmergencyAccess_Role1_Ops<br>EmergencyAccess_Role2_RO<br>EmergencyAccess_Role2_Ops | IdP                       | AssumeRole for role resource in account                  |
+| Account                  | Roles to create                                                                                                        | Trust policy                | Permissions policy                                       |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------------------------------- |
+| Account 1                | EmergencyAccess\_RO                                                                                                    | EmergencyAccess\_Role1\_RO  | arn:aws:iam::aws:policy/ReadOnlyAccess                   |
+| Account 1                | EmergencyAccess\_Ops                                                                                                   | EmergencyAccess\_Role1\_Ops | arn:aws:iam::aws:policy/job-function/SystemAdministrator |
+| Account 2                | EmergencyAccess\_RO                                                                                                    | EmergencyAccess\_Role2\_RO  | arn:aws:iam::aws:policy/ReadOnlyAccess                   |
+| Account 2                | EmergencyAccess\_Ops                                                                                                   | EmergencyAccess\_Role2\_Ops | arn:aws:iam::aws:policy/job-function/SystemAdministrator |
+| Emergency access account | EmergencyAccess\_Role1\_RO<br>EmergencyAccess\_Role1\_Ops<br>EmergencyAccess\_Role2\_RO<br>EmergencyAccess\_Role2\_Ops | IdP                         | AssumeRole for role resource in account                  |
 
 In this mapping plan, the emergency access account contains two read-only roles and
 two operations roles. These roles trust your IdP to authenticate and authorize your selected
