@@ -51,7 +51,7 @@ MySQL provides control over how server RAM is allocated. Some of the most import
 | `optimizer_trace_max_mem_size`             | Buffer for optimizer traces.                                                                   |
 | `binlog_cache_size`                        | The size of the cache holding changes to the binary log during a transaction.                  |
 | `host_cache_size`                          | Buffer area to store data on connections.                                                      |
-| `innodb_ft_cache_size`                     | Very similar to innodb_buffer_pool_size but only for data related to `FULL_TEXT` indexes.      |
+| `innodb_ft_cache_size`                     | Very similar to innodb\_buffer\_pool\_size but only for data related to `FULL_TEXT` indexes.   |
 | `stored_program_cache`                     | Cached stored routines per connection.                                                         |
 | `sort_buffer_size`                         | Size of sort buffers used to sort data during creation of an InnoDB index.                     |
 | Total memory available for a MySQL cluster | Controlled by selecting the `DB Instance Class` during instance creation:<br>DB Instance Class |

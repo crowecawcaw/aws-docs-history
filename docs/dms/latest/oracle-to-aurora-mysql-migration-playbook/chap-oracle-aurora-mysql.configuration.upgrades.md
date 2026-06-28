@@ -102,7 +102,12 @@ When enabled, the instance will be automatically upgraded during the scheduled m
 
 To upgrade your cluster to a compatible cluster, you can do so by running an upgrade process on the cluster itself. This kind of upgrade is an in-place upgrade, in contrast to upgrades that you do by creating a new cluster. The upgrade is relatively fast because it doesn’t require copying all your data to a new cluster volume. In-place upgrade preserves the endpoints and set of DB instances for your cluster.
 
-To verify application compatibility, performance and maintenance procedures for the upgraded cluster, you can perform a simulation of the upgrade by doing the following: \* Clone a cluster. \* Perform an in-place upgrade of the cloned cluster. \* Test applications, performance and so on, using the cloned cluster. \* Resolve any issues, adjust your upgrade plans to account for them. \* Once all the testing looks good, you can perform the in-place upgrade for your production cluster.
+To verify application compatibility, performance and maintenance procedures for the upgraded cluster, you can perform a simulation of the upgrade by doing the following:
+\* Clone a cluster.
+\* Perform an in-place upgrade of the cloned cluster.
+\* Test applications, performance and so on, using the cloned cluster.
+\* Resolve any issues, adjust your upgrade plans to account for them.
+\* Once all the testing looks good, you can perform the in-place upgrade for your production cluster.
 
 For major upgrades, AWS recommends the following flow:
 

@@ -1,6 +1,6 @@
-# Oracle DBMS_SCHEDULER and MySQL events
+# Oracle DBMS\_SCHEDULER and MySQL events
 
-With AWS DMS, you can schedule and automate database tasks using Oracle DBMS_SCHEDULER and MySQL events. Oracle DBMS_SCHEDULER is an enterprise job scheduler that provides a way to schedule and automate recurring database tasks. MySQL events are similar, allowing you to schedule statements or stored procedures to execute at a specific time or interval.
+With AWS DMS, you can schedule and automate database tasks using Oracle DBMS\_SCHEDULER and MySQL events. Oracle DBMS\_SCHEDULER is an enterprise job scheduler that provides a way to schedule and automate recurring database tasks. MySQL events are similar, allowing you to schedule statements or stored procedures to execute at a specific time or interval.
 
 | Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences               |
 | -------------------------------- | ---------------------------------- | ------------------------- | ----------------------------- |
@@ -8,7 +8,7 @@ With AWS DMS, you can schedule and automate database tasks using Oracle DBMS_SCH
 
 ## Oracle usage
 
-The DBMS_SCHEDULER package contains a collection of scheduling functions the can be called from PL/DSQL.
+The DBMS\_SCHEDULER package contains a collection of scheduling functions the can be called from PL/DSQL.
 
 There are two main objects involved with creating scheduling jobs: a program and schedule. A program defines what to run, and a schedule defines when to run the program. The scheduler can run a database program unit such as a procedure or an external executable such as files system shell scripts.
 

@@ -235,7 +235,7 @@ General syntax for the encryption functions is shown following:
 [A|D]ES_DECRYPT(<encrypted string>, <key string> [,<initialization vector>])
 ```
 
-For more information, see [AES_ENCRYPT](https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_aes-encrypt "https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_aes-encrypt") in the _MySQL documentation_.
+For more information, see [AES\_ENCRYPT](https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_aes-encrypt "https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_aes-encrypt") in the _MySQL documentation_.
 
 It is highly recommended to use the optional initialization vector to circumvent whole value replacement attacks. When encrypting column data, it is common to use an immutable key as the initialization vector. With this approach, decryption fails if a whole value moves to another row.
 

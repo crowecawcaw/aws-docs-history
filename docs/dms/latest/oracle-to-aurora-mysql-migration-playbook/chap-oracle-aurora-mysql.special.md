@@ -7,7 +7,7 @@ This section provides reference pages for special Oracle features and MySQL curr
 - [Oracle Advanced Queuing and MySQL integration with Lambda](chap-oracle-aurora-mysql.special.lambda.md "chap-oracle-aurora-mysql.special.lambda.md")
 - [Oracle and MySQL character sets](chap-oracle-aurora-mysql.special.charset.md "chap-oracle-aurora-mysql.special.charset.md")
 - [Oracle database links and MySQL fully-qualified table names](chap-oracle-aurora-mysql.special.dblinks.md "chap-oracle-aurora-mysql.special.dblinks.md")
-- [Oracle DBMS_SCHEDULER and MySQL events](chap-oracle-aurora-mysql.special.scheduler.md "chap-oracle-aurora-mysql.special.scheduler.md")
+- [Oracle DBMS\_SCHEDULER and MySQL events](chap-oracle-aurora-mysql.special.scheduler.md "chap-oracle-aurora-mysql.special.scheduler.md")
 - [Oracle external tables and MySQL integration with Amazon S3](chap-oracle-aurora-mysql.special.external.md "chap-oracle-aurora-mysql.special.external.md")
 - [Oracle and MySQL inline views](chap-oracle-aurora-mysql.special.inlineviews.md "chap-oracle-aurora-mysql.special.inlineviews.md")
 - [Oracle JSON document support and MySQL JSON](chap-oracle-aurora-mysql.special.json.md "chap-oracle-aurora-mysql.special.json.md")

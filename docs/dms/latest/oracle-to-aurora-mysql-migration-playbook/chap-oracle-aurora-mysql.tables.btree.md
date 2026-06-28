@@ -32,7 +32,9 @@ The query optimizer in MySQL can use B-tree indexes when handling equality and r
 
 In addition, query elements such as `IN`, `BETWEEN`, `IS NULL`, or `IS NOT NULL` can also use B-tree indexes for faster data retrieval.
 
-There are two types of indexes: \* **Clustered index** — A reference as primary key. When a primary key is defined on a table, InnoDB uses it as the clustered index. It is highly recommended to specify a primary key for all tables. If there is no primary key, MySQL locates the first `UNIQUE` index where all columns are `NOT NULL` and are used as a clustered index. If there is no primary key or `UNIQUE` index to use, InnoDB internally generates a hidden clustered index named `GEN_CLUST_INDEX`. \* **Secondary index**: All indexes that are not clustered indexes. Each index entry has a reference to the clustered index. If the clustered index is applied on long values, the secondary indexes consume more storage space.
+There are two types of indexes:
+\* **Clustered index** — A reference as primary key. When a primary key is defined on a table, InnoDB uses it as the clustered index. It is highly recommended to specify a primary key for all tables. If there is no primary key, MySQL locates the first `UNIQUE` index where all columns are `NOT NULL` and are used as a clustered index. If there is no primary key or `UNIQUE` index to use, InnoDB internally generates a hidden clustered index named `GEN_CLUST_INDEX`.
+\* **Secondary index**: All indexes that are not clustered indexes. Each index entry has a reference to the clustered index. If the clustered index is applied on long values, the secondary indexes consume more storage space.
 
 ## Example
 

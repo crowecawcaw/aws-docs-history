@@ -63,7 +63,10 @@ FROM <Table Name>
 
 In Aurora MySQL, the primary key is the clustered index.
 
-The syntax for index hints has the following characteristics: \* You can omit `<Index List>` for `USE INDEX` only. It translates to _don’t use any indexes_, which is equivalent to a clustered index scan. \* Index hints can be further scoped down using the `FOR` clause. Use `FOR JOIN`, `FOR ORDER BY`, or `FOR GROUP BY` to limit the hint applicability to that specific query processing phase. \* Multiple index hints can be specified for the same or different scope.
+The syntax for index hints has the following characteristics:
+\* You can omit `<Index List>` for `USE INDEX` only. It translates to _don’t use any indexes_, which is equivalent to a clustered index scan.
+\* Index hints can be further scoped down using the `FOR` clause. Use `FOR JOIN`, `FOR ORDER BY`, or `FOR GROUP BY` to limit the hint applicability to that specific query processing phase.
+\* Multiple index hints can be specified for the same or different scope.
 
 ### Optimizer hints
 

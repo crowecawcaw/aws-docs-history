@@ -56,7 +56,7 @@ COMPRESS FOR ALL OPERATIONS,
 PARTITION comp_part_tbl_q4 VALUES LESS THAN (MAXVALUE) NOCOMPRESS);
 ```
 
-For more information, see [DBMS_COMPRESSION](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_COMPRESSION.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_COMPRESSION.html") in the _Oracle documentation_.
+For more information, see [DBMS\_COMPRESSION](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_COMPRESSION.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_COMPRESSION.html") in the _Oracle documentation_.
 
 ## MySQL usage
 

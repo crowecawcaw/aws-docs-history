@@ -1,4 +1,4 @@
-# Oracle UTL_MAIL or UTL_SMTP and Amazon Simple Notification Service
+# Oracle UTL\_MAIL or UTL\_SMTP and Amazon Simple Notification Service
 
 With AWS DMS, you can migrate email functionality from Oracle databases to Amazon Simple Notification Service (Amazon SNS). Oracle `UTL_MAIL` and `UTL_SMTP` packages provide database email capabilities, which AWS Database Migration Service can help you transition to the fully managed Amazon SNS service. The following sections detail the process of replicating Oracle `UTL_MAIL/UTL_SMTP` functionality using Amazon SNS with AWS DMS.
 
@@ -6,7 +6,7 @@ With AWS DMS, you can migrate email functionality from Oracle databases to Amazo
 | ------------------------------ | ---------------------------------- | ------------------------- | ----------------------- |
 | Two star feature compatibility | No automation                      | N/A                       | Use Lambda integration. |
 
-## Oracle UTL_MAIL usage
+## Oracle UTL\_MAIL usage
 
 The Oracle `UTL_MAIL` package provides functionality for sending email messages. Unlike `UTL_SMTP`, which is more complex and provided in earlier versions of Oracle, `UTL_MAIL` supports attachments. For most cases, `UTL_MAIL` is a better choice.
 
@@ -31,9 +31,9 @@ Send an email message.
 exec utl_mail.send('Sender@mailserver.com', 'recipient@mailserver.com', NULL, NULL, 'This is the subject', 'This is the message body', NULL, 3, NULL);
 ```
 
-For more information, see [UTL_MAIL](https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384 "https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384") in the _Oracle documentation_.
+For more information, see [UTL\_MAIL](https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384 "https://docs.oracle.com/database/121/ARPLS/u_mail.htm#ARPLS384") in the _Oracle documentation_.
 
-## Oracle UTL_SMTP usage
+## Oracle UTL\_SMTP usage
 
 The Oracle `UTL_SMTP` package provides functionality for sending email messages and is useful for sending alerts about database events. Unlike `UTL_MAIL`, UTL `SMTP` is more complex and doesn’t support attachments. For most cases, `UTL_MAIL` is a better choice.
 

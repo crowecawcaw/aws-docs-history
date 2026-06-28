@@ -1,4 +1,4 @@
-# Oracle DBMS_RANDOM and MySQL RAND function
+# Oracle DBMS\_RANDOM and MySQL RAND function
 
 With AWS DMS, you can generate random numbers or values during data migration from Oracle to MySQL or vice versa. Oracle’s `DBMS_RANDOM` package and MySQL’s `RAND` function provide methods for generating random data, which can be useful for tasks like creating test data, simulating real-world scenarios, or introducing randomness into algorithms.
 
@@ -51,7 +51,7 @@ DBMS_RANDOM.STRING('P',10)
 t?!Gf2M60q
 ```
 
-For more information, see [DBMS_RANDOM](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F") in the _Oracle documentation_.
+For more information, see [DBMS\_RANDOM](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_RANDOM.html#GUID-8DC48B0C-3707-4172-A306-C0308DD2EB0F") in the _Oracle documentation_.
 
 ## MySQL usage
 

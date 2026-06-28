@@ -77,4 +77,4 @@ The `SHOW` command provides information about databases, tables, columns, and st
 | Privileges on tables                    | `DBA_TAB_PRIVS`   | `information_schema.TABLE_PRIVILEGES`                         |
 | Information about IO operations         | `V$SEGSTAT`       | `SHOW STATUS LIKE '%read%';`<br>`SHOW STATUS LIKE '%write%';` |
 
-For more information, see [SHOW Statements](https://dev.mysql.com/doc/refman/5.7/en/show.html "https://dev.mysql.com/doc/refman/5.7/en/show.html") and [INFORMATION_SCHEMA Tables](https://dev.mysql.com/doc/refman/5.7/en/information-schema.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema.html") in the _MySQL documentation_.
+For more information, see [SHOW Statements](https://dev.mysql.com/doc/refman/5.7/en/show.html "https://dev.mysql.com/doc/refman/5.7/en/show.html") and [INFORMATION\_SCHEMA Tables](https://dev.mysql.com/doc/refman/5.7/en/information-schema.html "https://dev.mysql.com/doc/refman/5.7/en/information-schema.html") in the _MySQL documentation_.

@@ -2,14 +2,14 @@
 
 The following table shows the icons we use to describe the automation levels of AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS).
 
-| Automation level icon       | Description                                                                                                  |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Five star automation level  | \*_Full automation_<br>• — AWS SCT performs fully automatic conversion, no manual conversion needed.         |
-| Four star automation level  | \*_High automation_<br>• — Minor, simple manual conversions may be needed.                                   |
-| Three star automation level | \*_Medium automation_<br>• — Low-medium complexity manual conversions may be needed.                         |
-| Two star automation level   | \*_Low automation_<br>• — Medium-high complexity manual conversions may be needed.                           |
-| One star automation level   | \*_Very low automation_<br>• — High risk or complex manual conversions may be needed.                        |
-| No automation               | \*_No automation_<br>• — Not currently supported by AWS SCT, manual conversion is required for this feature. |
+| Automation level icon       | Description                                                                                                 |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Five star automation level  | *_Full automation_<br>• — AWS SCT performs fully automatic conversion, no manual conversion needed.         |
+| Four star automation level  | *_High automation_<br>• — Minor, simple manual conversions may be needed.                                   |
+| Three star automation level | *_Medium automation_<br>• — Low-medium complexity manual conversions may be needed.                         |
+| Two star automation level   | *_Low automation_<br>• — Medium-high complexity manual conversions may be needed.                           |
+| One star automation level   | *_Very low automation_<br>• — High risk or complex manual conversions may be needed.                        |
+| No automation               | *_No automation_<br>• — Not currently supported by AWS SCT, manual conversion is required for this feature. |
 
 The following sections list the AWS Schema Conversion Tool action codes for topics that are covered in this playbook.
 
@@ -326,7 +326,7 @@ For more information, see [Views](chap-oracle-aurora-mysql.special.views.md "cha
 | 324         | MySQL doesn’t support editioning views.              |
 | 583         | MySQL doesn’t support constraints for views.         |
 
-## UTL_Mail and UTL_SMTP
+## UTL\_Mail and UTL\_SMTP
 
 ![No automation](images/pb-automation-0.png)
 
@@ -401,13 +401,13 @@ For more information, see [Execute Immediate](chap-oracle-aurora-mysql.sql.immed
 | 334         | MySQL doesn’t support `EXECUTE IMMEDIATE` dynamic SQL statements.                    |
 | 336         | MySQL doesn’t support `EXECUTE IMMEDIATE` dynamic SQL statements with the %s clause. |
 
-## DBMS_OUTPUT
+## DBMS\_OUTPUT
 
 ![No automation](images/pb-automation-0.png)
 
 Aurora MySQL doesn’t provide native support for the `dbms_output` procedure. Use the `RAISE` command instead.
 
-For more information, see [DBMS_OUTPUT](chap-oracle-aurora-mysql.sql.raise.md "chap-oracle-aurora-mysql.sql.raise.md").
+For more information, see [DBMS\_OUTPUT](chap-oracle-aurora-mysql.sql.raise.md "chap-oracle-aurora-mysql.sql.raise.md").
 
 | Action code | Action message                                              |
 | ----------- | ----------------------------------------------------------- |

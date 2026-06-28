@@ -16,7 +16,7 @@ Important functionality provided by automatic indexing:
 - The auto indexes as initially created as invisible indexes. These invisible auto indexes are verified against SQL statements and if the performance is improved, then these indexes are converted as visible indexes.
 - Identify and drop any existing under-performing auto indexes or any auto indexes not used for long period.
 - Rebuilds the auto indexes that are marked unusable due to DDL operations.
-- Provides package DBMS_AUTO_INDEX to configure automatic indexing and for generating reports related to automatic indexing operations.
+- Provides package DBMS\_AUTO\_INDEX to configure automatic indexing and for generating reports related to automatic indexing operations.
 
 ###### Note
 

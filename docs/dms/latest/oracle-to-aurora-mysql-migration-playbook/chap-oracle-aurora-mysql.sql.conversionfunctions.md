@@ -10,7 +10,7 @@ With AWS DMS, you can transform data types between different database platforms 
 
 All databases have their own conversion methods for transforming data between types and performing data manipulation. This section addresses the conversion functions `TO_CHAR` and `TO_NUMBER`.
 
-### TO_CHAR
+### TO\_CHAR
 
 `TO_CHAR` can convert many types of data (mostly number, date, and string) to string. There are many format combinations. Some examples include:
 
@@ -58,7 +58,7 @@ All databases have their own conversion methods for transforming data between ty
 | `to_char(sysdate,'DL')`    | Saturday, February 23, 2017 | Date in long format                   |
 | `to_char(sysdate,'Q')`     | 3                           | Quarter of the Year (1<br>• 4)        |
 
-### TO_NUMBER
+### TO\_NUMBER
 
 `TO_NUMBER` converts one of the following to number data types: `CHAR`, `VARCHAR2`, `NCHAR`, `NVARCHAR2`, `BINARY_FLOAT`, or `BINARY_DOUBLE`. When converting one of the first four types, you can use the format parameter for the returned number.
 

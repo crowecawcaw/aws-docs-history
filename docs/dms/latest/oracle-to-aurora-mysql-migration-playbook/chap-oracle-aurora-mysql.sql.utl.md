@@ -1,4 +1,4 @@
-# Oracle UTL_FILE and MySQL integration with Amazon S3
+# Oracle UTL\_FILE and MySQL integration with Amazon S3
 
 With AWS DMS, you can seamlessly migrate Oracle databases utilizing `UTL_FILE` and MySQL databases with Amazon S3 integration to AWS. The following sections outline the steps to configure and utilize `UTL_FILE` with Oracle and MySQL integration with Amazon S3 through AWS DMS.
 
@@ -39,7 +39,7 @@ END;
 /
 ```
 
-For more information, see [UTL_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
+For more information, see [UTL\_FILE](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/UTL_FILE.html#GUID-EBC42A36-EB72-4AA1-B75F-8CF4BC6E29B4") in the _Oracle documentation_.
 
 ## MySQL usage
 
@@ -134,13 +134,13 @@ select * from mysql.aurora_s3_load_history where load_prefix = 'S3_URI';
 
 The following table describes the fields in the `aurora_s3_load_history` table.
 
-| Field          | Description                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| load_prefix    | The URI specified in the load statement. This URI can map to any of the following:<br>• A single data file for a `LOAD DATA FROM S3 FILE` statement.<br>• An Amazon S3 prefix that maps to multiple data files for a `LOAD DATA FROM S3 PREFIX` statement.<br>• A single manifest file containing the names of files to be loaded for a `LOAD DATA FROM S3 MANIFEST` statement. |
-| file_name      | The name of a file that was loaded into Aurora from Amazon S3 using the URI identified in the `load_prefix` field.                                                                                                                                                                                                                                                              |
-| version_number | The version number of the file identified by the `file_name` field that was loaded if the Amazon S3 bucket has a version number.                                                                                                                                                                                                                                                |
-| bytes_loaded   | The size in bytes of the file loaded.                                                                                                                                                                                                                                                                                                                                           |
-| load_timestamp | The timestamp when the `LOAD DATA FROM S3` statement completed.                                                                                                                                                                                                                                                                                                                 |
+| Field           | Description                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| load\_prefix    | The URI specified in the load statement. This URI can map to any of the following:<br>• A single data file for a `LOAD DATA FROM S3 FILE` statement.<br>• An Amazon S3 prefix that maps to multiple data files for a `LOAD DATA FROM S3 PREFIX` statement.<br>• A single manifest file containing the names of files to be loaded for a `LOAD DATA FROM S3 MANIFEST` statement. |
+| file\_name      | The name of a file that was loaded into Aurora from Amazon S3 using the URI identified in the `load_prefix` field.                                                                                                                                                                                                                                                              |
+| version\_number | The version number of the file identified by the `file_name` field that was loaded if the Amazon S3 bucket has a version number.                                                                                                                                                                                                                                                |
+| bytes\_loaded   | The size in bytes of the file loaded.                                                                                                                                                                                                                                                                                                                                           |
+| load\_timestamp | The timestamp when the `LOAD DATA FROM S3` statement completed.                                                                                                                                                                                                                                                                                                                 |
 
 The following statement loads data from an Amazon S3 bucket in the same region as the Aurora DB cluster. It reads the comma-delimited data in the `customerdata.txt` file residing in the `dbbucket` Amazon S3 bucket and then loads the data into the table `store-schema.customer-table`.
 
@@ -197,7 +197,7 @@ Column names in the name attribute of `<field>` elements in a `<row>` element. T
 </row>
 ```
 
-The following statement loads the first column from the input file into the first column of table1 and sets the value of the table_column2 column in table1 to the input value of the second column divided by 100.
+The following statement loads the first column from the input file into the first column of table1 and sets the value of the table\_column2 column in table1 to the input value of the second column divided by 100.
 
 ```
 LOAD XML FROM S3 's3://mybucket/data.xml'

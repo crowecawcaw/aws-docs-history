@@ -1,4 +1,4 @@
-# Oracle DBMS_SQL
+# Oracle DBMS\_SQL
 
 When working with Oracle databases migrated to AWS you can use `DBMS_SQL` to maintain application functionality to run dynamic SQL statements. You can also use `DBMS_SQL` for automating database operations. The following sections cover the details of using `DBMS_SQL` with code examples.
 
@@ -56,10 +56,10 @@ END;
 The `DBMS_SQL` package includes three other procedures.
 
 - `RETURN_RESULT` — Gets a result set and returns it to the client. Because the procedure already returns a result set, the invoker doesn’t have to know the format of the result or the columns it contains. This option is new in Oracle 12c and is most often used with SQL\*Plus.
-- `TO_REFCURSOR` — When using `DBMS_SQL.OPEN_CURSOR`, the numeric cursor ID is returned. If you know the structure of the result of the cursor, you can call the `TO_REFCURSOR` procedure, stop working with DBMS_SQL, and move to regular commands such as `FETCH`, `WHEN CURSOR%notfound`, and others. Before using `TO_REFCURSOR`, use the procedures `OPEN_CURSOR`, `PARSE`, and `EXECUTE`.
+- `TO_REFCURSOR` — When using `DBMS_SQL.OPEN_CURSOR`, the numeric cursor ID is returned. If you know the structure of the result of the cursor, you can call the `TO_REFCURSOR` procedure, stop working with DBMS\_SQL, and move to regular commands such as `FETCH`, `WHEN CURSOR%notfound`, and others. Before using `TO_REFCURSOR`, use the procedures `OPEN_CURSOR`, `PARSE`, and `EXECUTE`.
 - `TO_CURSOR_NUMBER` — Gets a cursor opened in native dynamic SQL. After the cursor is open, it can be converted to a number or cursor id and then managed using `DBMS_SQL` procedures.
 
-For more information, see [DBMS_SQL](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html#GUID-C96D5BAA-29A9-4AB5-A69E-E31228ECC9E9 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html#GUID-C96D5BAA-29A9-4AB5-A69E-E31228ECC9E9") in the _Oracle documentation_.
+For more information, see [DBMS\_SQL](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html#GUID-C96D5BAA-29A9-4AB5-A69E-E31228ECC9E9 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_SQL.html#GUID-C96D5BAA-29A9-4AB5-A69E-E31228ECC9E9") in the _Oracle documentation_.
 
 ## MySQL usage
 

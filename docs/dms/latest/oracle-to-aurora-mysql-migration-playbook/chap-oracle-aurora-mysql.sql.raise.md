@@ -1,10 +1,10 @@
-# Oracle DBMS_OUTPUT and MySQL SELECT
+# Oracle DBMS\_OUTPUT and MySQL SELECT
 
 Oracle `DBMS_OUTPUT` is a package that lets you send messages from stored procedures, functions, and anonymous blocks to a message buffer. MySQL `SELECT` is a statement used to retrieve data from one or more tables in a MySQL database. The following sections will provide details on using `DBMS_OUTPUT` in Oracle and `SELECT` statements in MySQL with AWS DMS.
 
-| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                    | Key differences                                                         |
-| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
-| Three star feature compatibility | No automation                      | [DBMS_OUTPUT](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.output "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.output") | Different paradigm and syntax requires application and drivers rewrite. |
+| Feature compatibility            | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                     | Key differences                                                         |
+| -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Three star feature compatibility | No automation                      | [DBMS\_OUTPUT](chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.output "chap-oracle-aurora-mysql.tools.actioncode.md#chap-oracle-aurora-mysql.tools.actioncode.output") | Different paradigm and syntax requires application and drivers rewrite. |
 
 ## Oracle usage
 
@@ -37,7 +37,7 @@ END;
 
 In addition to the output of information on the screen, the `PUT` and `PUT_LINE` procedures in the `DBMS_OUTPUT` package enable you to place information in a buffer that can be read later by another PL/SQL procedure or package. You can display the previously buffered information using the `GET_LINE` and `GET_LINES` procedures.
 
-For more information, see [DBMS_OUTPUT](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C") in the _Oracle documentation_.
+For more information, see [DBMS\_OUTPUT](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_OUTPUT.html#GUID-C1400094-18D5-4F36-A2C9-D28B0E12FD8C") in the _Oracle documentation_.
 
 ## MySQL usage
 

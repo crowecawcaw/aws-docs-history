@@ -183,7 +183,7 @@ You can control MySQL logging by using the following parameters:
 - `general_log` — To create the general log, set to 1. The default is 0.
 - `long_query_time` — To prevent fast-running queries from being logged in the slow query log, specify a value for the shortest query run time in seconds to be logged. The default is 10 seconds; the minimum is 0. If `log_output = FILE`, you can specify a floating point value with a resolution of microseconds. If `log_output = TABLE`, make sure that you specify an integer value with a resolution of seconds. Only queries where the execution time exceeds the `long_query_time` value are logged. For example, setting `long_query_time` to 0.1 prevents a query that runs for less than 100 milliseconds from being logged.
 - `log_queries_not_using_indexes` — To log all queries that do not use an index to the slow query log, set to 1. The default is 0. Queries that do not use an index are logged even if their execution time is less than the value of the `long_query_time` parameter.
-- `log_output` — You can specify one of the following options for the log_output parameter.
+- `log_output` — You can specify one of the following options for the log\_output parameter.
 
   - **TABLE** — Write general queries to the `mysql.general_log` table, and write slow queries to the `mysql.slow_log` table. This is the default option.
   - **FILE** — Write both general and slow query logs to the file system. Log files are rotated hourly.

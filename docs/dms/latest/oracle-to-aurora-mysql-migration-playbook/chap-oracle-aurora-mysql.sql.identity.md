@@ -1,6 +1,6 @@
 # Oracle sequences and identity columns and MySQL sequences and AUTO INCREMENT columns
 
-Oracle sequences and identity columns, as well as MySQL Sequences and `AUTO_INCREMENT` columns, are database objects used to generate unique sequential values, often employed as primary keys or unique identifiers. The following sections provide detailed guidance on handling Oracle sequences and identity columns, and MySQL sequences and AUTO_INCREMENT columns when using AWS DMS.
+Oracle sequences and identity columns, as well as MySQL Sequences and `AUTO_INCREMENT` columns, are database objects used to generate unique sequential values, often employed as primary keys or unique identifiers. The following sections provide detailed guidance on handling Oracle sequences and identity columns, and MySQL sequences and AUTO\_INCREMENT columns when using AWS DMS.
 
 | Feature compatibility          | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                        | Key differences                                                                      |
 | ------------------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
@@ -212,11 +212,11 @@ By default, the value is incremented by one. You can change this default using t
 
 Every server restart effectively cancels any `AUTO_INCREMENT = <Value>` table option in `CREATE TABLE` and `ALTER TABLE` statements.
 
-Unlike Oracle `IDENTITY` columns, which by default do not allow inserting explicit values, Aurora MySQL allows explicit values to be set. If a row has an explicitly specified AUTO_INCREMENT column value and the value is greater than the current counter value, the counter is set to the specified column value.
+Unlike Oracle `IDENTITY` columns, which by default do not allow inserting explicit values, Aurora MySQL allows explicit values to be set. If a row has an explicitly specified AUTO\_INCREMENT column value and the value is greater than the current counter value, the counter is set to the specified column value.
 
 ### Examples
 
-Create a table with an AUTO_INCREMENT column.
+Create a table with an AUTO\_INCREMENT column.
 
 ```
 CREATE TABLE MyTable (Col1 INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -294,4 +294,4 @@ The following table identifies similarities, differences, and key migration cons
 | Sequence setting initialization      | Maintained through service restarts                                                                                                                      | Re-initialized every service restart                                                                    | For more information, see [Sequence Value Initialization](#chap-oracle-aurora-mysql.sql.identity.mysql.sequence "#chap-oracle-aurora-mysql.sql.identity.mysql.sequence"). |
 | Explicit values to column            | Not supported                                                                                                                                            | Supported                                                                                               | Aurora MySQL requires explicit NULL or 0 to trigger sequence value assignment. Inserting an explicit value larger than all others reinitializes the sequence.             |
 
-For more information, see [Using AUTO_INCREMENT](https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html "https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html"), [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), and [InnoDB AUTO_INCREMENT Counter Initialization](https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization "https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization") in the _MySQL documentation_.
+For more information, see [Using AUTO\_INCREMENT](https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html "https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html"), [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), and [InnoDB AUTO\_INCREMENT Counter Initialization](https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization "https://dev.mysql.com/doc/refman/5.7/en/innodb-auto-increment-handling.html#innodb-auto-increment-initialization") in the _MySQL documentation_.

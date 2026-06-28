@@ -1,4 +1,4 @@
-# Oracle DBMS_REDEFINITION and MySQL tables and triggers
+# Oracle DBMS\_REDEFINITION and MySQL tables and triggers
 
 The following sections provide detailed guidance on leveraging the Oracle `DBMS_REDEFINITION` and MySQL tables and triggers features during database migration using AWS DMS.
 
@@ -40,7 +40,7 @@ EXEC DBMS_REDEFINITION.FINISH_REDEF_TABLE
 DROP TABLE employees2;
 ```
 
-For more information, see [DBMS_REDEFINITION](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REDEFINITION.html#GUID-2BA796C4-8B4D-49B4-8A35-4C6F789CD374 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REDEFINITION.html#GUID-2BA796C4-8B4D-49B4-8A35-4C6F789CD374") in the _Oracle documentation_.
+For more information, see [DBMS\_REDEFINITION](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REDEFINITION.html#GUID-2BA796C4-8B4D-49B4-8A35-4C6F789CD374 "https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_REDEFINITION.html#GUID-2BA796C4-8B4D-49B4-8A35-4C6F789CD374") in the _Oracle documentation_.
 
 ## MySQL usage
 

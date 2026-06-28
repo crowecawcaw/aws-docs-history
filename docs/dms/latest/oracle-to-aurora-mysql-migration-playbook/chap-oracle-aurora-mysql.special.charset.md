@@ -58,7 +58,7 @@ Collations have these general characteristics:
 
 ### Examples
 
-Create a database named test01 which uses the Korean EUC_KR Encoding the and the ko_KR locale.
+Create a database named test01 which uses the Korean EUC\_KR Encoding the and the ko\_KR locale.
 
 ```
 CREATE DATABASE test01 CHARACTER SET = euckr COLLATE = euckr_korean_ci;

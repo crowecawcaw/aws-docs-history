@@ -53,7 +53,7 @@ Prior to Oracle 12c, statistics on temporary tables were common to all sessions.
 
 Performing DML operations on a temporary table doesn’t generate Redo data, but does generate undo data that eventually, by itself, generates redo records. Oracle 12c provides an option to store the temporary undo data in the temporary tablespace itself. This feature is configured using the `temp_undo_enabled` parameter with the options `TRUE` or `FALSE`.
 
-For more information, see [TEMP_UNDO_ENABLED](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/TEMP_UNDO_ENABLED.html#GUID-E2A01A84-2D63-401F-B64E-C96B18C5DCA6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/TEMP_UNDO_ENABLED.html#GUID-E2A01A84-2D63-401F-B64E-C96B18C5DCA6") in the _Oracle documentation_.
+For more information, see [TEMP\_UNDO\_ENABLED](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/TEMP_UNDO_ENABLED.html#GUID-E2A01A84-2D63-401F-B64E-C96B18C5DCA6 "https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/TEMP_UNDO_ENABLED.html#GUID-E2A01A84-2D63-401F-B64E-C96B18C5DCA6") in the _Oracle documentation_.
 
 ### Examples
 
