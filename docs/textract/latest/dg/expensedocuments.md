@@ -18,11 +18,11 @@ between based on a single response. Expense Analysis uses the object
 `ExpenseGroupProperties` to help distinguish nebulous responses. This
 object contains a type from the following list:
 
-- VENDOR_REMIT_TO
-- RECEIVER_SHIP_TO
-- RECEIVER_SOLD_TO
-- RECEIVER_BILL_TO
-- VENDOR_SUPPLIER
+- VENDOR\_REMIT\_TO
+- RECEIVER\_SHIP\_TO
+- RECEIVER\_SOLD\_TO
+- RECEIVER\_BILL\_TO
+- VENDOR\_SUPPLIER
   These types distinguish between the different groups of responses. Multiple
   elements belonging to the same group are connected via identification number, also
   returned in `ExpenseGroupProperties`.

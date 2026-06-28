@@ -765,15 +765,14 @@ namespace PrintLineItems
 
 ```
 
-4.  Run the example. The Python and Java examples display the document image with the following
-    colored bounding boxes:
+4. Run the example. The Python and Java examples display the document image with the following
+   colored bounding boxes:
 
-        * Red – KEY Block objects
-        * Green – VALUE Block objects
-        * Blue – TABLE Block objects
-        * Yellow – CELL Block objects
-
-    Selection elements that are selected are filled with blue.
+   - Red – KEY Block objects
+   - Green – VALUE Block objects
+   - Blue – TABLE Block objects
+   - Yellow – CELL Block objects
+     Selection elements that are selected are filled with blue.
 
 The AWS CLI example displays only the JSON output for the
 `AnalyzeDocument` operation.

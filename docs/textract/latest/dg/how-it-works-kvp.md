@@ -17,7 +17,7 @@ document is represented by `Block` objects, see [Text Detection and Document Ana
 Dates found through key-value pair detection are returned exactly as detected
 on the input document, with most date formats supported.
 
-Block objects with the type KEY_VALUE_SET are the containers for KEY or VALUE
+Block objects with the type KEY\_VALUE\_SET are the containers for KEY or VALUE
 Block objects that store information about linked text items detected in a
 document. You can use the `EntityType` attribute to determine if a
 block is a KEY or a VALUE.
@@ -37,10 +37,10 @@ block is a KEY or a VALUE.
   `VALUE` object can also contain information about
   selected elements. For more information, see [Selection Elements](how-it-works-selectables.md "how-it-works-selectables.md").
   Amazon Textract returns the same confidence value for both KEY and VALUE in a
-  KEY_VALUE_SET, as both KEY and VALUE are evaluated as a pair. It returns a
+  KEY\_VALUE\_SET, as both KEY and VALUE are evaluated as a pair. It returns a
   different confidence value for a word in WORD blocks.
 
-Each instance of a KEY_VALUE_SET `Block` object is a child of the
+Each instance of a KEY\_VALUE\_SET `Block` object is a child of the
 PAGE `Block` object that corresponds to the current page.
 
 The following diagram shows how the key-value pair _Name: Ana

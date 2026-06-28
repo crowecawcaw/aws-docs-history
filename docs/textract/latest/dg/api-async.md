@@ -33,12 +33,12 @@ send encrypted documents to your Amazon S3 bucket, see [Permissions for Output C
 The following table shows the corresponding Start and Get operations for the different
 types of asynchronous processing supported by Amazon Textract:
 
-| Start/Get API Operations for Amazon Textract Asynchronous Operations | Processing Type            | Start API                                     | Get API |
-| -------------------------------------------------------------------- | -------------------------- | --------------------------------------------- | ------- |
-| Text Detection                                                       | StartDocumentTextDetection | GetDocumentTextDetection                      |
-| Text Analysis                                                        | StartDocumentAnalysis      | GetDocumentAnalysis                           |
-| Expense Analysis                                                     | StartExpenseAnalysis       | GetExpenseAnalysis                            |
-| Lending Analysis                                                     | StartLendingAnalysis       | GetLendingAnalysis, GetLendingAnalysisSummary |
+Start/Get API Operations for Amazon Textract Asynchronous Operations| Processing Type | Start API | Get API |
+| --- | --- | --- |
+| Text Detection | StartDocumentTextDetection | GetDocumentTextDetection |
+| Text Analysis | StartDocumentAnalysis | GetDocumentAnalysis |
+| Expense Analysis | StartExpenseAnalysis | GetExpenseAnalysis |
+| Lending Analysis | StartLendingAnalysis | GetLendingAnalysis, GetLendingAnalysisSummary |
 
 For an example that uses AWS Lambda functions, see [Large scale document processing with Amazon Textract](https://github.com/aws-samples/amazon-textract-serverless-large-scale-document-processing "https://github.com/aws-samples/amazon-textract-serverless-large-scale-document-processing").
 

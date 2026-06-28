@@ -31,7 +31,7 @@ by using the AWS Management Console:
   submitting multipage documents, the AWS Management Console will visualize each page
   separately for annotation.
 - Annotation file - The annotation file follows the Amazon Textract Block structure,
-  though it contains only QUERY and QUERY_RESULT blocks.
+  though it contains only QUERY and QUERY\_RESULT blocks.
 - Prelabeling files - This is the Block structure from the Amazon Textract current
   API response, pulled from the result of either the [DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") or
   [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md")
@@ -72,7 +72,7 @@ by using the AWS Management Console:
 Note that the manifest file contains the following info:
 
 - **source-ref:** (Required) The Amazon S3 location
-  of the image or single page file. The format is "s3://BUCKET/OBJECT_PATH".
+  of the image or single page file. The format is "s3://BUCKET/OBJECT\_PATH".
 - **source-ref-version:** (Optional) The Amazon S3
   object version of the image or single page file.
 - **source-ref-metadata:** (Optional) Metadata about
@@ -87,7 +87,7 @@ Note that the manifest file contains the following info:
   **source-ref** in the original document.
 - **annotations-ref:** (Required) The Amazon S3
   location of the customer performed annotations on the image. The format is
-  "s3://BUCKET/OBJECT_PATH".
+  "s3://BUCKET/OBJECT\_PATH".
 - **annotations-ref-metadata:** (Required) Metadata
   about the annotations attribute. Holds prelabeling references, along with
   assignment type of the manifest line item, and if to include/exclude the

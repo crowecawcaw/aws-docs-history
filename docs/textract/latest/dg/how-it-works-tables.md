@@ -159,8 +159,8 @@ will always have row span of 1 and column span of 1. The block object for each
 cell includes information about the cell location compared to other cells in the
 table. It also includes geometry information for the location of the cell on the
 document. In addition, cell blocks can have different `EntityTypes`
-that identify them as a particular type of cell, including TABLE_TITLE,
-TABLE_FOOTER, TABLE_SECTION_TITLE, COLUMN_HEADER, and TABLE_SUMMARY. For
+that identify them as a particular type of cell, including TABLE\_TITLE,
+TABLE\_FOOTER, TABLE\_SECTION\_TITLE, COLUMN\_HEADER, and TABLE\_SUMMARY. For
 example, in the preceding table, the cell that contains the word “Date” is a
 column header, as shown in the following example.
 

@@ -45,7 +45,7 @@ Later you add the source code and optionally add a layer to the Lambda function.
    - Choose **Author from scratch**.
    - Enter a value for **Function name**.
    - For **Runtime**, choose **Python 3.9**.
-   - For **Architecture**, choose **x86_64**.
+   - For **Architecture**, choose **x86\_64**.
 
 4. Choose **Create function** to create the AWS Lambda
    function.
@@ -165,7 +165,7 @@ or in JPEG or PNG format. Local images must be in single-page PDF or TIFF format
 
 1. Navigate to the **Code** tab.
 2. In the code editor, replace the code in
-   **lambda_function.py** with the following code:
+   **lambda\_function.py** with the following code:
 
 ```
 
@@ -283,15 +283,15 @@ For more information about invoking a Lambda function from your code, see [Invok
 
 ###### To try your Lambda function
 
-1.  If you haven't already done so, do the following:
+1. If you haven't already done so, do the following:
 
-    1. Make sure that the user has `lambda:InvokeFunction`
-       permission. You can use the following policy:
+   1. Make sure that the user has `lambda:InvokeFunction`
+      permission. You can use the following policy:
 
-    You can get the ARN for your Lambda function from the
-    function overview in the [Lambda console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+   You can get the ARN for your Lambda function from the
+   function overview in the [Lambda console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
 
-    To provide access, add permissions to your users, groups, or roles:
+   To provide access, add permissions to your users, groups, or roles:
 
         * Users and groups in AWS IAM Identity Center:
 
@@ -309,10 +309,11 @@ For more information about invoking a Lambda function from your code, see [Invok
 
         	+ Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
         	+ (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
-    2. Install and configure AWS SDK for Python. For more information,
-       see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
 
-2.  Save the following code to a file named `client.py`:
+   2. Install and configure AWS SDK for Python. For more information,
+   see [Step 2: Set Up the AWS CLI and AWS SDKs](setup-awscli-sdk.md "setup-awscli-sdk.md").
+
+2. Save the following code to a file named `client.py`:
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.

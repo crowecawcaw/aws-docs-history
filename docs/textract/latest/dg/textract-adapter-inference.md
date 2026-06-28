@@ -17,7 +17,7 @@ following:
 
 - If a page is not specified, it is set to `["1"]` by default.
 - The following characters are valid in the parameter string: `1 2 3 4 5 6
-7 8 9 - *`. Blank spaces are not valid.
+ 7 8 9 - *`. Blank spaces are not valid.
 - When using \* to indicate all pages, it must be the only element in the
   list.
 - The `Page` parameter does not overlap across adapters. A page can

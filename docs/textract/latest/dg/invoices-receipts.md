@@ -109,8 +109,8 @@ operations.
   `EXPENSE_ROW`
   The following is a portion of the API output for a receipt processed by AnalyzeExpense
   that shows the Total: $55.64 in the document extracted as standard field
-  `TOTAL`. Actual text on the document appears as “Total,” Confidence Score
-  as “97.1,” Page Number as “1,” and the total value as “$55.64.” This also includes the
+ `TOTAL`. Actual text on the document appears as “Total,” Confidence Score
+ as “97.1,” Page Number as “1,” and the total value as “$55.64.” This also includes the
   bounding box and polygon coordinates:
 
 ```

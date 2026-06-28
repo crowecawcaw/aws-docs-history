@@ -44,7 +44,7 @@ Information about a selection element is contained in a `Block`
 object of type `SELECTION_ELEMENT`. To determine the status of a
 selectable element, use the `SelectionStatus` field of the
 `SELECTION_ELEMENT` block. The status can be either
-_SELECTED_ or _NOT_SELECTED_. For
+_SELECTED_ or _NOT\_SELECTED_. For
 example, the value of `SelectionStatus` for the previous image is
 _SELECTED_.
 
@@ -60,7 +60,7 @@ element in the `Geometry` field. A `SELECTION_ELEMENT`
 
 A key-value pair is used to represent a selection element that's detected
 on a form. The `KEY` block contains the text for the selection
-element. The `VALUE` block contains the SELECTION_ELEMENT block.
+element. The `VALUE` block contains the SELECTION\_ELEMENT block.
 The following diagram shows how selection elements are represented by [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects.
 
 ![Diagram depicting the representation of a selection element on a form using a key-value pair data structure, with KEY containing the text, VALUE containing the SELECTION_ELEMENT, and PAGE as the parent object.](images/hieroglyph-key-value-set-selectable.png)
@@ -166,7 +166,7 @@ block.
 ```
 
 The VALUE block has a child (Id f2f5e8cd-e73a-4e99-a095-053acd3b6bfb) that is
-the SELECTION_ELEMENT block.
+the SELECTION\_ELEMENT block.
 
 ```
 {
@@ -214,7 +214,7 @@ the SELECTION_ELEMENT block.
 }
 ```
 
-The following JSON is the SELECTION_ELEMENT block. The value of
+The following JSON is the SELECTION\_ELEMENT block. The value of
 `SelectionStatus` indicates that the check box is
 selected.
 
@@ -336,7 +336,7 @@ is the `SELECTION_ELEMENT`
 }
 ```
 
-The SELECTION_ELEMENT `Block` object for the check box is as
+The SELECTION\_ELEMENT `Block` object for the check box is as
 follows. The value of `SelectionStatus` indicates that the check
 box is selected.
 

@@ -94,9 +94,8 @@ to** column. You can also view the following:
      set
 
 7. Select **Add documents to dataset** and add
-   at least five documents to both your training and testing datasets. If you
-   previously selected Autosplit, you can add all the documents at once.
-8. If you want to add more documents to your dataset, use the **Add documents** menu to do so.
+at least five documents to both your training and testing datasets. If you
+previously selected Autosplit, you can add all the documents at once. 8. If you want to add more documents to your dataset, use the **Add documents** menu to do so.
 
 Before you can start training your adapter, you need to annotate your training
 documents with Queries. This is required to create the "annotations-ref" entries of
@@ -273,7 +272,7 @@ following:
 - If a page is not specified, it is set to `["1"]` by
   default.
 - The following characters are valid in the parameter string: `1 2 3 4
-5 6 7 8 9 - *`. Blank spaces are not valid.
+ 5 6 7 8 9 - *`. Blank spaces are not valid.
 - When using \* to indicate all pages, it must be the only element in the
   list.
 - The `Page` parameter does not overlap across adapters. A page

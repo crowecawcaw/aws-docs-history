@@ -46,34 +46,34 @@ detection so you can have access to the full text of the document.
 
 Following is a list of normalized fields for Driver's Licenses:
 
-- First Name — FIRST_NAME
-- Last Name — LAST_NAME
-- Middle Name — MIDDLE_NAME
+- First Name — FIRST\_NAME
+- Last Name — LAST\_NAME
+- Middle Name — MIDDLE\_NAME
 - Suffix — SUFFIX
-- City in Address — CITY_IN_ADDRESS
-- Zip Code In Address — ZIP_CODE_IN_ADDRESS
-- State In Address — STATE_IN_ADDRESS
+- City in Address — CITY\_IN\_ADDRESS
+- Zip Code In Address — ZIP\_CODE\_IN\_ADDRESS
+- State In Address — STATE\_IN\_ADDRESS
 - County — COUNTY
-- Document Number — DOCUMENT_NUMBER
-- Expiration Date — EXPIRATION_DATE
-- Date of Birth — DATE_OF_BIRTH
-- State Name — STATE_NAME
-- Date of Issue — DATE_OF_ISSUE
+- Document Number — DOCUMENT\_NUMBER
+- Expiration Date — EXPIRATION\_DATE
+- Date of Birth — DATE\_OF\_BIRTH
+- State Name — STATE\_NAME
+- Date of Issue — DATE\_OF\_ISSUE
 - Class — CLASS
 - Restrictions — RESTRICTIONS
 - Endorsements — ENDORSEMENTS
-- Id Type — ID_TYPE
+- Id Type — ID\_TYPE
 - Veteran — VETERAN
 - Address — ADDRESS
   Following is a list of normalized fields for U.S Passports:
 
-- First Name — FIRST_NAME
-- Last Name — LAST_NAME
-- Middle Name — MIDDLE_NAME
-- Document Number — DOCUMENT_NUMBER
-- Expiration Date — EXPIRATON_DATE
-- Date of Birth — DATE_OF_BIRTH
-- Place of Birth — PLACE_OF_BIRTH
-- Date of Issue — DATE_OF_ISSUE
-- Id Type — ID_TYPE
-- MRZ Code — MRZ_CODE
+- First Name — FIRST\_NAME
+- Last Name — LAST\_NAME
+- Middle Name — MIDDLE\_NAME
+- Document Number — DOCUMENT\_NUMBER
+- Expiration Date — EXPIRATON\_DATE
+- Date of Birth — DATE\_OF\_BIRTH
+- Place of Birth — PLACE\_OF\_BIRTH
+- Date of Issue — DATE\_OF\_ISSUE
+- Id Type — ID\_TYPE
+- MRZ Code — MRZ\_CODE

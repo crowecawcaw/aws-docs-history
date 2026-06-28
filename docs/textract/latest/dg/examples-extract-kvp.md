@@ -16,7 +16,7 @@ You use the following functions:
 
 1. Configure your environment. For more information, see [Prerequisites](examples-blocks.md#examples-prerequisites "examples-blocks.md#examples-prerequisites").
 2. Save the following example code to a file named
-   _textract_python_kv_parser.py_. In the function
+   _textract\_python\_kv\_parser.py_. In the function
    `get_kv_map`, replace `profile-name` with the name of a
    profile that can assume the role and `region` with the region in
    which you want to run the code.

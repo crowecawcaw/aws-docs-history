@@ -3,7 +3,7 @@
 You can delete an adapter version you’re no longer using by calling [DeleteAdapterVersion](../APIReference/API_DeleteAdapterVersion.md "../APIReference/API_DeleteAdapterVersion.md").
 To delete an adapter version you provide the DeleteAdapterVersion operation with
 both the adapter’s AdapterId and the specific AdapterVersion that you want to
-delete. Note that you cannot delete adapter versions with an "IN_PROGRESS"
+delete. Note that you cannot delete adapter versions with an "IN\_PROGRESS"
 status.
 
 To delete an adapter version with the console:

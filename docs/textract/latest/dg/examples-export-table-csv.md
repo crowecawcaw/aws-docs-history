@@ -30,7 +30,7 @@ In this example, you will use the functions:
 
 1. Configure your environment. For more information, see [Prerequisites](examples-blocks.md#examples-prerequisites "examples-blocks.md#examples-prerequisites").
 2. Save the following example code to a file named
-   _textract_python_table_parser.py_. In the
+   _textract\_python\_table\_parser.py_. In the
    function `get_table_csv_results`, replace
    `profile-name` with the name of a profile that can
    assume the role and `region` with the region in which you
@@ -199,7 +199,7 @@ data as a table, and saves the tables to a CSV file.
    of your bucket's region.
 
 Save the following example code to a file named
-_start_doc_analysis_for_table_extraction.py._.
+_start\_doc\_analysis\_for\_table\_extraction.py._.
 
 ```
 
@@ -308,7 +308,7 @@ if __name__ == "__main__":
    down.
 5. Wait for your job to finish processing, and after it has
    finished, copy the following code to a file named
-   _get_doc_analysis_for_table_extraction.py_.
+   _get\_doc\_analysis\_for\_table\_extraction.py_.
    Replace the value of `jobId` with the Job ID you copied
    down earlier. Replace the value of `region_name` with the
    name of the region associated with your Textract role. Replace the

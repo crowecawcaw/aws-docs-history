@@ -17,38 +17,37 @@ Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande
 
 ###### To set up the AWS CLI and the AWS SDKs
 
-1.  Download and install the AWS CLI and the AWS SDKs that you want to use. This
-    guide provides examples for the AWS CLI, Java, and Python.
-    For information about other AWS SDKs, see
-    [Tools for Amazon Web Services](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/").
+1. Download and install the AWS CLI and the AWS SDKs that you want to use. This
+   guide provides examples for the AWS CLI, Java, and Python.
+   For information about other AWS SDKs, see
+   [Tools for Amazon Web Services](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/").
 
-    - [AWS CLI](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
-    - [AWS SDK for Java](../../../sdk-for-java/latest/developer-guide.md "../../../sdk-for-java/latest/developer-guide.md")
-    - [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html")
+   - [AWS CLI](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
+   - [AWS SDK for Java](../../../sdk-for-java/latest/developer-guide.md "../../../sdk-for-java/latest/developer-guide.md")
+   - [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html")
 
-2.  Create an access key for the user that you created in [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").
+2. Create an access key for the user that you created in [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").
 
-    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-    2. In the navigation pane, choose **Users**.
-    3. Choose the name of the user that you created in [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").
-    4. Choose the **Security credentials** tab.
-    5. Choose **Create access key**. Then choose **Download .csv
-       file** to save the access key ID and secret access key to a
-       CSV file on your computer. Store the file in a secure location. You will
-       not have access to the secret access key again after this dialog box
-       closes. After you've downloaded the CSV file, choose
-       **Close**.
+   1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+   2. In the navigation pane, choose **Users**.
+   3. Choose the name of the user that you created in [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").
+   4. Choose the **Security credentials** tab.
+   5. Choose **Create access key**. Then choose **Download .csv
+      file** to save the access key ID and secret access key to a
+      CSV file on your computer. Store the file in a secure location. You will
+      not have access to the secret access key again after this dialog box
+      closes. After you've downloaded the CSV file, choose
+      **Close**.
 
-3.  Set credentials in the AWS credentials profile file on your local system,
-    located at:
+3. Set credentials in the AWS credentials profile file on your local system,
+   located at:
 
-        * `~/.aws/credentials` on Linux, macOS, or Unix.
-        * `C:\Users\USERNAME\.aws\credentials` on Windows.
-
-    The `.aws` folder does not exist prior to your first initial
-    configuration of your AWS instance. The first time you configure your
-    credentials with the CLI, this folder will be created. For more information
-    regarding AWS credentials, see [Configuration and Credential File Settings.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
+   - `~/.aws/credentials` on Linux, macOS, or Unix.
+   - `C:\Users\USERNAME\.aws\credentials` on Windows.
+     The `.aws` folder does not exist prior to your first initial
+     configuration of your AWS instance. The first time you configure your
+     credentials with the CLI, this folder will be created. For more information
+     regarding AWS credentials, see [Configuration and Credential File Settings.](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")
 
 This file should contain lines in the following format:
 
@@ -59,8 +58,8 @@ aws_secret_access_key = your_secret_access_key
 ```
 
 Substitute your access key ID and secret access key for
-_your_access_key_id_ and
-_your_secret_access_key_. 4. Set the default AWS Region in the AWS `config` file on your local
+_your\_access\_key\_id_ and
+_your\_secret\_access\_key_. 4. Set the default AWS Region in the AWS `config` file on your local
 system, located at:
 
     * `~/.aws/config` on Linux, macOS, or Unix.
@@ -79,7 +78,7 @@ region = your_aws_region
 ```
 
 Substitute the AWS Region you want (for example, "us-west-2") for
-_your_aws_region_.
+_your\_aws\_region_.
 
 ###### Note
 
