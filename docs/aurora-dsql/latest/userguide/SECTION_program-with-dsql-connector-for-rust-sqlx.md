@@ -228,16 +228,16 @@ retry_on_occ(&config, || async {
 
 ## Configuration options
 
-| Field               | Type             | Default         | Description                                                                                                   |
-| ------------------- | ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------- |
-| `host`              | `String`         | (required)      | Cluster endpoint or cluster ID                                                                                |
-| `region`            | `Option<Region>` | (auto-detected) | AWS region; required if host is a cluster ID                                                                  |
-| `user`              | `String`         | `"admin"`       | Database user                                                                                                 |
-| `database`          | `String`         | `"postgres"`    | Database name                                                                                                 |
-| `port`              | `u16`            | `5432`          | Database port                                                                                                 |
-| `profile`           | `Option<String>` | `None`          | AWS profile name for credentials                                                                              |
-| `tokenDurationSecs` | `u64`            | `900` (15 min)  | Token validity duration in seconds                                                                            |
-| `ormPrefix`         | `Option<String>` | `None`          | ORM prefix for application_name (for example, `"diesel"` produces `"diesel:aurora-dsql-rust-sqlx/{version}"`) |
+| Field               | Type             | Default         | Description                                                                                                    |
+| ------------------- | ---------------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
+| `host`              | `String`         | (required)      | Cluster endpoint or cluster ID                                                                                 |
+| `region`            | `Option<Region>` | (auto-detected) | AWS region; required if host is a cluster ID                                                                   |
+| `user`              | `String`         | `"admin"`       | Database user                                                                                                  |
+| `database`          | `String`         | `"postgres"`    | Database name                                                                                                  |
+| `port`              | `u16`            | `5432`          | Database port                                                                                                  |
+| `profile`           | `Option<String>` | `None`          | AWS profile name for credentials                                                                               |
+| `tokenDurationSecs` | `u64`            | `900` (15 min)  | Token validity duration in seconds                                                                             |
+| `ormPrefix`         | `Option<String>` | `None`          | ORM prefix for application\_name (for example, `"diesel"` produces `"diesel:aurora-dsql-rust-sqlx/{version}"`) |
 
 ## Authentication
 

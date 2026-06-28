@@ -375,13 +375,13 @@ real-time.
 
 ### Available DPU metrics
 
-| DPU metrics           | CloudWatch metric                                     | Description | Dimension |
-| --------------------- | ----------------------------------------------------- | ----------- | --------- |
-| `WriteDPU`            | Write usage component                                 | ClusterId   |
-| `ReadDPU`             | Read usage component                                  | ClusterId   |
-| `ComputeDPU`          | Query processing component                            | ClusterId   |
-| `MultiRegionWriteDPU` | Multi-Region replication (multi-Region clusters only) | ClusterId   |
-| `TotalDPU`            | Sum of all DPU components                             | ClusterId   |
+DPU metrics| CloudWatch metric | Description | Dimension |
+| --- | --- | --- |
+| `WriteDPU` | Write usage component | ClusterId |
+| `ReadDPU` | Read usage component | ClusterId |
+| `ComputeDPU` | Query processing component | ClusterId |
+| `MultiRegionWriteDPU` | Multi-Region replication (multi-Region clusters only) | ClusterId |
+| `TotalDPU` | Sum of all DPU components | ClusterId |
 
 ### Viewing DPU metrics
 
@@ -404,15 +404,15 @@ value.
 For a complete list of Aurora DSQL metrics and monitoring capabilities, see
 [Monitoring and logging for Aurora DSQL](monitoring-overview.md "monitoring-overview.md").
 
-| Observability metrics  | Metric                                    | Description |
-| ---------------------- | ----------------------------------------- | ----------- |
-| `ClusterStorageSize`   | Current storage size in bytes             |
-| `TotalTransactions`    | Total transactions executed               |
-| `ReadOnlyTransactions` | Read-only transactions executed           |
-| `QueryTimeouts`        | Queries that exceeded time limit          |
-| `OccConflicts`         | Transactions aborted due to OCC conflicts |
-| `BytesWritten`         | Raw bytes written to storage              |
-| `BytesRead`            | Raw bytes read from storage               |
+Observability metrics| Metric | Description |
+| --- | --- |
+| `ClusterStorageSize` | Current storage size in bytes |
+| `TotalTransactions` | Total transactions executed |
+| `ReadOnlyTransactions` | Read-only transactions executed |
+| `QueryTimeouts` | Queries that exceeded time limit |
+| `OccConflicts` | Transactions aborted due to OCC conflicts |
+| `BytesWritten` | Raw bytes written to storage |
+| `BytesRead` | Raw bytes read from storage |
 
 ## Using EXPLAIN ANALYZE VERBOSE for cost awareness
 
@@ -514,7 +514,7 @@ Keep the following best practices in mind when using DPU data from `EXPLAIN ANAL
 - **Use it directionally:** Treat the reported DPU as a way
   to understand the _relative_ cost of a query rather than an exact match
   with CloudWatch metrics or billing data. Differences are expected because `EXPLAIN ANALYZE
-VERBOSE` reports statement-level cost, while CloudWatch aggregates transaction-level
+ VERBOSE` reports statement-level cost, while CloudWatch aggregates transaction-level
   activity. CloudWatch also includes background operations (such as asynchronous ANALYZE or
   compactions) and transaction overhead (`BEGIN`/`COMMIT`) that
   `EXPLAIN ANALYZE VERBOSE` intentionally excludes.
@@ -533,7 +533,7 @@ VERBOSE` reports statement-level cost, while CloudWatch aggregates transaction-l
   limited by the 5-minute transaction timeout). This amortizes transaction minimums across
   more work and produces more meaningful cost estimates.
 - **Use for tuning, not billing:** DPU data in `EXPLAIN
-ANALYZE VERBOSE` is designed for cost awareness, query tuning, and optimization. It
+ ANALYZE VERBOSE` is designed for cost awareness, query tuning, and optimization. It
   is not a billing-grade metric. Always rely on CloudWatch metrics or monthly billing reports for
   authoritative cost and usage data.
 

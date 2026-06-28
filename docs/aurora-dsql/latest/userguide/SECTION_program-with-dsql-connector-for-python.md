@@ -419,7 +419,7 @@ allowing connection pools to operate normally.
 
 For psycopg, the connector implements a connection class named
 DSQLConnection that can be passed directly to the
-psycopg_pool.ConnectionPool constructor. For asynchronous
+psycopg\_pool.ConnectionPool constructor. For asynchronous
 operations, there is also an async version of the class named
 DSQLAsyncConnection.
 
@@ -438,12 +438,12 @@ DSQLAsyncConnection.
 
 ```
 
-**Note: Connection max_lifetime
+**Note: Connection max\_lifetime
 Configuration**
 
-The max_lifetime parameter should be set to less than 3600
+The max\_lifetime parameter should be set to less than 3600
 seconds (one hour), as this is the maximum connection duration
-allowed by Aurora DSQL database. Setting a lower max_lifetime
+allowed by Aurora DSQL database. Setting a lower max\_lifetime
 allows the connection pool to proactively manage connection
 recycling, which is more efficient than handling connection
 timeout errors from the database.
@@ -470,7 +470,7 @@ provided by psycopg2.pool.ThreadedConnectionPool unchanged.
 
 #### asyncpg
 
-For asyncpg, the connector provides a create_pool function
+For asyncpg, the connector provides a create\_pool function
 that returns an instance of asyncpg.Pool.
 
 ```

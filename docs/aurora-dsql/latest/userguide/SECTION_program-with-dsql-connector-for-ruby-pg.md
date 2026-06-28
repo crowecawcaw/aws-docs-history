@@ -22,7 +22,7 @@ The Aurora DSQL Connector for Ruby understands these requirements and automatica
 - **Automatic IAM authentication** - Handles Aurora DSQL token generation and refresh
 - **Built on pg** - Wraps the popular PostgreSQL gem for Ruby
 - **Seamless integration** - Works with existing pg gem workflows
-- **Connection pooling** - Built-in support via the `connection_pool` gem with max_lifetime enforcement
+- **Connection pooling** - Built-in support via the `connection_pool` gem with max\_lifetime enforcement
 - **Region auto-detection** - Extracts AWS region from Aurora DSQL cluster hostname
 - **AWS credentials support** - Supports AWS profiles and custom credentials providers
 - **OCC retry** - Opt-in optimistic concurrency control retry with exponential backoff
@@ -174,20 +174,20 @@ end
 
 ## Configuration options
 
-| Field                | Type             | Default         | Description                                                               |
-| -------------------- | ---------------- | --------------- | ------------------------------------------------------------------------- |
-| host                 | String           | (required)      | Cluster endpoint or cluster ID                                            |
-| region               | String           | (auto-detected) | AWS region; required if host is a cluster ID                              |
-| user                 | String           | "admin"         | Database user                                                             |
-| database             | String           | "postgres"      | Database name                                                             |
-| port                 | Integer          | 5432            | Database port                                                             |
-| profile              | String           | nil             | AWS profile name for credentials                                          |
-| token_duration       | Integer          | 900 (15 min)    | Token validity duration in seconds (max allowed: 1 week, default: 15 min) |
-| credentials_provider | Aws::Credentials | nil             | Custom credentials provider                                               |
-| max_lifetime         | Integer          | 3300 (55 min)   | Maximum connection lifetime in seconds                                    |
-| application_name     | String           | nil             | ORM prefix for application_name                                           |
-| logger               | Logger           | nil             | Logger for OCC retry warnings                                             |
-| occ_max_retries      | Integer          | nil (disabled)  | Max OCC retries on `pool.with`; enables retry when set                    |
+| Field                 | Type             | Default         | Description                                                               |
+| --------------------- | ---------------- | --------------- | ------------------------------------------------------------------------- |
+| host                  | String           | (required)      | Cluster endpoint or cluster ID                                            |
+| region                | String           | (auto-detected) | AWS region; required if host is a cluster ID                              |
+| user                  | String           | "admin"         | Database user                                                             |
+| database              | String           | "postgres"      | Database name                                                             |
+| port                  | Integer          | 5432            | Database port                                                             |
+| profile               | String           | nil             | AWS profile name for credentials                                          |
+| token\_duration       | Integer          | 900 (15 min)    | Token validity duration in seconds (max allowed: 1 week, default: 15 min) |
+| credentials\_provider | Aws::Credentials | nil             | Custom credentials provider                                               |
+| max\_lifetime         | Integer          | 3300 (55 min)   | Maximum connection lifetime in seconds                                    |
+| application\_name     | String           | nil             | ORM prefix for application\_name                                          |
+| logger                | Logger           | nil             | Logger for OCC retry warnings                                             |
+| occ\_max\_retries     | Integer          | nil (disabled)  | Max OCC retries on `pool.with`; enables retry when set                    |
 
 `create_pool` also accepts a `pool:` keyword with a hash of options that you pass directly to `ConnectionPool.new`. If you omit `pool:`, the connector defaults to `{size: 5, timeout: 5}`. Keys you provide override only those specific defaults.
 

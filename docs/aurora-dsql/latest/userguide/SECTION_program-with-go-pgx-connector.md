@@ -50,7 +50,7 @@ SSL is always enabled with verify-full mode and direct TLS negotiation.
 
 The connector uses the [AWS SDK for Go v2 default credential chain](../../../sdk-for-go/v2/developer-guide/configure-gosdk.md#specifying-credentials "../../../sdk-for-go/v2/developer-guide/configure-gosdk.md#specifying-credentials"), which resolves credentials in the following order:
 
-1. Environment variables (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+1. Environment variables (AWS\_ACCESS\_KEY\_ID, AWS\_SECRET\_ACCESS\_KEY)
 2. Shared credentials file (~/.aws/credentials)
 3. Shared config file (~/.aws/config)
 4. IAM role for Amazon EC2/ECS/Lambda
@@ -251,9 +251,9 @@ err := occretry.ExecWithRetry(ctx, pool, occretry.DefaultConfig(),
 
 For more comprehensive examples and use cases, refer to the [Aurora DSQL Connector for Go examples](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example").
 
-| Example                                                                                                                                                                                                                        | Description                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| [example_preferred](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/example_preferred.go "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/example_preferred.go") | Recommended: Connection pool with concurrent queries |
-| [transaction](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/transaction "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/transaction")                         | Transaction handling with BEGIN/COMMIT/ROLLBACK      |
-| [occ_retry](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/occ_retry "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/occ_retry")                               | Handling OCC conflicts with exponential backoff      |
-| [connection_string](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/connection_string "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/connection_string")       | Using connection strings for configuration           |
+| Example                                                                                                                                                                                                                         | Description                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [example\_preferred](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/example_preferred.go "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/example_preferred.go") | Recommended: Connection pool with concurrent queries |
+| [transaction](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/transaction "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/transaction")                          | Transaction handling with BEGIN/COMMIT/ROLLBACK      |
+| [occ\_retry](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/occ_retry "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/occ_retry")                               | Handling OCC conflicts with exponential backoff      |
+| [connection\_string](https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/connection_string "https://github.com/awslabs/aurora-dsql-connectors/tree/main/go/pgx/example/src/connection_string")       | Using connection strings for configuration           |

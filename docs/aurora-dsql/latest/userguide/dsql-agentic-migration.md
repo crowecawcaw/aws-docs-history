@@ -39,7 +39,7 @@ The following operations use the table recreation pattern:
 | `ALTER COLUMN SET/DROP DEFAULT`  | Define default in new table definition    |
 | `ADD/DROP CONSTRAINT`            | Include or remove constraint in new table |
 | `MODIFY PRIMARY KEY`             | Define new PK with uniqueness validation  |
-| Split/Merge columns              | Use SPLIT_PART, SUBSTRING, or CONCAT      |
+| Split/Merge columns              | Use SPLIT\_PART, SUBSTRING, or CONCAT     |
 
 The following ALTER TABLE operations are supported directly without table recreation:
 

@@ -38,25 +38,25 @@ options. You can also use `SET LOCAL` to set any of these parameters for the
 duration of a single transaction. Use `RESET` to restore a parameter to its default
 value.
 
-| Supported session parameters | Parameter             | Category                                                                                                                                                                                      | Description |
-| ---------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `application_name`           | Client identification | Sets the application name reported in connection metadata. Useful for identifying<br>connections in monitoring.                                                                               |
-| `client_encoding`            | Localization          | Sets the client-side character encoding. The database uses UTF-8 internally.                                                                                                                  |
-| `datestyle`                  | Output formatting     | Sets the display format for date and time values (for example,<br>`ISO, MDY`).                                                                                                                |
-| `extra_float_digits`         | Output formatting     | Sets the number of digits displayed for floating-point values. Some drivers,<br>such as JDBC, use this parameter.                                                                             |
-| `intervalstyle`              | Output formatting     | Sets the display format for interval values.                                                                                                                                                  |
-| `timezone`                   | Localization          | Sets the time zone for the session. Aurora DSQL stores all timezone-aware dates and times<br>internally in UTC. This parameter controls how Aurora DSQL displays values to the client.        |
-| `search_path`                | Schema resolution     | Sets the schema search order for unqualified object names.                                                                                                                                    |
-| `enable_bitmapscan`          | Query planner         | Enables or disables the query planner's use of bitmap-scan plan types.                                                                                                                        |
-| `enable_hashjoin`            | Query planner         | Enables or disables the query planner's use of hash-join plan types.                                                                                                                          |
-| `enable_indexonlyscan`       | Query planner         | Enables or disables the query planner's use of index-only-scan plan types.                                                                                                                    |
-| `enable_indexscan`           | Query planner         | Enables or disables the query planner's use of index-scan plan types.                                                                                                                         |
-| `enable_material`            | Query planner         | Enables or disables the query planner's use of materialization.                                                                                                                               |
-| `enable_mergejoin`           | Query planner         | Enables or disables the query planner's use of merge-join plan types.                                                                                                                         |
-| `enable_nestloop`            | Query planner         | Enables or disables the query planner's use of nested-loop join plans.                                                                                                                        |
-| `enable_seqscan`             | Query planner         | Enables or disables the query planner's use of sequential scan plan types.                                                                                                                    |
-| `disable_sync_create_index`  | Aurora DSQL-specific  | Controls whether `CREATE INDEX` runs asynchronously. Default is<br>`on`, meaning Aurora DSQL creates indexes asynchronously. Set to `off` to<br>create indexes synchronously on empty tables. |
-| `role`                       | Session identity      | Sets the current role. In Aurora DSQL, you can only set this parameter using<br>`SET LOCAL` within a transaction block.                                                                       |
+Supported session parameters| Parameter | Category | Description |
+| --- | --- | --- |
+| `application_name` | Client identification | Sets the application name reported in connection metadata. Useful for identifying<br>connections in monitoring. |
+| `client_encoding` | Localization | Sets the client-side character encoding. The database uses UTF-8 internally. |
+| `datestyle` | Output formatting | Sets the display format for date and time values (for example,<br>`ISO, MDY`). |
+| `extra_float_digits` | Output formatting | Sets the number of digits displayed for floating-point values. Some drivers,<br>such as JDBC, use this parameter. |
+| `intervalstyle` | Output formatting | Sets the display format for interval values. |
+| `timezone` | Localization | Sets the time zone for the session. Aurora DSQL stores all timezone-aware dates and times<br>internally in UTC. This parameter controls how Aurora DSQL displays values to the client. |
+| `search_path` | Schema resolution | Sets the schema search order for unqualified object names. |
+| `enable_bitmapscan` | Query planner | Enables or disables the query planner's use of bitmap-scan plan types. |
+| `enable_hashjoin` | Query planner | Enables or disables the query planner's use of hash-join plan types. |
+| `enable_indexonlyscan` | Query planner | Enables or disables the query planner's use of index-only-scan plan types. |
+| `enable_indexscan` | Query planner | Enables or disables the query planner's use of index-scan plan types. |
+| `enable_material` | Query planner | Enables or disables the query planner's use of materialization. |
+| `enable_mergejoin` | Query planner | Enables or disables the query planner's use of merge-join plan types. |
+| `enable_nestloop` | Query planner | Enables or disables the query planner's use of nested-loop join plans. |
+| `enable_seqscan` | Query planner | Enables or disables the query planner's use of sequential scan plan types. |
+| `disable_sync_create_index` | Aurora DSQL-specific | Controls whether `CREATE INDEX` runs asynchronously. Default is<br>`on`, meaning Aurora DSQL creates indexes asynchronously. Set to `off` to<br>create indexes synchronously on empty tables. |
+| `role` | Session identity | Sets the current role. In Aurora DSQL, you can only set this parameter using<br>`SET LOCAL` within a transaction block. |
 
 Aurora DSQL automatically manages the following aspects of your database, so you don't need to
 configure the corresponding PostgreSQL session parameters:
@@ -81,7 +81,7 @@ configure the corresponding PostgreSQL session parameters:
 - **Transaction parameters** –
   Aurora DSQL uses a fixed `REPEATABLE READ` isolation level for all transactions.
   If your driver requires specifying an isolation level, use `BEGIN ISOLATION LEVEL
-REPEATABLE READ`.
+ REPEATABLE READ`.
 
 ## Access Aurora DSQL using SQL clients
 

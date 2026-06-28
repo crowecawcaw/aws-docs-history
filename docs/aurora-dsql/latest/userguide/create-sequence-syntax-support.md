@@ -90,8 +90,8 @@ The name (optionally schema-qualified) of the sequence to be created.
 
 **`data_type`**
 
-The optional clause `AS `data_type``specifies the
- data type of the sequence. Valid types are`bigint`. `bigint` is
+The optional clause `AS `data_type`` specifies the
+data type of the sequence. Valid types are `bigint`. `bigint` is
 the default. The data type determines the default minimum and maximum values of the
 sequence.
 
@@ -105,16 +105,16 @@ negative one a descending sequence. The default value is 1.
 **`minvalue` / `NO MINVALUE`**
 
 The optional clause `MINVALUE
- `minvalue``determines the minimum value a sequence can
- generate. If this clause is not supplied or`NO MINVALUE` is specified, then
+ `minvalue`` determines the minimum value a sequence can
+generate. If this clause is not supplied or `NO MINVALUE` is specified, then
 defaults will be used. The default for an ascending sequence is 1. The default for a
 descending sequence is the minimum value of the data type.
 
 **`maxvalue` / `NO MAXVALUE`**
 
 The optional clause `MAXVALUE
- `maxvalue``determines the maximum value for the sequence.
- If this clause is not supplied or`NO MAXVALUE` is specified, then default
+ `maxvalue`` determines the maximum value for the sequence.
+If this clause is not supplied or `NO MAXVALUE` is specified, then default
 values will be used. The default for an ascending sequence is the maximum value of the
 data type. The default for a descending sequence is -1.
 
@@ -132,19 +132,19 @@ or `NO CYCLE` are specified, `NO CYCLE` is the default.
 
 **`start`**
 
-The optional clause `START WITH `start``allows
- the sequence to begin anywhere. The default starting value is
-`minvalue`for ascending sequences and
+The optional clause `START WITH `start`` allows
+the sequence to begin anywhere. The default starting value is
+`minvalue` for ascending sequences and
 `maxvalue` for descending ones.
 
 **`cache`**
 
-The clause `CACHE `cache``specifies how many
- sequence numbers are to be preallocated and stored in memory for faster access. The
- acceptable values for`CACHE` in Aurora DSQL are 1 or any number >= 65536. The
+The clause `CACHE `cache`` specifies how many
+sequence numbers are to be preallocated and stored in memory for faster access. The
+acceptable values for `CACHE` in Aurora DSQL are 1 or any number >= 65536. The
 minimum value is 1 (only one value can be generated at a time, meaning no cache).
 
-**`OWNED BY `table_name`.`column_name``/`OWNED BY NONE`**
+**`OWNED BY `table_name`.`column_name`` / `OWNED BY NONE`**
 
 The `OWNED BY` option causes the sequence to be associated with a specific
 table column, such that if that column (or its whole table) is dropped, the sequence will

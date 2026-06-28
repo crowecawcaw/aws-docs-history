@@ -20,7 +20,7 @@ _JetBrains_ website.
    `postgres`
 
    **Authentication** – Choose `User &
- Password` .
+  Password` .
 
    **Username** – Enter `admin`.
 

@@ -60,16 +60,16 @@ unspecified, the old increment value will be maintained.
 **`minvalue` / `NO MINVALUE`**
 
 The optional clause `MINVALUE
- `minvalue``determines the minimum value a sequence can
- generate. If`NO MINVALUE` is specified, the defaults of 1 and the minimum
+ `minvalue`` determines the minimum value a sequence can
+generate. If `NO MINVALUE` is specified, the defaults of 1 and the minimum
 value of the data type for ascending and descending sequences, respectively, will be used.
 If neither option is specified, the current minimum value will be maintained.
 
 **`maxvalue` / `NO MAXVALUE`**
 
 The optional clause `MAXVALUE
- `maxvalue``determines the maximum value for the sequence.
- If`NO MAXVALUE` is specified, the defaults of the maximum value of the data
+ `maxvalue`` determines the maximum value for the sequence.
+If `NO MAXVALUE` is specified, the defaults of the maximum value of the data
 type and -1 for ascending and descending sequences, respectively, will be used. If neither
 option is specified, the current maximum value will be maintained.
 
@@ -91,9 +91,9 @@ cycle behavior will be maintained.
 
 **`start`**
 
-The optional clause `START WITH `start``changes
- the recorded start value of the sequence. This has no effect on the current sequence
- value; it simply sets the value that future`ALTER SEQUENCE RESTART` commands
+The optional clause `START WITH `start`` changes
+the recorded start value of the sequence. This has no effect on the current sequence
+value; it simply sets the value that future `ALTER SEQUENCE RESTART` commands
 will use.
 
 **`restart`**
@@ -120,7 +120,7 @@ either 1 or some value >= 65536. If unspecified, the old cache value will be
 maintained. For more information about cache behavior, see the guidance under
 [CREATE SEQUENCE](create-sequence-syntax-support.md "create-sequence-syntax-support.md").
 
-**`OWNED BY `table_name`.`column_name``/`OWNED BY NONE`**
+**`OWNED BY `table_name`.`column_name`` / `OWNED BY NONE`**
 
 The `OWNED BY` option causes the sequence to be associated with a specific
 table column, such that if that column (or its whole table) is dropped, the sequence will

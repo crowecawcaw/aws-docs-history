@@ -110,7 +110,7 @@ public class DsqlJdbcConnectorExample {
                 // Query data
                 try (ResultSet resultSet = statement.executeQuery("SELECT * FROM test_table")) {
                     while (resultSet.next()) {
-                        System.out.println("ID: " + resultSet.getInt("id") + ", Name: " + resultSet.getString("name"));
+                        System.out.println("ID: " + resultSet.getString("id") + ", Name: " + resultSet.getString("name"));
                     }
                 }
             }

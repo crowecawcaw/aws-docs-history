@@ -19,38 +19,38 @@ An AWS Labs Model Context Protocol (MCP) server for Aurora DSQL
 
 ### Database Operations
 
-- **readonly_query** - Execute
+- **readonly\_query** - Execute
   read-only SQL queries against your DSQL cluster
 - **transact** - Execute write
   operations in a transaction (requires
   `--allow-writes`)
-- **get_schema** - Retrieve
+- **get\_schema** - Retrieve
   table schema information
 
 ### Documentation and Recommendations
 
-- **dsql_search_documentation**
+- **dsql\_search\_documentation**
 
 * Search Aurora DSQL documentation
 
   - Parameters: `search_phrase` (required),
     `limit` (optional)
 
-- **dsql_read_documentation** -
+- **dsql\_read\_documentation** -
   Read specific DSQL documentation pages
 
   - Parameters: `url` (required),
     `start_index` (optional),
     `max_length` (optional)
 
-- **dsql_recommend** - Get
+- **dsql\_recommend** - Get
   recommendations for DSQL best practices
 
   - Parameters: `url` (required)
 
 ### SQL Validation
 
-- **dsql_lint** - Validate SQL
+- **dsql\_lint** - Validate SQL
   for Aurora DSQL compatibility and optionally auto-fix issues
 
   - Parameters: `sql` (required),

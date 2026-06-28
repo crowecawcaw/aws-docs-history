@@ -75,7 +75,7 @@ Aurora DSQL uses two token types: `DbConnectAdmin` for the `admin` role and
   use `generate-db-connect-admin-auth-token` instead of
   `generate-db-connect-auth-token`.
 - If you see `Wrong user to action mapping. user:
-`myusername`, action: DbConnectAdmin`, use
+ `myusername`, action: DbConnectAdmin`, use
   `generate-db-connect-auth-token` instead of
   `generate-db-connect-admin-auth-token`.
 

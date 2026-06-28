@@ -137,7 +137,7 @@ For general considerations, see [Considerations for working with Amazon Aurora D
   to convert how it is displayed to the client and serve as the default for client input that
   the server will use to convert to UTC internally.
 - The transaction isolation level is fixed at PostgreSQL `Repeatable
-Read`.
+ Read`.
 - Transactions have the following constraints:
 
   - DDL and DML operations require separate transactions

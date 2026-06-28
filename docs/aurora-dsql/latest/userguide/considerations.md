@@ -4,7 +4,7 @@ Consider the following behaviors when you work with Amazon Aurora DSQL. For more
 PostgreSQL compatibility and support, see [SQL feature compatibility in Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md"). For quotas and limits, see [Cluster quotas and database limits in Amazon Aurora DSQL](CHAP_quotas.md "CHAP_quotas.md").
 
 - Storage limit calculations may take time to reflect freed storage after running a `DROP
-TABLE` command. If you need additional storage capacity, see
+ TABLE` command. If you need additional storage capacity, see
   [Cluster quotas](CHAP_quotas.md#SECTION_cluster-quotas "CHAP_quotas.md#SECTION_cluster-quotas") to request quota updates.
 - For large tables in Aurora DSQL, use the system catalog to retrieve table row counts instead of `COUNT(*)` operations.
   For more information, see [Using systems tables and

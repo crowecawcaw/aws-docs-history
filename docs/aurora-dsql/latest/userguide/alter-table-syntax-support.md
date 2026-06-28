@@ -38,7 +38,7 @@ modes, see [Storage mode](create-table-syntax-support.md#create-table-storage "c
 
 ## Identity column actions
 
-**`SET GENERATED { ALWAYS | BY DEFAULT }` / `SET `sequence_option``/`RESTART`**
+**`SET GENERATED { ALWAYS | BY DEFAULT }` / `SET `sequence_option`` / `RESTART`**
 
 These forms change whether a column is an identity column or change the generation
 attribute of an existing identity column. See

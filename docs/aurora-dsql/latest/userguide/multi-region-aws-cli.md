@@ -132,7 +132,7 @@ aws dsql update-cluster \
 
 ###### Note
 
-After successful peering, both clusters transition from "PENDING_SETUP" to
+After successful peering, both clusters transition from "PENDING\_SETUP" to
 "CREATING" and finally to "ACTIVE" status when ready for use.
 
 #### View multi-Region cluster properties
@@ -183,7 +183,7 @@ aws dsql create-cluster \
 --multi-region-properties '{"witnessRegion":"us-west-2","clusters": ["arn:aws:dsql:us-east-1:111122223333:cluster/foo0bar1baz2quux3quuxquux4"]}'
 ```
 
-This combines Steps 2 and 4, but you still need to complete Step 3 (updating the first cluster with the ARN of the second cluster) to establish the peering relationship. After all steps are completed, both clusters will transition through the same states as in the standard process: from **PENDING_SETUP** to **CREATING**, and finally to **ACTIVE** when ready for use.
+This combines Steps 2 and 4, but you still need to complete Step 3 (updating the first cluster with the ARN of the second cluster) to establish the peering relationship. After all steps are completed, both clusters will transition through the same states as in the standard process: from **PENDING\_SETUP** to **CREATING**, and finally to **ACTIVE** when ready for use.
 
 ## Delete multi-Region clusters
 

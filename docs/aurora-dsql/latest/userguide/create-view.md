@@ -141,7 +141,7 @@ A more complex view that doesn't satisfy all these conditions is read-only by de
 
 ###### Note
 
-The user performing the insert, update, or delete on the view must have the corresponding insert, update, or delete privilege on the view. By default, the view's owner must have the relevant privileges on the underlying base relations, while the user performing the update doesn't need any permissions on the underlying base relations. However, if the view has security_invoker set to true, the user performing the update, rather than the view owner, must have the relevant privileges on the underlying base relations.
+The user performing the insert, update, or delete on the view must have the corresponding insert, update, or delete privilege on the view. By default, the view's owner must have the relevant privileges on the underlying base relations, while the user performing the update doesn't need any permissions on the underlying base relations. However, if the view has security\_invoker set to true, the user performing the update, rather than the view owner, must have the relevant privileges on the underlying base relations.
 
 ## Examples
 

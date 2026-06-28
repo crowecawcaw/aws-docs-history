@@ -147,7 +147,7 @@ The function returns a response similar to the following:
 (1 row)
 ```
 
-\***\*inet type\*\***
+****inet type****
 
 The data type represents IPv4, IPv6 host addresses, and their subnets. This type
 is useful when parsing logs, filtering on IP subnets, or doing network calculations

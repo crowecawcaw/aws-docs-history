@@ -89,7 +89,7 @@ Editor, select and run each sample query step by step.
 CREATE SCHEMA IF NOT EXISTS test;
 ```
 
-2. Create a hello_world table that uses an automatically generated UUID as the primary
+2. Create a hello\_world table that uses an automatically generated UUID as the primary
    key.
 
 ```

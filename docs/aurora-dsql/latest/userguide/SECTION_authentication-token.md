@@ -130,8 +130,8 @@ token for the `admin` role.
 - `your_cluster_endpoint` – The endpoint of the
   cluster. It follows the format
   ``your_cluster_identifier`.dsql.`region`.on.aws`,
-as in the example
-`01abc2ldefg3hijklmnopqurstu.dsql.us-east-1.on.aws`.
+  as in the example
+  `01abc2ldefg3hijklmnopqurstu.dsql.us-east-1.on.aws`.
 - `region` – The AWS Region, such as
   `us-east-2` or `us-east-1`.
 
@@ -166,8 +166,8 @@ generate an authentication token for the `admin` role:
   `yourClusterEndpoint`) – The endpoint of
   your Aurora DSQL cluster. The naming format is
   ``your_cluster_identifier`.dsql.`region`.on.aws`,
-as in the example
-`01abc2ldefg3hijklmnopqurstu.dsql.us-east-1.on.aws`.
+  as in the example
+  `01abc2ldefg3hijklmnopqurstu.dsql.us-east-1.on.aws`.
 - `region` (or
   `RegionEndpoint`) – The AWS Region in
   which your cluster is located, such as `us-east-2` or
@@ -380,7 +380,7 @@ PHP SDK
 
 ###### Tip
 
-AWS recommends using the [Aurora DSQL Connector for PHP PDO_PGSQL](SECTION_program-with-dsql-connector-for-php-pdo-pgsql.md "SECTION_program-with-dsql-connector-for-php-pdo-pgsql.md"), which handles token generation automatically.
+AWS recommends using the [Aurora DSQL Connector for PHP PDO\_PGSQL](SECTION_program-with-dsql-connector-for-php-pdo-pgsql.md "SECTION_program-with-dsql-connector-for-php-pdo-pgsql.md"), which handles token generation automatically.
 
 You can generate the token in the following ways:
 
