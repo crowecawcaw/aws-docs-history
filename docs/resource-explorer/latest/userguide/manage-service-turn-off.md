@@ -11,7 +11,7 @@ deleted index to disappear from search results in the Region with the aggregator
 ###### Note
 
 When you register the first AWS Region, Resource Explorer creates [a service linked role (SLR) named
-AWSServiceRoleForResourceExplorer](security_iam_service-linked-roles.md#slr-permissions "security_iam_service-linked-roles.md#slr-permissions") in the AWS account. Resource Explorer **_doesn't_** delete this SLR automatically. After
+AWSServiceRoleForResourceExplorer](security_iam_service-linked-roles.md#slr-permissions "security_iam_service-linked-roles.md#slr-permissions") in the AWS account. Resource Explorer _**doesn't**_ delete this SLR automatically. After
 you delete the Resource Explorer index in every Region in the account, you can use the IAM
 console to delete the SLR if you won't use Resource Explorer in the future. If you do delete the
 role and you then choose to access Resource Explorer again in at least one AWS Region, Resource Explorer

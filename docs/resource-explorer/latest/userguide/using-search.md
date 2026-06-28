@@ -122,7 +122,7 @@ Therefore, the following query returns no results.
 region:us-east-1 region:us-west-1
 ```
 
-This limitation does **_not_** apply to the filters for attributes that can
+This limitation does _**not**_ apply to the filters for attributes that can
 have multiple values at the same time, such as `tag:`,
 `tag.key:`, and `tag.value:`.
 

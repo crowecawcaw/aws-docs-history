@@ -48,15 +48,15 @@ AWS account, the administrator does the following:
   allows searches performed in `us-west-2` to include resources from
   all three Regions in which Resource Explorer setup is complete.
 
-This configuration means that a user can perform cross-Region searches in **_only_**
+This configuration means that a user can perform cross-Region searches in _**only**_
 `us-west-2`, which contains the aggregator index. Only views from that Region can
 return results from all Regions in the account.
 
-![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](images/AREX-Overview-IAD.png)
+![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](/images/resource-explorer/latest/userguide/images/AREX-Overview-IAD.png)
 
 |                                                                                        |
-| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------------------------------------- |
 | **Legend**                                                                             |
 | Gear icon with magnifying glass, representing system configuration or search settings. | Resource Explorer is set up with a user-owned (local) index in this<br>AWS Region. Information about the Region's resources is stored in a<br>local index in that Region. Every Region's user-owned (local) index is<br>also replicated (indicated by the arrows) to the Region that contains<br>the aggregator index.                                                                   |
 | Notebook icon representing a document or file with lined pages.                        | The index in this AWS Region is configured to be the aggregator<br>index for the account. Resource Explorer replicates the resource information<br>collected in the user-owned (local) indexes of all other Regions into<br>the aggregator index in this Region. Searches made in this Region can<br>include results from all Regions with user-owned (local) indexes in the<br>account. |
-| Blue square border with white interior, representing a placeholder for an image.       | The default view created by \*_Quick Setup_<br>• includes<br>all resources in all AWS Regions with user-owned (local)<br>indexes.                                                                                                                                                                                                                                                        |
+| Blue square border with white interior, representing a placeholder for an image.       | The default view created by *_Quick Setup_<br>• includes<br>all resources in all AWS Regions with user-owned (local)<br>indexes.                                                                                                                                                                                                                                                         |

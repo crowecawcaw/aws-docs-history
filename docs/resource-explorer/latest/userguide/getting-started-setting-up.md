@@ -38,7 +38,7 @@ AWS Regions", it creates indexes only in those AWS Regions that exist and that a
 [enabled in the
 AWS account](../../../general/latest/gr/rande-manage.md#rande-manage-enable "../../../general/latest/gr/rande-manage.md#rande-manage-enable")
 _at the time you perform the procedure_. User-owned
-indexes are **_not_**
+indexes are _**not**_
 automatically created in any AWS Regions that AWS adds in the future. When AWS
 introduces a new Region, you can choose to create user-owned indexes in the Region
 manually when it appears in the **[Settings](https://console.aws.amazon.com/resource-explorer/home#/settings "https://console.aws.amazon.com/resource-explorer/home#/settings")** page of the Resource Explorer console, or by calling

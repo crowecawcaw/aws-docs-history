@@ -95,23 +95,22 @@ Resource Explorer provides the following features:
 
 - Enhanced features (optional configuration):
 
-      + Cross-Region search capability when you select an aggregator
-       AWS Region.
-      + Multi-account search through AWS Organizations integration.
-      + Additional resource details from other AWS services, such as
-       AWS Config and AWS Cloud Control, directly in the Resource Explorer console.
-      + Resource management using quick Actions in the Resource Explorer console to
-       manage tags and add resources to new or existing applications.
-      + Custom views that administrators can create to define which resources
-       are available in search results, with different views for different user
-       groups based on their needs.
+  - Cross-Region search capability when you select an aggregator
+    AWS Region.
+  - Multi-account search through AWS Organizations integration.
+  - Additional resource details from other AWS services, such as
+    AWS Config and AWS Cloud Control, directly in the Resource Explorer console.
+  - Resource management using quick Actions in the Resource Explorer console to
+    manage tags and add resources to new or existing applications.
+  - Custom views that administrators can create to define which resources
+    are available in search results, with different views for different user
+    groups based on their needs.
+    Manual configuration is only needed in specific cases:
 
-  Manual configuration is only needed in specific cases:
-
-      + When you need to add missing permissions
-      + When you want enhanced features like cross-Region search
-      + When you want to set up multi-account configurations
-      + When you want to customize your Resource Explorer setup
+  - When you need to add missing permissions
+  - When you want enhanced features like cross-Region search
+  - When you want to set up multi-account configurations
+  - When you want to customize your Resource Explorer setup
 
 - Resource Explorer, like many other AWS services, is _[eventually
   consistent](https://wikipedia.org/wiki/Eventual_consistency "https://wikipedia.org/wiki/Eventual_consistency")_. Resource Explorer achieves high availability by

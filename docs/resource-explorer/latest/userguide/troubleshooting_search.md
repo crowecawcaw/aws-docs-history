@@ -141,7 +141,7 @@ end of the first keyword in the string. This means that unified search results i
 that match any string that starts with the specified keyword.
 
 The search performed by the **Query** text box on the [Resource search](https://console.aws.amazon.com/resource-explorer/home#/explorer "https://console.aws.amazon.com/resource-explorer/home#/explorer") page in the
-Resource Explorer console does **_not_**
+Resource Explorer console does _**not**_
 automatically append a wildcard character. You can insert a `*` manually after
 any term in the search string.
 

@@ -26,18 +26,17 @@ in the _IAM User Guide_.
 
 - IAM users:
 
-      + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
-      + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
-
-  Grant permission to allow your roles, groups, or users to invoke the
-  `resource-explorer-2:GetView` and `resource-explorer-2:Search`
-  operations on a view identified by its [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"). Alternatively, you can use the
-  [Resource Explorer read only
-  AWS managed policy](security_iam_awsmanpol.md#security_iam_awsmanpol_AWSResourceExplorerReadOnlyAccess "security_iam_awsmanpol.md#security_iam_awsmanpol_AWSResourceExplorerReadOnlyAccess") for all principals who need to use the view to search.
-  You can create multiple views that have different filters and scopes and thus return
-  different subsets of your resource information. Then, you can grant permissions for each
-  view to those users who need to see the information included by that view's
-  results.
+  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
+  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
+    Grant permission to allow your roles, groups, or users to invoke the
+    `resource-explorer-2:GetView` and `resource-explorer-2:Search`
+    operations on a view identified by its [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"). Alternatively, you can use the
+    [Resource Explorer read only
+    AWS managed policy](security_iam_awsmanpol.md#security_iam_awsmanpol_AWSResourceExplorerReadOnlyAccess "security_iam_awsmanpol.md#security_iam_awsmanpol_AWSResourceExplorerReadOnlyAccess") for all principals who need to use the view to search.
+    You can create multiple views that have different filters and scopes and thus return
+    different subsets of your resource information. Then, you can grant permissions for each
+    view to those users who need to see the information included by that view's
+    results.
 
 ## Configuring a Resource Explorer view to provide access to resource searches
 

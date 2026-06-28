@@ -130,7 +130,7 @@ information to the aggregator index. If that is where your users do all of
 their searching, then the resources in the new Region appear in those search
 results and you're done.
 
-However, if you want users to be able to search for resources in **_only_** the newly
+However, if you want users to be able to search for resources in _**only**_ the newly
 indexed Region, then you can also create a view for users in that Region
 and grant your users permissions to that view or users can search using the
 service view in that Region.. For instructions on how to create a view, see
@@ -192,7 +192,7 @@ information to the aggregator index. If that is where your users do all of
 their searching, then the resources in the new Region appear in those search
 results and you're done.
 
-However, if you want users to be able to search for resources in **_only_** the newly
+However, if you want users to be able to search for resources in _**only**_ the newly
 indexed Region, then you can also create a view for users in that Region
 and grant your users permissions to that view or users can search using the
 service view in that Region. For instructions on how to create a view, see

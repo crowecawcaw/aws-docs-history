@@ -5,7 +5,7 @@ bar can search the AWS service documentation and blog topics, and take you direc
 AWS service console pages. It can also return the resources in your AWS account when you
 have appropriate Resource Explorer permissions.
 
-With [Unified Search](../../../awsconsolehelpdocs/latest/gsg/using-search.md "../../../awsconsolehelpdocs/latest/gsg/using-search.md"), users can search for resources from **_any_** AWS service console without having to first
+With [Unified Search](../../../awsconsolehelpdocs/latest/gsg/using-search.md "../../../awsconsolehelpdocs/latest/gsg/using-search.md"), users can search for resources from _**any**_ AWS service console without having to first
 navigate to the AWS Resource Explorer console. Unified Search returns regional results from the current
 Region by default, or cross-region results if an aggregator index is configured.
 
@@ -33,7 +33,7 @@ end of the first keyword in the string. This means that unified search results i
 that match any string that starts with the specified keyword.
 
 The search performed by the **Query** text box on the [Resource search](https://console.aws.amazon.com/resource-explorer/home#/explorer "https://console.aws.amazon.com/resource-explorer/home#/explorer") page in the
-Resource Explorer console does **_not_**
+Resource Explorer console does _**not**_
 automatically append a wildcard character. You can insert a `*` manually after
 any term in the search string.
 

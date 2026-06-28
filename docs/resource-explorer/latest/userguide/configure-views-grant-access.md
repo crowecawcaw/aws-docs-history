@@ -17,10 +17,9 @@ in the _IAM User Guide_.
 
 - IAM users:
 
-      + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
-      + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
-
-  You can use either of the following methods:
+  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
+  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
+    You can use either of the following methods:
 
 - **Use an existing AWS managed policy**. Resource Explorer
   provides several pre-defined AWS managed policies for your use. For details of all
@@ -96,7 +95,7 @@ condition similar to the following example elements.
 ```
 
 That `Condition` in the previous example specifies that the request is
-allowed **_only_** if the
+allowed _**only**_ if the
 `Environment` tag attached to the principal making the request matches
 the `Environment` tag attached to the resource specified in the request. If
 those two tags don't exactly match, or if either tag is missing, then the Resource Explorer denies

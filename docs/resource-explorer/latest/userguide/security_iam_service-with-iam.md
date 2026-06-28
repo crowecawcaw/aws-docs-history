@@ -135,7 +135,7 @@ permission to modify the definition of only one view.
 "Resource": "arn:aws:resource-explorer-2:us-east-1:123456789012:view/ProductionResourcesView/`<unique-id>`"
 ```
 
-To allow the actions on **_all_** views that belong to a specific account, use
+To allow the actions on _**all**_ views that belong to a specific account, use
 the wildcard character (`*`) in the relevant part of the ARN. The
 following example grants search permission to all views in a specified
 AWS Region and account.
@@ -178,7 +178,7 @@ The primary way that you interact with the index is to create an index in that
 Region. After that, you do almost everything else by interacting with the
 view.
 
-One thing that you can do with the index is to control who can **_create_** views in
+One thing that you can do with the index is to control who can _**create**_ views in
 each Region.
 
 ###### Note

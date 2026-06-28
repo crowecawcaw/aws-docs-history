@@ -56,11 +56,11 @@ where Resource Explorer is turned on including Tags.
 ![4 Regions: Resource Explorer registered in 3. Default view, aggregator index, or AWS account in 1.](images/AREX-Overview-IAD.png)
 
 |                                                                                        |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------------------------------------- |
 | **Legend**                                                                             |
 | Gear icon with magnifying glass, representing system configuration or search settings. | Resource Explorer is set up with a user-owned (local) index in this AWS Region.<br>Information about the Region's resources is stored in a local index in that<br>Region. Every Region's user-owned (local) index is also replicated<br>(indicated by the arrows) to the Region that contains the aggregator<br>index.                                                                |
 | Notebook icon representing a document or file with lined pages.                        | The index in this AWS Region is configured to be the aggregator index<br>for the account. Resource Explorer replicates the resource information collected in the<br>user-owned (local) indexes of all other Regions into the aggregator index<br>in this Region. Searches made in this Region can include results from all<br>Regions with user-owned (local) indexes in the account. |
-| Blue square border with white interior, representing a placeholder for an image.       | The default view created by \*_Quick Setup_<br>• includes all<br>resources in all AWS Regions with user-owned (local) indexes.                                                                                                                                                                                                                                                        |
+| Blue square border with white interior, representing a placeholder for an image.       | The default view created by *_Quick Setup_<br>• includes all<br>resources in all AWS Regions with user-owned (local) indexes.                                                                                                                                                                                                                                                         |
 
 ## Resource Explorer administrator
 
@@ -238,7 +238,7 @@ contains the aggregator index for the account. The primary reason to
 designate an aggregator index for the account is so that you can create views
 that can include resources from all Regions in the account. Using an
 aggregator index is optional but recommended for cross-region search
-capabilities. There can be **_only one_** aggregator index in an
+capabilities. There can be _**only one**_ aggregator index in an
 AWS account.
 
 When you complete setup for Resource Explorer, you can specify which AWS Region
@@ -299,7 +299,7 @@ administrator makes available to you.
 ###### Important
 
 Resource Explorer excludes intentionally those resources types whose inclusion would expose
-customer data. The following resource types are **_not_** indexed by Resource Explorer and are therefore
+customer data. The following resource types are _**not**_ indexed by Resource Explorer and are therefore
 never returned in search results.
 
 - Amazon S3 objects that are contained _within_
@@ -326,7 +326,7 @@ end of the first keyword in the string. This means that unified search results i
 that match any string that starts with the specified keyword.
 
 The search performed by the **Query** text box on the [Resource search](https://console.aws.amazon.com/resource-explorer/home#/explorer "https://console.aws.amazon.com/resource-explorer/home#/explorer") page in the
-Resource Explorer console does **_not_**
+Resource Explorer console does _**not**_
 automatically append a wildcard character. You can insert a `*` manually after
 any term in the search string.
 

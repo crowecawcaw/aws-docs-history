@@ -51,13 +51,13 @@ The fully deploy Resource Explorer, you must deploy two stack sets.
 - The first stack set creates the aggregator index and default view that lets
   users search for resources across all of the Regions in the account.
 
-Deploy this stack set to **_only_** the single Region in which you want to
+Deploy this stack set to _**only**_ the single Region in which you want to
 create the aggregator index.
 
 - The second stack sets creates a local index and default view. The local index
   replicates its content to the aggregator index.
 
-Deploy this stack set to every enabled Region in the account **_except_** the Region
+Deploy this stack set to every enabled Region in the account _**except**_ the Region
 that contains the aggregator index. Don't choose any Regions that aren't enabled
 in the accounts to which you deploy the stack. If you do, the deployment
 fails.

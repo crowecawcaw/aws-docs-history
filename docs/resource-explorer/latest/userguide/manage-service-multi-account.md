@@ -20,8 +20,8 @@ To turn on multi-account search for your organization, complete the following:
 - [Create an administrative user.](getting-started-setting-up-prereqs.md#create-an-admin "getting-started-setting-up-prereqs.md#create-an-admin")
 - [Create a
   service-linked role in the administrator account](security_iam_service-linked-roles.md "security_iam_service-linked-roles.md") with `aws iam
-create-service-linked-role --aws-service-name
-resource-explorer-2.amazonaws.com`.
+ create-service-linked-role --aws-service-name
+ resource-explorer-2.amazonaws.com`.
 - [Enable
   trusted access in AWS Organizations](../../../organizations/latest/userguide/orgs_integrate_services.md "../../../organizations/latest/userguide/orgs_integrate_services.md"). This allows full integration with Resource Explorer
   to list resources across all accounts in your organization.

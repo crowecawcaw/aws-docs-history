@@ -88,7 +88,7 @@ you should investigate and correct.
 
 ###### Important
 
-Resource Explorer searches are **_not_** case sensitive and can't distinguish between key
+Resource Explorer searches are _**not**_ case sensitive and can't distinguish between key
 names and values that differ only by how they're capitalized. For example, the
 values in the following example match `PROD`, `prod`,
 `PrOd`, or any variation. However, some applications use tags in
@@ -143,7 +143,7 @@ query returns no results.
 region:us-east-1 region:us-west-1
 ```
 
-This limitation does **_not_** apply to the filters for attributes that can have
+This limitation does _**not**_ apply to the filters for attributes that can have
 multiple values at the same time, such as `tag:`, `tag.key:`,
 and `tag.value:`.
 
@@ -154,7 +154,7 @@ quotation marks (")](using-search-query-syntax.md#query-syntax-operators "using-
 term in the specified order. Without double quotation marks, Resource Explorer returns resources
 that match any individual words that make up the term. For example, the following query
 uses the double quotation marks to return only resources that match the term `"west
- wing"`. The query does **_not_** match resources in the `us-west-2`
+ wing"`. The query does _**not**_ match resources in the `us-west-2`
 AWS Region (or any other Region that includes `west` in its code) or
 resources that match the word "wing" without the word "west".
 

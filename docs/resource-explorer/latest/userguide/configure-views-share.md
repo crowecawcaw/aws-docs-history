@@ -8,10 +8,10 @@ group, or user, and it specifies which actions and resources that role, group, o
 access. You can use either type of policy with Resource Explorer views, as follows:
 
 - Within the management account or delegated administrator account that owns the
-  resource, use **_either_** policy
+  resource, use _**either**_ policy
   type to grant access, provided that no other policy explicitly denies access to the
   view for that principal.
-- Across accounts, you must use **_both_** policy types. The resource-based policy
+- Across accounts, you must use _**both**_ policy types. The resource-based policy
   attached to the view in the _sharing_ account turns on sharing
   with another _consuming_ account. However, that policy doesn't
   grant access to the individual users or roles in the consuming account. The
