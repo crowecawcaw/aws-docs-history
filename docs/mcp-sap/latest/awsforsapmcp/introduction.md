@@ -4,8 +4,7 @@ With AWS for SAP MCP Server ("MCP Server"), running on Amazon Bedrock AgentCore 
 
 ## Key capabilities
 
-- **Service Discovery** — You can query the SAP API service catalog to find available OData services, with support for pagination and filtering by service type.
-- **Metadata Inspection** — You can fetch OData service metadata to map entity types, properties, and relationships for contextual understanding.
+- **Service Discovery** — You can query the SAP API service catalog to find available OData services and their structure, with support for pagination.
 - **OData Read Operations** — You can perform read queries against SAP OData entity sets, including filtering, field selection, and record count.
 - **OData Write Operations** — You can create, update, and delete entity records when explicitly enabled by the operator.
 - **Authentication** — You can configure inbound access control for connecting to the MCP Server and outbound authentication for SAP system access.

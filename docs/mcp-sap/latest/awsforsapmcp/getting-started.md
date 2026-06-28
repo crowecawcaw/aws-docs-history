@@ -60,7 +60,7 @@ Inbound authentication requires a JSON Web Token (JWT) compatible identity provi
 
 ### Outbound Authentication
 
-AWS for SAP MCP Server supports Basic Auth and OAuth2 (M2M and User Federation).
+AWS for SAP MCP Server supports Basic Auth and OAuth2 (M2M, User Federation, and On-Behalf-Of Token Exchange).
 
 **Basic Authentication**
 
@@ -117,3 +117,15 @@ Additionally, SAP and IdP related OAuth2/OIDC/SAML configuration are required as
 
   - The AgentCore callback URL must be registered as a redirect URI in your identity provider’s application configuration. This URL is auto-generated during deployment.
   - This is applicable only to SAP S/4HANA.
+
+#### On-Behalf-Of Token Exchange
+
+**Pattern: External IdP (Entra ID) with token exchange**
+
+- Same as M2M Pattern 2 (External IdP with OIDC) prerequisites, plus:
+
+  - Two Entra ID app registrations are required: an inbound app (for user authentication) and an outbound app (for the token exchange).
+  - The outbound app must authorize the inbound app as a client.
+  - User consent (or admin consent) granted to the outbound app in Entra ID.
+  - The AgentCore callback URL must be registered as a redirect URI in the outbound app’s configuration. This URL is auto-generated during deployment.
+  - Certain MCP Clients might need a Three App setup. Three Entra ID app registrations include a Client app (for user authentication), a Resource app (representing AgentCore for token validation), and an Outbound app (for the token exchange to SAP). The Resource app performs the OBO exchange using its own credentials to obtain a token scoped to the Outbound app.

@@ -15,14 +15,14 @@ As an example, to modify one of the configuration variable values:
 
 The following variables must be set for the server to start. Some are conditionally required based on the chosen authentication flow.
 
-| Variable                            | Description                                                                                                               | Example                                            |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `MCP_SERVER_SAP_BASE_URL`           | Base URL of the SAP OData endpoint.                                                                                       | `https://sap.example.com:44301/sap/opu/odata/sap/` |
-| `MCP_SERVER_SAP_OAUTH_FLOW`         | Authentication flow type. Determines which credential mechanism the server uses.                                          | `M2M`                                              |
-| `MCP_SERVER_BASIC_AUTH_SECRET_NAME` | AWS Secrets Manager secret name containing SAP username and password.                                                     | `my-sap-credentials`                               |
-| `MCP_SERVER_OAUTH_PROVIDER`         | Bedrock AgentCore Identity Provider Name. Required when `MCP_SERVER_SAP_OAUTH_FLOW` is set to `M2M` or `USER_FEDERATION`. | `sap-oauth-provider`                               |
-| `MCP_SERVER_SAP_OAUTH_SCOPES`       | OAuth scopes for SAP access. Required when `MCP_SERVER_SAP_OAUTH_FLOW` is set to `M2M` or `USER_FEDERATION`.              | `ZAPI_SALES_ORDER_SRV_0001`                        |
-| `MCP_SERVER_APP_CALLBACK_URL`       | Callback URL for the interactive OAuth flow. Required when `MCP_SERVER_SAP_OAUTH_FLOW` is set to `USER_FEDERATION`.       | `https://app.example.com/auth`                     |
+| Variable                            | Description                                                                                                                                               | Example                                            |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| `MCP_SERVER_SAP_BASE_URL`           | Base URL of the SAP OData endpoint.                                                                                                                       | `https://sap.example.com:44301/sap/opu/odata/sap/` |
+| `MCP_SERVER_SAP_OAUTH_FLOW`         | Authentication flow type. Determines which credential mechanism the server uses.                                                                          | `M2M`                                              |
+| `MCP_SERVER_BASIC_AUTH_SECRET_NAME` | AWS Secrets Manager secret name containing SAP username and password.                                                                                     | `my-sap-credentials`                               |
+| `MCP_SERVER_OAUTH_PROVIDER`         | Bedrock AgentCore Identity Provider Name. Required when `MCP_SERVER_SAP_OAUTH_FLOW` is set to `M2M`, `USER_FEDERATION`, or `ON_BEHALF_OF_TOKEN_EXCHANGE`. | `sap-oauth-provider`                               |
+| `MCP_SERVER_SAP_OAUTH_SCOPES`       | OAuth scopes for SAP access. Required when `MCP_SERVER_SAP_OAUTH_FLOW` is set to `M2M`, `USER_FEDERATION`, or `ON_BEHALF_OF_TOKEN_EXCHANGE`.              | `ZAPI_SALES_ORDER_SRV_0001`                        |
+| `MCP_SERVER_APP_CALLBACK_URL`       | Callback URL for the interactive OAuth flow. Required when `MCP_SERVER_SAP_OAUTH_FLOW` is set to `USER_FEDERATION`.                                       | `https://app.example.com/auth`                     |
 
 ## Optional environment variables
 
@@ -277,5 +277,5 @@ The server enforces the following cross-validation rules at startup. If any rule
 
 1. **Write operations require at least one operation enabled.** If `MCP_SERVER_WRITE_ENABLED=true`, at least one of `MCP_SERVER_CREATE_ENABLED`, `MCP_SERVER_UPDATE_ENABLED`, `MCP_SERVER_DELETE_ENABLED`, or `MCP_SERVER_FUNCTION_IMPORT_ENABLED` must also be `true`.
 2. **Custom catalog required when SAP catalog is disabled.** If `MCP_SERVER_USE_SAP_CATALOG=false`, then `MCP_SERVER_CUSTOM_CATALOG_BUCKET` must be set.
-3. **OAuth provider validated at startup.** When the authentication flow is `M2M` or `USER_FEDERATION`, the server validates the `MCP_SERVER_SAP_OAUTH_PROVIDER` value against Bedrock AgentCore Identity during startup.
+3. **OAuth provider validated at startup.** When the authentication flow is `M2M`, `USER_FEDERATION`, or `ON_BEHALF_OF_TOKEN_EXCHANGE`, the server validates the `MCP_SERVER_SAP_OAUTH_PROVIDER` value against Bedrock AgentCore Identity during startup.
 4. **Basic auth secret validated at startup.** When the authentication flow is `BASIC`, the server validates that the secret specified in `MCP_SERVER_BASIC_AUTH_SECRET_NAME` exists in AWS Secrets Manager.

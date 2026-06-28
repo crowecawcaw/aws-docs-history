@@ -1,6 +1,6 @@
 # Identity and Authentication
 
-The AWS for SAP MCP Server uses two layers of authentication: inbound authentication controls access to the Model Context Protocol (MCP) Server, and outbound authentication controls access to SAP.
+The AWS for SAP MCP Server uses two layers of authentication: inbound authentication controls access to the Model Context Protocol (MCP) Server, and outbound authentication controls access to SAP. For more information about the authentication patterns supported by Bedrock AgentCore Identity, see [Supported authentication patterns](../../../bedrock-agentcore/latest/devguide/identity-auth-patterns.md "../../../bedrock-agentcore/latest/devguide/identity-auth-patterns.md").
 
 ## Inbound Authentication
 
@@ -16,17 +16,18 @@ When an external identity provider such as [Microsoft Entra ID](../../../bedrock
 
 ## Outbound Authentication
 
-You can choose from three authentication flows to connect to SAP systems. You select the authentication flow through the CloudFormation template.
+You can choose from the following authentication flows to connect to SAP systems. You select the authentication flow through the CloudFormation template.
 
 ### Choosing your outbound authentication setup
 
-| Scenario                                                      | Auth Flow       | Protocol      | Identity Provider          | SAP Configuration                         |
-| ------------------------------------------------------------- | --------------- | ------------- | -------------------------- | ----------------------------------------- |
-| Direct SAP credentials, no IdP                                | BASIC           | Basic Auth    | None                       | SAP System User                           |
-| SAP as Authorization Server with OAuth2                       | M2M             | OAuth2        | SAP                        | SAP OAuth2 Client                         |
-| External IdP with OIDC                                        | M2M             | OIDC          | Entra ID                   | SAP OIDC trust                            |
-| SAP as Authorization Server with OAuth2 and SAML IdP redirect | User Federation | OAuth2 + SAML | Entra ID or other SAML IdP | SAP OAuth2 client + SAML trusted provider |
-| External IdP with OIDC                                        | User Federation | OIDC          | Entra ID                   | SAP OIDC trust                            |
+| Scenario                                                      | Auth Flow                   | Protocol      | Identity Provider          | SAP Configuration                         |
+| ------------------------------------------------------------- | --------------------------- | ------------- | -------------------------- | ----------------------------------------- |
+| Direct SAP credentials, no IdP                                | BASIC                       | Basic Auth    | None                       | SAP System User                           |
+| SAP as Authorization Server with OAuth2                       | M2M                         | OAuth2        | SAP                        | SAP OAuth2 Client                         |
+| External IdP with OIDC                                        | M2M                         | OIDC          | Entra ID                   | SAP OIDC trust                            |
+| SAP as Authorization Server with OAuth2 and SAML IdP redirect | User Federation             | OAuth2 + SAML | Entra ID or other SAML IdP | SAP OAuth2 client + SAML trusted provider |
+| External IdP with OIDC                                        | User Federation             | OIDC          | Entra ID                   | SAP OIDC trust                            |
+| External IdP with token exchange                              | On-Behalf-Of Token Exchange | OIDC          | Entra ID                   | SAP OIDC trust                            |
 
 ### Basic Authentication
 
@@ -43,7 +44,7 @@ Not recommended for production deployments.
 
 **Key characteristics:**
 
-- Credentials are retrieved from AWS Secrets Manager per request - they are never persisted in AgentCore Runtime.
+- Credentials are retrieved from AWS Secrets Manager per request.
 - No user interaction is required.
 - No dependency on Bedrock AgentCore Identity.
 
@@ -76,4 +77,26 @@ User Federation authentication flow uses Bedrock AgentCore Identity with a callb
 
 ###### Note
 
-This flow uses two callback URLs: \* The AgentCore callback URL (auto-generated, must be registered with your IdP). \* The client application callback URL (configured via CloudFormation template).
+This flow uses two callback URLs:
+\* The AgentCore callback URL (auto-generated, must be registered with your IdP).
+\* The client application callback URL (configured via CloudFormation template).
+
+### On-Behalf-Of Token Exchange
+
+The On-Behalf-Of (OBO) Token Exchange authentication flow uses Bedrock AgentCore Identity to exchange a user’s inbound token for an outbound access token that preserves the user’s identity. This flow propagates the authenticated user’s identity from the MCP client all the way through to SAP, ensuring that data access is scoped to an individual user. The outbound token exchange happens entirely server-side.
+
+**How it works:**
+
+1. The MCP client sends a request with a JWT that identifies the authenticated user.
+2. The AgentCore runtime validates the inbound JWT against the configured discovery URL and allowed audiences.
+3. Bedrock AgentCore Identity performs the OBO token exchange with the configured identity provider using the outbound app’s client credentials.
+4. The identity provider issues a new access token that carries the original user’s identity.
+5. The MCP server forwards this token to SAP.
+6. SAP validates the token and maps the user identity to a SAP user based on your SAP configuration.
+
+**Key characteristics:**
+
+- User identity is preserved end-to-end.
+- No additional user interaction required after initial login.
+- The token exchange is fully server-side.
+- Requires an identity provider that supports the On-Behalf-Of token exchange grant type.

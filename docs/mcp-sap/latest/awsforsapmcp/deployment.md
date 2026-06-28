@@ -58,15 +58,16 @@ Example: `aws-for-sap-mcp-server`
 
 **Authentication configuration**
 
-The MCP Server supports three authentication flows for connecting to SAP. Choose the one that matches your SAP system setup.
+The MCP Server supports the following authentication flows for connecting to SAP. Choose the one that matches your SAP system setup.
 
-| Parameter              | Parameter Label              | Description                                                                                           | BASIC    | M2M      | USER_FEDERATION |
-| ---------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------- | -------- | -------- | --------------- |
-| `AuthFlow`             | Authentication Flow          | Authentication flow to use: `BASIC`, `M2M`, or `USER_FEDERATION`.                                     | ✓        | ✓        | ✓               |
-| `SapCredentialsSecret` | Auth Credentials Secret Name | AWS Secrets Manager secret name containing SAP credentials (BASIC) or OAuth client credentials (M2M). | Required | Required | Required        |
-| `SapAuthorizeUrl`      | Authorization Endpoint       | SAP OAuth2 authorization URL.                                                                         | —        | Required | Required        |
-| `SapTokenUrl`          | Token Endpoint               | SAP OAuth2 token URL.                                                                                 | —        | Required | Required        |
-| `OauthScopes`          | Scope(s)                     | OAuth scopes for SAP access.                                                                          | —        | Required | Required        |
+| Parameter              | Parameter Label               | Description                                                                                      | BASIC    | M2M      | USER\_FEDERATION | ON\_BEHALF\_OF\_TOKEN\_EXCHANGE |
+| ---------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------ | -------- | -------- | ---------------- | ------------------------------- |
+| `AuthFlow`             | Authentication Flow           | Authentication flow to use: `BASIC`, `M2M`, `USER_FEDERATION`, or `ON_BEHALF_OF_TOKEN_EXCHANGE`. | ✓        | ✓        | ✓                | ✓                               |
+| `SapCredentialsSecret` | Auth Credentials Secret Name  | AWS Secrets Manager secret name containing SAP credentials (BASIC) or OAuth client credentials.  | Required | Required | Required         | Required                        |
+| `SapAuthorizeUrl`      | Authorization Endpoint        | OAuth2 authorization URL.                                                                        | —        | Required | Required         | —                               |
+| `SapTokenUrl`          | Token Endpoint                | OAuth2 token URL.                                                                                | —        | Required | Required         | —                               |
+| `OauthScopes`          | Scope(s)                      | OAuth scopes for SAP access.                                                                     | —        | Required | Required         | Required                        |
+| `AppCallbackEndpoint`  | Application Callback Endpoint | Client application callback URL.                                                                 | —        | —        | Required         | —                               |
 
 **Inbound Authentication Configuration**
 
@@ -245,6 +246,43 @@ aws cloudformation create-stack \
 ###### Note
 
 `USER_FEDERATION` does not require `SapCredentialsSecret`. `AppCallbackEndpoint` is required for this flow only.
+
+## Example: On-Behalf-Of Token Exchange Deployment
+
+```
+aws cloudformation create-stack \
+  --stack-name <your-stack-name> \
+  --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
+  --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
+  --parameters \
+    ParameterKey=UniqueId,ParameterValue=<your-unique-id> \
+    ParameterKey=SapBaseUrl,ParameterValue=<your-sap-base-url> \
+    ParameterKey=SapSystemType,ParameterValue=S4HANA \
+    ParameterKey=SapClientNumber,ParameterValue=<your-client-number> \
+    ParameterKey=InboundAuthProvider,ParameterValue=EntraId \
+    ParameterKey=DiscoveryUrl,ParameterValue=<your-discovery-url> \
+    ParameterKey=AllowedAudiences,ParameterValue=<your-allowed-audiences> \
+    ParameterKey=AuthFlow,ParameterValue=ON_BEHALF_OF_TOKEN_EXCHANGE \
+    ParameterKey=SapCredentialsSecret,ParameterValue=<your-secret-name> \
+    ParameterKey=OauthScopes,ParameterValue=<your-oauth-scopes> \
+    ParameterKey=McpServerLogLevel,ParameterValue=INFO \
+    ParameterKey=McpServerReadEnabled,ParameterValue=true \
+    ParameterKey=McpServerWriteEnabled,ParameterValue=false \
+    ParameterKey=McpServerCreateEnabled,ParameterValue=false \
+    ParameterKey=McpServerUpdateEnabled,ParameterValue=false \
+    ParameterKey=McpServerDeleteEnabled,ParameterValue=false \
+    ParameterKey=McpServerFunctionImportEnabled,ParameterValue=false \
+    ParameterKey=UseSapCatalog,ParameterValue=true \
+    ParameterKey=McpServerCustomCatalogBucketUri,ParameterValue=None \
+    ParameterKey=McpServerServiceHintsS3Uri,ParameterValue=None \
+    ParameterKey=AllowedServicePrefixes,ParameterValue=None \
+    ParameterKey=McpServerVpcSecurityGroup,ParameterValue=<your-security-group-id> \
+    ParameterKey=McpServerNetworkSubnets,ParameterValue=<your-subnet-ids>
+```
+
+###### Note
+
+`ON_BEHALF_OF_TOKEN_EXCHANGE` requires `SapCredentialsSecret`, `DiscoveryUrl`, and `AllowedAudiences`. `AppCallbackEndpoint` and `SapAuthorizeUrl`/`SapTokenUrl` are not required for this flow.
 
 ## What to expect
 
