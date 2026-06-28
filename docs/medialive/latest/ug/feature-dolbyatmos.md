@@ -33,7 +33,7 @@ The input must have these characteristics:
   - Up to 16 channels in the following order:
 
   `L R C LFE Ls Rs Lb Rb Tfl Tfr Tsl Tsr Tbl Tbr Lw
- Rw`
+   Rw`
   - If the source has fewer than 16 channels, MediaLive extracts all
     the channels and then pads the output by inserting silence in the
     higher-numbered channels. For example, if the source has two channels,
@@ -129,20 +129,19 @@ audio to Dolby Digital Plus with Dolby Atmos.
 Follow this procedure if the source audio is already Dolby Digital Plus with Dolby
 Atmos.
 
-1.  In the channel, go to the output group where you want to add the audio. Or
-    create a new group.
-2.  Create the output where you want to add the audio encode.
-3.  In the **Stream settings** section for the
-    output, choose the **Audio** section.
-4.  Set these fields:
+1. In the channel, go to the output group where you want to add the audio. Or
+   create a new group.
+2. Create the output where you want to add the audio encode.
+3. In the **Stream settings** section for the
+   output, choose the **Audio** section.
+4. Set these fields:
 
-        * **Audio Selector Name**: Set to the audio selector
-         that you set up in the input.
-        * **Audio Codec**: Set to
-         **Passthrough**.
-
-    With this setup, the selected audio source in the input will be passed
-    through.
+   - **Audio Selector Name**: Set to the audio selector
+     that you set up in the input.
+   - **Audio Codec**: Set to
+     **Passthrough**.
+     With this setup, the selected audio source in the input will be passed
+     through.
 
 ###### Important
 

@@ -34,6 +34,4 @@ and 1.
 
 MediaLive assigns a track number to each channel group, starting with the
 first channel group in the first line in the first SDP file, and covering
-all the audio lines in all the audio SDP files. The tracks are numbered from
-
-1.
+all the audio lines in all the audio SDP files. The tracks are numbered from 1.

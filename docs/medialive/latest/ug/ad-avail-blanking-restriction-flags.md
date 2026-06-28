@@ -5,9 +5,9 @@ a MediaLive channel, when you set up for ad avail blanking.
 
 **Restrictions in the input**
 
-SCTE 35 messages of type time_signal always contain segmentation descriptors.
+SCTE 35 messages of type time\_signal always contain segmentation descriptors.
 
-SCTE 35 messages of type splice_insert might or might not include segmentation
+SCTE 35 messages of type splice\_insert might or might not include segmentation
 descriptors.
 
 If the input has SCTE 35 messages that do include segmentation descriptors, these
@@ -15,7 +15,7 @@ segmentation descriptors always include two types of flags. Each flag has a valu
 "true" or "false" and provides additional information as guidance for blanking in
 specific situations:
 
-- web_delivery_allowed_flag
+- web\_delivery\_allowed\_flag
 
   - True means that there is no restriction on including the ad avail
     event’s content in a stream that is intended for web delivery: there
@@ -24,10 +24,10 @@ specific situations:
   - False means there is a restriction: the content should be blanked
     out.
 
-- no_regional_blackout_flag
+- no\_regional\_blackout\_flag
 
 (The wording of this flag is confusing. Think of it as the
-"regional_delivery_allowed_flag".)
+"regional\_delivery\_allowed\_flag".)
 
     + True means that there is no restriction on including the ad avail
      event’s video in a stream that is intended for regional markets:
@@ -36,10 +36,10 @@ specific situations:
     + False means there is a restriction: the content should be blanked
      out.
 
-If neither flag is present (usually the case with splice_inserts), then both are
+If neither flag is present (usually the case with splice\_inserts), then both are
 considered to be false. Blanking should occur.
 
-If both flags are present (which is usually the case with time_signal; it is
+If both flags are present (which is usually the case with time\_signal; it is
 unusual to have only one flag present), then a "false" for one flag takes precedence
 over a "true" for the other flag. Blanking should occur.
 

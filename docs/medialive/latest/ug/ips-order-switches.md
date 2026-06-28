@@ -23,8 +23,8 @@ Note the following about switching to an input:
      usage.
 
 3. Read the information later in this section about handling the transition between
-   switches. For each input attachment in your list, make a note of how to handle the
-   transition.
+switches. For each input attachment in your list, make a note of how to handle the
+transition.
 
 ###### About Models for the Schedule
 

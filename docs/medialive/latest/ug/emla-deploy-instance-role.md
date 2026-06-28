@@ -76,24 +76,23 @@ JSON
 
 ```
 
-4.  On the **Add Permissions** page, find the following polices and
-    select the checkbox for each policy:
+4. On the **Add Permissions** page, find the following polices and
+   select the checkbox for each policy:
 
-        * The policy that you created.If you followed the recommendation, this policy
-         has the name `MediaLiveAnywhereAccess`)
-        * The `AmazonEC2ContainerServiceforEC2Role` policy
-        * The `AmazonSSMManagedInstanceCore` policy
+   - The policy that you created.If you followed the recommendation, this policy
+     has the name `MediaLiveAnywhereAccess`)
+   - The `AmazonEC2ContainerServiceforEC2Role` policy
+   - The `AmazonSSMManagedInstanceCore` policy
+     On the console, the counter beside the **Permissions policies**
+     title shows **3/xxx** to indicate that you have selected three
+     policies.
 
-    On the console, the counter beside the **Permissions policies**
-    title shows **3/xxx** to indicate that you have selected three
-    policies.
-
-5.  Choose **Next**.
-6.  On the review page, enter a name for the role. We recommend the name
-    `MediaLiveAnywhereInstanceRole`.
-7.  Choose **Create role**.
-8.  On the **Summary** page for the role, make a note of the value in
-    **Role ARN**. It looks like this:
+5. Choose **Next**.
+6. On the review page, enter a name for the role. We recommend the name
+   `MediaLiveAnywhereInstanceRole`.
+7. Choose **Create role**.
+8. On the **Summary** page for the role, make a note of the value in
+   **Role ARN**. It looks like this:
 
 `arn:aws:iam::111122223333:role/MediaLiveAnywhereInstanceRole`
 

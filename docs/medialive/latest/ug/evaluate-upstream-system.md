@@ -28,16 +28,15 @@ following sections:
     * [Assess audio content](assess-uss-audio.md "assess-uss-audio.md")
     * [Assess captions](assess-uss-captions.md "assess-uss-captions.md")
 
-2.  Make a note of the MediaLive input type that you identify for the source
-    content.
-3.  Make a note of the following three characteristics of the source
-    stream. You will need this information [when you set up the channel](input-specification.md "input-specification.md"):
+2. Make a note of the MediaLive input type that you identify for the source
+content. 3. Make a note of the following three characteristics of the source
+stream. You will need this information [when you set up the channel](input-specification.md "input-specification.md"):
 
-        * The video codec
-        * The resolution of the video—SD, HD, or UHD
-        * The maximum input bitrate
+    * The video codec
+    * The resolution of the video—SD, HD, or UHD
+    * The maximum input bitrate
 
-    **Result of this step**
+**Result of this step**
 
 At the end of this step, you will be confident that MediaLive can ingest
 the content. In addition you will have identified the following:

@@ -47,7 +47,7 @@ determined that you want to include an RTMP output group.
      for the output group. This name is internal
      to MediaLive; it doesn't appear in the output.
      For example, `Sports
-Game`.
+  Game`.
    - In **RTMP output**, in
      **Output settings**,
      for **Output name**, enter

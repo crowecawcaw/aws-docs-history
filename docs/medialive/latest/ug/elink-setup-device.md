@@ -20,7 +20,7 @@ to these domains:
     * aws.amazon.com
 
 2. After you have connected the device to the internet, the device automatically connects
-   to MediaLive in the AWS account and the AWS Region that it is configured for.
+to MediaLive in the AWS account and the AWS Region that it is configured for.
 
 A user with AWS permissions can view the device on the console, and transfer the
 device to a different Region.

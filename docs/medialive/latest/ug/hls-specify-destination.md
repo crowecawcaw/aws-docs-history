@@ -22,14 +22,14 @@ manifest files (the destination).
    if the channel is set up as a standard channel, or one destination
    if it is set up as a single-pipeline channel.
 
-| Portion of the destination URL | Location of the Field                                          | Example                                                                                  |
-| ------------------------------ | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| protocol                       | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | `http://`                                                                                |
-| domain                         | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | `203.0.113.55`                                                                           |
-| path                           | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | `/sports/delivery/curling/`Always<br>terminate with a slash                              |
-| baseFilename                   | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | `index`Don't terminate<br>the baseFilename with a slash.                                 |
-| modifier                       | **Name modifier\*<br>• in each<br>**HLS outputs\*<br>• section | Required<br>Make sure the modifiers are unique across all<br>outputs in the output group |
-| segmentModifier                | Segment modifier in each<br>\*_HLS outputs_<br>• section       | OptionalKeep in mind that this field exists<br>for each output.                          |
+| Portion of the destination URL | Location of the Field                                        | Example                                                                                  |
+| ------------------------------ | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| protocol                       | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | `http://`                                                                                |
+| domain                         | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | `203.0.113.55`                                                                           |
+| path                           | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | `/sports/delivery/curling/`Always<br>terminate with a slash                              |
+| baseFilename                   | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | `index`Don't terminate<br>the baseFilename with a slash.                                 |
+| modifier                       | *_Name modifier_<br>• in each<br>*_HLS outputs_<br>• section | Required<br>Make sure the modifiers are unique across all<br>outputs in the output group |
+| segmentModifier                | Segment modifier in each<br>*_HLS outputs_<br>• section      | OptionalKeep in mind that this field exists<br>for each output.                          |
 
 2. If the downstream system requires user authentication from MediaLive,
    in each **HLS group destination** section, complete

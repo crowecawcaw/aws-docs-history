@@ -4,19 +4,18 @@ Follow these guidelines to verify that the input is set up correctly.
 
 ###### To verify the setup of the input
 
-1.  Look at the **Input destinations** section. It shows the
-    two locations on MediaLive that the upstream system will push the source to when
-    the channel is running. These locations were automatically generated when
-    you created the input:
+1. Look at the **Input destinations** section. It shows the
+   two locations on MediaLive that the upstream system will push the source to when
+   the channel is running. These locations were automatically generated when
+   you created the input:
 
-        * If the channel is set up as a standard channel, two locations are
-         generated.
-        * If the channel is set up as a single-pipeline channel, one
-         location is generated.
-
-    Each location consists of an address portion that was automatically
-    generated, appended by a folder that you specified when you created the
-    input.
+   - If the channel is set up as a standard channel, two locations are
+     generated.
+   - If the channel is set up as a single-pipeline channel, one
+     location is generated.
+     Each location consists of an address portion that was automatically
+     generated, appended by a folder that you specified when you created the
+     input.
 
 For example, for an RTMP Public push input:
 

@@ -1,7 +1,7 @@
-# Splice_insert message – payload
+# Splice\_insert message – payload
 
 For information about the meaning and values for the fields in the following
-JSON, see [Fields for a splice_insert message](schedule-fields-for-splice_insert.md "schedule-fields-for-splice_insert.md").
+JSON, see [Fields for a splice\_insert message](schedule-fields-for-splice_insert.md "schedule-fields-for-splice_insert.md").
 
 ```
 {
@@ -33,7 +33,7 @@ JSON, see [Fields for a splice_insert message](schedule-fields-for-splice_insert
 ## Example of a splice insert with a fixed start time
 
 This example of a request creates an action for a
-splice_insert with a UTC start time of 20:42:04.000. It
+splice\_insert with a UTC start time of 20:42:04.000. It
 also has an `ActionName` that perhaps
 references an ad avail from your database, a unique
 integer for the splice event ID, and a duration of
@@ -66,7 +66,7 @@ integer for the splice event ID, and a duration of
 ## Example of a splice insert as a follow
 
 This example of a request creates an action for a
-splice_insert to be inserted after the input switch
+splice\_insert to be inserted after the input switch
 called nature-doco-003 ends. The action has an
 `ActionName` that perhaps references an
 ad avail from your database, a unique integer for the

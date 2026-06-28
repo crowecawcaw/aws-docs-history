@@ -29,11 +29,11 @@ times of the actions.
 An important use of batching is to perform several
 actions that must pass or fail together. For example,
 suppose that you want to remove the corporate logo and
-immediately insert a splice_insert (in order to go to an
+immediately insert a splice\_insert (in order to go to an
 ad avail). To do that, you must create an action to
 remove the logo and another action to insert the
-splice_insert. However, you don't want MediaLive to insert
-the remove action if the splice_insert action fails, or
+splice\_insert. However, you don't want MediaLive to insert
+the remove action if the splice\_insert action fails, or
 vice versa. It's better if both actions fail because
 that allows you to fix the badly formed action, and then
 submit both actions again.

@@ -26,65 +26,70 @@ input**. 6. Complete the **Input details** section:
     * **Input type** – choose **RTMP
      (push)**.
 
-7.  In the **Network mode** section, choose
-    **VPC**.
-8.  Complete the **VPC settings** section:
+7. In the **Network mode** section, choose
+**VPC**. 8. Complete the **VPC settings** section:
 
-    - Choose **Select subnets and security
-      groups**.
-    - For **Subnets**, choose one of the subnets
-      that you obtained. The dropdown list shows subnets in all VPCs,
-      identified as follows:
+    * Choose **Select subnets and security
+     groups**.
+    * For **Subnets**, choose one of the subnets
+     that you obtained. The dropdown list shows subnets in all VPCs,
+     identified as follows:
+
 
     `<subnet ID> <Availability Zone of subnet> <IPv4
- CIDR block of subnet> <VPC ID> <Subnet tag called
- "Name", if it exists>`
+     CIDR block of subnet> <VPC ID> <Subnet tag called
+     "Name", if it exists>`
+
 
     For example:
+
 
     **subnet-1122aabb us-west-2a 10.1.128.0/24
-    vpc-3f139646 Subnet for MLive push inputs**
+     vpc-3f139646 Subnet for MLive push inputs**
+
 
     If the list of subnets is empty, choose **Specify
-    custom VPC**, and enter the subnet ID in the field.
-    (You need to enter only the subnet ID, for example,
-    `subnet-1122aabb`.)
-    - In **Subnets**, choose the second subnet.
-      This second time, the dropdown list shows only the subnets in
-      the same VPC as the first subnet.
-    - For **Security groups**, choose the security
-      group or groups that you obtained, following the same process as
-      for the subnets. The dropdown list shows security groups
-      belonging to the VPC that you chose, identified as
-      follows:
+     custom VPC**, and enter the subnet ID in the field.
+     (You need to enter only the subnet ID, for example,
+     `subnet-1122aabb`.)
+    * In **Subnets**, choose the second subnet.
+     This second time, the dropdown list shows only the subnets in
+     the same VPC as the first subnet.
+    * For **Security groups**, choose the security
+     group or groups that you obtained, following the same process as
+     for the subnets. The dropdown list shows security groups
+     belonging to the VPC that you chose, identified as
+     follows:
+
 
     `<security group ID> <description attached to this
- security group> <VPC ID>`
+     security group> <VPC ID>`
+
 
     For example:
+
 
     **sg-51530134 Security group for MLive push inputs
-    vpc-3f139646**
+     vpc-3f139646**
 
-9.  Complete the **Role ARN** section to choose a role
-    for MediaLive to use with this input. For more information, see [IAM role and ARN](setup-input-rtp-vpc.md#rtp-push-role-and-remember-arn "setup-input-rtp-vpc.md#rtp-push-role-and-remember-arn").
-10. In the **Input class** section, choose the class for
-    this input:
+9. Complete the **Role ARN** section to choose a role
+for MediaLive to use with this input. For more information, see [IAM role and ARN](setup-input-rtp-vpc.md#rtp-push-role-and-remember-arn "setup-input-rtp-vpc.md#rtp-push-role-and-remember-arn"). 10. In the **Input class** section, choose the class for
+this input:
 
-    - STANDARD
-    - SINGLE-PIPELINE
+    * STANDARD
+    * SINGLE-PIPELINE
 
 11. In the **Input destinations** section, in the
-    **Destination** section, enter the application
-    names and application instances you previously set up:
+**Destination** section, enter the application
+names and application instances you previously set up:
 
-        * If the input is a standard-class input, complete both fields,
-         to specify two sources.
-        * If the input is a single-class input, complete the first field
-         with the information that you obtained and leave the second
-         field empty.
+    * If the input is a standard-class input, complete both fields,
+     to specify two sources.
+    * If the input is a single-class input, complete the first field
+     with the information that you obtained and leave the second
+     field empty.
 
-    For example:
+For example:
 
 **Application name:** `live`
 

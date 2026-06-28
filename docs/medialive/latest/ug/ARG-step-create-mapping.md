@@ -17,14 +17,14 @@ each encode to belong to.
    example:
 
    - A video output named `high
-definition`.
+  definition`.
    - A video output named `low definition`.
    - Audio English AAC named `AAC EN`.
    - Audio French AAC named `AAC FR`.
    - Audio English Dolby Digital named `DD
-EN`.
+  EN`.
    - Audio French Dolby Digital named `DD
-FR`.
+  FR`.
    - A rendition group named `AAC group` for AAC
      audio.
    - A rendition group named `DD group` for Dolby
@@ -35,7 +35,7 @@ FR`.
 
    - Video `high definition` to be associated with
      `AAC group` and `DD
-group`.
+  group`.
    - Video `low definition` to be associated only
      with `AAC group`.
 

@@ -66,5 +66,5 @@ and then the primary input becomes healthy again.
      input.
 
 8. For **Failover conditions**, enable the conditions that you
-   want MediaLive to use to identify input loss. The fields include help that describes
-   how the conditions work.
+want MediaLive to use to identify input loss. The fields include help that describes
+how the conditions work.

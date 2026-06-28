@@ -15,7 +15,7 @@ switch between them for specific reasons. For example:
 
 1. If you think you might want to manually switch inputs, then when you set up
    the failover pair, set the **Input preference** to
-   **EQUAL_INPUT_PREFERENCE**. See [Setting up automatic input failover with RTMP and RTP inputs](aif-setup-other-inputs.md "aif-setup-other-inputs.md") or [Setting up automatic input failover with MediaConnect inputs](aif-setup-emx.md "aif-setup-emx.md").
+   **EQUAL\_INPUT\_PREFERENCE**. See [Setting up automatic input failover with RTMP and RTP inputs](aif-setup-other-inputs.md "aif-setup-other-inputs.md") or [Setting up automatic input failover with MediaConnect inputs](aif-setup-emx.md "aif-setup-emx.md").
 2. To manually switch, [create an
    input switch action](schedule-using-console-create.md "schedule-using-console-create.md") in the schedule in the usual way.
 

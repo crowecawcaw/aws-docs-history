@@ -18,13 +18,13 @@ Follow these steps:
   group, follow the guidance for these fields, to achieve optimum
   latency:
 
-| Section                                         | Field                                                                               | Description                                                                                                                         |
-| ----------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| HLS Settings, then CDN Settings                 | Connection Retry Interval                                                           | We recommend the same value as the segment length (in the<br>\*_Manifest Segments_<br>• section). This value can<br>affect latency. |
+| Section                                         | Field                                                                               | Description                                                                                                                        |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| HLS Settings, then CDN Settings                 | Connection Retry Interval                                                           | We recommend the same value as the segment length (in the<br>*_Manifest Segments_<br>• section). This value can<br>affect latency. |
 | Num Retries                                     | This value can affect latency.                                                      |
 | Filecache Duration                              | This value can affect latency. We recommend a lower<br>number.                      |
 | Restart Delay                                   | This value can affect latency.                                                      |
-| Manifest Segments                               | Segment Length                                                                      | We recommend 1 second for better latency.                                                                                           |
+| Manifest Segments                               | Segment Length                                                                      | We recommend 1 second for better latency.                                                                                          |
 | Min Segment Length                              | A value is required for delivery to MediaPackage. This value can<br>affect latency. |
-| HLS Output, then Settings then Gop<br>Structure | GOP Size                                                                            | This value can affect latency because the segment length is a<br>function of the GOP size.                                          |
+| HLS Output, then Settings then Gop<br>Structure | GOP Size                                                                            | This value can affect latency because the segment length is a<br>function of the GOP size.                                         |
 | Additional Settings > Closed GOP Cadence        | This value can affect latency.                                                      |

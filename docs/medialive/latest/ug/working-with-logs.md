@@ -13,13 +13,12 @@ them up for you.
 - Log stream –The log stream is named as
   follows:
 
-      + Encoder logs – named after the
-       ARN/pipeline.
-      + As-run logs – named after the
-       ARN/pipeline with `_as_run`
-       appended.
-
-  For example:
+  - Encoder logs – named after the
+    ARN/pipeline.
+  - As-run logs – named after the
+    ARN/pipeline with `_as_run`
+    appended.
+    For example:
 
 `arn_aws_medialive_us-west-2_111122223333_channel_5106412_0`
 

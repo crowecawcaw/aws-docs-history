@@ -13,21 +13,20 @@ the general steps for creating a channel, as described in [Creating a channel fr
 Follow this procedure when you create the channel or when you are
 modifying an existing channel.
 
-1.  Display the **General channel settings** section
-    and choose the **Motion graphics configuration**
-    pane.
-2.  Turn on the **Enable motion graphics
-    configuration**. More fields appear.
-3.  Set the fields as follows:
+1. Display the **General channel settings** section
+   and choose the **Motion graphics configuration**
+   pane.
+2. Turn on the **Enable motion graphics
+   configuration**. More fields appear.
+3. Set the fields as follows:
 
-        * **Motion graphics insertion** – Set to
-         **Enabled**.
-        * **Motion graphics settings** – Leave the
-         value as **HTML motion graphics** (the only
-         option).
-
-    For detailed information about this section of the
-    **Create channel** page on the console, see [Complete general settings](creating-a-channel-step3.md "creating-a-channel-step3.md").
+   - **Motion graphics insertion** – Set to
+     **Enabled**.
+   - **Motion graphics settings** – Leave the
+     value as **HTML motion graphics** (the only
+     option).
+     For detailed information about this section of the
+     **Create channel** page on the console, see [Complete general settings](creating-a-channel-step3.md "creating-a-channel-step3.md").
 
 When you create or save the channel, it will be set up for motion
 graphics overlay. This means that when you add an action to the

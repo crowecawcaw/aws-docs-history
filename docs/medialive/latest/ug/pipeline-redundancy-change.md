@@ -12,30 +12,29 @@ To change the channel class, the channel must be idle (not running).
 
 ###### To change the channel class to a single-pipeline channel
 
-1.  On the **Channels** page, choose the channel. (Don't
-    choose the channel name.)
-2.  On the menu, choose **Actions**, then choose
-    **Other channel actions**, then choose **Update
-    channel class to SINGLE_PIPELINE**.
-3.  In the dialog box, choose **Confirm**. MediaLive performs the
-    following actions:
+1. On the **Channels** page, choose the channel. (Don't
+   choose the channel name.)
+2. On the menu, choose **Actions**, then choose
+   **Other channel actions**, then choose **Update
+   channel class to SINGLE\_PIPELINE**.
+3. In the dialog box, choose **Confirm**. MediaLive performs the
+   following actions:
 
-        * It removes the second pipeline (pipeline 1) in the channel.
-        * It removes the second destination address in each output
-         group.
-        * It *doesn't* remove the second
-         endpoint on the inputs. The inputs aren't changed in any way.
-         Instead, when you restart the channel, MediaLive simply ignores the
-         second endpoint.
+   - It removes the second pipeline (pipeline 1) in the channel.
+   - It removes the second destination address in each output
+     group.
+   - It _doesn't_ remove the second
+     endpoint on the inputs. The inputs aren't changed in any way.
+     Instead, when you restart the channel, MediaLive simply ignores the
+     second endpoint.
+     While MediaLive is performing these actions, the channel has a status of
+     **UPDATING**. When the update is completed, the status
+     changes to **IDLE**.
 
-    While MediaLive is performing these actions, the channel has a status of
-    **UPDATING**. When the update is completed, the status
-    changes to **IDLE**.
-
-4.  You might want to notify the upstream system for each push input that it
-    no longer needs to push input to the second endpoint. You also might want to
-    notify the downstream system for each output group that it should no longer
-    expect output at its second destination.
+4. You might want to notify the upstream system for each push input that it
+   no longer needs to push input to the second endpoint. You also might want to
+   notify the downstream system for each output group that it should no longer
+   expect output at its second destination.
 
 ## Changing the channel class to standard – option A
 
@@ -144,14 +143,10 @@ second source that will provide content to the newly added pipeline.
      pipeline).
 
 3. On the **Channels** page, choose the channel. (Don't
-   choose the channel name.)
-4. On the menu, choose **Actions**, **Other channel
-   actions**, **Update channel class to
-   STANDARD**.
-5. In the dialog box, choose **Confirm**.
-6. On the **Update channel class to STANDARD** page, enter
-   the destination addresses that you identified in step 1. There is one field
-   for each output group in the channel.
-7. Choose **Submit**. MediaLive updates the channel and creates
-   a new pipeline called pipeline 1. When you start the channel, MediaLive sends
-   the output from this pipeline to the new destinations in every output group.
+choose the channel name.) 4. On the menu, choose **Actions**, **Other channel
+actions**, **Update channel class to
+STANDARD**. 5. In the dialog box, choose **Confirm**. 6. On the **Update channel class to STANDARD** page, enter
+the destination addresses that you identified in step 1. There is one field
+for each output group in the channel. 7. Choose **Submit**. MediaLive updates the channel and creates
+a new pipeline called pipeline 1. When you start the channel, MediaLive sends
+the output from this pipeline to the new destinations in every output group.

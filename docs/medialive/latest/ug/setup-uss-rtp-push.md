@@ -7,42 +7,41 @@ locations in MediaLive.
 
 Follow this procedure if the MediaLive channel is a [standard channel](plan-redundancy.md "plan-redundancy.md").
 
-1.  Provide the operator with this information:
+1. Provide the operator with this information:
 
-    - The two endpoints (URLs) that MediaLive generated when you created the
-      RTP input. These endpoints are the addresses in the blue boxes in
-      [the diagram after this
-      procedure](setup-result-rtp-push.md "setup-result-rtp-push.md"). The URLs include port 5000. For example:
+   - The two endpoints (URLs) that MediaLive generated when you created the
+     RTP input. These endpoints are the addresses in the blue boxes in
+     [the diagram after this
+     procedure](setup-result-rtp-push.md "setup-result-rtp-push.md"). The URLs include port 5000. For example:
 
-    `198.51.100.99:5000`
+   `198.51.100.99:5000`
 
-    `192.0.2.18:5000`
+   `192.0.2.18:5000`
 
-2.  Make sure that the operator sets up properly for a standard channel. They
-    must:
+2. Make sure that the operator sets up properly for a standard channel. They
+   must:
 
-    - Deliver two sources that are identical in terms of video
-      resolution and bitrate.
-    - Make sure that the sources appear on the agreed IP addresses on
-      the public network. For example:
+   - Deliver two sources that are identical in terms of video
+     resolution and bitrate.
+   - Make sure that the sources appear on the agreed IP addresses on
+     the public network. For example:
 
-          + For one source: `203.0.113.19, 203.0.113.58,
-           203.0.113.25`
-          + For the other source: `198.51.100.19, 198.51.100.59,
-           198.51.100.21`
+     - For one source: `203.0.113.19, 203.0.113.58,
+   203.0.113.25`
+     - For the other source: `198.51.100.19, 198.51.100.59,
+   198.51.100.21`
+       You used these addresses when you created the input security
+       group. If the upstream system doesn't use these addresses, MediaLive
+       will refuse the push.
 
-      You used these addresses when you created the input security
-      group. If the upstream system doesn't use these addresses, MediaLive
-      will refuse the push.
+   - Push to the correct URLs on MediaLive. For example, they must push
+     to:
 
-    - Push to the correct URLs on MediaLive. For example, they must push
-      to:
+   `198.51.100.99:5000`
 
-    `198.51.100.99:5000`
-
-    `192.0.2.18:5000`
-    - Send over RTP, not UDP. The UDP protocol is not supported for an
-      input into MediaLive.
+   `192.0.2.18:5000`
+   - Send over RTP, not UDP. The UDP protocol is not supported for an
+     input into MediaLive.
 
 ###### To set up for a single-pipeline channel
 

@@ -19,7 +19,7 @@ input if they know the IP address and port of the input.
    input**.
 4. In the **Input details** section, for
    **Input name**, enter `my rtp
-push`.
+ push`.
 5. For **Input type**, choose
    **rtp**.
 6. in the **Input security group** section, choose

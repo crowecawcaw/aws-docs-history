@@ -23,7 +23,7 @@ You don't specify a time.
   timing.
 
 | Type of action                                | Supported types of<br>timing |
-| --------------------------------------------- | ---------------------------- | --------------- | --------- |
+| --------------------------------------------- | ---------------------------- |
 |                                               | Fixed                        | Follow (Note A) | Immediate |
 | Switch the input (perform an input switch)    | Yes                          | Yes             | Yes       |
 | Prepare the input (perform an input prepare)  | Yes                          | Yes             | Yes       |

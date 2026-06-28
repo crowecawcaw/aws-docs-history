@@ -36,15 +36,14 @@ up a standard channel. Follow these steps:
   support depends on the class of the inputs, which is either standard-class
   or single-class.
 
-      + For pipeline redundancy, you need two sources, one for each
-       channel pipeline. That means that all the inputs must have two
-       pipelines: they must all be standard-class inputs.
-      + If the channel inputs are a mix of standard-class and
-       single-class, or are all single-class, you can't implement pipeline
-       redundancy.
-
-  For more information about the classes that apply to the different types
-  of inputs, see [Supported input class](inputs-single-standard-vpc.md "inputs-single-standard-vpc.md").
+  - For pipeline redundancy, you need two sources, one for each
+    channel pipeline. That means that all the inputs must have two
+    pipelines: they must all be standard-class inputs.
+  - If the channel inputs are a mix of standard-class and
+    single-class, or are all single-class, you can't implement pipeline
+    redundancy.
+    For more information about the classes that apply to the different types
+    of inputs, see [Supported input class](inputs-single-standard-vpc.md "inputs-single-standard-vpc.md").
 
 - Contact the upstream system to determine if they can
   send you two source streams for each input. If they

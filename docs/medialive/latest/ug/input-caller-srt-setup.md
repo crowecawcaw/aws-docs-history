@@ -14,8 +14,8 @@ can create the SRT input.
 4. In the **Input class** section, choose the class for this
    input:
 
-   - STANDARD_INPUT
-   - SINGLE_INPUT
+   - STANDARD\_INPUT
+   - SINGLE\_INPUT
 
 5. In the **Source A** and **Source B**
    sections, enter the information that you obtained.

@@ -21,8 +21,8 @@ create an Elemental Link input.
 6. In the **Input devices** section, for **Input
    class**, choose the class for this input:
 
-   - STANDARD_INPUT
-   - SINGLE_INPUT
+   - STANDARD\_INPUT
+   - SINGLE\_INPUT
 
 7. In **Input devices**, choose one or two devices to attach
    to this input as the source. From the dropdown lists, choose the device

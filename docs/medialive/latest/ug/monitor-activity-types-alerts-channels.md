@@ -8,7 +8,7 @@ these alerts in these ways:
 - You use your preferred AWS SDK or API to monitor alerts about channel activity.
   For more information, see [Monitoring alerts using the AWS SDKs or API](monitoring-api.md "monitoring-api.md").
 - MediaLive turns alerts into CloudWatch events with the detailType set to `MediaLive
-Channel Alert`. For an example of the JSON for these events, see [JSON for a state change event](monitoring-cloudwatch-json-state-change.md "monitoring-cloudwatch-json-state-change.md").
+ Channel Alert`. For an example of the JSON for these events, see [JSON for a state change event](monitoring-cloudwatch-json-state-change.md "monitoring-cloudwatch-json-state-change.md").
 
 | Alert ID | Alert wording                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | -------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

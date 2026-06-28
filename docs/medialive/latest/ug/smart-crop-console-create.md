@@ -2,7 +2,7 @@
 
 You set up the smart crop feature in one or more video outputs of a MediaLive channel.
 In each video output where you want the feature, you set the video scaling to
-SMART_CROP. When you save the channel, MediaLive automatically creates one _feed_ resource in Elemental Inference, in your AWS account. Even if you
+SMART\_CROP. When you save the channel, MediaLive automatically creates one _feed_ resource in Elemental Inference, in your AWS account. Even if you
 enable more than one Elemental Inference feature, MediaLive creates only one feed.
 
 You can set up smart crop in a new MediaLive channel that you are creating. Or you can
@@ -49,9 +49,9 @@ the **Stream settings** section, and choose the
      **SMART\_CROP**.
 
 5. Repeat the previous step in more video outputs, in this output group
-   and other output groups. Remember that you don't have to set up smart
-   crop in every output group, or in every video output in one output
-   group.
+and other output groups. Remember that you don't have to set up smart
+crop in every output group, or in every video output in one output
+group.
 
 ## Step B: Review the setup
 

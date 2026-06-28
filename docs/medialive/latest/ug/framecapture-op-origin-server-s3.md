@@ -5,17 +5,16 @@ the Amazon S3 operator must agree about the bucket to use.
 
 ###### To arrange setup of the destination
 
-1.  Decide if you need two destinations for the output:
+1. Decide if you need two destinations for the output:
 
-        * You need two destinations in a [standard channel](plan-redundancy.md "plan-redundancy.md").
-        * You need one destination in a single-pipeline channel.
+   - You need two destinations in a [standard channel](plan-redundancy.md "plan-redundancy.md").
+   - You need one destination in a single-pipeline channel.
+     Note that a Frame capture output group requires only one set of destination
+     addresses, not one for each output.
 
-    Note that a Frame capture output group requires only one set of destination
-    addresses, not one for each output.
-
-2.  We recommend that you design the full path of the destination — the Amazon S3
-    bucket and all the folders. See or [Frame capture destination](framecapture-destinations.md "framecapture-destinations.md").
-3.  Ask the Amazon S3 user to create any buckets that don't already exist.
+2. We recommend that you design the full path of the destination — the Amazon S3
+   bucket and all the folders. See or [Frame capture destination](framecapture-destinations.md "framecapture-destinations.md").
+3. Ask the Amazon S3 user to create any buckets that don't already exist.
 
 With MediaLive, the Amazon S3 bucket name must not use dot notation, which means it
 mustn't use . (dot) between the words in the bucket name. 4. Discuss bucket ownership with the Amazon S3 user. If the bucket belongs to another

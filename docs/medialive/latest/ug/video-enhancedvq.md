@@ -38,23 +38,21 @@ output. To review the step where you complete these fields, see [Set up the vide
 
 You can enable enhanced VQ in any video encode that uses H.264 (AVC) as the codec.
 
-1.  In the **Output groups** section of the **Create
-    channel** page of the MediaLive console, in the **Stream settings**
-    pane, choose **Video**.
-2.  In the **Codec settings** section, expand the **Additional
-    encoding settings** section. Complete the fields as follows:
+1. In the **Output groups** section of the **Create
+   channel** page of the MediaLive console, in the **Stream settings**
+   pane, choose **Video**.
+2. In the **Codec settings** section, expand the **Additional
+   encoding settings** section. Complete the fields as follows:
 
-        * **Quality level**: Choose **ENHANCED\_QUALITY**.
-        * **Filter settings**: Choose **Temporal filter**.
-         Or to omit the filter, choose **Don't include**. For information about
-         the benefits of filters, see [Benefits of the temporal filter](#temporal_benefits "#temporal_benefits").
+   - **Quality level**: Choose **ENHANCED\_QUALITY**.
+   - **Filter settings**: Choose **Temporal filter**.
+     Or to omit the filter, choose **Don't include**. For information about
+     the benefits of filters, see [Benefits of the temporal filter](#temporal_benefits "#temporal_benefits").
 
-
-        If you choose **Temporal**, optionally change the default strength,
-         and optionally enable sharpening. For details about a field on the MediaLive console, choose the **Info** link next to the field.
-
-    **Benefits of
-    enhanced VQ**
+   If you choose **Temporal**, optionally change the default strength,
+   and optionally enable sharpening. For details about a field on the MediaLive console, choose the **Info** link next to the field.
+   **Benefits of
+   enhanced VQ**
 
 When enhanced VQ is enabled, MediaLive can produce slightly better video quality without an
 increase in the bitrate (the bitrate fields in the **Rate control** section
@@ -67,12 +65,11 @@ You can therefore use enhanced VQ in one of two ways:
 - You can choose to lower the bitrate (by perhaps 5%) and maintain the original target
   video quality. Doing so lowers the bandwidth requirements for the output.
 
-      + To change the bitrate when the rate control mode is QVBR, change the **Max
-       bitrate**.
-      + To change the bitrate when the rate control mode is CBR, change the
-       **Bitrate**.
-
-  **Benefits of the temporal filter**
+  - To change the bitrate when the rate control mode is QVBR, change the **Max
+    bitrate**.
+  - To change the bitrate when the rate control mode is CBR, change the
+    **Bitrate**.
+    **Benefits of the temporal filter**
 
 The temporal filter is useful for both source content that is noisy (when it has excessive
 digital artifacts) and source content that is clean.

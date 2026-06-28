@@ -16,17 +16,16 @@ notes:
   the color space that applies, as described in [Scenario B – Metadata can be corrected with force](color-space-scenario-correct.md "color-space-scenario-correct.md").
 - Converting to Dolby Vision 8.1:
 
-      + The video source must be HD or 4K resolution. In other words, the source must
-       be 1080p or better.
-      + The video source must be HDR10. If MediaLive encounters a portion of non-HDR10
-       content, it passes through the color space and color space metadata for that
-       portion,
-      + The video source can't be a file. This means that the source can't be a VOD
-       asset in an MP4 file or a VOD asset in a transport stream.
-
-  These constraints are stipulated by Dolby Vision 8.1, and relate to the minimal
-  video quality required to produce Dolby Vision 8.1 outputs that meet the Dolby Vision
-  8.1 standard.
+  - The video source must be HD or 4K resolution. In other words, the source must
+    be 1080p or better.
+  - The video source must be HDR10. If MediaLive encounters a portion of non-HDR10
+    content, it passes through the color space and color space metadata for that
+    portion,
+  - The video source can't be a file. This means that the source can't be a VOD
+    asset in an MP4 file or a VOD asset in a transport stream.
+    These constraints are stipulated by Dolby Vision 8.1, and relate to the minimal
+    video quality required to produce Dolby Vision 8.1 outputs that meet the Dolby Vision
+    8.1 standard.
 
 ## Supported output types
 

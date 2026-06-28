@@ -10,7 +10,7 @@ delivery:
   There are different [limits](eml-limitations-and-rules.md#limits-inputs "eml-limitations-and-rules.md#limits-inputs") and [charges](pricing.md "pricing.md") for push inputs compared to pull inputs.
 
 | MediaLive input type       | Category                 |
-| -------------------------- | ------------------------ | ---- |
+| -------------------------- | ------------------------ |
 | CDI                        | Push                     |      |
 | HLS                        |                          | Pull |
 | Link                       | Push                     |      |

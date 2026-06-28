@@ -5,9 +5,9 @@ You can optionally specify some of the font style information.
 
 1. In the output that has the TTML captions, display the section for the captions.
 2. Set **Style control** to **Passthrough** or
-   **USE_CONFIGURED**.
+   **USE\_CONFIGURED**.
 
-Note that when **USE_CONFIGURED** is selected, there are
+Note that when **USE\_CONFIGURED** is selected, there are
 actually no fields that you can configure.
 The XML file for the captions will include the following style information:
 

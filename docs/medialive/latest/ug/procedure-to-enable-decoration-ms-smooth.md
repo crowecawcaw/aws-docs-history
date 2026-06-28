@@ -13,6 +13,6 @@ SCTE 35 content.
    avail mode. See [Getting ready: Set the ad avail mode](getting-ready-set-the-ad-avail-mode.md "getting-ready-set-the-ad-avail-mode.md").
 2. In the navigation pane, find the desired Microsoft Smooth output group.
 3. For **Sparse track**, for **Sparse track
-   type**, choose **SCTE_35**.
+   type**, choose **SCTE\_35**.
 4. Complete **Acquisition point ID**, only if encryption is
    enabled on the output. Enter the address of the certificate.

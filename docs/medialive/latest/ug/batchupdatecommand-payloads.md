@@ -6,23 +6,22 @@ different interfaces:
 - In the AWS CLI, the contents of the payload depend
   on how you use the command:
 
-      + You can enter a command with two
-       parameters: `channel-id` and
-       `--cli-input-json`. In this
-       case, you create a file that repeats the
-       channel ID and includes the JSON payload.
-      + You can enter a command with three
-       parameters: one for the channel ID, one for
-       the JSON payload for the create actions (if
-       applicable), and one for the JSON payload
-       for the delete actions (if applicable). You
-       pass the payloads in the command. If both
-       parameters are present, each parameter takes
-       a separate payload. But the two payloads are
-       validated and performed as a batch.
-
-  The payload for the AWS CLI is always pascal case
-  (upper camel case).
+  - You can enter a command with two
+    parameters: `channel-id` and
+    `--cli-input-json`. In this
+    case, you create a file that repeats the
+    channel ID and includes the JSON payload.
+  - You can enter a command with three
+    parameters: one for the channel ID, one for
+    the JSON payload for the create actions (if
+    applicable), and one for the JSON payload
+    for the delete actions (if applicable). You
+    pass the payloads in the command. If both
+    parameters are present, each parameter takes
+    a separate payload. But the two payloads are
+    validated and performed as a batch.
+    The payload for the AWS CLI is always pascal case
+    (upper camel case).
 
 - In the API, there is one payload with two
   sections, a `CREATES` section and a

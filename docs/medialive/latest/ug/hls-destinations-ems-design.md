@@ -38,11 +38,11 @@ extensions are different for each category of file. When sending to
 MediaStore, you must send all the files to the same folder. The downstream
 systems expect all the files to be together.
 
-| File                   | Syntax of the path                                                                                     | Example                                                                                                                                                                                            |
-| ---------------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Main manifest files    | `protocol dataEndpoint path baseFilename<br>extension`                                                 | The path for a main manifest in the path<br>*delivery<br>• in the<br>container, and with the file name *index\*:`mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/delivery/index.m3u8` |
-| Child manifest files   | `protocol dataEndpoint path baseFilename<br>nameModifier extension`                                    | The path for the child manifest for the<br>high-resolution renditions of the<br>output`mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/delivery/index-high.m3u8`                      |
-| Media files (segments) | `protocol dataEndpoint path baseFilename<br>nameModifier optionalSegmentModifier counter<br>extension` | The path for the file for the 230th segment<br>might<br>be:`mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/delivery/index-high-00230.ts`                                             |
+| File                   | Syntax of the path                                                                                     | Example                                                                                                                                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Main manifest files    | `protocol dataEndpoint path baseFilename<br>extension`                                                 | The path for a main manifest in the path<br>*delivery<br>• in the<br>container, and with the file name _index_:`mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/delivery/index.m3u8` |
+| Child manifest files   | `protocol dataEndpoint path baseFilename<br>nameModifier extension`                                    | The path for the child manifest for the<br>high-resolution renditions of the<br>output`mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/delivery/index-high.m3u8`                     |
+| Media files (segments) | `protocol dataEndpoint path baseFilename<br>nameModifier optionalSegmentModifier counter<br>extension` | The path for the file for the 230th segment<br>might<br>be:`mediastoressl://a23f.data.mediastore.us-west-2.amazonaws.com/delivery/index-high-00230.ts`                                            |
 
 ## How MediaLive constructs the paths
 
@@ -52,12 +52,11 @@ These paths are constructed as follows:
   the container names.
 - For MediaStore, you must determine the following:
 
-      + The folders
-      + The baseFilename
-      + The modifier
-      + The segmentModifier
-
-  See the sections that follow.
+  - The folders
+  - The baseFilename
+  - The modifier
+  - The segmentModifier
+    See the sections that follow.
 
 - MediaLive inserts the underscore before the counter.
 - MediaLive generates the counter, which is always five digits

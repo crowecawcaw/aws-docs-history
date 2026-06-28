@@ -48,14 +48,14 @@ information:
      interfaces of the channel endpoints.
 
 4. Delivery via the VPC depends on appropriate setup for routing and DNS.
-   of the VPC network. Provide the Amazon VPC user with these guidelines:
+of the VPC network. Provide the Amazon VPC user with these guidelines:
 
-   - If you expect addresses with a domain name to reach the VPC, or if
+    * If you expect addresses with a domain name to reach the VPC, or if
      you expect the VPC to reach addresses with a domain name, you must set up
      a DNS to resolve those domain names. This requirement applies equally to
      AWS services that might have domain names.
-   - If any communication with the public internet is expected, you will
+    * If any communication with the public internet is expected, you will
      need either a NAT or an Internet Gateway in your VPC.
-   - Inside the VPC, you must configure routing tables, to allow
+    * Inside the VPC, you must configure routing tables, to allow
      communication between the subnets you intend to use.
-   - All IP addresses must be IPV4.
+    * All IP addresses must be IPV4.

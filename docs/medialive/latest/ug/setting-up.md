@@ -29,15 +29,14 @@ access the services programmatically, see the following:
   functions and data types that encapsulate the functionality of AWS services.
   To download an AWS SDK and access installation instructions, see the applicable page:
 
-      + [Go](https://aws.amazon.com/sdk-for-go/ "https://aws.amazon.com/sdk-for-go/")
-      + [JavaScript](http://aws.amazon.com/sdkforbrowser/ "http://aws.amazon.com/sdkforbrowser/")
-      + [.NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/")
-      + [Node.js](https://aws.amazon.com/sdk-for-node-js/ "https://aws.amazon.com/sdk-for-node-js/")
-      + [Python](https://github.com/boto/boto "https://github.com/boto/boto")
-      + [Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/")
-
-  For a complete list of AWS SDKs, see [Tools for
-  Amazon Web Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
+  - [Go](https://aws.amazon.com/sdk-for-go/ "https://aws.amazon.com/sdk-for-go/")
+  - [JavaScript](http://aws.amazon.com/sdkforbrowser/ "http://aws.amazon.com/sdkforbrowser/")
+  - [.NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/")
+  - [Node.js](https://aws.amazon.com/sdk-for-node-js/ "https://aws.amazon.com/sdk-for-node-js/")
+  - [Python](https://github.com/boto/boto "https://github.com/boto/boto")
+  - [Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/")
+    For a complete list of AWS SDKs, see [Tools for
+    Amazon Web Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
 
 - You can use the AWS Command Line Interface (AWS CLI) to control multiple AWS services
   from the command line. You can also automate your commands using scripts. For more information,

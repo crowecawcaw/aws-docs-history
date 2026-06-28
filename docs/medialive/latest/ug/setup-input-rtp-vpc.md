@@ -40,8 +40,8 @@ in MediaLive.
      identified as follows:
 
    `<subnet ID> <Availability Zone of subnet> <IPv4
- CIDR block of subnet> <VPC ID> <Subnet tag called
- "Name", if it exists>`
+  CIDR block of subnet> <VPC ID> <Subnet tag called
+  "Name", if it exists>`
 
    For example:
 
@@ -62,7 +62,7 @@ in MediaLive.
      follows:
 
    `<security group ID> <description attached to this
- security group> <VPC ID>`
+  security group> <VPC ID>`
 
    For example:
 

@@ -14,7 +14,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
      In the Output Destinations section, a **MediaConnect Router
      Output Group** tab appears. The encryption type defaults to
      **AUTOMATIC**. To use a secret from AWS Secrets Manager, change
-     the encryption type to **SECRETS_MANAGER** and enter
+     the encryption type to **SECRETS\_MANAGER** and enter
      the secret ARN.
    - **MediaConnect Router settings** – This section
      contains fields for configuring the output group. See later in this

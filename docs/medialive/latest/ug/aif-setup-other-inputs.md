@@ -37,7 +37,7 @@ steps for [creating an input](create-input.md "create-input.md") and [creating a
    - In a standard channel, set up the input with two sources.
    - In a single-pipeline channel, set up the input with one source.
    - Give the input a name such as `primary
-input`.
+  input`.
 
 2. Create a second input of the same type. Create the input in the same way as in
    Step 1.
@@ -64,10 +64,10 @@ Give the input a name such as `secondary input`.
    field controls the behavior when MediaLive has switched over to the secondary input
    and then the primary input becomes healthy again.
 
-   - **EQUAL_INPUT_PREFERENCE** – MediaLive remains on
+   - **EQUAL\_INPUT\_PREFERENCE** – MediaLive remains on
      the secondary input. The primary input continues to be processed, but it
      is not active.
-   - **PRIMARY_INPUT_PREFERENCE** – MediaLive switches
+   - **PRIMARY\_INPUT\_PREFERENCE** – MediaLive switches
      back to the primary input. The primary input becomes the active
      input.
 

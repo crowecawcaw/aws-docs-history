@@ -5,33 +5,32 @@ HLS input.
 
 ###### To create an RTMP pull input
 
-1.  Make sure that you have the information from [step 1](setup-rtmp-pull-obtain-info.md "setup-rtmp-pull-obtain-info.md").
-2.  Open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/ "https://console.aws.amazon.com/medialive/").
-3.  In the navigation pane, choose **Inputs**. On the
-    **Inputs** page, choose **Create
-    input**.
-4.  Complete the **Input details** section:
+1. Make sure that you have the information from [step 1](setup-rtmp-pull-obtain-info.md "setup-rtmp-pull-obtain-info.md").
+2. Open the MediaLive console at [https://console.aws.amazon.com/medialive/](https://console.aws.amazon.com/medialive/ "https://console.aws.amazon.com/medialive/").
+3. In the navigation pane, choose **Inputs**. On the
+   **Inputs** page, choose **Create
+   input**.
+4. Complete the **Input details** section:
 
-    - **Input** name – enter a name.
-    - **Input type** – choose **RTMP
-      (pull)**.
+   - **Input** name – enter a name.
+   - **Input type** – choose **RTMP
+     (pull)**.
 
-5.  In the **Input class** section, choose the class for this
-    input:
+5. In the **Input class** section, choose the class for this
+   input:
 
-    - STANDARD_INPUT
-    - SINGLE_INPUT
+   - STANDARD\_INPUT
+   - SINGLE\_INPUT
 
-6.  In the **Input sources** section, enter the URLs you
-    previously obtained:
+6. In the **Input sources** section, enter the URLs you
+   previously obtained:
 
-        * If the input is a standard-class input, complete both fields, to
-         provide two URLs.
-        * If the input is a single-class input, complete the first field
-         with the URL that you obtained and leave the second field
-         empty.
-
-    For example:
+   - If the input is a standard-class input, complete both fields, to
+     provide two URLs.
+   - If the input is a single-class input, complete the first field
+     with the URL that you obtained and leave the second field
+     empty.
+     For example:
 
 `rtmp://203.0.113.13:1935/live/curling`
 

@@ -125,7 +125,7 @@ before this deadline.
 
 You can't modify a SCTE 35 message that is active in
 the channel. Specifically, you can't shorten the
-duration of a splice_insert. But you can achieve the
+duration of a splice\_insert. But you can achieve the
 same result by creating a return-to-network action.
 
 ### Modifying or deleting an ID3 segment tag that is in progress
@@ -161,15 +161,14 @@ action with the same layer specified. You can do the following:
   inserts an image overlay 15 seconds in the future.
   Make sure to specify the following:
 
-      + The same layer as the image that you want
-       to modify.
-      + A duration that is appropriate (the image
-       doesn't inherit the duration of the current
-       image).
-      + All the attributes that you want.
-
-  The new action replaces the current action because
-  you specified the same layer.
+  - The same layer as the image that you want
+    to modify.
+  - A duration that is appropriate (the image
+    doesn't inherit the duration of the current
+    image).
+  - All the attributes that you want.
+    The new action replaces the current action because
+    you specified the same layer.
 
 ## Modifying a motion graphics overlay that is in progress
 

@@ -23,7 +23,7 @@ After you have created the input security group, you can create the RTMP push in
    MediaLive. Following from the example in step 1, it must allow these
    addresses:
 
-   203.0.113.19, 203.0.113.58, 203.0.113.25, 198.51.100.19, 198.51.100.59, 198.51.100.21
+203.0.113.19, 203.0.113.58, 203.0.113.25, 198.51.100.19, 198.51.100.59, 198.51.100.21
 
 For more information about security groups, see [Working with input security groups](working-with-input-security-groups.md "working-with-input-security-groups.md"). 8. In the **Channel and input class** section, choose the class
 for this input:

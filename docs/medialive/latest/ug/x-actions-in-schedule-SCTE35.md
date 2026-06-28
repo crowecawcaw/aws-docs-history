@@ -3,14 +3,14 @@
 You can set up an action to insert a SCTE 35 message in the
 channel. There are three types of actions:
 
-- Action to insert a splice_insert into the channel: a
-  SCTE 35 message with splice_command_type set to
-  splice_insert.
-- Action to insert a time_signal into the channel: a
-  SCTE 35 message with splice_command_type set to
-  time_signal.
+- Action to insert a splice\_insert into the channel: a
+  SCTE 35 message with splice\_command\_type set to
+  splice\_insert.
+- Action to insert a time\_signal into the channel: a
+  SCTE 35 message with splice\_command\_type set to
+  time\_signal.
 - Action to insert a SCTE 35 return-to-network message
-  into the schedule in order to end a splice_insert that
+  into the schedule in order to end a splice\_insert that
   either has a duration or has no duration.
   Before you add SCTE 35 actions to the schedule, read [Processing SCTE 35 messages](scte-35-message-processing.md "scte-35-message-processing.md").
 

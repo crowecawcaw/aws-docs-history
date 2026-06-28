@@ -53,13 +53,13 @@ an MP4 output).
 
 Different mechanisms support different types of ID3 frames.
 
-| Mechanism                                                 | Type of frame                                                                      |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Passthrough                                               | MediaLive passes through any frame type, including **PRIV\*<br>• or<br>**TDRL\*\*. |
-| Timestamp                                                 | You specify the frame type: **PRIV\*<br>• or<br>**TDRL\*\*                         |
-| One-time insertion, using the schedule                    | You specify the frame type. All ID3 frame types are supported.                     |
-| Segment insertion with the tag option, using the schedule | A TXXX                                                                             |
-| Segment insertion with the ID3 option, using the schedule | Any frame type. You specify the frame type.                                        |
+| Mechanism                                                 | Type of frame                                                                   |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Passthrough                                               | MediaLive passes through any frame type, including *_PRIV_<br>• or<br>**TDRL**. |
+| Timestamp                                                 | You specify the frame type: *_PRIV_<br>• or<br>**TDRL**                         |
+| One-time insertion, using the schedule                    | You specify the frame type. All ID3 frame types are supported.                  |
+| Segment insertion with the tag option, using the schedule | A TXXX                                                                          |
+| Segment insertion with the ID3 option, using the schedule | Any frame type. You specify the frame type.                                     |
 
 **PID for the ID3 tag**
 

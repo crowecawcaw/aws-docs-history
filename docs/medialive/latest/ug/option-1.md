@@ -17,7 +17,7 @@ any event occurs in MediaLive. You must identify an email
 recipient for the emails.
 
 In the following procedure, we use the example of
-"MediaLive_alert" as the subject line and "MediaLive" as the
+"MediaLive\_alert" as the subject line and "MediaLive" as the
 sender of the email. We create the subscription using the
 Amazon Simple Notification Service (Amazon SNS) console.
 

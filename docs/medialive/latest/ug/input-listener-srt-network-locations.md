@@ -8,6 +8,6 @@ SRT Listener inputs support the following network locations:
   allocates Elastic Network Interfaces (ENI) in your VPC for the input
   destinations. When you create an SRT Listener input in a VPC, you must specify
   the VPC subnets and security groups.
-- **ON_PREMISES**: MediaLive Anywhere deployment. For
+- **ON\_PREMISES**: MediaLive Anywhere deployment. For
   on-premises deployments, you must specify the IP addresses and network
   configuration when you create the input.

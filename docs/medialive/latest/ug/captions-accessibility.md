@@ -88,7 +88,7 @@ encode, as described in [Create embedded or object captions encodes](output-embe
 
 In the output that has the captions encode that you want to set up, in
 **Accessibility**, choose
-**IMPLEMENTS_ACCESSIBILITY_FEATURES**.
+**IMPLEMENTS\_ACCESSIBILITY\_FEATURES**.
 
 MediaLive assigns accessibility captions a unique attribute in the EXT-X-MEDIA tag of the
 HLS manifest:

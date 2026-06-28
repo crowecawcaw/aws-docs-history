@@ -54,7 +54,7 @@ actions:
   UTC
 - An action with the `ActionName`
   `adavail-3708` to insert a
-  splice_insert at the same time as the deactivate
+  splice\_insert at the same time as the deactivate
   action
 - An action with the `ActionName`
   `end-adavail-3708` to

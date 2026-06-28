@@ -27,7 +27,7 @@ description of the differences.
    - AWS region name (for example, `us-east-1` or `eu-west-1`)
    - MediaPackage channel group name
    - MediaPackage channel name
-   - Which ingest endpoint (ENDPOINT_1 or ENDPOINT_2) is the preferred input for the MediaPackage channel
+   - Which ingest endpoint (ENDPOINT\_1 or ENDPOINT\_2) is the preferred input for the MediaPackage channel
 
 2. If you plan to use additional destinations for redundancy or cross-region delivery, coordinate the setup of additional MediaPackage v2 channels as needed.
 

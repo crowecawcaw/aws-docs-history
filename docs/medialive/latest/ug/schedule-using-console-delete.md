@@ -18,28 +18,24 @@ schedule:
 - In a multiple-input channel, you can delete actions as
   follows:
 
-      + You can delete an action with a start time
-       that is more than 15 seconds in the future. The
-       channel won't perform the action.
+  - You can delete an action with a start time
+    that is more than 15 seconds in the future. The
+    channel won't perform the action.
 
+  There are some constraints that apply to
+  deleting inputs switches and input prepare,
+  event when they are in the future. For more
+  information, see [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md") and [Deleting and stopping input prepare actions in the MediaLive schedule](input-prep-delete.md "input-prep-delete.md").
 
-      There are some constraints that apply to
-       deleting inputs switches and input prepare,
-       event when they are in the future. For more
-       information, see [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md") and [Deleting and stopping input prepare actions in the MediaLive schedule](input-prep-delete.md "input-prep-delete.md").
+  - You can delete an action that has already been
+    performed. Deleting this action doesn't reverse
+    the action, it only removes it from the
+    schedule.
 
-
-      + You can delete an action that has already been
-       performed. Deleting this action doesn't reverse
-       the action, it only removes it from the
-       schedule.
-
-
-      There are some constraints that apply to
-       deleting inputs switches and input prepare,
-       event when they are in the future. For more
-       information, see [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md") and [Deleting and stopping input prepare actions in the MediaLive schedule](input-prep-delete.md "input-prep-delete.md").
-
+  There are some constraints that apply to
+  deleting inputs switches and input prepare,
+  event when they are in the future. For more
+  information, see [Deleting actions from the schedule](ips-manage-schedule.md "ips-manage-schedule.md") and [Deleting and stopping input prepare actions in the MediaLive schedule](input-prep-delete.md "input-prep-delete.md").
   **Deleting versus
   reversing**
 

@@ -20,10 +20,10 @@ output as follows:
 - If an output contains both video and audio
   (and optionally captions), the audio rendition
   is marked as `program
-audio`.
+ audio`.
 - If an output doesn't contain video, the audio
   rendition is marked as `audio
-only` and each audio encode is
+ only` and each audio encode is
   marked as
   `ALTERNATE_AUDIO_NOT_AUTO_SELECT`.
 

@@ -16,32 +16,31 @@ output group the Channel page in the console:
 
 ###### To create each audio output
 
-1.  In the **HLS output group**, in **HLS
-    outputs**, choose **Add output**. Choose
-    **Settings** to display the **Outputs** page for that output.
-2.  In the **Output** page, set up as follows:
+1. In the **HLS output group**, in **HLS
+   outputs**, choose **Add output**. Choose
+   **Settings** to display the **Outputs** page for that output.
+2. In the **Output** page, set up as follows:
 
-    - In **Stream settings**, choose **Video
-      1** and choose **Remove video**. The
-      output now contains only an audio encode. In an output group that
-      includes audio rendition groups, each audio encode must each be in
-      its own output.
-    - Set up the rest of the stream settings in the usual way.
+   - In **Stream settings**, choose **Video
+     1** and choose **Remove video**. The
+     output now contains only an audio encode. In an output group that
+     includes audio rendition groups, each audio encode must each be in
+     its own output.
+   - Set up the rest of the stream settings in the usual way.
 
-3.  Complete the **Output settings** section as
-    follows:
+3. Complete the **Output settings** section as
+   follows:
 
-        * For **HLS settings**, choose **Audio only
-         hls**. More fields appear.
-        * For **Audio track type**, choose the value you
-         decided on for this audio encode when you [determined the
-         default](ARG-step-defaults.md "ARG-step-defaults.md").
-        * For **Audio group ID**, enter the name of the
-         rendition group that you want this audio encode to belong to. For
-         example, enter `AAC group`. One audio encode
-         can belong to only one rendition group.
-        * For **Segment type**, choose
-         **AAC**.
-
-    Ignore **Audio only image**. This field does not apply to
-    audio rendition groups.
+   - For **HLS settings**, choose **Audio only
+     hls**. More fields appear.
+   - For **Audio track type**, choose the value you
+     decided on for this audio encode when you [determined the
+     default](ARG-step-defaults.md "ARG-step-defaults.md").
+   - For **Audio group ID**, enter the name of the
+     rendition group that you want this audio encode to belong to. For
+     example, enter `AAC group`. One audio encode
+     can belong to only one rendition group.
+   - For **Segment type**, choose
+     **AAC**.
+     Ignore **Audio only image**. This field does not apply to
+     audio rendition groups.

@@ -12,43 +12,40 @@ The following field relates specifically to redundant manifests:
 
 ###### To set up redundant manifests
 
-1.  Speak to the operator of the downstream system to find out if they support redundant
-    manifests.
-2.  Read the information in [Fields for the output destination – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md"). Manifests are considered
-    to be output from MediaLive. Therefore, the general rules about output destinations apply to
-    redundant manifests.
-3.  Design the URLs for the two pipelines. There are special requirements for the URLs for
-    the HLS files. Read the appropriate section:
+1. Speak to the operator of the downstream system to find out if they support redundant
+   manifests.
+2. Read the information in [Fields for the output destination – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md"). Manifests are considered
+   to be output from MediaLive. Therefore, the general rules about output destinations apply to
+   redundant manifests.
+3. Design the URLs for the two pipelines. There are special requirements for the URLs for
+   the HLS files. Read the appropriate section:
 
-        * [Rules for most downstream systems](hls-redundant-manif-most-systems.md "hls-redundant-manif-most-systems.md")
-        * [Rules for Akamai CDNs](hls-redundant-manif-akamai.md "hls-redundant-manif-akamai.md")
+   - [Rules for most downstream systems](hls-redundant-manif-most-systems.md "hls-redundant-manif-most-systems.md")
+   - [Rules for Akamai CDNs](hls-redundant-manif-akamai.md "hls-redundant-manif-akamai.md")
+     These rules supplement the information in [Fields for the output destination – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md").
 
-    These rules supplement the information in [Fields for the output destination – sending to an HTTP server](hls-destinations-http.md "hls-destinations-http.md").
+4. If you also need custom paths for manifests, make sure you read the information in
+   [How custom paths work](hls-manifests-how-work.md#hls-custom-manifest-paths "hls-manifests-how-work.md#hls-custom-manifest-paths"). You must consider the rules for custom
+   paths when you design the URLs.
+5. In the **HLS output group** section, for **Manifest and
+   segments**, for **Redundant manifest**, choose
+   **ENABLED**. This field applies to all outputs in the output
+   group.
+6. Complete these fields, following your design:
 
-4.  If you also need custom paths for manifests, make sure you read the information in
-    [How custom paths work](hls-manifests-how-work.md#hls-custom-manifest-paths "hls-manifests-how-work.md#hls-custom-manifest-paths"). You must consider the rules for custom
-    paths when you design the URLs.
-5.  In the **HLS output group** section, for **Manifest and
-    segments**, for **Redundant manifest**, choose
-    **ENABLED**. This field applies to all outputs in the output
-    group.
-6.  Complete these fields, following your design:
+   - **Output group – HLS group destination** section
+   - **Output group – HLS settings – CDN** section
+   - **Output group – Location – Directory structure**
+   - **Output group – Location – Segments per subdirectory**
+   - **HLS outputs – Output settings – Name modifier**
+   - **HLS outputs – Output settings – Segment modifier**
 
-        * **Output group – HLS group destination** section
-        * **Output group – HLS settings – CDN** section
-        * **Output group – Location – Directory structure**
-        * **Output group – Location – Segments per subdirectory**
-        * **HLS outputs – Output settings – Name modifier**
-        * **HLS outputs – Output settings – Segment modifier**
-
-
-        * **HLS output group – Location –Base URL Manifest**
-         (if you are also setting up custom paths)
-        * **HLS output group – Location – Base URL Content**
-         (if you are also setting up custom paths)
-
-    For information about how this feature changes the contents of the HLS manifests, see
-    [The media contents of an HLS manifest](hls-rm-manifests-contents.md "hls-rm-manifests-contents.md").
+   - **HLS output group – Location –Base URL Manifest**
+     (if you are also setting up custom paths)
+   - **HLS output group – Location – Base URL Content**
+     (if you are also setting up custom paths)
+     For information about how this feature changes the contents of the HLS manifests, see
+     [The media contents of an HLS manifest](hls-rm-manifests-contents.md "hls-rm-manifests-contents.md").
 
 ## The results of this setup
 
@@ -58,7 +55,7 @@ scenarios.
 ### Scenario A – Input loss action is to emit output
 
 If the input is lost on one of the pipelines and the [Input loss action
-field](hls-other-features.md#hls-resiliency "hls-other-features.md#hls-resiliency") is set to **EMIT_OUTPUT**, MediaLive
+field](hls-other-features.md#hls-resiliency "hls-other-features.md#hls-resiliency") is set to **EMIT\_OUTPUT**, MediaLive
 continues to update the parent and child manifests.
 
 From the point of view of the downstream system, there is no
@@ -70,7 +67,7 @@ affect how the downstream system reads the manifests.
 
 If the input is lost on one of the pipelines (for example, on pipeline 0) and the
 **Input loss action** field is set to
-**PAUSE_OUTPUT**, MediaLive does the following:
+**PAUSE\_OUTPUT**, MediaLive does the following:
 
 - It removes the listing for the child manifests for pipeline 0.
 - It sends a request to the child manifest location for pipeline 0 to delete the

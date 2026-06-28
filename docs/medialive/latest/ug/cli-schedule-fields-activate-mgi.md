@@ -33,7 +33,7 @@ JSON, see [Fields for activating a motion graphics overlay](schedule-fields-for-
 ## Example
 
 This example of a request creates a motion graphics
-overlay action called mg_ticker_tape. The motion graphic
+overlay action called mg\_ticker\_tape. The motion graphic
 asset is stored at http://example.com/ticker\_tape.html.
 This server requires user credentials. The request
 doesn't include a duration. Instead, the intention is to

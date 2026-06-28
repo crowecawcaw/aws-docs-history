@@ -4,7 +4,7 @@ Read this section if you know how to handle color space in MediaLive, and you on
 reminder of where the fields are located in the MediaLive Console.
 
 | Topic                                                                                      | Location on the Channel page           | Field                                                                                                                    |
-| ------------------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
+| ------------------------------------------------------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | Input handling                                                                             | **Input attachments**                  | **Video Selector**                                                                                                       | **Color space**          |
 | **Color space usage**                                                                      |
 | Enter the display metadata for an input from a AWS Elemental Link device                   | **Input attachments**                  | **Video Selector**, then **Color space<br>settings**                                                                     | **Max CLL**              |

@@ -11,22 +11,20 @@ In MediaLive, inputs can be categorized in several ways:
 - **Push versus pull** – An input is either a push
   input or a pull input.
 
-      + With a push input, the upstream system pushes the input to *endpoints* on MediaLive. The input holds these
-       endpoints.
-      + With a pull input, MediaLive pulls the input from the upstream system. The
-       input holds these *source* addresses on
-       the upstream system.
-
-  For more information, see [Input types supported in MediaLive](inputs-supported-containers.md "inputs-supported-containers.md").
+  - With a push input, the upstream system pushes the input to _endpoints_ on MediaLive. The input holds these
+    endpoints.
+  - With a pull input, MediaLive pulls the input from the upstream system. The
+    input holds these _source_ addresses on
+    the upstream system.
+    For more information, see [Input types supported in MediaLive](inputs-supported-containers.md "inputs-supported-containers.md").
 
 - **Input class** – An input can be set up as
   either a standard-class input or single-class input:
 
-      + You can use a standard-class input with a standard channel or a
-       single-pipeline channel.
-      + You can use a single-class input only with a single-pipeline channel.
-
-  For more information on the purpose of input classes, see [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
+  - You can use a standard-class input with a standard channel or a
+    single-pipeline channel.
+  - You can use a single-class input only with a single-pipeline channel.
+    For more information on the purpose of input classes, see [Implementing pipeline redundancy](plan-redundancy-mode.md "plan-redundancy-mode.md").
 
 For information on the classes applicable to each input type, see [Supported input class](inputs-single-standard-vpc.md "inputs-single-standard-vpc.md").
 
@@ -37,16 +35,13 @@ For information on the classes applicable to each input type, see [Supported inp
 - **Static versus dynamic** – When you create the
   input, you decide if it is static or dynamic.
 
-      + A static input has a URL (that points to the content source) that
-       never changes.
+  - A static input has a URL (that points to the content source) that
+    never changes.
 
+  Any input type can be set up as a static input.
+  - A dynamic input has a URL that includes a variable portion. It is
+    intended for use with input switching.
 
-      Any input type can be set up as a static input.
-      + A dynamic input has a URL that includes a variable portion. It is
-       intended for use with input switching.
-
-
-      Only MP4 and Transport Stream (TS) inputs can be set up as dynamic
-       inputs.
-
+  Only MP4 and Transport Stream (TS) inputs can be set up as dynamic
+  inputs.
   For more information, see [Setting up for input switching](scheduled-input-switching.md "scheduled-input-switching.md").

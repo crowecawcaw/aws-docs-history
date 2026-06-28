@@ -11,7 +11,7 @@ of the following encryption modes:
 - **AUTOMATIC** – The services handle encryption
   seamlessly using a service-managed secret. This is the recommended
   option.
-- **SECRETS_MANAGER** – You provide the ARN of an
+- **SECRETS\_MANAGER** – You provide the ARN of an
   AES-256 secret stored in AWS Secrets Manager. The secret must exist before you create the
   MediaLive channel.
   You must specify the Availability Zones for the output group. For a single-pipeline

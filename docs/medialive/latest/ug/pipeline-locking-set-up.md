@@ -42,21 +42,21 @@ follows:
 3. In **Output locking mode**,
    choose
    **DISABLED**. Or choose the
-   mode—**PIPELINE_LOCKING** or
-   **EPOCH_LOCKING**. For details about the options,
+   mode—**PIPELINE\_LOCKING** or
+   **EPOCH\_LOCKING**. For details about the options,
    choose the **Info** link next to the field.
 4. To configure the pipeline locking method (available only with
-   **PIPELINE_LOCKING** mode), expand
+   **PIPELINE\_LOCKING** mode), expand
    **Additional settings**.
 5. In **Output locking settings**, locate the
    **Pipeline locking method** field and choose the method
    for synchronization:
 
-   - **SOURCE_TIMECODE** (default): Uses embedded
+   - **SOURCE\_TIMECODE** (default): Uses embedded
      timecodes from the input source. Requires inputs with reliable
      embedded timecodes. See
      [Embedded timecode requirements (source timecode method)](pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode "pipeline-locking-verify-input.md#pipeline-locking-embedded-tcode").
-   - **VIDEO_ALIGNMENT**: Uses visual signature
+   - **VIDEO\_ALIGNMENT**: Uses visual signature
      comparison between encoders. Does not require embedded timecodes.
      See [Requirements for video aligned locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs") for
      input compatibility.
@@ -85,7 +85,7 @@ framerate for each video encode.
 
    - **Framerate control**: We recommend you choose
      **Specified**. The option
-     **Initialize_from_source** doesn't work well
+     **Initialize\_from\_source** doesn't work well
      with pipeline locking.
    - **Framerate numerator** and **Framerate
      denominator**: Set the desired resolution for the
@@ -135,7 +135,7 @@ set up the segmentation markers for framerate for each video encode.
 
    - **Framerate control**: We recommend you choose
      **Specified**. The option
-     **Initialize_from_source** doesn't work well
+     **Initialize\_from\_source** doesn't work well
      with pipeline locking.
    - **Framerate numerator** and **Framerate
      denominator**: Set the desired framerate for the

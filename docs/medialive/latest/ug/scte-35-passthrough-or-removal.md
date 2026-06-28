@@ -84,7 +84,7 @@ message for MediaLive CMAF Ingest outputs.
 
    - **NONE**: Omits the SCTE 35 messages from the
      output group.
-   - **SCTE_35_WITHOUT_SEGMENTATION**: Includes
+   - **SCTE\_35\_WITHOUT\_SEGMENTATION**: Includes
      (passes through) the SCTE 35 messages in the output group.
 
    Each SCTE 35 message inserted will result in a new IDR in the

@@ -63,8 +63,8 @@ and captions). 8. [Save the channel](creating-a-channel-step9.md "creating-a-cha
    3. For **MediaPackage channel name**, select your MediaPackage v2 channel.
    4. For **Endpoint ID**, select which MediaPackage ingest endpoint should receive content:
 
-      - **ENDPOINT_1** - Content is sent to the first ingest endpoint
-      - **ENDPOINT_2** - Content is sent to the second ingest endpoint
+      - **ENDPOINT\_1** - Content is sent to the first ingest endpoint
+      - **ENDPOINT\_2** - Content is sent to the second ingest endpoint
 
 4. (Optional) To configure additional destinations for redundancy or cross-region delivery, expand the **Additional destinations** section and click **Add destination**. For each additional destination, repeat the configuration steps above, specifying the region, channel group name, channel name, and endpoint ID for each additional MediaPackage channel. Standard channels support up to two additional destinations, while single pipeline channels support one additional destination.
 5. (Optional) In the **MediaPackage settings** section, for

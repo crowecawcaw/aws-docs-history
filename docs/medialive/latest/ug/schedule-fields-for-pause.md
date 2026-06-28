@@ -3,13 +3,13 @@
 In **Schedule action settings**, complete the following
 fields.
 
-| Field             | Description                                                                                                                                                                                                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Action type**   | Pause.                                                                                                                                                                                                                               |
-| **Action name**   | A name for the action.                                                                                                                                                                                                               |
-| **Start type**    | **Fixed\*<br>• or<br>**Immediate\*\*.                                                                                                                                                                                                |
-| **Date and time** | If the **Start type\*<br>• is<br>**Fixed\*\*, specify the UTC start time<br>for the action. The time should be at least 15 seconds in<br>the future.<br>Note that the time is the wall clock time, not the<br>timecode in the input. |
-| **Actions**       | Choose **Add actions**, then for<br>**Pipeline id**, choose the pipeline that<br>you want to pause: **PIPELINE_0\*<br>• or<br>**PIPELINE_1\*\*.                                                                                      |
+| Field             | Description                                                                                                                                                                                                                       |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Action type**   | Pause.                                                                                                                                                                                                                            |
+| **Action name**   | A name for the action.                                                                                                                                                                                                            |
+| **Start type**    | *_Fixed_<br>• or<br>**Immediate**.                                                                                                                                                                                                |
+| **Date and time** | If the *_Start type_<br>• is<br>**Fixed**, specify the UTC start time<br>for the action. The time should be at least 15 seconds in<br>the future.<br>Note that the time is the wall clock time, not the<br>timecode in the input. |
+| **Actions**       | Choose **Add actions**, then for<br>**Pipeline id**, choose the pipeline that<br>you want to pause: *_PIPELINE\_0_<br>• or<br>**PIPELINE\_1**.                                                                                    |
 
 When you choose **Create**, MediaLive adds an action to the
 schedule to pause the specified pipeline and to unpause any pipeline that isn't

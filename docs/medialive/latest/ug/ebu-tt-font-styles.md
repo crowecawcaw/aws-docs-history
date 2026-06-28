@@ -7,15 +7,14 @@ An EBU-TT-D caption encode consists of an XML file that the downstream system re
 and processes. This XML file includes a section for font style information. You can
 specify some of this information.
 
-1.  In the output that has the EBU-TT-D captions, display the section for the
-    captions.
-2.  Complete these fields. For details about a field on the MediaLive console, choose the **Info** link next to the field.
+1. In the output that has the EBU-TT-D captions, display the section for the
+   captions.
+2. Complete these fields. For details about a field on the MediaLive console, choose the **Info** link next to the field.
 
-        * **Style control**
-        * **Fill line gap**
-        * **Font family**
-
-    This setup results in one of the following options:
+   - **Style control**
+   - **Fill line gap**
+   - **Font family**
+     This setup results in one of the following options:
 
 The XML file for the captions includes the following style information:
 

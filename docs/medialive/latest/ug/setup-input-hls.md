@@ -19,8 +19,8 @@ HLS input.
 5. In the **Input class** section, choose the class for this
    input:
 
-   - STANDARD_INPUT
-   - SINGLE_INPUT
+   - STANDARD\_INPUT
+   - SINGLE\_INPUT
 
 6. In the **Input sources** section, enter the URLs you
    previously obtained:

@@ -24,24 +24,23 @@ MediaLive supports the following styles of accessibility data.
 The information in this section assumes that you are familiar with the general steps for
 creating or editing a channel.
 
-1.  In the **Create channel** or **Edit channel** page for
-    the channel, in the **Channel** panel, find the output group that you want to
-    set up. Then find the audio output where you want to configure accessibility data.
-2.  Select the output by its name. The details appear on the right. Go to the
-    **Stream** settings section and choose the **Audio**
-    section.
-3.  Open the **Additional settings** and set the accessibility data
-    fields.
+1. In the **Create channel** or **Edit channel** page for
+   the channel, in the **Channel** panel, find the output group that you want to
+   set up. Then find the audio output where you want to configure accessibility data.
+2. Select the output by its name. The details appear on the right. Go to the
+   **Stream** settings section and choose the **Audio**
+   section.
+3. Open the **Additional settings** and set the accessibility data
+   fields.
 
-        * To include DASH Roles, choose **Add dash roles** as many times as you
-         want. In **DASH Role Audio**, choose the style in each role.
-        * To include DVB DASH accessibility style, in **DVB DASH accessibility**,
-         choose the applicable description. You can add only one instance of this accessibility
-         style.
-
-    You can add more than one style of acessibility data to each encode. For example, you can
-    add Dash Roles and DVB DASH accessibility style. You might want to do this because different
-    downstream systems for these outputs implement different styles.
+   - To include DASH Roles, choose **Add dash roles** as many times as you
+     want. In **DASH Role Audio**, choose the style in each role.
+   - To include DVB DASH accessibility style, in **DVB DASH accessibility**,
+     choose the applicable description. You can add only one instance of this accessibility
+     style.
+     You can add more than one style of acessibility data to each encode. For example, you can
+     add Dash Roles and DVB DASH accessibility style. You might want to do this because different
+     downstream systems for these outputs implement different styles.
 
 ## Handling of accessibility data
 

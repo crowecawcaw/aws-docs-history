@@ -6,12 +6,11 @@ useful tips for choosing the service to use:
 - If you need to choose between AWS Elemental MediaPackage or AWS Elemental MediaStore for HLS outputs, follow these
   guidelines:
 
-      + Decide if you want to protect your content with a digital rights management (DRM)
-       solution. DRM prevents unauthorized people from accessing the content.
-      + Decide if you want to insert ads in your content.
-
-  If you want either or both of these features, you should choose MediaPackage as the origin
-  service because you will need to repackage the output.
+  - Decide if you want to protect your content with a digital rights management (DRM)
+    solution. DRM prevents unauthorized people from accessing the content.
+  - Decide if you want to insert ads in your content.
+    If you want either or both of these features, you should choose MediaPackage as the origin
+    service because you will need to repackage the output.
 
 If you do not want any of these features, you could choose MediaPackage or AWS Elemental MediaStore.
 AWS Elemental MediaStore is generally a simpler solution as an origin service, but it lacks the

@@ -21,7 +21,7 @@ Input failover in a MediaLive channel follows this rule:
   other input.
 
 You can also manually switch to the other input, if the **Input
-preference** setting is **EQUAL_INPUT_PREFERENCE**.
+preference** setting is **EQUAL\_INPUT\_PREFERENCE**.
 Switching over manually is useful, for example, if you believe that the active input
 is unstable. See [Manually forcing a failover](aif-and-input-switching-failoverpair.md "aif-and-input-switching-failoverpair.md").
 
@@ -35,8 +35,8 @@ input:
 
 - If the currently active input is the secondary input, MediaLive either stays
   on the current input (if the **Input preference** setting
-  is **EQUAL_INPUT_PREFERENCE**) or switches to the primary
+  is **EQUAL\_INPUT\_PREFERENCE**) or switches to the primary
   input (if the **Input preference** setting is
-  **PRIMARY_INPUT_PREFERENCE**).
+  **PRIMARY\_INPUT\_PREFERENCE**).
 - If the active input is the primary input, it always stays on the
   input.

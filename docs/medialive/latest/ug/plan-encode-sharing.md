@@ -14,27 +14,25 @@ encodes in the channel, starting with [Set up the video encode](creating-a-chann
 - When you have a complete list, compare the values for the
   encodes:
 
-      + If you have two (or more) encodes with identical values, you can
-       share the encode. When you create the channel, you can create this encode
-       once, in one output. You can then reuse that encode in other outputs. The
-       procedure for creating the encode provides detailed instructions for
-       reusing.
+  - If you have two (or more) encodes with identical values, you can
+    share the encode. When you create the channel, you can create this encode
+    once, in one output. You can then reuse that encode in other outputs. The
+    procedure for creating the encode provides detailed instructions for
+    reusing.
 
-
-      Keep in mind that two encodes are identical only if they are
-       identical in all their fields, including sharing the same video source.
-       For example, in the sample table earlier in this section, the first video
-       encode for HLS and the video encode for RTMP share the same video
-       source.
-      + If you have two (or more) encodes with nearly identical values, you
-       can clone an encode to create a second encode, and then change specific
-       fields in the second encode. The procedure for creating the encode
-       provides detailed instructions for cloning.
-
-  Then identify opportunities for sharing, in the same way as you did
-  for the video encodes. Keep in mind that two encodes are identical only if
-  they are identical in all their fields, including sharing the same audio
+  Keep in mind that two encodes are identical only if they are
+  identical in all their fields, including sharing the same video source.
+  For example, in the sample table earlier in this section, the first video
+  encode for HLS and the video encode for RTMP share the same video
   source.
+  - If you have two (or more) encodes with nearly identical values, you
+    can clone an encode to create a second encode, and then change specific
+    fields in the second encode. The procedure for creating the encode
+    provides detailed instructions for cloning.
+    Then identify opportunities for sharing, in the same way as you did
+    for the video encodes. Keep in mind that two encodes are identical only if
+    they are identical in all their fields, including sharing the same audio
+    source.
 
 Carefully identify the video encodes to share by noting the outputs
 and output groups each belongs to.

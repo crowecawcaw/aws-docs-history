@@ -13,15 +13,14 @@ output:
 
 ###### To specify the destination for the output
 
-1.  When you [discussed your requirements](origin-server-rtmp.md "origin-server-rtmp.md") with the
-    operator who manages the downstream system that will
-    receive UDP content, you should have obtained the
-    following information:
+1. When you [discussed your requirements](origin-server-rtmp.md "origin-server-rtmp.md") with the
+   operator who manages the downstream system that will
+   receive UDP content, you should have obtained the
+   following information:
 
-        * The URLs
-        * The port numbers
-
-    For example:
+   - The URLs
+   - The port numbers
+     For example:
 
 `udp://203.0.113.28:5000`
 

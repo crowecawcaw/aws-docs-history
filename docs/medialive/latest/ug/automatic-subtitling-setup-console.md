@@ -47,16 +47,16 @@ input attachments. 6. Configure the caption selector:
 
 7. Create a captions output for the subtitles:
 
-   1. In your output group (HLS, MediaPackage, MediaPackage V2, CMAF
-      Ingest, or Microsoft Smooth), add a new output.
-   2. Remove any video and audio encodes from this output so that it
-      contains only captions.
-   3. Add a captions description and set the destination format to
-      **TTML** (for MediaPackage V2, CMAF Ingest, or
-      Microsoft Smooth output groups) or **WebVTT** (for HLS
-      or MediaPackage output groups).
-   4. For **Caption selector name**, select the Smart
-      Subtitles caption selector you created earlier.
+    1. In your output group (HLS, MediaPackage, MediaPackage V2, CMAF
+     Ingest, or Microsoft Smooth), add a new output.
+    2. Remove any video and audio encodes from this output so that it
+     contains only captions.
+    3. Add a captions description and set the destination format to
+     **TTML** (for MediaPackage V2, CMAF Ingest, or
+     Microsoft Smooth output groups) or **WebVTT** (for HLS
+     or MediaPackage output groups).
+    4. For **Caption selector name**, select the Smart
+     Subtitles caption selector you created earlier.
 
 ###### Note
 

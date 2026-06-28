@@ -25,14 +25,14 @@ manifest files (the destination).
    if the channel is set up as a standard channel, or one destination
    if it is set up as a single-pipeline channel.
 
-| Portion of the destination path | Location of the Field                                          | Description                                                                                                                                                                                                                                     |
-| ------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| protocol                        | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | Enter<br>`https://`                                                                                                                                                                                                                             |
-| domain                          | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | Enter the<br>MediaPackage channel URL                                                                                                                                                                                                           |
-| path                            | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | Not<br>applicable, the path is already specified in the<br>channel URL                                                                                                                                                                          |
-| baseFilename                    | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | Not<br>applicable, the path is already specified in the<br>channel URLWith MediaPackage, the<br>`baseFilename` is always<br>`channel`. With MediaPackage v2 it<br>is always<br>`index`.Don't<br>terminate the **baseFilename**<br>with a slash. |
-| modifier                        | **Name modifier\*<br>• in each<br>**HLS outputs\*<br>• section | Required. For<br>guidance, see [Designing the nameModifier](hls-nameModifier-design-emp.md "hls-nameModifier-design-emp.md").Make<br>sure the modifiers are unique across all outputs<br>in the output group                                    |
-| segmentModifier                 | Segment modifier in each<br>\*_HLS outputs_<br>• section       | Optional. For<br>guidance, see [Designing the segmentModifier](hls-segmentModifier-design-emp.md "hls-segmentModifier-design-emp.md").Keep in mind that this field exists for<br>each output.                                                   |
+| Portion of the destination path | Location of the Field                                        | Description                                                                                                                                                                                                                                     |
+| ------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| protocol                        | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | Enter<br>`https://`                                                                                                                                                                                                                             |
+| domain                          | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | Enter the<br>MediaPackage channel URL                                                                                                                                                                                                           |
+| path                            | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | Not<br>applicable, the path is already specified in the<br>channel URL                                                                                                                                                                          |
+| baseFilename                    | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | Not<br>applicable, the path is already specified in the<br>channel URLWith MediaPackage, the<br>`baseFilename` is always<br>`channel`. With MediaPackage v2 it<br>is always<br>`index`.Don't<br>terminate the **baseFilename**<br>with a slash. |
+| modifier                        | *_Name modifier_<br>• in each<br>*_HLS outputs_<br>• section | Required. For<br>guidance, see [Designing the nameModifier](hls-nameModifier-design-emp.md "hls-nameModifier-design-emp.md").Make<br>sure the modifiers are unique across all outputs<br>in the output group                                    |
+| segmentModifier                 | Segment modifier in each<br>*_HLS outputs_<br>• section      | Optional. For<br>guidance, see [Designing the segmentModifier](hls-segmentModifier-design-emp.md "hls-segmentModifier-design-emp.md").Keep in mind that this field exists for<br>each output.                                                   |
 
 2. Enter the input user name. For the password (if applicable), enter
    the name of the password stored on the AWS Systems Manager Parameter Store.
@@ -41,7 +41,7 @@ manifest files (the destination).
    appropriate connection type:
 
    - To send to standard MediaPackage, choose `Hls
-webdav`.
+  webdav`.
 
    - To send to MediaPackage v2, choose `Basic PUT`.
 

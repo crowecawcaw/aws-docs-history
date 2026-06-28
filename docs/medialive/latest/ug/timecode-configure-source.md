@@ -8,16 +8,16 @@ encodes.
 This procedure assumes that you are familiar with creating or editing a channel,
 as described in [Creating a channel from scratch](creating-channel-scratch.md "creating-channel-scratch.md").
 
-1.  On the **Create Channel** page, in the **General
-    settings** section, choose **Timecode
-    configuration**.
-2.  In **Source**, choose the option for initializing the
-    timecode in the output:
+1. On the **Create Channel** page, in the **General
+   settings** section, choose **Timecode
+   configuration**.
+2. In **Source**, choose the option for initializing the
+   timecode in the output:
 
-    - **EMBEDDED** – Use the timecode embedded in the
-      source video.
+   - **EMBEDDED** – Use the timecode embedded in the
+     source video.
 
-    MediaLive looks for the timecode in the source video, as follows:
+   MediaLive looks for the timecode in the source video, as follows:
 
         + AV1 – A timecode inserted in a metadata OBU of type
          timecode (METADATA\_TYPE\_TIMECODE), in accordance with section
@@ -34,12 +34,12 @@ as described in [Creating a channel from scratch](creating-channel-scratch.md "c
         + MPEG-2 – A timecode inserted in each GOP header, in
          accordance with section 6.2.2.6 of ISO/IEC 13818-2-2000
          (R2006)
-    - **SYSTEMCLOCK**– Use the UTC time.
-    - **ZEROBASED** – Use 00:00:00:00.
+   - **SYSTEMCLOCK**– Use the UTC time.
+   - **ZEROBASED** – Use 00:00:00:00.
 
-3.  (Optional) In **Sync threshold**, enter a threshold (in
-    frames) for synchronizing the output timecode to the input timecode. For
-    information about this field, see [About the synchronization threshold](#timecode-sync "#timecode-sync").
+3. (Optional) In **Sync threshold**, enter a threshold (in
+   frames) for synchronizing the output timecode to the input timecode. For
+   information about this field, see [About the synchronization threshold](#timecode-sync "#timecode-sync").
 
 ## How the output timecode works at runtime
 

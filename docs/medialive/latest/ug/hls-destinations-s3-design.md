@@ -48,12 +48,11 @@ These destination paths are constructed as follows:
   names.
 - You must determine the following:
 
-      + The folders
-      + The baseFilename
-      + The modifier
-      + The segmentModifier
-
-  See the sections that follow.
+  - The folders
+  - The baseFilename
+  - The modifier
+  - The segmentModifier
+    See the sections that follow.
 
 - MediaLive inserts the underscore before the counter.
 - MediaLiveautomatically generates this counter. Initially, this is

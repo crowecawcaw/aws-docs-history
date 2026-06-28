@@ -24,7 +24,7 @@ input.
    allow the public network IP addresses to push to MediaLive. Following from the
    example in step 1, it must allow these addresses:
 
-   203.0.113.19, 203.0.113.58, 203.0.113.25, 198.51.100.19, 198.51.100.59, 198.51.100.21
+203.0.113.19, 203.0.113.58, 203.0.113.25, 198.51.100.19, 198.51.100.59, 198.51.100.21
 
 For more information about security groups, see [Working with input security groups](working-with-input-security-groups.md "working-with-input-security-groups.md"). 7. In the **Tags** section, create tags if you want to
 associate tags with this input. For more information, see [Tagging resources](tagging.md "tagging.md"). 8. Choose **Create**.
@@ -49,16 +49,16 @@ MediaLive always creates two endpoints:
      the first endpoint will be used. MediaLive won't expect to receive
      content at the second endpoint.
 
-9.  Provide the upstream system with the following information:
+9. Provide the upstream system with the following information:
 
-        * If you will set up the channel as a standard channel, provide both
-         locations. The upstream system must push the video streams to these
-         locations.
-        * If you will set up the channel as a single-pipeline channel,
-         provide only the first location. The upstream system must push its
-         one stream to this location.
+    * If you will set up the channel as a standard channel, provide both
+     locations. The upstream system must push the video streams to these
+     locations.
+    * If you will set up the channel as a single-pipeline channel,
+     provide only the first location. The upstream system must push its
+     one stream to this location.
 
-    For example, provide these addresses:
+For example, provide these addresses:
 
 `198.51.100.99:5000`
 

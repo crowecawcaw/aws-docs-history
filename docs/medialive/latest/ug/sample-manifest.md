@@ -20,20 +20,19 @@ following elements:
   output, the values for the parameters come from the following fields in each
   audio output in the channel:
 
-      + `Type` is always `Audio`.
-      + `GROUP-ID` is from the **Audio Group ID**
-       field in the **Output settings** section.
-      + `LANGUAGE` is from the **Language Code**
-       field in the **Stream settings** section.
-      + `NAME` is from the **Stream Name** field
-       in the **Stream settings** section.
-      + `AUTOSELECT` and `DEFAULT` are from the
-       **Alternate Audio Track Type** field in the
-       **Output settings** section.
-      + `URI` is from the **Destination** field in
-       the output group.
-
-  For information on all these fields, see [Create the audio outputs](ARG-step-create-audio.md "ARG-step-create-audio.md").
+  - `Type` is always `Audio`.
+  - `GROUP-ID` is from the **Audio Group ID**
+    field in the **Output settings** section.
+  - `LANGUAGE` is from the **Language Code**
+    field in the **Stream settings** section.
+  - `NAME` is from the **Stream Name** field
+    in the **Stream settings** section.
+  - `AUTOSELECT` and `DEFAULT` are from the
+    **Alternate Audio Track Type** field in the
+    **Output settings** section.
+  - `URI` is from the **Destination** field in
+    the output group.
+    For information on all these fields, see [Create the audio outputs](ARG-step-create-audio.md "ARG-step-create-audio.md").
 
 - Two audio rendition groups. The audio renditions groups don't have their own
   lines in the manifest. Their existence is implied by the presence of

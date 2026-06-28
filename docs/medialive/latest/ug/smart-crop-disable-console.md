@@ -9,34 +9,32 @@ steps for creating a channel, as described in [Creating a channel from scratch](
 
 **To disable smart crop in all outputs**
 
-1.  On the **Create channel** or **Edit channel
-    page**, choose **AWS Elemental Inference
-    settings**. The **Smart crop** section is
-    automatically expanded to show a list of output groups and their video outputs.
-2.  Choose the appropriate action:
+1. On the **Create channel** or **Edit channel
+   page**, choose **AWS Elemental Inference
+   settings**. The **Smart crop** section is
+   automatically expanded to show a list of output groups and their video outputs.
+2. Choose the appropriate action:
 
-        * If smart crop is the only Elemental Inference feature that is enabled on this page:
-         in **State**, choose
-         **DISABLED**.
-        * Otherwise, in the **Smart crop** section, move the
-         slider for every output group to disabled (gray).
+   - If smart crop is the only Elemental Inference feature that is enabled on this page:
+     in **State**, choose
+     **DISABLED**.
+   - Otherwise, in the **Smart crop** section, move the
+     slider for every output group to disabled (gray).
+     **To disable smart crop in individual outputs**
 
-    **To disable smart crop in individual outputs**
+3. On the **Create channel** or **Edit channel
+   page**, in the **Output groups** section, select
+   the output that contains the video.
+4. Display the **Stream settings** section, and choose the
+   **Video** section.
 
-3.  On the **Create channel** or **Edit channel
-    page**, in the **Output groups** section, select
-    the output that contains the video.
-4.  Display the **Stream settings** section, and choose the
-    **Video** section.
-
-        * Adjust the values in the **Width** and
-         **Height** fields.
-        * Open **Scaling settings**, then set **Scaling
-         behavior** to a value other than
-         **SMART\_CROP**.
-
-    When you disable Elemental Inference features in a channel, MediaLive handles the resources as
-    follows:
+   - Adjust the values in the **Width** and
+     **Height** fields.
+   - Open **Scaling settings**, then set **Scaling
+     behavior** to a value other than
+     **SMART\_CROP**.
+     When you disable Elemental Inference features in a channel, MediaLive handles the resources as
+     follows:
 
 - If you disable one feature among several features, MediaLive deletes the output
   for that feature.

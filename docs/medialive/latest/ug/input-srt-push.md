@@ -4,17 +4,16 @@ Follow these guidelines to verify that the input is set up correctly.
 
 ###### To verify the setup of the input
 
-1.  Look at the **Input destinations** section. It shows the
-    locations on MediaLive that the upstream system will push the source to when
-    the channel is running. These locations were automatically generated when
-    you created the input. The port is always 5050 for SRT listener inputs:
+1. Look at the **Input destinations** section. It shows the
+   locations on MediaLive that the upstream system will push the source to when
+   the channel is running. These locations were automatically generated when
+   you created the input. The port is always 5050 for SRT listener inputs:
 
-        * If the channel is set up as a standard channel, MediaLive allocated two
-         IP addresses.
-        * If the channel is set up as a single-pipeline channel, MediaLive allocated one
-         IP address.
-
-    For example:
+   - If the channel is set up as a standard channel, MediaLive allocated two
+     IP addresses.
+   - If the channel is set up as a single-pipeline channel, MediaLive allocated one
+     IP address.
+     For example:
 
 **srt://54.123.45.67:5050**
 
@@ -29,7 +28,7 @@ the configuration you specified when you created the input:
 
 3. Look again at the **Input destinations** section.
 
-   - The section must have an **Input security group**
+    * The section must have an **Input security group**
      with a number beside it. This security group controls which IP addresses
      are allowed to push content to this input. If the section doesn't have
      an input security group, the input isn't correctly set up.

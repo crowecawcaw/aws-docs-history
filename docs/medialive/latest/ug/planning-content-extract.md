@@ -12,18 +12,18 @@ in MediaLive. But you will need this information when you [attach the input](cre
 After you have performed the procedures in this step, you should have source content
 information that looks like this example.
 
-| Example           | Information       | Format                      | Characteristics    | Identifiers |
-| ----------------- | ----------------- | --------------------------- | ------------------ | ----------- |
-| Upstream System   | RTP               | with FEC                    |                    |
-| Selected video    | HEVC              | 1920x1080<br>5 Mbps maximum | PID 600            |
-| Selected audio    | Dolby Digital 5.1 |                             | Spanish in PID 720 |
-| AAC 2.0           |                   | Spanish in PID 746          |
-| AAC 2.0           |                   | French in PID 747           |
-| AAC 2.0           |                   | English in PID 759          |
-| Selected captions | Embedded          |                             | C1 = Spanish       |
-| C2 = French       |
-| C4 = English      |
-| Teletext          | 10 languages      | PID 815                     |
+Example| Information | Format | Characteristics | Identifiers |
+| --- | --- | --- | --- |
+| Upstream System | RTP | with FEC | |
+| Selected video | HEVC | 1920x1080<br>5 Mbps maximum | PID 600 |
+| Selected audio | Dolby Digital 5.1 | | Spanish in PID 720 |
+| AAC 2.0 | | Spanish in PID 746 |
+| AAC 2.0 | | French in PID 747 |
+| AAC 2.0 | | English in PID 759 |
+| Selected captions | Embedded | | C1 = Spanish |
+| C2 = French |
+| C4 = English |
+| Teletext | 10 languages | PID 815 |
 
 ###### Topics
 

@@ -82,4 +82,4 @@ input details**. 5. Complete the sections:
      associate tags with this channel. For more information, see [Tagging resources](tagging.md "tagging.md").
 
 6. When ready, go to the [next
-   section](creating-a-channel-step2.md "creating-a-channel-step2.md").
+section](creating-a-channel-step2.md "creating-a-channel-step2.md").

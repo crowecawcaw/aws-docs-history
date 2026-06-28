@@ -25,14 +25,14 @@ manifest files (the destination).
    if the channel is set up as a standard channel, or one destination
    if it is set up as a single-pipeline channel.
 
-| Portion of the destination path | Location of the Field                                          | Description                                                                             |
-| ------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| protocol                        | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | `s3ssl://`                                                                              |
-| domain                          | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | The bucket<br>name                                                                      |
-| path                            | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | The optional<br>path of foldersAlways terminate with a<br>slash                         |
-| baseFilename                    | **URL\*<br>• in **HLS group<br>destinations\*<br>• section     | RequiredDon't terminate the baseFilename<br>with a slash.                               |
-| modifier                        | **Name modifier\*<br>• in each<br>**HLS outputs\*<br>• section | RequiredMake sure the modifiers are unique<br>across all outputs in the output<br>group |
-| segmentModifier                 | Segment modifier in each<br>\*_HLS outputs_<br>• section       | OptionalKeep in mind that this field exists<br>for each output.                         |
+| Portion of the destination path | Location of the Field                                        | Description                                                                             |
+| ------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| protocol                        | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | `s3ssl://`                                                                              |
+| domain                          | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | The bucket<br>name                                                                      |
+| path                            | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | The optional<br>path of foldersAlways terminate with a<br>slash                         |
+| baseFilename                    | *_URL_<br>• in *_HLS group<br>destinations_<br>• section     | RequiredDon't terminate the baseFilename<br>with a slash.                               |
+| modifier                        | *_Name modifier_<br>• in each<br>*_HLS outputs_<br>• section | RequiredMake sure the modifiers are unique<br>across all outputs in the output<br>group |
+| segmentModifier                 | Segment modifier in each<br>*_HLS outputs_<br>• section      | OptionalKeep in mind that this field exists<br>for each output.                         |
 
 2. Leave the **Credentials** section blank in both
    the **HLS group destinations** sections. MediaLive has
@@ -40,7 +40,7 @@ manifest files (the destination).
    in your organization should have already set up these permissions.
    For more information, see [Access requirements for the trusted entity](trusted-entity-requirements.md "trusted-entity-requirements.md").
 3. In the **CDN** settings section, choose `Hls
-S3`.
+ S3`.
 4. Complete the **CDN settings** field only if MediaLive
    must set a canned ACL whenever it sends this output to the Amazon S3
    bucket.

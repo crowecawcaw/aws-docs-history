@@ -9,16 +9,15 @@ video encodes.
 
 Follow this general procedure to set up the video encode.
 
-1.  Decide how you're going to create each encode:
+1. Decide how you're going to create each encode:
 
-        * From scratch.
-        * By sharing an encode that already exists in this output or another
-         output in the channel.
-        * By cloning an encode that already exists in this output or another
-         output in the channel.
-
-    You might have already made this decision. If not, you should decide now. For
-    more information, see [Design the encodes](designing-encodes.md "designing-encodes.md").
+   - From scratch.
+   - By sharing an encode that already exists in this output or another
+     output in the channel.
+   - By cloning an encode that already exists in this output or another
+     output in the channel.
+     You might have already made this decision. If not, you should decide now. For
+     more information, see [Design the encodes](designing-encodes.md "designing-encodes.md").
 
 You can share or clone video encodes from one output to another in the same
 output group, or from one output to an output in another output group. 2. Read the appropriate sections that follow.

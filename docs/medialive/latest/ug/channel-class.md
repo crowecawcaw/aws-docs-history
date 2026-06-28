@@ -25,7 +25,7 @@ system.
 
 ### Linked channels for single-pipeline channels
 
-When you select **SINGLE_PIPELINE** as the channel class,
+When you select **SINGLE\_PIPELINE** as the channel class,
 additional fields appear for configuring linked channels. Linked channels enable
 pipeline locking for single-pipeline channels.
 

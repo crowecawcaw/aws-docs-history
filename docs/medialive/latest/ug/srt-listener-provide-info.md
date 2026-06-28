@@ -22,7 +22,7 @@ After you create the channel with SRT outputs in listener mode, you must provide
     * Provide the destination to downstream operators in the format `srt://`node-interface-ip`:`listener-port``.
 
 5. Provide these destination URLs to the operators of the downstream systems. The operators must configure their SRT callers to connect to these addresses.
-   Make sure that the operators at the downstream systems set up as follows:
+Make sure that the operators at the downstream systems set up as follows:
 
 - They configure the correct number of connections:
 

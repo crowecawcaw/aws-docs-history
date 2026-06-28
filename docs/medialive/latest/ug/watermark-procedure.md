@@ -27,8 +27,8 @@ field. 2. Choose **Audio watermark**, then choose
      provider.
 
 4. If you want to include CBET watermarks: In the **CBET
-   Settings** field, choose **Nielsen CBET**.
-   More fields appear.
+Settings** field, choose **Nielsen CBET**.
+More fields appear.
 
 If you want to include NAES watermarks: In the **NAES II and
 NW Settings** field, choose **NAES II and NW**.

@@ -31,9 +31,9 @@ that stack to create all the other resources:
      CloudFront.
 
 8. When the resources have all been created, you can choose **Start
-   workflow** on the details page for the workflow. The wizard
-   starts the channel. The wizard also starts the MediaConnect flow, if you have
-   one.
+workflow** on the details page for the workflow. The wizard
+starts the channel. The wizard also starts the MediaConnect flow, if you have
+one.
 
 ## Modifying a workflow
 

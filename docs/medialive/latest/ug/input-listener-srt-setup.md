@@ -14,8 +14,8 @@ created an input security group, you can create the SRT Listener input.
 4. In the **Input class** section, choose the class for this
    input:
 
-   - STANDARD_INPUT: MediaLive allocates two IP addresses for redundancy.
-   - SINGLE_INPUT: MediaLive allocates one IP address.
+   - STANDARD\_INPUT: MediaLive allocates two IP addresses for redundancy.
+   - SINGLE\_INPUT: MediaLive allocates one IP address.
 
 5. In the **Input security group** section, select the input
    security group that you created or identified earlier. This security group must

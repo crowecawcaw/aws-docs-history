@@ -99,17 +99,17 @@ has special requirements.
 
 12. Make a note of the information you have collected:
 
-    - The connection type for the downstream system – Akamai, PUT,
-      or WebDAV.
-    - The settings for connection fields, if the downstream system has
-      special requirements.
-    - The protocol for delivery—HTTP or HTTPS.
-    - The user name and password to access the downstream system, if the
-      downstream system requires authenticated requests. Note that these
-      user credentials relate to user authentication, not to the protocol.
-      User authentication is about whether the downstream system will
-      accept your request. The protocol is about whether the request is
-      sent over a secure connection.
-    - All or part of the destination paths, possibly including the file
-      names.
-    - Whether you need to set up separate subdirectories.
+    * The connection type for the downstream system – Akamai, PUT,
+     or WebDAV.
+    * The settings for connection fields, if the downstream system has
+     special requirements.
+    * The protocol for delivery—HTTP or HTTPS.
+    * The user name and password to access the downstream system, if the
+     downstream system requires authenticated requests. Note that these
+     user credentials relate to user authentication, not to the protocol.
+     User authentication is about whether the downstream system will
+     accept your request. The protocol is about whether the request is
+     sent over a secure connection.
+    * All or part of the destination paths, possibly including the file
+     names.
+    * Whether you need to set up separate subdirectories.

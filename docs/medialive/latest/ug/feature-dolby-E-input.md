@@ -70,12 +70,12 @@ with the general steps for creating a channel.
    1**) appear.
 3. Complete the fields as follows.
 
-| Field                            | Description                                                                                                                                                      |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Audio selector<br>name**       | Assign a name to the Dolby E program. For<br>example, `DolbyE<br>program1`.                                                                                      |
-| **Selector<br>settings**         | From the drop-down menu, choose<br>**Audio track<br>selection**.                                                                                                 |
-| **Dolby E<br>decode**            | Choose **Audio Dolby E<br>decode**. The \*_Dolby E<br>program selection_<br>• field<br>appears. The drop-down menu shows the eight<br>possible Dolby E programs. |
-| **Dolby E program<br>selection** | Select the Dolby E program that you want<br>to extract. For example,<br>**PROGRAM_1**.                                                                           |
+| Field                            | Description                                                                                                                                                     |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Audio selector<br>name**       | Assign a name to the Dolby E program. For<br>example, `DolbyE<br>program1`.                                                                                     |
+| **Selector<br>settings**         | From the drop-down menu, choose<br>**Audio track<br>selection**.                                                                                                |
+| **Dolby E<br>decode**            | Choose **Audio Dolby E<br>decode**. The *_Dolby E<br>program selection_<br>• field<br>appears. The drop-down menu shows the eight<br>possible Dolby E programs. |
+| **Dolby E program<br>selection** | Select the Dolby E program that you want<br>to extract. For example,<br>**PROGRAM\_1**.                                                                         |
 
 Don't select the Add tracks field. This field doesn't
 apply to Dolby E audio. 4. To extract more Dolby E programs, choose **Add audio selectors** as many times
@@ -104,12 +104,12 @@ with the general steps for creating a channel.
    appear.
 3. Complete the fields as follows.
 
-| Field                            | Description                                                                                                                                                      |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Audio selector<br>name**       | Assign a name to the Dolby E program. For<br>example, `DolbyE<br>passthrough`.                                                                                   |
-| **Selector<br>settings**         | From the drop-down menu, choose<br>**Audio track<br>selection**.                                                                                                 |
-| **Dolby E<br>decode**            | Choose **Audio Dolby E<br>decode**. The \*_Dolby E<br>program selection_<br>• field<br>appears. The drop-down menu shows the eight<br>possible Dolby E programs. |
-| **Dolby E program<br>selection** | Select the Dolby E program that you want<br>to extract. For example,<br>**ALL_CHANNELS**.                                                                        |
+| Field                            | Description                                                                                                                                                     |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Audio selector<br>name**       | Assign a name to the Dolby E program. For<br>example, `DolbyE<br>passthrough`.                                                                                  |
+| **Selector<br>settings**         | From the drop-down menu, choose<br>**Audio track<br>selection**.                                                                                                |
+| **Dolby E<br>decode**            | Choose **Audio Dolby E<br>decode**. The *_Dolby E<br>program selection_<br>• field<br>appears. The drop-down menu shows the eight<br>possible Dolby E programs. |
+| **Dolby E program<br>selection** | Select the Dolby E program that you want<br>to extract. For example,<br>**ALL\_CHANNELS**.                                                                      |
 
 ## Setting up the input to extract and pass through
 

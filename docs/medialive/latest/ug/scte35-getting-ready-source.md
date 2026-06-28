@@ -68,17 +68,16 @@ splice insert with the following data:
 - `duration_flag`: true (1)
 - `break_duration`:
 
-      + `auto_return`: 1
-      + `reserved`: 0
-      + `duration`: The duration from the manifest, converted
-       to 90kHz ticks. For example, 15 seconds is 1350000 ticks.
-
-  When a non-zero `duration` is provided in
-  the inbound SCTE message, the `auto_return`
-  value is ignored. MediaLive ends the break at the specified
-  duration. The duration of a break in progress can be
-  adjusted with subsequent SCTE messages that reference
-  the same `splice_event_id`.
+  - `auto_return`: 1
+  - `reserved`: 0
+  - `duration`: The duration from the manifest, converted
+    to 90kHz ticks. For example, 15 seconds is 1350000 ticks.
+    When a non-zero `duration` is provided in
+    the inbound SCTE message, the `auto_return`
+    value is ignored. MediaLive ends the break at the specified
+    duration. The duration of a break in progress can be
+    adjusted with subsequent SCTE messages that reference
+    the same `splice_event_id`.
 
 - `splice_immediate_flag`: 0 (false)
 - `splice_time`: Use the video PTS of the first frame of the
@@ -107,7 +106,7 @@ splice insert with the following data:
 ## How MediaLive inserts the message: preroll
 
 MediaLive includes a preroll when it inserts the SCTE 35 message that corresponds to
-the CUE-OUT. This preroll is 5 seconds in advance of the splice_time in the SCTE 35
+the CUE-OUT. This preroll is 5 seconds in advance of the splice\_time in the SCTE 35
 message.
 
 MediaLive reduces the preroll if the channel doesn't have enough buffering to allow

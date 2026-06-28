@@ -29,12 +29,12 @@ Create your input before you create the channel that ingests the input.
    - **Channel and input class** – choose
      the class for this input:
 
-     - STANDARD_INPUT
-     - SINGLE_INPUT
+     - STANDARD\_INPUT
+     - SINGLE\_INPUT
 
    - **Pipeline 0 Availability Zone** – Specify the availability zone you want your channel to create pipeline 0 in.
 
-   If you're creating a STANDARD_INPUT, then for **Pipeline 1 Availability Zone** , specify the availability zone you want your channel to create pipeline 1 in.
+   If you're creating a STANDARD\_INPUT, then for **Pipeline 1 Availability Zone** , specify the availability zone you want your channel to create pipeline 1 in.
    - **Do you want to enable custom encryption?** – Specify an AES-256 key in hexadecimal format that's 64 characters:
 
      - **Secret Arn** – You can select an existing secret arn you're also going to specify in MediaConnect Router. They must match for the workflow to work.

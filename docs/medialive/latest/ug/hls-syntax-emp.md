@@ -36,10 +36,9 @@ These paths are constructed as follows:
 
 - You must specify the following:
 
-      + The modifier
-      + The segmentModifier
-
-  See the sections that follow.
+  - The modifier
+  - The segmentModifier
+    See the sections that follow.
 
 - MediaLive inserts the underscore before the counter.
 - MediaLive generates the counter, which is always five digits

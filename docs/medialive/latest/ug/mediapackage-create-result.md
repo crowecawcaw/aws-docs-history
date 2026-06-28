@@ -76,19 +76,18 @@ to pipeline 1.
 - **MediaPackage v2 (CMAF)
   destinations**
 
-      + The `InputLossAction` field
-       does not apply. CMAF ingest handles
-       resilience at the protocol level.
-      + For standard channels, both pipelines
-       deliver to MediaPackage simultaneously. If one
-       pipeline stops, MediaPackage automatically uses the
-       other pipeline's content.
-      + For single-pipeline channels, if input is
-       lost, MediaLive stops producing segments. MediaPackage
-       serves the last available content until new
-       segments arrive.
-
-  **SCTE-35**
+  - The `InputLossAction` field
+    does not apply. CMAF ingest handles
+    resilience at the protocol level.
+  - For standard channels, both pipelines
+    deliver to MediaPackage simultaneously. If one
+    pipeline stops, MediaPackage automatically uses the
+    other pipeline's content.
+  - For single-pipeline channels, if input is
+    lost, MediaLive stops producing segments. MediaPackage
+    serves the last available content until new
+    segments arrive.
+    **SCTE-35**
 
 - Passthrough of SCTE-35 messages is always enabled.
   If you don't want SCTE-35 markers in the outputs, you

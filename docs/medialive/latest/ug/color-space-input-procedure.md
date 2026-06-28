@@ -34,13 +34,13 @@ ways:
      metadata.
     * Missing: All or part of the video might not have color space metadata.
 
-3.  This step applies only for the following situation:
+3. This step applies only for the following situation:
 
-        * The input is for a MediaLive device such as AWS Elemental Link.
-        * The input color space is HDR10.
-        * You plan to pass through the color space to the output.
+    * The input is for a MediaLive device such as AWS Elemental Link.
+    * The input color space is HDR10.
+    * You plan to pass through the color space to the output.
 
-    Obtain the values for the Max CLL and Max FALL for the content.
+Obtain the values for the Max CLL and Max FALL for the content.
 
 MediaLive can't read the metadata from an AWS Elemental Link device. But you will be able to enter
 the color space and the display metadata (Max CLL and Max FALL) manually, in the channel

@@ -13,8 +13,8 @@
 
 The AV1 codec encoding schemes for output video include profile, bit depth, chroma
 sampling, tier, and level. You can configure the bit depth by setting the
-**Bit Depth** field to **DEPTH_8** (8-bit) or
-**DEPTH_10** (10-bit). If you don't specify a value, the
+**Bit Depth** field to **DEPTH\_8** (8-bit) or
+**DEPTH\_10** (10-bit). If you don't specify a value, the
 default is 8-bit.
 
 | Profile | Bit Depth | Chroma Sampling | Tier | Level                                         |

@@ -16,7 +16,7 @@ These troubleshooting steps apply to all pipeline locking methods:
   Pipeline locking applies [only to specific types of
   outputs](pipeline-lock.md "pipeline-lock.md").
 - Make sure that you changed the **Framerate control** so that
-  it is _not_ **Initialize_from_source**.
+  it is _not_ **Initialize\_from\_source**.
 - Check the **ComplexFRCPresent** CloudWatch metric. A value of 1 indicates
   that Medialive is performing complex framerate conversion and is not attempting to lock
   pipelines. Pipeline locking only supports
@@ -47,11 +47,11 @@ troubleshooting steps:
 ## Troubleshooting video aligned locking
 
 If you are using video aligned locking (**Pipeline locking
-method** set to **VIDEO_ALIGNMENT**) and experience
+method** set to **VIDEO\_ALIGNMENT**) and experience
 synchronization issues, check the following in addition to the general
 troubleshooting steps:
 
-- Verify that the current input type is compatible. HLS, RTMP_PULL, and
+- Verify that the current input type is compatible. HLS, RTMP\_PULL, and
   file inputs cause video aligned locking to run in open loop
   mode (unlocked). See
   [Requirements for video aligned locking](pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs "pipeline-locking-verify-input.md#pipeline-locking-video-alignment-inputs").

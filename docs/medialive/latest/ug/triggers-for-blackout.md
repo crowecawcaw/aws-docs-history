@@ -1,12 +1,12 @@
 # Triggers for blackout
 
-The blackout feature is triggered only by time_signal messages of segmentation
-type **Other**. It is not triggered by splice_insert messages of
-any segmentation type, and is not triggered by time_signal messages of any type
+The blackout feature is triggered only by time\_signal messages of segmentation
+type **Other**. It is not triggered by splice\_insert messages of
+any segmentation type, and is not triggered by time\_signal messages of any type
 except **Other**.
 
 SCTE 35 messages of type ID "splice insert" and messages of type ID "time signal"
-can both include "Other" time_signal messages. Therefore, when enabling blackout,
+can both include "Other" time\_signal messages. Therefore, when enabling blackout,
 the [ad avail mode](getting-ready-set-the-ad-avail-mode.md "getting-ready-set-the-ad-avail-mode.md") is not
 relevant. Blackout works the same with either mode.
 

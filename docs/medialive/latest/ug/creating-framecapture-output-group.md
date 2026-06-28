@@ -46,7 +46,7 @@ You create the output group and its outputs when you [create or edit a MediaLive
      for the output group. This name is internal
      to MediaLive; it doesn't appear in the output.
      For example, `Sports Game
-Thumbnails`.
+  Thumbnails`.
    - In **Frame capture
      outputs**, for
      **Name**, enter a name

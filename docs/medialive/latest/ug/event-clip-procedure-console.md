@@ -34,14 +34,14 @@ settings**. Complete the fields as follows:
      information, in order to find the events for one feed. The string might
      identify the sports event in the feed, for example.
 
-3.  Save the channel. MediaLive calls the Elemental Inference `AssociateFeed` endpoint
-    to perform these actions:
+3. Save the channel. MediaLive calls the Elemental Inference `AssociateFeed` endpoint
+to perform these actions:
 
-        * To create an event clipping output in the feed.
-        * To associate the channel (the resource) with the feed, if this is the
-         first Elemental Inference feature that you are setting up.
+    * To create an event clipping output in the feed.
+    * To associate the channel (the resource) with the feed, if this is the
+     first Elemental Inference feature that you are setting up.
 
-    You now have a usable feed: resource - feed - output.
+You now have a usable feed: resource - feed - output.
 
 You can start the channel. When the channel is running, MediaLive delivers the
 source stream to Elemental Inference and then retrieves metadata from Elemental Inference. This metadata

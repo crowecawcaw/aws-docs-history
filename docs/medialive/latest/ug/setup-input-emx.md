@@ -30,8 +30,8 @@ Create your input before you create the channel that ingests the input.
    - **Channel and input class** – choose
      the class for this input:
 
-     - STANDARD_INPUT
-     - SINGLE_INPUT
+     - STANDARD\_INPUT
+     - SINGLE\_INPUT
 
    - **ARN for flow A** – specify the ARN
      for the flow that you identified as the first flow.

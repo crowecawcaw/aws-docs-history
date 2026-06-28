@@ -56,14 +56,14 @@ list](https://aws.amazon.com/medialive/pricing/ "https://aws.amazon.com/medialiv
 The **Profile** field sets the profile, chroma
 sampling, and bit depth.
 
-| Value in \*_Profile_<br>• field | Profile  | Chroma Sampling | Bit Depth |
-| ------------------------------- | -------- | --------------- | --------- |
-| **Baseline**                    | Baseline | 4:2:0           | 8-bit     |
-| **Main**                        | Main     | 4:2:0           | 8-bit     |
-| **High**                        | High     | 4:2:0           | 8-bit     |
-| **High 10bit**                  | High     | 4:2:0           | 10-bit    |
-| **High 422**                    | High     | 4:2:2           | 8-bit     |
-| **High 422 10bit**              | High     | 4:2:2           | 10-bit    |
+| Value in *_Profile_<br>• field | Profile  | Chroma Sampling | Bit Depth |
+| ------------------------------ | -------- | --------------- | --------- |
+| **Baseline**                   | Baseline | 4:2:0           | 8-bit     |
+| **Main**                       | Main     | 4:2:0           | 8-bit     |
+| **High**                       | High     | 4:2:0           | 8-bit     |
+| **High 10bit**                 | High     | 4:2:0           | 10-bit    |
+| **High 422**                   | High     | 4:2:2           | 8-bit     |
+| **High 422 10bit**             | High     | 4:2:2           | 10-bit    |
 
 ### Profile field for H.265
 
@@ -73,13 +73,13 @@ sampling, and bit depth.
 | Value in Profile field | Profile | Chroma Sampling | Bit Depth |
 | ---------------------- | ------- | --------------- | --------- |
 | **Main**               | Main    | 4:2:0           | 8-bit     |
-| **Main_10BIT**         | Main    | 4:2:0           | 10-bit    |
+| **Main\_10BIT**        | Main    | 4:2:0           | 10-bit    |
 
 ### Bit depth and level fields for AV1
 
 The **Bit Depth** field sets the bit depth for the
-AV1 output encode. Choose **DEPTH_8** for 8-bit output
-or **DEPTH_10** for 10-bit output. If you don't
+AV1 output encode. Choose **DEPTH\_8** for 8-bit output
+or **DEPTH\_10** for 10-bit output. If you don't
 specify a value, the default is 8-bit.
 
 The **Level** field sets the level. Other encoding

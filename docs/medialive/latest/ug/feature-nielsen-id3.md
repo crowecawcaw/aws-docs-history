@@ -51,9 +51,9 @@ metadata](id3-metadata.md "id3-metadata.md") in outputs.
 (If the output group is **MediaPackage**, you don't have to set up the
 output. The ID3 tags are always passed through, if the output is a standard output.)
 
-| Output group    | Section                  | Instruction                                                                                                                                                                                |
-| --------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Archive**     | **Output settings**      | Choose **PID settings**. In **Nielsen ID3**,<br>choose **PASSTHROUGH**.                                                                                                                    |
-| **CMAF Ingest** | **CMAF Ingest settings** | In **Nielsen ID3 Behavior**, choose<br>**PASSTHROUGH**.                                                                                                                                    |
-| **HLS**         | **Output settings**      | The contain must be a standard HLS container. Verify the value in the<br>**HLS Settings\*<br>• field.Choose **PID<br>settings**. In **Nielsen ID3 behavior**, choose<br>**PASSTHROUGH\*\*. |
-| **UDP**         | **Output settings**      | Choose **Network settings**, then choose **PID<br>settings**. In **Nielsen ID3**, choose<br>**PASSTHROUGH**.                                                                               |
+| Output group    | Section                  | Instruction                                                                                                                                                                             |
+| --------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Archive**     | **Output settings**      | Choose **PID settings**. In **Nielsen ID3**,<br>choose **PASSTHROUGH**.                                                                                                                 |
+| **CMAF Ingest** | **CMAF Ingest settings** | In **Nielsen ID3 Behavior**, choose<br>**PASSTHROUGH**.                                                                                                                                 |
+| **HLS**         | **Output settings**      | The contain must be a standard HLS container. Verify the value in the<br>*_HLS Settings_<br>• field.Choose **PID<br>settings**. In **Nielsen ID3 behavior**, choose<br>**PASSTHROUGH**. |
+| **UDP**         | **Output settings**      | Choose **Network settings**, then choose **PID<br>settings**. In **Nielsen ID3**, choose<br>**PASSTHROUGH**.                                                                            |

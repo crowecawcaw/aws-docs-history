@@ -35,7 +35,7 @@ actions and doesn't attempt to show it in the list view.
 
 The actions are arranged in cards along a vertical axis.
 The card titles are color-coded by the action type. For
-example, SCTE 35 time_signal messages are yellow.
+example, SCTE 35 time\_signal messages are yellow.
 
 One card might contain several input switches. The first input
 switch is always a fixed-type input switch. The remaining input

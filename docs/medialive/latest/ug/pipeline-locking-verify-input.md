@@ -35,10 +35,10 @@ pipelines.
 ###### Note
 
 Video aligned locking is available only when the output locking mode is set to
-**PIPELINE_LOCKING** (not **EPOCH_LOCKING**).
+**PIPELINE\_LOCKING** (not **EPOCH\_LOCKING**).
 
 When you use video aligned locking (**Pipeline locking
-method** set to **VIDEO_ALIGNMENT**), embedded timecodes
+method** set to **VIDEO\_ALIGNMENT**), embedded timecodes
 are not required.
 
 **Input requirements**
@@ -46,9 +46,9 @@ are not required.
 Certain input types are not compatible with video
 alignment:
 
-- File inputs (MP4_FILE, TS_FILE)
-- HLS inputs (URL_PULL with HLS content)
-- RTMP_PULL inputs
+- File inputs (MP4\_FILE, TS\_FILE)
+- HLS inputs (URL\_PULL with HLS content)
+- RTMP\_PULL inputs
 
 When an incompatible input type is active, video aligned locking runs
 in "open loop" mode (unlocked) but continues processing. No validation error is

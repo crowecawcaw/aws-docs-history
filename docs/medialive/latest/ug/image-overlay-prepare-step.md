@@ -6,37 +6,32 @@ either before you start the channel, or while the channel is running.
 
 ###### To prepare the overlay file
 
-1.  Determine the size (width and height in pixels) of the file you need. You might need
-    several instances of one image, each in a different size. For more information, see the
-    guidelines after this procedure.
-2.  Create files with the following characteristics:
+1. Determine the size (width and height in pixels) of the file you need. You might need
+   several instances of one image, each in a different size. For more information, see the
+   guidelines after this procedure.
+2. Create files with the following characteristics:
 
-    - 32-bit bmp, png, or tga format
+   - 32-bit bmp, png, or tga format
 
-    - If you use a graphics program that outputs channels, set up to output the alpha
-      channel. This ensures that the image overlay doesn't appear in a black or white
-      box.
+   - If you use a graphics program that outputs channels, set up to output the alpha
+     channel. This ensures that the image overlay doesn't appear in a black or white
+     box.
 
-3.  Place the prepared file in a location that is accessible to the MediaLive. Make a note of
-    the location and of any user credentials that users need to access the file. You can
-    specify the location in one of these ways:
+3. Place the prepared file in a location that is accessible to the MediaLive. Make a note of
+   the location and of any user credentials that users need to access the file. You can
+   specify the location in one of these ways:
 
-        * Amazon S3 bucket, using SSL. For example:
+   - Amazon S3 bucket, using SSL. For example:
 
+   `s3ssl://amzn-s3-demo-bucket/company-overlays/overlay.png`
 
-        `s3ssl://amzn-s3-demo-bucket/company-overlays/overlay.png`
+   With MediaLive, the Amazon S3 bucket name mustn't use dot notation, which means it mustn't
+   use . (dot) between the words in the bucket name.
+   - A location that supports HTTP or HTTPS. For example:
 
-
-        With MediaLive, the Amazon S3 bucket name mustn't use dot notation, which means it mustn't
-         use . (dot) between the words in the bucket name.
-        * A location that supports HTTP or HTTPS. For example:
-
-
-
-        `https://203.0.113.0/corporate-logos/large.bmp`
-
-    **Determining the image size if you are using the global
-    option**
+   `https://203.0.113.0/corporate-logos/large.bmp`
+   **Determining the image size if you are using the global
+   option**
 
 Keep in mind that with the global insertion option, MediaLive inserts the image on the output
 video frame _before_ it sets the output video resolution.
