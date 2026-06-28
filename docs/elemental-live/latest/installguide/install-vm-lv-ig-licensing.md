@@ -83,7 +83,7 @@ You are logged in at the home directory
    to this VM. The following _key
    file_ is created in the home directory:
    `activation_<hostname of the
-system>`.key``.
+ system>`.key``.
 
 For example,
 `activation_SystemA.key` 4. Copy the key file from the VM to your workstation. We

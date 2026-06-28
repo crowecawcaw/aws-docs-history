@@ -222,7 +222,7 @@ Starting ntpd:
 Starting snmpd: [60G[[0;32m  OK  [0;39m]
 ```
 
-You are prompted to start elemental_se.
+You are prompted to start elemental\_se.
 
 ```
 Would you like to start the Elemental service now? [Y]
