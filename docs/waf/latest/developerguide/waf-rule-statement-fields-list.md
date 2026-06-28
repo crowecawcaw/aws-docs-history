@@ -512,7 +512,7 @@ The element sets that AWS WAF would inspect for each **JSON match scope** settin
     * **Values**: `g`.
 
 3. **Inspect the JSON element set** – AWS WAF applies any
-   text transformations that you've specified to the extracted JSON elements and
-   then matches the resulting element set against the rule statement's
-   match criteria. This is the same transformation and evaluation behavior as for other
-   web request components. If any of the extracted JSON elements match, the web request is a match for the rule.
+text transformations that you've specified to the extracted JSON elements and
+then matches the resulting element set against the rule statement's
+match criteria. This is the same transformation and evaluation behavior as for other
+web request components. If any of the extracted JSON elements match, the web request is a match for the rule.

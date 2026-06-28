@@ -12,31 +12,30 @@ The dashboards include the requests for all of the resources that you've associa
 
 ###### To view the **Traffic overview** dashboards for a protection pack (web ACL)
 
-1.  Sign in to the AWS Management Console and open the AWS WAF console at
-    [https://console.aws.amazon.com/wafv2/homev2](https://console.aws.amazon.com/wafv2/homev2 "https://console.aws.amazon.com/wafv2/homev2").
-2.  In the navigation pane, choose **protection packs (web ACLs)** and then search for the web
-    ACL that you're interested in.
-3.  Select the protection pack (web ACL). The console takes you to the protection pack (web ACL)'s page. The **Traffic
-    overview** tab is selected by default.
-4.  Change the **Data filters** settings as needed.
+1. Sign in to the AWS Management Console and open the AWS WAF console at
+   [https://console.aws.amazon.com/wafv2/homev2](https://console.aws.amazon.com/wafv2/homev2 "https://console.aws.amazon.com/wafv2/homev2").
+2. In the navigation pane, choose **protection packs (web ACLs)** and then search for the web
+   ACL that you're interested in.
+3. Select the protection pack (web ACL). The console takes you to the protection pack (web ACL)'s page. The **Traffic
+   overview** tab is selected by default.
+4. Change the **Data filters** settings as needed.
 
-        * **Terminating rule actions** – Select the terminating actions to
-         include in the dashboards. The dashboards summarize the metrics
-         for the web requests that had one of the selected actions
-         applied by the protection pack (web ACL) evaluation. If you select all of the
-         available actions, the dashboards include all evaluated web
-         requests. For information about the actions, see [How AWS WAF handles rule and rule group actions](web-acl-rule-actions.md "web-acl-rule-actions.md").
-        * **Time range** – Select the time interval to view in the
-         dashboards. You can choose to view a time frame relative to now, for
-         example the last 3 hours or the last week, and you can select an
-         absolute time range from a calendar.
-        * **Time zone** – This setting applies when you specify an absolute time
-         range. You can use your browser's local time zone or UTC
-         (Coordinated Universal Time).
-
-    Review the information in the tabs that you're interested in. The data filter
-    selections apply to all of the dashboards. In the graph panes, you can hover the
-    cursor over a data point or an area to see any additional details.
+   - **Terminating rule actions** – Select the terminating actions to
+     include in the dashboards. The dashboards summarize the metrics
+     for the web requests that had one of the selected actions
+     applied by the protection pack (web ACL) evaluation. If you select all of the
+     available actions, the dashboards include all evaluated web
+     requests. For information about the actions, see [How AWS WAF handles rule and rule group actions](web-acl-rule-actions.md "web-acl-rule-actions.md").
+   - **Time range** – Select the time interval to view in the
+     dashboards. You can choose to view a time frame relative to now, for
+     example the last 3 hours or the last week, and you can select an
+     absolute time range from a calendar.
+   - **Time zone** – This setting applies when you specify an absolute time
+     range. You can use your browser's local time zone or UTC
+     (Coordinated Universal Time).
+     Review the information in the tabs that you're interested in. The data filter
+     selections apply to all of the dashboards. In the graph panes, you can hover the
+     cursor over a data point or an area to see any additional details.
 
 ###### Count action rules
 

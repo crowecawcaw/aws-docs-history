@@ -35,34 +35,32 @@ the request has a valid token with an unexpired timestamp for the action type.
 - **Missing, invalid, or expired token** – When the action blocks the request due to
   a missing or invalid token, AWS WAF captures metrics and logs as follows:
 
-      + Increments the metric for `CaptchaRequests` or `ChallengeRequests`.
-      + Logs the match as a `CaptchaResponse` entry with HTTP `405`
-       status code or as a `ChallengeResponse` entry with HTTP
-       `202` status code. The log indicates whether the
-       request was missing the token or had an expired timestamp. The log
-       also indicates whether AWS WAF sent a CAPTCHA interstitial page to
-       the client or a silent challenge to the client browser. The
-       following listing shows the sections of a log for this type of match
-       with the CAPTCHA action.
+  - Increments the metric for `CaptchaRequests` or `ChallengeRequests`.
+  - Logs the match as a `CaptchaResponse` entry with HTTP `405`
+    status code or as a `ChallengeResponse` entry with HTTP
+    `202` status code. The log indicates whether the
+    request was missing the token or had an expired timestamp. The log
+    also indicates whether AWS WAF sent a CAPTCHA interstitial page to
+    the client or a silent challenge to the client browser. The
+    following listing shows the sections of a log for this type of match
+    with the CAPTCHA action.
 
+  ```
+      "terminatingRuleId": "captcha-rule",
+      "terminatingRuleType": "REGULAR",
+      "action": "CAPTCHA",
+      "terminatingRuleMatchDetails": [],
+      ...
+      "responseCodeSent": 405,
+      ...
+      "captchaResponse": {
+        "responseCode": 405,
+        "solveTimestamp": 0,
+        "failureReason": "TOKEN_MISSING"
+      }
+  ```
 
-
-      ```
-          "terminatingRuleId": "captcha-rule",
-          "terminatingRuleType": "REGULAR",
-          "action": "CAPTCHA",
-          "terminatingRuleMatchDetails": [],
-          ...
-          "responseCodeSent": 405,
-          ...
-          "captchaResponse": {
-            "responseCode": 405,
-            "solveTimestamp": 0,
-            "failureReason": "TOKEN_MISSING"
-          }
-      ```
-
-  For information about the AWS WAF logs, see [Logging AWS WAF protection pack (web ACL) traffic](logging.md "logging.md").
+For information about the AWS WAF logs, see [Logging AWS WAF protection pack (web ACL) traffic](logging.md "logging.md").
 
 For information about AWS WAF metrics, see [AWS WAF metrics and dimensions](waf-metrics.md "waf-metrics.md").
 

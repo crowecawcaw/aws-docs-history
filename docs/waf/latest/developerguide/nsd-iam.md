@@ -20,10 +20,10 @@ This section explains how to use the features of IAM with AWS Shield network sec
 Before you use IAM to manage access to network security director, learn what IAM features are
 available to use with network security director.
 
-| IAM features you can use with AWS Shield network security director                                                            | IAM feature | AWS Shield network security director support |
-| ----------------------------------------------------------------------------------------------------------------------------- | ----------- | -------------------------------------------- |
-| [Identity-based policies](#iam_nsd-with-iam-id-based-policies "#iam_nsd-with-iam-id-based-policies")                          | Yes         |
-| [Service-linked roles](security_iam_nsd-with-iam-roles-service-linked.md "security_iam_nsd-with-iam-roles-service-linked.md") | Yes         |
+IAM features you can use with AWS Shield network security director| IAM feature | AWS Shield network security director support |
+| --- | --- |
+| [Identity-based policies](#iam_nsd-with-iam-id-based-policies "#iam_nsd-with-iam-id-based-policies") | Yes |
+| [Service-linked roles](security_iam_nsd-with-iam-roles-service-linked.md "security_iam_nsd-with-iam-roles-service-linked.md") | Yes |
 
 To get a high-level view of how network security director and other AWS services work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
 

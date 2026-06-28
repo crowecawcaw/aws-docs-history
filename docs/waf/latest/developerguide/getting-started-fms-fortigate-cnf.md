@@ -75,30 +75,29 @@ deployment model to create your firewall endpoints:
     	 **Availability Zone name** or by
     	 **Availability Zone ID**.
 
-12. Choose **Next**.
-13. For **Policy scope**, under **AWS accounts this policy applies to**, choose the
-    option as follows:
+12. Choose **Next**. 13. For **Policy scope**, under **AWS accounts this policy applies to**, choose the
+option as follows:
 
-        * If you want to apply the policy to all accounts in your
-         organization, leave the default selection, **Include all
-         accounts under my AWS organization**.
-        * If you want to apply the policy only to specific accounts or
-         accounts that are in specific AWS Organizations organizational units
-         (OUs), choose **Include only the specified accounts and
-         organizational units**, and then add the accounts and
-         OUs that you want to include. Specifying an OU is the equivalent of
-         specifying all accounts in the OU and in any of its child OUs,
-         including any child OUs and accounts that are added at a later time.
-        * If you want to apply the policy to all but a specific set of
-         accounts or AWS Organizations organizational units (OUs), choose
-         **Exclude the specified accounts and organizational
-         units, and include all others**, and then add the
-         accounts and OUs that you want to exclude. Specifying an OU is the
-         equivalent of specifying all accounts in the OU and in any of its
-         child OUs, including any child OUs and accounts that are added at a
-         later time.
+    * If you want to apply the policy to all accounts in your
+     organization, leave the default selection, **Include all
+     accounts under my AWS organization**.
+    * If you want to apply the policy only to specific accounts or
+     accounts that are in specific AWS Organizations organizational units
+     (OUs), choose **Include only the specified accounts and
+     organizational units**, and then add the accounts and
+     OUs that you want to include. Specifying an OU is the equivalent of
+     specifying all accounts in the OU and in any of its child OUs,
+     including any child OUs and accounts that are added at a later time.
+    * If you want to apply the policy to all but a specific set of
+     accounts or AWS Organizations organizational units (OUs), choose
+     **Exclude the specified accounts and organizational
+     units, and include all others**, and then add the
+     accounts and OUs that you want to exclude. Specifying an OU is the
+     equivalent of specifying all accounts in the OU and in any of its
+     child OUs, including any child OUs and accounts that are added at a
+     later time.
 
-    You can only choose one of the options.
+You can only choose one of the options.
 
 After you apply the policy, Firewall Manager automatically evaluates any new accounts
 against your settings. For example, if you include only specific accounts,

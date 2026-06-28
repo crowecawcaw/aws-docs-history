@@ -76,20 +76,20 @@ Additionally, this statement requires the following settings:
 
   One of the following must be true for the request to match:
 
-      - The string exactly matches the value of the request
-       component, such as the value of a header.
-      - The string is at the beginning of the request
-       component and is followed by a character other than an
-       alphanumeric character or underscore (\_), for example,
-       `BadBot;`.
-      - The string is at the end of the request component and
-       is preceded by a character other than an alphanumeric
-       character or underscore (\_), for example,
-       `;BadBot`.
-      - The string is in the middle of the request component
-       and is preceded and followed by characters other than
-       alphanumeric characters or underscore (\_), for example,
-       `-BadBot;`.
+        - The string exactly matches the value of the request
+         component, such as the value of a header.
+        - The string is at the beginning of the request
+         component and is followed by a character other than an
+         alphanumeric character or underscore (\_), for example,
+         `BadBot;`.
+        - The string is at the end of the request component and
+         is preceded by a character other than an alphanumeric
+         character or underscore (\_), for example,
+         `;BadBot`.
+        - The string is in the middle of the request component
+         and is preceded and followed by characters other than
+         alphanumeric characters or underscore (\_), for example,
+         `-BadBot;`.
 
 ## Where to find this rule statement
 

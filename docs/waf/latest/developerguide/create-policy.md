@@ -120,9 +120,9 @@ For information about this option, see [CAPTCHA and Challenge in AWS WAF](waf-ca
     The default behavior is to create all new web ACLs. If you choose this, all web ACLs managed by Firewall Manager will have names that begin with `FMManagedWebACLV2`. If you choose to retrofit existing web ACLs, the retrofitted web ACLs will have their original names and the ones created by Firewall Manager will have names that begin with `FMManagedWebACLV2`.
 
 16. For **Policy action**, if you want to create a web ACL
-    in each applicable account
-    within the organization, but not apply the web ACL to any resources yet, choose
-    **Identify resources that don't comply with the policy rules, but don't auto remediate** and don't choose **Manage unassociated web ACLs**. You can change these options later.
+in each applicable account
+within the organization, but not apply the web ACL to any resources yet, choose
+**Identify resources that don't comply with the policy rules, but don't auto remediate** and don't choose **Manage unassociated web ACLs**. You can change these options later.
 
 If instead you want to automatically apply the policy to existing in-scope resources, choose **Auto remediate any noncompliant resources**. If **Manage unassociated web ACLs** is disabled, the **Auto remediate any noncompliant resources** option creates a web ACL in each applicable account within the organization and associates the web ACL with the resources in the accounts. If **Manage unassociated web ACLs** is enabled, the **Auto remediate any noncompliant resources** option only creates and associates a web ACL in accounts that have resources eligible for association to the web ACL.
 
@@ -416,30 +416,29 @@ groups**. 6. For **Region**, choose an AWS Region. 7. Choose **Next**. 8. For **
      policy and change the policy action to enable automatic remediation
      of noncompliant resources.
 
-10. Choose **Next**.
-11. For **AWS accounts this policy applies to**, choose the
-    option as follows:
+10. Choose **Next**. 11. For **AWS accounts this policy applies to**, choose the
+option as follows:
 
-        * If you want to apply the policy to all accounts in your
-         organization, leave the default selection, **Include all
-         accounts under my AWS organization**.
-        * If you want to apply the policy only to specific accounts or
-         accounts that are in specific AWS Organizations organizational units
-         (OUs), choose **Include only the specified accounts and
-         organizational units**, and then add the accounts and
-         OUs that you want to include. Specifying an OU is the equivalent of
-         specifying all accounts in the OU and in any of its child OUs,
-         including any child OUs and accounts that are added at a later time.
-        * If you want to apply the policy to all but a specific set of
-         accounts or AWS Organizations organizational units (OUs), choose
-         **Exclude the specified accounts and organizational
-         units, and include all others**, and then add the
-         accounts and OUs that you want to exclude. Specifying an OU is the
-         equivalent of specifying all accounts in the OU and in any of its
-         child OUs, including any child OUs and accounts that are added at a
-         later time.
+    * If you want to apply the policy to all accounts in your
+     organization, leave the default selection, **Include all
+     accounts under my AWS organization**.
+    * If you want to apply the policy only to specific accounts or
+     accounts that are in specific AWS Organizations organizational units
+     (OUs), choose **Include only the specified accounts and
+     organizational units**, and then add the accounts and
+     OUs that you want to include. Specifying an OU is the equivalent of
+     specifying all accounts in the OU and in any of its child OUs,
+     including any child OUs and accounts that are added at a later time.
+    * If you want to apply the policy to all but a specific set of
+     accounts or AWS Organizations organizational units (OUs), choose
+     **Exclude the specified accounts and organizational
+     units, and include all others**, and then add the
+     accounts and OUs that you want to exclude. Specifying an OU is the
+     equivalent of specifying all accounts in the OU and in any of its
+     child OUs, including any child OUs and accounts that are added at a
+     later time.
 
-    You can only choose one of the options.
+You can only choose one of the options.
 
 After you apply the policy, Firewall Manager
 automatically evaluates any new accounts against your settings.
@@ -573,30 +572,29 @@ that you want to use.
     	 change the policy action to enable automatic remediation of
     	 noncompliant resources.
 
-10. Choose **Next**.
-11. For **AWS accounts this policy applies to**, choose the
-    option as follows:
+10. Choose **Next**. 11. For **AWS accounts this policy applies to**, choose the
+option as follows:
 
-        * If you want to apply the policy to all accounts in your
-         organization, leave the default selection, **Include all
-         accounts under my AWS organization**.
-        * If you want to apply the policy only to specific accounts or
-         accounts that are in specific AWS Organizations organizational units
-         (OUs), choose **Include only the specified accounts and
-         organizational units**, and then add the accounts and
-         OUs that you want to include. Specifying an OU is the equivalent of
-         specifying all accounts in the OU and in any of its child OUs,
-         including any child OUs and accounts that are added at a later time.
-        * If you want to apply the policy to all but a specific set of
-         accounts or AWS Organizations organizational units (OUs), choose
-         **Exclude the specified accounts and organizational
-         units, and include all others**, and then add the
-         accounts and OUs that you want to exclude. Specifying an OU is the
-         equivalent of specifying all accounts in the OU and in any of its
-         child OUs, including any child OUs and accounts that are added at a
-         later time.
+    * If you want to apply the policy to all accounts in your
+     organization, leave the default selection, **Include all
+     accounts under my AWS organization**.
+    * If you want to apply the policy only to specific accounts or
+     accounts that are in specific AWS Organizations organizational units
+     (OUs), choose **Include only the specified accounts and
+     organizational units**, and then add the accounts and
+     OUs that you want to include. Specifying an OU is the equivalent of
+     specifying all accounts in the OU and in any of its child OUs,
+     including any child OUs and accounts that are added at a later time.
+    * If you want to apply the policy to all but a specific set of
+     accounts or AWS Organizations organizational units (OUs), choose
+     **Exclude the specified accounts and organizational
+     units, and include all others**, and then add the
+     accounts and OUs that you want to exclude. Specifying an OU is the
+     equivalent of specifying all accounts in the OU and in any of its
+     child OUs, including any child OUs and accounts that are added at a
+     later time.
 
-    You can only choose one of the options.
+You can only choose one of the options.
 
 After you apply the policy, Firewall Manager
 automatically evaluates any new accounts against your settings.
@@ -673,35 +671,33 @@ cleanup of unassociated and redundant security groups**. 6. For **Region**, choo
      choose this, Firewall Manager runs it first when you save the policy.
 
 10. For **Policy action**, we recommend creating the policy
-    with the option that doesn't automatically remediate. This allows you to
-    assess the effects of your new policy before you apply it. When you are
-    satisfied that the changes are what you want, then edit the policy and
-    change the policy action to enable automatic remediation of noncompliant
-    resources.
-11. Choose **Next**.
-12. For **AWS accounts this policy applies to**, choose the
-    option as follows:
+with the option that doesn't automatically remediate. This allows you to
+assess the effects of your new policy before you apply it. When you are
+satisfied that the changes are what you want, then edit the policy and
+change the policy action to enable automatic remediation of noncompliant
+resources. 11. Choose **Next**. 12. For **AWS accounts this policy applies to**, choose the
+option as follows:
 
-        * If you want to apply the policy to all accounts in your
-         organization, leave the default selection, **Include all
-         accounts under my AWS organization**.
-        * If you want to apply the policy only to specific accounts or
-         accounts that are in specific AWS Organizations organizational units
-         (OUs), choose **Include only the specified accounts and
-         organizational units**, and then add the accounts and
-         OUs that you want to include. Specifying an OU is the equivalent of
-         specifying all accounts in the OU and in any of its child OUs,
-         including any child OUs and accounts that are added at a later time.
-        * If you want to apply the policy to all but a specific set of
-         accounts or AWS Organizations organizational units (OUs), choose
-         **Exclude the specified accounts and organizational
-         units, and include all others**, and then add the
-         accounts and OUs that you want to exclude. Specifying an OU is the
-         equivalent of specifying all accounts in the OU and in any of its
-         child OUs, including any child OUs and accounts that are added at a
-         later time.
+    * If you want to apply the policy to all accounts in your
+     organization, leave the default selection, **Include all
+     accounts under my AWS organization**.
+    * If you want to apply the policy only to specific accounts or
+     accounts that are in specific AWS Organizations organizational units
+     (OUs), choose **Include only the specified accounts and
+     organizational units**, and then add the accounts and
+     OUs that you want to include. Specifying an OU is the equivalent of
+     specifying all accounts in the OU and in any of its child OUs,
+     including any child OUs and accounts that are added at a later time.
+    * If you want to apply the policy to all but a specific set of
+     accounts or AWS Organizations organizational units (OUs), choose
+     **Exclude the specified accounts and organizational
+     units, and include all others**, and then add the
+     accounts and OUs that you want to exclude. Specifying an OU is the
+     equivalent of specifying all accounts in the OU and in any of its
+     child OUs, including any child OUs and accounts that are added at a
+     later time.
 
-    You can only choose one of the options.
+You can only choose one of the options.
 
 After you apply the policy, Firewall Manager
 automatically evaluates any new accounts against your settings.
@@ -832,17 +828,14 @@ manage the policy's firewalls. Choose from the following options:
      existing firewalls from Network Firewall using resource sets. For information about resource sets, see [Grouping your resources in Firewall Manager](fms-resource-sets.md "fms-resource-sets.md").
 
 6. For **Region**, choose an AWS Region. To protect resources in multiple
-   Regions, you must create separate policies for each Region.
-7. Choose **Next**.
-8. For **Policy name**, enter a descriptive name. Firewall Manager
-   includes the policy name in the names of the Network Firewall firewalls
-   and firewall policies that it creates.
-9. In the **AWS Network Firewall policy configuration**, configure the firewall
-   policy as you would in Network Firewall. Add your stateless and stateful
-   rule groups and specify the policy's default actions. You can optionally set
-   the policy's stateful rule evaluation order and default actions, as well as logging configuration. For information about Network Firewall
-   firewall policy management, see [AWS Network Firewall firewall policies](../../../network-firewall/latest/developerguide/firewall-policies.md "../../../network-firewall/latest/developerguide/firewall-policies.md") in the
-   _AWS Network Firewall Developer Guide_.
+Regions, you must create separate policies for each Region. 7. Choose **Next**. 8. For **Policy name**, enter a descriptive name. Firewall Manager
+includes the policy name in the names of the Network Firewall firewalls
+and firewall policies that it creates. 9. In the **AWS Network Firewall policy configuration**, configure the firewall
+policy as you would in Network Firewall. Add your stateless and stateful
+rule groups and specify the policy's default actions. You can optionally set
+the policy's stateful rule evaluation order and default actions, as well as logging configuration. For information about Network Firewall
+firewall policy management, see [AWS Network Firewall firewall policies](../../../network-firewall/latest/developerguide/firewall-policies.md "../../../network-firewall/latest/developerguide/firewall-policies.md") in the
+_AWS Network Firewall Developer Guide_.
 
 When you create the Firewall Manager Network Firewall policy, Firewall Manager creates firewall policies for
 the accounts that are within scope. Individual account managers can add rule
@@ -915,8 +908,7 @@ that you provide here. 10. Choose **Next**. 11. Do one of the following, dependi
     	Auto remediation happens automatically for AWS Firewall Manager Network Firewall policies, so you won't see an option to choose not to auto remediate here.
     * If you're using a **import existing firewalls** firewall management type, in **Resource sets** add one or more resource sets. A resource set defines the existing Network Firewall firewalls owned by your organization's account that you want to centrally manage in this policy. To add a resource set to the policy, you must first create a resource set using the console or the [PutResourceSet](../../../fms/2018-01-01/APIReference/https:/docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PutResourceSet.md "../../../fms/2018-01-01/APIReference/https:/docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PutResourceSet.md") API. For information about resource sets, see [Grouping your resources in Firewall Manager](fms-resource-sets.md "fms-resource-sets.md"). For more information about importing existing firewalls from Network Firewall, see [How Firewall Manager creates firewall endpoints](fms-create-firewall-endpoints.md "fms-create-firewall-endpoints.md").
 
-12. Choose **Next**.
-13. If your policy uses a distributed firewall management type, under **Route management**, choose whether or not Firewall Manager will monitor and alert on the traffic that must be routed through the respective firewall endpoints.
+12. Choose **Next**. 13. If your policy uses a distributed firewall management type, under **Route management**, choose whether or not Firewall Manager will monitor and alert on the traffic that must be routed through the respective firewall endpoints.
 
 ###### Note
 
@@ -1106,9 +1098,9 @@ deployment model to create your firewall endpoints:
     	 **Availability Zone ID**.
 
 13. If you want to provide the CIDR blocks for Firewall Manager to use for firewall subnets in your
-    VPCs, they must all be /28 CIDR blocks. Enter one block per line. If you
-    omit these, Firewall Manager chooses IP addresses for you from those that are available
-    in the VPCs.
+VPCs, they must all be /28 CIDR blocks. Enter one block per line. If you
+omit these, Firewall Manager chooses IP addresses for you from those that are available
+in the VPCs.
 
 ###### Note
 
@@ -1214,9 +1206,9 @@ deployment model to create your firewall endpoints:
     	 **Availability Zone ID**.
 
 12. If you want to provide the CIDR blocks for Firewall Manager to use for firewall subnets in your
-    VPCs, they must all be /28 CIDR blocks. Enter one block per line. If you
-    omit these, Firewall Manager chooses IP addresses for you from those that are available
-    in the VPCs.
+VPCs, they must all be /28 CIDR blocks. Enter one block per line. If you
+omit these, Firewall Manager chooses IP addresses for you from those that are available
+in the VPCs.
 
 ###### Note
 

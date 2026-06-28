@@ -61,13 +61,12 @@ In this step, you'll create a protection pack (web ACL) and configure its basic 
 
 Now you'll specify which AWS resources to protect with your protection pack (web ACL).
 
-1.  Under **Resources to protect**, choose **Add resources**.
-2.  Choose the category of AWS resource to associate with this protection pack (web ACL):
+1. Under **Resources to protect**, choose **Add resources**.
+2. Choose the category of AWS resource to associate with this protection pack (web ACL):
 
-        * Amazon CloudFront distributions
-        * Regional resources
-
-    For more information about resource types, see [Associating protection with an AWS resource](web-acl-associating.md "web-acl-associating.md").
+   - Amazon CloudFront distributions
+   - Regional resources
+     For more information about resource types, see [Associating protection with an AWS resource](web-acl-associating.md "web-acl-associating.md").
 
 ### Step 4: Choose initial protections
 
@@ -108,7 +107,7 @@ You can't change the name after you create the protection pack (web ACL). 2. Und
     3. For **Logging destination**, configure where you want to store logs. For more information, see [AWS WAF logging destinations](logging-destinations.md "logging-destinations.md").
 
 3. Review your settings and choose **Add
-   protection pack (web ACL)**.
+protection pack (web ACL)**.
 
 ### Step 6: Clean up your resources
 

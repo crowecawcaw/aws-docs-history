@@ -39,8 +39,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. T
     4. Choose **Edit web ACL**.
     5. Choose the **X** to the right of the rule that you want to delete, and then choose **Update**.
 
-3. In the navigation pane, choose **Rules**.
-4. Select the name of the rule you want to delete.
+3. In the navigation pane, choose **Rules**. 4. Select the name of the rule you want to delete.
 
 ###### Note
 

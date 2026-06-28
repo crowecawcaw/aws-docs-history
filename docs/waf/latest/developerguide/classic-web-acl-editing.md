@@ -32,11 +32,9 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. I
     3. Repeat steps a and b until you've added all the rules that you want.
 
 6. If you want to change the order of the rules in the web ACL, use the arrows in the **Order** column.
-   AWS WAF Classic inspects web requests based on the order in which rules appear in the web ACL.
-7. To remove a rule from the web ACL, choose the **x** at the right of the row
-   for that rule. This doesn't delete the rule from AWS WAF Classic, it just removes the
-   rule from this web ACL.
-8. To change the action for a rule or the default action for the web ACL, choose the preferred option.
+AWS WAF Classic inspects web requests based on the order in which rules appear in the web ACL. 7. To remove a rule from the web ACL, choose the **x** at the right of the row
+for that rule. This doesn't delete the rule from AWS WAF Classic, it just removes the
+rule from this web ACL. 8. To change the action for a rule or the default action for the web ACL, choose the preferred option.
 
 ###### Note
 

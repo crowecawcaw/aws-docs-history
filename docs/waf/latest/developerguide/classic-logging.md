@@ -176,7 +176,7 @@ The ID of the rule that terminated the request. If nothing terminates the reques
 is `Default_Action`.
 
 **terminatingRuleType**
-The type of rule that terminated the request. Possible values: RATE_BASED, REGULAR, and
+The type of rule that terminated the request. Possible values: RATE\_BASED, REGULAR, and
 GROUP.
 
 **action**

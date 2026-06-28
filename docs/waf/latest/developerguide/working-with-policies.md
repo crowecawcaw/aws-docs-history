@@ -12,9 +12,9 @@ AWS Firewall Manager provides the following types of policies. For each policy t
   AWS WAF Classic policies. For both versions, you define which resources are
   protected by the policy.
 
-      + The AWS WAF policy type takes sets of rule groups to run first and last in the web ACL.
-       Then, in the accounts where you apply the web ACL, the account owner can add rules and rule groups to run in between the two sets.
-      + The AWS WAF Classic policy type takes a single rule group to run in the web ACL.
+  - The AWS WAF policy type takes sets of rule groups to run first and last in the web ACL.
+    Then, in the accounts where you apply the web ACL, the account owner can add rules and rule groups to run in between the two sets.
+  - The AWS WAF Classic policy type takes a single rule group to run in the web ACL.
 
 - **Shield Advanced policy** – This policy type applies Shield Advanced protections throughout
   your organization for the resource types that you specify.
@@ -30,14 +30,13 @@ AWS Firewall Manager provides the following types of policies. For each policy t
   DNS Firewall protections to your organization's VPCs.
 - **Third-party firewall policy** – This policy type applies third-party firewall protections. Third-party firewalls are available by subscription through the AWS Marketplace console at [AWS Marketplace](https://aws.amazon.com/marketplace "https://aws.amazon.com/marketplace").
 
-      + **Palo Alto Networks Cloud NGFW policy** – This policy type applies
-       Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.
-      + **Fortigate Cloud Native Firewall (CNF) as a Service policy** – This policy type applies
-       Fortigate Cloud Native Firewall (CNF) as a Service protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.
-
-  A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple
-  policy types across accounts, you can create multiple policies. You can create more than one
-  policy for each type.
+  - **Palo Alto Networks Cloud NGFW policy** – This policy type applies
+    Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.
+  - **Fortigate Cloud Native Firewall (CNF) as a Service policy** – This policy type applies
+    Fortigate Cloud Native Firewall (CNF) as a Service protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.
+    A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple
+    policy types across accounts, you can create multiple policies. You can create more than one
+    policy for each type.
 
 If you add a new account to an organization that you created with AWS Organizations, Firewall Manager
 automatically applies the policy to the resources in that account that are within scope of

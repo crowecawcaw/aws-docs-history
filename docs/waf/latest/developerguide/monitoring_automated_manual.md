@@ -88,15 +88,14 @@ web ACLs and rules.
 
 - View the CloudWatch home page for the following:
 
-      + Current alarms and status
-      + Graphs of alarms and resources
-      + Service health status
+  - Current alarms and status
+  - Graphs of alarms and resources
+  - Service health status
+    In addition, you can use CloudWatch to do the following:
 
-  In addition, you can use CloudWatch to do the following:
-
-      + Create [customized dashboards](../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.md") to monitor the services that you
-       care about.
-      + Graph metric data to troubleshoot issues and discover
-       trends.
-      + Search and browse all of your AWS resource metrics.
-      + Create and edit alarms to be notified of problems.
+  - Create [customized dashboards](../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/DeveloperGuide/CloudWatch_Dashboards.md") to monitor the services that you
+    care about.
+  - Graph metric data to troubleshoot issues and discover
+    trends.
+  - Search and browse all of your AWS resource metrics.
+  - Create and edit alarms to be notified of problems.

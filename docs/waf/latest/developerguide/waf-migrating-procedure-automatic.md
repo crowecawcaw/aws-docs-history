@@ -28,61 +28,70 @@ migration API, to store the AWS CloudFormation template that it generates.
      `us-west-2`.
 
 6. For **S3 bucket policy**, we recommend choosing **Auto apply the
-   bucket policy required for migration**. Alternatively, if you want
-   to manage the bucket on your own, you must manually apply the following bucket
-   policy:
+bucket policy required for migration**. Alternatively, if you want
+to manage the bucket on your own, you must manually apply the following bucket
+policy:
 
-   - For global Amazon CloudFront applications (`waf`):
+    * For global Amazon CloudFront applications (`waf`):
 
-   JSON
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Principal": {
-    "Service": "apiv2migration.waf.amazonaws.com"
-    },
-    "Action": "s3:PutObject",
-    "Resource": "arn:aws:s3:::<BUCKET_NAME>/AWSWAF/<CUSTOMER_ACCOUNT_ID>/*"
-    }
-    ]
-   }`
 
-   ```
-   - For regional Amazon API Gateway or Application Load Balancer applications (`waf-regional`):
+    JSON
 
-   JSON
 
-   ```
-   `{
-    "Version":"2012-10-17",
-    "Statement": [
-    {
-    "Effect": "Allow",
-    "Principal": {
-    "Service": "apiv2migration.waf-regional.amazonaws.com"
-    },
-    "Action": "s3:PutObject",
-    "Resource": "arn:aws:s3:::<BUCKET_NAME>/AWSWAF/<CUSTOMER_ACCOUNT_ID>/*"
-    }
-    ]
-   }`
 
-   ```
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Principal": {
+     "Service": "apiv2migration.waf.amazonaws.com"
+     },
+     "Action": "s3:PutObject",
+     "Resource": "arn:aws:s3:::<BUCKET_NAME>/AWSWAF/<CUSTOMER_ACCOUNT_ID>/*"
+     }
+     ]
+    }`
+
+    ```
+    * For regional Amazon API Gateway or Application Load Balancer applications (`waf-regional`):
+
+
+
+    JSON
+
+
+
+
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Effect": "Allow",
+     "Principal": {
+     "Service": "apiv2migration.waf-regional.amazonaws.com"
+     },
+     "Action": "s3:PutObject",
+     "Resource": "arn:aws:s3:::<BUCKET_NAME>/AWSWAF/<CUSTOMER_ACCOUNT_ID>/*"
+     }
+     ]
+    }`
+
+    ```
 
 7. For **Choose how to handle rules that cannot be migrated**, choose either
-   to exclude rules that can't be migrated, or to stop the migration. For
-   information about rules that can't be migrated, see [Migration caveats and limitations](waf-migrating-caveats.md "waf-migrating-caveats.md").
-8. Choose **Next**.
-9. For **Create CloudFormation template**, verify your settings, then
-   choose **Start creating CloudFormation template** to begin the
-   migration process. This can take a few minutes, depending on the complexity of
-   your protection pack (web ACL).
-10. In **Create and run CloudFormation stack to complete migration**, you
-    can choose to go to the AWS CloudFormation console to create a stack from the
-    template, to create the new protection pack (web ACL) and its resources. To do this, choose
-    **Create CloudFormation stack**.
-    After the automatic migration process completes, you're ready to proceed to the manual follow-up steps. See [Migrating a protection pack (web ACL): manual follow-up](waf-migrating-procedure-manual-finish.md "waf-migrating-procedure-manual-finish.md").
+to exclude rules that can't be migrated, or to stop the migration. For
+information about rules that can't be migrated, see [Migration caveats and limitations](waf-migrating-caveats.md "waf-migrating-caveats.md"). 8. Choose **Next**. 9. For **Create CloudFormation template**, verify your settings, then
+choose **Start creating CloudFormation template** to begin the
+migration process. This can take a few minutes, depending on the complexity of
+your protection pack (web ACL). 10. In **Create and run CloudFormation stack to complete migration**, you
+can choose to go to the AWS CloudFormation console to create a stack from the
+template, to create the new protection pack (web ACL) and its resources. To do this, choose
+**Create CloudFormation stack**.
+After the automatic migration process completes, you're ready to proceed to the manual follow-up steps. See [Migrating a protection pack (web ACL): manual follow-up](waf-migrating-procedure-manual-finish.md "waf-migrating-procedure-manual-finish.md").

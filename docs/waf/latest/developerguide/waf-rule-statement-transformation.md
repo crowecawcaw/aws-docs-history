@@ -53,11 +53,11 @@ unusual formatting to disguise some or all of the command.
 Use this option to perform the following transformations:
 
 - Delete the following characters: `\ " '
-^`
+ ^`
 - Delete spaces before the following characters: `/
-(`
+ (`
 - Replace the following characters with a space: `,
-;`
+ ;`
 - Replace multiple spaces with one space
 - Convert uppercase letters, `A-Z`, to lowercase,
   `a-z`
@@ -105,7 +105,7 @@ AWS WAF replaces characters that are represented in hexadecimal format
 AWS WAF replaces the following HTML-encoded characters with unencoded characters. This list uses lowercase HTML encoding, but the handling is case insensitive, for example `&QuOt;` and `&quot;` are treated the same.
 
 | HTML-encoded character                          | replaced with...                |
-| ----------------------------------------------- | ------------------------------- | --- |
+| ----------------------------------------------- | ------------------------------- |
 | `&quot;`                                        | `"`                             |
 | `&amp;`                                         | `&`                             |
 | `&lt;`                                          | `<`                             |

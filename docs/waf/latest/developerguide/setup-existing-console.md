@@ -79,7 +79,7 @@ You can't change the name after you create the web ACL. 4. (Optional) For **Desc
 description for the web ACL if you want to. 5. For **CloudWatch metric name**, change the default name if
 applicable. Follow the guidance on the console for valid characters. The name
 can't contain special characters, white space, or metric names reserved for
-AWS WAF, including "All" and "Default_Action."
+AWS WAF, including "All" and "Default\_Action."
 
 ###### Note
 

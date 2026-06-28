@@ -10,11 +10,11 @@ For more details, see [Working with the console](working-with-console.md "workin
 The revenue dashboard shows:
 
 - Revenue summary – Total revenue, verified vs unverified revenue breakdown, total settlements, and total 402 responses served (GetRevenueStatisticsSummary)
-- Top sources by revenue – Ranked AI bots by revenue amount, grouped by name, category, intent, or organization (GetRevenueStatistics with TOP_SOURCES_BY_REVENUE)
-- Top paths by revenue – Ranked content paths by revenue amount (GetRevenueStatistics with TOP_PATHS_BY_REVENUE)
-- Revenue over time – Time series charts at minutely, 5-minute, hourly, or daily intervals (GetRevenueStatisticsTimeSeries with DATE_HISTOGRAM)
-- Payment traffic over time – Payment attempt volume over time (GetRevenueStatisticsTimeSeries with PAYMENT_TRAFFIC)
-- Settlement records – Individual transaction details including status (SETTLED, PENDING, FAILED, SERVICE_ERROR, SKIPPED_ORIGIN_ERROR), payer address, amount, and blockchain transaction ID (ListSettlementRecords)
+- Top sources by revenue – Ranked AI bots by revenue amount, grouped by name, category, intent, or organization (GetRevenueStatistics with TOP\_SOURCES\_BY\_REVENUE)
+- Top paths by revenue – Ranked content paths by revenue amount (GetRevenueStatistics with TOP\_PATHS\_BY\_REVENUE)
+- Revenue over time – Time series charts at minutely, 5-minute, hourly, or daily intervals (GetRevenueStatisticsTimeSeries with DATE\_HISTOGRAM)
+- Payment traffic over time – Payment attempt volume over time (GetRevenueStatisticsTimeSeries with PAYMENT\_TRAFFIC)
+- Settlement records – Individual transaction details including status (SETTLED, PENDING, FAILED, SERVICE\_ERROR, SKIPPED\_ORIGIN\_ERROR), payer address, amount, and blockchain transaction ID (ListSettlementRecords)
 
 All revenue data can be filtered by source name, category, organization, and intent. By default, only real currency (REAL) transactions are shown – use the CurrencyMode filter to view test transactions.
 
@@ -22,19 +22,19 @@ All revenue data can be filtered by source name, category, organization, and int
 
 When you enable AWS WAF logging, monetization events include the following additional fields:
 
-| Field                                       | Description                                                                                                     |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `action`                                    | WAF action taken on request                                                                                     |
-| `monetizeVerifyResponse.verificationStatus` | Verification result: VERIFIED, INSUFFICIENT_FUNDS, INVALID_PAYLOAD, INVALID_PAYMENT_REQUIREMENTS, SERVICE_ERROR |
-| `monetizeVerifyResponse.failureReason`      | Reason for verification failure (empty on success)                                                              |
-| `monetizeVerifyResponse.chainName`          | Blockchain chain used                                                                                           |
-| `monetizeVerifyResponse.network`            | Blockchain network identifier in CAIP-2 format                                                                  |
-| `monetizeVerifyResponse.amount`             | Payment amount in atomic token units                                                                            |
-| `monetizeVerifyResponse.currency`           | Payment currency (for example, USDC)                                                                            |
-| `monetizeVerifyResponse.asset`              | Token contract address                                                                                          |
-| `monetizeVerifyResponse.payerAddress`       | Paying client's wallet address                                                                                  |
-| `monetizeVerifyResponse.idempotencyKey`     | x402 payment idempotency key for retry correlation                                                              |
-| `monetizeVerifyResponse.currencyMode`       | Currency mode: REAL or TEST                                                                                     |
+| Field                                       | Description                                                                                                          |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `action`                                    | WAF action taken on request                                                                                          |
+| `monetizeVerifyResponse.verificationStatus` | Verification result: VERIFIED, INSUFFICIENT\_FUNDS, INVALID\_PAYLOAD, INVALID\_PAYMENT\_REQUIREMENTS, SERVICE\_ERROR |
+| `monetizeVerifyResponse.failureReason`      | Reason for verification failure (empty on success)                                                                   |
+| `monetizeVerifyResponse.chainName`          | Blockchain chain used                                                                                                |
+| `monetizeVerifyResponse.network`            | Blockchain network identifier in CAIP-2 format                                                                       |
+| `monetizeVerifyResponse.amount`             | Payment amount in atomic token units                                                                                 |
+| `monetizeVerifyResponse.currency`           | Payment currency (for example, USDC)                                                                                 |
+| `monetizeVerifyResponse.asset`              | Token contract address                                                                                               |
+| `monetizeVerifyResponse.payerAddress`       | Paying client's wallet address                                                                                       |
+| `monetizeVerifyResponse.idempotencyKey`     | x402 payment idempotency key for retry correlation                                                                   |
+| `monetizeVerifyResponse.currencyMode`       | Currency mode: REAL or TEST                                                                                          |
 
 For more information, see [Logging AWS WAF protection pack (web ACL) traffic](logging.md "logging.md").
 

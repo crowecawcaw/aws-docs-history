@@ -10,7 +10,7 @@ When enabled, data protection will apply to the fields it is enabled on, includi
 - **`ExcludeRuleMatchDetails`**: If you specify this exception for a specific field, `RuleMatchDetails` will show the value of the field and won't be in scope for data protection.
 - **`ExcludeRateBasedDetails`**: If you specify this exception for a specific field, `rateBasedRuleList` will show the value of the field and won't be in scope for data protection.
 
-Example: The `ExcludeRateBasedDetails` rule is enabled on **SINGLE_HEADER** and **HEADER_NAME** for "dogname".
+Example: The `ExcludeRateBasedDetails` rule is enabled on **SINGLE\_HEADER** and **HEADER\_NAME** for "dogname".
 
 If an exception is not applied to the rule, the value for "dogname" will appear as `REDACTED`.
 

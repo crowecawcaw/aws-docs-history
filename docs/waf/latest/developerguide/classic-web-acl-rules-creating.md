@@ -36,7 +36,7 @@ Enter a name for the CloudWatch metric that AWS WAF Classic will create and will
 name can contain only alphanumeric characters (A-Z, a-z, 0-9),
 with maximum length 128 and minimum length one. It can't contain
 white space or metric names reserved for AWS WAF Classic, including "All"
-and "Default_Action.
+and "Default\_Action.
 
 **Rule type**
 Choose either `Regular rule` or `Rate–based rule`.

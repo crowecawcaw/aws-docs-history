@@ -51,6 +51,6 @@ If you don't see the rule group that you want to edit, make sure you have the co
 
 7. To delete rules, perform the following steps:
 
-   1. Choose the **X** next to the rule to delete. Repeat
-      to delete more rules from the rule group.
-   2. Choose **Update**.
+    1. Choose the **X** next to the rule to delete. Repeat
+     to delete more rules from the rule group.
+    2. Choose **Update**.

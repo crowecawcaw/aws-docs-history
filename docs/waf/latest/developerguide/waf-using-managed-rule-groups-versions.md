@@ -29,5 +29,5 @@ been scheduled to expire. The list indicates which version is the current defaul
 - **CLI** –
 
   - `aws wafv2 list-available-managed-rule-group-versions
---scope=<CLOUDFRONT|REGIONAL> --vendor-name <vendor> --name
-<managedrule_name>`
+   --scope=<CLOUDFRONT|REGIONAL> --vendor-name <vendor> --name
+   <managedrule_name>`

@@ -47,31 +47,27 @@ by configuring protection pack (web ACL) data protection or by disabling samplin
   filter on the settings that AWS WAF applies during the web request evaluation. You can filter
   on the following settings:
 
-      + **Fully qualified label** – Fully
-       qualified labels have a prefix, optional namespaces, and label name. The
-       prefix identifies the rule group or protection pack (web ACL) context of the rule that
-       added the label. For information about labels, see [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
-      + **Rule action** – You can filter on any normal rule action
-       setting and also on the legacy `EXCLUDED_AS_COUNT` override
-       option for rule group rules. For information about rule action settings,
-       see [Using rule actions in AWS WAF](waf-rule-action.md "waf-rule-action.md").
-       For information about current and legacy rule action overrides for rule
-       group rules, see [Overriding rule group actions in AWS WAF](web-acl-rule-group-override-options.md "web-acl-rule-group-override-options.md").
+  - **Fully qualified label** – Fully
+    qualified labels have a prefix, optional namespaces, and label name. The
+    prefix identifies the rule group or protection pack (web ACL) context of the rule that
+    added the label. For information about labels, see [Web request labeling in AWS WAF](waf-labels.md "waf-labels.md").
+  - **Rule action** – You can filter on any normal rule action
+    setting and also on the legacy `EXCLUDED_AS_COUNT` override
+    option for rule group rules. For information about rule action settings,
+    see [Using rule actions in AWS WAF](waf-rule-action.md "waf-rule-action.md").
+    For information about current and legacy rule action overrides for rule
+    group rules, see [Overriding rule group actions in AWS WAF](web-acl-rule-group-override-options.md "web-acl-rule-group-override-options.md").
 
-
-
-
-      	- The normal rule action filters apply to actions that are
-      	 configured in rules and also to actions that are configured
-      	 using the current option for overriding a rule group rule
-      	 action.
-      	- The `EXCLUDED_AS_COUNT` log filter overlaps with
-      	 the `Count` action log filter.
-      	 `EXCLUDED_AS_COUNT` filters both the current and
-      	 legacy options for overriding a rule group rule action to
-      	 Count.
-
-  You can filter logs to include or exclude monetization events:
+    - The normal rule action filters apply to actions that are
+      configured in rules and also to actions that are configured
+      using the current option for overriding a rule group rule
+      action.
+    - The `EXCLUDED_AS_COUNT` log filter overlaps with
+      the `Count` action log filter.
+      `EXCLUDED_AS_COUNT` filters both the current and
+      legacy options for overriding a rule group rule action to
+      Count.
+      You can filter logs to include or exclude monetization events:
 
 - To log only monetization activity: filter on `action` = `MONETIZE`
 - To exclude monetization: filter where `monetization` field is not present

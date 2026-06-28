@@ -21,19 +21,19 @@ migrated them over to the latest version yet. To migrate your web ACLs, see [Mig
 Before you use IAM to manage access to AWS WAF Classic, learn what IAM features are
 available to use with AWS WAF Classic.
 
-| IAM features you can use with AWS WAF Classic                                                                                                                                               | IAM feature | AWS WAF Classic support |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------- |
-| [Identity-based policies](#classic-security_iam_service-with-iam-id-based-policies "#classic-security_iam_service-with-iam-id-based-policies")                                              | Yes         |
-| [Resource-based policies](#classic-security_iam_service-with-iam-resource-based-policies "#classic-security_iam_service-with-iam-resource-based-policies")                                  | No          |
-| [Policy actions](#classic-security_iam_service-with-iam-id-based-policies-actions "#classic-security_iam_service-with-iam-id-based-policies-actions")                                       | Yes         |
-| [Policy resources](#classic-security_iam_service-with-iam-id-based-policies-resources "#classic-security_iam_service-with-iam-id-based-policies-resources")                                 | Yes         |
-| [Policy condition keys (service-specific)](#classic-security_iam_service-with-iam-id-based-policies-conditionkeys "#classic-security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](#classic-security_iam_service-with-iam-acls "#classic-security_iam_service-with-iam-acls")                                                                                           | No          |
-| [ABAC (tags in<br>policies)](#classic-security_iam_service-with-iam-tags "#classic-security_iam_service-with-iam-tags")                                                                     | Partial     |
-| [Temporary<br>credentials](#classic-security_iam_service-with-iam-roles-tempcreds "#classic-security_iam_service-with-iam-roles-tempcreds")                                                 | Yes         |
-| [Forward access sessions (FAS)](#classic-security_iam_service-with-iam-principal-permissions "#classic-security_iam_service-with-iam-principal-permissions")                                | Yes         |
-| [Service<br>roles](#classic-security_iam_service-with-iam-roles-service "#classic-security_iam_service-with-iam-roles-service")                                                             | Yes         |
-| [Service-linked roles](#classic-security_iam_service-with-iam-roles-service-linked "#classic-security_iam_service-with-iam-roles-service-linked")                                           | Yes         |
+IAM features you can use with AWS WAF Classic| IAM feature | AWS WAF Classic support |
+| --- | --- |
+| [Identity-based policies](#classic-security_iam_service-with-iam-id-based-policies "#classic-security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#classic-security_iam_service-with-iam-resource-based-policies "#classic-security_iam_service-with-iam-resource-based-policies") | No |
+| [Policy actions](#classic-security_iam_service-with-iam-id-based-policies-actions "#classic-security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy resources](#classic-security_iam_service-with-iam-id-based-policies-resources "#classic-security_iam_service-with-iam-id-based-policies-resources") | Yes |
+| [Policy condition keys (service-specific)](#classic-security_iam_service-with-iam-id-based-policies-conditionkeys "#classic-security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
+| [ACLs](#classic-security_iam_service-with-iam-acls "#classic-security_iam_service-with-iam-acls") | No |
+| [ABAC (tags in<br>policies)](#classic-security_iam_service-with-iam-tags "#classic-security_iam_service-with-iam-tags") | Partial |
+| [Temporary<br>credentials](#classic-security_iam_service-with-iam-roles-tempcreds "#classic-security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Forward access sessions (FAS)](#classic-security_iam_service-with-iam-principal-permissions "#classic-security_iam_service-with-iam-principal-permissions") | Yes |
+| [Service<br>roles](#classic-security_iam_service-with-iam-roles-service "#classic-security_iam_service-with-iam-roles-service") | Yes |
+| [Service-linked roles](#classic-security_iam_service-with-iam-roles-service-linked "#classic-security_iam_service-with-iam-roles-service-linked") | Yes |
 
 To get a high-level view of how AWS WAF Classic and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
@@ -143,7 +143,7 @@ These resources and conditions have unique Amazon Resource Names (ARNs) associat
 them, as shown in the following table.
 
 | Name in AWS WAF Console              | Name in AWS WAF SDK/CLI | ARN Format                                        |
-| ------------------------------------ | ----------------------- | ------------------------------------------------- | --- |
+| ------------------------------------ | ----------------------- | ------------------------------------------------- |
 | Web ACL                              | `WebACL`                | `arn:aws:waf::`account`:`webacl`/`ID``            |
 | Rule                                 | `Rule`                  | `arn:aws:waf::`account`:`rule`/`ID``              |
 | String match condition               | `ByteMatchSet`          | `arn:aws:waf::`account`:`bytematchset`/`ID``      |

@@ -23,7 +23,7 @@ You can also specify acceptable token domains in your protection pack (web ACL) 
 You can specify token domains for AWS WAF to use when setting the domain and
 when evaluating a token in a protection pack (web ACL). The domains that you specify can't be public
 suffixes such as `gov.au`. For the domains that you can't use, see the list
-[https://publicsuffix.org/list/public_suffix_list.dat](https://publicsuffix.org/list/public_suffix_list.dat "https://publicsuffix.org/list/public_suffix_list.dat") under [Public suffix list](https://publicsuffix.org/list/ "https://publicsuffix.org/list/").
+[https://publicsuffix.org/list/public\_suffix\_list.dat](https://publicsuffix.org/list/public_suffix_list.dat "https://publicsuffix.org/list/public_suffix_list.dat") under [Public suffix list](https://publicsuffix.org/list/ "https://publicsuffix.org/list/").
 
 ## AWS WAF protection pack (web ACL) token domain list configuration
 

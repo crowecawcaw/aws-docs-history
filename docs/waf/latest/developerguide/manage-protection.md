@@ -71,18 +71,16 @@ steps:
      changes.
     4. Choose **Add rule**.
 
-3.  For **Automatic application layer DDoS mitigation**, choose whether you
-    want Shield Advanced to automatically mitigate DDoS attacks on your behalf, as follows:
+3. For **Automatic application layer DDoS mitigation**, choose whether you
+want Shield Advanced to automatically mitigate DDoS attacks on your behalf, as follows:
 
-        * To enable automatic mitigation, choose **Enable** and then
-         select the AWS WAF rule action that you want Shield Advanced to use in its
-         custom rules. Your choices are Count and Block. For
-         information about these AWS WAF rule actions, see [Using rule actions in AWS WAF](waf-rule-action.md "waf-rule-action.md"). For information about how
-         Shield Advanced manages this action setting, see [How Shield Advanced manages the rule action setting](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action").
-        * To disable automatic mitigation, choose **Disable**.
-        * To leave the automatic mitigation settings unchanged for the resources that
-         you're managing, leave the default choice **Keep current settings**.
+    * To enable automatic mitigation, choose **Enable** and then
+     select the AWS WAF rule action that you want Shield Advanced to use in its
+     custom rules. Your choices are Count and Block. For
+     information about these AWS WAF rule actions, see [Using rule actions in AWS WAF](waf-rule-action.md "waf-rule-action.md"). For information about how
+     Shield Advanced manages this action setting, see [How Shield Advanced manages the rule action setting](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action").
+    * To disable automatic mitigation, choose **Disable**.
+    * To leave the automatic mitigation settings unchanged for the resources that
+     you're managing, leave the default choice **Keep current settings**.
 
-    For information about Shield Advanced automatic application layer DDoS mitigation, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md").
-
-4.  Choose **Next**.
+For information about Shield Advanced automatic application layer DDoS mitigation, see [Automating application layer DDoS mitigation with Shield Advanced](ddos-automatic-app-layer-response.md "ddos-automatic-app-layer-response.md"). 4. Choose **Next**.

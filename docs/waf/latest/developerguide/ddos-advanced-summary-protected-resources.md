@@ -23,8 +23,7 @@ types:
 - Amazon EC2 instances, through association to Amazon EC2 Elastic IP addresses.
 - The following Elastic Load Balancing (ELB) load balancers:
 
-      + Application Load Balancers.
-      + Classic Load Balancers.
-      + Network Load Balancers, through associations to Amazon EC2 Elastic IP addresses.
-
-  For additional information about protections for these resource types, see [List of resources that AWS Shield Advanced protects](ddos-protections-by-resource-type.md "ddos-protections-by-resource-type.md").
+  - Application Load Balancers.
+  - Classic Load Balancers.
+  - Network Load Balancers, through associations to Amazon EC2 Elastic IP addresses.
+    For additional information about protections for these resource types, see [List of resources that AWS Shield Advanced protects](ddos-protections-by-resource-type.md "ddos-protections-by-resource-type.md").

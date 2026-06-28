@@ -17,7 +17,7 @@ Substitution refers to replacing content with the word `REDACTED`.
 
 Hashing refers to replacing content, from string to SHA-256 binary to Base64:
 
-1. First, the algorithm builds a string from account_number and content.
+1. First, the algorithm builds a string from account\_number and content.
 2. It then applies SHA-256 to produce a binary hash.
 3. Finally, it encodes those bytes using Base64.
 

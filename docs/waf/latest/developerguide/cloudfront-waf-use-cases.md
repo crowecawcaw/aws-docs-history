@@ -93,11 +93,11 @@ When implementing security headers in multi-tenant distributions, consider the f
 
 Both standard and multi-tenant distributions support AWS WAF logging, but there are important differences in how logs are structured and managed:
 
-| Logging comparison                     | Standard distributions                                                       | Multi-tenant distributions |
-| -------------------------------------- | ---------------------------------------------------------------------------- | -------------------------- |
-| One log configuration per distribution | Template and tenant-level logging options                                    |
-| Standard log fields                    | Additional tenant identifier fields                                          |
-| Single destination per distribution    | Separate destinations possible for multi-tenant distribution and tenant logs |
+Logging comparison| Standard distributions | Multi-tenant distributions |
+| --- | --- |
+| One log configuration per distribution | Template and tenant-level logging options |
+| Standard log fields | Additional tenant identifier fields |
+| Single destination per distribution | Separate destinations possible for multi-tenant distribution and tenant logs |
 
 ## Additional resources
 

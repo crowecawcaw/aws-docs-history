@@ -8,19 +8,19 @@ For more details, see [Working with the console](working-with-console.md "workin
 Before you use IAM to manage access to Firewall Manager, learn what IAM features are
 available to use with Firewall Manager.
 
-| IAM features you can use with AWS Firewall Manager                                                                                                                                  | IAM feature | Firewall Manager support |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------ |
-| [Identity-based policies](#fms-security_iam_service-with-iam-id-based-policies "#fms-security_iam_service-with-iam-id-based-policies")                                              | Yes         |
-| [Resource-based policies](#fms-security_iam_service-with-iam-resource-based-policies "#fms-security_iam_service-with-iam-resource-based-policies")                                  | No          |
-| [Policy actions](#fms-security_iam_service-with-iam-id-based-policies-actions "#fms-security_iam_service-with-iam-id-based-policies-actions")                                       | Yes         |
-| [Policy resources](#fms-security_iam_service-with-iam-id-based-policies-resources "#fms-security_iam_service-with-iam-id-based-policies-resources")                                 | Yes         |
-| [Policy condition keys (service-specific)](#fms-security_iam_service-with-iam-id-based-policies-conditionkeys "#fms-security_iam_service-with-iam-id-based-policies-conditionkeys") | No          |
-| [ACLs](#fms-security_iam_service-with-iam-acls "#fms-security_iam_service-with-iam-acls")                                                                                           | No          |
-| [ABAC (tags in<br>policies)](#fms-security_iam_service-with-iam-tags "#fms-security_iam_service-with-iam-tags")                                                                     | Yes         |
-| [Temporary<br>credentials](#fms-security_iam_service-with-iam-roles-tempcreds "#fms-security_iam_service-with-iam-roles-tempcreds")                                                 | Yes         |
-| [Forward access sessions (FAS)](#fms-security_iam_service-with-iam-principal-permissions "#fms-security_iam_service-with-iam-principal-permissions")                                | Yes         |
-| [Service<br>roles](#fms-security_iam_service-with-iam-roles-service "#fms-security_iam_service-with-iam-roles-service")                                                             | Partial     |
-| [Service-linked roles](#fms-security_iam_service-with-iam-roles-service-linked "#fms-security_iam_service-with-iam-roles-service-linked")                                           | Yes         |
+IAM features you can use with AWS Firewall Manager| IAM feature | Firewall Manager support |
+| --- | --- |
+| [Identity-based policies](#fms-security_iam_service-with-iam-id-based-policies "#fms-security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#fms-security_iam_service-with-iam-resource-based-policies "#fms-security_iam_service-with-iam-resource-based-policies") | No |
+| [Policy actions](#fms-security_iam_service-with-iam-id-based-policies-actions "#fms-security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy resources](#fms-security_iam_service-with-iam-id-based-policies-resources "#fms-security_iam_service-with-iam-id-based-policies-resources") | Yes |
+| [Policy condition keys (service-specific)](#fms-security_iam_service-with-iam-id-based-policies-conditionkeys "#fms-security_iam_service-with-iam-id-based-policies-conditionkeys") | No |
+| [ACLs](#fms-security_iam_service-with-iam-acls "#fms-security_iam_service-with-iam-acls") | No |
+| [ABAC (tags in<br>policies)](#fms-security_iam_service-with-iam-tags "#fms-security_iam_service-with-iam-tags") | Yes |
+| [Temporary<br>credentials](#fms-security_iam_service-with-iam-roles-tempcreds "#fms-security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Forward access sessions (FAS)](#fms-security_iam_service-with-iam-principal-permissions "#fms-security_iam_service-with-iam-principal-permissions") | Yes |
+| [Service<br>roles](#fms-security_iam_service-with-iam-roles-service "#fms-security_iam_service-with-iam-roles-service") | Partial |
+| [Service-linked roles](#fms-security_iam_service-with-iam-roles-service-linked "#fms-security_iam_service-with-iam-roles-service-linked") | Yes |
 
 To get a high-level view of how Firewall Manager and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the

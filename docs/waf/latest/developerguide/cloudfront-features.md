@@ -66,12 +66,12 @@ These two tiers make multi-tenant distributions optimal for sharing AWS WAF prot
 
 ### AWS WAF features by distribution type
 
-| Compare protection pack (web ACL) implementations | AWS WAF Feature                                | Standard distributions                                                                                                    | Multi-tenant distributions |
-| ------------------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| Associating protection packs (web ACLs)           | One protection pack (web ACL) per distribution | You can share protection packs (web ACLs) across tenants, with optional tenant-specific protection packs (web ACLs)       |
-| Rule management                                   | Rules affect a single distribution             | Multi-tenant distribution rules affect all associated tenants; distribution tenant-specific rules affect only that tenant |
-| Managed rule groups                               | Applied to individual distributions            | Can be applied at multi-tenant distribution level for all tenants or at tenant level for specific applications            |
-| Logging                                           | Standard AWS WAF logs                          | Logs include tenant identifiers for security event attribution                                                            |
+Compare protection pack (web ACL) implementations| AWS WAF Feature | Standard distributions | Multi-tenant distributions |
+| --- | --- | --- |
+| Associating protection packs (web ACLs) | One protection pack (web ACL) per distribution | You can share protection packs (web ACLs) across tenants, with optional tenant-specific protection packs (web ACLs) |
+| Rule management | Rules affect a single distribution | Multi-tenant distribution rules affect all associated tenants; distribution tenant-specific rules affect only that tenant |
+| Managed rule groups | Applied to individual distributions | Can be applied at multi-tenant distribution level for all tenants or at tenant level for specific applications |
+| Logging | Standard AWS WAF logs | Logs include tenant identifiers for security event attribution |
 
 ## Using AWS WAF with CloudFront Flat-Rate Pricing Plans
 

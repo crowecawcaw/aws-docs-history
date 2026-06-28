@@ -36,7 +36,7 @@ AWS performs the following steps for a release candidate deployment:
 The name of the release candidate is the static version name appended with
 `_PLUS_RC_COUNT`. For example, if the current recommended static
 version is `Version_2.1`, then the release candidate
-would be named `Version_2.1`\_PLUS_RC_COUNT``.
+would be named `Version_2.1`_PLUS_RC_COUNT``.
 
 The release candidate contains the following rules:
 
@@ -51,9 +51,9 @@ The release candidate contains the following rules:
      rule's name appended with `_RC_COUNT`.
 
 2. **Set the default version to the release candidate and
-   test** – AWS sets the default version to point
-   to the new release candidate, to perform testing against your
-   production traffic. Testing usually takes about a week.
+test** – AWS sets the default version to point
+to the new release candidate, to perform testing against your
+production traffic. Testing usually takes about a week.
 
 You'll see the default version's name change from the one that
 indicates only the static version, such as `Default (using

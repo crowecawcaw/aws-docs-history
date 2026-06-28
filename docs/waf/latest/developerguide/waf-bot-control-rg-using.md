@@ -54,16 +54,13 @@ select the inspection level that you want to use.
     	 `TGT_ML_`. These rules use automated, machine-learning analysis of website traffic statistics to detect anomalous behavior indicative of distributed, coordinated bot activity. AWS WAF analyzes statistics about your website traffic such as timestamps, browser characteristics, and previous URL visited, to improve the Bot Control machine learning model. Machine learning capabilities are enabled by default, but you can disable them in your rule group configuration. When machine learning is disabled, AWS WAF does not evaluate these rules.
 
 3. If you're using the targeted protection level and you don't want AWS WAF to use machine learning
-   (ML) to analyze web traffic for distributed, coordinated bot activity,
-   disable the machine learning option. Machine learning is required for the Bot Control
-   rules whose names start with `TGT_ML_`. For
-   details about these rules, see [Bot Control rules listing](aws-managed-rule-groups-bot.md#aws-managed-rule-groups-bot-rules "aws-managed-rule-groups-bot.md#aws-managed-rule-groups-bot-rules").
-4. Add a scope-down statement for the rule group, to contain the costs of using
-   it. A scope-down statement narrows the set of requests that the rule group
-   inspects. For example use cases, start with [Bot Control example: Using Bot Control only for the login page](waf-bot-control-example-scope-down-login.md "waf-bot-control-example-scope-down-login.md") and [Bot Control example: Using Bot Control only for dynamic content](waf-bot-control-example-scope-down-dynamic-content.md "waf-bot-control-example-scope-down-dynamic-content.md").
-5. Provide any additional configuration that you need for the rule group.
-6. Save your changes to the protection pack (web ACL).
-   Before you deploy your Bot Control implementation for production traffic, test and tune it
-   in a staging or testing environment until you are comfortable with the potential impact
-   to your traffic. Then test and tune the rules in count mode with your production traffic
-   before enabling them. See the sections that follow for guidance.
+(ML) to analyze web traffic for distributed, coordinated bot activity,
+disable the machine learning option. Machine learning is required for the Bot Control
+rules whose names start with `TGT_ML_`. For
+details about these rules, see [Bot Control rules listing](aws-managed-rule-groups-bot.md#aws-managed-rule-groups-bot-rules "aws-managed-rule-groups-bot.md#aws-managed-rule-groups-bot-rules"). 4. Add a scope-down statement for the rule group, to contain the costs of using
+it. A scope-down statement narrows the set of requests that the rule group
+inspects. For example use cases, start with [Bot Control example: Using Bot Control only for the login page](waf-bot-control-example-scope-down-login.md "waf-bot-control-example-scope-down-login.md") and [Bot Control example: Using Bot Control only for dynamic content](waf-bot-control-example-scope-down-dynamic-content.md "waf-bot-control-example-scope-down-dynamic-content.md"). 5. Provide any additional configuration that you need for the rule group. 6. Save your changes to the protection pack (web ACL).
+Before you deploy your Bot Control implementation for production traffic, test and tune it
+in a staging or testing environment until you are comfortable with the potential impact
+to your traffic. Then test and tune the rules in count mode with your production traffic
+before enabling them. See the sections that follow for guidance.

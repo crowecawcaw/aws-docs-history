@@ -16,13 +16,12 @@ implementation of the intelligent threat mitigation features.
   The application integration SDKs ensure that these tokens are always available.
   For details, see the following:
 
-      + [Using application integration SDKs with ACFP](waf-acfp-with-tokens.md "waf-acfp-with-tokens.md")
-      + [Using application integration SDKs with ATP](waf-atp-with-tokens.md "waf-atp-with-tokens.md")
-      + [Using application integration SDKs with Bot Control](waf-bot-with-tokens.md "waf-bot-with-tokens.md")
-
-  Use the integrations to implement challenges in your client and, for JavaScript, to
-  customize how CAPTCHA puzzles are presented to your end users. For details,
-  see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
+  - [Using application integration SDKs with ACFP](waf-acfp-with-tokens.md "waf-acfp-with-tokens.md")
+  - [Using application integration SDKs with ATP](waf-atp-with-tokens.md "waf-atp-with-tokens.md")
+  - [Using application integration SDKs with Bot Control](waf-bot-with-tokens.md "waf-bot-with-tokens.md")
+    Use the integrations to implement challenges in your client and, for JavaScript, to
+    customize how CAPTCHA puzzles are presented to your end users. For details,
+    see [Client application integrations in AWS WAF](waf-application-integration.md "waf-application-integration.md").
 
 If you customize CAPTCHA puzzles using the JavaScript API and you use the
 CAPTCHA rule action anywhere in your protection pack (web ACL), follow the guidance for

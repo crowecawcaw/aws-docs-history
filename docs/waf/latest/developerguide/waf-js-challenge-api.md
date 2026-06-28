@@ -51,24 +51,22 @@ installs the intelligent threat APIs.
      a different behavior for your page.
 
 2. **(Optional) Add domain configuration for the client's
-   tokens** – By default, when AWS WAF creates a token, it
-   uses the host domain of the resource that’s associated with the protection pack (web ACL). To
-   provide additional domains for the JavaScript APIs, follow the guidance at
-   [Providing domains for use in the tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md").
-3. **Code your intelligent threat integration** – Write
-   your code to ensure that token retrieval completes before the client sends
-   its requests to your protected endpoints. If you are already using the
-   `fetch` API to make your call, you can substitute the AWS WAF
-   integration `fetch` wrapper. If you don't use the
-   `fetch` API, you can use the AWS WAF integration
-   `getToken` operation instead. For coding guidance, see the
-   following sections.
-4. **Add token verification in your protection pack (web ACL)** – Add at least one rule to your protection pack (web ACL) that checks for a valid challenge token in the
-   web requests that your client sends. You can use rule groups that check and
-   monitor challenge tokens, like the targeted level of the Bot Control managed rule group,
-   and you can use
-   the Challenge rule action to check, as
-   described in [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
+tokens** – By default, when AWS WAF creates a token, it
+uses the host domain of the resource that’s associated with the protection pack (web ACL). To
+provide additional domains for the JavaScript APIs, follow the guidance at
+[Providing domains for use in the tokens](waf-js-challenge-api-set-token-domain.md "waf-js-challenge-api-set-token-domain.md"). 3. **Code your intelligent threat integration** – Write
+your code to ensure that token retrieval completes before the client sends
+its requests to your protected endpoints. If you are already using the
+`fetch` API to make your call, you can substitute the AWS WAF
+integration `fetch` wrapper. If you don't use the
+`fetch` API, you can use the AWS WAF integration
+`getToken` operation instead. For coding guidance, see the
+following sections. 4. **Add token verification in your protection pack (web ACL)** – Add at least one rule to your protection pack (web ACL) that checks for a valid challenge token in the
+web requests that your client sends. You can use rule groups that check and
+monitor challenge tokens, like the targeted level of the Bot Control managed rule group,
+and you can use
+the Challenge rule action to check, as
+described in [CAPTCHA and Challenge in AWS WAF](waf-captcha-and-challenge.md "waf-captcha-and-challenge.md").
 
 The protection pack (web ACL) additions verify that requests to your protected endpoints include the
 token that you've acquired in your client integration. Requests that include

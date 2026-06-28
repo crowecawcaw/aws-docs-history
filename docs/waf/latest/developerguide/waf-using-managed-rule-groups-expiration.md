@@ -19,16 +19,15 @@ notified of new versions and updates](waf-using-managed-rule-groups-sns-topic.md
 
 ###### To monitor expiration scheduling for a managed rule group through Amazon CloudWatch
 
-1.  In CloudWatch, locate the expiry metrics from AWS WAF for your managed rule group. The metrics have
-    the following metric names and dimensions:
+1. In CloudWatch, locate the expiry metrics from AWS WAF for your managed rule group. The metrics have
+   the following metric names and dimensions:
 
-        * Metric name: DaysToExpiry
-        * Metric dimensions: Region, ManagedRuleGroup,
-         Vendor, and Version
+   - Metric name: DaysToExpiry
+   - Metric dimensions: Region, ManagedRuleGroup,
+     Vendor, and Version
+     If you have a managed rule group in your protection pack (web ACL) that's evaluating traffic,
+     you will get a metric for it. The metric isn't available for rule groups that you don't use.
 
-    If you have a managed rule group in your protection pack (web ACL) that's evaluating traffic,
-    you will get a metric for it. The metric isn't available for rule groups that you don't use.
-
-2.  Set an alarm on the metrics that you're interested in, so that you're
-    notified in time to switch to a newer version of the rule group.
-    For information about using Amazon CloudWatch metrics and configuring alarms, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
+2. Set an alarm on the metrics that you're interested in, so that you're
+   notified in time to switch to a newer version of the rule group.
+   For information about using Amazon CloudWatch metrics and configuring alarms, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").

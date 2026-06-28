@@ -16,16 +16,15 @@ The new static version contains the following rules from the release candidate:
   candidate among the release candidate rules.
 - Release candidate rules, with the following changes:
 
-      + AWS changes the rule name by removing the release
-       candidate suffix `_RC_COUNT`.
-      + AWS changes the rule actions from Count to
-       their production rule actions.
-
-  For release candidate rules that are replacements of prior
-  existing rules, this replaces the functionality of the prior rules
-  in the new static version.
-  The following diagram depicts the creation of the new static version from the release
-  candidate.
+  - AWS changes the rule name by removing the release
+    candidate suffix `_RC_COUNT`.
+  - AWS changes the rule actions from Count to
+    their production rule actions.
+    For release candidate rules that are replacements of prior
+    existing rules, this replaces the functionality of the prior rules
+    in the new static version.
+    The following diagram depicts the creation of the new static version from the release
+    candidate.
 
 ![At the top of the figure is the release candidate version Version_1.4_PLUS_RC_COUNT, with the same rules as in the prior release candidate deployment figure. The version contains the rules from Version_1.4 and it also contains release candidate rules RuleB_RC_COUNT and RuleZ_RC_COUNT, both with count action. Below this, at the bottom of the figure is a static version Version_1.5, which contains rules RuleA, RuleB, and RuleZ, all with production action. Arrows point from the RC version to Version_1.5 to indicate that RuleA is copied from the Version_1.4 rules and RuleB and RuleZ are copied from the release candidate rules. All rules in Version_1.5 have production actions.](images/amr-rg-versions-create-static-diagram.png)
 After deployment, the new static version is available for you to test and to use in your

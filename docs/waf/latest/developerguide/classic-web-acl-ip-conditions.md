@@ -100,8 +100,8 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. I
 
 5. To delete an IP address or range:
 
-   1. In the right pane, select the values that you want to delete.
-   2. Choose **Delete IP address or range**.
+    1. In the right pane, select the values that you want to delete.
+    2. Choose **Delete IP address or range**.
 
 ## Deleting IP match conditions
 

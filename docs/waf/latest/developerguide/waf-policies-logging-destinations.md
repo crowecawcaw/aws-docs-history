@@ -42,7 +42,7 @@ When you configure a Amazon Data Firehose logging destination on an AWS WAF poli
 - Firewall Manager creates the web ACL in the Firewall Manager administrator account regardless of whether the account is in scope of the policy.
 - The web ACL has logging enabled, with a log name
   `FMManagedWebACLV2-Logging`policy name`-`timestamp``, where the timestamp is the UTC time that the log was enabled for the web ACL, in milliseconds. For example,
-`FMManagedWebACLV2-LoggingMyWAFPolicyName-1621880565180`. The web ACL has no rule groups and no associated resources.
+  `FMManagedWebACLV2-LoggingMyWAFPolicyName-1621880565180`. The web ACL has no rule groups and no associated resources.
 - You are charged for the web ACL according to the AWS WAF pricing guidelines. For more information, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing/ "https://aws.amazon.com/waf/pricing/").
 - Firewall Manager deletes the web ACL when you delete the policy.
 

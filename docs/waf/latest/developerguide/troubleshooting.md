@@ -9,12 +9,12 @@ For more details, see [Working with the console](working-with-console.md "workin
 
 AWS Shield network security director does not support certain cross-account shared resources. When attempting to scan these resources, you'll receive error messages indicating the resources cannot be analyzed.
 
-| Unsupported Shared Resources and Error Messages | Resource Type                                                             | Error Message |
-| ----------------------------------------------- | ------------------------------------------------------------------------- | ------------- |
-| Network Firewall FirewallPolicy                 | network-firewall:DescribeFirewallPolicy not supported on shared resources |
-| Network Firewall Stateful rule group            | network-firewall:DescribeRuleGroup not supported on shared resources      |
-| Network Firewall Stateless rule group           | network-firewall:DescribeRuleGroup not supported on shared resources      |
-| EC2 PrefixList                                  | ec2:GetManagedPrefixListEntries not supported on shared resources         |
+Unsupported Shared Resources and Error Messages| Resource Type | Error Message |
+| --- | --- |
+| Network Firewall FirewallPolicy | network-firewall:DescribeFirewallPolicy not supported on shared resources |
+| Network Firewall Stateful rule group | network-firewall:DescribeRuleGroup not supported on shared resources |
+| Network Firewall Stateless rule group | network-firewall:DescribeRuleGroup not supported on shared resources |
+| EC2 PrefixList | ec2:GetManagedPrefixListEntries not supported on shared resources |
 
 ## Availability of Resources, Findings, and Suppression
 

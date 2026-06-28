@@ -53,6 +53,6 @@ Choose the type of condition that you want to add to the rule:
     * Regular expression match conditions – choose **match at least one of the filters
      in the regex match condition**
 
-**_condition name_**
+_**condition name**_
 Choose the condition that you want to add to the rule. The list displays only conditions
 of the type that you chose in the preceding step. 6. To remove a condition, select the **X** to the right of the condition name 7. Choose **Update**.

@@ -67,56 +67,54 @@ the codes at the following locations:
      3166-2:US](https://en.wikipedia.org/wiki/ISO_3166-2:US "https://en.wikipedia.org/wiki/ISO_3166-2:US") and for Ukraine they're at [ISO
      3166-2:UA](https://en.wikipedia.org/wiki/ISO_3166-2:UA "https://en.wikipedia.org/wiki/ISO_3166-2:UA").
 
-2.  **Determines the country label and region label to add to the
-    request** — The labels indicate whether the geo
-    match statement uses the origin IP or a forwarded IP
-    configuration.
+2. **Determines the country label and region label to add to the
+request** — The labels indicate whether the geo
+match statement uses the origin IP or a forwarded IP
+configuration.
 
-        * **Origin IP**
-
-
-
-        The country label is
-         `awswaf:clientip:geo:country:`<ISO
-         country code>``. Example for the
-         United States:
-         `awswaf:clientip:geo:country:US`.
-
-
-        The region label is
-         `awswaf:clientip:geo:region:`<ISO
-         country code>`-`<ISO region
-         code>``. Example for Oregon in the
-         United States:
-         `awswaf:clientip:geo:region:US-OR`.
-        * **Forwarded IP**
+    * **Origin IP**
 
 
 
-        The country label is
-         `awswaf:forwardedip:geo:country:`<ISO
-         country code>``. Example for the
-         United States:
-         `awswaf:forwardedip:geo:country:US`.
+    The country label is
+     `awswaf:clientip:geo:country:`<ISO
+     country code>``. Example for the
+     United States:
+     `awswaf:clientip:geo:country:US`.
 
 
-        The region label is
-         `awswaf:forwardedip:geo:region:`<ISO
-         country code>`-`<ISO region
-         code>``. Example for Oregon in the
-         United States:
-         `awswaf:forwardedip:geo:region:US-OR`.
+    The region label is
+     `awswaf:clientip:geo:region:`<ISO
+     country code>`-`<ISO region
+     code>``. Example for Oregon in the
+     United States:
+     `awswaf:clientip:geo:region:US-OR`.
+    * **Forwarded IP**
 
-    If the country or region code isn't available for a request's specified IP address,
-    AWS WAF uses `XX` in the labels, in the place of the value. For
-    example, the following label is for a client IP whose country code isn't
-    available: `awswaf:clientip:geo:country:XX` and the following
-    is for a forwarded IP whose country is the United States, but whose
-    region code isn't available:
-    `awswaf:forwardedip:geo:region:US-XX`.
 
-3.  **Evaluates the request's country code against the rule
-    criteria**
+
+    The country label is
+     `awswaf:forwardedip:geo:country:`<ISO
+     country code>``. Example for the
+     United States:
+     `awswaf:forwardedip:geo:country:US`.
+
+
+    The region label is
+     `awswaf:forwardedip:geo:region:`<ISO
+     country code>`-`<ISO region
+     code>``. Example for Oregon in the
+     United States:
+     `awswaf:forwardedip:geo:region:US-OR`.
+
+If the country or region code isn't available for a request's specified IP address,
+AWS WAF uses `XX` in the labels, in the place of the value. For
+example, the following label is for a client IP whose country code isn't
+available: `awswaf:clientip:geo:country:XX` and the following
+is for a forwarded IP whose country is the United States, but whose
+region code isn't available:
+`awswaf:forwardedip:geo:region:US-XX`. 3. **Evaluates the request's country code against the rule
+criteria**
 
 The geo match statement adds country and region labels to all requests that it inspects,
 regardless of whether it finds a match.

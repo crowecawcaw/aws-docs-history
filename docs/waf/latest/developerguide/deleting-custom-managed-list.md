@@ -35,6 +35,5 @@ security group policies by doing the following:
     If you delete a custom managed list that's in use in an audit security group policy,
      the policy that's using it can stop functioning.
 
-3. In the navigation pane, choose **Application lists** or **Protocol lists**, depending on the type of list you want to delete.
-4. In the list page, select the custom list that you want to delete and choose
-   **Delete**.
+3. In the navigation pane, choose **Application lists** or **Protocol lists**, depending on the type of list you want to delete. 4. In the list page, select the custom list that you want to delete and choose
+**Delete**.

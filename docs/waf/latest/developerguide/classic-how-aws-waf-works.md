@@ -126,7 +126,7 @@ rule:
 - The **Part of the request to filter
   on** is `URI`.
 - The **Match Type** is `Starts
-with`.
+ with`.
 - A **Value to match** is
   `login`.
 

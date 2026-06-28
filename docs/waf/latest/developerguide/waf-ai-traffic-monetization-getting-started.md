@@ -61,12 +61,12 @@ The `Amount` is specified in USDC as a decimal string with up to 3 decimal place
 
 ## Supported payment networks
 
-| Chain         | Network               | Currency | Use Case            |
-| ------------- | --------------------- | -------- | ------------------- |
-| BASE          | Base mainnet (EVM L2) | USDC     | Production Payments |
-| SOLANA        | Solana mainnet        | USDC     | Production Payments |
-| BASE_SEPOLIA  | Base Sepolia testnet  | USDC     | Test Mode           |
-| SOLANA_DEVNET | Solana Devnet         | USDC     | Test Mode           |
+| Chain          | Network               | Currency | Use Case            |
+| -------------- | --------------------- | -------- | ------------------- |
+| BASE           | Base mainnet (EVM L2) | USDC     | Production Payments |
+| SOLANA         | Solana mainnet        | USDC     | Production Payments |
+| BASE\_SEPOLIA  | Base Sepolia testnet  | USDC     | Test Mode           |
+| SOLANA\_DEVNET | Solana Devnet         | USDC     | Test Mode           |
 
 ## Test mode
 

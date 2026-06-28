@@ -303,8 +303,7 @@ the values:
     * **I@mABadRequest**
     * **I@mAB@dRequest**
 
-3. Choose **Create pattern set and add filter**.
-4. Choose **Create**.
+3. Choose **Create pattern set and add filter**. 4. Choose **Create**.
 
 ## Step 6: Create a SQL injection match condition
 
@@ -418,38 +417,31 @@ following settings:
     For this example, choose the IP match condition that you created in
      previous tasks.
 
-4. Choose **Add condition**.
-5. Add the geo match condition that you created earlier. Specify the following values:
+4. Choose **Add condition**. 5. Add the geo match condition that you created earlier. Specify the following values:
 
-   - **When a request does**
-   - **originate from a geographic location in**
-   - Choose your geo match condition.
+    * **When a request does**
+    * **originate from a geographic location in**
+    * Choose your geo match condition.
 
-6. Choose **Add another condition**.
-7. Add the string match condition that you created earlier. Specify the following values:
+6. Choose **Add another condition**. 7. Add the string match condition that you created earlier. Specify the following values:
 
-   - **When a request does**
-   - **match at least one of the filters in the string match condition**
-   - Choose your string match condition.
+    * **When a request does**
+    * **match at least one of the filters in the string match condition**
+    * Choose your string match condition.
 
-8. Choose **Add condition**.
-9. Add the SQL injection match condition that you created earlier. Specify the following values:
+8. Choose **Add condition**. 9. Add the SQL injection match condition that you created earlier. Specify the following values:
 
-   - **When a request does**
-   - **match at least one of the filters in the SQL injection match condition**
-   - Choose your SQL injection match condition.
+    * **When a request does**
+    * **match at least one of the filters in the SQL injection match condition**
+    * Choose your SQL injection match condition.
 
-10. Choose **Add condition**.
-11. Add the size constraint condition that you created earlier. Specify the following values:
+10. Choose **Add condition**. 11. Add the size constraint condition that you created earlier. Specify the following values:
 
-    - **When a request does**
-    - **match at least one of the filters in the size constraint condition**
-    - Choose your size constraint condition.
+    * **When a request does**
+    * **match at least one of the filters in the size constraint condition**
+    * Choose your size constraint condition.
 
-12. If you created any other conditions, such as a regex condition, add those in a similar manner.
-13. Choose **Create**.
-14. For the **Default action**, choose **Allow all requests that don't match any rules**.
-15. Choose **Review and create**.
+12. If you created any other conditions, such as a regex condition, add those in a similar manner. 13. Choose **Create**. 14. For the **Default action**, choose **Allow all requests that don't match any rules**. 15. Choose **Review and create**.
 
 ## Step 9: Add the rule to a Web ACL
 

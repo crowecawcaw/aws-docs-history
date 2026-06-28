@@ -54,12 +54,11 @@ automatic mitigation.
 
 - If you need to replace the web ACL that's associated with the protected resource, make the following changes in order:
 
-      1. In Shield Advanced, disable automatic mitigation.
-      2. In AWS WAF, disassociate the old web ACL and associate the new web ACL.
-      3. In Shield Advanced, enable automatic mitigation.
-
-  Shield Advanced doesn't automatically transfer automatic mitigation from the old web ACL to the
-  new one.
+  1.  In Shield Advanced, disable automatic mitigation.
+  2.  In AWS WAF, disassociate the old web ACL and associate the new web ACL.
+  3.  In Shield Advanced, enable automatic mitigation.
+      Shield Advanced doesn't automatically transfer automatic mitigation from the old web ACL to the
+      new one.
 
 - Don't delete any rule group rule from your web ACLs whose name starts with
   `ShieldMitigationRuleGroup`.

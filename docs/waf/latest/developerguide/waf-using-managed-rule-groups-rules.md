@@ -28,5 +28,5 @@ or through AWS CloudFormation.
 - **API** –
   `DescribeManagedRuleGroup`
 - **CLI** – `aws wafv2
-describe-managed-rule-group --scope=<CLOUDFRONT|REGIONAL> --vendor-name
-<vendor> --name <managedrule_name>`
+ describe-managed-rule-group --scope=<CLOUDFRONT|REGIONAL> --vendor-name
+ <vendor> --name <managedrule_name>`

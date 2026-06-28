@@ -18,16 +18,16 @@ that the user should type into a text box, overlaid by background noise.
 The following table lists the languages that you can select for the written instructions in
 a CAPTCHA puzzle and the audio support for each selection.
 
-| AWS WAF CAPTCHA puzzle supported languages | Written instructions support | Locale code          | Audio instructions support |
-| ------------------------------------------ | ---------------------------- | -------------------- | -------------------------- |
-| Arabic                                     | ar-SA                        | Arabic               |
-| Simplified Chinese                         | zh-CN                        | Audio in English     |
-| Dutch                                      | nl-NL                        | Dutch                |
-| English                                    | en-US                        | English              |
-| French                                     | fr-FR                        | French               |
-| German                                     | de-DE                        | German               |
-| Italian                                    | it-IT                        | Italian              |
-| Japanese                                   | ja-JP                        | Audio in English     |
-| Brazilian Portuguese                       | pt-BR                        | Brazilian Portuguese |
-| Spanish                                    | es-ES                        | Spanish              |
-| Turkish                                    | tr-TR                        | Turkish              |
+AWS WAF CAPTCHA puzzle supported languages| Written instructions support | Locale code | Audio instructions support |
+| --- | --- | --- |
+| Arabic | ar-SA | Arabic |
+| Simplified Chinese | zh-CN | Audio in English |
+| Dutch | nl-NL | Dutch |
+| English | en-US | English |
+| French | fr-FR | French |
+| German | de-DE | German |
+| Italian | it-IT | Italian |
+| Japanese | ja-JP | Audio in English |
+| Brazilian Portuguese | pt-BR | Brazilian Portuguese |
+| Spanish | es-ES | Spanish |
+| Turkish | tr-TR | Turkish |

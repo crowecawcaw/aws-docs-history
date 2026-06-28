@@ -11,15 +11,14 @@ Shield Advanced.
 - Plan your health checks by identifying the components of your infrastructure that you want
   to monitor. Consider the following resource types for health checks:
 
-      + Critical resources.
-      + Any resources where you want higher sensitivity in Shield Advanced detection
-       and mitigation.
-      + Resources for which you want Shield Advanced to proactively reach out to you.
-       Proactive engagement is informed by the status of your health
-       checks.
-
-  Examples of resources that you might want to monitor include Amazon CloudFront
-  distributions, internet-facing load balancers, and Amazon EC2 instances.
+  - Critical resources.
+  - Any resources where you want higher sensitivity in Shield Advanced detection
+    and mitigation.
+  - Resources for which you want Shield Advanced to proactively reach out to you.
+    Proactive engagement is informed by the status of your health
+    checks.
+    Examples of resources that you might want to monitor include Amazon CloudFront
+    distributions, internet-facing load balancers, and Amazon EC2 instances.
 
 - Define health checks that accurately reflect the health of your application origin with as
   few notifications as possible.

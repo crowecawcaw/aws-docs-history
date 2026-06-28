@@ -89,14 +89,11 @@ section, choose **Edit**. 6. To enable and aggregate logs, choose one or more op
     * **Enable and aggregate alert logs**
 
 7. Choose the Amazon S3 bucket where you want your logs to be delivered. You must choose a bucket for
-   each log type that you enable. You can use the same bucket for both log
-   types.
-8. (Optional) If you want custom member account-created logging to be replaced with the policy’s
-   logging configuration, choose **Override existing logging
-   configuration**.
-9. Choose **Next**.
-10. Review your settings, then choose **Save** to save your
-    changes to the policy.
+each log type that you enable. You can use the same bucket for both log
+types. 8. (Optional) If you want custom member account-created logging to be replaced with the policy’s
+logging configuration, choose **Override existing logging
+configuration**. 9. Choose **Next**. 10. Review your settings, then choose **Save** to save your
+changes to the policy.
 
 ###### To disable logging for a Network Firewall policy
 

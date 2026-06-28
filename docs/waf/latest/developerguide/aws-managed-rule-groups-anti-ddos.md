@@ -98,11 +98,10 @@ Following the prefix, the rest of the label provides detailed token status infor
 
 - `accepted` – The request token is present and contains the following:
 
-      + A valid challenge or CAPTCHA solution.
-      + An unexpired challenge or CAPTCHA timestamp.
-      + A domain specification that's valid for the protection pack (web ACL).
-
-  Example: The label `awswaf:managed:token:accepted` indicates that the web requests's token has a valid challenge solution, an unexpired challenge timestamp, and a valid domain.
+  - A valid challenge or CAPTCHA solution.
+  - An unexpired challenge or CAPTCHA timestamp.
+  - A domain specification that's valid for the protection pack (web ACL).
+    Example: The label `awswaf:managed:token:accepted` indicates that the web requests's token has a valid challenge solution, an unexpired challenge timestamp, and a valid domain.
 
 - `rejected` – The request token is present but doesn't meet the acceptance criteria.
 

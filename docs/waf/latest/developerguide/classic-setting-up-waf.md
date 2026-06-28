@@ -57,16 +57,15 @@ programmatically, see the following:
   AWS services. To download an AWS SDK, see the applicable page, which also
   includes prerequisites and installation instructions:
 
-      + [Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/")
-      + [JavaScript](http://aws.amazon.com/sdkforbrowser/ "http://aws.amazon.com/sdkforbrowser/")
-      + [.NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/")
-      + [Node.js](https://aws.amazon.com/sdk-for-node-js/ "https://aws.amazon.com/sdk-for-node-js/")
-      + [PHP](https://aws.amazon.com/sdk-for-php/ "https://aws.amazon.com/sdk-for-php/")
-      + [Python](https://github.com/boto/boto "https://github.com/boto/boto")
-      + [Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/")
-
-  For a complete list of AWS SDKs, see [Tools for
-  Amazon Web Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
+  - [Java](https://aws.amazon.com/sdk-for-java/ "https://aws.amazon.com/sdk-for-java/")
+  - [JavaScript](http://aws.amazon.com/sdkforbrowser/ "http://aws.amazon.com/sdkforbrowser/")
+  - [.NET](https://aws.amazon.com/sdk-for-net/ "https://aws.amazon.com/sdk-for-net/")
+  - [Node.js](https://aws.amazon.com/sdk-for-node-js/ "https://aws.amazon.com/sdk-for-node-js/")
+  - [PHP](https://aws.amazon.com/sdk-for-php/ "https://aws.amazon.com/sdk-for-php/")
+  - [Python](https://github.com/boto/boto "https://github.com/boto/boto")
+  - [Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/")
+    For a complete list of AWS SDKs, see [Tools for
+    Amazon Web Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
 
 - If you're using a programming language for which AWS doesn't provide an SDK,
   the [AWS WAF API Reference](../APIReference.md "../APIReference.md") documents the operations

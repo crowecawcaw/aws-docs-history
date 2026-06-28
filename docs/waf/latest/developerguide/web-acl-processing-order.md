@@ -33,10 +33,9 @@ as shown:
 - Rule2 – priority 200
 - RuleGroupB – priority 300
 
-      + RuleB1 – priority 0
-      + RuleB2 – priority 1
-
-  AWS WAF would evaluate the rules for this protection pack (web ACL) in the following order:
+  - RuleB1 – priority 0
+  - RuleB2 – priority 1
+    AWS WAF would evaluate the rules for this protection pack (web ACL) in the following order:
 
 - Rule1
 - RuleGroupA RuleA1

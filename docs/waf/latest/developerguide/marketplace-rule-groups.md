@@ -105,7 +105,7 @@ the following steps.
    looking at the `ruleGroupId` field in the log or the
    `RuleWithinRuleGroup` in the sampled request. You can
    identify the rule in the pattern `<Seller Name>#<RuleGroup
-Name>#<Rule Name>`.
+ Name>#<Rule Name>`.
 2. If setting specific rules to only count requests doesn't solve the problem, you can
    override all of the rule actions or change the action for the AWS Marketplace rule
    group itself from **No override** to **Override

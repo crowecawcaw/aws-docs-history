@@ -83,8 +83,8 @@ creates for an AWS WAF policy.
 A web ACL that Firewall Manager creates is named after the AWS WAF policy as follows:
 `FMManagedWebACLV2-`policy
 name`-`timestamp``. The timestamp is
- in UTC milliseconds. For example,
- `FMManagedWebACLV2-MyWAFPolicyName-1621880374078`.
+in UTC milliseconds. For example,
+`FMManagedWebACLV2-MyWAFPolicyName-1621880374078`.
 
 A web ACL that Firewall Manager retrofits has the name that the customer account specified at creation. A web ACL name can't be changed after creation.
 

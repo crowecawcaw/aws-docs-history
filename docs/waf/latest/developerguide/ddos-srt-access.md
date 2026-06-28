@@ -119,6 +119,6 @@ when you grant access to your account.
     ```
 
 4. Choose **Save** to save your changes.
-   You can also authorize the SRT through the API by creating an IAM role, attaching
-   the policy AWSShieldDRTAccessPolicy to it, and then passing the role to the
-   operation [AssociateDRTRole](../DDOSAPIReference/API_AssociateDRTRole.md "../DDOSAPIReference/API_AssociateDRTRole.md").
+You can also authorize the SRT through the API by creating an IAM role, attaching
+the policy AWSShieldDRTAccessPolicy to it, and then passing the role to the
+operation [AssociateDRTRole](../DDOSAPIReference/API_AssociateDRTRole.md "../DDOSAPIReference/API_AssociateDRTRole.md").

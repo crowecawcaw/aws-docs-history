@@ -186,8 +186,7 @@ rule actions, configurations, and logging destination:
     3. For **Logging destination**, configure the logging destination type
      and the place to store logs. For more information, see [AWS WAF logging destinations](logging-destinations.md "logging-destinations.md").
 
-12. (Optional) If you want to monetize AI bot traffic, expand **Monetization configuration** and configure your payment networks, wallet addresses, and base price. You can skip this step and add a MonetizationConfig later.
-13. Review your settings and choose **Add protection pack (web ACL)**.
+12. (Optional) If you want to monetize AI bot traffic, expand **Monetization configuration** and configure your payment networks, wallet addresses, and base price. You can skip this step and add a MonetizationConfig later. 13. Review your settings and choose **Add protection pack (web ACL)**.
 
 Using the standard console
 This section provides procedures for creating web ACLs through
@@ -222,7 +221,7 @@ You can't change the name after you create the web ACL. 4. (Optional) For **Desc
 description for the web ACL if you want to. 5. For **CloudWatch metric name**, change the default name if
 applicable. Follow the guidance on the console for valid characters. The
 name can't contain special characters, white space, or metric names reserved
-for AWS WAF, including "All" and "Default_Action."
+for AWS WAF, including "All" and "Default\_Action."
 
 ###### Note
 
@@ -315,9 +314,9 @@ add:
     4. Choose **Add rule**.
 
 14. (Optional) If you want to add your own rule, on the **Add rules
-    and rule groups** page, choose **Add rules**,
-    **Add my own rules and rule groups**, **Rule
-    builder**, then **Rule visual editor**.
+and rule groups** page, choose **Add rules**,
+**Add my own rules and rule groups**, **Rule
+builder**, then **Rule visual editor**.
 
 ###### Note
 
@@ -368,8 +367,8 @@ This procedure covers the **Rule visual editor**.
     4. Choose **Add rule**.
 
 15. Choose the default action for the web ACL, either Block or Allow. This is
-    the action that AWS WAF takes on a request when the rules in the web ACL don't
-    explicitly allow or block it. For more information, see [Setting the protection pack (web ACL) default action in AWS WAF](web-acl-default-action.md "web-acl-default-action.md").
+the action that AWS WAF takes on a request when the rules in the web ACL don't
+explicitly allow or block it. For more information, see [Setting the protection pack (web ACL) default action in AWS WAF](web-acl-default-action.md "web-acl-default-action.md").
 
 If you want to customize the default action, choose the options for that
 and fill in the details of your customization. For more information, see

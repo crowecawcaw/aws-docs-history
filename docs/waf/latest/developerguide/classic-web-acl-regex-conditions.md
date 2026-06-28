@@ -243,9 +243,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. D
     6. Repeat for all the remaining rules that are using the regex match condition that
      you want to delete.
 
-4. In the navigation pane, choose **String and regex matching**.
-5. Select the button next to the condition you want to delete.
-6. Choose **Delete**.
+4. In the navigation pane, choose **String and regex matching**. 5. Select the button next to the condition you want to delete. 6. Choose **Delete**.
 
 ###### To add or change a filter to an existing regex match condition
 

@@ -24,9 +24,9 @@ To implement your AI traffic monetization policies, we use multiple detection te
 
 Returns an HTTP 402 Payment Required Challenge containing payment instructions. The client can complete payment and resubmit the request to gain access. Use the Monetize action to charge AI bots for content access. The Monetize action is available only for web ACLs associated with Amazon CloudFront distributions. To use this action, your web ACL must have a MonetizationConfig configured. For more information, see [AI traffic monetization](waf-ai-traffic-monetization.md "waf-ai-traffic-monetization.md").
 
-| Monetize action parameters | Parameter | Required                                                          | Description |
-| -------------------------- | --------- | ----------------------------------------------------------------- | ----------- |
-| PriceMultiplier            | No        | Integer multiplier (1–100) applied to the base price. Default: 1. |
+Monetize action parameters| Parameter | Required | Description |
+| --- | --- | --- |
+| PriceMultiplier | No | Integer multiplier (1–100) applied to the base price. Default: 1. |
 
 Bot Control includes a console dashboard that shows how much of your current traffic is coming from
 bots, based on request sampling. With the Bot Control managed rule group added to your protection pack (web ACL),
@@ -69,7 +69,7 @@ application scenarios, see [Choosing and configuring Bot Control for your use ca
 AWS WAF Bot Control now supports Web Bot Authentication (WBA) as a cryptographic verification method for bots and AI agents accessing your CloudFront distributions.
 This feature enables legitimate AI crawlers and agents to prove their identity without requiring traditional challenge-response mechanisms.
 
-Version requirement: `AWSManagedRulesBotControlRuleSet` Version_4.0 or later. (The static version must be explicitly selected.)
+Version requirement: `AWSManagedRulesBotControlRuleSet` Version\_4.0 or later. (The static version must be explicitly selected.)
 For detailed label taxonomy and rule behavior, see:
 
 - [AWS WAF Bot Control rule group](aws-managed-rule-groups-bot.md "aws-managed-rule-groups-bot.md")

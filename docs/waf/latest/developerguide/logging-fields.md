@@ -339,8 +339,8 @@ are provided as an array of match criteria.
 
 **terminatingRuleType**
 
-The type of rule that terminated the request. Possible values: RATE_BASED,
-REGULAR, GROUP, and MANAGED_RULE_GROUP.
+The type of rule that terminated the request. Possible values: RATE\_BASED,
+REGULAR, GROUP, and MANAGED\_RULE\_GROUP.
 
 **timestamp**
 

@@ -132,7 +132,7 @@ The following are miscellaneous caveats and limitations for Firewall Manager sec
   nor any guarantee that it will continue to work.
 - Updating Amazon ECS ENIs is possible only for Amazon ECS services that use the
   rolling update (Amazon ECS) deployment controller. For other Amazon ECS deployment
-  controllers such as CODE_DEPLOY or external controllers, Firewall Manager currently can't
+  controllers such as CODE\_DEPLOY or external controllers, Firewall Manager currently can't
   update the ENIs.
 - Firewall Manager doesn't support updating security groups in ENIs for Network Load Balancers.
 - In common security group policies, if a shared VPC is later unshared with an account Firewall Manager won't delete the replica security groups in the account.

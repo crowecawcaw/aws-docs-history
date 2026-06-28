@@ -10,19 +10,19 @@ This section explains how to use the features of IAM with AWS Shield.
 Before you use IAM to manage access to Shield, learn what IAM features are
 available to use with Shield.
 
-| IAM features you can use with AWS Shield                                                                                                                                            | IAM feature | Shield support |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------------- |
-| [Identity-based policies](#shd-security_iam_service-with-iam-id-based-policies "#shd-security_iam_service-with-iam-id-based-policies")                                              | Yes         |
-| [Resource-based policies](#shd-security_iam_service-with-iam-resource-based-policies "#shd-security_iam_service-with-iam-resource-based-policies")                                  | No          |
-| [Policy actions](#shd-security_iam_service-with-iam-id-based-policies-actions "#shd-security_iam_service-with-iam-id-based-policies-actions")                                       | Yes         |
-| [Policy resources](#shd-security_iam_service-with-iam-id-based-policies-resources "#shd-security_iam_service-with-iam-id-based-policies-resources")                                 | Yes         |
-| [Policy condition keys (service-specific)](#shd-security_iam_service-with-iam-id-based-policies-conditionkeys "#shd-security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](#shd-security_iam_service-with-iam-acls "#shd-security_iam_service-with-iam-acls")                                                                                           | No          |
-| [ABAC (tags in<br>policies)](#shd-security_iam_service-with-iam-tags "#shd-security_iam_service-with-iam-tags")                                                                     | Partial     |
-| [Temporary<br>credentials](#shd-security_iam_service-with-iam-roles-tempcreds "#shd-security_iam_service-with-iam-roles-tempcreds")                                                 | Yes         |
-| [Forward access sessions (FAS)](#shd-security_iam_service-with-iam-principal-permissions "#shd-security_iam_service-with-iam-principal-permissions")                                | Yes         |
-| [Service<br>roles](#shd-security_iam_service-with-iam-roles-service "#shd-security_iam_service-with-iam-roles-service")                                                             | Yes         |
-| [Service-linked roles](#shd-security_iam_service-with-iam-roles-service-linked "#shd-security_iam_service-with-iam-roles-service-linked")                                           | Yes         |
+IAM features you can use with AWS Shield| IAM feature | Shield support |
+| --- | --- |
+| [Identity-based policies](#shd-security_iam_service-with-iam-id-based-policies "#shd-security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#shd-security_iam_service-with-iam-resource-based-policies "#shd-security_iam_service-with-iam-resource-based-policies") | No |
+| [Policy actions](#shd-security_iam_service-with-iam-id-based-policies-actions "#shd-security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy resources](#shd-security_iam_service-with-iam-id-based-policies-resources "#shd-security_iam_service-with-iam-id-based-policies-resources") | Yes |
+| [Policy condition keys (service-specific)](#shd-security_iam_service-with-iam-id-based-policies-conditionkeys "#shd-security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
+| [ACLs](#shd-security_iam_service-with-iam-acls "#shd-security_iam_service-with-iam-acls") | No |
+| [ABAC (tags in<br>policies)](#shd-security_iam_service-with-iam-tags "#shd-security_iam_service-with-iam-tags") | Partial |
+| [Temporary<br>credentials](#shd-security_iam_service-with-iam-roles-tempcreds "#shd-security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Forward access sessions (FAS)](#shd-security_iam_service-with-iam-principal-permissions "#shd-security_iam_service-with-iam-principal-permissions") | Yes |
+| [Service<br>roles](#shd-security_iam_service-with-iam-roles-service "#shd-security_iam_service-with-iam-roles-service") | Yes |
+| [Service-linked roles](#shd-security_iam_service-with-iam-roles-service-linked "#shd-security_iam_service-with-iam-roles-service-linked") | Yes |
 
 To get a high-level view of how Shield and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the

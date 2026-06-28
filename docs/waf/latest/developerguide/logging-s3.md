@@ -110,8 +110,8 @@ adhere to the timestamp format specification `YYYYMMddTHHmmZ`.
 
 The following shows an example log file in an Amazon S3 bucket for a bucket named
 `aws-waf-logs-`LOGGING-BUCKET-SUFFIX``. The AWS account is
- `11111111111`. The protection pack (web ACL) is `TEST-WEBACL`and the Region
- is`us-east-1`.
+`11111111111`. The protection pack (web ACL) is `TEST-WEBACL` and the Region
+is `us-east-1`.
 
 ```
 s3://aws-waf-logs-`LOGGING-BUCKET-SUFFIX`/AWSLogs/11111111111/WAFLogs/us-east-1/TEST-WEBACL/2021/10/28/19/50/11111111111_waflogs_us-east-1_TEST-WEBACL_20211028T1950Z_e0ca43b5.log.gz

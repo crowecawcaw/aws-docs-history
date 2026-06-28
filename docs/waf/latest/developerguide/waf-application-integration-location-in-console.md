@@ -21,15 +21,15 @@ AWS WAF offers custom intelligent threat integration SDKs for Android and iOS mo
 
 ###### To access the integration APIs through the console
 
-1.  Sign in to the AWS Management Console and open the AWS WAF console at
-    [https://console.aws.amazon.com/wafv2/homev2](https://console.aws.amazon.com/wafv2/homev2 "https://console.aws.amazon.com/wafv2/homev2").
-2.  Choose **Application integration** in the navigation pane, and then
-    choose the tab you're interested in.
+1. Sign in to the AWS Management Console and open the AWS WAF console at
+   [https://console.aws.amazon.com/wafv2/homev2](https://console.aws.amazon.com/wafv2/homev2 "https://console.aws.amazon.com/wafv2/homev2").
+2. Choose **Application integration** in the navigation pane, and then
+   choose the tab you're interested in.
 
-    - **Intelligent threat integration** is available for JavaScript and mobile
-      applications.
+   - **Intelligent threat integration** is available for JavaScript and mobile
+     applications.
 
-    The tab contains the following:
+   The tab contains the following:
 
         + A list of the protection packs (web ACLs) that are enabled for intelligent threat application integration. The list
          includes each protection pack (web ACL) that uses the `AWSManagedRulesACFPRuleSet` managed rule group, the `AWSManagedRulesATPRuleSet` managed rule group, or
@@ -38,9 +38,9 @@ AWS WAF offers custom intelligent threat integration SDKs for Android and iOS mo
          URL for the protection pack (web ACL) that you want to integrate with.
         + The APIs that you have access to. The JavaScript APIs are always available.
          For access to the mobile SDKs, contact support at [Contact AWS](https://aws.amazon.com/contact-us "https://aws.amazon.com/contact-us").
-    - **CAPTCHA integration** is available for JavaScript applications.
+   - **CAPTCHA integration** is available for JavaScript applications.
 
-    The tab contains the following:
+   The tab contains the following:
 
         + The integration URL for use in your integration.
         + The API keys that you've created for your client application domains. Your use of
