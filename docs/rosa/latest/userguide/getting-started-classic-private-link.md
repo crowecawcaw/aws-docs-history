@@ -239,8 +239,10 @@ For more information, see [Requirements for using AWS PrivateLink clusters](http
 1. Create the required IAM account roles and policies using `--mode auto` or `--mode manual`.
 
    - ```
-     rosa create account-roles --classic --mode auto
+
      ```
+
+   rosa create account-roles --classic --mode auto
 
    ````
    * ```

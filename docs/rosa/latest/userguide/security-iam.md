@@ -110,19 +110,19 @@ IAM roles with temporary credentials are useful in the following situations:
   For example, when you make a call in a service, it’s common for that service to run applications in Amazon EC2 or store objects in Amazon S3.
   A service might do this using the calling principal’s permissions, using a service role, or using a service-linked role.
 
-      + **Forward access sessions** (FAS) - When you use an IAM user or role to perform actions in AWS, you are considered a principal.
-      When you use some services, you might perform an action that then initiates another action in a different service.
-      FAS uses the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services.
-      FAS requests are only made when a service receives a request that requires interactions with other AWS services or resources to complete.
-      In this case, you must have permissions to perform both actions.
-      For policy details when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
-      + **Service role** - A service role is an IAM role that a service assumes to perform actions on your behalf.
-      An IAM administrator can create, modify, and delete a service role from within IAM.
-      For more information, see [Creating a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the *IAM User Guide*.
-      + **Service-linked role** - A service-linked role is a type of service role that is linked to an AWS service.
-      The service can assume the role to perform an action on your behalf.
-      Service-linked roles appear in your IAM account and are owned by the service.
-      An IAM administrator can view, but not edit the permissions for service-linked roles.
+  - **Forward access sessions** (FAS) - When you use an IAM user or role to perform actions in AWS, you are considered a principal.
+    When you use some services, you might perform an action that then initiates another action in a different service.
+    FAS uses the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services.
+    FAS requests are only made when a service receives a request that requires interactions with other AWS services or resources to complete.
+    In this case, you must have permissions to perform both actions.
+    For policy details when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
+  - **Service role** - A service role is an IAM role that a service assumes to perform actions on your behalf.
+    An IAM administrator can create, modify, and delete a service role from within IAM.
+    For more information, see [Creating a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
+  - **Service-linked role** - A service-linked role is a type of service role that is linked to an AWS service.
+    The service can assume the role to perform an action on your behalf.
+    Service-linked roles appear in your IAM account and are owned by the service.
+    An IAM administrator can view, but not edit the permissions for service-linked roles.
 
 - **Applications running on Amazon EC2** - You can use an IAM role to manage temporary credentials for applications that are running on an Amazon EC2 instance and making AWS CLI or AWS API requests.
   This is preferable to storing access keys within the Amazon EC2 instance.

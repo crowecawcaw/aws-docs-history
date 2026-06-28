@@ -37,8 +37,10 @@ You can create a ROSA classic cluster using the ROSA CLI and AWS STS.
 1. Create the required IAM account roles and policies using `--mode auto` or `--mode manual`.
 
    - ```
-     rosa create account-roles --classic --mode auto
+
      ```
+
+   rosa create account-roles --classic --mode auto
 
    ````
    * ```
@@ -52,8 +54,10 @@ You can create a ROSA classic cluster using the ROSA CLI and AWS STS.
 2. Create a cluster using `--mode auto` or `--mode manual`. `auto` mode allows you to create a cluster more quickly. `manual` mode prompts you to specify custom settings for your cluster.
 
    - ```
-     rosa create cluster --cluster-name <CLUSTER_NAME> --sts --mode auto
+
      ```
+
+   rosa create cluster --cluster-name <CLUSTER_NAME> --sts --mode auto
 
    ````
 
