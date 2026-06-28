@@ -54,6 +54,4 @@ Removing this integration will affect all Agent Spaces that have repositories co
     * Penetration testing context from connected repositories
     * Penetration test remediation capabilities for connected repositoriesEnsure you have uninstalled the AWS Security Agent GitHub App from GitHub before proceeding.
 
-6. If you have not yet uninstalled the GitHub App from GitHub, you’ll receive a warning. Return to Step 1 to complete the uninstallation first.
-7. If you have uninstalled the GitHub App and understand the impact, click **Confirm removal**.
-8. The integration will be removed from your integrations list. Any Agent Spaces with repositories from this integration will no longer have access to those repositories for code review, penetration testing context, or automated remediation.
+6. If you have not yet uninstalled the GitHub App from GitHub, you’ll receive a warning. Return to Step 1 to complete the uninstallation first. 7. If you have uninstalled the GitHub App and understand the impact, click **Confirm removal**. 8. The integration will be removed from your integrations list. Any Agent Spaces with repositories from this integration will no longer have access to those repositories for code review, penetration testing context, or automated remediation.

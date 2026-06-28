@@ -65,7 +65,7 @@ Add a security requirement to a custom pack to define a security standard that A
 
    1. **Security requirement name** – Enter a descriptive name that identifies the security control, for example `enforce-encryption-at-rest` (maximum 80 characters).
    2. **Description** – Provide a brief description of what this security requirement checks (maximum 500 characters).
-   3. **Applicability** – Describe the scenarios, system types, or conditions where this security requirement should be evaluated. Include the scenarios where the requirement should be marked NOT_APPLICABLE (maximum 10,000 characters).
+   3. **Applicability** – Describe the scenarios, system types, or conditions where this security requirement should be evaluated. Include the scenarios where the requirement should be marked NOT\_APPLICABLE (maximum 10,000 characters).
    4. **Compliance criteria** – Define what constitutes compliance versus non-compliance for this security requirement. Provide the indicators, examples, and technical details that AWS Security Agent looks for when it evaluates compliance (maximum 10,000 characters).
    5. **Remediation guidance** (Optional) – Provide guidance on how to fix violations, including links to your organization’s internal documentation or standards (maximum 10,000 characters).
 
@@ -158,7 +158,7 @@ When you create a security requirement, follow these guidelines to help AWS Secu
 
 **Description** – Explain what the control checks and the risk it mitigates. This helps users understand why the requirement matters.
 
-**Applicability** – Describe the workloads, system types, or conditions where the requirement should be evaluated. State when the requirement should be marked NOT_APPLICABLE, with specific scenarios, to avoid false positives. Phrases such as "This control applies to ALL workloads that…​" and "Mark as NOT_APPLICABLE if…​" set clear scope boundaries.
+**Applicability** – Describe the workloads, system types, or conditions where the requirement should be evaluated. State when the requirement should be marked NOT\_APPLICABLE, with specific scenarios, to avoid false positives. Phrases such as "This control applies to ALL workloads that…​" and "Mark as NOT\_APPLICABLE if…​" set clear scope boundaries.
 
 **Compliance criteria** – Structure this in two parts: what demonstrates compliance and what indicates non-compliance. Be specific with technical indicators and include edge cases. Start with "A design is compliant if it demonstrates…​" followed by technical details, then "A design is non-compliant if it…​" with the patterns that indicate a violation.
 

@@ -30,7 +30,7 @@ In the AWS console, you define the scope of what can be tested. Users then run s
 
 1. From the left sidebar, select **Agent Spaces** and then select the Agent Space you created in Step 1.
 2. From the header, select **Enable penetration test** to enable this capability.
-3. **Step 1 — Configure domain**: Enter the target domain you want to test and select a verification method (**DNS_TXT** or **HTTP_ROUTE**). The domain should be live and host the application you want to penetration test. Choose **Next** to proceed.
+3. **Step 1 — Configure domain**: Enter the target domain you want to test and select a verification method (**DNS\_TXT** or **HTTP\_ROUTE**). The domain should be live and host the application you want to penetration test. Choose **Next** to proceed.
 4. **Step 2 — Verify domains**: Verify ownership of each domain in the **Target domains** table:
 
    - For Route 53 domains in the same AWS account: select the domain and choose **One-click verification**. AWS Security Agent creates the DNS record and completes verification automatically.

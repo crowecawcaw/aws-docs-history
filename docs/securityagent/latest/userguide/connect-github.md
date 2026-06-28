@@ -95,20 +95,19 @@ You’ll be redirected to GitHub to complete the authorization. Ensure you’re 
 
     You can modify repository access at any time by visiting the GitHub App settings in your GitHub organization or user account settings.
 
-8. Click **Install and authorize**.
-9. You’ll be redirected back to the AWS Management Console to complete the registration.
-10. In the **Registration details** section, configure the following fields:
+8. Click **Install and authorize**. 9. You’ll be redirected back to the AWS Management Console to complete the registration. 10. In the **Registration details** section, configure the following fields:
 
     1. **Registration name** - Enter a descriptive name for this GitHub connection. Use a name that identifies the GitHub organization or user account, such as "Acme-Corp-Org" or "Production-Repos".
     2. **Account type** - Select one of the following from the dropdown:
 
-       - **Organization** - If you connected a GitHub organization account
-       - **User** - If you connected a personal GitHub user account
 
+
+
+    	* **Organization** - If you connected a GitHub organization account
+    	* **User** - If you connected a personal GitHub user account
     3. **Organization name** (appears only if you selected Organization) - Enter the exact name of your GitHub organization as it appears in GitHub.
 
-11. Click **Connect**.
-12. You’ll see a confirmation message and return to the Integrations page, where your new GitHub connection appears with its registration name. To connect additional GitHub organizations or user accounts, repeat this process by clicking **Add integration** again.
+11. Click **Connect**. 12. You’ll see a confirmation message and return to the Integrations page, where your new GitHub connection appears with its registration name. To connect additional GitHub organizations or user accounts, repeat this process by clicking **Add integration** again.
 
 ## Troubleshoot GitHub integration
 

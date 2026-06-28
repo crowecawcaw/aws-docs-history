@@ -55,12 +55,10 @@ You’ll be redirected to Atlassian to install the Forge app and authorize acces
     * `read:space:confluence` - View space details
     * `read:confluence-content.summary` - Read content summaries
 
-6. On the Atlassian consent screen, review the permissions and authorize the AWS Security Agent app.
-7. You’ll be redirected back to the AWS Management Console to complete the registration.
-8. In the **Registration details** section, configure the following fields:
+6. On the Atlassian consent screen, review the permissions and authorize the AWS Security Agent app. 7. You’ll be redirected back to the AWS Management Console to complete the registration. 8. In the **Registration details** section, configure the following fields:
 
-   1. **Installation ID** - Paste the installation ID you copied from the Forge app in Confluence (see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md")).
-   2. **Registration name** - Enter a descriptive name for this Confluence connection, such as "Engineering-Docs-Confluence".
+    1. **Installation ID** - Paste the installation ID you copied from the Forge app in Confluence (see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md")).
+    2. **Registration name** - Enter a descriptive name for this Confluence connection, such as "Engineering-Docs-Confluence".
 
 9. Choose **Connect**.
 

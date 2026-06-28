@@ -108,44 +108,47 @@ If a finding displays the Unknown "This finding is not validated by AWS Security
 
 4. Expand the **Description** section to read:
 
-   - A detailed explanation of the vulnerability
-   - How the vulnerability works
-   - Why it represents a security risk
-   - The potential impact on your application
+    * A detailed explanation of the vulnerability
+    * How the vulnerability works
+    * Why it represents a security risk
+    * The potential impact on your application
 
 5. Expand the **Risk Reasoning** section to understand the severity calculation:
 
-   - CVSS (Common Vulnerability Scoring System) metrics breakdown
-   - Attack Vector (AV) – How the vulnerability can be exploited
-   - Attack Complexity (AC) – How difficult the exploit is
-   - Privileges Required (PR) – What access level is needed
-   - User Interaction (UI) – Whether user action is required
-   - Scope (S) – Whether the vulnerability affects other components
-   - Confidentiality, Integrity, and Availability impacts
+    * CVSS (Common Vulnerability Scoring System) metrics breakdown
+    * Attack Vector (AV) – How the vulnerability can be exploited
+    * Attack Complexity (AC) – How difficult the exploit is
+    * Privileges Required (PR) – What access level is needed
+    * User Interaction (UI) – Whether user action is required
+    * Scope (S) – Whether the vulnerability affects other components
+    * Confidentiality, Integrity, and Availability impacts
 
 6. Expand the **Steps to reproduce** section to view:
 
-   - Detailed technical steps to recreate the vulnerability
-   - Request and response examples
-   - Specific parameters or conditions that trigger the issue
+    * Detailed technical steps to recreate the vulnerability
+    * Request and response examples
+    * Specific parameters or conditions that trigger the issue
 
 7. The Verification Script section provides an executable way to reproduce the finding. Expand this section (when available) to view:
 
-   - **Instructions** – How to set up and run the verification script
-   - **Environment variables** – Lists the required variables you must configure before running the script. Sensitive values are redacted for security.
-   - **Download Script** – Choose to download the executable verification script
+    * **Instructions** – How to set up and run the verification script
+    * **Environment variables** – Lists the required variables you must configure before running the script. Sensitive values are redacted for security.
+    * **Download Script** – Choose to download the executable verification script
 
-   ###### Note
 
-   Verification scripts are available only for confirmed vulnerabilities. The agent must have successfully generated and validated an executable reproduction script.
+    ###### Note
 
-   ###### Note
+    Verification scripts are available only for confirmed vulnerabilities. The agent must have successfully generated and validated an executable reproduction script.
 
-   Verification scripts are generated using generative AI. Review the script before execution and run it only against systems you are authorized to test. For guidance on testing AI-generated scripts responsibly, see the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/ "https://aws.amazon.com/ai/responsible-ai/policy/").
 
-   ###### Tip
+    ###### Note
 
-   The verification script provides an executable way to reproduce the finding independently. Set the required environment variables with your own credentials, then run the script against your target system to confirm the vulnerability exists.
+    Verification scripts are generated using generative AI. Review the script before execution and run it only against systems you are authorized to test. For guidance on testing AI-generated scripts responsibly, see the [AWS Responsible AI Policy](https://aws.amazon.com/ai/responsible-ai/policy/ "https://aws.amazon.com/ai/responsible-ai/policy/").
+
+
+    ###### Tip
+
+    The verification script provides an executable way to reproduce the finding independently. Set the required environment variables with your own credentials, then run the script against your target system to confirm the vulnerability exists.
 
 ###### Tip
 
@@ -208,7 +211,7 @@ When Findings Personalization is enabled, AWS Security Agent learns from all edi
 
 ###### Note
 
-For the **status** field, only marking a finding as **FALSE_POSITIVE** is treated as a learnable preference. Changes to other status values do not trigger learning.
+For the **status** field, only marking a finding as **FALSE\_POSITIVE** is treated as a learnable preference. Changes to other status values do not trigger learning.
 
 On the next pentest run, the agent evaluates new findings against your learned preferences and applies adjustments where applicable. A **Personalization changes** section appears on any finding that was adjusted, explaining what was changed.
 

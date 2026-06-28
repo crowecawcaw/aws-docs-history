@@ -23,9 +23,9 @@ In the first step of the wizard, specify the target domains you want to test and
 1. In the **Target domains** section, enter your domain in the **Domain** field.
 2. Select a **Verification method**:
 
-   - **DNS_TXT** – Prove domain ownership by adding a TXT record to your domain’s DNS configuration.
-   - **HTTP_ROUTE** – Prove domain ownership by hosting a verification file at a specific URL on your domain.
-   - **PRIVATE_VPC** - Only usable for private VPC penetration testing. Verifies that the domain resolves to an IP in a private CIDR range
+   - **DNS\_TXT** – Prove domain ownership by adding a TXT record to your domain’s DNS configuration.
+   - **HTTP\_ROUTE** – Prove domain ownership by hosting a verification file at a specific URL on your domain.
+   - **PRIVATE\_VPC** - Only usable for private VPC penetration testing. Verifies that the domain resolves to an IP in a private CIDR range
    - For more information, see [Enable an application domain for penetration testing](enable-test-domain.md "enable-test-domain.md").
 
 3. Choose **Add another domain** to add additional domains (up to 5 total).

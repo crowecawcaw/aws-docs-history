@@ -54,11 +54,10 @@ You’ll be redirected to Atlassian to install the Forge app and authorize acces
     * Read and write pull requests
     * Read and write repository content
 
-7. You’ll be redirected back to the AWS Management Console to complete the registration.
-8. In the **Registration details** section, configure the following fields:
+7. You’ll be redirected back to the AWS Management Console to complete the registration. 8. In the **Registration details** section, configure the following fields:
 
-   1. **Installation ID** - Paste the installation ID you copied from the Forge app in Bitbucket (see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md")).
-   2. **Registration name** - Enter a descriptive name for this Bitbucket connection, such as "Acme-Engineering-Bitbucket".
+    1. **Installation ID** - Paste the installation ID you copied from the Forge app in Bitbucket (see [Find your Atlassian installation ID](find-atlassian-installation-id.md "find-atlassian-installation-id.md")).
+    2. **Registration name** - Enter a descriptive name for this Bitbucket connection, such as "Acme-Engineering-Bitbucket".
 
 9. Choose **Connect**.
 
