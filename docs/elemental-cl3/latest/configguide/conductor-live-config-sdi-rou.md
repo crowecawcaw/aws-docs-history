@@ -17,11 +17,11 @@ If SDI video inputs connect directly to the Elemental Live node with a cable, se
 
 Make sure you perform the configuration on the correct nodes.
 
-| Node                          | Work on this node?                                                                        |
-| ----------------------------- | ----------------------------------------------------------------------------------------- |
-| Primary Conductor Live node   | You \*configure<br>• the router<br>from the primary Conductor Live.                       |
-| Secondary Conductor Live node | No.                                                                                       |
-| Worker node                   | You physically \*connect<br>• the<br>router to each Elemental Live node that will use it. |
+| Node                          | Work on this node?                                                                       |
+| ----------------------------- | ---------------------------------------------------------------------------------------- |
+| Primary Conductor Live node   | You *configure<br>• the router<br>from the primary Conductor Live.                       |
+| Secondary Conductor Live node | No.                                                                                      |
+| Worker node                   | You physically *connect<br>• the<br>router to each Elemental Live node that will use it. |
 
 ###### Warning
 

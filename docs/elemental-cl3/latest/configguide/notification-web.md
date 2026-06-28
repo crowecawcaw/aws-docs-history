@@ -71,7 +71,7 @@ from Conductor Live.
      alert, then expand and complete the fields.
 
 4. Test your setup by typing the following at the command line of the Conductor Live
-   node:
+node:
 
 ```
 curl -X POST -d `"param1=value1&param2=value2" http://yourdomain.com`/webcallback/notification.php

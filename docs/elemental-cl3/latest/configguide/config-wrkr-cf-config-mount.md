@@ -53,13 +53,12 @@ primary Conductor Live synchronizes data on all the nodes.
    Mount Point**, complete the mount point fields as described
    in the following table, and choose **Create**.
 
-| Field            | Description                                                                                                                                                                                                                              |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Type**         | Choose the type of remote server:<br>• **CIFS**: Choose this for a Windows CIF<br>server or for a Windows, Linux, or Mac SMB server.<br>• **NFS**: Choose this for a Linux<br>server.<br>• **DAVFS**: Choose this for a DavFS<br>server. |
-| **Server Share** | The address of the folder that you want to make available on<br>this node. This is an address on the remote computer.                                                                                                                    |
-| **Mount Folder** | The folder on the node where the remote folder is mounted. As<br>shown, this folder must be under `/data/mnt`. You can<br>specify a sub-subfolder; if that folder does not already exist,<br>Conductor Live automatically creates it.    |
-| **User name**    | If the remote server folder is protected with user<br>credentials, enter the username here.                                                                                                                                              |
-| **Password**     | If the remote server folder is protected with a user<br>credentials, enter the password here.                                                                                                                                            |
-
-After a few minutes, the newly mounted folder appears on the web
-interface.
+| Field                                                            | Description                                                                                                                                                                                                                              |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type**                                                         | Choose the type of remote server:<br>• **CIFS**: Choose this for a Windows CIF<br>server or for a Windows, Linux, or Mac SMB server.<br>• **NFS**: Choose this for a Linux<br>server.<br>• **DAVFS**: Choose this for a DavFS<br>server. |
+| **Server Share**                                                 | The address of the folder that you want to make available on<br>this node. This is an address on the remote computer.                                                                                                                    |
+| **Mount Folder**                                                 | The folder on the node where the remote folder is mounted. As<br>shown, this folder must be under `/data/mnt`. You can<br>specify a sub-subfolder; if that folder does not already exist,<br>Conductor Live automatically creates it.    |
+| **User name**                                                    | If the remote server folder is protected with user<br>credentials, enter the username here.                                                                                                                                              |
+| **Password**                                                     | If the remote server folder is protected with a user<br>credentials, enter the password here.                                                                                                                                            |
+| After a few minutes, the newly mounted folder appears on the web |
+| interface.                                                       |

@@ -35,7 +35,7 @@ This preliminary step applies only in the following situation:
   version 2.25.5. You can do this, because the versions are within two major versions of
   each other.
 
-The preliminary step is to set the LEGACY_RECRUIT environment variable to True on each
+The preliminary step is to set the LEGACY\_RECRUIT environment variable to True on each
 worker node. Perform this step now.
 
 **Step 3: Add a node to the cluster**

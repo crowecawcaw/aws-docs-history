@@ -40,15 +40,14 @@ nodes**
 - On the secondary Conductor Live node, perform the following tasks. Perform these tasks in
   any order:
 
-      + Configure [DNS servers](config-cluster-dns.md "config-cluster-dns.md").
-      + Configure [Ethernet
-       interfaces and bonds](config-conductor-live-config-ethernet-add.md "config-conductor-live-config-ethernet-add.md")(optional).
-      + [Enable HTTPS](ssl-config.md "ssl-config.md") on the node.
-      + Configure [NTP servers](config-cluster-ntp.md "config-cluster-ntp.md").
-
-  You don't need to configure as many fields on the secondary Conductor Live because the
-  secondary Conductor Live will synchronize with the primary Conductor Live.
-  **Step 4: Configure features on the worker**
+  - Configure [DNS servers](config-cluster-dns.md "config-cluster-dns.md").
+  - Configure [Ethernet
+    interfaces and bonds](config-conductor-live-config-ethernet-add.md "config-conductor-live-config-ethernet-add.md")(optional).
+  - [Enable HTTPS](ssl-config.md "ssl-config.md") on the node.
+  - Configure [NTP servers](config-cluster-ntp.md "config-cluster-ntp.md").
+    You don't need to configure as many fields on the secondary Conductor Live because the
+    secondary Conductor Live will synchronize with the primary Conductor Live.
+    **Step 4: Configure features on the worker**
 
 On each worker node, configure the features that apply to that node, from the list in
 [Configure worker features](config-conductor-live-features.md "config-conductor-live-features.md").

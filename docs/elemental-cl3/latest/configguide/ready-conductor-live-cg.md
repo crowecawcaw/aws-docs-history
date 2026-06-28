@@ -12,23 +12,20 @@ Guide_](../ug.md "../ug.md").
 
 **Gather network information**
 
-1.  We strongly recommend that, if your deployment involves several Conductor Live clusters, you set
-    up each cluster in its own network.
-2.  Identify the network interfaces and devices for all the worker nodes, including the
-    following:
+1. We strongly recommend that, if your deployment involves several Conductor Live clusters, you set
+   up each cluster in its own network.
+2. Identify the network interfaces and devices for all the worker nodes, including the
+   following:
 
-        * Ethernet interfaces
+   - Ethernet interfaces
 
+   - SDI devices
 
-        * SDI devices
-
-
-        * DNS servers to connect to
-        * NTP servers to connect to
-        * Remote servers. For example, servers where files assets are stored that Elemental Live events
-         will use
-
-    **User authentication**
+   - DNS servers to connect to
+   - NTP servers to connect to
+   - Remote servers. For example, servers where files assets are stored that Elemental Live events
+     will use
+     **User authentication**
 
 Your organization might require that users present credentials in order to work with the
 nodes. You can implement a simple built-in user authentication, or you can implement PAM

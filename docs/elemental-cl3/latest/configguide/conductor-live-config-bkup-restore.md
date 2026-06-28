@@ -42,5 +42,5 @@ Where:
      have HTTPS enabled, omit this option.
 
 4. The file is unzipped and copied to the
-   appropriate
-   folder.
+appropriate
+folder.

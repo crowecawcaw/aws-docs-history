@@ -83,7 +83,7 @@ following information that is copied over:
 [elemental@hostname log]$ **tail -F /opt/elemental\_se/web/log/conductor\_live247.output**
 ```
 
-The conductor_live247.output log starts to scroll on the
+The conductor\_live247.output log starts to scroll on the
 screen and shows messages as they are occurring. Watch for
 the following INFO lines on the primary Conductor Live node:
 
