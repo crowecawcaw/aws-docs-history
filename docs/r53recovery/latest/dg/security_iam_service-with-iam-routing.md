@@ -3,19 +3,19 @@
 Before you use IAM to manage access to routing control in Amazon Application Recovery Controller (ARC), learn what IAM features are
 available to use with routing control.
 
-| IAM features that you can use with routing control in Amazon Application Recovery Controller (ARC)                                                                       | IAM feature | Routing control support |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ----------------------- |
-| [Identity-based policies](#security_iam_service-with-iam-routing-id-based-policies "#security_iam_service-with-iam-routing-id-based-policies")                           | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-routing-resource-based-policies "#security_iam_service-with-iam-routing-resource-based-policies")               | No          |
-| [Policy actions](#security_iam_service-with-iam-routing-id-based-policies-actions "#security_iam_service-with-iam-routing-id-based-policies-actions")                    | Yes         |
-| [Policy resources](#security_iam_service-with-iam-routing-id-based-policies-resources "#security_iam_service-with-iam-routing-id-based-policies-resources")              | Yes         |
-| [Policy condition keys](#security_iam_service-with-iam-routing-id-based-policies-conditionkeys "#security_iam_service-with-iam-routing-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](#security_iam_service-with-iam-routing-acls "#security_iam_service-with-iam-routing-acls")                                                                        | No          |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-routing-tags "#security_iam_service-with-iam-routing-tags")                                                  | Partial     |
-| [Temporary<br>credentials](#security_iam_service-with-iam-routing-roles-tempcreds "#security_iam_service-with-iam-routing-roles-tempcreds")                              | Yes         |
-| [Principal permissions](#security_iam_service-with-iam-routing-principal-permissions "#security_iam_service-with-iam-routing-principal-permissions")                     | Yes         |
-| [Service<br>roles](#security_iam_service-with-iam-routing-roles-service "#security_iam_service-with-iam-routing-roles-service")                                          | No          |
-| [Service-linked roles](#security_iam_service-with-iam-routing-roles-service-linked "#security_iam_service-with-iam-routing-roles-service-linked")                        | No          |
+IAM features that you can use with routing control in Amazon Application Recovery Controller (ARC)| IAM feature | Routing control support |
+| --- | --- |
+| [Identity-based policies](#security_iam_service-with-iam-routing-id-based-policies "#security_iam_service-with-iam-routing-id-based-policies") | Yes |
+| [Resource-based policies](#security_iam_service-with-iam-routing-resource-based-policies "#security_iam_service-with-iam-routing-resource-based-policies") | No |
+| [Policy actions](#security_iam_service-with-iam-routing-id-based-policies-actions "#security_iam_service-with-iam-routing-id-based-policies-actions") | Yes |
+| [Policy resources](#security_iam_service-with-iam-routing-id-based-policies-resources "#security_iam_service-with-iam-routing-id-based-policies-resources") | Yes |
+| [Policy condition keys](#security_iam_service-with-iam-routing-id-based-policies-conditionkeys "#security_iam_service-with-iam-routing-id-based-policies-conditionkeys") | Yes |
+| [ACLs](#security_iam_service-with-iam-routing-acls "#security_iam_service-with-iam-routing-acls") | No |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-routing-tags "#security_iam_service-with-iam-routing-tags") | Partial |
+| [Temporary<br>credentials](#security_iam_service-with-iam-routing-roles-tempcreds "#security_iam_service-with-iam-routing-roles-tempcreds") | Yes |
+| [Principal permissions](#security_iam_service-with-iam-routing-principal-permissions "#security_iam_service-with-iam-routing-principal-permissions") | Yes |
+| [Service<br>roles](#security_iam_service-with-iam-routing-roles-service "#security_iam_service-with-iam-routing-roles-service") | No |
+| [Service-linked roles](#security_iam_service-with-iam-routing-roles-service-linked "#security_iam_service-with-iam-routing-roles-service-linked") | No |
 
 To get a high-level, overall view of how AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.

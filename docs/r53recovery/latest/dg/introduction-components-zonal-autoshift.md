@@ -66,7 +66,7 @@ ARC reports an outcome for each practice run. The following are the possible pra
   practice runs](arc-zonal-autoshift.considerations.md#ZAConsiderationsPracticeRunOutcomes "arc-zonal-autoshift.considerations.md#ZAConsiderationsPracticeRunOutcomes").
 - **FAILED:** The outcome alarm entered an `ALARM` state during
   the practice run.
-- **CAPACITY_CHECK_FAILED:** The check for balanced capacity across Availability Zones for your load balancing
+- **CAPACITY\_CHECK\_FAILED:** The check for balanced capacity across Availability Zones for your load balancing
   and Auto Scaling group resources failed.
 
 **Built-in safety rules**
@@ -101,7 +101,7 @@ application traffic has been shifted away for a resource, and when that traffic 
 **Shift type**
 Defines the zonal shift type. Zonal shifts can have one of the following types:
 
-- **ZONAL_SHIFT**
-- **ZONAL_AUTOSHIFT**
-- **PRACTICE_RUN**
-- **FIS_EXPERIMENT**
+- **ZONAL\_SHIFT**
+- **ZONAL\_AUTOSHIFT**
+- **PRACTICE\_RUN**
+- **FIS\_EXPERIMENT**

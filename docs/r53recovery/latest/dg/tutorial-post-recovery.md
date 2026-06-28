@@ -21,23 +21,22 @@ Before you begin this tutorial, verify that you have the following:
 
 ## Step 1: Create a post-recovery workflow
 
-1.  From the Region switch console choose the plan, choose **Edit workflows**, select **Config**, check **Include post recovery workflow in the plan** and save.
-2.  In the Edit workflows page, Select the **Select a workflow to add steps** drop down and choose **Post-recovery**.
-3.  Choose **Add a step**.
-4.  Select the **Amazon RDS create cross Region replica execution block**.
-5.  In the right panel, configure the block:
+1. From the Region switch console choose the plan, choose **Edit workflows**, select **Config**, check **Include post recovery workflow in the plan** and save.
+2. In the Edit workflows page, Select the **Select a workflow to add steps** drop down and choose **Post-recovery**.
+3. Choose **Add a step**.
+4. Select the **Amazon RDS create cross Region replica execution block**.
+5. In the right panel, configure the block:
 
-        * **Step name**: Enter "Create cross-Region read replica"
-        * **Step description** (optional)
-        * **RDS DB instance ARN for primary Region**: The ARN of the database in primary Region, should be the same as the promote read replica step
-        * **RDS DB instance ARN for secondary Region**: The ARN of the promoted database in secondary, should be the same as the promote read replica step
-        * **Timeout** (optional): Enter a timeout value, such as 90 minutes
+   - **Step name**: Enter "Create cross-Region read replica"
+   - **Step description** (optional)
+   - **RDS DB instance ARN for primary Region**: The ARN of the database in primary Region, should be the same as the promote read replica step
+   - **RDS DB instance ARN for secondary Region**: The ARN of the promoted database in secondary, should be the same as the promote read replica step
+   - **Timeout** (optional): Enter a timeout value, such as 90 minutes
+     For information about the required IAM permissions for this execution block, see
+     [Amazon RDS execution block sample policy](security_iam_region_switch_rds.md "security_iam_region_switch_rds.md").
 
-    For information about the required IAM permissions for this execution block, see
-    [Amazon RDS execution block sample policy](security_iam_region_switch_rds.md "security_iam_region_switch_rds.md").
-
-6.  Choose **Save step**.
-7.  Choose **Save workflow**.
+6. Choose **Save step**.
+7. Choose **Save workflow**.
 
 ## Step 2: Execute the post-recovery workflow
 

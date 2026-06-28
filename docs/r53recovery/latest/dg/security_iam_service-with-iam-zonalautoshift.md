@@ -3,19 +3,19 @@
 Before you use IAM to manage access to zonal autoshift in Amazon Application Recovery Controller (ARC), learn what IAM features are
 available to use with zonal autoshift.
 
-| IAM features that you can use with zonal autoshift in ARC                                                                                                                              | IAM feature | Zonal autoshift support |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------- |
-| [Identity-based policies](#security_iam_service-with-iam-zonalautoshift-id-based-policies "#security_iam_service-with-iam-zonalautoshift-id-based-policies")                           | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-zonalautoshift-resource-based-policies "#security_iam_service-with-iam-zonalautoshift-resource-based-policies")               | No          |
-| [Policy actions](#security_iam_service-with-iam-zonalautoshift-id-based-policies-actions "#security_iam_service-with-iam-zonalautoshift-id-based-policies-actions")                    | Yes         |
-| [Policy resources](#security_iam_service-with-iam-zonalautoshift-id-based-policies-resources "#security_iam_service-with-iam-zonalautoshift-id-based-policies-resources")              | Yes         |
-| [Policy condition keys](#security_iam_service-with-iam-zonalautoshift-id-based-policies-conditionkeys "#security_iam_service-with-iam-zonalautoshift-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](#security_iam_service-with-iam-zonalautoshift-acls "#security_iam_service-with-iam-zonalautoshift-acls")                                                                        | No          |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-zonalautoshift-tags "#security_iam_service-with-iam-zonalautoshift-tags")                                                  | Partial     |
-| [Temporary<br>credentials](#security_iam_service-with-iam-zonalautoshift-roles-tempcreds "#security_iam_service-with-iam-zonalautoshift-roles-tempcreds")                              | Yes         |
-| [Principal permissions](#security_iam_service-with-iam-zonalautoshift-principal-permissions "#security_iam_service-with-iam-zonalautoshift-principal-permissions")                     | Yes         |
-| [Service<br>roles](#security_iam_service-with-iam-zonalautoshift-roles-service "#security_iam_service-with-iam-zonalautoshift-roles-service")                                          | No          |
-| [Service-linked roles](#security_iam_service-with-iam-zonalautoshift-roles-service-linked "#security_iam_service-with-iam-zonalautoshift-roles-service-linked")                        | Yes         |
+IAM features that you can use with zonal autoshift in ARC| IAM feature | Zonal autoshift support |
+| --- | --- |
+| [Identity-based policies](#security_iam_service-with-iam-zonalautoshift-id-based-policies "#security_iam_service-with-iam-zonalautoshift-id-based-policies") | Yes |
+| [Resource-based policies](#security_iam_service-with-iam-zonalautoshift-resource-based-policies "#security_iam_service-with-iam-zonalautoshift-resource-based-policies") | No |
+| [Policy actions](#security_iam_service-with-iam-zonalautoshift-id-based-policies-actions "#security_iam_service-with-iam-zonalautoshift-id-based-policies-actions") | Yes |
+| [Policy resources](#security_iam_service-with-iam-zonalautoshift-id-based-policies-resources "#security_iam_service-with-iam-zonalautoshift-id-based-policies-resources") | Yes |
+| [Policy condition keys](#security_iam_service-with-iam-zonalautoshift-id-based-policies-conditionkeys "#security_iam_service-with-iam-zonalautoshift-id-based-policies-conditionkeys") | Yes |
+| [ACLs](#security_iam_service-with-iam-zonalautoshift-acls "#security_iam_service-with-iam-zonalautoshift-acls") | No |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-zonalautoshift-tags "#security_iam_service-with-iam-zonalautoshift-tags") | Partial |
+| [Temporary<br>credentials](#security_iam_service-with-iam-zonalautoshift-roles-tempcreds "#security_iam_service-with-iam-zonalautoshift-roles-tempcreds") | Yes |
+| [Principal permissions](#security_iam_service-with-iam-zonalautoshift-principal-permissions "#security_iam_service-with-iam-zonalautoshift-principal-permissions") | Yes |
+| [Service<br>roles](#security_iam_service-with-iam-zonalautoshift-roles-service "#security_iam_service-with-iam-zonalautoshift-roles-service") | No |
+| [Service-linked roles](#security_iam_service-with-iam-zonalautoshift-roles-service-linked "#security_iam_service-with-iam-zonalautoshift-roles-service-linked") | Yes |
 
 To get a high-level, overall view of how AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.

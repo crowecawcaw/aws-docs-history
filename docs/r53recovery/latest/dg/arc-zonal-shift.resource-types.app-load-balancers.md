@@ -29,7 +29,9 @@ Console
 3. Select the Application Load Balancer name.
 4. On the **Attributes** tab, **Edit**.
 5. Under **Availability Zone routing configuration**, for
-   > ARC zonal shift integration, choose **Enable**.
+
+> ARC zonal shift integration, choose **Enable**.
+
 6. Choose **Save**.
 
 AWS CLI

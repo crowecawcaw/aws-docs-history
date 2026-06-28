@@ -6,19 +6,19 @@ available to use with ARC.
 Before you use IAM to manage access to readiness check in Amazon Application Recovery Controller (ARC), learn what IAM features are
 available to use with readiness check.
 
-| IAM features you can use with readiness check in Amazon Application Recovery Controller (ARC)                                                                                | IAM feature | Readiness check support |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------- |
-| [Identity-based policies](#security_iam_service-with-iam-readiness-id-based-policies "#security_iam_service-with-iam-readiness-id-based-policies")                           | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-readiness-resource-based-policies "#security_iam_service-with-iam-readiness-resource-based-policies")               | No          |
-| [Policy actions](#security_iam_service-with-iam-readiness-id-based-policies-actions "#security_iam_service-with-iam-readiness-id-based-policies-actions")                    | Yes         |
-| [Policy resources](#security_iam_service-with-iam-readiness-id-based-policies-resources "#security_iam_service-with-iam-readiness-id-based-policies-resources")              | Yes         |
-| [Policy condition keys](#security_iam_service-with-iam-readiness-id-based-policies-conditionkeys "#security_iam_service-with-iam-readiness-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](#security_iam_service-with-iam-readiness-acls "#security_iam_service-with-iam-readiness-acls")                                                                        | No          |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-readiness-tags "#security_iam_service-with-iam-readiness-tags")                                                  | Yes         |
-| [Temporary<br>credentials](#security_iam_service-with-iam-readiness-roles-tempcreds "#security_iam_service-with-iam-readiness-roles-tempcreds")                              | Yes         |
-| [Principal permissions](#security_iam_service-with-iam-readiness-principal-permissions "#security_iam_service-with-iam-readiness-principal-permissions")                     | Yes         |
-| [Service<br>roles](#security_iam_service-with-iam-readiness-roles-service "#security_iam_service-with-iam-readiness-roles-service")                                          | No          |
-| [Service-linked roles](#security_iam_service-with-iam-readiness-roles-service-linked "#security_iam_service-with-iam-readiness-roles-service-linked")                        | Yes         |
+IAM features you can use with readiness check in Amazon Application Recovery Controller (ARC)| IAM feature | Readiness check support |
+| --- | --- |
+| [Identity-based policies](#security_iam_service-with-iam-readiness-id-based-policies "#security_iam_service-with-iam-readiness-id-based-policies") | Yes |
+| [Resource-based policies](#security_iam_service-with-iam-readiness-resource-based-policies "#security_iam_service-with-iam-readiness-resource-based-policies") | No |
+| [Policy actions](#security_iam_service-with-iam-readiness-id-based-policies-actions "#security_iam_service-with-iam-readiness-id-based-policies-actions") | Yes |
+| [Policy resources](#security_iam_service-with-iam-readiness-id-based-policies-resources "#security_iam_service-with-iam-readiness-id-based-policies-resources") | Yes |
+| [Policy condition keys](#security_iam_service-with-iam-readiness-id-based-policies-conditionkeys "#security_iam_service-with-iam-readiness-id-based-policies-conditionkeys") | Yes |
+| [ACLs](#security_iam_service-with-iam-readiness-acls "#security_iam_service-with-iam-readiness-acls") | No |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-readiness-tags "#security_iam_service-with-iam-readiness-tags") | Yes |
+| [Temporary<br>credentials](#security_iam_service-with-iam-readiness-roles-tempcreds "#security_iam_service-with-iam-readiness-roles-tempcreds") | Yes |
+| [Principal permissions](#security_iam_service-with-iam-readiness-principal-permissions "#security_iam_service-with-iam-readiness-principal-permissions") | Yes |
+| [Service<br>roles](#security_iam_service-with-iam-readiness-roles-service "#security_iam_service-with-iam-readiness-roles-service") | No |
+| [Service-linked roles](#security_iam_service-with-iam-readiness-roles-service-linked "#security_iam_service-with-iam-readiness-roles-service-linked") | Yes |
 
 To get a high-level, overall view of how AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.

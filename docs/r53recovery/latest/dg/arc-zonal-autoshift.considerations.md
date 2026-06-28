@@ -146,7 +146,7 @@ The following are the possible practice run outcomes:
   - Practice run was ended because a zonal autoshift with
     precedence was initiated. See [Precedence for zonal shifts](arc-zonal-autoshift.how-it-works.md#ZAShiftPrecedence "arc-zonal-autoshift.how-it-works.md#ZAShiftPrecedence").
 
-- **CAPACITY_CHECK_FAILED:** The check for balanced capacity across
+- **CAPACITY\_CHECK\_FAILED:** The check for balanced capacity across
   Availability Zones for your load balancing and Auto Scaling group resources failed.
 - **PENDING:** The practice run is active (in progress). There's no outcome
   to return yet.

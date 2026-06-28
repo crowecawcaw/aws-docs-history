@@ -39,22 +39,22 @@ ARC audits resources by using the following readiness rules.
   to them.
 - **ApiGwV1ApiKeySource**: Inspects all API Gateway stages
   to ensure that they have the same value for `API Key
-Source`.
+ Source`.
 - **ApiGwV1BasePath**: Inspects all API Gateway stages to ensure that they are linked to the same base path.
 - **ApiGwV1BinaryMediaTypes**: Inspects all API Gateway stages to ensure that they support the same binary media types.
 - **ApiGwV1CacheClusterEnabled**: Inspects all API Gateway
   stages to ensure that either all have `Cache
-Cluster` enabled, or none do.
+ Cluster` enabled, or none do.
 - **ApiGwV1CacheClusterSize**: Inspects all API Gateway
   stages to ensure that they have the same `Cache Cluster
-Size`. If one has a greater value, the others are
+ Size`. If one has a greater value, the others are
   marked NOT READY.
 - **ApiGwV1CacheClusterStatus**: Inspects all API Gateway
   stages to ensure that the `Cache Cluster` is in
   the AVAILABLE state.
 - **ApiGwV1DisableExecuteApiEndpoint**: Inspects all
   API Gateway stages to ensure that either all have `Execute
-API Endpoint` disabled, or none do.
+ API Endpoint` disabled, or none do.
 - **ApiGwV1DomainName**: Inspects all API Gateway stages to ensure that they are linked to the same domain name.
 - **ApiGwV1EndpointConfiguration**: Inspects all
   API Gateway stages to ensure that they are linked to a domain with
@@ -98,7 +98,7 @@ API Endpoint` disabled, or none do.
   `Mutual TLS Authentication`.
 - **ApiGwV2ProtocolType**: Inspects all API Gateway stages
   to ensure that they have the same value for `Protocol
-Type`.
+ Type`.
 - **ApiGwV2RouteConfigs**: Inspects all API Gateway stages
   to ensure that they have the same hierarchy of routes with
   the same configuration.
@@ -113,7 +113,7 @@ Type`.
   `Security Policy`.
 - **ApiGwV2StageVariables**: Inspects all API Gateway
   stages to ensure that they all have the same `Stage
-Variables` as the other stages.
+ Variables` as the other stages.
 - **ApiGwV2ThrottlingBurstLimit**: Inspects all
   API Gateway stages to ensure that they have the same value for
   `Throttling Burst Limit`.
@@ -126,13 +126,13 @@ Variables` as the other stages.
 - **RdsClusterStatus**: Inspects each Aurora cluster to ensure that it has a status of either `AVAILABLE` or `BACKING-UP`.
 - **RdsEngineMode**: Inspects all Aurora clusters to
   ensure that they have the same value for `Engine
-Mode`.
+ Mode`.
 - **RdsEngineVersion**: Inspects all Aurora clusters
   to ensure that they have the same value for `Major
-Version`.
+ Version`.
 - **RdsGlobalReplicaLag**: Inspects each Aurora
   cluster to ensure that it has a `Global Replica
-Lag` of less than 30 seconds.
+ Lag` of less than 30 seconds.
 - **RdsNormalizedCapacity**: Inspects all Aurora clusters to ensure that they have a normalized capacity within 15% of the maximum in the resource set.
 - **RdsInstanceType**: Inspects all Aurora clusters to ensure that they have the same instance types.
 - **RdsQuotas**: Inspects all Aurora clusters to ensure that they conform to quotas (limits) that are managed by Service Quotas.
@@ -224,7 +224,7 @@ Lag` of less than 30 seconds.
 - **LambdaFunctionReservedConcurrentExecutions**:
   Inspects all Lambda functions to ensure that they all have
   the same value for `Reserved Concurrent
-Executions`. If one has a greater value, the
+ Executions`. If one has a greater value, the
   others are marked `NOT READY`.
 - **LambdaFunctionDeadLetterConfig**: Inspects all
   Lambda functions to ensure that they either all have a
@@ -280,7 +280,7 @@ Executions`. If one has a greater value, the
 - **MskClusterEncryptionInTransitInCluster**:
   Inspects all MSK clusters to ensure that they have the same
   value for `Encryption In Transit In
-Cluster`.
+ Cluster`.
 - **MskClusterEncryptionInClientBroker**: Inspects
   all MSK clusters to ensure that they have the same value for
   `Encryption In Transit Client Broker`.
@@ -302,7 +302,7 @@ Cluster`.
 - **MskClusterLoggingInCloudWatch**: Inspects all
   MSK clusters to ensure that they have the same value for
   `Is Logging Available In CloudWatch
-Logs`.
+ Logs`.
 - **MskClusterNumberOfBrokerNodes**: Inspects all
   MSK clusters to ensure they have the same value for
   `Number of Broker Nodes`. If one has a
@@ -338,7 +338,7 @@ Logs`.
 - **R53HealthCheckInsufficientDataHealthStatus**:
   Inspects all Route 53 health checks to ensure that they all
   have the same value for `Insufficient Data Health
-Status`.
+ Status`.
 - **R53HealthCheckInverted**: Inspects all Route 53
   health checks to ensure that they are all Inverted, or are
   all not Inverted.
@@ -367,7 +367,7 @@ Status`.
 
 - **SnsTopicDisplayName**: Inspects all SNS topics
   to ensure that they have the same value for `Display
-Name`.
+ Name`.
 - **SnsTopicDeliveryPolicy**: Inspects all SNS topics that have HTTPS subscribers to ensure that they have the same `EffectiveDeliveryPolicy`.
 - **SnsTopicSubscription**: Inspects all SNS topics to ensure that they have the same number of subscribers for each of their protocols.
 - **SnsTopicAwsKmsKey**: Inspects all SNS topics to
@@ -382,7 +382,7 @@ Name`.
   `Type`.
 - **SqsQueueDelaySeconds**: Inspects all SQS queues
   to ensure that they all have the same value for `Delay
-Seconds`.
+ Seconds`.
 - **SqsQueueMaximumMessageSize**: Inspects all SQS
   queues to ensure that they all have the same value for
   `Maximum Message Size`.
@@ -392,7 +392,7 @@ Seconds`.
 - **SqsQueueReceiveMessageWaitTimeSeconds**:
   Inspects all SQS queues to ensure that they all have the
   same value for `Receive Message Wait Time
-Seconds`.
+ Seconds`.
 - **SqsQueueRedrivePolicyMaxReceiveCount**: Inspects
   all SQS queues to ensure that they all have the same value
   for `Redrive Policy Max Receive Count`.
@@ -415,7 +415,7 @@ Seconds`.
 - **VpcState**: Inspects each VPC to ensure that it is in an `AVAILABLE` state.
 - **VpcInstanceTenancy**: Inspects all VPCs to
   ensure that they all have the same value for `Instance
-Tenancy`.
+ Tenancy`.
 - **VpcIsDefault**: Inspects all VPCs to ensure that
   they have the same value for `Is Default.`
 - **VpcSubnetState**: Inspects each VPC subnet to ensure that it is in an AVAILABLE state.
@@ -448,7 +448,7 @@ Tenancy`.
 - **VpnConnectionsRoutesCidr**: Inspects all VPN connections to ensure that they have the same destination CIDR blocks.
 - **VpnConnectionsInstanceType**: Inspects all VPN
   connections to ensure that they have the same `Instance
-Type`.
+ Type`.
 
 **Site-to-Site VPN gateways**
 

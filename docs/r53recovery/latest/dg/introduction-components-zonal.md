@@ -57,10 +57,10 @@ for a resource, and when that shift ends.
 **Shift type**
 Defines the zonal shift type. The `shiftType` can have the following values:
 
-- **ZONAL_SHIFT**
-- **ZONAL_AUTOSHIFT**
-- **PRACTICE_RUN**
-- **FIS_EXPERIMENT**
+- **ZONAL\_SHIFT**
+- **ZONAL\_AUTOSHIFT**
+- **PRACTICE\_RUN**
+- **FIS\_EXPERIMENT**
 
 **Expiry time (expiration time)**
 

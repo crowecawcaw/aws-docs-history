@@ -95,90 +95,86 @@ Before executing the plan, Region switch will verify the following:
 
 For more information about this execution block, see [Amazon EC2 Auto Scaling group execution block](ec2-auto-scaling-block.md "ec2-auto-scaling-block.md").
 
-1.  Choose **Add a step**, and then select **Run in sequence**.
-2.  Select the **EC2 Auto Scaling execution block**, and then choose **Add and edit**. This block will allow you to start increasing capacity in the passive Region.
-3.  In the right panel, configure the block:
+1. Choose **Add a step**, and then select **Run in sequence**.
+2. Select the **EC2 Auto Scaling execution block**, and then choose **Add and edit**. This block will allow you to start increasing capacity in the passive Region.
+3. In the right panel, configure the block:
 
-        * **Step name**: Enter "Scale"
-        * **Step description** (optional)
-        * **Auto Scaling group ARN for us-east-1**: The ARN of your ASG in us-east-1
-        * **Auto Scaling group ARN for us-west-2**: The ARN of your ASG in us-west-2
-        * **Percent to match the source Region's capacity**: Enter 100
-        * **Capacity monitoring approach**: Leave as "Most recent"
-        * **Timeout** (optional)
+   - **Step name**: Enter "Scale"
+   - **Step description** (optional)
+   - **Auto Scaling group ARN for us-east-1**: The ARN of your ASG in us-east-1
+   - **Auto Scaling group ARN for us-west-2**: The ARN of your ASG in us-west-2
+   - **Percent to match the source Region's capacity**: Enter 100
+   - **Capacity monitoring approach**: Leave as "Most recent"
+   - **Timeout** (optional)
+     For information about the required IAM permissions for this execution block, see
+     [EC2 Auto Scaling execution block sample policy](security_iam_region_switch_ec2_autoscaling.md "security_iam_region_switch_ec2_autoscaling.md").
 
-    For information about the required IAM permissions for this execution block, see
-    [EC2 Auto Scaling execution block sample policy](security_iam_region_switch_ec2_autoscaling.md "security_iam_region_switch_ec2_autoscaling.md").
-
-4.  Choose **Save step**.
+4. Choose **Save step**.
 
 ### Add manual approval execution block
 
 For more information about this execution block, see [Manual approval execution block](manual-approval-block.md "manual-approval-block.md").
 
-1.  Choose **Add a step**.
-2.  Select the **Manual approval execution block** and add it to the design window. This block
-    allows for human verification before proceeding.
-3.  In the right panel, configure the block:
+1. Choose **Add a step**.
+2. Select the **Manual approval execution block** and add it to the design window. This block
+   allows for human verification before proceeding.
+3. In the right panel, configure the block:
 
-        * **Step name**: Enter "Manual approval before setup"
-        * **Step description** (optional)
-        * **IAM approval role**: The role a user must assume in order to approve the execution
-        * **Timeout** (optional). After timeout, execution pauses and you can choose to
-         retry, skip, or cancel.
+   - **Step name**: Enter "Manual approval before setup"
+   - **Step description** (optional)
+   - **IAM approval role**: The role a user must assume in order to approve the execution
+   - **Timeout** (optional). After timeout, execution pauses and you can choose to
+     retry, skip, or cancel.
+     For information about the required IAM permissions for this execution block, see
+     [Manual approval execution block sample policy](security_iam_region_switch_manual_approval.md "security_iam_region_switch_manual_approval.md").
 
-    For information about the required IAM permissions for this execution block, see
-    [Manual approval execution block sample policy](security_iam_region_switch_manual_approval.md "security_iam_region_switch_manual_approval.md").
-
-4.  Choose **Save step**.
+4. Choose **Save step**.
 
 ### Add custom action Lambda execution block for maintenance page
 
 For more information about this execution block, see [Custom action Lambda execution block](custom-action-lambda-block.md "custom-action-lambda-block.md").
 
-1.  Choose **Add a step**.
-2.  Select the **Custom action Lambda execution block**, and then choose **Add and edit**.
-    This block publishes a maintenance page in the Region that is activating.
-3.  In the right panel, configure the block:
+1. Choose **Add a step**.
+2. Select the **Custom action Lambda execution block**, and then choose **Add and edit**.
+   This block publishes a maintenance page in the Region that is activating.
+3. In the right panel, configure the block:
 
-        * **Step name**: Enter "Display maintenance page"
-        * **Step description** (optional)
-        * **Lambda ARN for activating us-east-1**: The ARN of the maintenance page Lambda
-         function deployed in us-east-1
-        * **Lambda ARN for activating us-west-2**: The ARN of the maintenance page Lambda
-         function deployed in us-west-2
-        * **Region to run the Lambda function**: Choose **Run in activating Region**
-        * **Timeout** (optional)
-        * **Retry interval** (optional)
+   - **Step name**: Enter "Display maintenance page"
+   - **Step description** (optional)
+   - **Lambda ARN for activating us-east-1**: The ARN of the maintenance page Lambda
+     function deployed in us-east-1
+   - **Lambda ARN for activating us-west-2**: The ARN of the maintenance page Lambda
+     function deployed in us-west-2
+   - **Region to run the Lambda function**: Choose **Run in activating Region**
+   - **Timeout** (optional)
+   - **Retry interval** (optional)
+     For information about the required IAM permissions for this execution block, see
+     [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md "security_iam_region_switch_lambda.md").
 
-    For information about the required IAM permissions for this execution block, see
-    [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md "security_iam_region_switch_lambda.md").
-
-4.  Choose **Save step**.
+4. Choose **Save step**.
 
 ### Add Aurora Global Database execution block
 
 For more information about this execution block, see [Amazon Aurora Global Database execution block](aurora-global-database-block.md "aurora-global-database-block.md").
 
-1.  Choose **Add a step**.
-2.  Select the **Aurora Global Database execution block**, and then choose **Add and edit**.
-    This block triggers an Aurora global database switchover (no data loss). For more information, see
-    [Using switchover
-    or failover for Aurora Global Database](../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md") in the _Aurora User Guide_.
-3.  In the right panel, configure the block:
+1. Choose **Add a step**.
+2. Select the **Aurora Global Database execution block**, and then choose **Add and edit**.
+   This block triggers an Aurora global database switchover (no data loss). For more information, see
+   [Using switchover
+   or failover for Aurora Global Database](../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md") in the _Aurora User Guide_.
+3. In the right panel, configure the block:
 
-        * **Step name**: Enter **Aurora switchover**
-        * **Step description** (optional)
-        * **Aurora global database identifier**: The name of the Aurora cluster
-        * **Cluster ARN used for activating us-east-1**: The Aurora cluster ARN in us-east-1
-        * **Cluster ARN used for activating us-west-2**: The Aurora cluster ARN in us-west-2
-        * **Select the option for Aurora database**: Choose **Switchover**
-        * **Timeout** (optional)
+   - **Step name**: Enter **Aurora switchover**
+   - **Step description** (optional)
+   - **Aurora global database identifier**: The name of the Aurora cluster
+   - **Cluster ARN used for activating us-east-1**: The Aurora cluster ARN in us-east-1
+   - **Cluster ARN used for activating us-west-2**: The Aurora cluster ARN in us-west-2
+   - **Select the option for Aurora database**: Choose **Switchover**
+   - **Timeout** (optional)
+     For information about the required IAM permissions for this execution block, see
+     [Aurora Global Database execution block sample policy](security_iam_region_switch_aurora.md "security_iam_region_switch_aurora.md").
 
-    For information about the required IAM permissions for this execution block, see
-    [Aurora Global Database execution block sample policy](security_iam_region_switch_aurora.md "security_iam_region_switch_aurora.md").
-
-4.  Choose **Save step**.
+4. Choose **Save step**.
 
 ### Add ARC routing control execution block
 

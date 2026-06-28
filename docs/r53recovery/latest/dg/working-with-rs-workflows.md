@@ -18,27 +18,26 @@ for managing recovery. For example:
 
 # To create Region switch plan workflows
 
-1.  In the Region switch plan that you created, choose **Build workflows**.
-2.  Select one of the following workflow options:
+1. In the Region switch plan that you created, choose **Build workflows**.
+2. Select one of the following workflow options:
 
-    - **Build the same activation workflow for all Regions** - Enables you to use
-      the same activation workflow across Regions.
-    - **Build workflows separately for each Region** - Builds an individual activation
-      workflow for each Region.
+   - **Build the same activation workflow for all Regions** - Enables you to use
+     the same activation workflow across Regions.
+   - **Build workflows separately for each Region** - Builds an individual activation
+     workflow for each Region.
 
-3.  Optionally, provide a description for each workflow.
-4.  Define the workflow required to recover your application. In your workflow, you add
-    _execution blocks_ to define the steps that you want Region switch to
-    perform for your recovery. Each execution block defines actions, such as application
-    traffic rerouting or database recovery in an activating Region, and supports resources
-    in another AWS account. You can opt to have execution blocks run in parallel or
-    sequentially. For detailed information about the specific execution blocks that you
-    can add to workflows, see [Add execution blocks](working-with-rs-execution-blocks.md "working-with-rs-execution-blocks.md").
-5.  Depending on the workflow option that you selected, do the following:
+3. Optionally, provide a description for each workflow.
+4. Define the workflow required to recover your application. In your workflow, you add
+   _execution blocks_ to define the steps that you want Region switch to
+   perform for your recovery. Each execution block defines actions, such as application
+   traffic rerouting or database recovery in an activating Region, and supports resources
+   in another AWS account. You can opt to have execution blocks run in parallel or
+   sequentially. For detailed information about the specific execution blocks that you
+   can add to workflows, see [Add execution blocks](working-with-rs-execution-blocks.md "working-with-rs-execution-blocks.md").
+5. Depending on the workflow option that you selected, do the following:
 
-        * If you selected **Build the same activation workflow for all Regions**, one
-         activation workflow is required.
-        * If you selected **Build workflows separately for each Region**, two activation
-         workflows are required.
-
-    For active/active plans, you must define both an activation workflow and a deactivation workflow.
+   - If you selected **Build the same activation workflow for all Regions**, one
+     activation workflow is required.
+   - If you selected **Build workflows separately for each Region**, two activation
+     workflows are required.
+     For active/active plans, you must define both an activation workflow and a deactivation workflow.

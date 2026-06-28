@@ -18,22 +18,21 @@ resource.
 
 ## To create a readiness check
 
-1.  Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
-2.  Choose **Readiness check**.
-3.  On the **Readiness** page, choose **Create**, and then choose a
-    **Readiness check**.
-4.  Enter a name for your readiness check, choose the resource type that you want to check,
-    and then choose **Next**.
-5.  Add a resource set for your readiness check. A resource set is a group of resources of the same type
-    in different replicas. Choose one of the following:
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Choose **Readiness check**.
+3. On the **Readiness** page, choose **Create**, and then choose a
+   **Readiness check**.
+4. Enter a name for your readiness check, choose the resource type that you want to check,
+   and then choose **Next**.
+5. Add a resource set for your readiness check. A resource set is a group of resources of the same type
+   in different replicas. Choose one of the following:
 
-        * Create a readiness check with resources in a resource set that you've already created.
-        * Create a new resource set.
+   - Create a readiness check with resources in a resource set that you've already created.
+   - Create a new resource set.
+     If you choose to create a new resource set, enter a name for it and choose **Add**.
 
-    If you choose to create a new resource set, enter a name for it and choose **Add**.
-
-6.  Copy and paste Amazon Resource Names (ARNs) one by one for each resource that you want to include in the set, and then choose
-    **Next**.
+6. Copy and paste Amazon Resource Names (ARNs) one by one for each resource that you want to include in the set, and then choose
+   **Next**.
 
 ###### Tip
 

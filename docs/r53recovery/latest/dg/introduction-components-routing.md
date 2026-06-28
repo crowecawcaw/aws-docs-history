@@ -56,7 +56,7 @@ example, you can create a safety rule that creates a routing
 control that acts as an overall "on/off" switch so that you can
 enable or disable a set of other routing controls.
 
-\***\*Endpoint (cluster endpoint)\*\***
+****Endpoint (cluster endpoint)****
 
 Each cluster in ARC has five Regional endpoints that you can use
 for setting and retrieving routing control states. Your process for

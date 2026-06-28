@@ -8,18 +8,17 @@ To learn about using recovery and routing control API operations with Amazon App
 
 # To create a safety rule
 
-1.  Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
-2.  Choose **Routing control**.
-3.  On the **Routing control** page, choose a control panel.
-4.  On the control panel details page, choose **Action**, and then choose **Add safety rule**.
-5.  Choose a type of rule to add: **Assertion rule** or **Gating rule**.
-6.  Choose a name and, optionally, change the wait period.
-7.  Specify the configuration options for the safety rule.
+1. Open the ARC console at [https://console.aws.amazon.com/route53recovery/home#/dashboard](https://console.aws.amazon.com/route53recovery/home#/dashboard "https://console.aws.amazon.com/route53recovery/home#/dashboard").
+2. Choose **Routing control**.
+3. On the **Routing control** page, choose a control panel.
+4. On the control panel details page, choose **Action**, and then choose **Add safety rule**.
+5. Choose a type of rule to add: **Assertion rule** or **Gating rule**.
+6. Choose a name and, optionally, change the wait period.
+7. Specify the configuration options for the safety rule.
 
-        * For an assertion rule, specify the asserted routing controls.
-        * For a gating rule, specify the gating routing control and target routing controls.
-
-    For both rules, specify the rule configuration by choosing the type and threshold, and whether the rule is inverted.
+   - For an assertion rule, specify the asserted routing controls.
+   - For a gating rule, specify the gating routing control and target routing controls.
+     For both rules, specify the rule configuration by choosing the type and threshold, and whether the rule is inverted.
 
 ###### Note
 

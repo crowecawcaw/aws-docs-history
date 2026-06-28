@@ -29,11 +29,10 @@ determine readiness. Specifically, the rules work as follows:
 
 - The rule inspects _each resource_ in the resource set to ensure a condition.
 
-      + If all resources succeed, all resources are set as `READY`.
-      + If one resource fails, that resource is set as `NOT READY`, and the other cells remain `READY`.
-
-  For example: **MskClusterState:** Inspects each Amazon MSK cluster to ensure that it is in an
-  `ACTIVE` state.
+  - If all resources succeed, all resources are set as `READY`.
+  - If one resource fails, that resource is set as `NOT READY`, and the other cells remain `READY`.
+    For example: **MskClusterState:** Inspects each Amazon MSK cluster to ensure that it is in an
+    `ACTIVE` state.
 
 - The rule inspects _all resources_ in the resource set to ensure a condition.
 
@@ -43,13 +42,12 @@ determine readiness. Specifically, the rules work as follows:
 
 - Non-critical rule: The rule inspects all resources in the resource set to ensure a condition.
 
-      + If any fails, the readiness status is unchanged. A rule with this behavior has a note in its description.For example: **ElbV2CheckAzCount:** Inspects each Network Load Balancer to ensure that it is attached to only one Availability Zone.
-
-  Note: This rule does not affect readiness status.
-  In addition, ARC takes an extra step for quotas. If a readiness check detects a mismatch across cells for service
-  quotas (the maximum value for resource creation and operations) for any supported resource, ARC automatically raises the quota
-  for the resource with the lower quota. This applies only to quotas (limits). For capacity, you should add additional capacity
-  as required for your application needs.
+  - If any fails, the readiness status is unchanged. A rule with this behavior has a note in its description.For example: **ElbV2CheckAzCount:** Inspects each Network Load Balancer to ensure that it is attached to only one Availability Zone.
+    Note: This rule does not affect readiness status.
+    In addition, ARC takes an extra step for quotas. If a readiness check detects a mismatch across cells for service
+    quotas (the maximum value for resource creation and operations) for any supported resource, ARC automatically raises the quota
+    for the resource with the lower quota. This applies only to quotas (limits). For capacity, you should add additional capacity
+    as required for your application needs.
 
 You can also set up an Amazon EventBridge notification for readiness checks, for example, when any readiness check status changes to `NOT READY`.
 Then when a configuration mismatch is detected, EventBridge sends you a notification and you can take corrective action to make
