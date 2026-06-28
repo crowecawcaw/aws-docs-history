@@ -6,7 +6,7 @@ Lambda. The following known limitations apply:
 
 | Limitation                | Impact                                                                           | Workaround                                                                     |
 | ------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| Non-VPC Lambda            | Lambda functions without VPC connectivity are not covered                        | Connect Lambda to VPC or manually track dependencies                           |
+| Non-VPC Lambda            | Lambda functions without VPC connectivity are not covered                        | Connect Lambda functions to VPC                                                |
 | Direct IP connections     | Connections made by IP address (not DNS) are not discovered                      | No workaround                                                                  |
 | Infrequent dependencies   | Dependencies called less than once per hour may be missed in initial discovery   | 35-day lookback catches most; very rare calls may not appear                   |
 | Kubernetes shared tenancy | Multi-tenant Amazon EKS clusters may attribute dependencies to the wrong service | Verify compute resource attribution is correctly mapping resources to services |

@@ -55,9 +55,9 @@ aws resiliencehubv2 create-service \
 The following table describes the available input source types that you can add after
 creating the service:
 
-| Input source                                   | Use when                                                               |
-| ---------------------------------------------- | ---------------------------------------------------------------------- |
-| **AWS CloudFormation stacks**                  | Your infrastructure is defined in AWS CloudFormation.                  |
-| **Terraform state files**                      | Your infrastructure is managed by Terraform (state file in Amazon S3). |
-| **Resource tags**                              | You tag resources by service or application.                           |
-| **Amazon Elastic Kubernetes Service clusters** | Your service runs on Amazon EKS.                                       |
+| Input source                                   | Use when                                                                                                                                                                                                                                       |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AWS CloudFormation stacks**                  | Your infrastructure is defined in AWS CloudFormation.                                                                                                                                                                                          |
+| **Terraform state files**                      | Your infrastructure is managed by Terraform (state file in Amazon S3).                                                                                                                                                                         |
+| **Resource tags**                              | The service discovers resources by matching tags. A single tag-based input source<br>with multiple tags discovers only resources that match all specified tags. Multiple<br>tag-based input sources discover resources that match any of them. |
+| **Amazon Elastic Kubernetes Service clusters** | Your service runs on Amazon EKS.                                                                                                                                                                                                               |

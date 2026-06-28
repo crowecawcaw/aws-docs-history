@@ -48,8 +48,8 @@ list:
     * **Non critical**
 
 8. For both **RTO** and **RPO** targets, under
-   **Customer Application RTO and RPO**, enter a numeric value
-   in the box, and then choose the unit of time that the value represents.
+**Customer Application RTO and RPO**, enter a numeric value
+in the box, and then choose the unit of time that the value represents.
 
 Repeat these entries under **Infrastructure RTO and RPO** for
 **Infrastructure** and **Availability
@@ -79,8 +79,8 @@ The **Create resiliency policy** page displays. 3. Enter a name for the policy. 
     * **Non critical**
 
 6. For both **RTO** and **RPO** targets, under
-   **Customer Application RTO and RPO**, enter a numeric value
-   in the box and then choose the unit of time that the value represents.
+**Customer Application RTO and RPO**, enter a numeric value
+in the box and then choose the unit of time that the value represents.
 
 Repeat these entries under **Infrastructure RTO and RPO** for
 **Infrastructure** and **Availability
@@ -116,4 +116,4 @@ choose one of the following predetermined resiliency policy tiers:
     * **Foundational Core Service**
 
 7. To create the resiliency policy, choose **Create
-   policy**.
+policy**.

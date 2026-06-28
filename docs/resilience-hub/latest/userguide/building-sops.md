@@ -45,12 +45,9 @@ information:
      of the AWS CloudFormation stack that contains the SOP details.
 
 3. Under **Template details**, choose the link in **Templates S3
-   Path** to open the template object in Amazon S3 console.
-4. In Amazon S3 console, from **Objects** table, choose the SOP folder link.
-5. To copy the Amazon S3 path, select the check box in front of the JSON file and choose
-   **Copy URL**.
-6. Create an AWS CloudFormation stack from AWS CloudFormation console. For more information about creating an
-   AWS CloudFormation stack, see [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
+Path** to open the template object in Amazon S3 console. 4. In Amazon S3 console, from **Objects** table, choose the SOP folder link. 5. To copy the Amazon S3 path, select the check box in front of the JSON file and choose
+**Copy URL**. 6. Create an AWS CloudFormation stack from AWS CloudFormation console. For more information about creating an
+AWS CloudFormation stack, see [https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md").
 
 While creating the AWS CloudFormation stack, you must provide the Amazon S3 path that you copied from
 the previous step.

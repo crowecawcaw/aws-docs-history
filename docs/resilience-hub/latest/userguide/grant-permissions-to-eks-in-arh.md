@@ -360,8 +360,8 @@ following:
     	```
 
 3. Update the `aws-auth ConfigMap` to map the
-   `resilience-hub-eks-access-group` with the IAM role
-   that is used for accessing Amazon EKS cluster.
+`resilience-hub-eks-access-group` with the IAM role
+that is used for accessing Amazon EKS cluster.
 
 This step creates a mapping between the IAM role used in step 1 with
 the Kubernetes group created in step 2. This mapping grants permissions

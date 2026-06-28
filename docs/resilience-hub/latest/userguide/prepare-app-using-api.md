@@ -14,7 +14,7 @@ see the following topics:
 
 To create a new application in AWS Resilience Hub, you must call the `CreateApp`
 API and provide a unique application name. For more information about this API, see
-[https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_CreateApp.html](../APIReference/API_CreateApp.md "../APIReference/API_CreateApp.md").
+[https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_CreateApp.html](../APIReference/API_CreateApp.md "../APIReference/API_CreateApp.md").
 
 The following example shows how to create a new application `newApp` in
 AWS Resilience Hub using `CreateApp` API.
@@ -47,7 +47,7 @@ aws resiliencehub create-app --name newApp
 After creating the application, you must create a resiliency policy that enables
 you to understand your application’s resiliency posture using
 `CreateResiliencyPolicy` API. For more information about this API,
-see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_CreateResiliencyPolicy.html](../APIReference/API_CreateResiliencyPolicy.md "../APIReference/API_CreateResiliencyPolicy.md").
+see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_CreateResiliencyPolicy.html](../APIReference/API_CreateResiliencyPolicy.md "../APIReference/API_CreateResiliencyPolicy.md").
 
 The following example shows how to create `newPolicy` for your
 application in AWS Resilience Hub using `CreateResiliencyPolicy` API.
@@ -100,13 +100,13 @@ application:
 
 - `ImportResourcesToDraftAppVersion` – This API allows you
   to import resources to the draft version of your application from different
-  input sources. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ImportResourcesToDraftAppVersion.html](../APIReference/API_ImportResourcesToDraftAppVersion.md "../APIReference/API_ImportResourcesToDraftAppVersion.md").
+  input sources. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_ImportResourcesToDraftAppVersion.html](../APIReference/API_ImportResourcesToDraftAppVersion.md "../APIReference/API_ImportResourcesToDraftAppVersion.md").
 - `PublishAppVersion` – This API publishes a new version
   of the application along with the updated AppComponents. For more
-  information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_PublishAppVersion.html](../APIReference/API_PublishAppVersion.md "../APIReference/API_PublishAppVersion.md").
+  information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_PublishAppVersion.html](../APIReference/API_PublishAppVersion.md "../APIReference/API_PublishAppVersion.md").
 - `DescribeDraftAppVersionResourcesImportStatus` – This
   API allows you to monitor the import status of your resources to an
-  application version. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeDraftAppVersionResourcesImportStatus.html](../APIReference/API_DescribeDraftAppVersionResourcesImportStatus.md "../APIReference/API_DescribeDraftAppVersionResourcesImportStatus.md").
+  application version. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_DescribeDraftAppVersionResourcesImportStatus.html](../APIReference/API_DescribeDraftAppVersionResourcesImportStatus.md "../APIReference/API_DescribeDraftAppVersionResourcesImportStatus.md").
 
 The following example shows how to import resources to your application in
 AWS Resilience Hub using `ImportResourcesToDraftAppVersion` API.
@@ -209,7 +209,7 @@ application.
 
 1. To publish the draft version of your application, use
    `PublishAppVersion` API. For more information about this API,
-   see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_PublishAppVersion.html](../APIReference/API_PublishAppVersion.md "../APIReference/API_PublishAppVersion.md").
+   see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_PublishAppVersion.html](../APIReference/API_PublishAppVersion.md "../APIReference/API_PublishAppVersion.md").
 
 The following example shows how to publish the draft version of the
 application in AWS Resilience Hub using `PublishAppVersion` API.
@@ -232,7 +232,7 @@ aws resiliencehub publish-app-version \
 
 2. Apply a resiliency policy to the released version of your application
    using `UpdateApp` API. For more information about this API, see
-   [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_UpdateApp.html](../APIReference/API_UpdateApp.md "../APIReference/API_UpdateApp.md").
+   [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_UpdateApp.html](../APIReference/API_UpdateApp.md "../APIReference/API_UpdateApp.md").
 
 The following example shows how to apply a resiliency policy to the
 released version of an application in AWS Resilience Hub using `UpdateApp`

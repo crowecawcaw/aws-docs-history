@@ -97,20 +97,18 @@ options in the **Applications** page:
   To apply this filter, choose the calendar icon and select one of the following
   options to filter by the results that matches the time range:
 
-      + **Relative range** – Select one of the available
-       options and choose **Apply**.
+  - **Relative range** – Select one of the available
+    options and choose **Apply**.
 
-
-      If you choose **Customised range** option, enter a
-       duration in **Enter duration** box and select the
-       appropriate unit of time from **Unit of time** dropdown
-       list, then choose **Apply**.
-      + **Absolute range** – To specify the date and time
-       range, provide the start time and end time, and then choose
-       **Apply**.
-
-  The following topics show the different approaches for describing an AWS Resilience Hub application
-  and how to manage them.
+  If you choose **Customised range** option, enter a
+  duration in **Enter duration** box and select the
+  appropriate unit of time from **Unit of time** dropdown
+  list, then choose **Apply**.
+  - **Absolute range** – To specify the date and time
+    range, provide the start time and end time, and then choose
+    **Apply**.
+    The following topics show the different approaches for describing an AWS Resilience Hub application
+    and how to manage them.
 
 ###### Topics
 

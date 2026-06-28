@@ -17,10 +17,10 @@ To run resiliency assessments in AWS Resilience Hub and monitor their status, yo
 the following APIs:
 
 - `StartAppAssessment` – This API creates a new assessment
-  for an application. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_StartAppAssessment.html](../APIReference/API_StartAppAssessment.md "../APIReference/API_StartAppAssessment.md").
+  for an application. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_StartAppAssessment.html](../APIReference/API_StartAppAssessment.md "../APIReference/API_StartAppAssessment.md").
 - `DescribeAppAssessment` – This API describes an
   assessment for the application and provides the completion status of the
-  assessment. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeAppAssessment.html](../APIReference/API_DescribeAppAssessment.md "../APIReference/API_DescribeAppAssessment.md").
+  assessment. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_DescribeAppAssessment.html](../APIReference/API_DescribeAppAssessment.md "../APIReference/API_DescribeAppAssessment.md").
 
 The following example shows how to start running a new assessment in AWS Resilience Hub
 using `StartAppAssessment` API.
@@ -165,10 +165,10 @@ results using the following APIs.
   addition, you can also extract the compliance status from
   `complianceStatus` variable, and the resiliency score for
   each disruption type from the `resiliencyScore` structure. For
-  more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeAppAssessment.html](../APIReference/API_DescribeAppAssessment.md "../APIReference/API_DescribeAppAssessment.md").
+  more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_DescribeAppAssessment.html](../APIReference/API_DescribeAppAssessment.md "../APIReference/API_DescribeAppAssessment.md").
 - `ListAlarmRecommendations` – This API allows you to
   obtain the alarm recommendations using the Amazon Resource Name (ARN) of the
-  assessment. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ListAlarmRecommendations.html](../APIReference/API_ListAlarmRecommendations.md "../APIReference/API_ListAlarmRecommendations.md").
+  assessment. For more information about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_ListAlarmRecommendations.html](../APIReference/API_ListAlarmRecommendations.md "../APIReference/API_ListAlarmRecommendations.md").
 
 ###### Note
 

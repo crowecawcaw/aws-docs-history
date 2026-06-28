@@ -31,9 +31,9 @@ report:
 
   - **Failure message:**
     `The following parameters were not found:
- [/ResilienceHub/Alarm/3dee49a1-9877-452a-bb0c-a958479a8ef2/nat-gw-alarm-bytes-out-to-source-2020-09-21_nat-02ad9bc4fbd4e6135].
- Make sure all the SSM parameters in automation document are
- created in SSM Parameter Store.`
+   [/ResilienceHub/Alarm/3dee49a1-9877-452a-bb0c-a958479a8ef2/nat-gw-alarm-bytes-out-to-source-2020-09-21_nat-02ad9bc4fbd4e6135].
+   Make sure all the SSM parameters in automation document are
+   created in SSM Parameter Store.`
   - **Remediation:** Ensure to render the
     relevant alarm and deploy the resulting template before rerunning
     the fault injection experiment.
@@ -44,9 +44,9 @@ report:
 
   - **Failure message:**
     `An error occurred (Unauthorized Operation) when calling the
- DescribeInstanceStatus operation: You are not authorized to
- perform this operation. Please Refer to Automation Service
- Troubleshooting Guide for more diagnosis details`.
+   DescribeInstanceStatus operation: You are not authorized to
+   perform this operation. Please Refer to Automation Service
+   Troubleshooting Guide for more diagnosis details`.
   - **Remediation**: Verify you provided
     the correct execution role. If this was done, add the required
     permission and rerun the assessment.

@@ -12,7 +12,7 @@ components.
 The service fee includes two failure mode assessments per month for
 services with up to 150 resources. For services with more than 150 resources, each included
 failure mode assessment incurs an additional charge of $0.10 per resource above the
-150-resource threshold. For additional assessments beyond the two included, the cost is $0.10
+ 150-resource threshold. For additional assessments beyond the two included, the cost is $0.10
 per assessable resource with a minimum of 50 resources.
 
 Dependency discovery is an optional add-on that provides continuous, automated

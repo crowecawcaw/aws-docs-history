@@ -48,9 +48,7 @@ using the following information:
     * **End time** – Indicates the end time of the assessment.
     * **ARN** – The Amazon Resource Name (ARN) of the assessment.
 
-4. Select an assessment from the **Resiliency assessments** table.
-5. Choose **Operational recommendations** tab.
-6. Choose **Standard operating procedures** tab.
+4. Select an assessment from the **Resiliency assessments** table. 5. Choose **Operational recommendations** tab. 6. Choose **Standard operating procedures** tab.
 
 In the **Standard operating procedures** table, you can understand more
 about the recommended SOPs using the following information:

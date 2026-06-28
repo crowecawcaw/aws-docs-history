@@ -165,19 +165,19 @@ application resources. You can identify the input sources by the following:
      **Resources** tab.
 
 2. To add input sources to your application, from the **Input
-   sources** section, choose **Add input sources**. For
-   more information about adding input sources, see [Add resource collections](discover-structure.md "discover-structure.md").
-3. To edit input sources, select the input sources and choose one the following
-   options from **Actions**:
+sources** section, choose **Add input sources**. For
+more information about adding input sources, see [Add resource collections](discover-structure.md "discover-structure.md"). 3. To edit input sources, select the input sources and choose one the following
+options from **Actions**:
 
-   - **Reimport input sources (up to 5)** – Reimports
+    * **Reimport input sources (up to 5)** – Reimports
      up to five selected input sources.
-   - **Delete input sources** – Deletes the selected
+    * **Delete input sources** – Deletes the selected
      input sources.
 
-   To publish an application, it must contain a minimum of one input source.
-   If you delete all the input sources, **Publish new
-   version** will be disabled.
+
+    To publish an application, it must contain a minimum of one input source.
+     If you delete all the input sources, **Publish new
+     version** will be disabled.
 
 ###### To edit the resources of your application
 
@@ -259,62 +259,58 @@ You can identify the resources by the following:
      physical resource.
 
 2. To find a resource that is not listed, enter the resource logical ID in the search
-   box.
-3. To remove a resource from your application, select the resource, and then choose
-   **Exclude resource** from **Actions**.
-4. To resolve the resources on your application, choose **Refresh
-   resources**.
-5. To modify your existing application resources, complete the following
-   steps:
+box. 3. To remove a resource from your application, select the resource, and then choose
+**Exclude resource** from **Actions**. 4. To resolve the resources on your application, choose **Refresh
+resources**. 5. To modify your existing application resources, complete the following
+steps:
 
-   1. Select a resource, and then choose **Update stacks** from
-      **Actions**.
-   2. In the **Update stacks** page, to update your resources,
-      complete the appropriate procedures in [Add resource collections](discover-structure.md "discover-structure.md"), and then return to this
-      procedure.
-   3. Choose **Save**.
+    1. Select a resource, and then choose **Update stacks** from
+     **Actions**.
+    2. In the **Update stacks** page, to update your resources,
+     complete the appropriate procedures in [Add resource collections](discover-structure.md "discover-structure.md"), and then return to this
+     procedure.
+    3. Choose **Save**.
 
 6. To add a resource to your application, from **Actions**, choose
-   **Add resource** and complete the following steps:
+**Add resource** and complete the following steps:
 
-   1. Select a resource type from the **Resource type**
-      dropdown list.
-   2. Select an AppComponent from the **AppComponent** dropdown
-      list.
-   3. Enter the resource logical ID in the **Resource name**
-      box.
-   4. Enter the physical resource ID, or resource name, or the resource ARN in
-      the **Resource identifier** box.
-   5. Choose **Add**.
+    1. Select a resource type from the **Resource type**
+     dropdown list.
+    2. Select an AppComponent from the **AppComponent** dropdown
+     list.
+    3. Enter the resource logical ID in the **Resource name**
+     box.
+    4. Enter the physical resource ID, or resource name, or the resource ARN in
+     the **Resource identifier** box.
+    5. Choose **Add**.
 
 7. To edit the resource name, select a resource, choose **Edit resource
-   name** from **Actions**, and then complete the
-   following steps:
+name** from **Actions**, and then complete the
+following steps:
 
-   1. Enter the resource logical ID in the **Resource name**
-      box.
-   2. Choose **Save**.
+    1. Enter the resource logical ID in the **Resource name**
+     box.
+    2. Choose **Save**.
 
 8. To edit the resource identifier, select a resource, choose **Edit resource
-   identifier** from **Actions**, and then complete the
-   following steps:
+identifier** from **Actions**, and then complete the
+following steps:
 
-   1. Enter the physical resource ID, or resource name, or the resource ARN in
-      the **Resource identifier** box.
-   2. Choose **Save**.
+    1. Enter the physical resource ID, or resource name, or the resource ARN in
+     the **Resource identifier** box.
+    2. Choose **Save**.
 
 9. To change the AppComponent, select a resource, choose **Change
-   AppComponent** from **Actions**, and complete the
-   following steps:
+AppComponent** from **Actions**, and complete the
+following steps:
 
-   1. Select an AppComponent from the **AppComponent** dropdown
-      list.
-   2. Choose **Add**.
+    1. Select an AppComponent from the **AppComponent** dropdown
+     list.
+    2. Choose **Add**.
 
 10. To delete a resource, select a resource, and then choose **Delete
-    resource** from **Actions**.
-11. To include a resource, select a resource, and then choose **Include
-    resource** from **Actions**.
+resource** from **Actions**. 11. To include a resource, select a resource, and then choose **Include
+resource** from **Actions**.
 
 ###### To edit the AppComponents of your application
 
@@ -345,22 +341,21 @@ following:
      **Resources** tab.
 
 2. To create an AppComponent, from **Actions** menu, choose
-   **Create new AppComponent** and complete the following
-   steps:
+**Create new AppComponent** and complete the following
+steps:
 
-   1. Enter a name for the AppComponent in the **AppComponent
-      name** box. For reference, we have pre-populated this field
-      with a sample name.
-   2. Select the type of AppComponent from the **AppComponent
-      type** dropdown list.
-   3. Choose **Save**.
+    1. Enter a name for the AppComponent in the **AppComponent
+     name** box. For reference, we have pre-populated this field
+     with a sample name.
+    2. Select the type of AppComponent from the **AppComponent
+     type** dropdown list.
+    3. Choose **Save**.
 
 3. To edit an AppComponent, select an AppComponent, and then choose **Edit
-   AppComponent** from **Actions**.
-4. To delete an AppComponent, select an AppComponent, and then choose
-   **Delete AppComponent** from
-   **Actions**.
-   After you make changes to your resource list, you will receive an alert indicating that
-   changes have been made to the draft version of your application. To run an accurate
-   resiliency assessment, you must publish a new version of your application. For more
-   information about how to publish a new version, see [Publishing a new AWS Resilience Hub application version](applications-publish.md "applications-publish.md").
+AppComponent** from **Actions**. 4. To delete an AppComponent, select an AppComponent, and then choose
+**Delete AppComponent** from
+**Actions**.
+After you make changes to your resource list, you will receive an alert indicating that
+changes have been made to the draft version of your application. To run an accurate
+resiliency assessment, you must publish a new version of your application. For more
+information about how to publish a new version, see [Publishing a new AWS Resilience Hub application version](applications-publish.md "applications-publish.md").

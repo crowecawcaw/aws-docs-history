@@ -150,7 +150,7 @@ You can identify Amazon EKS clusters by the following:
     	 or more namespaces from the Amazon EKS cluster.
 
 2. To add a namespace, in the **Update namespaces** dialog box, choose
-   **Add a new namespace**.
+**Add a new namespace**.
 
 The **Update namespaces** dialog box displays all the namespaces that
 you have selected from your Amazon EKS cluster, as an editable option. 3. In the **Update namespaces** dialog box, you have the following edit
@@ -172,7 +172,7 @@ options:
      clusters will be overridden with the current namespace selection.
 
 4. To include the updated namespaces in your application, choose
-   **Update**.
+**Update**.
 
 ### Next
 

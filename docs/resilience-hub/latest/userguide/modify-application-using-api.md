@@ -16,7 +16,7 @@ For more information, see the following topics:
 If the resource is not deployed as part of an input source, AWS Resilience Hub allows you
 to manually add the resource to your application using
 `CreateAppVersionResource` API. For more information about this API,
-see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_CreateAppVersionResource.html](../APIReference/API_CreateAppVersionResource.md "../APIReference/API_CreateAppVersionResource.md").
+see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_CreateAppVersionResource.html](../APIReference/API_CreateAppVersionResource.md "../APIReference/API_CreateAppVersionResource.md").
 
 You must provide the following parameters to this API:
 
@@ -139,7 +139,7 @@ aws resiliencehub delete-app-version-app-component \
 AWS Resilience Hub allows you to exclude resources from assessments using
 `UpdateAppVersionResource` API. These resources will not be
 considered while computing the resiliency of your application. For more information
-about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_UpdateAppVersionResource.html](../APIReference/API_UpdateAppVersionResource.md "../APIReference/API_UpdateAppVersionResource.md").
+about this API, see [https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API\_UpdateAppVersionResource.html](../APIReference/API_UpdateAppVersionResource.md "../APIReference/API_UpdateAppVersionResource.md").
 
 ###### Note
 

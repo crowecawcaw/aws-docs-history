@@ -106,9 +106,7 @@ assessments using the following information:
      assessment.
 
 4. Select an assessment from the **Resiliency assessments**
-   table.
-5. Choose **Operational recommendations** tab.
-6. If not selected by default, choose **Alarms** tab.
+table. 5. Choose **Operational recommendations** tab. 6. If not selected by default, choose **Alarms** tab.
 
 In **Alarms** table, you can identify the recommended alarms
 using the following:

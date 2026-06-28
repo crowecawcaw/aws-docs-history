@@ -29,10 +29,9 @@ same, or provide a different name. 3. (Optional) Enter a description for the res
      breached**.
 
 5. To define RTO/RPO for your infrastructure and AZ, choose the right arrow to expand the
-   **Infrastructure RTO and RPO** section.
-6. In **RTO/RPO targets**, enter a numeric value in the box and then choose
-   the unit of time that the value represents for both **RTO** and
-   **RPO**.
+**Infrastructure RTO and RPO** section. 6. In **RTO/RPO targets**, enter a numeric value in the box and then choose
+the unit of time that the value represents for both **RTO** and
+**RPO**.
 
 Repeat these entries for **Infrastructure** and **Availability
 Zone** in **Infrastructure RTO and RPO** section. 7. (Optional) If you have a multi-Region application and if you want to define a Region RTO

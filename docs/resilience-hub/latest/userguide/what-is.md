@@ -13,10 +13,10 @@ application resources. For more information, see [Working with other services](s
 The following table provides the documentation links of all the related resiliency
 services.
 
-| Related AWS resiliency services and references         | AWS resiliency service                                                                                                                                                             | Documentation link |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| **AWS Elastic Disaster Recovery**                      | [What is<br>Elastic Disaster Recovery](../../../drs/latest/userguide/what-is-drs.md "../../../drs/latest/userguide/what-is-drs.md")                                                |
-| **AWS Backup**                                         | [What is AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md")                                                    |
+Related AWS resiliency services and references| AWS resiliency service | Documentation link |
+| --- | --- |
+| **AWS Elastic Disaster Recovery** | [What is<br>Elastic Disaster Recovery](../../../drs/latest/userguide/what-is-drs.md "../../../drs/latest/userguide/what-is-drs.md") |
+| **AWS Backup** | [What is AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md") |
 | **Amazon Application Recovery Controller (ARC) (ARC)** | [What is<br>Amazon Application Recovery Controller (ARC)](../../../r53recovery/latest/dg/what-is-route53-recovery.md "../../../r53recovery/latest/dg/what-is-route53-recovery.md") |
 
 ###### Topics

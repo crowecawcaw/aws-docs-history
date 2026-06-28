@@ -73,10 +73,8 @@ assessments using the following information:
     * **ARN** – The Amazon Resource Name (ARN) of the
      assessment.
 
-4. Select an assessment from the **Assessments** table.
-5. Choose **Operational recommendations**.
-6. Choose the right arrow before **Fault injection
-   experiments**.
+4. Select an assessment from the **Assessments** table. 5. Choose **Operational recommendations**. 6. Choose the right arrow before **Fault injection
+experiments**.
 
 This section lists all the AWS FIS experiments recommended by AWS Resilience Hub for your
 application to stress-test and improve its resilience. Based on your

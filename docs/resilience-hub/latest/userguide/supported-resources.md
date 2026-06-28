@@ -20,10 +20,10 @@ AWS Resilience Hub supports resources from the following AWS services:
   ability to tag resources in your cluster, and also tracks the cost of services and tasks
   running in your cluster.
 
-      - **Old format (deprecated)** –
-       `arn:aws:ec2:<region>::instance/<instance-id>`
-      - **New format** –
-       `arn:aws:ec2:<region>:<account-id>:instance/<instance-id>`For more information about the new ARN format, see [Migrating your Amazon ECS deployment to the new ARN and resource ID format](https://aws.amazon.com/blogs/compute/migrating-your-amazon-ecs-deployment-to-the-new-arn-and-resource-id-format-2/ "https://aws.amazon.com/blogs/compute/migrating-your-amazon-ecs-deployment-to-the-new-arn-and-resource-id-format-2/").
+        - **Old format (deprecated)** –
+         `arn:aws:ec2:<region>::instance/<instance-id>`
+        - **New format** –
+         `arn:aws:ec2:<region>:<account-id>:instance/<instance-id>`For more information about the new ARN format, see [Migrating your Amazon ECS deployment to the new ARN and resource ID format](https://aws.amazon.com/blogs/compute/migrating-your-amazon-ecs-deployment-to-the-new-arn-and-resource-id-format-2/ "https://aws.amazon.com/blogs/compute/migrating-your-amazon-ecs-deployment-to-the-new-arn-and-resource-id-format-2/").
   - AWS Lambda
   - Amazon Elastic Kubernetes Service (Amazon EKS)
   - Amazon Elastic Container Service (Amazon ECS)
@@ -94,9 +94,8 @@ AWS Resilience Hub supports resources from the following AWS services:
 
 - Currently, AWS Resilience Hub supports only the following engine types for ElastiCache resources:
 
-      + Redis OSS engines
-
-  AWS Resilience Hub ignores the following types of resources:
+  - Redis OSS engines
+    AWS Resilience Hub ignores the following types of resources:
 
 - **Resources that do not affect estimated workload RTO or estimated
   workload RPO** – Resources such as `AWS::RDS::DBParameterGroup`,

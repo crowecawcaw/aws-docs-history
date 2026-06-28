@@ -37,9 +37,7 @@ assessments using the following information:
      assessment.
 
 4. Select an assessment from the **Resiliency assessments**
-   table. If you don't have an assessment, complete the procedure in [Running resiliency assessments in AWS Resilience Hub](run-assessment.md "run-assessment.md") and then return to this step.
-5. Choose **Operational recommendations**.
-6. If not selected by default, choose **Alarms** tab.
+table. If you don't have an assessment, complete the procedure in [Running resiliency assessments in AWS Resilience Hub](run-assessment.md "run-assessment.md") and then return to this step. 5. Choose **Operational recommendations**. 6. If not selected by default, choose **Alarms** tab.
 
 In **Alarms** table, you can identify the recommended alarms
 using the following:
@@ -93,15 +91,12 @@ using the following:
      identifier of the AWS CloudFormation stack resource in AWS CloudFormation.
 
 7. In **Alarms** tab, to filter the alarm recommendations in
-   **Alarms** table based on a specific state, select a number
-   below the same.
-8. Select the recommended alarms that you want to set up for your application,
-   and choose **Create CloudFormation template**.
-9. In **Create CloudFormation template** dialog, you can use the
-   auto-generated name, or you can enter a name for CloudFormation template in the
-   **CloudFormation template name** box.
-10. Choose **Create**. This can take up to a few minutes to
-    create the AWS CloudFormation template.
+**Alarms** table based on a specific state, select a number
+below the same. 8. Select the recommended alarms that you want to set up for your application,
+and choose **Create CloudFormation template**. 9. In **Create CloudFormation template** dialog, you can use the
+auto-generated name, or you can enter a name for CloudFormation template in the
+**CloudFormation template name** box. 10. Choose **Create**. This can take up to a few minutes to
+create the AWS CloudFormation template.
 
 Complete the following procedure to include the recommendations in your code
 base.

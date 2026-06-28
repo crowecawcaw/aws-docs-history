@@ -9,12 +9,12 @@ Kubernetes pods running in your Amazon EKS clusters:
   - **Failure messages:**
 
     - `Error resolving targets. Kubernetes API returned
-ApiException with error code 401`.
+   ApiException with error code 401`.
     - `Error resolving targets. Kubernetes API returned
-ApiException with error code 403`.
+   ApiException with error code 403`.
     - `Unable to inject AWS FIS Pod: Kubernetes API returned
-status code 403. Check Amazon EKS logs for more
-details`.
+   status code 403. Check Amazon EKS logs for more
+   details`.
 
   - **Remediation:** Verify the
     following.
@@ -34,7 +34,7 @@ details`.
 
   - **Failure message:**
     `Unable to heartbeat FIS Pod: Max failed sidecar containers
- reached`.
+   reached`.
   - **Remediation:** One option to avoid
     this error is to reduce the target load percentage to be aligned
     with the available memory or CPU.

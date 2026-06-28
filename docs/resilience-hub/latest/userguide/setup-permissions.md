@@ -32,14 +32,12 @@ role by using one of the following options:
      template.
 
 2. Choose the right arrow to expand **Add IAM role(s) from a cross account -
-   Optional** section.
-3. To select IAM roles from a cross account, enter the ARNs of the IAM role in
-   **Enter an IAM role ARN** box. Ensure that the ARNs of the IAM roles you
-   are entering does not belong to the current account.
-4. If you want to use current IAM user to discover your application resources, choose the
-   right arrow to expand **Use the current IAM user permissions** section and
-   select **I understand that I must manually configure permissions to enable the
-   required functionality within AWS Resilience Hub**.
+Optional** section. 3. To select IAM roles from a cross account, enter the ARNs of the IAM role in
+**Enter an IAM role ARN** box. Ensure that the ARNs of the IAM roles you
+are entering does not belong to the current account. 4. If you want to use current IAM user to discover your application resources, choose the
+right arrow to expand **Use the current IAM user permissions** section and
+select **I understand that I must manually configure permissions to enable the
+required functionality within AWS Resilience Hub**.
 
 If you select this option, some of the AWS Resilience Hub features (such as drift notification)
 may not function as expected and the inputs you have provided for creating a new application will be ignored.

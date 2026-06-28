@@ -32,14 +32,13 @@ instead of the invoker role name.
   resources. When your resources are in a different account, AWS Resilience Hub will
   assume the following IAM roles to access the resources:
 
-      + `AwsResilienceHubAdminAccountRole` in the current
-       account
-      + `AwsResilienceHubExecutorAccountRole` in other
-       accounts
-
-  In addition, when you configure a scheduled assessment, AWS Resilience Hub will assume
-  the `AwsResilienceHubPeriodicAssessmentRole` role. However, using
-  `AwsResilienceHubPeriodicAssessmentRole` is not advised because
-  you must manually configure roles and permissions, and some functionalities
-  (such as **Drift notification**) might not work as
-  expected.
+  - `AwsResilienceHubAdminAccountRole` in the current
+    account
+  - `AwsResilienceHubExecutorAccountRole` in other
+    accounts
+    In addition, when you configure a scheduled assessment, AWS Resilience Hub will assume
+    the `AwsResilienceHubPeriodicAssessmentRole` role. However, using
+    `AwsResilienceHubPeriodicAssessmentRole` is not advised because
+    you must manually configure roles and permissions, and some functionalities
+    (such as **Drift notification**) might not work as
+    expected.

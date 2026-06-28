@@ -34,7 +34,7 @@ policy** and use a trust policy like this:
 
 ```
 
-For permissions, choose the `AWSResilienceHubAsssessmentExecutionPolicy`
+For permissions, choose the `AWSResilienceHubV2AssessmentExecutionPolicy`
 managed policy and the `ReadOnlyAccess` managed policy. The
 `ReadOnlyAccess` policy is required for the best performance of the failure
 mode assessment.

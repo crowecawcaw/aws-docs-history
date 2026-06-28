@@ -22,11 +22,10 @@ widget, complete the following steps.
      vertical dots in the upper left of the widget title bar, and then drag
      it to your **Console Home** dashboard.
 
-4. Choose **Assess application**.
-5. To select an existing IAM role that will be used for accessing resources in
-   the current account, select **Use an IAM role** and then
-   select an IAM role from the **Select an IAM role** dropdown
-   list.
+4. Choose **Assess application**. 5. To select an existing IAM role that will be used for accessing resources in
+the current account, select **Use an IAM role** and then
+select an IAM role from the **Select an IAM role** dropdown
+list.
 
 If you want to use current IAM user to discover your application resources,
 choose **Use the current IAM user permissions** and select
@@ -77,7 +76,7 @@ widget, complete the following steps.
      it to your **Console Home** dashboard.
 
 4. Choose **Reassess** from the **Resiliency**
-   widget.
+widget.
 
 Alternatively, turn on **Automatically assess daily** to
 enable AWS Resilience Hub to assess your application daily without any additional

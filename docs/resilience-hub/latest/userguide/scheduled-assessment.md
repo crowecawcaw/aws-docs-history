@@ -20,8 +20,8 @@ following:
      role using the appropriate procedure in [How AWS Resilience Hub works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 2. To get notified when AWS Resilience Hub detects any drifts from the resiliency policies, or when
-   its resources have drifted, turn on **Get notified when the application
-   drifts**.
+its resources have drifted, turn on **Get notified when the application
+drifts**.
 
 If this option is turned on, to receive drift notifications, you must specify an Amazon Simple Notification Service
 (Amazon SNS) topic. To provide Amazon SNS topic, in **Provide an SNS Topic** section,

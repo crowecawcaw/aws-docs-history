@@ -119,9 +119,8 @@ information:
     	 Region in which the resource is located.
 
 9. Select an AppComponent and choose **Include** or
-   **Exclude** to include or exclude the AppComponent in the
-   AWS FIS experiment, respectively.
-10. Choose **Initiate experiment**.
+**Exclude** to include or exclude the AppComponent in the
+AWS FIS experiment, respectively. 10. Choose **Initiate experiment**.
 
 AWS Resilience Hub will redirect you to **Specify template details**
 page in the AWS FIS console, opening it in a new tab. 11. To create an experiment template, complete the steps in [To create an experiment template using the console](../../../fis/latest/userguide/create-template.md "../../../fis/latest/userguide/create-template.md").
