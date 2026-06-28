@@ -7,7 +7,7 @@ environments.
 
 ## Using Neptune Lab Mode
 
-Use the [neptune_lab_mode
+Use the [neptune\_lab\_mode
 DB cluster parameter](parameters.md#parameters-db-cluster-parameters-neptune_lab_mode "parameters.md#parameters-db-cluster-parameters-neptune_lab_mode") to enable or disable features.
 You do this by including ``(feature name)`=enabled`
  or ``(feature name)`=disabled` in the value of the
@@ -137,7 +137,7 @@ Allowed values: enabled/disabled
 
 When this parameter is `enabled`, a per-query timeout value specified as a
 request option or a query hint cannot exceed the value set globally in the
-[neptune_query_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
+[neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
 parameter group setting. If the per-query timeout exceeds the global setting, Neptune throws an
 `InvalidParameterException`. In engine versions prior to 1.4.0.0, this parameter
 was `disabled` by default and had to be explicitly enabled.

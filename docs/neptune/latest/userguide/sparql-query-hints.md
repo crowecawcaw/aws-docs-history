@@ -10,12 +10,12 @@ query with the following parts:
 `scope` `hint` `value`
 ```
 
-- *scope* – Determines the part of the
+- _scope_ – Determines the part of the
   query that the query hint applies to, such as a certain group in the query or the full
   query.
-- *hint* – Identifies the type of the
+- _hint_ – Identifies the type of the
   hint to apply.
-- *value* – Determines the behavior of
+- _value_ – Determines the behavior of
   the system aspect under consideration.
   The query hints and scopes are exposed as predefined terms in the Amazon Neptune
   namespace `http://aws.amazon.com/neptune/vocab/v01/QueryHints#`. The examples in this

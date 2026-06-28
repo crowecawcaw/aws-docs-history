@@ -83,8 +83,8 @@ RETURN stopover, destination
 ###### openCypher fixes
 
 - Corrected behavior for ``~id`match` in CREATE/MERGE/MATCH clauses. When using an invalid ``~id``
-value like null or non-string types, a correct exception is now thrown for CREATE/MERGE clauses and zero result 
-is returned for a`MATCH` clause.
+  value like null or non-string types, a correct exception is now thrown for CREATE/MERGE clauses and zero result
+  is returned for a `MATCH` clause.
 - Fixed IFE when user uses a value of unsupported type with aggregation functions (i.e. sum(<string>)).
 - Fixed an issue where some low-latency mutation queries from a large workload of queries failed with an
   OutOfMemory error.

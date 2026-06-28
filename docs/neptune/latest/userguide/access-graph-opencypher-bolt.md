@@ -7,9 +7,9 @@ license. It is client-driven, meaning that the client always initiates message e
 
 To connect to Neptune using Neo4j's Bolt drivers, simply replace the URL and Port
 number with your cluster endpoints using the `bolt` URI scheme. If you have a single
-Neptune instance running, use the read_write endpoint. If multiple instances are running,
+Neptune instance running, use the read\_write endpoint. If multiple instances are running,
 then two drivers are recommended, one for the writer and another for all the read replicas.
-If you have only the default two endpoints, a read_write and a read_only driver are
+If you have only the default two endpoints, a read\_write and a read\_only driver are
 sufficient, but if you have custom endpoints as well, consider creating a driver
 instance for each one.
 

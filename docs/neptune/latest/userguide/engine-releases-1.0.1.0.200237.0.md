@@ -48,7 +48,7 @@ If you have any questions or concerns, the AWS Support team is available on the 
   cancelled.
 - Fixed an issue where Gremlin clients could hang intermittently.
 - Updated all error codes for payloads bigger than 150M to be `HTTP
-400`.
+ 400`.
 - Improved performance and accuracy of single-triple-pattern
   `COUNT()` queries.
 - Improved performance of `SPARQL UNION` queries with

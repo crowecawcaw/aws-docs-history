@@ -365,7 +365,7 @@ property graph data:
 - **`json`**   –  
   JSON formatted data.
 - **`neptuneStreamsJson`**   –  
-  JSON formatted data that uses the [GREMLIN_JSON
+  JSON formatted data that uses the [GREMLIN\_JSON
   change serialization format](streams-change-formats.md "streams-change-formats.md").
 
 ### `gremlinFilter` field in `params`

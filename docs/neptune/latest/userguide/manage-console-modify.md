@@ -31,6 +31,10 @@ the value of the **Apply Immediately** setting.
    cluster**. The **Modify DB cluster** page appears.
 4. Change any of the settings that you want.
 
+For example, you can change the **Network type** to
+**Dual-stack** to enable IPv6 support for the DB cluster. For more
+information, see [Dual-stack mode](neptune-dualstack-db-cluster.md "neptune-dualstack-db-cluster.md").
+
 ###### Note
 
 On the console, some instance level changes only apply to the current DB instance,

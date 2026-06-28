@@ -53,7 +53,7 @@ You can avoid unexpected expenses of this kind by using a query timeout
 value that accomodates the run-time your expect and only causes an unusually
 long run to time out.
 
-Starting from Neptune engine version 1.3.2.0, Neptune supports a new neptune_lab_mode parameter as
+Starting from Neptune engine version 1.3.2.0, Neptune supports a new neptune\_lab\_mode parameter as
 `StrictTimeoutValidation`. When this parameter has a value of `Enabled`, a per-query
 timeout value specified as a request option or a query hint cannot exceed the value set globally in the parameter
 group. In such a case, Neptune will throw `InvalidParameterException`.
@@ -64,5 +64,5 @@ in engine version `1.4.0.0`, the `StrictTimeoutValidation` parameter is `Enabled
 by default.
 
 For more information about how timeout precedence is determined when multiple timeout settings are configured,
-see the [neptune_query_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
+see the [neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
 parameter documentation.

@@ -95,7 +95,7 @@ Or:
 ###### Note
 
 If you [set
-the neptune_ml_endpoint parameter](machine-learning-cluster-setup.md#machine-learning-set-inference-endpoint-cluster-parameter "machine-learning-cluster-setup.md#machine-learning-set-inference-endpoint-cluster-parameter") in your Neptune DB cluster
+the neptune\_ml\_endpoint parameter](machine-learning-cluster-setup.md#machine-learning-set-inference-endpoint-cluster-parameter "machine-learning-cluster-setup.md#machine-learning-set-inference-endpoint-cluster-parameter") in your Neptune DB cluster
 parameter group to the endpoint `id` or URL, you don't need to include the
 `Neptune#ml.endpoint` predicate in each query.
 
@@ -113,7 +113,7 @@ For information about how to create the SageMaker AI execution IAM role, see [Cr
 ###### Note
 
 If you [set the
-neptune_ml_iam_role parameter](machine-learning-cluster-setup.md#machine-learning-enabling-create-param-group "machine-learning-cluster-setup.md#machine-learning-enabling-create-param-group") in your Neptune DB cluster
+neptune\_ml\_iam\_role parameter](machine-learning-cluster-setup.md#machine-learning-enabling-create-param-group "machine-learning-cluster-setup.md#machine-learning-enabling-create-param-group") in your Neptune DB cluster
 parameter group to the ARN of your SageMaker AI execution IAM role, you don't need
 to include the `Neptune#ml.iamRoleArn` predicate in each query.
 

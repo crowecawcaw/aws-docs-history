@@ -4,7 +4,7 @@ The openCypher `explain` feature is a self-service tool in Amazon Neptune
 that helps you understand the execution approach taken by the Neptune engine. To invoke
 explain, you pass a parameter to an openCypher [HTTPS](access-graph-opencypher-queries.md "access-graph-opencypher-queries.md")
 request with `explain=`mode``, where the
- `_mode_` value can be one of the following:
+`*mode*` value can be one of the following:
 
 ######
 
@@ -441,7 +441,8 @@ or `DFELoopSubQuery` operators that encapsulate a part of the pushed execution
 plan that is executed in a memory-bounded mechanism. `DFEChunkLocalSubQuery` here
 contains one `SolutionInjection` that is used as an input to the subquery.
 To find the table for that subquery in the output, search for the
-`subQuery=`graph URI``specified in the`Arguments` column for the`DFEChunkLocalSubQuery`or`DFELoopSubQuery` operator.
+`subQuery=`graph URI`` specified in the `Arguments`
+column for the `DFEChunkLocalSubQuery` or `DFELoopSubQuery` operator.
 
 In `subQuery1`, `DFEPipelineScan` with `ID` 0 scans
 the database for a specified `pattern`. The pattern scans for an entity with

@@ -13,7 +13,7 @@ You can delete a DB snapshot using the AWS Management Console, the AWS CLI, or t
 ## Deleting Using the AWS CLI
 
 You can also delete a DB snapshot using the AWS CLI
-[delete_db_cluster_snapshot](api-snapshots.md#DeleteDBClusterSnapshot "api-snapshots.md#DeleteDBClusterSnapshot") command,
+[delete\_db\_cluster\_snapshot](api-snapshots.md#DeleteDBClusterSnapshot "api-snapshots.md#DeleteDBClusterSnapshot") command,
 using the `--db-snapshot-identifier` parameter to identify the snapshot
 you want to delete:
 

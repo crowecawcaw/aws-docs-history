@@ -171,38 +171,38 @@ Neptune uses a so-called dictionary table to associate numeric ID values with
 specific string literals. Here is a sample state of such a Neptune dictionary:
 table:
 
-| String        | ID  |
-| ------------- | --- |
-| type          | 1   |
-| default_graph | 2   |
-| person_3      | 3   |
-| person_1      | 5   |
-| knows         | 6   |
-| person_2      | 7   |
-| age           | 8   |
-| edge_1        | 9   |
-| lives_in      | 10  |
-| New York      | 11  |
-| Person        | 12  |
-| Place         | 13  |
-| edge_2        | 14  |
+| String         | ID  |
+| -------------- | --- |
+| type           | 1   |
+| default\_graph | 2   |
+| person\_3      | 3   |
+| person\_1      | 5   |
+| knows          | 6   |
+| person\_2      | 7   |
+| age            | 8   |
+| edge\_1        | 9   |
+| lives\_in      | 10  |
+| New York       | 11  |
+| Person         | 12  |
+| Place          | 13  |
+| edge\_2        | 14  |
 
 The strings above belong to a property-graph model, but the
 concepts apply equally to all RDF graph models as well.
 
-The corresponding state of the SPOG (Subject-Predicate-Object_Graph)
+The corresponding state of the SPOG (Subject-Predicate-Object\_Graph)
 index is shown below on the left. On the right, the corresponding strings
 are shown, to help understand what the index data means.
 
-| S (ID) | P (ID) | O (ID) | G (ID) |     | S (string) | P (string) | O (string) | G (string)    |
-| ------ | ------ | ------ | ------ | --- | ---------- | ---------- | ---------- | ------------- |
-| 3      | 1      | 12     | 2      |     | person_3   | type       | Person     | default_graph |
-| 5      | 1      | 12     | 2      |     | person_1   | type       | Person     | default_graph |
-| 5      | 6      | 3      | 9      |     | person_1   | knows      | person_3   | edge_1        |
-| 5      | 8      | 40     | 2      |     | person_1   | age        | 40         | default_graph |
-| 5      | 10     | 11     | 14     |     | person_1   | lives_in   | New York   | edge_2        |
-| 7      | 1      | 12     | 2      |     | person_2   | type       | Person     | default_graph |
-| 11     | 1      | 13     | 2      |     | New York   | type       | Place      | default_graph |
+| S (ID) | P (ID) | O (ID) | G (ID) |     | S (string) | P (string) | O (string) | G (string)     |
+| ------ | ------ | ------ | ------ | --- | ---------- | ---------- | ---------- | -------------- |
+| 3      | 1      | 12     | 2      |     | person\_3  | type       | Person     | default\_graph |
+| 5      | 1      | 12     | 2      |     | person\_1  | type       | Person     | default\_graph |
+| 5      | 6      | 3      | 9      |     | person\_1  | knows      | person\_3  | edge\_1        |
+| 5      | 8      | 40     | 2      |     | person\_1  | age        | 40         | default\_graph |
+| 5      | 10     | 11     | 14     |     | person\_1  | lives\_in  | New York   | edge\_2        |
+| 7      | 1      | 12     | 2      |     | person\_2  | type       | Person     | default\_graph |
+| 11     | 1      | 13     | 2      |     | New York   | type       | Place      | default\_graph |
 
 Now, if a mutation query reads all properties and outgoing edges of a vertex named
 `person_1`, the node would lock the entire range defined by the prefix

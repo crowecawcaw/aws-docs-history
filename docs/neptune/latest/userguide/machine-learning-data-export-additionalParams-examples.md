@@ -132,7 +132,7 @@ genre property contains multiple semicolon-separated values:
 
 To indicate which node property contains labeled regressions for training purposes,
 add a node regression element to the targets array, using `"type" : "regression"`.
-Add a split_rate field if you want to override the default split rate.
+Add a split\_rate field if you want to override the default split rate.
 
 The following `node` target indicates that the `rating`
 property of each `Movie` node should be treated as a node regression label:
@@ -160,7 +160,7 @@ property of each `Movie` node should be treated as a node regression label:
 
 To indicate which edge property contains labeled examples for training purposes,
 add an edge element to the `targets` array, using `"type" : "regression"`.
-Add a split_rate field if you want to override the default split rate.
+Add a split\_rate field if you want to override the default split rate.
 
 The following `edge` target indicates that the `metAtLocation`
 property of each `knows` edge should be treated as an edge class label:

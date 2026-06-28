@@ -112,7 +112,7 @@ You can optionally specify the query language and page size:
 %stream_viewer sparql --limit 20
 ```
 
-For more information, see [The %stream_viewer line magic](notebooks-magics.md#notebooks-line-magics-stream-viewer "notebooks-magics.md#notebooks-line-magics-stream-viewer").
+For more information, see [The %stream\_viewer line magic](notebooks-magics.md#notebooks-line-magics-stream-viewer "notebooks-magics.md#notebooks-line-magics-stream-viewer").
 
 ###### Note
 

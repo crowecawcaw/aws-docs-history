@@ -601,7 +601,7 @@ A typical reduce() structure would be -
 
 - list: the input list :: LIST OF T where T matches initial type
 - variable :: represents each element in the input list
-- expression :: Only supports '+' and '\*' operator
+- expression :: Only supports '+' and '*' operator
 - return :: Same type as initial`
 
 ###### Restrictions:

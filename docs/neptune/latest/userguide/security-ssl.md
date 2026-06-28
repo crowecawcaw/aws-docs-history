@@ -11,8 +11,8 @@ Neptune requires at least TLS version 1.2, using the following strong cipher sui
 - `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
   Starting with Neptune engine version 1.3.2.0, Neptune supports TLS version 1.3 using the following cipher suites:
 
-- TLS_AES_128_GCM_SHA256
-- TLS_AES_256_GCM_SHA384
+- TLS\_AES\_128\_GCM\_SHA256
+- TLS\_AES\_256\_GCM\_SHA384
   Even where HTTP connections are allowed in earlier engine versions,
   any DB cluster that uses a new DB cluster parameter group is required to
   use SSL by default. _To protect your data, Neptune endpoints in engine

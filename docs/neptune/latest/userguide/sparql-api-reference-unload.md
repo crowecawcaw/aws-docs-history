@@ -52,7 +52,7 @@ curl https://`(a Neptune endpoint URL)`:8182/sparql \
 For more information, see [Authenticating Requests: Using Query Parameters](../../../AmazonS3/latest/API/sigv4-query-string-auth.md "../../../AmazonS3/latest/API/sigv4-query-string-auth.md").
 
 - **`FROM GRAPH`** `(named
-graph from which to remove the data)`   –  
+ graph from which to remove the data)`   –  
   (_Optional_) Specifies the named graph from which the remote
   data should be unloaded.
 

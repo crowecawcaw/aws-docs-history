@@ -37,26 +37,24 @@ make working with Neptune ML easier.
 | China (Ningxia)           | [View](https://aws-neptune-customer-samples.s3.amazonaws.com/v2/cloudformation-templates/neptune-ml-nested-stack.json "https://aws-neptune-customer-samples.s3.amazonaws.com/v2/cloudformation-templates/neptune-ml-nested-stack.json") | [Orange button labeled "Launch Stack" with an arrow icon.](https://console.amazonaws.cn/cloudformation/home?region=cn-northwest-1#/stacks/new?stackName=NeptuneMLQuickStart&templateURL=https://aws-neptune-customer-samples.s3.amazonaws.com/v2/cloudformation-templates/neptune-ml-nested-stack.json "https://console.amazonaws.cn/cloudformation/home?region=cn-northwest-1#/stacks/new?stackName=NeptuneMLQuickStart&templateURL=https://aws-neptune-customer-samples.s3.amazonaws.com/v2/cloudformation-templates/neptune-ml-nested-stack.json")                     |
 | AWS GovCloud (US-West)    | [View](https://aws-neptune-customer-samples.s3.amazonaws.com/v2/cloudformation-templates/neptune-ml-nested-stack.json "https://aws-neptune-customer-samples.s3.amazonaws.com/v2/cloudformation-templates/neptune-ml-nested-stack.json") | [Orange button labeled "Launch Stack" with an arrow icon.](https://console.amazonaws-us-gov.com/cloudformation/home?region=gov-us-west-1#/stacks/create?stackName=NeptuneMLQuickStart&templateURL=https://aws-neptune-customer-samples.s3.amazonaws.com/v2/cloudformation-templates/neptune-ml-nested-stack.json "https://console.amazonaws-us-gov.com/cloudformation/home?region=gov-us-west-1#/stacks/create?stackName=NeptuneMLQuickStart&templateURL=https://aws-neptune-customer-samples.s3.amazonaws.com/v2/cloudformation-templates/neptune-ml-nested-stack.json") |
 
-2.  On the **Select Template** page, choose
-    **Next**.
-3.  On the **Specify Details** page, choose **Next**.
-4.  On the **Options** page, choose **Next**.
-5.  On the **Review** page, there are two check boxes that
-    you need to check:
+2. On the **Select Template** page, choose
+   **Next**.
+3. On the **Specify Details** page, choose **Next**.
+4. On the **Options** page, choose **Next**.
+5. On the **Review** page, there are two check boxes that
+   you need to check:
 
-        * The first one acknowledges that AWS CloudFormation might create IAM resources
-         with custom names.
-        * The second acknowledges that AWS CloudFormation might require the `CAPABILITY_AUTO_EXPAND`
-         capability for the new stack. `CAPABILITY_AUTO_EXPAND` explicitly allows
-         CloudFormation to expand macros automatically when creating the stack, without prior review.
+   - The first one acknowledges that AWS CloudFormation might create IAM resources
+     with custom names.
+   - The second acknowledges that AWS CloudFormation might require the `CAPABILITY_AUTO_EXPAND`
+     capability for the new stack. `CAPABILITY_AUTO_EXPAND` explicitly allows
+     CloudFormation to expand macros automatically when creating the stack, without prior review.
 
-
-        Customers often create a change set from a processed template so that the
-         changes made by macros can be reviewed before actually creating the stack.
-         For more information, see the CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API.
-
-    Then choose **Create**.
-    The quick-start template creates and sets up the following:
+   Customers often create a change set from a processed template so that the
+   changes made by macros can be reviewed before actually creating the stack.
+   For more information, see the CloudFormation [CreateStack](../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md "../../../AWSCloudFormation/latest/APIReference/API_CreateStack.md") API.
+   Then choose **Create**.
+   The quick-start template creates and sets up the following:
 
 - A Neptune DB cluster.
 - The necessary IAM roles (and attaches them).
@@ -74,8 +72,8 @@ make working with Neptune ML easier.
   Neptune ML capabilities.
 
 They can also save you a lot of time when you are using Neptune ML.
-For example, see the [%neptune_ml](notebooks-magics.md#notebooks-line-magics-neptune_ml "notebooks-magics.md#notebooks-line-magics-neptune_ml") line magic, and the
-[%%neptune_ml](notebooks-magics.md#notebooks-cell-magics-neptune_ml "notebooks-magics.md#notebooks-cell-magics-neptune_ml") cell magic
+For example, see the [%neptune\_ml](notebooks-magics.md#notebooks-line-magics-neptune_ml "notebooks-magics.md#notebooks-line-magics-neptune_ml") line magic, and the
+[%%neptune\_ml](notebooks-magics.md#notebooks-cell-magics-neptune_ml "notebooks-magics.md#notebooks-cell-magics-neptune_ml") cell magic
 that these notebooks support.
 
 You can also use the following AWS CLI command to run the quick-start CloudFormation template:

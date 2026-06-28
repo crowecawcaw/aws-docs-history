@@ -7,7 +7,7 @@ check that the endpoint being connected to is correct and that you are in the VP
 of your Neptune DB cluster or that you have a valid SSH tunnel to the cluster.
 
 If you get a `No suitable driver found for `(connection
-string)``response from the`DriverManager.getConnection`
+string)`` response from the `DriverManager.getConnection`
 call, there is likely an issue at the beginning of your connection string.
 Make sure that your connection string starts like this:
 

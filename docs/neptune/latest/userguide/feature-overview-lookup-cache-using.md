@@ -9,7 +9,7 @@ workloads can be directed to `R5` or other instance types.
 
 To use the lookup cache on a Neptune instance, simply upgrade that instance
 to the `R5d` instance type. When you do, Neptune automatically
-sets the [neptune_lookup_cache](parameters.md#parameters-db-cluster-parameters-neptune_lookup_cache "parameters.md#parameters-db-cluster-parameters-neptune_lookup_cache")
+sets the [neptune\_lookup\_cache](parameters.md#parameters-db-cluster-parameters-neptune_lookup_cache "parameters.md#parameters-db-cluster-parameters-neptune_lookup_cache")
 DB cluster parameter to `1` (enabled), and creates the lookup cache on
 that particular instance. You can then use the [Instance Status](access-graph-status.md "access-graph-status.md") API to confirm that the cache has
 been enabled.
@@ -43,7 +43,7 @@ Because the lookup cache is specific to each node, host replacement resets the
 cache to a cold start.
 
 You can temporarily disable the lookup cache on all instances in your DB cluster
-by setting the [neptune_lookup_cache](parameters.md#parameters-db-cluster-parameters-neptune_lookup_cache "parameters.md#parameters-db-cluster-parameters-neptune_lookup_cache")
+by setting the [neptune\_lookup\_cache](parameters.md#parameters-db-cluster-parameters-neptune_lookup_cache "parameters.md#parameters-db-cluster-parameters-neptune_lookup_cache")
 DB cluster parameter to `0` (disabled). In general, however, it makes more
 sense to disable the cache on specific instances by scaling them down from
 `R5d` to `R5` instance types.

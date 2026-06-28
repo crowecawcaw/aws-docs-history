@@ -1,6 +1,6 @@
-# ST_AsText
+# ST\_AsText
 
-ST_AsText returns the well-known text (WKT) representation of an input geometry.
+ST\_AsText returns the well-known text (WKT) representation of an input geometry.
 
 **Syntax**
 

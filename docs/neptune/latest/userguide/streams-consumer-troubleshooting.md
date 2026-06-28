@@ -107,6 +107,5 @@ values you recorded above:
      in the table to the value you noted for `opNum`.
 
 7. Re-enable the replication process as described in [Re-enabling the stream poller
-   process](full-text-search-re-enable-poller.md "full-text-search-re-enable-poller.md").
-8. Delete the cloned database and the CloudFormation stack created for the
-   `export-neptune-to-elasticsearch` tool.
+process](full-text-search-re-enable-poller.md "full-text-search-re-enable-poller.md"). 8. Delete the cloned database and the CloudFormation stack created for the
+`export-neptune-to-elasticsearch` tool.

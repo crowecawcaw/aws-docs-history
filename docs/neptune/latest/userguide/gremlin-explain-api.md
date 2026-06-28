@@ -42,23 +42,21 @@ An `explain` report contains the following information:
   When the DFE alternative engine is enabled, the following traversal components
   may show up in the optimized traversal:
 
-      + **`DFEStep`**   –  
-       A Neptune optimized DFE step in the traversal that contains a child
-       `DFENode`. `DFEStep` represents the part of the query plan
-       that is executed in the DFE engine.
-      + **`DFENode`**   –  
-       Contains the intermediate representation as one or more child `DFEJoinGroupNodes`.
-      + **`DFEJoinGroupNode`**   –  
-       Represents a join of one or more `DFENode` or `DFEJoinGroupNode`
-       elements.
-      + **`NeptuneInterleavingStep`**   –  
-       A Neptune optimized DFE step in the traversal that contains a child `DFEStep`.
+  - **`DFEStep`**   –  
+    A Neptune optimized DFE step in the traversal that contains a child
+    `DFENode`. `DFEStep` represents the part of the query plan
+    that is executed in the DFE engine.
+  - **`DFENode`**   –  
+    Contains the intermediate representation as one or more child `DFEJoinGroupNodes`.
+  - **`DFEJoinGroupNode`**   –  
+    Represents a join of one or more `DFENode` or `DFEJoinGroupNode`
+    elements.
+  - **`NeptuneInterleavingStep`**   –  
+    A Neptune optimized DFE step in the traversal that contains a child `DFEStep`.
 
-
-      Also contains a `stepInfo` element that contains information
-       about the traversal, such as the frontier element, the path elements used,
-       and so on. This information is used to process the child `DFEStep`.
-
+  Also contains a `stepInfo` element that contains information
+  about the traversal, such as the frontier element, the path elements used,
+  and so on. This information is used to process the child `DFEStep`.
   An easy way to find out if your query is being evaluated by DFE is to check
   whether the `explain` output contains a `DFEStep`. Any part
   of the traversal that is not part of the `DFEStep` will not be executed

@@ -4,7 +4,7 @@ You can enable Neptune's [alternative
 query engine](neptune-dfe-engine.md "neptune-dfe-engine.md"), known as the DFE, in two ways:
 
 - Set the
-  [neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
+  [neptune\_dfe\_query\_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
   instance parameter to `enabled` for all queries on the instance.
 - Use the
   [useDFE query hint](gremlin-query-hints-useDFE.md "gremlin-query-hints-useDFE.md")

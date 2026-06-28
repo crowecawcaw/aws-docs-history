@@ -144,17 +144,17 @@ statements than for data-access policy statements:
 The following table shows what IAM features Neptune supports for
 administrative policy statements and data-access policy statements:
 
-| IAM features you can use with Neptune                                                                                                                                    | IAM feature | Administrative | Data-access |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | -------------- | ----------- |
-| [Identity-based policies](#security_iam_access-manage-id-based-policies "#security_iam_access-manage-id-based-policies")                                                 | Yes         | Yes            |
-| [Resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") | No          | No             |
-| [Policy actions](../../../IAM/latest/UserGuide/reference_policies_elements_action.md "../../../IAM/latest/UserGuide/reference_policies_elements_action.md")              | Yes         | Yes            |
-| [Policy resources](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md")        | Yes         | Yes            |
-| [Global condition keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")         | Yes         | (a subset)     |
-| [Tag-based condition keys](iam-admin-condition-keys.md#iam-rds-tag-based-condition-keys "iam-admin-condition-keys.md#iam-rds-tag-based-condition-keys")                  | Yes         | No             |
-| [Access Control Lists (ACLs)](../../../AmazonS3/latest/userguide/acls.md "../../../AmazonS3/latest/userguide/acls.md")                                                   | No          | No             |
-| [Service control policies (SCPs)](#security_iam_access-manage-scp "#security_iam_access-manage-scp")                                                                     | Yes         | Yes            |
-| [Service linked roles](security-iam-service-linked-roles.md "security-iam-service-linked-roles.md")                                                                      | Yes         | No             |
+IAM features you can use with Neptune| IAM feature | Administrative | Data-access |
+| --- | --- | --- |
+| [Identity-based policies](#security_iam_access-manage-id-based-policies "#security_iam_access-manage-id-based-policies") | Yes | Yes |
+| [Resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") | No | No |
+| [Policy actions](../../../IAM/latest/UserGuide/reference_policies_elements_action.md "../../../IAM/latest/UserGuide/reference_policies_elements_action.md") | Yes | Yes |
+| [Policy resources](../../../IAM/latest/UserGuide/reference_policies_elements_resource.md "../../../IAM/latest/UserGuide/reference_policies_elements_resource.md") | Yes | Yes |
+| [Global condition keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") | Yes | (a subset) |
+| [Tag-based condition keys](iam-admin-condition-keys.md#iam-rds-tag-based-condition-keys "iam-admin-condition-keys.md#iam-rds-tag-based-condition-keys") | Yes | No |
+| [Access Control Lists (ACLs)](../../../AmazonS3/latest/userguide/acls.md "../../../AmazonS3/latest/userguide/acls.md") | No | No |
+| [Service control policies (SCPs)](#security_iam_access-manage-scp "#security_iam_access-manage-scp") | Yes | Yes |
+| [Service linked roles](security-iam-service-linked-roles.md "security-iam-service-linked-roles.md") | Yes | No |
 
 ## IAM Policy Limitations
 

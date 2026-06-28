@@ -51,20 +51,19 @@ Started](https://github.com/aws/graph-explorer#getting-started "https://github.c
 As an example, this section provides step-by-step instructions for running graph-explorer
 in Amazon ECS on AWS Fargate:
 
-1.  Create a new IAM role and attach these policies to it:
+1. Create a new IAM role and attach these policies to it:
 
-        * [AmazonECSTaskExecutionRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-        * [CloudWatchLogsFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLogsFullAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLogsFullAccess")
+   - [AmazonECSTaskExecutionRolePolicy](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
+   - [CloudWatchLogsFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLogsFullAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/CloudWatchLogsFullAccess")
+     Keep the role name handy to use in a minute.
 
-    Keep the role name handy to use in a minute.
+2. [Create
+   an Amazon ECS cluster](../../../AmazonECS/latest/developerguide/create-cluster-console-v2.md "../../../AmazonECS/latest/developerguide/create-cluster-console-v2.md") with the infrastructure set to FARGATE and the following networking options:
 
-2.  [Create
-    an Amazon ECS cluster](../../../AmazonECS/latest/developerguide/create-cluster-console-v2.md "../../../AmazonECS/latest/developerguide/create-cluster-console-v2.md") with the infrastructure set to FARGATE and the following networking options:
+   - `VPC`: set to the VPC where your Neptune database is located.
+   - `Subnets`: set to the public subnets of that VPC (remove all others).
 
-    - `VPC`: set to the VPC where your Neptune database is located.
-    - `Subnets`: set to the public subnets of that VPC (remove all others).
-
-3.  Create a new JSON task definition as follows:
+3. Create a new JSON task definition as follows:
 
 ```
 {

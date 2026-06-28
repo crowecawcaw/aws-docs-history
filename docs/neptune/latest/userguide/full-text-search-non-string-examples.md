@@ -1,7 +1,7 @@
 # Sample non-string OpenSearch queries in Neptune
 
 Neptune does not currently support OpenSearch range queries directly. However,
-you can achieve the same effect using Lucene syntax and query-type="query_string",
+you can achieve the same effect using Lucene syntax and query-type="query\_string",
 as you can see in the following sample queries.
 
 ## Get all vertices with age greater than 30 and name starting with "Si"

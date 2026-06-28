@@ -10,23 +10,23 @@ body. Neptune workbench provides the following line magics:
 
 - [%seed](#notebooks-line-magics-seed "#notebooks-line-magics-seed")
 - [%load](#notebooks-line-magics-load "#notebooks-line-magics-load")
-- [%load_ids](#notebooks-line-magics-load-ids "#notebooks-line-magics-load-ids")
-- [%load_status](#notebooks-line-magics-load-status "#notebooks-line-magics-load-status")
-- [%cancel_load](#notebooks-line-magics-cancel-load "#notebooks-line-magics-cancel-load")
+- [%load\_ids](#notebooks-line-magics-load-ids "#notebooks-line-magics-load-ids")
+- [%load\_status](#notebooks-line-magics-load-status "#notebooks-line-magics-load-status")
+- [%cancel\_load](#notebooks-line-magics-cancel-load "#notebooks-line-magics-cancel-load")
 - [%status](#notebooks-line-magics-status "#notebooks-line-magics-status")
-- [%gremlin_status](#notebooks-line-magics-gremlin-status "#notebooks-line-magics-gremlin-status")
-- [%opencypher_status, or %oc_status](#notebooks-line-magics-opencypher-status "#notebooks-line-magics-opencypher-status")
-- [%stream_viewer](#notebooks-line-magics-stream-viewer "#notebooks-line-magics-stream-viewer")
-- [%sparql_status](#notebooks-line-magics-sparql-status "#notebooks-line-magics-sparql-status")
-- [%graph_notebook_config](#notebooks-line-magics-graph-notebook-config "#notebooks-line-magics-graph-notebook-config")
-- [%graph_notebook_host](#notebooks-line-magics-graph-notebook-host "#notebooks-line-magics-graph-notebook-host")
-- [%graph_notebook_version](#notebooks-line-magics-graph-notebook-version "#notebooks-line-magics-graph-notebook-version")
-- [%graph_notebook_service](#notebooks-line-magics-graph-notebook-service "#notebooks-line-magics-graph-notebook-service")
-- [%graph_notebook_vis_options](#notebooks-line-magics-graph-notebook-vis-options "#notebooks-line-magics-graph-notebook-vis-options")
+- [%gremlin\_status](#notebooks-line-magics-gremlin-status "#notebooks-line-magics-gremlin-status")
+- [%opencypher\_status, or %oc\_status](#notebooks-line-magics-opencypher-status "#notebooks-line-magics-opencypher-status")
+- [%stream\_viewer](#notebooks-line-magics-stream-viewer "#notebooks-line-magics-stream-viewer")
+- [%sparql\_status](#notebooks-line-magics-sparql-status "#notebooks-line-magics-sparql-status")
+- [%graph\_notebook\_config](#notebooks-line-magics-graph-notebook-config "#notebooks-line-magics-graph-notebook-config")
+- [%graph\_notebook\_host](#notebooks-line-magics-graph-notebook-host "#notebooks-line-magics-graph-notebook-host")
+- [%graph\_notebook\_version](#notebooks-line-magics-graph-notebook-version "#notebooks-line-magics-graph-notebook-version")
+- [%graph\_notebook\_service](#notebooks-line-magics-graph-notebook-service "#notebooks-line-magics-graph-notebook-service")
+- [%graph\_notebook\_vis\_options](#notebooks-line-magics-graph-notebook-vis-options "#notebooks-line-magics-graph-notebook-vis-options")
 - [%statistics](#notebooks-line-magics-statistics "#notebooks-line-magics-statistics")
 - [%summary](#notebooks-line-magics-summary "#notebooks-line-magics-summary")
-- [%reset_graph](#notebooks-line-magics-reset-graph "#notebooks-line-magics-reset-graph")
-- [%get_graph](#notebooks-line-magics-get-graph "#notebooks-line-magics-get-graph")
+- [%reset\_graph](#notebooks-line-magics-reset-graph "#notebooks-line-magics-reset-graph")
+- [%get\_graph](#notebooks-line-magics-get-graph "#notebooks-line-magics-get-graph")
 - [%degreeDistribution](#notebooks-line-magics-degreeDistribution "#notebooks-line-magics-degreeDistribution")
   _Cell magics_ are preceded by two percent signs (`%%`) rather
   than one, and use the cell content as input, although they can also take line content as
@@ -35,13 +35,13 @@ body. Neptune workbench provides the following line magics:
 - [%%sparql](#notebooks-cell-magics-sparql "#notebooks-cell-magics-sparql")
 - [%%gremlin](#notebooks-cell-magics-gremlin "#notebooks-cell-magics-gremlin")
 - [%%opencypher, or %%oc](#notebooks-cell-magics-opencypher "#notebooks-cell-magics-opencypher")
-- [%%graph_notebook_config](#notebooks-cell-magics-graph-notebook-config "#notebooks-cell-magics-graph-notebook-config")
-- [%%graph_notebook_vis_options](#notebooks-cell-magics-graph-notebook-vis-options "#notebooks-cell-magics-graph-notebook-vis-options")
+- [%%graph\_notebook\_config](#notebooks-cell-magics-graph-notebook-config "#notebooks-cell-magics-graph-notebook-config")
+- [%%graph\_notebook\_vis\_options](#notebooks-cell-magics-graph-notebook-vis-options "#notebooks-cell-magics-graph-notebook-vis-options")
   There are also two magics, a line magic and a cell magic, for working with
   [Neptune machine learning](machine-learning.md "machine-learning.md"):
 
-- [%neptune_ml](#notebooks-line-magics-neptune_ml "#notebooks-line-magics-neptune_ml")
-- [%%neptune_ml](#notebooks-cell-magics-neptune_ml "#notebooks-cell-magics-neptune_ml")
+- [%neptune\_ml](#notebooks-line-magics-neptune_ml "#notebooks-line-magics-neptune_ml")
+- [%%neptune\_ml](#notebooks-cell-magics-neptune_ml "#notebooks-cell-magics-neptune_ml")
 
 ###### Note
 
@@ -221,14 +221,14 @@ The line magic looks like this:
 ## The `%status` line magic
 
 Retrieves [status information](access-graph-status.md "access-graph-status.md") from the
-notebook's host endpoint ([%graph_notebook_config](#notebooks-line-magics-graph-notebook-config "#notebooks-line-magics-graph-notebook-config") shows the host
+notebook's host endpoint ([%graph\_notebook\_config](#notebooks-line-magics-graph-notebook-config "#notebooks-line-magics-graph-notebook-config") shows the host
 endpoint).
 
 For Neptune DB hosts, status information will be fetched from the
 [health status endpoint](access-graph-status.md "access-graph-status.md").
 For Neptune Analytics hosts, the status will be retrieved via the
 [GetGraph API](../../../neptune-analytics/latest/apiref/API_GetGraph.md "../../../neptune-analytics/latest/apiref/API_GetGraph.md").
-See [%get_graph](#notebooks-line-magics-get-graph "#notebooks-line-magics-get-graph") for more
+See [%get\_graph](#notebooks-line-magics-get-graph "#notebooks-line-magics-get-graph") for more
 information.
 
 ## The `%gremlin_status` line magic
@@ -308,7 +308,7 @@ the notebook is using to communicate with Neptune. The configuration includes:
   `%load` requests.
 
 You can change the configuration by copying the `%graph_notebook_config`
-output into a new cell and make changes to it there. Then if you run the [%%graph_notebook_config](#notebooks-cell-magics-graph-notebook-config "#notebooks-cell-magics-graph-notebook-config") cell
+output into a new cell and make changes to it there. Then if you run the [%%graph\_notebook\_config](#notebooks-cell-magics-graph-notebook-config "#notebooks-cell-magics-graph-notebook-config") cell
 magic on the new cell, the configuration will be changed accordingly.
 
 ## The `%graph_notebook_host` line magic
@@ -605,7 +605,7 @@ endpoint. It accepts the following optional line input arguments:
 
 The `%%graph_notebook_config` cell magic uses a JSON object containing
 configuration information to modify the settings that the notebook is using to communicate
-with Neptune, if possible. The configuration takes the same form returned by the [%graph_notebook_config](#notebooks-line-magics-graph-notebook-config "#notebooks-line-magics-graph-notebook-config") line magic.
+with Neptune, if possible. The configuration takes the same form returned by the [%graph\_notebook\_config](#notebooks-line-magics-graph-notebook-config "#notebooks-line-magics-graph-notebook-config") line magic.
 
 For example:
 
@@ -647,7 +647,7 @@ Neptune ML operations.
 
 ###### Note
 
-You can also initiate and manage some Neptune ML operations using the [%%neptune_ml](#notebooks-cell-magics-neptune_ml "#notebooks-cell-magics-neptune_ml")
+You can also initiate and manage some Neptune ML operations using the [%%neptune\_ml](#notebooks-cell-magics-neptune_ml "#notebooks-cell-magics-neptune_ml")
 cell magic.
 
 - **`%neptune_ml export start`**   –  

@@ -47,7 +47,7 @@ a support case may help you explore additional strategies for bringing it down.
   encryption in training or hyper-parameter tuning jobs.
 - For serverless DB clusters, changed the minimum capacity setting to
   1.0 NCU, and the lowest valid maximum setting to 2.5 NCUs. See [Capacity scaling in a Neptune Serverless DB cluster](neptune-serverless-capacity-scaling.md "neptune-serverless-capacity-scaling.md") `(((before release,
-this change needs to be reflected in the serverless page too))).`
+ this change needs to be reflected in the serverless page too))).`
 
 ## Defects Fixed in This Engine Release
 

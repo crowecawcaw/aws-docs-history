@@ -46,19 +46,18 @@ Model training is done in two stages:
      for inference.
 
 4. **Create an inference endpoint in Amazon SageMaker AI**   –  
-   The inference endpoint is a SageMaker AI endpoint instance that is launched with the model
-   artifacts produced by the best training job. Each model is tied to a single endpoint. The
-   endpoint is able to accept incoming requests from the graph database and return the model
-   predictions for inputs in the requests. After you have created the endpoint, it stays active
-   until you delete it.
-5. **Query the machine learning model using Gremlin**   –  
-   You can use extensions to the Gremlin query language to query predictions from the inference
-   endpoint.
+The inference endpoint is a SageMaker AI endpoint instance that is launched with the model
+artifacts produced by the best training job. Each model is tied to a single endpoint. The
+endpoint is able to accept incoming requests from the graph database and return the model
+predictions for inputs in the requests. After you have created the endpoint, it stays active
+until you delete it. 5. **Query the machine learning model using Gremlin**   –  
+You can use extensions to the Gremlin query language to query predictions from the inference
+endpoint.
 
 ###### Note
 
 The [Neptune workbench](graph-notebooks.md#graph-notebooks-workbench "graph-notebooks.md#graph-notebooks-workbench") contains a line magic
 and a cell magic that can save you a lot of time managing these steps, namely:
 
-- [%neptune_ml](notebooks-magics.md#notebooks-line-magics-neptune_ml "notebooks-magics.md#notebooks-line-magics-neptune_ml")
-- [%%neptune_ml](notebooks-magics.md#notebooks-cell-magics-neptune_ml "notebooks-magics.md#notebooks-cell-magics-neptune_ml")
+- [%neptune\_ml](notebooks-magics.md#notebooks-line-magics-neptune_ml "notebooks-magics.md#notebooks-line-magics-neptune_ml")
+- [%%neptune\_ml](notebooks-magics.md#notebooks-cell-magics-neptune_ml "notebooks-magics.md#notebooks-cell-magics-neptune_ml")

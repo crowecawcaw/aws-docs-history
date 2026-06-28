@@ -1,6 +1,6 @@
-# ST_GeomFromText
+# ST\_GeomFromText
 
-ST_GeomFromText constructs a geometry object from a well-known text (WKT) representation of an input geometry.
+ST\_GeomFromText constructs a geometry object from a well-known text (WKT) representation of an input geometry.
 
 **Syntax**
 
@@ -15,9 +15,9 @@ ST_GeomFromText(wkt_string)
 
 GEOMETRY
 
-If wkt_string is null, then null is returned.
+If wkt\_string is null, then null is returned.
 
-If wkt_string is not valid, then a BadRequestException is returned.
+If wkt\_string is not valid, then a BadRequestException is returned.
 
 **Examples**
 

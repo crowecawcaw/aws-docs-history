@@ -1,6 +1,6 @@
-# ST_Point
+# ST\_Point
 
-ST_Point returns a point from the input coordinate values.
+ST\_Point returns a point from the input coordinate values.
 
 **Syntax**
 

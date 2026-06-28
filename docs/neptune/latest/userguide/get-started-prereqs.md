@@ -27,6 +27,14 @@ to that user.
 Finally, you need to create the following customer-managed policy and add it to that
 user:
 
+###### Important
+
+You must create this as a _customer-managed policy_, not as an
+inline policy. The total size of all inline policies for an IAM user cannot exceed 2,048
+non-whitespace characters, and this policy exceeds that limit. For more information, see
+[IAM
+and STS character limits](../../../IAM/latest/UserGuide/reference_iam-quotas.md#reference_iam-quotas-entity-length "../../../IAM/latest/UserGuide/reference_iam-quotas.md#reference_iam-quotas-entity-length") in the _IAM User Guide_.
+
 JSON
 
 ```

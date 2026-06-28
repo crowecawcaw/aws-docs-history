@@ -94,7 +94,7 @@ Now instead, use an anonymous traversal like this:
   to data stored in Neptune a Neptune DB cluster.
 - The [Neptune DFE query engine](neptune-dfe-engine.md "neptune-dfe-engine.md")
   is now generally available for production use with the openCypher query language,
-  but not yet for Gremlin and SPARQL queries. You now enable it using its own [neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine") instance
+  but not yet for Gremlin and SPARQL queries. You now enable it using its own [neptune\_dfe\_query\_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine") instance
   parameter rather than the lab-mode parameter.
 
 ## Improvements in This Engine Release

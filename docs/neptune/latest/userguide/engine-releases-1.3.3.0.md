@@ -52,8 +52,8 @@ parameters={"year":1950}
 ```
 
 - Queries using the same parameter name multiple times can fail with the error `Parameter name should not be a number 
-and/or contain _internal_ or _modified_user_ string within it. These are reserved for planCache. Otherwise, rerun with 
-HTTP parameter planCache=disabled`. Either skip the query plan cache like above in such cases, or duplicate the
+ and/or contain _internal_ or _modified_user_ string within it. These are reserved for planCache. Otherwise, rerun with 
+ HTTP parameter planCache=disabled`. Either skip the query plan cache like above in such cases, or duplicate the
   parameters as in this example:
 
 ```

@@ -1,6 +1,6 @@
-# ST_Envelope
+# ST\_Envelope
 
-ST_Envelope returns the minimum bounding box of the input geometry, as follows:
+ST\_Envelope returns the minimum bounding box of the input geometry, as follows:
 
 - If the input geometry is empty, the returned geometry will be POINT EMPTY.
 - If the minimum bounding box of the input geometry degenerates to a point, the returned geometry is a point.

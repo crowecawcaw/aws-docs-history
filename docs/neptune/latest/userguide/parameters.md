@@ -6,33 +6,31 @@ are available for configuring your Neptune database:
 
 ###### Cluster-level parameters
 
-- [neptune_enable_audit_log](#parameters-db-cluster-parameters-neptune_enable_audit_log "#parameters-db-cluster-parameters-neptune_enable_audit_log")
-- [neptune_enable_slow_query_log](#parameters-db-cluster-parameters-neptune_enable_slow_query_log "#parameters-db-cluster-parameters-neptune_enable_slow_query_log")
-- [neptune_slow_query_log_threshold](#parameters-db-cluster-parameters-neptune_slow_query_log_threshold "#parameters-db-cluster-parameters-neptune_slow_query_log_threshold")
-- [neptune_lab_mode](#parameters-db-cluster-parameters-neptune_lab_mode "#parameters-db-cluster-parameters-neptune_lab_mode")
-- [neptune_query_timeout](#parameters-db-cluster-parameters-neptune_query_timeout "#parameters-db-cluster-parameters-neptune_query_timeout")
-- [neptune_streams](#parameters-db-cluster-parameters-neptune_streams "#parameters-db-cluster-parameters-neptune_streams")
-- [neptune_streams_expiry_days](#parameters-db-cluster-parameters-neptune_streams_expiry_days "#parameters-db-cluster-parameters-neptune_streams_expiry_days")
-- [neptune_lookup_cache](#parameters-db-cluster-parameters-neptune_lookup_cache "#parameters-db-cluster-parameters-neptune_lookup_cache")
-- [neptune_autoscaling_config](#parameters-db-cluster-parameters-neptune_autoscaling_config "#parameters-db-cluster-parameters-neptune_autoscaling_config")
-- [neptune_ml_iam_role](#parameters-db-cluster-parameters-neptune_ml_iam_role "#parameters-db-cluster-parameters-neptune_ml_iam_role")
-- [neptune_ml_endpoint](#parameters-db-cluster-parameters-neptune_ml_endpoint "#parameters-db-cluster-parameters-neptune_ml_endpoint")
-- [neptune_enable_inline_server_generated_edge_id](#parameters-db-cluster-parameters-neptune_inline_edge_id "#parameters-db-cluster-parameters-neptune_inline_edge_id")
-
- 
+- [neptune\_enable\_audit\_log](#parameters-db-cluster-parameters-neptune_enable_audit_log "#parameters-db-cluster-parameters-neptune_enable_audit_log")
+- [neptune\_enable\_slow\_query\_log](#parameters-db-cluster-parameters-neptune_enable_slow_query_log "#parameters-db-cluster-parameters-neptune_enable_slow_query_log")
+- [neptune\_slow\_query\_log\_threshold](#parameters-db-cluster-parameters-neptune_slow_query_log_threshold "#parameters-db-cluster-parameters-neptune_slow_query_log_threshold")
+- [neptune\_lab\_mode](#parameters-db-cluster-parameters-neptune_lab_mode "#parameters-db-cluster-parameters-neptune_lab_mode")
+- [neptune\_query\_timeout](#parameters-db-cluster-parameters-neptune_query_timeout "#parameters-db-cluster-parameters-neptune_query_timeout")
+- [neptune\_streams](#parameters-db-cluster-parameters-neptune_streams "#parameters-db-cluster-parameters-neptune_streams")
+- [neptune\_streams\_expiry\_days](#parameters-db-cluster-parameters-neptune_streams_expiry_days "#parameters-db-cluster-parameters-neptune_streams_expiry_days")
+- [neptune\_lookup\_cache](#parameters-db-cluster-parameters-neptune_lookup_cache "#parameters-db-cluster-parameters-neptune_lookup_cache")
+- [neptune\_autoscaling\_config](#parameters-db-cluster-parameters-neptune_autoscaling_config "#parameters-db-cluster-parameters-neptune_autoscaling_config")
+- [neptune\_ml\_iam\_role](#parameters-db-cluster-parameters-neptune_ml_iam_role "#parameters-db-cluster-parameters-neptune_ml_iam_role")
+- [neptune\_ml\_endpoint](#parameters-db-cluster-parameters-neptune_ml_endpoint "#parameters-db-cluster-parameters-neptune_ml_endpoint")
+- [neptune\_enable\_inline\_server\_generated\_edge\_id](#parameters-db-cluster-parameters-neptune_inline_edge_id "#parameters-db-cluster-parameters-neptune_inline_edge_id")
+   
 
 ###### Instance-level parameters
 
-- [neptune_dfe_query_engine](#parameters-instance-parameters-neptune_dfe_query_engine "#parameters-instance-parameters-neptune_dfe_query_engine")
-- [neptune_query_timeout](#parameters-instance-parameters-neptune_query_timeout "#parameters-instance-parameters-neptune_query_timeout")
-- [neptune_result_cache](#parameters-db-instance-parameters-neptune_result_cache "#parameters-db-instance-parameters-neptune_result_cache")
+- [neptune\_dfe\_query\_engine](#parameters-instance-parameters-neptune_dfe_query_engine "#parameters-instance-parameters-neptune_dfe_query_engine")
+- [neptune\_query\_timeout](#parameters-instance-parameters-neptune_query_timeout "#parameters-instance-parameters-neptune_query_timeout")
+- [neptune\_result\_cache](#parameters-db-instance-parameters-neptune_result_cache "#parameters-db-instance-parameters-neptune_result_cache")
 - [UndoLogPurgeConfig](#parameters-db-instance-parameters-undo_log_purge_config "#parameters-db-instance-parameters-undo_log_purge_config")
-
- 
+   
 
 ###### Deprecated parameters
 
-- [neptune_enforce_ssl](#parameters-db-cluster-parameters-neptune_enforce_ssl "#parameters-db-cluster-parameters-neptune_enforce_ssl")
+- [neptune\_enforce\_ssl](#parameters-db-cluster-parameters-neptune_enforce_ssl "#parameters-db-cluster-parameters-neptune_enforce_ssl")
 
 ## `neptune_enable_audit_log` (cluster-level parameter)
 

@@ -5,7 +5,7 @@
 Support for openCypher depends on the DFE query engine in Neptune.
 
 The DFE engine is controlled using
-the [neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
+the [neptune\_dfe\_query\_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
 instance parameter in an instance's DB parameter group.
 
 The DFE engine uses information about the data in your Neptune graph
@@ -731,7 +731,7 @@ to a statistics endpoint:
 - `InvalidParameterException`   –  
   _Return code:_ `400`.
   _Message:_ `Statistics command parameter 'mode' has
-unsupported value '`the invalid value`'`.
+ unsupported value '`the invalid value`'`.
 - `MissingParameterException`   –  
   _Return code:_ `400`.
   _Message:_ `Content-type header not specified.`.

@@ -4,9 +4,9 @@ The following examples show how to access change-log stream data in Amazon Neptu
 
 ###### Topics
 
-- [AT_SEQUENCE_NUMBER Change Log](#streams-examples-at_seq "#streams-examples-at_seq")
-- [AFTER_SEQUENCE_NUMBER Change Log](#streams-examples-after_seq "#streams-examples-after_seq")
-- [TRIM_HORIZON Change Log](#streams-examples-trim "#streams-examples-trim")
+- [AT\_SEQUENCE\_NUMBER Change Log](#streams-examples-at_seq "#streams-examples-at_seq")
+- [AFTER\_SEQUENCE\_NUMBER Change Log](#streams-examples-after_seq "#streams-examples-after_seq")
+- [TRIM\_HORIZON Change Log](#streams-examples-trim "#streams-examples-trim")
 - [LATEST Change Log](#streams-examples-trim "#streams-examples-trim")
 - [Compression Change Log](#streams-examples-compress "#streams-examples-compress")
 

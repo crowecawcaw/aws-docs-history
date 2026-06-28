@@ -1,6 +1,6 @@
 # Controlling where the Neptune DFE engine is used
 
-By default, the [neptune_dfe_query_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
+By default, the [neptune\_dfe\_query\_engine](parameters.md#parameters-instance-parameters-neptune_dfe_query_engine "parameters.md#parameters-instance-parameters-neptune_dfe_query_engine")
 instance parameter of an instance is set to `viaQueryHint`, which causes
 the DFE engine to be used only for openCypher queries and for Gremlin and SPARQL queries
 that explicitly include the `useDFE` query hint set to `true`.

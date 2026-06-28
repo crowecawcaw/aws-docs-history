@@ -43,7 +43,7 @@ Neptune while the client has no way to retrieve the results.
 
 We recommend setting the client-side read timeout to `0` (no timeout)
 or to a value that is at least a few seconds longer than the server-side
-[neptune_query_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
+[neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout")
 setting on your Neptune DB cluster. This lets Neptune control when queries
 time out.
 

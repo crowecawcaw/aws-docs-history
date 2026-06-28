@@ -41,7 +41,7 @@ previous example allows read queries. For a read/write query, write/delete permi
      the bucket is not public before exporting data.
 
 3. **AWS KMS permissios** - optional. Only required if using custom
-   AWS KMS encryption.
+AWS KMS encryption.
 
 ```
 {

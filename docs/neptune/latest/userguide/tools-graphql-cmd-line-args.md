@@ -69,28 +69,28 @@ for more information.
 - **`--input-graphdb-schema-neptune-endpoint `(endpoint URL)``**   –  
   The Neptune database enpoint from which the utility should extract the graphdb schema.
 - **`--output-schema-file `(file name)``**   –  
-  The output file name for the GraphQL schema. If not specified the default is
-  `output.schema.graphql`, unless a pipeline name has been set using
-  `--create-update-aws-pipeline-name`, in which case the default file name is
-  ``(pipline name)`.schema.graphql`.
+ The output file name for the GraphQL schema. If not specified the default is
+ `output.schema.graphql`, unless a pipeline name has been set using
+ `--create-update-aws-pipeline-name`, in which case the default file name is
+ ``(pipline name)`.schema.graphql`.
 - **`--output-source-schema-file `(file name)``**   –  
-  The output file name for the GraphQL schema with directives. If not specified
-  the default is `output.source.schema.graphql`, unless a pipeline name
-  has been set using `--create-update-aws-pipeline-name`, in which case the default
-  name is ``(pipeline name)`.source.schema.graphql`.
+ The output file name for the GraphQL schema with directives. If not specified
+ the default is `output.source.schema.graphql`, unless a pipeline name
+ has been set using `--create-update-aws-pipeline-name`, in which case the default
+ name is ``(pipeline name)`.source.schema.graphql`.
 - **`--output-schema-no-mutations`**   –  
   If this argument is present, the utility generates no mutations in the GraphQL API,
   only queries.
 - **`--output-neptune-schema-file `(file name)``**   –  
-  The output file name for Neptune graphdb schema that the utility discovers. If not
-  specified the default is `output.graphdb.json`, unless a pipeline name has
-  been set using `--create-update-aws-pipeline-name`, in which case the
-  default file name is ``(pipeline name)`.graphdb.json`.
+ The output file name for Neptune graphdb schema that the utility discovers. If not
+ specified the default is `output.graphdb.json`, unless a pipeline name has
+ been set using `--create-update-aws-pipeline-name`, in which case the
+ default file name is ``(pipeline name)`.graphdb.json`.
 - **`--output-js-resolver-file `(file name)``**   –  
-  The output file name for a copy of the resolver code. If not specified the default
-  is `output.resolver.graphql.js`, unless a pipeline name has been set using
-  `--create-update-aws-pipeline-name`, in which case the file name is
-  ``(pipeline name)`.resolver.graphql.js`.
+ The output file name for a copy of the resolver code. If not specified the default
+ is `output.resolver.graphql.js`, unless a pipeline name has been set using
+ `--create-update-aws-pipeline-name`, in which case the file name is
+ ``(pipeline name)`.resolver.graphql.js`.
 
 This file is zipped in the code package uploaded to the Lambda function that
 runs the resolver.
@@ -122,9 +122,9 @@ runs the resolver.
   to query the database. If not set, the endpoint set by
   `--input-graphdb-schema-neptune-endpoint` is used.
 - **`--remove-aws-pipeline-name `(pipeline name)``**   –  
-  This argument removes a pipeline created using `--create-update-aws-pipeline`.
-  The resources to remove are listed in a file named
-  ``(pipeline name)`.resources.json`.
+ This argument removes a pipeline created using `--create-update-aws-pipeline`.
+ The resources to remove are listed in a file named
+ ``(pipeline name)`.resources.json`.
 - **`--output-aws-pipeline-cdk`**   –  
   This argument triggers the creation of a CDK file that can be used to create the AWS
   resources for the GraphQL API, including the AppSync GraphQL API and the
@@ -141,5 +141,5 @@ runs the resolver.
   This sets the AWS region in which the pipeline for the GraphQL API is created. If not
   specified, it defaults to `us-east-1` or region where the Neptune database
   is located, extracted from the database endpoint.
-- **`--output-aws-pipeline-cdk-file `(file name)``**   –  
-  This sets the CDK file name. If not set the default is ``(pipeline name)`-cdk.js`.
+- **`--output-aws-pipeline-cdk-file `(file name)`**   –  
+ This sets the CDK file name. If not set the default is `(pipeline name)`-cdk.js`.

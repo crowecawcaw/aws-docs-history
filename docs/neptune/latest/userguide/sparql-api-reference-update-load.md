@@ -30,7 +30,7 @@ The remote file must have one of the following extensions:
     + `.jsonld` for JSON-LD.
 
 - **`INTO GRAPH`**`(named graph
-into which to load the data)`   –  
+ into which to load the data)`   –  
   (_Optional_) Specifies the graph into which the data
   should be loaded.
 

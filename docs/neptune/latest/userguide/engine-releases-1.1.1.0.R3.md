@@ -61,13 +61,12 @@ See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-open
   optimized for memory-intensive workloads. These are initially available only in
   four AWS Regions:
 
-      + US East (N. Virginia) (`us-east-1`)
-      + US East (Ohio) (`us-east-2`)
-      + US West (Oregon) (`us-west-2`)
-      + Europe (Ireland) (`eu-west-1`)
-
-  See the [Neptune
-  pricing page](https://aws.amazon.com/neptune/pricing/ "https://aws.amazon.com/neptune/pricing/") for more information.
+  - US East (N. Virginia) (`us-east-1`)
+  - US East (Ohio) (`us-east-2`)
+  - US West (Oregon) (`us-west-2`)
+  - Europe (Ireland) (`eu-west-1`)
+    See the [Neptune
+    pricing page](https://aws.amazon.com/neptune/pricing/ "https://aws.amazon.com/neptune/pricing/") for more information.
 
 - Improved performance of Gremlin steps where multiple edge or vertex
   traversals, property lookups, or label lookups are involved.

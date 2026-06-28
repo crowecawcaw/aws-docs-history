@@ -155,7 +155,7 @@ the `prefixname` string.
     A JSON array containing three numbers between zero and one that add up to one
     and that represent an estimate of the proportions of nodes that the training,
     validation, and test stages will use, respectively. Either this field or the
-    `custom_split_filenames` can be defined, but not both. See [split_rate](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate").
+    `custom_split_filenames` can be defined, but not both. See [split\_rate](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate").
   - **`custom_split_filenames`**   –  
     A JSON object that specifies the file names for the files that define the
     training, validation and test populations. Either this field or `split_rate`
@@ -221,20 +221,19 @@ in [Possible values of the type field for features](machine-learning-neptune_ml-
   The language field specifies the language being used in text property values. Its
   usage depends on the text encoding method:
 
-  - For [text_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
+  - For [text\_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
     encoding, this field is required, and must specify one of the following languages:
 
-        - `en`   (English)
-        - `zh`   (Chinese)
-        - `hi`   (Hindi)
-        - `es`   (Spanish)
-        - `fr`   (French)
+    - `en`   (English)
+    - `zh`   (Chinese)
+    - `hi`   (Hindi)
+    - `es`   (Spanish)
+    - `fr`   (French)
+      However, `text_fasttext` cannot handle more than one language at a time.
 
-    However, `text_fasttext` cannot handle more than one language at a time.
-
-  - For [text_sbert](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
+  - For [text\_sbert](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
     encoding, this field is not used, since SBERT encoding is multilingual.
-  - For [text_word2vec](machine-learning-feature-encoding.md#machine-learning-word2vec-features "machine-learning-feature-encoding.md#machine-learning-word2vec-features")
+  - For [text\_word2vec](machine-learning-feature-encoding.md#machine-learning-word2vec-features "machine-learning-feature-encoding.md#machine-learning-word2vec-features")
     encoding, this field is optional, since `text_word2vec` only supports English.
     If present, it must specify the name of the English language model:
 
@@ -245,10 +244,10 @@ in [Possible values of the type field for features](machine-learning-neptune_ml-
     encoding, this field is not used.
 
 - **`max_length`**   –  
-  This field is optional for [text_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
+  This field is optional for [text\_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
   features, where it specifies the maximum number of tokens in an input text feature
   that will be encoded. Input text after `max_length` is reached is
-  ignored. For example, setting max_length to 128 indicates that any tokens after
+  ignored. For example, setting max\_length to 128 indicates that any tokens after
   the 128th in a text sequence are ignored.
 - **`separator`**  –  
   This field is used optionally with `category`, `numerical` and
@@ -274,7 +273,7 @@ See [Bucket-numerical features in Neptune ML](machine-learning-feature-encoding.
   This field is used optionally with `bucket_numerical` features to
   assign values to more than one bucket.
 
-See [The slide_window_size field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-slide_window_size "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-slide_window_size").
+See [The slide\_window\_size field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-slide_window_size "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-slide_window_size").
 
 - **`imputer`**  –  
   This field is used optionally with `numerical`, `bucket_numerical`,
@@ -288,26 +287,26 @@ See [The imputer field](machine-learning-neptune_ml-features.md#machine-learning
   This field is used optionally by `text_tfidf` features to specify the
   maximum number of terms to encode.
 
-See [The max_features field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_features "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_features").
+See [The max\_features field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_features "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_features").
 
 - **`min_df`**  –  
   This field is used optionally by `text_tfidf` features to specify the
   minimum document frequency of terms to encode
 
-See [The min_df field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-min_df "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-min_df").
+See [The min\_df field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-min_df "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-min_df").
 
 - **`ngram_range`**  –  
   This field is used optionally by `text_tfidf` features to specify a
   range of numbers of words or tokens to considered as potential individual terms to
   encode
 
-See [The ngram_range field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-ngram_range "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-ngram_range").
+See [The ngram\_range field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-ngram_range "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-ngram_range").
 
 - **`datetime_parts`**  –  
   This field is used optionally by `datetime` features to specify which
   parts of the datetime value to encode categorically.
 
-See [The datetime_parts field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts").
+See [The datetime\_parts field](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts").
 
 ## Contents of a node label object listed in a node `labels` array
 
@@ -339,7 +338,7 @@ stages will use. Each object can contain the following fields:
 - **`split_rate`**   –  
   A JSON array containing three numbers between zero and one that add up to one and
   represent an estimate of the proportions of nodes that the training, validation,
-  and test stages will use, respectively. See [split_rate](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate").
+  and test stages will use, respectively. See [split\_rate](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate").
 - **`custom_split_filenames`**   –  
   A JSON object that specifies the file names for the files that define the
   training, validation and test populations. Either this field or `split_rate`
@@ -363,7 +362,7 @@ entities are used in these different populations, files can be created that
 explicitly define them, and then the [training data
 configuration file can be edited](machine-learning-processing-training-config-file.md "machine-learning-processing-training-config-file.md") to map these indexing files to the
 populations. This mapping is specified by a JSON object for the
-[custom_split_filesnames](#custom_split_filenames "#custom_split_filenames")
+[custom\_split\_filesnames](#custom_split_filenames "#custom_split_filenames")
 key in the training configuration file. If this option is used, filenames must be
 provided for the `train` and `validation` keys, and is
 optional for the `test` key.

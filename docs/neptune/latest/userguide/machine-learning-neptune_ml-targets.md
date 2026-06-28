@@ -1,4 +1,4 @@
-# The targets field in a neptune_ml object
+# The targets field in a neptune\_ml object
 
 The `targets` field in a JSON training data export configuration
 contains an array of target objects that specify a training task and and the machine-learning
@@ -65,7 +65,7 @@ Target objects can contain the following fields:
   - [edge](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-edge "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-edge")
   - [property](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-property "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-property")
   - [type](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-type "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-type")
-  - [split_rate](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate")
+  - [split\_rate](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-split_rate")
   - [separator](machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-separator "machine-learning-neptune_ml-targets.md#machine-learning-property-graph-neptune_ml-targets-separator")
 
 - [RDF target fields](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets")
@@ -75,7 +75,7 @@ Target objects can contain the following fields:
   - [predicate](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-predicate "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-predicate")
   - [object](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-object "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-object")
   - [type](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-type "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-type")
-  - [split_rate](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-split_rate "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-split_rate")
+  - [split\_rate](machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-split_rate "machine-learning-neptune_ml-targets.md#machine-learning-RDF-neptune_ml-targets-split_rate")
 
 ## Fields in a property-graph target object
 
@@ -150,7 +150,7 @@ The supported task types for edges are:
 
 This field is required.
 
-### The split_rate field in a property-graph target object
+### The split\_rate field in a property-graph target object
 
 (_Optional_) An estimate of the proportions of nodes or edges
 that the training, validation, and test stages will use, respectively. These

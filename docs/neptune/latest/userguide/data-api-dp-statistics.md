@@ -219,7 +219,7 @@ Indicates whether or not DFE statistics generation is enabled at all.
 
 Indicates whether or not automatic statistics generation is enabled.
 
-- **date** – This is a SyntheticTimestamp_date_time, of type: `string` (a UTF-8 encoded string).
+- **date** – This is a SyntheticTimestamp\_date\_time, of type: `string` (a UTF-8 encoded string).
 
 The UTC time at which DFE statistics have most recently been generated.
 
@@ -340,7 +340,7 @@ Payload for the property graph summary response.
 
 The graph summary.
 
-- **lastStatisticsComputationTime** – This is a SyntheticTimestamp_date_time, of type: `string` (a UTF-8 encoded string).
+- **lastStatisticsComputationTime** – This is a SyntheticTimestamp\_date\_time, of type: `string` (a UTF-8 encoded string).
 
 The timestamp, in ISO 8601 format, of the time at which Neptune last computed
 statistics.

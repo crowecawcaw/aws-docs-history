@@ -267,7 +267,7 @@ following requirements.
   are not, load aborts immediately.)
 - A double quotation mark character (`"`) in a field must be represented
   by two (double) quotation mark characters. For example, a string `Hello
-"World"` must be present as `"Hello ""World"""` in the data.
+ "World"` must be present as `"Hello ""World"""` in the data.
 - Surrounding spaces between delimiters are ignored. If a row is present as
   `value1, value2`, they are stored as `"value1"` and
   `"value2"`.

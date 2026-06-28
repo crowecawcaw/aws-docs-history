@@ -31,7 +31,8 @@ The S3 bucket does not exist. Check the name of the bucket.
 No matching files were found in the S3 bucket.
 
 - `Unable to connect to S3 endpoint. Provided source =
-`source-uri`and region =`aws-region``  (HTTP 500)
+ `source-uri`and region =
+`aws-region``  (HTTP 500)
 
 Unable to connect to Amazon S3. Region must match the cluster Region. Ensure that you
 have a VPC endpoint. For information about creating a VPC endpoint, see [Creating an Amazon S3 VPC Endpoint](bulk-load-data.md#bulk-load-prereqs-s3 "bulk-load-data.md#bulk-load-prereqs-s3").
@@ -68,7 +69,7 @@ If a load request is submitted without `"queueRequest" : "TRUE"`,
 and a load job is currently running, the request will fail with this error.
 
 - `Failed to start new load for the source "`source name`".
-Max load task queue size limit breached. Limit is 64`  (HTTP 400)
+ Max load task queue size limit breached. Limit is 64`  (HTTP 400)
 
 Neptune supports queuing up as many as 64 loader jobs at a time. If
 an additional load request is submitted to the queue when it already contains 64

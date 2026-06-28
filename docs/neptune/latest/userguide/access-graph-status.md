@@ -80,13 +80,13 @@ version number is prefixed by `"Patch-"`.
 
   On an `R5d` instance:
 
-      - If the lookup cache is enabled, the status is listed as
-       `"Available"`.
-      - If the lookup cache has been disabled, the status
-       is listed as `"Disabled"`.
-      - If the disk limit has been reached on the instance, the
-       status is listed as `"Read Only Mode - Storage Limit
-       Reached"`.
+        - If the lookup cache is enabled, the status is listed as
+         `"Available"`.
+        - If the lookup cache has been disabled, the status
+         is listed as `"Disabled"`.
+        - If the disk limit has been reached on the instance, the
+         status is listed as `"Read Only Mode - Storage Limit
+         Reached"`.
   - **`ResultCache`**   –  
     The current status of the [Caching query results](gremlin-results-cache.md "gremlin-results-cache.md"). This field is a JSON object
     in the form:
@@ -97,10 +97,10 @@ version number is prefixed by `"Patch-"`.
   }
   ```
 
-      - If the results cache has been enabled, the status
-       is listed as `"Available"`.
-      - If the cache is disabled, the status is listed as
-       `"Disabled"`.
+        - If the results cache has been enabled, the status
+         is listed as `"Available"`.
+        - If the cache is disabled, the status is listed as
+         `"Disabled"`.
   - **`IAMAuthentication`**   –  
     Specifies whether or not AWS Identity and Access Management (IAM) authentication has been
     enabled on your DB cluster:

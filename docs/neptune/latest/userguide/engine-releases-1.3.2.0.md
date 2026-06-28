@@ -25,7 +25,7 @@ Engine release 1.3.2.0 introduced some potential issues that you should be aware
 
 ###### General improvements
 
-- Support for TLS version 1.3 including cipher suites TLS_AES_128_GCM_SHA256 and TLS_AES_256_GCM_SHA384.
+- Support for TLS version 1.3 including cipher suites TLS\_AES\_128\_GCM\_SHA256 and TLS\_AES\_256\_GCM\_SHA384.
   TLS 1.3 is an option - TLS 1.2 is still the minimum.
 
 ###### Gremlin improvements
@@ -214,8 +214,8 @@ parameters={"year":1950}
 ```
 
 - Queries using the same parameter name multiple times can fail with the error `Parameter name should not be a number 
-and/or contain _internal_ or _modified_user_ string within it. These are reserved for planCache. Otherwise, rerun with 
-HTTP parameter planCache=disabled`. Either skip the query plan cache like above in such cases, or duplicate the
+ and/or contain _internal_ or _modified_user_ string within it. These are reserved for planCache. Otherwise, rerun with 
+ HTTP parameter planCache=disabled`. Either skip the query plan cache like above in such cases, or duplicate the
   parameters as in this example:
 
 ```

@@ -53,9 +53,9 @@ compatibility table at [Accessing a Neptune graph with Gremlin](access-graph-gre
 TinkerPop version for your Neptune engine, then use the following table to select
 the appropriate Neptune Gremlin client version:
 
-| Neptune Gremlin client version compatibility | Neptune Gremlin client version   | TinkerPop version |
-| -------------------------------------------- | -------------------------------- | ----------------- |
-| 3.x                                          | 3.7.x (AWS SDK for Java 2.x/1.x) |
-| 2.1.x                                        | 3.7.x (AWS SDK for Java 1.x)     |
-| 2.0.x                                        | 3.6.x                            |
-| 1.12                                         | 3.5.x                            |
+Neptune Gremlin client version compatibility| Neptune Gremlin client version | TinkerPop version |
+| --- | --- |
+| 3.x | 3.7.x (AWS SDK for Java 2.x/1.x) |
+| 2.1.x | 3.7.x (AWS SDK for Java 1.x) |
+| 2.0.x | 3.6.x |
+| 1.12 | 3.5.x |

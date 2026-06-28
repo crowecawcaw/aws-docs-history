@@ -38,13 +38,12 @@ A response to a Neptune Streams REST API request has the following fields:
   - `op`   –  
     The operation that created the change. Valid values are:
 
-        - `ADD`   –  
-         Indicates that a new element (such as a vertex, edge, property, or triple) was added to the graph.
-        - `REMOVE`   –  
-         Indicates that an existing element was removed from the graph.
-
-    Neptune expresses a modification to an existing element as a `REMOVE`
-    record followed by an `ADD` record.
+    - `ADD`   –  
+      Indicates that a new element (such as a vertex, edge, property, or triple) was added to the graph.
+    - `REMOVE`   –  
+      Indicates that an existing element was removed from the graph.
+      Neptune expresses a modification to an existing element as a `REMOVE`
+      record followed by an `ADD` record.
 
   - `isLastOp`   –  
     Only present if this operation is the last one in its transaction.

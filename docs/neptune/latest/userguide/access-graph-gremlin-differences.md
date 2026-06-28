@@ -167,9 +167,9 @@ is not supported.
 
 ###### Important
 
-This **_only_** applies
-to methods where you send the Gremlin query as a **_text
-string_** (see [Gremlin transactions](access-graph-gremlin-transactions.md "access-graph-gremlin-transactions.md")).
+This _**only**_ applies
+to methods where you send the Gremlin query as a _**text
+string**_ (see [Gremlin transactions](access-graph-gremlin-transactions.md "access-graph-gremlin-transactions.md")).
 
 ## Vertex and edge IDs
 
@@ -344,9 +344,9 @@ For example, the following traversal is not allowed:
 
 ###### Important
 
-This **_only_**
-applies to methods where you send the Gremlin query as a **_text
-string_**.
+This _**only**_
+applies to methods where you send the Gremlin query as a _**text
+string**_.
 
 ## Unsupported Gremlin steps
 

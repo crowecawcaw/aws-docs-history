@@ -6,7 +6,7 @@ in both Gremlin and SPARQL:
 - **`queryType`**   –  
   (_Required_) The type of OpenSearch query. (For a list of query types, see the [OpenSearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html")). Neptune supports the following OpenSearch query types:
 
-  - [simple_query_string](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html")   –  
+  - [simple\_query\_string](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html")   –  
     Returns documents based on a provided query string, using a parser with a
     limited but fault-tolerant Lucene syntax. This is the default query type.
 
@@ -30,10 +30,10 @@ in both Gremlin and SPARQL:
   An edit distance is the number of one-character changes needed
   to turn one term into another. These changes can include:
 
-      - Changing a character (box to fox).
-      - Removing a character (black to lack).
-      - Inserting a character (sic to sick).
-      - Transposing two adjacent characters (act to cat).
+        - Changing a character (box to fox).
+        - Removing a character (black to lack).
+        - Inserting a character (sic to sick).
+        - Transposing two adjacent characters (act to cat).
 
   To find similar terms, the fuzzy query creates a set of all possible
   variations and expansions of the search term within a specified edit distance
@@ -52,7 +52,7 @@ in both Gremlin and SPARQL:
   which can make finding exact matches for text field values difficult.
 
   To search text field values, use the match query instead.
-  - [query_string](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html")   –  
+  - [query\_string](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html")   –  
     Returns documents based on a provided query string, using a parser
     with a strict syntax (Lucene syntax).
 
@@ -117,113 +117,86 @@ you are trying to fetch more than `index.max_result_window` results.
   An optional parameter that lets you sort the results returned by OpenSearch
   by one of the following:
 
-      + *A particular string field in the document*   –  
+  - _A particular string field in the document_   –  
 
+  For example, in a SPARQL query, you could specify:
 
-      For example, in a SPARQL query, you could specify:
+  ```
+      neptune-fts:config neptune-fts:sortBy foaf:name .
+  ```
 
+  In a similar Gremlin query, you could specify:
 
+  ```
+      .withSideEffect('Neptune#fts.sortBy', 'name')
+  ```
+  - _A particular non-string field (`long`, `double`, etc.) in the document_   –  
 
-      ```
-          neptune-fts:config neptune-fts:sortBy foaf:name .
-      ```
+  Note that when sorting on a non-string field, you need to append `.value` to the field name
+  to differentiate it from a string field.
 
-      In a similar Gremlin query, you could specify:
+  For example, in a SPARQL query, you could specify:
 
+  ```
+      neptune-fts:config neptune-fts:sortBy foaf:name.value .
+  ```
 
+  In a similar Gremlin query, you could specify:
 
-      ```
-          .withSideEffect('Neptune#fts.sortBy', 'name')
-      ```
-      + *A particular non-string field (`long`, `double`, etc.) in the document*   –  
+  ```
+      .withSideEffect('Neptune#fts.sortBy', 'name.value')
+  ```
+  - `score`   –   Sort by match score (the default).
 
+  If the `sortOrder` parameter is present but `sortBy` is not
+  present, the results are sorted by `score` in the order specified by
+  `sortOrder`.
+  - `id`   –   Sort by ID, which means the SPARQL subject URI
+    or the Gremlin vertex or edge ID.
 
-      Note that when sorting on a non-string field, you need to append `.value` to the field name
-       to differentiate it from a string field.
+  For example, in a SPARQL query, you could specify:
 
+  ```
+      neptune-fts:config neptune-fts:sortBy 'Neptune#fts.entity_id' .
+  ```
 
-      For example, in a SPARQL query, you could specify:
+  In a similar Gremlin query, you could specify:
 
+  ```
+      .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.entity_id')
+  ```
+  - `label`   –   Sort by label.
 
+  For example, in a SPARQL query, you could specify:
 
-      ```
-          neptune-fts:config neptune-fts:sortBy foaf:name.value .
-      ```
+  ```
+      neptune-fts:config neptune-fts:sortBy 'Neptune#fts.entity_type' .
+  ```
 
-      In a similar Gremlin query, you could specify:
+  In a similar Gremlin query, you could specify:
 
+  ```
+      .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.entity_type')
+  ```
+  - `doc_type`   –   Sort by document type (that is, SPARQL or Gremlin).
 
+  For example, in a SPARQL query, you could specify:
 
-      ```
-          .withSideEffect('Neptune#fts.sortBy', 'name.value')
-      ```
-      + `score`   –   Sort by match score (the default).
+  ```
+      neptune-fts:config neptune-fts:sortBy 'Neptune#fts.document_type' .
+  ```
 
+  In a similar Gremlin query, you could specify:
 
-      If the `sortOrder` parameter is present but `sortBy` is not
-       present, the results are sorted by `score` in the order specified by
-       `sortOrder`.
-      + `id`   –   Sort by ID, which means the SPARQL subject URI
-       or the Gremlin vertex or edge ID.
+  ```
+      .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.document_type')
+  ```
 
-
-      For example, in a SPARQL query, you could specify:
-
-
-
-      ```
-          neptune-fts:config neptune-fts:sortBy 'Neptune#fts.entity_id' .
-      ```
-
-      In a similar Gremlin query, you could specify:
-
-
-
-      ```
-          .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.entity_id')
-      ```
-      + `label`   –   Sort by label.
-
-
-      For example, in a SPARQL query, you could specify:
-
-
-
-      ```
-          neptune-fts:config neptune-fts:sortBy 'Neptune#fts.entity_type' .
-      ```
-
-      In a similar Gremlin query, you could specify:
-
-
-
-      ```
-          .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.entity_type')
-      ```
-      + `doc_type`   –   Sort by document type (that is, SPARQL or Gremlin).
-
-
-      For example, in a SPARQL query, you could specify:
-
-
-
-      ```
-          neptune-fts:config neptune-fts:sortBy 'Neptune#fts.document_type' .
-      ```
-
-      In a similar Gremlin query, you could specify:
-
-
-
-      ```
-          .withSideEffect('Neptune#fts.sortBy', 'Neptune#fts.document_type')
-      ```
-
-  By default, OpenSearch results are not sorted and their order is non-deterministic,
-  meaning that the same query may return items in a different order each time it is run.
-  For this reason, if the result set is greater than `max_result_window`, a quite different
-  subset of the total results could be returned every time a query is run. By sorting, however, you
-  can make the results of different runs more directly comparable.
+By default, OpenSearch results are not sorted and their order is non-deterministic,
+meaning that the same query may return items in a different order each time it is run.
+For this reason, if the result set is greater than `max_result_window`, a quite different
+subset of the total results could be returned every time a query is run. By sorting, however, you
+can make the results of different runs more directly comparable.
 
 If no `sortOrder` parameter accompanies `sortBy`, descending
 (`DESC`) order from greatest to least is used.

@@ -1,6 +1,6 @@
-# ST_Intersects
+# ST\_Intersects
 
-ST_Intersects returns true if the 2D projections of the two input geometries have at least one point in common.
+ST\_Intersects returns true if the 2D projections of the two input geometries have at least one point in common.
 
 **Syntax**
 

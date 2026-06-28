@@ -4,7 +4,7 @@ The Neptune fast reset REST API lets you reset a Neptune graph quicky and easily
 removing all of its data.
 
 You can do this within a Neptune notebook using the
-[%db_reset](#manage-console-fast-reset-db-reset-magic "#manage-console-fast-reset-db-reset-magic") line magic.
+[%db\_reset](#manage-console-fast-reset-db-reset-magic "#manage-console-fast-reset-db-reset-magic") line magic.
 
 - In most cases, a fast reset operation completes within couple of
   minutes. The duration can vary somewhat depending on the load on the cluster

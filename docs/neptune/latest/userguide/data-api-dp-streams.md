@@ -20,7 +20,7 @@ of change-log entries that record every change made to your graph data as it hap
 for a property graph.
 
 The Neptune streams feature needs to be enabled on your Neptune DBcluster.
-To enable streams, set the [neptune_streams](parameters.md#parameters-db-cluster-parameters-neptune_streams "parameters.md#parameters-db-cluster-parameters-neptune_streams")
+To enable streams, set the [neptune\_streams](parameters.md#parameters-db-cluster-parameters-neptune_streams "parameters.md#parameters-db-cluster-parameters-neptune_streams")
 DB cluster parameter to `1`.
 
 See [Capturing

@@ -1,7 +1,7 @@
 # Using Apache Lucene query syntax in Neptune full-text search queries
 
 OpenSearch supports using [Apache
-Lucene syntax](https://lucene.apache.org/core/8_9_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package.description "https://lucene.apache.org/core/8_9_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package.description") for query_string queries. This is particularly useful for
+Lucene syntax](https://lucene.apache.org/core/8_9_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package.description "https://lucene.apache.org/core/8_9_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#package.description") for query\_string queries. This is particularly useful for
 passing multiple filters in a query.
 
 Neptune uses a nested structure for storing properties in an OpenSearch document

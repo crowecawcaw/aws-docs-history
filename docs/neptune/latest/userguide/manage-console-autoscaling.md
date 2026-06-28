@@ -47,7 +47,7 @@ that you specified, Neptune auto-scaling deletes one of the replicas.
 Neptune auto-scaling only removes replicas that it created. It does
 not remove pre-existing replicas.
 
-Using the [neptune_autoscaling_config](parameters.md#parameters-db-cluster-parameters-neptune_autoscaling_config "parameters.md#parameters-db-cluster-parameters-neptune_autoscaling_config")
+Using the [neptune\_autoscaling\_config](parameters.md#parameters-db-cluster-parameters-neptune_autoscaling_config "parameters.md#parameters-db-cluster-parameters-neptune_autoscaling_config")
 DB cluster parameter, you can also specify the instance type of the new read-replicas
 that Neptune auto-scaling creates, the maintenance windows for those read-replicas,
 and tags to be associated with each of the new read-replicas. You provide these

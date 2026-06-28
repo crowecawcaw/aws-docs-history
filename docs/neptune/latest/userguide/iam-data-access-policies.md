@@ -33,8 +33,10 @@ performs them.
 Here are some sample Gremlin queries where this is explained in more detail:
 
 - ```
-  g.V().count()
+
   ```
+
+g.V().count()
 
 ````
 
@@ -50,8 +52,10 @@ or not before inserting a new one. This means that it requires both
 `ReadDataViaQuery` and `WriteDataViaQuery` access.
 
 - ```
-  g.V('1').as('a').out('created').addE('createdBy').to('a')
+
   ```
+
+g.V('1').as('a').out('created').addE('createdBy').to('a')
 
 ````
 
@@ -71,8 +75,10 @@ deleting it, so the query as a whole requires both `ReadDataViaQuery`
 and `DeleteDataViaQuery` access.
 
 - ```
-  g.V('1').property(single, 'key1', 'value1')
+
   ```
+
+g.V('1').property(single, 'key1', 'value1')
 
 ````
 
@@ -102,9 +108,11 @@ This query reads all nodes in the database and returns them,
 which only requires `ReadDataViaQuery` access.
 
 - ```
-  MATCH (n:Person)
-  SET n.dept = 'AWS'
+
   ```
+
+MATCH (n:Person)
+SET n.dept = 'AWS'
 
 ````
 
@@ -132,9 +140,11 @@ The label `Person` and deletes them along with the edges connected
 to those nodes and any associated labels and properties.
 
 - ```
-  MERGE (n:Person {name: 'John'})-[:knows]->(:Person {name: 'Peter'})
-  RETURN n
+
   ```
+
+MERGE (n:Person {name: 'John'})-[:knows]->(:Person {name: 'Peter'})
+RETURN n
 
 ```
 

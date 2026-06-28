@@ -19,7 +19,7 @@ on the writer node. The cluster could see additional write I/O operations and ha
 purge as GC performs new deletes, which may also result in higher values for the `UndoLogListSize` metric.
 
 GC can be run in two modes, `soft_delete` and `enabled`. When run in the `soft_delete` mode,
-unused dictionary entries are marked deleted (soft_delete) but are not explicitly deleted. This mode could also be used to
+unused dictionary entries are marked deleted (soft\_delete) but are not explicitly deleted. This mode could also be used to
 understand performance characteristics after the background operation is turned on. When the `enabled` mode is used,
 entries are explicitly deleted ('hard' delete). It is recommended to run GC in `soft_delete` mode for a
 period of time before switching to `enabled` mode.

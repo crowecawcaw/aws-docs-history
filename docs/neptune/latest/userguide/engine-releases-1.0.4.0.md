@@ -17,15 +17,14 @@ that it takes several days for a new release to become available in every region
   protocol for all connections to Neptune in all regions, using these strong cipher
   suites:
 
-      + `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
-      + `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
-      + `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
-      + `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
-      + `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
-      + `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
-
-  This is true for both REST and WebSocket connections to Neptune, and means that
-  you must use HTTPS rather than HTTP when connecting to Neptune in all regions.
+  - `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
+  - `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
+  - `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
+  - `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
+  - `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`
+  - `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`
+    This is true for both REST and WebSocket connections to Neptune, and means that
+    you must use HTTPS rather than HTTP when connecting to Neptune in all regions.
 
 Because client connections using HTTP or TLS 1.1 will no longer be supported
 anywhere, please make sure that your clients and code have been updated to use

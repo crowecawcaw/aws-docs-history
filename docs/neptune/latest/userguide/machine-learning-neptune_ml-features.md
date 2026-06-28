@@ -1,4 +1,4 @@
-# The features field in neptune_ml
+# The features field in neptune\_ml
 
 Property values and RDF literals come in different formats and data types. To achieve
 good performance in machine learning, it is essential to convert those values to
@@ -24,18 +24,18 @@ specifications for property-graph data, not for RDF data.
 For free-form text, Neptune ML can use several different models to convert the sequence
 of tokens in a string property value into a fixed-size real-value vector:
 
-- [text_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")   –  
+- [text\_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")   –  
   Uses [fastText](https://fasttext.cc/ "https://fasttext.cc/") encoding. This is the recommended
   encoding for features that use one and only one of the five languages that fastText supports.
-- [text_sbert](machine-learning-feature-encoding.md#machine-learning-sbert-features "machine-learning-feature-encoding.md#machine-learning-sbert-features")   –  
+- [text\_sbert](machine-learning-feature-encoding.md#machine-learning-sbert-features "machine-learning-feature-encoding.md#machine-learning-sbert-features")   –  
   Uses the [Sentence
   BERT](https://www.sbert.net/docs/pretrained_models.html#sentence-embedding-models "https://www.sbert.net/docs/pretrained_models.html#sentence-embedding-models") (SBERT) encoding models. This is the recommended encoding for text that
   `text_fasttext` does not support.
-- [text_word2vec](machine-learning-feature-encoding.md#machine-learning-word2vec-features "machine-learning-feature-encoding.md#machine-learning-word2vec-features")   –  
+- [text\_word2vec](machine-learning-feature-encoding.md#machine-learning-word2vec-features "machine-learning-feature-encoding.md#machine-learning-word2vec-features")   –  
   Uses [Word2Vec](https://wikipedia.org/wiki/Word2vec "https://wikipedia.org/wiki/Word2vec") algorithms originally
   published by [Google](https://code.google.com/archive/p/word2vec/ "https://code.google.com/archive/p/word2vec/") to
   encode text. Word2Vec only supports English.
-- [text_tfidf](machine-learning-feature-encoding.md#machine-learning-tfidf-features "machine-learning-feature-encoding.md#machine-learning-tfidf-features")   –  
+- [text\_tfidf](machine-learning-feature-encoding.md#machine-learning-tfidf-features "machine-learning-feature-encoding.md#machine-learning-tfidf-features")   –  
   Uses a [term frequency–inverse document
   frequency](https://wikipedia.org/wiki/Tf-idf "https://wikipedia.org/wiki/Tf-idf") (TF-IDF) vectorizer for encoding text. TF-IDF encoding supports
   statistical features that the other encodings do not.
@@ -50,16 +50,16 @@ of tokens in a string property value into a fixed-size real-value vector:
 - [type](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-feature-types "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-feature-types")
 - [norm](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-norm "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-norm")
 - [language](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-language "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-language")
-- [max_length](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_length "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_length")
+- [max\_length](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_length "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_length")
 - [separator](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-separator "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-separator")
 - [range](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-range "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-range")
-- [bucket_cnt](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-bucket_cnt "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-bucket_cnt")
-- [slide_window_size](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-slide_window_size "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-slide_window_size")
+- [bucket\_cnt](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-bucket_cnt "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-bucket_cnt")
+- [slide\_window\_size](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-slide_window_size "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-slide_window_size")
 - [imputer](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-imputer "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-imputer")
-- [max_features](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_features "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_features")
-- [min_df](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-min_df "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-min_df")
-- [ngram_range](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-ngram_range "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-ngram_range")
-- [datetime_parts](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts")
+- [max\_features](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_features "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-max_features")
+- [min\_df](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-min_df "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-min_df")
+- [ngram\_range](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-ngram_range "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-ngram_range")
+- [datetime\_parts](machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts "machine-learning-neptune_ml-features.md#machine-learning-neptune_ml-features-datetime_parts")
 
 ## The node field in features
 
@@ -188,7 +188,7 @@ See [fastText encoding of text property values in Neptune ML](machine-learning-f
   can require more processing time than `text_sbert128`. Both methods are slower than
   `text_fasttext`.
 
-The `text_sbert`\*`` methods support many
+The `text_sbert`*`` methods support many
 languages, and can encode a sentence that contains more than one language.
 
 See [Sentence BERT (SBERT) encoding of text features in Neptune ML](machine-learning-feature-encoding.md#machine-learning-sbert-features "machine-learning-feature-encoding.md#machine-learning-sbert-features").
@@ -243,7 +243,7 @@ See [Numerical features in Neptune ML](machine-learning-feature-encoding.md#mach
 The language field specifies the language used in text property values. Its usage
 depends on the text encoding method:
 
-- For [text_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
+- For [text\_fasttext](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
   encoding, this field is required, and must specify one of the following languages:
 
   - `en`   (English)
@@ -252,9 +252,9 @@ depends on the text encoding method:
   - `es`   (Spanish)
   - `fr`   (French)
 
-- For [text_sbert](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
+- For [text\_sbert](machine-learning-feature-encoding.md#machine-learning-fasttext-features "machine-learning-feature-encoding.md#machine-learning-fasttext-features")
   encoding, this field is not used, since SBERT encoding is multilingual.
-- For [text_word2vec](machine-learning-feature-encoding.md#machine-learning-word2vec-features "machine-learning-feature-encoding.md#machine-learning-word2vec-features")
+- For [text\_word2vec](machine-learning-feature-encoding.md#machine-learning-word2vec-features "machine-learning-feature-encoding.md#machine-learning-word2vec-features")
   encoding, this field is optional, since `text_word2vec` only supports English.
   If present, it must specify the name of the English language model:
 
@@ -262,15 +262,15 @@ depends on the text encoding method:
 "language" : "en_core_web_lg"
 ```
 
-- For [text_tfidf](machine-learning-feature-encoding.md#machine-learning-tfidf-features "machine-learning-feature-encoding.md#machine-learning-tfidf-features")
+- For [text\_tfidf](machine-learning-feature-encoding.md#machine-learning-tfidf-features "machine-learning-feature-encoding.md#machine-learning-tfidf-features")
   encoding, this field is not used.
 
-## The max_length field
+## The max\_length field
 
 The `max_length` field is optional for `text_fasttext`
 features, where it specifies the maximum number of tokens in an input text feature
 that will be encoded. Input text that is longer than `max_length` is
-truncated. For example, setting max_length to 128 indicates that any tokens after
+truncated. For example, setting max\_length to 128 indicates that any tokens after
 the 128th in a text sequence will be ignored:
 
 ```
@@ -310,7 +310,7 @@ first bucket, or if it's larger than the upper bound, it's assigned to the last 
 
 See [Bucket-numerical features in Neptune ML](machine-learning-feature-encoding.md#machine-learning-bucket_numerical-features "machine-learning-feature-encoding.md#machine-learning-bucket_numerical-features").
 
-## The bucket_cnt field
+## The bucket\_cnt field
 
 This field is required for `bucket_numerical` features. It specifies
 the number of buckets that the numerical range defined by the `range`
@@ -322,7 +322,7 @@ parameter should be divided into:
 
 See [Bucket-numerical features in Neptune ML](machine-learning-feature-encoding.md#machine-learning-bucket_numerical-features "machine-learning-feature-encoding.md#machine-learning-bucket_numerical-features").
 
-## The slide_window_size field
+## The slide\_window\_size field
 
 This field is used optionally with `bucket_numerical` features to
 assign values to more than one bucket:
@@ -359,7 +359,7 @@ when a missing value is encountered.
 
 See [Numerical features in Neptune ML](machine-learning-feature-encoding.md#machine-learning-numerical-features "machine-learning-feature-encoding.md#machine-learning-numerical-features") and [Bucket-numerical features in Neptune ML](machine-learning-feature-encoding.md#machine-learning-bucket_numerical-features "machine-learning-feature-encoding.md#machine-learning-bucket_numerical-features").
 
-## The max_features field
+## The max\_features field
 
 This field is used optionally by `text_tfidf` features to specify the
 maximum number of terms to encode:
@@ -374,7 +374,7 @@ is 5,000.
 
 See [TF-IDF encoding of text features in Neptune ML](machine-learning-feature-encoding.md#machine-learning-tfidf-features "machine-learning-feature-encoding.md#machine-learning-tfidf-features").
 
-## The min_df field
+## The min\_df field
 
 This field is used optionally by `text_tfidf` features to specify the
 minimum document frequency of terms to encode:
@@ -391,7 +391,7 @@ The default value if you don't include the `min_df` parameter is
 
 See [TF-IDF encoding of text features in Neptune ML](machine-learning-feature-encoding.md#machine-learning-tfidf-features "machine-learning-feature-encoding.md#machine-learning-tfidf-features").
 
-## The ngram_range field
+## The ngram\_range field
 
 This field is used optionally by `text_tfidf` features to specify what
 size sequences of words or tokens should be considered as potential individual terms to encode:
@@ -408,7 +408,7 @@ meaning that only single words or tokens are considered as terms to encode.
 
 See [TF-IDF encoding of text features in Neptune ML](machine-learning-feature-encoding.md#machine-learning-tfidf-features "machine-learning-feature-encoding.md#machine-learning-tfidf-features").
 
-## The datetime_parts field
+## The datetime\_parts field
 
 This field is used optionally by `datetime` features to specify which
 parts of the datetime value to encode categorically:

@@ -53,7 +53,7 @@ The following are possible error messages from the cancel API with a description
 of the error.
 
 - `The load with id = `load_id` does not exist or not
-active` (HTTP 404)   –   The load was not found. Check the
+ active` (HTTP 404)   –   The load was not found. Check the
   value of `id` parameter.
 - `Load cancellation is not permitted on a read replica instance.`
   (HTTP 405)   –   Loading is a write operation. Retry load on the

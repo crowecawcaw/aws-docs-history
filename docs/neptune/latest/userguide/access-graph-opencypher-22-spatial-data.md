@@ -98,7 +98,7 @@ MATCH (a:airport)
 SET a.location = ST_GeomFromText('POINT (' + a.lon + ' ' + a.lat + ')')
 ```
 
-2. Query using ST_Distance:
+2. Query using ST\_Distance:
 
 ```
 MATCH (a:airport)

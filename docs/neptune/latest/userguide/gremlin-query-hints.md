@@ -10,9 +10,9 @@ the following syntax.
 g.withSideEffect(`hint`, `value`)
 ```
 
-- *hint* – Identifies the type of the
+- _hint_ – Identifies the type of the
   hint to apply.
-- *value* – Determines the behavior of
+- _value_ – Determines the behavior of
   the system aspect under consideration.
   For example, the following shows how to include a `repeatMode` hint in a Gremlin
   traversal.

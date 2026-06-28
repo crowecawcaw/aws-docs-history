@@ -1,6 +1,6 @@
-# ST_Distance
+# ST\_Distance
 
-For input geometries, ST_Distance returns the minimum Euclidean distance between the 2D projections of the two input geometry values.
+For input geometries, ST\_Distance returns the minimum Euclidean distance between the 2D projections of the two input geometry values.
 
 **Syntax**
 

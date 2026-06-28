@@ -60,7 +60,7 @@ curl https://`your-neptune-endpoint`:`port`/openCypher \
 
 Query timeout behavior will consider the minimum of cluster-level timeout and query-level timeout. Please see below
 examples to understand query timeout behavior. For more information on cluster-level query timeout, see
-[neptune_query_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout").
+[neptune\_query\_timeout](parameters.md#parameters-db-cluster-parameters-neptune_query_timeout "parameters.md#parameters-db-cluster-parameters-neptune_query_timeout").
 
 ```
 # Suppose `neptune_query_timeout` is 10000 ms and query-level timeout is set to 100 ms

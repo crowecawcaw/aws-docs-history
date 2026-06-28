@@ -8,13 +8,13 @@ automatically logged to make this process easier.
 
 Slow-query logging was introduced in Neptune [engine release 1.2.1.0](engine-releases-1.2.1.0.md "engine-releases-1.2.1.0.md").
 
-You enable slow-query logging using the [neptune_enable_slow_query_log](parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log "parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log")
+You enable slow-query logging using the [neptune\_enable\_slow\_query\_log](parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log "parameters.md#parameters-db-cluster-parameters-neptune_enable_slow_query_log")
 DB cluster parameter. By default, this parameter is set to `disabled`. Setting
 it to `info` or `debug` enables slow-query logging. The `info`
 setting logs a few useful attributes of each slow-running query, whereas the `debug`
 setting logs all available attributes.
 
-To set the threshold for what is considered a slow-running query, use the [neptune_slow_query_log_threshold](parameters.md#parameters-db-cluster-parameters-neptune_slow_query_log_threshold "parameters.md#parameters-db-cluster-parameters-neptune_slow_query_log_threshold")
+To set the threshold for what is considered a slow-running query, use the [neptune\_slow\_query\_log\_threshold](parameters.md#parameters-db-cluster-parameters-neptune_slow_query_log_threshold "parameters.md#parameters-db-cluster-parameters-neptune_slow_query_log_threshold")
 DB cluster parameter to specify the number of milliseconds after which a running
 query is considered slow and is logged when slow-query logging is enabled. The
 default value is 5000 milliseconds (5 seconds).

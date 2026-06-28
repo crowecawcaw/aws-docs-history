@@ -43,10 +43,10 @@ For details on all available Gremlin steps in DFE, refer to [Gremlin step covera
   the storageCounters section of the slow query logs.
 - Dropped support for the following cipher suites:
 
-  - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-  - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-  - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-  - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+  - TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256
+  - TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384
+  - TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_CBC\_SHA256
+  - TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_CBC\_SHA384
 
 ###### Gremlin Improvements
 

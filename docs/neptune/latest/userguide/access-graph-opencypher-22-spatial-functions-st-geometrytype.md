@@ -1,6 +1,6 @@
-# ST_GeometryType
+# ST\_GeometryType
 
-ST_GeometryType returns the type of the geometry as a string.
+ST\_GeometryType returns the type of the geometry as a string.
 
 **Syntax**
 

@@ -73,10 +73,10 @@ In Neptune ML, you can cause a numerical property to be encoded as a bucket-nume
 feature, you must provide two things:
 
 - A numerical range in the form, `"range": [`a`,
-`b`]` , where `a` and `b`
+ `b`]` , where `a` and `b`
   are integers.
 - A bucket count, in the form `"bucket_cnt":
-`c``, where`c` is the number of buckets,
+ `c`` , where `c` is the number of buckets,
   also an integer.
 
 Neptune ML then calculates the size of each bucket as `( b - a ) / c` ,
@@ -86,9 +86,9 @@ greater than `b` is considered to belong in the last bucket.
 
 You can also, optionally, make numeric values fall into more than one bucket, by
 specifying a slide-window size, like this: `"slide_window_size":
- `s``, where`s`is a number.
- Neptune ML then transforms each numeric value`v`of the property into
- a range from `v - s/2`  through  `v + s/2`, and assigns the value
+ `s`` , where `s` is a number.
+Neptune ML then transforms each numeric value `v` of the property into
+a range from `v - s/2` through `v + s/2` , and assigns the value
 `v` to every bucket that the range covers.
 
 Finally, you can also optionally provide a way of filling in missing values
@@ -102,18 +102,18 @@ can cause processing to halt.
 For free-form text, Neptune ML can use several different models to convert the
 sequence of tokens in a property value string into a fixed-size real-value vector:
 
-- [text_fasttext](#machine-learning-fasttext-features "#machine-learning-fasttext-features")   –  
+- [text\_fasttext](#machine-learning-fasttext-features "#machine-learning-fasttext-features")   –  
   Uses [fastText](https://fasttext.cc/ "https://fasttext.cc/") encoding. This is the recommended
   encoding for features that use one and only one of the five languages that fastText supports.
-- [text_sbert](#machine-learning-sbert-features "#machine-learning-sbert-features")   –  
+- [text\_sbert](#machine-learning-sbert-features "#machine-learning-sbert-features")   –  
   Uses the [Sentence
   BERT](https://www.sbert.net/docs/pretrained_models.html#sentence-embedding-models "https://www.sbert.net/docs/pretrained_models.html#sentence-embedding-models") (SBERT) encoding models. This is the recommended encoding for text that
   `text_fasttext` does not support.
-- [text_word2vec](#machine-learning-word2vec-features "#machine-learning-word2vec-features")   –  
+- [text\_word2vec](#machine-learning-word2vec-features "#machine-learning-word2vec-features")   –  
   Uses the [Word2Vec](https://wikipedia.org/wiki/Word2vec "https://wikipedia.org/wiki/Word2vec") algorithms originally
   published by [Google](https://code.google.com/archive/p/word2vec/ "https://code.google.com/archive/p/word2vec/") to
   encode text. Word2Vec only supports English.
-- [text_tfidf](#machine-learning-tfidf-features "#machine-learning-tfidf-features")   –  
+- [text\_tfidf](#machine-learning-tfidf-features "#machine-learning-tfidf-features")   –  
   Uses a [term frequency–inverse document
   frequency](https://wikipedia.org/wiki/Tf-idf "https://wikipedia.org/wiki/Tf-idf") (TF-IDF) vectorizer for encoding text. TF-IDF encoding supports
   statistical features that the other encodings do not.
@@ -194,7 +194,7 @@ maximum of 128 tokens:
 Neptune ML can encode string property values as a Word2Vec feature ([Word2Vec algorithms](https://wikipedia.org/wiki/Word2vec "https://wikipedia.org/wiki/Word2vec")
 were originally published by [Google](https://code.google.com/archive/p/word2vec/ "https://code.google.com/archive/p/word2vec/")). The `text_word2vec`
 method encodes the tokens in a string as a dense vector using one of the [spaCy trained models](https://spacy.io/models "https://spacy.io/models"). This only supports the
-English language using the [en_core_web_lg](https://spacy.io/models/en#en_core_web_lg "https://spacy.io/models/en#en_core_web_lg") model).
+English language using the [en\_core\_web\_lg](https://spacy.io/models/en#en_core_web_lg "https://spacy.io/models/en#en_core_web_lg") model).
 
 The following example specifies that movie titles are encoded using Word2Vec:
 
@@ -233,8 +233,8 @@ For example, if the word "kiss" appears twice in a given movie title (say,
 the TF-IDF value of "kiss" in the "kiss kiss bang bang" title would be
 `2 / 4` .
 
-The vector that is initially created has **_d_**
-dimensions, where **_d_** is
+The vector that is initially created has _**d**_
+dimensions, where _**d**_ is
 the number of unique terms in all property values of that type. The
 dimensionality-reduction operation uses a random sparse projection to reduce
 that number to a maximum of 100. The vocabulary of a graph is then generated
@@ -263,11 +263,10 @@ You can control the TF-IDF vectorizer in several ways:
   to `[2, 4]`, the following 6 terms would be found in the
   "kiss kiss bang bang" title:
 
-      + *2-word terms*:  "kiss kiss", "kiss bang", and "bang bang".
-      + *3-word terms*:  "kiss kiss bang" and "kiss bang bang".
-      + *4-word terms*:  "kiss kiss bang bang".
-
-  The default setting for `ngram_range` is `[1, 1]`.
+  - _2-word terms_:  "kiss kiss", "kiss bang", and "bang bang".
+  - _3-word terms_:  "kiss kiss bang" and "kiss bang bang".
+  - _4-word terms_:  "kiss kiss bang bang".
+    The default setting for `ngram_range` is `[1, 1]`.
 
 ## Datetime features in Neptune ML
 
@@ -336,7 +335,7 @@ feature encodings:
   infers the property type to be text and automatically detects the language being used.
   If the language detected is one of the ones supported by [fastText](#machine-learning-fasttext-features "#machine-learning-fasttext-features"), namely English, Chinese,
   Hindi, Spanish and French, then Neptune ML uses `text_fasttext` to encode
-  the text. Othewise, Neptune ML uses [text_sbert](#machine-learning-sbert-features "#machine-learning-sbert-features").
+  the text. Othewise, Neptune ML uses [text\_sbert](#machine-learning-sbert-features "#machine-learning-sbert-features").
 - If the property is a string not classified as a text feature then Neptune
   ML presumes it to be a categorical feature and uses category encoding.
 - If each node has its own unique value for a property that is inferred to

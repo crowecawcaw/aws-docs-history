@@ -1,6 +1,6 @@
-# ST_Buffer
+# ST\_Buffer
 
-ST_Buffer returns 2D geometry that represents all points whose distance from the input geometry projected on the xy-Cartesian plane is less than or equal to the input distance.
+ST\_Buffer returns 2D geometry that represents all points whose distance from the input geometry projected on the xy-Cartesian plane is less than or equal to the input distance.
 
 **Syntax**
 
@@ -17,7 +17,7 @@ ST_Buffer(geom, distance, number_of_segments_per_quarter_circle)
 
 GEOMETRY
 
-The ST_Buffer function returns two-dimensional (2D) geometry in the xy-Cartesian plane.
+The ST\_Buffer function returns two-dimensional (2D) geometry in the xy-Cartesian plane.
 
 **Examples**
 

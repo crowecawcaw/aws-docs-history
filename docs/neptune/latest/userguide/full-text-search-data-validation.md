@@ -11,14 +11,13 @@ Data is replicated to OpenSearch from Neptune using this process:
 - If there is no existing mapping for the field in question, find an OpenSearch
   datatype corresponding to the field's datatype in Neptune.
 
-      + If the field data can be safely converted to the OpenSearch datatype using
-       data validation rules, then store the new mapping and field data in OpenSearch.
-      + If not, drop the corresponding stream update record.
-
-  Values are validated against equivalent OpenSearch types or existing
-  OpenSearch mappings rather than the Neptune types. For example, validation for
-  the value `"123"` in `"123"^^xsd:int` is done against the
-  `long` type rather than the `int` type.
+  - If the field data can be safely converted to the OpenSearch datatype using
+    data validation rules, then store the new mapping and field data in OpenSearch.
+  - If not, drop the corresponding stream update record.
+    Values are validated against equivalent OpenSearch types or existing
+    OpenSearch mappings rather than the Neptune types. For example, validation for
+    the value `"123"` in `"123"^^xsd:int` is done against the
+    `long` type rather than the `int` type.
 
 Although Neptune attempts to replicate all data to OpenSearch, there are
 cases where datatypes in OpenSearch are totally different from the ones in Neptune,

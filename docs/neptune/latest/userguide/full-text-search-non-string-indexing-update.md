@@ -46,9 +46,9 @@ take the following steps:
      code artifacts for the stream poller with the latest artifacts.
 
 5. **Start the stream poller again.**
-   Do this by enabling the appropriate CloudWatch rule:
+Do this by enabling the appropriate CloudWatch rule:
 
-   - In the AWS Management Console, navigate to CloudWatch.
-   - Select **Rules**.
-   - Choose the rule with the Lambda stream poller name.
-   - Select **enable**.
+    * In the AWS Management Console, navigate to CloudWatch.
+    * Select **Rules**.
+    * Choose the rule with the Lambda stream poller name.
+    * Select **enable**.

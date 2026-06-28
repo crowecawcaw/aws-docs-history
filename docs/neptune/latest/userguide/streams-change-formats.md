@@ -20,16 +20,16 @@ contains the following fields:
 
 ###### Topics
 
-- [PG_JSON Change Serialization Format](#streams-change-formats-gremlin "#streams-change-formats-gremlin")
+- [PG\_JSON Change Serialization Format](#streams-change-formats-gremlin "#streams-change-formats-gremlin")
 - [SPARQL NQUADS Change Serialization Format](#streams-change-formats-sparql "#streams-change-formats-sparql")
 
-## PG_JSON Change Serialization Format
+## PG\_JSON Change Serialization Format
 
 ###### Note
 
 The Gremlin stream output format (`GREMLIN_JSON`) output by the Gremlin
 stream endpoint (`https://`Neptune-DNS`:8182/gremlin/stream`)
-is deprecated. It is replaced by PG_JSON, which is currently identical to
+is deprecated. It is replaced by PG\_JSON, which is currently identical to
 `GREMLIN_JSON`.
 
 A Gremlin or openCypher change record, contained in the `data` field

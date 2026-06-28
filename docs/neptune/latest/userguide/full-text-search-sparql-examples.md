@@ -67,7 +67,7 @@ SELECT * WHERE {
 }
 ```
 
-## SPARQL query_string query example
+## SPARQL query\_string query example
 
 This query specifies multiple fields.
 
@@ -86,7 +86,7 @@ SELECT * WHERE {
 }
 ```
 
-## SPARQL simple_query_string query example
+## SPARQL simple\_query\_string query example
 
 The following query specifies fields using the wildcard ('\*') character.
 
@@ -176,7 +176,7 @@ SELECT * WHERE {
 }
 ```
 
-## SPARQL sort by doc_type query example
+## SPARQL sort by doc\_type query example
 
 ```
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>

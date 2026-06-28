@@ -61,7 +61,7 @@ a support case may help you explore additional strategies for bringing it down.
   Starting with engine release 1.2.0.0, reader instances remain active after a writer restart,
   which improves reader availability. Reader instances can be restarted separately to pick
   up parameter group changes. See [Rebooting a DB instance in Amazon Neptune](manage-console-instances-reboot.md "manage-console-instances-reboot.md").
-- Added a new [neptune_streams_expiry_days](parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days "parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days") DB cluster parameter which lets you set the
+- Added a new [neptune\_streams\_expiry\_days](parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days "parameters.md#parameters-db-cluster-parameters-neptune_streams_expiry_days") DB cluster parameter which lets you set the
   number of days that stream records are kept on the server before being deleted.
   The range is 1 through 90, and the default is 7.
 
@@ -78,7 +78,7 @@ a support case may help you explore additional strategies for bringing it down.
 - Improved performance by up to a factor of 5 of some expensive join
   operations within DFE by parallelizing them.
 - Added `by()` modulation support for `OrderGlobalStep
-order(global)` for the Gremlin DFE engine.
+ order(global)` for the Gremlin DFE engine.
 - Added display of injected static values in explain details for DFE.
 - Improved performance when pruning duplicate patterns.
 - Added order preservation support in the Gremlin DFE engine.

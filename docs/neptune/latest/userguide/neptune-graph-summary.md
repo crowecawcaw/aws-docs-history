@@ -58,7 +58,7 @@ the RDF summary endpoint:
 - `https://`your-neptune-host`:`port`/rdf/statistics/summary`
 
 These endpoints are read-only, and only support an HTTP `GET` operation.
-If $GRAPH_SUMMARY_ENDPOINT is set to the address of whichever endpoint you want
+If $GRAPH\_SUMMARY\_ENDPOINT is set to the address of whichever endpoint you want
 to query, you can retrieve the summary data using `curl` and HTTP `GET`
 as follows:
 
