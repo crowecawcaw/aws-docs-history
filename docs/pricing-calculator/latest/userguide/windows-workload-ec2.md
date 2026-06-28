@@ -69,30 +69,30 @@ for a workload.
 This section defines the terms that are mentioned in the **Configure machine
 specifications** section.
 
-\***\*Machine description\*\***
+****Machine description****
 
 A description for the machine. This is generally a hostname identifier. If
 you don't know the hostname identifier, specify unique software components
 that run on this machine—for example, `WebApp DB1` or
 `Webserver 1`.
 
-\***\*Operating system\*\***
+****Operating system****
 
 Depending on your tenancy qualification, you can choose an operating
 system with a licensing option. The default value is
 `Windows`.
 
-\***\*SQL Server edition\*\***
+****SQL Server edition****
 
 Depending on your tenancy qualification, you can choose a SQL Server with
 licensing option. The default value is `SQL Standard`.
 
-\***\*vCPU, Memory\*\***
+****vCPU, Memory****
 
 Enter the number of vCPUs and memory inputs for your machine
 configuration. For example, 4vCPU and 8GB of memory.
 
-\***\*Quantity\*\***
+****Quantity****
 
 The default value is 1. This is the minimum number that's required.
 

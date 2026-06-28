@@ -80,26 +80,26 @@ workload.
 This section defines the terms mentioned in the **Configure machine
 specifications** section.
 
-\***\*Machine description\*\***
+****Machine description****
 
 A description for the machine. This is generally a hostname identifier. If
 unknown, you can specify unique software components running on this
 machine—for example, `WebApp DB1` or `Webserver
  1`.
 
-\***\*Operating system\*\***
+****Operating system****
 
 You can choose an operating system with a licensing option, depending on
 your tenancy qualification. The default value is
 `Windows`.
 
-\***\*SQL Server edition\*\***
+****SQL Server edition****
 
 You can choose a SQL Server with licensing option, depending on your
 tenancy qualification. The default value is `SQL
  Standard`.
 
-\***\*Storage volumes per specification\*\***
+****Storage volumes per specification****
 
 You can specify the storage needs in this section. If you don't know
 storage needs upfront, you can remove it from the estimate using
@@ -114,14 +114,14 @@ recommends the appropriate Amazon EBS storage type based on the optional inputs
 such as **IOPS** and
 **Throughput**.
 
-\***\*Storage amount\*\***
+****Storage amount****
 
 You can specify your storage amount needs. The default value
 is 1000 GB. If only storage amount is specified, the default
 recommended Amazon EBS storage type is `General Purpose SSD
  (gp3)`.
 
-\***\*IOPs\*\***
+****IOPs****
 
 IOPS (input/output operations per second) is the standard unit
 of measurement for the maximum number of reads and writes to
@@ -138,7 +138,7 @@ types.
 up to 500 IOPS/GB to a maximum of 64,000 IOPS,. It provides up
 to 1,000 MB/s of throughput per volume.
 
-\***\*Throughput\*\***
+****Throughput****
 
 Throughput measures how many units of information a system can
 process in a period of time. It can refer to the number of I/O
@@ -153,7 +153,7 @@ frequently accessed, throughput-intensive workloads with large
 datasets and large I/O sizes. Examples include MapReduce, Kafka,
 and log processing.
 
-\***\*EC2 instance type\*\***
+****EC2 instance type****
 
 **Obtain an EC2 instance type recommendation**
 
@@ -177,7 +177,7 @@ You can also search instances by using filters such as _instance category_. We r
 memory-optimized instances for database workload. You can search for them
 faster by using the instance category filter.
 
-\***\*Optimize CPU\*\***
+****Optimize CPU****
 
 You have the flexibility of specifying a custom number of vCPUs while
 using the same memory, storage, and bandwidth of a full sized instance. The
@@ -190,11 +190,11 @@ Optimized vCPUs. This means BYOL customers can optimize vCPU-based licensing
 costs. The CPU optimized instance has the same price as the instance that
 iisn't optimized for CPU.
 
-\***\*Quantity\*\***
+****Quantity****
 
 The default value is 1. This is the minimum number required.
 
-\***\*SQL passive node\*\***
+****SQL passive node****
 
 A passive SQL Server node is one that's not serving SQL Server data to
 clients or running active SQL Server workloads. If you select this check box

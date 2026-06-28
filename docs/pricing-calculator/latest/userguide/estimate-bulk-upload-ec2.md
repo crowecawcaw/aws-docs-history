@@ -45,8 +45,7 @@ You can refer to the **Example** worksheet in the spreadsheet for an example dat
      dedicated hosts** table.
 
 8. Use the Review dedicated hosts section to see details such as host family, host description,
-   instances, license count, and used capacity. For more information, see [Review dedicated hosts](windows-workload-ec2.md#estimate-dedicatedhost-ec2 "windows-workload-ec2.md#estimate-dedicatedhost-ec2").
-9. Use the Dedicated Host costs section to see details for your workload.
+instances, license count, and used capacity. For more information, see [Review dedicated hosts](windows-workload-ec2.md#estimate-dedicatedhost-ec2 "windows-workload-ec2.md#estimate-dedicatedhost-ec2"). 9. Use the Dedicated Host costs section to see details for your workload.
 
 The costs table provides an itemized breakdown of the dedicated hosts with
 hourly cost, monthly cost per unit, and cost for the first twelve months
