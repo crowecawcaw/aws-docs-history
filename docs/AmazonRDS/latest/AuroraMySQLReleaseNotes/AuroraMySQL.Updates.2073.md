@@ -87,7 +87,7 @@ the `PROCESS` permission.
   would not roll the XA transaction back. This meant that when the
   transaction was retried, the first event was XA START which was
   invalid as the XA transaction was already in progress, leading to
-  an XAER_RMFAIL error. (Bug #24764800)
+  an XAER\_RMFAIL error. (Bug #24764800)
 - _Replication:_ Interleaved transactions could
   sometimes deadlock the slave applier when the transaction
   isolation level was set to [REPEATABLE READ](https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html#isolevel_repeatable-read "https://dev.mysql.com/doc/refman/5.7/en/innodb-transaction-isolation-levels.html#isolevel_repeatable-read").
@@ -95,14 +95,14 @@ the `PROCESS` permission.
 - _Replication:_ The value returned by a
   [SHOW SLAVE STATUS](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html "https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html")
   statement for the total combined size of all existing relay log
-  files (Relay_Log_Space) could become much larger than the actual
+  files (Relay\_Log\_Space) could become much larger than the actual
   disk space used by the relay log files. The I/O thread did not
   lock the variable while it updated the value, so the SQL thread
   could automatically delete a relay log file and write a reduced
   value before the I/O thread finished updating the value. The I/O
   thread then wrote its original size calculation, ignoring the SQL
   thread's update and so adding back the space for the deleted file.
-  The Relay_Log_Space value is now locked during updates to prevent
+  The Relay\_Log\_Space value is now locked during updates to prevent
   concurrent updates and ensure an accurate calculation. (Bug
   #26997096, Bug #87832)
 - For an [INSERT](https://dev.mysql.com/doc/refman/5.7/en/insert.html "https://dev.mysql.com/doc/refman/5.7/en/insert.html")
@@ -113,7 +113,7 @@ the `PROCESS` permission.
   or
   [DATETIME](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html")
   column having a default of
-  [CURRENT_TIMESTAMP](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_current-timestamp "https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_current-timestamp"),
+  [CURRENT\_TIMESTAMP](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_current-timestamp "https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_current-timestamp"),
   the column could be initialized to `0000-00-00 00:00:00` if the
   table had a `BEFORE INSERT` trigger. (Bug #25209512, Bug #84077)
 - A server exit could result from simultaneous attempts by multiple

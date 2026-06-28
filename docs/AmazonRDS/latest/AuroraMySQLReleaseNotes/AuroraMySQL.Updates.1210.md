@@ -68,11 +68,11 @@ _Amazon Aurora User Guide_.
 
 ## Integration of MySQL community edition bug fixes
 
-- Bug #19929406: HANDLE_FATAL_SIGNAL (SIG=11) IN \_\_MEMMOVE_SSSE3_BACK FROM STRING::COPY
+- Bug #19929406: HANDLE\_FATAL\_SIGNAL (SIG=11) IN \_\_MEMMOVE\_SSSE3\_BACK FROM STRING::COPY
 - Bug #17059925: For [UNION](https://dev.mysql.com/doc/refman/5.6/en/union.html "https://dev.mysql.com/doc/refman/5.6/en/union.html")
   statements, the rows-examined value was calculated incorrectly. This was manifested as too-large values for the
   `ROWS_EXAMINED` column of Performance Schema statement tables (such as
-  [events_statements_current](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html")).
+  [events\_statements\_current](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html")).
 - Bug #11827369: Some queries with `SELECT ... FROM DUAL` nested subqueries raised an assertion.
 - Bug #16311231: Incorrect results were returned if a query contained a subquery in an `IN` clause
   that contained an [XOR](https://dev.mysql.com/doc/refman/5.6/en/logical-operators.html#operator_xor "https://dev.mysql.com/doc/refman/5.6/en/logical-operators.html#operator_xor")

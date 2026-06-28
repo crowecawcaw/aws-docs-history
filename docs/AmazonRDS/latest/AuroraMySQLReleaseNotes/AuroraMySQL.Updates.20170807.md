@@ -50,7 +50,7 @@ patch. For more information about ZDP, see
       numbers of files by caching and reusing client state.
 
 - Fixed the following stability issues with Fast DDL for `ALTER
-TABLE` operations:
+ TABLE` operations:
 
   1.  When the `ALTER TABLE` statement has multiple
       `ADD COLUMN` commands and the column names are not in

@@ -35,7 +35,7 @@ the _Amazon Aurora User Guide_.
 
 **General improvements**
 
-- Fixed an issue that causes reader instances to not generate error logs when write forwarding is enabled and parameter "aurora_replica_read_consistency" is modified.
+- Fixed an issue that causes reader instances to not generate error logs when write forwarding is enabled and parameter "aurora\_replica\_read\_consistency" is modified.
 - Fixed an issue which can cause some SQL statements to not get logged in the audit log.
 
 ## Integration of MySQL Community Edition bug fixes

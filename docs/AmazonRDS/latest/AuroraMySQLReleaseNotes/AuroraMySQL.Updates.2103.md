@@ -41,8 +41,8 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   SQL statements such as GRANT, FLUSH PRIVILEGES etc. are run on that instance. Frequent use of such statements can cause the freeable memory to
   keep reducing and may cause the database instance to restart because of out-of-memory issues. Use of such statements on the writer instance can also
   cause the freeable memory on the reader instances to reduce.
-- Fixed an issue where queries against the "performance_schema.events_waits_summary_global_by_event_name"
-  table may become slow when a database instance is under heavy load with the "wait/io/aurora_respond_to_client" performance_schema wait event enabled.
+- Fixed an issue where queries against the "performance\_schema.events\_waits\_summary\_global\_by\_event\_name"
+  table may become slow when a database instance is under heavy load with the "wait/io/aurora\_respond\_to\_client" performance\_schema wait event enabled.
 - Fixed an issue which, in rare conditions, can cause the database server to stall and restart when
   transactions partially roll back due to a constraint violation on the secondary indexes.
 - Fixed an issue which, in rare conditions, can cause the writer instance to restart or failover when a
@@ -58,9 +58,9 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 This release includes all community bug fixes up to and including 5.7, in addition to the below. For more information, see
 [MySQL bugs fixed by Aurora MySQL 2.x database engine updates](AuroraMySQL.Updates.MySQLBugs.md#AuroraMySQL.Updates.MySQLBugs.v2 "AuroraMySQL.Updates.MySQLBugs.md#AuroraMySQL.Updates.MySQLBugs.v2").
 
-- Fixed an issue where the code for reading character set information from Performance Schema statement events tables (for example, events_statements_current)
+- Fixed an issue where the code for reading character set information from Performance Schema statement events tables (for example, events\_statements\_current)
   did not prevent simultaneous writing to that character set information. As a result, the SQL query text character set could be invalid, which could result in a
-  server exit. With this fix, an invalid character set causes SQL_TEXT column truncation and prevents server exits. (Bug #23540008)
+  server exit. With this fix, an invalid character set causes SQL\_TEXT column truncation and prevents server exits. (Bug #23540008)
 - Fixed an issue when an UPDATE required a temporary table having a primary key larger than 1024 bytes and that table was created using InnoDB, the server could exit. (Bug #25153670)
 - Fixed an issue where two sessions concurrently executing an INSERT ... ON DUPLICATE KEY UPDATE operation generated a deadlock. During partial rollback of a tuple,
   another session could update it. The fix for this bug reverts the fixes for Bug #11758237, Bug #17604730, and Bug #20040791. (Bug #25966845)

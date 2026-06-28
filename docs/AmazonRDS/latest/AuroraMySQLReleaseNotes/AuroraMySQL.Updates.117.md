@@ -42,9 +42,9 @@ patch. For more information about ZDP, see
 
 ## Integration of MySQL bug fixes
 
-- LAST_INSERT_ID is replicated incorrectly if replication filters are used (Bug #69861)
-- Query returns different results depending on whether INDEX_MERGE setting (Bug #16862316)
+- LAST\_INSERT\_ID is replicated incorrectly if replication filters are used (Bug #69861)
+- Query returns different results depending on whether INDEX\_MERGE setting (Bug #16862316)
 - Query proc re-execute of stored routine, inefficient query plan (Bug #16346367)
-- INNODB FTS : Assert in FTS_CACHE_APPEND_DELETED_DOC_IDS (BUG #18079671)
-- Assert RBT_EMPTY(INDEX_CACHE->WORDS) in ALTER TABLE CHANGE COLUMN (BUG #17536995)
+- INNODB FTS : Assert in FTS\_CACHE\_APPEND\_DELETED\_DOC\_IDS (BUG #18079671)
+- Assert RBT\_EMPTY(INDEX\_CACHE->WORDS) in ALTER TABLE CHANGE COLUMN (BUG #17536995)
 - INNODB fulltext search doesn't find records when savepoints are involved (BUG #70333, BUG #17458835)

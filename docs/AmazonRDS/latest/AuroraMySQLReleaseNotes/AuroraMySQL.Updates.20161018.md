@@ -50,7 +50,7 @@
   Aurora writes to storage nodes to stall and restart/fail-over.
 - Fixed a condition where a successfully created table might be deleted during
   crash recovery if the crash occurred while a `CREATE TABLE [if not
-exists]` statement was being handled.
+ exists]` statement was being handled.
 - Fixed a case where the log rotation procedure is broken when the general
   log and slow log are not stored on disk using catalog mitigation.
 - Fixed a crash when a user creates a temporary table within a user defined
@@ -68,5 +68,5 @@ exists]` statement was being handled.
 - Fixed a crash when fetching a cursor in a stored procedure, and analyzing
   or flushing the table at the same time. (Bug # 18158639)
 - Fixed an auto-increment bug when a user alters a table to change the
-  AUTO_INCREMENT value to less than the maximum auto-increment column value.
+  AUTO\_INCREMENT value to less than the maximum auto-increment column value.
   (Bug # 16310273)

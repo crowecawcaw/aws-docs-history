@@ -59,13 +59,13 @@ patch. For more information about ZDP, see
 - Added parameter validation for audit variables to trim unnecessary
   spaces.
 - Fixed a regression, introduced in Aurora MySQL version 1.11, in which
-  queries can return incorrect results when using the SQL_CALC_FOUND_ROWS
-  option and invoking the FOUND_ROWS() function.
+  queries can return incorrect results when using the SQL\_CALC\_FOUND\_ROWS
+  option and invoking the FOUND\_ROWS() function.
 - Fixed a stability issue when the Metadata Lock list was incorrectly
   formed.
-- Improved stability when sql_mode is set to PAD_CHAR_TO_FULL_LENGTH and the
+- Improved stability when sql\_mode is set to PAD\_CHAR\_TO\_FULL\_LENGTH and the
   command `SHOW FUNCTION STATUS WHERE
-Db='`string`'` is executed.
+ Db='`string`'` is executed.
 - Fixed a rare case when instances would not come up after Aurora version
   upgrade because of a false volume consistency check.
 - Fixed the performance issue, introduced in Aurora MySQL version 1.12, where
@@ -79,13 +79,13 @@ Db='`string`'` is executed.
 ## Integration of MySQL bug fixes
 
 - With an empty InnoDB table, it's not possible to decrease the
-  auto_increment value using an ALTER TABLE statement, even when the table is
+  auto\_increment value using an ALTER TABLE statement, even when the table is
   empty. (Bug #69882)
 - MATCH() ... AGAINST queries that use a long string as an argument for
   AGAINST() could result in an error when run on an InnoDB table with a
   full-text search index. (Bug #17640261)
-- Handling of SQL_CALC_FOUND_ROWS in combination with ORDER BY and LIMIT
-  could lead to incorrect results for FOUND_ROWS(). (Bug #68458, Bug #
+- Handling of SQL\_CALC\_FOUND\_ROWS in combination with ORDER BY and LIMIT
+  could lead to incorrect results for FOUND\_ROWS(). (Bug #68458, Bug #
 
 16383173.
 

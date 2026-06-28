@@ -61,7 +61,7 @@ following CVE fixes are included:
 - Fixed an issue that caused repeated DB engine restarts due to a nonexistent
   undo tablespace object.
 - Fixed an issue with automatic truncation of undo tablespaces when they're
-  larger than the threshold [innodb_max_undo_log_size](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_max_undo_log_size "https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_max_undo_log_size") in upgrade scenarios.
+  larger than the threshold [innodb\_max\_undo\_log\_size](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_max_undo_log_size "https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_max_undo_log_size") in upgrade scenarios.
 - Fixed an issue that provided an incorrect value for the
   `threads_running` status variable when using Aurora Global
   Database.

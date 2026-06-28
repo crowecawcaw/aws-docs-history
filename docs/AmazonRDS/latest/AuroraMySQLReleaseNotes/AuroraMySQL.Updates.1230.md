@@ -126,7 +126,7 @@ where your cluster is, this feature might not be available yet. For more informa
 - Fixed an issue where a binlog replica connected to an Aurora MySQL binlog primary might show
   incomplete data when the Aurora MySQL binlog primary loads data from S3 under
   `statement` `binlog_format`.
-- Comply with community behavior to map `mixed` binlog_format to `row` instead of
+- Comply with community behavior to map `mixed` binlog\_format to `row` instead of
   `statement` for loading data.
 - Fixed an issue causing binlog replication to stop working when the user closes the connection
   and the session is using temporary tables.
@@ -147,7 +147,7 @@ where your cluster is, this feature might not be available yet. For more informa
   edition.
 - BUG #22350047: IF CLIENT KILLED AFTER ROLLBACK TO SAVEPOINT
   PREVIOUS STMTS COMMITTED
-- Bug #29915479: RUNNING COM_REGISTER_SLAVE WITHOUT COM_BINLOG_DUMP
+- Bug #29915479: RUNNING COM\_REGISTER\_SLAVE WITHOUT COM\_BINLOG\_DUMP
   CAN RESULTS IN SERVER EXIT
 - Bug #30441969: BUG #29723340: MYSQL SERVER CRASH AFTER SQL QUERY
   WITH DATA ?AST
@@ -157,7 +157,7 @@ where your cluster is, this feature might not be available yet. For more informa
 - Bug #27230859: UNEXPECTED BEHAVIOUR WHILE HANDLING INVALID
   POLYGON"
 - Bug #27081349: UNEXPECTED BEHAVIOUR WHEN DELETE WITH SPATIAL"
-- Bug #26935001: ALTER TABLE AUTO_INCREMENT TRIES TO READ INDEX FROM
+- Bug #26935001: ALTER TABLE AUTO\_INCREMENT TRIES TO READ INDEX FROM
   DISCARDED TABLESPACE
 - Bug #29770705: SERVER CRASHED WHILE EXECUTING SELECT WITH SPECIFIC
   WHERE CLAUSE
@@ -167,19 +167,19 @@ where your cluster is, this feature might not be available yet. For more informa
   MASTER
 - Bug #27703912: EXCESSIVE MEMORY USAGE WITH MANY PREPARE
 - Bug #20527363: TRUNCATE TEMPORARY TABLE CRASH:
-  !DICT_TF2_FLAG_IS_SET(TABLE, DICT_TF2_TEMPORARY)
-- Bug#23103937 PS_TRUNCATE_ALL_TABLES() DOES NOT WORK IN
-  SUPER_READ_ONLY MODE
+  !DICT\_TF2\_FLAG\_IS\_SET(TABLE, DICT\_TF2\_TEMPORARY)
+- Bug#23103937 PS\_TRUNCATE\_ALL\_TABLES() DOES NOT WORK IN
+  SUPER\_READ\_ONLY MODE
 - Bug #25053286: USE VIEW WITH CONDITION IN PROCEDURE CAUSES
   INCORRECT BEHAVIOR (fixed in 5.6.36)
 - Bug #25586773: INCORRECT BEHAVIOR FOR CREATE TABLE SELECT IN A
   LOOP IN SP (fixed in 5.6.39)
-- Bug #27407480: AUTOMATIC_SP_PRIVILEGES REQUIRES NEED THE INSERT
+- Bug #27407480: AUTOMATIC\_SP\_PRIVILEGES REQUIRES NEED THE INSERT
   PRIVILEGES FOR MYSQL.USER TABLE
 - Bug #26997096: `relay_log_space` value is not updated in a
   synchronized manner so that its value is sometimes much higher than
   the actual disk space used by relay logs.
-- Bug#15831300 SLAVE_TYPE_CONVERSIONS=ALL_NON_LOSSY NOT WORKING AS
+- Bug#15831300 SLAVE\_TYPE\_CONVERSIONS=ALL\_NON\_LOSSY NOT WORKING AS
   EXPECTED
 - SSL Bug backport Bug #17087862, Bug #20551271
 - Bug #16894092: PERFORMANCE REGRESSION IN 5.6.6+ FOR INSERT INTO ...

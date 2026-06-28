@@ -76,7 +76,7 @@ the `PROCESS` permission.
   they are signed. Now in such cases it is possible to modify or
   override this behavior using one or both of `ALL_SIGNED`,
   `ALL_UNSIGNED` in the set of values specified for the
-  [slave_type_conversions](https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_type_conversions "https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_type_conversions")
+  [slave\_type\_conversions](https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_type_conversions "https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_type_conversions")
   server system variable. For more information, see
   [Row-based replication: attribute promotion and demotion](https://dev.mysql.com/doc/refman/5.6/en/replication-features-differing-tables.html#replication-features-attribute-promotion "https://dev.mysql.com/doc/refman/5.6/en/replication-features-differing-tables.html#replication-features-attribute-promotion"),
   as well as the description of the variable.
@@ -85,7 +85,7 @@ the `PROCESS` permission.
   the table into an inconsistent and causing the foreign key check
   that occurs at table load to fail. InnoDB now prevents dropping an
   index required by a foreign key constraint, even with
-  foreign_key_checks=0. The foreign key constraint must be removed
+  foreign\_key\_checks=0. The foreign key constraint must be removed
   before dropping the foreign key index.
 - BUG #20768847: An [ALTER TABLE ... DROP INDEX](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html "https://dev.mysql.com/doc/refman/5.7/en/alter-table.html")
   operation on a table with foreign key dependencies raised an assertion.

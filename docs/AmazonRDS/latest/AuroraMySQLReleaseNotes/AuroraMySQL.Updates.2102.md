@@ -49,10 +49,10 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   fail when the database has approximately over 1GB of user and privilege combinations.
 - Fixed an issue with Parallel Query which could cause the database to return incorrect groupings or
   sort order when executing queries with a GROUP BY clause and a WHERE clause that contain a range predicate.
-- Fixed an issue which causes general_log and slow_log tables to become inaccessible after an in-place major version upgrade
+- Fixed an issue which causes general\_log and slow\_log tables to become inaccessible after an in-place major version upgrade
   from Aurora MySQL 1.x (compatible with MySQL 5.6) to Aurora MySQL 2.x (compatible with MySQL 5.7).
-- Fixed an issue which, in rare cases, causes the database instance to restart when innodb_trx, innodb_locks
-  or innodb_lockwaits tables are queried while the database is under heavy workload. Monitoring tools such as
+- Fixed an issue which, in rare cases, causes the database instance to restart when innodb\_trx, innodb\_locks
+  or innodb\_lockwaits tables are queried while the database is under heavy workload. Monitoring tools such as
   Performance Insights may query such tables.
 - Fixed an issue where the value of a TIMESTAMP column of an existing row is updated to the latest timestamp
   when all of the following conditions are satisfied:
@@ -60,14 +60,14 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   1.  A trigger exists for the table.
   2.  An INSERT is performed on the table that has an ON DUPLICATE KEY UPDATE clause.
   3.  The inserted row causes a duplicate value violation in a UNIQUE index or PRIMARY KEY.
-  4.  One or more columns are of TIMESTAMP data type and have a default value of CURRENT_TIMESTAMP.
+  4.  One or more columns are of TIMESTAMP data type and have a default value of CURRENT\_TIMESTAMP.
 
 - Fixed an issue which, in rare cases, could prevent a binlog replica from connecting to an instance with binlog enabled.
 - Fixed an issue where, in rare conditions, transactions were unable to commit when running on an instance with binlog enabled.
 - Fixed an issue where new connections could not be established to an instance with binlog enabled.
 - Fixed an issue which can cause excessive internal logging when attempting zero downtime patching
   and restart causing local storage to fill up.
-- Fixed an issue that causes a binlog replica to stop with an HA_ERR_FOUND_DUPP_KEY error when
+- Fixed an issue that causes a binlog replica to stop with an HA\_ERR\_FOUND\_DUPP\_KEY error when
   replicating certain DDL and DCL statements. The issue occurs when the source instance is
   configured with MIXED binary logging format and READ COMMITTED or READ UNCOMMITTED isolation level.
 - Fixed an issue where the binlog replication I/O thread is unable to keep up with the primary instance, when multi-threaded replication is enabled
@@ -83,7 +83,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 
 - Fixed an issue which, in rare conditions, can cause Aurora reader instances to restart.
   The chance of this issue occurring increases as the number of transaction rollbacks increases.
-- Fixed an issue where the number of mutex 'LOCK_epoch_id_master'
+- Fixed an issue where the number of mutex 'LOCK\_epoch\_id\_master'
   occurrences in Performance Schema increases when a session is opened and closed.
 - Fixed an issue which can cause an increasing number of deadlocks for workloads which have many transactions
   updating the same set of rows concurrently.

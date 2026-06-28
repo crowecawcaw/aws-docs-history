@@ -34,33 +34,30 @@ the _Amazon Aurora User Guide_.
 
 - Added three new Amazon CloudWatch metrics to allow users to monitor the InnoDB purge process:
 
-      + `PurgeBoundary`
-      + `PurgeFinishedPoint`
-      + `TruncateFinishedPoint`
-
-  For more information, see [Amazon CloudWatch
-  metrics for Amazon Aurora](../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md") in the _Amazon Aurora User Guide_.
+  - `PurgeBoundary`
+  - `PurgeFinishedPoint`
+  - `TruncateFinishedPoint`
+    For more information, see [Amazon CloudWatch
+    metrics for Amazon Aurora](../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md") in the _Amazon Aurora User Guide_.
 
 - Added a new CloudWatch metric `TransactionAgeMaximum` to allow users to identify long-running transactions that might be holding back
   the purge boundary. For more information, see [Amazon CloudWatch metrics for Amazon Aurora](../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md") in the
   _Amazon Aurora User Guide_.
 - Added three new CloudWatch metrics for out-of-memory (OOM) avoidance:
 
-      + `AuroraMillisecondsSpentInOomRecovery`
-      + `AuroraNumOomRecoverySuccessful`
-      + `AuroraNumOomRecoveryTriggered`
-
-  For more information, see [Amazon CloudWatch
-  metrics for Amazon Aurora](../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md") in the _Amazon Aurora User Guide_.
+  - `AuroraMillisecondsSpentInOomRecovery`
+  - `AuroraNumOomRecoverySuccessful`
+  - `AuroraNumOomRecoveryTriggered`
+    For more information, see [Amazon CloudWatch
+    metrics for Amazon Aurora](../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md") in the _Amazon Aurora User Guide_.
 
 - Changed three CloudWatch metrics for out-of-memory (OOM) avoidance from running totals to incremental counters:
 
-      + `AuroraMemoryNumDeclinedSqlTotal`
-      + `AuroraMemoryNumKillConnTotal`
-      + `AuroraMemoryNumKillQueryTotal`
-
-  For more information, see [Amazon CloudWatch
-  metrics for Amazon Aurora](../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md") in the _Amazon Aurora User Guide_.
+  - `AuroraMemoryNumDeclinedSqlTotal`
+  - `AuroraMemoryNumKillConnTotal`
+  - `AuroraMemoryNumKillQueryTotal`
+    For more information, see [Amazon CloudWatch
+    metrics for Amazon Aurora](../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md "../AuroraUserGuide/Aurora.AuroraMonitoring.Metrics.md") in the _Amazon Aurora User Guide_.
 
 - Added two global status variables to show the amount of memory used by [internal temporary tables](https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html "https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html"):
   `aurora_temptable_ram_allocation` and `aurora_temptable_max_ram_allocation`. These global status variables
@@ -70,16 +67,15 @@ For more information, see [Aurora MySQL
 global status variables](../AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.md#AuroraMySQL.Reference.GlobalStatusVars "../AuroraUserGuide/AuroraMySQL.Reference.ParameterGroups.md#AuroraMySQL.Reference.GlobalStatusVars") in the _Amazon Aurora User Guide_.
 
 - Introduced the new system variable `aurora_optimizer_trace_print_before_purge` to print [optimizer traces](https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_OPT_TRACE.html "https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_OPT_TRACE.html") to the error log before the server
-  purges the traces from memory. A purge can be triggered based on the thresholds set by the system variables [optimizer_trace_offset](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_trace_offset "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_trace_offset")
-  and [optimizer_trace_limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_trace_limit "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_trace_limit").
+  purges the traces from memory. A purge can be triggered based on the thresholds set by the system variables [optimizer\_trace\_offset](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_trace_offset "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_trace_offset")
+  and [optimizer\_trace\_limit](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_trace_limit "https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_trace_limit").
 - Added support for the following DB instance classes:
 
-      + db.r7i
-      + db.r8g
-
-  For more information, see
-  [Supported DB engines for
-  DB instance classes](../AuroraUserGuide/Concepts.DBInstanceClass.SupportAurora.md "../AuroraUserGuide/Concepts.DBInstanceClass.SupportAurora.md") in the _Amazon Aurora User Guide_.
+  - db.r7i
+  - db.r8g
+    For more information, see
+    [Supported DB engines for
+    DB instance classes](../AuroraUserGuide/Concepts.DBInstanceClass.SupportAurora.md "../AuroraUserGuide/Concepts.DBInstanceClass.SupportAurora.md") in the _Amazon Aurora User Guide_.
 
 ## Improvements
 
@@ -126,7 +122,7 @@ This release includes all community CVE fixes up to and including MySQL 8.0.39. 
   already has instantly dropped columns, such that the count of dropped and nondropped columns is greater than 1017.
 - Fixed an issue that can lead to database log files not being rotated correctly, resulting in increased [local storage space
   usage](https://aws.amazon.com/blogs/database/understanding-amazon-aurora-mysql-storage-space-utilization "https://aws.amazon.com/blogs/database/understanding-amazon-aurora-mysql-storage-space-utilization") on a DB instance.
-- Fixed an issue that could cause the DB instance to stop closing connections under low-memory conditions when [aurora_oom_response](../AuroraUserGuide/aurora-mysql-troubleshooting-workload.md#AuroraMySQLOOM "../AuroraUserGuide/aurora-mysql-troubleshooting-workload.md#AuroraMySQLOOM") is enabled, leading to an out-of-memory reboot that could otherwise be avoided.
+- Fixed an issue that could cause the DB instance to stop closing connections under low-memory conditions when [aurora\_oom\_response](../AuroraUserGuide/aurora-mysql-troubleshooting-workload.md#AuroraMySQLOOM "../AuroraUserGuide/aurora-mysql-troubleshooting-workload.md#AuroraMySQLOOM") is enabled, leading to an out-of-memory reboot that could otherwise be avoided.
 - Fixed an issue that can cause a reader DB instance to restart when freeing
   memory used for log application.
 - Fixed an issue in computing internal metrics for full-text search (FTS)
@@ -144,7 +140,7 @@ This release includes all community CVE fixes up to and including MySQL 8.0.39. 
 - Fixed an issue that causes the writer DB instance to restart when running a parallel query on a reader DB instance.
 - Fixed an issue where binlog replication would stall on the replica due to a
   deadlock encountered on the replica's I/O thread when the `FLUSH RELAY
-LOGS` command was run.
+ LOGS` command was run.
 - Fixed an issue that causes a DB instance restart when handling large GTID sets on a DB cluster with enhanced binlog enabled.
 - Fixed an issue that can cause a restart on a binlog replica when the in-memory
   relay log cache is enabled. The in-memory relay log cache is enabled on
@@ -181,7 +177,7 @@ LOGS` command was run.
   result while using write forwarding.
 - Fixed an issue that can lead to incorrect query results when ZDP incorrectly restores session variables set as hints in queries.
 - Fixed an issue with automatic truncation of undo tablespaces when they're larger than the threshold
-  [innodb_max_undo_log_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_max_undo_log_size "https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_max_undo_log_size") in upgrade scenarios.
+  [innodb\_max\_undo\_log\_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_max_undo_log_size "https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_max_undo_log_size") in upgrade scenarios.
 - Fixed an issue where the commit latency and commit throughput aren't measured
   when `innodb_flush_log_at_trx_commit` is set to
   `0`.
@@ -196,12 +192,12 @@ LOGS` command was run.
 - Introduced optimizations to reduce memory usage during logical
   [data dictionary](https://dev.mysql.com/doc/refman/8.0/en/data-dictionary.html "https://dev.mysql.com/doc/refman/8.0/en/data-dictionary.html") recovery when there is a large number of tables.
 - Fixed an issue where a user might experience an `ERROR 1377 (HY000): Fatal error during log purge` error while running the
-  [mysql.rds_set_external_source](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_set_external_source "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_set_external_source")
+  [mysql.rds\_set\_external\_source](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_set_external_source "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_set_external_source")
   stored procedure on a binlog replica, when binary log replication is already configured.
 - Fixed a defect that prevented the persistence of user role privileges after [ZDR](../AuroraUserGuide/AuroraMySQL.Replication.Availability.md "../AuroraUserGuide/AuroraMySQL.Replication.Availability.md").
 - Fixed a memory issue associated with the default roles of the view definer.
 - Fixed an issue that can cause a DB instance to restart when `SHOW VOLUME
-STATUS` is run.
+ STATUS` is run.
 - Fixed a restart issue caused by prolonged buffer pool resizing during scaling up or scaling down events.
 - Fixed a restart issue caused by logical read ahead (LRA) accessing freed pages due to buffer resizing during a scaling down event.
 - Fixed an issue that addresses `SELECT` queries returning incorrect results when the query uses `LEFT OUTER JOIN` with

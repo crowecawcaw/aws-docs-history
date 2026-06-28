@@ -37,7 +37,7 @@ _Amazon Aurora User Guide_.
   the reserved keywords used in the object definitions. For more information on the Amazon Bedrock integration and handling the reserved
   keywords, see [What is Amazon Bedrock?](../../../bedrock/latest/userguide/what-is-bedrock.md "../../../bedrock/latest/userguide/what-is-bedrock.md") in the _Amazon Aurora User Guide_.
   For additional information, see [Keywords and Reserved Words](https://dev.mysql.com/doc/refman/8.0/en/keywords.html "https://dev.mysql.com/doc/refman/8.0/en/keywords.html"),
-  [The INFORMATION_SCHEMA KEYWORDS Table](https://dev.mysql.com/doc/refman/8.0/en/information-schema-keywords-table.html "https://dev.mysql.com/doc/refman/8.0/en/information-schema-keywords-table.html"), and
+  [The INFORMATION\_SCHEMA KEYWORDS Table](https://dev.mysql.com/doc/refman/8.0/en/information-schema-keywords-table.html "https://dev.mysql.com/doc/refman/8.0/en/information-schema-keywords-table.html"), and
   [Schema Object Names](https://dev.mysql.com/doc/refman/8.0/en/identifiers.html "https://dev.mysql.com/doc/refman/8.0/en/identifiers.html") in the MySQL documentation.
 - Improved performance for binary log replicas when replicating transactions for large tables with more than one
   secondary index. This feature introduces a thread pool to apply secondary index changes in parallel on a binlog replica.
@@ -90,7 +90,7 @@ The following CVE fixes are included in this release:
   retention period.
 - Fixed an issue that can cause the server to unexpectedly close after running Data Manipulation Language (DML)
   statements on a table whose nonvirtual columns were reordered with a `MODIFY COLUMN` or `CHANGE
-COLUMN` statement.
+ COLUMN` statement.
 - Fixed an issue that, during the restart of a database instance, can cause an additional restart.
 - Fixed an issue that can cause a database restart when a cascading `UPDATE` or `DELETE` foreign
   key constraint is defined on a table where a virtual column is involved either as a column in the foreign key
@@ -110,7 +110,7 @@ COLUMN` statement.
   Aurora cluster volume.
 - Fixed an issue where the user is unable to interrupt any query or set session timeouts for `performance_schema` queries.
 - Fixed an issue where binary log (binlog) replication configured to use custom SSL certificates
-  ([mysql.rds_import_binlog_ssl_material](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material"))
+  ([mysql.rds\_import\_binlog\_ssl\_material](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material"))
   could fail when the replication instance is undergoing a host replacement.
 - Small DB instances with less than or equal to 4 GiB of memory now close the
   top memory-consuming connections when the DB instance is under memory pressure.
@@ -125,7 +125,7 @@ COLUMN` statement.
   rotation, and in some cases increase CPU usage.
 - Optimized `AUTO_INCREMENT` key recovery to reduce the completion time for restoring snapshots, performing
   point-in-time recovery, and cloning DB clusters with large numbers of tables in the database.
-- Fixed an issue where the [wait/io/redo_log_flush](../AuroraUserGuide/ams-waits.io-auredologflush.md "../AuroraUserGuide/ams-waits.io-auredologflush.md")
+- Fixed an issue where the [wait/io/redo\_log\_flush](../AuroraUserGuide/ams-waits.io-auredologflush.md "../AuroraUserGuide/ams-waits.io-auredologflush.md")
   event wasn't shown in the Performance Schema
   [wait event summary tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-wait-summary-tables.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-wait-summary-tables.html").
 - Added the `Aurora_lockmgr_memory_used` and `Aurora_lockmgr_buffer_pool_memory_used` metrics to

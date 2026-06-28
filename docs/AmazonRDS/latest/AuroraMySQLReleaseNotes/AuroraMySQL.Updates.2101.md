@@ -52,10 +52,10 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   1.  A trigger exists for the table.
   2.  An INSERT is performed on the table that has an ON DUPLICATE KEY UPDATE clause.
   3.  The inserted row causes a duplicate value violation in a UNIQUE index or PRIMARY KEY.
-  4.  One or more columns are of TIMESTAMP data type and have a default value of CURRENT_TIMESTAMP.
+  4.  One or more columns are of TIMESTAMP data type and have a default value of CURRENT\_TIMESTAMP.
 
-- Fixed an issue introduced in version 2.10.0 which causes use of json_merge function to raise an error code in
-  certain cases. In particular, when json_merge function is used in a DDL containing generated columns,
+- Fixed an issue introduced in version 2.10.0 which causes use of json\_merge function to raise an error code in
+  certain cases. In particular, when json\_merge function is used in a DDL containing generated columns,
   it can return error code 1305.
 - Fixed an issue where, in rare conditions, read replicas restarts when a large object's update history is
   being validated for a transaction's read view on the read replica.
@@ -63,7 +63,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 
 ## Integration of MySQL community edition bug fixes
 
-- CURRENT_TIMESTAMP PRODUCES ZEROS IN TRIGGER. (Bug #25209512)
+- CURRENT\_TIMESTAMP PRODUCES ZEROS IN TRIGGER. (Bug #25209512)
 
 ## Comparison with Aurora MySQL version 1
 

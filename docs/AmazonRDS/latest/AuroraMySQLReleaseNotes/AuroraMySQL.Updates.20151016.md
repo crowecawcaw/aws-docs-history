@@ -46,7 +46,7 @@ This update includes the following improvements:
   unneeded subquery clauses. (Bug #15875919)
 - During shutdown, the server could attempt to lock an uninitialized mutex.
   (Bug #16016493)
-- A prepared statement that used GROUP_CONCAT() and an ORDER BY clause that
+- A prepared statement that used GROUP\_CONCAT() and an ORDER BY clause that
   named multiple columns could cause the server to exit. ( Bug
   #16075310)
 - Performance Schema instrumentation was missing for replica worker threads.
@@ -61,11 +61,11 @@ This update includes the following improvements:
 - The optimizer's attempt to remove redundant subquery clauses raised an
   assertion when executing a prepared statement with a subquery in the ON
   clause of a join in a subquery. (Bug #16318585)
-- GROUP_CONCAT unstable, crash in ITEM_SUM::CLEAN_UP_AFTER_REMOVAL. (Bug
+- GROUP\_CONCAT unstable, crash in ITEM\_SUM::CLEAN\_UP\_AFTER\_REMOVAL. (Bug
   #16347450)
 - Attempting to replace the default InnoDB full-text search (FTS) stopword
   list by creating an InnoDB table with the same structure as
-  INFORMATION_SCHEMA.INNODB_FT_DEFAULT_STOPWORD would result in an error. (Bug
+  INFORMATION\_SCHEMA.INNODB\_FT\_DEFAULT\_STOPWORD would result in an error. (Bug
   #16373868)
 - After the client thread on a worker performed a FLUSH TABLES WITH READ LOCK
   and was followed by some updates on the master, the worker hung when
@@ -73,9 +73,9 @@ This update includes the following improvements:
 - When parsing a delimited search string such as "abc-def" in a full-text
   search, InnoDB now uses the same word delimiters as MyISAM. (Bug
   #16419661)
-- Crash in FTS_AST_TERM_SET_WILDCARD. (Bug #16429306)
-- SEGFAULT in FTS_AST_VISIT() for FTS RQG test. (Bug # 16435855)
-- For debug builds, when the optimizer removed an Item_ref pointing to a
+- Crash in FTS\_AST\_TERM\_SET\_WILDCARD. (Bug #16429306)
+- SEGFAULT in FTS\_AST\_VISIT() for FTS RQG test. (Bug # 16435855)
+- For debug builds, when the optimizer removed an Item\_ref pointing to a
   subquery, it caused a server exit. (Bug #16509874)
 - Full-text search on InnoDB tables failed on searches for literal phrases
   combined with + or - operators. (Bug #16516193)
@@ -85,7 +85,7 @@ This update includes the following improvements:
   #16533802)
 - Very large InnoDB full-text search (FTS) results could consume an
   excessive amount of memory. (Bug #16625973)
-- In debug builds, an assertion could occur in OPT_CHECK_ORDER_BY when using
+- In debug builds, an assertion could occur in OPT\_CHECK\_ORDER\_BY when using
   binary directly in a search string, as binary might include NULL bytes and
   other non-meaningful characters. (Bug #16766016)
 - For some statements, memory leaks could result when the optimizer removed
@@ -93,10 +93,10 @@ This update includes the following improvements:
 - It was possible to cause a deadlock after issuing FLUSH TABLES WITH READ
   LOCK by issuing `STOP SLAVE` in a new connection to the worker, then issuing
   `SHOW SLAVE STATUS` using the original connection. (Bug #16856735)
-- GROUP_CONCAT() with an invalid separator could cause a server exit. (Bug
+- GROUP\_CONCAT() with an invalid separator could cause a server exit. (Bug
   #16870783)
-- The server did excessive locking on the LOCK_active_mi and
-  active_mi->rli->data_lock mutexes for any SHOW STATUS LIKE 'pattern'
+- The server did excessive locking on the LOCK\_active\_mi and
+  active\_mi->rli->data\_lock mutexes for any SHOW STATUS LIKE 'pattern'
   statement, even when the pattern did not match status variables that use
   those mutexes (`Slave_heartbeat_period`, `Slave_last_heartbeat`,
   `Slave_received_heartbeats`, `Slave_retried_transactions`, `Slave_running`). (Bug
@@ -116,17 +116,17 @@ This update includes the following improvements:
 - Large numbers of partitioned InnoDB tables could consume much more memory
   when used in MySQL 5.6 or 5.7 than the memory used by the same tables used
   in previous releases of the MySQL Server. (Bug #17780517)
-- For full-text queries, a failure to check that num_token is less than
-  max_proximity_item could result in an assertion. (Bug #18233051)
-- Certain queries for the INFORMATION_SCHEMA TABLES and COLUMNS tables could
+- For full-text queries, a failure to check that num\_token is less than
+  max\_proximity\_item could result in an assertion. (Bug #18233051)
+- Certain queries for the INFORMATION\_SCHEMA TABLES and COLUMNS tables could
   lead to excessive memory use when there were large numbers of empty InnoDB
   tables. (Bug #18592390)
 - When committing a transaction, a flag is now used to check whether a
   thread has been created, rather than checking the thread itself, which uses
   more resources, particularly when running the server with
-  master_info_repository=TABLE. (Bug #18684222)
+  master\_info\_repository=TABLE. (Bug #18684222)
 - If a client thread on a worker executed FLUSH TABLES WITH READ LOCK while
   the master executed a DML, executing `SHOW SLAVE STATUS` in the same client
   became blocked, causing a deadlock. (Bug #19843808)
-- Ordering by a GROUP_CONCAT() result could cause a server exit.
+- Ordering by a GROUP\_CONCAT() result could cause a server exit.
   (Bug #19880368)

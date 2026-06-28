@@ -65,7 +65,7 @@ This update includes the following improvements:
   #17566396)
 - Poor execution plan when ORDER BY with limit X. (Bug #16697792)
 - Backport bug #11765744 TO 5.1, 5.5 AND 5.6. (Bug #17083851)
-- Mutex issue in SQL/SQL_SHOW.CC resulting in SIG6. Source likely
-  FILL_VARIABLES. (Bug #20788853)
+- Mutex issue in SQL/SQL\_SHOW.CC resulting in SIG6. Source likely
+  FILL\_VARIABLES. (Bug #20788853)
 - Backport bug #18008907 to 5.5+ versions. (Bug #18903155)
 - Adapt fix for a stack overflow error in MySQL 5.7. (Bug #19678930)

@@ -73,9 +73,9 @@ the `PROCESS` permission.
 - For a table having a [TIMESTAMP](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html")
   or [DATETIME](https://dev.mysql.com/doc/refman/5.7/en/datetime.html "https://dev.mysql.com/doc/refman/5.7/en/datetime.html") column having a
   default of
-  [CURRENT_TIMESTAMP](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_current-timestamp "https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_current-timestamp"),
+  [CURRENT\_TIMESTAMP](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_current-timestamp "https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_current-timestamp"),
   the column could be initialized to `0000-00-00 00:00:00` if the table had a `BEFORE
-INSERT` trigger. (Bug #25209512, Bug #84077)
+ INSERT` trigger. (Bug #25209512, Bug #84077)
 - For an [INSERT](https://dev.mysql.com/doc/refman/5.7/en/insert.html "https://dev.mysql.com/doc/refman/5.7/en/insert.html") statement for which
   the `VALUES` list produced values for the second or later row using a subquery containing a
   join, the server could exit after failing to resolve the required privileges. (Bug #23762382)

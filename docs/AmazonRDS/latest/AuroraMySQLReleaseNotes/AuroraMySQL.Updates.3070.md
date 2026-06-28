@@ -51,7 +51,7 @@ following CVE fixes are included:
   period.
 - Fixed an issue that can cause the server to unexpectedly close after running Data Manipulation Language (DML)
   statements on a table whose nonvirtual columns were reordered with a `MODIFY COLUMN` or `CHANGE
-COLUMN` statement.
+ COLUMN` statement.
 - Fixed an issue that, during the restart of a database instance, can cause an additional restart.
 - Fixed an issue that can cause a reader DB instance that uses write forwarding to restart when a forwarded [implicit commit statement](https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html "https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html") encounters an
   error.
@@ -95,7 +95,7 @@ COLUMN` statement.
   chunking size for updates to the [global memory usage counter](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Global_connection_memory "https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html#statvar_Global_connection_memory").
 - Fixed an issue where the user is unable to interrupt any query or set session timeouts for
   `performance_schema` queries.
-- Fixed an issue where binary log (binlog) replication configured to use custom SSL certificates ([mysql.rds_import_binlog_ssl_material](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material")) could fail when the replication instance is undergoing a host
+- Fixed an issue where binary log (binlog) replication configured to use custom SSL certificates ([mysql.rds\_import\_binlog\_ssl\_material](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material")) could fail when the replication instance is undergoing a host
   replacement.
 - Added the `Aurora_fts_cache_memory_used` global status variable to
   track memory usage for the full-text search system across all tables. For more
@@ -109,7 +109,7 @@ COLUMN` statement.
   rotation, and in some cases increase CPU usage.
 - Optimized `AUTO_INCREMENT` key recovery to reduce the completion time for restoring snapshots, performing
   point-in-time recovery, and cloning DB clusters with large numbers of tables in the database.
-- Fixed an issue where the [wait/io/redo_log_flush](../AuroraUserGuide/ams-waits.io-auredologflush.md "../AuroraUserGuide/ams-waits.io-auredologflush.md") event wasn't
+- Fixed an issue where the [wait/io/redo\_log\_flush](../AuroraUserGuide/ams-waits.io-auredologflush.md "../AuroraUserGuide/ams-waits.io-auredologflush.md") event wasn't
   shown in the Performance Schema [wait event summary
   tables](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-wait-summary-tables.html "https://dev.mysql.com/doc/refman/8.0/en/performance-schema-wait-summary-tables.html").
 - Fixed an issue that can cause duplicate key errors for `AUTO_INCREMENT` columns using descending indices
@@ -135,7 +135,7 @@ COLUMN` statement.
   tablespaces.
 - Fixed an issue that can cause major version upgrades to Aurora MySQL version 3 to fail due to the presence of orphaned
   entries for already deleted tablespaces in InnoDB system tables in Aurora MySQL version 2.
-- Fixed an issue where the [SERVER_ID](../AuroraUserGuide/AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.replica_host_status "../AuroraUserGuide/AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.replica_host_status") value wasn't updated after an Amazon RDS Blue/Green Deployment
+- Fixed an issue where the [SERVER\_ID](../AuroraUserGuide/AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.replica_host_status "../AuroraUserGuide/AuroraMySQL.Reference.ISTables.md#AuroraMySQL.Reference.ISTables.replica_host_status") value wasn't updated after an Amazon RDS Blue/Green Deployment
   switchover. This led to issues where smart drivers such as the [Amazon Web Services (AWS) JDBC Driver](https://github.com/awslabs/aws-advanced-jdbc-wrapper "https://github.com/awslabs/aws-advanced-jdbc-wrapper") were unable to discover the DB cluster topology
   after a blue/green switchover. With this fix, Aurora DB clusters renamed as part
   of an RDS Blue/Green Deployment, that are running on Aurora MySQL version 3.07 and

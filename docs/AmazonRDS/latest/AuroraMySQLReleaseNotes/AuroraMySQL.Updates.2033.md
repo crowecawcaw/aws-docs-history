@@ -55,7 +55,7 @@ _Amazon Aurora User Guide_.
   restart when the Fast DDL feature in the lab mode is enabled.
 - Fixed an issue where the CPU usage is 100% caused by the dictionary stats thread.
 - Fixed an issue where an Aurora Replica might restart when running a `CHECK
-TABLE` statement.
+ TABLE` statement.
 
 ## Integration of MySQL bug fixes
 

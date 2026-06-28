@@ -32,4 +32,4 @@ patch. For more information about ZDP, see
 ## Integration of MySQL bug fixes
 
 - Ignorable events don't work and are not tested (Bug #74683)
-- NEW->OLD ASSERT FAILURE 'GTID_MODE > 0' (Bug #20436436)
+- NEW->OLD ASSERT FAILURE 'GTID\_MODE > 0' (Bug #20436436)

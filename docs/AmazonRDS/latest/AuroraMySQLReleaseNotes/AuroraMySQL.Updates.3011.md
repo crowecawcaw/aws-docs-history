@@ -59,7 +59,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 
 - Fixed an issue where the volume status was not shown when using the `SHOW VOLUME STATUS` command. For more
   information, see [AuroraMySQL.Managing.VolumeStatus](../AuroraUserGuide/AuroraMySQL.Managing.VolumeStatus.md "../AuroraUserGuide/AuroraMySQL.Managing.VolumeStatus.md").
-- Fixed an issue that caused calls to [mysql_rds_import_binlog_ssl_material](../UserGuide/mysql_rds_import_binlog_ssl_material.md "../UserGuide/mysql_rds_import_binlog_ssl_material.md") to fail with [MySQL server
+- Fixed an issue that caused calls to [mysql\_rds\_import\_binlog\_ssl\_material](../UserGuide/mysql_rds_import_binlog_ssl_material.md "../UserGuide/mysql_rds_import_binlog_ssl_material.md") to fail with [MySQL server
   ERROR 3512](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_sp_load_failed "https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_sp_load_failed").
 - Fixed an issue where Aurora replica lag is incorrectly reported for deleted Aurora reader instances.
 

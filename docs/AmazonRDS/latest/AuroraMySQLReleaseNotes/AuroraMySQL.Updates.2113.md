@@ -37,7 +37,7 @@ _Amazon Aurora User Guide_.
 **Fixed security issues and CVEs listed below:**
 
 - Updated the default SSL ciphers used by Aurora MySQL to exclude the less secure `DES-CBC3-SHA` values from the
-  [SSL_CIPHER](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher") database parameter.
+  [SSL\_CIPHER](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher") database parameter.
   If you encounter SSL connection issues due to the removal of the `DES-CBC3-SHA` cipher, please use an applicable secure cipher from this list,
   [ConfiguringCipherSuites](../AuroraUserGuide/AuroraMySQL.Security.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites "../AuroraUserGuide/AuroraMySQL.Security.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites").
   More information on the MySQL client [Connection Cipher Configuration](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connection-protocols-ciphers.html#encrypted-connection-cipher-configuration "https://dev.mysql.com/doc/refman/5.7/en/encrypted-connection-protocols-ciphers.html#encrypted-connection-cipher-configuration") can be found in the MySQL documentation.

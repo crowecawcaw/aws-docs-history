@@ -38,9 +38,9 @@ If you have any questions or concerns, AWS Support is available on the community
 ## Integration of MySQL community edition bug fixes
 
 - Bug #16208542: Drop index on a foreign key column leads to missing table.
-- Bug #76349: memory leak in add_derived_key().
+- Bug #76349: memory leak in add\_derived\_key().
 - Bug #16862316: For partitioned tables, queries could return
   different results depending on whether Index Merge was used.
-- Bug #17588348: Queries using the index_merge optimization (see
+- Bug #17588348: Queries using the index\_merge optimization (see
   [Index merge optimization](https://dev.mysql.com/doc/refman/5.6/en/index-merge-optimization.html "https://dev.mysql.com/doc/refman/5.6/en/index-merge-optimization.html"))
   could return invalid results when run against tables that were partitioned by HASH.

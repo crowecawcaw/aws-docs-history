@@ -96,7 +96,7 @@ lab mode. For information, see
 
 - UNION of derived tables returns wrong results with '1=0/false'-clauses.
   (Bug #69471)
-- Server crashes in ITEM_FUNC_GROUP_CONCAT::FIX_FIELDS on 2nd execution of
+- Server crashes in ITEM\_FUNC\_GROUP\_CONCAT::FIX\_FIELDS on 2nd execution of
   stored procedure. (Bug #20755389)
 - Avoid MySQL queries from stalling for too long during FTS cache sync to
   disk by offloading the cache sync task to a separate thread, as soon as the

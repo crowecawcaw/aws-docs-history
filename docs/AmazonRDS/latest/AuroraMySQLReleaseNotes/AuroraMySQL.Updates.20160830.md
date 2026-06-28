@@ -38,13 +38,13 @@
 
 ## Integration of MySQL bug fixes
 
-- Improve scalability by partitioning LOCK_grant lock. (Port WL
+- Improve scalability by partitioning LOCK\_grant lock. (Port WL
   #8355)
 - Opening cursor on SELECT in stored procedure causes segfault. (Port
   Bug #16499751)
 - MySQL gives the wrong result with some special usage. (Bug
   #11751794)
-- Crash in GET_SEL_ARG_FOR_KEYPART – caused by patch for bug
+- Crash in GET\_SEL\_ARG\_FOR\_KEYPART – caused by patch for bug
   #11751794. (Bug #16208709)
 - Wrong results for a simple query with GROUP BY. (Bug #17909656)
 - Extra rows on semijoin query with range predicates. (Bug #16221623)
@@ -58,6 +58,6 @@
   attempting to create a temporary table. (Bug #16436567)
 - COUNT(DISTINCT) should not count NULL values, but they were counted when
   the optimizer used loose index scan. (Bug #17222452)
-- If a query had both MIN()/MAX() and aggregate_function(DISTINCT) (for
+- If a query had both MIN()/MAX() and aggregate\_function(DISTINCT) (for
   example, SUM(DISTINCT)) and was executed using loose index scan, the result
   values of MIN()/MAX() were set improperly. (Bug #17217128)

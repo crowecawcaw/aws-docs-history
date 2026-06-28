@@ -15,9 +15,9 @@ more information, see [Maintaining an Amazon Aurora DB cluster](../AuroraUserGui
 ## New features
 
 - **Fast DDL** – Aurora MySQL now allows
-  you to execute an ALTER TABLE _tbl_name_ ADD COLUMN
-  _col_name_
-  _column_definition_ operation nearly instantaneously. The
+  you to execute an ALTER TABLE _tbl\_name_ ADD COLUMN
+  _col\_name_
+  _column\_definition_ operation nearly instantaneously. The
   operation completes without requiring the table to be copied and without
   materially impacting other DML statements. Since it does not consume
   temporary storage for a table copy, it makes DDL statements practical even
@@ -53,10 +53,10 @@ more information, see [Maintaining an Amazon Aurora DB cluster](../AuroraUserGui
 
 ## Integration of MySQL bug fixes
 
-- Reloading a table that was evicted while empty caused an AUTO_INCREMENT
+- Reloading a table that was evicted while empty caused an AUTO\_INCREMENT
   value to be reset. (Bug #21454472, Bug #77743)
 - An index record was not found on rollback due to inconsistencies in the
-  purge_node_t structure. The inconsistency resulted in warnings and error
+  purge\_node\_t structure. The inconsistency resulted in warnings and error
   messages such as "error in sec index entry update", "unable to purge a
   record", and "tried to purge sec index entry not marked for deletion". (Bug
   #19138298, Bug #70214, Bug #21126772, Bug #21065746)
@@ -64,5 +64,5 @@ more information, see [Maintaining an Amazon Aurora DB cluster](../AuroraUserGui
   (Bug #73979)
 - Record not found in an index upon rollback. (Bug #70214, Bug
   #72419)
-- ALTER TABLE add column TIMESTAMP on update CURRENT_TIMESTAMP inserts
+- ALTER TABLE add column TIMESTAMP on update CURRENT\_TIMESTAMP inserts
   ZERO-datas (Bug #17392)

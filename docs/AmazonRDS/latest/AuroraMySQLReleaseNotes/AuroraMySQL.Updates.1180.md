@@ -29,28 +29,26 @@ If you have any questions or concerns, AWS Support is available on the community
   in the Aurora distributed storage layer. Without parallel query, each query brings all the scanned data to a single node
   within the Aurora MySQL cluster (the head node) and performs all the query processing there.
 
-      + When the parallel query feature is enabled, the Aurora MySQL engine automatically determines when queries can benefit, without
-       requiring SQL changes such as hints or table attributes.
-
-  For more information, see [Working with parallel query for Amazon Aurora MySQL](../AuroraUserGuide/aurora-mysql-parallel-query.md "../AuroraUserGuide/aurora-mysql-parallel-query.md") in the _Amazon Aurora User Guide_.
+  - When the parallel query feature is enabled, the Aurora MySQL engine automatically determines when queries can benefit, without
+    requiring SQL changes such as hints or table attributes.
+    For more information, see [Working with parallel query for Amazon Aurora MySQL](../AuroraUserGuide/aurora-mysql-parallel-query.md "../AuroraUserGuide/aurora-mysql-parallel-query.md") in the _Amazon Aurora User Guide_.
 
 - **OOM Avoidance:** This feature monitors the system memory and tracks memory consumed by various
   components of the database. Once the system runs low on memory, it performs a list of actions to release memory from various
   tracked components in an attempt to save the database from running into Out of Memory (OOM) and thereby avoiding a database
   restart. This best-effort feature is enabled by default for t2 instances and can be enabled on other instance classes via a new
   instance parameter named `aurora_oom_response`. The instance parameter takes a string of comma separated actions that an instance
-  should take when its memory is low. Valid actions include "print", "tune", "decline", "kill_query" or any combination of these. Any
+  should take when its memory is low. Valid actions include "print", "tune", "decline", "kill\_query" or any combination of these. Any
   empty string means there should be no actions taken and effectively renders the feature to be disabled. Note that the default actions
   for the feature is "print, tune". Usage examples:
 
-      + "print" – Only prints the queries taking high amount of memory.
-      + "tune" – Tunes the internal table caches to release some memory back to the system.
-      + "decline" – Declines new queries once the instance is low on memory.
-      + "kill\_query" – Kills the queries in descending order of memory consumption until the instance memory
-       surfaces above the low threshold. Data definition language (DDL) statements are not killed.
-      + "print, tune" – Performs actions described for both "print" and "tune".
-      + "tune, decline, kill\_query" – Performs the actions described for "tune", "decline", and "kill\_query".
-
-  For information about handling out-of-memory conditions and other troubleshooting advice, see
-  [Amazon Aurora MySQL
-  out of memory issues](../AuroraUserGuide/aurora-mysql-troubleshooting-workload.md#AuroraMySQLOOM "../AuroraUserGuide/aurora-mysql-troubleshooting-workload.md#AuroraMySQLOOM") in the _Amazon Aurora User Guide_.
+  - "print" – Only prints the queries taking high amount of memory.
+  - "tune" – Tunes the internal table caches to release some memory back to the system.
+  - "decline" – Declines new queries once the instance is low on memory.
+  - "kill\_query" – Kills the queries in descending order of memory consumption until the instance memory
+    surfaces above the low threshold. Data definition language (DDL) statements are not killed.
+  - "print, tune" – Performs actions described for both "print" and "tune".
+  - "tune, decline, kill\_query" – Performs the actions described for "tune", "decline", and "kill\_query".
+    For information about handling out-of-memory conditions and other troubleshooting advice, see
+    [Amazon Aurora MySQL
+    out of memory issues](../AuroraUserGuide/aurora-mysql-troubleshooting-workload.md#AuroraMySQLOOM "../AuroraUserGuide/aurora-mysql-troubleshooting-workload.md#AuroraMySQLOOM") in the _Amazon Aurora User Guide_.

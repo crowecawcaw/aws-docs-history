@@ -102,10 +102,9 @@ This release includes all community bug fixes up to and including 8.0.26, in add
   property when executing a query with an `OR` condition. (Bug #34060289)
 - Fixed an issue which, in certain conditions, may return incorrect results when the following two conditions are met:
 
-      + a derived table is merged into the outer query block
-      + the query includes a left join and an `IN` subquery
-
-  (Bug #34060289)
+  - a derived table is merged into the outer query block
+  - the query includes a left join and an `IN` subquery
+    (Bug #34060289)
 
 - Fixed an issue where incorrect `AUTO_INCREMENT` values were generated when the maximum integer column value was exceeded. The error
   was due to the maximum column value not being considered. The previous valid `AUTO_INCREMENT` value should have been returned in this case,

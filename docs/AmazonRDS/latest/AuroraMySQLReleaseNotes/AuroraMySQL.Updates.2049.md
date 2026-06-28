@@ -73,7 +73,7 @@ _Amazon Aurora User Guide_.
 - Fixed an issue that causes a database failover during database
   recovery.
 - Fixed a database restart caused by incorrect reporting of
-  threads_running when audit and slow query logs are enabled.
+  threads\_running when audit and slow query logs are enabled.
 - Fixed an issue where a `kill query` command might get
   stuck during execution.
 - Fixed a race condition in the lock manager that resulted in a
@@ -123,8 +123,8 @@ _Amazon Aurora User Guide_.
 ## Integration of MySQL bug fixes
 
 - Bug #23070734, Bug #80060: Concurrent TRUNCATE TABLEs cause stalls
-- Bug #23103937: PS_TRUNCATE_ALL_TABLES() DOES NOT WORK IN
-  SUPER_READ_ONLY MODE
+- Bug #23103937: PS\_TRUNCATE\_ALL\_TABLES() DOES NOT WORK IN
+  SUPER\_READ\_ONLY MODE
 - Bug#22551677: When taking the server offline, a race condition
   within the Performance Schema could lead to a server exit.
 - Bug #27082268: Invalid FTS sync synchronization.

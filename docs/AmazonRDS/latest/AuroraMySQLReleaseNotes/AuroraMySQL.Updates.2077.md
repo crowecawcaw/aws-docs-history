@@ -36,7 +36,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 - Fixed security issues related to Aurora MySQL integration with other AWS Services such as Amazon S3, Amazon ML, Lambda.
 - Fixed an issue with incorrect reporting of an Aurora replication lag.
 - Fixed an issue which can cause a database instance restart to fail when the database has a large number of user and privilege combinations.
-- Fixed an issue which can cause general_log and slow_log tables to become inaccessible after in-place major version upgrade from Aurora MySQL 1.x (based on MySQL 5.6) to Aurora MySQL 2.x (based on MySQL 5.7).
+- Fixed an issue which can cause general\_log and slow\_log tables to become inaccessible after in-place major version upgrade from Aurora MySQL 1.x (based on MySQL 5.6) to Aurora MySQL 2.x (based on MySQL 5.7).
 - Fixed an issue which, in rare conditions, can cause a reader instance to restart due to an incorrect check processing.
 - Fixed an issue which, in rare conditions, shows the "Database Load" chart in Performance Insights (PI) sessions as actively using CPU even though the sessions have finished processing and are idle.
 - Fixed an issue with parallel query which can cause the database to restart when executing SQL statements with a LIMIT clause.
@@ -44,7 +44,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 
 2.  an INSERT is performed on the table that has an ON DUPLICATE KEY UPDATE clause;
 3.  the inserted row can cause a duplicate value violation in a UNIQUE index or PRIMARY KEY; and,
-4.  one or more columns are of TIMESTAMP data type and have a default value of CURRENT_TIMESTAMP.
+4.  one or more columns are of TIMESTAMP data type and have a default value of CURRENT\_TIMESTAMP.
 
 - Fixed an issue which, in rare conditions, can cause the database instance to restart when using XA transactions in READ COMMITTED isolation level.
 

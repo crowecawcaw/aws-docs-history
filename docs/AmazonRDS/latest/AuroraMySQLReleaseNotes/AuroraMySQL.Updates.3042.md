@@ -73,7 +73,7 @@ The following CVE fixes are included in this release:
   cluster volume
 - Fixed an issue where the user is unable to interrupt any query or set session timeouts for
   `performance_schema` queries.
-- Fixed an issue where binary log (binlog) replication configured to use custom SSL certificates ([mysql.rds_import_binlog_ssl_material](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material")) could fail when the replication instance is undergoing a host
+- Fixed an issue where binary log (binlog) replication configured to use custom SSL certificates ([mysql.rds\_import\_binlog\_ssl\_material](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_import_binlog_ssl_material")) could fail when the replication instance is undergoing a host
   replacement.
 - Fixed an issue related to audit log file management that can cause log files to be inaccessible for download or
   rotation, and in some cases increase CPU usage.

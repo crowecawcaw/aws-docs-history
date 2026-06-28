@@ -58,17 +58,16 @@ More information on enhanced binary logging in Aurora MySQL is available in the 
 - Changed the SSL/TLS provider from OpenSSL to [AWS-LC](https://github.com/aws/aws-lc "https://github.com/aws/aws-lc"). This brings
   a number of changes including, but not limited to the following:
 
-      + Database connections using SSL can now be restored by Zero Downtime Restart and Zero Downtime Patching when
-       upgrading from Aurora MySQL version 3.04.0 to a higher version.
-      + Support for TLSv1.3 which includes support for TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384 and
-       TLS\_CHACHA20\_POLY1305\_SHA256 SSL ciphers.
-      + Removal of support for less secure DHE-RSA-\* ciphers.
-
-  For more information, see [Using TLS with Aurora MySQL
-  DB clusters](../AuroraUserGuide/AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "../AuroraUserGuide/AuroraMySQL.Security.md#AuroraMySQL.Security.SSL")
+  - Database connections using SSL can now be restored by Zero Downtime Restart and Zero Downtime Patching when
+    upgrading from Aurora MySQL version 3.04.0 to a higher version.
+  - Support for TLSv1.3 which includes support for TLS\_AES\_128\_GCM\_SHA256, TLS\_AES\_256\_GCM\_SHA384 and
+    TLS\_CHACHA20\_POLY1305\_SHA256 SSL ciphers.
+  - Removal of support for less secure DHE-RSA-\* ciphers.
+    For more information, see [Using TLS with Aurora MySQL
+    DB clusters](../AuroraUserGuide/AuroraMySQL.Security.md#AuroraMySQL.Security.SSL "../AuroraUserGuide/AuroraMySQL.Security.md#AuroraMySQL.Security.SSL")
 
 - Added the dynamic privilege `SHOW_ROUTINE` to the `rds_superuser_role` which enables access to
-  definitions and properties of all stored routines, such as stored procedures and functions. For more details, see [SHOW_ROUTINE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-routine "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-routine").
+  definitions and properties of all stored routines, such as stored procedures and functions. For more details, see [SHOW\_ROUTINE](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-routine "https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-routine").
 - Fixed an issue which may cause the audit log to miss events during audit log file rotation.
 - Enabled support for secure and performant Transport Layer Security (TLS) 1.3 protocol while maintaining compatibility
   with TLS 1.2 version.
@@ -114,16 +113,16 @@ The following CVE fixes are included in this release:
   restart when a forwarded [implicit commit
   statement](https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html "https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html") encounters an error.
 - Fixed an issue that can cause the writer instance in an Aurora global database primary Region to restart when a `SELECT
-FOR UPDATE` query is executed using global write forwarding from an Aurora global database secondary
+ FOR UPDATE` query is executed using global write forwarding from an Aurora global database secondary
   Region.
 
 **General improvements:**
 
 - Added a new stored procedure, `mysql.rds_gtid_purged`, to allow customers to set the `GTID_PURGED` system variable.
-  For more information, see [mysql.rds_gtid_purged](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_gtid_purged "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_gtid_purged").
+  For more information, see [mysql.rds\_gtid\_purged](../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_gtid_purged "../AuroraUserGuide/mysql-stored-proc-replicating.md#mysql_rds_gtid_purged").
 - Added two new stored procedures, `mysql.rds_start_replication_until` and `mysql.rds_start_replication_until_gtid`, which
   allow customers to configure a location to stop binary log replication. For more information on configuring a stop location for binary log
-  replication in Aurora MySQL, see [mysql.rds_start_replication_until](../UserGuide/mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "../UserGuide/mysql-stored-proc-replicating.md#mysql_rds_start_replication_until").
+  replication in Aurora MySQL, see [mysql.rds\_start\_replication\_until](../UserGuide/mysql-stored-proc-replicating.md#mysql_rds_start_replication_until "../UserGuide/mysql-stored-proc-replicating.md#mysql_rds_start_replication_until").
 - Fixed an issue that would prevent [Aurora MySQL replication control stored procedures](../AuroraUserGuide/mysql-stored-proc-replicating.md "../AuroraUserGuide/mysql-stored-proc-replicating.md")
   from modifying the [`sql_log_bin`](https://dev.mysql.com/doc/refman/8.0/en/set-sql-log-bin.html "https://dev.mysql.com/doc/refman/8.0/en/set-sql-log-bin.html")
   variable, when called from a session with autocommit mode disabled.
@@ -133,7 +132,7 @@ FOR UPDATE` query is executed using global write forwarding from an Aurora globa
   an increase in the query execution time.
 - Added two new system views, `information_schema.aurora_global_db_instance_status` and `information_schema.aurora_global_db_status`.
   These views can be used to display the status and topology of primary and secondary resources in an Aurora MySQL global database cluster. The details of the two
-  system views can be found here, [Aurora MySQL–specific information_schema tables](../AuroraUserGuide/AuroraMySQL.Reference.ISTables.md "../AuroraUserGuide/AuroraMySQL.Reference.ISTables.md").
+  system views can be found here, [Aurora MySQL–specific information\_schema tables](../AuroraUserGuide/AuroraMySQL.Reference.ISTables.md "../AuroraUserGuide/AuroraMySQL.Reference.ISTables.md").
 - Fixed an issue where a user is unable to access the database with a wildcard character in the database name after executing the `SET ROLE` statement with an escaped wildcard character.
 - Fixed an issue where events that were reported while processing audit log rotations might not be written to the audit log.
 - Fixed an issue where creating an internal temporary table, via a `TRIGGER` execution, can cause a writer database instance to restart.

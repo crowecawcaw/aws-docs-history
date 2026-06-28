@@ -58,7 +58,7 @@ patch. For more information about ZDP, see
   altered using Fast DDL when adaptive hash indexing is disabled and the
   record to be inserted is the first record of a page.
 - Improved stability of Aurora when the user attempts to set
-  **server_audit_events** DB cluster parameter value to
+  **server\_audit\_events** DB cluster parameter value to
   `default`.
 - Fixed an issue in which a database character set change for an ALTER TABLE
   statement that ran on the Aurora primary instance was not being replicated on
@@ -89,7 +89,7 @@ patch. For more information about ZDP, see
 - Fixed a defect for Aurora Replicas in which the DB instance could not
   complete startup and complained that port 3306 was already in use.
 - Fixed a race condition in which a SELECT query run on certain
-  information_schema tables (innodb_trx, innodb_lock, innodb_lock_waits)
+  information\_schema tables (innodb\_trx, innodb\_lock, innodb\_lock\_waits)
   increased cluster instability.
 
 ## Integration of MySQL bug fixes
@@ -99,9 +99,9 @@ patch. For more information about ZDP, see
 - The partitioning engine adds fields to the read bit set to be able to
   return entries sorted from a partitioned index. This leads to the join
   buffer will try to read unneeded fields. Fixed by not adding all
-  partitioning fields to the read_set,but instead only sort on the already set
-  prefix fields in the read_set. Added a DBUG_ASSERT that if doing key_cmp, at
+  partitioning fields to the read\_set,but instead only sort on the already set
+  prefix fields in the read\_set. Added a DBUG\_ASSERT that if doing key\_cmp, at
   least the first field must be read (Bug #16367691).
 - MySQL instance stalling "doing SYNC index" (Bug #73816)
-- Assert RBT_EMPTY(INDEX_CACHE->WORDS) in ALTER TABLE CHANGE COLUMN (Bug #17536995)
+- Assert RBT\_EMPTY(INDEX\_CACHE->WORDS) in ALTER TABLE CHANGE COLUMN (Bug #17536995)
 - InnoDB Fulltext search doesn't find records when savepoints are involved (Bug #70333)

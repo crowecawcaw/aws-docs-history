@@ -35,7 +35,7 @@ _Amazon Aurora User Guide_.
 1.  a trigger exists for the table; 2. an INSERT is performed on the table that has an
     ON DUPLICATE KEY UPDATE clause; 3. the inserted row can cause a duplicate value violation
     in a UNIQUE index or PRIMARY KEY; and 4. one or more columns are of TIMESTAMP data type
-    and have a default value of CURRENT_TIMESTAMP.
+    and have a default value of CURRENT\_TIMESTAMP.
 
 - Fixed an issue which, in rare conditions, causes a writer instance to restart when an
   in-memory data-integrity check fails.

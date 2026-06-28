@@ -89,7 +89,7 @@ optimization execute up to 3x faster.
   created during a prior interrupted DDL activity.
 - Fixed multiple issues related to repeated restarts during the crash recovery of interrupted DDL
   operations, such as `DROP TRIGGER`, `ALTER TABLE`, and specifically `ALTER
-TABLE` that modifies the type of partitioning or number of partitions in a table.
+ TABLE` that modifies the type of partitioning or number of partitions in a table.
 - Fixed an issue that could cause a server restart during Database Activity Streams (DAS) log processing.
 - Fixed an issue printing an error message while processing an `ALTER` query on system tables.
 
@@ -132,7 +132,7 @@ TABLE` that modifies the type of partitioning or number of partitions in a table
   the procedure could not be invoked successfully more than once. (Bug #87858, Bug #26864199)
 - For queries with many `OR` conditions, the optimizer now is more memory-efficient and less
   likely to exceed the memory limit imposed by the
-  [range_optimizer_max_mem_size](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size")
+  [range\_optimizer\_max\_mem\_size](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size")
   system variable. In addition, the default value for that variable has been raised from 1,536,000 to
   8,388,608. (Bug #79450, Bug #22283790)
 - _Replication:_ In the `next_event()` function, which is called by a
@@ -144,18 +144,18 @@ TABLE` that modifies the type of partitioning or number of partitions in a table
   #24960450)
 - _Replication:_ Multithreaded replicas could not be configured with small queue sizes
   using
-  [slave_pending_jobs_size_max](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max")
+  [slave\_pending\_jobs\_size\_max](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max")
   if they ever needed to process transactions larger than that size. Any packet larger than
-  [slave_pending_jobs_size_max](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max")
+  [slave\_pending\_jobs\_size\_max](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max")
   was rejected with the error `ER_MTS_EVENT_BIGGER_PENDING_JOBS_SIZE_MAX`, even if the packet was
   smaller than the limit set by
-  [slave_max_allowed_packet](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_max_allowed_packet "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_max_allowed_packet").
+  [slave\_max\_allowed\_packet](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_max_allowed_packet "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_max_allowed_packet").
   With this fix,
-  [slave_pending_jobs_size_max](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max")
+  [slave\_pending\_jobs\_size\_max](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max")
   becomes a soft limit rather than a hard limit. If the size of a packet exceeds
-  [slave_pending_jobs_size_max](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max")
+  [slave\_pending\_jobs\_size\_max](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_pending_jobs_size_max")
   but is less than
-  [slave_max_allowed_packet](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_max_allowed_packet "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_max_allowed_packet"),
+  [slave\_max\_allowed\_packet](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_max_allowed_packet "https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_max_allowed_packet"),
   the transaction is held until all the replica workers have empty queues, and then processed. All
   subsequent transactions are held until the large transaction has been completed. The queue size for
   replica workers can therefore be limited while still allowing occasional larger transactions. (Bug
@@ -184,7 +184,7 @@ TABLE` that modifies the type of partitioning or number of partitions in a table
   `mysql.gtid_executed` table when binary logging is disabled. (Bug #21686749)
 - _Replication:_ Replicas running MySQL 5.7 could not connect to a MySQL 5.5 source due
   to an error retrieving the
-  [server_uuid](https://dev.mysql.com/doc/refman/5.7/en/replication-options.html#sysvar_server_uuid "https://dev.mysql.com/doc/refman/5.7/en/replication-options.html#sysvar_server_uuid"),
+  [server\_uuid](https://dev.mysql.com/doc/refman/5.7/en/replication-options.html#sysvar_server_uuid "https://dev.mysql.com/doc/refman/5.7/en/replication-options.html#sysvar_server_uuid"),
   which is not part of MySQL 5.5. This was caused by changes in the method of retrieving the
   `server_uuid`. (Bug #22748612)
 - _Replication:_ The GTID transaction skipping mechanism that silently skips a GTID
@@ -214,12 +214,12 @@ TABLE` that modifies the type of partitioning or number of partitions in a table
   replacement new relay log file was generated before the set of received GTIDs for the channel had been
   cleared. The former GTID set was therefore written to the new relay log file as the
   `PREVIOUS_GTIDS` event, causing a fatal error in replication stating that the replica had more
-  GTIDs than the source, even though the gtid_executed set for both servers was empty. Now, when `RESET
-SLAVE` is issued, the set of received GTIDs is cleared before the new relay log file is generated,
+  GTIDs than the source, even though the gtid\_executed set for both servers was empty. Now, when `RESET
+ SLAVE` is issued, the set of received GTIDs is cleared before the new relay log file is generated,
   so that this situation does not occur. (Bug #27411175)
 - _Replication:_ With GTIDs in use for replication, transactions including statements
   that caused a parsing error
-  ([ER_PARSE_ERROR](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_parse_error "https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_parse_error"))
+  ([ER\_PARSE\_ERROR](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_parse_error "https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_parse_error"))
   could not be skipped manually by the recommended method of injecting an empty or replacement transaction
   with the same GTID. This action should result in the replica identifying the GTID as already used, and
   therefore skipping the unwanted transaction that shared its GTID. However, in the case of a parsing error,
@@ -251,7 +251,7 @@ SLAVE` is issued, the set of received GTIDs is cleared before the new relay log 
 - _Replication:_ An assertion was raised in debug builds if an
   [XA ROLLBACK](https://dev.mysql.com/doc/refman/5.7/en/xa.html "https://dev.mysql.com/doc/refman/5.7/en/xa.html") statement was issued for
   an unknown transaction identifier when the
-  [gtid_next](https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_next "https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_next")
+  [gtid\_next](https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_next "https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_next")
   value had been set manually. The server now does not attempt to update the GTID state if an XA
   `ROLLBACK` statement fails with an error. (Bug #27928837, Bug #90640)
 - Fix wrong sorting order issue when multiple `CASE` functions are used in `ORDER BY`

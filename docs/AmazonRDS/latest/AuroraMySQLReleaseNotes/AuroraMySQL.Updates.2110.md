@@ -67,9 +67,9 @@ The following CVE fixes are included in this release:
 - With the release of Aurora MySQL version 2.11, a new operating system upgrade is available. We recommend that you apply
   this pending OS update to all your Aurora MySQL database instances after upgrading to version 2.11. For more information,
   see [Working with operating system updates](../AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#OS_Updates "../AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.md#OS_Updates").
-- A new dynamic configuration option, innodb_deadlock_detect, may be used to disable deadlock detection. On high concurrency systems,
+- A new dynamic configuration option, innodb\_deadlock\_detect, may be used to disable deadlock detection. On high concurrency systems,
   deadlock detection can cause a slowdown when numerous threads wait for the same lock. At times, it may be more efficient to disable
-  deadlock detection and rely on the innodb_lock_wait_timeout setting for transaction rollback when a deadlock occurs. (Bug #23477773)
+  deadlock detection and rely on the innodb\_lock\_wait\_timeout setting for transaction rollback when a deadlock occurs. (Bug #23477773)
   More information on Innodb deadlock detection can be found in the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-deadlock-detection.html "https://dev.mysql.com/doc/refman/5.7/en/innodb-deadlock-detection.html").
 - The `UUID_TO_BIN`, `BIN_TO_UUID` and `IS_UUID` functions from MySQL 8.0 have been added.
   More information on using these functions can be found in
@@ -108,7 +108,7 @@ The following CVE fixes are included in this release:
 
 - Fixed an issue which can cause the database server to restart when all of the following conditions are true:
 
-  - ALLOW_INVALID_DATES is disabled in SQL MODE.
+  - ALLOW\_INVALID\_DATES is disabled in SQL MODE.
   - The database server is processing an INSERT, UPDATE, DELETE or SELECT statement with an invalid value of DATETIME type
     such that the month is not between 1 and 12.
 
@@ -119,18 +119,18 @@ The following CVE fixes are included in this release:
   are run on that instance. Frequent use of such statements can cause the freeable memory to keep reducing and may cause the database instance to restart because of out-of-memory issues.
   Use of such statements on the writer instance can also cause the freeable memory on the reader instances to reduce.
 - Introduced a larger read buffer size for reads performed from the relay logs to minimize the number of read I/O operations, which reduces contention between the I/O and SQL threads.
-- Fixed an issue that can cause the mysql.rds_rotate_slow_log stored procedure to fail with the error message
-  "Table 'mysql.slow_log_backup' doesn't exist".
+- Fixed an issue that can cause the mysql.rds\_rotate\_slow\_log stored procedure to fail with the error message
+  "Table 'mysql.slow\_log\_backup' doesn't exist".
 - Fixed an issue where excessive query cache invalidation causes higher than expected CPU usage and latencies on the read replica due to the read replica
   having to read the data from the disk instead of from the query cache.
-- Fixed an issue which allowed users to run the INSTALL PLUGIN and UNINSTALL PLUGIN commands on a reader instance, which can cause deadlock on LOCK_plugin,
-  LOCK_system_variables_hash, LOCK_global_system_variables. These statements can now only be executed on the writer instance in a database cluster.
+- Fixed an issue which allowed users to run the INSTALL PLUGIN and UNINSTALL PLUGIN commands on a reader instance, which can cause deadlock on LOCK\_plugin,
+  LOCK\_system\_variables\_hash, LOCK\_global\_system\_variables. These statements can now only be executed on the writer instance in a database cluster.
 - Fixed an issue where clusters may experience higher than expected commit latency when binary logging is enabled. This affects all transactions that generate large binlog events (over 500MB in size).
-- Fixed an issue that can cause the trx_active_transactions metric in the INFORMATION_SCHEMA.INNODB_METRICS table to have an incorrect value.
+- Fixed an issue that can cause the trx\_active\_transactions metric in the INFORMATION\_SCHEMA.INNODB\_METRICS table to have an incorrect value.
 - Fixed an issue which can stop logical replication due to the binlog file becoming inconsistent while executing a rollback to savepoint for a large transaction.
-- Masked credential hashes in general-log, slow-query-log, and audit-log by default using a consistent mask secret. This is configurable via the aurora_mask_password_hashes_type parameter.
+- Masked credential hashes in general-log, slow-query-log, and audit-log by default using a consistent mask secret. This is configurable via the aurora\_mask\_password\_hashes\_type parameter.
 - Fixed an issue where the Zero-Downtime-Restart (ZDR) duration is incorrectly reported in the customer observed events.
-- Fixed an issue which can cause calls to [mysql_rds_import_binlog_ssl_material](../UserGuide/mysql_rds_import_binlog_ssl_material.md "../UserGuide/mysql_rds_import_binlog_ssl_material.md") to fail with [MySQL server ERROR 1457](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html#error_er_sp_proc_table_corrupt "https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html#error_er_sp_proc_table_corrupt").
+- Fixed an issue which can cause calls to [mysql\_rds\_import\_binlog\_ssl\_material](../UserGuide/mysql_rds_import_binlog_ssl_material.md "../UserGuide/mysql_rds_import_binlog_ssl_material.md") to fail with [MySQL server ERROR 1457](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html#error_er_sp_proc_table_corrupt "https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html#error_er_sp_proc_table_corrupt").
 - Fixed an issue where dump thread initialization could get deadlocked with the thread for purging binary logs. This can stop the active binlog file from rotating and instead
   continue growing or cause issues with new binlog replica connections.
 - Fixed an issue where the query cache can return stale result on an Aurora read replica.
@@ -140,27 +140,27 @@ The following CVE fixes are included in this release:
 This release includes all community bug fixes up to and including 5.7, in addition to the below. For more information, see
 [MySQL bugs fixed by Aurora MySQL 2.x database engine updates](AuroraMySQL.Updates.MySQLBugs.md#AuroraMySQL.Updates.MySQLBugs.v2 "AuroraMySQL.Updates.MySQLBugs.md#AuroraMySQL.Updates.MySQLBugs.v2").
 
-- Fixed an issue where the code for reading character set information from Performance Schema statement events tables (for example, events_statements_current)
+- Fixed an issue where the code for reading character set information from Performance Schema statement events tables (for example, events\_statements\_current)
   did not prevent simultaneous writing to that character set information. As a result, the SQL query text character set could be invalid, which could result in a
-  server exit. With this fix, an invalid character set causes SQL_TEXT column truncation and prevents server exits. (Bug #23540008)
+  server exit. With this fix, an invalid character set causes SQL\_TEXT column truncation and prevents server exits. (Bug #23540008)
 - InnoDB: Backport of a fix for Community Bug #25189192, Bug #84038. Fixed an issue where after a RENAME TABLE operation that moved a table to a different schema,
-  InnoDB failed to update INNODB_SYS_DATAFILES data dictionary table. This resulted in an error on restart indicating that it could not locate the tablespace data file.
+  InnoDB failed to update INNODB\_SYS\_DATAFILES data dictionary table. This resulted in an error on restart indicating that it could not locate the tablespace data file.
 - InnoDB: Fixed an issue where the server dropped an internally defined foreign key index when adding a new index and attempted to use a secondary index defined on a
   virtual generated column as the foreign key index, causing a server exit. InnoDB now permits a foreign key constraint to reference a secondary index defined on a
   virtual generated column. (Bug #23533396)
 - Fixed an issue where two sessions concurrently executing an INSERT ... ON DUPLICATE KEY UPDATE operation generated a deadlock. During partial rollback of a tuple,
   another session could update it. The fix for this bug reverts the fixes for Bug #11758237, Bug #17604730, and Bug #20040791. (Bug #25966845)
-- Backport of a fix for Community Bug #27407480: Fixed an issue where the EXECUTE and ALTER ROUTINE privileges weren't correctly granted to routine creators even with automatic_sp_privileges enabled.
+- Backport of a fix for Community Bug #27407480: Fixed an issue where the EXECUTE and ALTER ROUTINE privileges weren't correctly granted to routine creators even with automatic\_sp\_privileges enabled.
 - Backport of fix for Community Bug#24671968: Fixed an issue where a query could produce incorrect results if the WHERE clause contained a dependent subquery, the table had a secondary index on the
   columns in the select list followed by the columns in the subquery, and `GROUP BY` or `DISTINCT` permitted the query to use a Loose Index Scan.
 - Fixed an issue where replication breaks if a multi-table delete statement is issued against multiple tables with foreign keys. (Bug #80821)
-- Fixed an issue where in special cases certain slave errors are not ignored even with [slave_skip_errors](https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors")
+- Fixed an issue where in special cases certain slave errors are not ignored even with [slave\_skip\_errors](https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors")
   enabled. In cases when opening and locking a table failed or when field conversions failed on a server running row-based replication, the error is considered critical and the state of
-  [slave_skip_errors](https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors") is ignored. The fix ensures that with
-  [slave_skip_errors](https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors")) enabled, all errors reported during applying a transaction are correctly handled.
+  [slave\_skip\_errors](https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors") is ignored. The fix ensures that with
+  [slave\_skip\_errors](https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors "https://dev.mysql.com/doc/refman/5.6/en/replication-options-replica.html#sysvar_slave_skip_errors")) enabled, all errors reported during applying a transaction are correctly handled.
   (Bug #70640, Bug #17653275)
 - Fixed an issue where a [`SET PASSWORD`](https://dev.mysql.com/doc/refman/5.7/en/set-password.html "https://dev.mysql.com/doc/refman/5.7/en/set-password.html") statement was replicated from a MySQL 5.6 master to a MySQL 5.7 slave, or from a MySQL 5.7 master with the
-  [log_builtin_as_identified_by_password](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_builtin_as_identified_by_password "https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_builtin_as_identified_by_password") system variable set to ON to a
+  [log\_builtin\_as\_identified\_by\_password](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_builtin_as_identified_by_password "https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_builtin_as_identified_by_password") system variable set to ON to a
   MySQL 5.7 slave, the password hash was itself also hashed before being stored on the slave. The issue has now been fixed and the replicated password hash is stored as originally passed to the slave. (Bug#24687073)
 - Fixed an issue where serialization of a JSON value consisting of a large sub-document wrapped in many levels of JSON arrays, objects, or both, sometimes required an excessive amount time to complete. (Bug #23031146)
 - Statements that cannot be parsed (due, for example, to syntax errors) are no longer written to the slow query log. (Bug #33732907)

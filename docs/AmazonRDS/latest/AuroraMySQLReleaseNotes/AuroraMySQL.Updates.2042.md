@@ -33,7 +33,7 @@ _Amazon Aurora User Guide_.
 ## Improvements
 
 - Added support for SSL binlog replication using custom certificates. For information on using SSL binlog replication in Aurora MySQL,
-  see [mysql_rds_import_binlog_ssl_material](../UserGuide/mysql_rds_import_binlog_ssl_material.md "../UserGuide/mysql_rds_import_binlog_ssl_material.md").
+  see [mysql\_rds\_import\_binlog\_ssl\_material](../UserGuide/mysql_rds_import_binlog_ssl_material.md "../UserGuide/mysql_rds_import_binlog_ssl_material.md").
 - Fixed a deadlatch on the Aurora primary instance that occurs when a table with a Full Text Search index is being optimized.
 - Fixed an issue on the Aurora Replicas where performance of certain queries using
   `SELECT(*)` could be impacted on tables that have secondary indexes.
@@ -42,7 +42,7 @@ _Amazon Aurora User Guide_.
 
 ## Integration of MySQL bug fixes
 
-- Bug #24829050 - INDEX_MERGE_INTERSECTION OPTIMIZATION CAUSES WRONG QUERY RESULTS
+- Bug #24829050 - INDEX\_MERGE\_INTERSECTION OPTIMIZATION CAUSES WRONG QUERY RESULTS
 
 ## Comparison with Aurora MySQL version 1
 

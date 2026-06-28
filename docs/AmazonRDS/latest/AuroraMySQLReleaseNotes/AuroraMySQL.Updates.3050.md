@@ -82,7 +82,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 - The request timeout for [Aurora MySQL Machine Learning](../AuroraUserGuide/mysql-ml.md "../AuroraUserGuide/mysql-ml.md") operations to Amazon Sagemaker
   has been increased from 3 to 30 seconds. This helps resolve an issue where customers may see an increased number of retries or failures for requests to Amazon
   Sagemaker from Aurora MySQL Machine Learning when using larger batch sizes.
-- Added support for `malloc_stats` and `malloc_stats_totals` tables in the performance_schema database.
+- Added support for `malloc_stats` and `malloc_stats_totals` tables in the performance\_schema database.
 - Updated the `FROM` keyword in the `LOAD DATA FROM S3` command to be optional. For more information, see
   [Loading data into an Amazon Aurora MySQL DB cluster from text
   files in an Amazon S3 bucket](../AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md "../AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.md").

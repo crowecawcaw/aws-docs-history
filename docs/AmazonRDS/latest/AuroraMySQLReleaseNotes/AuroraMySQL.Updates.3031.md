@@ -56,8 +56,8 @@ If you have any questions or concerns, AWS Support is available on the community
   This could lead to a drop in commit throughput of the database.
 - Fixed an issue which can cause parallel export for user tables that have columns added using the Instant ADD COLUMN functionality to fail.
 - Fixed an issue where events that were reported while processing audit log rotations might not be written to the audit log.
-- Fixed an issue which may cause depletion of available memory when executing queries against the INFORMATION_SCHEMA INNODB_TABLESPACES table.
-- Fixed an issue which incorrectly allows customers to set ROW_FORMAT as COMPRESSED when creating partitioned tables.
+- Fixed an issue which may cause depletion of available memory when executing queries against the INFORMATION\_SCHEMA INNODB\_TABLESPACES table.
+- Fixed an issue which incorrectly allows customers to set ROW\_FORMAT as COMPRESSED when creating partitioned tables.
   Tables will be implicitly converted to COMPACT format with a warning to inform that Aurora MySQL doesn’t support compressed tables.
 
 **Upgrades and migrations:**

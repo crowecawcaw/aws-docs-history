@@ -94,8 +94,8 @@ This release includes all community bug fixes up to and including 8.0.23, in add
 - Fixed an issue where a stored procedure containing an IF statement using EXISTS, which acted on one or more tables that were
   deleted and recreated between executions, did not execute correctly for subsequent invocations following the first one.
   (MySQL Bug #32855634).
-- Incorrect AUTO_INCREMENT values were generated when the maximum integer column value was exceeded. The error was due to the
-  maximum column value not being considered. The previous valid AUTO_INCREMENT value should have been returned in this
+- Incorrect AUTO\_INCREMENT values were generated when the maximum integer column value was exceeded. The error was due to the
+  maximum column value not being considered. The previous valid AUTO\_INCREMENT value should have been returned in this
   case, causing a duplicate key error. (Bug #87926, Bug #26906787)
 - Fixed an issue which can lead to a failure while upgrading an Aurora MySQL version 1 (Compatible with MySQL 5.6) database
   cluster containing user-created table with certain table IDs. Assignment of these table IDs may result in conflicting

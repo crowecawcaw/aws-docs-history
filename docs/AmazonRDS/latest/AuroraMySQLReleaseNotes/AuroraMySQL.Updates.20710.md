@@ -43,7 +43,7 @@ Additional CVE fixes below:
 - [CVE-2022-37434](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-37434 "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-37434")
 - Fixed an issue where events that were reported while processing audit log rotations might not be written to the audit log.
 - Updated the default SSL ciphers used by Aurora MySQL to exclude the less secure DES-CBC3-SHA values from the
-  [SSL_CIPHER](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher") database parameter.
+  [SSL\_CIPHER](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher "https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_ssl_cipher") database parameter.
   If you encounter SSL connection issues due to the removal of the DES-CBC3-SHA cipher, please use an applicable secure cipher from the following information,
   [Configuring cipher suites for connections to Aurora MySQL DB clusters](../AuroraUserGuide/AuroraMySQL.Security.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites "../AuroraUserGuide/AuroraMySQL.Security.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites").
 - OpenSSL was upgraded to version 1.0.2zh.

@@ -35,7 +35,7 @@ _Amazon Aurora User Guide_.
 - Supports GTID-based replication. For information about using GTID-based replication with Aurora MySQL,
   [Using GTID-based replication for Aurora MySQL](../AuroraUserGuide/mysql-replication-gtid.md "../AuroraUserGuide/mysql-replication-gtid.md") in the _Amazon Aurora User Guide_.
 - Fixed an issue where an Aurora Replica incorrectly throws a`Running in read-only
-mode` error when a statement deleting or updating rows in a temporary table contains
+ mode` error when a statement deleting or updating rows in a temporary table contains
   an InnoDB subquery.
 
 ## Integration of MySQL bug fixes

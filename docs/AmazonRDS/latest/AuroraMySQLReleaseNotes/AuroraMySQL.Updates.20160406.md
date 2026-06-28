@@ -40,7 +40,7 @@ Only turn on efficient storage of binary logs for instances in an
 Aurora MySQL DB cluster that are MySQL binary log replication master
 instances.
 
-- **AURORA_VERSION system variable** –
+- **AURORA\_VERSION system variable** –
   You can now get the Aurora version of your Aurora MySQL DB cluster by querying for the
   `AURORA_VERSION` system variable.
 
@@ -76,9 +76,9 @@ select * from INFORMATION_SCHEMA.GLOBAL_STATUS where variable_name in ('aurora_l
 - Improved stability during binlog and XA transaction recovery.
 - Fixed a memory issue resulting from a large number of connections.
 - Improved accuracy in the following metrics: `Read
-Throughput`, `Read IOPS`, `Read Latency`,
+ Throughput`, `Read IOPS`, `Read Latency`,
   `Write Throughput`, `Write IOPS`, `Write
-Latency`, and `Disk Queue Depth`.
+ Latency`, and `Disk Queue Depth`.
 - Fixed a stability issue causing slow startup for large instances after a
   crash.
 - Improved concurrency in the data dictionary regarding synchronization
@@ -100,23 +100,23 @@ Latency`, and `Disk Queue Depth`.
     `UPDATE` and `DELETE` statements with
     `JOIN` statements.
   - Improved stability for Aurora Replicas when running `INSERT ...
-SELECT` statements.
+   SELECT` statements.
 
 ## Integration of MySQL bug fixes
 
-- BACKPORT Bug #18694052 FIX FOR ASSERTION `!M_ORDERED_REC_BUFFER' FAILED TO
+- BACKPORT Bug #18694052 FIX FOR ASSERTION `!M\_ORDERED\_REC\_BUFFER' FAILED TO
   5.6 (Port Bug #18305270)
-- SEGV IN MEMCPY(), HA_PARTITION::POSITION (Port Bug # 18383840)
-- WRONG RESULTS WITH PARTITIONING,INDEX_MERGE AND NO PK (Port Bug #
+- SEGV IN MEMCPY(), HA\_PARTITION::POSITION (Port Bug # 18383840)
+- WRONG RESULTS WITH PARTITIONING,INDEX\_MERGE AND NO PK (Port Bug #
 
 18167648.
 
-- FLUSH TABLES FOR EXPORT: ASSERTION IN HA_PARTITION::EXTRA (Port Bug #
+- FLUSH TABLES FOR EXPORT: ASSERTION IN HA\_PARTITION::EXTRA (Port Bug #
 
 16943907.
 
-- SERVER CRASH IN VIRTUAL HA_ROWS HANDLER::MULTI_RANGE_READ_INFO_CONST (Port
+- SERVER CRASH IN VIRTUAL HA\_ROWS HANDLER::MULTI\_RANGE\_READ\_INFO\_CONST (Port
   Bug # 16164031)
-- RANGE OPTIMIZER CRASHES IN SEL_ARG::RB_INSERT() (Port Bug #
+- RANGE OPTIMIZER CRASHES IN SEL\_ARG::RB\_INSERT() (Port Bug #
 
 16241773.

@@ -49,7 +49,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 
 **Availability improvements:**
 
-- Introduced an optimization which can reduce contention for queries that are executed on tables in information_schema.
+- Introduced an optimization which can reduce contention for queries that are executed on tables in information\_schema.
 - Add support for ECDHE SSL ciphers.
 
 **General improvements:**
@@ -60,21 +60,21 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 - Fixed an issue which can cause a database instance restart to fail when the database has a large number of user and privilege combinations.
 - Fixed an issue with parallel query which can cause the database to restart when executing SQL statements with LIMIT clause.
 - Fixed an issue with incorrect reporting of aurora replication lag.
-- Fixed an issue which can cause general_log and slow_log tables to become inaccessible after in-place major version upgrade from Aurora-MySQL 1.x (based on MySQL 5.6) to Aurora-MySQL 2.x (based on MySQL 5.7).
-- Fixed an issue which, in rare cases, can cause the database instance to restart when innodb_trx, innodb_locks or innodb_lockwaits tables are queried while the database is under heavy workload. Monitoring tools and features such as performance insights may query such tables.
+- Fixed an issue which can cause general\_log and slow\_log tables to become inaccessible after in-place major version upgrade from Aurora-MySQL 1.x (based on MySQL 5.6) to Aurora-MySQL 2.x (based on MySQL 5.7).
+- Fixed an issue which, in rare cases, can cause the database instance to restart when innodb\_trx, innodb\_locks or innodb\_lockwaits tables are queried while the database is under heavy workload. Monitoring tools and features such as performance insights may query such tables.
 - Fixed an issue which can cause a database instance to restart when "FLUSH TABLES WITH READ LOCK" SQL statement is executed.
 - Fixed an issue where the InnoDB purge process pauses during the deletion of a reader instance leading to a temporary increase in history list length.
 - Fixed an issue with parallel query which can cause the database to restart when executing a SQL statement against a table containing a virtual column.
 - Fixed an issue with parallel query which can cause the database to return incorrect groupings or sort order when executing queries with GROUP BY clause and a WHERE clause containing a range predicate.
 - Fixed an issue in parallel query which, in rare conditions, can cause the database to restart when executing SQL statements with JSON functions.
 - Fixed an issue which, in rare conditions, can cause the writer instance in primary Global Database cluster to restart because of a race condition during Global Database Replication.
-- Fixed an issue that can cause a Binlog replica to stop with an HA_ERR_FOUND_DUPP_KEY error when replicating certain DDL and DCL statements. The issue occurs when the source instance
+- Fixed an issue that can cause a Binlog replica to stop with an HA\_ERR\_FOUND\_DUPP\_KEY error when replicating certain DDL and DCL statements. The issue occurs when the source instance
   is configured with MIXED binary logging format and READ COMMITTED or READ UNCOMMITTED isolation level.
 - Fixed an issue which, in rare conditions, can cause the database instance to restart when using XA transactions in READ COMMITTED isolation level.
 - Fixed an issue where the value of a TIMESTAMP column of an existing row is updated to the latest timestamp when all of the following conditions are satisfied: 1. a trigger exists for the table;
 
 2.  an INSERT is performed on the table that has an ON DUPLICATE KEY UPDATE clause; 3. the inserted row can cause a duplicate value violation in a UNIQUE index or PRIMARY KEY; and
-3.  one or more columns are of TIMESTAMP data type and have a default value of CURRENT_TIMESTAMP.
+3.  one or more columns are of TIMESTAMP data type and have a default value of CURRENT\_TIMESTAMP.
 
 - Fixed an issue which, in rare conditions, can cause a reader instance to restart due to an incorrect check processing.
 - Fixed an issue which can cause the reader instance to restart when the writer instance grows the database volume to cross specific volume size boundaries.
@@ -86,7 +86,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 ## Integration of MySQL community edition bug fixes
 
 - Bug #23533396 - When adding a new index, the server dropped an internally defined foreign key index and attempted to use a secondary index defined on a virtual generated column as the foreign key index, causing a server exit. InnoDB now permits a foreign key constraint to reference a secondary index defined on a virtual generated column.
-- Bug #29550513 - Replication: A locking issue in the WAIT_FOR_EXECUTED_GTID_SET() function can cause the server to hang in certain circumstances. The issue has now been corrected.
+- Bug #29550513 - Replication: A locking issue in the WAIT\_FOR\_EXECUTED\_GTID\_SET() function can cause the server to hang in certain circumstances. The issue has now been corrected.
 
 ## Comparison with Aurora MySQL version 1
 
