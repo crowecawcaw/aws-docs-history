@@ -36,7 +36,7 @@ trusted identity propagation.
 2. **Sample Delta Lake table (Optional)** – Create a sample Delta table with the below command. Ignore if you already
    have an existing Delta Lake table.
 
-Run the below command to copy the sample Delta Lake table into your S3 bucket. (Replace **account_id**with your account Id. This bucket is created by CloudFormation template, which
+Run the below command to copy the sample Delta Lake table into your S3 bucket. (Replace **account\_id**with your account Id. This bucket is created by CloudFormation template, which
 is described in the Prerequisites.
 
 ```

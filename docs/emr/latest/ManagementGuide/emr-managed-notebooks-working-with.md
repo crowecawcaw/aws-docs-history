@@ -22,7 +22,7 @@ the **Notebooks** list.
 
 | Status   | Meaning                                                                                                                                                                                                                                                                                                                               |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ready    | You can open the notebook using the notebook editor. While a<br>notebook has a **Ready\*<br>• status, you can stop<br>or delete it. To change clusters, you must stop the notebook<br>first. If a notebook in the **Ready\*<br>• status is<br>idle for a long period of time, it is stopped<br>automatically.                         |
+| Ready    | You can open the notebook using the notebook editor. While a<br>notebook has a *_Ready_<br>• status, you can stop<br>or delete it. To change clusters, you must stop the notebook<br>first. If a notebook in the *_Ready_<br>• status is<br>idle for a long period of time, it is stopped<br>automatically.                           |
 | Starting | The notebook is being created and attached to the cluster.<br>While a notebook is starting, you cannot open the notebook<br>editor, stop it, delete it, or change clusters.                                                                                                                                                           |
 | Pending  | The notebook has been created, and is waiting for integration<br>with the cluster to complete. The cluster may still be<br>provisioning resources or responding to other requests. You can<br>open the notebook editor with the notebook in _local<br>mode_. Any code that relies on cluster processes<br>does not execute and fails. |
 | Stopping | The notebook is shutting down, or the cluster that the<br>notebook is attached to is terminating. While a notebook is<br>stopping, you can't open the notebook editor, stop it, delete<br>it, or change clusters.                                                                                                                     |
@@ -83,9 +83,9 @@ appears.
 
 You can save a notebook manually. From the **File** menu,
 choose **Save and Checkpoint** or press CTRL+S. This creates a
-file named ``NotebookName`.ipynb`in a
- **checkpoints** folder within the notebook folder in Amazon S3.
- For example,
+file named ``NotebookName`.ipynb` in a
+**checkpoints** folder within the notebook folder in Amazon S3.
+For example,
 `s3://`amzn-s3-demo-bucket`/`MyNotebookFolder`/`NotebookID`/checkpoints/`NotebookName`.ipynb`.
 Only the most recent checkpoint file is saved in this location.
 

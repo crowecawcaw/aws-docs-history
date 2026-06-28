@@ -222,11 +222,10 @@ See the following to learn more specific details about open-source applications 
   the Amazon EMR release version. For more information, see the [in-transit encryption support matrix](../../../index.md "../../../index.md").
 - You can override open-source configurations, which lets you do the following:
 
-      + Disable TLS hostname verification if your user-provided TLS certificates doesn't meet requirements
-      + Disable in-transit encryption for certain endpoints based on your performance and compatibility requirements
-      + Control which TLS versions and cipher suites to use.
-
-  You can find more details about the application-specific configurations in the [in-transit encryption support matrix](emr-encryption-support-matrix.md "emr-encryption-support-matrix.md")
+  - Disable TLS hostname verification if your user-provided TLS certificates doesn't meet requirements
+  - Disable in-transit encryption for certain endpoints based on your performance and compatibility requirements
+  - Control which TLS versions and cipher suites to use.
+    You can find more details about the application-specific configurations in the [in-transit encryption support matrix](emr-encryption-support-matrix.md "emr-encryption-support-matrix.md")
 
 - Aside from enabling in-transit encryption with a security configuration, some communication channels also require additional security configurations
   for you to enable in-transit encryption. For example, some open-source application endpoints

@@ -35,8 +35,8 @@ always back up your data.
 
 For more information about identifying unhealthy nodes and recovery, see
 [Resource errors](emr-troubleshoot-error-resource.md "emr-troubleshoot-error-resource.md"). Additionally, for more best practices you can follow in order to maintain the health of a cluster, see
-the following documentation for the resource error [Amazon EMR cluster terminates with NO_SLAVE_LEFT and
-core nodes FAILED_BY_MASTER](emr-cluster-NO_SLAVE_LEFT-FAILED_BY_MASTER.md "emr-cluster-NO_SLAVE_LEFT-FAILED_BY_MASTER.md").
+the following documentation for the resource error [Amazon EMR cluster terminates with NO\_SLAVE\_LEFT and
+core nodes FAILED\_BY\_MASTER](emr-cluster-NO_SLAVE_LEFT-FAILED_BY_MASTER.md "emr-cluster-NO_SLAVE_LEFT-FAILED_BY_MASTER.md").
 
 Amazon EMR publishes Amazon CloudWatch Events for unhealthy node replacement, so you can keep track of what's happening
 with your unhealthy core instances. For more information, see

@@ -45,7 +45,7 @@ modify `JAVA_OPTS` to include
 `"-Djavax.net.ssl.trustStore=`<TRUSTSTORE_LOCATION>`"`
 and
 `"-Djavax.net.ssl.trustStorePassword=`<TRUSTSTORE_PASSWORD>`"`.
-For example, add the following line after the existing JAVA_OPTS.
+For example, add the following line after the existing JAVA\_OPTS.
 
 ```
 JAVA_OPTS=" ${JAVA_OPTS} -Djavax.net.ssl.trustStore=${RANGER_HOME}/truststore/truststore.jck -Djavax.net.ssl.trustStorePassword=changeit"

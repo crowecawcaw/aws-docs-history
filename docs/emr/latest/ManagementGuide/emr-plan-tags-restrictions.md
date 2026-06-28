@@ -2,7 +2,7 @@
 
 The following basic restrictions apply to tags:
 
-- Restrictions that apply to Amazon EC2 resources apply to Amazon EMR as well. For more information, see [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-restrictions](../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions "../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions").
+- Restrictions that apply to Amazon EC2 resources apply to Amazon EMR as well. For more information, see [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using\_Tags.html#tag-restrictions](../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions "../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-restrictions").
 - Do not use the `aws:` prefix in tag names and values because it is
   reserved for AWS use. In addition, you cannot edit or delete tag names or
   values with this prefix.

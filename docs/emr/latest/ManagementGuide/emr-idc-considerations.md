@@ -13,7 +13,7 @@ Consider the following points when you use IAM Identity Center with Amazon EMR:
   include SELECT, ALTER TABLE, INSERT INTO, and DROP TABLE.
 - Fine-grained access controls using AWS Lake Formation that use Trusted Identity Propagation will need to update Lake Formation Identity Center configuration
   by adding EMR managed IAM Identity application arn as authorized target. You can find Amazon EMR managed IAM Identity application ARN
-  by calling EMR `describe-security-configure` API and look for
+  by calling EMR `describe-security-configuration` API and look for
   field `IdCApplicationARN`. More details: [Updating IAM Identity Center integration](../../../lake-formation/latest/dg/update-lf-identity-center-connection.md "../../../lake-formation/latest/dg/update-lf-identity-center-connection.md") on how
   to setup Lake Formation with IAM Identity Center configuration.
 - To use Fine-grained access controls using AWS Lake Formation that use Trusted Identity Propagation, IAM Identity users should be

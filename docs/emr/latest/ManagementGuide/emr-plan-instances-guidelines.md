@@ -113,38 +113,38 @@ YARN node labels feature by configuring following properties:
 
 - `yarn.node-labels.enabled: true`
 - `yarn.node-labels.am.default-node-label-expression:
-'CORE'`
+ 'CORE'`
 
 - **yarn-site (yarn-site.xml) On All
   Nodes**
 
   - `yarn.node-labels.enabled: true`
   - `yarn.node-labels.am.default-node-label-expression:
-'CORE'`
+   'CORE'`
   - `yarn.node-labels.fs-store.root-dir:
-'/apps/yarn/nodelabels'`
+   '/apps/yarn/nodelabels'`
   - `yarn.node-labels.configuration-type:
-'distributed'`
+   'distributed'`
 
 - **yarn-site (yarn-site.xml) On Primary And
   Core Nodes**
 
   - `yarn.nodemanager.node-labels.provider:
-'config'`
+   'config'`
   - `yarn.nodemanager.node-labels.provider.configured-node-partition:
-'CORE'`
+   'CORE'`
 
 - **capacity-scheduler
   (capacity-scheduler.xml) On All Nodes**
 
   - `yarn.scheduler.capacity.root.accessible-node-labels:
-'*'`
+   '*'`
   - `yarn.scheduler.capacity.root.accessible-node-labels.CORE.capacity:
-100`
+   100`
   - `yarn.scheduler.capacity.root.default.accessible-node-labels:
-'*'`
+   '*'`
   - `yarn.scheduler.capacity.root.default.accessible-node-labels.CORE.capacity:
-100`
+   100`
 
 ### Primary node on a Spot Instance
 

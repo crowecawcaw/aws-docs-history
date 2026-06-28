@@ -121,8 +121,7 @@ practices. Resources in Ranger Admin server should not contain
 ![Ranger Admin showing create policy for EMRFS S3 service.](images/ranger-create-policy-EMRFS.png)
 
 You can specify users and groups to grant permissions. You can also specify
-exclusions for **allow** conditions and
-**deny** conditions.
+exclusions for **allow** conditions.
 
 ![Ranger Admin showing user/group permissions for EMRFS S3 policy.](images/ranger-permissions-EMRFS.png)
 
@@ -313,7 +312,7 @@ not supported.
 
 The following are current limitations of the EMRFS S3 plugin:
 
-- Apache Ranger policies can have at most three policies.
+- Apache Ranger policies can have at most three resources.
 - Access to S3 must be done through EMRFS and can be used with
   Hadoop-related applications. The following is not supported:
 

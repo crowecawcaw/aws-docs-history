@@ -57,17 +57,17 @@ Console
 4. Under **Block public access settings**,
    complete the following steps.
 
-| To...                                | Do this...                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Turn block public access on or off   | Choose **Edit**, choose<br>**Turn on\*<br>• or **Turn<br>off\*<br>• as appropriate, and then choose<br>**Save**.                                                                                                                                                                                                                                                                             |
-| Edit ports in the list of exceptions | 1. Choose **Edit\*<br>• and find<br>the **Port range exceptions**<br>section.<br>2. To add ports to the list of exceptions,<br>choose **Add a port range*<br>• and<br>enter a new port or port range. Repeat for each<br>port or port range to add.<br>3. To remove a port or port range, choose<br>\*\*Remove*<br>• next to the entry in<br>the list of port ranges.<br>4. Choose **Save**. |
+| To...                                | Do this...                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Turn block public access on or off   | Choose **Edit**, choose<br>*_Turn on_<br>• or *_Turn<br>off_<br>• as appropriate, and then choose<br>**Save**.                                                                                                                                                                                                                                                                            |
+| Edit ports in the list of exceptions | 1. Choose *_Edit_<br>• and find<br>the **Port range exceptions**<br>section.<br>2. To add ports to the list of exceptions,<br>choose *_Add a port range_<br>• and<br>enter a new port or port range. Repeat for each<br>port or port range to add.<br>3. To remove a port or port range, choose<br>*_Remove_<br>• next to the entry in<br>the list of port ranges.<br>4. Choose **Save**. |
 
 AWS CLI
 
 ###### To configure block public access using the AWS CLI
 
 - Use the `aws emr
-put-block-public-access-configuration` command to
+ put-block-public-access-configuration` command to
   configure block public access as shown in the following
   examples.
 

@@ -84,15 +84,15 @@ public class Main {
 
 ```
 
-At minimum, you must pass a service role and jobflow role corresponding to EMR_DefaultRole and
-EMR_EC2_DefaultRole, respectively. You can do this by invoking this AWS CLI command
+At minimum, you must pass a service role and jobflow role corresponding to EMR\_DefaultRole and
+EMR\_EC2\_DefaultRole, respectively. You can do this by invoking this AWS CLI command
 for the same account. First, look to see if the roles already exist:
 
 ```
 aws iam list-roles | grep EMR
 ```
 
-Both the instance profile (EMR_EC2_DefaultRole) and the service role (EMR_DefaultRole) will be displayed if they exist:
+Both the instance profile (EMR\_EC2\_DefaultRole) and the service role (EMR\_DefaultRole) will be displayed if they exist:
 
 ```
 "RoleName": "EMR_DefaultRole",

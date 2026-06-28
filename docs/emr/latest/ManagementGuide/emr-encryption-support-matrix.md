@@ -316,9 +316,9 @@ you can disable SSL for Oozie by setting the `oozie.https.enabled` property to `
 By default, Hue supports TLS when in-transit encryption is enabled in Amazon EMR clusters. For more information about Hue configurations,
 see [Configure Hue with HTTPS / SSL](https://gethue.com/configure-hue-with-https-ssl/ "https://gethue.com/configure-hue-with-https-ssl/").
 
-| Component | Endpoint  | Port | In-Transit Encryption Mechanism | Supported from Release |
-| --------- | --------- | ---- | ------------------------------- | ---------------------- |
-| Hue       | http_port | 8888 | TLS                             | emr-7.4.0+             |
+| Component | Endpoint   | Port | In-Transit Encryption Mechanism | Supported from Release |
+| --------- | ---------- | ---- | ------------------------------- | ---------------------- |
+| Hue       | http\_port | 8888 | TLS                             | emr-7.4.0+             |
 
 ## Livy
 
@@ -343,9 +343,9 @@ For more information, see [enabling HTTPS with Apache Livy](../ReleaseGuide/enab
 By default, Jupyter Enterprise Gateway supports TLS when in-transit encryption is enabled in Amazon EMR clusters. For more information about the Jupyter Enterprise Gateway configurations,
 see [Securing Enterprise Gateway Server](https://jupyter-enterprise-gateway.readthedocs.io/en/v1.2.0/getting-started-security.html#securing-enterprise-gateway-server "https://jupyter-enterprise-gateway.readthedocs.io/en/v1.2.0/getting-started-security.html#securing-enterprise-gateway-server").
 
-| Component                  | Endpoint                    | Port | In-Transit Encryption Mechanism | Supported from Release |
-| -------------------------- | --------------------------- | ---- | ------------------------------- | ---------------------- |
-| jupyter_enterprise_gateway | c.EnterpriseGatewayApp.port | 9547 | TLS                             | emr-7.4.0+             |
+| Component                    | Endpoint                    | Port | In-Transit Encryption Mechanism | Supported from Release |
+| ---------------------------- | --------------------------- | ---- | ------------------------------- | ---------------------- |
+| jupyter\_enterprise\_gateway | c.EnterpriseGatewayApp.port | 9547 | TLS                             | emr-7.4.0+             |
 
 ## JupyterHub
 
@@ -353,9 +353,9 @@ By default, JupyterHub supports TLS when in-transit encryption is enabled in Ama
 see [Enabling SSL encryption](https://jupyterhub.readthedocs.io/en/latest/tutorial/getting-started/security-basics.html#enabling-ssl-encryption "https://jupyterhub.readthedocs.io/en/latest/tutorial/getting-started/security-basics.html#enabling-ssl-encryption") in the JupyterHub
 documentation. It isn't recommended to disable encryption.
 
-| Component   | Endpoint          | Port | In-Transit Encryption Mechanism | Supported from Release              |
-| ----------- | ----------------- | ---- | ------------------------------- | ----------------------------------- |
-| jupyter_hub | c.JupyterHub.port | 9443 | TLS                             | emr-5.14.0+, emr-6.0.0+, emr-7.0.0+ |
+| Component    | Endpoint          | Port | In-Transit Encryption Mechanism | Supported from Release              |
+| ------------ | ----------------- | ---- | ------------------------------- | ----------------------------------- |
+| jupyter\_hub | c.JupyterHub.port | 9443 | TLS                             | emr-5.14.0+, emr-6.0.0+, emr-7.0.0+ |
 
 ## Zeppelin
 

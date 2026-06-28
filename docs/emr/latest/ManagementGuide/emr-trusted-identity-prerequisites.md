@@ -128,15 +128,15 @@ For the remaining steps, either deploy AWS CloudFormation Stack or follow instru
 Download this CloudFormation template [emr-tip.yaml](samples/emr-tip.yaml.zip.md "samples/emr-tip.yaml.zip.md") and use **Create Stack** on the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/") to create
 the solution resources. Refer to the following table for a list of important parameters.
 
-| CloudFormation Stack Parameters | Parameter Group                                                    | Description            | Parameter Name                                                                                                                                                                                                                                                                   | Expected Value |
-| ------------------------------- | ------------------------------------------------------------------ | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| Choose components to provision  | Choose the components you want to be provisioned.                  | CreateS3AGInstance     | Yes/No. If you already have an S3 Access Grants instance, choose No. Otherwise, choose Yes to allow the stack create a new S3 Access Grants instance. The S3 Access Grants can be used to centrally manage access to your raw data that is not yet cataloged to the Data Catalog |
-| Identity Center Configuration   | IAM Identity Center parameters                                     | IDCGroup1Id            | Group ID corresponding to Group1 from IAM Identity Center.                                                                                                                                                                                                                       |
-| Identity Center Configuration   | IAM Identity Center parameters                                     | IDCGroup2Id (optional) | Group ID corresponding to Group2 from IAM Identity Center.                                                                                                                                                                                                                       |
-| Identity Center Configuration   | IAM Identity Center parameters                                     | IDCGroup3Id (optional) | Group ID corresponding to Group3 from IAM Identity Center.                                                                                                                                                                                                                       |
-| Identity Center Configuration   | IAM Identity Center parameters                                     | IAMIDCInstanceArn      | IAM Identity Center instance ARN. You can get this from the Settings section of IAM Identity Center.                                                                                                                                                                             |
-| EMR Configuration               | EMR parameters. Ignore if you chose parameter DeployEMRFlow as No. | SSlCertsS3BucketName   | Bucket name where you copied the SSL certificates. Eg if your certs are located at s3://bucket_name/certs/my-certs.zip then provide value bucket_name here                                                                                                                       |
-| EMR Configuration               | EMR parameters. Ignore if you chose parameter DeployEMRFlow as No. | SSlCertsPathtoZip      | Path to SSL cert zip in your certs s3 bucket. Eg if your certs are located at s3://bucket_name/certs/my-certs.zip then provide value certs/my-certs.zip here                                                                                                                     |
+CloudFormation Stack Parameters| Parameter Group | Description | Parameter Name | Expected Value |
+| --- | --- | --- | --- |
+| Choose components to provision | Choose the components you want to be provisioned. | CreateS3AGInstance | Yes/No. If you already have an S3 Access Grants instance, choose No. Otherwise, choose Yes to allow the stack create a new S3 Access Grants instance. The S3 Access Grants can be used to centrally manage access to your raw data that is not yet cataloged to the Data Catalog |
+| Identity Center Configuration | IAM Identity Center parameters | IDCGroup1Id | Group ID corresponding to Group1 from IAM Identity Center. |
+| Identity Center Configuration | IAM Identity Center parameters | IDCGroup2Id (optional) | Group ID corresponding to Group2 from IAM Identity Center. |
+| Identity Center Configuration | IAM Identity Center parameters | IDCGroup3Id (optional) | Group ID corresponding to Group3 from IAM Identity Center. |
+| Identity Center Configuration | IAM Identity Center parameters | IAMIDCInstanceArn | IAM Identity Center instance ARN. You can get this from the Settings section of IAM Identity Center. |
+| EMR Configuration | EMR parameters. Ignore if you chose parameter DeployEMRFlow as No. | SSlCertsS3BucketName | Bucket name where you copied the SSL certificates. Eg if your certs are located at s3://bucket\_name/certs/my-certs.zip then provide value bucket\_name here |
+| EMR Configuration | EMR parameters. Ignore if you chose parameter DeployEMRFlow as No. | SSlCertsPathtoZip | Path to SSL cert zip in your certs s3 bucket. Eg if your certs are located at s3://bucket\_name/certs/my-certs.zip then provide value certs/my-certs.zip here |
 
 The CloudFormation stack provisions the following resources:
 
@@ -342,7 +342,7 @@ Create below IAM roles for EMR request access to AWS IAM Identity Center on your
 ###### To create an IAM Role:
 
 1. Go to **Roles** → **Create role** → select **AWS service** for trusted entity type
-   and choose **EMR** under Use case. This will add [AmazonEMRServicePolicy_v2](../../../aws-managed-policy/latest/reference/AmazonEMRServicePolicy_v2.md "../../../aws-managed-policy/latest/reference/AmazonEMRServicePolicy_v2.md") managed
+   and choose **EMR** under Use case. This will add [AmazonEMRServicePolicy\_v2](../../../aws-managed-policy/latest/reference/AmazonEMRServicePolicy_v2.md "../../../aws-managed-policy/latest/reference/AmazonEMRServicePolicy_v2.md") managed
    policy. Click **Next**.
 2. Give a role name _tiptutorial-EMREC2ServiceRole_ and click **Create**.
 3. Add the below `ServiceRoleDefaultPolicy` as an inline policy:
@@ -408,7 +408,7 @@ following inline policies:
 
 ##### EMR Studio service role
 
-Create an EMR Studio Service role to let Studio access your AWS resources. Give it a name say _AmazonEMRStudio_ServiceRole_:
+Create an EMR Studio Service role to let Studio access your AWS resources. Give it a name say _AmazonEMRStudio\_ServiceRole_:
 
 1. Attach the Trust policy:
 
@@ -667,7 +667,7 @@ Create an EMR Studio Service role to let Studio access your AWS resources. Give 
 
 ##### EMR Studio User role
 
-Create an EMR Studio Userrole with the name example _AmazonEMRStudio_ServiceRole_ and attach the following
+Create an EMR Studio Userrole with the name example _AmazonEMRStudio\_ServiceRole_ and attach the following
 inline policies:
 
 - TIPBlog-IDC-TrustedIdFed-Policy

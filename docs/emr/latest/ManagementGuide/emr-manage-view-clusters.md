@@ -205,7 +205,7 @@ aws emr list-clusters --created-after `2019-10-09T00:12:00` --created-before `20
 To list clusters by state, use the `list-clusters` command with the
 `--cluster-states` parameter. Valid cluster states include: STARTING,
 BOOTSTRAPPING, RUNNING, WAITING, TERMINATING, TERMINATED, and
-TERMINATED_WITH_ERRORS.
+TERMINATED\_WITH\_ERRORS.
 
 ```
 aws emr list-clusters --cluster-states `TERMINATED`
@@ -218,7 +218,7 @@ states specified.:
   RUNNING, WAITING, or TERMINATING states.
 - `--terminated` filters clusters in the TERMINATED state.
 - `--failed` parameter filters clusters in the
-  TERMINATED_WITH_ERRORS state.
+  TERMINATED\_WITH\_ERRORS state.
   The following commands return the same result.
 
 ```

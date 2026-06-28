@@ -54,10 +54,10 @@ instances.
 Amazon EMR creates a folder with the **Notebook ID** as folder
 name, and saves the notebook to a file named
 ``NotebookName`.ipynb`. For example,
- if you specify the Amazon S3 location `s3://amzn-s3-demo-bucket/MyNotebooks`for a
- notebook named`MyFirstEMRManagedNotebook`, the notebook file is
- saved to
- `s3://amzn-s3-demo-bucket/MyNotebooks/`NotebookID`/MyFirstEMRManagedNotebook.ipynb`.
+if you specify the Amazon S3 location `s3://amzn-s3-demo-bucket/MyNotebooks` for a
+notebook named `MyFirstEMRManagedNotebook`, the notebook file is
+saved to
+`s3://amzn-s3-demo-bucket/MyNotebooks/`NotebookID`/MyFirstEMRManagedNotebook.ipynb`.
 
 If you specify an encrypted location in Amazon S3, you must set up the [Service role for EMR Notebooks](emr-managed-notebooks-service-role.md "emr-managed-notebooks-service-role.md") as a key user. The
 default service role is `EMR_Notebooks_DefaultRole`. If you are using

@@ -11647,7 +11647,7 @@ information about these instance types and upgrade paths, see [Previous Generati
 Instances](https://aws.amazon.com/ec2/previous-generation "https://aws.amazon.com/ec2/previous-generation").
 
 | Instance class    | Instance types |
-| ----------------- | -------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ---------- | ---------- | ---------- | ---------- | ----------- | ----------- |
+| ----------------- | -------------- |
 | General Purpose   | m1.small¹      | m1.medium¹  | m1.large¹   | m1.xlarge¹  | m3.xlarge¹  | m3.2xlarge¹ | m4.large   | m4.xlarge  | m4.2xlarge | m4.4xlarge | m4.10xlarge | m4.16xlarge |
 | Compute Optimized | c1.medium¹ ²   | c1.xlarge¹  | c3.xlarge¹  | c3.2xlarge¹ | c3.4xlarge¹ | c3.8xlarge¹ | c4.large   | c4.xlarge  | c4.2xlarge | c4.4xlarge | c4.8xlarge  |
 | Memory Optimized  | m2.xlarge¹     | m2.2xlarge¹ | m2.4xlarge¹ | r3.xlarge   | r3.2xlarge  | r3.4xlarge  | r3.8xlarge | r4.xlarge  | r4.2xlarge | r4.4xlarge | r4.8xlarge  | r4.16xlarge |

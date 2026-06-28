@@ -21,8 +21,8 @@ Beginning with Amazon EMR version 5.24.0, you can use a security configuration o
 encrypt EBS root device and storage volumes when you specify AWS KMS as your key provider. For more information, see [Local disk encryption](emr-data-encryption-options.md#emr-encryption-localdisk "emr-data-encryption-options.md#emr-encryption-localdisk").
 A custom AMI must exist in the same AWS Region where you create the cluster. It
 should also match the EC2 instance architecture. For example, an m5.xlarge instance has
-an x86_64 architecture. Therefore, to provision an m5.xlarge using a custom AMI, your
-custom AMI should also have x86_64 architecture. Similarly, to provision an m6g.xlarge
+an x86\_64 architecture. Therefore, to provision an m5.xlarge using a custom AMI, your
+custom AMI should also have x86\_64 architecture. Similarly, to provision an m6g.xlarge
 instance, which has arm64 architecture, your custom AMI should have arm64 architecture.
 For more information about identifying a Linux AMI for your instance type, see [Find a Linux
 AMI](../../../AWSEC2/latest/UserGuide/finding-an-ami.md "../../../AWSEC2/latest/UserGuide/finding-an-ami.md") in the _Amazon EC2 User Guide_.
@@ -121,13 +121,13 @@ You can use a custom AMI to provision an Amazon EMR cluster in two ways:
 You can use only one of the two options when provisioning an EMR cluster, and you
 cannot change it once the cluster has started.
 
-| Considerations for using single versus multiple custom AMIs in an Amazon EMR cluster                                                                                  | Consideration | Single custom AMI | Multiple custom AMIs |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------- | -------------------- |
-| Use both x86 and Graviton2 processors with custom AMIs in the<br>same cluster                                                                                         | Not supported | Supported         |
-| AMI customization varies across instance types                                                                                                                        | Not supported | Supported         |
-| Change custom AMIs when adding new task instance groups/fleets<br>to a running cluster. Note: you cannot change the custom AMI of<br>existing instance groups/fleets. | Not supported | Supported         |
-| Use AWS Console to start a cluster                                                                                                                                    | Supported     | Not supported     |
-| Use AWS CloudFormation to start a cluster                                                                                                                             | Supported     | Supported         |
+Considerations for using single versus multiple custom AMIs in an Amazon EMR cluster| Consideration | Single custom AMI | Multiple custom AMIs |
+| --- | --- | --- |
+| Use both x86 and Graviton2 processors with custom AMIs in the<br>same cluster | Not supported | Supported |
+| AMI customization varies across instance types | Not supported | Supported |
+| Change custom AMIs when adding new task instance groups/fleets<br>to a running cluster. Note: you cannot change the custom AMI of<br>existing instance groups/fleets. | Not supported | Supported |
+| Use AWS Console to start a cluster | Supported | Not supported |
+| Use AWS CloudFormation to start a cluster | Supported | Supported |
 
 ## Use a single custom AMI in an EMR cluster
 

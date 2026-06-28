@@ -7,7 +7,7 @@ The following errors are common to VPC configuration in Amazon EMR.
 - [Invalid subnet configuration](#emr-troubleshoot-error-gateway "#emr-troubleshoot-error-gateway")
 - [Missing DHCP Options Set](#emr-troubleshoot-error-dhcp "#emr-troubleshoot-error-dhcp")
 - [Permissions errors](#emr-troubleshoot-error-denied "#emr-troubleshoot-error-denied")
-- [Errors that result in START_FAILED](#emr-troubleshoot-error-vpc-dns "#emr-troubleshoot-error-vpc-dns")
+- [Errors that result in START\_FAILED](#emr-troubleshoot-error-vpc-dns "#emr-troubleshoot-error-vpc-dns")
 - [Cluster Terminated with errors and NameNode fails to start](#emr-troubleshoot-namenode-dns "#emr-troubleshoot-namenode-dns")
 
 ## Invalid subnet configuration

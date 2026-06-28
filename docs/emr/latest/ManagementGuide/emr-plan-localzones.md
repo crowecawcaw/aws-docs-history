@@ -12,7 +12,7 @@ The following instance types are available for Amazon EMR clusters on Local Zone
 type availability may vary by Region.
 
 | Instance class        | Instance types |
-| --------------------- | -------------- | ------------ | ------------ | ------------ | ------------- | ------------- | ----------- | ------------ | ------------ | ------------ |
+| --------------------- | -------------- |
 | **General purpose**   | m5.xlarge      | m5.2xlarge   | m5.4xlarge   | m5.12xlarge  | m5.24xlarge   | m5d.xlarge    | m5d.2xlarge | m5d.4xlarge  | m5d.12xlarge | m5d.24xlarge |
 | **Compute-optimized** | c5.xlarge      | c5.2xlarge   | c5.4xlarge   | c5.9xlarge   | c5.18xlarge   | c5d.xlarge    | c5d.2xlarge | c5d.4xlarge  | c5d.9xlarge  | c5d.18xlarge |
 | **Memory-optimized**  | r5.xlarge      | r5.2xlarge   | r5.4xlarge   | r5.12xlarge  | r5d.xlarge    | r5d.2xlarge   | r5d.4xlarge | r5d.12xlarge | r5d.24xlarge |

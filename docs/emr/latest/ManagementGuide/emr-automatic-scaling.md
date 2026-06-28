@@ -178,8 +178,8 @@ When you create a cluster that has an automatic scaling policy, you must use
 the `--auto-scaling-role
  `MyAutoScalingRole`command to specify the
  IAM role for automatic scaling. The default role is
-`EMR_AutoScaling_DefaultRole``and
- can be created with the`create-default-roles` command. The role can
+`EMR_AutoScaling_DefaultRole`` and
+can be created with the `create-default-roles` command. The role can
 only be added when the cluster is created, and cannot be added to an existing
 cluster.
 

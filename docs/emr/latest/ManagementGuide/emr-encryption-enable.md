@@ -210,11 +210,11 @@ When you specify a .zip file for in-transit encryption, the security
 configuration expects PEM files within the .zip file to be named exactly as
 they appear below:
 
-| In-transit encryption certificates | File name | Required/optional                                                                                                                                                                                                                                                                                                                          | Details |
-| ---------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| privateKey.pem                     | Required  | Private key                                                                                                                                                                                                                                                                                                                                |
-| certificateChain.pem               | Required  | Certificate chain                                                                                                                                                                                                                                                                                                                          |
-| trustedCertificates.pem            | Optional  | We recommend that you provide a certificate that isn't signed<br>by the the Java default trusted root certification authority (CA) or an intermediate CA<br>that can link to the Java default trusted root CA. We don't recommend that you use public CAs<br>when you use wildcard certificates or when you disable hostname verification. |
+In-transit encryption certificates| File name | Required/optional | Details |
+| --- | --- | --- |
+| privateKey.pem | Required | Private key |
+| certificateChain.pem | Required | Certificate chain |
+| trustedCertificates.pem | Optional | We recommend that you provide a certificate that isn't signed<br>by the the Java default trusted root certification authority (CA) or an intermediate CA<br>that can link to the Java default trusted root CA. We don't recommend that you use public CAs<br>when you use wildcard certificates or when you disable hostname verification. |
 
 You likely want to configure the private key PEM file to be a wildcard
 certificate that enables access to the Amazon VPC domain in which your cluster

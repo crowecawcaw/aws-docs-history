@@ -29,11 +29,11 @@ CLI
 
 - Use `aws emr create-cluster` to optionally apply a
   security configuration with `--security-configuration
-`MySecConfig`, where
-`MySecConfig``is the
-name of the security configuration, as shown in the following
-example. The`--release-label`you specify must be 4.8.0
-or later and the`--instance-type` can be any
+ `MySecConfig`, where
+ `MySecConfig`` is the
+  name of the security configuration, as shown in the following
+  example. The `--release-label` you specify must be 4.8.0
+  or later and the `--instance-type` can be any
   available.
 
 ```

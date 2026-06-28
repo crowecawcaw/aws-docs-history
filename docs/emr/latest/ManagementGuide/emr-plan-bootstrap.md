@@ -132,29 +132,25 @@ use an arguments list.
   Include `--bootstrap-actions` as a parameter and specify your
   bootstrap script location as the value of `Path`.
 
-      + Linux, UNIX, and Mac OS X users:
+  - Linux, UNIX, and Mac OS X users:
 
+  ```
+  aws emr create-cluster --name `"Test cluster"` --release-label `emr-4.0.0` \
+  --use-default-roles --ec2-attributes KeyName=`myKey` \
+  --applications Name=`Hive` Name=`Pig` \
+  --instance-count `3` --instance-type `m5.xlarge` \
+  --bootstrap-actions Path=`"s3://elasticmapreduce/bootstrap-actions/download.sh"`
+  ```
+  - Windows users:
 
+  ```
+  aws emr create-cluster --name `"Test cluster"` --release-label `emr-4.2.0` --use-default-roles --ec2-attributes KeyName=`myKey` --applications Name=`Hive` Name=`Pig` --instance-count `3` --instance-type `m5.xlarge` --bootstrap-actions Path=`"s3://elasticmapreduce/bootstrap-actions/download.sh"`
+  ```
 
-      ```
-      aws emr create-cluster --name `"Test cluster"` --release-label `emr-4.0.0` \
-      --use-default-roles --ec2-attributes KeyName=`myKey` \
-      --applications Name=`Hive` Name=`Pig` \
-      --instance-count `3` --instance-type `m5.xlarge` \
-      --bootstrap-actions Path=`"s3://elasticmapreduce/bootstrap-actions/download.sh"`
-      ```
-      + Windows users:
-
-
-
-      ```
-      aws emr create-cluster --name `"Test cluster"` --release-label `emr-4.2.0` --use-default-roles --ec2-attributes KeyName=`myKey` --applications Name=`Hive` Name=`Pig` --instance-count `3` --instance-type `m5.xlarge` --bootstrap-actions Path=`"s3://elasticmapreduce/bootstrap-actions/download.sh"`
-      ```
-
-  When you specify the instance count without using the `--instance-groups`
-  parameter, a single primary node is launched, and the remaining instances
-  are launched as core nodes. All nodes will use the instance type specified
-  in the command.
+When you specify the instance count without using the `--instance-groups`
+parameter, a single primary node is launched, and the remaining instances
+are launched as core nodes. All nodes will use the instance type specified
+in the command.
 
 ###### Note
 

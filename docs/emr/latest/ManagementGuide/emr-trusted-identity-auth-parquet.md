@@ -158,8 +158,7 @@ Assign users. 6. Next, choose **Named Data Catalog resources** to grant permissi
     * Your account default catalog under **Catalogs**
     * emr\_tip\_tutorial under **Databases**
 
-7. For Database permissions, select **Create table** and **Describe**.
-8. Select **Grant**.
+7. For Database permissions, select **Create table** and **Describe**. 8. Select **Grant**.
 
 ![IAM Identity Center](images/emr-tut-assign-grant.png)
 
@@ -176,8 +175,8 @@ Assign grant.
 5. Next, choose **Named Data Catalog resources** to grant permissions and choose:
 
    - Your account default catalog under **Catalogs**
-   - emr_tip_tutorial under **Databases**
-   - customer_parquet table under **Tables**
+   - emr\_tip\_tutorial under **Databases**
+   - customer\_parquet table under **Tables**
 
 6. For Table permissions, select **Select** and **Describe**.
 7. Select **Grant**.

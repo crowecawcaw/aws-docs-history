@@ -84,7 +84,7 @@ consider the following behaviors.
   at time `T1`. Submit a second resize operation
   `R2` at time `T2`.
   The provisioning timeout for R1 expires at `T1 + 60
-minutes`. The provisioning timeout for R2 expires at
+ minutes`. The provisioning timeout for R2 expires at
   `T2 + 60 minutes`.
 - If you submit a new scale-up resize operation before the timeout
   expires, Amazon EMR continues its attempt to provision capacity for your

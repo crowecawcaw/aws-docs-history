@@ -102,12 +102,12 @@ Now that you've set up the IAM role that authenticates with Identity Center, and
 
 The user background session behavior depends on both the EMR-EC2 setting and the IAM Identity Center instance-level settings:
 
-| User Background Session Configuration Matrix | IAM Identity Center userBackgroundSession Enabled | Amazon EMR userBackgroundSessionsEnabled | Behavior |
-| -------------------------------------------- | ------------------------------------------------- | ---------------------------------------- | -------- |
-| Yes                                          | TRUE                                              | User background session enabled          |
-| Yes                                          | FALSE                                             | Session expires with user logout         |
-| No                                           | TRUE                                              | Session expires with user logout         |
-| No                                           | FALSE                                             | Session expires with user logout         |
+User Background Session Configuration Matrix| IAM Identity Center userBackgroundSession Enabled | Amazon EMR userBackgroundSessionsEnabled | Behavior |
+| --- | --- | --- |
+| Yes | TRUE | User background session enabled |
+| Yes | FALSE | Session expires with user logout |
+| No | TRUE | Session expires with user logout |
+| No | FALSE | Session expires with user logout |
 
 ### Default user background session duration
 

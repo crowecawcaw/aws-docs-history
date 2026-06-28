@@ -178,24 +178,24 @@ the [AWS CLI Command Reference for EMR](../../../cli/latest/reference/emr.md "..
 The `CloudWatchLogConfigurationv` object supports the following
 parameters:
 
-| CloudWatchLogConfiguration Parameters | Parameter | Type | Required                                                                                                          | Description |
-| ------------------------------------- | --------- | ---- | ----------------------------------------------------------------------------------------------------------------- | ----------- |
-| `Enabled`                             | Boolean   | Yes  | Set to `true` to enable CloudWatch logging. Set to `false` to disable.                                            |
-| `LogGroupName`                        | String    | No   | The CloudWatch log group name. Default: `/aws/emr/{cluster_id}`                                                   |
-| `LogStreamNamePrefix`                 | String    | No   | Prefix for log stream names. Default: Empty string                                                                |
-| `EncryptionKeyArn`                    | String    | No   | ARN of the KMS key for log encryption. If not specified, logs are encrypted by CloudWatch server-side encryption. |
-| `LogTypes`                            | Object    | No   | Specifies which log types to capture. Default: `STEP_LOGS` and `SPARK_DRIVER` types<br>with STDOUT and STDERR.    |
+CloudWatchLogConfiguration Parameters| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `Enabled` | Boolean | Yes | Set to `true` to enable CloudWatch logging. Set to `false` to disable. |
+| `LogGroupName` | String | No | The CloudWatch log group name. Default: `/aws/emr/{cluster_id}` |
+| `LogStreamNamePrefix` | String | No | Prefix for log stream names. Default: Empty string |
+| `EncryptionKeyArn` | String | No | ARN of the KMS key for log encryption. If not specified, logs are encrypted by CloudWatch server-side encryption. |
+| `LogTypes` | Object | No | Specifies which log types to capture. Default: `STEP_LOGS` and `SPARK_DRIVER` types<br>with STDOUT and STDERR. |
 
 #### Log types
 
 Amazon EMR supports three log types, each capturing both standard output and standard
 error streams:
 
-| Supported Log Types | Log Type                                                | Description        | Available Streams |
-| ------------------- | ------------------------------------------------------- | ------------------ | ----------------- |
-| `STEP_LOGS`         | EMR step execution logs, including step controller logs | `STDOUT`, `STDERR` |
-| `SPARK_DRIVER`      | Apache Spark driver logs from Spark applications        | `STDOUT`, `STDERR` |
-| `SPARK_EXECUTOR`    | Apache Spark executor logs from worker nodes            | `STDOUT`, `STDERR` |
+Supported Log Types| Log Type | Description | Available Streams |
+| --- | --- | --- |
+| `STEP_LOGS` | EMR step execution logs, including step controller logs | `STDOUT`, `STDERR` |
+| `SPARK_DRIVER` | Apache Spark driver logs from Spark applications | `STDOUT`, `STDERR` |
+| `SPARK_EXECUTOR` | Apache Spark executor logs from worker nodes | `STDOUT`, `STDERR` |
 
 ##### Default log types configuration
 

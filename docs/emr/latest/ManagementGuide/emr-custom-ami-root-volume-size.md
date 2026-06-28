@@ -81,8 +81,8 @@ volume size in GB.
 For example, take a cluster that has a primary node, a core node, and
 uses the base Amazon Linux AMI, with the default 10 GiB root device volume. If
 the EBS cost in the Region is USD $0.10/GB/month, that works out to be
-approximately $0.00129 per instance per hour, and $0.00258 per hour for
-the cluster ($0.10/GB/month divided by 30 days, divided by 24 hours,
+ approximately $0.00129 per instance per hour, and $0.00258 per hour for
+ the cluster ($0.10/GB/month divided by 30 days, divided by 24 hours,
 multiplied by 10 GB, multiplied by 2 cluster instances).
 
 **General Purpose SSD gp3**
@@ -105,7 +105,7 @@ uses the base Amazon Linux AMI, with the default 15 GiB root device volume Size,
 4000 IOPS, and 140 throughput. If the EBS cost in the Region is USD
 $0.10/GB/month, $0.005/provisioned IOPS/month over 3000, and
 $0.040/provisioned MB/s/month over 125. That works out to be
-approximately $0.009293 per instance per hour, and $0.018586 per hour
+ approximately $0.009293 per instance per hour, and $0.018586 per hour
 for the cluster.
 
 ## Specifying custom root device volume settings

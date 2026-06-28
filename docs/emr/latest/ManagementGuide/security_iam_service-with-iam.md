@@ -3,19 +3,19 @@
 Before you use IAM to manage access to Amazon EMR, learn what IAM features are
 available to use with Amazon EMR.
 
-| IAM features you can use with Amazon EMR                                                                                                                 | IAM feature | Amazon EMR support |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------ |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                           | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")               | Yes         |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                    | Yes         |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")              | Yes         |
-| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                        | No          |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                  | Yes         |
-| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                 | Yes         |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                     | Yes         |
-| [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                             | No          |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                        | Yes         |
+IAM features you can use with Amazon EMR| IAM feature | Amazon EMR support |
+| --- | --- |
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | Yes |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
+| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
+| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | No |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Yes |
+| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Yes |
+| [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | No |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | Yes |
 
 To get a high-level view of how Amazon EMR and other AWS services work with most IAM
 features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
@@ -223,15 +223,18 @@ creator.
 
 The following condition keys are available in Amazon EMR:
 
-- Use the `elasticmapreduce:ResourceTag/`TagKeyString`condition context key to allow or deny user actions on clusters or notebooks
-with tags that have the`TagKeyString``that you specify. If an action passes both`ClusterID`and`NotebookID`, the condition applies to both the cluster and
-the notebook. This means that both resources must have the tag key string or
-key-value combination that you specify. You can use the
-`Resource` element to limit the statement so that it applies
+- Use the `elasticmapreduce:ResourceTag/`TagKeyString` condition context key to allow or deny user actions on clusters or notebooks
+ with tags that have the`TagKeyString``
+  that you specify. If an action passes both `ClusterID` and
+  `NotebookID`, the condition applies to both the cluster and
+  the notebook. This means that both resources must have the tag key string or
+  key-value combination that you specify. You can use the
+  `Resource` element to limit the statement so that it applies
   only to clusters or notebooks as required. For more information, see [Amazon EMR identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
-- Use the `elasticmapreduce:RequestTag/`TagKeyString``condition context key to require a specific tag with actions/API calls. For
-example, you can use this condition context key along with the
-`CreateEditor` action to require that a key with``TagKeyString`` is applied to a
+- Use the `elasticmapreduce:RequestTag/`TagKeyString``  condition context key to require a specific tag with actions/API calls. For
+ example, you can use this condition context key along with the
+ `CreateEditor` action to require that a key with
+ ``TagKeyString`` is applied to a
   notebook when it is created.
 
 ## Examples

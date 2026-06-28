@@ -84,7 +84,7 @@ JSON
      the relevant resource screen in the AWS Management Console.
 
 Where applicable, change the `*` in
-`"Resource":"`\*`"` in the following policy to
+`"Resource":"`*`"` in the following policy to
 specify the Amazon Resource Name (ARN) of the resources that the statement covers for
 your use case.
 

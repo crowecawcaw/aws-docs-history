@@ -51,16 +51,16 @@ The following metrics provide information about resources used by YARN container
 insights into the resources used by containers and nodes running in the cluster. Comparing these metrics to the previous table’s cluster capacity metrics provides a clearer
 picture of the impact of managed scaling:
 
-| Metric                               | Associated releases                         | Description                                                                                                  |
-| ------------------------------------ | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `YarnContainersUsedMemoryGBSeconds`  | Available to release label 7.3.0 and higher | The consumed container memory \<br>• seconds for the publishing period.<br>\*_Units:_<br>• GB \<br>• seconds |
-| `YarnContainersTotalMemoryGBSeconds` | Available to release label 7.3.0 and higher | The total yarn container \<br>• seconds for the publishing period.<br>\*_Units:_<br>• GB \<br>• seconds      |
-| `YarnContainersUsedVCPUSeconds`      | Available to release label 7.5.0 and higher | The consumed container VCPU \<br>• seconds for the publishing period.<br>\*_Units:_<br>• VCPU \<br>• seconds |
-| `YarnContainersTotalVCPUSeconds`     | Available to release label 7.5.0 and higher | The total container VCPU \<br>• seconds for the publishing period.<br>\*_Units:_<br>• VCPU \<br>• seconds    |
-| `YarnNodesUsedMemoryGBSeconds`       | Available to release label 7.5.0 and higher | The consumed node memory \<br>• seconds for the publishing period.<br>\*_Units:_<br>• GB \<br>• seconds      |
-| `YarnNodesTotalMemoryGBSeconds`      | Available to release label 7.5.0 and higher | The total node memory \<br>• seconds for the publishing period.<br>\*_Units:_<br>• GB \<br>• seconds         |
-| `YarnNodesUsedVCPUSeconds`           | Available to release label 7.3.0 and higher | The consumed node VCPU \<br>• seconds for the publishing period.<br>\*_Units:_<br>• VCPU \<br>• seconds      |
-| `YarnNodesTotalVCPUSeconds`          | Available to release label 7.3.0 and higher | The total node VCPU \<br>• seconds for the publishing period.<br>\*_Units:_<br>• VCPU \<br>• seconds         |
+| Metric                               | Associated releases                         | Description                                                                                                 |
+| ------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `YarnContainersUsedMemoryGBSeconds`  | Available to release label 7.3.0 and higher | The consumed container memory \<br>• seconds for the publishing period.<br>**Units:*<br>• GB \<br>• seconds |
+| `YarnContainersTotalMemoryGBSeconds` | Available to release label 7.3.0 and higher | The total yarn container \<br>• seconds for the publishing period.<br>**Units:*<br>• GB \<br>• seconds      |
+| `YarnContainersUsedVCPUSeconds`      | Available to release label 7.5.0 and higher | The consumed container VCPU \<br>• seconds for the publishing period.<br>**Units:*<br>• VCPU \<br>• seconds |
+| `YarnContainersTotalVCPUSeconds`     | Available to release label 7.5.0 and higher | The total container VCPU \<br>• seconds for the publishing period.<br>**Units:*<br>• VCPU \<br>• seconds    |
+| `YarnNodesUsedMemoryGBSeconds`       | Available to release label 7.5.0 and higher | The consumed node memory \<br>• seconds for the publishing period.<br>**Units:*<br>• GB \<br>• seconds      |
+| `YarnNodesTotalMemoryGBSeconds`      | Available to release label 7.5.0 and higher | The total node memory \<br>• seconds for the publishing period.<br>**Units:*<br>• GB \<br>• seconds         |
+| `YarnNodesUsedVCPUSeconds`           | Available to release label 7.3.0 and higher | The consumed node VCPU \<br>• seconds for the publishing period.<br>**Units:*<br>• VCPU \<br>• seconds      |
+| `YarnNodesTotalVCPUSeconds`          | Available to release label 7.3.0 and higher | The total node VCPU \<br>• seconds for the publishing period.<br>**Units:*<br>• VCPU \<br>• seconds         |
 
 ## Graphing managed scaling metrics
 

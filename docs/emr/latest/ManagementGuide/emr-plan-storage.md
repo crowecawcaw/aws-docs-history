@@ -53,19 +53,19 @@ The following table identifies the default number of Amazon EBS gp2 storage volu
 and total sizes per instance type. For information about gp2 volumes compared to gp3,
 see [Comparing Amazon EBS volume types gp2 and gp3](emr-plan-storage-compare-volume-types.md "emr-plan-storage-compare-volume-types.md").
 
-| Default Amazon EBS gp2 storage volumes and size by instance type for Amazon EMR 5.22.0 and higher | Instance size | Number of volumes | Volume size (GiB) | Total size (GiB) |
-| ------------------------------------------------------------------------------------------------- | ------------- | ----------------- | ----------------- | ---------------- |
-| \*.large                                                                                          | 1             | 32                | 32                |
-| \*.xlarge                                                                                         | 2             | 32                | 64                |
-| \*.2xlarge                                                                                        | 4             | 32                | 128               |
-| \*.4xlarge                                                                                        | 4             | 64                | 256               |
-| \*.8xlarge                                                                                        | 4             | 128               | 512               |
-| \*.9xlarge                                                                                        | 4             | 144               | 576               |
-| \*.10xlarge                                                                                       | 4             | 160               | 640               |
-| \*.12xlarge                                                                                       | 4             | 192               | 768               |
-| \*.16xlarge                                                                                       | 4             | 256               | 1024              |
-| \*.18xlarge                                                                                       | 4             | 288               | 1152              |
-| \*.24xlarge                                                                                       | 4             | 384               | 1536              |
+Default Amazon EBS gp2 storage volumes and size by instance type for Amazon EMR 5.22.0 and higher| Instance size | Number of volumes | Volume size (GiB) | Total size (GiB) |
+| --- | --- | --- | --- |
+| \*.large | 1 | 32 | 32 |
+| \*.xlarge | 2 | 32 | 64 |
+| \*.2xlarge | 4 | 32 | 128 |
+| \*.4xlarge | 4 | 64 | 256 |
+| \*.8xlarge | 4 | 128 | 512 |
+| \*.9xlarge | 4 | 144 | 576 |
+| \*.10xlarge | 4 | 160 | 640 |
+| \*.12xlarge | 4 | 192 | 768 |
+| \*.16xlarge | 4 | 256 | 1024 |
+| \*.18xlarge | 4 | 288 | 1152 |
+| \*.24xlarge | 4 | 384 | 1536 |
 
 ## Default Amazon EBS root volume for instances
 

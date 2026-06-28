@@ -21,10 +21,12 @@ you might want to view on the primary node, see [View web interfaces hosted on A
 
 1. Ensure you've allowed inbound SSH traffic. For instructions, see
    [Before you connect to Amazon EMR: Authorize inbound traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
-2. Open a terminal window. On Mac OS X, choose \*\*Applications
-   > Utilities > Terminal**. On other Linux
-   > distributions, terminal is typically found at **Applications
-   > Accessories > Terminal\*\*.
+2. Open a terminal window. On Mac OS X, choose **Applications
+
+> Utilities > Terminal**. On other Linux
+> distributions, terminal is typically found at **Applications
+> Accessories > Terminal**.
+
 3. Type the following command to open an SSH tunnel on your local machine. This
    example
    command accesses the ResourceManager web interface by forwarding traffic on local port 8157 (a randomly chosen

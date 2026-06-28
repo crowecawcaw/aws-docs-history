@@ -64,7 +64,7 @@ clusters.
    workloads.
 2. Amazon EMR will not allow clusters to scale core nodes below
    `dfs.replication`. For example, if `dfs.replication
-= 2`, the minimum number of core nodes is 2.
+ = 2`, the minimum number of core nodes is 2.
 3. When you use Managed Scaling, Auto-scaling, or choose to manually resize
    your cluster, we recommend that you to set `dfs.replication` to 2 or
    higher.
@@ -78,13 +78,12 @@ clusters.
   `MultiMasterInstanceGroupNodesRequested`. CloudWatch will notify you in
   the case of primary node failure and replacement.
 
-      + If the `MultiMasterInstanceGroupNodesRunningPercentage` is
-       lower than 100% and greater than 50%, the cluster may have lost a
-       primary node. In this situation, Amazon EMR attempts to replace a
-       primary node.
-      + If the `MultiMasterInstanceGroupNodesRunningPercentage`
-       drops below 50%, two primary nodes may have failed. In this
-       situation, the quorum is lost and the cluster can't be recovered. You
-       must manually migrate data off of this cluster.
-
-  For more information, see [Setting alarms on metrics](UsingEMR_ViewingMetrics.md#UsingEMR_ViewingMetrics_Alarm "UsingEMR_ViewingMetrics.md#UsingEMR_ViewingMetrics_Alarm").
+  - If the `MultiMasterInstanceGroupNodesRunningPercentage` is
+    lower than 100% and greater than 50%, the cluster may have lost a
+    primary node. In this situation, Amazon EMR attempts to replace a
+    primary node.
+  - If the `MultiMasterInstanceGroupNodesRunningPercentage`
+    drops below 50%, two primary nodes may have failed. In this
+    situation, the quorum is lost and the cluster can't be recovered. You
+    must manually migrate data off of this cluster.
+    For more information, see [Setting alarms on metrics](UsingEMR_ViewingMetrics.md#UsingEMR_ViewingMetrics_Alarm "UsingEMR_ViewingMetrics.md#UsingEMR_ViewingMetrics_Alarm").

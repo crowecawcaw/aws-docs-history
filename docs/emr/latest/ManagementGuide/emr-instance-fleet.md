@@ -85,7 +85,7 @@ Amazon EMR.
     free IP addresses to launch the essential (core and primary) instance fleets. In such scenarios, your task instance fleet will go into a suspended
     state, rather than terminating the cluster with an error.
   - If none of the specified subnets contain enough IP addresses to provision the essential core and primary instance fleets, the cluster
-    launch will fail with a **VALIDATION_ERROR**. This triggers a **CRITICAL** severity cluster termination
+    launch will fail with a **VALIDATION\_ERROR**. This triggers a **CRITICAL** severity cluster termination
     event, notifying you that the cluster cannot be launched. To prevent this issue, we recommend increasing the number of IP addresses in your subnets.
 
 - If you run Amazon EMR release **emr-7.7.0** and above, and you use allocation strategy for instance fleets, you can
@@ -165,7 +165,7 @@ This allocation strategy option can be set in the old AWS Management Console or 
 the API `RunJobFlow`. Note that you can't customize
 allocation strategy in the new console. Using the allocation strategy
 option requires additional service role permissions. If you use the
-default Amazon EMR service role and managed policy ([EMR_DefaultRole](emr-iam-role.md "emr-iam-role.md") and
+default Amazon EMR service role and managed policy ([EMR\_DefaultRole](emr-iam-role.md "emr-iam-role.md") and
 `AmazonEMRServicePolicy_v2`) for the cluster, the
 permissions for the allocation strategy option are already included. If
 you're not using the default Amazon EMR service role and managed policy, you
@@ -336,8 +336,8 @@ Your [Service role for Amazon EMR (EMR role)](emr-iam-role.md "emr-iam-role.md")
 permissions to create a cluster that uses the allocation strategy option for On-Demand
 or Spot Instance fleets.
 
-We automatically include these permissions in the default Amazon EMR service role [EMR_DefaultRole](emr-iam-role.md "emr-iam-role.md") and the Amazon EMR managed
-policy [AmazonEMRServicePolicy_v2](emr-managed-iam-policies.md "emr-managed-iam-policies.md").
+We automatically include these permissions in the default Amazon EMR service role [EMR\_DefaultRole](emr-iam-role.md "emr-iam-role.md") and the Amazon EMR managed
+policy [AmazonEMRServicePolicy\_v2](emr-managed-iam-policies.md "emr-managed-iam-policies.md").
 
 If you use a custom service role or managed policy for your cluster, you must add the
 following permissions:

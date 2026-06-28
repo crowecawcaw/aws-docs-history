@@ -13,14 +13,14 @@ custom EC2 instance profile to use instead of the
 For more information, see [Service role for cluster EC2 instances (EC2 instance profile)](emr-iam-role-for-ec2.md "emr-iam-role-for-ec2.md") and [Customize IAM roles with Amazon EMR](emr-iam-roles-custom.md "emr-iam-roles-custom.md").
 
 You need to add the following statements to the default EC2 Instance Profile
-for Amazon EMR to be able to tag sessions and access the AWS Secrets Manager that stores TLS
+for Amazon EMR to be able to assume roles and access the AWS Secrets Manager that stores TLS
 certificates.
 
 ```
     {
       "Sid": "AllowAssumeOfRolesAndTagging",
       "Effect": "Allow",
-      "Action": ["sts:TagSession", "sts:AssumeRole"],
+      "Action": "sts:AssumeRole",
       "Resource": [
         "arn:aws:iam::`<AWS_ACCOUNT_ID>`:role/`<RANGER_ENGINE-PLUGIN_DATA_ACCESS_ROLE_NAME>`",
         "arn:aws:iam::`<AWS_ACCOUNT_ID>`:role/`<RANGER_USER_ACCESS_ROLE_NAME>`"

@@ -16,14 +16,14 @@ release for the default Amazon EMR AMI. For example:
   `x.x.2` launches.
 - Later, when `x.y.0` releases,
   `x.x.`[latest]`` continues to
-receive AMI updates alongside
-`x.y.`[latest]``.
+ receive AMI updates alongside
+ `x.y.`[latest]``.
 
 To see if you're using the latest patch release as denoted by the number after the
 second decimal point (`6.8.`1``) for an Amazon EMR
- release, refer to the available releases in the [*Amazon EMR Release Guide*](../ReleaseGuide.md "../ReleaseGuide.md"),
- check the **Amazon EMR release** dropdown when you create a
- cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates when we
+release, refer to the available releases in the [_Amazon EMR Release Guide_](../ReleaseGuide.md "../ReleaseGuide.md"),
+check the **Amazon EMR release** dropdown when you create a
+cluster in the console, or use the [`ListReleaseLabels`](../APIReference/API_ListReleaseLabels.md "../APIReference/API_ListReleaseLabels.md") API or [`list-release-labels`](../../../cli/latest/reference/emr/list-release-labels.md "../../../cli/latest/reference/emr/list-release-labels.md") CLI action. To get updates when we
 launch a new Amazon EMR release, subscribe to the RSS feed on the [What's
 new?](../ReleaseGuide/emr-whatsnew.md "../ReleaseGuide/emr-whatsnew.md") page in the Release Guide.
 

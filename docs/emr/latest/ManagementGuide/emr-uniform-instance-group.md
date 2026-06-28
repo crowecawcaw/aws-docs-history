@@ -128,7 +128,7 @@ a unique custom AMI for each instance type in the instance group. This
 allows you to use different instance architectures in the same instance
 group. Each instance type must use a custom AMI with a matching
 architecture. For example, you would configure an m5.xlarge instance type
-with an x86_64 architecture custom AMI, and an m6g.xlarge instance type with
+with an x86\_64 architecture custom AMI, and an m6g.xlarge instance type with
 a corresponding `AWS AARCH64` (ARM) architecture custom AMI.
 
 The following example shows a uniform instance group cluster created with

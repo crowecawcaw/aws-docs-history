@@ -184,11 +184,11 @@ your VPC. To do this, attach a DHCP options set. Specify the **Domain
 name** as the domain name of your cluster - for example,
 `ec2.internal` if your cluster is in us-east-1 or
 ``region`.compute.internal` for
- other regions. For **Domain name servers**, you must specify
- the IP address of the Active Directory domain controller (which must be
- reachable from the cluster) as the first entry, followed by
- **AmazonProvidedDNS** (for example,
- **`xx.xx.xx.xx`,AmazonProvidedDNS\*\*).
+other regions. For **Domain name servers**, you must specify
+the IP address of the Active Directory domain controller (which must be
+reachable from the cluster) as the first entry, followed by
+**AmazonProvidedDNS** (for example,
+**`xx.xx.xx.xx`,AmazonProvidedDNS**).
 For more information, see [Changing DHCP option
 sets](../../../vpc/latest/userguide/VPC_DHCP_Options.md#DHCPOptions "../../../vpc/latest/userguide/VPC_DHCP_Options.md#DHCPOptions").
 
@@ -220,36 +220,34 @@ aws emr create-security-configuration --name MyKerberosConfig \
 }'
 ```
 
-2.  Create the cluster with the following attributes:
+2. Create the cluster with the following attributes:
 
-        * Use the `--security-configuration` option to specify
-         the security configuration that you created. We use
-         `MyKerberosConfig` in the
-         example.
-        * Use the `SubnetId` property of the
-         `--ec2-attributes option` to specify the subnet that
-         you created in [Step 1: Set up the VPC and subnet](#emr-kerberos-ad-network "#emr-kerberos-ad-network"). We use
-         `step1-subnet` in the example.
-        * Use the `AdditionalMasterSecurityGroups` and
-         `AdditionalSlaveSecurityGroups` of the
-         `--ec2-attributes` option to specify that the
-         security group associated with the AD domain controller from [Step 2: Launch and install the Active Directory domain controller](#emr-kerberos-ad-dc "#emr-kerberos-ad-dc") is associated with the cluster primary node as well as core and
-         task nodes. We use `sg-012xrlmdomain345` in
-         the example.
+   - Use the `--security-configuration` option to specify
+     the security configuration that you created. We use
+     `MyKerberosConfig` in the
+     example.
+   - Use the `SubnetId` property of the
+     `--ec2-attributes option` to specify the subnet that
+     you created in [Step 1: Set up the VPC and subnet](#emr-kerberos-ad-network "#emr-kerberos-ad-network"). We use
+     `step1-subnet` in the example.
+   - Use the `AdditionalMasterSecurityGroups` and
+     `AdditionalSlaveSecurityGroups` of the
+     `--ec2-attributes` option to specify that the
+     security group associated with the AD domain controller from [Step 2: Launch and install the Active Directory domain controller](#emr-kerberos-ad-dc "#emr-kerberos-ad-dc") is associated with the cluster primary node as well as core and
+     task nodes. We use `sg-012xrlmdomain345` in
+     the example.
+     Use `--kerberos-attributes` to specify the following
+     cluster-specific Kerberos attributes:
 
-    Use `--kerberos-attributes` to specify the following
-    cluster-specific Kerberos attributes:
-
-        * The realm for the cluster that you specified when you set up the
-         Active Directory domain controller.
-        * The cross-realm trust principal password that you specified as
-         `passwordt` in [Step 4: Configure an incoming trust on the Active Directory domain controller](#emr-kerberos-ad-configure-trust "#emr-kerberos-ad-configure-trust").
-        * A `KdcAdminPassword`, which you can use to administer
-         the cluster-dedicated KDC.
-        * The user logon name and password of the Active Directory account
-         with computer join privileges that you created in [Step 3: Add accounts to the domain for the EMR Cluster](#emr-kerberos-ad-users "#emr-kerberos-ad-users").
-
-    The following example launches a Kerberized cluster.
+   - The realm for the cluster that you specified when you set up the
+     Active Directory domain controller.
+   - The cross-realm trust principal password that you specified as
+     `passwordt` in [Step 4: Configure an incoming trust on the Active Directory domain controller](#emr-kerberos-ad-configure-trust "#emr-kerberos-ad-configure-trust").
+   - A `KdcAdminPassword`, which you can use to administer
+     the cluster-dedicated KDC.
+   - The user logon name and password of the Active Directory account
+     with computer join privileges that you created in [Step 3: Add accounts to the domain for the EMR Cluster](#emr-kerberos-ad-users "#emr-kerberos-ad-users").
+     The following example launches a Kerberized cluster.
 
 ```
 aws emr create-cluster --name "`MyKerberosCluster`" \

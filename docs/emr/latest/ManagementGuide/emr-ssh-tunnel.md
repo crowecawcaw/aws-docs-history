@@ -27,10 +27,12 @@ see [View web interfaces hosted on Amazon EMR clusters](emr-web-interfaces.md "e
 
 1. Ensure you've allowed inbound SSH traffic. For instructions, see
    [Before you connect to Amazon EMR: Authorize inbound traffic](emr-connect-ssh-prereqs.md "emr-connect-ssh-prereqs.md").
-2. Open a terminal window. On Mac OS X, choose \*\*Applications
-   > Utilities > Terminal**. On other Linux
-   > distributions, terminal is typically found at **Applications
-   > Accessories > Terminal\*\*.
+2. Open a terminal window. On Mac OS X, choose **Applications
+
+> Utilities > Terminal**. On other Linux
+> distributions, terminal is typically found at **Applications
+> Accessories > Terminal**.
+
 3. Type the following command to open an SSH tunnel on your local
    machine. Replace `~/mykeypair.pem` with the
    location and file name of your `.pem` file,

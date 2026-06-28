@@ -53,10 +53,10 @@ Before you use the Lake Formation Access Grants Plugin, complete the following s
 To enable the plugin, set the following S3A configuration properties in your Spark
 session:
 
-| Lake Formation Access Grants Plugin configuration properties | Property | Default                                                                                          | Description |
-| ------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------ | ----------- |
-| `fs.s3a.lakeformation.access.grants.enabled`                 | `FALSE`  | Enables the Lake Formation Access Grants Plugin.                                                 |
-| `fs.s3a.lakeformation.access.grants.fallback.to.iam`         | `FALSE`  | Enables fallback to S3 Access Grants or IAM role credentials if<br>Lake Formation denies access. |
+Lake Formation Access Grants Plugin configuration properties| Property | Default | Description |
+| --- | --- | --- |
+| `fs.s3a.lakeformation.access.grants.enabled` | `FALSE` | Enables the Lake Formation Access Grants Plugin. |
+| `fs.s3a.lakeformation.access.grants.fallback.to.iam` | `FALSE` | Enables fallback to S3 Access Grants or IAM role credentials if<br>Lake Formation denies access. |
 
 ## Fallback behavior
 

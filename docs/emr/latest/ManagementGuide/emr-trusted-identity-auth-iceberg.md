@@ -115,7 +115,7 @@ Create a LF-Tag names table-class with values as **confidential**, **public**.
 
 Add LF.
 
-In the table **sample_iceberg** created earlier, assign the tag.
+In the table **sample\_iceberg** created earlier, assign the tag.
 
 ![IAM Identity Center](images/emr-tut-edit-lf-tags-iceberg.gif)
 

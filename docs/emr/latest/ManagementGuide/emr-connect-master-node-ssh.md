@@ -213,8 +213,10 @@ PuTTYgen](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/User
    `hadoop@``MasterPublicDNS`. For
    example:
    `hadoop@``ec2-###-##-##-###.compute-1.amazonaws.com`.
-5. In the **Category** list, choose \*\*Connection
-   > SSH**, **Auth\*\*.
+5. In the **Category** list, choose **Connection
+
+> SSH**, **Auth**.
+
 6. For **Private key file for authentication**, choose
    **Browse** and select the `.ppk`
    file that you generated.
@@ -231,7 +233,7 @@ connection by closing PuTTY.
 
 To prevent the SSH connection from timing out, you can choose
 **Connection** in the **Category**
-list and select the option **Enable TCP_keepalives**.
+list and select the option **Enable TCP\_keepalives**.
 If you have an active SSH session in PuTTY, you can change your
 settings by opening the context (right-click) for the PuTTY title bar
 and choosing **Change Settings**.

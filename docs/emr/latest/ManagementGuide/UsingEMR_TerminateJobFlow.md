@@ -21,6 +21,16 @@ Depending on the configuration of the cluster, it could take from 5 to 20 minute
 cluster to completely terminate and release allocated resources, such as EC2
 instances.
 
+###### Important
+
+In rare cases, a cluster might remain in the TERMINATING state for longer than
+expected. If your cluster has not completed termination after one hour, terminate the
+associated Amazon EC2 instances directly using the Amazon EC2 console or the AWS CLI to avoid
+unexpected charges. To identify the instances associated with your cluster, in the EC2
+console filter instances by the tag `aws:elasticmapreduce:job-flow-id` with
+the value set to your cluster ID (for example,
+`j-XXXXXXXXXXXXX`).
+
 ###### Note
 
 You can't restart a terminated cluster, but you can clone a terminated cluster to

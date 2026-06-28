@@ -24,8 +24,8 @@ versions.
 - Operations that support access controls based on Lake Formation with Apache
   Spark and Apache Hive include `SELECT`,
   `DESCRIBE`, `SHOW DATABASE`, `SHOW
-TABLE`, `SHOW COLUMN`, and `SHOW
-PARTITION`.
+ TABLE`, `SHOW COLUMN`, and `SHOW
+ PARTITION`.
 - Amazon EMR doesn't support access control to the following Lake Formation based
   operations:
 

@@ -159,8 +159,8 @@ Amazon EMR cluster with multiple primary nodes:
   `_SUCCESS` file to determine if the job completes
   successfully.
 - It is recommended that you set ActionOnFailure parameter to CONTINUE,
-  or CANCEL_AND_WAIT, instead of TERMINATE_JOB_FLOW, or
-  TERMINATE_CLUSTER.
+  or CANCEL\_AND\_WAIT, instead of TERMINATE\_JOB\_FLOW, or
+  TERMINATE\_CLUSTER.
 
 ### Automatic termination protection
 

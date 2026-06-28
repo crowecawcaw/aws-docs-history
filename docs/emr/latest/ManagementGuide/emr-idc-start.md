@@ -92,7 +92,7 @@ let it assume the role.
 
 If the role doesn't have trusted credentials and accesses a Lake Formation-protected table, Amazon EMR automatically
 sets the `principalId` of the assumed role to ``userID`-untrusted`. The following
- is a snippet of a CloudTrail event that displays the `principalId`.
+is a snippet of a CloudTrail event that displays the `principalId`.
 
 ```
 {

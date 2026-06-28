@@ -176,7 +176,7 @@ updating, and uninstalling the AWS CLI](../../../cli/latest/userguide/cli-chap-i
 ###### To attach or update an auto-termination policy using the AWS CLI
 
 - You can use the `aws emr
-put-auto-termination-policy` command to attach or
+ put-auto-termination-policy` command to attach or
   update an auto-termination policy on a cluster.
 
 The following example specifies 3600 seconds for

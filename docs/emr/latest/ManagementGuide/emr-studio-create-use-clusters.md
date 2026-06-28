@@ -196,10 +196,10 @@ create a cluster.
 
 1. Choose a starting point.
 
-| To...                                                                                                             | Do this...                                                                                                                                                                 |
-| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create the cluster when you create a Workspace with the<br>\*_Create a Workspace_<br>• dialog box.                | Expand the **Advanced configuration\*<br>• section in the<br>**Create a Workspace\*<br>• dialog box, and select<br>**Create an EMR cluster**.                              |
-| Create the cluster from the \*_EMR cluster_<br>• panel in<br>the Workspace UI after you have created a Workspace. | Choose the **EMR clusters\*<br>• tab in the left sidebar of<br>an open Workspace, expand the **Advanced<br>configuration\*<br>• section, and choose **Create<br>cluster**. |
+| To...                                                                                                            | Do this...                                                                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Create the cluster when you create a Workspace with the<br>*_Create a Workspace_<br>• dialog box.                | Expand the *_Advanced configuration_<br>• section in the<br>*_Create a Workspace_<br>• dialog box, and select<br>**Create an EMR cluster**.                              |
+| Create the cluster from the *_EMR cluster_<br>• panel in<br>the Workspace UI after you have created a Workspace. | Choose the *_EMR clusters_<br>• tab in the left sidebar of<br>an open Workspace, expand the *_Advanced<br>configuration_<br>• section, and choose **Create<br>cluster**. |
 
 2. Enter a **Cluster name**. Naming the cluster helps you find it
    later in the EMR Studio Clusters list.
@@ -223,10 +223,10 @@ create a cluster.
 
 1. Choose a starting point.
 
-| To...                                                                                              | Do this...                                                                                                                                                                    |
-| -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create the cluster when you create a Workspace with the<br>\*_Create a Workspace_<br>• dialog box. | Expand the **Advanced configuration\*<br>• section in the<br>**Create a Workspace\*<br>• dialog box, and select<br>**Use a cluster template**.                                |
-| Create the cluster from the \*_EMR cluster_<br>• panel in<br>the Workspace UI.                     | Choose the **EMR clusters\*<br>• tab in the left sidebar of<br>an open Workspace, expand the **Advanced<br>configuration\*<br>• section, then choose **Cluster<br>template**. |
+| To...                                                                                             | Do this...                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Create the cluster when you create a Workspace with the<br>*_Create a Workspace_<br>• dialog box. | Expand the *_Advanced configuration_<br>• section in the<br>*_Create a Workspace_<br>• dialog box, and select<br>**Use a cluster template**.                                |
+| Create the cluster from the *_EMR cluster_<br>• panel in<br>the Workspace UI.                     | Choose the *_EMR clusters_<br>• tab in the left sidebar of<br>an open Workspace, expand the *_Advanced<br>configuration_<br>• section, then choose **Cluster<br>template**. |
 
 2. Select a cluster template from the dropdown list. Each available cluster template
    includes a brief description to help you make a selection.

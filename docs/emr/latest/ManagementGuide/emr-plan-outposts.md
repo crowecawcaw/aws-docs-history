@@ -34,7 +34,7 @@ The following are the limitations of using Amazon EMR on AWS Outposts:
 - Only the following instance types are supported by Amazon EMR on AWS Outposts:
 
 | Instance class        | Instance types |
-| --------------------- | -------------- | -------------- | ------------------ | -------------- | ------------------- | --------------- | ----------------- | ------------------ | ------------------ | ------------------ |
+| --------------------- | -------------- |
 | **General purpose**   | `m5.xlarge`    | `m5.2xlarge`   | <br>`m5.4xlarge`   | `m5.12xlarge`  | <br>`m5.24xlarge`   | `m5d.xlarge`    | <br>`m5d.2xlarge` | `m5d.4xlarge`      | <br>`m5d.12xlarge` | <br>`m5d.24xlarge` |
 | **Compute-optimized** | `c5.xlarge`    | `c5.2xlarge`   | <br>`c5.4xlarge`   | `c5.18xlarge`  | <br>`c5d.xlarge`    | `c5d.2xlarge`   | <br>`c5d.4xlarge` | <br>`c5d.18xlarge` |
 | **Memory-optimized**  | `r5.xlarge`    | `r5.2xlarge`   | <br>`r5.4xlarge`   | `r5.12xlarge`  | <br>`r5d.xlarge`    | `r5d.2xlarge`   | <br>`r5d.4xlarge` | `r5d.12xlarge`     | <br>`r5d.24xlarge` |

@@ -18,15 +18,14 @@ Why use Yarn application IDs for debugging?
   that help you dig deeper into failures or performance issues.
   You can use this information in various ways:
 
-1.  Navigate to the **Steps** tab of your EMR cluster.
-2.  Click on the step you want to debug.
-3.  Locate the **Yarn Application ID** section in the step details panel.
-4.  Copy the application ID provided.
-5.  Use the ID to:
+1. Navigate to the **Steps** tab of your EMR cluster.
+2. Click on the step you want to debug.
+3. Locate the **Yarn Application ID** section in the step details panel.
+4. Copy the application ID provided.
+5. Use the ID to:
 
-        * Open the YARN ResourceManager Live UI. The URI appears like the following: **http://`resourcemanager-host`:8088/cluster/app/`application_id`**
-        * Open the Spark History Server UI to review application execution details.
-        * Access container logs in your S3 bucket under paths tagged by the application ID.
-
-    By using Yarn application ID, you can streamline your debugging process and connect high-level EMR step failures to the underlying Yarn
-    application executions.
+   - Open the YARN ResourceManager Live UI. The URI appears like the following: **http://`resourcemanager-host`:8088/cluster/app/`application_id`**
+   - Open the Spark History Server UI to review application execution details.
+   - Access container logs in your S3 bucket under paths tagged by the application ID.
+     By using Yarn application ID, you can streamline your debugging process and connect high-level EMR step failures to the underlying Yarn
+     application executions.

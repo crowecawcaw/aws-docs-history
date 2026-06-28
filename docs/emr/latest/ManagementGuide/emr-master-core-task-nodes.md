@@ -76,11 +76,11 @@ properties:
 
 - `yarn.node-labels.enabled: true`
 - `yarn.node-labels.am.default-node-label-expression:
-'CORE'`
+ 'CORE'`
 
 Starting with the Amazon EMR 7.x release series, Amazon EMR assigns YARN node labels to instances
 by their market type, such as On-Demand or Spot. You can enable node labels and restrict application processes to
-ON_DEMAND by configuring the following properties:
+ON\_DEMAND by configuring the following properties:
 
 ```
 yarn.node-labels.enabled: true

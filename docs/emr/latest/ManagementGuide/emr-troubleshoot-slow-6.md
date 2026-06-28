@@ -16,7 +16,7 @@ The following Hadoop job configuration settings are especially useful for invest
    workloads.
 2. Amazon EMR will not allow clusters to scale core nodes below
    `dfs.replication`. For example, if `dfs.replication
-= 2`, the minimum number of core nodes is 2.
+ = 2`, the minimum number of core nodes is 2.
 3. When you use Managed Scaling, Auto-scaling, or choose to manually resize
    your cluster, we recommend that you to set `dfs.replication` to 2 or
    higher.

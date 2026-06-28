@@ -42,7 +42,7 @@ with On-Demand Instances. Your available open capacity reservations in that
 instance pool are used automatically.
 
 |                                      |              |
-| ------------------------------------ | ------------ | --------- | --------- |
+| ------------------------------------ | ------------ |
 | On-Demand Strategy                   | lowest-price |
 | Requested Capacity                   | 100          |
 | Instance Type                        | c5.xlarge    | m5.xlarge | r5.xlarge |
@@ -64,7 +64,7 @@ with On-Demand Instances. However, your open capacity reservations remain
 unused.
 
 |                                      |              |
-| ------------------------------------ | ------------ | --------- | --------- |
+| ------------------------------------ | ------------ |
 | On-Demand Strategy                   | lowest-price |
 | Requested Capacity                   | 100          |
 | Instance Type                        | c5.xlarge    | m5.xlarge | r5.xlarge |
@@ -146,7 +146,7 @@ open capacity reservations first.
 
 **Example 1: **Instance pool with
 available open capacity reservations in launch request has
-sufficient capacity for core nodes\*\*\*\*
+sufficient capacity for core nodes****
 
 In this case, Amazon EMR launches capacity in the instance pool with available
 open capacity reservations regardless of instance pool price. As a result,
@@ -154,7 +154,7 @@ your open capacity reservations are used whenever possible, until all core
 nodes are provisioned.
 
 |                                      |                                 |
-| ------------------------------------ | ------------------------------- | --------- | --------- |
+| ------------------------------------ | ------------------------------- |
 | On-Demand Strategy                   | lowest-price                    |
 | Requested Capacity                   | 100                             |
 | Usage Strategy                       | use-capacity-reservations-first |
@@ -167,13 +167,13 @@ nodes are provisioned.
 
 **Example 2: **Instance pool with
 available open capacity reservations in launch request does not have
-sufficient capacity for core nodes\*\*\*\*
+sufficient capacity for core nodes****
 
 In this case, Amazon EMR falls back to launching core nodes using lowest-price
 strategy with a best-effort to use capacity reservations.
 
 |                                      |                                 |
-| ------------------------------------ | ------------------------------- | --------- | --------- |
+| ------------------------------------ | ------------------------------- |
 | On-Demand Strategy                   | lowest-price                    |
 | Requested Capacity                   | 100                             |
 | Usage Strategy                       | use-capacity-reservations-first |
@@ -267,7 +267,7 @@ result, your targeted capacity reservations are used whenever possible until
 all core nodes are provisioned.
 
 |                                             |                                 |
-| ------------------------------------------- | ------------------------------- | --------- | --------- |
+| ------------------------------------------- | ------------------------------- |
 | On-Demand Strategy                          | lowest-price                    |
 | Usage Strategy                              | use-capacity-reservations-first |
 | Requested Capacity                          | 100                             |
@@ -281,7 +281,7 @@ all core nodes are provisioned.
 ###### Example 2: Instance pool with available targeted capacity reservations in launch request does not have sufficient capacity for core nodes
 
 |                                             |                                 |
-| ------------------------------------------- | ------------------------------- | --------- | --------- |
+| ------------------------------------------- | ------------------------------- |
 | On-Demand Strategy                          | lowest-price                    |
 | Requested Capacity                          | 100                             |
 | Usage Strategy                              | use-capacity-reservations-first |

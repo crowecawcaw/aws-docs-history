@@ -23,5 +23,5 @@ receives requests to access data from Spark. It then authorizes requests by
 forwarding the requested resources to the Spark Ranger plugin for Amazon EMR. The record
 server reads data from Amazon S3 and returns filtered data that the user is authorized to
 access based on Ranger policy. The record server runs on every node in the cluster
-as the emr_record_server user and writes logs to the /var/log/emr-record-server
+as the emr\_record\_server user and writes logs to the /var/log/emr-record-server
 directory.

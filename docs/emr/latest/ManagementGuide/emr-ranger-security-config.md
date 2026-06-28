@@ -49,7 +49,7 @@ CLI
 ###### To create a security configuration for Apache Ranger integration
 
 1. Replace `<ACCOUNT
-ID>` with your AWS account
+ ID>` with your AWS account
    ID.
 2. Replace `<REGION>`
    with the Region that the resource is in.

@@ -3,7 +3,7 @@
 The `AmazonElasticMapReduceReadOnlyAccess` managed policy is on the
 path to deprecation. You cannot attach this policy when launching new clusters.
 `AmazonElasticMapReduceReadOnlyAccess` has been replaced with
-[AmazonEMRReadOnlyAccessPolicy_v2](emr-managed-policy-readonly-v2.md "emr-managed-policy-readonly-v2.md") as the Amazon EMR
+[AmazonEMRReadOnlyAccessPolicy\_v2](emr-managed-policy-readonly-v2.md "emr-managed-policy-readonly-v2.md") as the Amazon EMR
 default managed policy. The content of this policy statement is shown in the
 following snippet. Wildcard characters for the `elasticmapreduce`
 element specify that only actions that begin with the specified strings are

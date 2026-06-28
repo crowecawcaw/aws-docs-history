@@ -137,7 +137,7 @@ if __name__ == "__main__":
 
 ###### To prepare the sample input data for EMR
 
-1. Download the zip file, [food_establishment_data.zip](samples/food_establishment_data.zip.md "samples/food_establishment_data.zip.md").
+1. Download the zip file, [food\_establishment\_data.zip](samples/food_establishment_data.zip.md "samples/food_establishment_data.zip.md").
 2. Unzip and save `food_establishment_data.zip` as
    `food_establishment_data.csv` on your machine.
 3. Upload the CSV file to the S3 bucket that you created for this tutorial.
@@ -192,9 +192,9 @@ your cluster. 7. Under **Security configuration and
 permissions**, choose your **EC2 key
 pair**. In the same section, select the
 **Service role for Amazon EMR** dropdown menu
-and choose **EMR_DefaultRole**. Then, select
+and choose **EMR\_DefaultRole**. Then, select
 the **IAM role for instance profile** dropdown
-menu and choose **EMR_EC2_DefaultRole**. 8. Choose **Create cluster** to launch the
+menu and choose **EMR\_EC2\_DefaultRole**. 8. Choose **Create cluster** to launch the
 cluster and open the cluster details page. 9. Find the cluster **Status** next to the
 cluster name. The status changes from
 **Starting** to
