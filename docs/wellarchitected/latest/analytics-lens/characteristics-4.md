@@ -42,7 +42,6 @@ performant the overall system is.
 **User centricity:** Each analytics application should address a
 well-defined operational scope and solve a particular problem at hand. Users of the system
 often won’t understand or care about the analytics process but only see the value the result.
-
  
 
 **Agility:** The system must be ﬂexible enough to accommodate

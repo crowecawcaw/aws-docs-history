@@ -192,7 +192,7 @@ for peak volumes.
 ## Operations
 
 **Monitor Kinesis Data Streams and Amazon MSK metrics using
-Amazon CloudWatch\***.\* You can get basic stream and topic level metrics
+Amazon CloudWatch***.* You can get basic stream and topic level metrics
 in addition to shard and partition level metrics. Amazon MSK also provides an [Open Monitoring
 with Prometheus](../../../msk/latest/developerguide/open-monitoring.md "../../../msk/latest/developerguide/open-monitoring.md") option.
 

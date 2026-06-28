@@ -25,8 +25,7 @@
 - There is no need to move data between a data lake and the data warehouse for the data
   warehouse to access it. Amazon Redshift Spectrum can directly access the dataset in the data lake.
 - For more details, refer to the [Derive Insights from AWS Modern Data](../../../whitepapers/latest/derive-insights-from-aws-modern-data/derive-insights-from-aws-modern-data.md "../../../whitepapers/latest/derive-insights-from-aws-modern-data/derive-insights-from-aws-modern-data.md") whitepaper.
-
- 
+   
 
 ## User personas
 
