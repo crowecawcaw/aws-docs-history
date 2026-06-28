@@ -21,7 +21,7 @@ information on the release timeline, see [Change log](#infra-release-notes-6.32-
   **Improvements**:
 
 - Added a new port allowlist (TCP 8443). This port allowlist is needed for the new
-  CALLING_BASE_URL environment variable in the Switchboard container, which facilitates internal
+  CALLING\_BASE\_URL environment variable in the Switchboard container, which facilitates internal
   communication between the messaging and calling servers.
 - Redirected the base URL to /admin
 - Added a “Removed” banner for former Wickr Me users

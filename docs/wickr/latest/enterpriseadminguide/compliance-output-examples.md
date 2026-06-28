@@ -433,7 +433,7 @@ The following is a call start example.
 ###### Note
 
 The **participants** array will have the
-**username_hash** of the users that were on the call. You can get the
+**username\_hash** of the users that were on the call. You can get the
 plaintext usernames from the mysql database with the following query.
 
 ```

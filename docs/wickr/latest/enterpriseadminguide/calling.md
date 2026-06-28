@@ -10,9 +10,8 @@ users:
   must be able to share audio to start or join a call. Enabled by default.
 - **Video Calling Control:** Is used if disabled users cannot share their
   camera feed or their screen. Enabled by default.
-- **Force TCP Calling:** Forces users to connect to calls over TCP instead
-  of the default UDP connection. Clients will try UDP first and then fall back to TCP
-  automatically, but this will save time for users if UDP is known to be blocked.
+- **Force TCP Calling:** Forces users to connect to calls over TCP without
+  trying connections over UDP, saving time when you know UDP is disabled in the network.
 - **Use Hosted Federated Calls:** For Global Federation. Disabled by
   default. If this setting is enabled, users within the Enterprise deployment will connect to the
   external, federated infrastructure for calls instead of the local infrastructure. It is useful

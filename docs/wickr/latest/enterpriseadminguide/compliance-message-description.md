@@ -6,23 +6,23 @@ Administration Guide](../adminguide/what-is-wickr.md "../adminguide/what-is-wick
 The following table contains a list of JSON fields that will be found in the messages that
 the compliance bot streams to the received messages file.
 
-| Field       | Description                                                                                   |
-| ----------- | --------------------------------------------------------------------------------------------- |
-| bor         | The burn-on-read time if one is set for the conversation.                                     |
-| control     | JSON object that defines the control message information. Contents described<br>below.        |
-| file        | JSON object that defines the details of a file transfer message. Contents described<br>below. |
-| id          | A unique identifier for each message.                                                         |
-| links       | JSON list of link strings for text messages.                                                  |
-| message     | The text associated with a text message.                                                      |
-| msg_ts      | Timestamp in microseconds based on server time.                                               |
-| msgtype     | Identifies the type of message, values defined in the table below.                            |
-| receiver    | The Wickr ID of the recipient.                                                                |
-| sender      | The Wickr ID of the sender.                                                                   |
-| sender_type | Indicates if this is a guest user or a normal user.                                           |
-| time        | Human readable time the message was sent.                                                     |
-| time_iso    | The time in ISO format (YYYY-MM-DD hh:mm:ss.xxx).                                             |
-| ttl         | The time to live date for the message.                                                        |
-| vgroupid    | Identifies the conversation the message was sent in.                                          |
+| Field        | Description                                                                                   |
+| ------------ | --------------------------------------------------------------------------------------------- |
+| bor          | The burn-on-read time if one is set for the conversation.                                     |
+| control      | JSON object that defines the control message information. Contents described<br>below.        |
+| file         | JSON object that defines the details of a file transfer message. Contents described<br>below. |
+| id           | A unique identifier for each message.                                                         |
+| links        | JSON list of link strings for text messages.                                                  |
+| message      | The text associated with a text message.                                                      |
+| msg\_ts      | Timestamp in microseconds based on server time.                                               |
+| msgtype      | Identifies the type of message, values defined in the table below.                            |
+| receiver     | The Wickr ID of the recipient.                                                                |
+| sender       | The Wickr ID of the sender.                                                                   |
+| sender\_type | Indicates if this is a guest user or a normal user.                                           |
+| time         | Human readable time the message was sent.                                                     |
+| time\_iso    | The time in ISO format (YYYY-MM-DD hh:mm:ss.xxx).                                             |
+| ttl          | The time to live date for the message.                                                        |
+| vgroupid     | Identifies the conversation the message was sent in.                                          |
 
 The following **msgtype** value will describe the type of message being
 sent.

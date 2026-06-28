@@ -8,21 +8,20 @@ SSO enabled, users are provisioned in the SSO provider.
 
 Complete the following procedure to create a new user.
 
-1.  In the navigation pane of the Wickr Admin Console, choose **Team
-    Directory**.
-2.  On the **Team Directory** page, choose **Create New
-    User**.
-3.  In the **Create New User** dialog box that appears, do the
-    following:
+1. In the navigation pane of the Wickr Admin Console, choose **Team
+   Directory**.
+2. On the **Team Directory** page, choose **Create New
+   User**.
+3. In the **Create New User** dialog box that appears, do the
+   following:
 
-        1. For **First Name** and **Last Name**, enter
-         the name of the user.
-        2. For **Username**, enter the username of the user.
-        3. For **Password**, enter the password for the user.
-        4. (Optional) Select the security group for the user.
-        5. Choose **Create**.
-
-    User statuses can be:
+   1. For **First Name** and **Last Name**, enter
+      the name of the user.
+   2. For **Username**, enter the username of the user.
+   3. For **Password**, enter the password for the user.
+   4. (Optional) Select the security group for the user.
+   5. Choose **Create**.
+      User statuses can be:
 
 - **Pending:** The user has not registered.
 - **Active:** The user has registered and is able to receive

@@ -33,7 +33,7 @@ Administrators should now take one of the following actions:
 
 **Replicated Native Scheduler**
 
-- MySQL - 2911f1b7-f308-48db-960f-c3b4e1bab8ce_mysql_main
+- MySQL - 2911f1b7-f308-48db-960f-c3b4e1bab8ce\_mysql\_main
 - RabbitMQ - 3.13.7
 - Redis - 7.4.2
 - OpenSearch - 1.3.20
