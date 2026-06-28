@@ -206,7 +206,7 @@ The following example shows a group attribute in the SAML assertion:
 
 After you configure a SAML provider, all users and groups associated with that
 provider can navigate to the OpenSearch Dashboards endpoint. The Dashboards URL has the
-format ``collection-endpoint`/\_dashboards/`
+format ``collection-endpoint`/_dashboards/`
 _for all collections_.
 
 If you have SAML enabled, selecting the link in the AWS Management Console directs you to the IdP

@@ -214,7 +214,7 @@ choose **Managed cluster**. Then choose the OpenSearch Service domain that
 you created in the previous section.
 
 For **Index name**, enter
-**application_logs**. OpenSearch Ingestion automatically creates
+**application\_logs**. OpenSearch Ingestion automatically creates
 this index in the domain if it doesn't already exist. 11. Choose **Next**. 12. Name the pipeline **ingestion-pipeline**. Leave the capacity
 settings as their defaults. 13. For **Pipeline role**, select **Create and use a new
 service role**. The pipeline role provides the required permissions

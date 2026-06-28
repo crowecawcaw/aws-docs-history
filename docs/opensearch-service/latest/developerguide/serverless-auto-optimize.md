@@ -28,10 +28,9 @@ Auto-optimize operates through a job-based architecture that analyzes your vecto
 
 - **Dataset format and permissions** - You must have your dataset available as one or more Parquet or JSONL files in an Amazon S3 bucket folder. For example:
 
-      + Parquet: `s3://dataset-bucket-us-east-1/dataset_folder/first_half.parquet` and `s3://dataset-bucket-us-east-1/dataset_folder/second_half.parquet`
-      + JSONL: `s3://dataset-bucket-us-east-1/dataset_folder/data.jsonl`
-
-  Provide the enclosing folder URI (for example, `s3://dataset-bucket-us-east-1/dataset_folder/`). The folder must contain files of a single format — do not mix Parquet and JSONL files in the same folder. This dataset will be used to generate the recommendations. Ensure that your federated role has the following Amazon S3 permissions on that resource: `"s3:Get*", "s3:List*", "s3:Describe*"`.
+  - Parquet: `s3://dataset-bucket-us-east-1/dataset_folder/first_half.parquet` and `s3://dataset-bucket-us-east-1/dataset_folder/second_half.parquet`
+  - JSONL: `s3://dataset-bucket-us-east-1/dataset_folder/data.jsonl`
+    Provide the enclosing folder URI (for example, `s3://dataset-bucket-us-east-1/dataset_folder/`). The folder must contain files of a single format — do not mix Parquet and JSONL files in the same folder. This dataset will be used to generate the recommendations. Ensure that your federated role has the following Amazon S3 permissions on that resource: `"s3:Get*", "s3:List*", "s3:Describe*"`.
 
 - **Specify correct dataset metadata** - The provided dataset must contain rows of float values. The name of each column and dimensionality of each vector must match the options provided in the console. For example, if the dataset contains vectors that are named `train_data` which are each `768` dimension, these values must match the auto-optimize console.
 - **(If using vector ingestion feature)** - If you plan to utilize the ingestion feature (taking auto-optimize recommendations to automatically create index and ingest data), you must configure your OpenSearch cluster to give auto-optimize permission to ingest your dataset into the OpenSearch cluster. For OpenSearch domains with a domain access policy, grant the newly created role access through that policy. For OpenSearch domains with fine-grained access control, add the pipeline role as a backend role. For OpenSearch Serverless collections, add the pipeline role to the data access policy.
@@ -90,11 +89,11 @@ When experiencing slow query performance or high latency in vector search operat
 - **Collection types** - Auto-optimize is supported only for Vector Search Collections and OpenSearch Domains (2.19, 3.1, and 3.3).
 - **Engine support**
 
-| Engine support by deployment type | Engine | Serverless | OpenSearch Managed |
-| --------------------------------- | ------ | ---------- | ------------------ |
-| Lucene                            | No     | Yes        |
-| Faiss                             | Yes    | Yes        |
-| Nmslib                            | No     | No         |
+Engine support by deployment type| Engine | Serverless | OpenSearch Managed |
+| --- | --- | --- |
+| Lucene | No | Yes |
+| Faiss | Yes | Yes |
+| Nmslib | No | No |
 
 - **Algorithm support** - Auto-optimize supports only HNSW-based vector indexes.
 - **Concurrent jobs** - You can run up to 10 concurrent optimization jobs per account per Region. No new jobs can be accepted if limit is reached.

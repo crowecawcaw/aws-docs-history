@@ -175,7 +175,7 @@ publishing. The syntax for the option is the same for both the `create-domain` a
 `update-domain-config` commands.
 
 | Parameter                                                                       | Valid Values                                                                 |
-| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ------- |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `--log-publishing-options`                                                      | `SEARCH_SLOW_LOGS={CloudWatchLogsLogGroupArn=`cw_log_group_arn`,Enabled=true | false}` |
 | `INDEX_SLOW_LOGS={CloudWatchLogsLogGroupArn=`cw_log_group_arn`,Enabled=true     | false}`                                                                      |
 | `ES_APPLICATION_LOGS={CloudWatchLogsLogGroupArn=`cw_log_group_arn`,Enabled=true | false}`                                                                      |

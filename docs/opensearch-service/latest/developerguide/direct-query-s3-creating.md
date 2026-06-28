@@ -144,7 +144,7 @@ with read access to the result index can read results for _all_ queries against 
 
 1. From the main menu in OpenSearch Dashboards, choose **Security**, **Roles**, and
    **Create roles**.
-2. Name the role **glue_access**.
+2. Name the role **glue\_access**.
 3. For **Cluster permissions**, select
    `indices:data/write/bulk*`,
    `indices:data/read/scroll`,
@@ -153,9 +153,9 @@ with read access to the result index can read results for _all_ queries against 
    indexes you want to grant the user with the role access to:
 
    - `.query_execution_request_`<name of data
-     source>``
+       source>``
    - `query_execution_result_`<name of data
-     source>``
+       source>``
    - `.async-query-scheduler`
    - `flint_*`
 

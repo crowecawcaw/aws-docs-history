@@ -188,7 +188,7 @@ Each rule contains the following elements. You can either provide
 not both.
 
 | Element                 | Description                                                                                                                                                                                                        |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ----------- |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Resource type**       | The type of resource that the rule applies to. The only supported<br>option for data lifecycle policies is `index`.                                                                                                |
 | **Resource**            | A list of resource names and/or patterns. Patterns consist of a<br>prefix and a wildcard (`*`), which allow the associated<br>permissions to apply to multiple resources. For example,<br>`index/`<collection-name | pattern>`/`<index-name | pattern>``. |
 | **MinIndexRetention**   | The minimum period, in days (`d`) or hours<br>(`h`), to retain the document in the index. The lower bound<br>is `24h` and the upper bound is `3650d`.                                                              |
@@ -269,7 +269,7 @@ To create a data lifecycle policy using the AWS CLI, use the [create-lifecycle-p
   parameter accepts both inline policies and .json files. You must encode
   inline policies as a JSON escaped string. To provide the policy in a
   file, use the format `--policy
-file://`my-policy`.json`.
+ file://`my-policy`.json`.
 
 ###### Example
 

@@ -171,8 +171,8 @@ constraints:
   log ingestion. This path defines the URI that you use to send data to the
   pipeline. For example,
   `https://log-pipeline.us-west-2.osis.amazonaws.com`/log/ingest``.
-The path must start with a slash (/), and can contain the special characters
-'-', '\_', '.', and '/', as well as the `${pipelineName}`
+  The path must start with a slash (/), and can contain the special characters
+  '-', '\_', '.', and '/', as well as the `${pipelineName}`
   placeholder.
 - The following HTTP source options are set by OpenSearch Ingestion and aren't
   supported in pipeline configurations:
@@ -242,8 +242,8 @@ limitations:
   log ingestion. This path defines the URI that you use to send data to the
   pipeline. For example,
   `https://log-pipeline.us-west-2.osis.amazonaws.com`/log/ingest``.
-The path must start with a slash (/), and can contain the special characters
-'-', '\_', '.', and '/', as well as the `${pipelineName}`
+  The path must start with a slash (/), and can contain the special characters
+  '-', '\_', '.', and '/', as well as the `${pipelineName}`
   placeholder.
 - The following options are set by OpenSearch Ingestion and aren't supported in
   pipeline configurations:

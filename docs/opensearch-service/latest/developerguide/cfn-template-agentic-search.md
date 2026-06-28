@@ -14,7 +14,8 @@ your agents in the AI Search Flows plugin on OpenSearch Dashboards.
 
 1. **Prerequisite:** If your domain
    uses fine-grained access control, map
-   `arn:aws:iam::`your-account-id`:role/`LambdaInvokeOpenSearchMLCommonsRole``as a backend role to the`ml_full_access` role before
+   `arn:aws:iam::`your-account-id`:role/`LambdaInvokeOpenSearchMLCommonsRole``
+   as a backend role to the `ml_full_access` role before
    running the template. This IAM role will be created automatically by
    CloudFormation if it doesn't already exist. For more information on
    how to configure the mapping, see [Map the ML role in OpenSearch Dashboards (if using fine-grained access control)](ml-external-connector.md#connector-external-fgac "ml-external-connector.md#connector-external-fgac").

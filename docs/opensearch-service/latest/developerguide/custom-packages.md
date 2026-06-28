@@ -330,25 +330,24 @@ the file, as well. To keep search behavior predictable, domains continue to use 
 package version until you explicitly update them. To update a custom package, modify the file
 in Amazon S3 Control, update the package in OpenSearch Service, and then apply the update.
 
-1.  In the OpenSearch Service console, choose **Packages**.
-2.  Choose a package and **Update**.
-3.  Provide a new S3 path to the file, and then choose **Update
-    package**.
-4.  Return to the **Packages** screen.
-5.  When the package status changes to **Available**, select it. Then
-    choose one or more associated domains, **Apply update**, and confirm.
-    Wait for the association status to change to **Active**.
-6.  The next steps vary depending on how you configured your indexes:
+1. In the OpenSearch Service console, choose **Packages**.
+2. Choose a package and **Update**.
+3. Provide a new S3 path to the file, and then choose **Update
+   package**.
+4. Return to the **Packages** screen.
+5. When the package status changes to **Available**, select it. Then
+   choose one or more associated domains, **Apply update**, and confirm.
+   Wait for the association status to change to **Active**.
+6. The next steps vary depending on how you configured your indexes:
 
-        * If your domain is running OpenSearch or Elasticsearch 7.8 or later, and only
-         uses search analyzers with the [updateable](#custom-packages-using "#custom-packages-using") field set to true, you don't need to take any further action.
-         OpenSearch Service automatically updates your indexes using the [\_plugins/\_refresh\_search\_analyzers API](https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/index/ "https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/index/").
-        * If your domain is running Elasticsearch 7.7 or earlier, uses index analyzers,
-         or doesn't use the `updateable` field, see [Manually updating indexes with a new dictionary](#custom-packages-updating-index-analyzers "#custom-packages-updating-index-analyzers").
-
-    Although the console is the simplest method, you can also use the AWS CLI, SDKs, or
-    configuration API to update OpenSearch Service packages. For more information, see the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md")
-    and [Amazon OpenSearch Service API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+   - If your domain is running OpenSearch or Elasticsearch 7.8 or later, and only
+     uses search analyzers with the [updateable](#custom-packages-using "#custom-packages-using") field set to true, you don't need to take any further action.
+     OpenSearch Service automatically updates your indexes using the [\_plugins/\_refresh\_search\_analyzers API](https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/index/ "https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/index/").
+   - If your domain is running Elasticsearch 7.7 or earlier, uses index analyzers,
+     or doesn't use the `updateable` field, see [Manually updating indexes with a new dictionary](#custom-packages-updating-index-analyzers "#custom-packages-updating-index-analyzers").
+     Although the console is the simplest method, you can also use the AWS CLI, SDKs, or
+     configuration API to update OpenSearch Service packages. For more information, see the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md")
+     and [Amazon OpenSearch Service API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 
 Instead of manually updating a package in the console, you can use the SDKs to
 automate the update process. The following sample Python script uploads a new package file

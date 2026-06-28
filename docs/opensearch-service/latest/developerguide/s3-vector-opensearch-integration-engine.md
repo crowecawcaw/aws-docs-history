@@ -167,14 +167,14 @@ PUT my-first-s3vector-index/_mapping
 Consider the following limitations before using `s3vector` engine
 in an index:
 
-| Features and behaviors not supported with s3vector engine | Feature                                                                                                                                                                                                                                                                                                                                                                                                 | Behavior |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Split/Shrink/Clone index                                  | These APIs fail when used with an index configured with<br>`s3vector` engine in `knn_vector`<br>field.                                                                                                                                                                                                                                                                                                  |
-| Snapshots                                                 | Indices using `s3vector` engine don't support<br>snapshots. For managed domains:<br>• Automated snapshots only include indices not using<br>`s3vector` engine.<br>• Manual snapshot requests for `s3vector`<br>indices fail.<br>NoteWhile snapshots aren't supported for point-in-time<br>recovery, `s3vector` engine, along with<br>OpenSearch Optimized instances, provide 11 nines of<br>durability. |
-| UltraWarm tier                                            | Indices configured with `s3vector` engine<br>can't migrate to UltraWarm tier.                                                                                                                                                                                                                                                                                                                           |
-| Cross-cluster replication                                 | Indices configured with `s3vector` engine<br>don't support cross-cluster replication.                                                                                                                                                                                                                                                                                                                   |
-| Accidental delete protection                              | Because snapshots aren't supported for indices using<br>`s3vector` engine, accidental delete<br>protection isn't available. You can still restore other<br>indices in the domain.                                                                                                                                                                                                                       |
-| Radial search                                             | Queries with radial search aren't supported on fields<br>using `s3vector` engine.                                                                                                                                                                                                                                                                                                                       |
+Features and behaviors not supported with s3vector engine| Feature | Behavior |
+| --- | --- |
+| Split/Shrink/Clone index | These APIs fail when used with an index configured with<br>`s3vector` engine in `knn_vector`<br>field. |
+| Snapshots | Indices using `s3vector` engine don't support<br>snapshots. For managed domains:<br>• Automated snapshots only include indices not using<br>`s3vector` engine.<br>• Manual snapshot requests for `s3vector`<br>indices fail.<br>NoteWhile snapshots aren't supported for point-in-time<br>recovery, `s3vector` engine, along with<br>OpenSearch Optimized instances, provide 11 nines of<br>durability. |
+| UltraWarm tier | Indices configured with `s3vector` engine<br>can't migrate to UltraWarm tier. |
+| Cross-cluster replication | Indices configured with `s3vector` engine<br>don't support cross-cluster replication. |
+| Accidental delete protection | Because snapshots aren't supported for indices using<br>`s3vector` engine, accidental delete<br>protection isn't available. You can still restore other<br>indices in the domain. |
+| Radial search | Queries with radial search aren't supported on fields<br>using `s3vector` engine. |
 
 ## Indexing documents
 
@@ -266,15 +266,15 @@ GET my-index/_search
 With `s3vector` engine, the `knn_vector` field supports
 the following parameters in the mappings.
 
-| Vector field parameters | Parameter | Required                                                                                              | Description         | Supported values |
-| ----------------------- | --------- | ----------------------------------------------------------------------------------------------------- | ------------------- | ---------------- |
-| `type`                  | Yes       | The type of field present in the document.                                                            | `knn_vector`        |
-| `dimension`             | Yes       | The dimension of each vector that will be ingested into the<br>index.                                 | >0, <=4096          |
-| `space_type`            | No        | The vector space used to calculate the distance between<br>vectors.                                   | `l2`, `cosinesimil` |
-| `method.engine`         | Yes       | The approximate k-NN engine to use for indexing and<br>search.                                        | `s3vector`          |
-| `method.name`           | No        | The nearest neighbor method                                                                           | ""                  |
-| `store`                 | N/A       | Enabling or disabling this mapping parameter is no-op as knn_vector data is not stored in OpenSearch. | Not Supported       |
-| `doc_values`            | N/A       | Enabling or disabling this mapping parameter is no-op as knn_vector data is not stored in OpenSearch. | Not Supported       |
+Vector field parameters| Parameter | Required | Description | Supported values |
+| --- | --- | --- | --- |
+| `type` | Yes | The type of field present in the document. | `knn_vector` |
+| `dimension` | Yes | The dimension of each vector that will be ingested into the<br>index. | >0, <=4096 |
+| `space_type` | No | The vector space used to calculate the distance between<br>vectors. | `l2`, `cosinesimil` |
+| `method.engine` | Yes | The approximate k-NN engine to use for indexing and<br>search. | `s3vector` |
+| `method.name` | No | The nearest neighbor method | "" |
+| `store` | N/A | Enabling or disabling this mapping parameter is no-op as knn\_vector data is not stored in OpenSearch. | Not Supported |
+| `doc_values` | N/A | Enabling or disabling this mapping parameter is no-op as knn\_vector data is not stored in OpenSearch. | Not Supported |
 
 ###### Important
 

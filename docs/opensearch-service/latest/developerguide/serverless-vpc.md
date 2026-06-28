@@ -542,4 +542,4 @@ You can also update an existing network policy for this purpose.
     	 shared VPC.
 
 4. For a new policy, choose **Create**. For an existing policy,
-   choose **Update**.
+choose **Update**.

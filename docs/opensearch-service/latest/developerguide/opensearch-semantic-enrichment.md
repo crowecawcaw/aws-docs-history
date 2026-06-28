@@ -75,10 +75,10 @@ aws opensearch create-index \
 
 ```
 
-In the following example index-schema, the _title_semantic_ field has a field type set to _text_ and has parameter
-_semantic_enrichment_ set to status _ENABLED_.
-Setting the _semantic_enrichment_ parameter enables automatic semantic enrichment on the _title_semantic_ field.
-You can use the _language_options_ field to specify either _english_ or _MULTI-LINGUAL_.
+In the following example index-schema, the _title\_semantic_ field has a field type set to _text_ and has parameter
+_semantic\_enrichment_ set to status _ENABLED_.
+Setting the _semantic\_enrichment_ parameter enables automatic semantic enrichment on the _title\_semantic_ field.
+You can use the _language\_options_ field to specify either _english_ or _MULTI-LINGUAL_.
 
 ```
 
@@ -403,8 +403,8 @@ Automatic semantic enrichment automatically converts your existing “match”
 queries to semantic search queries without requiring query modifications. If a match query is part of a compound query,
 the system traverses your query structure, finds match queries, and replaces them with neural sparse queries.
 Currently, the feature only supports replacing “match” queries, whether it’s a standalone query or part of a compound query.
-“multi_match” is not supported. In addition, the feature supports all compound queries to replace their nested match queries.
-Compound queries include: bool, boosting, constant_score, dis_max, function_score, and hybrid.
+“multi\_match” is not supported. In addition, the feature supports all compound queries to replace their nested match queries.
+Compound queries include: bool, boosting, constant\_score, dis\_max, function\_score, and hybrid.
 
 ## Limitations of automatic semantic enrichment
 
@@ -434,8 +434,8 @@ text fields where you enabled automatic semantic enrichment. One Semantic
 Search OCU can process 11.1 million tokens for English content. To process
 2.4 billion tokens, you'd need about 216 Semantic Search OCU-hours (2.4
 billion / 11.10 million). With a price of $0.24 per Semantic Search
-OCU-hour, the cost for processing 10 GB of data for automatic semantic
-search would be $51 (216 OCU-hours x $0.24/OCU-hour). There are no
+ OCU-hour, the cost for processing 10 GB of data for automatic semantic
+ search would be $51 (216 OCU-hours x $0.24/OCU-hour). There are no
 additional Semantic Search OCU charges during search operations or for data
 storage.
 

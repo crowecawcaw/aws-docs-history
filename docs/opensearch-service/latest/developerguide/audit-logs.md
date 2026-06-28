@@ -166,32 +166,32 @@ You can enable or disable audit logs for entire layers, as well as individual au
 categories for a layer. The following table contains a summary of audit categories and the
 layers for which they are available.
 
-| Category                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                        | Available for REST | Available for transport |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------- |
-| FAILED_LOGIN                      | A request contained invalid credentials, and authentication failed.                                                                                                                                                                                                                                                                                                                                                                | Yes                | Yes                     |
-| MISSING_PRIVILEGES                | A user did not have the privileges to make the request.                                                                                                                                                                                                                                                                                                                                                                            | Yes                | Yes                     |
-| GRANTED_PRIVILEGES                | A user had the privileges to make the request.                                                                                                                                                                                                                                                                                                                                                                                     | Yes                | Yes                     |
-| OPENSEARCH_SECURITY_INDEX_ATTEMPT | A request tried to modify the `.opendistro_security` index.                                                                                                                                                                                                                                                                                                                                                                        | No                 | Yes                     |
-| AUTHENTICATED                     | A request contained valid credentials, and authentication succeeded.                                                                                                                                                                                                                                                                                                                                                               | Yes                | Yes                     |
-| INDEX_EVENT                       | A request performed an administrative operation on an index, such as creating<br>one, setting an alias, or performing a force merge. The full list of<br>`indices:admin/` actions that this category includes are available in the<br>[OpenSearch documentation](https://docs.opensearch.org/latest/security-plugin/access-control/permissions/ "https://docs.opensearch.org/latest/security-plugin/access-control/permissions/"). | No                 | Yes                     |
+| Category                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                        | Available for REST | Available for transport |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------- |
+| FAILED\_LOGIN                        | A request contained invalid credentials, and authentication failed.                                                                                                                                                                                                                                                                                                                                                                | Yes                | Yes                     |
+| MISSING\_PRIVILEGES                  | A user did not have the privileges to make the request.                                                                                                                                                                                                                                                                                                                                                                            | Yes                | Yes                     |
+| GRANTED\_PRIVILEGES                  | A user had the privileges to make the request.                                                                                                                                                                                                                                                                                                                                                                                     | Yes                | Yes                     |
+| OPENSEARCH\_SECURITY\_INDEX\_ATTEMPT | A request tried to modify the `.opendistro_security` index.                                                                                                                                                                                                                                                                                                                                                                        | No                 | Yes                     |
+| AUTHENTICATED                        | A request contained valid credentials, and authentication succeeded.                                                                                                                                                                                                                                                                                                                                                               | Yes                | Yes                     |
+| INDEX\_EVENT                         | A request performed an administrative operation on an index, such as creating<br>one, setting an alias, or performing a force merge. The full list of<br>`indices:admin/` actions that this category includes are available in the<br>[OpenSearch documentation](https://docs.opensearch.org/latest/security-plugin/access-control/permissions/ "https://docs.opensearch.org/latest/security-plugin/access-control/permissions/"). | No                 | Yes                     |
 
 In addition to these standard categories, fine-grained access control offers several
 additional categories designed to meet data compliance requirements.
 
-| Category                         | Description                                                               |
-| -------------------------------- | ------------------------------------------------------------------------- |
-| COMPLIANCE_DOC_READ              | A request performed a read event on a document in an index.               |
-| COMPLIANCE_DOC_WRITE             | A request performed a write event on a document in an index.              |
-| COMPLIANCE_INTERNAL_CONFIG_READ  | A request performed a read event on the `.opendistro_security`<br>index.  |
-| COMPLIANCE_INTERNAL_CONFIG_WRITE | A request performed a write event on the `.opendistro_security`<br>index. |
+| Category                            | Description                                                               |
+| ----------------------------------- | ------------------------------------------------------------------------- |
+| COMPLIANCE\_DOC\_READ               | A request performed a read event on a document in an index.               |
+| COMPLIANCE\_DOC\_WRITE              | A request performed a write event on a document in an index.              |
+| COMPLIANCE\_INTERNAL\_CONFIG\_READ  | A request performed a read event on the `.opendistro_security`<br>index.  |
+| COMPLIANCE\_INTERNAL\_CONFIG\_WRITE | A request performed a write event on the `.opendistro_security`<br>index. |
 
 You can have any combination of categories and message attributes. For example, if you
 send a REST request to index a document, you might see the following lines in the audit
 logs:
 
 - AUTHENTICATED on REST layer (authentication)
-- GRANTED_PRIVILEGE on transport layer (authorization)
-- COMPLIANCE_DOC_WRITE (document written to an index)
+- GRANTED\_PRIVILEGE on transport layer (authorization)
+- COMPLIANCE\_DOC\_WRITE (document written to an index)
 
 ## Audit log settings
 
@@ -200,61 +200,61 @@ Audit logs have numerous configuration options.
 ### General settings
 
 General settings let you enable or disable individual categories or entire layers. We
-highly recommend leaving GRANTED_PRIVILEGES and AUTHENTICATED as excluded categories.
+highly recommend leaving GRANTED\_PRIVILEGES and AUTHENTICATED as excluded categories.
 Otherwise, these categories are logged for every valid request to the cluster.
 
-| Name                          | Backend setting               | Description                                                                                                                                                   |
-| ----------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| REST layer                    | enable_rest                   | Enable or disable events that occur on the REST layer.                                                                                                        |
-| REST disabled categories      | disabled_rest_categories      | Specify audit categories to ignore on the REST layer. Modifying these<br>categories can dramatically increase the size of the audit logs.                     |
-| Transport layer               | enable_transport              | Enable or disable events that happen on the transport layer.                                                                                                  |
-| Transport disabled categories | disabled_transport_categories | Specify audit categories which must be ignored on the transport layer.<br>Modifying these categories can dramatically increase the size of the audit<br>logs. |
+| Name                          | Backend setting                 | Description                                                                                                                                                   |
+| ----------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| REST layer                    | enable\_rest                    | Enable or disable events that occur on the REST layer.                                                                                                        |
+| REST disabled categories      | disabled\_rest\_categories      | Specify audit categories to ignore on the REST layer. Modifying these<br>categories can dramatically increase the size of the audit logs.                     |
+| Transport layer               | enable\_transport               | Enable or disable events that happen on the transport layer.                                                                                                  |
+| Transport disabled categories | disabled\_transport\_categories | Specify audit categories which must be ignored on the transport layer.<br>Modifying these categories can dramatically increase the size of the audit<br>logs. |
 
 Attribute settings let you customize the amount of detail in each log line.
 
-| Name            | Backend setting       | Description                                                                                                                               |
-| --------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Bulk requests   | resolve_bulk_requests | Enabling this setting generates a log for each document in a bulk request,<br>which can dramatically increase the size of the audit logs. |
-| Request body    | log_request_body      | Include the request body of the requests.                                                                                                 |
-| Resolve indices | resolve_indices       | Resolve aliases to indices.                                                                                                               |
+| Name            | Backend setting         | Description                                                                                                                               |
+| --------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Bulk requests   | resolve\_bulk\_requests | Enabling this setting generates a log for each document in a bulk request,<br>which can dramatically increase the size of the audit logs. |
+| Request body    | log\_request\_body      | Include the request body of the requests.                                                                                                 |
+| Resolve indices | resolve\_indices        | Resolve aliases to indices.                                                                                                               |
 
 Use ignore settings to exclude a set of users or API paths:
 
-| Name             | Backend setting | Description                                        |
-| ---------------- | --------------- | -------------------------------------------------- |
-| Ignored users    | ignore_users    | Specify users that you want to exclude.            |
-| Ignored requests | ignore_requests | Specify request patterns that you want to exclude. |
+| Name             | Backend setting  | Description                                        |
+| ---------------- | ---------------- | -------------------------------------------------- |
+| Ignored users    | ignore\_users    | Specify users that you want to exclude.            |
+| Ignored requests | ignore\_requests | Specify request patterns that you want to exclude. |
 
 ### Compliance settings
 
 Compliance settings let you tune for index, document, or field-level access.
 
-| Name               | Backend setting   | Description                           |
-| ------------------ | ----------------- | ------------------------------------- |
-| Compliance logging | enable_compliance | Enable or disable compliance logging. |
+| Name               | Backend setting    | Description                           |
+| ------------------ | ------------------ | ------------------------------------- |
+| Compliance logging | enable\_compliance | Enable or disable compliance logging. |
 
 You can specify the following settings for read and write event logging.
 
-| Name                    | Backend setting | Description                                                                 |
-| ----------------------- | --------------- | --------------------------------------------------------------------------- |
-| Internal config logging | internal_config | Enable or disable logging of events on the `.opendistro_security`<br>index. |
+| Name                    | Backend setting  | Description                                                                 |
+| ----------------------- | ---------------- | --------------------------------------------------------------------------- |
+| Internal config logging | internal\_config | Enable or disable logging of events on the `.opendistro_security`<br>index. |
 
 You can specify the following settings for read events.
 
-| Name           | Backend setting     | Description                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Read metadata  | read_metadata_only  | Include only metadata for read events. Do not include any document<br>fields.                                                                                                                                                                                                                                                                                                                            |
-| Ignored users  | read_ignore_users   | Do not include certain users for read events.                                                                                                                                                                                                                                                                                                                                                            |
-| Watched fields | read_watched_fields | Specify the indices and fields to watch for read events. Adding watched fields<br>generates one log per document access, which can dramatically increase the size of<br>the audit logs. Watched fields support index patterns and field patterns:<br>`<br>{<br>"index-name-pattern": [<br>"field-name-pattern"<br>],<br>"logs*": [<br>"message"<br>],<br>"twitter": [<br>"id",<br>"user*"<br>]<br>}<br>` |
+| Name           | Backend setting       | Description                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Read metadata  | read\_metadata\_only  | Include only metadata for read events. Do not include any document<br>fields.                                                                                                                                                                                                                                                                                                                            |
+| Ignored users  | read\_ignore\_users   | Do not include certain users for read events.                                                                                                                                                                                                                                                                                                                                                            |
+| Watched fields | read\_watched\_fields | Specify the indices and fields to watch for read events. Adding watched fields<br>generates one log per document access, which can dramatically increase the size of<br>the audit logs. Watched fields support index patterns and field patterns:<br>`<br>{<br>"index-name-pattern": [<br>"field-name-pattern"<br>],<br>"logs*": [<br>"message"<br>],<br>"twitter": [<br>"id",<br>"user*"<br>]<br>}<br>` |
 
 You can specify the following settings for write events.
 
-| Name           | Backend setting       | Description                                                                                                                                                                                    |
-| -------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Write metadata | write_metadata_only   | Include only metadata for write events. Do not include any document<br>fields.                                                                                                                 |
-| Log diffs      | write_log_diffs       | If write_metadata_only is false, include only the differences between write<br>events.                                                                                                         |
-| Ignored users  | write_ignore_users    | Do not include certain users for write events.                                                                                                                                                 |
-| Watch indices  | write_watched_indices | Specify the indices or index patters to watch for write events. Adding watched<br>fields generates one log per document access, which can dramatically increase the<br>size of the audit logs. |
+| Name           | Backend setting         | Description                                                                                                                                                                                    |
+| -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Write metadata | write\_metadata\_only   | Include only metadata for write events. Do not include any document<br>fields.                                                                                                                 |
+| Log diffs      | write\_log\_diffs       | If write\_metadata\_only is false, include only the differences between write<br>events.                                                                                                       |
+| Ignored users  | write\_ignore\_users    | Do not include certain users for write events.                                                                                                                                                 |
+| Watch indices  | write\_watched\_indices | Specify the indices or index patters to watch for write events. Adding watched<br>fields generates one log per document access, which can dramatically increase the<br>size of the audit logs. |
 
 ## Audit log example
 

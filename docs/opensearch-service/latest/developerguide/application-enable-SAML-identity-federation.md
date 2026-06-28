@@ -475,25 +475,23 @@ roles or permissions for authorization.
 
 ###### To configure Okta for fine-grained access control
 
-1.  Add a new attribute for the OpenSearch user principal in the
-    **Attribute Statements** section:
+1. Add a new attribute for the OpenSearch user principal in the
+   **Attribute Statements** section:
 
-        * Name: `UserName`
-        * Value: `${user-email}`
+   - Name: `UserName`
+   - Value: `${user-email}`
+     This attribute is used as the **Subject key** in the
+     OpenSearch fine-grained access control configuration for
+     authentication.
 
-    This attribute is used as the **Subject key** in the
-    OpenSearch fine-grained access control configuration for
-    authentication.
+2. Add a group attribute for roles in the **Group Attribute
+   Statement** section:
 
-2.  Add a group attribute for roles in the **Group Attribute
-    Statement** section:
-
-        * Name: `groups`
-        * Filter: `OpenSearch_xxx`
-
-    This attribute is used as the **Role key**for mapping
-    groups to OpenSearch fine-grained access control roles for
-    authorization.
+   - Name: `groups`
+   - Filter: `OpenSearch_xxx`
+     This attribute is used as the **Role key**for mapping
+     groups to OpenSearch fine-grained access control roles for
+     authorization.
 
 ### Task 2: Configure SAML in OpenSearch domain
 

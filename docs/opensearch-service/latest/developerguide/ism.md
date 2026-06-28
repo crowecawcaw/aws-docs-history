@@ -281,21 +281,20 @@ Compared to OpenSearch and Elasticsearch, ISM for Amazon OpenSearch Service has 
 - OpenSearch Service supports three unique ISM operations, `warm_migration`,
   `cold_migration`, and `cold_delete`:
 
-      + If your domain has [UltraWarm](ultrawarm.md "ultrawarm.md")
-       enabled, the `warm_migration` action transitions the
-       index to warm storage.
-      + If your domain has [cold
-       storage](cold-storage.md "cold-storage.md") enabled, the `cold_migration` action
-       transitions the index to cold storage, and the
-       `cold_delete` action deletes the index from cold
-       storage.
-
-  Even if one of these actions doesn’t complete within the [set
-  timeout period](https://docs.opensearch.org/latest/im-plugin/ism/policies/#actions "https://docs.opensearch.org/latest/im-plugin/ism/policies/#actions"), the migration or deletion of indexes still
-  continues. Setting an [error_notification](https://opensearch.org/docs/latest/im-plugin/ism/policies/#error-notifications "https://opensearch.org/docs/latest/im-plugin/ism/policies/#error-notifications") for one of the above actions will notify you
-  that the action failed if it didn’t complete within the timeout period, but
-  the notification is only for your own reference. The actual operation has no
-  inherent timeout and continues to run until it eventually succeeds or fails.
+  - If your domain has [UltraWarm](ultrawarm.md "ultrawarm.md")
+    enabled, the `warm_migration` action transitions the
+    index to warm storage.
+  - If your domain has [cold
+    storage](cold-storage.md "cold-storage.md") enabled, the `cold_migration` action
+    transitions the index to cold storage, and the
+    `cold_delete` action deletes the index from cold
+    storage.
+    Even if one of these actions doesn’t complete within the [set
+    timeout period](https://docs.opensearch.org/latest/im-plugin/ism/policies/#actions "https://docs.opensearch.org/latest/im-plugin/ism/policies/#actions"), the migration or deletion of indexes still
+    continues. Setting an [error\_notification](https://opensearch.org/docs/latest/im-plugin/ism/policies/#error-notifications "https://opensearch.org/docs/latest/im-plugin/ism/policies/#error-notifications") for one of the above actions will notify you
+    that the action failed if it didn’t complete within the timeout period, but
+    the notification is only for your own reference. The actual operation has no
+    inherent timeout and continues to run until it eventually succeeds or fails.
 
 - If your domain runs OpenSearch or Elasticsearch 7.4 or later, OpenSearch Service supports
   the ISM `open` and `close` operations.
@@ -318,13 +317,13 @@ These APIs for cold indexes have the following additional differences:
 
 - Wildcard operators are not supported except when you use it at the end.
   For example, `_plugins/_ism/<add, remove, change_policy, retry,
-explain>/logstash-*` is supported but `_plugins/_ism/<add,
-remove, change_policy, retry, explain>/iad-*-prod` isn’t
+ explain>/logstash-*` is supported but `_plugins/_ism/<add,
+ remove, change_policy, retry, explain>/iad-*-prod` isn’t
   supported.
 - Multiple index names and patterns are not supported. For example,
   `_plugins/_ism/<add, remove, change_policy, retry,
-explain>/app-logs` is supported but `_plugins/_ism/<add,
-remove, change_policy, retry, explain>/app-logs,sample-data` isn’t
+ explain>/app-logs` is supported but `_plugins/_ism/<add,
+ remove, change_policy, retry, explain>/app-logs,sample-data` isn’t
   supported.
 
 ### ISM settings

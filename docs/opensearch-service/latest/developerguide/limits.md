@@ -559,12 +559,12 @@ To request a quota increase, contact [AWS Support](https://aws.amazon.com/premiu
 
 The following section lists the maximum shard count for OpenSearch versions.
 
-| Engine Version            | Limit                                         | Notes                                                                     |
-| ------------------------- | --------------------------------------------- | ------------------------------------------------------------------------- |
-| Elasticsearch 1.5 to 6.x  | No default limit                              |                                                                           |
-| Elasticsearch 7.x         | 1000                                          | Default limit can be changed via cluster. max_shards_per_node<br>setting. |
-| OpenSearch 1.x to 2.15    | 1000                                          | Default limit can be changed via cluster. max_shards_per_node<br>setting. |
-| OpenSearch 2.17 and above | 1000 per every 16 GB of heap to a max of 4000 | The default limit can't be changed.                                       |
+| Engine Version            | Limit                                         | Notes                                                                        |
+| ------------------------- | --------------------------------------------- | ---------------------------------------------------------------------------- |
+| Elasticsearch 1.5 to 6.x  | No default limit                              |                                                                              |
+| Elasticsearch 7.x         | 1000                                          | Default limit can be changed via cluster. max\_shards\_per\_node<br>setting. |
+| OpenSearch 1.x to 2.15    | 1000                                          | Default limit can be changed via cluster. max\_shards\_per\_node<br>setting. |
+| OpenSearch 2.17 and above | 1000 per every 16 GB of heap to a max of 4000 | The default limit can't be changed.                                          |
 
 ## Java process quota
 

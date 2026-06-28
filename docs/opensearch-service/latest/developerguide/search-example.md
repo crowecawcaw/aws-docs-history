@@ -161,31 +161,30 @@ For more information about creating Lambda functions and deployment packages, se
 
 To create your function using the Lambda console
 
-1.  Navigate to the Lambda console at [https://console.aws.amazon.com/lambda/home](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home "). On the left
-    navigation pane, choose **Functions**.
-2.  Select **Create function**.
-3.  Configure the following fields:
+1. Navigate to the Lambda console at [https://console.aws.amazon.com/lambda/home](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home "). On the left
+   navigation pane, choose **Functions**.
+2. Select **Create function**.
+3. Configure the following fields:
 
-        * Function name: opensearch-function
-        * Runtime: Python 3.9
-        * Architecture: x86\_64
+   - Function name: opensearch-function
+   - Runtime: Python 3.9
+   - Architecture: x86\_64
+     Keep all other default options and choose **Create
+     function**.
 
-    Keep all other default options and choose **Create
-    function**.
-
-4.  In the **Code source** section of the function summary
-    page, choose the **Upload from** dropdown and select
-    **.zip file**. Locate the
-    `my-deployment-package.zip` file that you created and choose
-    **Save**.
-5.  The _handler_ is the method in your
-    function code that processes events. Under **Runtime
-    settings**, choose **Edit** and change the
-    handler name according to the name of the file in your deployment package
-    where the Lambda function is located. Since your file is named
-    `opensearch-lambda.py`, rename the handler to
-    ``opensearch-lambda`.lambda_handler`.
-    For more information, see [Lambda function handler in Python](../../../lambda/latest/dg/python-handler.md "../../../lambda/latest/dg/python-handler.md").
+4. In the **Code source** section of the function summary
+   page, choose the **Upload from** dropdown and select
+   **.zip file**. Locate the
+   `my-deployment-package.zip` file that you created and choose
+   **Save**.
+5. The _handler_ is the method in your
+   function code that processes events. Under **Runtime
+   settings**, choose **Edit** and change the
+   handler name according to the name of the file in your deployment package
+   where the Lambda function is located. Since your file is named
+   `opensearch-lambda.py`, rename the handler to
+   ``opensearch-lambda`.lambda_handler`.
+   For more information, see [Lambda function handler in Python](../../../lambda/latest/dg/python-handler.md "../../../lambda/latest/dg/python-handler.md").
 
 ## Step 3: Create the API in API Gateway
 

@@ -58,7 +58,7 @@ user.
 
 1. Go back to the OpenSearch Service console and navigate to the OpenSearch Dashboards URL for the domain
    you created. The URL follows this format:
-   ``domain-endpoint`/\_dashboards/`.
+   ``domain-endpoint`/_dashboards/`.
 2. Sign in with the `TheMasterUser`.
 3. Choose **Add sample data** and add the sample flight data.
 4. In the left navigation pane, choose **Security**,

@@ -98,7 +98,7 @@ extension:
 
 ## Join types
 
-one_to_one
+one\_to\_one
 
 Child fields are flattened at the root level of the parent document.
 Use when each parent has exactly one related child record.
@@ -118,7 +118,7 @@ Result document:
 }
 ```
 
-one_to_many
+one\_to\_many
 
 Child records are stored as a nested array in the parent document. Use
 when each parent can have multiple related child records.

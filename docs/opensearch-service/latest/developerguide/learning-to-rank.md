@@ -1044,27 +1044,27 @@ GET _ltr/_stats/<stat>/nodes/<nodeId>
 The statistics are provided at two levels, node and cluster, as specified in the
 following tables:
 
-| Node-level stats             | Field name                                                                                                                                                         | Description |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| request_total_count          | Total count of ranking requests.                                                                                                                                   |
-| request_error_count          | Total count of unsuccessful requests.                                                                                                                              |
-| cache                        | Statistics across all caches (features, featuresets, models). A cache hit<br>occurs when a user queries the plugin and the model is already loaded into<br>memory. |
-| cache.eviction_count         | Number of cache evictions.                                                                                                                                         |
-| cache.hit_count              | Number of cache hits.                                                                                                                                              |
-| cache.miss_count             | Number of cache misses. A cache miss occurs when a user queries the plugin and<br>the model has not yet been loaded into memory.                                   |
-| cache.entry_count            | Number of entries in the cache.                                                                                                                                    |
-| cache.memory_usage_in_bytes  | Total memory used in bytes.                                                                                                                                        |
-| cache.cache_capacity_reached | Indicates if the cache limit is reached.                                                                                                                           |
+Node-level stats| Field name | Description |
+| --- | --- |
+| request\_total\_count | Total count of ranking requests. |
+| request\_error\_count | Total count of unsuccessful requests. |
+| cache | Statistics across all caches (features, featuresets, models). A cache hit<br>occurs when a user queries the plugin and the model is already loaded into<br>memory. |
+| cache.eviction\_count | Number of cache evictions. |
+| cache.hit\_count | Number of cache hits. |
+| cache.miss\_count | Number of cache misses. A cache miss occurs when a user queries the plugin and<br>the model has not yet been loaded into memory. |
+| cache.entry\_count | Number of entries in the cache. |
+| cache.memory\_usage\_in\_bytes | Total memory used in bytes. |
+| cache.cache\_capacity\_reached | Indicates if the cache limit is reached. |
 
-| Cluster-level stats          | Field name                                                                                                                                                               | Description |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| stores                       | Indicates where the feature sets and model metadata are stored. (The default is<br>“.ltrstore”. Otherwise, it's prefixed with “.ltrstore\_”, with a user supplied name). |
-| stores.status                | Status of the index.                                                                                                                                                     |
-| stores.feature_sets          | Number of feature sets.                                                                                                                                                  |
-| stores.features_count        | Number of features.                                                                                                                                                      |
-| stores.model_count           | Number of models.                                                                                                                                                        |
-| status                       | The plugin status based on the status of the feature store indices (red,<br>yellow, or green) and circuit breaker state (open or closed).                                |
-| cache.cache_capacity_reached | Indicates if the cache limit is reached.                                                                                                                                 |
+Cluster-level stats| Field name | Description |
+| --- | --- |
+| stores | Indicates where the feature sets and model metadata are stored. (The default is<br>“.ltrstore”. Otherwise, it's prefixed with “.ltrstore\_”, with a user supplied name). |
+| stores.status | Status of the index. |
+| stores.feature\_sets | Number of feature sets. |
+| stores.features\_count | Number of features. |
+| stores.model\_count | Number of models. |
+| status | The plugin status based on the status of the feature store indices (red,<br>yellow, or green) and circuit breaker state (open or closed). |
+| cache.cache\_capacity\_reached | Indicates if the cache limit is reached. |
 
 ### Get cache stats
 

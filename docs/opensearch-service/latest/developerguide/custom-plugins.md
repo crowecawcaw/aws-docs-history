@@ -177,22 +177,21 @@ an AWS Key Management Service (AWS KMS) key. For information, see [Create or upd
 
 ###### To install a custom plugin using the AWS CLI
 
-1.  Create a new package for your custom plugin by running the following [create-package](../../../cli/latest/reference/opensearch/create-package.md "../../../cli/latest/reference/opensearch/create-package.md") command, ensuring that the following requirements are
-    met:
+1. Create a new package for your custom plugin by running the following [create-package](../../../cli/latest/reference/opensearch/create-package.md "../../../cli/latest/reference/opensearch/create-package.md") command, ensuring that the following requirements are
+   met:
 
-        * The bucket and key location must point to the plugin `.zip`
-         file in an S3 bucket in the account in which your are running the commands.
-        * The S3 bucket must be in the same Region where the package is being created.
-        * Only `.zip` files are supported for `ZIP-PLUGIN`
-         packages.
-        * The contents of the `.zip` file must follow directory
-         structure as expected by the plugin.
-        * The value for `--engine-version` must be in the format
-         `OpenSearch_`{MAJOR}`.`{MINOR}``.
-         For example: `OpenSearch_2.17`.
-
-    Replace the `placeholder values` with your own
-    information:
+   - The bucket and key location must point to the plugin `.zip`
+     file in an S3 bucket in the account in which your are running the commands.
+   - The S3 bucket must be in the same Region where the package is being created.
+   - Only `.zip` files are supported for `ZIP-PLUGIN`
+     packages.
+   - The contents of the `.zip` file must follow directory
+     structure as expected by the plugin.
+   - The value for `--engine-version` must be in the format
+     `OpenSearch_`{MAJOR}`.`{MINOR}``.
+     For example: `OpenSearch_2.17`.
+     Replace the `placeholder values` with your own
+     information:
 
 ```
 aws opensearch create-package \
@@ -205,7 +204,7 @@ aws opensearch create-package \
 
 2. (Optional) View the status of the `create-package` operation, including
    any validation and security vulnerability findings, by using the [describe-packages](../../../cli/latest/reference/es/describe-packages.md "../../../cli/latest/reference/es/describe-packages.md") command. Replace the `placeholder
-values` with your own information:
+ values` with your own information:
 
 ```
 aws opensearch describe-packages \
@@ -290,7 +289,7 @@ an AWS Key Management Service (AWS KMS) key. For information, see [Create or upd
 ###### To update a custom plugin using the AWS CLI
 
 - Run the following command. Replace the `placeholder
-values` with your own information.
+ values` with your own information.
 
 ```
 aws opensearch update-package \

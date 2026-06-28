@@ -199,16 +199,15 @@ JSON
 
 ```
 
-3.  [Fine-grained access control](fgac.md "fgac.md") on the source domain evaluates
-    the request:
+3. [Fine-grained access control](fgac.md "fgac.md") on the source domain evaluates
+   the request:
 
-        * Is the request signed with valid IAM or HTTP basic credentials?
-        * If so, does the user have permission to perform the search and access the
-         data?
-
-    If the request only searches data on the destination domain (for example,
-    `dest-alias:dest-index/_search`), you only need permissions on the
-    destination domain.
+   - Is the request signed with valid IAM or HTTP basic credentials?
+   - If so, does the user have permission to perform the search and access the
+     data?
+     If the request only searches data on the destination domain (for example,
+     `dest-alias:dest-index/_search`), you only need permissions on the
+     destination domain.
 
 If the request searches data on both domains (for example,
 `source-index,dest-alias:dest-index/_search`), you need permissions on both

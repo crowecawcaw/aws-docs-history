@@ -39,14 +39,14 @@ PUT /your_index
 
 ## Performance benchmarking
 
-Based on benchmark testing with the nyc_taxi dataset, ZSTD compression achieved 26-32% better compression compared to baseline across different combinations of `zstd`, `zstd_no_dict`, and compression levels.
+Based on benchmark testing with the nyc\_taxi dataset, ZSTD compression achieved 26-32% better compression compared to baseline across different combinations of `zstd`, `zstd_no_dict`, and compression levels.
 
-| Metric                                      | ZSTD L1 | ZSTD L6 | ZSTD_NO_DICT L1 | ZSTD_NO_DICT L6 |
-| ------------------------------------------- | ------- | ------- | --------------- | --------------- |
-| Index Size Reduction                        | 28.10%  | 32%     | 26.90%          | 28.70%          |
-| Indexing Throughput Change                  | -0.50%  | -23.80% | -0.50%          | -5.30%          |
-| Match-all Query p90 Latency Improvement     | -16.40% | 29.50%  | -16.40%         | 23.40%          |
-| Range Query p90 Latency Improvement         | 90.90%  | 92.40%  | -282.90%        | 92.50%          |
-| Distance Amount p90 Agg Latency Improvement | 2%      | 24.70%  | 2%              | 13.80%          |
+| Metric                                      | ZSTD L1 | ZSTD L6 | ZSTD\_NO\_DICT L1 | ZSTD\_NO\_DICT L6 |
+| ------------------------------------------- | ------- | ------- | ----------------- | ----------------- |
+| Index Size Reduction                        | 28.10%  | 32%     | 26.90%            | 28.70%            |
+| Indexing Throughput Change                  | -0.50%  | -23.80% | -0.50%            | -5.30%            |
+| Match-all Query p90 Latency Improvement     | -16.40% | 29.50%  | -16.40%           | 23.40%            |
+| Range Query p90 Latency Improvement         | 90.90%  | 92.40%  | -282.90%          | 92.50%            |
+| Distance Amount p90 Agg Latency Improvement | 2%      | 24.70%  | 2%                | 13.80%            |
 
 For more details, refer to the [AWS OpenSearch blog](https://aws.amazon.com/blogs/big-data/optimize-storage-costs-in-amazon-opensearch-service-using-zstandard-compression/ "https://aws.amazon.com/blogs/big-data/optimize-storage-costs-in-amazon-opensearch-service-using-zstandard-compression/").

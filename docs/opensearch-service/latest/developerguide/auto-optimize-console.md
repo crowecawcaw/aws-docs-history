@@ -50,30 +50,32 @@ You can specify either an OpenSearch Managed domain or an OpenSearch Serverless 
     * For OpenSearch domains with fine-grained access control, add the role as a backend role.
     * For OpenSearch Serverless collections, add the role to the data access policy.
 
-8. Choose **Next**.
-9. Under **Configure index**, specify the following:
+8. Choose **Next**. 9. Under **Configure index**, specify the following:
 
-   1. For **Field name**, enter the field name from your dataset that contains the vector data.
-   2. For **Space type**, select the distance metric used to calculate the distance between vectors:
+    1. For **Field name**, enter the field name from your dataset that contains the vector data.
+    2. For **Space type**, select the distance metric used to calculate the distance between vectors:
 
-      - **l2** - Euclidean distance
-      - **cosinesimil** - Cosine similarity
-      - **innerproduct** - Inner product
 
-   3. For **Dimension**, enter the number of floating point values in each vector.
+
+
+    	* **l2** - Euclidean distance
+    	* **cosinesimil** - Cosine similarity
+    	* **innerproduct** - Inner product
+    3. For **Dimension**, enter the number of floating point values in each vector.
 
 10. Under **Performance requirements**, configure the following:
 
     1. For **Recall**, specify your desired search quality as a decimal value between 0 and 1. Higher recall values return more relevant results. For example:
 
-       - 0.95 indicates that on average 19 of the 20 true nearest document vectors to a query vector are returned
-       - 0.9 indicates 9 in 10
-       - 0.8 indicates 8 in 10
 
+
+
+    	* 0.95 indicates that on average 19 of the 20 true nearest document vectors to a query vector are returned
+    	* 0.9 indicates 9 in 10
+    	* 0.8 indicates 8 in 10
     2. For **Search latency requirements**, select your latency tolerance. Modest requirements allow for more cost savings through compression methods that decrease memory requirements.
 
-11. Choose **Next**.
-12. Review your configuration and choose **Create**.
+11. Choose **Next**. 12. Review your configuration and choose **Create**.
 
 The job begins processing. You can monitor its progress in the **Vector Ingestion Jobs** table.
 

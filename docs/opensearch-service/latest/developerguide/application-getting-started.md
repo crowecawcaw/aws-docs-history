@@ -218,9 +218,8 @@ following:
      users** – All users in your organization or
      account are granted administrator permissions.
 
-7. (Optional) Configure encryption settings. By default, OpenSearch UI metadata is encrypted with AWS owned keys. To use your own customer managed key (CMK) for encryption, see [Encrypting OpenSearch UI application metadata with customer managed keys](application-encryption-cmk.md "application-encryption-cmk.md").
-8. (Optional) In the **Tags** area, apply one or more
-   tag key name/value pairs to the application.
+7. (Optional) Configure encryption settings. By default, OpenSearch UI metadata is encrypted with AWS owned keys. To use your own customer managed key (CMK) for encryption, see [Encrypting OpenSearch UI application metadata with customer managed keys](application-encryption-cmk.md "application-encryption-cmk.md"). 8. (Optional) In the **Tags** area, apply one or more
+tag key name/value pairs to the application.
 
 Tags are optional metadata that you assign to a resource. Tags allow
 you to categorize a resource in different ways, such as by purpose,
@@ -234,19 +233,19 @@ topic in [Permissions to create an application that uses IAM Identity Center aut
 
 ###### To create an OpenSearch UI application that uses AWS IAM Identity Center authentication in the console
 
-1.  Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2.  In the left navigation pane, choose **OpenSearch UI
-    (Dashboards)**.
-3.  Choose **Create application**.
-4.  For **Application name**, enter a name for the
-    application.
-5.  (Optional) To enable single sign-on for your organization or account,
-    do the following:
+1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+2. In the left navigation pane, choose **OpenSearch UI
+   (Dashboards)**.
+3. Choose **Create application**.
+4. For **Application name**, enter a name for the
+   application.
+5. (Optional) To enable single sign-on for your organization or account,
+   do the following:
 
-    1. Select the **Authentication with IAM Identity Center**
-       check box, as shown in the following image:
+   1. Select the **Authentication with IAM Identity Center**
+      check box, as shown in the following image:
 
-    ![The "Single sign-on authetication" area with the "Authentication with IAM Identity Center" box selected.](images/ui-Single-sign-on-authentication.png) 2. Do one of the following:
+   ![The "Single sign-on authetication" area with the "Authentication with IAM Identity Center" box selected.](images/ui-Single-sign-on-authentication.png) 2. Do one of the following:
 
         * In the **IAM role for Identity Center
          application** list, choose an existing
@@ -369,42 +368,43 @@ topic in [Permissions to create an application that uses IAM Identity Center aut
         	}`
 
         	```
-    3. If an IAM Identity Center instance has been created in your organization or
-       account already, the console reports that Amazon
-       OpenSearch Dashboards is already connected to an organization
-       instance of IAM Identity Center, as shown in the following image.
 
-    ![The "Amazon OpenSearch Dashboard connected to an account instance of IAM Identity Center" area shows the URL of the existing IAM Identity Center account instance.](images/ui-connected-instance.png)
+   3. If an IAM Identity Center instance has been created in your organization or
+   account already, the console reports that Amazon
+   OpenSearch Dashboards is already connected to an organization
+   instance of IAM Identity Center, as shown in the following image.
 
-    If IAM Identity Center is not yet available in your organization or account,
-    you or an administrator with the necessary permissions can
-    create an organization instance or account instance. The
-    **Connect Amazon OpenSearch Dashboards to IAM
-    Identity Center** area provides options for both,
-    as shown in the following image:
+   ![The "Amazon OpenSearch Dashboard connected to an account instance of IAM Identity Center" area shows the URL of the existing IAM Identity Center account instance.](images/ui-connected-instance.png)
 
-    ![The "Connect Amazon OpenSearch Dashboards to IAM Identity Center" area provides buttons to create an organization instance or an account instance.](images/ui-no-connected-instance.png)
+   If IAM Identity Center is not yet available in your organization or account,
+   you or an administrator with the necessary permissions can
+   create an organization instance or account instance. The
+   **Connect Amazon OpenSearch Dashboards to IAM
+   Identity Center** area provides options for both,
+   as shown in the following image:
 
-    In this case, you can create an account instance in IAM Identity Center for
-    testing, or request that an administrator create an
-    organizational instance in IAM Identity Center. For more information, see the
-    following topics in the _AWS IAM Identity Center User
-    Guide_:
+   ![The "Connect Amazon OpenSearch Dashboards to IAM Identity Center" area provides buttons to create an organization instance or an account instance.](images/ui-no-connected-instance.png)
 
-    ###### Note
+   In this case, you can create an account instance in IAM Identity Center for
+   testing, or request that an administrator create an
+   organizational instance in IAM Identity Center. For more information, see the
+   following topics in the _AWS IAM Identity Center User
+   Guide_:
 
-    If you want to create OpenSearch UI applications in a
-    different AWS Region from your IAM Identity Center organizational
-    instance, see [Using IAM Identity Center across multiple AWS Regions](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md").
+   ###### Note
+
+   If you want to create OpenSearch UI applications in a
+   different AWS Region from your IAM Identity Center organizational
+   instance, see [Using IAM Identity Center across multiple AWS Regions](../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md "../../../singlesignon/latest/userguide/multi-region-iam-identity-center.md").
 
         * [Organization instances of IAM Identity Center](../../../singlesignon/latest/userguide/organization-instances-identity-center.md "../../../singlesignon/latest/userguide/organization-instances-identity-center.md")
         * [Account instances of IAM Identity Center](../../../singlesignon/latest/userguide/account-instances-identity-center.md "../../../singlesignon/latest/userguide/account-instances-identity-center.md")
         * [Enable AWS IAM Identity Center](../../../singlesignon/latest/userguide/enable-identity-center.md "../../../singlesignon/latest/userguide/enable-identity-center.md")
 
-6.  (Optional) You are automatically added as an administrator of the
-    application you are creating. In the **OpenSearch application
-    admins management** area, you can grant administrator
-    permissions to other users, as shown in the following image:
+6. (Optional) You are automatically added as an administrator of the
+   application you are creating. In the **OpenSearch application
+   admins management** area, you can grant administrator
+   permissions to other users, as shown in the following image:
 
 ![The "OpenSearch application admins management" area provides options for granting administrator permissions to select users or all all users.](images/ui-admins-management.png)
 
@@ -432,7 +432,7 @@ following:
      account are granted administrator permissions.
 
 7. (Optional) In the **Tags** area, apply one or more
-   tag key name/value pairs to the application.
+tag key name/value pairs to the application.
 
 Tags are optional metadata that you assign to a resource. Tags allow
 you to categorize a resource in different ways, such as by purpose,

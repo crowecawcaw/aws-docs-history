@@ -53,21 +53,19 @@ following criteria:
      the hyphen (-)
     * Contains between 3 and 32 characters
 
-5.  Choose a collection type:
+5. Choose a collection type:
 
-        * **Search** – Full-text search that powers
-         applications in your internal networks and internet-facing
-         applications. All search data is stored in hot storage to ensure
-         fast query response times.
-        * **Vector search** – Semantic search on
-         vector embeddings that simplifies vector data management. Powers
-         machine learning (ML) augmented search experiences and generative AI
-         applications.
+    * **Search** – Full-text search that powers
+     applications in your internal networks and internet-facing
+     applications. All search data is stored in hot storage to ensure
+     fast query response times.
+    * **Vector search** – Semantic search on
+     vector embeddings that simplifies vector data management. Powers
+     machine learning (ML) augmented search experiences and generative AI
+     applications.
 
-    For more information, see [Choosing a collection type](serverless-overview.md#serverless-usecase "serverless-overview.md#serverless-usecase").
-
-6.  Choose a collection creation method: **Express Create** or
-    **Standard Create**.
+For more information, see [Choosing a collection type](serverless-overview.md#serverless-usecase "serverless-overview.md#serverless-usecase"). 6. Choose a collection creation method: **Express Create** or
+**Standard Create**.
 
 ## Create a NextGen collection (Express Create)
 
@@ -283,17 +281,17 @@ meet the following criteria:
 
 5. Choose a **collection type**:
 
-   - **Time series** – Log analytics
+    * **Time series** – Log analytics
      segment that focuses on analyzing large volumes of
      semi-structured, machine-generated data. At least 24 hours of
      data is stored on hot indexes, and the rest remains in warm
      storage.
-   - **Search** – Full-text search that
+    * **Search** – Full-text search that
      powers applications in your internal networks and
      internet-facing applications. All search data is stored in hot
      storage to ensure fast query response times. Choose this option
      if you are enabling automatic semantic search.
-   - **Vector search** – Semantic search on
+    * **Vector search** – Semantic search on
      vector embeddings that simplifies the management of vector data.
      Powers machine learning (ML) augmented search experiences and
      generative AI applications such as chatbots, personal
@@ -301,9 +299,9 @@ meet the following criteria:
 
 6. (Optional) Configure **deployment options**:
 
-   - **Standby replicas** – Choose whether
+    * **Standby replicas** – Choose whether
      to enable standby replicas for high availability.
-   - **GPU acceleration** – For vector
+    * **GPU acceleration** – For vector
      search collections, choose whether to enable GPU
      acceleration.
 
@@ -311,39 +309,38 @@ meet the following criteria:
 
 ###### To configure security and access policies (Classic)
 
-1.  **Encryption policy** – Choose how
-    to encrypt data in your collection:
+1. **Encryption policy** – Choose how
+   to encrypt data in your collection:
 
-        * **Use AWS owned key** (default) –
-         Amazon OpenSearch Service manages the encryption key at no additional
-         cost.
-        * **Use customer managed key** – Select
-         a AWS KMS key from your account for encryption.
+   - **Use AWS owned key** (default) –
+     Amazon OpenSearch Service manages the encryption key at no additional
+     cost.
+   - **Use customer managed key** – Select
+     a AWS KMS key from your account for encryption.
+     (Optional) Select **Use existing policy** if a
+     matching encryption policy already exists for your collection
+     name.
 
-    (Optional) Select **Use existing policy** if a
-    matching encryption policy already exists for your collection
-    name.
+2. **Network access** – Configure how
+   users and applications access your collection:
 
-2.  **Network access** – Configure how
-    users and applications access your collection:
+   - Enable or disable **access to OpenSearch
+     endpoint**.
+   - Enable or disable **access to OpenSearch Dashboards** .
+   - Choose **Public** access or restrict access
+     through **VPC endpoints**.
 
-    - Enable or disable **access to OpenSearch
-      endpoint**.
-    - Enable or disable **access to OpenSearch Dashboards** .
-    - Choose **Public** access or restrict access
-      through **VPC endpoints**.
+3. **Data access policy** – Define
+   which principals can access your collection's data:
 
-3.  **Data access policy** – Define
-    which principals can access your collection's data:
+   - **Create new policy** – Define a new
+     data access policy using the visual editor or JSON editor. Add
+     principals (IAM users, IAM roles, or SAML users and groups)
+     and specify resource permissions.
+   - **Add to existing policy** – Select an
+     existing data access policy from the dropdown.
 
-    - **Create new policy** – Define a new
-      data access policy using the visual editor or JSON editor. Add
-      principals (IAM users, IAM roles, or SAML users and groups)
-      and specify resource permissions.
-    - **Add to existing policy** – Select an
-      existing data access policy from the dropdown.
-
-4.  Choose **Next**.
+4. Choose **Next**.
 
 ### Configure OpenSearch UI (Classic)
 

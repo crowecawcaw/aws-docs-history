@@ -37,10 +37,10 @@ query assistant.
 ## Configure permissions
 
 If you enable natural language query generation on a preexisting OpenSearch Service domain, the
-**query_assistant_access** role might not be defined on the domain.
+**query\_assistant\_access** role might not be defined on the domain.
 Non-admin users must be mapped to this role in order to manage warm indexes on domains
 using fine-grained access control. To manually create the
-**query_assistant_access** role, perform the following
+**query\_assistant\_access** role, perform the following
 steps:
 
 1. In OpenSearch Dashboards, go to **Security** and choose
@@ -53,9 +53,9 @@ steps:
    - `cluster:admin/opensearch/ml/predict`
    - `cluster:admin/opensearch/ppl`
 
-3. Name the role **query_assistant_access**.
+3. Name the role **query\_assistant\_access**.
 4. Choose **Create role**. The
-   **query_assistant_access** role is now available.
+   **query\_assistant\_access** role is now available.
 
 ###### Note
 

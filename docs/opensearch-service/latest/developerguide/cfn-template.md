@@ -104,7 +104,7 @@ steps:
    console.
 2. From the main menu choose **Security**,
    **Roles**, and select the
-   **ml_full_access** role.
+   **ml\_full\_access** role.
 3. Choose **Mapped users**, **Manage mapping**.
 4. Under **Backend roles**, add the ARN of the Lambda
    role that needs permission to call your domain.

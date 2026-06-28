@@ -226,7 +226,7 @@ these steps:
 
 1. `openssl genrsa -out privatekey.pem 2048`
 2. `openssl rsa -in privatekey.pem -pubout -out
-publickey.pem`
+ publickey.pem`
 
 In this example, the `publickey.pem` file contains the
 public key for use with Amazon OpenSearch Service, while `privatekey.pem`

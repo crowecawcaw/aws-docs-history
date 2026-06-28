@@ -57,7 +57,8 @@ In the following formula, we apply a "worst-case" estimate for overhead.
 This estimate includes additional free space to help minimize the impact of
 node failures and Availability Zone outages.
 In summary, if you have 66 GiB of data at any given time and want one replica,
-your _minimum_ storage requirement is closer to 66 \* 2 \* 1.1 / 0.95 / 0.8 = 191 GiB. You can generalize this calculation as
+your _minimum_ storage requirement is closer to 66
+\* 2 \* 1.1 / 0.95 / 0.8 = 191 GiB. You can generalize this calculation as
 follows:
 
 **Source data \* (1 + number of replicas) \* (1 + indexing

@@ -19,13 +19,13 @@ they do on OpenSearch indexes.
 ## Commands
 
 | PPL command                                                                                  | Description                                                                                                                                                                                                                           | CloudWatch Logs                 | Amazon S3 | Security Lake | Example command                                                                                                                |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | ---------------------------------------------------- | -------------------- | ---------------------- |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | --------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | [fields command](#supported-ppl-fields-command "#supported-ppl-fields-command")              | Displays a set of fields that needs projection.                                                                                                                                                                                       | Supported                       | Supported | Supported     | `<br>fields field1, field2<br>`                                                                                                |
 | [where command](#supported-ppl-where-command "#supported-ppl-where-command")                 | Filters the data based on the conditions that you<br>specify.                                                                                                                                                                         | Supported                       | Supported | Supported     | ```<br>where field1="success"<br>                                                                                              | where field2 != "i -023fe0a90929d8822"<br>                                          | fields field3, col4, col5, col6<br>                  | head 1000<br>```     |
 | [stats command](#supported-ppl-stats-command "#supported-ppl-stats-command")                 | Performs aggregations and calculations.                                                                                                                                                                                               | Supported                       | Supported | Supported     | ```<br>stats count(),<br>count(`field1`),<br>min(`field1`),<br>max(`field1`),<br>avg(`field1`)<br>by field2<br>                | head 1000<br>```                                                                    |
-| [parse command](#supported-ppl-parse-command "#supported-ppl-parse-command")                 | Extracts a regular expression (regex) pattern from a string<br>and displays the extracted pattern. The extracted pattern can be<br>further used to create new fields or filter data.                                                  | Supported                       | Supported | Supported     | ```<br>parse `field1` ".\*/(?<field2>[^/]+$)"<br>                                                                              | where field2 = "requestId"<br>                                                      | fields field2, `field2`<br>                          | head 1000<br>```     |
+| [parse command](#supported-ppl-parse-command "#supported-ppl-parse-command")                 | Extracts a regular expression (regex) pattern from a string<br>and displays the extracted pattern. The extracted pattern can be<br>further used to create new fields or filter data.                                                  | Supported                       | Supported | Supported     | ```<br>parse `field1` ".*/(?<field2>[^/]+$)"<br>                                                                               | where field2 = "requestId"<br>                                                      | fields field2, `field2`<br>                          | head 1000<br>```     |
 | [patterns command](#supported-ppl-patterns-command "#supported-ppl-patterns-command")        | Extracts log patterns from a text field and appends the<br>results to the search result. Grouping logs by their patterns<br>makes it easier to aggregate stats from large volumes of log<br>data for analysis and troubleshooting.    | Not supported                   | Supported | Supported     | ```<br>patterns new_field='no_numbers' pattern='[0-9]' message<br>                                                             | fields message, no_numbers<br>```                                                   |
-| [sort command](#supported-ppl-sort-command "#supported-ppl-sort-command")                    | Sort the displayed results by a field name. Use **sort -\*FieldName**<br>• to sort in descending<br>order.                                                                                                                            | Supported                       | Supported | Supported     | ```<br>stats count(),<br>count(`field1`),<br>min(`field1`) as field1Alias,<br>max(`field1`),<br>avg(`field1`)<br>by field2<br> | sort -field1Alias<br>                                                               | head 1000<br>```                                     |
+| [sort command](#supported-ppl-sort-command "#supported-ppl-sort-command")                    | Sort the displayed results by a field name. Use *_sort -*FieldName*_<br>• to sort in descending<br>order.                                                                                                                             | Supported                       | Supported | Supported     | ```<br>stats count(),<br>count(`field1`),<br>min(`field1`) as field1Alias,<br>max(`field1`),<br>avg(`field1`)<br>by field2<br> | sort -field1Alias<br>                                                               | head 1000<br>```                                     |
 | [eval command](#supported-ppl-eval-command "#supported-ppl-eval-command")                    | Modifies or processes the value of a field and stores it in a<br>different field. This is useful to mathematically modify a<br>column, apply string functions to a column, or apply date<br>functions to a column.                    | Supported                       | Supported | Supported     | ```<br>eval field2 = `field1`<br>• 2<br>                                                                                       | fields field1, field2<br>                                                           | head 20<br>```                                       |
 | [rename command](#supported-ppl-rename-command "#supported-ppl-rename-command")              | Renames one or more fields in the search result.                                                                                                                                                                                      | Supported                       | Supported | Supported     | ```<br>rename field2 as field1<br>                                                                                             | fields field1<br>```                                                                |
 | [head command](#supported-ppl-head-command "#supported-ppl-head-command")                    | Limits the displayed query results to the frst N rows.                                                                                                                                                                                | Supported                       | Supported | Supported     | ```<br>fields `@message`<br>                                                                                                   | head 20<br>```                                                                      |
@@ -46,17 +46,17 @@ they do on OpenSearch indexes.
 
 ## Functions
 
-| PPL function                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                            | CloudWatch Logs | Amazon S3 | Security Lake | Example command                                                                       |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | --------- | ------------- | ------------------------------------------------------------------------------------- | ---------------------------------- |
-| [PPL string functions](#supported-ppl-string-functions "#supported-ppl-string-functions")<br>(`CONCAT`, `CONCAT_WS`,<br>`LENGTH`, `LOWER`, `LTRIM`,<br>`POSITION`, `REVERSE`,<br>`RIGHT`, `RTRIM`,<br>`SUBSTRING`, `TRIM`,<br>`UPPER`)                                                                                                                                                                                                                                                                                                                                                                                                                                           | Built-in functions in PPL that can manipulate and transform<br>string and text data within PPL queries. For example, converting<br>case, combining strings, extracting parts, and cleaning<br>text.                                                                                                    | Supported       | Supported | Supported     | ```<br>eval col1Len = LENGTH(col1)<br>                                                | fields col1Len<br>```              |
-| [PPL date and time functions](#supported-ppl-date-time-functions "#supported-ppl-date-time-functions")<br>(`DAY`, `DAYOFMONTH`,<br>`DAY_OF_MONTH`,`DAYOFWEEK`,<br>`DAY_OF_WEEK`, `DAYOFYEAR`,<br>`DAY_OF_YEAR`, `DAYNAME`,<br>`FROM_UNIXTIME`, `HOUR`,<br>`HOUR_OF_DAY`, `LAST_DAY`,<br>`LOCALTIMESTAMP`, `LOCALTIME`,<br>`MAKE_DATE`, `MINUTE`,<br>`MINUTE_OF_HOUR`, `MONTH`,<br>`MONTHNAME`, `MONTH_OF_YEAR`,<br>`NOW`, `QUARTER`, `SECOND`,<br>`SECOND_OF_MINUTE`, `SUBDATE`,<br>`SYSDATE`, `TIMESTAMP`,<br>`UNIX_TIMESTAMP`, `WEEK`,<br>`WEEKDAY`, `WEEK_OF_YEAR`,<br>`DATE_ADD`, `DATE_SUB`,<br>`TIMESTAMPADD`, `TIMESTAMPDIFF`,<br>`UTC_TIMESTAMP`,<br>`CURRENT_TIMEZONE`) | Built-in functions for handling and transforming date and<br>timestamp data in PPL queries. For example, **date_add**, **date_format**, **datediff**, and **current_date**.                                                                                                                            | Supported       | Supported | Supported     | ```<br>eval newDate = ADDDATE(DATE('2020-08-26'), 1)<br>                              | fields newDate<br>```              |
-| [PPL condition functions](#supported-ppl-condition-functions "#supported-ppl-condition-functions")<br>(`EXISTS`, `IF`, `IFNULL`,<br>`ISNOTNULL`, `ISNULL`,<br>`NULLIF`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Built-in functions that perform calculations on multiple rows<br>to produce a single summarized value. For example, **sum**, **count**, **avg**,<br>**max**, and **min**.                                                                                                                              | Supported       | Supported | Supported     | ```<br>eval field2 = isnull(col1)<br>                                                 | fields field2, col1, field3<br>``` |
-| [PPL mathematical functions](#supported-ppl-math-functions "#supported-ppl-math-functions")<br>(`ABS`, `ACOS`, `ASIN`,<br>`ATAN`, `ATAN2`, `CEIL`,<br>`CEILING`, `CONV`, `COS`,<br>`COT`, `CRC32`, `DEGREES`,<br>`E`, `EXP`, `FLOOR`,<br>`LN`, `LOG`, `LOG2`,<br>`LOG10`, `MOD`, `PI`.<br>`POW`, `POWER`, `RADIANS`,<br>`RAND`, `ROUND`, `SIGN`,<br>`SIN`, `SQRT`,<br>`CBRT`)                                                                                                                                                                                                                                                                                                    | Built-in functions for performing mathematical calculations<br>and transformations in PPL queries. For example: **abs\*<br>• (absolute value), **round*<br>• (rounds numbers), \*\*sqrt*<br>• (square root), **pow\*<br>• (power calculation), and<br>**ceil\*<br>• (rounds up to nearest<br>integer). | Supported       | Supported | Supported     | ```<br>eval field2 = ACOS(col1)<br>                                                   | fields col1<br>```                 |
-| [PPL expressions](#supported-ppl-expressions "#supported-ppl-expressions")<br>(Arithmetic operators (`+`, `-`,<br>`*`), Predicate operators (`>. <`,<br>`IN)`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Built-in functions for expressions, particularly value<br>expressions, return a scalar value. Expressions have different<br>types and forms.                                                                                                                                                           | Supported       | Supported | Supported     | ```<br>where age > (25 + 5)<br>                                                       | fields age<br>```                  |
-| [PPL IP address functions](#supported-ppl-ip-address-functions "#supported-ppl-ip-address-functions")<br>(`CIDRMATCH`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Built-in functions for handling IP addresses such as<br>CIDR.                                                                                                                                                                                                                                          | Supported       | Supported | Supported     | ```<br>where cidrmatch(ip, '****\*\*\*****/24')<br>                                   | fields ip<br>```                   |
-| [PPL JSON functions](#supported-ppl-json-functions "#supported-ppl-json-functions")<br>(`ARRAY_LENGTH`, `ARRAY_LENGTH`,<br>`JSON`, `JSON_ARRAY`,<br>`JSON_EXTRACT`, `JSON_KEYS`,<br>`JSON_OBJECT`, `JSON_VALID`,<br>`TO_JSON_STRING`)                                                                                                                                                                                                                                                                                                                                                                                                                                            | Built-in functions for handling JSON including arrays,<br>extracting, and validation.                                                                                                                                                                                                                  | Supported       | Supported | Supported     | ``<br>eval `json_extract('{"a":"b"}', '$.a')` = json_extract('{"a":"b"}', '$a')<br>`` |
-| [PPL Lambda functions](#supported-ppl-lambda-functions "#supported-ppl-lambda-functions")<br>(`EXISTS`, `FILTER`,<br>`REDUCE`, `TRANSFORM`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Built-in functions for handling JSON including arrays,<br>extracting, and validation.                                                                                                                                                                                                                  | Not supported   | Supported | Supported     | ```<br>eval array = json_array(1, -1, 2),<br>result = filter(array, x -> x > 0)<br>   | fields result<br>```               |
-| [PPL cryptographic hash functions](#supported-ppl-cryptographic-functions "#supported-ppl-cryptographic-functions")<br>(`MD5`, `SHA1`,<br>`SHA2`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Built-in functions that allow you to generate unique<br>fingerprints of data, which can be used for verification,<br>comparison, or as part of more complex security<br>protocols.                                                                                                                     | Supported       | Supported | Supported     | ```<br>eval `MD5('hello')` = MD5('hello')<br>                                         | fields `MD5('hello')`<br>```       |
+| PPL function                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                       | CloudWatch Logs | Amazon S3 | Security Lake | Example command                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------- | ------------- | ------------------------------------------------------------------------------------- |
+| [PPL string functions](#supported-ppl-string-functions "#supported-ppl-string-functions")<br>(`CONCAT`, `CONCAT_WS`,<br>`LENGTH`, `LOWER`, `LTRIM`,<br>`POSITION`, `REVERSE`,<br>`RIGHT`, `RTRIM`,<br>`SUBSTRING`, `TRIM`,<br>`UPPER`)                                                                                                                                                                                                                                                                                                                                                                                                                                           | Built-in functions in PPL that can manipulate and transform<br>string and text data within PPL queries. For example, converting<br>case, combining strings, extracting parts, and cleaning<br>text.                                                                                               | Supported       | Supported | Supported     | ```<br>eval col1Len = LENGTH(col1)<br>                                                | fields col1Len<br>```              |
+| [PPL date and time functions](#supported-ppl-date-time-functions "#supported-ppl-date-time-functions")<br>(`DAY`, `DAYOFMONTH`,<br>`DAY_OF_MONTH`,`DAYOFWEEK`,<br>`DAY_OF_WEEK`, `DAYOFYEAR`,<br>`DAY_OF_YEAR`, `DAYNAME`,<br>`FROM_UNIXTIME`, `HOUR`,<br>`HOUR_OF_DAY`, `LAST_DAY`,<br>`LOCALTIMESTAMP`, `LOCALTIME`,<br>`MAKE_DATE`, `MINUTE`,<br>`MINUTE_OF_HOUR`, `MONTH`,<br>`MONTHNAME`, `MONTH_OF_YEAR`,<br>`NOW`, `QUARTER`, `SECOND`,<br>`SECOND_OF_MINUTE`, `SUBDATE`,<br>`SYSDATE`, `TIMESTAMP`,<br>`UNIX_TIMESTAMP`, `WEEK`,<br>`WEEKDAY`, `WEEK_OF_YEAR`,<br>`DATE_ADD`, `DATE_SUB`,<br>`TIMESTAMPADD`, `TIMESTAMPDIFF`,<br>`UTC_TIMESTAMP`,<br>`CURRENT_TIMEZONE`) | Built-in functions for handling and transforming date and<br>timestamp data in PPL queries. For example, **date\_add**, **date\_format**, **datediff**, and **current\_date**.                                                                                                                    | Supported       | Supported | Supported     | ```<br>eval newDate = ADDDATE(DATE('2020-08-26'), 1)<br>                              | fields newDate<br>```              |
+| [PPL condition functions](#supported-ppl-condition-functions "#supported-ppl-condition-functions")<br>(`EXISTS`, `IF`, `IFNULL`,<br>`ISNOTNULL`, `ISNULL`,<br>`NULLIF`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Built-in functions that perform calculations on multiple rows<br>to produce a single summarized value. For example, **sum**, **count**, **avg**,<br>**max**, and **min**.                                                                                                                         | Supported       | Supported | Supported     | ```<br>eval field2 = isnull(col1)<br>                                                 | fields field2, col1, field3<br>``` |
+| [PPL mathematical functions](#supported-ppl-math-functions "#supported-ppl-math-functions")<br>(`ABS`, `ACOS`, `ASIN`,<br>`ATAN`, `ATAN2`, `CEIL`,<br>`CEILING`, `CONV`, `COS`,<br>`COT`, `CRC32`, `DEGREES`,<br>`E`, `EXP`, `FLOOR`,<br>`LN`, `LOG`, `LOG2`,<br>`LOG10`, `MOD`, `PI`.<br>`POW`, `POWER`, `RADIANS`,<br>`RAND`, `ROUND`, `SIGN`,<br>`SIN`, `SQRT`,<br>`CBRT`)                                                                                                                                                                                                                                                                                                    | Built-in functions for performing mathematical calculations<br>and transformations in PPL queries. For example: *_abs_<br>• (absolute value), *_round_<br>• (rounds numbers), *_sqrt_<br>• (square root), *_pow_<br>• (power calculation), and<br>*_ceil_<br>• (rounds up to nearest<br>integer). | Supported       | Supported | Supported     | ```<br>eval field2 = ACOS(col1)<br>                                                   | fields col1<br>```                 |
+| [PPL expressions](#supported-ppl-expressions "#supported-ppl-expressions")<br>(Arithmetic operators (`+`, `-`,<br>`*`), Predicate operators (`>. <`,<br>`IN)`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Built-in functions for expressions, particularly value<br>expressions, return a scalar value. Expressions have different<br>types and forms.                                                                                                                                                      | Supported       | Supported | Supported     | ```<br>where age > (25 + 5)<br>                                                       | fields age<br>```                  |
+| [PPL IP address functions](#supported-ppl-ip-address-functions "#supported-ppl-ip-address-functions")<br>(`CIDRMATCH`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Built-in functions for handling IP addresses such as<br>CIDR.                                                                                                                                                                                                                                     | Supported       | Supported | Supported     | ```<br>where cidrmatch(ip, '***********/24')<br>                                      | fields ip<br>```                   |
+| [PPL JSON functions](#supported-ppl-json-functions "#supported-ppl-json-functions")<br>(`ARRAY_LENGTH`, `ARRAY_LENGTH`,<br>`JSON`, `JSON_ARRAY`,<br>`JSON_EXTRACT`, `JSON_KEYS`,<br>`JSON_OBJECT`, `JSON_VALID`,<br>`TO_JSON_STRING`)                                                                                                                                                                                                                                                                                                                                                                                                                                            | Built-in functions for handling JSON including arrays,<br>extracting, and validation.                                                                                                                                                                                                             | Supported       | Supported | Supported     | ``<br>eval `json_extract('{"a":"b"}', '$.a')` = json_extract('{"a":"b"}', '$a')<br>`` |
+| [PPL Lambda functions](#supported-ppl-lambda-functions "#supported-ppl-lambda-functions")<br>(`EXISTS`, `FILTER`,<br>`REDUCE`, `TRANSFORM`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Built-in functions for handling JSON including arrays,<br>extracting, and validation.                                                                                                                                                                                                             | Not supported   | Supported | Supported     | ```<br>eval array = json_array(1, -1, 2),<br>result = filter(array, x -> x > 0)<br>   | fields result<br>```               |
+| [PPL cryptographic hash functions](#supported-ppl-cryptographic-functions "#supported-ppl-cryptographic-functions")<br>(`MD5`, `SHA1`,<br>`SHA2`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Built-in functions that allow you to generate unique<br>fingerprints of data, which can be used for verification,<br>comparison, or as part of more complex security<br>protocols.                                                                                                                | Supported       | Supported | Supported     | ```<br>eval `MD5('hello')` = MD5('hello')<br>                                         | fields `MD5('hello')`<br>```       |
 
 ## Additional information for CloudWatch Logs Insights users using OpenSearch PPL
 
@@ -142,7 +142,7 @@ fetched rows / total rows = 2/2
 
 ###### Block Comments
 
-Block comments begin with a slash followed by an asterisk \\\*, and end
+Block comments begin with a slash followed by an asterisk \\*, and end
 with an asterisk followed by a slash \*/.
 
 Example:
@@ -250,9 +250,9 @@ Instead, you can use a more targeted approach by correlating data from
 different sources. You can use these dimensions for correlation:
 
 - **IP** - `"ip": "10.0.0.1" |
-"ip": "**************"`
+ "ip": "**************"`
 - **Port** - `"port": 2817 |
-"target_port": "10.0.0.1:80"`
+ "target_port": "10.0.0.1:80"`
 
 Assuming you have access to additional traces and metrics indices, and
 you're familiar with your schema structure, you can create a more precise
@@ -602,23 +602,23 @@ fetched rows / total rows = 3/3
 - `source = table | dedup a | fields a,b,c`
 - `source = table | dedup a,b | fields a,b,c`
 - `source = table | dedup a keepempty=true | fields
-a,b,c`
+ a,b,c`
 - `source = table | dedup a,b keepempty=true | fields
-a,b,c`
+ a,b,c`
 - `source = table | dedup 1 a | fields a,b,c`
 - `source = table | dedup 1 a,b | fields a,b,c`
 - `source = table | dedup 1 a keepempty=true | fields
-a,b,c`
+ a,b,c`
 - `source = table | dedup 1 a,b keepempty=true | fields
-a,b,c`
+ a,b,c`
 - `source = table | dedup 2 a | fields a,b,c`
 - `source = table | dedup 2 a,b | fields a,b,c`
 - `source = table | dedup 2 a keepempty=true | fields
-a,b,c`
+ a,b,c`
 - `source = table | dedup 2 a,b keepempty=true | fields
-a,b,c`
+ a,b,c`
 - `source = table | dedup 1 a consecutive=true| fields
-a,b,c` (consecutive deduplication is unsupported)
+ a,b,c` (consecutive deduplication is unsupported)
 
 ###### Limitation
 
@@ -765,34 +765,34 @@ fields in `table`
 - `source = table | eval f = 1` (output a,b,c,f
   fields)
 - `source = table | eval n = now() | eval t = unix_timestamp(a)
-| fields n,t`
+ | fields n,t`
 - `source = table | eval f = a | where f > 1 | sort f | fields
-a,b,c | head 5`
+ a,b,c | head 5`
 - `source = table | eval f = a * 2 | eval h = f * 2 | fields
-a,f,h`
+ a,f,h`
 - `source = table | eval f = a * 2, h = f * 2 | fields
-a,f,h`
+ a,f,h`
 - `source = table | eval f = a * 2, h = b | stats avg(f) by
-h`
+ h`
 - `source = table | eval f = ispresent(a)`
 - `source = table | eval r = coalesce(a, b, c) | fields
-r`
+ r`
 - `source = table | eval e = isempty(a) | fields
-e`
+ e`
 - `source = table | eval e = isblank(a) | fields
-e`
+ e`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one',
-a = 2, 'two', a = 3, 'three', a = 4, 'four', a = 5, 'five', a =
-6, 'six', a = 7, 'se7en', a = 8, 'eight', a = 9,
-'nine')`
+ a = 2, 'two', a = 3, 'three', a = 4, 'four', a = 5, 'five', a =
+ 6, 'six', a = 7, 'se7en', a = 8, 'eight', a = 9,
+ 'nine')`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one'
-else 'unknown')`
+ else 'unknown')`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one'
-else concat(a, ' is an incorrect binary digit'))`
+ else concat(a, ' is an incorrect binary digit'))`
 - `source = table | eval f = a in ('foo', 'bar') | fields
-f`
+ f`
 - `source = table | eval f = a not in ('foo', 'bar') | fields
-f`
+ f`
 
 ###### Eval with case example:
 
@@ -816,34 +816,34 @@ fields in `table`
 - `source = table | eval f = 1` (output a,b,c,f
   fields)
 - `source = table | eval n = now() | eval t = unix_timestamp(a)
-| fields n,t`
+ | fields n,t`
 - `source = table | eval f = a | where f > 1 | sort f | fields
-a,b,c | head 5`
+ a,b,c | head 5`
 - `source = table | eval f = a * 2 | eval h = f * 2 | fields
-a,f,h`
+ a,f,h`
 - `source = table | eval f = a * 2, h = f * 2 | fields
-a,f,h`
+ a,f,h`
 - `source = table | eval f = a * 2, h = b | stats avg(f) by
-h`
+ h`
 - `source = table | eval f = ispresent(a)`
 - `source = table | eval r = coalesce(a, b, c) | fields
-r`
+ r`
 - `source = table | eval e = isempty(a) | fields
-e`
+ e`
 - `source = table | eval e = isblank(a) | fields
-e`
+ e`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one',
-a = 2, 'two', a = 3, 'three', a = 4, 'four', a = 5, 'five', a =
-6, 'six', a = 7, 'se7en', a = 8, 'eight', a = 9,
-'nine')`
+ a = 2, 'two', a = 3, 'three', a = 4, 'four', a = 5, 'five', a =
+ 6, 'six', a = 7, 'se7en', a = 8, 'eight', a = 9,
+ 'nine')`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one'
-else 'unknown')`
+ else 'unknown')`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one'
-else concat(a, ' is an incorrect binary digit'))`
+ else concat(a, ' is an incorrect binary digit'))`
 - `source = table | eval f = a in ('foo', 'bar') | fields
-f`
+ f`
 - `source = table | eval f = a not in ('foo', 'bar') | fields
-f`
+ f`
 
 ###### Eval with case example:
 
@@ -975,17 +975,17 @@ For example, to split the field `age` into buckets by
 can split a `timestamp` field into hourly intervals using
 `span(timestamp, 1h)`.
 
-| Available time units       | Span interval units |
-| -------------------------- | ------------------- |
-| millisecond (ms)           |
-| second (s)                 |
+Available time units| Span interval units |
+| --- |
+| millisecond (ms) |
+| second (s) |
 | minute (m, case sensitive) |
-| hour (h)                   |
-| day (d)                    |
-| week (w)                   |
-| month (M, case sensitive)  |
-| quarter (q)                |
-| year (y)                   |
+| hour (h) |
+| day (d) |
+| week (w) |
+| month (M, case sensitive) |
+| quarter (q) |
+| year (y) |
 
 ###### Aggregation functions
 
@@ -1087,7 +1087,7 @@ fetched rows / total rows = 4/4
 +----------------+----------+-----------+----------+-----+--------+-----------------------+-------------+--------------------------+--------+-------+-----------+
 ```
 
-###### STDDEV_SAMP
+###### STDDEV\_SAMP
 
 `STDDEV_SAMP(expr)` Return the sample standard deviation of
 expr.
@@ -1107,7 +1107,7 @@ fetched rows / total rows = 4/4
 +----------------+----------+-----------+----------+-----+--------+-----------------------+-------------+--------------------------+--------+-------+------------------------+
 ```
 
-###### STDDEV_POP
+###### STDDEV\_POP
 
 `STDDEV_POP(expr)` Return the population standard deviation
 of expr.
@@ -1127,7 +1127,7 @@ fetched rows / total rows = 4/4
 +----------------+----------+-----------+----------+-----+--------+-----------------------+-------------+--------------------------+--------+-------+------------------------+
 ```
 
-###### PERCENTILE or PERCENTILE_APPROX
+###### PERCENTILE or PERCENTILE\_APPROX
 
 `PERCENTILE(expr, percent)` or
 `PERCENTILE_APPROX(expr, percent)` Return the approximate
@@ -1209,45 +1209,45 @@ fetched rows / total rows = 4/4
 
 - `source = table | eventstats avg(a)`
 - `source = table | where a < 50 | eventstats
-avg(c)`
+ avg(c)`
 - `source = table | eventstats max(c) by b`
 - `source = table | eventstats count(c) by b | head
-5`
+ 5`
 - `source = table | eventstats distinct_count(c)`
 - `source = table | eventstats stddev_samp(c)`
 - `source = table | eventstats stddev_pop(c)`
 - `source = table | eventstats percentile(c, 90)`
 - `source = table | eventstats percentile_approx(c,
-99)`
+ 99)`
 
 ###### Aggregations with span
 
 - `source = table | eventstats count(a) by span(a, 10) as
-a_span`
+ a_span`
 - `source = table | eventstats sum(age) by span(age, 5) as
-age_span | head 2`
+ age_span | head 2`
 - `source = table | eventstats avg(age) by span(age, 20) as
-age_span, country | sort - age_span | head 2`
+ age_span, country | sort - age_span | head 2`
 
 ###### Aggregations with time window span (tumble windowing function)
 
 - `source = table | eventstats sum(productsAmount) by
-span(transactionDate, 1d) as age_date | sort
-age_date`
+ span(transactionDate, 1d) as age_date | sort
+ age_date`
 - `source = table | eventstats sum(productsAmount) by
-span(transactionDate, 1w) as age_date, productId`
+ span(transactionDate, 1w) as age_date, productId`
 
 ###### Aggregations group by multiple levels
 
 - `source = table | eventstats avg(age) as avg_state_age by
-country, state | eventstats avg(avg_state_age) as
-avg_country_age by country`
+ country, state | eventstats avg(avg_state_age) as
+ avg_country_age by country`
 - `source = table | eventstats avg(age) as avg_city_age by
-country, state, city | eval new_avg_city_age = avg_city_age - 1
-| eventstats avg(new_avg_city_age) as avg_state_age by country,
-state | where avg_state_age > 18 | eventstats
-avg(avg_state_age) as avg_adult_country_age by
-country`
+ country, state, city | eval new_avg_city_age = avg_city_age - 1
+ | eventstats avg(new_avg_city_age) as avg_state_age by country,
+ state | where avg_state_age > 18 | eventstats
+ avg(avg_state_age) as avg_adult_country_age by
+ country`
 
 #### expand command
 
@@ -1297,17 +1297,17 @@ specified array or map field, where:
 ###### Examples
 
 - `source = table | expand employee | stats max(salary) as max
-by state, company`
+ by state, company`
 - `source = table | expand employee as worker | stats
-max(salary) as max by state, company`
+ max(salary) as max by state, company`
 - `source = table | expand employee as worker | eval bonus =
-salary * 3 | fields worker, bonus`
+ salary * 3 | fields worker, bonus`
 - `source = table | expand employee | parse description
-'(?<email>.+@.+)' | fields employee, email`
+ '(?<email>.+@.+)' | fields employee, email`
 - `source = table | eval array=json_array(1, 2, 3) | expand
-array as uid | fields name, occupation, uid`
+ array as uid | fields name, occupation, uid`
 - `source = table | expand multi_valueA as multiA | expand
-multi_valueB as multiB`
+ multi_valueB as multiB`
 
 #### explain command
 
@@ -1324,10 +1324,10 @@ command's purpose and its importance in query optimization.
 ###### Comment
 
 - `source=accounts | top gender // finds most common gender of
-all the accounts` (line comment)
+ all the accounts` (line comment)
 - `source=accounts | dedup 2 gender /* dedup the document with
-gender field keep 2 duplication */ | fields account_number,
-gender` (block comment)
+ gender field keep 2 duplication */ | fields account_number,
+ gender` (block comment)
 
 ###### Describe
 
@@ -1342,14 +1342,14 @@ gender` (block comment)
 ###### Explain
 
 - `explain simple | source = table | where a = 1 | fields
-a,b,c`
+ a,b,c`
 - `explain extended | source = table`
 - `explain codegen | source = table | dedup a | fields
-a,b,c`
+ a,b,c`
 - `explain cost | source = table | sort a | fields
-a,b,c`
+ a,b,c`
 - `explain formatted | source = table | fields -
-a`
+ a`
 - `explain simple | describe table`
 
 ###### Fields
@@ -1363,65 +1363,67 @@ a`
 ###### Field summary
 
 - `source = t | fieldsummary includefields=status_code
-nulls=false`
+ nulls=false`
 - `source = t | fieldsummary includefields= id, status_code,
-request_path nulls=true`
+ request_path nulls=true`
 - `source = t | where status_code != 200 | fieldsummary
-includefields= status_code nulls=true`
+ includefields= status_code nulls=true`
 
 ###### Nested field
 
 - `source = catalog.schema.table1, catalog.schema.table2 |
-fields A.nested1, B.nested1`
+ fields A.nested1, B.nested1`
 - `source = catalog.table | where struct_col2.field1.subfield
-  > 'valueA' | sort int_col | fields int_col,
-  > struct_col.field1.subfield,
-  > struct_col2.field1.subfield`
+
+> 'valueA' | sort int_col | fields int_col,
+> struct_col.field1.subfield,
+> struct_col2.field1.subfield`
+
 - `source = catalog.schema.table | where
-struct_col2.field1.subfield > 'valueA' | sort int_col | fields
-int_col, struct_col.field1.subfield,
-struct_col2.field1.subfield`
+ struct_col2.field1.subfield > 'valueA' | sort int_col | fields
+ int_col, struct_col.field1.subfield,
+ struct_col2.field1.subfield`
 
 ###### Filters
 
 - `source = table | where a = 1 | fields a,b,c`
 - `source = table | where a >= 1 | fields
-a,b,c`
+ a,b,c`
 - `source = table | where a < 1 | fields a,b,c`
 - `source = table | where b != 'test' | fields
-a,b,c`
+ a,b,c`
 - `source = table | where c = 'test' | fields a,b,c | head
-3`
+ 3`
 - `source = table | where ispresent(b)`
 - `source = table | where isnull(coalesce(a, b)) | fields a,b,c
-| head 3`
+ | head 3`
 - `source = table | where isempty(a)`
 - `source = table | where isblank(a)`
 - `source = table | where case(length(a) > 6, 'True' else
-'False') = 'True'`
+ 'False') = 'True'`
 - `source = table | where a not in (1, 2, 3) | fields
-a,b,c`
+ a,b,c`
 - `source = table | where a between 1 and 4` - Note: This
   returns a >= 1 and a <= 4, i.e. [1, 4]
 - `source = table | where b not between '2024-09-10' and
-'2025-09-10'` - Note: This returns b >= '\*\*\*\*\*\*\*\*\*\*'
+ '2025-09-10'` - Note: This returns b >= '\*\*\*\*\*\*\*\*\*\*'
   and b <= '2025-09-10'
 - `source = table | where cidrmatch(ip,
-'***********/24')`
+ '***********/24')`
 - `source = table | where cidrmatch(ipv6,
-'2003:db8::/32')`
+ '2003:db8::/32')`
 - `source = table | trendline sma(2, temperature) as
-temp_trend`
+ temp_trend`
 
 ###### IP related queries
 
 - `source = table | where cidrmatch(ip,
-'**************')`
+ '**************')`
 - `source = table | where isV6 = false and isValid = true and
-cidrmatch(ipAddress, '**************')`
+ cidrmatch(ipAddress, '**************')`
 - `source = table | where isV6 = true | eval inRange =
-case(cidrmatch(ipAddress, '2003:***::/32'), 'in' else 'out') |
-fields ip, inRange`
+ case(cidrmatch(ipAddress, '2003:***::/32'), 'in' else 'out') |
+ fields ip, inRange`
 
 ###### Complex filters
 
@@ -1450,11 +1452,11 @@ source = table
 ###### Filters with logical conditions
 
 - `source = table | where c = 'test' AND a = 1 | fields
-a,b,c`
+ a,b,c`
 - `source = table | where c != 'test' OR a > 1 | fields a,b,c |
-head 1`
+ head 1`
 - `source = table | where c = 'test' NOT a > 1 | fields
-a,b,c`
+ a,b,c`
 
 ###### Eval
 
@@ -1465,38 +1467,38 @@ existing fields in `table`
 - `source = table | eval f = 1` (output a,b,c,f
   fields)
 - `source = table | eval n = now() | eval t = unix_timestamp(a)
-| fields n,t`
+ | fields n,t`
 - `source = table | eval f = a | where f > 1 | sort f | fields
-a,b,c | head 5`
+ a,b,c | head 5`
 - `source = table | eval f = a * 2 | eval h = f * 2 | fields
-a,f,h`
+ a,f,h`
 - `source = table | eval f = a * 2, h = f * 2 | fields
-a,f,h`
+ a,f,h`
 - `source = table | eval f = a * 2, h = b | stats avg(f) by
-h`
+ h`
 - `source = table | eval f = ispresent(a)`
 - `source = table | eval r = coalesce(a, b, c) | fields
-r`
+ r`
 - `source = table | eval e = isempty(a) | fields
-e`
+ e`
 - `source = table | eval e = isblank(a) | fields
-e`
+ e`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one',
-a = 2, 'two', a = 3, 'three', a = 4, 'four', a = 5, 'five', a =
-6, 'six', a = 7, 'se7en', a = 8, 'eight', a = 9,
-'nine')`
+ a = 2, 'two', a = 3, 'three', a = 4, 'four', a = 5, 'five', a =
+ 6, 'six', a = 7, 'se7en', a = 8, 'eight', a = 9,
+ 'nine')`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one'
-else 'unknown')`
+ else 'unknown')`
 - `source = table | eval f = case(a = 0, 'zero', a = 1, 'one'
-else concat(a, ' is an incorrect binary digit'))`
+ else concat(a, ' is an incorrect binary digit'))`
 - `source = table | eval digest = md5(fieldName) | fields
-digest`
+ digest`
 - `source = table | eval digest = sha1(fieldName) | fields
-digest`
+ digest`
 - `source = table | eval digest = sha2(fieldName,256) | fields
-digest`
+ digest`
 - `source = table | eval digest = sha2(fieldName,512) | fields
-digest`
+ digest`
 
 #### fillnull command
 
@@ -1718,13 +1720,13 @@ flatten <field>
 
 **Schema**
 
-| col_name | data_type                                 |
-| -------- | ----------------------------------------- |
-| \_time   | string                                    |
-| bridges  | array<struct<length:bigint,name:string>>  |
-| city     | string                                    |
-| coor     | struct<alt:bigint,lat:double,long:double> |
-| country  | string                                    |
+| col\_name | data\_type                                |
+| --------- | ----------------------------------------- |
+| \_time    | string                                    |
+| bridges   | array<struct<length:bigint,name:string>>  |
+| city      | string                                    |
+| coor      | struct<alt:bigint,lat:double,long:double> |
+| country   | string                                    |
 
 ###### Data
 
@@ -2560,7 +2562,7 @@ rare [N] <field-list> [by-clause] rare_approx [N] <field-list> [by-clause]
 - The number of results to return.
 - Default: 10
 
-###### rare_approx
+###### rare\_approx
 
 - The approximate count of the rare (n) fields by using estimated
   [cardinality by HyperLogLog++ algorithm](https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html "https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html").
@@ -2708,7 +2710,7 @@ search source=[<remote-cluster>:]<index> [boolean-expression]
 - Mandatory.
 - The search command must specify which index to query from.
 - The index name can be prefixed by `<cluster
-name>:` for cross-cluster searches.
+ name>:` for cross-cluster searches.
 
 ###### bool-expression
 
@@ -2895,13 +2897,13 @@ see [Commands](#supported-ppl-commands "#supported-ppl-commands").
 
 ###### NULL/MISSING values handling
 
-| NULL/MISSING values handling | Function    | NULL        | MISSING |
-| ---------------------------- | ----------- | ----------- | ------- |
-| COUNT                        | Not counted | Not counted |
-| SUM                          | Ignore      | Ignore      |
-| AVG                          | Ignore      | Ignore      |
-| MAX                          | Ignore      | Ignore      |
-| MIN                          | Ignore      | Ignore      |
+NULL/MISSING values handling| Function | NULL | MISSING |
+| --- | --- | --- |
+| COUNT | Not counted | Not counted |
+| SUM | Ignore | Ignore |
+| AVG | Ignore | Ignore |
+| MAX | Ignore | Ignore |
+| MIN | Ignore | Ignore |
 
 ###### Syntax
 
@@ -2940,19 +2942,19 @@ stats <aggregation>... [by-clause]
 - For example, splitting the `age` field into buckets by
   10 years, it looks like `span(age, 10)`. To split a
   timestamp field into hourly intervals, use `span(timestamp,
-1h)`.
+ 1h)`.
 
-| Available time units       | Span interval units |
-| -------------------------- | ------------------- |
-| millisecond (ms)           |
-| second (s)                 |
+Available time units| Span interval units |
+| --- |
+| millisecond (ms) |
+| second (s) |
 | minute (m, case sensitive) |
-| hour (h)                   |
-| day (d)                    |
-| week (w)                   |
-| month (M, case sensitive)  |
-| quarter (q)                |
-| year (y)                   |
+| hour (h) |
+| day (d) |
+| week (w) |
+| month (M, case sensitive) |
+| quarter (q) |
+| year (y) |
 
 ###### Aggregation functions
 
@@ -3056,7 +3058,7 @@ fetched rows / total rows = 1/1
 +--------------------+
 ```
 
-###### STDDEV_POP
+###### STDDEV\_POP
 
 Use `STDDEV_POP(expr)` to return the population standard
 deviation of expr.
@@ -3101,7 +3103,7 @@ fetched rows / total rows = 1/1
 +-----------------------------+
 ```
 
-###### PERCENTILE or PERCENTILE_APPROX
+###### PERCENTILE or PERCENTILE\_APPROX
 
 Use `PERCENTILE(expr, percent)` or
 `PERCENTILE_APPROX(expr, percent)` to return the
@@ -3408,27 +3410,27 @@ source=logs | where id in [ subquery source=users | where user in [ subquery sou
 ###### InSubquery Usage
 
 - `source = outer | where a in [ source = inner | fields b
-]`
+ ]`
 - `source = outer | where (a) in [ source = inner | fields b
-]`
+ ]`
 - `source = outer | where (a,b,c) in [ source = inner | fields
-d,e,f ]`
+ d,e,f ]`
 - `source = outer | where a not in [ source = inner | fields b
-]`
+ ]`
 - `source = outer | where (a) not in [ source = inner | fields
-b ]`
+ b ]`
 - `source = outer | where (a,b,c) not in [ source = inner |
-fields d,e,f ]`
+ fields d,e,f ]`
 - `source = outer a in [ source = inner | fields b ]`
   (search filtering with subquery)
 - `source = outer a not in [ source = inner | fields b ]`
   (search filtering with subquery)
 - `source = outer | where a in [ source = inner1 | where b not
-in [ source = inner2 | fields c ] | fields b ]`
+ in [ source = inner2 | fields c ] | fields b ]`
   (nested)
 - `source = table1 | inner join left = l right = r on l.a = r.a
-AND r.a in [ source = inner | fields d ] | fields l.a, r.a, b,
-c` (as join filter)
+ AND r.a in [ source = inner | fields d ] | fields l.a, r.a, b,
+ c` (as join filter)
 
 ###### SQL Migration Examples with IN-Subquery PPL
 
@@ -3526,32 +3528,36 @@ Assumptions: `a`, `b` are fields of table outer,
 `e`, `f` are fields of table inner2.
 
 - `source = outer | where exists [ source = inner | where a = c
-]`
+ ]`
 - `source = outer | where not exists [ source = inner | where a
-= c ]`
+ = c ]`
 - `source = outer | where exists [ source = inner | where a = c
-and b = d ]`
+ and b = d ]`
 - `source = outer | where not exists [ source = inner | where a
-= c and b = d ]`
+ = c and b = d ]`
 - `source = outer exists [ source = inner | where a = c
-]` (search filtering with subquery)
+ ]` (search filtering with subquery)
 - `source = outer not exists [ source = inner | where a = c
-]` (search filtering with subquery)
+ ]` (search filtering with subquery)
 - `source = table as t1 exists [ source = table as t2 | where
-t1.a = t2.a ]` (table alias is useful in exists
+ t1.a = t2.a ]` (table alias is useful in exists
   subquery)
 - `source = outer | where exists [ source = inner1 | where a =
-c and exists [ source = inner2 | where c = e ] ]`
+ c and exists [ source = inner2 | where c = e ] ]`
   (nested)
 - `source = outer | where exists [ source = inner1 | where a =
-c | where exists [ source = inner2 | where c = e ] ]`
+ c | where exists [ source = inner2 | where c = e ] ]`
   (nested)
 - `source = outer | where exists [ source = inner | where c
-  > 10 ]` (uncorrelated exists)
+
+> 10 ]` (uncorrelated exists)
+
 - `source = outer | where not exists [ source = inner | where c
-  > 10 ]` (uncorrelated exists)
+
+> 10 ]` (uncorrelated exists)
+
 - `source = outer | where exists [ source = inner ] | eval l =
-"nonEmpty" | fields l` (special uncorrelated
+ "nonEmpty" | fields l` (special uncorrelated
   exists)
 
 ###### ScalarSubquery usage
@@ -3565,7 +3571,7 @@ Assumptions: `a`, `b` are fields of table outer,
 In Select:
 
 - `source = outer | eval m = [ source = inner | stats max(c) ]
-| fields m, a`
+ | fields m, a`
 - `source = outer | eval m = [ source = inner | stats max(c) ]
 
 * b | fields m, a`
@@ -3573,49 +3579,49 @@ In Select:
 In Where:
 
 - `source = outer | where a > [ source = inner | stats min(c) ]
-| fields a`
+ | fields a`
 
 In Search filter:
 
 - `source = outer a > [ source = inner | stats min(c) ] |
-fields a`
+ fields a`
 
 ###### Correlated scalar subquery
 
 In Select:
 
 - `source = outer | eval m = [ source = inner | where outer.b =
-inner.d | stats max(c) ] | fields m, a`
+ inner.d | stats max(c) ] | fields m, a`
 - `source = outer | eval m = [ source = inner | where b = d |
-stats max(c) ] | fields m, a`
+ stats max(c) ] | fields m, a`
 - `source = outer | eval m = [ source = inner | where outer.b >
-inner.d | stats max(c) ] | fields m, a`
+ inner.d | stats max(c) ] | fields m, a`
 
 In Where:
 
 - `source = outer | where a = [ source = inner | where outer.b
-= inner.d | stats max(c) ]`
+ = inner.d | stats max(c) ]`
 - `source = outer | where a = [ source = inner | where b = d |
-stats max(c) ]`
+ stats max(c) ]`
 - `source = outer | where [ source = inner | where outer.b =
-inner.d OR inner.d = 1 | stats count() ] > 0 | fields
-a`
+ inner.d OR inner.d = 1 | stats count() ] > 0 | fields
+ a`
 
 In Search filter:
 
 - `source = outer a = [ source = inner | where b = d | stats
-max(c) ]`
+ max(c) ]`
 - `source = outer [ source = inner | where outer.b = inner.d OR
-inner.d = 1 | stats count() ] > 0 | fields a`
+ inner.d = 1 | stats count() ] > 0 | fields a`
 
 ###### Nested scalar subquery
 
 - `source = outer | where a = [ source = inner | stats max(c) |
-sort c ] OR b = [ source = inner | where c = 1 | stats min(d) |
-sort d ]`
+ sort c ] OR b = [ source = inner | where c = 1 | stats min(d) |
+ sort d ]`
 - `source = outer | where a = [ source = inner | where c = [
-source = nested | stats max(e) by f | sort f ] | stats max(d) by
-c | sort c | head 1 ]`
+ source = nested | stats max(e) by f | sort f ] | stats max(d) by
+ c | sort c | head 1 ]`
 
 ###### (Relation) Subquery
 
@@ -3625,11 +3631,11 @@ c | sort c | head 1 ]`
 subquery plan which is common used in Join or From clause.
 
 - `source = table1 | join left = l right = r [ source = table2
-| where d > 10 | head 5 ]` (subquery in join right
+ | where d > 10 | head 5 ]` (subquery in join right
   side)
 - `source = [ source = table1 | join left = l right = r [
-source = table2 | where d > 10 | head 5 ] | stats count(a) by
-b ] as outer | head 1`
+ source = table2 | where d > 10 | head 5 ] | stats count(a) by
+ b ] as outer | head 1`
 
 ###### Additional Context
 
@@ -3720,7 +3726,7 @@ top [N] <field-list> [by-clause] top_approx [N] <field-list> [by-clause]
 - Optional.
 - One or more fields to group the results by.
 
-###### top_approx
+###### top\_approx
 
 - An approximate count of the (n) top fields by using the estimated
   [cardinality by HyperLogLog++ algorithm](https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html "https://spark.apache.org/docs/latest/sql-ref-functions-builtin.html").
@@ -3929,35 +3935,35 @@ fetched rows / total rows = 2/2
 ###### Filters with logical conditions
 
 - `source = table | where c = 'test' AND a = 1 | fields
-a,b,c`
+ a,b,c`
 - `source = table | where c != 'test' OR a > 1 | fields
-a,b,c | head 1`
+ a,b,c | head 1`
 - `source = table | where c = 'test' NOT a > 1 | fields
-a,b,c`
+ a,b,c`
 - `source = table | where a = 1 | fields a,b,c`
 - `source = table | where a >= 1 | fields
-a,b,c`
+ a,b,c`
 - `source = table | where a < 1 | fields a,b,c`
 - `source = table | where b != 'test' | fields
-a,b,c`
+ a,b,c`
 - `source = table | where c = 'test' | fields a,b,c | head
-3`
+ 3`
 - `source = table | where ispresent(b)`
 - `source = table | where isnull(coalesce(a, b)) | fields a,b,c
-| head 3`
+ | head 3`
 - `source = table | where isempty(a)`
 - `source = table | where isblank(a)`
 - `source = table | where case(length(a) > 6, 'True' else
-'False') = 'True'`
+ 'False') = 'True'`
 - `source = table | where a between 1 and 4` - Note: This
   returns a >= 1 and a <= 4, i.e. [1, 4]
 - `source = table | where b not between '2024-09-10' and
-'2025-09-10'` - Note: This returns b >= '\*\*\*\*\*\*\*\*\*\*'
+ '2025-09-10'` - Note: This returns b >= '\*\*\*\*\*\*\*\*\*\*'
   and b <= '2025-09-10'
 - `source = table | where cidrmatch(ip,
-'***********/24')`
+ '***********/24')`
 - `source = table | where cidrmatch(ipv6,
-'2003:db8::/32')`
+ '2003:db8::/32')`
 
 ```
 source = table | eval status_category =
@@ -4089,17 +4095,17 @@ stats, eval, and parse, to manipulate or extract data post-expansion.
 ###### Examples
 
 - `source = table | expand employee | stats max(salary) as max
-by state, company`
+ by state, company`
 - `source = table | expand employee as worker | stats
-max(salary) as max by state, company`
+ max(salary) as max by state, company`
 - `source = table | expand employee as worker | eval bonus =
-salary * 3 | fields worker, bonus`
+ salary * 3 | fields worker, bonus`
 - `source = table | expand employee | parse description
-'(?<email>.+@.+)' | fields employee, email`
+ '(?<email>.+@.+)' | fields employee, email`
 - `source = table | eval array=json_array(1, 2, 3) | expand
-array as uid | fields name, occupation, uid`
+ array as uid | fields name, occupation, uid`
 - `source = table | expand multi_valueA as multiA | expand
-multi_valueB as multiB`
+ multi_valueB as multiB`
 
 You can use the expand command in combination with other commands such as
 eval, stats, and more. Using multiple expand commands will create a
@@ -4807,7 +4813,7 @@ returns a date value based on the given year, month, and day values.
 All arguments are rounded to integers.
 
 **Specifications**: 1.
-MAKE_DATE(INTEGER, INTEGER, INTEGER) -> DATE
+MAKE\_DATE(INTEGER, INTEGER, INTEGER) -> DATE
 
 **Argument type**: INTEGER, INTEGER,
 INTEGER
@@ -5184,7 +5190,7 @@ The function accepts `DATE`, `TIMESTAMP`, or
 returns a `DOUBLE` value representing the Unix
 timestamp.
 
-For the reverse conversion, you can use the FROM_UNIXTIME
+For the reverse conversion, you can use the FROM\_UNIXTIME
 function.
 
 **Argument type**:
@@ -5427,7 +5433,7 @@ hh:mm:ss'.
 
 **Return type**: TIMESTAMP
 
-**Specification**: UTC_TIMESTAMP() ->
+**Specification**: UTC\_TIMESTAMP() ->
 TIMESTAMP
 
 **Example**:
@@ -5529,20 +5535,20 @@ follow these rules:
 
 **Operators**
 
-| Predicate operators | Name                           | Description |
-| ------------------- | ------------------------------ | ----------- |
-| `>`                 | Greater than operator          |
-| >=                  | Greater than or equal operator |
-| `<`                 | Less than operator             |
-| `!=`                | Not equal operator             |
-| `<=`                | Less than or equal operator    |
-| `=`                 | Equal operator                 |
-| `LIKE`              | Simple pattern matching        |
-| `IN`                | NULL value test                |
-| `AND`               | AND operator                   |
-| `OR`                | OR operator                    |
-| `XOR`               | XOR operator                   |
-| `NOT`               | NOT NULL value test            |
+Predicate operators| Name | Description |
+| --- | --- |
+| `>` | Greater than operator |
+| >= | Greater than or equal operator |
+| `<` | Less than operator |
+| `!=` | Not equal operator |
+| `<=` | Less than or equal operator |
+| `=` | Equal operator |
+| `LIKE` | Simple pattern matching |
+| `IN` | NULL value test |
+| `AND` | AND operator |
+| `OR` | OR operator |
+| `XOR` | XOR operator |
+| `NOT` | NOT NULL value test |
 
 You can compare datetimes. When comparing different datetime types
 (for example `DATE` and `TIME`), both convert to
@@ -5712,7 +5718,7 @@ key-value pairs.
 - A <key> must be STRING.
 - A <value> can be any data types.
 
-**Return type**: JSON_OBJECT. A
+**Return type**: JSON\_OBJECT. A
 StructType expression of a valid JSON object.
 
 **Examples**:
@@ -5774,7 +5780,7 @@ fetched rows / total rows = 1/1
 `to_json_string(jsonObject)` returns a JSON string
 with a given json object value.
 
-**Argument type**: JSON_OBJECT
+**Argument type**: JSON\_OBJECT
 
 **Return type**: STRING
 
@@ -5805,7 +5811,7 @@ fetched rows / total rows = 1/1
 elements in the outermost array.
 
 **Argument type**: ARRAY. An ARRAY or
-JSON_ARRAY object.
+JSON\_ARRAY object.
 
 **Return type**: INTEGER
 
@@ -6049,7 +6055,7 @@ fetched rows / total rows = 1/1
 **Usage**: `reduce(array, start,
  merge_lambda, finish_lambda)` reduces an array to a single
 value by applying lambda functions. The function applies the
-merge_lambda to the start value and all array elements, then applies
+merge\_lambda to the start value and all array elements, then applies
 the `finish_lambda` to the result.
 
 **Argument type**: ARRAY, ANY,
@@ -7091,14 +7097,14 @@ function, see [Functions](#supported-ppl-functions "#supported-ppl-functions").
 
 The following conversion rules apply:
 
-| Type conversion rules | Src/Target | STRING | NUMBER | BOOLEAN     | TIMESTAMP | DATE   | TIME |
-| --------------------- | ---------- | ------ | ------ | ----------- | --------- | ------ | ---- |
-| STRING                |            | Note1  | Note1  | TIMESTAMP() | DATE()    | TIME() |
-| NUMBER                | Note1      |        | v!=0   | N/A         | N/A       | N/A    |
-| BOOLEAN               | Note1      | v?1:0  |        | N/A         | N/A       | N/A    |
-| TIMESTAMP             | Note1      | N/A    | N/A    |             | DATE()    | TIME() |
-| DATE                  | Note1      | N/A    | N/A    | N/A         |           | N/A    |
-| TIME                  | Note1      | N/A    | N/A    | N/A         | N/A       |        |
+Type conversion rules| Src/Target | STRING | NUMBER | BOOLEAN | TIMESTAMP | DATE | TIME |
+| --- | --- | --- | --- | --- | --- | --- |
+| STRING | | Note1 | Note1 | TIMESTAMP() | DATE() | TIME() |
+| NUMBER | Note1 | | v!=0 | N/A | N/A | N/A |
+| BOOLEAN | Note1 | v?1:0 | | N/A | N/A | N/A |
+| TIMESTAMP | Note1 | N/A | N/A | | DATE() | TIME() |
+| DATE | Note1 | N/A | N/A | N/A | | N/A |
+| TIME | Note1 | N/A | N/A | N/A | N/A | |
 
 **Cast to string example:**
 

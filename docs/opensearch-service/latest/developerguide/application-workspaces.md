@@ -34,11 +34,11 @@ privacy options to choose from:
 - **Private to collaborators** – Only collaborators
   you explicitly add to the workspace can access the workspace. You can define
   permission levels for each collaborator.
-- \***\*Anyone can view\*\***
+- ****Anyone can view****
   – Anyone who has access to the OpenSearch UI application can access
   the workspace and view its assets, but they can't make any changes in the
   workspace.
-- \***\*Anyone can edit\*\***
+- ****Anyone can edit****
   – Anyone who has access to the OpenSearch UI application can access
   the workspace, view assets in it, and make changes to the assets in the
   workspace.

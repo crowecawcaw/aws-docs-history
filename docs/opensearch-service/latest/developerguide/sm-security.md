@@ -18,7 +18,7 @@ perform the following steps:
 
 3. Choose **Roles** and **Create
    role**.
-4. Name the role **snapshot_management_role**.
+4. Name the role **snapshot\_management\_role**.
 5. For **Cluster permissions**, select
    `snapshot_management_full_access` or
    `snapshot_management_read_access`.

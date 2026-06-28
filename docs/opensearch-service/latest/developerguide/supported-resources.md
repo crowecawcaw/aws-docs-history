@@ -2,7 +2,7 @@
 
 This topic describes additional resources that Amazon OpenSearch Service supports.
 
-**bootstrap.memory_lock**
+**bootstrap.memory\_lock**
 
 OpenSearch Service enables `bootstrap.memory_lock` in
 `opensearch.yml`, which locks JVM memory and prevents

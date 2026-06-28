@@ -779,26 +779,26 @@ aws opensearch revoke-vpc-endpoint-access \
 The following tables summarize the key differences between domain types,
 authentication methods, and same-region versus cross-region access.
 
-| Public domain compared to VPC domain | Aspect       | Public domain                                                                                         | VPC domain |
-| ------------------------------------ | ------------ | ----------------------------------------------------------------------------------------------------- | ---------- |
-| VPC endpoint authorization           | Not required | Required – must authorize<br>`application.opensearchservice.amazonaws.com` with<br>`SupportedRegions` |
-| Network setup                        | None         | VPC, subnet, security group with HTTPS (443) inbound                                                  |
-| IAM access policy                    | Required     | Required                                                                                              |
+Public domain compared to VPC domain| Aspect | Public domain | VPC domain |
+| --- | --- | --- |
+| VPC endpoint authorization | Not required | Required – must authorize<br>`application.opensearchservice.amazonaws.com` with<br>`SupportedRegions` |
+| Network setup | None | VPC, subnet, security group with HTTPS (443) inbound |
+| IAM access policy | Required | Required |
 
-| IAM user compared to IAM Identity Center user | Aspect                                         | IAM user                                                                                                   | IAM Identity Center user |
-| --------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------ |
-| Data plane credentials                        | User's own IAM credentials                     | IAM Identity Center application role                                                                       |
-| Access control                                | Domain access policy and backend role mappings | Domain access policy and backend role mappings                                                             |
-| Application Region constraint                 | Any Region                                     | Must be in the same Region as the IAM Identity Center instance                                             |
-| Domain configuration                          | Standard                                       | Requires `--identity-center-options` with<br>`IdentityCenterInstanceRegion`                                |
-| Additional setup                              | None                                           | IAM Identity Center application role, user/group creation, application<br>assignment, backend role mapping |
+IAM user compared to IAM Identity Center user| Aspect | IAM user | IAM Identity Center user |
+| --- | --- | --- |
+| Data plane credentials | User's own IAM credentials | IAM Identity Center application role |
+| Access control | Domain access policy and backend role mappings | Domain access policy and backend role mappings |
+| Application Region constraint | Any Region | Must be in the same Region as the IAM Identity Center instance |
+| Domain configuration | Standard | Requires `--identity-center-options` with<br>`IdentityCenterInstanceRegion` |
+| Additional setup | None | IAM Identity Center application role, user/group creation, application<br>assignment, backend role mapping |
 
-| Same-region compared to cross-region     | Aspect                                  | Same-region                                                   | Cross-region |
-| ---------------------------------------- | --------------------------------------- | ------------------------------------------------------------- | ------------ |
-| Data source ARN                          | Same Region as application              | Different Region from application (same partition)            |
-| VPC endpoint authorization               | Omit `--service-options`                | Include `--service-options` with<br>`SupportedRegions`        |
-| IAM Identity Center domain configuration | `IdentityCenterInstanceRegion` optional | `IdentityCenterInstanceRegion` required                       |
-| Cross-partition support                  | N/A                                     | Not supported – data sources must be in the same<br>partition |
+Same-region compared to cross-region| Aspect | Same-region | Cross-region |
+| --- | --- | --- |
+| Data source ARN | Same Region as application | Different Region from application (same partition) |
+| VPC endpoint authorization | Omit `--service-options` | Include `--service-options` with<br>`SupportedRegions` |
+| IAM Identity Center domain configuration | `IdentityCenterInstanceRegion` optional | `IdentityCenterInstanceRegion` required |
+| Cross-partition support | N/A | Not supported – data sources must be in the same<br>partition |
 
 ## Important notes
 

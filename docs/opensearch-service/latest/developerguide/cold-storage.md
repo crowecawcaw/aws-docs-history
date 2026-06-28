@@ -75,7 +75,7 @@ be mapped to this role in order to manage cold indexes. To manually create the
 
 3. Choose **Roles** and **Create
    role**.
-4. Name the role **cold_manager**.
+4. Name the role **cold\_manager**.
 5. For **Cluster permissions**, choose the
    `cold_cluster` group you created.
 6. For **Index**, enter `*`.
@@ -213,10 +213,10 @@ When you migrate indexes to cold storage, you provide a time range for the data 
 make discovery easier. You can select a timestamp field based on the data in your index,
 manually provide a start and end timestamp, or choose to not specify one.
 
-| Parameter                   | Supported value                                                                                                                                               | Description                                                                                                                                        |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `timestamp_field`           | The date/time field from the index mapping.                                                                                                                   | The minimum and maximum values of the provided field are computed<br>and stored as the `start_time` and `end_time`<br>metadata for the cold index. |
-| `start_time` and `end_time` | One of the following formats:<br>• strict_date_optional_time. For example:<br>`yyyy-MM-dd'T'HH:mm:ss.SSSZ` or<br>`yyyy-MM-dd`<br>• Epoch time in milliseconds | The provided values are stored as the `start_time` and<br>`end_time` metadata for the cold index.                                                  |
+| Parameter                   | Supported value                                                                                                                                                  | Description                                                                                                                                        |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `timestamp_field`           | The date/time field from the index mapping.                                                                                                                      | The minimum and maximum values of the provided field are computed<br>and stored as the `start_time` and `end_time`<br>metadata for the cold index. |
+| `start_time` and `end_time` | One of the following formats:<br>• strict\_date\_optional\_time. For example:<br>`yyyy-MM-dd'T'HH:mm:ss.SSSZ` or<br>`yyyy-MM-dd`<br>• Epoch time in milliseconds | The provided values are stored as the `start_time` and<br>`end_time` metadata for the cold index.                                                  |
 
 If you don't want to specify a timestamp, add `?ignore=timestamp` to the
 request instead.

@@ -6,7 +6,7 @@ ways:
 | Feature                                  | OpenSearch Service                                                                       | OpenSearch Serverless                                                                           |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | **Data access control**                  | Data access is determined by IAM policies and fine-grained access<br>control.            | Data access is determined by data access policies.                                              |
-| **Encryption at rest**                   | Encryption at rest is \*optional<br>• for domains.                                       | Encryption at rest is \*required<br>• for<br>collections.                                       |
+| **Encryption at rest**                   | Encryption at rest is *optional<br>• for domains.                                        | Encryption at rest is *required<br>• for<br>collections.                                        |
 | **Security setup and<br>administration** | You must configure network, encryption, and data access individually for<br>each domain. | You can use security policies to manage security settings for multiple<br>collections at scale. |
 
 The following diagram illustrates the security components that make up a functional

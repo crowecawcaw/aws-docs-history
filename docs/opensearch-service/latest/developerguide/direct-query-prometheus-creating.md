@@ -43,9 +43,7 @@ You can also choose **Import policy** to import an existing access policy from a
     1. If no OpenSearch UI application exists in your account, create a new OpenSearch application. If an existing OpenSearch application exists, select it.
     2. If you create a new application, create a new observability workspace. If you selected an existing application, create a new observability workspace or select an existing one. Amazon Managed Service for Prometheus is only available in the observability workspace.
 
-12. Choose **Next**.
-13. Review your choices and choose **Edit** if you need to make any changes.
-14. Choose **Connect** to set up the data source. Stay on this page while your data source is created. When it's ready, you're taken to the data source details page.
+12. Choose **Next**. 13. Review your choices and choose **Edit** if you need to make any changes. 14. Choose **Connect** to set up the data source. Stay on this page while your data source is created. When it's ready, you're taken to the data source details page.
 
 ### Next steps
 

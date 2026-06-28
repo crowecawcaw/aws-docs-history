@@ -410,14 +410,14 @@ features available in OpenSearch.
 | TIME               | long (in epoch milliseconds)  | date                                                      |
 | TIMESTAMP          | long (in epoch milliseconds)  | date                                                      |
 | YEAR               | long (in epoch milliseconds)  | date                                                      |
-| GEOMETRY           | text (in WKT format)          | geo_shape                                                 |
-| GEOMETRYCOLLECTION | text (in WKT format)          | geo_shape                                                 |
-| LINESTRING         | text (in WKT format)          | geo_shape                                                 |
-| MULTILINESTRING    | text (in WKT format)          | geo_shape                                                 |
-| MULTIPOINT         | text (in WKT format)          | geo_shape                                                 |
-| MULTIPOLYGON       | text (in WKT format)          | geo_shape                                                 |
-| POINT              | text (in WKT format)          | geo_point or geo_shape                                    |
-| POLYGON            | text (in WKT format)          | geo_shape                                                 |
+| GEOMETRY           | text (in WKT format)          | geo\_shape                                                |
+| GEOMETRYCOLLECTION | text (in WKT format)          | geo\_shape                                                |
+| LINESTRING         | text (in WKT format)          | geo\_shape                                                |
+| MULTILINESTRING    | text (in WKT format)          | geo\_shape                                                |
+| MULTIPOINT         | text (in WKT format)          | geo\_shape                                                |
+| MULTIPOLYGON       | text (in WKT format)          | geo\_shape                                                |
+| POINT              | text (in WKT format)          | geo\_point or geo\_shape                                  |
+| POLYGON            | text (in WKT format)          | geo\_shape                                                |
 | JSON               | text                          | object                                                    |
 
 We recommend that you configure the dead-letter queue (DLQ) in your

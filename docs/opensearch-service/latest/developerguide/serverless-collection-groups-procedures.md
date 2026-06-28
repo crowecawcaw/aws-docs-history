@@ -39,25 +39,23 @@ criteria:
     * Must be 3–32 characters
 
 5. (Optional) For **Description**, enter a
-   description for your collection group.
-6. In the **Capacity management** section,
-   configure the OCU limits:
+description for your collection group. 6. In the **Capacity management** section,
+configure the OCU limits:
 
-   - **Minimum indexing capacity**
+    * **Minimum indexing capacity**
      (in OCUs) – Optional. Leave blank for no
      minimum.
-   - **Maximum indexing capacity**
+    * **Maximum indexing capacity**
      (in OCUs) – Default is 96.
-   - **Minimum search capacity**
+    * **Minimum search capacity**
      (in OCUs) – Optional. Leave blank for no
      minimum.
-   - **Maximum search capacity**
+    * **Maximum search capacity**
      (in OCUs) – Default is 96.
 
 7. (Optional) In the **Tags** section, add
-   tags to help organize and identify your collection
-   group.
-8. Choose **Create collection group**.
+tags to help organize and identify your collection
+group. 8. Choose **Create collection group**.
 
 AWS CLI
 

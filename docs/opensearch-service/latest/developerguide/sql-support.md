@@ -15,31 +15,31 @@ queries, functions, metadata queries, and aggregate functions.
 Use the following table to find the version of the SQL plugin that's supported by each
 OpenSearch and Elasticsearch version.
 
-| OpenSearch | OpenSearch version                                                                                                                            | SQL plugin version                                                                    | Notable features |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------- |
-| 2.19.0     | [2.19.0.0](https://github.com/opensearch-project/sql/releases/tag/2.19.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.19.0.0") |                                                                                       |
-| 2.18.0     | [2.18.0.0](https://github.com/opensearch-project/sql/releases/tag/2.18.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.18.0.0") |                                                                                       |
-| 2.17.0     | [2.17.0.0](https://github.com/opensearch-project/sql/releases/tag/2.17.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.17.0.0") |                                                                                       |
-| 2.15.0     | [2.15.0.0](https://github.com/opensearch-project/sql/releases/tag/2.15.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.15.0.0") |                                                                                       |
-| 2.13.0     | [2.13.0.0](https://github.com/opensearch-project/sql/releases/tag/2.13.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.13.0.0") |                                                                                       |
-| 2.11.0     | [2.11.0.0](https://github.com/opensearch-project/sql/releases/tag/2.11.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.11.0.0") | Add support for PPL language and queries                                              |
-| 2.9.0      | [2.9.0.0](https://github.com/opensearch-project/sql/releases/tag/2.9.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.9.0.0")    | Add Spark connector, and support table and PromQL functions                           |
-| 2.7.0      | [2.7.0.0](https://github.com/opensearch-project/sql/releases/tag/2.7.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.7.0.0")    | Add `datasource` API                                                                  |
-| 2.5.0      | [2.5.0.0](https://github.com/opensearch-project/sql/releases/tag/2.5.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.5.0.0")    |                                                                                       |
-| 2.3.0      | [2.3.0.0](https://github.com/opensearch-project/sql/releases/tag/2.3.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.3.0.0")    | Add `maketime` and `makedate` datetime<br>functions                                   |
-| 1.3.0      | [1.3.0.0](https://github.com/opensearch-project/sql/releases/tag/1.3.0.0 "https://github.com/opensearch-project/sql/releases/tag/1.3.0.0")    | Support default query limit size, and IN clause to select from within<br>a value list |
-| 1.2.0      | [1.2.0.0](https://github.com/opensearch-project/sql/releases/tag/1.2.0.0 "https://github.com/opensearch-project/sql/releases/tag/1.2.0.0")    | Add new protocol for visualization response format                                    |
-| 1.1.0      | [1.1.0.0](https://github.com/opensearch-project/sql/releases/tag/1.1.0.0 "https://github.com/opensearch-project/sql/releases/tag/1.1.0.0")    | Support match function as filter in SQL and PPL                                       |
-| 1.0.0      | [1.0.0.0](https://github.com/opensearch-project/sql/releases/tag/1.0.0.0 "https://github.com/opensearch-project/sql/releases/tag/1.0.0.0")    | Support querying a data stream                                                        |
+OpenSearch| OpenSearch version | SQL plugin version | Notable features |
+| --- | --- | --- |
+| 2.19.0 | [2.19.0.0](https://github.com/opensearch-project/sql/releases/tag/2.19.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.19.0.0") | |
+| 2.18.0 | [2.18.0.0](https://github.com/opensearch-project/sql/releases/tag/2.18.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.18.0.0") | |
+| 2.17.0 | [2.17.0.0](https://github.com/opensearch-project/sql/releases/tag/2.17.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.17.0.0") | |
+| 2.15.0 | [2.15.0.0](https://github.com/opensearch-project/sql/releases/tag/2.15.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.15.0.0") | |
+| 2.13.0 | [2.13.0.0](https://github.com/opensearch-project/sql/releases/tag/2.13.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.13.0.0") | |
+| 2.11.0 | [2.11.0.0](https://github.com/opensearch-project/sql/releases/tag/2.11.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.11.0.0") | Add support for PPL language and queries |
+| 2.9.0 | [2.9.0.0](https://github.com/opensearch-project/sql/releases/tag/2.9.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.9.0.0") | Add Spark connector, and support table and PromQL functions |
+| 2.7.0 | [2.7.0.0](https://github.com/opensearch-project/sql/releases/tag/2.7.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.7.0.0") | Add `datasource` API |
+| 2.5.0 | [2.5.0.0](https://github.com/opensearch-project/sql/releases/tag/2.5.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.5.0.0") | |
+| 2.3.0 | [2.3.0.0](https://github.com/opensearch-project/sql/releases/tag/2.3.0.0 "https://github.com/opensearch-project/sql/releases/tag/2.3.0.0") | Add `maketime` and `makedate` datetime<br>functions |
+| 1.3.0 | [1.3.0.0](https://github.com/opensearch-project/sql/releases/tag/1.3.0.0 "https://github.com/opensearch-project/sql/releases/tag/1.3.0.0") | Support default query limit size, and IN clause to select from within<br>a value list |
+| 1.2.0 | [1.2.0.0](https://github.com/opensearch-project/sql/releases/tag/1.2.0.0 "https://github.com/opensearch-project/sql/releases/tag/1.2.0.0") | Add new protocol for visualization response format |
+| 1.1.0 | [1.1.0.0](https://github.com/opensearch-project/sql/releases/tag/1.1.0.0 "https://github.com/opensearch-project/sql/releases/tag/1.1.0.0") | Support match function as filter in SQL and PPL |
+| 1.0.0 | [1.0.0.0](https://github.com/opensearch-project/sql/releases/tag/1.0.0.0 "https://github.com/opensearch-project/sql/releases/tag/1.0.0.0") | Support querying a data stream |
 
-| Open Distro for Elasticsearch | Elasticsearch version                                                                                                                                             | SQL plugin version                                                                       | Notable features |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------- |
-| 7.10                          | [1.13.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.13.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.13.0.0") | NULL FIRST and LAST for window functions, CAST() function, SHOW and<br>DESCRIBE commands |
-| 7.9                           | [1.11.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.11.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.11.0.0") | Add additional date/time functions, ORDER BY keyword                                     |
-| 7.8                           | [1.9.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.9.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.9.0.0")    |                                                                                          |
-| 7.7                           | [1.8.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.8.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.8.0.0")    |                                                                                          |
-| 7.3                           | [1.3.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.3.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.3.0.0")    | Multiple string and number operators                                                     |
-| 7.1                           | [1.1.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.1.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.1.0.0")    |                                                                                          |
+Open Distro for Elasticsearch| Elasticsearch version | SQL plugin version | Notable features |
+| --- | --- | --- |
+| 7.10 | [1.13.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.13.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.13.0.0") | NULL FIRST and LAST for window functions, CAST() function, SHOW and<br>DESCRIBE commands |
+| 7.9 | [1.11.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.11.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.11.0.0") | Add additional date/time functions, ORDER BY keyword |
+| 7.8 | [1.9.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.9.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.9.0.0") | |
+| 7.7 | [1.8.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.8.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.8.0.0") | |
+| 7.3 | [1.3.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.3.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.3.0.0") | Multiple string and number operators |
+| 7.1 | [1.1.0](https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.1.0.0 "https://github.com/opendistro-for-elasticsearch/sql/releases/tag/v1.1.0.0") | |
 
 ## Sample call
 

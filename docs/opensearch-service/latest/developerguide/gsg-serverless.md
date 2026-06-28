@@ -93,7 +93,7 @@ configure public access.
 2. Name the policy `books-policy`. For the description,
    enter `Network policy for books collection`.
 3. Under **Rule 1**, name the rule `Public access
-for books collection`.
+ for books collection`.
 4. For simplicity in this tutorial, configure public access for the
    _books_ collection. For the access type, select
    **Public**.

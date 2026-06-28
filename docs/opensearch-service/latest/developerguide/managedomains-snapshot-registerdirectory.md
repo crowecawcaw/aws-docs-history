@@ -17,7 +17,7 @@ need to map the `manage_snapshots` role to your IAM role that has
    the Dashboards endpoint on your domain dashboard on the OpenSearch Service console.
 2. From the main menu choose **Security**,
    **Roles**, and select the
-   **manage_snapshots** role.
+   **manage\_snapshots** role.
 3. Choose **Mapped users**, **Manage mapping**.
 4. Add the ARN of the role that has permissions to pass
    `TheSnapshotRole`. Put role ARNs under **Backend

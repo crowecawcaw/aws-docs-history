@@ -178,9 +178,9 @@ Viewing Top N queries requires fine-grained access control permissions. Ensure t
 
 - Fine-grained access control is enabled on your domain.
 - Your IAM role (or internal user) is mapped to an OpenSearch role with the required cluster permissions for query insights.
-- For full admin access, map your IAM role ARN as a backend role to both the all_access and security_manager roles.
+- For full admin access, map your IAM role ARN as a backend role to both the all\_access and security\_manager roles.
   You can do this in OpenSearch Dashboards under Security > Roles > select the role > Mapped users > Manage mapping, or by
-  using the [Security API](https://opensearch.org/docs/latest/security/access-control/api/ "https://opensearch.org/docs/latest/security/access-control/api/") (PUT \_plugins/\_security/api/rolesmapping/all_access).
+  using the [Security API](https://opensearch.org/docs/latest/security/access-control/api/ "https://opensearch.org/docs/latest/security/access-control/api/") (PUT \_plugins/\_security/api/rolesmapping/all\_access).
 
 Without proper role mappings, users may receive 403 Forbidden errors when attempting to access query insights data. For details, see
 [Fine-grained access control](fgac.md "fgac.md").

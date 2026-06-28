@@ -21,6 +21,6 @@ On May 10, 2023, OpenSearch introduced a common global endpoint for
 OpenSearch Dashboards. You can now navigate to OpenSearch Dashboards in the browser with a URL
 that takes the format
 `https://dashboards.`us-east-1`.aoss.amazonaws.com/_login/?collectionId=`07tjusf2h91cunochc``.
- To ensure backward compatibility, OpenSearch continues to support the existing collection
- specific OpenSearch Dashboards endpoints with the format
- `https://`07tjusf2h91cunochc`.`us-east-1`.aoss.amazonaws.com/\_dashboards`.
+To ensure backward compatibility, OpenSearch continues to support the existing collection
+specific OpenSearch Dashboards endpoints with the format
+`https://`07tjusf2h91cunochc`.`us-east-1`.aoss.amazonaws.com/_dashboards`.

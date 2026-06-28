@@ -120,7 +120,7 @@ user and map users to roles.
 
 1. Go back to the OpenSearch Service console and navigate to the OpenSearch Dashboards URL for the domain
    you created. The URL follows this format:
-   ``domain-endpoint`/\_dashboards/`.
+   ``domain-endpoint`/_dashboards/`.
 2. Sign in with the `master-user` credentials.
 3. Choose **Add sample data** and add the sample flight data.
 4. In the left navigation pane, choose **Security**,
@@ -149,7 +149,7 @@ user and map users to roles.
     the Amazon Resource Name (ARN) for `LimitedUserRole` as an external identity
     and choose **Map**.
 13. Return to the list of roles and choose
-    **opensearch_dashboards_user**. Choose **Mapped
+    **opensearch\_dashboards\_user**. Choose **Mapped
     users**, **Manage mapping**. Add the ARN for
     `LimitedUserRole` as a backend role and choose
     **Map**.

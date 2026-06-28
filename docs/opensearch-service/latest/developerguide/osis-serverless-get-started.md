@@ -157,7 +157,7 @@ choose **Collection (Serverless)**. Then choose the OpenSearch Service
 collection that you created in the previous section.
 
 Leave the network policy name as the default. For **Index
-name**, enter **my_logs**. OpenSearch Ingestion
+name**, enter **my\_logs**. OpenSearch Ingestion
 automatically creates this index in the collection if it doesn't already
 exist. 11. Choose **Next**. 12. Name the pipeline **ingestion-pipeline-serverless**. Leave
 the capacity settings as their defaults. 13. For **Pipeline role**, select **Create and use a new

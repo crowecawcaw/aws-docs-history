@@ -128,7 +128,7 @@ reference and manually configure the MCP server in your IDE's extension.
 2. In the configuration page, update the following values:
 
    - Replace the "args" value with your actual server.js file path.
-   - Replace OS_UI_ENDPOINT with your OpenSearch UI application's
+   - Replace OS\_UI\_ENDPOINT with your OpenSearch UI application's
      URL.
    - Replace the region with the Region of your OpenSearch UI
      application.

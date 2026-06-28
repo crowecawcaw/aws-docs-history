@@ -92,7 +92,7 @@ JSON
 ```
 
 In order for a pipeline to write data to a domain, the domain must have a
-[domain-level access policy](ac.md#ac-types-resource "ac.md#ac-types-resource") that allows the **sts_role_arn** pipeline role to access it.
+[domain-level access policy](ac.md#ac-types-resource "ac.md#ac-types-resource") that allows the **sts\_role\_arn** pipeline role to access it.
 
 The following example is a domain access policy that allows the pipeline role
 created in the previous step (`pipeline-role`), to write data to the
@@ -237,7 +237,7 @@ after ingesting all records in the OpenSearch domain or collection. This will av
 duplicate processing of stream records.
 
 To create the index based on the stream name, define the index in the opensearch
-sink section as **"index\_${getMetadata(\"stream_name\")}"**.
+sink section as **"index\_${getMetadata(\"stream\_name\")}"**.
 
 ## Amazon Kinesis Data Streams cross account as a source
 

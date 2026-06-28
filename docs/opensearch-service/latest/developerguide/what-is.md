@@ -5,11 +5,11 @@ OpenSearch clusters in the AWS Cloud. An OpenSearch Service domain is synonymous
 Elasticsearch OSS (up to 7.10, the final open source version of the software). When you
 create a domain, you have the option of which search engine to use.
 
-**_OpenSearch_** is a
+_**OpenSearch**_ is a
 fully open-source search and analytics engine for use cases such as log analytics, real-time
 application monitoring, and clickstream analysis. For more information, see the [OpenSearch documentation](https://opensearch.org/docs/ "https://opensearch.org/docs/").
 
-**_Amazon OpenSearch Service_** provisions
+_**Amazon OpenSearch Service**_ provisions
 all the resources for your OpenSearch cluster and launches it. It also automatically
 detects and replaces failed OpenSearch Service nodes, reducing the overhead associated with self-managed
 infrastructures. You can scale your cluster with a single API call or a few clicks in the
@@ -158,15 +158,15 @@ the [pricing page](https://aws.amazon.com/opensearch-service/pricing/#Extended_s
 
 Domains running versions under extended support will be charged a flat additional
 fee/Normalized Instance Hour (NIH), for example, $0.0065 in the US East (North Virginia)
-Region. NIH is computed as a factor of the instance size (e.g., medium, large), and the
-number of instance hours. For example, if you are running an m7g.medium.search instance
-for 24 hours in the US East (North Virginia) Region, which is priced at $0.068/Instance
+ Region. NIH is computed as a factor of the instance size (e.g., medium, large), and the
+ number of instance hours. For example, if you are running an m7g.medium.search instance
+ for 24 hours in the US East (North Virginia) Region, which is priced at $0.068/Instance
 hour (on-demand), you will typically pay $1.632 ($0.068x24). If you are running a
 version that is in extended support, you will pay an additional $0.0065/NIH, which is
-computed as $0.0065 x 24 (number of instance hours) x 2 (size normalization factor; 2
+ computed as $0.0065 x 24 (number of instance hours) x 2 (size normalization factor; 2
 for medium-sized instances), which comes to $0.312 for extended support for 24 hours.
-The total amount you will pay for 24 hours will be a sum of the standard instance usage
-cost and the extended support cost, which is $1.944 ($1.632+$0.312). The below table
+ The total amount you will pay for 24 hours will be a sum of the standard instance usage
+ cost and the extended support cost, which is $1.944 ($1.632+$0.312). The below table
 shows the normalization factor for various instance sizes in OpenSearch Service.
 
 | Instance size | Normalization Factor |

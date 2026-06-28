@@ -121,11 +121,11 @@ for Prometheus console and construct the URL as follows:
 Use the following options to configure batching and flushing behavior for the
 Prometheus sink:
 
-| Prometheus sink configuration options | Option | Required   | Type                                                                                                               | Description |
-| ------------------------------------- | ------ | ---------- | ------------------------------------------------------------------------------------------------------------------ | ----------- |
-| `max_events`                          | No     | Integer    | The maximum number of events to accumulate before flushing to<br>Prometheus. Default is `1000`.                    |
-| `max_request_size`                    | No     | Byte Count | The maximum size of the request payload before flushing. Default<br>is `1mb`.                                      |
-| `flush_interval`                      | No     | Duration   | The maximum amount of time to wait before flushing events.<br>Default is `10s`. Maximum allowed value is<br>`60s`. |
+Prometheus sink configuration options| Option | Required | Type | Description |
+| --- | --- | --- | --- |
+| `max_events` | No | Integer | The maximum number of events to accumulate before flushing to<br>Prometheus. Default is `1000`. |
+| `max_request_size` | No | Byte Count | The maximum size of the request payload before flushing. Default<br>is `1mb`. |
+| `flush_interval` | No | Duration | The maximum amount of time to wait before flushing events.<br>Default is `10s`. Maximum allowed value is<br>`60s`. |
 
 ### Example pipelines
 

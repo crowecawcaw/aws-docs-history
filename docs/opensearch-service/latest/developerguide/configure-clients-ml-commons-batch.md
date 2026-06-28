@@ -23,10 +23,10 @@ learning](https://docs.opensearch.org/latest/ml-commons-plugin/ "https://docs.op
 You can create an offline batch inference pipeline on OpenSearch Ingestion by [adding a
 machine learning inference processor](https://docs.opensearch.org/latest/ingest-pipelines/processors/ml-inference/ "https://docs.opensearch.org/latest/ingest-pipelines/processors/ml-inference/") to a pipeline. This processor enables your
 pipeline to connect to AI services like SageMaker to run batch inference jobs. You can configure
-your processor to connect to your desired AI service through the AI connectors (with [batch_predict](https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/ "https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/") support) running on your target domain.
+your processor to connect to your desired AI service through the AI connectors (with [batch\_predict](https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/ "https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/") support) running on your target domain.
 
 OpenSearch Ingestion uses the `ml_inference` processor with ML Commons to create
-offline batch inference jobs. ML Commons then uses the [batch_predict](https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/ "https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/") API, which performs inference on large datasets in an offline
+offline batch inference jobs. ML Commons then uses the [batch\_predict](https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/ "https://docs.opensearch.org/latest/ml-commons-plugin/api/model-apis/batch-predict/") API, which performs inference on large datasets in an offline
 asynchronous mode using a model deployed on external model servers in Amazon Bedrock, Amazon SageMaker,
 Cohere, and OpenAI. The following diagram shows an OpenSearch Ingestion pipeline that orchestrates
 multiple components to perform this process end to end:
@@ -43,10 +43,10 @@ The pipeline components work as follows:
 - S3 (Sink): The processed data is staged in an Amazon S3 bucket ready to serve as input for
   running batch inference jobs on the integrated AI service.
 
-**Pipeline 2 (Trigger ML batch_inference):**
+**Pipeline 2 (Trigger ML batch\_inference):**
 
 - Source: Automated S3 event detection of new files created by output of Pipeline 1.
-- Ml_inference processor: Processor that generates ML inferences through an asynchronous
+- Ml\_inference processor: Processor that generates ML inferences through an asynchronous
   batch job. It connects to AI services through the configured AI connector that's running
   on your target domain.
 - Task ID: Each batch job is associated with a task ID in ml-commons for tracking and
@@ -72,7 +72,7 @@ The pipeline components work as follows:
 
 \*The process described by Pipeline 1 is optional. If you prefer, you can skip that process and simply upload your prepared data in the S3 sink to create batch jobs.
 
-## About the ml_inference processor
+## About the ml\_inference processor
 
 OpenSearch Ingestion uses a specialized integration between the S3 Scan source and ML inference
 processor for batch processing. The S3 Scan operates in metadata-only mode to efficiently
@@ -126,7 +126,7 @@ processor:
         ml_when: /bucket == "`amzn-s3-demo-bucket`"
 ```
 
-### Ingestion performance improvements using the ml_inference processor
+### Ingestion performance improvements using the ml\_inference processor
 
 The OpenSearch Ingestion `ml_inference` processor significantly enhances data
 ingestion performance for ML-enabled search. The processor is ideally suited for use cases
@@ -145,7 +145,7 @@ billion source data requests, it creates 100 S3 files for ML batch inference inp
 billion requests in 14 hours—a task that would be virtually impossible to accomplish in
 real-time mode.
 
-## Configure the ml_inference processor to ingest data requests for a semantic search
+## Configure the ml\_inference processor to ingest data requests for a semantic search
 
 The following procedures walk you through the process of setting up and configuring the
 OpenSearch Ingestion `ml_inference` processor to ingest one billion data requests for
@@ -161,14 +161,14 @@ semantic search using a text embedding model.
 
 ### Step 1: Create connectors and register models in OpenSearch
 
-For the following procedure, use the ML Commons [batch_inference_sagemaker_connector_blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md "https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md") to create a connector and model in
+For the following procedure, use the ML Commons [batch\_inference\_sagemaker\_connector\_blueprint](https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md "https://github.com/opensearch-project/ml-commons/blob/main/docs/remote_inference_blueprints/batch_inference_sagemaker_connector_blueprint.md") to create a connector and model in
 Amazon SageMaker. If you prefer to use OpenSearch CloudFormation integration templates, see [(Alternative procedure) Step 1: Create connectors and models using an CloudFormation integration template](#configure-clients-ml-commons-configuring-create-connectors-alternative "#configure-clients-ml-commons-configuring-create-connectors-alternative")
 later in this section.
 
 ###### To create connectors and register models in OpenSearch
 
 1. Create a Deep Java Library (DJL) ML model in SageMaker for batch transform. To view
-   other DJL models, see [semantic_search_with_CFN_template_for_Sagemaker](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/semantic_search_with_CFN_template_for_Sagemaker.md "https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/semantic_search_with_CFN_template_for_Sagemaker.md") on GitHub:
+   other DJL models, see [semantic\_search\_with\_CFN\_template\_for\_Sagemaker](https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/semantic_search_with_CFN_template_for_Sagemaker.md "https://github.com/opensearch-project/ml-commons/blob/main/docs/tutorials/aws/semantic_search_with_CFN_template_for_Sagemaker.md") on GitHub:
 
 ```
 POST https://api.sagemaker.us-east-1.amazonaws.com/CreateModel
@@ -382,8 +382,8 @@ preconfigured template available in the Amazon OpenSearch Service console. For m
    offline batch processing.
 6. Choose **Create** to create the CloudFormation stack.
 7. After the stack is created, open the **Outputs** tab in the CloudFormation
-   console Locate the **connector_id** and
-   **model_id**. You will need these values later when you configure the
+   console Locate the **connector\_id** and
+   **model\_id**. You will need these values later when you configure the
    pipeline.
 
 ### Step 2: Create an OpenSearch Ingestion pipeline for ML offline batch inference
@@ -400,7 +400,7 @@ is mapped to the backend role that has access to ml-commons in OpenSearch.
 1. Navigate to the OpenSearch Dashboards plugin for your OpenSearch Service domain. You can find the
    dashboards endpoint on your domain dashboard on the OpenSearch Service console.
 2. From the main menu choose **Security**, **Roles**,
-   and select the **ml_full_access** role.
+   and select the **ml\_full\_access** role.
 3. Choose **Mapped users**, **Manage mapping**.
 4. Under **Backend roles**, enter the ARN of the Lambda role that needs
    permission to call your domain. Here is an example:
@@ -513,7 +513,7 @@ embedding model:
 To test using the MS MARCO dataset, imagine a scenario where you construct one billion
 input requests distributed across 100 files, each containing 10 million requests. The files
 would be stored in Amazon S3 with the prefix
-s3://offlinebatch/sagemaker/sagemaker_djl_batch_input/. The OpenSearch Ingestion pipeline would
+s3://offlinebatch/sagemaker/sagemaker\_djl\_batch\_input/. The OpenSearch Ingestion pipeline would
 scan these 100 files simultaneously and initiate a SageMaker batch job with 100 workers for
 parallel processing, enabling efficient vectorization and ingestion of the one billion
 documents into OpenSearch.

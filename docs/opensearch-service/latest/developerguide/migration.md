@@ -204,7 +204,7 @@ snapshots.
    `https://`domain-endpoint`/_dashboards/`.
 2. From the main menu choose **Security**,
    **Roles**, and select the
-   **manage_snapshots** role.
+   **manage\_snapshots** role.
 3. Choose **Mapped users**, **Manage mapping**.
 4. Add the domain ARN of your personal IAM role in the appropriate field.
    The ARN takes one of the following formats:

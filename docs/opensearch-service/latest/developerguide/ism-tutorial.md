@@ -36,7 +36,7 @@ First, configure an ISM policy in OpenSearch Dashboards.
 1. From your domain dashboard in the OpenSearch Service console, navigate to the
    OpenSearch Dashboards URL and sign in with your master username and password. The
    URL follows this format:
-   ``domain-endpoint`/\_dashboards/`.
+   ``domain-endpoint`/_dashboards/`.
 2. In OpenSearch Dashboards, choose **Add sample data** and add
    one or more of the sample indexes to your domain.
 3. Open the left navigation panel and choose **Index

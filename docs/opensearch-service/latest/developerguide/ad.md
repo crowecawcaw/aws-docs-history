@@ -105,7 +105,7 @@ feature settings if necessary.
   the aggregation method. You can vary the date-time range of the
   detector.
 - **Anomaly occurrence** - shows the `Start
-time`, `End time`, `Data confidence`,
+ time`, `End time`, `Data confidence`,
   and `Anomaly grade` for each anomaly detected.
 
 If you set the category field, you see an additional **Heat

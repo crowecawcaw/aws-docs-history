@@ -20,7 +20,7 @@ following steps:
 
 3. Choose **Roles** and **Create
    role**.
-4. Name the role **flow_framework_manager**.
+4. Name the role **flow\_framework\_manager**.
 5. For **Cluster permissions,** select
    `flow_framework_full_access` and
    `flow_framework_read_access`.

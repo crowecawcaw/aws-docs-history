@@ -274,7 +274,7 @@ Key to attributes in the Jira source:
       the projects that you want to exclude under the `exclude`
       section. Provide only one of the include or exclude options at any given
       time.
-   2. **issue_type**: Specific issue types that
+   2. **issue\_type**: Specific issue types that
       you want to sync. Follow the similar `include` or
       `exclude` pattern that suits your needs. Note that
       attachments will appear as anchor links to the original attachment, but
@@ -395,7 +395,7 @@ Key attributes in the Confluence source:
       spaces that you want to exclude under the `exclude` section.
       Provide only one of the include or exclude options at any given
       time.
-   2. **page_type**: Specific page types (like
+   2. **page\_type**: Specific page types (like
       page, blogpost, or attachments) that you want to sync. Follow the
       similar `include` or `exclude` pattern that suits
       your needs. Note that attachments will appear as anchor links to the

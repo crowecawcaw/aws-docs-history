@@ -42,7 +42,7 @@ type:
     * IPv4: If all subnets have IPv4 address ranges.
 
 7. For **Security groups**, select one or more security
-   group to associate with the endpoint network interfaces.
+group to associate with the endpoint network interfaces.
 
 ###### Note
 

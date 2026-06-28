@@ -78,7 +78,7 @@ domains using fine-grained access control. To manually create the
 
 3. Choose **Roles** and **Create
    role**.
-4. Name the role **ultrawarm_manager**.
+4. Name the role **ultrawarm\_manager**.
 5. For **Cluster permissions,** select
    `ultrawarm_cluster` and `cluster_monitor`.
 6. For **Index**, type `*`.
@@ -592,7 +592,7 @@ see [Migrating indexes to cold storage](cold-storage.md#coldstorage-migrating "c
   instances, preferably of the `uw.large` instance type, accordingly.
   For example, if customers have 2 `uw.large` instances configured,
   then they each will have approximately `knn.memory.circuit_breaker.limit *
-61` GiB available off-heap memory. You get optimal performance if all
+ 61` GiB available off-heap memory. You get optimal performance if all
   your warm queries are targeting shards whose cumulative graph size does not
   exceed available off-heap memory. Latency is impacted if the available memory is
   lower than needed to load the graph because of evictions and waiting on off-heap

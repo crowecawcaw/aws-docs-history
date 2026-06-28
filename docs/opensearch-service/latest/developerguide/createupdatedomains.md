@@ -141,27 +141,26 @@ access** or **Public access**. If you choose
 **VPC access**, make sure you meet the [prerequisites](vpc.md#prerequisites-vpc-endpoints "vpc.md#prerequisites-vpc-endpoints"), then
 configure the following settings:
 
-| Setting             | Description                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **VPC**             | Choose the ID of the virtual private cloud (VPC) that<br>you want to use. The VPC and domain must be in the same<br>AWS Region, and you must select a VPC with tenancy set<br>to **Default**. OpenSearch Service does not yet<br>support VPCs that use dedicated tenancy.                                                                                                                                                                |
-| **Subnet**          | Choose a subnet. If you enabled Multi-AZ, you must<br>choose two or three subnets. OpenSearch Service will place a VPC<br>endpoint and \*elastic network<br>interfaces<br>• in the subnets.<br>You must reserve sufficient IP addresses for the<br>network interfaces in the subnet(s). For more<br>information, see [Reserving IP<br>addresses in a VPC subnet](vpc.md#reserving-ip-vpc-endpoints "vpc.md#reserving-ip-vpc-endpoints"). |
-| **Security groups** | Choose one or more VPC security groups that allow your<br>required application to reach the OpenSearch Service domain on the<br>ports (80 or 443) and protocols (HTTP or HTTPS) exposed<br>by the domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](vpc.md "vpc.md").                                                                                                                    |
-| **IAM Role**        | Keep the default role. OpenSearch Service uses this predefined role<br>(also known as a _service-linked<br>role_) to access your VPC and to place a<br>VPC endpoint and network interfaces in the subnet of the<br>VPC. For more information, see [Service-linked role for VPC<br>access](vpc.md#enabling-slr "vpc.md#enabling-slr").                                                                                                    |
-| **VPC Egress**      | (Optional) Select \*_Enable<br>Egress_<br>• to route the domain's egress<br>traffic through your VPC instead of the public<br>internet. For more information, see [Routing domain egress traffic through your VPC](vpc-egress.md "vpc-egress.md").                                                                                                                                                                                       |
-| **IP Address Type** | Choose either dual stack or IPv4 as your IP address<br>type. Dual stack allows you to share domain resources<br>across IPv4 and IPv6 address types, and is the<br>recommended option. If you set your IP address type to<br>dual stack, you can't change your address type<br>later.                                                                                                                                                     |
+| Setting             | Description                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **VPC**             | Choose the ID of the virtual private cloud (VPC) that<br>you want to use. The VPC and domain must be in the same<br>AWS Region, and you must select a VPC with tenancy set<br>to **Default**. OpenSearch Service does not yet<br>support VPCs that use dedicated tenancy.                                                                                                                                                               |
+| **Subnet**          | Choose a subnet. If you enabled Multi-AZ, you must<br>choose two or three subnets. OpenSearch Service will place a VPC<br>endpoint and *elastic network<br>interfaces<br>• in the subnets.<br>You must reserve sufficient IP addresses for the<br>network interfaces in the subnet(s). For more<br>information, see [Reserving IP<br>addresses in a VPC subnet](vpc.md#reserving-ip-vpc-endpoints "vpc.md#reserving-ip-vpc-endpoints"). |
+| **Security groups** | Choose one or more VPC security groups that allow your<br>required application to reach the OpenSearch Service domain on the<br>ports (80 or 443) and protocols (HTTP or HTTPS) exposed<br>by the domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](vpc.md "vpc.md").                                                                                                                   |
+| **IAM Role**        | Keep the default role. OpenSearch Service uses this predefined role<br>(also known as a _service-linked<br>role_) to access your VPC and to place a<br>VPC endpoint and network interfaces in the subnet of the<br>VPC. For more information, see [Service-linked role for VPC<br>access](vpc.md#enabling-slr "vpc.md#enabling-slr").                                                                                                   |
+| **VPC Egress**      | (Optional) Select *_Enable<br>Egress_<br>• to route the domain's egress<br>traffic through your VPC instead of the public<br>internet. For more information, see [Routing domain egress traffic through your VPC](vpc-egress.md "vpc-egress.md").                                                                                                                                                                                       |
+| **IP Address Type** | Choose either dual stack or IPv4 as your IP address<br>type. Dual stack allows you to share domain resources<br>across IPv4 and IPv6 address types, and is the<br>recommended option. If you set your IP address type to<br>dual stack, you can't change your address type<br>later.                                                                                                                                                    |
 
 20. Enable or disable fine-grained access control:
 
-        * If you want to use IAM for user management, choose **Set
-         IAM ARN as master user** and specify the ARN for an
-         IAM role.
-        * If you want to use the internal user database, choose
-         **Create master user** and specify a username
-         and password.
-
-    Whichever option you choose, the master user can access all indexes in the
-    cluster and all OpenSearch APIs. For guidance on which option to choose, see
-    [Key concepts](fgac.md#fgac-concepts "fgac.md#fgac-concepts").
+    - If you want to use IAM for user management, choose **Set
+      IAM ARN as master user** and specify the ARN for an
+      IAM role.
+    - If you want to use the internal user database, choose
+      **Create master user** and specify a username
+      and password.
+      Whichever option you choose, the master user can access all indexes in the
+      cluster and all OpenSearch APIs. For guidance on which option to choose, see
+      [Key concepts](fgac.md#fgac-concepts "fgac.md#fgac-concepts").
 
 If you disable fine-grained access control, you can still control access
 to your domain by placing it within a VPC, applying a restrictive access
@@ -191,9 +190,9 @@ features** selected, if you want to use these features.
      search options. For more information, see [GPU-acceleration for vector indexing](gpu-acceleration-vector-index.md "gpu-acceleration-vector-index.md").**
 
 25. For **Access policy**, choose an access policy or
-    configure one of your own. If you choose to create a custom policy, you can
-    configure it yourself or import one from another domain. For more
-    information, see [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md").
+configure one of your own. If you choose to create a custom policy, you can
+configure it yourself or import one from another domain. For more
+information, see [Identity and Access Management in Amazon OpenSearch Service](ac.md "ac.md").
 
 ###### Note
 

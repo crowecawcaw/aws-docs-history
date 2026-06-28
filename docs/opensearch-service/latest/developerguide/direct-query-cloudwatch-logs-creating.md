@@ -130,12 +130,10 @@ OpenSearch.
     	3. Select the OpenSearch application and workspace
     	 that you want to use.
 
-12. Choose **Next**.
-13. Review your choices and choose **Edit** if you
-    need to make any changes.
-14. Choose **Connect** to set up the data source.
-    Stay on this page while your data source is created. When it’s
-    ready, you’ll be taken to the data source details page.
+12. Choose **Next**. 13. Review your choices and choose **Edit** if you
+need to make any changes. 14. Choose **Connect** to set up the data source.
+Stay on this page while your data source is created. When it’s
+ready, you’ll be taken to the data source details page.
 
 ## Next steps
 

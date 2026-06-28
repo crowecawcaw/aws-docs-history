@@ -20,11 +20,11 @@ OpenSearch Serverless Classic uses a per-collection endpoint on
 
 OpenSearch Serverless supports the following collection endpoint formats.
 
-| OpenSearch Serverless collection endpoint formats | Endpoint type                                 | Format                                                                                                                    | Description |
-| ------------------------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Per-collection (NextGen)                          | ``collection-id`.aoss.`region`.on.aws`        | Identifies the collection from the hostname. One endpoint per<br>collection.                                              |
-| Per-account (NextGen)                             | ``account-id`.aoss.`region`.on.aws`           | Identifies the collection from a request header. One endpoint<br>serves every collection in your AWS account in a Region. |
-| Per-collection (Classic)                          | ``collection-id`.`region`.aoss.amazonaws.com` | Identifies the collection from the hostname. One endpoint per<br>Classic collection.                                      |
+OpenSearch Serverless collection endpoint formats| Endpoint type | Format | Description |
+| --- | --- | --- |
+| Per-collection (NextGen) | ``collection-id`.aoss.`region`.on.aws` | Identifies the collection from the hostname. One endpoint per<br>collection. |
+| Per-account (NextGen) | ``account-id`.aoss.`region`.on.aws` | Identifies the collection from a request header. One endpoint<br>serves every collection in your AWS account in a Region. |
+| Per-collection (Classic) | ``collection-id`.`region`.aoss.amazonaws.com` | Identifies the collection from the hostname. One endpoint per<br>Classic collection. |
 
 Both NextGen endpoint formats use standard AWS PrivateLink for VPC access. For more
 information about creating a VPC endpoint, see
@@ -61,10 +61,9 @@ PUT https://1tg2xudton46knx2a95g.aoss.us-east-1.on.aws/movies/_doc/1
 ## Per-account endpoint
 
 A per-account endpoint targets every collection in your AWS account in a Region
-through a single hostname. Because the hostname is the same for all collections, you
-identify the target collection on each request through one of these HTTP headers (at
-least one is required; if you include both, they must refer to the same
-collection):
+through a single hostname. Because all collections share the same hostname, you identify
+the target collection using one of these HTTP headers. At least one is required; if you
+include both, they must refer to the same collection.
 
 - `x-amz-aoss-collection-name` – the customer-assigned
   collection name

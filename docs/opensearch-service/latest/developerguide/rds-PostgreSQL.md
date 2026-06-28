@@ -386,12 +386,12 @@ can usually enable better search features available in OpenSearch.
 | time [ (p) ] with time zone             | long (in epoch milliseconds)  | date                                                           |
 | interval [ fields ] [ (p) ]             | text (ISO8601 format)         | text                                                           |
 | boolean                                 | boolean                       | boolean                                                        |
-| point                                   | text (in WKT format)          | geo_shape                                                      |
-| line                                    | text (in WKT format)          | geo_shape                                                      |
-| lseg                                    | text (in WKT format)          | geo_shape                                                      |
-| box                                     | text (in WKT format)          | geo_shape                                                      |
-| path                                    | text (in WKT format)          | geo_shape                                                      |
-| polygon                                 | text (in WKT format)          | geo_shape                                                      |
+| point                                   | text (in WKT format)          | geo\_shape                                                     |
+| line                                    | text (in WKT format)          | geo\_shape                                                     |
+| lseg                                    | text (in WKT format)          | geo\_shape                                                     |
+| box                                     | text (in WKT format)          | geo\_shape                                                     |
+| path                                    | text (in WKT format)          | geo\_shape                                                     |
+| polygon                                 | text (in WKT format)          | geo\_shape                                                     |
 | circle                                  | object                        | object                                                         |
 | cidr                                    | text                          | text                                                           |
 | inet                                    | text                          | text                                                           |

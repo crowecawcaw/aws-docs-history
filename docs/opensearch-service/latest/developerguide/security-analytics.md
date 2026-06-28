@@ -122,7 +122,7 @@ using fine-grained access control. To manually create the
 | `security_analytics_read_access` | • `cluster:admin/opensearch/securityanalytics/alerts/get`<br>• `cluster:admin/opensearch/securityanalytics/detector/get`<br>• `cluster:admin/opensearch/securityanalytics/detector/search`<br>• `cluster:admin/opensearch/securityanalytics/findings/get`<br>• `cluster:admin/opensearch/securityanalytics/mapping/get`<br>• `cluster:admin/opensearch/securityanalytics/mapping/view/get`<br>• `cluster:admin/opensearch/securityanalytics/rule/get`<br>• `cluster:admin/opensearch/securityanalytics/rule/search` |
 
 3. Choose **Roles** and **Create role**.
-4. Name the role **security_analytics_manager**.
+4. Name the role **security\_analytics\_manager**.
 5. For **Cluster permissions,** select
    `security_analytics_full_access` and
    `security_analytics_read_access`.

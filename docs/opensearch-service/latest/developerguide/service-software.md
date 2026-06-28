@@ -121,30 +121,29 @@ the SDKs.
 
 ###### To request a service software update
 
-1.  Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
-2.  Select the domain name to open its configuration.
-3.  Choose **Actions**, **Update** and select one of
-    the following options:
+1. Open the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
+2. Select the domain name to open its configuration.
+3. Choose **Actions**, **Update** and select one of
+   the following options:
 
-        * **Apply update now** - Immediately schedules the action to
-         happen in the current hour *if there's capacity available*. If
-         capacity isn't available, we provide other available time slots to choose
-         from.
-        * **Schedule it in off-peak window** – Only available if
-         the off-peak window is enabled for the domain. Schedules the update to take place
-         during the domain's configured off-peak window. There's no guarantee that the
-         update will happen during the next immediate window. Depending on capacity, it
-         might happen in subsequent days. For more information, see [Scheduling software updates during off-peak windows](#service-software-offpeak "#service-software-offpeak").
-        * **Schedule for specific date and time** – Schedules
-         the update to take place at a specific date and time. If the time that you specify
-         is unavailable for capacity reasons, you can select a different time slot.
+   - **Apply update now** - Immediately schedules the action to
+     happen in the current hour _if there's capacity available_. If
+     capacity isn't available, we provide other available time slots to choose
+     from.
+   - **Schedule it in off-peak window** – Only available if
+     the off-peak window is enabled for the domain. Schedules the update to take place
+     during the domain's configured off-peak window. There's no guarantee that the
+     update will happen during the next immediate window. Depending on capacity, it
+     might happen in subsequent days. For more information, see [Scheduling software updates during off-peak windows](#service-software-offpeak "#service-software-offpeak").
+   - **Schedule for specific date and time** – Schedules
+     the update to take place at a specific date and time. If the time that you specify
+     is unavailable for capacity reasons, you can select a different time slot.
+     If you schedule the update for a later date (within or outside the domain's
+     off-peak window), you can reschedule it at any time. For instructions, see [Rescheduling actions](off-peak.md#off-peak-reschedule "off-peak.md#off-peak-reschedule").
 
-    If you schedule the update for a later date (within or outside the domain's
-    off-peak window), you can reschedule it at any time. For instructions, see [Rescheduling actions](off-peak.md#off-peak-reschedule "off-peak.md#off-peak-reschedule").
-
-4.  Choose **Confirm**.
-    Send a [start-service-software-update](../../../cli/latest/reference/opensearch/start-service-software-update.md "../../../cli/latest/reference/opensearch/start-service-software-update.md") AWS CLI request to initiate a service software
-    update. This example adds the update to the queue immediately:
+4. Choose **Confirm**.
+   Send a [start-service-software-update](../../../cli/latest/reference/opensearch/start-service-software-update.md "../../../cli/latest/reference/opensearch/start-service-software-update.md") AWS CLI request to initiate a service software
+   update. This example adds the update to the queue immediately:
 
 ```
 aws opensearch start-service-software-update \
@@ -181,7 +180,7 @@ If the request fails with a `BaseException`, it means that the time you
 specified isn't available for capacity reasons, and you must specify a different time.
 OpenSearch Service provides alternate available slot suggestions in the response.
 
-This sample Python script uses the [describe_domain](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.describe_domain "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.describe_domain") and [start_service_software_update](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.start_service_software_update "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.start_service_software_update") methods from the AWS SDK for Python (Boto3) to check whether a
+This sample Python script uses the [describe\_domain](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.describe_domain "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.describe_domain") and [start\_service\_software\_update](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.start_service_software_update "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.start_service_software_update") methods from the AWS SDK for Python (Boto3) to check whether a
 domain is eligible for a service software update and if so, starts the update. You must
 provide a value for `domain_name`.
 
@@ -306,14 +305,14 @@ To see the format of each service software event sent to Amazon EventBridge, see
 Your domain is ineligible for a service software update if it's in any of the following
 states:
 
-| State                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Domain in processing             | The domain is in the middle of a configuration change. Check update eligibility<br>after the operation completes.                                                                                                                                                                                                                                                                                                                                                                      |
-| Red cluster status               | One or more indexes in the cluster is red. For troubleshooting steps, see [Red cluster status](handling-errors.md#handling-errors-red-cluster-status "handling-errors.md#handling-errors-red-cluster-status").                                                                                                                                                                                                                                                                         |
-| High error rate                  | The OpenSearch cluster is returning a large number of 5\*xx<br>• errors when attempting to process requests. This problem is usually<br>the result of too many simultaneous read or write requests. Consider reducing<br>traffic to the cluster or scaling your domain.                                                                                                                                                                                                                |
-| Split brain                      | \*Split brain<br>• means your OpenSearch cluster<br>has more than one master node and has split into two clusters that never will rejoin<br>on their own. You can avoid split brain by using the recommended number of [dedicated master nodes](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md"). For<br>help recovering from split brain, contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home"). |
-| Amazon Cognito integration issue | Your domain uses [authentication for<br>OpenSearch Dashboards](cognito-auth.md "cognito-auth.md"), and OpenSearch Service can't find one or more Amazon Cognito resources. This<br>problem usually occurs if the Amazon Cognito user pool is missing. To correct the issue,<br>recreate the missing resource and configure the OpenSearch Service domain to use it.                                                                                                                    |
-| Other service issue              | Issues with OpenSearch Service itself might cause your domain to display as ineligible for an<br>update. If none of the previous conditions apply to your domain and the problem<br>persists for more than a day, contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").                                                                                                                                                        |
+| State                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Domain in processing             | The domain is in the middle of a configuration change. Check update eligibility<br>after the operation completes.                                                                                                                                                                                                                                                                                                                                                                     |
+| Red cluster status               | One or more indexes in the cluster is red. For troubleshooting steps, see [Red cluster status](handling-errors.md#handling-errors-red-cluster-status "handling-errors.md#handling-errors-red-cluster-status").                                                                                                                                                                                                                                                                        |
+| High error rate                  | The OpenSearch cluster is returning a large number of 5*xx<br>• errors when attempting to process requests. This problem is usually<br>the result of too many simultaneous read or write requests. Consider reducing<br>traffic to the cluster or scaling your domain.                                                                                                                                                                                                                |
+| Split brain                      | *Split brain<br>• means your OpenSearch cluster<br>has more than one master node and has split into two clusters that never will rejoin<br>on their own. You can avoid split brain by using the recommended number of [dedicated master nodes](managedomains-dedicatedmasternodes.md "managedomains-dedicatedmasternodes.md"). For<br>help recovering from split brain, contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home"). |
+| Amazon Cognito integration issue | Your domain uses [authentication for<br>OpenSearch Dashboards](cognito-auth.md "cognito-auth.md"), and OpenSearch Service can't find one or more Amazon Cognito resources. This<br>problem usually occurs if the Amazon Cognito user pool is missing. To correct the issue,<br>recreate the missing resource and configure the OpenSearch Service domain to use it.                                                                                                                   |
+| Other service issue              | Issues with OpenSearch Service itself might cause your domain to display as ineligible for an<br>update. If none of the previous conditions apply to your domain and the problem<br>persists for more than a day, contact [Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").                                                                                                                                                       |
 
 ## Rolling back a service software update
 

@@ -36,7 +36,7 @@ For more details, refer to the [OpenSearch blog](https://opensearch.org/blog/sav
 
 ## Performance benchmarking
 
-Based on benchmark testing with the nyc_taxi dataset, derived source achieved 58% reduction in index size compared to baseline.
+Based on benchmark testing with the nyc\_taxi dataset, derived source achieved 58% reduction in index size compared to baseline.
 
 | Metric                                      | Derived Source |
 | ------------------------------------------- | -------------- |
