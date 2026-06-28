@@ -70,7 +70,7 @@ interpret this key in any way. The configured key is copied verbatim into
 the value of this header. However, if you use Secrets Manager to configure the key, then the secret must follow a specific JSON object format: `{"api_key": "..."}`.
 
 The contents can be arbitrary and can potentially represent a JWT token or
-an ACCESS_KEY. If an endpoint requires multi-field credentials (for example,
+an ACCESS\_KEY. If an endpoint requires multi-field credentials (for example,
 username and password), the values of all of the fields should be stored
 together within a single access-key in a format that the endpoint
 understands (JSON or CSV). This field can be base-64 encoded if the original
@@ -284,7 +284,7 @@ In all error cases the Amazon Data Firehose server reattempts delivery of the sa
 batch of records using an exponential back-off algorithm. The retries are
 backed off using an initial back-off time (1 second) with a jitter factor of
 (15%) and each subsequent retry is backed off using the formula
-(initial-backoff-time \* (multiplier(2) ^ retry_count)) with added jitter.
+(initial-backoff-time \* (multiplier(2) ^ retry\_count)) with added jitter.
 The backoff time is capped by a maximum interval of 2 minutes. For example
 on the ‘n’-th retry the back off time is = MAX(120, 2^n) \* random(0.85,
 1.15).

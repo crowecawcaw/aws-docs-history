@@ -59,19 +59,18 @@ of 1 GB per second is supported for each active partition.
   Firehose stream provides the following combined quota for [PutRecord](../APIReference/API_PutRecord.md "../APIReference/API_PutRecord.md") and
   [PutRecordBatch](../APIReference/API_PutRecordBatch.md "../APIReference/API_PutRecordBatch.md") requests:
 
-      + For US East (N. Virginia), US West (Oregon), and Europe (Ireland):
-       500,000 records/second, 2,000 requests/second, and 5 MiB/second.
-      + For other AWS Regions: 100,000 records/second, 1,000 requests/second,
-       and 1 MiB/second.
-
-  If a Direct PUT stream experiences throttling due to higher data ingest volumes
-  that exceed the throughput capacity of a Firehose stream, Amazon Data Firehose automatically
-  increases the throughput limit of the stream until the throttling is contained.
-  Depending on increased throughput and throttling, it might take longer for Firehose to
-  increase the throughput of a stream to the desired levels. Because of this, continue
-  to retry the failed data ingest records. If you expect the data volume to increase
-  in sudden large bursts, or if your new stream needs a higher throughput than the
-  default throughput limit, request to increase the throughput limit.
+  - For US East (N. Virginia), US West (Oregon), and Europe (Ireland):
+    500,000 records/second, 2,000 requests/second, and 5 MiB/second.
+  - For other AWS Regions: 100,000 records/second, 1,000 requests/second,
+    and 1 MiB/second.
+    If a Direct PUT stream experiences throttling due to higher data ingest volumes
+    that exceed the throughput capacity of a Firehose stream, Amazon Data Firehose automatically
+    increases the throughput limit of the stream until the throttling is contained.
+    Depending on increased throughput and throttling, it might take longer for Firehose to
+    increase the throughput of a stream to the desired levels. Because of this, continue
+    to retry the failed data ingest records. If you expect the data volume to increase
+    in sudden large bursts, or if your new stream needs a higher throughput than the
+    default throughput limit, request to increase the throughput limit.
 
 There is three quota scale proportionally for quotas. For example, if you increase
 the throughput quota in US East (N. Virginia), US West (Oregon), or

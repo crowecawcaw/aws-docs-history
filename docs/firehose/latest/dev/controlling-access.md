@@ -323,9 +323,11 @@ following inline policy that grants the required permissions.
             "Sid": "S3TablesAccessPermission",
             "Effect": "Allow",
             "Action": [
+                "s3tables:GetNamespace",
                 "s3tables:GetTable",
                 "s3tables:GetTableData",
                 "s3tables:GetTableMetadataLocation",
+                "s3tables:PutTableData",
                 "s3tables:UpdateTableMetadataLocation"
             ],
             "Resource": [
@@ -398,7 +400,7 @@ following inline policy that grants the required permissions.
             ],
             "Condition": {
                 "StringEquals": {
-                    "kms:ViaService": "s3.amazonaws.com"
+                    "kms:ViaService": "s3.`region`.amazonaws.com"
                 },
                 "StringLike": {
                     "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:`region`:`account-id`:bucket/*/table/*"
@@ -1124,46 +1126,46 @@ If your Splunk platform is in a VPC, it must be publicly accessible with a publi
 address. Also, grant Amazon Data Firehose access to your Splunk platform by unblocking the Amazon Data Firehose IP
 addresses. Amazon Data Firehose currently uses the following CIDR blocks.
 
-| Region                     | CIDR blocks                                                 |
-| -------------------------- | ----------------------------------------------------------- |
-| US East (Ohio)             | `18.216.68.160/27, 18.216.170.64/27,<br>18.216.170.96/27`\  |
-| US East (N. Virginia)      | `34.238.188.128/26, 34.238.188.192/26,<br>34.238.195.0/26`  |
-| US West (N. California)    | `13.57.180.0/26`                                            |
-| US West (Oregon)           | `34.216.24.32/27, 34.216.24.192/27,<br>34.216.24.224/27`    |
-| AWS GovCloud (US-East)     | `18.253.138.192/26`                                         |
-| AWS GovCloud (US-West)     | `52.61.204.192/26`                                          |
-| Asia Pacific (Hong Kong)   | `18.162.221.64/26`                                          |
-| Asia Pacific (Taipei)      | `43.212.53.192/26`                                          |
-| Asia Pacific (Mumbai)      | `13.232.67.64/26`                                           |
-| Asia Pacific (Seoul)       | `13.209.71.0/26`                                            |
-| Asia Pacific (Singapore)   | `13.229.187.128/26`                                         |
-| Asia Pacific (Sydney)      | `13.211.12.0/26`                                            |
-| Asia Pacific (Thailand)    | `43.208.112.128/26`                                         |
-| Asia Pacific (Tokyo)       | `13.230.21.0/27, 13.230.21.32/27`                           |
-| Canada (Central)           | `35.183.92.64/26`                                           |
-| Canada West (Calgary)      | `40.176.98.128/26`                                          |
-| Europe (Frankfurt)         | `18.194.95.192/27, 18.194.95.224/27,<br>18.195.48.0/27`     |
-| Europe (Ireland)           | `34.241.197.32/27, 34.241.197.64/27,<br>34.241.197.96/27`   |
-| Europe (London)            | `18.130.91.0/26`                                            |
-| Europe (Paris)             | `35.180.112.0/26`                                           |
-| Europe (Spain)             | `18.100.194.0/26`                                           |
-| Europe (Stockholm)         | `13.53.191.0/26`                                            |
-| Middle East (Bahrain)      | `15.185.91.64/26`                                           |
-| Mexico (Central)           | `78.12.207.64/26`                                           |
-| South America (São Paulo)  | `18.228.1.192/26`                                           |
-| Europe (Milan)             | `15.161.135.192/26`                                         |
-| Africa (Cape Town)         | `13.244.165.128/26`                                         |
-| Asia Pacific (Osaka)       | `13.208.217.0/26`                                           |
-| China (Beijing)            | `52.81.151.64/26`                                           |
-| China (Ningxia)            | `161.189.23.128/26`                                         |
-| Asia Pacific (Jakarta)     | `108.136.221.128/26`                                        |
-| Middle East (UAE)          | `3.28.159.64/26`                                            |
-| Israel (Tel Aviv)          | `51.16.102.64/26`                                           |
-| Europe (Zurich)            | `16.62.183.64/26`                                           |
-| Asia Pacific (Hyderabad)   | `18.60.192.192/26`                                          |
-| Asia Pacific (Melbourne)   | `16.50.161.192/26`                                          |
-| Asia Pacific (Malaysia)    | `43.216.44.192/26`                                          |
-| Asia Pacific (New Zealand) | `3.102.119.128/26`                                          |
+| Region                     | CIDR blocks                                                |
+| -------------------------- | ---------------------------------------------------------- |
+| US East (Ohio)             | `18.216.68.160/27, 18.216.170.64/27,<br>18.216.170.96/27`\ |
+| US East (N. Virginia)      | `34.238.188.128/26, 34.238.188.192/26,<br>34.238.195.0/26` |
+| US West (N. California)    | `13.57.180.0/26`                                           |
+| US West (Oregon)           | `34.216.24.32/27, 34.216.24.192/27,<br>34.216.24.224/27`   |
+| AWS GovCloud (US-East)     | `18.253.138.192/26`                                        |
+| AWS GovCloud (US-West)     | `52.61.204.192/26`                                         |
+| Asia Pacific (Hong Kong)   | `18.162.221.64/26`                                         |
+| Asia Pacific (Taipei)      | `43.212.53.192/26`                                         |
+| Asia Pacific (Mumbai)      | `13.232.67.64/26`                                          |
+| Asia Pacific (Seoul)       | `13.209.71.0/26`                                           |
+| Asia Pacific (Singapore)   | `13.229.187.128/26`                                        |
+| Asia Pacific (Sydney)      | `13.211.12.0/26`                                           |
+| Asia Pacific (Thailand)    | `43.208.112.128/26`                                        |
+| Asia Pacific (Tokyo)       | `13.230.21.0/27, 13.230.21.32/27`                          |
+| Canada (Central)           | `35.183.92.64/26`                                          |
+| Canada West (Calgary)      | `40.176.98.128/26`                                         |
+| Europe (Frankfurt)         | `18.194.95.192/27, 18.194.95.224/27,<br>18.195.48.0/27`    |
+| Europe (Ireland)           | `34.241.197.32/27, 34.241.197.64/27,<br>34.241.197.96/27`  |
+| Europe (London)            | `18.130.91.0/26`                                           |
+| Europe (Paris)             | `35.180.112.0/26`                                          |
+| Europe (Spain)             | `18.100.194.0/26`                                          |
+| Europe (Stockholm)         | `13.53.191.0/26`                                           |
+| Middle East (Bahrain)      | `15.185.91.64/26`                                          |
+| Mexico (Central)           | `78.12.207.64/26`                                          |
+| South America (São Paulo)  | `18.228.1.192/26`                                          |
+| Europe (Milan)             | `15.161.135.192/26`                                        |
+| Africa (Cape Town)         | `13.244.165.128/26`                                        |
+| Asia Pacific (Osaka)       | `13.208.217.0/26`                                          |
+| China (Beijing)            | `52.81.151.64/26`                                          |
+| China (Ningxia)            | `161.189.23.128/26`                                        |
+| Asia Pacific (Jakarta)     | `108.136.221.128/26`                                       |
+| Middle East (UAE)          | `3.28.159.64/26`                                           |
+| Israel (Tel Aviv)          | `51.16.102.64/26`                                          |
+| Europe (Zurich)            | `16.62.183.64/26`                                          |
+| Asia Pacific (Hyderabad)   | `18.60.192.192/26`                                         |
+| Asia Pacific (Melbourne)   | `16.50.161.192/26`                                         |
+| Asia Pacific (Malaysia)    | `43.216.44.192/26`                                         |
+| Asia Pacific (New Zealand) | `3.102.119.128/26`                                         |
 
 ## Ingest VPC flow logs into Splunk using Amazon Data Firehose
 
@@ -1279,25 +1281,25 @@ ingress from the following `AwsVpceIds` for the AWS Region your cluster is
 in. For more information, see [Creating
 network rule](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule "https://docs.snowflake.com/en/sql-reference/sql/create-network-rule") in _Snowflake User Guide_.
 
-| VPC Endpoint Ids to use based on Regions your cluster is in | AWS Region                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `VPCE IDs` |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| US East (Ohio)                                              | vpce-0d96cafcd96a50aeb<br>vpce-0cec34343d48f537b                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| US East (N. Virginia)                                       | vpce-0b4d7e8478e141ba8<br>vpce-0b75cd681fb507352<br>vpce-01c03e63820ec00d8<br>vpce-0c2cfc51dc2882422<br>vpce-06ca862f019e4e056<br>vpce-020cda0cfa63f8d1c<br>vpce-0b80504a1a783cd70<br>vpce-0289b9ff0b5259a96<br>vpce-0d7add8628bd69a12<br>vpce-02bfb5966cc59b2af<br>vpce-09e707674af878bf2<br>vpce-049b52e96cc1a2165<br>vpce-0bb6c7b7a8a86cdbb<br>vpce-03b22d599f51e80f3<br>vpce-01d60dc60fc106fe1<br>vpce-0186d20a4b24ecbef<br>vpce-0533906401a36e416<br>vpce-05111fb13d396710e<br>vpce-0694613f4fbd6f514<br>vpce-09b21cb25fe4cc4f4<br>vpce-06029c3550e4d2399<br>vpce-00961862a21b033da<br>vpce-01620b9ae33273587<br>vpce-078cf4ec226880ac9<br>vpce-0d711bf076ce56381<br>vpce-066b7e13cbfca6f6e<br>vpce-0674541252d9ccc26<br>vpce-03540b88dedb4b000<br>vpce-0b1828e79ad394b95<br>vpce-0dc0e6f001fb1a60d<br>vpce-0d8f82e71a244098a<br>vpce-00e374d9e3f1af5ce<br>vpce-0c1e3d6631ddb442f |
-| US West (Oregon)                                            | vpce-0f60f72da4cd1e4e7<br>vpce-0c60d21eb8b1669fd<br>vpce-01c4e3e29afdafbef<br>vpce-0cc6bf2a88da139de<br>vpce-0797e08e169e50662<br>vpce-033cbe480381b5c0e<br>vpce-00debbdd8f9eb10a5<br>vpce-08ec2f386c809e889<br>vpce-0856d14310857b545                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Europe (Frankfurt)                                          | vpce-068dbb7d71c9460fb<br>vpce-0a7a7f095942d4ec9                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Europe (Ireland)                                            | vpce-06857e59c005a6276<br>vpce-04390f4f8778b75f2<br>vpce-011fd2b1f0aa172fd                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Asia Pacific (Tokyo)                                        | vpce-06369e5258144e68a<br>vpce-0f2363cdb8926fbe8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Asia Pacific (Singapore)                                    | vpce-049cd46cce7a12d52<br>vpce-0e8965a1a4bdb8941                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Asia Pacific (Seoul)                                        | vpce-0aa444d9001e1faa1<br>vpce-04a49d4dcfd02b884                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Asia Pacific (Sydney)                                       | vpce-048a60a182c52be63<br>vpce-03c19949787fd1859                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Asia Pacific (Mumbai)                                       | vpce-0d68cb822f6f0db68<br>vpce-0517d32692ffcbde2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Europe (London)                                             | vpce-0fd1874a0ba3b9374<br>vpce-08091b1a85e206029                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| South America (Sao Paulo)                                   | vpce-065169b8144e4f12e<br>vpce-0493699f0e5762d63                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Canada (Central)                                            | vpce-07e6ed81689d5271f<br>vpce-0f53239730541394c                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Europe (Paris)                                              | vpce-09419680077e6488a<br>vpce-0ea81ba2c08140c14                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Asia Pacific (Osaka)                                        | vpce-0a9f003e6a7e38c05<br>vpce-02886510b897b1c5a                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Europe (Stockholm)                                          | vpce-0d96410833219025a<br>vpce-060a32f9a75ba969f                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Asia Pacific (Jakarta)                                      | vpce-00add4b9a25e5c649<br>vpce-004ae2de34338a856                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+VPC Endpoint Ids to use based on Regions your cluster is in| AWS Region | `VPCE IDs` |
+| --- | --- |
+| US East (Ohio) | vpce-0d96cafcd96a50aeb<br>vpce-0cec34343d48f537b |
+| US East (N. Virginia) | vpce-0b4d7e8478e141ba8<br>vpce-0b75cd681fb507352<br>vpce-01c03e63820ec00d8<br>vpce-0c2cfc51dc2882422<br>vpce-06ca862f019e4e056<br>vpce-020cda0cfa63f8d1c<br>vpce-0b80504a1a783cd70<br>vpce-0289b9ff0b5259a96<br>vpce-0d7add8628bd69a12<br>vpce-02bfb5966cc59b2af<br>vpce-09e707674af878bf2<br>vpce-049b52e96cc1a2165<br>vpce-0bb6c7b7a8a86cdbb<br>vpce-03b22d599f51e80f3<br>vpce-01d60dc60fc106fe1<br>vpce-0186d20a4b24ecbef<br>vpce-0533906401a36e416<br>vpce-05111fb13d396710e<br>vpce-0694613f4fbd6f514<br>vpce-09b21cb25fe4cc4f4<br>vpce-06029c3550e4d2399<br>vpce-00961862a21b033da<br>vpce-01620b9ae33273587<br>vpce-078cf4ec226880ac9<br>vpce-0d711bf076ce56381<br>vpce-066b7e13cbfca6f6e<br>vpce-0674541252d9ccc26<br>vpce-03540b88dedb4b000<br>vpce-0b1828e79ad394b95<br>vpce-0dc0e6f001fb1a60d<br>vpce-0d8f82e71a244098a<br>vpce-00e374d9e3f1af5ce<br>vpce-0c1e3d6631ddb442f |
+| US West (Oregon) | vpce-0f60f72da4cd1e4e7<br>vpce-0c60d21eb8b1669fd<br>vpce-01c4e3e29afdafbef<br>vpce-0cc6bf2a88da139de<br>vpce-0797e08e169e50662<br>vpce-033cbe480381b5c0e<br>vpce-00debbdd8f9eb10a5<br>vpce-08ec2f386c809e889<br>vpce-0856d14310857b545 |
+| Europe (Frankfurt) | vpce-068dbb7d71c9460fb<br>vpce-0a7a7f095942d4ec9 |
+| Europe (Ireland) | vpce-06857e59c005a6276<br>vpce-04390f4f8778b75f2<br>vpce-011fd2b1f0aa172fd |
+| Asia Pacific (Tokyo) | vpce-06369e5258144e68a<br>vpce-0f2363cdb8926fbe8 |
+| Asia Pacific (Singapore) | vpce-049cd46cce7a12d52<br>vpce-0e8965a1a4bdb8941 |
+| Asia Pacific (Seoul) | vpce-0aa444d9001e1faa1<br>vpce-04a49d4dcfd02b884 |
+| Asia Pacific (Sydney) | vpce-048a60a182c52be63<br>vpce-03c19949787fd1859 |
+| Asia Pacific (Mumbai) | vpce-0d68cb822f6f0db68<br>vpce-0517d32692ffcbde2 |
+| Europe (London) | vpce-0fd1874a0ba3b9374<br>vpce-08091b1a85e206029 |
+| South America (Sao Paulo) | vpce-065169b8144e4f12e<br>vpce-0493699f0e5762d63 |
+| Canada (Central) | vpce-07e6ed81689d5271f<br>vpce-0f53239730541394c |
+| Europe (Paris) | vpce-09419680077e6488a<br>vpce-0ea81ba2c08140c14 |
+| Asia Pacific (Osaka) | vpce-0a9f003e6a7e38c05<br>vpce-02886510b897b1c5a |
+| Europe (Stockholm) | vpce-0d96410833219025a<br>vpce-060a32f9a75ba969f |
+| Asia Pacific (Jakarta) | vpce-00add4b9a25e5c649<br>vpce-004ae2de34338a856 |
 
 ## Grant Firehose access to an HTTP endpoint destination
 

@@ -491,23 +491,23 @@ This section describes options for using OpenSearch Service for your destination
 
 - Enter values for the following fields:
 
-\***\*OpenSearch Service domain\*\***
+****OpenSearch Service domain****
 
 The OpenSearch Service domain to which your data is delivered.
 
-\***\*Index\*\***
+****Index****
 
 The OpenSearch Service index name to be used when indexing data to your OpenSearch Service
 cluster.
 
-\***\*Index rotation\*\***
+****Index rotation****
 
 Choose whether and how often the OpenSearch Service index should be rotated. If
 index rotation is enabled, Amazon Data Firehose appends the corresponding
 timestamp to the specified index name and rotates. For more
 information, see [Configure index rotation for OpenSearch Service](es-index-rotation.md "es-index-rotation.md").
 
-\***\*Type\*\***
+****Type****
 
 The OpenSearch Service type name to be used when indexing data to your OpenSearch Service
 cluster. For Elasticsearch 7.x and OpenSearch 1.x, there can be only
@@ -517,7 +517,7 @@ runtime.
 
 For Elasticsearch 7.x, leave this field empty.
 
-\***\*Retry duration\*\***
+****Retry duration****
 
 Time duration for Firehose to retry if an index request to
 OpenSearch fails. For retry duration, you can set any value
@@ -535,7 +535,7 @@ downtime or maintenance of OpenSearch clusters, you can configure the
 retry duration to a higher value in seconds. You can increase the
 retry duration value above to 7200 seconds by contacting the [AWS support](https://aws.amazon.com/contact-us/ "https://aws.amazon.com/contact-us/").
 
-\***\*DocumentID type\*\***
+****DocumentID type****
 
 Indicates the method for setting up document ID. The supported
 methods are Firehose-generated document ID and OpenSearch Service-generated document
@@ -546,7 +546,7 @@ including log analytics and observability, consuming fewer CPU
 resources at the OpenSearch Service domain and thus, resulting in improved
 performance.
 
-\***\*Destination VPC connectivity\*\***
+****Destination VPC connectivity****
 
 If your OpenSearch Service domain is in a private VPC, use this section to
 specify that VPC. Also specify the subnets and subgroups that you
@@ -580,17 +580,17 @@ destination.
 
 - Enter values for the following fields:
 
-\***\*OpenSearch Serverless collection\*\***
+****OpenSearch Serverless collection****
 
 The endpoint for a group of OpenSearch Serverless indexes to which
 your data is delivered.
 
-\***\*Index\*\***
+****Index****
 
 The OpenSearch Serverless index name to be used when indexing data
 to your OpenSearch Serverless collection.
 
-\***\*Destination VPC connectivity\*\***
+****Destination VPC connectivity****
 
 If your OpenSearch Serverless collection is in a private VPC, use
 this section to specify that VPC. Also specify the subnets and
@@ -602,7 +602,7 @@ data to your OpenSearch Serverless collection.
 When you specify subnets for delivering data to the destination in a private VPC, make sure you have enough number of free IP addresses in chosen subnets. If there is no available free IP address in a specified subnet,
 Firehose cannot create or add ENIs for the data delivery in the private VPC, and the delivery will be degraded or fail.
 
-\***\*Retry duration\*\***
+****Retry duration****
 
 Time duration for Firehose to retry if an index request to
 OpenSearch Serverless fails. For retry duration, you can set any
@@ -727,7 +727,7 @@ again.
 ## Configure destination settings for Datadog
 
 This section describes options for using **Datadog** for your
-destination. For more information about Datadog, see [https://docs.datadoghq.com/integrations/amazon_web_services/](https://docs.datadoghq.com/integrations/amazon_web_services/ "https://docs.datadoghq.com/integrations/amazon_web_services/").
+destination. For more information about Datadog, see [https://docs.datadoghq.com/integrations/amazon\_web\_services/](https://docs.datadoghq.com/integrations/amazon_web_services/ "https://docs.datadoghq.com/integrations/amazon_web_services/").
 
 ######
 

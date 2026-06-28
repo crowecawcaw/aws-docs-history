@@ -8,7 +8,7 @@
 3. Choose **Create Firehose stream**.
 4. Under **Choose source and destination**
 
-\***\*Source\*\***
+****Source****
 
 The source of your Firehose stream. Choose one of the following sources:
 
@@ -22,15 +22,14 @@ The source of your Firehose stream. Choose one of the following sources:
      a data source. You can then use Firehose to read data easily from
      an existing Kinesis data stream and load it into destinations. For more information, see [Writing to Firehose Using Kinesis Data Streams](writing-with-kinesis-streams.md "writing-with-kinesis-streams.md")
 
-\***\*Destination\*\***
+****Destination****
 
 The destination of your Firehose stream. Choose one of the following:
 
     * Amazon S3
     * Splunk
 
-5. Under **Firehose stream name**, enter a name for your stream.
-6. (Optional) Under **Transform records**:
+5. Under **Firehose stream name**, enter a name for your stream. 6. (Optional) Under **Transform records**:
 
-   - In the **Decompress source records from Amazon CloudWatch Logs** section, choose **Turn on decompression**.
-   - If you want to use message extraction after decompression, choose **Turn on message extraction**.
+    * In the **Decompress source records from Amazon CloudWatch Logs** section, choose **Turn on decompression**.
+    * If you want to use message extraction after decompression, choose **Turn on message extraction**.

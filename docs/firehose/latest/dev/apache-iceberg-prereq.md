@@ -61,17 +61,16 @@ prerequisites.
   required permissions. The permissions required for Amazon S3 Tables catalog
   depend on the access control mode you use:
 
-      + **IAM access control** – The
-       Firehose delivery role needs IAM permissions directly on Amazon S3 Tables
-       resources.
-      + **Lake Formation access control** – The
-       Firehose delivery role needs AWS AWS Lake Formation permissions for managing
-       access to your table resources. AWS Lake Formation uses its own permissions
-       model that enables fine-grained access control for Data Catalog
-       resources.
-
-  You configure this IAM role when you create a Firehose stream. For more
-  information, see [Grant Firehose access to Amazon S3 Tables](controlling-access.md#using-s3-tables "controlling-access.md#using-s3-tables").
+  - **IAM access control** – The
+    Firehose delivery role needs IAM permissions directly on Amazon S3 Tables
+    resources.
+  - **Lake Formation access control** – The
+    Firehose delivery role needs AWS AWS Lake Formation permissions for managing
+    access to your table resources. AWS Lake Formation uses its own permissions
+    model that enables fine-grained access control for Data Catalog
+    resources.
+    You configure this IAM role when you create a Firehose stream. For more
+    information, see [Grant Firehose access to Amazon S3 Tables](controlling-access.md#using-s3-tables "controlling-access.md#using-s3-tables").
 
 For step-by-step integration, refer to the blog [Build a data lake for streaming data with Amazon S3 Tables and Amazon Data Firehose](https://aws.amazon.com/blogs/storage/build-a-data-lake-for-streaming-data-with-amazon-s3-tables-and-amazon-data-firehose/ "https://aws.amazon.com/blogs/storage/build-a-data-lake-for-streaming-data-with-amazon-s3-tables-and-amazon-data-firehose/").
 For additional information, also refer to [Using Amazon S3 Tables with AWS analytics services](../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md "../../../AmazonS3/latest/userguide/s3-tables-integrating-aws.md").

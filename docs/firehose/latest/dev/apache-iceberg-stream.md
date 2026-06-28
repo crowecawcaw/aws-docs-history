@@ -174,7 +174,7 @@ Firehose sends all delivery errors to CloudWatch Logs, and Amazon S3 error bucke
 
 List of errors:
 
-| **Error Message**          | \***\*Description\*\***                                                                                                               |
+| **Error Message**          | ****Description****                                                                                                                   |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `Iceberg.NoSuchTable`      | Firehose is writing to a table that doesn't exist, or the table<br>is not in V2 format. Firehose doesn't support tables in V1 format. |
 | `Iceberg.InvalidTableName` | A null or empty table name is passed, or the table is not in<br>V2 format. Firehosedoesn't support tables in V1 format.               |

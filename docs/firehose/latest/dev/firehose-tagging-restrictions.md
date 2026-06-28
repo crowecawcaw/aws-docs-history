@@ -18,7 +18,7 @@ The following restrictions apply to tags in Amazon Data Firehose.
 - Tag keys must be between 1 and 128 Unicode characters in length.
 - Tag keys must consist of the following characters: Unicode letters, digits,
   white space, and the following special characters: `_ . / = + -
-@`.
+ @`.
 
 ###### Tag value restrictions
 

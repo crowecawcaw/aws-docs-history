@@ -54,7 +54,7 @@ bucket prefix value that consists of expressions specified in the following form
 ###### Note
 
 You can also specify the S3 bucket prefix value using the hive style format, for
-example customer_id=!{partitionKeyFromQuery:customer_id}.
+example customer\_id=!{partitionKeyFromQuery:customer\_id}.
 
 For more information, see the "Choose Amazon S3 for Your Destination" in [Creating an Amazon Firehose stream](basic-create.md "basic-create.md") and [Custom Prefixes for Amazon S3 Objects](s3-prefixes.md "s3-prefixes.md").
 

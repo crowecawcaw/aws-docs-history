@@ -61,14 +61,14 @@ After selecting data parameters for your partitioning keys, you then map each
 parameter to a valid jq expression. The following table shows such a mapping of
 parameters to jq expressions:
 
-| Parameter     | jq expression    |
-| ------------- | ---------------- | -------------- |
-| `customer_id` | .customer_id     |
-| `device`      | .type.device     |
-| `year`        | .event_timestamp | strftime("%Y") |
-| `month`       | .event_timestamp | strftime("%m") |
-| `day`         | .event_timestamp | strftime("%d") |
-| `hour`        | .event_timestamp | strftime("%H") |
+| Parameter     | jq expression     |
+| ------------- | ----------------- |
+| `customer_id` | .customer\_id     |
+| `device`      | .type.device      |
+| `year`        | .event\_timestamp | strftime("%Y") |
+| `month`       | .event\_timestamp | strftime("%m") |
+| `day`         | .event\_timestamp | strftime("%d") |
+| `hour`        | .event\_timestamp | strftime("%H") |
 
 At runtime, Firehose uses the right column above to evaluate the parameters based on
 the data in each record.

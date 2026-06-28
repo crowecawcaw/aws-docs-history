@@ -7,7 +7,7 @@ specific Amazon MSK cluster and topic and load it into the specified S3 destinat
 In the **Source settings** section of the page, provide values
 for the following fields.
 
-\***\*Amazon MSK cluster connectivity\*\***
+****Amazon MSK cluster connectivity****
 
 Choose either the **Private bootstrap brokers**
 (recommended) or **Public bootstrap brokers** option
@@ -38,7 +38,7 @@ brokers, the cluster must meet all of the following requirements.
   methods.
 - The cluster must be public-accessible.
 
-\***\*MSK cluster account\*\***
+****MSK cluster account****
 
 You can choose the account where the Amazon MSK cluster resides. This can
 be one of the following.
@@ -51,7 +51,7 @@ be one of the following.
   ingest data from an MSK cluster in another AWS account. For
   more information, see [Cross-account delivery from Amazon MSK](controlling-access.md#cross-account-delivery-msk "controlling-access.md#cross-account-delivery-msk").
 
-\***\*Topic\*\***
+****Topic****
 
 Specify the Apache Kafka topic from which you want your Firehose stream to
 ingest data. You cannot update this topic after Firehose stream creation

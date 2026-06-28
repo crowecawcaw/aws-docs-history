@@ -11,11 +11,14 @@ of 15 minutes).
 - `DeliveryToHttpEndpoint.DataFreshness`
   Also, create alarms based on the following metric math expressions.
 
-- ``IncomingBytes` (Sum per 5 Minutes) / 300`approaches a percentage of`BytesPerSecondLimit`.
-- ``IncomingRecords` (Sum per 5 Minutes) / 300`approaches a percentage of`RecordsPerSecondLimit`.
-- ``IncomingPutRequests` (Sum per 5 Minutes) / 300` approaches a percentage of`PutRequestsPerSecondLimit`.
-Another metric for which we recommend an alarm is
- `ThrottledRecords`.
+- ``IncomingBytes` (Sum per 5 Minutes) / 300`
+  approaches a percentage of `BytesPerSecondLimit`.
+- ``IncomingRecords` (Sum per 5 Minutes) / 300`
+  approaches a percentage of `RecordsPerSecondLimit`.
+- ``IncomingPutRequests` (Sum per 5 Minutes) / 300`
+  approaches a percentage of `PutRequestsPerSecondLimit`.
+  Another metric for which we recommend an alarm is
+  `ThrottledRecords`.
 
 For information about troubleshooting when alarms go to the `ALARM`
 state, see [Troubleshoot errors in Amazon Data Firehose](troubleshooting.md "troubleshooting.md").
