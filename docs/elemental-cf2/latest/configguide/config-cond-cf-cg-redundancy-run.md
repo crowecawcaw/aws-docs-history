@@ -12,7 +12,7 @@ This install script configures Conductor redundancy.
 [elemental@hostname ~]$ **sudo /opt/elemental\_se/.support\_utils/dbrepl configure dbrepl\_config.yml primary**
 ```
 
-where <dbrepl_config> is the file that you created above. 2. You are prompted to restart the Conductor node.
+where <dbrepl\_config> is the file that you created above. 2. You are prompted to restart the Conductor node.
 
 ```
 [elemental@hostname ~]$ **sudo /etc/init.d/elemental\_se restart**
@@ -24,7 +24,7 @@ where <dbrepl_config> is the file that you created above. 2. You are prompted to
 [elemental@hostname ~]$ **sudo /opt/elemental\_se/.support\_utils/dbrepl configure dbrepl\_config.yml secondary**
 ```
 
-where <dbrepl_config> is the file you created above. 4. You are prompted to restart the Conductor node.
+where <dbrepl\_config> is the file you created above. 4. You are prompted to restart the Conductor node.
 
 ```
 [elemental@hostname ~]$ **sudo /etc/init.d/elemental\_se restart**

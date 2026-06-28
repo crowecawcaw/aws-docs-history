@@ -13,11 +13,11 @@ The three screens are:
 - The Conductor Configuration screen for a Conductor node.
   These three screens cover slightly different configuration features, and are accessed in slightly different ways. The following tables provides more detail.
 
-| Screen                                  | How to Navigate to this Screen                                                 | Purpose of this Screen                                                                                                                                               |
-| --------------------------------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Node Configuration screen for Conductor | From the Conductor web interface: **Nodes\*<br>• > **Edit\*<br>• (wrench icon) | Configures the Conductor node as one of several nodes in the cluster. Includes network settings, mount points, and firewall for AWS Elemental Conductor File.        |
-| Node Configuration screen for worker    | From the Conductor web interface: **Nodes\*<br>• > **Edit\*<br>• (wrench icon) | Configures the worker node as one of several nodes in the cluster. Include network settings, mount points, and firewall for AWS Elemental Server.                    |
-| Conductor Configuration screen          | From the Conductor web interface: Configuration (cog icon) in the main menu    | Configures the Conductor in its special role as the manager of the cluster. Includes failover management, authentication on the cluster, SNMP management, and so on. |
+| Screen                                  | How to Navigate to this Screen                                               | Purpose of this Screen                                                                                                                                               |
+| --------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Node Configuration screen for Conductor | From the Conductor web interface: *_Nodes_<br>• > *_Edit_<br>• (wrench icon) | Configures the Conductor node as one of several nodes in the cluster. Includes network settings, mount points, and firewall for AWS Elemental Conductor File.        |
+| Node Configuration screen for worker    | From the Conductor web interface: *_Nodes_<br>• > *_Edit_<br>• (wrench icon) | Configures the worker node as one of several nodes in the cluster. Include network settings, mount points, and firewall for AWS Elemental Server.                    |
+| Conductor Configuration screen          | From the Conductor web interface: Configuration (cog icon) in the main menu  | Configures the Conductor in its special role as the manager of the cluster. Includes failover management, authentication on the cluster, SNMP management, and so on. |
 
 ###### Important
 

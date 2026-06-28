@@ -2,7 +2,7 @@ This is version 2.18 of the AWS Elemental Conductor File documentation. This is 
 latest version. For prior versions, see the _Archive_ section of
 [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
 
-# Step B: Create a dbrepl_config.yml File
+# Step B: Create a dbrepl\_config.yml File
 
 1. Use a text editor to create a file called `dbrepl_config.yml` in the home/elemental directory.
 2. Enter the following lines in the file. Make sure to enter values in single quotes.

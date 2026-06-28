@@ -13,6 +13,6 @@ This procedure will likely require 1 hour to complete.
 ###### Summary
 
 - [Step A: Get Ready](config-cond-cf-cg-redundancy-ready.md "config-cond-cf-cg-redundancy-ready.md")
-- [Step B: Create a dbrepl_config.yml File](config-cond-cf-cg-redundancy-yml.md "config-cond-cf-cg-redundancy-yml.md")
+- [Step B: Create a dbrepl\_config.yml File](config-cond-cf-cg-redundancy-yml.md "config-cond-cf-cg-redundancy-yml.md")
 - [Step C: Run the Redundancy Install Script](config-cond-cf-cg-redundancy-run.md "config-cond-cf-cg-redundancy-run.md")
 - [Step D: Test Failover](config-cond-cf-cg-redundancy-test.md "config-cond-cf-cg-redundancy-test.md")

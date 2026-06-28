@@ -20,5 +20,4 @@ This screen has a warning in red. It does not apply the first time you set up ne
 
     If you choose Static Routing, extra fields appear for you to configure the device: **IP Address**, **Netmask**, (optional) **Gateway**, and (optional) **Static Routes**.
 
-7. Choose **Save**. The new device appears in the Network Devices list.
-8. If there is another Conductor node in the cluster, repeat these steps on the web interface for that node.
+7. Choose **Save**. The new device appears in the Network Devices list. 8. If there is another Conductor node in the cluster, repeat these steps on the web interface for that node.
