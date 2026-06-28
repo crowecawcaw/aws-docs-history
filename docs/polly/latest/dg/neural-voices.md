@@ -71,6 +71,13 @@ table lists the voices.
 \*The Amy, Joanna, Lupe, and Matthew voices can be used with the Newscaster
 speaking style. For more information, see [Applying the newscaster voice](newscaster-voices.md "newscaster-voices.md").
 
+###### Note
+
+For certain voices, Amazon Polly might automatically switch to the Standard
+engine when accuracy is critical. For example, this can happen during
+letter-by-letter spelling. You might notice an audible shift in voice
+quality compared to Neural synthesis.
+
 ## Feature and region compatibility
 
 Neural voices aren't available in all AWS Regions, nor do they support all Amazon Polly

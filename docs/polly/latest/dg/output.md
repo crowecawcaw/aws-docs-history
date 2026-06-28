@@ -13,14 +13,13 @@ following fields:
 - **value** – this varies depending on the
   type of speech mark
 
-      + **SSML**: <mark> SSML tag
-      + **viseme**: the viseme name
-      + **word** or
-       **sentence**: a substring of the
-       input text, as delimited by the start and end fields
-
-  For example, Amazon Polly generates the following `word` speech mark object
-  from the text "Mary had a little lamb":
+  - **SSML**: <mark> SSML tag
+  - **viseme**: the viseme name
+  - **word** or
+    **sentence**: a substring of the
+    input text, as delimited by the start and end fields
+    For example, Amazon Polly generates the following `word` speech mark object
+    from the text "Mary had a little lamb":
 
 ```
 {"time":373,"type":"word","start":5,"end":8,"value":"had"}

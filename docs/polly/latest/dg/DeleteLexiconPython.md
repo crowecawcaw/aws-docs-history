@@ -9,7 +9,7 @@ The following code example uses default credentials stored in the AWS SDK
 configuration file. For information about creating the configuration file, see
 [Setting up the AWS CLI](setup-cli.md "setup-cli.md").
 
-For more information on this operation, see the reference for the [`DeleteLexicon`](API_DeleteLexicon.md "API_DeleteLexicon.md") API.
+For more information on this operation, see the reference for the [`DeleteLexicon`](../APIReference/API_DeleteLexicon.md "../APIReference/API_DeleteLexicon.md") API.
 
 ```
 from argparse import ArgumentParser

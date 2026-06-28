@@ -14,9 +14,9 @@ To run this example application, you need the following:
 
 ###### To test the application
 
-1. Ensure that the JAVA_HOME environment variable is set for the JDK.
+1. Ensure that the JAVA\_HOME environment variable is set for the JDK.
 
-For example, if you installed JDK 1.8.0_121 on Windows at `C:\Program
+For example, if you installed JDK 1.8.0\_121 on Windows at `C:\Program
  Files\Java\jdk1.8.0_121`, you would type the following at the command
 prompt:
 
@@ -24,7 +24,7 @@ prompt:
 set JAVA_HOME=""C:\Program Files\Java\jdk1.8.0_121""
 ```
 
-If you installed JDK 1.8.0_121 in Linux at
+If you installed JDK 1.8.0\_121 in Linux at
 `/usr/lib/jvm/java8-openjdk-amd64` , you would type the following at
 the command prompt:
 

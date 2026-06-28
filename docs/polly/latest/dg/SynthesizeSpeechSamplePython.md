@@ -2,7 +2,7 @@
 
 The following Python code example uses the AWS SDK for Python (Boto) synthesize speech with
 shorter texts for near real-time processing. For more information, see the
-reference for the [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md") operation.
+reference for the [SynthesizeSpeech](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md") operation.
 
 This example uses a short string of plain text. You can use SSML text for more
 control over the output. For more information, see [Generating speech from SSML documents](ssml.md "ssml.md").

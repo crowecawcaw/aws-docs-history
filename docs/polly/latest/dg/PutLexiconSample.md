@@ -3,7 +3,7 @@
 The following Java code sample show how to use Java-based applications to store a
 pronunciation lexicon in an AWS Region.
 
-For more information on this operation, see the reference for the [`PutLexicon`](API_PutLexicon.md "API_PutLexicon.md") API.
+For more information on this operation, see the reference for the [`PutLexicon`](../APIReference/API_PutLexicon.md "../APIReference/API_PutLexicon.md") API.
 
 ```
 /*

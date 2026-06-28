@@ -49,13 +49,11 @@ The SSML tags tell Amazon Polly how to render the text:
      in quotation marks when you use it.
 
 5. For **Language**, choose
-   **English, US**, then choose a
-   voice.
-6. To listen to the speech, choose
-   **Listen**.
-7. To save the speech file, choose
-   **Download**. If you want to save it in
-   a different format, expand **Additional
-   settings**, turn on **Speech file
-   format settings** and choose the format that
-   you want, then choose **Download**.
+**English, US**, then choose a
+voice. 6. To listen to the speech, choose
+**Listen**. 7. To save the speech file, choose
+**Download**. If you want to save it in
+a different format, expand **Additional
+settings**, turn on **Speech file
+format settings** and choose the format that
+you want, then choose **Download**.

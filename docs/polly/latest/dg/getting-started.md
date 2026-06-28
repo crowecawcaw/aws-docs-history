@@ -1,7 +1,7 @@
 # Getting started with Amazon Polly
 
 Amazon Polly provides several API operations that you can easily integrate with your existing
-applications. For a list of supported operations, see [Actions](API_Operations.md "API_Operations.md").
+applications. For a list of supported operations, see [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md").
 
 You can perform almost all of the same operations on the Amazon Polly console and the AWS CLI.
 However, you can't listen to synthesized speech on the AWS CLI. To work with audio on the

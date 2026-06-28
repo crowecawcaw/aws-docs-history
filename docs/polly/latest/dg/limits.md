@@ -61,7 +61,7 @@ for the adjustable quotas when needed.
 | Operation                                                         | Limit                                                                                                                                                                                      |
 | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Lexicon**                                                       |                                                                                                                                                                                            |
-| `DeleteLexicon`<br>`PutLexicon`<br>`GetLexicon`<br>`ListLexicons` | Any 2 transactions per second (tps) from these operations combined.Maximum allowed burst of 4 tps.                                                                                         |
+| `DeleteLexicon`<br>`PutLexicon`<br>`GetLexicon`<br>`ListLexicons` | Any 5 transactions per second (tps) from these operations combined.Maximum allowed burst of 10 tps.                                                                                        |
 | **Speech**                                                        |                                                                                                                                                                                            |
 | `DescribeVoices`                                                  | 80 tps with a burst limit of 100 tps                                                                                                                                                       |
 | `SynthesizeSpeech`                                                | Generative voice: 8 tps<br>Long-form voice: 8 tps with a burst limit of 10 tps<br>Neural voice: 8 tps with a burst limit of 10 tps<br>Standard voice: 80 tps with a burst limit of 100 tps |
@@ -158,7 +158,7 @@ Note the following limits related to using the `SynthesizeSpeech` API operation:
   reached, any remaining speech is cut off.
 
 For more information,
-see [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md").
+see [SynthesizeSpeech](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md").
 
 ###### Note
 

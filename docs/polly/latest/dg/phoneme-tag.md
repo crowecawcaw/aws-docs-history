@@ -22,13 +22,12 @@ the phonetic symbols of the corrected pronunciation:
 
 - `ph`
 
-      + Specifies the phonetic symbols for
-       pronunciation. For more information, see [Languages in Amazon Polly](supported-languages.md "supported-languages.md")
-
-  With the `<phoneme>` tag, Amazon Polly uses the
-  pronunciation specified by the `ph` attribute instead
-  of the standard pronunciation associated by default with the
-  language used by the selected voice.
+  - Specifies the phonetic symbols for
+    pronunciation. For more information, see [Languages in Amazon Polly](supported-languages.md "supported-languages.md")
+    With the `<phoneme>` tag, Amazon Polly uses the
+    pronunciation specified by the `ph` attribute instead
+    of the standard pronunciation associated by default with the
+    language used by the selected voice.
 
 For instance, the word "pecan" can be pronounced two ways. In
 the following example, “pecan” is assigned a different

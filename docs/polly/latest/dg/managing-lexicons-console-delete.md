@@ -18,7 +18,7 @@ Console
    keep it.
 
 AWS CLI
-Amazon Polly provides the [DeleteLexicon](API_DeleteLexicon.md "API_DeleteLexicon.md") API operation to delete a pronunciation lexicon
+Amazon Polly provides the [DeleteLexicon](../APIReference/API_DeleteLexicon.md "../APIReference/API_DeleteLexicon.md") API operation to delete a pronunciation lexicon
 from a specific AWS Region in your account. The following AWS CLI deletes the
 specified lexicon.
 

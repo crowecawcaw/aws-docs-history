@@ -1,6 +1,6 @@
 # SynthesizeSpeech and StartSpeechSynthesisStream compared
 
-**[SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md")**
+**[SynthesizeSpeech](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md")**
 is a request-response operation. You provide the complete text in a single request
 and receive the full synthesized audio in a single response. It supports all engines
 (standard, neural, long-form, generative), all output formats including speech marks,
@@ -9,7 +9,7 @@ billed characters) per request. The response streams audio back as soon as the f
 bytes are available. Use this operation when you have all the text available
 upfront.
 
-**[StartSpeechSynthesisStream](API_StartSpeechSynthesisStream.md "API_StartSpeechSynthesisStream.md")**
+**[StartSpeechSynthesisStream](../APIReference/API_StartSpeechSynthesisStream.md "../APIReference/API_StartSpeechSynthesisStream.md")**
 is a bidirectional streaming operation. It opens an HTTP/2 connection over
 which you send text incrementally and receive audio as it is synthesized. There is no
 per-request text limit since text is streamed continuously. It requires the generative
@@ -28,14 +28,14 @@ Common scenarios include:
   Text longer than 6,000 characters can be streamed continuously without
   splitting into multiple requests or managing chunk boundaries.
 
-| Comparison of SynthesizeSpeech and StartSpeechSynthesisStream | Aspect                                                                                     | SynthesizeSpeech                                                            | StartSpeechSynthesisStream |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- | -------------------------- |
-| Protocol                                                      | Request-response                                                                           | Bidirectional event stream (HTTP/2)                                         |
-| Text delivery                                                 | Full text in request body                                                                  | Streaming input text via TextEvent messages                                 |
-| Audio delivery                                                | Streaming audio response via HTTP response body                                            | Streaming audio response via AudioEvent messages                            |
-| Engine support                                                | standard, neural, long-form, generative                                                    | generative only                                                             |
-| SSML support                                                  | Yes (all engines; [supported<br>tags vary by engine](supportedtags.md "supportedtags.md")) | Yes ([generative<br>engine tags only](supportedtags.md "supportedtags.md")) |
-| Lexicons                                                      | Yes                                                                                        | Yes                                                                         |
-| Speech marks                                                  | Yes                                                                                        | No                                                                          |
-| Text limit                                                    | 6,000 total characters (3,000 billed) per request                                          | 6,000 total characters (3,000 billed) per TextEvent                         |
-| AWS CLI support                                               | Yes                                                                                        | No (bidirectional streaming requires an SDK)                                |
+Comparison of SynthesizeSpeech and StartSpeechSynthesisStream| Aspect | SynthesizeSpeech | StartSpeechSynthesisStream |
+| --- | --- | --- |
+| Protocol | Request-response | Bidirectional event stream (HTTP/2) |
+| Text delivery | Full text in request body | Streaming input text via TextEvent messages |
+| Audio delivery | Streaming audio response via HTTP response body | Streaming audio response via AudioEvent messages |
+| Engine support | standard, neural, long-form, generative | generative only |
+| SSML support | Yes (all engines; [Supported SSML tags](supportedtags.md "supportedtags.md")) | Yes ([Supported SSML tags](supportedtags.md "supportedtags.md")) |
+| Lexicons | Yes | Yes |
+| Speech marks | Yes | No |
+| Text limit | 6,000 total characters (3,000 billed) per request | 6,000 total characters (3,000 billed) per TextEvent |
+| AWS CLI support | Yes | No (bidirectional streaming requires an SDK) |

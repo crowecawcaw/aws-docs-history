@@ -3,7 +3,7 @@
 The following Java code sample shows how to use Java-based applications to produce a
 list of pronunciation lexicons stored in an AWS Region.
 
-For more information on this operation, see the reference for the [`ListLexicons`](API_ListLexicons.md "API_ListLexicons.md") API.
+For more information on this operation, see the reference for the [`ListLexicons`](../APIReference/API_ListLexicons.md "../APIReference/API_ListLexicons.md") API.
 
 ```
 package com.amazonaws.polly.samples;

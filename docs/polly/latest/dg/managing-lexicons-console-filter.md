@@ -15,7 +15,7 @@ Console
 The list displays only the lexicons for the chosen language.
 
 AWS CLI
-Amazon Polly provides the [ListLexicons](API_ListLexicons.md "API_ListLexicons.md") API operation that you can use to get the
+Amazon Polly provides the [ListLexicons](../APIReference/API_ListLexicons.md "../APIReference/API_ListLexicons.md") API operation that you can use to get the
 list of pronunciation lexicons in your account in a specific AWS Region. The
 following AWS CLI call lists the lexicons in your account in the us-east-2
 region.

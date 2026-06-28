@@ -9,7 +9,7 @@ The following code example uses default credentials stored in the AWS SDK
 configuration file. For information about creating the configuration file, see
 [Setting up the AWS CLI](setup-cli.md "setup-cli.md").
 
-For more information on this operation, see the reference for the [`GetLexicon`](API_GetLexicon.md "API_GetLexicon.md")
+For more information on this operation, see the reference for the [`GetLexicon`](../APIReference/API_GetLexicon.md "../APIReference/API_GetLexicon.md")
 API.
 
 ```

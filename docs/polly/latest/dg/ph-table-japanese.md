@@ -70,10 +70,10 @@ corresponding visemes for the Japanese voice supported by Amazon Polly.
 | äː             | a:\_"   | long open central unrounded vowel          | 羽蟻, h**aa**ri            | a      |
 | ä              | a\_"    | open central unrounded vowel               | 仮名, k**a**n**a**         | a      |
 | eː             | e:\_o   | long mid front unrounded vowel             | 学生, gakus**ei**          | @      |
-| e              | e_o     | mid front unrounded vowel                  | 歴, r**e**ki               | @      |
+| e              | e\_o    | mid front unrounded vowel                  | 歴, r**e**ki               | @      |
 | i              | i       | close front unrounded vowel                | 気, k**i**                 | i      |
 | iː             | i:      | long close front unrounded vowel           | 詩歌, sh**ii**ka           | i      |
 | ɯ              | M       | close back unrounded vowel                 | 運, **u**n                 | i      |
 | ɯː             | M:      | long close back unrounded vowel            | 宗教, sh**uu**kyou         | i      |
 | oː             | o:\_o   | long mid back rounded vowel                | 購読, k**oo**doku          | o      |
-| o              | o_o     | mid back rounded vowel                     | 読者, d**o**kusha          | o      |
+| o              | o\_o    | mid back rounded vowel                     | 読者, d**o**kusha          | o      |

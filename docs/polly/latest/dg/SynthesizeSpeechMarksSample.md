@@ -5,7 +5,7 @@ speech marks for inputed text. This functionality uses the SynthesizeSpeech API.
 
 For more information on this functionality, see [Speech marks](speechmarks.md "speechmarks.md").
 
-For more information on the API, see the reference for [`SynthesizeSpeech`](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md")
+For more information on the API, see the reference for [`SynthesizeSpeech`](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md")
 API.
 
 ```

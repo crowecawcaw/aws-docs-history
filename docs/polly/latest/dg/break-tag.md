@@ -31,11 +31,11 @@ of a pause after a comma.
   `time` attribute values:
 
 - ``[number]`s`: The
-duration of the pause, in seconds. The maximum duration
-is `10s`.
+  duration of the pause, in seconds. The maximum duration
+  is `10s`.
 - ``[number]`ms`:
- The duration of the pause, in milliseconds. The maximum
- duration is `10000ms`.
+  The duration of the pause, in milliseconds. The maximum
+  duration is `10000ms`.
   For example:
 
 ```
@@ -49,7 +49,7 @@ the result varies depending on text:
 
 - If there is no other punctuation next to the
   `break` tag, it creates a `<break
-strength="medium"/>` (comma-length
+ strength="medium"/>` (comma-length
   pause).
 - If the tag is next to a comma, it upgrades the tag to
   a `<break strength="strong"/>`

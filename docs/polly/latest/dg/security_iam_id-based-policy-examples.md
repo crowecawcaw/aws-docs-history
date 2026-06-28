@@ -151,9 +151,9 @@ IAM users or groups that require those permissions.
 View details about updates to AWS managed policies for Amazon Polly since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to the RSS feed on the Amazon Polly Document History page.
 
-| Amazon Polly updates to AWS managed policies | Policy                                                                                                                                                | Change         | Date |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---- |
-| AmazonPollyReadOnlyAccess                    | Updated managed policy<br>• Added permission for `polly:StartSpeechSynthesisStream` to support bidirectional streaming speech synthesis capabilities. | March 19, 2026 |
+Amazon Polly updates to AWS managed policies| Policy | Change | Date |
+| --- | --- | --- |
+| AmazonPollyReadOnlyAccess | Updated managed policy<br>• Added permission for `polly:StartSpeechSynthesisStream` to support bidirectional streaming speech synthesis capabilities. | March 19, 2026 |
 
 ## Customer-managed policy examples
 

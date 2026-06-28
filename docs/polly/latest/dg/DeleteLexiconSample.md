@@ -5,7 +5,7 @@ specific lexicon stored in an AWS Region. A lexicon which has been deleted is no
 available for speech synthesis, nor can it be retrieved using either the
 `GetLexicon` or `ListLexicon` APIs.
 
-For more information on this operation, see the reference for the [`DeleteLexicon`](API_DeleteLexicon.md "API_DeleteLexicon.md") API.
+For more information on this operation, see the reference for the [`DeleteLexicon`](../APIReference/API_DeleteLexicon.md "../APIReference/API_DeleteLexicon.md") API.
 
 ```
 /*

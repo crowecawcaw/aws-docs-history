@@ -3,5 +3,5 @@
 Output of your Amazon Polly voice synthesis can be saved on your own system. You can
 also call Amazon Polly, and then encrypt the file with any encryption key of your choice and store
 it in Amazon Simple Storage Service (Amazon S3) or another secure storage.
-The Amazon Polly [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md") operation is stateless and is not associated with a
+The Amazon Polly [SynthesizeSpeech](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md") operation is stateless and is not associated with a
 customer identity. You can't retrieve it from Amazon Polly later.

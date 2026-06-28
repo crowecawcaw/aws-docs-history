@@ -5,7 +5,7 @@ list of the voices that are available for use when requesting speech synthesis. 
 optionally specify a language code to filter the available voices. For example, if you
 specify en-US, the operation returns a list of all available US English voices.
 
-For more information on this operation, see the reference for the [`DescribeVoices`](API_DescribeVoices.md "API_DescribeVoices.md")
+For more information on this operation, see the reference for the [`DescribeVoices`](../APIReference/API_DescribeVoices.md "../APIReference/API_DescribeVoices.md")
 API.
 
 ```

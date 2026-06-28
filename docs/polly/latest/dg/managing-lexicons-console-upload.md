@@ -38,7 +38,7 @@ Console - TTS tab
    uploading the lexicon overwrites the existing lexicon.
 
 AWS CLI - one lexeme
-With Amazon Polly, you can use [PutLexicon](API_PutLexicon.md "API_PutLexicon.md") to store pronunciation lexicons in a specific AWS Region for your account. Then, you can specify one or more of these stored lexicons in your [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md") request that you want to apply before the service starts synthesizing the text. For more information, see [Managing lexicons](managing-lexicons.md "managing-lexicons.md").
+With Amazon Polly, you can use [PutLexicon](../APIReference/API_PutLexicon.md "../APIReference/API_PutLexicon.md") to store pronunciation lexicons in a specific AWS Region for your account. Then, you can specify one or more of these stored lexicons in your [SynthesizeSpeech](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md") request that you want to apply before the service starts synthesizing the text. For more information, see [Managing lexicons](managing-lexicons.md "managing-lexicons.md").
 
 Consider the following W3C PLS-compliant lexicon.
 
@@ -138,7 +138,7 @@ See the following resources for additional code samples for the PutLexicon API o
 - Python (Boto3) Sample: [PutLexicon](PutLexiconSamplePython.md "PutLexiconSamplePython.md")
 
 AWS CLI - multiple lexemes
-With Amazon Polly, you can use [PutLexicon](API_PutLexicon.md "API_PutLexicon.md") to store pronunciation lexicons in a specific AWS Region for your account. Then, you can specify one or more of these stored lexicons in your [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md") request that you want to apply before the service starts synthesizing the text. For more information, see [Managing lexicons](managing-lexicons.md "managing-lexicons.md").
+With Amazon Polly, you can use [PutLexicon](../APIReference/API_PutLexicon.md "../APIReference/API_PutLexicon.md") to store pronunciation lexicons in a specific AWS Region for your account. Then, you can specify one or more of these stored lexicons in your [SynthesizeSpeech](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md") request that you want to apply before the service starts synthesizing the text. For more information, see [Managing lexicons](managing-lexicons.md "managing-lexicons.md").
 
 In this example, the lexeme that you specify in the lexicon applies
 exclusively to the input text for the synthesis. Consider the following lexicon:

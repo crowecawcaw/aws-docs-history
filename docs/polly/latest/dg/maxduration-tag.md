@@ -101,10 +101,10 @@ There are limitations both in how you use `<prosody
 other SSML tags:
 
 - The text inside a `<prosody
-amazon:max-duration>` tag can't be longer than
+ amazon:max-duration>` tag can't be longer than
   1500 characters.
 - You can't nest `<prosody
-amazon:max-duration>` tags. If you put one
+ amazon:max-duration>` tags. If you put one
   `<prosody amazon:max-duration>` tag
   inside another, Amazon Polly ignores the inner tag.
 

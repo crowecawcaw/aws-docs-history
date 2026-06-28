@@ -3,7 +3,7 @@
 The following Java code sample show how to use Java-based applications to synthesize
 speech with shorter texts for near-real time processing.
 
-For more information, see the reference for [`SynthesizeSpeech`](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md")
+For more information, see the reference for [`SynthesizeSpeech`](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md")
 API.
 
 ```

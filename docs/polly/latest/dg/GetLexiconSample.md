@@ -3,7 +3,7 @@
 The following Java code sample show how to use Java-based applications to produce the
 content of a specific pronunciation lexicon stored in a AWS Region.
 
-For more information on this operation, see the reference for the [`GetLexicon`](API_GetLexicon.md "API_GetLexicon.md") API.
+For more information on this operation, see the reference for the [`GetLexicon`](../APIReference/API_GetLexicon.md "../APIReference/API_GetLexicon.md") API.
 
 ```
 /*

@@ -37,15 +37,15 @@ the event data collected in CloudTrail logs. For more information, see the follo
 
 Amazon Polly supports logging the following actions as events in CloudTrail log files:
 
-- [DeleteLexicon](API_DeleteLexicon.md "API_DeleteLexicon.md")
-- [DescribeVoices](API_DescribeVoices.md "API_DescribeVoices.md")
-- [GetLexicon](API_GetLexicon.md "API_GetLexicon.md")
-- [GetSpeechSynthesisTask](API_GetSpeechSynthesisTask.md "API_GetSpeechSynthesisTask.md")
-- [ListLexicons](API_ListLexicons.md "API_ListLexicons.md")
-- [ListSpeechSynthesisTasks](API_ListSpeechSynthesisTasks.md "API_ListSpeechSynthesisTasks.md")
-- [PutLexicon](API_PutLexicon.md "API_PutLexicon.md")
-- [StartSpeechSynthesisTask](API_StartSpeechSynthesisTask.md "API_StartSpeechSynthesisTask.md")
-- [SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md")
+- [DeleteLexicon](../APIReference/API_DeleteLexicon.md "../APIReference/API_DeleteLexicon.md")
+- [DescribeVoices](../APIReference/API_DescribeVoices.md "../APIReference/API_DescribeVoices.md")
+- [GetLexicon](../APIReference/API_GetLexicon.md "../APIReference/API_GetLexicon.md")
+- [GetSpeechSynthesisTask](../APIReference/API_GetSpeechSynthesisTask.md "../APIReference/API_GetSpeechSynthesisTask.md")
+- [ListLexicons](../APIReference/API_ListLexicons.md "../APIReference/API_ListLexicons.md")
+- [ListSpeechSynthesisTasks](../APIReference/API_ListSpeechSynthesisTasks.md "../APIReference/API_ListSpeechSynthesisTasks.md")
+- [PutLexicon](../APIReference/API_PutLexicon.md "../APIReference/API_PutLexicon.md")
+- [StartSpeechSynthesisTask](../APIReference/API_StartSpeechSynthesisTask.md "../APIReference/API_StartSpeechSynthesisTask.md")
+- [SynthesizeSpeech](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md")
 
 Every event or log entry contains information about who generated the request. The
 identity information helps you determine the following:

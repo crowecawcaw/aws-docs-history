@@ -19,7 +19,7 @@ Console
 6. Choose **Save**.
 
 AWS CLI
-Amazon Polly provides the [GetLexicon](API_GetLexicon.md "API_GetLexicon.md") API operation to retrieve the content of a
+Amazon Polly provides the [GetLexicon](../APIReference/API_GetLexicon.md "../APIReference/API_GetLexicon.md") API operation to retrieve the content of a
 pronunciation lexicon you stored in your account in a specific region.
 
 The following `get-lexicon` AWS CLI command retrieves the content of the

@@ -4,7 +4,7 @@ The following Python code example uses the AWS SDK for Python (Boto) to list the
 in your account in the region specified in your local AWS configuration. For
 information about creating the configuration file, see [Setting up the AWS CLI](setup-cli.md "setup-cli.md").
 
-For more information on this operation, see the reference for the [`ListLexicons`](API_ListLexicons.md "API_ListLexicons.md")
+For more information on this operation, see the reference for the [`ListLexicons`](../APIReference/API_ListLexicons.md "../APIReference/API_ListLexicons.md")
 API.
 
 ```

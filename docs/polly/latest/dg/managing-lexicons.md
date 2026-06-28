@@ -5,7 +5,7 @@ provides API operations that you can use to store lexicons in an AWS region. Tho
 specific to that particular region. You can use one or more of the lexicons from that region
 when synthesizing the text by using the `SynthesizeSpeech` operation. This applies the
 specified lexicon to the input text before the synthesis begins. For more information, see
-[SynthesizeSpeech](API_SynthesizeSpeech.md "API_SynthesizeSpeech.md").
+[SynthesizeSpeech](../APIReference/API_SynthesizeSpeech.md "../APIReference/API_SynthesizeSpeech.md").
 
 ###### Note
 
