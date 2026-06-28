@@ -24,21 +24,20 @@ environment’s transit gateway with the other account by orchestrating AWS RAM.
 
 ###### To share an environment
 
-1.  Select one of the following principal types to share your environment with:
+1. Select one of the following principal types to share your environment with:
 
-        * AWS account
-        * Organization - entire AWS organization
-        * Organizational unit (OU)
+   - AWS account
+   - Organization - entire AWS organization
+   - Organizational unit (OU)
+     AWS RAM supports sharing environments with other AWS accounts, organizational units (OUs)
+     in AWS Organizations, or an entire AWS organization.
 
-    AWS RAM supports sharing environments with other AWS accounts, organizational units (OUs)
-    in AWS Organizations, or an entire AWS organization.
-
-2.  Environments are shared with other AWS accounts using AWS Resource Access Manager (AWS RAM). AWS RAM supports
-    sharing environments with other AWS accounts, organizational units (OUs) in AWS Organizations, or an entire AWS organization. If you want to share an environment with an
-    entire AWS organization or OU, you must enable sharing with the organization in AWS RAM before
-    trying to share in Refactor Spaces.
-3.  Enter the AWS account of the principal, and then choose **Add**.
-4.  Choose **Next** to move to the **Review** page.
-5.  Review the information you entered in the previous steps.
-6.  If everything looks correct, choose **Create environment**. If you want
-    to change something, choose **Previous**.
+2. Environments are shared with other AWS accounts using AWS Resource Access Manager (AWS RAM). AWS RAM supports
+   sharing environments with other AWS accounts, organizational units (OUs) in AWS Organizations, or an entire AWS organization. If you want to share an environment with an
+   entire AWS organization or OU, you must enable sharing with the organization in AWS RAM before
+   trying to share in Refactor Spaces.
+3. Enter the AWS account of the principal, and then choose **Add**.
+4. Choose **Next** to move to the **Review** page.
+5. Review the information you entered in the previous steps.
+6. If everything looks correct, choose **Create environment**. If you want
+   to change something, choose **Previous**.
