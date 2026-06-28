@@ -26,8 +26,8 @@ selected resources at the same time. For more information, see [Managing tags wi
      '**–**'.
 
 2. You can enter a new value or choose from any of the values already present on
-   other resources with this tag. You can also delete the tag from this one
-   resource by choosing **Remove tag**.
+other resources with this tag. You can also delete the tag from this one
+resource by choosing **Remove tag**.
 
 ###### To view all tags for an individual resource
 

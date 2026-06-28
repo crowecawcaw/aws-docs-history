@@ -78,7 +78,7 @@ following policies:
   allowlist strategy or a denylist strategy.
 
 An allowlist strategy takes advantage of the fact that access
-is denied by default until you **_explicitly allow_** it
+is denied by default until you _**explicitly allow**_ it
 in a policy. So, you can use a policy like the following
 example.
 

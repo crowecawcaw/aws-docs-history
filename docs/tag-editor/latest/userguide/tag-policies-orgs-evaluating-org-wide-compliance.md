@@ -70,15 +70,14 @@ report, check on its status, and view the report:
 
 - AWS Command Line Interface AWS CLI):
 
-      + [aws resourcegroupstaggingapi
-       start-report-creation](../../../cli/latest/reference/resourcegroupstaggingapi/start-report-creation.md "../../../cli/latest/reference/resourcegroupstaggingapi/start-report-creation.md")
-      + [aws resourcegroupstaggingapi
-       describe-report-creation](../../../cli/latest/reference/resourcegroupstaggingapi/describe-report-creation.md "../../../cli/latest/reference/resourcegroupstaggingapi/describe-report-creation.md")
-      + [aws resourcegroupstaggingapi
-       get-compliance-summary](../../../cli/latest/reference/resourcegroupstaggingapi/get-compliance-summary.md "../../../cli/latest/reference/resourcegroupstaggingapi/get-compliance-summary.md")
-
-  For the complete procedure for using tag policies in the AWS CLI, see [Using tag policies
-  in the AWS CLI](../../../organizations/latest/userguide/tag-policy-cli.md "../../../organizations/latest/userguide/tag-policy-cli.md") in the _AWS Organizations User Guide_.
+  - [aws resourcegroupstaggingapi
+    start-report-creation](../../../cli/latest/reference/resourcegroupstaggingapi/start-report-creation.md "../../../cli/latest/reference/resourcegroupstaggingapi/start-report-creation.md")
+  - [aws resourcegroupstaggingapi
+    describe-report-creation](../../../cli/latest/reference/resourcegroupstaggingapi/describe-report-creation.md "../../../cli/latest/reference/resourcegroupstaggingapi/describe-report-creation.md")
+  - [aws resourcegroupstaggingapi
+    get-compliance-summary](../../../cli/latest/reference/resourcegroupstaggingapi/get-compliance-summary.md "../../../cli/latest/reference/resourcegroupstaggingapi/get-compliance-summary.md")
+    For the complete procedure for using tag policies in the AWS CLI, see [Using tag policies
+    in the AWS CLI](../../../organizations/latest/userguide/tag-policy-cli.md "../../../organizations/latest/userguide/tag-policy-cli.md") in the _AWS Organizations User Guide_.
 
 - AWS API:
 

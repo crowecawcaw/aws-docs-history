@@ -67,15 +67,14 @@ Use the following commands and operations to find noncompliant tags:
 
 - AWS Command Line Interface (AWS CLI):
 
-      + [aws resourcegroupstaggingapi
-       get-resources](../../../cli/latest/reference/resourcegroupstaggingapi/get-resources.md "../../../cli/latest/reference/resourcegroupstaggingapi/get-resources.md")
-      + [aws resourcegroupstaggingapi
-       tag-resources](../../../cli/latest/reference/resourcegroupstaggingapi/tag-resources.md "../../../cli/latest/reference/resourcegroupstaggingapi/tag-resources.md")
-      + [aws resourcegroupstaggingapi
-       untag-resources](../../../cli/latest/reference/resourcegroupstaggingapi/untag-resources.md "../../../cli/latest/reference/resourcegroupstaggingapi/untag-resources.md")
-
-  For the complete procedure for using tag policies in the AWS CLI, see [Using tag policies
-  in the AWS CLI](../../../organizations/latest/userguide/tag-policy-cli.md "../../../organizations/latest/userguide/tag-policy-cli.md") in the _AWS Organizations User Guide_.
+  - [aws resourcegroupstaggingapi
+    get-resources](../../../cli/latest/reference/resourcegroupstaggingapi/get-resources.md "../../../cli/latest/reference/resourcegroupstaggingapi/get-resources.md")
+  - [aws resourcegroupstaggingapi
+    tag-resources](../../../cli/latest/reference/resourcegroupstaggingapi/tag-resources.md "../../../cli/latest/reference/resourcegroupstaggingapi/tag-resources.md")
+  - [aws resourcegroupstaggingapi
+    untag-resources](../../../cli/latest/reference/resourcegroupstaggingapi/untag-resources.md "../../../cli/latest/reference/resourcegroupstaggingapi/untag-resources.md")
+    For the complete procedure for using tag policies in the AWS CLI, see [Using tag policies
+    in the AWS CLI](../../../organizations/latest/userguide/tag-policy-cli.md "../../../organizations/latest/userguide/tag-policy-cli.md") in the _AWS Organizations User Guide_.
 
 - AWS Resource Groups Tagging API:
 

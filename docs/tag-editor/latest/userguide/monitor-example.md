@@ -205,12 +205,12 @@ Keep the Lambda console window open in your browser.
 ## Step 2. Set up the required IAM permissions
 
 Before the function can successfully run, you must grant the function the
-permission to stop an EC2 instance. The AWS provided role [lambda_basic_execution](https://console.aws.amazon.com/iamv2/home#/roles/details/lambda_basic_execution "https://console.aws.amazon.com/iamv2/home#/roles/details/lambda_basic_execution") doesn't have that permission.
+permission to stop an EC2 instance. The AWS provided role [lambda\_basic\_execution](https://console.aws.amazon.com/iamv2/home#/roles/details/lambda_basic_execution "https://console.aws.amazon.com/iamv2/home#/roles/details/lambda_basic_execution") doesn't have that permission.
 In this tutorial, you modify the default IAM permission policy that is attached to
 the function's execution role named
 `AutoEC2Termination-role-`uniqueid``.
- The minimum additional permission required for this tutorial is
- `ec2:StopInstances`.
+The minimum additional permission required for this tutorial is
+`ec2:StopInstances`.
 
 For more information about creating Amazon EC2 specific IAM policies, see [Amazon EC2: Allows starting or stopping an EC2 Instance and modifying a security
 group, programmatically and in the console](../../../IAM/latest/UserGuide/reference_policies_examples_ec2_instance-securitygroup.md "../../../IAM/latest/UserGuide/reference_policies_examples_ec2_instance-securitygroup.md") in the _IAM User Guide_.
