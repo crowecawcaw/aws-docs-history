@@ -54,15 +54,15 @@ offer several wrapping public key specs to support a variety of HSMs and key man
 AWS KMS supports the following key specs for the RSA wrapping keys used to import key
 material of all types, except as noted.
 
-- RSA_4096 (recommended)
-- RSA_3072
-- RSA_2048
+- RSA\_4096 (recommended)
+- RSA\_3072
+- RSA\_2048
 
 ###### Note
 
-The following combination is NOT supported: ECC_NIST_P521 key material, the RSA_2048 public wrapping key spec, and an RSAES_OAEP_SHA\_\* wrapping algorithm.
+The following combination is NOT supported: ECC\_NIST\_P521 key material, the RSA\_2048 public wrapping key spec, and an RSAES\_OAEP\_SHA\_\* wrapping algorithm.
 
-You cannot directly wrap ECC_NIST_P521 key material with a RSA_2048 public wrapping key. Use a larger wrapping key or an RSA_AES_KEY_WRAP_SHA\_\* wrapping algorithm.
+You cannot directly wrap ECC\_NIST\_P521 key material with a RSA\_2048 public wrapping key. Use a larger wrapping key or an RSA\_AES\_KEY\_WRAP\_SHA\_\* wrapping algorithm.
 
 **SM2 wrapping key spec (China Regions only)**
 
@@ -85,13 +85,13 @@ material.
 The following table shows the wrapping algorithms that are supported for each type of key
 material and KMS key. The algorithms are listed in preference order.
 
-| Key material                                                                                                                                                                            | Supported wrapping algorithm and spec                                                                                                                                                                                                                                           |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Symmetric encryption key 256-bit AES key<br>128-bit SM4 key (China Regions only)                                                                                                        | Wrapping algorithms:<br>RSAES_OAEP_SHA_256<br>RSAES_OAEP_SHA_1<br>Deprecated wrapping algorithms:<br>RSAES_PKCS1_V1<br>NoteAs of October 10, 2023, AWS KMS does not support the RSAES_PKCS1_V1_5 wrapping algorithm.<br>Wrapping key specs:<br>RSA_2048<br>RSA_3072<br>RSA_4096 |
-| Asymmetric RSA private key                                                                                                                                                              | Wrapping algorithms:<br>RSA_AES_KEY_WRAP_SHA_256<br>RSA_AES_KEY_WRAP_SHA_1<br>SM2PKE (China Regions only)<br>Wrapping key specs:<br>RSA_2048<br>RSA_3072<br>RSA_4096<br>SM2 (China Regions only)                                                                                |
-| Asymmetric elliptic curve (ECC) private key<br>You cannot use the RSAES_OAEP_SHA\_\<br>• wrapping algorithms with the RSA_2048<br>wrapping key spec to wrap ECC_NIST_P521 key material. | Wrapping algorithms:<br>RSA_AES_KEY_WRAP_SHA_256<br>RSA_AES_KEY_WRAP_SHA_1<br>RSAES_OAEP_SHA_256<br>RSAES_OAEP_SHA_1<br>SM2PKE (China Regions only)<br>Wrapping key specs:<br>RSA_2048<br>RSA_3072<br>RSA_4096<br>SM2 (China Regions only)                                      |
-| Asymmetric SM2 private key (China Regions only)                                                                                                                                         | Wrapping algorithms:<br>RSAES_OAEP_SHA_256<br>RSAES_OAEP_SHA_1<br>SM2PKE (China Regions only)<br>Wrapping key specs:<br>RSA_2048<br>RSA_3072<br>RSA_4096<br>SM2 (China Regions only)                                                                                            |
-| HMAC key                                                                                                                                                                                | Wrapping algorithms:<br>RSAES_OAEP_SHA_256<br>RSAES_OAEP_SHA_1<br>Wrapping key specs:<br>RSA_2048<br>RSA_3072<br>RSA_4096                                                                                                                                                       |
+| Key material                                                                                                                                                                                 | Supported wrapping algorithm and spec                                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Symmetric encryption key 256-bit AES key<br>128-bit SM4 key (China Regions only)                                                                                                             | Wrapping algorithms:<br>RSAES\_OAEP\_SHA\_256<br>RSAES\_OAEP\_SHA\_1<br>Deprecated wrapping algorithms:<br>RSAES\_PKCS1\_V1<br>NoteAs of October 10, 2023, AWS KMS does not support the RSAES\_PKCS1\_V1\_5 wrapping algorithm.<br>Wrapping key specs:<br>RSA\_2048<br>RSA\_3072<br>RSA\_4096 |
+| Asymmetric RSA private key                                                                                                                                                                   | Wrapping algorithms:<br>RSA\_AES\_KEY\_WRAP\_SHA\_256<br>RSA\_AES\_KEY\_WRAP\_SHA\_1<br>SM2PKE (China Regions only)<br>Wrapping key specs:<br>RSA\_2048<br>RSA\_3072<br>RSA\_4096<br>SM2 (China Regions only)                                                                                 |
+| Asymmetric elliptic curve (ECC) private key<br>You cannot use the RSAES\_OAEP\_SHA\_\<br>• wrapping algorithms with the RSA\_2048<br>wrapping key spec to wrap ECC\_NIST\_P521 key material. | Wrapping algorithms:<br>RSA\_AES\_KEY\_WRAP\_SHA\_256<br>RSA\_AES\_KEY\_WRAP\_SHA\_1<br>RSAES\_OAEP\_SHA\_256<br>RSAES\_OAEP\_SHA\_1<br>SM2PKE (China Regions only)<br>Wrapping key specs:<br>RSA\_2048<br>RSA\_3072<br>RSA\_4096<br>SM2 (China Regions only)                                 |
+| Asymmetric SM2 private key (China Regions only)                                                                                                                                              | Wrapping algorithms:<br>RSAES\_OAEP\_SHA\_256<br>RSAES\_OAEP\_SHA\_1<br>SM2PKE (China Regions only)<br>Wrapping key specs:<br>RSA\_2048<br>RSA\_3072<br>RSA\_4096<br>SM2 (China Regions only)                                                                                                 |
+| HMAC key                                                                                                                                                                                     | Wrapping algorithms:<br>RSAES\_OAEP\_SHA\_256<br>RSAES\_OAEP\_SHA\_1<br>Wrapping key specs:<br>RSA\_2048<br>RSA\_3072<br>RSA\_4096                                                                                                                                                            |
 
 ###### Note
 
@@ -101,7 +101,7 @@ wrapping algorithms are not supported in China Regions.
 - `RSA_AES_KEY_WRAP_SHA_256` – A two-step hybrid wrapping algorithm that
   combines encrypting your key material with an AES symmetric key that you generate, and
   then encrypting the AES symmetric key with the downloaded RSA public wrapping key and the
-  RSAES_OAEP_SHA_256 wrapping algorithm.
+  RSAES\_OAEP\_SHA\_256 wrapping algorithm.
 
 An `RSA_AES_KEY_WRAP_SHA_*` wrapping algorithm is required for wrapping RSA private key
 material, except in China Regions, where you must use the `SM2PKE` wrapping algorithm.
@@ -109,7 +109,7 @@ material, except in China Regions, where you must use the `SM2PKE` wrapping algo
 - `RSA_AES_KEY_WRAP_SHA_1` – A two-step hybrid wrapping algorithm that
   combines encrypting your key material with an AES symmetric key that you generate, and
   then encrypting the AES symmetric key with the downloaded RSA wrapping public key and the
-  RSAES_OAEP_SHA_1 wrapping algorithm.
+  RSAES\_OAEP\_SHA\_1 wrapping algorithm.
 
 An `RSA_AES_KEY_WRAP_SHA_*` wrapping algorithm is required for wrapping RSA
 private key material, except in China Regions, where you must use the `SM2PKE` wrapping algorithm.
@@ -119,7 +119,7 @@ private key material, except in China Regions, where you must use the `SM2PKE` w
 - `RSAES_OAEP_SHA_1` – The RSA encryption algorithm with Optimal
   Asymmetric Encryption Padding (OAEP) with the SHA-1 hash function.
 - `RSAES_PKCS1_V1_5` (Deprecated; as of October 10, 2023, AWS KMS does
-  not support the RSAES_PKCS1_V1_5 wrapping algorithm) – The RSA encryption algorithm with the
+  not support the RSAES\_PKCS1\_V1\_5 wrapping algorithm) – The RSA encryption algorithm with the
   padding format defined in PKCS #1 Version 1.5.
 - `SM2PKE` (China Regions only) – An elliptic curve based encryption
   algorithm defined by OSCCA in GM/T 0003.4-2012.
@@ -162,16 +162,19 @@ creating KMS keys with imported key material, see, [Importing key material for A
 
 8. Choose the import action.
 
-   - For asymmetric and HMAC keys, choose **Import key
+    * For asymmetric and HMAC keys, choose **Import key
      material**.
-   - For symmetric encryption keys, choose one of the following:
+    * For symmetric encryption keys, choose one of the following:
 
-     - **Import initial key material** (if no key material has been
-       imported yet)
-     - **Import new key material** (to add new material for
-       rotation)
-     - **Reimport key material** (available from the
-       **Actions** menu in the key materials table)
+
+
+
+    	+ **Import initial key material** (if no key material has been
+    	 imported yet)
+    	+ **Import new key material** (to add new material for
+    	 rotation)
+    	+ **Reimport key material** (available from the
+    	 **Actions** menu in the key materials table)
 
 ###### Note
 
@@ -190,7 +193,7 @@ save the file.
 
 If you have a **Next** option, to continue the process now, choose
 **Next**. To continue later, choose **Cancel**. 12. Decompress the `.zip` file that you saved in the previous step
-(`Import_Parameters_`<key*id>`*`<timestamp>``).
+(`Import_Parameters_`<key_id>`_`<timestamp>``).
 
 The folder contains the following files:
 
@@ -214,7 +217,7 @@ must have an [Origin](create-keys.md#key-origin "create-keys.md#key-origin") val
 You can't import key material for ML-DSA KMS keys.
 
 This example specifies the `RSA_AES_KEY_WRAP_SHA_256` wrapping algorithm, the
-RSA_3072 wrapping public key spec, and an example key ID. Replace these example values with
+RSA\_3072 wrapping public key spec, and an example key ID. Replace these example values with
 valid values for your download. For the key ID, you can use a [key ID](concepts.md#key-id-key-id "concepts.md#key-id-key-id") or [key ARN](concepts.md#key-id-key-ARN "concepts.md#key-id-key-ARN"), but you cannot use an [alias name](concepts.md#key-id-alias-name "concepts.md#key-id-alias-name") or [alias
 ARN](concepts.md#key-id-alias-ARN "concepts.md#key-id-alias-ARN") in this operation.
 
@@ -242,7 +245,7 @@ save the decoded values in files.
 To base64 decode the public key and import token:
 
 1. Copy the base64 encoded public key (represented by `public key (base64
-encoded)` in the example output), paste it into a new file, and then save
+ encoded)` in the example output), paste it into a new file, and then save
    the file. Give the file a descriptive name, such as `PublicKey.b64`.
 2. Use [OpenSSL](https://openssl.org/ "https://openssl.org/") to base64 decode the file's
    contents and save the decoded data to a new file. The following example decodes the data
@@ -254,7 +257,7 @@ encoded)` in the example output), paste it into a new file, and then save
 ```
 
 3. Copy the base64 encoded import token (represented by `import token (base64
-encoded)` in the example output), paste it into a new file, and then save
+ encoded)` in the example output), paste it into a new file, and then save
    the file. Give the file a descriptive name, for example
    `importtoken.b64`.
 4. Use [OpenSSL](https://openssl.org/ "https://openssl.org/") to base64 decode the file's

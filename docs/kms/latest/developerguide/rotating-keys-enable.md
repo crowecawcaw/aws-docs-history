@@ -31,7 +31,7 @@ Automatic key rotation has the following benefits:
 The **Key rotation** tab appears only on the detail
 page of symmetric encryption KMS keys with key material that AWS KMS
 generated (the **Origin** is
-**AWS_KMS**), including [multi-Region](rotate-keys.md#multi-region-rotate "rotate-keys.md#multi-region-rotate") symmetric
+**AWS\_KMS**), including [multi-Region](rotate-keys.md#multi-region-rotate "rotate-keys.md#multi-region-rotate") symmetric
 encryption KMS keys.
 
 You cannot automatically rotate asymmetric KMS keys, HMAC

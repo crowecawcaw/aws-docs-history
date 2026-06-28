@@ -47,7 +47,7 @@ You can use the IAM API to examine IAM policies programmatically. The following
 steps provide a general overview of how to do this:
 
 1. For each AWS account listed as a principal in the key policy (that is, each [AWS account principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-accounts "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md#principal-accounts") specified in this format: `"Principal": {"AWS":
-"arn:aws:iam::111122223333:root"}`), use the [ListUsers](../../../IAM/latest/APIReference/API_ListUsers.md "../../../IAM/latest/APIReference/API_ListUsers.md") and [ListRoles](../../../IAM/latest/APIReference/API_ListRoles.md "../../../IAM/latest/APIReference/API_ListRoles.md") operations in the IAM API to
+ "arn:aws:iam::111122223333:root"}`), use the [ListUsers](../../../IAM/latest/APIReference/API_ListUsers.md "../../../IAM/latest/APIReference/API_ListUsers.md") and [ListRoles](../../../IAM/latest/APIReference/API_ListRoles.md "../../../IAM/latest/APIReference/API_ListRoles.md") operations in the IAM API to
    get all users and roles in the account.
 2. For each user and role in the list, use the [SimulatePrincipalPolicy](../../../IAM/latest/APIReference/API_SimulatePrincipalPolicy.md "../../../IAM/latest/APIReference/API_SimulatePrincipalPolicy.md")
    operation in the IAM API, passing in the following parameters:

@@ -179,16 +179,19 @@ creating KMS keys with imported key material, see [Importing key material for AW
 
 8. Choose the import action.
 
-   - For asymmetric and HMAC keys, choose **Import key
+    * For asymmetric and HMAC keys, choose **Import key
      material**.
-   - For symmetric encryption keys, choose one of the following:
+    * For symmetric encryption keys, choose one of the following:
 
-     - **Import initial key material** (if no key material has been
-       imported yet)
-     - **Import new key material** (to add new material for
-       rotation)
-     - **Reimport key material** (available from the
-       **Actions** menu in the key materials table)
+
+
+
+    	+ **Import initial key material** (if no key material has been
+    	 imported yet)
+    	+ **Import new key material** (to add new material for
+    	 rotation)
+    	+ **Reimport key material** (available from the
+    	 **Actions** menu in the key materials table)
 
 ###### Note
 
@@ -217,12 +220,10 @@ following.
      Upload the file that contains the import token that you [downloaded](importing-keys-get-public-key-and-token.md#importing-keys-get-public-key-and-token-console "importing-keys-get-public-key-and-token.md#importing-keys-get-public-key-and-token-console").
 
 11. In the **Expiration option** section, you determine whether the key
-    material expires. To set an expiration date and time, choose **Key material
-    expires**, and use the calendar to select a date and time. You can specify a
-    date up to 365 days from the current date and time.
-12. For symmetric encryption keys, you can optionally specify a description for the key
-    material being imported.
-13. Choose **Import key material**.
+material expires. To set an expiration date and time, choose **Key material
+expires**, and use the calendar to select a date and time. You can specify a
+date up to 365 days from the current date and time. 12. For symmetric encryption keys, you can optionally specify a description for the key
+material being imported. 13. Choose **Import key material**.
 
 ## Import key material (AWS KMS API)
 

@@ -74,9 +74,9 @@ your external key store, see [View external key stores](view-xks-keystore.md "vi
 
 You cannot change these properties after you create the KMS key.
 
-- Key spec: SYMMETRIC_DEFAULT
-- Key usage: ENCRYPT_DECRYPT
-- Key material origin: EXTERNAL_KEY_STORE
+- Key spec: SYMMETRIC\_DEFAULT
+- Key usage: ENCRYPT\_DECRYPT
+- Key material origin: EXTERNAL\_KEY\_STORE
 - Multi-Region: FALSE
 
 **External key requirements**

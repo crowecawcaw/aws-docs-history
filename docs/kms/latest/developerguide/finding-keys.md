@@ -157,7 +157,7 @@ AWS KMS. This field appears only when the **Key type** is
 **Asymmetric** and the **Key
 usage** is **Encrypt and decrypt**. For
 information about the encryption algorithms that AWS KMS supports, see
-[SYMMETRIC_DEFAULT key spec](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks") and [RSA key specs for encryption and decryption](symm-asymm-choose-key-spec.md#key-spec-rsa-encryption "symm-asymm-choose-key-spec.md#key-spec-rsa-encryption").
+[SYMMETRIC\_DEFAULT key spec](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks") and [RSA key specs for encryption and decryption](symm-asymm-choose-key-spec.md#key-spec-rsa-encryption "symm-asymm-choose-key-spec.md#key-spec-rsa-encryption").
 
 **Expiration date**
 
@@ -253,7 +253,7 @@ be used to delete a specific key material or reimport it into the KMS key.
 Where: Cryptographic configuration tab
 
 The type of key material in the KMS key. AWS KMS supports symmetric
-encryption KMS keys (SYMMETRIC_DEFAULT), HMAC KMS keys of different
+encryption KMS keys (SYMMETRIC\_DEFAULT), HMAC KMS keys of different
 lengths, KMS keys for RSA keys of different lengths, and elliptic
 curve keys with different curves. For details, see [Key spec](create-keys.md#key-spec "create-keys.md#key-spec").
 

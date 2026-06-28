@@ -12,7 +12,7 @@ The following `generate-data-key-without-plaintext` example requests an encrypte
 
 To request a 256-bit data key, use the `key-spec` parameter with a value of `AES_256`. To request a 128-bit data key, use the `key-spec` parameter with a value of `AES_128`. For all other data key lengths, use the `number-of-bytes` parameter.
 
-The KMS key you specify must be a symmetric encryption KMS key, that is, a KMS key with a key spec value of SYMMETRIC_DEFAULT.
+The KMS key you specify must be a symmetric encryption KMS key, that is, a KMS key with a key spec value of SYMMETRIC\_DEFAULT.
 
 ```
 `aws kms generate-data-key-without-plaintext \

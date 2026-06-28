@@ -61,7 +61,7 @@ operations using the KMS key fail.
 The following table shows how the key state of a KMS key affects AWS KMS
 operations.
 
-The descriptions of the numbered footnotes ([*n*]) are at
+The descriptions of the numbered footnotes ([_n_]) are at
 the end of this topic.
 
 ###### Note
@@ -117,27 +117,27 @@ You might need to scroll horizontally or vertically to see all of the data in th
 **Table Details**
 
 - [1] `DisabledException: `<key ARN>` is
-disabled.`
+ disabled.`
 - [2] `DisabledException: `<key ARN>` is pending
-deletion (or pending replica deletion).`
+ deletion (or pending replica deletion).`
 - [3] `KMSInvalidStateException: `<key ARN>` is
-pending deletion (or pending replica deletion).`
+ pending deletion (or pending replica deletion).`
 - [4] `KMSInvalidStateException: `<key ARN>` is not
-pending deletion (or pending replica deletion).`
+ pending deletion (or pending replica deletion).`
 - [5] `KMSInvalidStateException: `<key ARN>` is
-pending import because no key material has ever been imported or one of the imported
-key materials is deleted or expired.`
+ pending import because no key material has ever been imported or one of the imported
+ key materials is deleted or expired.`
 - [6] `UnsupportedOperationException: `<key ARN>`
-origin is EXTERNAL which is not valid for this operation.`
+ origin is EXTERNAL which is not valid for this operation.`
 - [7] If the KMS key is in a custom key store: `UnsupportedOperationException`.
 - [8] If the KMS key has imported key material: `KMSInvalidStateException`
 - [9] If the KMS key cannot have imported key material: `UnsupportedOperationException`.
 - [10] If the source KMS key is pending deletion, the command succeeds. If the
   destination KMS key is pending deletion, the command fails with error:
   `KMSInvalidStateException : `<key ARN>` is pending
-deletion.`
+ deletion.`
 - [11] `KMSInvalidStateException: `<key ARN>` is
-unavailable.` You cannot perform this operation on an unavailable
+ unavailable.` You cannot perform this operation on an unavailable
   KMS key.
 - [12] The operation succeeds, but the key state of the KMS key does not change until it
   becomes available.
@@ -145,8 +145,8 @@ unavailable.` You cannot perform this operation on an unavailable
   `PendingDeletion` even if the KMS key becomes unavailable. This allows you to cancel
   deletion of the KMS key at any time during the waiting period.
 - [14] `KMSInvalidStateException: `<key ARN>` is
-creating.` AWS KMS throws this exception while it is replicating a multi-Region key
+ creating.` AWS KMS throws this exception while it is replicating a multi-Region key
   (`ReplicateKey`).
 - [15] `KMSInvalidStateException: `<key ARN>` is
-updating.` AWS KMS throws this exception while it is updating the primary Region of
+ updating.` AWS KMS throws this exception while it is updating the primary Region of
   a multi-Region key (`UpdatePrimaryRegion`).

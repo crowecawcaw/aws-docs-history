@@ -32,14 +32,14 @@ AWS KMS supports the following key specs for KMS keys:
 [Symmetric encryption key spec](#symmetric-cmks "#symmetric-cmks")
 (default)
 
-- SYMMETRIC_DEFAULT
+- SYMMETRIC\_DEFAULT
 
 [RSA key specs](#key-spec-rsa "#key-spec-rsa") (encryption and decryption -or-
 signing and verification)
 
-- RSA_2048
-- RSA_3072
-- RSA_4096
+- RSA\_2048
+- RSA\_3072
+- RSA\_4096
 
 [Elliptic curve key specs](#key-spec-ecc "#key-spec-ecc")
 
@@ -47,18 +47,18 @@ signing and verification)
   key pairs](https://datatracker.ietf.org/doc/html/rfc5753/ "https://datatracker.ietf.org/doc/html/rfc5753/") (signing and verification -or- deriving shared
   secrets)
 
-  - ECC_NIST_P256 (secp256r1)
-  - ECC_NIST_P384 (secp384r1)
-  - ECC_NIST_P521 (secp521r1)
-  - ECC_NIST_EDWARDS25519 (ed25519) - signing and verification only
+  - ECC\_NIST\_P256 (secp256r1)
+  - ECC\_NIST\_P384 (secp384r1)
+  - ECC\_NIST\_P521 (secp521r1)
+  - ECC\_NIST\_EDWARDS25519 (ed25519) - signing and verification only
 
-    - **Note:** For ECC_NIST_EDWARDS25519 KMS keys, the
-      ED25519_SHA_512 signing algorithm requires [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"), while ED25519_PH_SHA_512 requires [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"). These message types cannot be used interchangeably.
+    - **Note:** For ECC\_NIST\_EDWARDS25519 KMS keys, the
+      ED25519\_SHA\_512 signing algorithm requires [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"), while ED25519\_PH\_SHA\_512 requires [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"). These message types cannot be used interchangeably.
 
 - Other asymmetric elliptic curve key pairs (signing and
   verification)
 
-  - ECC_SECG_P256K1 ([secp256k1](https://en.bitcoin.it/wiki/Secp256k1 "https://en.bitcoin.it/wiki/Secp256k1")), commonly used for cryptocurrency.
+  - ECC\_SECG\_P256K1 ([secp256k1](https://en.bitcoin.it/wiki/Secp256k1 "https://en.bitcoin.it/wiki/Secp256k1")), commonly used for cryptocurrency.
 
 [SM2 key spec](#key-spec-sm "#key-spec-sm") (encryption and decryption -or-
 signing and verification -or- deriving shared secrets)
@@ -67,27 +67,27 @@ signing and verification -or- deriving shared secrets)
 
 [HMAC key specs](#hmac-key-specs "#hmac-key-specs")
 
-- HMAC_224
-- HMAC_256
-- HMAC_384
-- HMAC_512
+- HMAC\_224
+- HMAC\_256
+- HMAC\_384
+- HMAC\_512
 
 [ML-DSA key specs](#key-spec-mldsa "#key-spec-mldsa")
 
-- ML_DSA_44
-- ML_DSA_65
-- ML_DSA_87
+- ML\_DSA\_44
+- ML\_DSA\_65
+- ML\_DSA\_87
 
-## SYMMETRIC_DEFAULT key spec
+## SYMMETRIC\_DEFAULT key spec
 
-The default key spec, SYMMETRIC_DEFAULT, is the key spec for symmetric encryption
+The default key spec, SYMMETRIC\_DEFAULT, is the key spec for symmetric encryption
 KMS keys. When you select the **Symmetric** key type and the
 **Encrypt and decrypt** key usage in the AWS KMS console, it selects
 the `SYMMETRIC_DEFAULT` key spec. In the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") operation, if you don't
-specify a `KeySpec` value, SYMMETRIC_DEFAULT is selected. If you don't have a
-reason to use a different key spec, SYMMETRIC_DEFAULT is a good choice.
+specify a `KeySpec` value, SYMMETRIC\_DEFAULT is selected. If you don't have a
+reason to use a different key spec, SYMMETRIC\_DEFAULT is a good choice.
 
-SYMMETRIC_DEFAULT represents AES-256-GCM, a symmetric algorithm based on [Advanced Encryption Standard](https://csrc.nist.gov/csrc/media/publications/fips/197/final/documents/fips-197.pdf "https://csrc.nist.gov/csrc/media/publications/fips/197/final/documents/fips-197.pdf") (AES) in [Galois
+SYMMETRIC\_DEFAULT represents AES-256-GCM, a symmetric algorithm based on [Advanced Encryption Standard](https://csrc.nist.gov/csrc/media/publications/fips/197/final/documents/fips-197.pdf "https://csrc.nist.gov/csrc/media/publications/fips/197/final/documents/fips-197.pdf") (AES) in [Galois
 Counter Mode](http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf "http://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf") (GCM) with 256-bit keys, an industry standard for secure
 encryption. The ciphertext that this algorithm generates supports additional
 authenticated data (AAD), such as an [encryption
@@ -100,7 +100,7 @@ Theoretical future, large-scale quantum computing attacks on ciphertexts created
 256-bit AES-GCM keys [reduce the effective security of the key to 128 bits](https://www.etsi.org/images/files/ETSIWhitePapers/QuantumSafeWhitepaper.pdf "https://www.etsi.org/images/files/ETSIWhitePapers/QuantumSafeWhitepaper.pdf"). But, this security
 level is sufficient to make brute force attacks on AWS KMS ciphertexts infeasible.
 
-The only exception in China Regions, where SYMMETRIC_DEFAULT represents a 128-bit
+The only exception in China Regions, where SYMMETRIC\_DEFAULT represents a 128-bit
 symmetric key that uses SM4 encryption. You can only create a 128-bit SM4 key within
 China Regions. You cannot create a 256-bit AES-GCM KMS key in China Regions.
 
@@ -140,9 +140,9 @@ select a key spec.
 AWS KMS supports the following RSA key specs for encryption and decryption or signing
 and verification:
 
-- RSA_2048
-- RSA_3072
-- RSA_4096
+- RSA\_2048
+- RSA\_3072
+- RSA\_4096
 
 RSA key specs differ by the length of the RSA key in bits. The RSA key spec that you
 choose might be determined by your security standards or the requirements of your task.
@@ -168,15 +168,15 @@ KMS key and encryption algorithm.
 
 AWS KMS supports two encryption algorithms for KMS keys with RSA key specs. These
 algorithms, which are defined in [PKCS #1 v2.2](https://tools.ietf.org/html/rfc8017 "https://tools.ietf.org/html/rfc8017"), differ in the hash function they use internally. In
-AWS KMS, the RSAES_OAEP algorithms always use the same hash function for both hashing
+AWS KMS, the RSAES\_OAEP algorithms always use the same hash function for both hashing
 purposes and for the [mask generation function](https://tools.ietf.org/html/rfc8017#appendix-B.2 "https://tools.ietf.org/html/rfc8017#appendix-B.2") (MGF1). You are required to
 specify an encryption algorithm when you call the [Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md") and [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md") operations. You can choose a
 different algorithm for each request.
 
-| Supported encryption algorithms for RSA key specs | Encryption algorithm                                                                                                                                                | Algorithm description |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| RSAES_OAEP_SHA_1                                  | PKCS #1 v2.2, Section 7.1. RSA encryption with OAEP Padding using<br>SHA-1 for both the hash and in the MGF1 mask generation function<br>along with an empty label. |
-| RSAES_OAEP_SHA_256                                | PKCS #1, Section 7.1. RSA encryption with OAEP Padding using<br>SHA-256 for both the hash and in the MGF1 mask generation function<br>along with an empty label.    |
+Supported encryption algorithms for RSA key specs| Encryption algorithm | Algorithm description |
+| --- | --- |
+| RSAES\_OAEP\_SHA\_1 | PKCS #1 v2.2, Section 7.1. RSA encryption with OAEP Padding using<br>SHA-1 for both the hash and in the MGF1 mask generation function<br>along with an empty label. |
+| RSAES\_OAEP\_SHA\_256 | PKCS #1, Section 7.1. RSA encryption with OAEP Padding using<br>SHA-256 for both the hash and in the MGF1 mask generation function<br>along with an empty label. |
 
 You cannot configure a KMS key to use a particular encryption algorithm.
 However, you can use the [kms:EncryptionAlgorithm](conditions-kms.md#conditions-kms-encryption-algorithm "conditions-kms.md#conditions-kms-encryption-algorithm") policy condition to specify the encryption
@@ -196,15 +196,15 @@ symmetric encryption KMS key to encrypt up to 4096 bytes at one time.
 
 To compute the maximum plaintext length in bytes for these algorithms, use the
 following formula: (`key_size_in_bits` / 8) - (2 \*
-`hash_length_in_bits`/8) - 2. For example, for RSA_2048
+`hash_length_in_bits`/8) - 2. For example, for RSA\_2048
 with SHA-256, the maximum plaintext size in bytes is (2048/8) - (2 \* 256/8) -2 = 190.
 
-| Maximum plaintext size (in bytes) in an Encrypt operation |                  | Encryption algorithm |
-| --------------------------------------------------------- | ---------------- | -------------------- |
-| Key spec                                                  | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256   |
-| **RSA_2048**                                              | 214              | 190                  |
-| **RSA_3072**                                              | 342              | 318                  |
-| **RSA_4096**                                              | 470              | 446                  |
+Maximum plaintext size (in bytes) in an Encrypt operation| | Encryption algorithm |
+| --- | --- |
+| Key spec | RSAES\_OAEP\_SHA\_1 | RSAES\_OAEP\_SHA\_256 |
+| **RSA\_2048** | 214 | 190 |
+| **RSA\_3072** | 342 | 318 |
+| **RSA\_4096** | 470 | 446 |
 
 ### RSA key specs for signing and verification
 
@@ -223,17 +223,17 @@ download the public key and use it to verify the signature outside of AWS KMS.
 AWS KMS supports the following signing algorithms for all KMS keys with an RSA key
 spec. You are required to specify a signing algorithm when you call the [Sign](../APIReference/API_Sign.md "../APIReference/API_Sign.md") and [Verify](../APIReference/API_Verify.md "../APIReference/API_Verify.md") operations. You can choose a
 different algorithm for each request. When signing with RSA key pairs, RSASSA-PSS
-algorithms are preferred. We include RSASSA-PKCS1-v1_5 algorithms for compatibility
+algorithms are preferred. We include RSASSA-PKCS1-v1\_5 algorithms for compatibility
 with existing applications.
 
-| Supported signing algorithms for RSA key specs | Signing algorithm                                                                                                                                                         | Algorithm description |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| RSASSA_PSS_SHA_256                             | PKCS #1 v2.2, Section 8.1, RSA signature with PSS padding using<br>SHA-256 for both the message digest and the MGF1 mask generation<br>function along with a 256-bit salt |
-| RSASSA_PSS_SHA_384                             | PKCS #1 v2.2, Section 8.1, RSA signature with PSS padding using<br>SHA-384 for both the message digest and the MGF1 mask generation<br>function along with a 384-bit salt |
-| RSASSA_PSS_SHA_512                             | PKCS #1 v2.2, Section 8.1, RSA signature with PSS padding using<br>SHA-512 for both the message digest and the MGF1 mask generation<br>function along with a 512-bit salt |
-| RSASSA_PKCS1_V1_5_SHA_256                      | PKCS #1 v2.2, Section 8.2, RSA signature with PKCS #1v1.5 Padding<br>and SHA-256                                                                                          |
-| RSASSA_PKCS1_V1_5_SHA_384                      | PKCS #1 v2.2, Section 8.2, RSA signature with PKCS #1v1.5 Padding<br>and SHA-384                                                                                          |
-| RSASSA_PKCS1_V1_5_SHA_512                      | PKCS #1 v2.2, Section 8.2, RSA signature with PKCS #1v1.5 Padding<br>and SHA-512                                                                                          |
+Supported signing algorithms for RSA key specs| Signing algorithm | Algorithm description |
+| --- | --- |
+| RSASSA\_PSS\_SHA\_256 | PKCS #1 v2.2, Section 8.1, RSA signature with PSS padding using<br>SHA-256 for both the message digest and the MGF1 mask generation<br>function along with a 256-bit salt |
+| RSASSA\_PSS\_SHA\_384 | PKCS #1 v2.2, Section 8.1, RSA signature with PSS padding using<br>SHA-384 for both the message digest and the MGF1 mask generation<br>function along with a 384-bit salt |
+| RSASSA\_PSS\_SHA\_512 | PKCS #1 v2.2, Section 8.1, RSA signature with PSS padding using<br>SHA-512 for both the message digest and the MGF1 mask generation<br>function along with a 512-bit salt |
+| RSASSA\_PKCS1\_V1\_5\_SHA\_256 | PKCS #1 v2.2, Section 8.2, RSA signature with PKCS #1v1.5 Padding<br>and SHA-256 |
+| RSASSA\_PKCS1\_V1\_5\_SHA\_384 | PKCS #1 v2.2, Section 8.2, RSA signature with PKCS #1v1.5 Padding<br>and SHA-384 |
+| RSASSA\_PKCS1\_V1\_5\_SHA\_512 | PKCS #1 v2.2, Section 8.2, RSA signature with PKCS #1v1.5 Padding<br>and SHA-512 |
 
 You cannot configure a KMS key to use particular signing algorithms. However,
 you can use the [kms:SigningAlgorithm](conditions-kms.md#conditions-kms-signing-algorithm "conditions-kms.md#conditions-kms-signing-algorithm") policy condition to specify the signing algorithms
@@ -264,29 +264,29 @@ AWS KMS supports the following ECC key specs for asymmetric KMS keys.
 - Asymmetric NIST-standard elliptic curve key pairs (signing and verification
   -or- deriving shared secrets)
 
-  - ECC_NIST_P256 (secp256r1)
-  - ECC_NIST_P384 (secp384r1)
-  - ECC_NIST_P521 (secp521r1)
-  - ECC_NIST_EDWARDS25519 (ed25519) - signing and verification only
+  - ECC\_NIST\_P256 (secp256r1)
+  - ECC\_NIST\_P384 (secp384r1)
+  - ECC\_NIST\_P521 (secp521r1)
+  - ECC\_NIST\_EDWARDS25519 (ed25519) - signing and verification only
 
-    - **Note:** For ECC_NIST_EDWARDS25519 KMS keys, the
-      ED25519_SHA_512 signing algorithm requires [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"), while ED25519_PH_SHA_512 requires [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"). These message types cannot be used interchangeably.
+    - **Note:** For ECC\_NIST\_EDWARDS25519 KMS keys, the
+      ED25519\_SHA\_512 signing algorithm requires [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"), while ED25519\_PH\_SHA\_512 requires [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"). These message types cannot be used interchangeably.
 
 - Other asymmetric elliptic curve key pairs (signing and verification)
 
-  - ECC_SECG_P256K1 ([secp256k1](https://en.bitcoin.it/wiki/Secp256k1 "https://en.bitcoin.it/wiki/Secp256k1")), commonly used for cryptocurrencies.
+  - ECC\_SECG\_P256K1 ([secp256k1](https://en.bitcoin.it/wiki/Secp256k1 "https://en.bitcoin.it/wiki/Secp256k1")), commonly used for cryptocurrencies.
 
 The ECC key spec that you choose might be determined by your security standards or the
 requirements of your task. In general, use the curve with the most points that is
 practical and affordable for your task.
 
 If you're creating an asymmetric KMS key to [derive shared secrets](../APIReference/API_DeriveSharedSecret.md "../APIReference/API_DeriveSharedSecret.md"), use
-one of the NIST-standard elliptic curve key specs (except ECC_SECG_P256K1 and ECC_NIST_EDWARDS25519).
+one of the NIST-standard elliptic curve key specs (except ECC\_SECG\_P256K1 and ECC\_NIST\_EDWARDS25519).
 The only supported key agreement algorithm for deriving shared secrets is the [Elliptic Curve Cryptography Cofactor Diffie-Hellman Primitive](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60 "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Ar3.pdf#page=60") (ECDH). For
 an example of how to derive shared secrets offline, see [Deriving shared secrets offline](offline-operations.md#key-spec-ecc-offline "offline-operations.md#key-spec-ecc-offline").
 
 If you're creating an asymmetric KMS key to use with cryptocurrencies, use the
-ECC_SECG_P256K1 key spec. You can also use this key spec for other purposes, but it is
+ECC\_SECG\_P256K1 key spec. You can also use this key spec for other purposes, but it is
 required for Bitcoin, and other cryptocurrencies.
 
 The following table shows the signing algorithms that AWS KMS supports for each of the
@@ -294,14 +294,14 @@ ECC key specs. You cannot configure a KMS key to use particular signing algorith
 However, you can use the [kms:SigningAlgorithm](conditions-kms.md#conditions-kms-signing-algorithm "conditions-kms.md#conditions-kms-signing-algorithm") policy condition to specify the signing algorithms that
 principals are allowed to use with the KMS key.
 
-| Supported signing algorithms for ECC key specs | Key spec           | Signing algorithm                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Algorithm description |
-| ---------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| ECC_NIST_P256                                  | ECDSA_SHA_256      | NIST FIPS 186-4, Section 6.4, ECDSA signature using the curve<br>specified by the key and SHA-256 for the message digest.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ECC_NIST_P384                                  | ECDSA_SHA_384      | NIST FIPS 186-4, Section 6.4, ECDSA signature using the curve<br>specified by the key and SHA-384 for the message digest.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ECC_NIST_P521                                  | ECDSA_SHA_512      | NIST FIPS 186-4, Section 6.4, ECDSA signature using the curve<br>specified by the key and SHA-512 for the message digest.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ECC_SECG_P256K1                                | ECDSA_SHA_256      | NIST FIPS 186-4, Section 6.4, ECDSA signature using the curve<br>specified by the key and SHA-256 for the message digest.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ECC_NIST_EDWARDS25519                          | ED25519_SHA_512    | NIST FIPS 186-5, Section 7.6, EdDSA signature using the curve specified<br>by the key and SHA-512 for the message digest. KMS requires [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType") with this algorithm.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ECC_NIST_EDWARDS25519                          | ED25519_PH_SHA_512 | NIST FIPS 186-5, Section 7.8, HashEdDSA signature using the curve<br>specified by the key and SHA-512 for the message digest. KMS requires [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType") with this algorithm.<br>When you specify the ED25519_PH_SHA_512 signing algorithm with<br>`MessageType:DIGEST`, AWS KMS still performs the SHA-512 prehash<br>described in [Step 1<br>of Section 7.8.1](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39 "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39"). This means the input is hashed twice: once by<br>you and once by KMS. |
+Supported signing algorithms for ECC key specs| Key spec | Signing algorithm | Algorithm description |
+| --- | --- | --- |
+| ECC\_NIST\_P256 | ECDSA\_SHA\_256 | NIST FIPS 186-4, Section 6.4, ECDSA signature using the curve<br>specified by the key and SHA-256 for the message digest. |
+| ECC\_NIST\_P384 | ECDSA\_SHA\_384 | NIST FIPS 186-4, Section 6.4, ECDSA signature using the curve<br>specified by the key and SHA-384 for the message digest. |
+| ECC\_NIST\_P521 | ECDSA\_SHA\_512 | NIST FIPS 186-4, Section 6.4, ECDSA signature using the curve<br>specified by the key and SHA-512 for the message digest. |
+| ECC\_SECG\_P256K1 | ECDSA\_SHA\_256 | NIST FIPS 186-4, Section 6.4, ECDSA signature using the curve<br>specified by the key and SHA-256 for the message digest. |
+| ECC\_NIST\_EDWARDS25519 | ED25519\_SHA\_512 | NIST FIPS 186-5, Section 7.6, EdDSA signature using the curve specified<br>by the key and SHA-512 for the message digest. KMS requires [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType") with this algorithm. |
+| ECC\_NIST\_EDWARDS25519 | ED25519\_PH\_SHA\_512 | NIST FIPS 186-5, Section 7.8, HashEdDSA signature using the curve<br>specified by the key and SHA-512 for the message digest. KMS requires [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType") with this algorithm.<br>When you specify the ED25519\_PH\_SHA\_512 signing algorithm with<br>`MessageType:DIGEST`, AWS KMS still performs the SHA-512 prehash<br>described in [Step 1<br>of Section 7.8.1](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39 "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf#page=39"). This means the input is hashed twice: once by<br>you and once by KMS. |
 
 ## Key specs for HMAC KMS keys
 
@@ -311,12 +311,12 @@ determines the MAC algorithm that is used in [GenerateMac](../APIReference/API_G
 longer keys are more secure. Use the longest key that is practical for your use
 case.
 
-| HMAC key spec | MAC algorithm |
-| ------------- | ------------- |
-| HMAC_224      | HMAC_SHA_224  |
-| HMAC_256      | HMAC_SHA_256  |
-| HMAC_384      | HMAC_SHA_384  |
-| HMAC_512      | HMAC_SHA_512  |
+| HMAC key spec | MAC algorithm  |
+| ------------- | -------------- |
+| HMAC\_224     | HMAC\_SHA\_224 |
+| HMAC\_256     | HMAC\_SHA\_256 |
+| HMAC\_384     | HMAC\_SHA\_384 |
+| HMAC\_512     | HMAC\_SHA\_512 |
 
 ## ML-DSA key specs
 
@@ -338,11 +338,11 @@ signatures](../APIReference/API_Verify.md "../APIReference/API_Verify.md") withi
 
 AWS KMS supports the following ML-DSA key specs for asymmetric KMS keys:
 
-- ML_DSA_44
-- ML_DSA_65
-- ML_DSA_87
+- ML\_DSA\_44
+- ML\_DSA\_65
+- ML\_DSA\_87
 
-AWS KMS supports the ML_DSA_SHAKE_256 signing algorithm for all of the ML-DSA key
+AWS KMS supports the ML\_DSA\_SHAKE\_256 signing algorithm for all of the ML-DSA key
 specs.
 
 ## SM2 key spec (China Regions only)

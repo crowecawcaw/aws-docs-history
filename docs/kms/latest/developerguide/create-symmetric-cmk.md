@@ -5,12 +5,12 @@ can use this KMS key to protect your resources in an AWS service.
 
 You can create symmetric encryption KMS keys in the AWS KMS console, by using the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") API, or by using the [AWS::KMS::Key CloudFormation template](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.md").
 
-The default key spec, [SYMMETRIC_DEFAULT](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks"), is the key
+The default key spec, [SYMMETRIC\_DEFAULT](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks"), is the key
 spec for symmetric encryption KMS keys. When you select the **Symmetric**
 key type and the **Encrypt and decrypt** key usage in the AWS KMS console, it
 selects the `SYMMETRIC_DEFAULT` key spec. In the [CreateKey](../APIReference/API_CreateKey.md "../APIReference/API_CreateKey.md") operation, if you don't specify a
-`KeySpec` value, SYMMETRIC_DEFAULT is selected. If you don't have a reason to use
-a different key spec, SYMMETRIC_DEFAULT is a good choice.
+`KeySpec` value, SYMMETRIC\_DEFAULT is selected. If you don't have a reason to use
+a different key spec, SYMMETRIC\_DEFAULT is a good choice.
 
 For information about quotas that apply to KMS keys, see [Quotas](limits.md "limits.md").
 

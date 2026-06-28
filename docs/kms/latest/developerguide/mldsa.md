@@ -6,7 +6,7 @@ post-quantum cryptographic signatures. This implementation follows the [Federal 
 AWS KMS creates and protects all ML-DSA keys and signature operations in FIPS 140-3 Security
 Level 3 validated hardware security modules. To help balance security with performance,
 ML-DSA in AWS KMS offers three distinct security levels through different key specifications,
-ML_DSA_44, ML_DSA_65, and ML_DSA_87.
+ML\_DSA\_44, ML\_DSA\_65, and ML\_DSA\_87.
 
 AWS KMS supports asymmetric key signatures for messages up to 4 KB using the
 `RAW` message type. For larger messages, you must externally compute the
@@ -16,6 +16,6 @@ AWS KMS supports asymmetric key signatures for messages up to 4 KB using the
 `RAW` ones when using the same message and private key. Note that this
 signing is different from the "pre-hash" ML-DSA or HashML-DSA from section 5.4 of NIST FIPS 204.
 
-For more information about using ML-DSA and the EXTERNAL_MU message type, see [ML-DSA key specs](symm-asymm-choose-key-spec.md#key-spec-mldsa "symm-asymm-choose-key-spec.md#key-spec-mldsa").
+For more information about using ML-DSA and the EXTERNAL\_MU message type, see [ML-DSA key specs](symm-asymm-choose-key-spec.md#key-spec-mldsa "symm-asymm-choose-key-spec.md#key-spec-mldsa").
 
-For an example of using ML-DSA and the EXTERNAL_MU message type, see [Offline verification with ML-DSA key pairs](offline-operations.md#mldsa-offline-verification "offline-operations.md#mldsa-offline-verification").
+For an example of using ML-DSA and the EXTERNAL\_MU message type, see [Offline verification with ML-DSA key pairs](offline-operations.md#mldsa-offline-verification "offline-operations.md#mldsa-offline-verification").

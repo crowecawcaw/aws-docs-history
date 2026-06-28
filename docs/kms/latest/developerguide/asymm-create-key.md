@@ -119,7 +119,7 @@ supported programming language.
 
 When you create an asymmetric KMS key, you must specify the `KeySpec`
 parameter, which determines the type of keys you create. Also, you must specify a
-`KeyUsage` value of ENCRYPT_DECRYPT, SIGN_VERIFY, or KEY_AGREEMENT.
+`KeyUsage` value of ENCRYPT\_DECRYPT, SIGN\_VERIFY, or KEY\_AGREEMENT.
 You cannot change these properties after the KMS key is created.
 
 The `CreateKey` operation doesn't let you specify an alias, but you can

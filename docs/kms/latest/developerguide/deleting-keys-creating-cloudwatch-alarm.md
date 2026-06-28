@@ -7,11 +7,11 @@ KMS key and reconsider your decision to delete it.
 
 The following procedures create an alarm that notifies you whenever the
 "``Key ARN` is pending deletion`" error message is
- written to your CloudTrail log files. This error message indicates that a person or application tried
- to use the KMS key in a [cryptographic
- operation](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cryptographic-operations"). Because the notification is linked to the error message, it is not triggered
- when you use API operations that are permitted on KMS keys that are pending deletion, such as
- `ListKeys`, `CancelKeyDeletion`, and `PutKeyPolicy`. To see a
+written to your CloudTrail log files. This error message indicates that a person or application tried
+to use the KMS key in a [cryptographic
+operation](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cryptographic-operations"). Because the notification is linked to the error message, it is not triggered
+when you use API operations that are permitted on KMS keys that are pending deletion, such as
+`ListKeys`, `CancelKeyDeletion`, and `PutKeyPolicy`. To see a
 list of the AWS KMS API operations that return this error message, see [Key states of AWS KMS keys](key-state.md "key-state.md").
 
 The notification email that you receive does not list the KMS key or the cryptographic
@@ -47,16 +47,15 @@ Follow the instructions in [Create a CloudWatch alarm
 based on a log group-metric filter](../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.md "../../../AmazonCloudWatch/latest/monitoring/Alarm-On-Logs.md") using the following required values.
 For other fields, accept the default values and provide names as requested.
 
-| Field                  | Value                                                               |
-| ---------------------- | ------------------------------------------------------------------- |
-| Metric filter          | The name of the metric filter that you created in Step 1.           |
-| Threshold type         | Static                                                              |
-| Conditions             | **Whenever**<br>`metric-name` is \*_Greater/Equal_<br>• than<br>`1` |
-| Data points to alarm   | `1` out of `1`                                                      |
-| Missing data treatment | **Treat missing data as good (not breaching<br>threshold)**         |
-
-After you complete this procedure, you will receive a notification each time your new CloudWatch
-alarm enters the `ALARM` state. If you receive a notification for this alarm, it
-might mean that a KMS key that is scheduled for deletion is still needed to encrypt or decrypt
-data. In that case, [cancel deletion of the
-KMS key](deleting-keys-scheduling-key-deletion.md "deleting-keys-scheduling-key-deletion.md") and reconsider your decision to delete it.
+| Field                                                                                                                                    | Value                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Metric filter                                                                                                                            | The name of the metric filter that you created in Step 1.          |
+| Threshold type                                                                                                                           | Static                                                             |
+| Conditions                                                                                                                               | **Whenever**<br>`metric-name` is *_Greater/Equal_<br>• than<br>`1` |
+| Data points to alarm                                                                                                                     | `1` out of `1`                                                     |
+| Missing data treatment                                                                                                                   | **Treat missing data as good (not breaching<br>threshold)**        |
+| After you complete this procedure, you will receive a notification each time your new CloudWatch                                         |
+| alarm enters the `ALARM` state. If you receive a notification for this alarm, it                                                         |
+| might mean that a KMS key that is scheduled for deletion is still needed to encrypt or decrypt                                           |
+| data. In that case, [cancel deletion of the                                                                                              |
+| KMS key](deleting-keys-scheduling-key-deletion.md "deleting-keys-scheduling-key-deletion.md") and reconsider your decision to delete it. |

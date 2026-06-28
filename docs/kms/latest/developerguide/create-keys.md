@@ -55,7 +55,7 @@ For KMS keys, the _key spec_ determines whether the
 KMS key is symmetric or asymmetric. It also determines the type of its key material, and
 the algorithms it supports.
 
-The default key spec, [SYMMETRIC_DEFAULT](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks"),
+The default key spec, [SYMMETRIC\_DEFAULT](symm-asymm-choose-key-spec.md#symmetric-cmks "symm-asymm-choose-key-spec.md#symmetric-cmks"),
 represents a 256-bit symmetric encryption key. For a detailed description of all supported
 key specs, see [Key spec reference](symm-asymm-choose-key-spec.md "symm-asymm-choose-key-spec.md").
 
@@ -140,7 +140,7 @@ attack.
 To allow principals to create KMS keys only for a particular key usage, use the [kms:KeyUsage](conditions-kms.md#conditions-kms-key-usage "conditions-kms.md#conditions-kms-key-usage") condition key. You can also use the
 `kms:KeyUsage` condition key to allow principals to call API operations for a
 KMS key based on its key usage. For example, you can allow permission to disable a KMS key
-only if its key usage is SIGN_VERIFY.
+only if its key usage is SIGN\_VERIFY.
 
 Use the following guidance to determine which type of KMS key you need based on your use
 case.

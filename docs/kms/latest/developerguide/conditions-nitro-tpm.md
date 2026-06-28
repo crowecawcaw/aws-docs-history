@@ -2,7 +2,7 @@
 
 The following condition keys are specific to NitroTPM attestation:
 
-## kms:RecipientAttestation:NitroTPMPCR<PCR_ID>
+## kms:RecipientAttestation:NitroTPMPCR<PCR\_ID>
 
 | AWS KMS Condition Keys                         | Condition Type | Value type    | API Operations                                                                                      | Policy Type                   |
 | ---------------------------------------------- | -------------- | ------------- | --------------------------------------------------------------------------------------------------- | ----------------------------- |

@@ -13,11 +13,11 @@ The key material must be in binary format. For detailed information, see [Requir
 For asymmetric key pairs, encrypt and import only the private key. AWS KMS derives the
 public key from the private key.
 
-The following combination is NOT supported: ECC_NIST_P521 key material, the RSA_2048 public wrapping key spec, and an RSAES_OAEP_SHA\_\* wrapping algorithm.
+The following combination is NOT supported: ECC\_NIST\_P521 key material, the RSA\_2048 public wrapping key spec, and an RSAES\_OAEP\_SHA\_\* wrapping algorithm.
 
-You cannot directly wrap ECC_NIST_P521 key material with a RSA_2048 public wrapping key. Use a larger wrapping key or an RSA_AES_KEY_WRAP_SHA\_\* wrapping algorithm.
+You cannot directly wrap ECC\_NIST\_P521 key material with a RSA\_2048 public wrapping key. Use a larger wrapping key or an RSA\_AES\_KEY\_WRAP\_SHA\_\* wrapping algorithm.
 
-The RSA_AES_KEY_WRAP_SHA_256 and RSA_AES_KEY_WRAP_SHA_1
+The RSA\_AES\_KEY\_WRAP\_SHA\_256 and RSA\_AES\_KEY\_WRAP\_SHA\_1
 wrapping algorithms are not supported in China Regions.
 
 Typically, you encrypt your key material when you export it from your hardware security
@@ -72,7 +72,7 @@ This command generates a random byte string of the specified size. You do not ne
 to encode this key material.
 
 The length of your HMAC key must match the length defined by the key spec of the
-KMS key. For example, if the KMS key is HMAC_384, you must import a 384-bit
+KMS key. For example, if the KMS key is HMAC\_384, you must import a 384-bit
 (48-byte) key.
 
 ```
@@ -128,21 +128,21 @@ These examples are a proof of concept demonstration only. For production systems
 more secure method (such as a commercial HSM or key management system) to generate and store
 your key material.
 
-The following combination is NOT supported: ECC_NIST_P521 key material, the RSA_2048 public wrapping key spec, and an RSAES_OAEP_SHA\_\* wrapping algorithm.
+The following combination is NOT supported: ECC\_NIST\_P521 key material, the RSA\_2048 public wrapping key spec, and an RSAES\_OAEP\_SHA\_\* wrapping algorithm.
 
-You cannot directly wrap ECC_NIST_P521 key material with a RSA_2048 public wrapping key. Use a larger wrapping key or an RSA_AES_KEY_WRAP_SHA\_\* wrapping algorithm.
+You cannot directly wrap ECC\_NIST\_P521 key material with a RSA\_2048 public wrapping key. Use a larger wrapping key or an RSA\_AES\_KEY\_WRAP\_SHA\_\* wrapping algorithm.
 
-RSAES_OAEP_SHA_1
-AWS KMS supports the RSAES_OAEP_SHA_1 for symmetric encryption keys
-(SYMMETRIC_DEFAULT), elliptic curve (ECC) private keys, SM2 private keys, and HMAC keys.
+RSAES\_OAEP\_SHA\_1
+AWS KMS supports the RSAES\_OAEP\_SHA\_1 for symmetric encryption keys
+(SYMMETRIC\_DEFAULT), elliptic curve (ECC) private keys, SM2 private keys, and HMAC keys.
 
-RSAES_OAEP_SHA_1 is not supported for RSA private keys. Also, you cannot use an
-RSA_2048 public wrapping key with any RSAES_OAEP_SHA\_\* wrapping algorithm to wrap an
-ECC_NIST_P521 (secp521r1) private key. You must use a larger public wrapping key or an
-RSA_AES_KEY_WRAP wrapping algorithm.
+RSAES\_OAEP\_SHA\_1 is not supported for RSA private keys. Also, you cannot use an
+RSA\_2048 public wrapping key with any RSAES\_OAEP\_SHA\_\* wrapping algorithm to wrap an
+ECC\_NIST\_P521 (secp521r1) private key. You must use a larger public wrapping key or an
+RSA\_AES\_KEY\_WRAP wrapping algorithm.
 
 The following example encrypts your key material with the [public key that you
-downloaded](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md") and the RSAES_OAEP_SHA_1 wrapping algorithm, and saves it in the
+downloaded](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md") and the RSAES\_OAEP\_SHA\_1 wrapping algorithm, and saves it in the
 `EncryptedKeyMaterial.bin` file.
 
 In this example:
@@ -166,17 +166,17 @@ In this example:
  -pkeyopt rsa_oaep_md:sha1`
 ```
 
-RSAES_OAEP_SHA_256
-AWS KMS supports the RSAES_OAEP_SHA_256 for symmetric encryption keys
-(SYMMETRIC_DEFAULT), elliptic curve (ECC) private keys, SM2 private keys, and HMAC keys.
+RSAES\_OAEP\_SHA\_256
+AWS KMS supports the RSAES\_OAEP\_SHA\_256 for symmetric encryption keys
+(SYMMETRIC\_DEFAULT), elliptic curve (ECC) private keys, SM2 private keys, and HMAC keys.
 
-RSAES_OAEP_SHA_256 is not supported for RSA private keys. Also, you cannot use an
-RSA_2048 public wrapping key with any RSAES_OAEP_SHA\_\* wrapping algorithm to wrap an
-ECC_NIST_P521 (secp521r1) private key. You must use a larger public key or an
-RSA_AES_KEY_WRAP wrapping algorithm.
+RSAES\_OAEP\_SHA\_256 is not supported for RSA private keys. Also, you cannot use an
+RSA\_2048 public wrapping key with any RSAES\_OAEP\_SHA\_\* wrapping algorithm to wrap an
+ECC\_NIST\_P521 (secp521r1) private key. You must use a larger public key or an
+RSA\_AES\_KEY\_WRAP wrapping algorithm.
 
 The following example encrypts key material with the [public key that you
-downloaded](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md") and the RSAES_OAEP_SHA_256 wrapping algorithm, and saves it in the
+downloaded](importing-keys-get-public-key-and-token.md "importing-keys-get-public-key-and-token.md") and the RSAES\_OAEP\_SHA\_256 wrapping algorithm, and saves it in the
 `EncryptedKeyMaterial.bin` file.
 
 In this example:
@@ -184,9 +184,9 @@ In this example:
 - `WrappingPublicKey.bin` is the file that
   contains the downloaded public wrapping key. If you downloaded the public key from
   the console, this file is named
-  `wrappingKey_`KMS key*key_ID`*`timestamp``
-(for example,
-`wrappingKey_f44c4e20-f83c-48f4-adc6-a1ef38829760_0809092909`).
+  `wrappingKey_`KMS key_key_ID`_`timestamp``
+  (for example,
+  `wrappingKey_f44c4e20-f83c-48f4-adc6-a1ef38829760_0809092909`).
 - `PlaintextKeyMaterial.bin` is the file
   that contains the key material that you are encrypting, such as
   `PlaintextKeyMaterial.bin`, `HMAC_384_PlaintextKey.bin`, or
@@ -205,16 +205,16 @@ In this example:
  -pkeyopt rsa_mgf1_md:sha256`
 ```
 
-RSA_AES_KEY_WRAP_SHA_1
-The RSA_AES_KEY_WRAP_SHA_1 wrapping algorithm involves two encryption
+RSA\_AES\_KEY\_WRAP\_SHA\_1
+The RSA\_AES\_KEY\_WRAP\_SHA\_1 wrapping algorithm involves two encryption
 operations.
 
 1. Encrypt your key material with an AES symmetric key that you generate and an AES
    symmetric encryption algorithm.
 2. Encrypt the AES symmetric key that you used with the public key that you
-   downloaded and the RSAES_OAEP_SHA_1 wrapping algorithm.
+   downloaded and the RSAES\_OAEP\_SHA\_1 wrapping algorithm.
 
-The RSA_AES_KEY_WRAP_SHA_1 wrapping algorithm requires OpenSSL version 3._x_ or later.
+The RSA\_AES\_KEY\_WRAP\_SHA\_1 wrapping algorithm requires OpenSSL version 3._x_ or later.
 
 1. ###### Generate a 256-bit AES symmetric encryption key
 
@@ -255,7 +255,7 @@ In this example command:
 3. ###### Encrypt your AES symmetric encryption key with the public key
 
 This command encrypts your AES symmetric encryption key with the public key that
-you downloaded and the RSAES_OAEP_SHA_1 wrapping algorithm, DER-encodes it, and save
+you downloaded and the RSAES\_OAEP\_SHA\_1 wrapping algorithm, DER-encodes it, and save
 it in the `aes-key-wrapped.bin` file.
 
 In this example command:
@@ -302,16 +302,16 @@ In this example command:
 `$` `cat `aes-key-wrapped.bin` `key-material-wrapped.bin` > `EncryptedKeyMaterial.bin``
 ```
 
-RSA_AES_KEY_WRAP_SHA_256
-The RSA_AES_KEY_WRAP_SHA_256 wrapping algorithm involves two encryption
+RSA\_AES\_KEY\_WRAP\_SHA\_256
+The RSA\_AES\_KEY\_WRAP\_SHA\_256 wrapping algorithm involves two encryption
 operations.
 
 1. Encrypt your key material with an AES symmetric key that you generate and an AES
    symmetric encryption algorithm.
 2. Encrypt the AES symmetric key that you used with the public key that you
-   downloaded and the RSAES_OAEP_SHA_256 wrapping algorithm.
+   downloaded and the RSAES\_OAEP\_SHA\_256 wrapping algorithm.
 
-The RSA_AES_KEY_WRAP_SHA_256 wrapping algorithm requires OpenSSL version 3._x_ or later.
+The RSA\_AES\_KEY\_WRAP\_SHA\_256 wrapping algorithm requires OpenSSL version 3._x_ or later.
 
 1. ###### Generate a 256-bit AES symmetric encryption key
 
@@ -352,7 +352,7 @@ In this example command:
 3. ###### Encrypt your AES symmetric encryption key with the public key
 
 This command encrypts your AES symmetric encryption key with the public key that
-you downloaded and the RSAES_OAEP_SHA_256 wrapping algorithm, DER-encodes it, and
+you downloaded and the RSAES\_OAEP\_SHA\_256 wrapping algorithm, DER-encodes it, and
 save it in the `aes-key-wrapped.bin` file.
 
 In this example command:

@@ -54,7 +54,7 @@ The following table lists supported algorithms for hashing, key derivation, mess
 | Hashing                     | SHA2-384                            | Preferred  |
 | Hashing                     | SHA2-256                            | Acceptable |
 | Hashing                     | SHA3                                | Acceptable |
-| Key Derivation              | HKDF_Expand or HKDF with SHA2-256   | Preferred  |
+| Key Derivation              | HKDF\_Expand or HKDF with SHA2-256  | Preferred  |
 | Key Derivation              | Counter Mode KDF with HMAC-SHA2-256 | Acceptable |
 | Message Authentication Code | HMAC-SHA2-384                       | Preferred  |
 | Message Authentication Code | HMAC-SHA2-256                       | Acceptable |

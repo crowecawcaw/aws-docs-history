@@ -55,7 +55,7 @@ enclave, permission is denied because this condition is not satisfied.
 }
 ```
 
-## kms:RecipientAttestation:PCR<PCR_ID>
+## kms:RecipientAttestation:PCR<PCR\_ID>
 
 | AWS KMS Condition Keys                 | Condition Type | Value type    | API Operations                                                                                      | Policy Type                   |
 | -------------------------------------- | -------------- | ------------- | --------------------------------------------------------------------------------------------------- | ----------------------------- |

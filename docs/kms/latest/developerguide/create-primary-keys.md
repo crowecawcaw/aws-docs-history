@@ -91,12 +91,10 @@ key.
      impact how the console displays updates that you make to the statement.
 
 14. (Optional) To prevent the selected IAM users and roles from deleting
-    this KMS key, in the **Key deletion** section at the
-    bottom of the page, clear the **Allow key administrators to delete
-    this key** check box.
-15. Choose **Next**.
-16. Select the IAM users and roles that can use the KMS key for [cryptographic
-    operations](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cryptographic-operations").
+this KMS key, in the **Key deletion** section at the
+bottom of the page, clear the **Allow key administrators to delete
+this key** check box. 15. Choose **Next**. 16. Select the IAM users and roles that can use the KMS key for [cryptographic
+operations](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cryptographic-operations").
 
 ###### Notes
 

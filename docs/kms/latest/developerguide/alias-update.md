@@ -13,7 +13,7 @@ alias name, delete the current alias and then create a new alias for the KMS key
 
 When you update an alias, the current KMS key and the new KMS key must be the same
 type (both symmetric or asymmetric or HMAC). They must also have the same key usage
-(`ENCRYPT_DECRYPT` or `SIGN_VERIFY` or GENERATE_VERIFY_MAC). This
+(`ENCRYPT_DECRYPT` or `SIGN_VERIFY` or GENERATE\_VERIFY\_MAC). This
 restriction prevents cryptographic errors in code that uses aliases.
 
 The following example begins by using the [ListAliases](../APIReference/API_ListAliases.md "../APIReference/API_ListAliases.md") operation to show that the `test-key` alias is currently

@@ -122,7 +122,7 @@ material.
 
   - **Key spec:**
 
-    - SYMMETRIC_DEFAULT.
+    - SYMMETRIC\_DEFAULT.
 
   - **Requirements:**
 
@@ -134,10 +134,10 @@ material.
 
   - **Key specs:**
 
-    - HMAC_224
-    - HMAC_256
-    - HMAC_384
-    - HMAC_512
+    - HMAC\_224
+    - HMAC\_256
+    - HMAC\_384
+    - HMAC\_512
 
   - **Requirements:**
 
@@ -151,25 +151,25 @@ material.
 
   - **Example:**
 
-    - To import 2048 bits of key material into an HMAC_256 key,
+    - To import 2048 bits of key material into an HMAC\_256 key,
       first compute the SHA-256 hash of the 2048-bit key material,
       then import the resulting 256-bit hash output into the
       KMS key.
 
   - **Valid key lengths:**
 
-    - HMAC_224: 224–1024 bits
-    - HMAC_256: 256–1024 bits
-    - HMAC_384: 384–1024 bits
-    - HMAC_512: 512–1024 bits
+    - HMAC\_224: 224–1024 bits
+    - HMAC\_256: 256–1024 bits
+    - HMAC\_384: 384–1024 bits
+    - HMAC\_512: 512–1024 bits
 
 - **RSA asymmetric private key**
 
   - **Key specs:**
 
-    - RSA_2048
-    - RSA_3072
-    - RSA_4096
+    - RSA\_2048
+    - RSA\_3072
+    - RSA\_4096
 
   - **Requirements:**
 
@@ -188,11 +188,11 @@ material.
 
   - **Key specs:**
 
-    - ECC_NIST_P256 (secp256r1)
-    - ECC_NIST_P384 (secp384r1)
-    - ECC_NIST_P521 (secp521r1)
-    - ECC_SECG_P256K1 (secp256k1)
-    - ECC_NIST_EDWARDS25519 (ed25519)
+    - ECC\_NIST\_P256 (secp256r1)
+    - ECC\_NIST\_P384 (secp384r1)
+    - ECC\_NIST\_P521 (secp521r1)
+    - ECC\_SECG\_P256K1 (secp256k1)
+    - ECC\_NIST\_EDWARDS25519 (ed25519)
 
   - **Requirements:**
 
@@ -213,9 +213,9 @@ material.
 
   - **Key specs:**
 
-    - ML_DSA_44
-    - ML_DSA_65
-    - ML_DSA_87
+    - ML\_DSA\_44
+    - ML\_DSA\_65
+    - ML\_DSA\_87
 
 ###### Important
 

@@ -110,9 +110,9 @@ organization do not apply to AWS managed keys.
 AWS managed keys appear on the **AWS managed keys** page of the
 AWS Management Console for AWS KMS. You can also identify AWS managed keys by their aliases, which have
 the format `aws/`service-name``, such as
- `aws/redshift`. To definitively identify an AWS managed keys, use the [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") operation. For
- AWS managed keys, the value of the `KeyManager`field of the
-`DescribeKey`response is`AWS`.
+`aws/redshift`. To definitively identify an AWS managed keys, use the [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") operation. For
+AWS managed keys, the value of the `KeyManager` field of the
+`DescribeKey` response is `AWS`.
 
 All AWS managed keys are automatically rotated every year. You cannot change this
 rotation schedule.

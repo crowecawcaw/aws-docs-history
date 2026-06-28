@@ -78,7 +78,7 @@ deletion.
 ###### To add permission to schedule and cancel key deletion
 
 1. Use the [`aws kms
-get-key-policy`](../../../cli/latest/reference/kms/get-key-policy.md "../../../cli/latest/reference/kms/get-key-policy.md") command to retrieve the existing key policy, and
+ get-key-policy`](../../../cli/latest/reference/kms/get-key-policy.md "../../../cli/latest/reference/kms/get-key-policy.md") command to retrieve the existing key policy, and
    then save the policy document to a file.
 2. Open the policy document in your preferred text editor. In the policy statement
    for key administrators, add the `kms:ScheduleKeyDeletion` and
@@ -109,5 +109,5 @@ get-key-policy`](../../../cli/latest/reference/kms/get-key-policy.md "../../../c
 ```
 
 3. Use the [`aws kms
-put-key-policy`](../../../cli/latest/reference/kms/put-key-policy.md "../../../cli/latest/reference/kms/put-key-policy.md") command to apply the key policy to the
+ put-key-policy`](../../../cli/latest/reference/kms/put-key-policy.md "../../../cli/latest/reference/kms/put-key-policy.md") command to apply the key policy to the
    KMS key.

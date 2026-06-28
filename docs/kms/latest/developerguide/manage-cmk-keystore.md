@@ -19,14 +19,13 @@ KMS keys in an AWS CloudHSM key store:
   (ABAC) to authorize access to the KMS keys.
 - Use the KMS keys to perform the following cryptographic operations:
 
-      + [Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md")
-      + [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md")
-      + [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md")
-      + [GenerateDataKeyWithoutPlaintext](../APIReference/API_GenerateDataKeyWithoutPlaintext.md "../APIReference/API_GenerateDataKeyWithoutPlaintext.md")
-      + [ReEncrypt](../APIReference/API_ReEncrypt.md "../APIReference/API_ReEncrypt.md")
-
-  The operations that generate asymmetric data key pairs, [GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md") and [GenerateDataKeyPairWithoutPlaintext](../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md "../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md"), are _not_
-  supported in custom key stores.
+  - [Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md")
+  - [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md")
+  - [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md")
+  - [GenerateDataKeyWithoutPlaintext](../APIReference/API_GenerateDataKeyWithoutPlaintext.md "../APIReference/API_GenerateDataKeyWithoutPlaintext.md")
+  - [ReEncrypt](../APIReference/API_ReEncrypt.md "../APIReference/API_ReEncrypt.md")
+    The operations that generate asymmetric data key pairs, [GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md") and [GenerateDataKeyPairWithoutPlaintext](../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md "../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md"), are _not_
+    supported in custom key stores.
 
 - Use the KMS keys with [AWS services that
   integrate with AWS KMS](service-integration.md "service-integration.md") and support customer managed keys.

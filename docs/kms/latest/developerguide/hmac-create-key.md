@@ -126,7 +126,7 @@ supported programming language.
 
 When you create an HMAC KMS key, you must specify the `KeySpec`
 parameter, which determines the type of the KMS key. Also, you must specify a
-`KeyUsage` value of GENERATE_VERIFY_MAC, even though it's the only
+`KeyUsage` value of GENERATE\_VERIFY\_MAC, even though it's the only
 valid key usage value for HMAC keys. To create a [multi-Region](multi-region-keys-overview.md "multi-region-keys-overview.md") HMAC KMS key, add the
 `MultiRegion` parameter with a value of `true`. You cannot
 change these properties after the KMS key is created.

@@ -7,7 +7,7 @@ example, an alias lets you refer to a KMS key as `test-key` instead of
 You can use an alias to identify a KMS key in the AWS KMS console, in the [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md") operation, and in [cryptographic operations](kms-cryptography.md#cryptographic-operations "kms-cryptography.md#cryptographic-operations"), such as [Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md") and [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md"). Aliases also make it easy
 to recognize an [AWS managed key](concepts.md#aws-managed-key "concepts.md#aws-managed-key"). Aliases for these
 KMS keys always have the form `aws/`<service-name>``.
- For example, the alias for the AWS managed key for Amazon DynamoDB is `aws/dynamodb`. You
+For example, the alias for the AWS managed key for Amazon DynamoDB is `aws/dynamodb`. You
 can establish similar alias standards for your projects, such as prefacing your aliases with the
 name of a project or category.
 
@@ -143,7 +143,7 @@ KMS key, you can update it so it is associated with the
 
 However, the current and new KMS key must be the same type (both symmetric or both
 asymmetric or both HMAC), and they must have the same [key
-usage](create-keys.md#key-usage "create-keys.md#key-usage") (ENCRYPT_DECRYPT or SIGN_VERIFY or GENERATE_VERIFY_MAC). This restriction
+usage](create-keys.md#key-usage "create-keys.md#key-usage") (ENCRYPT\_DECRYPT or SIGN\_VERIFY or GENERATE\_VERIFY\_MAC). This restriction
 prevents errors in code that uses aliases. If you must associate an alias with a
 different type of key, and you have mitigated the risks, you can delete and recreate the
 alias.
@@ -160,7 +160,7 @@ none.
 
 AWS creates aliases in your account for [AWS managed keys](concepts.md#aws-managed-key "concepts.md#aws-managed-key"). These aliases have names of the form
 `alias/aws/`<service-name>``, such as
- `alias/aws/s3`.
+`alias/aws/s3`.
 
 Some AWS aliases have no KMS key. These predefined aliases are usually
 associated with an AWS managed key when you start using the service.

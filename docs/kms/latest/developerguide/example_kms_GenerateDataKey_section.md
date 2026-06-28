@@ -12,7 +12,7 @@ The following `generate-data-key` example requests a 256-bit symmetric data key 
 
 To request a 256-bit data key, use the `key-spec` parameter with a value of `AES_256`. To request a 128-bit data key, use the `key-spec` parameter with a value of `AES_128`. For all other data key lengths, use the `number-of-bytes` parameter.
 
-The KMS key you specify must be a symmetric encryption KMS key, that is, a KMS key with a key spec value of SYMMETRIC_DEFAULT.
+The KMS key you specify must be a symmetric encryption KMS key, that is, a KMS key with a key spec value of SYMMETRIC\_DEFAULT.
 
 ```
 `aws kms generate-data-key \
@@ -41,7 +41,7 @@ The following `generate-data-key` example requests a 512-bit symmetric data key 
 
 To request a key length other than 128 or 256 bits, use the `number-of-bytes` parameter. To request a 512-bit data key, the following example uses the `number-of-bytes` parameter with a value of 64 (bytes).
 
-The KMS key you specify must be a symmetric encryption KMS key, that is, a KMS key with a key spec value of SYMMETRIC_DEFAULT.
+The KMS key you specify must be a symmetric encryption KMS key, that is, a KMS key with a key spec value of SYMMETRIC\_DEFAULT.
 
 NOTE: The values in the output of this example are truncated for display.
 

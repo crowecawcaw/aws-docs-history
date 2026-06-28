@@ -364,7 +364,7 @@ algorithm.
 
 For example, this IAM policy limits its principals to symmetric encryption. It denies
 access to any KMS key in the example account for cryptographic operations unless the
-encryption algorithm specified in the request or used in the operation is SYMMETRIC_DEFAULT.
+encryption algorithm specified in the request or used in the operation is SYMMETRIC\_DEFAULT.
 Including `GenerateDataKey*` adds [GenerateDataKey](../APIReference/API_GenerateDataKey.md "../APIReference/API_GenerateDataKey.md"), [GenerateDataKeyWithoutPlaintext](../APIReference/API_GenerateDataKeyWithoutPlaintext.md "../APIReference/API_GenerateDataKeyWithoutPlaintext.md"), [GenerateDataKeyPair](../APIReference/API_GenerateDataKeyPair.md "../APIReference/API_GenerateDataKeyPair.md"), and [GenerateDataKeyPairWithoutPlaintext](../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md "../APIReference/API_GenerateDataKeyPairWithoutPlaintext.md") to the permissions. The condition has no
 effect on these operations because they always use a symmetric encryption algorithm.
 
@@ -2272,7 +2272,7 @@ an asymmetric KMS key pair outside of AWS KMS.
 
 The following example key policy allows users who can assume the `testers`
 role to use the KMS key to sign messages only when the signing algorithm used for the
-request is an RSASSA_PSS algorithm, such as `RSASSA_PSS_SHA512`.
+request is an RSASSA\_PSS algorithm, such as `RSASSA_PSS_SHA512`.
 
 ```
 {

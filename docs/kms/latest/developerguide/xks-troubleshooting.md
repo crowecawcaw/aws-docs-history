@@ -782,12 +782,12 @@ KMS key, the `CreateKey` operation fails and returns
 `XksKeyInvalidConfigurationException` with one of the following error
 messages.
 
-|                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------- |
-| The key spec of the external key must be AES_256. The key spec of<br>specified external key is<br>`<key-spec>`. |
+|                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------- |
+| The key spec of the external key must be AES\_256. The key spec of<br>specified external key is<br>`<key-spec>`. |
 
 - The external key must be a 256-bit symmetric encryption key with a key
-  spec of AES_256. If the specified external key is a different type, specify
+  spec of AES\_256. If the specified external key is a different type, specify
   the ID of an external key that fulfills this requirement.
 
 |                                                                                                           |

@@ -397,9 +397,9 @@ external key store proxy. For help making this choice, see [Choose an external k
      requirements for an external key store. For details, see [Assemble the prerequisites](#xks-requirements "#xks-requirements").
 
 7. Choose or enter the name of the [VPC endpoint service](#require-vpc-service-name "#require-vpc-service-name") for
-   this external key store. This step appears only when your external key
-   store proxy connectivity type is **VPC endpoint
-   service**.
+this external key store. This step appears only when your external key
+store proxy connectivity type is **VPC endpoint
+service**.
 
 The VPC endpoint service and its VPCs must fulfill the requirements
 for an external key store. For details, see [Assemble the prerequisites](#xks-requirements "#xks-requirements"). 8. Enter your [proxy URI endpoint](#require-endpoint "#require-endpoint").
@@ -479,10 +479,10 @@ or enter the values manually.
     	 setting](update-xks-keystore.md "update-xks-keystore.md") for your external key store.
 
 10. Choose **Create external key store**.
-    When the procedure is successful, the new external key store appears in the
-    list of external key stores in the account and Region. If it is unsuccessful, an
-    error message appears that describes the problem and provides help on how to fix
-    it. If you need more help, see [CreateKey errors for the external key](xks-troubleshooting.md#fix-external-key-create "xks-troubleshooting.md#fix-external-key-create").
+When the procedure is successful, the new external key store appears in the
+list of external key stores in the account and Region. If it is unsuccessful, an
+error message appears that describes the problem and provides help on how to fix
+it. If you need more help, see [CreateKey errors for the external key](xks-troubleshooting.md#fix-external-key-create "xks-troubleshooting.md#fix-external-key-create").
 
 **Next**: New external key stores are not
 automatically connected. Before you can create AWS KMS keys in your external

@@ -11,7 +11,7 @@ For more information on prefered and acceptable cryptographic algorithms, see [S
 
 AWS KMS key generation is performed in the AWS KMS HSMs. The HSMs implement a hybrid random
 number generator that uses the [NIST
-SP800-90A Deterministic Random Bit Generator (DRBG) CTR_DRBG using AES-256](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf"). It is
+SP800-90A Deterministic Random Bit Generator (DRBG) CTR\_DRBG using AES-256](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-90Ar1.pdf"). It is
 seeded with a nondeterministic random bit generator with 384-bits of entropy and updated
 with additional entropy to provide prediction resistance on every call for cryptographic
 material.
@@ -51,14 +51,14 @@ calling the AWS KMS API operations, or download the public key and use it outsid
 
 AWS KMS supports the following asymmetric ciphers.
 
-- **RSA-OAEP (for encryption) & RSA-PSS and RSA-PKCS-#1-v1_5
+- **RSA-OAEP (for encryption) & RSA-PSS and RSA-PKCS-#1-v1\_5
   (for signing and verification)** – Supports RSA key lengths (in bits):
   2048, 3072, and 4096 for different security requirements.
 - **Elliptic Curve (ECC)** – Used for signing and
   verification or deriving shared secrets, but not both. Supports ECC curves: NIST P256,
   P384, P521, SECP 256k1, Ed25519.
 - **ML-DSA** – Used for signing and verification.
-  Supported ML-DSA key specs are: ML_DSA_44, ML_DSA_65, and ML_DSA_87.
+  Supported ML-DSA key specs are: ML\_DSA\_44, ML\_DSA\_65, and ML\_DSA\_87.
 - **SM2 (China Regions only)** – Used for
   encryption and decryption, signing and verification, or deriving shared secrets, but you
   must choose one key usage. Supports SM2PKE for encryption and SM2DSA for signing.

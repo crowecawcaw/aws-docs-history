@@ -46,8 +46,8 @@ this tab.
 You can use the alias to recognize an AWS managed key, as shown in this example
 **AWS managed keys** page. The aliases for AWS managed keys
 always have the format: `aws/`<service-name>``.
- For example, the alias for the AWS managed key for Amazon DynamoDB is
- `aws/dynamodb`.
+For example, the alias for the AWS managed key for Amazon DynamoDB is
+`aws/dynamodb`.
 
 ![Aliases in the AWS managed keys page of the AWS KMS console](images/alias-console-aws-managed-sm.png)
 The [ListAliases](../APIReference/API_ListAliases.md "../APIReference/API_ListAliases.md") operation
@@ -55,7 +55,7 @@ returns the alias name and alias ARN of aliases in the account and Region. The o
 includes aliases for AWS managed keys and for customer managed keys. The aliases for
 AWS managed keys have the format
 `aws/`<service-name>``, such as
- `aws/dynamodb`.
+`aws/dynamodb`.
 
 The response might also include aliases that have no `TargetKeyId` field.
 These are predefined aliases that AWS has created but has not yet associated with a

@@ -39,7 +39,7 @@ values. For other fields, accept the default values and provide names as request
 | Statistic      | Minimum                                                                                                                                                                                           |
 | Period         | 5 minutes                                                                                                                                                                                         |
 | Threshold type | Static                                                                                                                                                                                            |
-| Whenever ...   | Whenever \*_XksProxyCertificateDaysToExpire_<br>• is<br>`Lower` than `10`.                                                                                                                        |
+| Whenever ...   | Whenever *_XksProxyCertificateDaysToExpire_<br>• is<br>`Lower` than `10`.                                                                                                                         |
 
 ## Create an alarm for response timeout
 
@@ -66,7 +66,7 @@ values. For other fields, accept the default values and provide names as request
 | Statistic      | Average                                                                                                                                                                         |
 | Period         | 5 minutes                                                                                                                                                                       |
 | Threshold type | Static                                                                                                                                                                          |
-| Whenever ...   | Whenever \*_XksProxyLatency_<br>• is<br>`Greater` than `200`.                                                                                                                   |
+| Whenever ...   | Whenever *_XksProxyLatency_<br>• is<br>`Greater` than `200`.                                                                                                                    |
 
 ## Create an alarm for retryable errors
 
@@ -84,13 +84,13 @@ Follow the instructions in [Create a
 CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required
 values. For other fields, accept the default values and provide names as requested.
 
-| Field          | Value                                                                                                                                                                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Select metric  | Choose the **Query\*<br>• tab.<br>Choose `AWS/KMS` for<br>**Namespace**.<br>Enter `SUM(XksProxyErrors)` for **Metric<br>name**.<br>Enter `ErrorType = Retryable` for **Filter<br>by**.<br>Choose **Run**. Then choose **Select<br>metric\*\*. |
-| Label          | `Retryable errors`                                                                                                                                                                                                                            |
-| Period         | 1 minute                                                                                                                                                                                                                                      |
-| Threshold type | Static                                                                                                                                                                                                                                        |
-| Whenever ...   | Whenever \*_q1_<br>• is `Greater` than<br>`5`.                                                                                                                                                                                                |
+| Field          | Value                                                                                                                                                                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Select metric  | Choose the *_Query_<br>• tab.<br>Choose `AWS/KMS` for<br>**Namespace**.<br>Enter `SUM(XksProxyErrors)` for **Metric<br>name**.<br>Enter `ErrorType = Retryable` for **Filter<br>by**.<br>Choose **Run**. Then choose **Select<br>metric**. |
+| Label          | `Retryable errors`                                                                                                                                                                                                                         |
+| Period         | 1 minute                                                                                                                                                                                                                                   |
+| Threshold type | Static                                                                                                                                                                                                                                     |
+| Whenever ...   | Whenever *_q1_<br>• is `Greater` than<br>`5`.                                                                                                                                                                                              |
 
 ## Create an alarm for non-retryable errors
 
@@ -108,10 +108,10 @@ Follow the instructions in [Create a
 CloudWatch alarm based on a static threshold](../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md "../../../AmazonCloudWatch/latest/monitoring/ConsoleAlarms.md") using the following required
 values. For other fields, accept the default values and provide names as requested.
 
-| Field          | Value                                                                                                                                                                                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Select metric  | Choose the **Query\*<br>• tab.<br>Choose `AWS/KMS` for<br>**Namespace**.<br>Enter `SUM(XksProxyErrors)` for **Metric<br>name**.<br>Enter `ErrorType = Non-retryable` for<br>**Filter by**.<br>Choose **Run**. Then choose **Select<br>metric\*\*. |
-| Label          | `Non-retryable errors`                                                                                                                                                                                                                            |
-| Period         | 1 minute                                                                                                                                                                                                                                          |
-| Threshold type | Static                                                                                                                                                                                                                                            |
-| Whenever ...   | Whenever \*_q1_<br>• is `Greater` than<br>`5`.                                                                                                                                                                                                    |
+| Field          | Value                                                                                                                                                                                                                                          |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Select metric  | Choose the *_Query_<br>• tab.<br>Choose `AWS/KMS` for<br>**Namespace**.<br>Enter `SUM(XksProxyErrors)` for **Metric<br>name**.<br>Enter `ErrorType = Non-retryable` for<br>**Filter by**.<br>Choose **Run**. Then choose **Select<br>metric**. |
+| Label          | `Non-retryable errors`                                                                                                                                                                                                                         |
+| Period         | 1 minute                                                                                                                                                                                                                                       |
+| Threshold type | Static                                                                                                                                                                                                                                         |
+| Whenever ...   | Whenever *_q1_<br>• is `Greater` than<br>`5`.                                                                                                                                                                                                  |

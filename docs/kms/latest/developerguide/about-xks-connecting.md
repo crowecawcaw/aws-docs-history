@@ -18,26 +18,25 @@ differs based on the connectivity of the external key store.
 - When you connect an external key store with [VPC endpoint service connectivity](choose-xks-connectivity.md#xks-vpc-connectivity "choose-xks-connectivity.md#xks-vpc-connectivity") to
   its external key store proxy, AWS KMS does the following:
 
-      + Confirms that the domain for the private DNS name specified in
-       the [proxy URI endpoint](create-xks-keystore.md#require-endpoint "create-xks-keystore.md#require-endpoint")
-       is [verified](vpc-connectivity.md#xks-private-dns "vpc-connectivity.md#xks-private-dns").
-      + Creates an interface endpoint from an AWS KMS VPC to your VPC endpoint
-       service.
-      + Creates a private hosted zone for the private DNS name specified in
-       the proxy URI endpoint
-      + Sends a [GetHealthStatus
-       request](keystore-external.md#concept-proxy-apis "keystore-external.md#concept-proxy-apis") to the external key store proxy. A successful
-       response from the proxy confirms that the [proxy URI endpoint](create-xks-keystore.md#require-endpoint "create-xks-keystore.md#require-endpoint") and [proxy URI path](create-xks-keystore.md#require-path "create-xks-keystore.md#require-path") are accurate and
-       accessible, and that the proxy authenticated the request signed with the
-       [proxy authentication
-       credential](keystore-external.md#concept-xks-credential "keystore-external.md#concept-xks-credential") for the external key store.
-
-  The connect operation begins the process of connecting your custom key store,
-  but connecting an external key store it its external proxy takes approximately
-  five minutes. A success response from the connect operation does not indicate
-  that the external key store is connected. To confirm that the connection was
-  successful, use the AWS KMS console or the [DescribeCustomKeyStores](../APIReference/DescribeCustomKeyStores.md "../APIReference/DescribeCustomKeyStores.md") operation to view the [connection state](xks-connect-disconnect.md#xks-connection-state "xks-connect-disconnect.md#xks-connection-state") of external your key
-  store.
+  - Confirms that the domain for the private DNS name specified in
+    the [proxy URI endpoint](create-xks-keystore.md#require-endpoint "create-xks-keystore.md#require-endpoint")
+    is [verified](vpc-connectivity.md#xks-private-dns "vpc-connectivity.md#xks-private-dns").
+  - Creates an interface endpoint from an AWS KMS VPC to your VPC endpoint
+    service.
+  - Creates a private hosted zone for the private DNS name specified in
+    the proxy URI endpoint
+  - Sends a [GetHealthStatus
+    request](keystore-external.md#concept-proxy-apis "keystore-external.md#concept-proxy-apis") to the external key store proxy. A successful
+    response from the proxy confirms that the [proxy URI endpoint](create-xks-keystore.md#require-endpoint "create-xks-keystore.md#require-endpoint") and [proxy URI path](create-xks-keystore.md#require-path "create-xks-keystore.md#require-path") are accurate and
+    accessible, and that the proxy authenticated the request signed with the
+    [proxy authentication
+    credential](keystore-external.md#concept-xks-credential "keystore-external.md#concept-xks-credential") for the external key store.
+    The connect operation begins the process of connecting your custom key store,
+    but connecting an external key store it its external proxy takes approximately
+    five minutes. A success response from the connect operation does not indicate
+    that the external key store is connected. To confirm that the connection was
+    successful, use the AWS KMS console or the [DescribeCustomKeyStores](../APIReference/DescribeCustomKeyStores.md "../APIReference/DescribeCustomKeyStores.md") operation to view the [connection state](xks-connect-disconnect.md#xks-connection-state "xks-connect-disconnect.md#xks-connection-state") of external your key
+    store.
 
 When the connection state is `FAILED`, a connection error code is displayed
 in the AWS KMS console and is added to the `DescribeCustomKeyStore` response.

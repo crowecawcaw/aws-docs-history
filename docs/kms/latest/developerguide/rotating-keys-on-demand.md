@@ -42,7 +42,7 @@ completed rotations for a KMS key.
 The **Key material and rotations** tab appears only on
 the detail page of symmetric encryption KMS keys that support automatic or
 on-demand rotation. This includes KMS keys with key material that AWS KMS
-generated (**AWS_KMS** origin) and KMS keys with imported
+generated (**AWS\_KMS** origin) and KMS keys with imported
 key material (**EXTERNAL** origin)
 
 You cannot perform on-demand rotation of asymmetric KMS keys, HMAC

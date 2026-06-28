@@ -159,11 +159,12 @@ configuration. The IAM principal should be replaced with a principal in
 the XKS owner AWS account.
 
 In this example,
-`arn:aws:iam::`123456789012`:role/`cks_role``  is the IAM principal in the XKS owner account, which will be used to
- create, update, or connect the XKS to your VPC endpoint service. If you
- would like to allow all principals in the XKS owner account to access your
- VPC endpoint service, you can specify
- `arn:aws:iam::`123456789012`:root`.
+`arn:aws:iam::`123456789012`:role/`cks_role``
+is the IAM principal in the XKS owner account, which will be used to
+create, update, or connect the XKS to your VPC endpoint service. If you
+would like to allow all principals in the XKS owner account to access your
+VPC endpoint service, you can specify
+`arn:aws:iam::`123456789012`:root`.
 
 ```
 modify-vpc-endpoint-service-permissions
