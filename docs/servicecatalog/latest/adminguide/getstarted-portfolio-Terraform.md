@@ -13,8 +13,8 @@ organization and distribution to end user accounts (spoke accounts).
    - **Portfolio name** –
      `S3 bucket`
    - **Portfolio description** – `Sample
-portfolio for Terraform configurations.`
+  portfolio for Terraform configurations.`
    - **Owner** – `IT
-(it@example.com)`
+  (it@example.com)`
 
 4. Choose **Create**.

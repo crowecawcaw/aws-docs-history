@@ -15,7 +15,7 @@ you can upload an CloudFormation template or Terraform configuration file.
 The CloudFormation template is stored
 in an Amazon Simple Storage Service (Amazon S3) bucket,
 and the bucket name begins
-with "**_cf-templates-_**."
+with "_**cf-templates-**_."
 You also must have permission
 to retrieve objects
 from additional buckets

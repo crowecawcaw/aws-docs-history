@@ -11,13 +11,13 @@ organization.
 
 Service Catalog provides the following benefits:
 
-- \***\*Standardization\*\***
+- ****Standardization****
 
 Administer and manage approved assets by restricting where the product can be launched,
 the type of instance that can be used, and many other configuration options. The result is a
 standardized landscape for product provisioning for your entire organization.
 
-- \***\*Self-service discovery and launch\*\***
+- ****Self-service discovery and launch****
 
 Users browse listings of products (services or applications) that they have access to,
 locate the product that they want to use, and launch it all on their own as a provisioned

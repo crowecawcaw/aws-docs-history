@@ -8,7 +8,8 @@
 
 ## Console access for end users
 
-The \***\*`AWSServiceCatalogEndUserFullAccess`\*\*** and \***\*`AWSServiceCatalogEndUserReadOnlyAccess`\*\*** policies grant access to the AWS Service Catalog
+The ****`AWSServiceCatalogEndUserFullAccess`**** and
+****`AWSServiceCatalogEndUserReadOnlyAccess`**** policies grant access to the AWS Service Catalog
 end user console view. When a user who has either of these policies chooses AWS Service Catalog in
 the AWS Management Console, the end user console view displays the products they have permission
 to launch.

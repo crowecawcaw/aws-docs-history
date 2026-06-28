@@ -2,7 +2,7 @@
 
 Before the end user can use AWS Service Catalog, you must grant access to the AWS Service Catalog end user console view. To
 grant access, you attach policies to the IAM user, group, or role that is used by the end user.
-In the following procedure, we attach the \***\*`AWSServiceCatalogEndUserFullAccess`\*\*** policy
+In the following procedure, we attach the ****`AWSServiceCatalogEndUserFullAccess`**** policy
 to an IAM group.
 
 ###### To grant permissions to an end user group
@@ -14,8 +14,8 @@ to an IAM group.
 
    1. For **User group name**, type `Endusers`.
    2. In the search field, type `AWSServiceCatalog` to filter the policy list.
-   3. Select the checkbox for the \***\*`AWSServiceCatalogEndUserFullAccess`\*\*** policy.
-      You also have the option to choose \***\*`AWSServiceCatalogEndUserReadOnlyAccess`\*\*** instead.
+   3. Select the checkbox for the ****`AWSServiceCatalogEndUserFullAccess`**** policy.
+      You also have the option to choose ****`AWSServiceCatalogEndUserReadOnlyAccess`**** instead.
    4. Choose **Create Group**.
 
 4. In the navigation pane, choose **Users**.

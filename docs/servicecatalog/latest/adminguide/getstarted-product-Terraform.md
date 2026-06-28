@@ -30,7 +30,7 @@ product in AWS Service Catalog. In this tutorial, you create a Terraform product
 
    - **Version name** – `v1.0`
    - **Version description** – `Base
-Version`
+  Version`
 
 8. In the **Support details** section, enter the following and then choose
    **Create product**.
@@ -40,7 +40,7 @@ Version`
    - **Support link** –
      `https://wiki.example.com/IT/support`
    - **Support description** – `Contact the
-IT department for issues deploying or connecting to this product.`
+  IT department for issues deploying or connecting to this product.`
 
 9. Choose **Create product**.
    After successfully creating the product, AWS Service Catalog displays a confirmation banner on the product page.

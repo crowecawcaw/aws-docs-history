@@ -35,5 +35,5 @@ _Amazon EC2 User Guide_.
 ```
 
 5. For **Constraint description**, enter `Small instance
-sizes`.
+ sizes`.
 6. Choose **Create**.

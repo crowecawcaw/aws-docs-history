@@ -12,8 +12,8 @@ To provide users with products, begin by creating a portfolio for those products
    - **Portfolio name** –
      `Engineering Tools`
    - **Portfolio description** – `Sample
-portfolio that contains a single product.`
+  portfolio that contains a single product.`
    - **Owner** – `IT
-(it@example.com)`
+  (it@example.com)`
 
 4. Choose **Create**.

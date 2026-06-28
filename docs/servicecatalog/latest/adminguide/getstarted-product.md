@@ -18,8 +18,8 @@ cloud development environment that runs on Amazon Linux, inside of the
    - **Product name** –
      `Linux Desktop`
    - **Product description** – `Cloud
-development environment configured for engineering staff. Runs AWS
-Linux.`
+  development environment configured for engineering staff. Runs AWS
+  Linux.`
    - **Owner** – `IT`
    - **Distributor** –
      _(blank)_
@@ -29,7 +29,7 @@ Linux.`
    - **Select template** – `https://awsdocs.s3.amazonaws.com/servicecatalog/development-environment.template`
    - **Version title** – `v1.0`
    - **Description** – `Base
-Version`
+  Version`
 
 6. In the **Support details** section, enter the following:
 
@@ -38,6 +38,6 @@ Version`
    - **Support link** –
      `https://wiki.example.com/IT/support`
    - **Support description** – `Contact the
-IT department for issues deploying or connecting to this product.`
+  IT department for issues deploying or connecting to this product.`
 
 7. Choose **Create product**.

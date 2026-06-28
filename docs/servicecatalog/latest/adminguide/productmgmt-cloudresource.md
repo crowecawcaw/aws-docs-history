@@ -106,12 +106,12 @@ from the following buckets:
   where the provisioning artifact template is stored.
 - The bucket
   that begins
-  with "**\*cf-templates-\*\***"
+  with "_**cf-templates-\***_"
   and
   where AWS Service Catalog stores the provisioning artifact template.
 - The internal bucket
   that begins
-  with "**\*sc-\*\***"
+  with "_**sc-\***_"
   and
   where AWS Service Catalog stores metadata.
   You won't be able

@@ -22,7 +22,7 @@ and perform the tasks below.
 4. On the **Parameters** page, enter the following and choose
    **Next**:
 
-   - **bucket_name** – Provide a unique name for the Amazon S3 bucket. For example,
+   - **bucket\_name** – Provide a unique name for the Amazon S3 bucket. For example,
      `terraform-s3-product`.
 
 5. Choose **Launch product**. The console
