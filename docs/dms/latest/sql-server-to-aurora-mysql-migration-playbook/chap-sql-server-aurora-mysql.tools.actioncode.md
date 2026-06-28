@@ -4,14 +4,14 @@ This topic provides reference information for the automation levels and action c
 
 The following table shows the icons we use to describe the automation levels of AWS Schema Conversion Tool (AWS SCT) and AWS Database Migration Service (AWS DMS).
 
-| Automation level icon       | Description                                                                                                  |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Five star automation level  | \*_Full automation_<br>• — AWS SCT performs fully automatic conversion, no manual conversion needed.         |
-| Four star automation level  | \*_High automation_<br>• — Minor, simple manual conversions may be needed.                                   |
-| Three star automation level | \*_Medium automation_<br>• — Low-medium complexity manual conversions may be needed.                         |
-| Two star automation level   | \*_Low automation_<br>• — Medium-high complexity manual conversions may be needed.                           |
-| One star automation level   | \*_Very low automation_<br>• — High risk or complex manual conversions may be needed.                        |
-| No automation               | \*_No automation_<br>• — Not currently supported by AWS SCT, manual conversion is required for this feature. |
+| Automation level icon       | Description                                                                                                 |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Five star automation level  | *_Full automation_<br>• — AWS SCT performs fully automatic conversion, no manual conversion needed.         |
+| Four star automation level  | *_High automation_<br>• — Minor, simple manual conversions may be needed.                                   |
+| Three star automation level | *_Medium automation_<br>• — Low-medium complexity manual conversions may be needed.                         |
+| Two star automation level   | *_Low automation_<br>• — Medium-high complexity manual conversions may be needed.                           |
+| One star automation level   | *_Very low automation_<br>• — High risk or complex manual conversions may be needed.                        |
+| No automation               | *_No automation_<br>• — Not currently supported by AWS SCT, manual conversion is required for this feature. |
 
 The following sections list the AWS Schema Conversion Tool action codes for topics that are covered in this playbook.
 

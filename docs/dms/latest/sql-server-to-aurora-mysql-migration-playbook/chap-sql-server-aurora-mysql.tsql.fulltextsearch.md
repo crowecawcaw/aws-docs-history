@@ -152,7 +152,7 @@ Creating a full-text index in Aurora MySQL creates a set of index system tables 
 
 The index cache temporarily caches index entries for recent rows to minimize the contention associated with inserting documents. These inserts, even small ones, typically result in many singleton insertions to the auxiliary tables, which may prove to be challenging in terms of concurrency. Caching and batch flushing help minimize these frequent updates. In addition, batching also helps alleviate the overhead involved with multiple auxiliary table insertions for words and minimizes duplicate entries as insertions are merged and written to disk as a single entry.
 
-### Full-Text Index Document ID and FTS_DOC_ID Column
+### Full-Text Index Document ID and FTS\_DOC\_ID Column
 
 Aurora MySQL assigns a document identifier that maps words in the index to the document rows where those words are found. This warrants a schema change to the source table, namely adding an indicator column to point to the associated document. This column, known as `FTS_DOC_ID` must exist in the table where the full-text index is created. If the column is not present, Aurora MySQL adds it when the full-text index is created.
 
@@ -244,7 +244,13 @@ FROM ProductReviews
 WHERE MATCH (ReviewText) AGAINST ('+Excellent -England' IN BOOLEAN MODE);
 ```
 
-Additional Boolean operators include: \* The `@distance` operator tests if two or more words start within a specified distance, or the number of words between them. \* The `<` and `>` operators change a word’s contribution to the relevance value assigned for a specific row match. \* Parentheses `()` are used to group words into sub-expressions and may be nested. \* The tilde `~` is used as negative operator, resulting in the word’s contribution to be deducted from the total relevance value. Use this operator to mark noise words that are rated lower, but not excluded, as with the `-` operator. \* The asterisk `*` operator is used as a wildcard operator and is appended to the word. \* Double quotes ` are used for exact, literal phrase matching.
+Additional Boolean operators include:
+\* The `@distance` operator tests if two or more words start within a specified distance, or the number of words between them.
+\* The `<` and `>` operators change a word’s contribution to the relevance value assigned for a specific row match.
+\* Parentheses `()` are used to group words into sub-expressions and may be nested.
+\* The tilde `~` is used as negative operator, resulting in the word’s contribution to be deducted from the total relevance value. Use this operator to mark noise words that are rated lower, but not excluded, as with the `-` operator.
+\* The asterisk `*` operator is used as a wildcard operator and is appended to the word.
+\* Double quotes ` are used for exact, literal phrase matching.
 
 For more information, see [Boolean Full-Text Searches](https://dev.mysql.com/doc/refman/5.7/en/fulltext-boolean.html "https://dev.mysql.com/doc/refman/5.7/en/fulltext-boolean.html") in the _MySQL documentation_.
 

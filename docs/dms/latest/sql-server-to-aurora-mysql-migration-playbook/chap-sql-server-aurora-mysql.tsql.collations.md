@@ -34,7 +34,10 @@ Collations define sorting and matching sensitivity for the following string char
 
 SQL Server uses a suffix naming convention that appends the option name to the collation name. For example, the collation `Azeri_Cyrillic_100_CS_AS_KS_WS_SC`, is an Azeri-Cyrillic-100 collation that is case-sensitive, accent-sensitive, kana type-sensitive, width-sensitive, and has supplementary characters.
 
-SQL Server supports three types of collation sets: \* Windows Collations use the rules defined for collations by the operating system locale where UNICODE and non-UNICODE data use the same comparison algorithms. \* Binary Collations use the binary bit-wise code for comparison. Therefore, the locale doesn’t affect sorting. \* SQL Server Collations provide backward compatibility with previous SQL Server versions. They aren’t compatible with the windows collation rules for non-UNICODE data.
+SQL Server supports three types of collation sets:
+\* Windows Collations use the rules defined for collations by the operating system locale where UNICODE and non-UNICODE data use the same comparison algorithms.
+\* Binary Collations use the binary bit-wise code for comparison. Therefore, the locale doesn’t affect sorting.
+\* SQL Server Collations provide backward compatibility with previous SQL Server versions. They aren’t compatible with the windows collation rules for non-UNICODE data.
 
 You can define collations at various levels:
 
@@ -68,7 +71,7 @@ CREATE TABLE <Table Name>
 
 ### Examples
 
-The following example creates a database with a default Bengali_100_CS_AI collation.
+The following example creates a database with a default Bengali\_100\_CS\_AI collation.
 
 ```
 CREATE DATABASE MyBengaliDatabase
@@ -213,7 +216,7 @@ The following walkthrough describes how to change the cluster character set and 
 5. For **Group name**, enter the identified for the DB parameter group.
 6. Choose **Create**.
 7. Choose the newly created group on the **Parameter groups** list.
-8. For **Parameters**, enter **character_set_server** in the search box and choose **Edit parameters**.
+8. For **Parameters**, enter **character\_set\_server** in the search box and choose **Edit parameters**.
 9. Choose the server default character set.
 10. Delete the search term and enter collation. Select the desired default server collation and choose **Preview changes**.
 11. Check the values and choose **Close**, and then choose **Save changes**.
