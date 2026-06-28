@@ -89,7 +89,7 @@ start a remote terminal session with the node. Don’t log in as sudo. 4. Untar 
 ###### Important
 
 Make sure that you have stopped the node. We recommend that you don't run the
-script on an active node. The script temporarily stops elemental_se and httpd
+script on an active node. The script temporarily stops elemental\_se and httpd
 services.
 
 ### Step C1: Run the backup command

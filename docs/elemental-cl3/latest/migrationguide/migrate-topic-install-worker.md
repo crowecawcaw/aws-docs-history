@@ -7,26 +7,22 @@ This install procedure is very similar to the upgrade procedure (as described in
 [AWS Elemental Live Upgrade Guide](../../../elemental-live/latest/upgradeguide.md "../../../elemental-live/latest/upgradeguide.md")), but there are significant differences in the options you
 include.
 
-1.  From the Linux command line, log in to the worker node. Use the
-    **elemental** user credentials.
-2.  Run the installer. Use the appropriate command:
+1. From the Linux command line, log in to the worker node. Use the
+   **elemental** user credentials.
+2. Run the installer. Use the appropriate command:
 
-        * For GPU and CPU versions of the software:
+   - For GPU and CPU versions of the software:
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_2.26.x.12345.run --cleandb --skip-mellanox --skip-all --start -xeula**
+   ```
+   - For CPU-only versions of the software:
 
+   ```
+   [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_cpu\_2.26.x.12345.run --cleandb --skip-mellanox --skip-all --start -xeula**
+   ```
 
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_2.26.x.12345.run --cleandb --skip-mellanox --skip-all --start -xeula**
-        ```
-        * For CPU-only versions of the software:
-
-
-
-        ```
-        [elemental@hostname ~]$ **sudo sh ./elemental\_production\_live\_cpu\_2.26.x.12345.run --cleandb --skip-mellanox --skip-all --start -xeula**
-        ```
-
-    Where:
+Where:
 
 `--cleandb` deletes the application database. This option is
 required on the worker nodes. You don't need the application database because

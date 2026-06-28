@@ -4,7 +4,7 @@ Add the secondary node back to the cluster, and then to the redundancy group.
 
 To avoid errors when you're adding the secondary Conductor back to the cluster, wait
 approximately three minutes after the upgrade before performing these steps. This wait
-ensures that the elemental_se service has restarted and is running.
+ensures that the elemental\_se service has restarted and is running.
 
 **Add the secondary node to the cluster**
 
