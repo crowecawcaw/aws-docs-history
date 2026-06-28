@@ -53,7 +53,7 @@ WorkSpaces Secure Browser console.
 **Trust store**
 
 If a user accessing a web site through WorkSpaces Secure Browser receives a privacy error, such as
-NET::ERR_CERT_INVALID, that site might be using a certificate signed by a private certificate
+NET::ERR\_CERT\_INVALID, that site might be using a certificate signed by a private certificate
 authority (PCA). You may need to add or change the PCAs in your trust store. In addition, if a
 user's device requires you to install a specific certificate in order to load a web site, you
 will need to add that certificate to your trust store to allow your user to access that site

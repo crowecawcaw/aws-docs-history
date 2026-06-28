@@ -214,19 +214,18 @@ Add your custom policies to the template for each business requirement.
 
 ```
 
-5.  Set and enforce the [Okta plug-in](https://help.okta.com/en-us/Content/Topics/Browser-Plugin/silent-install-chrome.htm "https://help.okta.com/en-us/Content/Topics/Browser-Plugin/silent-install-chrome.htm") with the following policies:
+5. Set and enforce the [Okta plug-in](https://help.okta.com/en-us/Content/Topics/Browser-Plugin/silent-install-chrome.htm "https://help.okta.com/en-us/Content/Topics/Browser-Plugin/silent-install-chrome.htm") with the following policies:
 
-        * `ExtensionSettings` – Installs an extension at browser start. The
-         extension value is available from the Okta plug-in help page.
-        * `ExtensionInstallBlocklist` – Prevents specific extensions from
-         being installed. Use a `*` value to prevent all extensions by default.
-         Administrators can control which extensions to allow on the
-         `ExtensionInstallAllowlist`.
-        * `ExtensionInstallAllowlist` allows you to install certain extensions. Since
-         `ExtensionInstallBlocklist` is set to `*`, add the Okta plug-in
-         value here to allow it.
-
-    The following shows an example policy to turn on the Okta plug-in:
+   - `ExtensionSettings` – Installs an extension at browser start. The
+     extension value is available from the Okta plug-in help page.
+   - `ExtensionInstallBlocklist` – Prevents specific extensions from
+     being installed. Use a `*` value to prevent all extensions by default.
+     Administrators can control which extensions to allow on the
+     `ExtensionInstallAllowlist`.
+   - `ExtensionInstallAllowlist` allows you to install certain extensions. Since
+     `ExtensionInstallBlocklist` is set to `*`, add the Okta plug-in
+     value here to allow it.
+     The following shows an example policy to turn on the Okta plug-in:
 
 ```
 

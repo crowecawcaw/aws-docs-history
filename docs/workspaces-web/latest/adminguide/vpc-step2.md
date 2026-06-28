@@ -47,7 +47,7 @@ The VPC wizard automatically configures the route tables for you. If you created
 
 9. In the navigation pane, choose **Subnets**. Then select the
    second private subnet that you created (for example, `WorkSpaces Secure Browser
-Private Subnet2`).
+ Private Subnet2`).
 10. On the **Route Table** tab, verify that the selected route
     table is the private route table (for example,
     `workspacesweb-private-routetable`). If the route table is

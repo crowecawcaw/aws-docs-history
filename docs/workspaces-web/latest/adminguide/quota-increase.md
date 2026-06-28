@@ -19,5 +19,5 @@ in each AWS Region where you need more resources. For more information, see [AWS
      portal ARN, and the new limit value.
 
 4. (Optional) To request multiple service quota increases at the same time, complete one quota
-   increase request in the **Requests section**, and then choose **Add
-   another request**.
+increase request in the **Requests section**, and then choose **Add
+another request**.

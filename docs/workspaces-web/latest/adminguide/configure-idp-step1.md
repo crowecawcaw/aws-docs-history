@@ -65,9 +65,9 @@ requests.
      supported.
 
 6. Choose whether you want to enable **Require encrypted SAML
-   assertions**. This allows you to encrypt the SAML assertion that comes from your
-   IdP. It can prevent data from being intercepted in SAML assertions between the IdP and
-   WorkSpaces Secure Browser.
+assertions**. This allows you to encrypt the SAML assertion that comes from your
+IdP. It can prevent data from being intercepted in SAML assertions between the IdP and
+WorkSpaces Secure Browser.
 
 ###### Note
 

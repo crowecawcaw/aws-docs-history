@@ -9,10 +9,10 @@ single sign-on works as expected.
 
 To see which domains to use with most common IdP, refer to the following table:
 
-| IdP and domains     | IdP                 | Domain |
-| ------------------- | ------------------- | ------ |
-| Okta                | okta.com            |
-| Entra ID            | microsoftonline.com |
-| AWS Identity Center | awsapps.com         |
-| One Login           | onelogin.com        |
-| Duo                 | duosecurity.com     |
+IdP and domains| IdP | Domain |
+| --- | --- |
+| Okta | okta.com |
+| Entra ID | microsoftonline.com |
+| AWS Identity Center | awsapps.com |
+| One Login | onelogin.com |
+| Duo | duosecurity.com |

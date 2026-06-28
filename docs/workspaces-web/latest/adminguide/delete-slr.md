@@ -15,16 +15,15 @@ operation again.
 
 - Choose from one of the following options:
 
-      + If you use the console, delete all of your portals on the console.
-      + If you use the CLI or API, disassociate all of your resources (including browser
-       settings, network settings, user settings,
-       trust
-       stores, and user
-       access logging settings) from your portals, delete these resources,
-       and then delete the portals.
-
-  **To manually delete the service-linked role using
-  IAM**
+  - If you use the console, delete all of your portals on the console.
+  - If you use the CLI or API, disassociate all of your resources (including browser
+    settings, network settings, user settings,
+    trust
+    stores, and user
+    access logging settings) from your portals, delete these resources,
+    and then delete the portals.
+    **To manually delete the service-linked role using
+    IAM**
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAmazonWorkSpacesWeb
 service-linked role. For more information, see [Deleting a

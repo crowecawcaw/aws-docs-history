@@ -73,10 +73,9 @@ The following languages are currently supported by WorkSpaces Secure Browser's I
 
 - Korean
 
-      + To choose Hangul, press
-       **Shift**
-      **+Space**
-       .
-      + To choose Hanja, press **F9**.
-
-  To turn off the on-screen keyboard from your WorkSpaces Secure Browser sessions, contact Support.
+  - To choose Hangul, press
+    **Shift**
+    **+Space**
+    .
+  - To choose Hanja, press **F9**.
+    To turn off the on-screen keyboard from your WorkSpaces Secure Browser sessions, contact Support.

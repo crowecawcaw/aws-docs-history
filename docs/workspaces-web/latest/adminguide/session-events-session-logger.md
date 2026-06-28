@@ -165,8 +165,8 @@ Metric data points are collected by each session once per minute and published t
 Amazon CloudWatch once every 5 minutes. Session Logger metrics are emitted
 immediately, for each Log File delivery.
 
-| Session Logger metrics               | Metric                                                                    | Description | Dimension                      | Statistics | Unit |
-| ------------------------------------ | ------------------------------------------------------------------------- | ----------- | ------------------------------ | ---------- | ---- |
-| **SessionLoggerEventDelivered**      | The number of events each delivered Session Logger file has.              | [PortalId]  | Average, Sum, Maximum, Minimum | Count      |
-| **SessionLoggerTargetNotFoundError** | The number of log file deliveries that resulted in bucket not found.      | [PortalId]  | Average, Sum, Maximum, Minimum | Count      |
-| **SessionLoggerAccessDeniedError**   | The number of log file deliveries that resulted in permissions<br>denied. | [PortalId]  | Average, Sum, Maximum, Minimum | Count      |
+Session Logger metrics| Metric | Description | Dimension | Statistics | Unit |
+| --- | --- | --- | --- | --- |
+| **SessionLoggerEventDelivered** | The number of events each delivered Session Logger file has. | [PortalId] | Average, Sum, Maximum, Minimum | Count |
+| **SessionLoggerTargetNotFoundError** | The number of log file deliveries that resulted in bucket not found. | [PortalId] | Average, Sum, Maximum, Minimum | Count |
+| **SessionLoggerAccessDeniedError** | The number of log file deliveries that resulted in permissions<br>denied. | [PortalId] | Average, Sum, Maximum, Minimum | Count |

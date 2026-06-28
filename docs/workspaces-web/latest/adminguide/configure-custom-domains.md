@@ -67,7 +67,7 @@ Use the US East (N. Virginia) Region, as CloudFront requires certificates to be 
     * For existing ACM users: Choose **Request a certificate**
 
 3. Choose **Request a public certificate** and then choose
-   **Request a certificate**.
+**Request a certificate**.
 
 ###### Note
 
@@ -84,7 +84,7 @@ certificates into ACM](../../../acm/latest/userguide/import-certificate.md "../.
      validation](../../../acm/latest/userguide/gs-acm-validate-email.md "../../../acm/latest/userguide/gs-acm-validate-email.md") in the *ACM User Guide*.
 
 6. Review your settings and choose **Confirm and request**.
-   **CloudFront distribution**
+**CloudFront distribution**
 
 Create a CloudFront distribution to proxy requests from your custom domain to the portal endpoint.
 
@@ -104,73 +104,75 @@ Enter your custom domain and click "Check domain". If you have a domain from a d
      `<portalId>`.workspaces-web.com
     * **Origin Path**: Leave empty (default)
 
-4.  Customize origin settings:
+4. Customize origin settings:
 
-    - Add custom header
+    * Add custom header
+
 
     ###### Important
 
     Portal access through custom domain will only work if this header is present in proxied requests. Ensure the header name and value are specified exactly as mentioned.
 
-        + **Header Name**: workspacessecurebrowser-custom-domain
-        + **Value**: Your custom domain (for example, `myportal.example.com`)
-    - **Protocol**: HTTPS only
-    - **HTTPS port**: 443 (keep default)
-    - **Minimum Original SSL protocol**: TLSv1.2 (default)
-    - **Origin IP address type**: IPv4 only (Amazon WorkSpaces Secure Browser does not
-      support IPv6 at the time of writing this administration guide.)
 
-5.  Customize cache settings:
 
-    - **Viewer protocol policy**: Redirect HTTP to HTTPS
-    - **Allowed HTTP methods**: GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE
-    - **Cache Policy**: CachingDisabled
-    - **Origin request policy**: AllViewerExceptHostHeader
+
+    	+ **Header Name**: workspacessecurebrowser-custom-domain
+    	+ **Value**: Your custom domain (for example, `myportal.example.com`)
+    * **Protocol**: HTTPS only
+    * **HTTPS port**: 443 (keep default)
+    * **Minimum Original SSL protocol**: TLSv1.2 (default)
+    * **Origin IP address type**: IPv4 only (Amazon WorkSpaces Secure Browser does not
+     support IPv6 at the time of writing this administration guide.)
+
+5. Customize cache settings:
+
+    * **Viewer protocol policy**: Redirect HTTP to HTTPS
+    * **Allowed HTTP methods**: GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE
+    * **Cache Policy**: CachingDisabled
+    * **Origin request policy**: AllViewerExceptHostHeader
+
 
     ###### Important
 
     Portal access through custom domain will only work if origin request policy is set to AllViewerExceptHostHeader. As the name suggests, this policy filters out only the host header from the request headers and passes on all the remaining headers to the origin.
 
-6.  You can configure WAF if you want but it is not necessary for the purpose of this setup.
-7.  In Get TLS certificate, select the TLS Certificate created in Step 1.
-8.  Review the settings and choose **Create Distribution**.
-    **DNS records**
+6. You can configure WAF if you want but it is not necessary for the purpose of this setup. 7. In Get TLS certificate, select the TLS Certificate created in Step 1. 8. Review the settings and choose **Create Distribution**.
+**DNS records**
 
 Cloudfront can update your DNS records in Route 53 to route traffic from the specified domains to the distribution created in Step 2, if your hosted zone is in the same AWS account.
 
-1.  Navigate to CloudFront settings
-2.  Click "Route domains to CloudFront"
-3.  Click "Set up routing automatically"
-    If you have configured DNS for the custom domain in another service provider or another AWS account, configure your DNS provider to route traffic for your
-    domain to the distribution. The following steps describe how to do so using Route 53.
+1. Navigate to CloudFront settings
+2. Click "Route domains to CloudFront"
+3. Click "Set up routing automatically"
+   If you have configured DNS for the custom domain in another service provider or another AWS account, configure your DNS provider to route traffic for your
+   domain to the distribution. The following steps describe how to do so using Route 53.
 
-4.  Open the Amazon Route 53 console at [https://console.aws.amazon.com/route53](https://console.aws.amazon.com/route53 "https://console.aws.amazon.com/route53").
-5.  Access DNS management:
+4. Open the Amazon Route 53 console at [https://console.aws.amazon.com/route53](https://console.aws.amazon.com/route53 "https://console.aws.amazon.com/route53").
+5. Access DNS management:
 
-    - If you are new to using Route 53 with this AWS account, the Amazon Route 53 overview
-      page opens. Under DNS management, choose **Get started now**.
-    - If you have used Route 53 before with this AWS account, proceed to the next step.
+   - If you are new to using Route 53 with this AWS account, the Amazon Route 53 overview
+     page opens. Under DNS management, choose **Get started now**.
+   - If you have used Route 53 before with this AWS account, proceed to the next step.
 
-6.  In the navigation pane, choose **Hosted zones**.
-7.  Create a hosted zone if you don't already have one:
+6. In the navigation pane, choose **Hosted zones**.
+7. Create a hosted zone if you don't already have one:
 
-    - To route internet traffic to your resources, see
-      [Creating
-      a Public Hosted Zone](../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md "../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md") in the _Amazon Route 53 Developer Guide_.
-    - To route traffic in your VPC, see
-      [Creating
-      a Private Hosted Zone](../../../Route53/latest/DeveloperGuide/hosted-zone-private-creating.md "../../../Route53/latest/DeveloperGuide/hosted-zone-private-creating.md") in the _Amazon Route 53 Developer Guide_.
+   - To route internet traffic to your resources, see
+     [Creating
+     a Public Hosted Zone](../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md "../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md") in the _Amazon Route 53 Developer Guide_.
+   - To route traffic in your VPC, see
+     [Creating
+     a Private Hosted Zone](../../../Route53/latest/DeveloperGuide/hosted-zone-private-creating.md "../../../Route53/latest/DeveloperGuide/hosted-zone-private-creating.md") in the _Amazon Route 53 Developer Guide_.
 
-8.  On the **Hosted Zones** page, choose the name of the hosted zone that
-    you want to administer.
-9.  Choose **Create Record Set**.
+8. On the **Hosted Zones** page, choose the name of the hosted zone that
+   you want to administer.
+9. Choose **Create Record Set**.
 10. Create an entry for your domain (for example, `myportal.example.com`):
 
-        * **Type**: A – IPv4 address
-        * **Alias**: Yes
-        * **Alias Target**: CloudFront Distribution URL
-
-    Keep the default values for all other settings.
+    - **Type**: A – IPv4 address
+    - **Alias**: Yes
+    - **Alias Target**: CloudFront Distribution URL
+      Keep the default values for all other settings.
 
 ###### Note
 

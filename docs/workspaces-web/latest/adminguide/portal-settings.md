@@ -22,26 +22,30 @@ access to trusted networks. For more information, see [Managing IP access contro
 
 9. Under **Policy settings**, you can set any browser policy using Chrome policies available for the latest stable version to the web portal. For more information, see [Managing browser policy in Amazon WorkSpaces Secure Browser](browser-policies.md "browser-policies.md"). **This is optional.**
 
-   1. You can quickly select some of the most common policies in the **Visual editor**
+    1. You can quickly select some of the most common policies in the **Visual editor**
 
-      - For **Startup URL - optional**, enter a domain to use as the homepage when users launch their browser. Your VPC must have a stable connection to this URL.
-      - Select or clear **Private browsing** and **History deletion** to turn these features on or off during a user's session
 
-      ###### Note
 
-      URLs visited while browsing privately, or before a user deletes their browser history, can't be recorded in user access logging. For more information, see [Setting up user activity logging in Amazon WorkSpaces Secure Browser](user-logging.md "user-logging.md").
-      - For **Browser bookmarks - optional**, enter the **Display name**, **Domain**, and **Folder** for any bookmarks you want your users to see in their browser. Then, choose **Add bookmark**.
 
-      ###### Note
+    	* For **Startup URL - optional**, enter a domain to use as the homepage when users launch their browser. Your VPC must have a stable connection to this URL.
+    	* Select or clear **Private browsing** and **History deletion** to turn these features on or off during a user's session
 
-      **Domain** is a required field for browser bookmarks.
 
-      In Chrome, users can find managed bookmarks in the **Managed bookmarks** folder on the bookmarks toolbar.
+    	###### Note
 
-   2. You can also directly add or edit policies by using the JSON editor instead of the visual editor. For the specific format of a policy, please refer to [Chrome Enterprise policy list](https://chromeenterprise.google/policies/ "https://chromeenterprise.google/policies/").
-   3. You can also import the Chrome policies used in your organization by uploading a JSON file into the web portal. For details, please see [Tutorial: Setting a custom browser policy in Amazon WorkSpaces Secure Browser](browser-policies-custom.md "browser-policies-custom.md")
+    	URLs visited while browsing privately, or before a user deletes their browser history, can't be recorded in user access logging. For more information, see [Setting up user activity logging in Amazon WorkSpaces Secure Browser](user-logging.md "user-logging.md").
+    	* For **Browser bookmarks - optional**, enter the **Display name**, **Domain**, and **Folder** for any bookmarks you want your users to see in their browser. Then, choose **Add bookmark**.
 
-   When you upload a policy file, you can see the available policies in the file in the console. However, you can't edit all policies in the visual editor. The console lists policies in your JSON file that you can't edit with the visual editor under **Additional JSON policies**. To make changes to these policies, you must edit them manually.
 
-10. Add **Tags** to your portal. You can use tags to search for or filter your AWS resources. Tags consist of a key and optional value and are associated with your portal resource. **This is optional.**
-11. Choose **Next** to continue.
+    	###### Note
+
+    	**Domain** is a required field for browser bookmarks.
+
+    	In Chrome, users can find managed bookmarks in the **Managed bookmarks** folder on the bookmarks toolbar.
+    2. You can also directly add or edit policies by using the JSON editor instead of the visual editor. For the specific format of a policy, please refer to [Chrome Enterprise policy list](https://chromeenterprise.google/policies/ "https://chromeenterprise.google/policies/").
+    3. You can also import the Chrome policies used in your organization by uploading a JSON file into the web portal. For details, please see [Tutorial: Setting a custom browser policy in Amazon WorkSpaces Secure Browser](browser-policies-custom.md "browser-policies-custom.md")
+
+
+    When you upload a policy file, you can see the available policies in the file in the console. However, you can't edit all policies in the visual editor. The console lists policies in your JSON file that you can't edit with the visual editor under **Additional JSON policies**. To make changes to these policies, you must edit them manually.
+
+10. Add **Tags** to your portal. You can use tags to search for or filter your AWS resources. Tags consist of a key and optional value and are associated with your portal resource. **This is optional.** 11. Choose **Next** to continue.
