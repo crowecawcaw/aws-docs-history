@@ -155,20 +155,19 @@ with the affected Pods/Nodes until the investigation is complete.
   information about currently running containers. For example, with
   Containerd, you could do the following:
 
-      + `crictl ps` for processes running.
-      + `crictl logs CONTAINER` for daemon level held logs.
+  - `crictl ps` for processes running.
+  - `crictl logs CONTAINER` for daemon level held logs.
 
-
-      The same could be achieved with containerd using the
-      [nerdctl](https://github.com/containerd/nerdctl "https://github.com/containerd/nerdctl") CLI, in place of
-      `docker` (e.g. `nerdctl inspect`). Some additional commands are
-      available depending on the container runtime. For example, Docker has
-      `docker diff` to see changes to the container filesystem or
-      `docker checkpoint` to save all container state including volatile
-      memory (RAM). See
-      [this
-      Kubernetes blog post](https://kubernetes.io/blog/2022/12/05/forensic-container-checkpointing-alpha/ "https://kubernetes.io/blog/2022/12/05/forensic-container-checkpointing-alpha/") for discussion of similar capabilities with
-      containerd or CRI-O runtimes.
+  The same could be achieved with containerd using the
+  [nerdctl](https://github.com/containerd/nerdctl "https://github.com/containerd/nerdctl") CLI, in place of
+  `docker` (e.g. `nerdctl inspect`). Some additional commands are
+  available depending on the container runtime. For example, Docker has
+  `docker diff` to see changes to the container filesystem or
+  `docker checkpoint` to save all container state including volatile
+  memory (RAM). See
+  [this
+  Kubernetes blog post](https://kubernetes.io/blog/2022/12/05/forensic-container-checkpointing-alpha/ "https://kubernetes.io/blog/2022/12/05/forensic-container-checkpointing-alpha/") for discussion of similar capabilities with
+  containerd or CRI-O runtimes.
 
 - **Pause the container for forensic capture**.
 - **Snapshot the instance’s EBS volumes**.

@@ -422,12 +422,12 @@ AppMesh, Istio, Linkerd, etc.,
 - Need more advanced capabilities like traffic management, observability
   & security
 
-      + Traffic control, load balancing, circuit breaking, rate limiting,
-      timeouts etc.
-      + Detailed insights into how your services are performing (latency,
-      error rates, requests per second, request volumes etc.)
-      + You want to implement and leverage service mesh for security features
-      like mTLS
+  - Traffic control, load balancing, circuit breaking, rate limiting,
+    timeouts etc.
+  - Detailed insights into how your services are performing (latency,
+    error rates, requests per second, request volumes etc.)
+  - You want to implement and leverage service mesh for security features
+    like mTLS
 
 ### Choose Kubernetes network policy for simpler use cases
 

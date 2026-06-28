@@ -336,7 +336,7 @@ directive.
 Linting can be used to verify that your Dockerfiles are adhering to a
 set of predefined guidelines, e.g. the inclusion of the `USER`
 directive or the requirement that all images be tagged.
-[dockerfile_lint](https://github.com/projectatomic/dockerfile_lint "https://github.com/projectatomic/dockerfile_lint") is an
+[dockerfile\_lint](https://github.com/projectatomic/dockerfile_lint "https://github.com/projectatomic/dockerfile_lint") is an
 open source project from RedHat that verifies common best practices and
 includes a rule engine that you can use to build your own rules for
 linting Dockerfiles. It can be incorporated into a CI pipeline, in that

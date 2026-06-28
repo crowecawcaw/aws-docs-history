@@ -81,7 +81,7 @@ Use the table below as a decision matrix.
 
 | Workload                                                     | CPU                                                                                                       | GPU / Trainium                                  | Notes                                                         |
 | ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------- |
-| SLMs (1-8B params, quantized)                                | Default choice. Strong price-perf at 100-500ms latency, moderate QPS. Benchmark across instance families. | When p95 <50ms or concurrency >100 req/s.       | Q4_K_M or Q8_0 quantization recommended                       |
+| SLMs (1-8B params, quantized)                                | Default choice. Strong price-perf at 100-500ms latency, moderate QPS. Benchmark across instance families. | When p95 <50ms or concurrency >100 req/s.       | Q4\_K\_M or Q8\_0 quantization recommended                    |
 | Medium models (8-30B params)                                 | Batch, async, offline scoring. Test Q4 quantization.                                                      | Online inference, long contexts, tight latency. | Benchmark Q4 across instance families                         |
 | Large LLMs (70B+ params)                                     | Non-real-time only, heavy quantization                                                                    | Default for production online inference         | Even 70B can run on CPU; expect high latency                  |
 | Classical ML / Embeddings / CV                               | High-density serving; bin-pack across nodes.                                                              | Heavy vision or multi-modal at scale.           | TorchServe, Triton on CPU handles thousands of models.        |
@@ -141,15 +141,15 @@ For regulated industries (financial services, healthcare, government), this patt
 
 Running a 7B model at full BF16 on CPU is impractical; running it at Q4 quantization is viable and cost-effective. Understanding why quantization helps on CPU is key to making good infrastructure decisions.
 
-**Why quantization matters for CPU inference.** CPU inference is memory-bandwidth bound, not compute-bound. During the decode phase (generating tokens one at a time), the model’s entire weights are read from RAM for every token produced. The CPU spends most of its time waiting for data to arrive from memory, not doing math. A 7B model at BF16 is roughly 14GB; at Q4_K_M, it shrinks to about 4GB. Since the bottleneck is moving bytes from RAM to the CPU cores, a model that is 3.5x smaller reads 3.5x faster, which translates almost directly to 3.5x faster token generation. This is why quantization is the single most impactful optimization for CPU inference, and why newer CPU generations with more memory channels produce faster inference even at the same clock speed.
+**Why quantization matters for CPU inference.** CPU inference is memory-bandwidth bound, not compute-bound. During the decode phase (generating tokens one at a time), the model’s entire weights are read from RAM for every token produced. The CPU spends most of its time waiting for data to arrive from memory, not doing math. A 7B model at BF16 is roughly 14GB; at Q4\_K\_M, it shrinks to about 4GB. Since the bottleneck is moving bytes from RAM to the CPU cores, a model that is 3.5x smaller reads 3.5x faster, which translates almost directly to 3.5x faster token generation. This is why quantization is the single most impactful optimization for CPU inference, and why newer CPU generations with more memory channels produce faster inference even at the same clock speed.
 
-We recommend building your inference engine with architecture-optimized backends (ARM NEON/SVE2 for arm64, AVX-512/AMX for x86), setting thread count equal to the vCPU count, and selecting Q4_K_M or Q8_0 quantization formats.
+We recommend building your inference engine with architecture-optimized backends (ARM NEON/SVE2 for arm64, AVX-512/AMX for x86), setting thread count equal to the vCPU count, and selecting Q4\_K\_M or Q8\_0 quantization formats.
 
 | Quantization | Quality Impact                               | Throughput vs BF16 | Use Case                     |
 | ------------ | -------------------------------------------- | ------------------ | ---------------------------- |
-| Q4_K_M       | Low (1-3% perplexity delta, model-dependent) | ~4-5x faster       | Production default for SLMs  |
-| Q8_0         | Negligible                                   | ~2x faster         | Quality-sensitive tasks      |
-| Q5_K_M       | Very low                                     | ~3.5x faster       | Balance of quality and speed |
+| Q4\_K\_M     | Low (1-3% perplexity delta, model-dependent) | ~4-5x faster       | Production default for SLMs  |
+| Q8\_0        | Negligible                                   | ~2x faster         | Quality-sensitive tasks      |
+| Q5\_K\_M     | Very low                                     | ~3.5x faster       | Balance of quality and speed |
 | BF16         | None                                         | 1x (baseline)      | Avoid on CPU for 7B+ models  |
 
 For sub-2B models, CPU wins on price-performance vs GPU. These models are small enough that GPU acceleration provides minimal benefit while the per-hour cost is significantly higher. If your workload can use a sub-2B model, CPU is the recommended default.
@@ -162,7 +162,7 @@ For sub-2B models, CPU wins on price-performance vs GPU. These models are small 
 
 ###### Tip
 
-Q4_K_M quality degradation varies by model and task. Always evaluate on your own dataset before deploying to production.
+Q4\_K\_M quality degradation varies by model and task. Always evaluate on your own dataset before deploying to production.
 
 ### Bin-packing for dense serving
 

@@ -57,7 +57,7 @@ The recommendations from Trusted Advisor are generic recommendations and not spe
 
 ### Use the Kubernetes dashboard
 
-**_Kubernetes dashboard_**
+_**Kubernetes dashboard**_
 
 Kubernetes Dashboard is a general purpose, web-based UI for Kubernetes clusters, which provides information about the Kubernetes cluster including the resource usage at a cluster, node and pod level. The deployment of the Kubernetes dashboard on an Amazon EKS cluster is described in the [Amazon EKS documentation](../userguide/dashboard-tutorial.md "../userguide/dashboard-tutorial.md").
 
@@ -65,7 +65,7 @@ Dashboard provides resource usage breakdowns for each node and pod, as well as d
 
 ![Kubernetes Dashboard](images/kubernetes-dashboard.png)
 
-**_kubectl top and describe commands_**
+_**kubectl top and describe commands**_
 
 Viewing resource usage metrics with kubectl top and kubectl describe commands. kubectl top will show current CPU and memory usage for the pods or nodes across your cluster, or for a specific pod or node. The kubectl describe command will give more detailed information about a specific node or a pod.
 

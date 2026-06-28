@@ -141,12 +141,12 @@ To help customers run their Windows applications in a more streamlined manner, A
 
 Following AMI families are supported for Managed Node Groups(MNG)s.
 
-| AMI Family               |
-| ------------------------ |
-| WINDOWS_CORE_2019_x86_64 |
-| WINDOWS_FULL_2019_x86_64 |
-| WINDOWS_CORE_2022_x86_64 |
-| WINDOWS_FULL_2022_x86_64 |
+| AMI Family                   |
+| ---------------------------- |
+| WINDOWS\_CORE\_2019\_x86\_64 |
+| WINDOWS\_FULL\_2019\_x86\_64 |
+| WINDOWS\_CORE\_2022\_x86\_64 |
+| WINDOWS\_FULL\_2022\_x86\_64 |
 
 ## Additional documentations
 

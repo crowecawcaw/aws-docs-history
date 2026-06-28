@@ -12,13 +12,13 @@ An exporter lets you consume third party metrics as Prometheus formatted metrics
 In a **mixed node EKS cluster with Windows nodes** when you use the stable [Prometheus helm chart](https://github.com/prometheus-community/helm-charts "https://github.com/prometheus-community/helm-charts"), you will see failed pods on the Windows nodes, as this exporter is not intended for Windows. You will need to treat the Windows worker pool separate and instead install the [Windows exporter](https://github.com/prometheus-community/windows_exporter "https://github.com/prometheus-community/windows_exporter") on the Windows worker node group.
 
 In order to setup Prometheus monitoring for Windows nodes, you need to download and install the WMI exporter on the Windows server itself and then setup the targets inside the scrape configuration of the Prometheus configuration file.
-The [releases page](https://github.com/prometheus-community/windows_exporter/releases "https://github.com/prometheus-community/windows_exporter/releases") provides all available .msi installers, with respective feature sets and bug fixes. The installer will setup the windows_exporter as a Windows service, as well as create an exception in the Windows firewall. If the installer is run without any parameters, the exporter will run with default settings for enabled collectors, ports, etc.
+The [releases page](https://github.com/prometheus-community/windows_exporter/releases "https://github.com/prometheus-community/windows_exporter/releases") provides all available .msi installers, with respective feature sets and bug fixes. The installer will setup the windows\_exporter as a Windows service, as well as create an exception in the Windows firewall. If the installer is run without any parameters, the exporter will run with default settings for enabled collectors, ports, etc.
 
 You can check out the **scheduling best practices** section of this guide which suggests the use of taints/tolerations or RuntimeClass to selectively deploy node exporter only to linux nodes, while the Windows exporter is installed on Windows nodes as you bootstrap the node or using a configuration management tool of your choice (example chef, Ansible, SSM etc).
 
 Note that, unlike the linux nodes where the node exporter is installed as a daemonset , on Windows nodes the WMI exporter is installed on the host itself. The exporter will export metrics such as the CPU usage, the memory and the disk I/O usage and can also be used to monitor IIS sites and applications, the network interfaces and services.
 
-The windows_exporter will expose all metrics from enabled collectors by default. This is the recommended way to collect metrics to avoid errors. However, for advanced use the windows_exporter can be passed an optional list of collectors to filter metrics. The collect[] parameter, in the Prometheus configuration lets you do that.
+The windows\_exporter will expose all metrics from enabled collectors by default. This is the recommended way to collect metrics to avoid errors. However, for advanced use the windows\_exporter can be passed an optional list of collectors to filter metrics. The collect[] parameter, in the Prometheus configuration lets you do that.
 
 The default install steps for Windows include downloading and starting the exporter as a service during the bootstrapping process with arguments, such as the collectors you want to filter.
 
@@ -29,7 +29,7 @@ The default install steps for Windows include downloading and starting the expor
 ```
 
 By default, the metrics can be scraped at the /metrics endpoint on port 9182.
-At this point, Prometheus can consume the metrics by adding the following scrape_config to the Prometheus configuration
+At this point, Prometheus can consume the metrics by adding the following scrape\_config to the Prometheus configuration
 
 ```
 scrape_configs:

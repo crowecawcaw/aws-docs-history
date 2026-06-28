@@ -61,7 +61,7 @@ Monitor core training metrics to track the health and performance of your Amazon
 
 Monitor resource usage metrics to validate that your resources are being properly consumed. These metrics help you identify bottlenecks and root cause performance issues.
 
-- **CPU, Memory, Network, GPU Power and GPU Temperature** - Monitor these metrics to ensure allocated resources meet workload demands and identify optimization opportunities. Track metrics like gpu_memory_usage_bytes to identify memory consumption patterns and detect peak usage. Calculate percentiles such as the 95th percentile (P95) to understand the highest memory demands during training. This analysis helps you optimize models and infrastructure to avoid OOM errors and reduce costs.
+- **CPU, Memory, Network, GPU Power and GPU Temperature** - Monitor these metrics to ensure allocated resources meet workload demands and identify optimization opportunities. Track metrics like gpu\_memory\_usage\_bytes to identify memory consumption patterns and detect peak usage. Calculate percentiles such as the 95th percentile (P95) to understand the highest memory demands during training. This analysis helps you optimize models and infrastructure to avoid OOM errors and reduce costs.
 - **SM Occupancy, SM Activity, FPxx Activity** - Monitor these metrics to understand how the underlying resource on the GPU is being used. Target 0.8 for SM Activity as a [rule of thumb](https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html#metrics "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html#metrics").
 - **Node and Pod Resource Utilization** - Track resource usage at the node and pod level to identify resource contention and potential bottlenecks. Monitor whether nodes approach capacity limits, which can delay pod scheduling and slow training jobs.
 - **Resource Utilization Compared to Requests and Limits** — Compare actual resource usage against configured requests and limits to determine whether your cluster can handle current workloads and accommodate future ones. This comparison reveals whether you need to adjust resource allocations to avoid OOM errors or resource waste.
@@ -138,7 +138,7 @@ As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#a
 
 **AWS-Native CloudWatch Container Insights Example**
 
-This sample demonstrates how to instrument your training application to expose `gpu_memory_usage_bytes` as a histogram using the AWS-native approach. Note that your AI/ML container must be configured to emit structured logs in CloudWatch [Embedded Metrics Format (EMF)](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.md") format. CloudWatch logs parses EMF and publishes the metrics. Use [aws_embedded_metrics](https://github.com/awslabs/aws-embedded-metrics-python "https://github.com/awslabs/aws-embedded-metrics-python") in your training application to send structured logs in EMF format to CloudWatch Logs, which extracts GPU metrics.
+This sample demonstrates how to instrument your training application to expose `gpu_memory_usage_bytes` as a histogram using the AWS-native approach. Note that your AI/ML container must be configured to emit structured logs in CloudWatch [Embedded Metrics Format (EMF)](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.md") format. CloudWatch logs parses EMF and publishes the metrics. Use [aws\_embedded\_metrics](https://github.com/awslabs/aws-embedded-metrics-python "https://github.com/awslabs/aws-embedded-metrics-python") in your training application to send structured logs in EMF format to CloudWatch Logs, which extracts GPU metrics.
 
 ```
 from aws_embedded_metrics import metric_scope
@@ -213,7 +213,7 @@ As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#a
 
 **AWS-Native CloudWatch Container Insights Example**
 
-This sample demonstrates how to create a custom histogram metric in your inference application for inference_request_duration_seconds using AWS CloudWatch Embedded Metric Format.
+This sample demonstrates how to create a custom histogram metric in your inference application for inference\_request\_duration\_seconds using AWS CloudWatch Embedded Metric Format.
 
 ```
 import boto3
@@ -247,7 +247,7 @@ process_inference_request()
 
 **Prometheus and Grafana Example**
 
-This sample demonstrates how to create a custom histogram metric in your inference application for inference_request_duration_seconds using the Prometheus client library in Python:
+This sample demonstrates how to create a custom histogram metric in your inference application for inference\_request\_duration\_seconds using the Prometheus client library in Python:
 
 ```
 from prometheus_client import Histogram
@@ -273,7 +273,7 @@ As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#a
 
 **AWS-Native CloudWatch Container Insights Example**
 
-This sample demonstrates how to create a custom histogram metric in your inference application for token_processing_duration_seconds using AWS CloudWatch Embedded Metric Format. It uses dimensions (`set\_dimension`) with a custom `get_duration_bucket` function to categorize durations into buckets (e.g., "⇐0.01", ">1").
+This sample demonstrates how to create a custom histogram metric in your inference application for token\_processing\_duration\_seconds using AWS CloudWatch Embedded Metric Format. It uses dimensions (`set\_dimension`) with a custom `get_duration_bucket` function to categorize durations into buckets (e.g., "⇐0.01", ">1").
 
 ```
 import boto3
@@ -313,7 +313,7 @@ def process_tokens(input_text: str, model, tokenizer, metrics: MetricsLogger):
 
 **Prometheus and Grafana Example**
 
-This sample demonstrates how to create a custom histogram metric in your inference application for token_processing_duration_seconds using the Prometheus client library in Python.
+This sample demonstrates how to create a custom histogram metric in your inference application for token\_processing\_duration\_seconds using the Prometheus client library in Python.
 
 ```
 from prometheus_client import Histogram
@@ -339,7 +339,7 @@ As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#a
 
 **AWS-Native CloudWatch Container Insights Example**
 
-This sample demonstrates how to instrument your batch application to expose checkpoint_restore_duration_seconds as a histogram using CloudWatch Insights:
+This sample demonstrates how to instrument your batch application to expose checkpoint\_restore\_duration\_seconds as a histogram using CloudWatch Insights:
 
 ```
 import boto3

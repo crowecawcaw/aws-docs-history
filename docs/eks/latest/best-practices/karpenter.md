@@ -182,9 +182,9 @@ These changes are necessary in a private cluster because the Karpenter
 Controller uses IAM Roles for Service Accounts (IRSA). Pods configured
 with IRSA acquire credentials by calling the AWS Security Token Service
 (AWS STS) API. If there is no outbound internet access, you must create
-and use an **_AWS STS VPC endpoint in your VPC_**.
+and use an _**AWS STS VPC endpoint in your VPC**_.
 
-Private clusters also require you to create a **_VPC endpoint for SSM_**.
+Private clusters also require you to create a _**VPC endpoint for SSM**_.
 When Karpenter tries to provision a new node, it queries the Launch
 template configs and an SSM parameter. If you do not have a SSM VPC
 endpoint in your VPC, it will cause the following error:
@@ -195,9 +195,9 @@ endpoint in your VPC, it will cause the following error:
 {"level":"ERROR","time":"2024-02-29T15:08:58.869Z","logger":"controller.nodeclass","message":"discovering amis from ssm, getting ssm parameter \"/aws/service/eks/optimized-ami/1.27/amazon-linux-2/recommended/image_id\", RequestError: send request failed\ncaused by: Post \"https://ssm.<region>.amazonaws.com/\": dial tcp 67.220.228.252:443: i/o timeout","commit":"596ea97","ec2nodeclass":"default","query":"/aws/service/eks/optimized-ami/1.27/amazon-linux-2/recommended/image_id"}
 ```
 
-There is no **_VPC endpoint for the
+There is no _**VPC endpoint for the
 [Price
-List Query API](../../../awsaccountbilling/latest/aboutv2/using-pelong.md "../../../awsaccountbilling/latest/aboutv2/using-pelong.md")_**. As a result, pricing data will go stale over time.
+List Query API](../../../awsaccountbilling/latest/aboutv2/using-pelong.md "../../../awsaccountbilling/latest/aboutv2/using-pelong.md")**_. As a result, pricing data will go stale over time.
 Karpenter gets around this by including on-demand pricing data in its
 binary, but only updates that data when Karpenter is upgraded. Failed
 requests for pricing data will result in the following error messages:

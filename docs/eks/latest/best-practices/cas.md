@@ -166,14 +166,14 @@ Ensure that:
 - Each Node in a Node Group has identical scheduling properties, such as
   Labels, Taints, and Resources.
 
-      + For MixedInstancePolicies, the Instance Types must be of the same
-      shape for CPU, Memory, and GPU
-      + The first Instance Type specified in the policy will be used to
-      simulate scheduling.
-      + If your policy has additional Instance Types with more resources,
-      resources may be wasted after scale out.
-      + If your policy has additional Instance Types with less resources,
-      pods may fail to schedule on the instances.
+  - For MixedInstancePolicies, the Instance Types must be of the same
+    shape for CPU, Memory, and GPU
+  - The first Instance Type specified in the policy will be used to
+    simulate scheduling.
+  - If your policy has additional Instance Types with more resources,
+    resources may be wasted after scale out.
+  - If your policy has additional Instance Types with less resources,
+    pods may fail to schedule on the instances.
 
 - Node Groups with many nodes are preferred over many Node Groups with
   fewer nodes. This will have the biggest impact on scalability.
@@ -489,17 +489,17 @@ Ensure that:
   Preemption](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/ "https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/") is used when clusters include both Regional and Zonal Node
   Groups.
 
-      + Use
-      [Node
-      Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity") to force or encourage regional pods to avoid zonal Node
-      Groups, and vice versa.
-      + If zonal pods schedule onto regional node groups, this will result in
-      imbalanced capacity for your regional pods.
-      + If your zonal workloads can tolerate disruption and relocation,
-      configure
-      [Pod
-      Preemption](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/ "https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/") to enable regionally scaled pods to force preemption and
-      rescheduling on a less contested zone.
+  - Use
+    [Node
+    Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity "https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity") to force or encourage regional pods to avoid zonal Node
+    Groups, and vice versa.
+  - If zonal pods schedule onto regional node groups, this will result in
+    imbalanced capacity for your regional pods.
+  - If your zonal workloads can tolerate disruption and relocation,
+    configure
+    [Pod
+    Preemption](https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/ "https://kubernetes.io/docs/concepts/configuration/pod-priority-preemption/") to enable regionally scaled pods to force preemption and
+    rescheduling on a less contested zone.
 
 ### Accelerators
 

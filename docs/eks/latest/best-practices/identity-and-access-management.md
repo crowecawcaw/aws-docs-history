@@ -967,7 +967,7 @@ helps compare the two features.
 
 At present, the aws-node daemonset is configured to use a role assigned
 to the EC2 instances to assign IPs to pods. This role includes several
-AWS managed policies, e.g. AmazonEKS_CNI_Policy and
+AWS managed policies, e.g. AmazonEKS\_CNI\_Policy and
 EC2ContainerRegistryReadOnly that effectively allow **all** pods running
 on a node to attach/detach ENIs, assign/unassign IP addresses, or pull
 images from ECR. Since this presents a risk to your cluster, it is

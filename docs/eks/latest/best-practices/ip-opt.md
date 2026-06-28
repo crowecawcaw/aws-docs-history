@@ -71,7 +71,7 @@ If your cluster’s current subnets are running out of IP addresses, you can sim
 
 1. Associate a new CIDR block to your VPC.
 2. Create a new subnet in the new CIDR block and tag it with "kubernetes.io/role/cni" = "1".
-3. Enable the ENABLE_SUBNET_DISCOVERY configuration of Amazon VPC CNI add-on to "true" (default since version 1.18.0).
+3. Enable the ENABLE\_SUBNET\_DISCOVERY configuration of Amazon VPC CNI add-on to "true" (default since version 1.18.0).
 
 Once Enhanced Subnet Discovery is enabled on your VPC and Amazon EKS clusters, new Elastic Network Interfaces (ENIs) will be attached to your Amazon EKS nodes as described in the following diagram:
 

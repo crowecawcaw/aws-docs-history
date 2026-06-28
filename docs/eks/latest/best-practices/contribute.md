@@ -123,7 +123,7 @@ Learn how create a new page and update the guide table of contents.
 [."topic"]
 [#<page-id>]
 = <page-title>
-:info_titleabbrev: <page-short-title>
+:info\_titleabbrev: <page-short-title>
 
 For example,
 
@@ -132,7 +132,7 @@ For example,
 [."topic"]
 [#scalability]
 = EKS Scalability best practices
-:info_titleabbrev: Scalability
+:info\_titleabbrev: Scalability
 
 ### Add to table of contents
 

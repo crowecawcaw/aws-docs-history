@@ -187,9 +187,9 @@ apiserver_flowcontrol_current_inqueue_requests{flow_schema="service-accounts",pr
 
 Other useful Prometheus metrics include:
 
-- apiserver_flowcontrol_dispatched_requests_total
-- apiserver_flowcontrol_request_execution_seconds
-- apiserver_flowcontrol_request_wait_duration_seconds
+- apiserver\_flowcontrol\_dispatched\_requests\_total
+- apiserver\_flowcontrol\_request\_execution\_seconds
+- apiserver\_flowcontrol\_request\_wait\_duration\_seconds
 
 See the upstream documentation for a complete list of [APF metrics](https://kubernetes.io/docs/concepts/cluster-administration/flow-control/#observability "https://kubernetes.io/docs/concepts/cluster-administration/flow-control/#observability").
 

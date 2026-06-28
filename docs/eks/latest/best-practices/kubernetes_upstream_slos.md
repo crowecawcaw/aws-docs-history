@@ -50,10 +50,10 @@ Kubernetes is also improving the Observability around the SLIs by adding [Promet
 
 ### API Server Request Latency
 
-| Metric                                 | Definition                                                                                                                                                                                   |
-| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| apiserver_request_sli_duration_seconds | Response latency distribution (not counting webhook duration and priority & fairness queue wait times) in seconds for each verb, group, version, resource, subresource, scope and component. |
-| apiserver_request_duration_seconds     | Response latency distribution in seconds for each verb, dry run value, group, version, resource, subresource, scope and component.                                                           |
+| Metric                                     | Definition                                                                                                                                                                                   |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| apiserver\_request\_sli\_duration\_seconds | Response latency distribution (not counting webhook duration and priority & fairness queue wait times) in seconds for each verb, group, version, resource, subresource, scope and component. |
+| apiserver\_request\_duration\_seconds      | Response latency distribution in seconds for each verb, dry run value, group, version, resource, subresource, scope and component.                                                           |
 
 ###### Note
 
@@ -95,10 +95,10 @@ The SLI metrics provide insight into how Kubernetes components are performing by
 
 ### Pod Startup Latency
 
-| Metric                                 | Definition                                                                                                                                                                                                |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| kubelet_pod_start_sli_duration_seconds | Duration in seconds to start a pod, excluding time to pull images and run init containers, measured from pod creation timestamp to when all its containers are reported as started and observed via watch |
-| kubelet_pod_start_duration_seconds     | Duration in seconds from kubelet seeing a pod for the first time to the pod starting to run. This does not include the time to schedule the pod or scale out worker node capacity.                        |
+| Metric                                      | Definition                                                                                                                                                                                                |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| kubelet\_pod\_start\_sli\_duration\_seconds | Duration in seconds to start a pod, excluding time to pull images and run init containers, measured from pod creation timestamp to when all its containers are reported as started and observed via watch |
+| kubelet\_pod\_start\_duration\_seconds      | Duration in seconds from kubelet seeing a pod for the first time to the pod starting to run. This does not include the time to schedule the pod or scale out worker node capacity.                        |
 
 ###### Note
 

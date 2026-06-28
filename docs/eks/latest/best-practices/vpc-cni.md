@@ -11,10 +11,9 @@ Amazon VPC CNI has two components:
 - CNI Binary, which will setup Pod network to enable Pod-to-Pod communication. The CNI binary runs on a node root file system and is invoked by the kubelet when a new Pod gets added to, or an existing Pod removed from the node.
 - ipamd, a long-running node-local IP Address Management (IPAM) daemon and is responsible for:
 
-      + managing ENIs on a node, and
-      + maintaining a warm-pool of available IP addresses or prefix
-
-  When an instance is created, EC2 creates and attaches a primary ENI associated with a primary subnet. The primary subnet may be public or private. The Pods that run in hostNetwork mode use the primary IP address assigned to the node primary ENI and share the same network namespace as the host.
+  - managing ENIs on a node, and
+  - maintaining a warm-pool of available IP addresses or prefix
+    When an instance is created, EC2 creates and attaches a primary ENI associated with a primary subnet. The primary subnet may be public or private. The Pods that run in hostNetwork mode use the primary IP address assigned to the node primary ENI and share the same network namespace as the host.
 
 The CNI plugin manages [Elastic Network Interfaces (ENI)](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") on the node. When a node is provisioned, the CNI plugin automatically allocates a pool of slots (IPs or Prefix’s) from the node’s subnet to the primary ENI. This pool is known as the _warm pool_, and its size is determined by the node’s instance type. Depending on CNI settings, a slot may be an IP address or a prefix. When a slot on an ENI has been assigned, the CNI may attach additional ENIs with warm pool of slots to the nodes. These additional ENIs are called Secondary ENIs. Each ENI can only support a certain number of slots, based on instance type. The CNI attaches more ENIs to instances based on the number of slots needed, which usually corresponds to the number of Pods. This process continues until the node can no longer support additional ENI. The CNI also pre-allocates "warm" ENIs and slots for faster Pod startup. Note each instance type has a maximum number of ENIs that may be attached. This is one constraint on Pod density (number of Pods per node), in addition to compute resources.
 
@@ -27,12 +26,12 @@ Secondary IP mode is the default mode for VPC CNI. This guide provides a generic
 
 The Amazon VPC CNI is deployed as a Kubernetes Daemonset named aws-node on worker nodes. When a worker node is provisioned, it has a default ENI, called the primary ENI, attached to it. The CNI allocates a warm pool of ENIs and secondary IP addresses from the subnet attached to the node’s primary ENI. By default, ipamd attempts to allocate an additional ENI to the node. The IPAMD allocates additional ENI when a single Pod is scheduled and assigned a secondary IP address from the primary ENI. This "warm" ENI enables faster Pod networking. As the pool of secondary IP addresses runs out, the CNI adds another ENI to assign more.
 
-The number of ENIs and IP addresses in a pool are configured through environment variables called [WARM_ENI_TARGET, WARM_IP_TARGET, MINIMUM_IP_TARGET](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/eni-and-ip-target.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/eni-and-ip-target.md"). The `aws-node` Daemonset will periodically check that a sufficient number of ENIs are attached. A sufficient number of ENIs are attached when all of the `WARM_ENI_TARGET`, or `WARM_IP_TARGET` and `MINIMUM_IP_TARGET` conditions are met. If there are insufficient ENIs attached, the CNI will make an API call to EC2 to attach more until `MAX_ENI` limit is reached.
+The number of ENIs and IP addresses in a pool are configured through environment variables called [WARM\_ENI\_TARGET, WARM\_IP\_TARGET, MINIMUM\_IP\_TARGET](https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/eni-and-ip-target.md "https://github.com/aws/amazon-vpc-cni-k8s/blob/master/docs/eni-and-ip-target.md"). The `aws-node` Daemonset will periodically check that a sufficient number of ENIs are attached. A sufficient number of ENIs are attached when all of the `WARM_ENI_TARGET`, or `WARM_IP_TARGET` and `MINIMUM_IP_TARGET` conditions are met. If there are insufficient ENIs attached, the CNI will make an API call to EC2 to attach more until `MAX_ENI` limit is reached.
 
 - `WARM_ENI_TARGET` - Integer, Values greater than 0 indicate requirement Enabled
 
   - The number of Warm ENIs to be maintained. An ENI is "warm" when it is attached as a secondary ENI to a node, but it is not in use by any Pod. More specifically, no IP addresses of the ENI have been associated with a Pod.
-  - Example: Consider an instance with 2 ENIs, each ENI supporting 5 IP addresses. WARM_ENI_TARGET is set to 1. If exactly 5 IP addresses are associated with the instance, the CNI maintains 2 ENIs attached to the instance. The first ENI is in use, and all 5 possible IP addresses of this ENI are used. The second ENI is "warm" with all 5 IP addresses in pool. If another Pod is launched on the instance, a 6th IP address will be needed. The CNI will assign this 6th Pod an IP address from the second ENI and from 5 IPs from the pool. The second ENI is now in use, and no longer in a "warm" status. The CNI will allocate a 3rd ENI to maintain at least 1 warm ENI.
+  - Example: Consider an instance with 2 ENIs, each ENI supporting 5 IP addresses. WARM\_ENI\_TARGET is set to 1. If exactly 5 IP addresses are associated with the instance, the CNI maintains 2 ENIs attached to the instance. The first ENI is in use, and all 5 possible IP addresses of this ENI are used. The second ENI is "warm" with all 5 IP addresses in pool. If another Pod is launched on the instance, a 6th IP address will be needed. The CNI will assign this 6th Pod an IP address from the second ENI and from 5 IPs from the pool. The second ENI is now in use, and no longer in a "warm" status. The CNI will allocate a 3rd ENI to maintain at least 1 warm ENI.
 
 ###### Note
 
@@ -42,11 +41,11 @@ The warm ENIs still consume IP addresses from the CIDR of your VPC. IP addresses
 
   - The number of Warm IP addresses to be maintained. A Warm IP is available on an actively attached ENI, but has not been assigned to a Pod. In other words, the number of Warm IPs available is the number of IPs that may be assigned to a Pod without requiring an additional ENI.
 
-- Example: Consider an instance with 1 ENI, each ENI supporting 20 IP addresses. WARM_IP_TARGET is set to 5. WARM_ENI_TARGET is set to 0. Only 1 ENI will be attached until a 16th IP address is needed. Then, the CNI will attach a second ENI, consuming 20 possible addresses from the subnet CIDR.
+- Example: Consider an instance with 1 ENI, each ENI supporting 20 IP addresses. WARM\_IP\_TARGET is set to 5. WARM\_ENI\_TARGET is set to 0. Only 1 ENI will be attached until a 16th IP address is needed. Then, the CNI will attach a second ENI, consuming 20 possible addresses from the subnet CIDR.
 - `MINIMUM_IP_TARGET`, Integer, Values greater than 0 indicate requirement Enabled
 
   - The minimum number of IP addresses to be allocated at any time. This is commonly used to front-load the assignment of multiple ENIs at instance launch.
-  - Example: Consider a newly launched instance. It has 1 ENI and each ENI supports 10 IP addresses. MINIMUM_IP_TARGET is set to 100. The ENI immediately attaches 9 more ENIs for a total of 100 addresses. This happens regardless of any WARM_IP_TARGET or WARM_ENI_TARGET values.
+  - Example: Consider a newly launched instance. It has 1 ENI and each ENI supports 10 IP addresses. MINIMUM\_IP\_TARGET is set to 100. The ENI immediately attaches 9 more ENIs for a total of 100 addresses. This happens regardless of any WARM\_IP\_TARGET or WARM\_ENI\_TARGET values.
 
 This project includes a [Subnet Calculator Excel Document](https://github.com/aws/aws-eks-best-practices/blob/master/latest/bpg/networking/subnet-calc/subnet-calc.xlsx "https://github.com/aws/aws-eks-best-practices/blob/master/latest/bpg/networking/subnet-calc/subnet-calc.xlsx"). This calculator document simulates the IP address consumption of a specified workload under different ENI configuration options, such as `WARM_IP_TARGET` and `WARM_ENI_TARGET`.
 
@@ -132,7 +131,7 @@ The fields managed by EKS are listed under managedFields with manager as EKS. Fi
 
 ###### Note
 
-The most frequently used fields such as WARM_ENI_TARGET, WARM_IP_TARGET, and MINIMUM_IP_TARGET are not managed and will not be reconciled. The changes to these fields will be preserved upon updating of the add-on.
+The most frequently used fields such as WARM\_ENI\_TARGET, WARM\_IP\_TARGET, and MINIMUM\_IP\_TARGET are not managed and will not be reconciled. The changes to these fields will be preserved upon updating of the add-on.
 
 We suggest testing the add-on behavior in your non-production clusters for a specific configuration before updating production clusters. Additionally, follow the steps in the EKS user guide for [add-on](../userguide/eks-add-ons.md "../userguide/eks-add-ons.md") configurations.
 
@@ -164,7 +163,7 @@ For a self-managed add-on, compare the backup with `releases` on GitHub to see t
 
 We strongly suggest you to understand the security contexts configured for managing VPC CNI efficiently. Amazon VPC CNI has two components CNI binary and ipamd (aws-node) Daemonset. The CNI runs as a binary on a node and has access to node root file system, also has privileged access as it deals with iptables at the node level. The CNI binary is invoked by the kubelet when Pods gets added or removed.
 
-The aws-node Daemonset is a long-running process responsible for IP address management at the node level. The aws-node runs in `hostNetwork` mode and allows access to the loopback device, and network activity of other pods on the same node. The aws-node init-container runs in privileged mode and mounts the CRI socket allowing the Daemonset to monitor IP usage by the Pods running on the node. Amazon EKS is working to remove the privileged requirement of aws-node init container. Additionally, the aws-node needs to update NAT entries and to load the iptables modules and hence runs with NET_ADMIN privileges.
+The aws-node Daemonset is a long-running process responsible for IP address management at the node level. The aws-node runs in `hostNetwork` mode and allows access to the loopback device, and network activity of other pods on the same node. The aws-node init-container runs in privileged mode and mounts the CRI socket allowing the Daemonset to monitor IP usage by the Pods running on the node. Amazon EKS is working to remove the privileged requirement of aws-node init container. Additionally, the aws-node needs to update NAT entries and to load the iptables modules and hence runs with NET\_ADMIN privileges.
 
 Amazon EKS recommends deploying the security policies as defined by the aws-node manifest for IP management for the Pods and networking settings. Please consider updating to the latest version of VPC CNI. Furthermore, please consider opening a [GitHub issue](https://github.com/aws/amazon-vpc-cni-k8s/issues "https://github.com/aws/amazon-vpc-cni-k8s/issues") if you have a specific security requirement.
 

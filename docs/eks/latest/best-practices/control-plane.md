@@ -98,14 +98,14 @@ Consider monitoring these control plane metrics:
 
 ### API Server
 
-| Metric                                                       | Description                                                                                                                                                                                       |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apiserver_request_total`                                    | Counter of apiserver requests broken out<br>for each verb, dry run value, group, version, resource, scope,<br>component, and HTTP response code.                                                  |
-| `apiserver_request_duration_seconds*`                        | Response latency histogram<br>in seconds for each verb, dry run value, group, version, resource,<br>subresource, scope, and component.                                                            |
-| `apiserver_admission_controller_admission_duration_seconds*` | Admission controller latency histogram in seconds, identified by name<br>and broken out for each operation and API resource and type (validate or<br>admit).                                      |
-| `apiserver_admission_webhook_rejection_count`                | Count of admission<br>webhook rejections. Identified by name, operation, rejection_code, type<br>(validating or admit), error_type (calling_webhook_error,<br>apiserver_internal_error, no_error) |
-| `rest_client_request_duration_seconds*`                      | Request latency histogram in seconds.<br>Broken down by verb and URL.                                                                                                                             |
-| `rest_client_requests_total`                                 | Number of HTTP requests, partitioned by<br>status code, method, and host.                                                                                                                         |
+| Metric                                                       | Description                                                                                                                                                                                              |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `apiserver_request_total`                                    | Counter of apiserver requests broken out<br>for each verb, dry run value, group, version, resource, scope,<br>component, and HTTP response code.                                                         |
+| `apiserver_request_duration_seconds*`                        | Response latency histogram<br>in seconds for each verb, dry run value, group, version, resource,<br>subresource, scope, and component.                                                                   |
+| `apiserver_admission_controller_admission_duration_seconds*` | Admission controller latency histogram in seconds, identified by name<br>and broken out for each operation and API resource and type (validate or<br>admit).                                             |
+| `apiserver_admission_webhook_rejection_count`                | Count of admission<br>webhook rejections. Identified by name, operation, rejection\_code, type<br>(validating or admit), error\_type (calling\_webhook\_error,<br>apiserver\_internal\_error, no\_error) |
+| `rest_client_request_duration_seconds*`                      | Request latency histogram in seconds.<br>Broken down by verb and URL.                                                                                                                                    |
+| `rest_client_requests_total`                                 | Number of HTTP requests, partitioned by<br>status code, method, and host.                                                                                                                                |
 
 - Histogram metrics include \_bucket, \_sum, and \_count suffixes.
 

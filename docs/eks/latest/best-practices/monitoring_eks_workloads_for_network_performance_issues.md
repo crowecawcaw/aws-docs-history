@@ -14,7 +14,7 @@ The Deployment for CoreDNS has an anti-affinity policy that instructs the Kubern
 
 ### Solution
 
-An easy way to identify the DNS throttling issues in worker nodes is by capturing `linklocal_allowance_exceeded` metric. The [linklocal_allowance_exceeded](../../../AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "../../../AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent") is number of packets dropped because the PPS of the traffic to local proxy services exceeded the maximum for the network interface. This impacts traffic to the DNS service, the Instance Metadata Service, and the Amazon Time Sync Service. Instead of tracking this event real-time, we can stream this metric to [Amazon Managed Service for Prometheus](https://aws.amazon.com/prometheus/ "https://aws.amazon.com/prometheus/") as well and can have them visualized in [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https://aws.amazon.com/grafana/")
+An easy way to identify the DNS throttling issues in worker nodes is by capturing `linklocal_allowance_exceeded` metric. The [linklocal\_allowance\_exceeded](../../../AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent "../../../AmazonCloudWatch/latest/monitoring/metrics-collected-by-CloudWatch-agent.md#linux-metrics-enabled-by-CloudWatch-agent") is number of packets dropped because the PPS of the traffic to local proxy services exceeded the maximum for the network interface. This impacts traffic to the DNS service, the Instance Metadata Service, and the Amazon Time Sync Service. Instead of tracking this event real-time, we can stream this metric to [Amazon Managed Service for Prometheus](https://aws.amazon.com/prometheus/ "https://aws.amazon.com/prometheus/") as well and can have them visualized in [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https://aws.amazon.com/grafana/")
 
 ## Monitoring DNS query delays using Conntrack metrics
 
@@ -83,8 +83,8 @@ In collector-config-amp.yaml, replace the following with your own values:
 
 - mode: deployment
 - serviceAccount: adot-collector
-- endpoint: <YOUR_REMOTE_WRITE_ENDPOINT>
-- region: <YOUR_AWS_REGION>
+- endpoint: <YOUR\_REMOTE\_WRITE\_ENDPOINT>
+- region: <YOUR\_AWS\_REGION>
 - name: adot-collector
 
 ```
@@ -235,13 +235,13 @@ Click the explore button, and search for ethtool:
 
 ![Node_ethtool metrics](images/networking/mon_explore_metrics.png)
 
-Let’s build a dashboard for the linklocal_allowance_exceeded metric by using the query `rate(node_net_ethtool{device="eth0",type="linklocal_allowance_exceeded"}[30s])`. It will result in the below dashboard.
+Let’s build a dashboard for the linklocal\_allowance\_exceeded metric by using the query `rate(node_net_ethtool{device="eth0",type="linklocal_allowance_exceeded"}[30s])`. It will result in the below dashboard.
 
 ![linklocal_allowance_exceeded dashboard](images/networking/mon_linklocal.png)
 
 We can clearly see that there were no packets dropped as the value is zero.
 
-Let’s build a dashboard for the conntrack_allowance_exceeded metric by using the query `rate(node_net_ethtool{device="eth0",type="conntrack_allowance_exceeded"}[30s])`. It will result in the below dashboard.
+Let’s build a dashboard for the conntrack\_allowance\_exceeded metric by using the query `rate(node_net_ethtool{device="eth0",type="conntrack_allowance_exceeded"}[30s])`. It will result in the below dashboard.
 
 ![conntrack_allowance_exceeded dashboard](images/networking/mon_conntrack.png)
 

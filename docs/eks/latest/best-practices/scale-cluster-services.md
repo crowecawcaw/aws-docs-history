@@ -79,7 +79,7 @@ For more information about the CoreDNS Ready plugin please refer to https://core
 
 Logging and monitoring agents can add significant load to your cluster control plane because the agents query the API server to enrich logs and metrics with workload metadata. The agent on a node only has access to the local node resources to see things like container and process name. Querying the API server it can add more details such as Kubernetes deployment name and labels. This can be extremely helpful for troubleshooting but detrimental to scaling.
 
-Because there are so many different options for logging and monitoring we cannot show examples for every provider. With [fluentbit](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes "https://docs.fluentbit.io/manual/pipeline/filters/kubernetes") we recommend enabling Use_Kubelet to fetch metadata from the local kubelet instead of the Kubernetes API Server and set `Kube_Meta_Cache_TTL` to a number that reduces repeated calls when data can be cached (e.g. 60).
+Because there are so many different options for logging and monitoring we cannot show examples for every provider. With [fluentbit](https://docs.fluentbit.io/manual/pipeline/filters/kubernetes "https://docs.fluentbit.io/manual/pipeline/filters/kubernetes") we recommend enabling Use\_Kubelet to fetch metadata from the local kubelet instead of the Kubernetes API Server and set `Kube_Meta_Cache_TTL` to a number that reduces repeated calls when data can be cached (e.g. 60).
 
 Scaling monitoring and logging has two general options:
 

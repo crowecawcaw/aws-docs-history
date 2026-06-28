@@ -185,7 +185,7 @@ Once the file system is created, an associated root volume is automatically crea
 
 Examples:
 
-A Storage Class (SC) definition for an FSx for OpenZFS volume, used to create a child volume of the root volume ($ROOT\_VOL\_ID) on an existing file system and export the volume to the VPC CIDR ($VPC_CIDR) using the NFS v4.2 protocol.
+A Storage Class (SC) definition for an FSx for OpenZFS volume, used to create a child volume of the root volume ($ROOT\_VOL\_ID) on an existing file system and export the volume to the VPC CIDR ($VPC\_CIDR) using the NFS v4.2 protocol.
 
 ```
 apiVersion: storage.k8s.io/v1
