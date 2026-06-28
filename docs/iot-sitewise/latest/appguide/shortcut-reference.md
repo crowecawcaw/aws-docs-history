@@ -6,9 +6,9 @@ change](iotsitewise-monitor-availability-change.md "iotsitewise-monitor-availabi
 
 You can use the following shortcuts to quickly perform certain tasks in AWS IoT SiteWise Monitor.
 
-| Shortcut reference                          | Shortcut                                          | Description |
-| ------------------------------------------- | ------------------------------------------------- | ----------- |
-| Double-click mouse                          | Zoom in a visualization at the selected point.    |
-| Press \*_Shift_<br>• and double-click mouse | Zoom out a visualization at the selected point.   |
-| Drag mouse                                  | Zoom in a visualization to a selected time range. |
-| Press \*_Shift_<br>• and drag mouse         | Shift a visualization's time range left or right. |
+Shortcut reference| Shortcut | Description |
+| --- | --- |
+| Double-click mouse | Zoom in a visualization at the selected point. |
+| Press *_Shift_<br>• and double-click mouse | Zoom out a visualization at the selected point. |
+| Drag mouse | Zoom in a visualization to a selected time range. |
+| Press *_Shift_<br>• and drag mouse | Shift a visualization's time range left or right. |

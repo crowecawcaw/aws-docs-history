@@ -18,7 +18,7 @@ dashboard**.
 ![The dashboards list with "Create dashboard" highlighted.](images/dashboards-create-dashboard-console.png) 3. In the dashboard editor, change the dashboard name from the default, `New
  dashboard`, to something that describes the content.
 
-![The dashboard editor with "New Dashboard" highlighted.](images/dashboard-name-dashboard-console.png) 4. Add one or more visualizations. For more information, see [Add visualizations in AWS IoT SiteWise Monitor](add-visualizations.md "add-visualizations.md"). 5. After you finish editing the dashboard, choose **Save dashboard** to
+![The dashboard editor with "New Dashboard" highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-name-dashboard-console.png) 4. Add one or more visualizations. For more information, see [Add visualizations in AWS IoT SiteWise Monitor](add-visualizations.md "add-visualizations.md"). 5. After you finish editing the dashboard, choose **Save dashboard** to
 save your changes. The dashboard editor closes. If you try to close a dashboard that has
 unsaved changes, you're prompted to save them.
 
@@ -35,6 +35,6 @@ dashboard**.
 ![The dashboards list on the project details page with "Create dashboard" highlighted.](images/project-create-dashboard-console.png) 4. In the dashboard editor, change the dashboard name from the default, `New
  dashboard`, to something that describes the content.
 
-![The dashboard editor with "New Dashboard" highlighted.](images/dashboard-name-dashboard-console.png) 5. Add one or more visualizations. For more information, see [Add visualizations in AWS IoT SiteWise Monitor](add-visualizations.md "add-visualizations.md"). 6. After you finish editing the dashboard, choose **Save dashboard** to
+![The dashboard editor with "New Dashboard" highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-name-dashboard-console.png) 5. Add one or more visualizations. For more information, see [Add visualizations in AWS IoT SiteWise Monitor](add-visualizations.md "add-visualizations.md"). 6. After you finish editing the dashboard, choose **Save dashboard** to
 save your changes. The dashboard editor closes. If you try to close a dashboard that has
 unsaved changes, you're prompted to save them.

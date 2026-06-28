@@ -16,7 +16,7 @@ user-friendly experience across devices.
 1. To move a visualization, use the control icon in the upper left. Drag the
    visualization to a new location.
 
-![An example visualization with the gripper and resize controls highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png) 2. To change the size of a visualization, use the resize control in the lower right. Drag
+![An example visualization with the gripper and resize controls highlighted.](images/dashboard-edit-visualization-bounds-console.png) 2. To change the size of a visualization, use the resize control in the lower right. Drag
 the corner to a new size and shape. Visualizations snap to the grid when resized, so you
 only have coarse control over the size. 3. After you finish editing the dashboard, choose **Save dashboard** to
 save your changes. The dashboard editor closes. If you try to close a dashboard that has

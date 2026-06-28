@@ -54,15 +54,15 @@ dashboards, and user management, integrating directly with AWS IoT SiteWise asse
 maintains the core AWS IoT SiteWise asset and data management while replacing only the visualization
 layer. Amazon Managed Grafana offers extensive visualization capabilities through its AWS IoT SiteWise plugin.
 
-| Feature Comparison | Feature                                                     | AWS IoT SiteWise Monitor                                                                                      | Amazon Managed Grafana |
-| ------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| Data visualization | Built-in dashboards with industrial-focused components      | Extensive visualization library with SiteWise plugin                                                          |
-| User management    | IAM Identity Center integration with portal-specific access | IAM Identity Center integration with workspace-level controls                                                 |
-| Asset navigation   | Hierarchical asset browser with direct SiteWise integration | Asset navigation through SiteWise plugin                                                                      |
-| AI capabilities    | Built-in AWS IoT SiteWise Assistant integration             | Not supported                                                                                                 |
-| Dashboard creation | Project-based organization with industrial templates        | Flexible dashboard creation with extensive customization. Folder organization<br>similar to SiteWise Monitor. |
-| Real-time updates  | Direct SiteWise data streaming                              | SiteWise data streaming through plugin                                                                        |
-| Security           | AWS-managed portal security                                 | AWS-managed workspace security with additional controls                                                       |
+Feature Comparison| Feature | AWS IoT SiteWise Monitor | Amazon Managed Grafana |
+| --- | --- | --- |
+| Data visualization | Built-in dashboards with industrial-focused components | Extensive visualization library with SiteWise plugin |
+| User management | IAM Identity Center integration with portal-specific access | IAM Identity Center integration with workspace-level controls |
+| Asset navigation | Hierarchical asset browser with direct SiteWise integration | Asset navigation through SiteWise plugin |
+| AI capabilities | Built-in AWS IoT SiteWise Assistant integration | Not supported |
+| Dashboard creation | Project-based organization with industrial templates | Flexible dashboard creation with extensive customization. Folder organization<br>similar to SiteWise Monitor. |
+| Real-time updates | Direct SiteWise data streaming | SiteWise data streaming through plugin |
+| Security | AWS-managed portal security | AWS-managed workspace security with additional controls |
 
 ## Migration procedure from SiteWise Monitor to Amazon Managed Grafana
 

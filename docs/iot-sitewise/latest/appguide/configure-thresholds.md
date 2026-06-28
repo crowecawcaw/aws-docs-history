@@ -53,7 +53,7 @@ You can add up to six thresholds to each visualization.
 1. Choose the **Configuration** icon for the visualization to
    change.
 
-![A visualization with the "Configuration" icon highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-configure-visualization-settings-console.png) 2. If the visualization already has a threshold, choose **Add a
+![A visualization with the "Configuration" icon highlighted.](images/dashboard-configure-visualization-settings-console.png) 2. If the visualization already has a threshold, choose **Add a
 threshold** to add a new threshold.
 
 ![The visualization configuration panel with "Add a threshold" highlighted.](images/dashboard-add-threshold-console.png) 3. Choose one of the following comparison operators:
@@ -69,18 +69,15 @@ threshold** to add a new threshold.
     * **=** – Highlight properties that have at least one
      data point equal to the specified value.
 
-4. Enter a threshold value to compare data points with the specified operator.
-5. Choose a threshold color. The visualization displays property legends in this
-   color for properties with at least one data point that meets the threshold rule. When
-   you enable **Color breached values**, the visualization also colors
-   data that meets the threshold rule. You can use the color picker, enter a hexadecimal
-   color code, or enter color component values.
-6. (Optional) Toggle **Color breached values**. When you enable this
-   option, the visualization displays the data in color when it meets the
-   threshold.
-7. After you finish editing the dashboard, choose **Save dashboard** to
-   save your changes. The dashboard editor closes. If you try to close a dashboard that has
-   unsaved changes, you're prompted to save them.
+4. Enter a threshold value to compare data points with the specified operator. 5. Choose a threshold color. The visualization displays property legends in this
+color for properties with at least one data point that meets the threshold rule. When
+you enable **Color breached values**, the visualization also colors
+data that meets the threshold rule. You can use the color picker, enter a hexadecimal
+color code, or enter color component values. 6. (Optional) Toggle **Color breached values**. When you enable this
+option, the visualization displays the data in color when it meets the
+threshold. 7. After you finish editing the dashboard, choose **Save dashboard** to
+save your changes. The dashboard editor closes. If you try to close a dashboard that has
+unsaved changes, you're prompted to save them.
 
 ## Remove a threshold from a visualization
 
