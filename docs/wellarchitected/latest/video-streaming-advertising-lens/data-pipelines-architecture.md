@@ -63,7 +63,7 @@ following features:
 
 - Support use Athena to query the data in data lake
 
-  **Reporting module**
+**Reporting module**
 
 The reporting module creates a secure connection to the data warehouse and provisions
 the out-of-the-box dashboards in business intelligence Amazon Quick.
