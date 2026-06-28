@@ -15,7 +15,7 @@ To create an Amazon Kendra index, see [Getting started with an S3 bucket
 
 To add questions and answers (FAQs) that help answer customer queries, see [Adding questions
 and answers](../../../kendra/latest/dg/in-creating-faq.md "../../../kendra/latest/dg/in-creating-faq.md") in the _Amazon Kendra Developer Guide_. For this
-tutorial, use the [ML_FAQ.csv file on GitHub.](https://github.com/awsdocs/amazon-lex-developer-guide/blob/master/example_apps/agent_assistance_bot/ML_FAQ.csv "https://github.com/awsdocs/amazon-lex-developer-guide/blob/master/example_apps/agent_assistance_bot/ML_FAQ.csv")
+tutorial, use the [ML\_FAQ.csv file on GitHub.](https://github.com/awsdocs/amazon-lex-developer-guide/blob/master/example_apps/agent_assistance_bot/ML_FAQ.csv "https://github.com/awsdocs/amazon-lex-developer-guide/blob/master/example_apps/agent_assistance_bot/ML_FAQ.csv")
 
 ## Next step
 

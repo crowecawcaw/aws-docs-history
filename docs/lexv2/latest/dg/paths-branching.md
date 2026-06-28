@@ -158,7 +158,7 @@ the value "pepperoni, pineapple":
 
 `fn.COUNT({toppings}) = 2`
 
-- **fn.IS_SET()** –
+- **fn.IS\_SET()** –
   value is true if a slot, session attribute, or request attribute is set in the
   current session.
 
@@ -209,8 +209,8 @@ support ASR transcription scores.
 | `AMAZON.Duration`                          | `travelDuration` slot value is less than 2 hours                      | `{travelDuration} < P2H`                                                                                     |
 | Input mode                                 | Input mode is speech                                                  | `$.inputMode = "Speech"`                                                                                     |
 | Input transcript                           | Input transcript is equal to "I want a large pizza"                   | `$.inputTranscript = "I want a large pizza"`                                                                 |
-| Session attribute                          | check customer_subscription_type attribute                            | `[customer_subcription_type] = "yearly"`                                                                     |
-| Request attribute                          | check retry_enabled flag                                              | `((retry_enabled)) = "TRUE"`                                                                                 |
+| Session attribute                          | check customer\_subscription\_type attribute                          | `[customer_subcription_type] = "yearly"`                                                                     |
+| Request attribute                          | check retry\_enabled flag                                             | `((retry_enabled)) = "TRUE"`                                                                                 |
 | Kendra response                            | Kendra response contains FAQ                                          | `fn.IS_SET(((x-amz-lex:kendra-search-response-question_answer-question-1)))`                                 |
 | Conditional expression with transcriptions | Conditional expressions using transcriptions JSON path                | `$.transcriptions[0].transcriptionConfidence < 0.8 AND $.transcriptions[1].transcriptionConfidence<br>> 0.5` |
 | Set session attributes                     | Set session attributes using transcriptions JSON path and slot values | `[sessionAttribute] = "$.transcriptions..." AND<br>[sessionAttribute] = "{<slotName>}"`                      |

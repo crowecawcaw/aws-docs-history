@@ -34,10 +34,10 @@ in its response. For more information, see [Integrating an AWS Lambda function i
 
 For example, suppose you have an intent to book a rental car that
 is configured to return an output context called
-"book_car_fulfilled". When the intent is fulfilled, Amazon Lex V2 sets the
-output context variable "book_car_fulfilled". Since
-"book_car_fulfilled" is an active context, an intent with the
-"book_car_fulfilled" context set as an input context is now
+"book\_car\_fulfilled". When the intent is fulfilled, Amazon Lex V2 sets the
+output context variable "book\_car\_fulfilled". Since
+"book\_car\_fulfilled" is an active context, an intent with the
+"book\_car\_fulfilled" context set as an input context is now
 considered for recognition, as long as a user utterance is
 recognized as an attempt to elicit that intent. You can use this for
 intents that only make sense after booking a car, such as emailing a
@@ -73,8 +73,8 @@ example, your application can use the output context to:
 
 - Change the behavior of the application based on the
   context. For example, a travel application could have a
-  different action for the context "book_car_fulfilled"
-  than "rental_hotel_fulfilled."
+  different action for the context "book\_car\_fulfilled"
+  than "rental\_hotel\_fulfilled."
 - Return the output context to Amazon Lex V2 as the input
   context for the next utterance. If Amazon Lex V2 recognizes the
   utterance as an attempt to elicit an intent, it uses the

@@ -17,27 +17,26 @@ provided that you set that slot value to `null` beforehand.
 
 ###### Reproducing the above example with the intent editor
 
-1.  In the **Confirmation** section of
-    the intent editor, select the right arrow next to
-    **Prompts to confirm the intent** to
-    expand the section.
-2.  Select **Advanced options** at the bottom.
-3.  In the **Decline response** section,
-    select the right arrow next to **Set values** to
-    expand the section. Fill in this section with the following steps,
-    as in the image below:
+1. In the **Confirmation** section of
+   the intent editor, select the right arrow next to
+   **Prompts to confirm the intent** to
+   expand the section.
+2. Select **Advanced options** at the bottom.
+3. In the **Decline response** section,
+   select the right arrow next to **Set values** to
+   expand the section. Fill in this section with the following steps,
+   as in the image below:
 
-        1. Set the slot value you want to re-elicit to `null`.
-         In this example, we want to re-elicit the `Meat` slot,
-         so we input `{Meat} = null` in the **Slot values**
-         section.
-        2. In the dropdown menu under **Next step in conversation**,
-         choose **Elicit a slot**.
-        3. A **Slot** section will appear. In the dropdown menu under
-         it, choose the slot you want to re-elicit.
-        4. Select **Update options** to confirm your changes.
-
-    ![A conversation eliciting a customer's meat preference for a food order.](images/slots/decline-food.png)
+   1. Set the slot value you want to re-elicit to `null`.
+      In this example, we want to re-elicit the `Meat` slot,
+      so we input `{Meat} = null` in the **Slot values**
+      section.
+   2. In the dropdown menu under **Next step in conversation**,
+      choose **Elicit a slot**.
+   3. A **Slot** section will appear. In the dropdown menu under
+      it, choose the slot you want to re-elicit.
+   4. Select **Update options** to confirm your changes.
+      ![A conversation eliciting a customer's meat preference for a food order.](images/slots/decline-food.png)
 
 ###### Reproducing the above example with the Visual conversation builder
 

@@ -237,10 +237,9 @@ The fields are described below:
 - **contextAttributes** – An object containing the names of attributes for the context and the values that they are mapped to.
 - **timeToLive** – An object that specifies how long the context remains active. This object can contain one or both of the following fields:
 
-      + **timeToLiveInSeconds** – The number of seconds that the context remains active.
-      + **turnsToLive** – The number of turns that the context remains active.
-
-  A map of key/value pairs representing session-specific context information. For more information, see [Setting session attributes for your Lex V2 bot](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md"). The object is formatted as follows:
+  - **timeToLiveInSeconds** – The number of seconds that the context remains active.
+  - **turnsToLive** – The number of turns that the context remains active.
+    A map of key/value pairs representing session-specific context information. For more information, see [Setting session attributes for your Lex V2 bot](context-mgmt-session-attribs.md "context-mgmt-session-attribs.md"). The object is formatted as follows:
 
 ```
 {

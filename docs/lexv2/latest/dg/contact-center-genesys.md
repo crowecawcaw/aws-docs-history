@@ -17,9 +17,9 @@ Cloud website.
   determine which contact center application is sending traffic to
   your bot.
 
-| Common request attributes for Genesys Cloud | Attribute         | Value |
-| ------------------------------------------- | ----------------- | ----- |
-| x-amz-lex:channels:platform                 | • `Genesys Cloud` |
+Common request attributes for Genesys Cloud| Attribute | Value |
+| --- | --- |
+| x-amz-lex:channels:platform | • `Genesys Cloud` |
 
 _Learn more_
 

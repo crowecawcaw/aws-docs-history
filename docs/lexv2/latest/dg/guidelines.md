@@ -44,14 +44,13 @@ says "Tell me the prediction for earth":
   values that you defined for the slot type by doing one of the following
   actions:
 
-      + Set the `valueSelectionStrategy` field to
-       `TOP_RESOLUTION` using the `CreateSlotType`
-       operation
-      + Select **Restrict to slot values and synonyms** in
-       the console
-
-  When you define synonyms for slot values, they are recognized to be the same as a slot
-  value. However, the slot value is returned instead of the synonym.
+  - Set the `valueSelectionStrategy` field to
+    `TOP_RESOLUTION` using the `CreateSlotType`
+    operation
+  - Select **Restrict to slot values and synonyms** in
+    the console
+    When you define synonyms for slot values, they are recognized to be the same as a slot
+    value. However, the slot value is returned instead of the synonym.
 
 Because Amazon Lex V2 passes this value to your client application or to the
 Lambda function, you should check that the slot values are valid values before

@@ -30,37 +30,36 @@ To learn more about slots, see [Amazon Lex V2 core concepts](how-it-works.md "ho
 
 ###### To enable wait and continue
 
-1.  Sign in to AWS Management Console and open the Amazon Lex V2 console at [Amazon Lex V2
-    console](https://console.aws.amazon.com/lexv2/ "https://console.aws.amazon.com/lexv2/").
-2.  Under **Bots**, select a bot.
-3.  Under **Language**, select the language
-    of the bot.
-4.  Choose **View intents**.
-5.  Choose the intent.
-6.  Under **Slots**, choose a slot.
-7.  Under **Advanced options**, choose
-    **Wait and continue**.
-8.  Under **Wait and continue** specify the
-    following fields:
+1. Sign in to AWS Management Console and open the Amazon Lex V2 console at [Amazon Lex V2
+   console](https://console.aws.amazon.com/lexv2/ "https://console.aws.amazon.com/lexv2/").
+2. Under **Bots**, select a bot.
+3. Under **Language**, select the language
+   of the bot.
+4. Choose **View intents**.
+5. Choose the intent.
+6. Under **Slots**, choose a slot.
+7. Under **Advanced options**, choose
+   **Wait and continue**.
+8. Under **Wait and continue** specify the
+   following fields:
 
-        * **Response when user wants the bot to
-         wait** – This is how the bot
-         responds when the user asks it to wait for the
-         additional information.
-        * **Response if the user needs the bot to
-         continue waiting** – This is the
-         response the bot sends to remind the user that it's
-         still waiting for the information. You can change
-         how frequently the bot reminds the user.
-        * **Response when the user wants to
-         continue** – This is the bot's
-         response when the user has the requested
-         information.
-
-    For every bot response, you can give multiple variations of the
-    response, and one is presented to the user at random. You can also
-    choose whether these responses can be interrupted by the
-    user.
+   - **Response when user wants the bot to
+     wait** – This is how the bot
+     responds when the user asks it to wait for the
+     additional information.
+   - **Response if the user needs the bot to
+     continue waiting** – This is the
+     response the bot sends to remind the user that it's
+     still waiting for the information. You can change
+     how frequently the bot reminds the user.
+   - **Response when the user wants to
+     continue** – This is the bot's
+     response when the user has the requested
+     information.
+     For every bot response, you can give multiple variations of the
+     response, and one is presented to the user at random. You can also
+     choose whether these responses can be interrupted by the
+     user.
 
 To test the wait and continue functionality, configure your bot to
 wait for user input and start a stream to an Amazon Lex V2 bot. For

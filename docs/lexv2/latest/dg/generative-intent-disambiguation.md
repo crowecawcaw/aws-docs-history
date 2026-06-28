@@ -2,7 +2,7 @@
 
 Intent Disambiguation is an improvement to Assisted NLU that helps resolve ambiguous user inputs when multiple intents could match. When enabled, the system presents clarifying questions to users, helping them specify their exact intent for improved conversation accuracy. The system uses a large language model (LLM) that analyzes the intent names and descriptions as context, and based on the ambiguity of the user utterance, returns the most likely matching intents. The LLM evaluates whether the user input clearly matches a single intent or multiple intents and is ambiguous enough to require disambiguation, then provides the candidate intents.
 
-The Intent Disambiguation feature is available in English, Spanish, Portuguese, Catalan, French, Italian, German, Chinese, Japanese, and Korean locales. Specifically, it supports locales that begin with `en_`, `es_`, `pt_` (pt_BR, pt_PT), `ca_` (ca_ES), `fr_` (fr_CA, fr_FR), `it_` (it_IT), `de_` (de_AT, de_DE), `zh_` (zh_CN, zh_HK), `ja_JP`, and `ko_KR`. For the complete list of supported locales, see the table in [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
+The Intent Disambiguation feature is available in English, Spanish, Portuguese, Catalan, French, Italian, German, Chinese, Japanese, and Korean locales. Specifically, it supports locales that begin with `en_`, `es_`, `pt_` (pt\_BR, pt\_PT), `ca_` (ca\_ES), `fr_` (fr\_CA, fr\_FR), `it_` (it\_IT), `de_` (de\_AT, de\_DE), `zh_` (zh\_CN, zh\_HK), `ja_JP`, and `ko_KR`. For the complete list of supported locales, see the table in [Languages and locales supported by Amazon Lex V2](how-languages.md "how-languages.md").
 
 You can configure the following options for Intent Disambiguation:
 

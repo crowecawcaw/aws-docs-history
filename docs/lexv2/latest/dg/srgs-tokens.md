@@ -13,7 +13,7 @@ recommendation.
 | Two tokens delimited by white space           | bon voyage                   | Yes                                                             |
 | Four tokens delimited by white space          | this is a test               | Yes                                                             |
 | Single quoted token, including white<br>space | "San Francisco               | **No**                                                          |
-| Single XML token in <token> tag               | <token>San Francisco</token> | \*_No_<br>• (same as<br>single quoted token with white space)   |
+| Single XML token in <token> tag               | <token>San Francisco</token> | *_No_<br>• (same as<br>single quoted token with white space)    |
 
 **Notes**
 

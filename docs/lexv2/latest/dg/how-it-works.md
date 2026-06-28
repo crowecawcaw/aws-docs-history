@@ -57,24 +57,22 @@ speech and converse natural language.
   might create an intent that orders pizzas and drinks. For each
   intent, you provide the following required information:
 
-      + **Intent name** – A
-       descriptive name for the intent. For example,
-       `OrderPizza`.
-      + **Sample utterances**
-       – How a user might convey the intent. For example,
-       a user might say "Can I order a pizza" or "I want to
-       order a pizza."
-      + **How to fulfill the
-       intent** – How you want to fulfill
-       the intent after the user provides the necessary
-       information. We recommend that you create a Lambda
-       function to fulfill the intent.
+  - **Intent name** – A
+    descriptive name for the intent. For example,
+    `OrderPizza`.
+  - **Sample utterances**
+    – How a user might convey the intent. For example,
+    a user might say "Can I order a pizza" or "I want to
+    order a pizza."
+  - **How to fulfill the
+    intent** – How you want to fulfill
+    the intent after the user provides the necessary
+    information. We recommend that you create a Lambda
+    function to fulfill the intent.
 
-
-      You can optionally configure the intent so Amazon Lex V2
-       returns the information back to the client application
-       for the necessary fulfillment.
-
+  You can optionally configure the intent so Amazon Lex V2
+  returns the information back to the client application
+  for the necessary fulfillment.
   In addition to custom intents, Amazon Lex V2 provides built-in
   intents to quickly set up your bot. For more information, see
   [Built-in intents](built-in-intents.md "built-in-intents.md").
@@ -103,16 +101,15 @@ understands the slot value.
   following slot types for the `OrderPizza`
   intent:
 
-      + Size – With enumeration values
-       `Small`, `Medium`, and
-       `Large`.
-      + Crust – With enumeration values
-       `Thick` and `Thin`.
-
-  Amazon Lex V2 also provides built-in slot types. For example,
-  `AMAZON.Number` is a built-in slot type that you
-  can use for the number of pizzas ordered. For more information,
-  see [Built-in intents](built-in-intents.md "built-in-intents.md").
+  - Size – With enumeration values
+    `Small`, `Medium`, and
+    `Large`.
+  - Crust – With enumeration values
+    `Thick` and `Thin`.
+    Amazon Lex V2 also provides built-in slot types. For example,
+    `AMAZON.Number` is a built-in slot type that you
+    can use for the number of pizzas ordered. For more information,
+    see [Built-in intents](built-in-intents.md "built-in-intents.md").
 
 - **Version** – A version is
   a numbered snapshot of your work that you can publish for use in

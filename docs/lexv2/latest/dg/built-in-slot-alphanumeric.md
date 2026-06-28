@@ -32,8 +32,8 @@ expression to validate:
   Amazon Lex V2 also supports Unicode characters in regular
   expressions. The form is
   `\u`Unicode``. Use
- four digits to represent Unicode characters. For example,
- `[\u0041-\u005A]` is equivalent to [A-Z].
+  four digits to represent Unicode characters. For example,
+  `[\u0041-\u005A]` is equivalent to [A-Z].
 
 The following regular expression operators are not
 supported:

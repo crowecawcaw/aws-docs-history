@@ -409,9 +409,9 @@ The following message group messages match any response from
 Amazon Kendra:
 
 - “I found a FAQ question for you:
-  ((x-amz-lex:kendra-search-response-question_answer-question-1)),
+  ((x-amz-lex:kendra-search-response-question\_answer-question-1)),
   and the answer is
-  ((x-amz-lex:kendra-search-response-question_answer-answer-1))”
+  ((x-amz-lex:kendra-search-response-question\_answer-answer-1))”
 - “I found an excerpt from a helpful document:
   ((x-amz-lex:kendra-search-response-document-1))”
 - “I think the answer to your questions is

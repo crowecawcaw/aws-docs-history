@@ -19,23 +19,23 @@ using the AWS console.
 
 ###### Setting a Amazon Lex V2 intent to invoke a Lambda function using the console
 
-1.  After selecting a bot, select **Intents** in the left side menu under the language of the bot for
-    which you want to invoke the Lambda function.
-2.  Choose the intent in which you want to invoke the Lambda function to open the intent editor.
-3.  There are two options for setting the Lambda code hook:
+1. After selecting a bot, select **Intents** in the left side menu under the language of the bot for
+   which you want to invoke the Lambda function.
+2. Choose the intent in which you want to invoke the Lambda function to open the intent editor.
+3. There are two options for setting the Lambda code hook:
 
-    1. To invoke the Lambda function after every step of the
-       conversation, scroll to the **Code hooks** section
-       at the bottom of the intent editor and select the **Use a
-       Lambda function for initialization and validation**
-       check box, as in the following image:
+   1. To invoke the Lambda function after every step of the
+      conversation, scroll to the **Code hooks** section
+      at the bottom of the intent editor and select the **Use a
+      Lambda function for initialization and validation**
+      check box, as in the following image:
 
-    ![The code hooks section of the Amazon Lex V2 intent editor.](images/lambda/lambda-code-hooks-all.png) 2. Alternatively, use the **Dialog code hook** section in the conversation stages
-    at which to invoke the Lambda function. The **Dialog code hook** section appears as follows:
+   ![The code hooks section of the Amazon Lex V2 intent editor.](images/lambda/lambda-code-hooks-all.png) 2. Alternatively, use the **Dialog code hook** section in the conversation stages
+   at which to invoke the Lambda function. The **Dialog code hook** section appears as follows:
 
-    ![The code hooks section of the Amazon Lex V2 intent editor.](images/lambda/lambda-code-hook-step.png)
+   ![The code hooks section of the Amazon Lex V2 intent editor.](images/lambda/lambda-code-hook-step.png)
 
-    There are two ways to control how Amazon Lex V2 calls the code hook for a response:
+   There are two ways to control how Amazon Lex V2 calls the code hook for a response:
 
         * Toggle the **Active** button to mark it as *active* or *inactive*.
          When a code hook is *active*, Amazon Lex V2 will call the code hook. When the code hook
@@ -53,7 +53,7 @@ using the AWS console.
          dialog code hook succeeds, fails, or times out, select
          **Advanced options**
 
-    The Lambda code hook can be invoked at the following conversation stages:
+   The Lambda code hook can be invoked at the following conversation stages:
 
         * To invoke the function as the **initial response**, scroll to the **Initial Response** section, expand the arrow next to **Response to acknowledge the user's request**, and select **Advanced options**. Find the **Dialog code hook** section at the bottom of the menu that pops up.
         * To invoke the function after **slot elicitation**, scroll to the **Slots** section, expand the arrow next to the relevant **Prompt for slot**, and select **Advanced options**. Find the **Dialog code hook** section near the bottom of the menu that pops up, just above **Default values**.
@@ -78,4 +78,4 @@ using the AWS console.
          Lambda code hook** section to set the code hook
          to *enabled*.
 
-4.  Once you set the conversation stages at which to invoke the Lambda function, **Build** the bot again to test the function.
+4. Once you set the conversation stages at which to invoke the Lambda function, **Build** the bot again to test the function.

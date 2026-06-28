@@ -110,7 +110,7 @@ on the second attempt to resolve a slot.
 
 To use the example code, you must have:
 
-- A bot with one language, English (GB) (en_GB).
+- A bot with one language, English (GB) (en\_GB).
 - One intent, "CheckAccount" with one sample utterance, "I
   would like to check my account". Make sure that
   **Use a Lambda function for initialization and

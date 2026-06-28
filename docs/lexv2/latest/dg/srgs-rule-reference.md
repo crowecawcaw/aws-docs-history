@@ -18,14 +18,13 @@ recommendation.
 
 **Notes**
 
-1.  Grammar URI is an external URI. For example,
-    `http://grammar.example.com/world-cities.grxml`.
-2.  Media type can be:
+1. Grammar URI is an external URI. For example,
+   `http://grammar.example.com/world-cities.grxml`.
+2. Media type can be:
 
-        * `application/srgs+xml`
-        * `text/plain`
-
-    **Example**
+   - `application/srgs+xml`
+   - `text/plain`
+     **Example**
 
 ```
 <rule id="city" scope="public">

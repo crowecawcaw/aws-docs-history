@@ -40,7 +40,7 @@ Don't rely on them as an absolute score. The values may change based on
 improvements to Amazon Lex V2.
 
 Audio transcription confidence scores are available only in the
-English (GB) (en_GB) and English (US) (en_US) languages. Confidence
+English (GB) (en\_GB) and English (US) (en\_US) languages. Confidence
 scores are supported only for 8 kHz audio input. Transcription
 confidence scores aren't provided for audio input from the [test
 window](test-bot.md "test-bot.md") on the Amazon Lex V2 console because it uses 16 kHz audio
@@ -215,7 +215,7 @@ experience for the user.
 To use the example code, you must have:
 
 - A bot with one language, either English (GB)
-  (en_GB) or English (US) (en_US).
+  (en\_GB) or English (US) (en\_US).
 - One intent, OrderBirthStone. Make sure that the
   **Use a Lambda function for
   initialization and validation** is

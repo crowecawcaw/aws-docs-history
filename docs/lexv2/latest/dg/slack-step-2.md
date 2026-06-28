@@ -45,12 +45,12 @@ the application. 3. Configure the application features as follows:
     	 Changes**.
 
 4. In the left menu, in **Settings**, choose
-   **Basic Information**. Record the
-   following application credentials:
+**Basic Information**. Record the
+following application credentials:
 
-   - Client ID
-   - Client Secret
-   - Verification Token
+    * Client ID
+    * Client Secret
+    * Verification Token
 
 ## Next step
 

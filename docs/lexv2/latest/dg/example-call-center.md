@@ -32,7 +32,7 @@ bot as a web application.
 **Estimated time:** 75 minutes
 
 **Estimated cost:** $2.50 per hour for an Amazon Kendra index and
-$0.75 for 1000 Amazon Lex V2 requests. Your Amazon Kendra index continues to run after you are finished with
+ $0.75 for 1000 Amazon Lex V2 requests. Your Amazon Kendra index continues to run after you are finished with
 this exercise. Be sure to delete it to avoid unnecessary costs.
 
 **Note:** Make sure that you choose the same AWS Region for

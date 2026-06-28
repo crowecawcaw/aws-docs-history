@@ -30,42 +30,41 @@ as your data source.
 
 ###### To create a FAQ bot:
 
-1.  Sign in to the AWS Management Console and open the Amazon Lex console at
-    [https://console.aws.amazon.com/lex/](https://console.aws.amazon.com/lex/ "https://console.aws.amazon.com/lex/").
-2.  In the navigation pane, choose
-    **Bots**.
-3.  Choose **Create bot**.
+1. Sign in to the AWS Management Console and open the Amazon Lex console at
+   [https://console.aws.amazon.com/lex/](https://console.aws.amazon.com/lex/ "https://console.aws.amazon.com/lex/").
+2. In the navigation pane, choose
+   **Bots**.
+3. Choose **Create bot**.
 
-        1. For the **Creation method**,
-         choose **Create a blank bot**.
-        2. In the **Bot configuration** section,
-         give the bot a name that indicates its purpose,
-         such as `KendraTestBot`, and an
-         optional description. The name must be unique in
-         your account.
-        3. In the **IAM Permissions** section,
-         choose **Create a role with basic Amazon Lex permissions**.
-         This will create an
-         [AWS Identity and Access Management (IAM)](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md")
-         role with the permissions that Amazon Lex V2 needs to run your bot.
-        4. In the **Children's Online Privacy Protection Act (COPPA)**
-         section, choose **No**.
-        5. In the **Idle session timeout** and
-         **Advanced settings** sections, leave the
-         default settings and choose **Next**.
-        6. Now you are in the **Add language to bot** section.
-         In the menu under **Voice interaction**, select
-         **None. This is only a text based application**.
-         Leave the default settings for the remaining fields.
-        7. Choose **Done**. Amazon Lex V2 creates your bot and a
-         default intent called **NewIntent**, and takes you to
-         the page to configure this intent
-
-    To successfully build a bot, you must create at least one intent that is separate from
-    the `AMAZON.FallbackIntent` and the `AMAZON.KendraSearchIntent`.
-    This intent is required to build your Amazon Lex V2 bot, but isn't used for the FAQ response.
-    This intent must contain at least one sample utterance and the utterance must not apply
-    to any of the questions that your customer asks.
+   1. For the **Creation method**,
+      choose **Create a blank bot**.
+   2. In the **Bot configuration** section,
+      give the bot a name that indicates its purpose,
+      such as `KendraTestBot`, and an
+      optional description. The name must be unique in
+      your account.
+   3. In the **IAM Permissions** section,
+      choose **Create a role with basic Amazon Lex permissions**.
+      This will create an
+      [AWS Identity and Access Management (IAM)](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md")
+      role with the permissions that Amazon Lex V2 needs to run your bot.
+   4. In the **Children's Online Privacy Protection Act (COPPA)**
+      section, choose **No**.
+   5. In the **Idle session timeout** and
+      **Advanced settings** sections, leave the
+      default settings and choose **Next**.
+   6. Now you are in the **Add language to bot** section.
+      In the menu under **Voice interaction**, select
+      **None. This is only a text based application**.
+      Leave the default settings for the remaining fields.
+   7. Choose **Done**. Amazon Lex V2 creates your bot and a
+      default intent called **NewIntent**, and takes you to
+      the page to configure this intent
+      To successfully build a bot, you must create at least one intent that is separate from
+      the `AMAZON.FallbackIntent` and the `AMAZON.KendraSearchIntent`.
+      This intent is required to build your Amazon Lex V2 bot, but isn't used for the FAQ response.
+      This intent must contain at least one sample utterance and the utterance must not apply
+      to any of the questions that your customer asks.
 
 ###### To create the required intent:
 

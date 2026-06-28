@@ -15,7 +15,7 @@ and to customize prompts and response cards. For example:
   attribute in the first call to the
   [RecognizeText](../APIReference/API_runtime_RecognizeText.md "../APIReference/API_runtime_RecognizeText.md") or [RecognizeUtterance](../APIReference/API_runtime_RecognizeUtterance.md "../APIReference/API_runtime_RecognizeUtterance.md")
   operation. For example, `"Location": "111 Maple
-Street"`. The Lambda function uses this information
+ Street"`. The Lambda function uses this information
   to find the closest pizzeria to place the order.
 - Personalize prompts — Configure prompts and
   response cards to refer to session attributes. For example,
