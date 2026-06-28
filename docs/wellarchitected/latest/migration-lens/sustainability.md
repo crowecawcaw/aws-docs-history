@@ -10,7 +10,7 @@ consider sustainability while migrating workloads to AWS. This
 includes enhancing energy efficiency, transitioning to renewable
 energy, reducing embodied carbon, using water responsibly, driving a
 circular economy, and enabling sustainability for customers.
-Sustainability *of* and *through* the
+Sustainability _of_ and _through_ the
 cloud is covered in
 the [Sustainability
 Pillar of the AWS Well-Architected Framework](../sustainability-pillar/sustainability-pillar.md "../sustainability-pillar/sustainability-pillar.md").
