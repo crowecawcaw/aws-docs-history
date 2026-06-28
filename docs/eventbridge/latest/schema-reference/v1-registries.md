@@ -12,27 +12,27 @@
 
 List the registries.
 
-| Query parameters     | Name   | Type  | Required                                                                                                                                                                                          | Description |
-| -------------------- | ------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `scope`              | String | False | Can be set to `Local` or `AWS` to limit responses to your<br>custom registries, or the ones provided by AWS.                                                                                      |
-| `limit`              | String | False | The maximum number of results to return per page.                                                                                                                                                 |
-| `nextToken`          | String | False | The token that specifies the next page of results to return. To request the first<br>page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared<br>with other accounts. |
-| `registryNamePrefix` | String | False | Specifying this limits the results to only those registry names that start with<br>the specified prefix.                                                                                          |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `scope` | String | False | Can be set to `Local` or `AWS` to limit responses to your<br>custom registries, or the ones provided by AWS. |
+| `limit` | String | False | The maximum number of results to return per page. |
+| `nextToken` | String | False | The token that specifies the next page of results to return. To request the first<br>page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared<br>with other accounts. |
+| `registryNamePrefix` | String | False | Specifying this limits the results to only those registry names that start with<br>the specified prefix. |
 
-| Responses | Status code            | Response model | Description |
-| --------- | ---------------------- | -------------- | ----------- |
-| `200`     | `ListRegistriesOutput` | 200 response   |
-| `400`     | `ErrorOutput`          | 400 response   |
-| `401`     | `ErrorOutput`          | 401 response   |
-| `403`     | `ErrorOutput`          | 403 response   |
-| `500`     | `ErrorOutput`          | 500 response   |
-| `503`     | `ErrorOutput`          | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `ListRegistriesOutput` | 200 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### OPTIONS
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 

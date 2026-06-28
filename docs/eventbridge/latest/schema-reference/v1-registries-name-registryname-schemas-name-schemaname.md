@@ -12,24 +12,24 @@
 
 Retrieve the schema definition.
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
-| `schemaName`    | String | True | The name of the schema.          |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
+| `schemaName` | String | True | The name of the schema. |
 
-| Query parameters | Name   | Type  | Required                                                        | Description |
-| ---------------- | ------ | ----- | --------------------------------------------------------------- | ----------- |
-| `schemaVersion`  | String | False | Specifying this limits the results to only this schema version. |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `schemaVersion` | String | False | Specifying this limits the results to only this schema version. |
 
-| Responses | Status code            | Response model | Description |
-| --------- | ---------------------- | -------------- | ----------- |
-| `200`     | `DescribeSchemaOutput` | 200 response   |
-| `400`     | `ErrorOutput`          | 400 response   |
-| `401`     | `ErrorOutput`          | 401 response   |
-| `403`     | `ErrorOutput`          | 403 response   |
-| `404`     | `ErrorOutput`          | 404 response   |
-| `500`     | `ErrorOutput`          | 500 response   |
-| `503`     | `ErrorOutput`          | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `DescribeSchemaOutput` | 200 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### POST
 
@@ -41,18 +41,18 @@ Creates a schema definition.
 
 Inactive schemas will be deleted after two years.
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
-| `schemaName`    | String | True | The name of the schema.          |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
+| `schemaName` | String | True | The name of the schema. |
 
-| Responses | Status code    | Response model | Description |
-| --------- | -------------- | -------------- | ----------- |
-| `201`     | `SchemaOutput` | 201 response   |
-| `400`     | `ErrorOutput`  | 400 response   |
-| `403`     | `ErrorOutput`  | 403 response   |
-| `500`     | `ErrorOutput`  | 500 response   |
-| `503`     | `ErrorOutput`  | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `201` | `SchemaOutput` | 201 response |
+| `400` | `ErrorOutput` | 400 response |
+| `403` | `ErrorOutput` | 403 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### PUT
 
@@ -64,20 +64,20 @@ Updates the schema definition
 
 Inactive schemas will be deleted after two years.
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
-| `schemaName`    | String | True | The name of the schema.          |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
+| `schemaName` | String | True | The name of the schema. |
 
-| Responses | Status code    | Response model | Description |
-| --------- | -------------- | -------------- | ----------- |
-| `200`     | `SchemaOutput` | 200 response   |
-| `304`     | None           | 304 response   |
-| `400`     | `ErrorOutput`  | 400 response   |
-| `403`     | `ErrorOutput`  | 403 response   |
-| `404`     | `ErrorOutput`  | 404 response   |
-| `500`     | `ErrorOutput`  | 500 response   |
-| `503`     | `ErrorOutput`  | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `SchemaOutput` | 200 response |
+| `304` | None | 304 response |
+| `400` | `ErrorOutput` | 400 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### DELETE
 
@@ -85,31 +85,31 @@ Inactive schemas will be deleted after two years.
 
 Delete a schema definition.
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
-| `schemaName`    | String | True | The name of the schema.          |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
+| `schemaName` | String | True | The name of the schema. |
 
-| Responses | Status code   | Response model | Description |
-| --------- | ------------- | -------------- | ----------- |
-| `204`     | None          | 204 response   |
-| `400`     | `ErrorOutput` | 400 response   |
-| `401`     | `ErrorOutput` | 401 response   |
-| `403`     | `ErrorOutput` | 403 response   |
-| `404`     | `ErrorOutput` | 404 response   |
-| `500`     | `ErrorOutput` | 500 response   |
-| `503`     | `ErrorOutput` | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `204` | None | 204 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### OPTIONS
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
-| `schemaName`    | String | True | The name of the schema.          |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
+| `schemaName` | String | True | The name of the schema. |
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 

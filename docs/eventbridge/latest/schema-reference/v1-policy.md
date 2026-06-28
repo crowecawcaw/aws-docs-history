@@ -14,19 +14,19 @@ The resource-based policy.
 
 Retrieves the resource-based policy attached to a given registry.
 
-| Query parameters | Name   | Type  | Required                  | Description |
-| ---------------- | ------ | ----- | ------------------------- | ----------- |
-| `registryName`   | String | False | The name of the registry. |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | False | The name of the registry. |
 
-| Responses | Status code               | Response model                     | Description |
-| --------- | ------------------------- | ---------------------------------- | ----------- |
-| `200`     | `GetResourcePolicyOutput` | Get Resource-Based Policy Response |
-| `400`     | `ErrorOutput`             | 400 response                       |
-| `401`     | `ErrorOutput`             | 401 response                       |
-| `403`     | `ErrorOutput`             | 403 response                       |
-| `404`     | `ErrorOutput`             | 404 response                       |
-| `500`     | `ErrorOutput`             | 500 response                       |
-| `503`     | `ErrorOutput`             | 503 response                       |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `GetResourcePolicyOutput` | Get Resource-Based Policy Response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### PUT
 
@@ -34,20 +34,20 @@ Retrieves the resource-based policy attached to a given registry.
 
 The name of the policy.
 
-| Query parameters | Name   | Type  | Required                  | Description |
-| ---------------- | ------ | ----- | ------------------------- | ----------- |
-| `registryName`   | String | False | The name of the registry. |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | False | The name of the registry. |
 
-| Responses | Status code               | Response model | Description |
-| --------- | ------------------------- | -------------- | ----------- |
-| `200`     | `PutResourcePolicyOutput` | 200 response   |
-| `400`     | `ErrorOutput`             | 400 response   |
-| `401`     | `ErrorOutput`             | 401 response   |
-| `403`     | `ErrorOutput`             | 403 response   |
-| `404`     | `ErrorOutput`             | 404 response   |
-| `412`     | `ErrorOutput`             | 412 response   |
-| `500`     | `ErrorOutput`             | 500 response   |
-| `503`     | `ErrorOutput`             | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `PutResourcePolicyOutput` | 200 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `412` | `ErrorOutput` | 412 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### DELETE
 
@@ -55,25 +55,25 @@ The name of the policy.
 
 Delete the resource-based policy attached to the specified registry.
 
-| Query parameters | Name   | Type  | Required                  | Description |
-| ---------------- | ------ | ----- | ------------------------- | ----------- |
-| `registryName`   | String | False | The name of the registry. |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | False | The name of the registry. |
 
-| Responses | Status code   | Response model | Description |
-| --------- | ------------- | -------------- | ----------- |
-| `204`     | None          | 204 response   |
-| `400`     | `ErrorOutput` | 400 response   |
-| `401`     | `ErrorOutput` | 401 response   |
-| `403`     | `ErrorOutput` | 403 response   |
-| `404`     | `ErrorOutput` | 404 response   |
-| `500`     | `ErrorOutput` | 500 response   |
-| `503`     | `ErrorOutput` | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `204` | None | 204 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### OPTIONS
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 

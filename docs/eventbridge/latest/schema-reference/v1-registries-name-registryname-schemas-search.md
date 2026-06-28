@@ -12,34 +12,34 @@
 
 Search the schemas
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
 
-| Query parameters | Name   | Type  | Required                                                                                                                                                                                          | Description |
-| ---------------- | ------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `keywords`       | String | True  | Specifying this limits the results to only schemas that include the provided<br>keywords.                                                                                                         |
-| `limit`          | String | False | The maximum number of results to return per page.                                                                                                                                                 |
-| `nextToken`      | String | False | The token that specifies the next page of results to return. To request the first<br>page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared<br>with other accounts. |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `keywords` | String | True | Specifying this limits the results to only schemas that include the provided<br>keywords. |
+| `limit` | String | False | The maximum number of results to return per page. |
+| `nextToken` | String | False | The token that specifies the next page of results to return. To request the first<br>page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared<br>with other accounts. |
 
-| Responses | Status code           | Response model | Description |
-| --------- | --------------------- | -------------- | ----------- |
-| `200`     | `SearchSchemasOutput` | 200 response   |
-| `400`     | `ErrorOutput`         | 400 response   |
-| `401`     | `ErrorOutput`         | 401 response   |
-| `403`     | `ErrorOutput`         | 403 response   |
-| `500`     | `ErrorOutput`         | 500 response   |
-| `503`     | `ErrorOutput`         | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `SearchSchemasOutput` | 200 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### OPTIONS
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 

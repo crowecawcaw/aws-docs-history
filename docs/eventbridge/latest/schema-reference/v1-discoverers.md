@@ -15,21 +15,21 @@ bus.
 
 List the discoverers.
 
-| Query parameters     | Name   | Type  | Required                                                                                                                                                                                          | Description |
-| -------------------- | ------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `sourceArnPrefix`    | String | False | Specifying this limits the results to only those ARNs that start with the<br>specified prefix.                                                                                                    |
-| `limit`              | String | False | The maximum number of results to return per page.                                                                                                                                                 |
-| `nextToken`          | String | False | The token that specifies the next page of results to return. To request the first<br>page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared<br>with other accounts. |
-| `discovererIdPrefix` | String | False | Specifying this limits the results to only those discoverer IDs that start with<br>the specified prefix.                                                                                          |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `sourceArnPrefix` | String | False | Specifying this limits the results to only those ARNs that start with the<br>specified prefix. |
+| `limit` | String | False | The maximum number of results to return per page. |
+| `nextToken` | String | False | The token that specifies the next page of results to return. To request the first<br>page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared<br>with other accounts. |
+| `discovererIdPrefix` | String | False | Specifying this limits the results to only those discoverer IDs that start with<br>the specified prefix. |
 
-| Responses | Status code             | Response model | Description |
-| --------- | ----------------------- | -------------- | ----------- |
-| `200`     | `ListDiscoverersOutput` | 200 response   |
-| `400`     | `ErrorOutput`           | 400 response   |
-| `401`     | `ErrorOutput`           | 401 response   |
-| `403`     | `ErrorOutput`           | 403 response   |
-| `500`     | `ErrorOutput`           | 500 response   |
-| `503`     | `ErrorOutput`           | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `ListDiscoverersOutput` | 200 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### POST
 
@@ -39,21 +39,21 @@ Creates a discoverer.
 
 Due to no name being passed in the CreateDiscoverer API call there is no resource to DENY against when the customer adds a resource ARN of an existing discoverer in their IAM policies.
 
-| Responses | Status code        | Response model | Description |
-| --------- | ------------------ | -------------- | ----------- |
-| `201`     | `DiscovererOutput` | 201 response   |
-| `400`     | `ErrorOutput`      | 400 response   |
-| `401`     | `ErrorOutput`      | 401 response   |
-| `403`     | `ErrorOutput`      | 403 response   |
-| `409`     | `ErrorOutput`      | 409 response   |
-| `500`     | `ErrorOutput`      | 500 response   |
-| `503`     | `ErrorOutput`      | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `201` | `DiscovererOutput` | 201 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `409` | `ErrorOutput` | 409 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### OPTIONS
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 

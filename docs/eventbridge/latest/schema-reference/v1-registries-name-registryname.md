@@ -12,19 +12,19 @@
 
 Describes the registry.
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
 
-| Responses | Status code      | Response model | Description |
-| --------- | ---------------- | -------------- | ----------- |
-| `200`     | `RegistryOutput` | 200 response   |
-| `400`     | `ErrorOutput`    | 400 response   |
-| `401`     | `ErrorOutput`    | 401 response   |
-| `403`     | `ErrorOutput`    | 403 response   |
-| `404`     | `ErrorOutput`    | 404 response   |
-| `500`     | `ErrorOutput`    | 500 response   |
-| `503`     | `ErrorOutput`    | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `RegistryOutput` | 200 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### POST
 
@@ -32,37 +32,37 @@ Describes the registry.
 
 Creates a registry.
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
 
-| Responses | Status code      | Response model | Description |
-| --------- | ---------------- | -------------- | ----------- |
-| `201`     | `RegistryOutput` | 201 response   |
-| `400`     | `ErrorOutput`    | 400 response   |
-| `401`     | `ErrorOutput`    | 401 response   |
-| `403`     | `ErrorOutput`    | 403 response   |
-| `409`     | `ErrorOutput`    | 409 response   |
-| `500`     | `ErrorOutput`    | 500 response   |
-| `503`     | `ErrorOutput`    | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `201` | `RegistryOutput` | 201 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `409` | `ErrorOutput` | 409 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### PUT
 
 **Operation ID:** `UpdateRegistry`
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
 
-| Responses | Status code      | Response model | Description |
-| --------- | ---------------- | -------------- | ----------- |
-| `200`     | `RegistryOutput` | 200 response   |
-| `400`     | `ErrorOutput`    | 400 response   |
-| `401`     | `ErrorOutput`    | 401 response   |
-| `403`     | `ErrorOutput`    | 403 response   |
-| `404`     | `ErrorOutput`    | 404 response   |
-| `500`     | `ErrorOutput`    | 500 response   |
-| `503`     | `ErrorOutput`    | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `RegistryOutput` | 200 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### DELETE
 
@@ -70,29 +70,29 @@ Creates a registry.
 
 Deletes a Registry.
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
 
-| Responses | Status code   | Response model | Description |
-| --------- | ------------- | -------------- | ----------- |
-| `204`     | None          | 204 response   |
-| `400`     | `ErrorOutput` | 400 response   |
-| `401`     | `ErrorOutput` | 401 response   |
-| `403`     | `ErrorOutput` | 403 response   |
-| `404`     | `ErrorOutput` | 404 response   |
-| `500`     | `ErrorOutput` | 500 response   |
-| `503`     | `ErrorOutput` | 503 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `204` | None | 204 response |
+| `400` | `ErrorOutput` | 400 response |
+| `401` | `ErrorOutput` | 401 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
+| `503` | `ErrorOutput` | 503 response |
 
 ### OPTIONS
 
-| Path parameters | Name   | Type | Required                         | Description |
-| --------------- | ------ | ---- | -------------------------------- | ----------- |
-| `registryName`  | String | True | The name of the schema registry. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `registryName` | String | True | The name of the schema registry. |
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 

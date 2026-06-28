@@ -15,17 +15,17 @@ tags to identify the purpose of a broker or configuration.
 
 Get tags for resource.
 
-| Path parameters | Name   | Type | Required                 | Description |
-| --------------- | ------ | ---- | ------------------------ | ----------- |
-| `resource-arn`  | String | True | The ARN of the resource. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `resource-arn` | String | True | The ARN of the resource. |
 
-| Responses | Status code                 | Response model | Description |
-| --------- | --------------------------- | -------------- | ----------- |
-| `200`     | `ListTagsForResourceOutput` | 200 response   |
-| `400`     | `ErrorOutput`               | 400 response   |
-| `403`     | `ErrorOutput`               | 403 response   |
-| `404`     | `ErrorOutput`               | 404 response   |
-| `500`     | `ErrorOutput`               | 500 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | `ListTagsForResourceOutput` | 200 response |
+| `400` | `ErrorOutput` | 400 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
 
 ### POST
 
@@ -33,17 +33,17 @@ Get tags for resource.
 
 Add tags to a resource.
 
-| Path parameters | Name   | Type | Required                 | Description |
-| --------------- | ------ | ---- | ------------------------ | ----------- |
-| `resource-arn`  | String | True | The ARN of the resource. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `resource-arn` | String | True | The ARN of the resource. |
 
-| Responses | Status code   | Response model | Description |
-| --------- | ------------- | -------------- | ----------- |
-| `204`     | None          | 204 response   |
-| `400`     | `ErrorOutput` | 400 response   |
-| `403`     | `ErrorOutput` | 403 response   |
-| `404`     | `ErrorOutput` | 404 response   |
-| `500`     | `ErrorOutput` | 500 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `204` | None | 204 response |
+| `400` | `ErrorOutput` | 400 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
 
 ### DELETE
 
@@ -51,27 +51,27 @@ Add tags to a resource.
 
 Removes tags from a resource.
 
-| Path parameters | Name   | Type | Required                 | Description |
-| --------------- | ------ | ---- | ------------------------ | ----------- |
-| `resource-arn`  | String | True | The ARN of the resource. |
+Path parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `resource-arn` | String | True | The ARN of the resource. |
 
-| Query parameters | Name   | Type | Required                 | Description |
-| ---------------- | ------ | ---- | ------------------------ | ----------- |
-| `tagKeys`        | String | True | Keys of key-value pairs. |
+Query parameters| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| `tagKeys` | String | True | Keys of key-value pairs. |
 
-| Responses | Status code   | Response model | Description |
-| --------- | ------------- | -------------- | ----------- |
-| `204`     | None          | 204 response   |
-| `400`     | `ErrorOutput` | 400 response   |
-| `403`     | `ErrorOutput` | 403 response   |
-| `404`     | `ErrorOutput` | 404 response   |
-| `500`     | `ErrorOutput` | 500 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `204` | None | 204 response |
+| `400` | `ErrorOutput` | 400 response |
+| `403` | `ErrorOutput` | 403 response |
+| `404` | `ErrorOutput` | 404 response |
+| `500` | `ErrorOutput` | 500 response |
 
 ### OPTIONS
 
-| Responses | Status code | Response model | Description |
-| --------- | ----------- | -------------- | ----------- |
-| `200`     | None        | 200 response   |
+Responses| Status code | Response model | Description |
+| --- | --- | --- |
+| `200` | None | 200 response |
 
 ## Schemas
 
