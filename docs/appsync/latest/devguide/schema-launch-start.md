@@ -106,8 +106,8 @@ There are also other options present here, but we won't be using them for this e
     5. Choose **Next**.
 
 6. Review your changes and choose **Create API**. Wait a moment to let the AWS AppSync
-   service finish creating your API.
-   You have successfully created a GraphQL API with its schema and DynamoDB data source. To summarize the steps
-   above, we chose to create a completely new GraphQL API. We defined the name of the API, then added our schema
-   definition by adding our first type. We defined the type and its fields, then chose to attach a data source to
-   one of the fields by creating a new DynamoDB table with no data in it.
+service finish creating your API.
+You have successfully created a GraphQL API with its schema and DynamoDB data source. To summarize the steps
+above, we chose to create a completely new GraphQL API. We defined the name of the API, then added our schema
+definition by adding our first type. We defined the type and its fields, then chose to attach a data source to
+one of the fields by creating a new DynamoDB table with no data in it.

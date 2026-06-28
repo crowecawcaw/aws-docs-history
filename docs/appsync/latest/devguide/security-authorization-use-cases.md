@@ -66,7 +66,7 @@ template and return data only if an authorization condition is satisfied. The
 implementation is then:
 
 1. GetItem - authorization check for individual records. Done using `#if()
-... #end` statements.
+ ... #end` statements.
 2. Scan/Query operations - authorization check is a
    `"filter":{"expression":...}` statement. Common checks are
    equality (`attribute = :input`) or checking if a value is in a list

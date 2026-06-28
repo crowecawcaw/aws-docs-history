@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider
-using the APPSYNC_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider
+using the APPSYNC\_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
 
 AWS AppSync supports using Amazon OpenSearch Service from domains that you have provisioned in your own
 AWS account, provided they don’t exist inside a VPC. After your domains are provisioned,

@@ -2,7 +2,7 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the APPSYNC_JS
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
 runtime and its guides [here](tutorials-js.md "tutorials-js.md").
 
 This tutorial shows how you can bring your own Amazon DynamoDB tables to AWS AppSync and connect

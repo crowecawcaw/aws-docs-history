@@ -2,16 +2,16 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please
-consider using the APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please
+consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 `$util.transform` contains helper methods that make it easier to perform
 complex operations against data sources, such as Amazon DynamoDB filter operations.
 
 ## Transformation helpers
 
-\***\*`$util.transform.toDynamoDBFilterExpression(Map) :
- Map`\*\***
+****`$util.transform.toDynamoDBFilterExpression(Map) :
+ Map`****
 
 Converts an input string to a filter expression for use with
 DynamoDB.
@@ -38,8 +38,8 @@ Output:
 }
 ```
 
-\***\*`$util.transform.toElasticsearchQueryDSL(Map)
- : Map`\*\***
+****`$util.transform.toElasticsearchQueryDSL(Map)
+ : Map`****
 
 Converts the given input into its equivalent OpenSearch Query DSL
 expression, returning it as a JSON string.
@@ -113,8 +113,8 @@ The default operator is assumed to be AND.
 
 ## Transformation helpers subscription filters
 
-\***\*`$util.transform.toSubscriptionFilter(Map) :
- Map`\*\***
+****`$util.transform.toSubscriptionFilter(Map) :
+ Map`****
 
 Converts a `Map` input object to a
 `SubscriptionFilter` expression object. The
@@ -123,8 +123,8 @@ input to the `$extensions.setSubscriptionFilter()` extension.
 For more information, see
 [Extensions](extensions.md "extensions.md").
 
-\***\*`$util.transform.toSubscriptionFilter(Map,
- List) : Map`\*\***
+****`$util.transform.toSubscriptionFilter(Map,
+ List) : Map`****
 
 Converts a `Map` input object to a
 `SubscriptionFilter` expression object. The
@@ -138,8 +138,8 @@ second argument is a `List` of field names that are ignored in
 the first `Map` input object while constructing the
 `SubscriptionFilter` expression object.
 
-\***\*`$util.transform.toSubscriptionFilter(Map,
- List, Map) : Map`\*\***
+****`$util.transform.toSubscriptionFilter(Map,
+ List, Map) : Map`****
 
 Converts a `Map` input object to a
 `SubscriptionFilter` expression object. The

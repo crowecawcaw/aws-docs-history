@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the
-APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the
+APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 The AWS AppSync resolver mapping template used with the EventBridge data source allows you to send custom events to
 the Amazon EventBridge bus.

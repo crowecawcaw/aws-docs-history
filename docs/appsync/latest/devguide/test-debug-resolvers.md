@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the
-APPSYNC_JS runtime and its guides [here](configuring-resolvers-js.md "configuring-resolvers-js.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the
+APPSYNC\_JS runtime and its guides [here](configuring-resolvers-js.md "configuring-resolvers-js.md").
 
 AWS AppSync executes resolvers on a GraphQL field against a data source. As described in [Resolver mapping template
 overview](resolver-mapping-template-reference-overview.md#aws-appsync-resolver-mapping-template-reference-overview "resolver-mapping-template-reference-overview.md#aws-appsync-resolver-mapping-template-reference-overview"), resolvers communicate with data sources by using a templating language. This enables you to

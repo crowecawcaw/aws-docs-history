@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please
-consider using the APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please
+consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 The `$util.time` variable contains datetime methods to help generate
 timestamps, convert between datetime formats, and parse datetime strings. The syntax for

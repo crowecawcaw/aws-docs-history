@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider
-using the APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider
+using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 AWS AppSync lets you respond to GraphQL requests by performing operations on your
 resources. For each GraphQL field you wish to run a query or mutation on, a resolver must be

@@ -2,7 +2,7 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the APPSYNC_JS
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
 runtime and its guides [here](tutorials-js.md "tutorials-js.md").
 
 AWS AppSync enables you to use supported data sources (that is, AWS Lambda, Amazon DynamoDB,

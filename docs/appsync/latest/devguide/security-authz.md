@@ -65,7 +65,7 @@ starts to serve your content based on the new configuration. While AWS AppSync i
 for an API, we can't determine whether the API is serving your content based on the previous
 configuration or the new configuration.
 
-## API_KEY authorization
+## API\_KEY authorization
 
 Unauthenticated APIs require more strict throttling than authenticated APIs. One way to
 control throttling for unauthenticated GraphQL endpoints is through the use of API keys. An
@@ -92,7 +92,7 @@ A new API key will be generated in the table.
      choose **Delete**.
 
 4. Choose **Save** at the bottom of the
-   page.
+page.
 
 CLI
 
@@ -153,7 +153,7 @@ GraphQL query via `curl` as follows:
 $ curl -XPOST -H "Content-Type:application/graphql" -H "x-api-key:ABC123" -d '{ "query": "query { movies { id } }" }' https://YOURAPPSYNCENDPOINT/graphql
 ```
 
-## AWS_LAMBDA authorization
+## AWS\_LAMBDA authorization
 
 You can implement your own API authorization logic using an AWS Lambda function. You can
 use a Lambda function for either your primary or secondary authorizer, but there may only be
@@ -417,7 +417,7 @@ modes are enabled for AWS AppSync's API, do the following:
   random prefixes and/or suffixes from the Lambda authorization token. Then, use the
   original OIDC token for authentication.
 
-## AWS_IAM authorization
+## AWS\_IAM authorization
 
 This authorization type enforces the [AWS signature version
 4 signing process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") on the GraphQL API. You can associate Identity and Access
@@ -520,7 +520,7 @@ JSON
 
 ```
 
-## OPENID_CONNECT authorization
+## OPENID\_CONNECT authorization
 
 This authorization type enforces [OpenID connect](https://openid.net/specs/openid-connect-core-1_0.html "https://openid.net/specs/openid-connect-core-1_0.html")
 (OIDC) tokens provided by an OIDC-compliant service. Your application can leverage users
@@ -572,9 +572,9 @@ would place 1F4G9H|1J6L4B|6GS5MG in the client ID field.
 If an API is configured with multiple authorization types, AWS AppSync validates the issuer
 (iss claim) present in the JWT token from request headers by comparing it against the
 issuer URL specified in the API configuration. However, when an API is configured with only
-OPENID_CONNECT authorization, AWS AppSync skips this issuer URL validation step.
+OPENID\_CONNECT authorization, AWS AppSync skips this issuer URL validation step.
 
-## AMAZON_COGNITO_USER_POOLS authorization
+## AMAZON\_COGNITO\_USER\_POOLS authorization
 
 This authorization type enforces OIDC tokens provided by Amazon Cognito User Pools. Your
 application can leverage the users and groups in both your user pools and user pools from

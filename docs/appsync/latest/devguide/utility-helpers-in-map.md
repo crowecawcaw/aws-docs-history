@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please
-consider using the APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please
+consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 `$util.map` contains methods to help with common Map operations such as removing
 or retaining items from a Map for filtering use cases.

@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the
-APPSYNC_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the
+APPSYNC\_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
 
 You can use AWS Lambda with AWS AppSync to resolve any GraphQL field. For example, a GraphQL
 query might send a call to an Amazon Relational Database Service (Amazon RDS) instance, and a GraphQL mutation might write

@@ -2,63 +2,63 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please
-consider using the APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please
+consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 The `$util` variable contains general utility methods to help you work with
 data. Unless otherwise specified, all utilities use the UTF-8 character set.
 
 ## JSON parsing utils
 
-\***\*`$util.parseJson(String) :
- Object`\*\***
+****`$util.parseJson(String) :
+ Object`****
 
 Takes "stringified" JSON and returns an object representation of the
 result.
 
-\***\*`$util.toJson(Object) : String`\*\***
+****`$util.toJson(Object) : String`****
 
 Takes an object and returns a "stringified" JSON representation of
 that object.
 
 ## Encoding utils
 
-\***\*`$util.urlEncode(String) :
- String`\*\***
+****`$util.urlEncode(String) :
+ String`****
 
 Returns the input string as an
 `application/x-www-form-urlencoded` encoded string.
 
-\***\*`$util.urlDecode(String) :
- String`\*\***
+****`$util.urlDecode(String) :
+ String`****
 
 Decodes an `application/x-www-form-urlencoded` encoded
 string back to its non-encoded form.
 
-\***\*`$util.base64Encode( byte[] ) :
- String`\*\***
+****`$util.base64Encode( byte[] ) :
+ String`****
 
 Encodes the input into a base64-encoded string.
 
-\***\*`$util.base64Decode(String) :
- byte[]`\*\***
+****`$util.base64Decode(String) :
+ byte[]`****
 
 Decodes the data from a base64-encoded string.
 
 ## ID generation utils
 
-\***\*`$util.autoId() : String`\*\***
+****`$util.autoId() : String`****
 
 Returns a 128-bit randomly generated UUID.
 
-\***\*`$util.autoUlid() :
- String`\*\***
+****`$util.autoUlid() :
+ String`****
 
 Returns a 128-bit randomly generated ULID (Universally Unique
 Lexicographically Sortable Identifier).
 
-\***\*`$util.autoKsuid() :
- String`\*\***
+****`$util.autoKsuid() :
+ String`****
 
 Returns a 128-bit randomly generated KSUID (K-Sortable Unique
 Identifier) base62 encoded as a String with a length of 27.
@@ -317,8 +317,8 @@ order.
 
 ## Return value behavior utils
 
-\***\*`$util.qr()`** and
-`$util.quiet()`\*\*
+****`$util.qr()`** and
+`$util.quiet()`**
 
 Runs a VTL statement while suppressing the returned value. This is
 useful for running methods without using temporary placeholders, such as
@@ -374,14 +374,14 @@ representation of that object.
 
 Returns a 128-bit randomly generated UUID.
 
-\***\*`$util.autoUlid() :
- String`\*\***
+****`$util.autoUlid() :
+ String`****
 
 Returns a 128-bit randomly generated ULID (Universally Unique
 Lexicographically Sortable Identifier).
 
-\***\*`$util.autoKsuid() :
- String`\*\***
+****`$util.autoKsuid() :
+ String`****
 
 Returns a 128-bit randomly generated KSUID (K-Sortable Unique
 Identifier) base62 encoded as a String with a length of 27.
@@ -575,16 +575,16 @@ a request, returning back either "IAM Authorization", "User
 Pool Authorization", "Open ID Connect Authorization", or "API
 Key Authorization".
 
-\***\*`$util.log.info(Object) :
- Void`\*\***
+****`$util.log.info(Object) :
+ Void`****
 
 Logs the String representation of the provided Object to the
 requested log stream when request-level and field-level CloudWatch
 logging is enabled with log level `ALL` on an
 API.
 
-\***\*`$util.log.info(String, Object...) :
- Void`\*\***
+****`$util.log.info(String, Object...) :
+ Void`****
 
 Logs the String representation of the provided Objects to the
 requested log stream when request-level and field-level CloudWatch
@@ -593,16 +593,16 @@ This utility will replace all variables indicated by "{}" in the
 first input format String with the String representation of the
 provided Objects in order.
 
-\***\*`$util.log.error(Object) :
- Void`\*\***
+****`$util.log.error(Object) :
+ Void`****
 
 Logs the String representation of the provided Object to the
 requested log stream when field-level CloudWatch logging is enabled
 with log level `ERROR` or log level `ALL`
 on an API.
 
-\***\*`$util.log.error(String, Object...) :
- Void`\*\***
+****`$util.log.error(String, Object...) :
+ Void`****
 
 Logs the String representation of the provided Objects to the
 requested log stream when field-level CloudWatch logging is enabled

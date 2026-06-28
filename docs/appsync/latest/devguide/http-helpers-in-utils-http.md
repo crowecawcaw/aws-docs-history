@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please
-consider using the APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please
+consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 The `$util.http` utility provides helper methods that you can use to manage
 HTTP request parameters and to add response headers.
@@ -81,7 +81,7 @@ export function request(ctx) {
 }
 ```
 
-\***\*`$util.http.addResponseHeaders(Map)`\*\***
+****`$util.http.addResponseHeaders(Map)`****
 
 Adds multiple response headers to the response from the specified map of
 names `(String)` and values `(Object)`. The same

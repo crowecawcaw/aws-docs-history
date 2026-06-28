@@ -10,7 +10,7 @@ operation. For more information about how resolvers work in general, see the [Re
 
 In AWS AppSync, your resolver is tied to a runtime, which is the environment in which your resolver executes.
 Runtimes dictate the language that your resolver will be written in. There are currently two supported runtimes:
-APPSYNC_JS (JavaScript) and Apache Velocity Template Language (VTL).
+APPSYNC\_JS (JavaScript) and Apache Velocity Template Language (VTL).
 
 When implementing resolvers, there is a general structure they follow:
 
@@ -33,7 +33,7 @@ When implementing resolvers, there is a general structure they follow:
   This flow is an example of a pipeline resolver. Pipeline resolvers are supported in both runtimes. However,
   this is a simplified explanation of what pipeline resolvers can do. Also, we're describing only one possible
   resolver configuration. For more information about supported resolver configurations, see the [JavaScript resolvers
-  overview](resolver-reference-overview-js.md "resolver-reference-overview-js.md") for APPSYNC_JS or the [Resolver mapping template
+  overview](resolver-reference-overview-js.md "resolver-reference-overview-js.md") for APPSYNC\_JS or the [Resolver mapping template
   overview](resolver-mapping-template-reference-overview.md "resolver-mapping-template-reference-overview.md") for VTL.
 
 As you can see, resolvers are modular. In order for the components of the resolver to work properly, they must
@@ -42,12 +42,12 @@ in the resolver can be passed vital information about the state of the execution
 (`args`, `context`, etc.). In AWS AppSync, this is handled strictly by the
 `context`. It's a container for the information about the field being resolved. This can include
 everything from arguments being passed, results, authorization data, header data, etc. For more information about
-the context, see the [Resolver context object reference](resolver-context-reference-js.md "resolver-context-reference-js.md") for APPSYNC_JS or the [Resolver mapping template context
+the context, see the [Resolver context object reference](resolver-context-reference-js.md "resolver-context-reference-js.md") for APPSYNC\_JS or the [Resolver mapping template context
 reference](resolver-context-reference.md "resolver-context-reference.md") for VTL.
 
 The context isn't the only tool you can use to implement your resolver. AWS AppSync supports a wide range of
 utilities for value generation, error handling, parsing, conversion, etc. You can see a list of utilities [here](resolver-util-reference-js.md "resolver-util-reference-js.md") for
-APPSYNC_JS or [here](resolver-util-reference.md "resolver-util-reference.md") for VTL.
+APPSYNC\_JS or [here](resolver-util-reference.md "resolver-util-reference.md") for VTL.
 
 In the following sections, you will learn how to configure resolvers in your GraphQL API.
 

@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider
-using the APPSYNC_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider
+using the APPSYNC\_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
 
 Data sources and resolvers are used by AWS AppSync to translate GraphQL requests and
 fetch information from your AWS resources. AWS AppSync supports automatic provisioning and

@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the
-APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the
+APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 This is a cookbook-style tutorial of programming with the Apache Velocity Template
 Language (VTL) in AWS AppSync. If you are familiar with other programming languages such as
@@ -249,7 +249,7 @@ Suppose you are inserting data as a string to a data source like DynamoDB, but i
 populated from a variable, like a GraphQL argument. A string will have double quotation
 marks, and to reference the variable in a string you just need `"${}"` (so no
 `!` as in [quiet reference notation](https://velocity.apache.org/engine/1.7/user-guide.html#quiet-reference-notation "https://velocity.apache.org/engine/1.7/user-guide.html#quiet-reference-notation")). This is similar to a template literal in
-JavaScript: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals")
+JavaScript: [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template\_literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals")
 
 ```
 #set($firstname = "Jeff")

@@ -17,7 +17,7 @@ interact with your target data source.
 | **Use case**                           | AWS AppSync functions interact directly with API data sources. | AWS AppSync functions call Lambdas that interact with API data<br>sources. |
 | Runtime                                | _`APPSYNC_JS` (JavaScript)_                                    | _Any supported Lambda runtime_                                             |
 | Maximum size of code                   | _32,000 characters per AWS AppSync<br>function_                | _50 MB (zipped, for direct upload) per<br>Lambda_                          |
-| External modules                       | _Limited<br>• APPSYNC_JS supported features<br>only_           | _Yes_                                                                      |
+| External modules                       | _Limited<br>• APPSYNC\_JS supported features<br>only_          | _Yes_                                                                      |
 | Call any AWS service                   | _Yes<br>• Using AWS AppSync HTTP<br>datasource_                | _Yes<br>• Using AWS SDK_                                                   |
 | Access to the request header           | _Yes_                                                          | _Yes_                                                                      |
 | Network access                         | _No_                                                           | _Yes_                                                                      |

@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider
-using the APPSYNC_JS runtime and its guides [here](configuring-resolvers-js.md "configuring-resolvers-js.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider
+using the APPSYNC\_JS runtime and its guides [here](configuring-resolvers-js.md "configuring-resolvers-js.md").
 
 GraphQL resolvers connect the fields in a type’s schema to a data source. Resolvers are
 the mechanism by which requests are fulfilled. AWS AppSync can automatically create and

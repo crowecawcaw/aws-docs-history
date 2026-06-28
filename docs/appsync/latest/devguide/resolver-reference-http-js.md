@@ -76,7 +76,7 @@ This applies only to the Request handler.
 Used to specify what action your search performs, most commonly by setting the **query** value inside the **body**. However, there are several
 other capabilities that can be configured, such as the formatting of responses.
 
-\***\*headers\*\***
+****headers****
 
 The header information, as key-value pairs. Both the key and the value must be strings.
 
@@ -112,7 +112,7 @@ TRANSFER_ENCODING
 CONTENT_LENGTH
 ```
 
-\***\*query\*\***
+****query****
 
 Key-value pairs that specify common options, such as code formatting for JSON responses. Both
 the key and the value must be a string. The following example shows how you can send a query
@@ -124,7 +124,7 @@ string as `?type=json`:
 }
 ```
 
-\***\*body\*\***
+****body****
 
 The body contains the HTTP request body that you choose to set. The request body is always a
 UTF-8 encoded string unless the content type specifies the charset.

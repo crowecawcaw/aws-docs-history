@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please
-consider using the APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please
+consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 `$util.dynamodb` contains helper methods that make it easier to write and
 read data to Amazon DynamoDB, such as automatic type mapping and formatting. These methods are
@@ -153,16 +153,16 @@ Output:     {
            }
 ```
 
-\***\*`$util.dynamodb.toDynamoDBJson(Object) :
- String`\*\***
+****`$util.dynamodb.toDynamoDBJson(Object) :
+ String`****
 
 The same as `$util.dynamodb.toDynamoDB(Object) : Map`, but
 returns the DynamoDB attribute value as a JSON encoded string.
 
 ## toString utils
 
-\***\*`$util.dynamodb.toString(String) :
- String`\*\***
+****`$util.dynamodb.toString(String) :
+ String`****
 
 Converts an input string to the DynamoDB string format. This returns an
 object that describes the DynamoDB attribute value.
@@ -297,8 +297,8 @@ the DynamoDB attribute value as a JSON encoded string.
 
 ## toList utils
 
-\***\*`$util.dynamodb.toList(List) :
- Map`\*\***
+****`$util.dynamodb.toList(List) :
+ Map`****
 
 Converts a list of objects to the DynamoDB list format. Each item in the
 list is also converted to its appropriate DynamoDB format. It's opinionated

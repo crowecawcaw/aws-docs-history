@@ -2,7 +2,7 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the APPSYNC_JS
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
 runtime and its guides [here](tutorials-js.md "tutorials-js.md").
 
 AWS AppSync provides a simple way to wire a GraphQL field to a single data source through
@@ -149,9 +149,9 @@ input CreatePictureInput {
 
 Choose **Save Schema** to save your schema.
 
-Some of the schema fields have been annotated with the _@aws_auth_ directive. Since the API default action
+Some of the schema fields have been annotated with the _@aws\_auth_ directive. Since the API default action
 configuration is set to _DENY_, the API
-rejects all users that are not members of the groups mentioned inside the _@aws_auth_ directive. For more information about how
+rejects all users that are not members of the groups mentioned inside the _@aws\_auth_ directive. For more information about how
 to secure your API, you can read the [Security](security-authz.md#aws-appsync-security "security-authz.md#aws-appsync-security") page. In this case, only admin users have access to the _Mutation.createPicture_ and _Mutation.createFriendship_ fields, while users that
 are members of either _Admins_ or _Viewers_ groups can access the _Query.getPicturesByOwner_ field. All other users
 don’t have access.

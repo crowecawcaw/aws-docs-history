@@ -149,14 +149,11 @@ exceed 1 MB in size.
      create a new service role specifically for this import or use an existing
      role.
 
-6. Choose **Next**.
-7. Next, choose whether to create a read-only API (queries only) or an API for
-   reading and writing data (with queries and mutations). The latter also supports
-   real-time subscriptions triggered by mutations.
-8. Choose **Next**.
-9. Review your choices and then choose **Create API**.
-   AWS AppSync will create the API and attach resolvers to queries and mutations. The
-   generated API is fully operational and can be extended as needed.
+6. Choose **Next**. 7. Next, choose whether to create a read-only API (queries only) or an API for
+reading and writing data (with queries and mutations). The latter also supports
+real-time subscriptions triggered by mutations. 8. Choose **Next**. 9. Review your choices and then choose **Create API**.
+AWS AppSync will create the API and attach resolvers to queries and mutations. The
+generated API is fully operational and can be extended as needed.
 
 ## Using the introspection feature (API)
 

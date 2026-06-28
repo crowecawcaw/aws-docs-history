@@ -1,6 +1,6 @@
 # Supported runtime features
 
-The sections below describe the supported feature set of the APPSYNC_JS runtime.
+The sections below describe the supported feature set of the APPSYNC\_JS runtime.
 
 ## Core features
 
@@ -67,7 +67,7 @@ The following are not supported:
 - `do-while`
 - `finally`
 - `for(initialization; condition;
-afterthought)`
+ afterthought)`
 
 ###### Note
 

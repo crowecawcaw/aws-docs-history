@@ -488,9 +488,9 @@ dropped invalidation requests.
 
 #### Comparing inbound and outbound messages
 
-When a mutation is executed, subscription fields with the _@aws_subscribe_ directive for that mutation are invoked. Each
+When a mutation is executed, subscription fields with the _@aws\_subscribe_ directive for that mutation are invoked. Each
 subscription invocation generates one inbound message. For example, if two
-subscription fields specify the same mutation in _@aws_subscribe_, then two inbound messages are generated when that
+subscription fields specify the same mutation in _@aws\_subscribe_, then two inbound messages are generated when that
 mutation is called.
 
 One outbound message equals 5 kB of data delivered to WebSocket clients. For
@@ -678,18 +678,18 @@ The field-Level logging is configured with the following log levels:
 
 - **None** - **No field-level
   logs are captured.**
-- \***\*Error** - Logs the following information
+- ****Error** - Logs the following information
   **only** for the fields that are in the
-  error category:\*\*
+  error category:**
 
   - The error section in the server response
   - Field-level errors
   - The generated request/response functions that got resolved for
     error fields
 
-- \***\*Info** - Logs the following information
+- ****Info** - Logs the following information
   **only** for the fields that are in the info
-  and error categories:\*\*
+  and error categories:**
 
   - Info-level messages
   - The user messages sent through `$util.log.info` and
@@ -704,9 +704,9 @@ The field-Level logging is configured with the following log levels:
     authorization headers, to downstream data sources and do not want
     that information in your logs.
 
-- \***\*Debug** - Logs the following information
+- ****Debug** - Logs the following information
   **only** for the fields that are in the
-  debug, info, and error categories:\*\*
+  debug, info, and error categories:**
 
   - Debug-level messages
   - The user messages sent through `$util.log.info`,
@@ -714,8 +714,8 @@ The field-Level logging is configured with the following log levels:
     `console.debug`
   - Field-level tracing and mapping logs are not shown.
 
-- \***\*All** - Logs the following information for
-  **all** fields in the query:\*\*
+- ****All** - Logs the following information for
+  **all** fields in the query:**
 
   - Field-level tracing information
   - The generated request/response functions that were resolved for
@@ -911,7 +911,7 @@ logging utilities provided by AppSync to log only the necessary information.
   time, in nanoseconds, as an integer.
 - **version:** The schema version of the
   ExecutionSummary.
-- \***\*parsing:\*\***
+- ****parsing:****
 
   - **startOffset:** The start offset for
     parsing, in nanoseconds, relative to the invocation, as an
@@ -919,7 +919,7 @@ logging utilities provided by AppSync to log only the necessary information.
   - **duration:** The time spent parsing,
     in nanoseconds, as an integer.
 
-- \***\*validation:\*\***
+- ****validation:****
 
   - **startOffset:** The start offset for
     validation, in nanoseconds, relative to the invocation, as an

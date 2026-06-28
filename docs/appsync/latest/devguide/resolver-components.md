@@ -15,7 +15,7 @@ output types like objects or scalars:
 
 In AWS AppSync, you must first specify a runtime for your resolver. A resolver runtime indicates the
 environment in which a resolver is executed. It also dictates the language your resolvers will be written
-in. AWS AppSync currently supports APPSYNC_JS for JavaScript and Velocity Template Language (VTL). See [JavaScript runtime
+in. AWS AppSync currently supports APPSYNC\_JS for JavaScript and Velocity Template Language (VTL). See [JavaScript runtime
 features for resolvers and functions](resolver-util-reference-js.md "resolver-util-reference-js.md") for JavaScript or [Resolver mapping template utility
 reference](resolver-util-reference.md "resolver-util-reference.md") for VTL.
 

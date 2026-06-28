@@ -81,26 +81,25 @@ Make sure you select the right VPC endpoint service; there are two for AppSync:
 
 Console
 
-1.  Sign in to the AWS Management Console and open the [Endpoints](https://console.aws.amazon.com/vpc/home?#Endpoints "https://console.aws.amazon.com/vpc/home?#Endpoints") page of the Amazon VPC
-    console.
-2.  Choose **Create endpoint**.
+1. Sign in to the AWS Management Console and open the [Endpoints](https://console.aws.amazon.com/vpc/home?#Endpoints "https://console.aws.amazon.com/vpc/home?#Endpoints") page of the Amazon VPC
+   console.
+2. Choose **Create endpoint**.
 
-    1.  In the **Service category** field, verify that **AWS services** is selected.
-    2.  In the **Services** table, choose one of the following services:
+   1. In the **Service category** field, verify that **AWS services** is selected.
+   2. In the **Services** table, choose one of the following services:
 
-            * For data plane access: `com.amazonaws.{region}.appsync-api`
-            * For control plane access: `com.amazonaws.{region}.appsync`
-
+      - For data plane access: `com.amazonaws.{region}.appsync-api`
+      - For control plane access: `com.amazonaws.{region}.appsync`
         Verify that the **Type** column value is `Interface`.
 
-    3.  In the **VPC** field, choose a VPC and its subnets.
-    4.  To enable private DNS features for the interface endpoint, tick the **Enable
-        DNS Name** check box.
-    5.  In the **Security group** field, choose one or more security
-        groups.
+   3. In the **VPC** field, choose a VPC and its subnets.
+   4. To enable private DNS features for the interface endpoint, tick the **Enable
+      DNS Name** check box.
+   5. In the **Security group** field, choose one or more security
+      groups.
 
-3.  Choose **Create endpoint**.
-4.  Repeat the process to create the second endpoint type if needed.
+3. Choose **Create endpoint**.
+4. Repeat the process to create the second endpoint type if needed.
 
 CLI
 Use the `create-vpc-endpoint` command and specify the VPC ID, VPC endpoint type (interface),

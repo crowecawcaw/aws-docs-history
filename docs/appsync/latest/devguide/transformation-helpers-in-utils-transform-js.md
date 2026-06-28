@@ -165,7 +165,7 @@ explains the how the arguments of the following utilities are
 defined:
 
 - `Util.transform.toSubscriptionFilter(objFilter, ignoredFields?, rules?):
-SubscriptionFilter`
+ SubscriptionFilter`
 
 Argument 1: Map
 Argument 1 is a `Map` object with the following key

@@ -201,9 +201,8 @@ function** button to choose instead.
      done.
 
 7. Back on the resolver screen, under **Functions**, choose
-   the **Add function** drop-down and add your function to
-   your functions list.
-8. Choose **Save** to update the resolver.
+the **Add function** drop-down and add your function to
+your functions list. 8. Choose **Save** to update the resolver.
 
 CLI
 **To add your function**
@@ -537,8 +536,8 @@ contained the actual function details. Inside props, we included:
 
 - The code contains our function's request and response handlers, which is a simple
   scan and return.
-- The runtime specifies that we want to use the APPSYNC_JS runtime version 1.0.0.
-  Note that this is currently the only version available for APPSYNC_JS.
+- The runtime specifies that we want to use the APPSYNC\_JS runtime version 1.0.0.
+  Note that this is currently the only version available for APPSYNC\_JS.
   Next, we need to attach the function to the pipeline resolver. We created our resolver
   using the form:
 
@@ -557,8 +556,8 @@ and our props contained the actual function details. Inside the props, we includ
 - The code contains your before and after handlers. Our example just returns
   whatever results were in the context after the function performed its
   operation.
-- The runtime specifies that we want to use the APPSYNC_JS runtime version 1.0.0.
-  Note that this is currently the only version available for APPSYNC_JS.
+- The runtime specifies that we want to use the APPSYNC\_JS runtime version 1.0.0.
+  Note that this is currently the only version available for APPSYNC\_JS.
 - The pipeline config contains the reference to the function we created
   (`add_func`).
 
@@ -654,9 +653,8 @@ recommend turning this feature off for now. Choose **Create**. 5. Choose **Add f
      done.
 
 6. Back on the resolver screen, under **Functions**, choose
-   the **Add function** drop-down and add your function to
-   your functions list.
-7. Choose **Save** to update the resolver.
+the **Add function** drop-down and add your function to
+your functions list. 7. Choose **Save** to update the resolver.
 
 CLI
 **To add your function**

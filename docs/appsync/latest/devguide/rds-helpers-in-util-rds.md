@@ -2,16 +2,16 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please
-consider using the APPSYNC_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please
+consider using the APPSYNC\_JS runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 `$util.rds` contains helper methods that format Amazon RDS operations by getting
 rid of extraneous data in result outputs.
 
 ## $util.rds utils list
 
-\***\*`$util.rds.toJsonString(String
- serializedSQLResult): String`\*\***
+****`$util.rds.toJsonString(String
+ serializedSQLResult): String`****
 
 Returns a `String` by transforming the stringified raw
 Amazon Relational Database Service (Amazon RDS) Data API operation result format to a more concise string.
@@ -125,8 +125,8 @@ The `util.rds.toJsonString` is:
 ]
 ```
 
-\***\*`$util.rds.toJsonObject(String
- serializedSQLResult): Object`\*\***
+****`$util.rds.toJsonObject(String
+ serializedSQLResult): Object`****
 
 This is the same as `util.rds.toJsonString`, but with the
 result being a JSON `Object`.

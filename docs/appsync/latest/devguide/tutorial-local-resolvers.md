@@ -2,8 +2,8 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the
-APPSYNC_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the
+APPSYNC\_JS runtime and its guides [here](tutorials-js.md "tutorials-js.md").
 
 AWS AppSync allows you to use supported data sources (AWS Lambda, Amazon DynamoDB, or Amazon OpenSearch Service)
 to perform various operations. However, in certain scenarios, a call to a supported data

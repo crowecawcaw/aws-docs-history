@@ -10,7 +10,7 @@ Conflict Resolution is the action that is taken in the event that a conflict is
 detected. This is determined by setting the Conflict Handler field in the SyncConfig. There
 are three Conflict Resolution strategies:
 
-- OPTIMISTIC_CONCURRENCY
+- OPTIMISTIC\_CONCURRENCY
 - AUTOMERGE
 - LAMBDA
   Versions are automatically incremented by AWS AppSync during write operations and should

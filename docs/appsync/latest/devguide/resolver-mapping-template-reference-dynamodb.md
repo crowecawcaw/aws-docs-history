@@ -2,7 +2,7 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the APPSYNC_JS
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
 runtime and its guides [here](resolver-reference-js-version.md "resolver-reference-js-version.md").
 
 The AWS AppSync DynamoDB function allows you to use [GraphQL](https://graphql.org "https://graphql.org") to store and retrieve data in existing Amazon DynamoDB tables in your account by

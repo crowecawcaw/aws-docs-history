@@ -2,7 +2,7 @@
 
 ###### Note
 
-We now primarily support the APPSYNC_JS runtime and its documentation. Please consider using the APPSYNC_JS
+We now primarily support the APPSYNC\_JS runtime and its documentation. Please consider using the APPSYNC\_JS
 runtime and its guides [here](configuring-resolvers-js.md "configuring-resolvers-js.md").
 
 With direct Lambda resolvers, you can circumvent the use of VTL mapping templates when using AWS Lambda data

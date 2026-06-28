@@ -110,11 +110,11 @@ slightly different in protocol and domain. You can retrieve the GraphQL endpoint
 using the AWS Command Line Interface (AWS CLI) command `aws appsync
  get-graphql-api`.
 
-\***\*AWS AppSync GraphQL endpoint:\*\***
+****AWS AppSync GraphQL endpoint:****
 
 `https://example1234567890000.appsync-api.us-east-1.amazonaws.com/graphql`
 
-\***\*AWS AppSync real-time endpoint:\*\***
+****AWS AppSync real-time endpoint:****
 
 `wss://example1234567890000.appsync-realtime-api.us-east-1.amazonaws.com/graphql`
 
@@ -325,36 +325,36 @@ The request headers would include the following:
 **Header content**
 
 - `"accept":
-"application/json,
-text/javascript"`: A constant `<string>`
+ "application/json,
+ text/javascript"`: A constant `<string>`
   parameter.
 - `"content-encoding":
-"amz-1.0"`:
+ "amz-1.0"`:
   A constant `<string>` parameter.
 - `"content-type":
-"application/json;
-charset=UTF-8"`: A constant `<string>`
+ "application/json;
+ charset=UTF-8"`: A constant `<string>`
   parameter.
 - `"host":
-<string>`:
+ <string>`:
   This is the host for the AWS AppSync GraphQL endpoint.
 
   - `"x-amz-date":
-<string>`:
+   <string>`:
     The timestamp must be in UTC and in the following ISO 8601
     format: YYYYMMDD'T'HHMMSS'Z'. For example, 20150830T123600Z
     is a valid timestamp. Do not include milliseconds in the
     timestamp. For more information, see [Handling dates in Signature Version 4](../../../general/latest/gr/sigv4-date-handling.md "../../../general/latest/gr/sigv4-date-handling.md") in the
     _AWS General Reference_.
   - `"X-Amz-Security-Token":
-<string>`:
+   <string>`:
     The AWS session token, which is required when using
     temporary security credentials. For more information, see
     [Using temporary credentials with AWS
     resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the
     _IAM User Guide_.
   - `"Authorization":
-<string>`:
+   <string>`:
     Signature Version 4 (SigV4) signing information for the
     AWS AppSync endpoint. For more information on the signing
     process, see [Task 4: Add the signature to the HTTP request](../../../general/latest/gr/sigv4-add-signature-to-request.md "../../../general/latest/gr/sigv4-add-signature-to-request.md")
