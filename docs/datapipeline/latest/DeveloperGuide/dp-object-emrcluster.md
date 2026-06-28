@@ -40,10 +40,10 @@ ecosystem. Each release comprises different big data applications, components,
 and features that you select to have Amazon EMR install and configure when you create
 a cluster. You specify the release version using the release label. Release
 labels are in the form `emr-`x.x.x``. For
- example, `emr-5.30.0`. Amazon EMR clusters based on release label
- `emr-4.0.0`and later use the`releaseLabel`property
- to specify the release label of an`EmrCluster`object. Earlier
- versions use the`amiVersion` property.
+example, `emr-5.30.0`. Amazon EMR clusters based on release label
+`emr-4.0.0` and later use the `releaseLabel` property
+to specify the release label of an `EmrCluster` object. Earlier
+versions use the `amiVersion` property.
 
 ###### Important
 

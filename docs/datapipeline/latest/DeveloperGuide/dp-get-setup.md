@@ -32,7 +32,7 @@ AWS Data Pipeline requires IAM roles that determine the permissions to perform a
 
 To work with a pipeline, an IAM principal (a user or group) in your account must be allowed to perform required [AWS Data Pipeline actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") and actions for other services as defined by your pipeline.
 
-To simplify permissions, the **AWSDataPipeline_FullAccess** managed policy is available for you to attach to IAM principals. This managed policy allows the principal to perform all actions that a user requires and the `iam:PassRole` action on the default roles used with AWS Data Pipeline when a custom role is not specified.
+To simplify permissions, the **AWSDataPipeline\_FullAccess** managed policy is available for you to attach to IAM principals. This managed policy allows the principal to perform all actions that a user requires and the `iam:PassRole` action on the default roles used with AWS Data Pipeline when a custom role is not specified.
 
 We highly recommend that you carefully evaluate this managed policy and restrict permissions only to those that your users require. If necessary, use this policy as a starting point, and then remove permissions to create a more restrictive inline permissions policy that you can attach to IAM principals. For more information and example permissions policies, see [Example Policies for AWS Data Pipeline](dp-example-tag-policies.md "dp-example-tag-policies.md")
 
@@ -57,9 +57,9 @@ JSON
 
 ```
 
-The following procedure demonstrates how to create an IAM group, attach the **AWSDataPipeline_FullAccess** managed policy to the group, and then add users to the group. You can use this procedure for any inline policy
+The following procedure demonstrates how to create an IAM group, attach the **AWSDataPipeline\_FullAccess** managed policy to the group, and then add users to the group. You can use this procedure for any inline policy
 
-###### To create a user group `DataPipelineDevelopers` and attach the **AWSDataPipeline_FullAccess** policy
+###### To create a user group `DataPipelineDevelopers` and attach the **AWSDataPipeline\_FullAccess** policy
 
 1. Open the IAM console at
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

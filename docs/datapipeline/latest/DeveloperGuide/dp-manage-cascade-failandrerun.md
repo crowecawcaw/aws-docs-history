@@ -71,11 +71,11 @@ you also attempt to rerun any objects that depend on it.
 If you enable cascade failure and have a pipeline that creates many backfills,
 pipeline runtime errors can cause resources to be created and deleted in rapid
 succession without performing useful work. AWS Data Pipeline attempts to alert you about this
-situation with the following warning message when you save a pipeline: ``Pipeline_object_name` has 'failureAndRerunMode' field
-set to 'cascade' and you are about to create a backfill with scheduleStartTime
+situation with the following warning message when you save a pipeline: ``Pipeline_object_name`has 'failureAndRerunMode' field
+ set to 'cascade' and you are about to create a backfill with scheduleStartTime
 `start_time`. This can result in rapid creation of
-pipeline objects in case of failures.` This happens because cascade
- failure can quickly set downstream activities as`CASCADE_FAILED` and
+ pipeline objects in case of failures.` This happens because cascade
+failure can quickly set downstream activities as `CASCADE_FAILED` and
 shut down EMR clusters and EC2 resources that are no longer needed. We recommended
 that you test pipelines with short time ranges to limit the effects of this
 situation.

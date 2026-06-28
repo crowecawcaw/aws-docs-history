@@ -27,7 +27,7 @@ instance depend on where you install Task Runner.
    - `Ec2Resource`
 
      - **Connection Type**: `EC2
-Security Group`
+   Security Group`
 
      **Details**:
      `my-security-group-name` (the
@@ -37,12 +37,12 @@ Security Group`
    - `EmrResource`
 
      - **Connection Type**: `EC2
-Security Group`
+   Security Group`
 
      **Details**:
      `ElasticMapReduce-master`
      - **Connection Type**: `EC2
-Security Group`
+   Security Group`
 
      **Details**:
      `ElasticMapReduce-slave`

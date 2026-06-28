@@ -35,8 +35,8 @@ The input data automatically copies into the resource local file system.
 Output data automatically copies from the resource local file system to the
 output data node. For example, when you configure
 `ShellCommandActivity` inputs and outputs with staging =
-true, the input data is available as INPUT*x*\_STAGING_DIR
-and output data is available as OUTPUT*x*\_STAGING_DIR,
+true, the input data is available as INPUT*x*\_STAGING\_DIR
+and output data is available as OUTPUT*x*\_STAGING\_DIR,
 where _x_ is the number of input or output.
 
 Staging input and output definitions for an activity

@@ -9,7 +9,7 @@ solve them.
 
 - [Pipeline Stuck in Pending Status](#dp-pipeline-doesnt-start "#dp-pipeline-doesnt-start")
 - [Pipeline Component Stuck in Waiting for Runner Status](#dp-waiting-for-runner "#dp-waiting-for-runner")
-- [Pipeline Component Stuck in WAITING_ON_DEPENDENCIES Status](#dp-runs-stay-pending "#dp-runs-stay-pending")
+- [Pipeline Component Stuck in WAITING\_ON\_DEPENDENCIES Status](#dp-runs-stay-pending "#dp-runs-stay-pending")
 - [Run Doesn't Start When Scheduled](#dp-run-doesnt-start-scheduled "#dp-run-doesnt-start-scheduled")
 - [Pipeline Components Run in Wrong Order](#dp-out-of-order "#dp-out-of-order")
 - [EMR Cluster Fails With Error: The security token included in the request is invalid](#dp-securitytoken "#dp-securitytoken")
@@ -44,7 +44,7 @@ to use a text editor that can visually validate the syntax of JSON files.
 ## Pipeline Component Stuck in Waiting for Runner Status
 
 If your pipeline is in the SCHEDULED state and one or more tasks appear stuck in
-the WAITING_FOR_RUNNER state, ensure that you set a valid value for either the
+the WAITING\_FOR\_RUNNER state, ensure that you set a valid value for either the
 runsOn or workerGroup fields for those tasks. If both values are empty or missing,
 the task cannot start because there is no association between the task and a worker
 to perform the tasks. In this situation, you've defined work but haven't defined
@@ -64,7 +64,7 @@ no visible errors, but Task Runner polls the wrong location due to the differenc
 in credentials, or polls the correct location with insufficient permissions to
 identify and run the work specified by the pipeline definition.
 
-## Pipeline Component Stuck in WAITING_ON_DEPENDENCIES Status
+## Pipeline Component Stuck in WAITING\_ON\_DEPENDENCIES Status
 
 If your pipeline is in the `SCHEDULED` state and one or more tasks
 appear stuck in the `WAITING_ON_DEPENDENCIES` state, make sure your
@@ -169,7 +169,7 @@ permissions necessary for AWS Data Pipeline to function correctly. For more info
 
 You receive the following error when you try to create a pipeline:
 
-Failed to create pipeline with 'pipeline_name'. Error: UnrecognizedClientException
+Failed to create pipeline with 'pipeline\_name'. Error: UnrecognizedClientException
 
 - The security token included in the request is invalid.
 
