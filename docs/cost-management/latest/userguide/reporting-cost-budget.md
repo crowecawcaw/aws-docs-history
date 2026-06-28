@@ -6,7 +6,7 @@ addresses.
 
 You can create up to 50 reports for each standalone account or AWS Organizations management account.
 Each budget report costs $.01 USD for each report delivered. This is regardless of the
-number of recipients receiving the report. For example, a daily budget report costs $.01 a
+ number of recipients receiving the report. For example, a daily budget report costs $.01 a
 day, a weekly budget report costs $.01 a week, and a monthly budget report costs $.01 a
 month.
 

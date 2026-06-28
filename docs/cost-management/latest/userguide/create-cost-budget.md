@@ -83,14 +83,12 @@ options**, choose how to aggregate costs:
      with all discounts and credits applied. Supports long-term budget
      planning.
 
-14. Choose **Next**.
-15. Choose **Add an alert threshold**.
-16. Under **Set alert threshold**, for
-    **Threshold**, enter the amount that must be reached
-    for you to be notified. This can be either an absolute value or a
-    percentage. For example, say you have a budget of 200 dollars. To be notiﬁed
-    at 160 dollars (80% of your budget), enter `160` for an
-    absolute budget or `80` for a percentage budget.
+14. Choose **Next**. 15. Choose **Add an alert threshold**. 16. Under **Set alert threshold**, for
+**Threshold**, enter the amount that must be reached
+for you to be notified. This can be either an absolute value or a
+percentage. For example, say you have a budget of 200 dollars. To be notiﬁed
+at 160 dollars (80% of your budget), enter `160` for an
+absolute budget or `80` for a percentage budget.
 
 Next to the amount, choose **Absolute value** to be
 notiﬁed when your costs exceed the threshold amount. Or, choose **%
@@ -125,4 +123,4 @@ parameters for each alert:
     * A budget action
 
 23. Review your budget settings, and then choose **Create
-    budget**.
+budget**.

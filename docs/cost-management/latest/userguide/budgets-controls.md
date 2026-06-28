@@ -20,7 +20,7 @@ your forecasted costs for the month. To do so, perform the following actions:
 - Apply a custom `Deny IAM` policy that restricts the ability for a user,
   group, or role to provision additional Amazon EC2 resources.
 - Target specific Amazon EC2 instances in `US East (N. Virginia)
-us-east-1`.
+ us-east-1`.
 
 ###### Topics
 

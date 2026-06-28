@@ -94,8 +94,8 @@ alert:
     * A budget action
 
 9. Review your budget settings, and then choose **Create
-   budget** or **Save**.
-   After you create an action, you can view its status from the AWS Budgets page on the
-   **Actions** column. This column shows your configured actions
-   count, actions waiting for your approval (**Requires approval**), and
-   your successfully completed actions.
+budget** or **Save**.
+After you create an action, you can view its status from the AWS Budgets page on the
+**Actions** column. This column shows your configured actions
+count, actions waiting for your approval (**Requires approval**), and
+your successfully completed actions.

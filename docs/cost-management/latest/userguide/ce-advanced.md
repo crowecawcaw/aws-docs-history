@@ -28,7 +28,7 @@ options** to include or exclude specific types of data.
 
    For example, suppose that Alejandro purchases a Partial Upfront
    `t2.micro` RI for a one-year term at $30 dollars upfront. The
-   monthly fee is $2.48. Cost Explorer shows the costs for this RI as a spike
+	 monthly fee is $2.48. Cost Explorer shows the costs for this RI as a spike
    on the first of the month. If Alejandro chooses **Amortized
    costs** for a 30-day month, the Cost Explorer chart shows a
    daily effective rate of $0.165. This is the EC2 effective rate multiplied by

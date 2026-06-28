@@ -31,5 +31,5 @@ The recommended action includes the following information:
      savings percentage relative to the total cost.
 
 2. Based on the recommended action, you can choose to view the recommendation in the
-   AWS Billing and Cost Management console, or you can open it in AWS Compute Optimizer
-   or the relevant console.
+AWS Billing and Cost Management console, or you can open it in AWS Compute Optimizer
+or the relevant console.

@@ -116,4 +116,4 @@ parameters for each alert:
     * A budget action
 
 22. Review your budget settings, and then choose **Create
-    budget**.
+budget**.

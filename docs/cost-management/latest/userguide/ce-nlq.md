@@ -84,7 +84,7 @@ After clicking a suggested prompt or asking a question using the **Ask question*
 
 To use the suggested prompts and **Ask question** button in Cost Explorer, you need the following permissions in addition to your existing Cost Explorer permissions:
 
-- \***\*Amazon Q Developer** permissions\*\*: `q:StartConversation`, `q:SendMessage`
+- ****Amazon Q Developer** permissions**: `q:StartConversation`, `q:SendMessage`
 - **Pass request permission**: `q:PassRequest`, which allows **Amazon Q Developer** to call AWS APIs on your behalf
 
 For least-privilege access, create a custom IAM policy that grants only `q:StartConversation`, `q:SendMessage`, and `q:PassRequest`. Alternatively, administrators who already use **Amazon Q Developer** across multiple integrations can use the `AmazonQFullAccess` managed policy, which includes these permissions along with broader **Amazon Q Developer** access. The integration respects all existing IAM boundaries. **Amazon Q Developer** only accesses cost data you are authorized to view through Cost Explorer.

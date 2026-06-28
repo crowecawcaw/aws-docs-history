@@ -59,11 +59,11 @@ The RI Utilization charts display the number of RI hours that your account uses,
 
 The following table shows an example of potential savings (all costs are in USD).
 
-| RI utilization example | **Account** | **RI utilization** | **RI hours purchased** | **RI hours used** | **RI hours unused** | **On-Demand cost of RI hours used** | **Effective RI cost** | **Net savings** | **Total potential savings** |
-| ---------------------- | ----------- | ------------------ | ---------------------- | ----------------- | ------------------- | ----------------------------------- | --------------------- | --------------- | --------------------------- |
-| Martha                 | 0.50        | 100                | 50                     | 50                | $200                | $150                                | $50                   | $250            |
-| Liu Jie                | 0.75        | 100                | 75                     | 25                | $300                | $150                                | $150                  | $250            |
-| Saanvi                 | 1.00        | 50                 | 50                     | 0                 | $200                | $75                                 | $125                  | $125            |
+RI utilization example| **Account** | **RI utilization** | **RI hours purchased** | **RI hours used** | **RI hours unused** | **On-Demand cost of RI hours used** | **Effective RI cost** | **Net savings** | **Total potential savings** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Martha | 0.50 | 100 | 50 | 50 | $200 | $150 | $50 | $250 |
+| Liu Jie | 0.75 | 100 | 75 | 25 | $300 | $150 | $150 | $250 |
+| Saanvi | 1.00 | 50 | 50 | 0 | $200 | $75 | $125 | $125 |
 
 As shown in the preceding table, Martha, Liu Jie, and Saanvi purchase RIs at $1.50 an hour and On-Demand hours at $4.00 an hour. Breaking down this example further, you can see how much each of them saves by purchasing RIs:
 

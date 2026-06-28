@@ -25,17 +25,16 @@ to generate, which is longer than the time frame for cost and usage data.
 `_.:/=+-%@`
 ```
 
-7.  Under **Utilization threshold**, for **Period**, choose
-    how often you want the budget to reset the tracked utilization or coverage.
+7. Under **Utilization threshold**, for **Period**, choose
+   how often you want the budget to reset the tracked utilization or coverage.
 
-        * **Daily** for every day
-        * **Monthly** for every month
-        * **Quarterly** for every three months
-        * **Annually** for every 12 months
-        * **Custom** to specify your own start and end
-         dates
-
-    All budget times are in the UTC format.
+   - **Daily** for every day
+   - **Monthly** for every month
+   - **Quarterly** for every three months
+   - **Annually** for every 12 months
+   - **Custom** to specify your own start and end
+     dates
+     All budget times are in the UTC format.
 
 ###### Note
 

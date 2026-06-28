@@ -25,6 +25,6 @@ This policy is attached to the `AWSServiceRoleForUserAttributeCostAllocation` se
 View details about updates to AWS managed policies for AWS Billing and Cost Management since this service
 began tracking these changes.
 
-| Policy                               | Version | Change                                                                                                                                                                                                           |
-| ------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWSUserAttributeCostAllocationPolicy | 1       | \*_December 15, 2025:_<br>• Initial policy creation. This policy provides permissions for the user attributes for cost allocation service-linked role to fetch role information for internal service operations. |
+| Policy                               | Version | Change                                                                                                                                                                                                          |
+| ------------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWSUserAttributeCostAllocationPolicy | 1       | **December 15, 2025:*<br>• Initial policy creation. This policy provides permissions for the user attributes for cost allocation service-linked role to fetch role information for internal service operations. |

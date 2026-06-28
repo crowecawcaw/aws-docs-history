@@ -42,9 +42,9 @@ can't be edited later. 13. To configure Amazon Chime webhook, do the following:
      Developer configurations.
 
 14. If you want to enable logging for this configuration, choose
-    **Publish logs to Amazon CloudWatch Logs**. For
-    more information, see Amazon CloudWatch Logs for Amazon Q
-    Developer.
+**Publish logs to Amazon CloudWatch Logs**. For
+more information, see Amazon CloudWatch Logs for Amazon Q
+Developer.
 
 ###### Note
 
@@ -68,25 +68,27 @@ follows:
      events, and logs, and for Amazon SNS topics.
 
 16. Set up the SNS topics that will send notifications to the Amazon Chime
-    webhook.
+webhook.
 
-    1.  For **SNS Region**, choose the AWS Region
-        that hosts the SNS topics for this Amazon Q Developer
-        subscription.
-    2.  For **SNS topics**, choose the SNS topic for
-        the client subscription. This topic determines the content
-        that's sent to the Amazon Chime webhook. If the region has
-        additional SNS topics, you can choose them from the same
-        dropdown list.
+    1. For **SNS Region**, choose the AWS Region
+     that hosts the SNS topics for this Amazon Q Developer
+     subscription.
+    2. For **SNS topics**, choose the SNS topic for
+     the client subscription. This topic determines the content
+     that's sent to the Amazon Chime webhook. If the region has
+     additional SNS topics, you can choose them from the same
+     dropdown list.
+
 
     ###### Note
 
     You can send budget alerts to multiple Amazon SNS topics and Regions.
 
     At least one of the Amazon SNS topics must match the Amazon SNS
-    topic or topics of your budget or budgets. 3. If you want to add an SNS topic from another Region to the
-    notification subscription, choose **Add another
-    Region**.
+     topic or topics of your budget or budgets.
+    3. If you want to add an SNS topic from another Region to the
+     notification subscription, choose **Add another
+     Region**.
 
 17. Choose **Configure**.
 

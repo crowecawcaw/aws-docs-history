@@ -41,7 +41,7 @@ expect, then you might not get as many budget alerts as you need.
 For example, you can create an auto-adjusting cost budget with a baseline
 time range of the last six months. In this scenario, if your average
 spending each budget period in the last six months was $100, your
-auto-adjusted budget amount in the new period is $100.
+ auto-adjusted budget amount in the new period is $100.
 
 If AWS Budgets updates your budget amount based on changes in your
 spending or usage, all budget alert notification subscribers get a

@@ -9,7 +9,7 @@ Amazon Chime
 
 1. Follow [Getting started with AWS Cost Anomaly Detection](getting-started-ad.md "getting-started-ad.md") to create a monitor.
 2. Create an alert subscription using the `Individual
-alerts` type. Amazon SNS topics can be configured for
+ alerts` type. Amazon SNS topics can be configured for
    `individual alerts` only.
 3. Add an Amazon SNS topic as an alert recipient to a specific alert or
    alerts. To ensure that Cost Anomaly Detection has permissions to publish to your Amazon SNS
@@ -44,9 +44,9 @@ can't be edited later. 13. To configure Amazon Chime webhook, do the following:
      Amazon Q Developer configurations.
 
 14. If you want to enable logging for this configuration, choose
-    **Publish logs to Amazon CloudWatch Logs**. For
-    more information, see Amazon CloudWatch Logs for Amazon Q
-    Developer.
+**Publish logs to Amazon CloudWatch Logs**. For
+more information, see Amazon CloudWatch Logs for Amazon Q
+Developer.
 
 ###### Note
 
@@ -70,19 +70,19 @@ follows:
      alarms, events, and logs, and for Amazon Amazon SNS topics.
 
 16. Set up the Amazon SNS topics that will send notifications to the
-    Amazon Chime webhook.
+Amazon Chime webhook.
 
-    1.  For **Amazon SNS Region**, choose the AWS
-        Region that hosts the Amazon SNS topics for this Amazon Q
-        Developer subscription.
-    2.  For **Amazon SNS topics**, choose the Amazon SNS
-        topic for the client subscription. This topic determines the
-        content that's sent to the Amazon Chime webhook. If the region
-        has additional Amazon SNS topics, you can choose them from the
-        same dropdown list.
-    3.  If you want to add an Amazon SNS topic from another Region to
-        the notification subscription, choose **Add another
-        Region**.
+    1. For **Amazon SNS Region**, choose the AWS
+     Region that hosts the Amazon SNS topics for this Amazon Q
+     Developer subscription.
+    2. For **Amazon SNS topics**, choose the Amazon SNS
+     topic for the client subscription. This topic determines the
+     content that's sent to the Amazon Chime webhook. If the region
+     has additional Amazon SNS topics, you can choose them from the
+     same dropdown list.
+    3. If you want to add an Amazon SNS topic from another Region to
+     the notification subscription, choose **Add another
+     Region**.
 
 17. Choose **Configure**.
 
@@ -95,7 +95,7 @@ Slack
 
 1. Follow [Getting started with AWS Cost Anomaly Detection](getting-started-ad.md "getting-started-ad.md") to create a monitor.
 2. Create an alert subscription using the `Individual
-alerts` type. Amazon SNS topics can be configured for
+ alerts` type. Amazon SNS topics can be configured for
    `individual alerts` only.
 3. Add an Amazon SNS topic as an alert recipient to a specific alert or
    alerts. To ensure that Cost Anomaly Detection has permissions to publish to your Amazon SNS

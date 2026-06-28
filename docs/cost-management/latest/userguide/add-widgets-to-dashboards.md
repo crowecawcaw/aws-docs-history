@@ -44,9 +44,9 @@ following:
 
 7. To change the visualization type:
 
-   - Choose the vertical three dots in the upper right corner of the widget.
-   - Choose **Change visualization type**.
-   - Choose **Line chart**, **Bar chart**,
+    * Choose the vertical three dots in the upper right corner of the widget.
+    * Choose **Change visualization type**.
+    * Choose **Line chart**, **Bar chart**,
      **Stacked bar chart**, or **Table**.
 
 ###### Note

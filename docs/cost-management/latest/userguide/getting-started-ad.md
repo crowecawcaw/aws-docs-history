@@ -89,18 +89,17 @@ Choose your monitor method based on your needs:
     	 10).
 
 6. (Optional) Add a tag to your monitor. For more information
-   about tags, see [Tagging AWS
-   resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
-   guide_.
+about tags, see [Tagging AWS
+resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
+guide_.
 
-   1. Enter the key value for the tag.
-   2. Choose **Add new tag** to add
-      additional tags. The maximum number of tags that you can
-      add is 50.
+    1. Enter the key value for the tag.
+    2. Choose **Add new tag** to add
+     additional tags. The maximum number of tags that you can
+     add is 50.
 
-7. Choose **Next**.
-8. In **Step 2**, configure your alert
-   subscriptions.
+7. Choose **Next**. 8. In **Step 2**, configure your alert
+subscriptions.
 
 For **Alert subscription**, if you don't have
 an existing subscription, choose **Create a new
@@ -197,9 +196,8 @@ guide_.
      add is 50.
 
 10. (Optional) Choose **Add alert subscriptions**
-    to create another alert subscription. With this option, you can
-    create a new subscription using the same monitor.
-11. Choose **Create monitor**.
+to create another alert subscription. With this option, you can
+create a new subscription using the same monitor. 11. Choose **Create monitor**.
 
 **Important considerations for AWS managed
 monitors:**
@@ -348,7 +346,7 @@ ongoing.
 The spend increase detected compared to the expected spend amount. It
 is calculated as **actual spend - expected spend**. For
 example, a total cost impact of $20 on a service monitor means that
-there was a $20 increase detected in a particular service with a total
+ there was a $20 increase detected in a particular service with a total
 duration of the specified days.
 
 **Impact %**
@@ -356,7 +354,7 @@ duration of the specified days.
 The percentage difference between the actual spend and expected spend.
 It is calculated as **(total cost impact / expected spend) \*
 100**. For example, if the total cost impact was $20 and the
-expected spend was $60, then the impact percentage would be 33.33%. This
+ expected spend was $60, then the impact percentage would be 33.33%. This
 value cannot be calculated when expected spend is zero, so in those
 situations the value will show as “N/A”.
 
