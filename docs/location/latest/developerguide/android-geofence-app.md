@@ -24,36 +24,38 @@ following procedure:
 4. Enter an Identity pool name, and make sure Identity Pool has
    access to Amazon Location `(geo)`resources for the map and
    tracker you will be creating in the next procedure.
-5. Now you need to create and style a map in the AWS Amazon Location console, use
-   the following procedure:
+5.
 
-6. Navigate to the [Maps
+Now you need to create and style a map in the AWS Amazon Location console, use
+the following procedure:
+
+1. Navigate to the [Maps
    section](https://console.aws.amazon.com/location/maps/home "https://console.aws.amazon.com/location/maps/home") in the Amazon Location console and select
    **Create Map** to preview available map
    styles.
-7. Give the new map resource a **Name** and
+2. Give the new map resource a **Name** and
    **Description**. Record the name you assign to
    the map resource, as it is used later in the tutorial.
-8. When choosing a map style, consider the map data provider. Refer
+3. When choosing a map style, consider the map data provider. Refer
    to section 82 of the [AWS service
    terms](http://aws.amazon.com/service-terms "http://aws.amazon.com/service-terms") for more details.
-9. Accept the [Amazon Location Terms and Conditions](https://aws.amazon.com/service-terms/#:~:text=82.%20Amazon%20Location%20Service "https://aws.amazon.com/service-terms/#:~:text=82.%20Amazon%20Location%20Service"), then select
+4. Accept the [Amazon Location Terms and Conditions](https://aws.amazon.com/service-terms/#:~:text=82.%20Amazon%20Location%20Service "https://aws.amazon.com/service-terms/#:~:text=82.%20Amazon%20Location%20Service"), then select
    **Create Map**. After map has been created, you
    can interact with the map by zooming in, out, or panning in any
    direction.
    To create a tracker using the Amazon Location console
 
-10. Open the [Amazon Location Service console](https://console.aws.amazon.com/location/ "https://console.aws.amazon.com/location/").
-11. In the left navigation pane, choose
-    **Trackers**.
-12. Choose **Create tracker**.
-13. Fill in the all the required fields.
-14. Under **Position filtering**, choose the option
-    that best fits how you intend to use your tracker resource. If you
-    do not set Position filtering, the default setting is TimeBased. For
-    more information, see Trackers in this guide, and PositionFiltering
-    in the Amazon Location Service Trackers API Reference.
-15. Choose **Create tracker** to finish.
+5. Open the [Amazon Location Service console](https://console.aws.amazon.com/location/ "https://console.aws.amazon.com/location/").
+6. In the left navigation pane, choose
+   **Trackers**.
+7. Choose **Create tracker**.
+8. Fill in the all the required fields.
+9. Under **Position filtering**, choose the option
+   that best fits how you intend to use your tracker resource. If you
+   do not set Position filtering, the default setting is TimeBased. For
+   more information, see Trackers in this guide, and PositionFiltering
+   in the Amazon Location Service Trackers API Reference.
+10. Choose **Create tracker** to finish.
     When creating a geofence collection you can use either the console, API or
     CLI. The following procedures walk you through each option.
 

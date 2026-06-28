@@ -2,12 +2,12 @@
 
 Specifies the location for route calculation, including where the route starts, ends, and intermediate stops (or locations to be passed through).
 
-| Specifies the where for route calculation | Parameter                                                                                                                                                                                             | Description       | Routes            | Routes Matrix     | Isoline           | Optimize Waypoint | Snap to Road |
-| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- | ----------------- | ----------------- | ----------------- | ------------ |
-| Origin(s)                                 | Starting position of the route.                                                                                                                                                                       | Yes, with options | Yes, with options | Yes, with options | Yes, with options | No                |
-| Waypoint                                  | Intermediate positions to be included along the route.                                                                                                                                                | Yes, with options | Yes, with options | Yes, with options | Yes, with options | No                |
-| Destination(s)                            | Ending position of the route.                                                                                                                                                                         | Yes, with options | Yes, with options | Yes, with options | Yes, with options | No                |
-| Trace points                              | GPS trace that includes historical position information emitted by a travel mode. These positions include typical GPS inaccuracies and gaps when the device couldn't emit or record this information. | No                | No                | No                | No                | Yes, with options |
+Specifies the where for route calculation| Parameter | Description | Routes | Routes Matrix | Isoline | Optimize Waypoint | Snap to Road |
+| --- | --- | --- | --- | --- | --- | --- |
+| Origin(s) | Starting position of the route. | Yes, with options | Yes, with options | Yes, with options | Yes, with options | No |
+| Waypoint | Intermediate positions to be included along the route. | Yes, with options | Yes, with options | Yes, with options | Yes, with options | No |
+| Destination(s) | Ending position of the route. | Yes, with options | Yes, with options | Yes, with options | Yes, with options | No |
+| Trace points | GPS trace that includes historical position information emitted by a travel mode. These positions include typical GPS inaccuracies and gaps when the device couldn't emit or record this information. | No | No | No | No | Yes, with options |
 
 ## Configurable options
 

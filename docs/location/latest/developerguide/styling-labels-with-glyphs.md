@@ -58,26 +58,26 @@ The following fonts are supported in the API:
 - Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular
 - Amazon Ember Thin
 - Amazon Ember Thin Italic
-- AmazonEmberCdRC_Bd
-- AmazonEmberCdRC_BdIt
-- AmazonEmberCdRC_Lt
-- AmazonEmberCdRC_LtIt
-- AmazonEmberCdRC_Rg
-- AmazonEmberCdRC_RgIt
-- AmazonEmberCdRC_Th
-- AmazonEmberCdRC_ThIt
-- AmazonEmber_Bd
-- AmazonEmber_BdIt
-- AmazonEmber_He
-- AmazonEmber_HeIt
-- AmazonEmber_Lt
-- AmazonEmber_LtIt
-- AmazonEmber_Md
-- AmazonEmber_MdIt
-- AmazonEmber_Rg
-- AmazonEmber_RgIt
-- AmazonEmber_Th
-- AmazonEmber_ThIt
+- AmazonEmberCdRC\_Bd
+- AmazonEmberCdRC\_BdIt
+- AmazonEmberCdRC\_Lt
+- AmazonEmberCdRC\_LtIt
+- AmazonEmberCdRC\_Rg
+- AmazonEmberCdRC\_RgIt
+- AmazonEmberCdRC\_Th
+- AmazonEmberCdRC\_ThIt
+- AmazonEmber\_Bd
+- AmazonEmber\_BdIt
+- AmazonEmber\_He
+- AmazonEmber\_HeIt
+- AmazonEmber\_Lt
+- AmazonEmber\_LtIt
+- AmazonEmber\_Md
+- AmazonEmber\_MdIt
+- AmazonEmber\_Rg
+- AmazonEmber\_RgIt
+- AmazonEmber\_Th
+- AmazonEmber\_ThIt
 - Noto Sans Black
 - Noto Sans Black Italic
 - Noto Sans Bold

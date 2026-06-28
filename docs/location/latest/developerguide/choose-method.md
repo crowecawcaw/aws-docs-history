@@ -17,10 +17,9 @@ between the two.
 
 - **Combines with another authentication method?**
 
-      + **API key:** No
-      + **Amazon Cognito:** Yes
-
-  **Comparison**
+  - **API key:** No
+  - **Amazon Cognito:** Yes
+    **Comparison**
 
 - API keys are available only for maps, places, and routes actions. Amazon Cognito can be
   used to authenticate access to most Amazon Location Service APIs.

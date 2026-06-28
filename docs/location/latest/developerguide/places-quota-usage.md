@@ -17,15 +17,15 @@ charges for quota increase requests, but higher usage levels may lead to increas
 service costs based on the additional resources consumed. For more details, see
 [Manage quotas with Service Quotas](manage-quotas.md "manage-quotas.md").
 
-| Service Quota Limits                                                                                                | API Name | Default | Adjustable Max limit                                                                                                                                                                                          | More than Adjustable Max limit |
-| ------------------------------------------------------------------------------------------------------------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| [Geocode](../APIReference/API_geoplaces_Geocode.md "../APIReference/API_geoplaces_Geocode.md")                      | 100      | 200     | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
-| [ReverseGeocode](../APIReference/API_geoplaces_ReverseGeocode.md "../APIReference/API_geoplaces_ReverseGeocode.md") | 100      | 200     | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
-| [Autocomplete](../APIReference/API_geoplaces_Autocomplete.md "../APIReference/API_geoplaces_Autocomplete.md")       | 100      | 200     | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
-| [GetPlace](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md")                   | 100      | 200     | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
-| [SearchText](../APIReference/API_geoplaces_SearchText.md "../APIReference/API_geoplaces_SearchText.md")             | 100      | 200     | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
-| [SearchNearby](../APIReference/API_geoplaces_SearchNearby.md "../APIReference/API_geoplaces_SearchNearby.md")       | 100      | 200     | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
-| [Suggest](../APIReference/API_geoplaces_Suggest.md "../APIReference/API_geoplaces_Suggest.md")                      | 100      | 200     | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
+Service Quota Limits| API Name | Default | Adjustable Max limit | More than Adjustable Max limit |
+| --- | --- | --- | --- |
+| [Geocode](../APIReference/API_geoplaces_Geocode.md "../APIReference/API_geoplaces_Geocode.md") | 100 | 200 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
+| [ReverseGeocode](../APIReference/API_geoplaces_ReverseGeocode.md "../APIReference/API_geoplaces_ReverseGeocode.md") | 100 | 200 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
+| [Autocomplete](../APIReference/API_geoplaces_Autocomplete.md "../APIReference/API_geoplaces_Autocomplete.md") | 100 | 200 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
+| [GetPlace](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") | 100 | 200 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
+| [SearchText](../APIReference/API_geoplaces_SearchText.md "../APIReference/API_geoplaces_SearchText.md") | 100 | 200 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
+| [SearchNearby](../APIReference/API_geoplaces_SearchNearby.md "../APIReference/API_geoplaces_SearchNearby.md") | 100 | 200 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
+| [Suggest](../APIReference/API_geoplaces_Suggest.md "../APIReference/API_geoplaces_Suggest.md") | 100 | 200 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home#!/services/geo/quotas") or contact support team |
 
 ## Other Usage Limits
 
@@ -33,15 +33,15 @@ service costs based on the additional resources consumed. For more details, see
 
 Autocomplete is not available in Japan.
 
-| API usage Limits                                                                                                    | API Name                                | Limit | Value |
-| ------------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ----- | ----- |
-| [Geocode](../APIReference/API_geoplaces_Geocode.md "../APIReference/API_geoplaces_Geocode.md")                      | Response payload size after compression | 6MB   |
-| [ReverseGeocode](../APIReference/API_geoplaces_ReverseGeocode.md "../APIReference/API_geoplaces_ReverseGeocode.md") | Response payload size after compression | 6MB   |
-| [Autocomplete](../APIReference/API_geoplaces_Autocomplete.md "../APIReference/API_geoplaces_Autocomplete.md")       | Response payload size after compression | 6MB   |
-| [GetPlace](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md")                   | Response payload size after compression | 6MB   |
-| [SearchText](../APIReference/API_geoplaces_SearchText.md "../APIReference/API_geoplaces_SearchText.md")             | Response payload size after compression | 6MB   |
-| [SearchNearby](../APIReference/API_geoplaces_SearchNearby.md "../APIReference/API_geoplaces_SearchNearby.md")       | Response payload size after compression | 6MB   |
-| [Suggest](../APIReference/API_geoplaces_Suggest.md "../APIReference/API_geoplaces_Suggest.md")                      | Response payload size after compression | 6MB   |
+API usage Limits| API Name | Limit | Value |
+| --- | --- | --- |
+| [Geocode](../APIReference/API_geoplaces_Geocode.md "../APIReference/API_geoplaces_Geocode.md") | Response payload size after compression | 6MB |
+| [ReverseGeocode](../APIReference/API_geoplaces_ReverseGeocode.md "../APIReference/API_geoplaces_ReverseGeocode.md") | Response payload size after compression | 6MB |
+| [Autocomplete](../APIReference/API_geoplaces_Autocomplete.md "../APIReference/API_geoplaces_Autocomplete.md") | Response payload size after compression | 6MB |
+| [GetPlace](../APIReference/API_geoplaces_GetPlace.md "../APIReference/API_geoplaces_GetPlace.md") | Response payload size after compression | 6MB |
+| [SearchText](../APIReference/API_geoplaces_SearchText.md "../APIReference/API_geoplaces_SearchText.md") | Response payload size after compression | 6MB |
+| [SearchNearby](../APIReference/API_geoplaces_SearchNearby.md "../APIReference/API_geoplaces_SearchNearby.md") | Response payload size after compression | 6MB |
+| [Suggest](../APIReference/API_geoplaces_Suggest.md "../APIReference/API_geoplaces_Suggest.md") | Response payload size after compression | 6MB |
 
 ## Next Steps
 

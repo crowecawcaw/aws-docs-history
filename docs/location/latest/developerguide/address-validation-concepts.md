@@ -62,39 +62,39 @@ Address lines
 Use `AddressLines_1` through
 `AddressLines_5` for free-form addresses. Enter single-line inputs in `AddressLines_1`. Order multi-line inputs according to regional postal rules, as they would appear on mail.
 
-AddressComponents_Country
+AddressComponents\_Country
 
 The alpha-2, alpha-3 character code, or full name of the country where the address is located.
 
-AddressComponents_Region
+AddressComponents\_Region
 
 The region of the input address, such as state, province, or territory.
 
-AddressComponents_SubRegion
+AddressComponents\_SubRegion
 
 The sub-region of the input address, such as county.
 
-AddressComponents_Locality
+AddressComponents\_Locality
 
 The locality of the input address, such as city or town.
 
-AddressComponents_PostalCode
+AddressComponents\_PostalCode
 
 The postal code of the input address.
 
-AddressComponents_Street
+AddressComponents\_Street
 
 The street name of the input address.
 
-AddressComponents_AddressNumber
+AddressComponents\_AddressNumber
 
 The address or house number of the input address.
 
-AddressComponents_Unit
+AddressComponents\_Unit
 
 The unit of the input address.
 
-AddressComponents_UnitDesignator
+AddressComponents\_UnitDesignator
 
 The unit designator or type of the input address, such as Apt, Suite, or #.
 
@@ -179,119 +179,119 @@ For general output schema information and how to retrieve results, see [Retrieve
 
 Standardized address components with an `Output_` prefix, formatted according to regional postal rules.
 
-Output_AddressId
+Output\_AddressId
 
 A unique identifier for the returned address.
 
-Output_AddressLines_1
+Output\_AddressLines\_1
 
 The first line of the complete returned address written on multiple lines, as it should appear on a piece of mail. It is formatted according to the regional postal rules.
 
-Output_AddressLines_2
+Output\_AddressLines\_2
 
 The second line of the complete returned address written on multiple lines, as it should appear on a piece of mail. It is formatted according to the regional postal rules.
 
-Output_AddressLines_3
+Output\_AddressLines\_3
 
 The third line of the complete returned address written on multiple lines, as it should appear on a piece of mail. It is formatted according to the regional postal rules.
 
-Output_AddressLines_4
+Output\_AddressLines\_4
 
 The fourth line of the complete returned address written on multiple lines, as it should appear on a piece of mail. It is formatted according to the regional postal rules.
 
-Output_AddressLines_5
+Output\_AddressLines\_5
 
 The fifth line of the complete returned address written on multiple lines, as it should appear on a piece of mail. It is formatted according to the regional postal rules.
 
-Output_Address_Label
+Output\_Address\_Label
 
 The assembled address built out of the address components, according to the regional postal rules.
 
-Output_Address_Country_Code2
+Output\_Address\_Country\_Code2
 
 Alpha-2 character code of the country.
 
-Output_Address_Country_Code3
+Output\_Address\_Country\_Code3
 
 Alpha-3 character code of the country.
 
-Output_Address_Country_Name
+Output\_Address\_Country\_Name
 
 Full name of the country.
 
-Output_Address_Region_Code
+Output\_Address\_Region\_Code
 
 Abbreviated code for the region.
 
-Output_Address_Region_Name
+Output\_Address\_Region\_Name
 
 Full name for the region.
 
-Output_Address_SubRegion_Code
+Output\_Address\_SubRegion\_Code
 
 Abbreviated code for the sub-region.
 
-Output_Address_SubRegion_Name
+Output\_Address\_SubRegion\_Name
 
 Full name for the sub-region.
 
-Output_Address_Locality
+Output\_Address\_Locality
 
 The locality component of the address, such as city or town.
 
-Output_Address_PostalCode
+Output\_Address\_PostalCode
 
 The full postal code component of the address.
 
-Output_Address_PostalCodeDetails_Base
+Output\_Address\_PostalCodeDetails\_Base
 
 The base segment of the postal code.
 
-Output_Address_PostalCodeDetails_Extension
+Output\_Address\_PostalCodeDetails\_Extension
 
 The extension or add-on segment of the postal code.
 
-Output_Address_Street
+Output\_Address\_Street
 
 The full street component of the address.
 
-Output_Address_StreetComponents_BaseName
+Output\_Address\_StreetComponents\_BaseName
 
 Base name part of the street name.
 
-Output_Address_StreetComponents_Prefix
+Output\_Address\_StreetComponents\_Prefix
 
 Directional identifier that precedes, but is not included in, the base name of a road.
 
-Output_Address_StreetComponents_Suffix
+Output\_Address\_StreetComponents\_Suffix
 
 Directional identifier that follows, but is not included in, the base name of a road.
 
-Output_Address_StreetComponents_Type
+Output\_Address\_StreetComponents\_Type
 
 Street type part of the street name such as `ST`, `AVE`, `BLVD`.
 
-Output_Address_StreetComponents_TypePlacement
+Output\_Address\_StreetComponents\_TypePlacement
 
 Defines if the street type is before or after the base name. (`BeforeBaseName` or `AfterBaseName`)
 
-Output_Address_AddressNumber
+Output\_Address\_AddressNumber
 
 The address or house number component of the address.
 
-Output_Address_SecondaryAddressComponents_Unit_Number
+Output\_Address\_SecondaryAddressComponents\_Unit\_Number
 
 The alphanumeric identifier of the unit secondary address component.
 
-Output_Address_SecondaryAddressComponents_Unit_Designator
+Output\_Address\_SecondaryAddressComponents\_Unit\_Designator
 
 The designator of the unit secondary address component, as it appears in the address label.
 
-Output_Address_SecondaryAddressComponents_Floor_Number
+Output\_Address\_SecondaryAddressComponents\_Floor\_Number
 
 The alphanumeric identifier of the floor secondary address component.
 
-Output_Address_SecondaryAddressComponents_Floor_Designator
+Output\_Address\_SecondaryAddressComponents\_Floor\_Designator
 
 The designator of the floor secondary address component, as it appears in the address label.
 
@@ -299,11 +299,11 @@ The designator of the floor secondary address component, as it appears in the ad
 
 Metadata about the address and delivery characteristics.
 
-Output_AddressMetadata_DeliveryIndicators_Mailable
+Output\_AddressMetadata\_DeliveryIndicators\_Mailable
 
 Indicates whether an address is mailable. Values: `true`/`false`
 
-Output_AddressMetadata_DeliveryIndicators_Locatable
+Output\_AddressMetadata\_DeliveryIndicators\_Locatable
 
 Indicates whether an address is locatable. Values: `true`/`false`
 
@@ -311,7 +311,7 @@ Indicates whether an address is locatable. Values: `true`/`false`
 
 Overall validation quality metrics for the address.
 
-Output_ValidationResults_ValidationGranularity
+Output\_ValidationResults\_ValidationGranularity
 
 Indicates the overall level of granularity that the returned address was validated to. Values:
 
@@ -320,11 +320,11 @@ Indicates the overall level of granularity that the returned address was validat
 - `LocalityAndPostalCode` – Locality, PostalCode, and Country were validated
 - `Locality` – Locality and Country were validated
 
-Output_ValidationResults_MatchConfidence
+Output\_ValidationResults\_MatchConfidence
 
 Indicates the overall confidence level in the address match performed during the address validation process. Values: `High`, `MediumHigh`, `Medium`, `MediumLow`, `Low`
 
-Output_ValidationResults_MatchConfidenceScore
+Output\_ValidationResults\_MatchConfidenceScore
 
 Provides a precise score for the match confidence. Ranges from 0 - 1.0, with 1.0 indicating a perfect match.
 
@@ -343,75 +343,75 @@ For each address component, two fields indicate validation results:
   - `Alias` – Component was validated using reference data alias.
   - `Appended` – Component was appended using reference data.
 
-Output_ValidationResults_Components_Address_Country_Status
+Output\_ValidationResults\_Components\_Address\_Country\_Status
 
 Validation status for the country component.
 
-Output_ValidationResults_Components_Address_Country_StatusDetail
+Output\_ValidationResults\_Components\_Address\_Country\_StatusDetail
 
 Detailed validation status for the country component.
 
-Output_ValidationResults_Components_Address_Region_Status
+Output\_ValidationResults\_Components\_Address\_Region\_Status
 
 Validation status for the region component.
 
-Output_ValidationResults_Components_Address_Region_StatusDetail
+Output\_ValidationResults\_Components\_Address\_Region\_StatusDetail
 
 Detailed validation status for the region component.
 
-Output_ValidationResults_Components_Address_Locality_Status
+Output\_ValidationResults\_Components\_Address\_Locality\_Status
 
 Validation status for the locality component.
 
-Output_ValidationResults_Components_Address_Locality_StatusDetail
+Output\_ValidationResults\_Components\_Address\_Locality\_StatusDetail
 
 Detailed validation status for the locality component.
 
-Output_ValidationResults_Components_Address_Street_Status
+Output\_ValidationResults\_Components\_Address\_Street\_Status
 
 Validation status for the street component.
 
-Output_ValidationResults_Components_Address_Street_StatusDetail
+Output\_ValidationResults\_Components\_Address\_Street\_StatusDetail
 
 Detailed validation status for the street component.
 
-Output_ValidationResults_Components_Address_AddressNumber_Status
+Output\_ValidationResults\_Components\_Address\_AddressNumber\_Status
 
 Validation status for the address number component.
 
-Output_ValidationResults_Components_Address_AddressNumber_StatusDetail
+Output\_ValidationResults\_Components\_Address\_AddressNumber\_StatusDetail
 
 Detailed validation status for the address number component.
 
-Output_ValidationResults_Components_Address_PostalCodeDetails_Base_Status
+Output\_ValidationResults\_Components\_Address\_PostalCodeDetails\_Base\_Status
 
 Validation status for the postal code base component.
 
-Output_ValidationResults_Components_Address_PostalCodeDetails_Base_StatusDetail
+Output\_ValidationResults\_Components\_Address\_PostalCodeDetails\_Base\_StatusDetail
 
 Detailed validation status for the postal code base component.
 
-Output_ValidationResults_Components_Address_PostalCodeDetails_Extension_Status
+Output\_ValidationResults\_Components\_Address\_PostalCodeDetails\_Extension\_Status
 
 Validation status for the postal code extension component.
 
-Output_ValidationResults_Components_Address_PostalCodeDetails_Extension_StatusDetail
+Output\_ValidationResults\_Components\_Address\_PostalCodeDetails\_Extension\_StatusDetail
 
 Detailed validation status for the postal code extension component.
 
-Output_ValidationResults_Components_Address_SecondaryAddressComponents_Unit_Status
+Output\_ValidationResults\_Components\_Address\_SecondaryAddressComponents\_Unit\_Status
 
 Validation status for the unit component.
 
-Output_ValidationResults_Components_Address_SecondaryAddressComponents_Unit_StatusDetail
+Output\_ValidationResults\_Components\_Address\_SecondaryAddressComponents\_Unit\_StatusDetail
 
 Detailed validation status for the unit component.
 
-Output_ValidationResults_Components_Address_SecondaryAddressComponents_Floor_Status
+Output\_ValidationResults\_Components\_Address\_SecondaryAddressComponents\_Floor\_Status
 
 Validation status for the floor component.
 
-Output_ValidationResults_Components_Address_SecondaryAddressComponents_Floor_StatusDetail
+Output\_ValidationResults\_Components\_Address\_SecondaryAddressComponents\_Floor\_StatusDetail
 
 Detailed validation status for the floor component.
 
@@ -423,11 +423,11 @@ If you requested additional features when starting the job, the output includes:
 
 Geographic coordinates in World Geodetic System (WGS 84) format.
 
-Output_Position_Longitude
+Output\_Position\_Longitude
 
 The longitude coordinate in World Geodetic System (WGS 84) format.
 
-Output_Position_Latitude
+Output\_Position\_Latitude
 
 The latitude coordinate in World Geodetic System (WGS 84) format.
 
@@ -437,180 +437,180 @@ Country-specific postal and census data. The available fields vary by country.
 
 ##### AustraliaPost
 
-Output_CountrySpecificAttributes_AUS_AustraliaPost_DeliveryPointIdentifier
+Output\_CountrySpecificAttributes\_AUS\_AustraliaPost\_DeliveryPointIdentifier
 
 An eight-digit code developed by Australia Post which enables each delivery point in Australia to be uniquely identified.
 
 ##### Census
 
-Output_CountrySpecificAttributes_AUS_Census_MeshBlockId
+Output\_CountrySpecificAttributes\_AUS\_Census\_MeshBlockId
 
 Mesh Blocks are the smallest geographic areas defined by the ABS and form the building blocks for the larger regions of the Australian Statistical Geography Standard (ASGS). They broadly identify land use such as residential, commercial, primary production and parks.
 
 ##### Gnaf
 
-Output_CountrySpecificAttributes_AUS_Gnaf_AddressClass
+Output\_CountrySpecificAttributes\_AUS\_Gnaf\_AddressClass
 
 The address class, which is constructed using a combination of address elements. Values include: `A` (Alias), `P` (Principal), `PP` (Principal Primary), `PS` (Principal Secondary), `AP` (Alias Primary), `AS` (Alias Secondary).
 
-Output_CountrySpecificAttributes_AUS_Gnaf_GnafPid
+Output\_CountrySpecificAttributes\_AUS\_Gnaf\_GnafPid
 
 The Persistent Identifier is unique to the real world feature this record represents. The Persistent Identifier (PID) is a 14-character alphanumeric string uniquely identifying each G-NAF address.
 
-Output_CountrySpecificAttributes_AUS_Gnaf_LegalParcelId
+Output\_CountrySpecificAttributes\_AUS\_Gnaf\_LegalParcelId
 
 This field within G-NAF is designed to hold a unique identifier for the land parcel associated with a specific address. Parcel ID, representing the Lot on Plan description. Used by government agencies. Format varies.
 
-Output_CountrySpecificAttributes_AUS_Gnaf_StatisticalArea1
+Output\_CountrySpecificAttributes\_AUS\_Gnaf\_StatisticalArea1
 
 Geographic areas built from whole Mesh Blocks. Whole SA1s aggregate to form Statistical Areas Level 2 (SA2s). Statistical Area Level 1 (SA1) field representing a geographic area used in the Census. Seven-digit unique code.
 
 ##### CanadaPost
 
-Output_CountrySpecificAttributes_CAN_CanadaPost_BuildingType
+Output\_CountrySpecificAttributes\_CAN\_CanadaPost\_BuildingType
 
 A code that denotes whether the building is a business building or an apartment building. Valid values are: `1` = Residential, `2` = Commercial.
 
-Output_CountrySpecificAttributes_CAN_CanadaPost_RecordType
+Output\_CountrySpecificAttributes\_CAN\_CanadaPost\_RecordType
 
 Defines the type of record in the Address Lookup and the Text Lookup files. Values include: `A1` (High-rise building), `B1` (Large Volume Receiver), `C1` (Government Address), `D2` (LVR Served by Lock Box), `E2` (Government Served by Lock Box), `F2` (LVR Served by General Delivery), `11` (Street), `21` (Street served by route), `32` (PO Box).
 
 ##### Census
 
-Output_CountrySpecificAttributes_CAN_Census_DisseminationArea
+Output\_CountrySpecificAttributes\_CAN\_Census\_DisseminationArea
 
 Uniquely identifies a dissemination area. It is composed of the two-digit province or territory code, the two-digit census division code and the four-digit dissemination area code.
 
-Output_CountrySpecificAttributes_CAN_Census_Division
+Output\_CountrySpecificAttributes\_CAN\_Census\_Division
 
 Uniquely identifies a census division. The first two digits of the CDuid identify the province or territory (PR).
 
-Output_CountrySpecificAttributes_CAN_Census_MetropolitanArea
+Output\_CountrySpecificAttributes\_CAN\_Census\_MetropolitanArea
 
 Formed by one or more adjacent municipalities centered on a population centre (known as the core).
 
-Output_CountrySpecificAttributes_CAN_Census_Subdivision
+Output\_CountrySpecificAttributes\_CAN\_Census\_Subdivision
 
 Uniquely identifies a census subdivision in the country. The province/territory, census division, and census subdivision (municipality) codes combine to represent the Standard Geographical Classification (SGC).
 
-Output_CountrySpecificAttributes_CAN_Census_Tract
+Output\_CountrySpecificAttributes\_CAN\_Census\_Tract
 
 Identifies a census tract within a CMA/CA. To uniquely identify each census tract in its corresponding census metropolitan area or tracted census agglomeration, the three-digit CMA/CA code must precede the census tract 'name.'
 
 ##### USPS
 
-Output_CountrySpecificAttributes_USA_Usps_CarrierRoute
+Output\_CountrySpecificAttributes\_USA\_Usps\_CarrierRoute
 
 A group of mailing addresses within a ZIP code that the USPS groups together to make the mail delivery process more efficient. In the same way that ZIP codes divide up the country into different areas carrier routes divide up those ZIP codes.
 
-Output_CountrySpecificAttributes_USA_Usps_DefaultFlag
+Output\_CountrySpecificAttributes\_USA\_Usps\_DefaultFlag
 
 Indicated the record processed obtained a match to a highrise, rural route or street default record in the ZIP + 4 product. `Y` - The default flag indicator is set, `N` or Blank - Acceptable.
 
-Output_CountrySpecificAttributes_USA_Usps_DeliveryPoint_Barcode
+Output\_CountrySpecificAttributes\_USA\_Usps\_DeliveryPoint\_Barcode
 
 2-digit delivery point of the house/box.
 
-Output_CountrySpecificAttributes_USA_Usps_DeliveryPoint_CheckDigit
+Output\_CountrySpecificAttributes\_USA\_Usps\_DeliveryPoint\_CheckDigit
 
 A number that is added to the sum of the other digits in the DPBC to yield a number that is a multiple of ten.
 
-Output_CountrySpecificAttributes_USA_Usps_Elot_AscendingDescendingFlag
+Output\_CountrySpecificAttributes\_USA\_Usps\_Elot\_AscendingDescendingFlag
 
 The ascending/descending code indicates the approximate delivery order within the sequence number.
 
-Output_CountrySpecificAttributes_USA_Usps_Elot_SequenceNumber
+Output\_CountrySpecificAttributes\_USA\_Usps\_Elot\_SequenceNumber
 
 Enhanced Line of Travel (eLOT) sequence number to help mailers sort mailings in a way that aligns with the carrier's delivery path. Indicates the first occurrence of delivery made to the add-on range within the carrier route.
 
-Output_CountrySpecificAttributes_USA_Usps_NonDeliverableRecord
+Output\_CountrySpecificAttributes\_USA\_Usps\_NonDeliverableRecord
 
 Field on the Stage I file indicates the address test question is a valid match to a record on the ZIP + 4® Product. However, the match is made to a non-deliverable (ND) type record. `Y` - Record is an ND type, Blank - Record is not an ND type.
 
-Output_CountrySpecificAttributes_USA_Usps_PoBoxOnlyFlag
+Output\_CountrySpecificAttributes\_USA\_Usps\_PoBoxOnlyFlag
 
 There is a portion of the City State product that contains PO Box Only Delivery Zones. The file layout utilizes `P` as the Copyright Detail Code which is different from the existing ZIP. Classification code `P` located in the thirteenth (13) position of the City State detail record that indicates there are PO Box and other types of deliveries to the community. These zones have no other form of postal delivery.
 
-Output_CountrySpecificAttributes_USA_Usps_RecordType
+Output\_CountrySpecificAttributes\_USA\_Usps\_RecordType
 
 Type of the address record that matches the input address such as Firm (`F`) General Delivery (`G`) Highrise (`H`) P.O. Box (`P`) Rural Route (`R`) or Street Record (`S`).
 
-Output_CountrySpecificAttributes_USA_Usps_RuralRouteDefault
+Output\_CountrySpecificAttributes\_USA\_Usps\_RuralRouteDefault
 
 Indicates a rural route match. `Y` - the address matched to a rural route record. `N` or blank - the address did not match to a rural route record.
 
-Output_CountrySpecificAttributes_USA_Usps_Urbanization
+Output\_CountrySpecificAttributes\_USA\_Usps\_Urbanization
 
 Puerto Rican urbanization name.
 
-Output_CountrySpecificAttributes_USA_Usps_ZipValid
+Output\_CountrySpecificAttributes\_USA\_Usps\_ZipValid
 
 True/false flag that indicates a valid zip code. Indicates whether the address record can be added to Form 3553. Five-digit validation requires that the last line values of city state and ZIP Code correspond to each other.
 
-Output_CountrySpecificAttributes_USA_Usps_Zip10
+Output\_CountrySpecificAttributes\_USA\_Usps\_Zip10
 
 10-digit ZIP Code (ZIP + 4) with dash separator.
 
-Output_CountrySpecificAttributes_USA_Usps_Zip9
+Output\_CountrySpecificAttributes\_USA\_Usps\_Zip9
 
 9-digit ZIP Code (ZIP + 4).
 
 ##### Census
 
-Output_CountrySpecificAttributes_USA_Census_BlockId
+Output\_CountrySpecificAttributes\_USA\_Census\_BlockId
 
 2020 Census Block ID.
 
-Output_CountrySpecificAttributes_USA_Census_CombinedStatisticalArea_Number
+Output\_CountrySpecificAttributes\_USA\_Census\_CombinedStatisticalArea\_Number
 
 Combined Statistical Area (CSA) number.
 
-Output_CountrySpecificAttributes_USA_Census_CombinedStatisticalArea_Name
+Output\_CountrySpecificAttributes\_USA\_Census\_CombinedStatisticalArea\_Name
 
 Combined Statistical Area (CSA) name.
 
-Output_CountrySpecificAttributes_USA_Census_CoreBasedStatisticalArea_Number
+Output\_CountrySpecificAttributes\_USA\_Census\_CoreBasedStatisticalArea\_Number
 
 Core Based Statistical Area (CBSA) number.
 
-Output_CountrySpecificAttributes_USA_Census_CoreBasedStatisticalArea_Name
+Output\_CountrySpecificAttributes\_USA\_Census\_CoreBasedStatisticalArea\_Name
 
 The name of the Core Based Statistical Area (CBSA) in which the address is located.
 
-Output_CountrySpecificAttributes_USA_Census_CountyFipsCode
+Output\_CountrySpecificAttributes\_USA\_Census\_CountyFipsCode
 
 The county FIPS code.
 
-Output_CountrySpecificAttributes_USA_Census_MetropolitanAreaFlag
+Output\_CountrySpecificAttributes\_USA\_Census\_MetropolitanAreaFlag
 
 Indicates whether the Core Based Statistical Area (CBSA) in which the address is located is a metropolitan area or a micropolitan area (`Y`/`N`).
 
 ##### RoyalMail
 
-Output_CountrySpecificAttributes_GBR_RoyalMail_SubBuilding
+Output\_CountrySpecificAttributes\_GBR\_RoyalMail\_SubBuilding
 
 The sub-building name and/or identifier of the address.
 
-Output_CountrySpecificAttributes_GBR_RoyalMail_ThoroughfareName
+Output\_CountrySpecificAttributes\_GBR\_RoyalMail\_ThoroughfareName
 
 The base name of the street or thoroughfare of the address.
 
-Output_CountrySpecificAttributes_GBR_RoyalMail_DependentThoroughfareName
+Output\_CountrySpecificAttributes\_GBR\_RoyalMail\_DependentThoroughfareName
 
 The double dependent thoroughfare of the address. This is used when there are named thoroughfares within other named thoroughfares.
 
-Output_CountrySpecificAttributes_GBR_RoyalMail_DependentLocality
+Output\_CountrySpecificAttributes\_GBR\_RoyalMail\_DependentLocality
 
 The dependent locality of the address. This is used when there are thoroughfares with the same or similar names within a locality.
 
-Output_CountrySpecificAttributes_GBR_RoyalMail_DoubleDependentLocality
+Output\_CountrySpecificAttributes\_GBR\_RoyalMail\_DoubleDependentLocality
 
 The double dependent locality of the address. This is used when there are multiple thoroughfares with the same or similar names within a dependent locality.
 
-Output_CountrySpecificAttributes_GBR_RoyalMail_OrganizationName
+Output\_CountrySpecificAttributes\_GBR\_RoyalMail\_OrganizationName
 
 The name of the organization registered at the address.
 
-Output_CountrySpecificAttributes_GBR_RoyalMail_Udprn
+Output\_CountrySpecificAttributes\_GBR\_RoyalMail\_Udprn
 
 The Unique Delivery Point Reference Number (UDPRN) is a unique, 8-digit code assigned by Royal Mail to addresses within the UK.

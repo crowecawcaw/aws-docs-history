@@ -18,27 +18,27 @@ calculations.
 This section provides brief definitions for each field used in toll cost
 calculation.
 
-\***\*Transponders\*\***
+****Transponders****
 
 Transponders are a method of payment for tolls, potentially resulting
 in a different price compared to other payment methods.
 
-\***\*Vignettes\*\***
+****Vignettes****
 
 A vignette is a form of road pricing. When a user has the required
 vignette, no additional toll payments are necessary.
 
-\***\*Currency\*\***
+****Currency****
 
 The currency in which toll costs are reported. In addition to the
 local currency, a converted currency is included, which also impacts the
 currency used in the toll summary within the response.
 
-\***\*EmissionType\*\***
+****EmissionType****
 
 The emission type of the vehicle, used for calculating toll costs
 based on vehicle emissions.
 
-\***\*VehicleCategory\*\***
+****VehicleCategory****
 
 The vehicle sub-category used for toll cost calculation.

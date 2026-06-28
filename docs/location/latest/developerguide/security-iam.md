@@ -96,19 +96,19 @@ When multiple types of policies apply to a request, the resulting permissions ar
 Before you use IAM to manage access to Amazon Location, learn what IAM features are
 available to use with Amazon Location.
 
-| IAM features you can use with Amazon Location Service                                                                                                                       | IAM feature | Amazon Location support |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------- |
-| [Identity-based policies for Amazon Location](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies")                          | Yes         |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies")                                  | No          |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions")                                       | Yes         |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources")                                 | Yes         |
-| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes         |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls")                                                                                           | No          |
-| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags")                                                                     | Yes         |
-| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds")                                                    | Yes         |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions")                                        | No          |
-| [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service")                                                                | No          |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked")                                           | No          |
+IAM features you can use with Amazon Location Service| IAM feature | Amazon Location support |
+| --- | --- |
+| [Identity-based policies for Amazon Location](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | No |
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
+| [Policy condition keys (service-specific)](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
+| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | No |
+| [ABAC (tags in<br>policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Yes |
+| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | No |
+| [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | No |
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | No |
 
 To get a high-level view of how Amazon Location and other AWS services work with most
 IAM features, see [AWS services
@@ -517,13 +517,13 @@ identity. This policy includes permissions to complete this action on the consol
 
 Amazon Location Service uses the following prefixes for resources:
 
-| Amazon Location resource prefix | Resource              | Resource prefix |
-| ------------------------------- | --------------------- | --------------- |
-| Map resources                   | `map`                 |
-| Place resources                 | `place-index`         |
-| Route resources                 | `route-calculator`    |
-| Tracking resources              | `tracker`             |
-| Geofence Collection resources   | `geofence-collection` |
+Amazon Location resource prefix| Resource | Resource prefix |
+| --- | --- |
+| Map resources | `map` |
+| Place resources | `place-index` |
+| Route resources | `route-calculator` |
+| Tracking resources | `tracker` |
+| Geofence Collection resources | `geofence-collection` |
 
 Use the following ARN syntax:
 

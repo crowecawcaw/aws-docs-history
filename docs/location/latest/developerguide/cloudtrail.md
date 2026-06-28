@@ -84,11 +84,11 @@ data events, see [Logging data events with the AWS Management Console](../../../
 The following table lists the Amazon Location resource types for which you can log data
 events:
 
-| Supported Amazon Location Data Events | Data event type (console) | resources.type value                                                                                                                                                            | Data APIs logged to CloudTrail |
-| ------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| Geo Maps                              | AWS::GeoMaps::Provider    | See the Amazon [GeoMaps API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Maps "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Maps") reference       |
-| Geo Places                            | AWS::GeoPlaces::Provider  | See the Amazon [GeoPlaces API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Places "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Places") reference |
-| Geo Routes                            | AWS::GeoRoutes::Provider  | See the Amazon [GeoRoutes API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Routes "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Routes") reference |
+Supported Amazon Location Data Events| Data event type (console) | resources.type value | Data APIs logged to CloudTrail |
+| --- | --- | --- |
+| Geo Maps | AWS::GeoMaps::Provider | See the Amazon [GeoMaps API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Maps "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Maps") reference |
+| Geo Places | AWS::GeoPlaces::Provider | See the Amazon [GeoPlaces API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Places "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Places") reference |
+| Geo Routes | AWS::GeoRoutes::Provider | See the Amazon [GeoRoutes API](../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Routes "../APIReference/Welcome.md#Welcome_Amazon_Location_Service_Routes") reference |
 
 ###### Note
 

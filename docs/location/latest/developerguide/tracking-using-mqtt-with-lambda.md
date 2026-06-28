@@ -33,7 +33,7 @@ resource:
      `MyTracker`.
    - **Description** – Enter an optional description.
      For example, `Tracker for storing AWS IoT Core device
-positions`.
+  positions`.
    - **Position filtering** – Select the filtering
      that you want to use for position updates. For example,
      **Accuracy-based filtering**.
@@ -62,7 +62,7 @@ console:
      and underscores with no spaces. For example,
      `MyLambda`.
    - **Runtime** – Choose `Python
-3.8`.
+  3.8`.
 
 5. Choose **Create function**.
 6. Choose the **Code** tab to open the editor.

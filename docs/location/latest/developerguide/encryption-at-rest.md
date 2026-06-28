@@ -25,18 +25,17 @@ resources:
   second layer of encryption over the existing AWS owned encryption. Because you
   have full control of this layer of encryption, you can perform such tasks as:
 
-      + Establishing and maintaining key policies
-      + Establishing and maintaining IAM policies and grants
-      + Enabling and disabling key policies
-      + Rotating key cryptographic material
-      + Adding tags
-      + Creating key aliases
-      + Scheduling keys for deletion
-
-  For more information, see [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
-  in the _AWS Key Management Service Developer Guide_.
-  The following table summarizes how Amazon Location encrypts personally identifiable
-  data.
+  - Establishing and maintaining key policies
+  - Establishing and maintaining IAM policies and grants
+  - Enabling and disabling key policies
+  - Rotating key cryptographic material
+  - Adding tags
+  - Creating key aliases
+  - Scheduling keys for deletion
+    For more information, see [customer managed key](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk")
+    in the _AWS Key Management Service Developer Guide_.
+    The following table summarizes how Amazon Location encrypts personally identifiable
+    data.
 
 | Data type                                                                                                                                                                                                                                                                                                                                                                 | AWS owned key encryption | Customer managed key encryption (Optional) |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ |
