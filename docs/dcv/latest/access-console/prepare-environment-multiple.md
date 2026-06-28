@@ -39,7 +39,7 @@ Amazon DCV Access Console [Requirements](requirements.md "requirements.md") to e
 
 4. Download the packaged components.
 
-   - For Rocky8 (x86_64)
+   - For Rocky8 (x86\_64)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el8-x86_64.tgz
@@ -49,7 +49,7 @@ Amazon DCV Access Console [Requirements](requirements.md "requirements.md") to e
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el8-aarch64.tgz
    ```
-   - For Amazon Linux 2023, RHEL9, CentOS9, Rocky9 (x86_64)
+   - For Amazon Linux 2023, RHEL9, CentOS9, Rocky9 (x86\_64)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el9-x86_64.tgz
@@ -59,7 +59,7 @@ Amazon DCV Access Console [Requirements](requirements.md "requirements.md") to e
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el9-aarch64.tgz
    ```
-   - For Ubuntu22 (x86_64)
+   - For Ubuntu22 (x86\_64)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-ubuntu2204-x86_64.tgz
@@ -69,7 +69,7 @@ Amazon DCV Access Console [Requirements](requirements.md "requirements.md") to e
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-ubuntu2204-aarch64.tgz
    ```
-   - For Ubuntu24 (x86_64)
+   - For Ubuntu24 (x86\_64)
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-ubuntu2404-x86_64.tgz

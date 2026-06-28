@@ -54,7 +54,7 @@ Retrieving AWS Credentials.
 
    - Set `datastore = mysql`.
    - Set `jdbc-connection-url =
-jdbc:mysql://`db_endpoint`:`db_port`/`db_name``
+  jdbc:mysql://`db_endpoint`:`db_port`/`db_name``
 
    In this configuration, `db_endpoint` is the
    database endpoint, `db_port` is the database
