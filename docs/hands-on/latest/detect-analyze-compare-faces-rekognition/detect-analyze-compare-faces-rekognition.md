@@ -49,7 +49,7 @@ analyzing one image.
 
 Open the [AWS Management Console](https://console.aws.amazon.com/console/home "https://console.aws.amazon.com/console/home"), so you can
 keep this step-by-step guide open. When the screen loads, enter your user name and
-password to get started. Then type \***\*Rekognition\*\*** in the search bar and select **Rekognition** to open the service console.
+password to get started. Then type ****Rekognition**** in the search bar and select **Rekognition** to open the service console.
 
 ![The navigation menu interface for opening the console.](images/navigation-menu-interface-opening-console.png) 2. Select Facial analysis
 
