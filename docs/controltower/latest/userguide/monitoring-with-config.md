@@ -49,7 +49,9 @@ resource.
 **Resource history command:**
 
 - `aws configservice get-resource-config-history --resource-type
-`RESOURCE-TYPE`--resource-id`RESOURCE-ID`--region`REGION``
+ `RESOURCE-TYPE`--resource-id
+`RESOURCE-ID`--region
+`REGION``
 
 To learn more, see [the API
 documentation for `get-config-history`](../../../cli/latest/reference/configservice/get-resource-config-history.md "../../../cli/latest/reference/configservice/get-resource-config-history.md").

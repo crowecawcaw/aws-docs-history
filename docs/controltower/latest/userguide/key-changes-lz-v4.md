@@ -28,8 +28,8 @@ for the first time. After successfully upgrading to version 4.0, you can disable
   There is no impact for customers that have already set-up the AWS Control Tower and have the Security OU.
   AWS Control Tower automatically deploys the resources and controls necessary to manage service integration accounts
   in the Security OU. For example, when AWS Config integration is enabled, AWS Config recording is enabled in all
-  service integration accounts. The AWS Control Tower Baseline and the AWS Config Baseline are not applicable to
-  the Security OU and integration accounts. To change service integrations, update landing zone settings.
+  [service integration accounts](special-accounts.md "special-accounts.md"). The AWS Control Tower Baseline and the AWS Config Baseline are not applicable to
+  the Security OU and the service integration accounts. To change service integrations, update landing zone settings.
 
 ###### Note
 

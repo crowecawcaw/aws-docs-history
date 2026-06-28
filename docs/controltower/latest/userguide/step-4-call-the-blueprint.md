@@ -23,7 +23,7 @@ and begin to provision customized accounts.
    member account so that Service Catalog can deploy resources using CloudFormation stack sets. The
    role is named
    `AWSControlTower-BlueprintExecution-bp-`xxxx``.
-The `AdministratorAccess` policy is applied here by default.
+   The `AdministratorAccess` policy is applied here by default.
 5. Choose the AWS Region or Regions in which you wish to deploy accounts
    based on this blueprint.
 6. If your blueprint contains parameters, you can enter the values for the

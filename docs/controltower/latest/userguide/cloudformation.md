@@ -7,5 +7,6 @@ configuring the underlying AWS infrastructure. CloudFormation enables you to use
 file to create and delete a collection of resources together as a single unit (a stack).
 For more information, see _[AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide.md "../../../AWSCloudFormation/latest/UserGuide.md")_.
 
-AWS Control Tower uses CloudFormation stacksets to apply controls on accounts. For more information
+AWS Control Tower uses CloudFormation StackSets to deploy and manage baseline resources, such as IAM
+roles and AWS Config recorders, in your accounts. For more information
 about how CloudFormation and AWS Control Tower work together, see [Create AWS Control Tower resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md").

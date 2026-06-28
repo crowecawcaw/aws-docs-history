@@ -36,10 +36,9 @@ This section describes known limitations and unsupported use cases in AWS Contro
   - Account Factory for Terraform (AFT) has additional concurrency parameters
     configured during deployment. AWS has tested AFT with these default values:
 
-        - `concurrent_account_factory_actions`: 5 (account provisioning)
-        - `maximum_concurrent_customizations`: 5 (customization pipelines)
-
-    Increasing these limits beyond the tested defaults may reduce stability.
+    - `concurrent_account_factory_actions`: 5 (account provisioning)
+    - `maximum_concurrent_customizations`: 5 (customization pipelines)
+      Increasing these limits beyond the tested defaults may reduce stability.
 
 - Email addresses of shared accounts in the Security OU can be changed, but you
   must update your landing zone to see these changes in the AWS Control Tower
@@ -54,17 +53,19 @@ This section describes known limitations and unsupported use cases in AWS Contro
 - **Customizations for AWS Control Tower (CfCT)** is unavailable in
   these AWS Regions, because some dependencies are not available:
 
-      + Europe (Zurich), eu-central-2
-      + Europe (Spain), eu-south-2
-      + Canada West (Calgary) ca-west-1
-      + Asia Pacific (Melbourne), ap-southeast-4
-      + Asia Pacific (Malaysia), ap-southeast-5
-      + Asia Pacific (Thailand), ap-southeast-7
-      + Mexico (Central), mx-central-1
-
-  You can deploy and manage resources in these Regions with CfCT, if you deploy
-  CfCT to your AWS Control Tower home Region, but you cannot build CfCT in these
-  Regions.
+  - Europe (Zurich), eu-central-2
+  - Europe (Spain), eu-south-2
+  - Canada West (Calgary) ca-west-1
+  - Asia Pacific (Melbourne), ap-southeast-4
+  - Asia Pacific (Malaysia), ap-southeast-5
+  - Asia Pacific (Thailand), ap-southeast-7
+  - Mexico (Central), mx-central-1
+  - Asia Pacific (New Zealand), ap-southeast-6
+  - Asia Pacific (Taipei), ap-east-2
+  - AWS European Sovereign Cloud (Germany), eusc-de-east-1
+    You can deploy and manage resources in these Regions with CfCT, if you deploy
+    CfCT to your AWS Control Tower home Region, but you cannot build CfCT in these
+    Regions.
 
 - **AWS Control Tower Account Factory for Terraform (AFT)** is not
   available in the following AWS Regions, because some dependencies are not
@@ -77,6 +78,9 @@ This section describes known limitations and unsupported use cases in AWS Contro
   - Asia Pacific (Malaysia), ap-southeast-5
   - Asia Pacific (Thailand), ap-southeast-7
   - Mexico (Central), mx-central-1
+  - Asia Pacific (New Zealand), ap-southeast-6
+  - Asia Pacific (Taipei), ap-east-2
+  - AWS European Sovereign Cloud (Germany), eusc-de-east-1
 
 - **AWS Control Tower Account Factory for Terraform (AFT)** cannot be
   deployed by new AFT customers in the following Regions, because AWS
@@ -95,6 +99,9 @@ This section describes known limitations and unsupported use cases in AWS Contro
   - Asia Pacific (Malaysia), ap-southeast-5
   - Asia Pacific (Thailand), ap-southeast-7
   - Mexico (Central), mx-central-1
+  - Asia Pacific (New Zealand), ap-southeast-6
+  - Asia Pacific (Taipei), ap-east-2
+  - AWS European Sovereign Cloud (Germany), eusc-de-east-1
 
 ###### Note
 

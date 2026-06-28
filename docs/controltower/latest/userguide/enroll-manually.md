@@ -94,26 +94,24 @@ JSON
 After you’ve set up the necessary permissions by creating the role, follow these steps
 to enroll the account and verify enrollment.
 
-1.  **Sign in again as Admin and go to
-    AWS Control Tower.**
-2.  ###### Enroll the account.
-    - From the **Organization** page in AWS Control Tower, select
-      your account, then choose **Enroll** from the
-      **Actions** dropdown menu at the upper
-      right.
-    - Follow the steps for enrolling an individual account, as shown on the
-      [Steps to enroll an account manually](quick-account-provisioning.md#enrollment-steps "quick-account-provisioning.md#enrollment-steps")
-      page.
+1. **Sign in again as Admin and go to
+   AWS Control Tower.**
+2. ###### Enroll the account.
+   - From the **Organization** page in AWS Control Tower, select
+     your account, then choose **Enroll** from the
+     **Actions** dropdown menu at the upper
+     right.
+   - Follow the steps for enrolling an individual account, as shown on the
+     [Steps to enroll an account manually](quick-account-provisioning.md#enrollment-steps "quick-account-provisioning.md#enrollment-steps")
+     page.
 
-3.  ###### Verify enrollment.
-
-        * From AWS Control Tower, choose **Organization** in the left
-         navigation.
-        * Look for the account you have recently enrolled. Its initial state
-         will show a status of **Enrolling**.
-        * When the state changes to **Enabled**, the move was
-         successful.
-
-    To continue this process, sign into each account in your organization that you want to
-    enroll in AWS Control Tower. Repeat the prerequisite steps and the enrollment steps for each
-    account.
+3. ###### Verify enrollment.
+   - From AWS Control Tower, choose **Organization** in the left
+     navigation.
+   - Look for the account you have recently enrolled. Its initial state
+     will show a status of **Enrolling**.
+   - When the state changes to **Enabled**, the move was
+     successful.
+     To continue this process, sign into each account in your organization that you want to
+     enroll in AWS Control Tower. Repeat the prerequisite steps and the enrollment steps for each
+     account.

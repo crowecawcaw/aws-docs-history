@@ -18,16 +18,15 @@ During the enrollment process, AWS Control Tower performs these actions:
 
 - Baselines the account, which includes deploying these stack sets:
 
-      + `AWSControlTowerBP-BASELINE-CLOUDTRAIL`
-      + `AWSControlTowerBP-BASELINE-CLOUDWATCH`
-      + `AWSControlTowerBP-BASELINE-CONFIG`
-      + `AWSControlTowerBP-BASELINE-ROLES`
-      + `AWSControlTowerBP-BASELINE-SERVICE-ROLES`
-      + `AWSControlTowerBP-BASELINE-SERVICE-LINKED-ROLES`
-      + `AWSControlTowerBP-VPC-ACCOUNT-FACTORY-V1`
-
-  It is a good idea to review the templates of these stack sets and make sure
-  that they don’t conflict with your existing policies.
+  - `AWSControlTowerBP-BASELINE-CLOUDTRAIL`
+  - `AWSControlTowerBP-BASELINE-CLOUDWATCH`
+  - `AWSControlTowerBP-BASELINE-CONFIG`
+  - `AWSControlTowerBP-BASELINE-ROLES`
+  - `AWSControlTowerBP-BASELINE-SERVICE-ROLES`
+  - `AWSControlTowerBP-BASELINE-SERVICE-LINKED-ROLES`
+  - `AWSControlTowerBP-VPC-ACCOUNT-FACTORY-V1`
+    It is a good idea to review the templates of these stack sets and make sure
+    that they don’t conflict with your existing policies.
 
 - Identifies the account through AWS IAM Identity Center or AWS Organizations.
 - Places the account into the OU that you've specified. Be sure to apply all
@@ -94,13 +93,13 @@ The normal response is something like `"name": "default"`
 **Delete commands:**
 
 - `aws configservice stop-configuration-recorder
---configuration-recorder-name
-`NAME-FROM-DESCRIBE-OUTPUT``
+ --configuration-recorder-name
+ `NAME-FROM-DESCRIBE-OUTPUT``
 - `aws configservice delete-delivery-channel --delivery-channel-name
-`NAME-FROM-DESCRIBE-OUTPUT``
+ `NAME-FROM-DESCRIBE-OUTPUT``
 - `aws configservice delete-configuration-recorder
---configuration-recorder-name
-`NAME-FROM-DESCRIBE-OUTPUT``
+ --configuration-recorder-name
+ `NAME-FROM-DESCRIBE-OUTPUT``
 
 **Example for adding the `AWSControlTowerExecution` role**
 

@@ -66,19 +66,18 @@ this document.
   AWS Control Tower. When a registered OU contains a mix of enrolled and unenrolled
   accounts:
 
-      + Preventive controls enabled on (or inherited by) the OU apply to all
-       accounts within it, including unenrolled ones. This is true because
-       preventive controls are enforced with SCPs, RCPS, or declarative policies at the OU level, not the account
-       level. For more information, see [Inheritance for service control policies](../../../organizations/latest/userguide/orgs_manage_policies_inheritance_auth.md "../../../organizations/latest/userguide/orgs_manage_policies_inheritance_auth.md") in the AWS Organizations
-       documentation.
-      + Detective controls enabled on the OU do not apply to unenrolled
-       accounts.
-      + Proactive controls are implmented by AWS CloudFormation hooks. These controls do not apply to unenrolled
-       accounts in an OU.
-
-  An account can be a member of only one organization at a time, and its charges are
-  billed to the management account for that organization. A member account can be
-  moved to the root container of an organization.
+  - Preventive controls enabled on (or inherited by) the OU apply to all
+    accounts within it, including unenrolled ones. This is true because
+    preventive controls are enforced with SCPs, RCPS, or declarative policies at the OU level, not the account
+    level. For more information, see [Inheritance for service control policies](../../../organizations/latest/userguide/orgs_manage_policies_inheritance_auth.md "../../../organizations/latest/userguide/orgs_manage_policies_inheritance_auth.md") in the AWS Organizations
+    documentation.
+  - Detective controls enabled on the OU do not apply to unenrolled
+    accounts.
+  - Proactive controls are implmented by AWS CloudFormation hooks. These controls do not apply to unenrolled
+    accounts in an OU.
+    An account can be a member of only one organization at a time, and its charges are
+    billed to the management account for that organization. A member account can be
+    moved to the root container of an organization.
 
 - **AWS account:** An AWS account acts as a
   resource container and resource isolation boundary. An AWS account can be

@@ -40,9 +40,8 @@ If you need to retain account-level trails during a Landing Zone update, you mus
     * Your AWS Management account number
     * The selected home Region for your AWS Control Tower environment
 
-9. Complete any other required fields in the support case form.
-10. Choose **Submit** to create the support case.
-    After you submit the ticket, AWS Support reviews your request and adds your account to the allow list, if appropriate. You will receive further instructions and confirmation through the support case communication channel.
+9. Complete any other required fields in the support case form. 10. Choose **Submit** to create the support case.
+After you submit the ticket, AWS Support reviews your request and adds your account to the allow list, if appropriate. You will receive further instructions and confirmation through the support case communication channel.
 
 ###### Note
 

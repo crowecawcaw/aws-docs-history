@@ -31,8 +31,8 @@ landing zone.
     * The normal response is something like `"name": "default"`
 
 2. If you have an existing AWS Config recorder or delivery channel that you need to
-   delete before you set up your AWS Control Tower landing zone, here are some commands you can
-   enter:
+delete before you set up your AWS Control Tower landing zone, here are some commands you can
+enter:
 
 **Example: Manage your pre-existing AWS Config resources**
 
@@ -59,10 +59,10 @@ landing zone.
      Delivery Channel](../../../config/latest/developerguide/manage-delivery-channel.md "../../../config/latest/developerguide/manage-delivery-channel.md")
 
 3. This example shows AWS CLI commands you'd enter from AWS CloudShell to enable or disable
-   trusted access for AWS Organizations. For AWS Control Tower you do not need to enable or disable
-   trusted access for AWS Organizations, it is just an example. However, you may need to
-   enable or disable trusted access for other AWS services if you're automating or
-   customizing actions in AWS Control Tower.
+trusted access for AWS Organizations. For AWS Control Tower you do not need to enable or disable
+trusted access for AWS Organizations, it is just an example. However, you may need to
+enable or disable trusted access for other AWS services if you're automating or
+customizing actions in AWS Control Tower.
 
 ###### Example: Enable or disable trusted service access
 

@@ -16,11 +16,10 @@ in the _IAM User Guide_.
 
 - IAM users:
 
-      + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
-      + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
-
-  For more information about using IAM to delegate permissions, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
-  _IAM User Guide_.
+  - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
+  - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
+    For more information about using IAM to delegate permissions, see [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
+    _IAM User Guide_.
 
 ###### Note
 
@@ -30,40 +29,40 @@ the **AdministratorAccess** managed policy.
 
 ###### To create a role for an AWS service (IAM console)
 
-1.  Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2.  In the navigation pane of the IAM console, choose **Roles**, and
-    then choose **Create role**.
-3.  For **Trusted entity type**, choose **AWS service**.
-4.  For **Service or use case**, choose a service, and then choose the use case. Use cases are defined by the service to include the trust policy
-    that the service requires.
-5.  Choose **Next**.
-6.  For **Permissions policies**, the options depend on the use case that you selected:
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane of the IAM console, choose **Roles**, and
+   then choose **Create role**.
+3. For **Trusted entity type**, choose **AWS service**.
+4. For **Service or use case**, choose a service, and then choose the use case. Use cases are defined by the service to include the trust policy
+   that the service requires.
+5. Choose **Next**.
+6. For **Permissions policies**, the options depend on the use case that you selected:
 
-    - If the service defines the permissions for the role, you can't select permissions policies.
-    - Select from a limited set of permission polices.
-    - Select from all permission policies.
-    - Select no permissions policies, create the policies after the role is created, and then attach the policies to the role.
+   - If the service defines the permissions for the role, you can't select permissions policies.
+   - Select from a limited set of permission polices.
+   - Select from all permission policies.
+   - Select no permissions policies, create the policies after the role is created, and then attach the policies to the role.
 
-7.  (Optional) Set a [permissions
-    boundary](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md"). This is an advanced feature that is available for service roles, but
-    not service-linked roles.
+7. (Optional) Set a [permissions
+   boundary](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md"). This is an advanced feature that is available for service roles, but
+   not service-linked roles.
 
-    1. Open the **Set permissions boundary** section, and then choose
-       **Use a permissions boundary to control the maximum role
-       permissions**.
+   1. Open the **Set permissions boundary** section, and then choose
+      **Use a permissions boundary to control the maximum role
+      permissions**.
 
-    IAM includes a list of the AWS managed and customer-managed policies in your account. 2. Select the policy to use for the permissions boundary.
+   IAM includes a list of the AWS managed and customer-managed policies in your account. 2. Select the policy to use for the permissions boundary.
 
-8.  Choose **Next**.
-9.  For **Role name**, the options depend on the service:
+8. Choose **Next**.
+9. For **Role name**, the options depend on the service:
 
-    - If the service defines the role name, you can't edit the role name.
-    - If the service defines a prefix for the role name, you can enter an optional suffix.
-    - If the service doesn't define the role name, you can name the role.
+   - If the service defines the role name, you can't edit the role name.
+   - If the service defines a prefix for the role name, you can enter an optional suffix.
+   - If the service doesn't define the role name, you can name the role.
 
-    ###### Important
+   ###### Important
 
-    When you name a role, note the following:
+   When you name a role, note the following:
 
         + Role names must be unique within your AWS account, and can't be made unique by case.
 
@@ -159,15 +158,15 @@ You can specify resources in the following ways:
     * Choose **All** to choose all resources for the service.
 
 7. (Optional) Choose **Request conditions -
-   _optional_** to add conditions to the policy that you are
-   creating. Conditions limit a JSON policy statement's effect. For example, you can specify
-   that a user is allowed to perform the actions on the resources only when that user's
-   request happens within a certain time range. You can also use commonly used conditions to
-   limit whether a user must be authenticated by using a multi-factor authentication (MFA)
-   device. Or you can require that the request originate from within a certain range of IP
-   addresses. For lists of all of the context keys that you can use in a policy condition,
-   see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the
-   _Service Authorization Reference_.
+_optional_** to add conditions to the policy that you are
+creating. Conditions limit a JSON policy statement's effect. For example, you can specify
+that a user is allowed to perform the actions on the resources only when that user's
+request happens within a certain time range. You can also use commonly used conditions to
+limit whether a user must be authenticated by using a multi-factor authentication (MFA)
+device. Or you can require that the request originate from within a certain range of IP
+addresses. For lists of all of the context keys that you can use in a policy condition,
+see [Actions, resources, and condition keys for AWS services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md") in the
+_Service Authorization Reference_.
 
 You can choose conditions in the following ways:
 

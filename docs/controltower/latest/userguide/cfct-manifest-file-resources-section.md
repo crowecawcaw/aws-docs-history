@@ -55,7 +55,7 @@ set.
 - **Type:** String
 - **Required:** No
 
-**resource_file** – This file can be specified as the
+**resource\_file** – This file can be specified as the
 relative location to the manifest file, an Amazon S3 URI or URL that points to an CloudFormation template
 or AWS Organizations service control policy in JSON for creating CloudFormation resources, SCPs, or RCPs.
 
@@ -128,7 +128,7 @@ parameters:
     parameter_value: [String]
 ```
 
-- **parameter_key** – The key associated with the
+- **parameter\_key** – The key associated with the
   parameter.
 
   - **Type:** String
@@ -136,24 +136,23 @@ parameters:
     property)
   - **Valid Values:** a-z, A-Z, and 0-9
 
-- **parameter_value** – The input value associated
+- **parameter\_value** – The input value associated
   with the parameter.
 
-      + **Type:** String
-      + **Required:** Yes (under parameters property)
-
-  **deploy_method** – The deployment method for
-  deploying resource(s) into the account. Currently, **deploy_method**
-  supports deploying resources using the `stack_set` option for resource deployment
-  through CloudFormation StackSets, the `scp` option if you are deploying SCPs, or the `rcp` option if you are deploying RCPs.
+  - **Type:** String
+  - **Required:** Yes (under parameters property)
+    **deploy\_method** – The deployment method for
+    deploying resource(s) into the account. Currently, **deploy\_method**
+    supports deploying resources using the `stack_set` option for resource deployment
+    through CloudFormation StackSets, the `scp` option if you are deploying SCPs, or the `rcp` option if you are deploying RCPs.
 
 - **Type:** String
 - **Valid Values:**
   `stack_set` | `scp` | `rcp`
 - **Required:** Yes
-  **deployment_targets** – List of accounts or
+  **deployment\_targets** – List of accounts or
   Organizational Units (OUs), into which CfCT will deploy the CloudFormation resources, specified as
-  **accounts** or **organizational_units**.
+  **accounts** or **organizational\_units**.
 
 ###### Note
 
@@ -164,30 +163,26 @@ If you want to deploy an SCP or RCP, the target must be an OU, not an account.
   given account list, or `OU names` to indicate that this resource will be
   deployed into the given OU list.
 - **Required:** At least one of
-  **accounts** or **organizational_units**
+  **accounts** or **organizational\_units**
 
-      + **accounts:**
+  - **accounts:**
 
+  **Type:** List of string `account name`
+  or `account number` to indicate that this resource will be deployed into
+  the given account list.
+  - **organizational\_units:**
 
-      **Type:** List of string `account name`
-       or `account number` to indicate that this resource will be deployed into
-       the given account list.
-      + **organizational\_units:**
+  **Type:** List of string `OU names` to
+  indicate that this resource will be deployed into a given OU list. If you provide an
+  OU that doesn’t contain accounts and the **accounts** property is
+  not added, CfCT only creates the stack set.
 
+  ###### Note
 
-      **Type:** List of string `OU names` to
-       indicate that this resource will be deployed into a given OU list. If you provide an
-       OU that doesn’t contain accounts and the **accounts** property is
-       not added, CfCT only creates the stack set.
-
-
-      ###### Note
-
-      The organization’s management account ID is not an allowed value. CfCT does
-       not support deploying stack instances into the organization’s management
-       account, by default. If you have a special use case, see [Root OU](cfct-root-ou.md "cfct-root-ou.md").
-
-  **export_outputs** – List of name/value pairs that
+  The organization’s management account ID is not an allowed value. CfCT does
+  not support deploying stack instances into the organization’s management
+  account, by default. If you have a special use case, see [Root OU](cfct-root-ou.md "cfct-root-ou.md").
+  **export\_outputs** – List of name/value pairs that
   denote SSM parameter keys. These SSM parameter keys allow you to store template outputs into
   the SSM parameter store. The output is intended for reference by other resources, defined
   earlier in the manifest file.
@@ -221,7 +216,7 @@ export_outputs: # List of SSM parameters
 
 ###### Note
 
-The **export_outputs** key name may contain a value other than
+The **export\_outputs** key name may contain a value other than
 `output`. For example, if the **name** is
 `/org/environment-name`, the **value** may be
 `production`.

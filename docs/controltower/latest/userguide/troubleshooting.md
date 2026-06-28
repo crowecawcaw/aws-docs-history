@@ -286,11 +286,11 @@ problem adequately, due to some underlying behavior of AWS Config.
 ###### You may receive an error message, similar to one of these:
 
 - `AWS Control Tower cannot create an AWS Config delivery channel because
-one already exists. To continue, delete the existing delivery channel and
-try again .`
+ one already exists. To continue, delete the existing delivery channel and
+ try again .`
 - `AWS Control Tower cannot create an AWS Config configuration recorder
-because one already exists. To continue, delete the existing delivery
-channel and try again .`
+ because one already exists. To continue, delete the existing delivery
+ channel and try again .`
 
 **Common cause:** When the AWS Config service is enabled
 on an AWS account, it creates a configuration recorder and delivery channel with a
@@ -315,9 +315,9 @@ provisioned product before you retry. Otherwise, you may see an error message si
 this one:
 
 - `An error occurred **(InvalidParametersException)** when
-calling the **ProvisionProduct** operation: A stack named
-``Stackname`` already
-exists.`
+ calling the **ProvisionProduct** operation: A stack named
+ ``Stackname`` already
+ exists.`
 
 In the message, `Stackname` specifies the name
 of the stack.
@@ -335,13 +335,13 @@ your configuration recorder and delivery channel.
 **Delete commands:**
 
 - `aws configservice stop-configuration-recorder
---configuration-recorder-name
-`NAME-FROM-DESCRIBE-OUTPUT``
+ --configuration-recorder-name
+ `NAME-FROM-DESCRIBE-OUTPUT``
 - `aws configservice delete-delivery-channel --delivery-channel-name
-`NAME-FROM-DESCRIBE-OUTPUT``
+ `NAME-FROM-DESCRIBE-OUTPUT``
 - `aws configservice delete-configuration-recorder
---configuration-recorder-name
-`NAME-FROM-DESCRIBE-OUTPUT``
+ --configuration-recorder-name
+ `NAME-FROM-DESCRIBE-OUTPUT``
 
 ###### For more information, see the AWS Config documentation
 
@@ -476,17 +476,17 @@ values will not be the same in an error message you may receive. You may see a m
 similar to the following examples:
 
 - `AWS Control Tower cannot create the IAM role
-`aws-controltower-AdministratorExecutionRole`
-because the role already exists. To continue, delete the existing IAM role
-and try again.`
+ `aws-controltower-AdministratorExecutionRole`
+ because the role already exists. To continue, delete the existing IAM role
+ and try again.`
 - `AWS Control Tower cannot create the IAM role
-`aws-controltower-ConfigRecorderRole` because
-the role already exists. To continue, delete the existing IAM role and try
-again.`
+ `aws-controltower-ConfigRecorderRole` because
+ the role already exists. To continue, delete the existing IAM role and try
+ again.`
 - `AWS Control Tower cannot create the IAM role
-`aws-controltower-ForwardSnsNotificationRole`
-because the role already exists. To continue, delete the existing IAM role
-and try again.`
+ `aws-controltower-ForwardSnsNotificationRole`
+ because the role already exists. To continue, delete the existing IAM role
+ and try again.`
 
 Or you may see an error message about a stack set failure, similar to this
 one:

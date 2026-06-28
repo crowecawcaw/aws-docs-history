@@ -198,7 +198,7 @@ Only one AWS Config delivery channel can exist per Region. If another exists, mo
 settings as shown.
 
 - **Name:** DON’T CHANGE
-- **ConfigSnapshotDeliveryProperties:** TwentyFour_Hours
+- **ConfigSnapshotDeliveryProperties:** TwentyFour\_Hours
 - **S3BucketName:**`CONFIG_BUCKET`
 - **S3KeyPrefix:** `ORGANIZATION_ID`
 - **SnsTopicARN:** The SNS topic ARN from the audit account,
@@ -303,9 +303,7 @@ Resources:
     5. In the **AuthorizedAwsRegion** field, replace the
      `HOME_REGION`
 
-4. During deployment on the CloudFormation console, add the member account number.
-5. Add the AWS Regions that were identified in Step 4.
-6. Deploy the stack set.
+4. During deployment on the CloudFormation console, add the member account number. 5. Add the AWS Regions that were identified in Step 4. 6. Deploy the stack set.
 
 ## Step 7: Register the OU with AWS Control Tower
 

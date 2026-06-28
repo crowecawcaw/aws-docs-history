@@ -59,6 +59,6 @@ aws organizations disable-aws-service-access --service-principal controltower.am
 
 ```
 
-- Delete the remaining managed rule, called
+- Delete the remaining Amazon EventBridge rule, called
   `AWSControlTowerManagedRule`, from shared and member accounts for
   all governed Regions.

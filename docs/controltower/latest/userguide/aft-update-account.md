@@ -81,7 +81,9 @@ changed during account provisioning.
 
 The supported formats for specifying `ManagedOrganizationalUnit` in
 the **aft-account-request** repository include
-`OUName` and `OUName (OU-ID)`.
+`OUName` and `OUName (OU-ID)`. For nested OUs (an OU
+within an OU), you must use the `OUName (OU-ID)` format. For an example,
+see [account-request.tf](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/blob/main/sources/aft-customizations-repos/aft-account-request/examples/account-request.tf#L12-L13 "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/blob/main/sources/aft-customizations-repos/aft-account-request/examples/account-request.tf#L12-L13") in GitHub.
 
 ## Update an account that AFT doesn't provision
 

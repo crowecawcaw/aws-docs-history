@@ -105,12 +105,9 @@ adhere to the following rules:
 3. On the **Landing zone settings** page,in the
    **Details** section, choose the **Modify
    settings** button in the upper right. You are directed to the
-   update landing zone workflow, because governing new Regions, or removing Regions
-   from governance, requires you to update to the latest landing zone version.
-4. Under **Additional AWS Regions for governance**, search for
-   the Regions you want to govern (or stop governing). The
-   **State** column indicates which Regions you currently
-   govern, and which ones you don't.
+   update landing zone workflow.
+4. Under **Additional governed Regions**, search for
+   the Regions you want to govern (or stop governing).
 5. Select the checkbox for each additional Region to govern. Deselect the
    checkbox for each Region from which you are removing governance.
 

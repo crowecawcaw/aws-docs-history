@@ -87,7 +87,7 @@ following:
 - **Malformed account request**
 
 Make sure that your account request follows the expected schema. For
-examples, see [terraform-aws-control_tower_account_factory](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-account-request/examples "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-account-request/examples") on GitHub.
+examples, see [terraform-aws-control\_tower\_account\_factory](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-account-request/examples "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main/sources/aft-customizations-repos/aft-account-request/examples") on GitHub.
 
 - **Exceeded AWS Organizations resource
   quotas**

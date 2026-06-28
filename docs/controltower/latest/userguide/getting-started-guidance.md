@@ -37,7 +37,7 @@ guidance might change as the service is updated. Remember that the [shared respo
   AWS Control Tower drift detection features may not function properly without messaging support from
   AWS Organizations. These drift detection features help guarantee that AWS Control Tower can report the compliance
   status of of organizational units, accounts, and controls in your organization accurately. For
-  more information, see [API_DisableAWSServiceAccess in the AWS Organizations API Reference](../../../organizations/latest/APIReference/API_DisableAWSServiceAccess.md "../../../organizations/latest/APIReference/API_DisableAWSServiceAccess.md").
+  more information, see [API\_DisableAWSServiceAccess in the AWS Organizations API Reference](../../../organizations/latest/APIReference/API_DisableAWSServiceAccess.md "../../../organizations/latest/APIReference/API_DisableAWSServiceAccess.md").
 - In general, AWS Control Tower performs a single action at a time, which must be completed before
   another action can begin. For example, if you attempt to provision an account while the process
   of enabling a control is already in operation, account provisioning will fail.

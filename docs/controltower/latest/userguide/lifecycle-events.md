@@ -609,7 +609,7 @@ of the OU on which AWS Control Tower has disabled its governance features.
         "serviceEventDetails": {
             "deregisterOrganizationalUnitStatus": {
                 "state": "SUCCEEDED",
-                "message": "AWS Control Tower successfully deregistered an organizational unit, and enabled mandatory guardrails on the new organizational unit.",
+                "message": "AWS Control Tower successfully de-registered an organizational unit.",
                 "organizationalUnit" :
                   {
                     "organizationalUnitName": "Test",                   // Foundational OU name.

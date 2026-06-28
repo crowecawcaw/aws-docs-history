@@ -40,4 +40,4 @@ Amazon S3](../../../AmazonS3/latest/userguide/GetStartedWithS3.md "../../../Amaz
 
 You can view the status of the stack in the AWS CloudFormation console in the
 **Status** column. You should see a status of
-**UPDATE_COMPLETE** in approximately 15 minutes.
+**UPDATE\_COMPLETE** in approximately 15 minutes.

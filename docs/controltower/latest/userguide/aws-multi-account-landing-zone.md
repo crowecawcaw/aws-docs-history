@@ -208,19 +208,19 @@ deployment.
 
 In the Foundational OUs column, two OUs have been added to the basic structure:
 
-- **Security_Prod OU** – Provides a read-only area for
+- **Security\_Prod OU** – Provides a read-only area for
   security policies, as well as a break-glass security audit area.
 - **Infrastructure OU** – You may wish to separate the
-  Infrastructure OU, recommended previously, into two OUs, Infrastructure_Test
-  (for pre-production infrastructure) and Infrastructure_Prod (for production
+  Infrastructure OU, recommended previously, into two OUs, Infrastructure\_Test
+  (for pre-production infrastructure) and Infrastructure\_Prod (for production
   infrastructure).
 
 In the Additional OUs area, several more OUs have been added to the basic structure.
 These following are the next recommended OUs to create as your environment grows:
 
 - **Workloads OU** – The Workloads OU, recommended
-  previously but optional, has been separated into two OUs, Workloads_Test (for
-  pre-production workloads) and Workloads_Prod (for production workloads).
+  previously but optional, has been separated into two OUs, Workloads\_Test (for
+  pre-production workloads) and Workloads\_Prod (for production workloads).
 - **PolicyStaging OU** – Allows system administrators to
   test their changes to controls and policies before fully applying them.
 - **Suspended OU** – Offers a location for accounts that

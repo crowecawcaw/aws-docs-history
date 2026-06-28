@@ -40,41 +40,41 @@ The next sections outline mandatory and recommended changes for the transition.
 
 ###### Organizations polices
 
-1. Move the SCPs or RCPs under **organization_policies** under new property
+1. Move the SCPs or RCPs under **organization\_policies** under new property
    **resources**.
-2. Change the **policy_file** property to new property
-   **resource_file.**
-3. Change the **apply_to_accounts_in_ou** to new property
-   **deployment_targets**. The OU list should be defined under
-   sub-property **organizational_units**. The
+2. Change the **policy\_file** property to new property
+   **resource\_file.**
+3. Change the **apply\_to\_accounts\_in\_ou** to new property
+   **deployment\_targets**. The OU list should be defined under
+   sub-property **organizational\_units**. The
    **accounts** sub-property is not supported for organizations
    policies.
-4. Add a new property **deploy_method** with the value
+4. Add a new property **deploy\_method** with the value
    **scp** or **rcp**.
 
 ###### CloudFormation resources
 
 1. Move the CloudFormation resources under
-   **cloudformation_resources** under new property
+   **cloudformation\_resources** under new property
    **resources**.
-2. Change the **template_file** property to new property
-   **resource_file**.
-3. Change the **deploy_to_ou** to new property
-   **deployment_targets**. The OU list should be defined under
-   sub-property **organizational_units**.
-4. Change the **deploy_to_accounts** to new property
-   **deployment_targets**. The account list should be defined under
+2. Change the **template\_file** property to new property
+   **resource\_file**.
+3. Change the **deploy\_to\_ou** to new property
+   **deployment\_targets**. The OU list should be defined under
+   sub-property **organizational\_units**.
+4. Change the **deploy\_to\_accounts** to new property
+   **deployment\_targets**. The account list should be defined under
    sub-property **accounts**.
-5. Change the **ssm_parameters** property to new property
-   **export_outputs**.
+5. Change the **ssm\_parameters** property to new property
+   **export\_outputs**.
 
 ## Highly recommended CfCT upgrade steps
 
 ###### CloudFormation parameters
 
-1. Change the **parameter_file** property to new property
+1. Change the **parameter\_file** property to new property
    **parameters**.
-2. Remove the file path in the value of the **parameter_file**
+2. Remove the file path in the value of the **parameter\_file**
    property.
 3. Copy the parameter key and parameter value from the existing parameter JSON file
    into the new format for the **parameters** property. This would help
@@ -82,5 +82,5 @@ The next sections outline mandatory and recommended changes for the transition.
 
 ###### Note
 
-The **parameter_file** property is supported in CfCT manifest version
+The **parameter\_file** property is supported in CfCT manifest version
 _2021-03-15_.

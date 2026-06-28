@@ -15,9 +15,8 @@ To provision and configure resources for AWS Control Tower and related services,
 [CloudFormation
 templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates are formatted text files in JSON or YAML. These templates describe
 the resources that you want to provision in your CloudFormation stacks. If you're unfamiliar with JSON or
-YAML, you can use CloudFormation Designer to help you get started with CloudFormation templates. For more
-information, see [What is CloudFormation
-Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the _AWS CloudFormation User Guide_.
+YAML, you can use AWS Infrastructure Composer to help you get started with CloudFormation templates. For more
+information, see [What is AWS Infrastructure Composer?](../../../infrastructure-composer/latest/dg/what-is-composer.md "../../../infrastructure-composer/latest/dg/what-is-composer.md") in the _AWS Infrastructure Composer User Guide_.
 
 AWS Control Tower supports creating `AWS::ControlTower::EnabledControl` (control resources), `AWS::ControlTower::LandingZone`
 (landing zones), and `AWS::ControlTower::EnabledBaseline` (baselines)

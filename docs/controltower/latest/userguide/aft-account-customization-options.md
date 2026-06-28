@@ -43,10 +43,10 @@ To apply global customizations, you must push a specific folder structure to you
 chosen repository.
 
 - If your custom configurations are in the form of Python programs or scripts,
-  place those under **api_helpers/python** folder in your
+  place those under **api\_helpers/python** folder in your
   repository.
 - If your custom configurations are in the form of Bash scripts, place those
-  under **api_helpers** folder in your repository.
+  under **api\_helpers** folder in your repository.
 - If your custom configurations are in the form of Terraform, place those under
   the **terraform** folder in your repository.
 - Refer to the global customizations README file for more details on creating
