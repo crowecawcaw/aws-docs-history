@@ -84,7 +84,7 @@ View mailbox usage and set your password, preferred language, and default
 address book from the **General** tab using the following
 settings.
 
-\***\*Change password\*\***
+****Change password****
 
 To change your password, choose **Change password**,
 and then follow the instructions on the screen.
@@ -96,20 +96,20 @@ have to change your password using Microsoft Windows or corporate
 password management tools. Contact your Amazon WorkMail administrator for
 details if you are unsure.
 
-\***\*Language\*\***
+****Language****
 
 To change the language in which Amazon WorkMail is displayed, select a language
 from the list. To change your date format and time format, select a
 format from the list.
 
-\***\*Mailbox Usage\*\***
+****Mailbox Usage****
 
 Shows the current amount of storage space used. To reduce your mailbox
 size you can empty the **Deleted Items** folder, delete
 older messages, or delete messages with large attachments from your
 folders.
 
-\***\*Address Book\*\***
+****Address Book****
 
 To select a default address book, in **Select Default
 Folder**, select the address book to use.
@@ -124,7 +124,7 @@ book** from the main menu bar, or when selecting the
 Change email preview, formatting, font, and other options from the
 **Email** tab using the following settings.
 
-\***\*Display preview pane\*\***
+****Display preview pane****
 
 You can choose to view a preview of items to either the right of the
 content pane or below the content pane. You can also choose to turn off
@@ -136,37 +136,37 @@ Changing the view from the mail application using the
 **View** menu also updates this
 **Display preview pane** setting.
 
-\***\*Close email when responding\*\***
+****Close email when responding****
 
 When selected, the original email closes when you reply to it.
 Deselect this setting to compose replies in a separate tab from the
 original message.
 
-\***\*Format\*\***
+****Format****
 
 You can compose new mail messages as **Plain text**
 or **HTML**.
 
-\***\*Default font\*\***
+****Default font****
 
 Specifies the default font used in all new email messages.
 
-\***\*Default font size\*\***
+****Default font size****
 
 Specifies the size of the default font.
 
-\***\*Always request a read receipt\*\***
+****Always request a read receipt****
 
 Select this check box to automatically request read receipts for every
 email message you send.
 
-\***\*Respond to read receipt\*\***
+****Respond to read receipt****
 
 Select whether Amazon WorkMail should always send a read receipt, never send a
 read receipt, or whether you should be prompted before sending a read
 receipt.
 
-\***\*Signatures\*\***
+****Signatures****
 
 You can create several signatures for different purposes. For example,
 you can create a signature for business and one for private use, or
@@ -222,18 +222,18 @@ you to turn automatic responses off.
 Set your calendar format, default reminder time, and other options using the
 following settings.
 
-\***\*First day of the week\*\***
+****First day of the week****
 
 If your week starts on a different day instead of Monday, you can
 change it to that day using this setting.
 
-\***\*First week of the year\*\***
+****First week of the year****
 
 Specify whether the calendar should count weeks from the first full
 week, or first partial week, of a new year.
 
-\***\*Start of workday**, **End of
-workday\*\***
+****Start of workday**, **End of
+workday****
 
 Specify the part of the day that is marked as your workday. The
 calendar shows this time period in a different color so that you can see
@@ -241,7 +241,7 @@ when an appointment or meeting is scheduled outside office hours. The
 default values for office hours are 8:30 - 17:30 (8:30 AM - 5:30
 PM).
 
-\***\*Calendar resolution\*\***
+****Calendar resolution****
 
 If your appointments frequently start at times other than each half or
 whole hour, or have a duration other than multiples of 30 minutes, then
@@ -253,7 +253,7 @@ Setting the value to less than 30 minutes makes the Amazon WorkMail web
 application zoom in on the calendar. This may cause you to scroll
 more when accessing your calendar on a smaller screen.
 
-\***\*View multiple calendars\*\***
+****View multiple calendars****
 
 Specify how multiple calendars should be displayed by default in the
 Calendar. **Side-by-side** displays all calendars next
@@ -266,14 +266,14 @@ color.
 This setting has no effect when you are only displaying one
 calendar.
 
-\***\*Default reminder time\*\***
+****Default reminder time****
 
 Specify how long before the start of the appointment the default
 reminder should occur. This setting can be overruled for any appointment
 by editing it manually in the calendar. The default is 15
 minutes.
 
-\***\*Default all-day appointment reminder time\*\***
+****Default all-day appointment reminder time****
 
 Specify the reminder time that is automatically set when you create a
 new all-day appointment. The default is 18 hours. This setting can be

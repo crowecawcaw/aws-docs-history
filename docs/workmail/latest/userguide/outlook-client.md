@@ -196,8 +196,7 @@ Settings** dialog box:
     * For **Password**, enter your Amazon WorkMail
      password.
 
-7. (Optional) Choose **Remember password**.
-8. Choose **Next**.
+7. (Optional) Choose **Remember password**. 8. Choose **Next**.
 
 Outlook tests the connection and displays a message saying that your
 account is ready for use. 9. Choose **Finish**.

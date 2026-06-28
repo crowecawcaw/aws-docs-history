@@ -67,7 +67,7 @@ as appropriate. 4. (Optional) Do one of the following:
      choose **Save**.
 
 5. Enter your text in the lower half of the contents pane, and choose
-   **Send**.
+**Send**.
 
 ## Sending email from an alias
 

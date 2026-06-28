@@ -51,7 +51,6 @@ select one or more users from the address book and add them to the
     * (Optional) For **Reminder**, set a reminder.
 
 8. In the lower portion of the meeting invitation, you can add information about
-   the meeting, such as an agenda. To add an attachment to the meeting invitation,
-   choose **Attach**.
-9. When you're ready to send the meeting invitation, choose **Send
-   invitation**.
+the meeting, such as an agenda. To add an attachment to the meeting invitation,
+choose **Attach**. 9. When you're ready to send the meeting invitation, choose **Send
+invitation**.
