@@ -17,7 +17,7 @@ information about asymmetric cryptography in AWS KMS, see [Using symmetric and a
 ###### Note
 
 License Manager calls the AWS KMS [`Sign`](../../../kms/latest/APIReference/API_Sign.md "../../../kms/latest/APIReference/API_Sign.md") and [`Verify`](../../../kms/latest/APIReference/API_Verify.md "../../../kms/latest/APIReference/API_Verify.md") API operations when signing and verifying
-licenses. The CMK must have a key usage value of [SIGN_VERIFY](../../../kms/latest/developerguide/concepts.md#key-usage "../../../kms/latest/developerguide/concepts.md#key-usage") for it to be used
+licenses. The CMK must have a key usage value of [SIGN\_VERIFY](../../../kms/latest/developerguide/concepts.md#key-usage "../../../kms/latest/developerguide/concepts.md#key-usage") for it to be used
 by these operations. This variety of CMK cannot be used for encryption and
 decryption.
 

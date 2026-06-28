@@ -27,24 +27,24 @@ Each ruleset contains up to 5 rules that define how to discover and track your s
 
 The following table shows the available keys you can use when creating license asset ruleset rules:
 
-| License asset ruleset rule keys | Rule Type                 | Key                | Operator                                                                                                                                             | Value Type     | Accepted Values |
-| ------------------------------- | ------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------- |
-| Self-managed License            | License Configuration ARN | Equals, Not Equals | List                                                                                                                                                 | Valid ARN      |
-| AWS Account ID                  | Equals, Not Equals        | List               | String                                                                                                                                               |
-| Granted License                 | License ARN               | Equals, Not Equals | List                                                                                                                                                 | Valid ARN      |
-| Product SKU                     | Equals, Not Equals        | List               | String                                                                                                                                               |
-| Issuer                          | Equals, Not Equals        | List               | String                                                                                                                                               |
-| Beneficiary                     | Equals, Not Equals        | List               | String                                                                                                                                               |
-| License Status                  | Equals, Not Equals        | List               | Valid License Status                                                                                                                                 |
-| Home Region                     | Equals, Not Equals        | List               | Valid AWS Region                                                                                                                                     |
-| Instance                        | Platform                  | Equals, Not Equals | List                                                                                                                                                 | Windows, Linux |
-| EC2 Billing Product             | Equals, Not Equals        | List               | windows-server-enterprise, windows-byol, sql-server-standard, sql-server-enterprise, rhel, rhel-byol, rhel-high-availability, ubuntu-pro, suse-linux |
-| Marketplace Product Code        | Equals, Not Equals        | List               | String                                                                                                                                               |
-| AMI ID                          | Equals, Not Equals        | List               | String                                                                                                                                               |
-| Instance Type                   | Equals, Not Equals        | List               | String                                                                                                                                               |
-| Instance ID                     | Equals, Not Equals        | List               | String                                                                                                                                               |
-| Host ID                         | Equals, Not Equals        | List               | String                                                                                                                                               |
-| AWS Account ID                  | Equals, Not Equals        | List               | String                                                                                                                                               |
+License asset ruleset rule keys| Rule Type | Key | Operator | Value Type | Accepted Values |
+| --- | --- | --- | --- | --- |
+| Self-managed License | License Configuration ARN | Equals, Not Equals | List | Valid ARN |
+| AWS Account ID | Equals, Not Equals | List | String |
+| Granted License | License ARN | Equals, Not Equals | List | Valid ARN |
+| Product SKU | Equals, Not Equals | List | String |
+| Issuer | Equals, Not Equals | List | String |
+| Beneficiary | Equals, Not Equals | List | String |
+| License Status | Equals, Not Equals | List | Valid License Status |
+| Home Region | Equals, Not Equals | List | Valid AWS Region |
+| Instance | Platform | Equals, Not Equals | List | Windows, Linux |
+| EC2 Billing Product | Equals, Not Equals | List | windows-server-enterprise, windows-byol, sql-server-standard, sql-server-enterprise, rhel, rhel-byol, rhel-high-availability, ubuntu-pro, suse-linux |
+| Marketplace Product Code | Equals, Not Equals | List | String |
+| AMI ID | Equals, Not Equals | List | String |
+| Instance Type | Equals, Not Equals | List | String |
+| Instance ID | Equals, Not Equals | List | String |
+| Host ID | Equals, Not Equals | List | String |
+| AWS Account ID | Equals, Not Equals | List | String |
 
 ## Using AWS-managed rulesets
 

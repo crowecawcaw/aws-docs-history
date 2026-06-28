@@ -60,7 +60,7 @@ You can use the License Manager console to create a service-linked role.
 You can also use the IAM console to create a service-linked role with the `License Manager
 
 - Member account`use case. Alternatively, in the AWS CLI or AWS API, create a
-service-linked role with the`license-manager.member-account.amazonaws.com`
+ service-linked role with the`license-manager.member-account.amazonaws.com`
   service name. For more information, see [Creating a
   Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the _IAM User Guide_.
 

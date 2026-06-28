@@ -35,7 +35,7 @@ The following are possible CloudWatch alarm states:
   defined threshold.
 - **ALARM** – The metric or expression is outside of
   the defined threshold.
-- **INSUFFICIENT_DATA** – The alarm has just started,
+- **INSUFFICIENT\_DATA** – The alarm has just started,
   the metric is not available, or not enough data is available for the metric to determine the
   alarm state.
 

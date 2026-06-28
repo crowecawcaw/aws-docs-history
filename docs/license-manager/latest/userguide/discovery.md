@@ -35,19 +35,19 @@ included (for example, a license that is not for "SQL Server Web").
 2. In the navigation pane, choose **Inventory search**.
 3. (Optional) You can specify filter options to streamline search results as follows.
 
-| Amazon EC2 resources  | Filter name                                                                                                                                                                      | Description                                          | Logical operators                                                                                           | Supported values |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------- |
-| Resource ID           | The ID of the resource.                                                                                                                                                          | `Equals`, `Not equals`                               |                                                                                                             |
-| Account ID            | The ID of the AWS account that owns the resource.                                                                                                                                | `Equals`, `Not equals`                               |                                                                                                             |
-| Platform name         | The operating system platform for the resource.                                                                                                                                  | `Equals`, `Not equals`,<br>`Begins with`, `Contains` |                                                                                                             |
-| Application name      | The name of the application.                                                                                                                                                     | `Equals`, `Begins with`                              |                                                                                                             |
-| License included name | The type of license included.                                                                                                                                                    | `Equals`, `Not equals`                               | • `SQL Server Enterprise`<br>• `SQL Server Standard`<br>• `SQL Server Web`<br>• `Windows Server Datacenter` |
-| Tag                   | A metadata tag key and optional value that's assigned to the<br>resource.<br>Note, the `Not equals` logical operator is<br>only available if cross-account discovery is enabled. | `Equals`, `Not equals`                               |                                                                                                             |
+Amazon EC2 resources| Filter name | Description | Logical operators | Supported values |
+| --- | --- | --- | --- |
+| Resource ID | The ID of the resource. | `Equals`, `Not equals` | |
+| Account ID | The ID of the AWS account that owns the resource. | `Equals`, `Not equals` | |
+| Platform name | The operating system platform for the resource. | `Equals`, `Not equals`,<br>`Begins with`, `Contains` | |
+| Application name | The name of the application. | `Equals`, `Begins with` | |
+| License included name | The type of license included. | `Equals`, `Not equals` | • `SQL Server Enterprise`<br>• `SQL Server Standard`<br>• `SQL Server Web`<br>• `Windows Server Datacenter` |
+| Tag | A metadata tag key and optional value that's assigned to the<br>resource.<br>Note, the `Not equals` logical operator is<br>only available if cross-account discovery is enabled. | `Equals`, `Not equals` | |
 
-| Amazon RDS resources       | Filter name                                                           | Description | Logical operators                                                                                                                                              | Supported values |
-| -------------------------- | --------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Engine Edition             | The database engine edition.                                          | `Equals`    | • `oracle-ee`<br>• `oracle-se`<br>• `oracle-se1`<br>• `oracle-se2`<br>• `db2-se`<br>• `db2-ae`<br>• `sqlserver-ee`<br>• `sqlserver-se`                         |
-| License Pack (Oracle only) | The management pack associated with an Amazon RDS for Oracle license. | `Equals`    | • `Spatial and Graph`<br>• `Active Data Guard`<br>• `Label Security`<br>• `Oracle On-Line Analytical Processing (OLAP)`<br>• `Diagnostic Pack and Tuning Pack` |
+Amazon RDS resources| Filter name | Description | Logical operators | Supported values |
+| --- | --- | --- | --- |
+| Engine Edition | The database engine edition. | `Equals` | • `oracle-ee`<br>• `oracle-se`<br>• `oracle-se1`<br>• `oracle-se2`<br>• `db2-se`<br>• `db2-ae`<br>• `sqlserver-ee`<br>• `sqlserver-se` |
+| License Pack (Oracle only) | The management pack associated with an Amazon RDS for Oracle license. | `Equals` | • `Spatial and Graph`<br>• `Active Data Guard`<br>• `Label Security`<br>• `Oracle On-Line Analytical Processing (OLAP)`<br>• `Diagnostic Pack and Tuning Pack` |
 
 For more information about Amazon RDS database product licenses, see [RDS for Oracle licensing options](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md"),
 [RDS for Db2 licensing options](../../../AmazonRDS/latest/UserGuide/db2-licensing.md "../../../AmazonRDS/latest/UserGuide/db2-licensing.md"), or

@@ -44,7 +44,7 @@ month.
 The following considerations apply when using user-based subscriptions with License Manager:
 
 - The AWS Marketplace subscription for license-included Microsoft Remote Desktop Services (`Win Remote Desktop 
-Services SAL`) has a per user per month fee, with no proration.
+ Services SAL`) has a per user per month fee, with no proration.
 - Instances that provide user-based subscriptions support up to two active user
   sessions at a time by default. To enable more than two active user sessions, you can
   configure an Active Directory Group Policy Object (GPO), and set the Microsoft RDS

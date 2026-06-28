@@ -59,7 +59,7 @@ The following table confirms which media can be used on which instance
 licensing models.
 
 | Source                            | Target |
-| --------------------------------- | ------ | ---------------- |
+| --------------------------------- | ------ |
 |                                   | BYOL   | License included |
 | AWS provided Windows Server image | No     | Yes              |
 | AWS provided SQL Server image     | No     | Yes              |
@@ -86,7 +86,7 @@ another between BYOL and license included. For more information, see [Convert a 
   usage operation value.
 
 | Source                                                                                                                             | Target                 |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ---------------------------------- | -------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------------------- |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
 |                                                                                                                                    | Windows Server as BYOL | Windows Server as license included | Windows Server as BYOL<br>SQL Server as BYOL | Windows Server as license included<br>SQL Server as BYOL | Windows Server as BYOL<br>SQL Server as license included | Windows Server as license included<br>SQL Server as license included |
 | Windows Server as BYOL (your media)                                                                                                | Not needed             | Yes                                | Not needed                                   | Yes1                                                     | Unsupported                                              | Yes1                                                                 |
 | Windows Server as license included (your media)                                                                                    | Yes2                   | Not needed                         | Yes1,2                                       | Not needed3                                              | Unsupported                                              | Yes1                                                                 |

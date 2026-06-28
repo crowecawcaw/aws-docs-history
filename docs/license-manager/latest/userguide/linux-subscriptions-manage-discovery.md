@@ -57,17 +57,16 @@ prerequisites.
   Administrator, ensure that your login ID has the following roles and permissions
   assigned:
 
-      + **Role:** Manage your subscriptions
-      + **Permissions:** `View All`, or
-       `View/Edit All`
-
-  If your login ID doesn't have the required roles and permissions, contact your
-  Red Hat portal Organization Administrator and request to add them to your login.
-  For more information about Red Hat roles and permissions, see [Roles and Permissions for
-  Red Hat Customer Portal](https://access.redhat.com/articles/1757953 "https://access.redhat.com/articles/1757953"). For more information about how to contact your
-  Red Hat Portal Organization Administrator, see [How do I
-  know who my Organization Administrator is?](https://access.redhat.com/articles/customer-service-accounts#OrgAdmin "https://access.redhat.com/articles/customer-service-accounts#OrgAdmin") in the _Red Hat Customer
-  Portal Knowledgebase_.
+  - **Role:** Manage your subscriptions
+  - **Permissions:** `View All`, or
+    `View/Edit All`
+    If your login ID doesn't have the required roles and permissions, contact your
+    Red Hat portal Organization Administrator and request to add them to your login.
+    For more information about Red Hat roles and permissions, see [Roles and Permissions for
+    Red Hat Customer Portal](https://access.redhat.com/articles/1757953 "https://access.redhat.com/articles/1757953"). For more information about how to contact your
+    Red Hat Portal Organization Administrator, see [How do I
+    know who my Organization Administrator is?](https://access.redhat.com/articles/customer-service-accounts#OrgAdmin "https://access.redhat.com/articles/customer-service-accounts#OrgAdmin") in the _Red Hat Customer
+    Portal Knowledgebase_.
 
 - To activate RHSM subscription discovery, you must provide the Red Hat customer
   account API offline token, or an AWS Secrets Manager secret that contains the offline token.

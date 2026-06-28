@@ -41,11 +41,11 @@ The following table associates the License Manager rule-making parameters with t
 requirements that they capture and automate. The example values are for illustration purposes
 only; you would specify the values that you need in your own self-managed licenses.
 
-| License Manager Rule             | Settings                                                                                             |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| License counting type            | \*_License Type_<br>• is set to `Cores`.                                                             |
-| License count                    | \*_Number of cores_<br>• is set to `96`.                                                             |
-| Minimum / Maximum vCPUs or cores | **Minimum cores\*<br>• is set to `8`.<br>**Maximum cores\*<br>• is set to `16`.                      |
-| License count hard limit         | \*_Enforce license limit_<br>• is selected.                                                          |
-| Allowed tenancy                  | \*_Tenancy_<br>• is set to `Dedicated Host`.                                                         |
-| Include stopped instances        | \*_Include stopped instances_<br>• is set to `True`. Stopped instances continue to consume licenses. |
+| License Manager Rule             | Settings                                                                                            |
+| -------------------------------- | --------------------------------------------------------------------------------------------------- |
+| License counting type            | *_License Type_<br>• is set to `Cores`.                                                             |
+| License count                    | *_Number of cores_<br>• is set to `96`.                                                             |
+| Minimum / Maximum vCPUs or cores | *_Minimum cores_<br>• is set to `8`.<br>*_Maximum cores_<br>• is set to `16`.                       |
+| License count hard limit         | *_Enforce license limit_<br>• is selected.                                                          |
+| Allowed tenancy                  | *_Tenancy_<br>• is set to `Dedicated Host`.                                                         |
+| Include stopped instances        | *_Include stopped instances_<br>• is set to `True`. Stopped instances continue to consume licenses. |

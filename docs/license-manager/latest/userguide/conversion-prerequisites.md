@@ -28,27 +28,26 @@ conversion:
   _AWS Systems Manager User Guide_.
 - Your user or role must have the following permissions:
 
-      + `ssm:GetInventory`
-      + `ssm:StartAutomationExecution`
-      + `ssm:GetAutomationExecution`
-      + `ssm:SendCommand`
-      + `ssm:GetCommandInvocation`
-      + `ssm:DescribeInstanceInformation`
-      + `ec2:DescribeImages`
-      + `ec2:DescribeInstances`
-      + `ec2:StartInstances`
-      + `ec2:StopInstances`
-      + `license-manager:CreateLicenseConversionTaskForResource`
-      + `license-manager:GetLicenseConversionTask`
-      + `license-manager:ListLicenseConversionTasks`
-      + `license-manager:GetLicenseConfiguration`
-      + `license-manager:ListUsageForLicenseConfiguration`
-      + `license-manager:ListLicenseSpecificationsForResource`
-      + `license-manager:ListAssociationsForLicenseConfiguration`
-      + `license-manager:ListLicenseConfigurations`
-
-  For more information about Systems Manager Inventory, see [AWS
-  Systems Manager Inventory](../../../systems-manager/latest/userguide/systems-manager-inventory.md "../../../systems-manager/latest/userguide/systems-manager-inventory.md").
+  - `ssm:GetInventory`
+  - `ssm:StartAutomationExecution`
+  - `ssm:GetAutomationExecution`
+  - `ssm:SendCommand`
+  - `ssm:GetCommandInvocation`
+  - `ssm:DescribeInstanceInformation`
+  - `ec2:DescribeImages`
+  - `ec2:DescribeInstances`
+  - `ec2:StartInstances`
+  - `ec2:StopInstances`
+  - `license-manager:CreateLicenseConversionTaskForResource`
+  - `license-manager:GetLicenseConversionTask`
+  - `license-manager:ListLicenseConversionTasks`
+  - `license-manager:GetLicenseConfiguration`
+  - `license-manager:ListUsageForLicenseConfiguration`
+  - `license-manager:ListLicenseSpecificationsForResource`
+  - `license-manager:ListAssociationsForLicenseConfiguration`
+  - `license-manager:ListLicenseConfigurations`
+    For more information about Systems Manager Inventory, see [AWS
+    Systems Manager Inventory](../../../systems-manager/latest/userguide/systems-manager-inventory.md "../../../systems-manager/latest/userguide/systems-manager-inventory.md").
 
 ## Windows
 
@@ -101,21 +100,20 @@ Ubuntu
   Ubuntu Pro subscription and receive updates. You must allow outbound traffic
   from your instance over TCP port 443 to reach the following endpoints:
 
-      + **contracts.canonical.com** –
-       Used for Ubuntu Pro activation.
-      + **esm.ubuntu.com** – Used for
-       APT repository access for most services.
-      + **api.snapcraft.io** – Used
-       for installing and running snaps.
-      + **dashboard.snapcraft.io** –
-       Used for installing and running snaps.
-      + **login.ubuntu.com** – Used
-       for installing and running snaps.
-      + **cloudfront.cdn.snapcraftcontent.com** – Used
-       for downloading from content development networks (CDNs).
-      + **livepatch.canonical.com** –
-       Used for downloading patches from the Livepatch server.
-
-  For more information, see [Ubuntu Pro Client network requirements](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements/ "https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements/") in the Ubuntu Pro Client
-  documentation and [Network
-  requirements](https://snapcraft.io/docs/network-requirements "https://snapcraft.io/docs/network-requirements") in the Canonical Snapcraft documentation.
+  - **contracts.canonical.com** –
+    Used for Ubuntu Pro activation.
+  - **esm.ubuntu.com** – Used for
+    APT repository access for most services.
+  - **api.snapcraft.io** – Used
+    for installing and running snaps.
+  - **dashboard.snapcraft.io** –
+    Used for installing and running snaps.
+  - **login.ubuntu.com** – Used
+    for installing and running snaps.
+  - **cloudfront.cdn.snapcraftcontent.com** – Used
+    for downloading from content development networks (CDNs).
+  - **livepatch.canonical.com** –
+    Used for downloading patches from the Livepatch server.
+    For more information, see [Ubuntu Pro Client network requirements](https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements/ "https://canonical-ubuntu-pro-client.readthedocs-hosted.com/en/latest/references/network_requirements/") in the Ubuntu Pro Client
+    documentation and [Network
+    requirements](https://snapcraft.io/docs/network-requirements "https://snapcraft.io/docs/network-requirements") in the Canonical Snapcraft documentation.

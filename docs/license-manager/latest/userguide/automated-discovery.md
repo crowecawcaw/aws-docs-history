@@ -62,9 +62,8 @@ Amazon RDS for Db2, and Amazon RDS for SQL Server):
     * Only one license configuration is allowed for each Amazon RDS database product.
 
 6. (Optional) Select **Stop tracking instances when software is uninstalled**
-   to make the license available for reuse after License Manager detects that the software was uninstalled and
-   any license affinity period has elapsed.
-7. (Optional) To define resources to exclude from automated discovery select **Add exclusion rule**.
+to make the license available for reuse after License Manager detects that the software was uninstalled and
+any license affinity period has elapsed. 7. (Optional) To define resources to exclude from automated discovery select **Add exclusion rule**.
 
 ###### Note
 
