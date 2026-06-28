@@ -14,273 +14,273 @@ diagnose and address network misconfiguration.
 The following explanation codes indicate that the path analysis determined that the path
 is not reachable.
 
-**BAD_STATE**
+**BAD\_STATE**
 This component is not in a functional state.
 
-**BAD_STATE_ATTACHMENT**
+**BAD\_STATE\_ATTACHMENT**
 The attachment between these components is not in a functional state.
 
-**BAD_STATE_ROUTE**
+**BAD\_STATE\_ROUTE**
 This route is not in a functional state.
 
-**BAD_STATE_VPN**
+**BAD\_STATE\_VPN**
 This VPN connection is not in a functional state.
 
-**CANNOT_ROUTE**
+**CANNOT\_ROUTE**
 This route can't transmit traffic because its destination CIDR or prefix list does not match
 the destination address of the packet.
 
-**ELB_ACL_RESTRICTION**
+**ELB\_ACL\_RESTRICTION**
 Classic Load Balancers apply network ACLs to outbound traffic, even if it's destined for a target in the same
 subnet as the load balancer.
 
-**ELB_INSTALLED_AZ_RESTRICTION**
+**ELB\_INSTALLED\_AZ\_RESTRICTION**
 This load balancer can send traffic only to targets in Availability Zones that are enabled for
 the load balancer.
 
-**ELB_LISTENER_PORT_RESTRICTION**
+**ELB\_LISTENER\_PORT\_RESTRICTION**
 This Classic Load Balancer listener allows only inbound traffic destined for the specified port, and outbound
 traffic with the specified destination port.
 
-**ELB_LISTENERS_MISMATCH**
+**ELB\_LISTENERS\_MISMATCH**
 This Classic Load Balancer does not have a listener that accepts the traffic.
 
-**ELB_NOT_CROSSZONE**
+**ELB\_NOT\_CROSSZONE**
 This load balancer can't send traffic to some targets because cross-zone load balancing is
 disabled.
 
-**ELBV2_LISTENER_HAS_NO_TG**
+**ELBV2\_LISTENER\_HAS\_NO\_TG**
 This listener is associated with target groups that have no targets.
 
-**ELBV2_LISTENER_PORT_RESTRICTION**
+**ELBV2\_LISTENER\_PORT\_RESTRICTION**
 This listener does not accept traffic unless it has the specified destination port.
 
-**ELBV2_LISTENER_REQUIRES_TG_ACCEPT**
+**ELBV2\_LISTENER\_REQUIRES\_TG\_ACCEPT**
 This listener does not have a target group that accepts the traffic.
 
-**ELBV2_LISTENERS_MISMATCH**
+**ELBV2\_LISTENERS\_MISMATCH**
 This load balancer does not have a listener that accepts the traffic.
 
-**ELBV2_NO_TARGETS_IN_AZ**
+**ELBV2\_NO\_TARGETS\_IN\_AZ**
 The load balancer does not have targets in the specified Availability Zones.
 
-**ELBV2_SOURCE_ADDRESS_PRESERVATION**
+**ELBV2\_SOURCE\_ADDRESS\_PRESERVATION**
 If source address preservation is enabled, the outgoing source address is unaltered while
 traversing the Network Load Balancer.
 
-**ENI_ADDRESS_RESTRICTION**
+**ENI\_ADDRESS\_RESTRICTION**
 This network interface does not allow inbound or outbound traffic unless the source or
 destination address matches its private IP address.
 
-**ENI_SG_RULES_MISMATCH**
+**ENI\_SG\_RULES\_MISMATCH**
 This security group has no inbound or outbound rules that apply.
 
-**ENI_SOURCE_DEST_CHECK_RESTRICTION**
+**ENI\_SOURCE\_DEST\_CHECK\_RESTRICTION**
 Network interfaces with source/destination check enabled reject inbound traffic if the
 destination address does not match one of its private IP addresses, and reject outbound traffic if
 the source address does not match one of their private IP addresses.
 
-**FIREWALL_RULES_RESTRICTION**
+**FIREWALL\_RULES\_RESTRICTION**
 The traffic is blocked by a matching Network Firewall firewall rule.
 
-**GATEWAY_REJECTS_SPOOFED_TRAFFIC**
+**GATEWAY\_REJECTS\_SPOOFED\_TRAFFIC**
 Gateways reject traffic with spoofed addresses from the VPC.
 
-**GWLB_DESTINATION_PORT_RESTRICTION**
+**GWLB\_DESTINATION\_PORT\_RESTRICTION**
 Traffic between a Gateway Load Balancer and its targets must use port 6081 as the destination port.
 To analyze connectivity through a Gateway Load Balancer, specify port 6081 in the path definition.
 
-**GWLB_PROTOCOL_RESTRICTION**
+**GWLB\_PROTOCOL\_RESTRICTION**
 Traffic between a Gateway Load Balancer and its targets must use the GENEVE protocol, which is UDP-based.
 To analyze connectivity through a Gateway Load Balancer, specify the UDP protocol in the path definition.
 
-**HIGHER_PRIORITY_ROUTE**
+**HIGHER\_PRIORITY\_ROUTE**
 This route table contains a route to the destination that can't be used because there is a
 higher priority route with the same destination CIDR.
 
-**IGW_DESTINATION_ADDRESS_IN_VPC_CIDRS**
+**IGW\_DESTINATION\_ADDRESS\_IN\_VPC\_CIDRS**
 Internet gateways accept traffic only if the destination address is within the VPC CIDR
 block.
 
-**IGW_DESTINATION_ADDRESS_NOT_IN_RFC1918_EGRESS**
+**IGW\_DESTINATION\_ADDRESS\_NOT\_IN\_RFC1918\_EGRESS**
 Internet gateways reject outbound traffic with destination addresses in the private IP address
 range (see [RFC1918](https://www.rfc-editor.org/rfc/rfc1918 "https://www.rfc-editor.org/rfc/rfc1918")).
 
-**IGW_DESTINATION_ADDRESS_NOT_IN_RFC6598_EGRESS**
+**IGW\_DESTINATION\_ADDRESS\_NOT\_IN\_RFC6598\_EGRESS**
 Internet gateways reject outbound traffic with destination addresses in the shared IP address
 range (see [RFC6598](https://www.rfc-editor.org/rfc/rfc6598 "https://www.rfc-editor.org/rfc/rfc6598")).
 
-**IGW_NAT_REFLECTION**
+**IGW\_NAT\_REFLECTION**
 The path has an internet gateway as an intermediate component, which Reachability Analyzer does not support.
 Instead, analyze the path from the source to the internet gateway and then analyze the
 path from the internet gateway to the destination.
 
-**IGW_PRIVATE_IP_ASSOCIATION_FOR_INGRESS**
+**IGW\_PRIVATE\_IP\_ASSOCIATION\_FOR\_INGRESS**
 Internet gateways reject inbound traffic with a destination address that is not the public IP
 address of a network interface in the VPC with an available attachment.
 
-**IGW_PUBLIC_IP_ASSOCIATION_FOR_EGRESS**
+**IGW\_PUBLIC\_IP\_ASSOCIATION\_FOR\_EGRESS**
 Traffic can't reach the internet through the internet gateway if the source address is not
 paired with a public IP address or if the source address does not belong to a network
 interface in the VPC with an available attachment.
 
-**IGW_SOURCE_ADDRESS_NOT_IN_RFC1918_INGRESS**
+**IGW\_SOURCE\_ADDRESS\_NOT\_IN\_RFC1918\_INGRESS**
 Internet gateways reject inbound traffic with source addresses in the private IP address range
 (see [RFC1918](https://www.rfc-editor.org/rfc/rfc1918 "https://www.rfc-editor.org/rfc/rfc1918")).
 
-**IGW_SOURCE_ADDRESS_NOT_IN_RFC6598_INGRESS**
+**IGW\_SOURCE\_ADDRESS\_NOT\_IN\_RFC6598\_INGRESS**
 Internet gateways reject inbound traffic with source addresses in the shared IP address range
 (see [RFC6598](https://www.rfc-editor.org/rfc/rfc6598 "https://www.rfc-editor.org/rfc/rfc6598")).
 
-**INGRESS_RTB_NO_PUBLIC_IP**
+**INGRESS\_RTB\_NO\_PUBLIC\_IP**
 A middlebox appliance can't receive traffic from the internet through an ingress route table
 if it does not have a public IP address.
 
-**INGRESS_RTB_TRAFFIC_REDIRECTION**
+**INGRESS\_RTB\_TRAFFIC\_REDIRECTION**
 Subnets whose traffic is redirected to a middlebox appliance can't use a direct route to the
 internet gateway even when the subnet route table provides one.
 
-**MORE_SPECIFIC_ROUTE**
+**MORE\_SPECIFIC\_ROUTE**
 The specified route can't be used to transmit traffic because there is a more specific route
 that matches. You can use filters to require that a path include a specific intermediate
 component.
 
-**NGW_DEST_ADDRESS_PRESERVATION**
+**NGW\_DEST\_ADDRESS\_PRESERVATION**
 NAT gateways do not alter destination addresses.
 
-**NGW_REQUIRES_SOURCE_IN_VPC**
+**NGW\_REQUIRES\_SOURCE\_IN\_VPC**
 NAT gateways can only transmit traffic that originates from network interfaces within the same
 VPC. NAT gateways can't transmit traffic that originates from peering connections, VPN
 connections, or Direct Connect.
 
-**NGW_SOURCE_ADDRESS_REASSIGN**
+**NGW\_SOURCE\_ADDRESS\_REASSIGN**
 NAT gateways transform the source's addresses in outbound traffic to match its private IP
 address.
 
-**NO_POSSIBLE_DESTINATION**
+**NO\_POSSIBLE\_DESTINATION**
 The network component can't deliver the packet to any possible destination, or the network
 component sent traffic to a destination in another account or Region. If the destination is in
 another account, [enable cross-account analyses](multi-account.md "multi-account.md").
 
-**NO_ROUTE_TO_DESTINATION**
+**NO\_ROUTE\_TO\_DESTINATION**
 The route table does not have an applicable route to the destination resource.
 
-**PCX_REQUIRES_ADDRESS_IN_VPC_CIDR**
+**PCX\_REQUIRES\_ADDRESS\_IN\_VPC\_CIDR**
 Traffic can traverse this peering connection only if the destination or source address is
 within the CIDR block of the destination VPC.
 
-**PROTOCOL_RESTRICTION**
+**PROTOCOL\_RESTRICTION**
 This component only accepts traffic with specific protocols.
 
-**REGIONAL_NGW_ROUTE_AZ_RESTRICTION**
+**REGIONAL\_NGW\_ROUTE\_AZ\_RESTRICTION**
 The regional NAT gateway is not registered in the Availability Zone where the traffic originates.
 
-**REMAP_EPHEMERAL_PORT**
+**REMAP\_EPHEMERAL\_PORT**
 Outbound traffic from a NAT gateway or load balancer has the source port remapped to an
 ephemeral port in the range [1024–65535].
 
-**SG_HAS_NO_RULES**
+**SG\_HAS\_NO\_RULES**
 This security group has no inbound or outbound rules.
 
-**SG_REFERENCES_NOT_PRESERVED**
+**SG\_REFERENCES\_NOT\_PRESERVED**
 The network component discards security group information about forwarded traffic.
 This prevents traffic from being accepted by security group rules that accept traffic only from
 a source or destination that belongs to a security group.
 
-**SG_REFERENCING_SUPPORT**
+**SG\_REFERENCING\_SUPPORT**
 The transit gateway VPC attachment does not have security group referencing
 support enabled. Therefore, we discard security group information about forwarded
 traffic.
 
-**SUBNET_ACL_RESTRICTION**
+**SUBNET\_ACL\_RESTRICTION**
 Inbound or outbound traffic for a subnet must be admitted by the network ACL for the
 subnet.
 
-**TARGET_ADDRESS_RESTRICTION**
+**TARGET\_ADDRESS\_RESTRICTION**
 A load balancer can only route traffic that is destined for the address of one of its
 targets.
 
-**TARGET_PORT_RESTRICTION**
+**TARGET\_PORT\_RESTRICTION**
 A load balancer can only route traffic to a target using its registered port.
 
-**TGW_ATTACH_MISSING_TGW_RTB_ASSOCIATION**
+**TGW\_ATTACH\_MISSING\_TGW\_RTB\_ASSOCIATION**
 This transit gateway attachment doesn't have a valid transit gateway route table association.
 
-**TGW_ATTACH_VPC_AZ_RESTRICTION**
+**TGW\_ATTACH\_VPC\_AZ\_RESTRICTION**
 Traffic from a VPC attachment in the default mode can't be forwarded to the network interface
 in this Availability Zone because it comes from an Availability Zone where the
 attachment has a different network interface. Traffic from a VPC attachment in appliance
 mode can't be forwarded to the network interface in this Availability Zone because on
 the forward path it used a different Availability Zone.
 
-**TGW_BAD_STATE_VPN**
+**TGW\_BAD\_STATE\_VPN**
 This VPN connection is in a non-functional state.
 
-**TGW_ROUTE_AZ_RESTRICTION**
+**TGW\_ROUTE\_AZ\_RESTRICTION**
 This transit gateway is not registered in the Availability Zone where the traffic originates.
 The VPC attachment must have a subnet association in the Availability Zone.
 
-**TGW_RTB_BAD_STATE_ROUTE**
+**TGW\_RTB\_BAD\_STATE\_ROUTE**
 This transit gateway route table has a route to the destination that is in a bad state.
 
-**TGW_RTB_CANNOT_ROUTE**
+**TGW\_RTB\_CANNOT\_ROUTE**
 This transit gateway route table has a route to the intended destination, but the route does not
 match the packet destination address.
 
-**TGW_RTB_HIGHER_PRIORITY_ROUTE**
+**TGW\_RTB\_HIGHER\_PRIORITY\_ROUTE**
 This transit gateway route table contains a route to the intended destination that can't be
 used because there is a higher-priority route with the same destination CIDR.
 
-**TGW_RTB_MORE_SPECIFIC_ROUTE**
+**TGW\_RTB\_MORE\_SPECIFIC\_ROUTE**
 This transit gateway route table has a route to the destination, but there is a more specific route.
 
-**TGW_RTB_NO_ROUTE_TO_TGW_ATTACHMENT**
+**TGW\_RTB\_NO\_ROUTE\_TO\_TGW\_ATTACHMENT**
 This transit gateway route table has no route to this transit gateway attachment.
 
-**TGW_RTB_ROUTES_ARE_UNKNOWN**
+**TGW\_RTB\_ROUTES\_ARE\_UNKNOWN**
 The routes of this transit gateway route table are not known. This might be due to an internal
 error or because the transit gateway route table does not belong to the account running
 the analysis.
 
-**UNKNOWN_DESTINATION**
+**UNKNOWN\_DESTINATION**
 The path can't be extended because the information about the destination is insufficient.
 
-**UNKNOWN_PEERED_SGS**
+**UNKNOWN\_PEERED\_SGS**
 One of the VPCs in the VPC peering connection is unknown. This is typically because the VPC
 is in a different account. Access controls referencing security groups are treated as inaccessible and
 deny traffic crossing this peering connection.
 
-**UNKNOWN_RESOURCE**
+**UNKNOWN\_RESOURCE**
 Reachability Analyzer can't analyze this resource because it can't describe the resource.
 
-**VGW_PRIVATE_IP_ASSOCIATION_FOR_EGRESS**
+**VGW\_PRIVATE\_IP\_ASSOCIATION\_FOR\_EGRESS**
 Virtual private gateways can't accept outbound traffic if the source address does
 not belong to a network interface in the VPC with an available attachment.
 
-**VGW_PRIVATE_IP_ASSOCIATION_FOR_INGRESS**
+**VGW\_PRIVATE\_IP\_ASSOCIATION\_FOR\_INGRESS**
 Virtual private gateways can't accept inbound traffic if the destination address is not the
 private IP address of a network interface in the VPC with an available
 attachment.
 
-**VPC_BLOCK_PUBLIC_ACCESS_ENABLED**
+**VPC\_BLOCK\_PUBLIC\_ACCESS\_ENABLED**
 Internet traffic is blocked because [VPC Block Public Access](../userguide/security-vpc-bpa.md "../userguide/security-vpc-bpa.md") (BPA) is enabled.
 
-**VPC_LOCAL_ROUTE_CIDR_RESTRICTION**
+**VPC\_LOCAL\_ROUTE\_CIDR\_RESTRICTION**
 Local routes apply only to packets with a destination address within the VPC CIDR block.
 
-**VPCE_GATEWAY_EGRESS_SOURCE_ADDRESS_RESTRICTION**
+**VPCE\_GATEWAY\_EGRESS\_SOURCE\_ADDRESS\_RESTRICTION**
 VPC gateway endpoints emit only traffic with source addresses within the CIDRs of their
 corresponding prefix lists.
 
-**VPCE_GATEWAY_PROTOCOL_RESTRICTION**
+**VPCE\_GATEWAY\_PROTOCOL\_RESTRICTION**
 VPC gateway endpoints accept only TCP or ICMP ECHO traffic, and emit only TCP or ICMP ECHO
 reply traffic.
 
-**VPCE_INTRA_VPC_TRAFFIC**
+**VPCE\_INTRA\_VPC\_TRAFFIC**
 A VPC endpoint can't initiate connections to resources in the same VPC where it is deployed.
 Instead, analyze the path in the reverse direction.
 
-**VPCE_SERVICE_NOT_INSTALLED_IN_AZ**
+**VPCE\_SERVICE\_NOT\_INSTALLED\_IN\_AZ**
 The VPC endpoint service is not installed in the specified Availability Zone.
 
 ## Configuration
@@ -288,11 +288,11 @@ The VPC endpoint service is not installed in the specified Availability Zone.
 The following explanation codes indicate that the path analysis determined that no path
 is possible.
 
-**DISCONNECTED_VPCS**
+**DISCONNECTED\_VPCS**
 The source and destination are in separate VPCs that are not connected by a supported
 resource.
 
-**NO_PATH**
+**NO\_PATH**
 
 Reachability Analyzer was unable to find a path from the source to the destination. The following
 are the most common causes:
@@ -307,14 +307,14 @@ are the most common causes:
 - The path requires the ability to analyze an unsupported feature (for example, IPv6)
   or an unsupported network component.
 
-**NO_SOURCE_OR_DESTINATION**
+**NO\_SOURCE\_OR\_DESTINATION**
 The source or destination resource does not exist.
 
-**UNASSOCIATED_COMPONENT**
+**UNASSOCIATED\_COMPONENT**
 The component is not associated with a VPC in your account (for example, a recently terminated
 instance), or none of its network interfaces has an IPv4 address.
 
-**UNSUPPORTED_COMPONENT**
+**UNSUPPORTED\_COMPONENT**
 The component is not supported by Reachability Analyzer.
 
 ## Search filter codes
@@ -324,42 +324,42 @@ the source to the destination that matched the specified filters. However, there
 path that matches some of the specified filters. Verify that the filters are as intended.
 Otherwise, remove the filters that didn't match.
 
-**COMPONENT_FILTER_RESTRICTION**
+**COMPONENT\_FILTER\_RESTRICTION**
 There is no path that traverses the specified component.
 
-**COMPONENT_FILTER_RESTRICTION_REMOVED_COMPONENT**
+**COMPONENT\_FILTER\_RESTRICTION\_REMOVED\_COMPONENT**
 There is no path that traverses the specified component because of an intermediate component
 filter.
 
-**FILTER_AT_DESTINATION_DESTINATION_ADDRESS**
+**FILTER\_AT\_DESTINATION\_DESTINATION\_ADDRESS**
 There is no path that matches the specified destination IP address at the destination.
 
-**FILTER_AT_DESTINATION_DESTINATION_PORT_RANGE**
+**FILTER\_AT\_DESTINATION\_DESTINATION\_PORT\_RANGE**
 There is no path that matches the specified destination port range at the destination.
 
-**FILTER_AT_DESTINATION_PROTOCOL**
+**FILTER\_AT\_DESTINATION\_PROTOCOL**
 There is no path that matches the specified destination protocol.
 
-**FILTER_AT_DESTINATION_SOURCE_ADDRESS**
+**FILTER\_AT\_DESTINATION\_SOURCE\_ADDRESS**
 There is no path that matches the specified source address at the destination.
 
-**FILTER_AT_DESTINATION_SOURCE_PORT_RANGE**
+**FILTER\_AT\_DESTINATION\_SOURCE\_PORT\_RANGE**
 There is no path that matches the specified source port range at the destination.
 
-**FILTER_AT_SOURCE_DESTINATION_ADDRESS**
+**FILTER\_AT\_SOURCE\_DESTINATION\_ADDRESS**
 There is no path that matches the specified destination IP address at the source.
 
-**FILTER_AT_SOURCE_DESTINATION_PORT_RANGE**
+**FILTER\_AT\_SOURCE\_DESTINATION\_PORT\_RANGE**
 There is no path that matches the specified destination port range at the source.
 
-**FILTER_AT_SOURCE_PROTOCOL**
+**FILTER\_AT\_SOURCE\_PROTOCOL**
 There is no path that matches the specified protocol.
 
-**FILTER_AT_SOURCE_SOURCE_ADDRESS**
+**FILTER\_AT\_SOURCE\_SOURCE\_ADDRESS**
 There is no path that matches the specified source IP address at the source.
 
-**FILTER_AT_SOURCE_SOURCE_PORT_RANGE**
+**FILTER\_AT\_SOURCE\_SOURCE\_PORT\_RANGE**
 There is no path that matches the specified source port range at the source.
 
-**IGW_EXPECTS_PUBLIC_ADDRESS**
+**IGW\_EXPECTS\_PUBLIC\_ADDRESS**
 IP addresses must be public IP addresses when the resource is an internet gateway.

@@ -45,16 +45,15 @@ For Reachability Analyzer, you can use CloudTrail to log two types of events:
   users can interact and have conversations with Reachability Analyzer through Amazon Q. Calls to the
   following API methods generate entries in the CloudTrail log files:
 
-      + `CreateConversation`
-      + `ListConversations`
-      + `DeleteConversation`
-      + `NotifyConversationIsActive`
-      + `SendConversationMessage`
-      + `ListConversationMessages`
-      + `CancelMessageResponse`
-
-  In this scenario, `networkmanager-chat.amazonaws.com` is the event
-  source.
+  - `CreateConversation`
+  - `ListConversations`
+  - `DeleteConversation`
+  - `NotifyConversationIsActive`
+  - `SendConversationMessage`
+  - `ListConversationMessages`
+  - `CancelMessageResponse`
+    In this scenario, `networkmanager-chat.amazonaws.com` is the event
+    source.
 
 ### Identity information
 
