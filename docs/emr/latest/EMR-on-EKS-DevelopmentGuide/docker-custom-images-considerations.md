@@ -28,3 +28,10 @@ and mounting an image:
 - You can upload your customized image to any Docker-compatible repository, such as
   Amazon ECR, Docker Hub, or a private enterprise repository. For more information on how to
   configure the Amazon EKS cluster authentication with the selected Docker repository, see [Pull an Image from a Private Registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/ "https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/").
+
+###### Important
+
+Standard Amazon EMR on EKS pricing applies whenever pods use an image derived from the Amazon EMR
+runtime, even if you store the customized image in your own private registry and use your
+own orchestration method (for example, the StartJobRun API, the Spark operator, or spark-submit). For more information, see [Amazon EMR on EKS
+pricing](https://aws.amazon.com/emr/pricing/#Amazon_EMR_on_Amazon_EKS "https://aws.amazon.com/emr/pricing/#Amazon_EMR_on_Amazon_EKS").

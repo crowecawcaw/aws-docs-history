@@ -144,7 +144,7 @@ helm install yunikorn yunikorn/yunikorn --namespace yunikorn
    4. [Install the Spark operator](spark-operator-gs.md#spark-operator-install "spark-operator-gs.md#spark-operator-install")
 
    Include the following arguments when you run the `helm install
- spark-operator-demo` command:
+  spark-operator-demo` command:
 
    ```
    --set batchScheduler.enable=true

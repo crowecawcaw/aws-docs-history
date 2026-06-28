@@ -35,7 +35,7 @@ If the permissions aren’t there, proceed with the patch, as follows.
 
 1. If the jobs without the permissions are currently running, stop these
    jobs.
-2. Create a file named _RBAC_Patch.py_ as
+2. Create a file named _RBAC\_Patch.py_ as
    follows:
 
 ```

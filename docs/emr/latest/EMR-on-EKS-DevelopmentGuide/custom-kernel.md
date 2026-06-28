@@ -70,5 +70,5 @@ custom image.**
     ```
 
 3. **Connect to the interactive endpoint via
-   EMR Studio.** For more information and steps to complete, see [Connecting from Studio](https://emr-on-eks.workshop.aws/advanced/emr-studio/connecting-from-studio.html "https://emr-on-eks.workshop.aws/advanced/emr-studio/connecting-from-studio.html") in the Amazon EMR on EKS section of the AWS Workshop Studio
-   docs.
+EMR Studio.** For more information and steps to complete, see [Connecting from Studio](https://emr-on-eks.workshop.aws/advanced/emr-studio/connecting-from-studio.html "https://emr-on-eks.workshop.aws/advanced/emr-studio/connecting-from-studio.html") in the Amazon EMR on EKS section of the AWS Workshop Studio
+docs.

@@ -153,7 +153,7 @@ To set up cross-account access for Amazon EMR on EKS, complete the following ste
    ```
 
 5. For Amazon S3 access, set the following `spark-submit` parameters (`spark
-conf`) while submitting the job to Amazon EMR on EKS.
+ conf`) while submitting the job to Amazon EMR on EKS.
 
 ###### Note
 

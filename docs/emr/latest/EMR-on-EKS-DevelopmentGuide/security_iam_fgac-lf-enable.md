@@ -317,16 +317,16 @@ aws emr-containers create-virtual-cluster \
         }
     }
 }' \
---security-configuration-id `SecurityConfiguraionId`
+--security-configuration-id `SecurityConfigurationId`
 
 ```
 
 Ensure the **SecurityConfiguration** Id from the previous step is passed, so that the Lake Formation authorization configuration is
-applied to all Jobs running on the virtual cluster. For more information, see Register the Amazon EKS cluster with Amazon EMR.
+applied to all Jobs running on the virtual cluster. For more information, see [Register the Amazon EKS cluster with Amazon EMR](setting-up-registration.md "setting-up-registration.md").
 
 ## Step 6: Submit a Job in the FGAC Enabled VirtualCluster
 
-The Process for Job Submission is same for both non Lake Formation and Lake Formation jobs. For more
+The process for job submission is the same for both non Lake Formation and Lake Formation jobs. For more
 information, see [Submit a job run with `StartJobRun`](emr-eks-jobs-submit.md "emr-eks-jobs-submit.md").
 
 The Spark Driver, Executor and Event Logs of the System Driver are stored in AWS Service Account’s S3 Bucket for debugging. We recommend configuring

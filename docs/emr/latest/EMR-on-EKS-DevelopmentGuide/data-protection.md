@@ -100,10 +100,9 @@ Several encryption mechanisms are enabled with in-transit encryption. These are 
 
 - Spark
 
-      + Internal RPC communication between Spark components, such as the block transfer service and the external shuffle service, is encrypted using the AES-256 cipher in Amazon EMR versions 5.9.0 and later. In earlier releases, internal RPC communication is encrypted using SASL with DIGEST-MD5 as the cipher.
-      + HTTP protocol communication with user interfaces such as Spark History Server and HTTPS-enabled file servers is encrypted using Spark's SSL configuration. For more information, see [SSL Configuration](https://spark.apache.org/docs/latest/security.html#ssl-configuration "https://spark.apache.org/docs/latest/security.html#ssl-configuration") in Spark documentation.
-
-  For more information, see [Spark security settings](http://spark.apache.org/docs/latest/security.html "http://spark.apache.org/docs/latest/security.html").
+  - Internal RPC communication between Spark components, such as the block transfer service and the external shuffle service, is encrypted using the AES-256 cipher in Amazon EMR versions 5.9.0 and later. In earlier releases, internal RPC communication is encrypted using SASL with DIGEST-MD5 as the cipher.
+  - HTTP protocol communication with user interfaces such as Spark History Server and HTTPS-enabled file servers is encrypted using Spark's SSL configuration. For more information, see [SSL Configuration](https://spark.apache.org/docs/latest/security.html#ssl-configuration "https://spark.apache.org/docs/latest/security.html#ssl-configuration") in Spark documentation.
+    For more information, see [Spark security settings](http://spark.apache.org/docs/latest/security.html "http://spark.apache.org/docs/latest/security.html").
 
 - You should allow only encrypted connections over HTTPS (TLS) using [the aws:SecureTransport condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_Boolean "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_Boolean") on Amazon S3 bucket IAM policies.
 - Query results that stream to JDBC or ODBC clients are encrypted using TLS.

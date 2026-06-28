@@ -43,19 +43,19 @@ Each interactive endpoint metric has the following dimensions attached to it:
 
 1. Select the custom namespace: `EMRContainers`
 2. Select your `ManagedEndpointId`, `OperationName –
-CreateKernel`
+ CreateKernel`
 3. `RequestCount` metric with the statistic `SUM` and period
    `1 day` will provide all the kernel launch requests made in the last 24
    hours.
 4. KernelLaunchSuccess metric with statistic `SUM` and period `1
-day` will provide all the successful kernel launch requests made in the last
+ day` will provide all the successful kernel launch requests made in the last
    24 hours.
 
 ### To access the number of kernel failures for an interactive endpoint on a given day:
 
 1. Select the custom namespace: EMRContainers
 2. Select your `ManagedEndpointId`, `OperationName –
-CreateKernel`
+ CreateKernel`
 3. `KernelLaunchFailure` metric with statistic `SUM` and period
    `1 day` will provide all the failed kernel launch requests made in the
    last 24 hours. You can also select the `4XXError` and `5XXError`

@@ -261,8 +261,9 @@ jupyter-notebook  1/1    Running  0         46s
       select the node identified by the `describe pod` command. Select the
       instance ID for the node.
    4. From the **Actions** menu, select **Security**
-      > **Change security groups** to attach the security group that you
-      > created in [Create a security group](#managed-endpoints-self-hosted-security "#managed-endpoints-self-hosted-security").
+
+   > **Change security groups** to attach the security group that you
+   > created in [Create a security group](#managed-endpoints-self-hosted-security "#managed-endpoints-self-hosted-security").
    5. If you are deploying Jupyter notebook pod on AWS Fargate, create a `SecurityGroupPolicy` to
       apply to the Jupyter notebook pod with the role label:
 

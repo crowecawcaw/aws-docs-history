@@ -30,9 +30,11 @@ parameters:
 - `spark.eventLog.rotation.maxFilesToRetain` ‐ specifies how many
   rotated log files to keep during cleanup. The valid range is 1 to 10. The default value is
 
-2.  You can specify these parameters in the `sparkSubmitParameters` section of the
-    [StartJobRun](emr-eks-jobs-submit.md "emr-eks-jobs-submit.md") API, as the following
-    example shows.
+2.
+
+You can specify these parameters in the `sparkSubmitParameters` section of the
+[StartJobRun](emr-eks-jobs-submit.md "emr-eks-jobs-submit.md") API, as the following
+example shows.
 
 ```
 "sparkSubmitParameters": "--class org.apache.spark.examples.SparkPi --conf spark.eventLog.rotation.enabled=true --conf spark.eventLog.rotation.interval=300 --conf spark.eventLog.rotation.minFileSize=1m --conf spark.eventLog.rotation.maxFilesToRetain=2"

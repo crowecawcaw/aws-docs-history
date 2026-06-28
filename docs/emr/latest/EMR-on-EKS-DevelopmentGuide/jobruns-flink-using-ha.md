@@ -209,11 +209,12 @@ under .spec.jobManager):
 
 **Pod locality**
 
-If you enable HA, we also try to collocate pods in the same AZ, which leads to
-improved performance (reduced network latency by having pods in same AZs). This is a
-best-effort process, meaning if you don't have enough resources in the AZ where the
-majority of your Pods are scheduled, the remaining Pods will still be scheduled but
-might end up on a node outside of this AZ.
+If you enable HA, we also try to collocate Job Manager pods and Task Manager pods
+in the same AZ, which leads to improved performance (reduced network latency by
+having pods in same AZs). This is a best-effort process, meaning if you don't have
+enough resources in the AZ where the majority of your Job Manager and Task Manager
+pods are scheduled, the remaining pods will still be scheduled but might end up on a
+node outside of this AZ.
 
 **Determining the leader replica**
 

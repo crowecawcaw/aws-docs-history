@@ -39,7 +39,8 @@ Kubernetes label attached. In this case, follow the steps below to attach that l
 the nodes in your node group.
 
 1. Use the following command to add the
-   `for-use-with-emr-containers-managed-endpoint-ng=`NodeGroupName`Kubernetes label to all nodes in a managed node group`NodeGroupName``:
+   `for-use-with-emr-containers-managed-endpoint-ng=`NodeGroupName`  Kubernetes label to all nodes in a managed node group
+ `NodeGroupName``:
 
 ```
 kubectl label nodes --selector eks:nodegroup-name=`NodeGroupName` for-use-with-emr-containers-managed-endpoint-ng=`NodeGroupName`
@@ -113,7 +114,8 @@ the nodes in your node group.
 
 1. If you created the self-managed node group using `eksctl`, then use the
    following command to add the
-   `for-use-with-emr-containers-managed-endpoint-ng=`NodeGroupName`Kubernetes label to all nodes in the self-managed node group`NodeGroupName`` at once.
+   `for-use-with-emr-containers-managed-endpoint-ng=`NodeGroupName`  Kubernetes label to all nodes in the self-managed node group
+ `NodeGroupName`` at once.
 
 ```
 kubectl label nodes --selector alpha.eksctl.io/nodegroup-name=`NodeGroupName` for-use-with-emr-containers-managed-endpoint-ng=`NodeGroupName`
@@ -138,7 +140,8 @@ AWS Management Console.
    group.
 3. Under the **Tags** tab, use the **Manage tags** button to add the tag
    `for-use-with-emr-containers-managed-endpoint-sg=`ClusterName`/`NodeGroupName`.
-Replace `ClusterName`and`NodeGroupName`` with appropriate
+ Replace `ClusterName`and
+`NodeGroupName`` with appropriate
    values.
 
 ## Associating a JEG pod to a managed node group with On-Demand instances

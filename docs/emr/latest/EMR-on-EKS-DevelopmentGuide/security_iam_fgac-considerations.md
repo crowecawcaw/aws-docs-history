@@ -61,7 +61,7 @@ particularly relevant for Lake Formation resources that are shared across multip
 
 - The `System` namespace should be protected. No user or resource or entity or tooling would be allowed to have any Kubernetes RBAC permissions on the
   Kubernetes resources in the `System` namespace.
-- No user or resource or entity except the EMR on EKS service should have access to `CREATE` access to POD, CONFIG_MAP and SECRET
+- No user or resource or entity except the EMR on EKS service should have access to `CREATE` access to POD, CONFIG\_MAP and SECRET
   in the `User` namespace.
 - `System` drivers and `System` executors contain sensitive data. So, Spark events, Spark driver logs, and Spark executor logs in the `System` namespace should not
   be forwarded to external log storage systems.

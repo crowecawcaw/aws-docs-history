@@ -59,14 +59,13 @@ The following are the available configuration options under **monitoringConfigur
 
 - **containerLogRotationConfiguration** (optional) – Controls the container log rotation behavior. It is enabled by default.
 
-      + **rotationSize** (required) – Specifies file size for the log rotation. The range of possible values is from 2KB to 2GB. The
-       numeric unit portion of the rotationSize parameter is passed as an integer. Since decimal values aren't supported, you can specify a rotation size of 1.5GB, for example, with the value 1500MB. The
-       default is 2GB.
-      + **maxFilesToKeep** (required) – Specifies the maximum number of files to retain in the container after rotation
-       has taken place. The minimum value is 1, and the maximum value is 50. The default is 10.
-
-  After configured _monitoringConfiguration_, you should be able to check spark operator pod logs on an Amazon S3 bucket or Amazon CloudWatch or both. For an Amazon S3 bucket, you need to
-  wait 2 minutes for the first log file to get flushed.
+  - **rotationSize** (required) – Specifies file size for the log rotation. The range of possible values is from 2KB to 2GB. The
+    numeric unit portion of the rotationSize parameter is passed as an integer. Since decimal values aren't supported, you can specify a rotation size of 1.5GB, for example, with the value 1500MB. The
+    default is 2GB.
+  - **maxFilesToKeep** (required) – Specifies the maximum number of files to retain in the container after rotation
+    has taken place. The minimum value is 1, and the maximum value is 50. The default is 10.
+    After configured _monitoringConfiguration_, you should be able to check spark operator pod logs on an Amazon S3 bucket or Amazon CloudWatch or both. For an Amazon S3 bucket, you need to
+    wait 2 minutes for the first log file to get flushed.
 
 To find the logs in Amazon CloudWatch, you can navigate to the following: **CloudWatch** > **Log groups** > **`Log group name`** >
 `Pod name`**/operator/stderr**

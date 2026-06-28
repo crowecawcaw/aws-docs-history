@@ -33,13 +33,13 @@ event processing using CloudWatch Events because rules seek to match patterns in
 information, see [Amazon EventBridge event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") and Amazon EMR on EKS Events in the _[Amazon EventBridge User
 Guide](../../../eventbridge/latest/userguide/eb-service-event.md#emr_event_type "../../../eventbridge/latest/userguide/eb-service-event.md#emr_event_type")_.
 
-| Job run state change events | State | Severity                                                                                                                                                                           | Message |
-| --------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| SUBMITTED                   | INFO  | Job Run `JobRunId` (`JobRunName`) was<br>successfully submitted to virtual cluster `VirtualClusterId` at<br>`Time` UTC.                                                            |
-| RUNNING                     | INFO  | Job Run `JobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` started running at<br>`Time`.                                                                           |
-| COMPLETED                   | INFO  | Job Run `jobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` completed at<br>`Time`. The Job Run started running at<br>`Time` and took `Num` minutes to<br>complete. |
-| CANCELLED                   | WARN  | Cancellation request has succeeded for Job Run `JobRunId`<br>(`JobRunName`) in virtual cluster<br>`VirtualClusterId` at `Time` and the Job<br>Run is now cancelled.                |
-| FAILED                      | ERROR | Job Run `JobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` failed at<br>`Time`.                                                                                    |
+Job run state change events| State | Severity | Message |
+| --- | --- | --- |
+| SUBMITTED | INFO | Job Run `JobRunId` (`JobRunName`) was<br>successfully submitted to virtual cluster `VirtualClusterId` at<br>`Time` UTC. |
+| RUNNING | INFO | Job Run `JobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` started running at<br>`Time`. |
+| COMPLETED | INFO | Job Run `jobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` completed at<br>`Time`. The Job Run started running at<br>`Time` and took `Num` minutes to<br>complete. |
+| CANCELLED | WARN | Cancellation request has succeeded for Job Run `JobRunId`<br>(`JobRunName`) in virtual cluster<br>`VirtualClusterId` at `Time` and the Job<br>Run is now cancelled. |
+| FAILED | ERROR | Job Run `JobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` failed at<br>`Time`. |
 
 ## Automate Amazon EMR on EKS with CloudWatch Events
 

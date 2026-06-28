@@ -95,7 +95,7 @@ aws emr-containers start-job-run \
 
 3. To see the operations that will be run on a GPU, perform the following steps to
    enable extra logging. Note the "`spark.rapids.sql.explain :
-ALL`" config.
+ ALL`" config.
 
 ```
 aws emr-containers start-job-run \

@@ -96,14 +96,13 @@ The following are the available configuration options under **monitoringConfigur
 
 - **containerLogRotationConfiguration** (optional) – Controls the container log rotation behavior. It is enabled by default.
 
-      + **rotationSize** (required) – Specifies file size for the log rotation. The range of possible values is from 2KB to 2GB. The numeric
-       unit portion of the rotationSize parameter is passed as an integer. Since decimal values aren't supported, you can specify a rotation size of 1.5GB, for example, with the value
-       1500MB. The default is 2GB.
-      + **maxFilesToKeep** (required) – Specifies the maximum number of files to retain in the container after rotation has taken place. The
-       minimum value is 1. The maximum value is 50. The default is 10.
-
-  After configuring monitoringConfiguration, you should be able to check your spark application driver and executor logs on an Amazon S3 bucket or CloudWatch or both. For an Amazon S3 bucket, you need to wait 2 minutes
-  for the first log file to be flushed. For example, in Amazon S3, the bucket path appears like the following:
+  - **rotationSize** (required) – Specifies file size for the log rotation. The range of possible values is from 2KB to 2GB. The numeric
+    unit portion of the rotationSize parameter is passed as an integer. Since decimal values aren't supported, you can specify a rotation size of 1.5GB, for example, with the value
+    1500MB. The default is 2GB.
+  - **maxFilesToKeep** (required) – Specifies the maximum number of files to retain in the container after rotation has taken place. The
+    minimum value is 1. The maximum value is 50. The default is 10.
+    After configuring monitoringConfiguration, you should be able to check your spark application driver and executor logs on an Amazon S3 bucket or CloudWatch or both. For an Amazon S3 bucket, you need to wait 2 minutes
+    for the first log file to be flushed. For example, in Amazon S3, the bucket path appears like the following:
 
 **Amazon S3** > **Buckets** > **`Bucket name`** >
 `Spark application name - UUID` > `Pod Name` > **stderr.gz**

@@ -130,9 +130,9 @@ JSON
      ``my_log_stream_prefix``.
 
 2. To run a Spark Python application, use the following command. Replace all the
-   replaceable `red italicized` values with appropriate values. The
-   `REGION` is the Region in which your Amazon EMR on EKS virtual cluster
-   resides, such as `us-east-1`.
+replaceable `red italicized` values with appropriate values. The
+`REGION` is the Region in which your Amazon EMR on EKS virtual cluster
+resides, such as `us-east-1`.
 
 ```
 aws emr-containers start-job-run \

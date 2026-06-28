@@ -43,7 +43,7 @@ Amazon EMR containers is the [API name for Amazon EMR on EKS](../../../emr-on-ek
 `emr-containers` prefix is used in the following scenarios:
 
 - It is the prefix in the CLI commands for Amazon EMR on EKS. For example, `aws
-emr-containers start-job-run`.
+ emr-containers start-job-run`.
 - It is the prefix before IAM policy actions for Amazon EMR on EKS. For example,
   `"Action": [ "emr-containers:StartJobRun"]`. For more information, see [Policy actions for Amazon EMR on EKS](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions "security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-actions").
 - It is the prefix used in Amazon EMR on EKS service endpoints. For example,

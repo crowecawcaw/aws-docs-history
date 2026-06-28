@@ -6,10 +6,20 @@ in general, see [AWS runtime for Apache Spark (emr-spark-8.0.0)](../ReleaseGuide
 
 ## AWS runtime for Apache Spark (emr-spark-8.0.0) on EKS
 
-The following emr-spark-8.0.0 releases are available for AWS runtime for Apache Spark on EKS.
+The following emr-spark-8.0.0 releases are available for AWS runtime for Apache Spark on
+EKS. Select a specific **emr-spark-8.0.0-XXXX** release to view
+more details such as the related container image tag.
 
-- spark/emr-spark-8.0.0-latest
-- spark/emr-spark-8.0.0-20260421
+Spark releases
+The following emr-spark-8.0.0 releases are available for AWS runtime for Apache Spark
+on EKS when you run Spark applications. Select a `spark/` release to view details
+such as the release label and container image tag. The `notebook-spark/`,
+`notebook-python/`, and `livy/` variants use the same release label
+format (for example, `emr-spark-8.0.0-latest`) with the corresponding container
+image prefix.
+
+- [emr-spark-8.0.0-latest](emr-eks-spark-8.0.0-latest.md "emr-eks-spark-8.0.0-latest.md")
+- [emr-spark-8.0.0-20260421](emr-eks-spark-8.0.0-20260421.md "emr-eks-spark-8.0.0-20260421.md")
 - notebook-spark/emr-spark-8.0.0-latest
 - notebook-spark/emr-spark-8.0.0-20260421
 - notebook-python/emr-spark-8.0.0-latest

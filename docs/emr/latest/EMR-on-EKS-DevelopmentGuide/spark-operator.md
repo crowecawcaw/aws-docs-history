@@ -10,7 +10,9 @@ of Spark applications.
 ###### Note
 
 Amazon EMR calculates pricing on Amazon EKS based on vCPU and memory consumption. This calculation applies to driver and executor pods. This calculation
-starts from when you download your Amazon EMR application image until the Amazon EKS pod terminates and is rounded to the nearest second.
+starts from when you download your Amazon EMR application image until the Amazon EKS pod terminates and is rounded to the nearest second. Pricing applies whenever
+pods run using an image derived from the Amazon EMR runtime, regardless of whether the image is stored in the public Amazon EMR Amazon ECR registry or your own private
+registry, and regardless of how the job is orchestrated (for example, the StartJobRun API, the Spark operator, or spark-submit).
 
 ###### Topics
 
