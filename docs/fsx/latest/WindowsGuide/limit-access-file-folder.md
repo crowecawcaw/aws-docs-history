@@ -26,9 +26,9 @@ group can be Domain Admins. Or it can be a custom delegated administrators group
 you specified when creating the file system. To change the ACLs, you can map the share
 as a user that is a member of the delegated administrators group.
 
-|                                                                                                                                                                                                                                                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| WarningAmazon FSx requires that the SYSTEM user have \*_Full<br>control_<br>• NTFS ACL permissions on all folders within<br>your file system. Do not change the NTFS ACL permissions for<br>this user on your folders. Doing so can make your file share<br>inaccessible and prevent file system backups from being usable. |
+|                                                                                                                                                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WarningAmazon FSx requires that the SYSTEM user have *_Full<br>control_<br>• NTFS ACL permissions on all folders within<br>your file system. Do not change the NTFS ACL permissions for<br>this user on your folders. Doing so can make your file share<br>inaccessible and prevent file system backups from being usable. |
 
 ## Related Links
 

@@ -355,10 +355,10 @@ users attempt to save blocked files.
        following properties:
 
        - `EventType
-(string)`: Information,
+  (string)`: Information,
          Warning, or Error
        - `MessageBody
-(string)`: The message text to
+  (string)`: The message text to
          log with the event.
 
     2. `Report`:
@@ -366,7 +366,7 @@ users attempt to save blocked files.
        specify Report, you must also specify:
 
        - `ReportType
-(string)`: The type of report.
+  (string)`: The type of report.
          You can specify the following values:
          `DuplicateFiles`,
          `FilesByFileGroup`, `FilesByOwner`, `FilesByProperty`, `LargeFiles`, `LeastRecentlyAccessed`, `MostRecentlyAccessed`, or `QuotaUsage`

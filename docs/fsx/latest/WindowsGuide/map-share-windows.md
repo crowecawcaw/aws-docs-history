@@ -85,34 +85,32 @@ following procedures from the _AWS Directory Service Administration Guide_:
     * [Manually join a Windows
      instance](../../../directoryservice/latest/admin-guide/join_windows_instance.md "../../../directoryservice/latest/admin-guide/join_windows_instance.md")
 
-2.  Connect to your EC2 Windows instance as a user in your AWS Managed Microsoft AD directory. For
-    more information, see [Connecting to your
-    Windows instance](../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md") in the _Amazon EC2 User Guide_.
-3.  After you're connected, open a command prompt window.
-4.  Mount the file share using a drive letter of your choice, the file system's DNS
-    name, and the share name. You can find the DNS name using the [Amazon FSx console](https://console.aws.amazon.com/fsx "https://console.aws.amazon.com/fsx") by choosing **Windows File
-    Server**, **Network & security**. Or, you can find
-    them in the response of the `CreateFileSystem` or
-    `DescribeFileSystems` API operation.
+2. Connect to your EC2 Windows instance as a user in your AWS Managed Microsoft AD directory. For
+more information, see [Connecting to your
+Windows instance](../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md") in the _Amazon EC2 User Guide_. 3. After you're connected, open a command prompt window. 4. Mount the file share using a drive letter of your choice, the file system's DNS
+name, and the share name. You can find the DNS name using the [Amazon FSx console](https://console.aws.amazon.com/fsx "https://console.aws.amazon.com/fsx") by choosing **Windows File
+Server**, **Network & security**. Or, you can find
+them in the response of the `CreateFileSystem` or
+`DescribeFileSystems` API operation.
 
-        * For a Single-AZ file system joined to an AWS Managed Microsoft Active Directory, the DNS name looks like the
-         following.
+    * For a Single-AZ file system joined to an AWS Managed Microsoft Active Directory, the DNS name looks like the
+     following.
 
 
 
-        ```
-        fs-0123456789abcdef0.`ad-domain`.com
-        ```
-        * For a Single-AZ file system joined to a self-managed Active Directory, and any Multi-AZ file
-         system, the DNS name looks like the following.
+    ```
+    fs-0123456789abcdef0.`ad-domain`.com
+    ```
+    * For a Single-AZ file system joined to a self-managed Active Directory, and any Multi-AZ file
+     system, the DNS name looks like the following.
 
 
 
-        ```
-        amznfsxaa11bb22.`ad-domain`.com
-        ```
+    ```
+    amznfsxaa11bb22.`ad-domain`.com
+    ```
 
-    The following is an example command to mount the file share.
+The following is an example command to mount the file share.
 
 ```
 `$` net use H: \\amzfsxaa11bb22.`ad-domain`.com\share /persistent:yes

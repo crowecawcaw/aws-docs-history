@@ -9,15 +9,15 @@ update type.
 
 For storage type updates, you can view the following information.
 
-\***\*Update type\*\***
+****Update type****
 
 Possible value is **Storage type**.
 
-\***\*Target value\*\***
+****Target value****
 
 **SSD**
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. For storage type updates, the possible values are as follows:
 
@@ -36,12 +36,12 @@ The current status of the update. For storage type updates, the possible values 
 - **Failed** – The storage type update failed. Choose the question mark
   (**?**) to see details.
 
-\***\*Progress %\*\***
+****Progress %****
 
 Displays the progress of the storage optimization process by
 the percentage that's complete.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update action request.
 

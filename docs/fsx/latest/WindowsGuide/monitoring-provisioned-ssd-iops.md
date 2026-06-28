@@ -10,15 +10,15 @@ window, you can view the 10 most recent updates for each update type.
 
 For provisioned SSD IOPS updates, you can view the following information.
 
-\***\*Update type\*\***
+****Update type****
 
 Possible values are **IOPS Mode** and **SSD IOPS**.
 
-\***\*Target value\*\***
+****Target value****
 
 The desired value to update the file system's IOPS mode and SSD IOPS to.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. For SSD IOPS updates, the possible values are as follows:
 
@@ -38,11 +38,11 @@ The current status of the update. For SSD IOPS updates, the possible values are 
   mark (**?**) to see details on why the storage
   update failed.
 
-\***\*Progress %\*\***
+****Progress %****
 
 Displays the progress of the storage optimization process as percent complete.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update action request.
 

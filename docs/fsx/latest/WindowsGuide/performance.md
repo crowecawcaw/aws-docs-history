@@ -99,7 +99,7 @@ Note that throughput capacity levels of 4,608 MBps and higher are supported only
 US East (Ohio), Europe (Ireland), Asia Pacific (Tokyo), and Asia Pacific (Singapore).
 
 | FSx throughput capacity (MBps) | Network throughput (MBps) | Network IOPS                        | Memory (GB)           |
-| ------------------------------ | ------------------------- | ----------------------------------- | --------------------- | --- |
+| ------------------------------ | ------------------------- | ----------------------------------- | --------------------- |
 |                                | **Baseline**              | **Burst (for a few minutes a day)** |                       |     |
 | 32                             | 32                        | 600                                 | Thousands             | 4   |
 | 64                             | 64                        | 600                                 | Tens of thousands     | 8   |
@@ -114,7 +114,7 @@ US East (Ohio), Europe (Ireland), Asia Pacific (Tokyo), and Asia Pacific (Singap
 | 12,288                         | 21,250                    | –                                   | 512                   |
 
 | FSx throughput capacity (MBps) | Disk throughput (MBps) | Disk IOPS                     |
-| ------------------------------ | ---------------------- | ----------------------------- | ------------ | ----------------------------- |
+| ------------------------------ | ---------------------- | ----------------------------- |
 |                                | **Baseline**           | **Burst (for 30 mins a day)** | **Baseline** | **Burst (for 30 mins a day)** |
 | 32                             | 32                     | 260                           | 2K           | 12K                           |
 | 64                             | 64                     | 350                           | 4K           | 16K                           |

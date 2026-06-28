@@ -8,19 +8,19 @@ the API, and the AWS CLI.
 In the **Updates** tab in the **File system details**
 window, you can view the 10 most recent update actions for each update action type.
 
-![Console screen shot showing the file system updates window.](images/fs-updates-panel.png)
+![Console screen shot showing the file system updates window.](/images/fsx/latest/WindowsGuide/images/fs-updates-panel.png)
 
 For throughput capacity update actions, you can view the following information.
 
-\***\*Update type\*\***
+****Update type****
 
 Possible value is **Throughput capacity**.
 
-\***\*Target value\*\***
+****Target value****
 
 The desired value to change the file system's throughput capacity to.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. For throughput capacity updates, the possible values are as follows:
 
@@ -36,7 +36,7 @@ The current status of the update. For throughput capacity updates, the possible 
   question mark (**?**) to see details on why the throughput update
   failed.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update request.
 

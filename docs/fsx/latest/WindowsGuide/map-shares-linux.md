@@ -91,17 +91,18 @@ The mount command used in this procedure does the following at the given points:
 - `-t cifs vers=`SMB_version`` – Specifies the type of file system as CIFS
   and the SMB protocol version. Amazon FSx for Windows File Server supports SMB versions 2.0 through 3.1.1.
 - `sec=krb5` – Specifies to use Kerberos version 5 for authentication.
-- `cache=`cache_mode``– Sets the cache mode. This option
-for CIFS cache can impact performance, and you should test which settings work best (and review
-Linux documentation) for your kernel and workload. Options`strict`and`none`are recommended, because`loose` can cause data inconsistency due to the looser protocol
+- `cache=`cache_mode`` – Sets the cache mode. This option
+  for CIFS cache can impact performance, and you should test which settings work best (and review
+  Linux documentation) for your kernel and workload. Options `strict` and `none`
+  are recommended, because `loose` can cause data inconsistency due to the looser protocol
   semantics.
 - `cruid=`ad_user`` – Sets the uid of the
   owner of the credentials cache to the AD directory administrator.
 - `/mnt/fsx` – Specifies the mount
   point for the Amazon FSx file share on your EC2 instance.
 - `rsize=`CIFSMaxBufSize`,wsize=`CIFSMaxBufSize`– Specifies the read
-and write buffer size as the maximum allowed by the CIFS protocol. Replace`CIFSMaxBufSize``with the largest value allowed by your kernel. 
-Determine the`CIFSMaxBufSize` by running the following command.
+ and write buffer size as the maximum allowed by the CIFS protocol. Replace`CIFSMaxBufSize`` with the largest value allowed by your kernel.
+  Determine the `CIFSMaxBufSize` by running the following command.
 
 ```
 `$` modinfo cifs | grep CIFSMaxBufSize
@@ -207,16 +208,17 @@ The mount command used in this procedure does the following at the given points:
   and the SMB protocol version. Amazon FSx for Windows File Server supports SMB versions 2.0 through 3.1.1.
 - `sec=ntlmsspi` – Specifies to use NT LAN Manager Security Support Provider
   Interface (NTLMSSPI) for authentication.
-- `cache=`cache_mode``– Sets the cache mode. This option
-for CIFS cache can impact performance, and you should test which settings work best (and review
-Linux documentation) for your kernel and workload. Options`strict`and`none`are recommended, because`loose` can cause data inconsistency due to the looser protocol
+- `cache=`cache_mode`` – Sets the cache mode. This option
+  for CIFS cache can impact performance, and you should test which settings work best (and review
+  Linux documentation) for your kernel and workload. Options `strict` and `none`
+  are recommended, because `loose` can cause data inconsistency due to the looser protocol
   semantics.
 - `cred=/home/ec2-user/creds.txt` – Specifies where to get the user credentials.
 - `/mnt/fsx` – Specifies the mount
   point for the Amazon FSx file share on your EC2 instance.
 - `rsize=`CIFSMaxBufSize`,wsize=`CIFSMaxBufSize`– Specifies the read
-and write buffer size as the maximum allowed by the CIFS protocol. Replace`CIFSMaxBufSize``with the largest value allowed by your kernel. 
-Determine the`CIFSMaxBufSize` by running the following command.
+ and write buffer size as the maximum allowed by the CIFS protocol. Replace`CIFSMaxBufSize`` with the largest value allowed by your kernel.
+  Determine the `CIFSMaxBufSize` by running the following command.
 
 ```
 `$` modinfo cifs | grep CIFSMaxBufSize

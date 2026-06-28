@@ -21,10 +21,8 @@ but you can change it to **HDD** under the following conditions:
     * The file system deployment type is **Multi-AZ** or **Single-AZ 2**.
     * The storage capacity is at least 2,000 GiB.
 
-4. Complete the wizard as you do when you create a new file system.
-5. Choose **Review and create**.
-6. Review the settings you chose for your Amazon FSx file system, and then choose **Create
-   file system**.
+4. Complete the wizard as you do when you create a new file system. 5. Choose **Review and create**. 6. Review the settings you chose for your Amazon FSx file system, and then choose **Create
+file system**.
 
 Amazon FSx is creating a new file system, and once its status
 changes to `AVAILABLE`, you can use the file system as normal.

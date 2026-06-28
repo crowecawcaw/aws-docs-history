@@ -27,8 +27,8 @@ or the Amazon FSx API, as described in the following procedures. For more inform
 
 - If you want to specify the number of SSD IOPS, use
   `Iops=`number_of_IOPS``, up
-to a maximum of 400,000 in supported AWS Regions and
-`Mode=USER_PROVISIONED`.
+  to a maximum of 400,000 in supported AWS Regions and
+  `Mode=USER_PROVISIONED`.
 - If you want Amazon FSx to increase your SSD IOPS automatically, use `Mode=AUTOMATIC` and
   don't use the `Iops` parameter. Amazon FSx automatically maintains
   3 SSD IOPS per GiB of storage capacity on your file system, up to a

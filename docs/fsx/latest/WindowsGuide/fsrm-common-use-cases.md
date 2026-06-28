@@ -187,35 +187,29 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
 
 ```
 
-2.  Create classification rules for different retention periods:
+2. Create classification rules for different retention periods:
 
-        * 7-year retention for legal documents under the folder **Legal Documents**:
+   - 7-year retention for legal documents under the folder **Legal Documents**:
 
+   ```
+   Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
+       New-FSxFSRMClassificationRule -Name "Legal_7Year" -Property "RetentionPeriod" -PropertyValue "7 years" -Namespace "share/Legal Documents" -ClassificationMechanism "Folder Classifier"
+   }
 
+   ```
+   - 3-year retention for financial records under the folder **Finance**:
 
-        ```
-        Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
-            New-FSxFSRMClassificationRule -Name "Legal_7Year" -Property "RetentionPeriod" -PropertyValue "7 years" -Namespace "share/Legal Documents" -ClassificationMechanism "Folder Classifier"
-        }
+   ```
+   Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
+       New-FSxFSRMClassificationRule -Name "Finance_3Year" -Property "RetentionPeriod" -PropertyValue "3 years" -Namespace "share/Finance" -ClassificationMechanism "Folder Classifier"
+   }
 
-        ```
-        * 3-year retention for financial records under the folder **Finance**:
+   ```
 
-
-
-        ```
-        Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {
-            New-FSxFSRMClassificationRule -Name "Finance_3Year" -Property "RetentionPeriod" -PropertyValue "3 years" -Namespace "share/Finance" -ClassificationMechanism "Folder Classifier"
-        }
-
-        ```
-
-    You can also classify by file content and search for strings like
-    "Retention Period Seven Years". To achieve this, use the
-    `ClassificationMechanism "Content Classifier"` and `ContentString "Retention
- seven years"`.
-
-3.  Run classification to apply retention properties:
+You can also classify by file content and search for strings like
+"Retention Period Seven Years". To achieve this, use the
+`ClassificationMechanism "Content Classifier"` and `ContentString "Retention
+ seven years"`. 3. Run classification to apply retention properties:
 
 ```
 Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationName FSxRemoteAdmin -ScriptBlock {

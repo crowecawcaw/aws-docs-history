@@ -92,13 +92,12 @@ of the file system. For more information, see [Restoring a backup to a new file 
 
 - Any Active Directory sites that you have defined must meet the following prerequisites:
 
-      + The subnets in the VPC that's associated with your file system must be defined in an Active Directory site.
-      + There are no conflicts between the VPC subnets and any of the Active Directory site subnets.
-
-  Amazon FSx requires connectivity to the domain controllers or Active Directory sites you
-  have defined in your Active Directory environment. Amazon FSx will ignore any domain controllers with TCP and UDP blocked on
-  port 389. For the remaining domain controllers in your Active Directory, ensure that they meet the Amazon FSx connectivity
-  requirements. Additionally, verify that any changes to your service account are propagated to all these domain controllers.
+  - The subnets in the VPC that's associated with your file system must be defined in an Active Directory site.
+  - There are no conflicts between the VPC subnets and any of the Active Directory site subnets.
+    Amazon FSx requires connectivity to the domain controllers or Active Directory sites you
+    have defined in your Active Directory environment. Amazon FSx will ignore any domain controllers with TCP and UDP blocked on
+    port 389. For the remaining domain controllers in your Active Directory, ensure that they meet the Amazon FSx connectivity
+    requirements. Additionally, verify that any changes to your service account are propagated to all these domain controllers.
 
 ###### Important
 

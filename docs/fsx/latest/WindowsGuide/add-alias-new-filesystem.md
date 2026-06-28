@@ -29,24 +29,21 @@ aws fsx create-file-system \
   --windows-configuration Aliases=[financials.corp.example.com,accts-rcv.corp.example.com]
 ```
 
-2.  When the file system is **Available**, you can access it using the DNS
-    alias by configuring service principal names (SPNs) and updating or creating a DNS CNAME
-    record for the alias. For more information, see [Accessing data using DNS aliases](dns-aliases.md "dns-aliases.md").
-1.  When creating a new file system from a backup of an existing file system, you can use the
-    [Aliases](../APIReference/API_Aliases.md "../APIReference/API_Aliases.md") property with the
-    [CreateFileSystemFromBackup](../APIReference/API_CreateFileSystemFromBackup.md "../APIReference/API_CreateFileSystemFromBackup.md")
-    API operation as follows:
+2. When the file system is **Available**, you can access it using the DNS
+   alias by configuring service principal names (SPNs) and updating or creating a DNS CNAME
+   record for the alias. For more information, see [Accessing data using DNS aliases](dns-aliases.md "dns-aliases.md").
+1. When creating a new file system from a backup of an existing file system, you can use the
+   [Aliases](../APIReference/API_Aliases.md "../APIReference/API_Aliases.md") property with the
+   [CreateFileSystemFromBackup](../APIReference/API_CreateFileSystemFromBackup.md "../APIReference/API_CreateFileSystemFromBackup.md")
+   API operation as follows:
 
-        * Any aliases associated with the backup are associated with the new file system by default.
-        * To create a file system without preserving any aliases from the backup, use the `Aliases`
-         property with an empty set.
+   - Any aliases associated with the backup are associated with the new file system by default.
+   - To create a file system without preserving any aliases from the backup, use the `Aliases`
+     property with an empty set.
 
-
-
-        To associate additional DNS aliases, use the `Aliases` property and include both the original
-         aliases associated with the backup and the new aliases you want to associate.
-
-    The following CLI command associates two aliases with the file system Amazon FSx is creating from a backup.
+   To associate additional DNS aliases, use the `Aliases` property and include both the original
+   aliases associated with the backup and the new aliases you want to associate.
+   The following CLI command associates two aliases with the file system Amazon FSx is creating from a backup.
 
 ```
 aws fsx create-file-system-from-backup \

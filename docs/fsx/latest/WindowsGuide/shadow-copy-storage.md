@@ -11,7 +11,7 @@ Using `-Maxsize`, you can define shadow copy storage as follows:
 
 - In bytes: `Set-FsxShadowStorage -Maxsize 2500000000`
 - In kilobytes, megabytes, gigabytes, or other units: `Set-FsxShadowStorage -Maxsize
-(2500MB)` or `Set-FsxShadowStorage -Maxsize (2.5GB)`
+ (2500MB)` or `Set-FsxShadowStorage -Maxsize (2.5GB)`
 - As a percentage of the overall storage: `Set-FsxShadowStorage -Maxsize "20%"`
 - As unbounded: `Set-FsxShadowStorage -Maxsize "UNBOUNDED"`
   Use `-Default` to set shadow storage to use up to 10 percent of the file system:

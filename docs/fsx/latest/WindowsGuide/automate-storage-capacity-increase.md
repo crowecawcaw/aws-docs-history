@@ -148,7 +148,7 @@ resources. 7. Choose **Create** to deploy the stack.
 
 You can view the status of the stack in the CloudFormation console in the
 **Status** column. You should see a status of
-**CREATE_COMPLETE** in about 5 minutes.
+**CREATE\_COMPLETE** in about 5 minutes.
 
 ### Updating the stack
 

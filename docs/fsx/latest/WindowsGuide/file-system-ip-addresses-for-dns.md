@@ -21,6 +21,7 @@ once a file system is created, its IP addresses don't change until the file syst
      - In the **Preferred subnet** panel, choose the elastic network interface shown under
        **Network interface** to open the **Network Interfaces** page in the Amazon EC2 console.
      - The IP address for the preferred subnet to use is shown in the **Secondary private IPv4 IP** column.
+
      - In the Amazon FSx **Standby subnet** panel, choose the elastic network interface shown under
        **Network interface** to open the **Network Interfaces** page in the Amazon EC2 console.
      - The IP address for the standby subnet to use is shown in the **Secondary private IPv4 IP** column.

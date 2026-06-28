@@ -2,7 +2,7 @@
 
 In this procedure, you will create a single domain-based namespace (`example.com\corp`) on two namespace
 servers, in order to consolidate file shares stored on multiple FSx for Windows file systems (finance, marketing,
-sales, home_directories). You will also set up four file shares under the namespace, each transparently
+sales, home\_directories). You will also set up four file shares under the namespace, each transparently
 redirecting users to shares hosted on separate FSx for Windows file systems. This enables your users to access file shares using a common namespace instead of
 having to specify the DNS names for each of the file systems hosting the file shares.
 
@@ -53,6 +53,5 @@ for **Path to folder target** and choose **OK**. 14. If the share doesn't exist:
     4. Set the appropriate share permissions, and choose **OK**.
 
 15. From the **New Folder** dialog, choose **OK**. The new
-    folder will be created under the namespace.
-16. Repeat the last four steps for other folders you want to share under the same
-    namespace.
+folder will be created under the namespace. 16. Repeat the last four steps for other folders you want to share under the same
+namespace.

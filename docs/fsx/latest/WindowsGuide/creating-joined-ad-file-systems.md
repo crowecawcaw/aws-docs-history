@@ -13,16 +13,12 @@ Amazon FSx currently does not support Single Label Domain (SLD) domains.
 - The IP addresses of the DNS servers for your domain.
 - Credentials for an Active Directory service account that Amazon FSx uses to join the file system to your domain. You can provide these as either:
 
-      + **Option 1**: AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
-      + **Option 2**: Plaintext credentials
+  - **Option 1**: AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows "self-managed-AD.md#bp-store-ad-creds-using-secret-manager-windows").
+  - **Option 2**: Plaintext credentials
 
-
-
-
-      	- **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
-      	- **Service account password** – The password for the service account.
-
-  Optionally, you can also specify the following:
+    - **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
+    - **Service account password** – The password for the service account.
+      Optionally, you can also specify the following:
 
 - A specific Organizational Unit (OU) within the domain that you want your Amazon FSx file
   system to join to.
@@ -157,13 +153,13 @@ Addresses** for the self-managed Microsoft Active Directory directory. 14. **Ser
      (`CN=ServiceAcct,OU=example,DC=corp,DC=com`).
 
 15. For **Delegated file system administrators group**, specify
-    the `Domain Admins` group or a custom delegated file system administrators
-    group (if you've created one). The group you specify should have the delegated authority
-    to perform administrative tasks on your file system. If you don't provide a value,
-    Amazon FSx uses the Builtin `Domain Admins` group. Note that Amazon FSx does not
-    support having a `Delegated file system administrators group` (either the
-    `Domain Admins` group or a custom group you specify) that is located in
-    the Builtin container.
+the `Domain Admins` group or a custom delegated file system administrators
+group (if you've created one). The group you specify should have the delegated authority
+to perform administrative tasks on your file system. If you don't provide a value,
+Amazon FSx uses the Builtin `Domain Admins` group. Note that Amazon FSx does not
+support having a `Delegated file system administrators group` (either the
+`Domain Admins` group or a custom group you specify) that is located in
+the Builtin container.
 
 ###### Important
 

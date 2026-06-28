@@ -580,10 +580,9 @@ Invoke-Command -ComputerName $FSxWindowsRemotePowerShellEndpoint -ConfigurationN
   before being
   canceled. Valid values: `-1` to `2147483`. Special values:
 
-      + `0`: Run to completion
-      + `-1`: Run until canceled
-
-  If not specified, runs to completion.
+  - `0`: Run to completion
+  - `-1`: Run until canceled
+    If not specified, runs to completion.
 
 ##### Examples
 

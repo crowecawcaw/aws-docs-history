@@ -16,19 +16,19 @@ window, you can view the 10 most recent updates for each update type.
 
 For self-managed Active Directory updates, you can view the following information.
 
-\***\*Update type\*\***
+****Update type****
 
 Supported types are as follows:
 
 - DNS server IP address
 - Service account credentials
 
-\***\*Target value\*\***
+****Target value****
 
 The desired value to update the file system property to. For **Service account credentials**
 updates, only the user name is shown, service account passwords are never included in this field.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. For self-managed Active Directory updates, the possible values are as follows:
 
@@ -40,11 +40,11 @@ The current status of the update. For self-managed Active Directory updates, the
 - **Failed** – The file system update failed. Choose the question
   mark (**?**) to see details about the failure.
 
-\***\*Progress %\*\***
+****Progress %****
 
 Displays the progress of the file system update as percent complete.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update action request.
 

@@ -53,5 +53,4 @@ target** and choose **OK**. 14. If the share doesn't exist:
      choose **OK**.
     4. Set the appropriate share permissions, and choose **OK**.
 
-15. With the folder target now added for the shard, choose **OK**.
-16. Repeat the last four steps for other shards you want to add to the same namespace.
+15. With the folder target now added for the shard, choose **OK**. 16. Repeat the last four steps for other shards you want to add to the same namespace.

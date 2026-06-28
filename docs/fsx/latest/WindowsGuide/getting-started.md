@@ -302,23 +302,22 @@ system.
 
 ###### File system details
 
-1.  In the **File system details** section, provide a name for your file
-    system. It's easier to find and manage your file systems when you name them. You can use a
-    maximum of 256 Unicode letters, white space, and numbers, plus the special characters + -
-    = . \_ : /
-2.  For **Deployment type** choose **Multi-AZ** or
-    **Single-AZ**.
+1. In the **File system details** section, provide a name for your file
+   system. It's easier to find and manage your file systems when you name them. You can use a
+   maximum of 256 Unicode letters, white space, and numbers, plus the special characters + -
+   = . \_ : /
+2. For **Deployment type** choose **Multi-AZ** or
+   **Single-AZ**.
 
-        * Choose **Multi-AZ** to deploy a file system that is tolerant to
-         Availability Zone unavailability. This option supports SSD and HDD storage.
-        * Choose **Single-AZ** to deploy a file system that is deployed in
-         a single Availability Zone. *Single-AZ 2* is the latest generation
-         of single Availability Zone file systems, and it supports SSD and HDD storage.
+   - Choose **Multi-AZ** to deploy a file system that is tolerant to
+     Availability Zone unavailability. This option supports SSD and HDD storage.
+   - Choose **Single-AZ** to deploy a file system that is deployed in
+     a single Availability Zone. _Single-AZ 2_ is the latest generation
+     of single Availability Zone file systems, and it supports SSD and HDD storage.
+     For more information, see [Availability and durability: Single-AZ and Multi-AZ file systems](high-availability-multiAZ.md "high-availability-multiAZ.md").
 
-    For more information, see [Availability and durability: Single-AZ and Multi-AZ file systems](high-availability-multiAZ.md "high-availability-multiAZ.md").
-
-3.  For **Storage type**, you can choose either **SSD**
-    or **HDD**.
+3. For **Storage type**, you can choose either **SSD**
+   or **HDD**.
 
 FSx for Windows File Server offers solid state drive (SSD) and hard disk drive (HDD) storage types.
 **SSD** storage is designed for the highest-performance and most
@@ -352,26 +351,26 @@ system. For more information, see [Managing throughput capacity](managing-throug
 
 ###### Network & security
 
-1.  In the **Network & security** section, choose the Amazon VPC that you
-    want to associate with your file system. For this getting started exercise, choose the
-    same Amazon VPC that you chose for your Directory Service directory and your Amazon EC2 instance.
-2.  For **VPC Security Groups**, the default security group for your
-    default Amazon VPC is already added to your file system in the console. If you're not
-    using the default security group, make sure that the security group you choose is in
-    the same AWS Region as your file system. To ensure that you can connect an EC2 instance
-    with your file system, you will need to add the following rules to your
-    chosen security group:
+1. In the **Network & security** section, choose the Amazon VPC that you
+   want to associate with your file system. For this getting started exercise, choose the
+   same Amazon VPC that you chose for your Directory Service directory and your Amazon EC2 instance.
+2. For **VPC Security Groups**, the default security group for your
+   default Amazon VPC is already added to your file system in the console. If you're not
+   using the default security group, make sure that the security group you choose is in
+   the same AWS Region as your file system. To ensure that you can connect an EC2 instance
+   with your file system, you will need to add the following rules to your
+   chosen security group:
 
-    1. Add the following inbound and outbound rules to allow the following ports.
+   1. Add the following inbound and outbound rules to allow the following ports.
 
-    | Rules | Ports                                                                |
-    | ----- | -------------------------------------------------------------------- |
-    | UDP   | 53, 88, 123, 389, 464                                                |
-    | TCP   | 53, 88, 135, 389, 445, 464, 636, 3268, 3269, 5985, 9389, 49152-65535 |
+   | Rules | Ports                                                                |
+   | ----- | -------------------------------------------------------------------- |
+   | UDP   | 53, 88, 123, 389, 464                                                |
+   | TCP   | 53, 88, 135, 389, 445, 464, 636, 3268, 3269, 5985, 9389, 49152-65535 |
 
-    Add from and to IP addresses or security group IDs associated with the client
-    compute instances that you want to access your file system from. 2. Add outbound rules to allow all traffic to the Active Directory that you're
-    joining your file system to. To do this, do one of the following:
+   Add from and to IP addresses or security group IDs associated with the client
+   compute instances that you want to access your file system from. 2. Add outbound rules to allow all traffic to the Active Directory that you're
+   joining your file system to. To do this, do one of the following:
 
         * Allow outbound traffic to the security group ID associated with your AWS
          Managed AD directory.
@@ -566,7 +565,7 @@ any other directory in your Windows environment.
 
 1. Open the Notepad text editor.
 2. Write some content in the text editor. For example: `Hello,
-World!`
+ World!`
 3. Save the file to your file share's drive letter.
 4. Using File Explorer, navigate to your file share and find the text file that you just
    saved.

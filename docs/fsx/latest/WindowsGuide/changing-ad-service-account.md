@@ -22,7 +22,7 @@ When changing the service account for Amazon FSx, ensure that the service accoun
   If the service accounts do not meet these requirements, the following conditions could occur:
 
 - For Single-AZ file systems, the file system could become
-  **[MISCONFIGURED_UNAVAILABLE](administering-file-systems.md#file-system-lifecycle-states "administering-file-systems.md#file-system-lifecycle-states")**.
+  **[MISCONFIGURED\_UNAVAILABLE](administering-file-systems.md#file-system-lifecycle-states "administering-file-systems.md#file-system-lifecycle-states")**.
 - For Multi-AZ file systems, the file system could become
   **[MISCONFIGURED](administering-file-systems.md#file-system-lifecycle-states "administering-file-systems.md#file-system-lifecycle-states")** and
   the RemotePowerShell endpoint name might change.

@@ -31,11 +31,11 @@ Before you begin, make sure that you do the following:
 
 The following table summarizes the source and destination file system accessibility requirements for three migration user access models.
 
-| Migration user access model                                                | Source file system accessibility requirements                                                                                     | Destination FSx file server accessibility requirements                                                                          |
-| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Direct read/write permissions model                                        | The user needs to have at least read permissions (NTFS ACLs) on the files and folders being migrated.                             | The user needs to have at least write permissions (NTFS ACLs) on the files and folders being migrated.                          |
-| Backup/restore privilege model to override access permissions              | The user needs to be a member of the on-premises Active Directory's Backup<br>Operators group, and use the /b flag with RoboCopy. | The user needs to be a member of the Amazon FSx file system's \*administrators<br>group\*\*, and use the /b flag with RoboCopy. |
-| Domain administrator (full) privilege model to override access permissions | The user needs to be a member of the on-premises Active Directory's Domain Admins<br>group.                                       | The user needs to be a member of the Amazon FSx file system's \*administrators<br>group\*\*, and use the /b flag with RoboCopy  |
+| Migration user access model                                                | Source file system accessibility requirements                                                                                     | Destination FSx file server accessibility requirements                                                                        |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Direct read/write permissions model                                        | The user needs to have at least read permissions (NTFS ACLs) on the files and folders being migrated.                             | The user needs to have at least write permissions (NTFS ACLs) on the files and folders being migrated.                        |
+| Backup/restore privilege model to override access permissions              | The user needs to be a member of the on-premises Active Directory's Backup<br>Operators group, and use the /b flag with RoboCopy. | The user needs to be a member of the Amazon FSx file system's _administrators<br>group\*_, and use the /b flag with RoboCopy. |
+| Domain administrator (full) privilege model to override access permissions | The user needs to be a member of the on-premises Active Directory's Domain Admins<br>group.                                       | The user needs to be a member of the Amazon FSx file system's _administrators<br>group\*_, and use the /b flag with RoboCopy  |
 
 ###### Note
 
@@ -78,7 +78,7 @@ The command completed successfully.
    you provide credentials for a user account that is a member of your on-premises Active
    Directory's domain administrators group and your Amazon FSx file system’s administrators
    group. For file systems joined to an AWS Managed Microsoft AD, that group is `AWS
-Delegated FSx` `Administrators`. In your self-managed
+ Delegated FSx` `Administrators`. In your self-managed
    Microsoft AD, that group is `Domain Admins` or the custom group that you
    specified for administration when you created your file system.
 

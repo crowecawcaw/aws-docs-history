@@ -353,16 +353,15 @@ The service account needs to have, at a minimum, the following permissions:
 - Be delegated control to create and delete computer objects in the OU that you’re joining the file system to
 - Have the following permissions in the OU that you’re joining the file system to:
 
-      + Ability to reset passwords
-      + Ability to restrict accounts from reading and writing data
-      + Validated ability to write to the DNS hostname
-      + Validated ability to write to the service principal name
-      + Ability (can be delegated) to create and delete computer objects
-      + Validated ability to read and write Account Restrictions
-      + Ability to modify permissions
-
-  For more information about creating a service account with the correct permissions, see
-  [Amazon FSx service account](self-managed-AD.md#self-managed-AD-service-account "self-managed-AD.md#self-managed-AD-service-account").
+  - Ability to reset passwords
+  - Ability to restrict accounts from reading and writing data
+  - Validated ability to write to the DNS hostname
+  - Validated ability to write to the service principal name
+  - Ability (can be delegated) to create and delete computer objects
+  - Validated ability to read and write Account Restrictions
+  - Ability to modify permissions
+    For more information about creating a service account with the correct permissions, see
+    [Amazon FSx service account](self-managed-AD.md#self-managed-AD-service-account "self-managed-AD.md#self-managed-AD-service-account").
 
 ## Unicode characters used in creation parameters
 
