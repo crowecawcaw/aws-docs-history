@@ -231,20 +231,22 @@ With your AWS KMS key and secret configured, you're ready to establish the JDBC 
 
 4. **Select tables to ingest**
 
-   1. Once connected, you'll see the Select Tables screen showing all available tables from your database
-   2. Select the checkbox next to each table you want to ingest
+    1. Once connected, you'll see the Select Tables screen showing all available tables from your database
+    2. Select the checkbox next to each table you want to ingest
 
 5. **Configure table refresh schedule**
 
-   1. For each selected table, click the three-dot menu in the Action column and select "Schedule refresh"
-   2. In the Configure load details dialog, set:
+    1. For each selected table, click the three-dot menu in the Action column and select "Schedule refresh"
+    2. In the Configure load details dialog, set:
 
-      - **Cadence:** How often to refresh (Hourly, Daily, Weekly, or Custom)
-      - **Start hour:** The time for refresh to begin (displayed in UTC with your timezone offset)
-      - **Refresh type:** Choose Complete refresh (replace all data) or Incremental update (add new data to existing; requires selecting a Record timestamp column)
 
-   3. Repeat for each table as needed
-   4. Click **Start mapping** when all tables are configured
+
+
+    	* **Cadence:** How often to refresh (Hourly, Daily, Weekly, or Custom)
+    	* **Start hour:** The time for refresh to begin (displayed in UTC with your timezone offset)
+    	* **Refresh type:** Choose Complete refresh (replace all data) or Incremental update (add new data to existing; requires selecting a Record timestamp column)
+    3. Repeat for each table as needed
+    4. Click **Start mapping** when all tables are configured
 
 ![Table selection screen showing available database tables](images/connecting-via-jdbc-table-selection.png) 6. **Continue with data mapping**
 

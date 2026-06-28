@@ -1,6 +1,6 @@
 # Common Setup Issues
 
-## Referential integrity errors: "product_id values do not match any id in Product dataset"
+## Referential integrity errors: "product\_id values do not match any id in Product dataset"
 
 The most common cause is trailing whitespace in ID fields. Source systems that export
 from fixed-width databases often pad string fields with spaces. The product master may
@@ -8,9 +8,9 @@ have clean IDs ("MAT604") while the order line file has padded IDs ("MAT604 "). 
 system does a strict string match, so these won't join.
 
 **Fix:** Add TRIM() to all string ID fields in your data
-flow SQL transforms. Apply it to product_id, ship_from_site_id, customer_tpartner_id,
+flow SQL transforms. Apply it to product\_id, ship\_from\_site\_id, customer\_tpartner\_id,
 and any other join key. Also check for quoting inconsistencies between files. When
-re-exporting CSVs, use QUOTE_ALL to prevent type inference issues where numeric-looking
+re-exporting CSVs, use QUOTE\_ALL to prevent type inference issues where numeric-looking
 IDs (e.g., "111613") get treated as integers in one file and strings in another.
 
 **Prevention:** Always TRIM all ID fields in your SQL
@@ -21,10 +21,10 @@ can change between exports.
 
 Your order history will often contain products that aren't in the current product master
 (discontinued products, one-time items, test SKUs). The system will reject the entire
-order file if any product_id doesn't have a matching product master record.
+order file if any product\_id doesn't have a matching product master record.
 
 **Fix:** Either (a) create stub rows in the product master
-for missing products with minimal required fields (id, description, base_uom), or (b)
+for missing products with minimal required fields (id, description, base\_uom), or (b)
 filter the order history to only include products present in the product master. Option
 (a) is preferred because it preserves demand history that may be useful for lineage and
 trend detection.
@@ -35,7 +35,7 @@ Product descriptions containing commas, quotes, or special characters can break 
 parsing. You may see errors like "Expected 17 fields, saw 19" on specific rows.
 
 **Fix:** Re-export the file with proper quoting
-(QUOTE_ALL). Check the specific failing rows for embedded commas in description fields.
+(QUOTE\_ALL). Check the specific failing rows for embedded commas in description fields.
 
 ## Data not appearing after upload
 

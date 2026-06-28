@@ -36,8 +36,8 @@ Data onboarding follows five phases:
    CSV files
 3. **Map**: Match your source datasets to CDM
    destination datasets as well as source fields to CDM entities (for example,
-   mapping your “item_number” field to CDM’s
-   “product_id”)
+   mapping your “item\_number” field to CDM’s
+   “product\_id”)
 4. **Validate**: Run quality checks and resolve
    any data issues
 

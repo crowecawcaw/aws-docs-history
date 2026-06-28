@@ -28,30 +28,28 @@ will verify if the email matches an existing user. 5. Do one of the following:
      user** – A **Create a New User**
      notification appears. Proceed to the next step.
 
-6.  In the notification, enter the following then select **Continue**:
+6. In the notification, enter the following then select **Continue**:
 
-        * Email address
-        * First name
-        * Last name
+    * Email address
+    * First name
+    * Last name
 
-    IdC creates the user automatically and adds them as the Amazon Connect Decisions
-    administrator.
+IdC creates the user automatically and adds them as the Amazon Connect Decisions
+administrator. 7. Do one of the following:
 
-7.  Do one of the following:
+    * **To create an instance using standard
+     configuration** – Select **Create**.
+     See [Use
+     standard configuration](creating-your-instance.md "creating-your-instance.md").
+    * **To create an instance using a custom
+     configuration** – Select **Edit in advanced
+     setup**. See [Use
+     advanced configuration](creating-your-instance.md#creating-your-instance-advanced-configuration "creating-your-instance.md#creating-your-instance-advanced-configuration").
 
-        * **To create an instance using standard
-         configuration** – Select **Create**.
-         See [Use
-         standard configuration](creating-your-instance.md "creating-your-instance.md").
-        * **To create an instance using a custom
-         configuration** – Select **Edit in advanced
-         setup**. See [Use
-         advanced configuration](creating-your-instance.md#creating-your-instance-advanced-configuration "creating-your-instance.md#creating-your-instance-advanced-configuration").
-
-    When used in conjunction with IAM Identity Center, Amazon Connect Decisions retrieves the
-    'username' and 'email' fields from IAM Identity Center directory. None of these attributes
-    are stored natively in your Amazon Connect Decisions instance and are always retrieved at runtime.
-    Amazon Connect Decisions encrypts these identity attributes at rest using an AWS owned KMS key
-    by default. Customer managed KMS keys are not supported in Amazon Connect Decisions. If you delete
-    a user in your AWS IAM Identity Center instance, Amazon Connect Decisions deletes that user from
-    your instance as well.
+When used in conjunction with IAM Identity Center, Amazon Connect Decisions retrieves the
+'username' and 'email' fields from IAM Identity Center directory. None of these attributes
+are stored natively in your Amazon Connect Decisions instance and are always retrieved at runtime.
+Amazon Connect Decisions encrypts these identity attributes at rest using an AWS owned KMS key
+by default. Customer managed KMS keys are not supported in Amazon Connect Decisions. If you delete
+a user in your AWS IAM Identity Center instance, Amazon Connect Decisions deletes that user from
+your instance as well.

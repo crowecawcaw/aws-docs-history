@@ -80,7 +80,7 @@ filter by any of the following columns:
 
   - **Missing required data**: Mandatory data
     is not provided to trigger an operation (e.g., no
-    outbound_order_line source table for Supply Plan)
+    outbound\_order\_line source table for Supply Plan)
   - **Invalid data values**: Data exists but
     contains incorrect values (e.g., negative product cost)
   - **Missing relationships**: Required

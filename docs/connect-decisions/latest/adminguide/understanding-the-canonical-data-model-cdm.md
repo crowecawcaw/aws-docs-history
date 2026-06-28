@@ -40,27 +40,27 @@ CDM data entities fall into two categories:
 
 The following table lists all data entities supported in the CDM.
 
-| Supported CDM data entities | Data entity            | Type of data | Required |
-| --------------------------- | ---------------------- | ------------ | -------- |
-| Company                     | Non-transactional data | Yes          |
-| Product                     | Non-transactional data | Yes          |
-| Trading partner             | Non-transactional data | Yes          |
-| Vendor product              | Non-transactional data | Yes          |
-| Geography                   | Non-transactional data | Yes          |
-| Product hierarchy           | Non-transactional data | Yes          |
-| Transportation lane         | Non-transactional data | Yes          |
-| Vendor lead time            | Non-transactional data | Yes          |
-| Site                        | Non-transactional data | Yes          |
-| Vendor holiday              | Non-transactional data | Yes          |
-| Forecast                    | Transactional data     | Yes          |
-| Inventory                   | Transactional data     | Yes          |
-| Inbound order (PO/STO)      | Transactional data     | Yes          |
-| Outbound order line         | Transactional data     | Yes          |
-| Shipment                    | Transactional data     | Yes          |
-| Inventory policy            | Transactional data     | Yes          |
-| Inbound order line (PO/STO) | Transactional data     | Yes          |
-| Outbound shipment           | Transactional data     | Yes          |
-| Inbound order line schedule | Transactional data     | Yes          |
+Supported CDM data entities| Data entity | Type of data | Required |
+| --- | --- | --- |
+| Company | Non-transactional data | Yes |
+| Product | Non-transactional data | Yes |
+| Trading partner | Non-transactional data | Yes |
+| Vendor product | Non-transactional data | Yes |
+| Geography | Non-transactional data | Yes |
+| Product hierarchy | Non-transactional data | Yes |
+| Transportation lane | Non-transactional data | Yes |
+| Vendor lead time | Non-transactional data | Yes |
+| Site | Non-transactional data | Yes |
+| Vendor holiday | Non-transactional data | Yes |
+| Forecast | Transactional data | Yes |
+| Inventory | Transactional data | Yes |
+| Inbound order (PO/STO) | Transactional data | Yes |
+| Outbound order line | Transactional data | Yes |
+| Shipment | Transactional data | Yes |
+| Inventory policy | Transactional data | Yes |
+| Inbound order line (PO/STO) | Transactional data | Yes |
+| Outbound shipment | Transactional data | Yes |
+| Inbound order line schedule | Transactional data | Yes |
 
 ## Entities required by feature
 
@@ -69,75 +69,75 @@ are required, optional, or not applicable for each feature.
 
 ### Inventory visibility
 
-| CDM entities for inventory visibility | Data entity       | Type of data   | Required |
-| ------------------------------------- | ----------------- | -------------- | -------- |
-| Company                               | Non-transactional | Optional       |
-| Product                               | Non-transactional | Yes            |
-| Trading partner                       | Non-transactional | Optional       |
-| Vendor product                        | Non-transactional | Not applicable |
-| Geography                             | Non-transactional | Optional       |
-| Product hierarchy                     | Non-transactional | Optional       |
-| Transportation lane                   | Non-transactional | Optional       |
-| Vendor lead time                      | Non-transactional | Not applicable |
-| Site                                  | Non-transactional | Yes            |
-| Vendor holiday                        | Non-transactional | Not applicable |
-| Forecast                              | Transactional     | Optional       |
-| Inventory                             | Transactional     | Yes            |
-| Inbound order (PO/STO)                | Transactional     | Optional       |
-| Outbound order line                   | Transactional     | Optional       |
-| Shipment                              | Transactional     | Optional       |
-| Inventory policy                      | Transactional     | Yes            |
-| Inbound order line                    | Transactional     | Optional       |
-| Outbound shipment                     | Transactional     | Optional       |
-| Inbound order line schedule           | Transactional     | Optional       |
+CDM entities for inventory visibility| Data entity | Type of data | Required |
+| --- | --- | --- |
+| Company | Non-transactional | Optional |
+| Product | Non-transactional | Yes |
+| Trading partner | Non-transactional | Optional |
+| Vendor product | Non-transactional | Not applicable |
+| Geography | Non-transactional | Optional |
+| Product hierarchy | Non-transactional | Optional |
+| Transportation lane | Non-transactional | Optional |
+| Vendor lead time | Non-transactional | Not applicable |
+| Site | Non-transactional | Yes |
+| Vendor holiday | Non-transactional | Not applicable |
+| Forecast | Transactional | Optional |
+| Inventory | Transactional | Yes |
+| Inbound order (PO/STO) | Transactional | Optional |
+| Outbound order line | Transactional | Optional |
+| Shipment | Transactional | Optional |
+| Inventory policy | Transactional | Yes |
+| Inbound order line | Transactional | Optional |
+| Outbound shipment | Transactional | Optional |
+| Inbound order line schedule | Transactional | Optional |
 
 ### Lead time insights
 
-| CDM entities for lead time insights | Data entity       | Type of data   | Required |
-| ----------------------------------- | ----------------- | -------------- | -------- |
-| Company                             | Non-transactional | Optional       |
-| Product                             | Non-transactional | Yes            |
-| Trading partner                     | Non-transactional | Yes            |
-| Vendor product                      | Non-transactional | Yes            |
-| Geography                           | Non-transactional | Optional       |
-| Product hierarchy                   | Non-transactional | Optional       |
-| Transportation lane                 | Non-transactional | Yes            |
-| Vendor lead time                    | Non-transactional | Yes            |
-| Site                                | Non-transactional | Yes            |
-| Vendor holiday                      | Non-transactional | Optional       |
-| Forecast                            | Transactional     | Not applicable |
-| Inventory                           | Transactional     | Not applicable |
-| Inbound order (PO/STO)              | Transactional     | Yes            |
-| Outbound order line                 | Transactional     | Not applicable |
-| Shipment                            | Transactional     | Yes            |
-| Inventory policy                    | Transactional     | Not applicable |
-| Inbound order line                  | Transactional     | Yes            |
-| Outbound shipment                   | Transactional     | Not applicable |
-| Inbound order line schedule         | Transactional     | Yes            |
+CDM entities for lead time insights| Data entity | Type of data | Required |
+| --- | --- | --- |
+| Company | Non-transactional | Optional |
+| Product | Non-transactional | Yes |
+| Trading partner | Non-transactional | Yes |
+| Vendor product | Non-transactional | Yes |
+| Geography | Non-transactional | Optional |
+| Product hierarchy | Non-transactional | Optional |
+| Transportation lane | Non-transactional | Yes |
+| Vendor lead time | Non-transactional | Yes |
+| Site | Non-transactional | Yes |
+| Vendor holiday | Non-transactional | Optional |
+| Forecast | Transactional | Not applicable |
+| Inventory | Transactional | Not applicable |
+| Inbound order (PO/STO) | Transactional | Yes |
+| Outbound order line | Transactional | Not applicable |
+| Shipment | Transactional | Yes |
+| Inventory policy | Transactional | Not applicable |
+| Inbound order line | Transactional | Yes |
+| Outbound shipment | Transactional | Not applicable |
+| Inbound order line schedule | Transactional | Yes |
 
 ### Demand planning
 
-| CDM entities for demand planning | Data entity       | Type of data   | Required |
-| -------------------------------- | ----------------- | -------------- | -------- |
-| Company                          | Non-transactional | Optional       |
-| Product                          | Non-transactional | Yes            |
-| Trading partner                  | Non-transactional | Not applicable |
-| Vendor product                   | Non-transactional | Not applicable |
-| Geography                        | Non-transactional | Optional       |
-| Product hierarchy                | Non-transactional | Optional       |
-| Transportation lane              | Non-transactional | Not applicable |
-| Vendor lead time                 | Non-transactional | Not applicable |
-| Site                             | Non-transactional | Yes            |
-| Vendor holiday                   | Non-transactional | Not applicable |
-| Forecast                         | Transactional     | Not applicable |
-| Inventory                        | Transactional     | Not applicable |
-| Inbound order (PO/STO)           | Transactional     | Not applicable |
-| Outbound order line              | Transactional     | Yes            |
-| Shipment                         | Transactional     | Not applicable |
-| Inventory policy                 | Transactional     | Not applicable |
-| Inbound order line               | Transactional     | Not applicable |
-| Outbound shipment                | Transactional     | Not applicable |
-| Inbound order line schedule      | Transactional     | Not applicable |
+CDM entities for demand planning| Data entity | Type of data | Required |
+| --- | --- | --- |
+| Company | Non-transactional | Optional |
+| Product | Non-transactional | Yes |
+| Trading partner | Non-transactional | Not applicable |
+| Vendor product | Non-transactional | Not applicable |
+| Geography | Non-transactional | Optional |
+| Product hierarchy | Non-transactional | Optional |
+| Transportation lane | Non-transactional | Not applicable |
+| Vendor lead time | Non-transactional | Not applicable |
+| Site | Non-transactional | Yes |
+| Vendor holiday | Non-transactional | Not applicable |
+| Forecast | Transactional | Not applicable |
+| Inventory | Transactional | Not applicable |
+| Inbound order (PO/STO) | Transactional | Not applicable |
+| Outbound order line | Transactional | Yes |
+| Shipment | Transactional | Not applicable |
+| Inventory policy | Transactional | Not applicable |
+| Inbound order line | Transactional | Not applicable |
+| Outbound shipment | Transactional | Not applicable |
+| Inbound order line schedule | Transactional | Not applicable |
 
 ## How the CDM relates to data onboarding
 
