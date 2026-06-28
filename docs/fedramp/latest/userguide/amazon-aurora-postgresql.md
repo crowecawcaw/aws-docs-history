@@ -80,18 +80,18 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
   - Disable superuser privileges for application accounts
   - Enable comprehensive logging:
 
-    - log_statement = 'all'
-    - log_connections = on
-    - log_disconnections = on
-    - log_duration = on
+    - log\_statement = 'all'
+    - log\_connections = on
+    - log\_disconnections = on
+    - log\_duration = on
 
-  - Set connection limits: max_connections appropriate for workload
-  - Configure password policies: password_encryption = 'scram-sha-256'
-  - Enable pg_audit extension for detailed audit logging:
+  - Set connection limits: max\_connections appropriate for workload
+  - Configure password policies: password\_encryption = 'scram-sha-256'
+  - Enable pg\_audit extension for detailed audit logging:
 
-    - shared_preload_libraries = 'pg_audit'
-    - pg_audit.log = 'all'
-    - pg_audit.log_catalog = on
+    - shared\_preload\_libraries = 'pg\_audit'
+    - pg\_audit.log = 'all'
+    - pg\_audit.log\_catalog = on
 
 ### AWS IAM INTEGRATION
 
@@ -142,7 +142,7 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
 
 1. Database-Level Auditing:
 
-   - Enable pg_audit extension for all administrative actions
+   - Enable pg\_audit extension for all administrative actions
    - "Publish logs to CloudWatch Logs and configure retention period (minimum 90 days)
    - Monitor failed login attempts and privilege escalations
    - Set up alerts for suspicious administrative activities
@@ -173,9 +173,9 @@ Amazon Aurora PostgreSQL administrative access is managed through the Master dat
 
 **Applicable:** Yes
 
-### Security-Related Settings Restricted to Master User (rds_superuser role)
+### Security-Related Settings Restricted to Master User (rds\_superuser role)
 
-The master user account in Amazon Aurora PostgreSQL has the `rds_superuser` role, which provides elevated privileges that cannot be delegated to regular database users. The following operations and their security implications are restricted to accounts with the rds_superuser role:
+The master user account in Amazon Aurora PostgreSQL has the `rds_superuser` role, which provides elevated privileges that cannot be delegated to regular database users. The following operations and their security implications are restricted to accounts with the rds\_superuser role:
 
 #### 1. User and Role Management
 
@@ -185,7 +185,7 @@ The master user account in Amazon Aurora PostgreSQL has the `rds_superuser` role
 - ALTER USER / ALTER ROLE to modify user attributes
 - DROP USER / DROP ROLE
 - GRANT and REVOKE role memberships
-- Password management for all database users (unless delegated via rds_password role)
+- Password management for all database users (unless delegated via rds\_password role)
 
 **Security Implications:**
 
@@ -245,7 +245,7 @@ The master user account in Amazon Aurora PostgreSQL has the `rds_superuser` role
 
 **Operations:**
 
-- Direct modifications to system catalogs (pg_catalog)
+- Direct modifications to system catalogs (pg\_catalog)
 - Access to sensitive system views and functions
 - Modification of system-level settings
 
@@ -275,7 +275,7 @@ The master user account in Amazon Aurora PostgreSQL has the `rds_superuser` role
 
 **Operations:**
 
-- Enabling/disabling pg_audit extension
+- Enabling/disabling pg\_audit extension
 - Configuring audit log settings
 - Modifying log retention and export settings
 
@@ -504,7 +504,7 @@ aws rds delete-db-cluster --db-cluster-identifier old-cluster --skip-final-snaps
 
 Amazon Aurora PostgreSQL requires encryption at rest using AWS KMS customer-managed keys and SSL/TLS encryption in transit for secure database operations.
 
-**Implementation Overview:** Aurora PostgreSQL security involves encrypting data at rest and in transit, securing the master user account, implementing network access controls, and enabling comprehensive audit logging with pg_audit.
+**Implementation Overview:** Aurora PostgreSQL security involves encrypting data at rest and in transit, securing the master user account, implementing network access controls, and enabling comprehensive audit logging with pg\_audit.
 
 #### Implementation Examples
 
@@ -537,9 +537,9 @@ aws rds create-db-cluster \
   --db-subnet-group-name private-subnet-group
 ```
 
-3. **Configure SSL/TLS and pg_audit Logging**
+3. **Configure SSL/TLS and pg\_audit Logging**
 
-Enable SSL enforcement and comprehensive audit logging with pg_audit
+Enable SSL enforcement and comprehensive audit logging with pg\_audit
 
 ```
 # Create parameter group with SSL enforcement and pg_audit
@@ -623,7 +623,7 @@ Ensure Aurora PostgreSQL clusters are created with security-first configurations
 - Enable encryption at rest using customer-managed KMS keys
 - Use AWS Secrets Manager for master user password management
 - Enforce SSL/TLS connections for all database access
-- Enable pg_audit extension for comprehensive audit logging
+- Enable pg\_audit extension for comprehensive audit logging
 - Deploy in private subnets with restrictive security groups
 - Implement automated backup encryption
 - Configure parameter groups with security-hardened settings

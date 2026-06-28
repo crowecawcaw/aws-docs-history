@@ -74,7 +74,7 @@ This requirement consolidates guidance for:
 
 - Master user: Create with CREATEDB and CREATEROLE privileges only
 - Disable superuser privileges for application accounts
-- Configure pg_hba.conf for strict connection controls:
+- Configure pg\_hba.conf for strict connection controls:
 
   - Require SSL connections: `hostssl all all 0.0.0.0/0 md5`
   - Limit connections by IP range and database
@@ -129,7 +129,7 @@ This requirement consolidates guidance for:
 - Use group-based access control: Users gain database access through group membership
 - Enable SSL/TLS: Configure `DB2COMM = TCPIP,SSL` and `SSL_SVCENAME` parameters
 - Configure authentication: Support for LDAP and Kerberos integration
-- Enable audit logging: Use DB2_AUDIT option in RDS option groups with S3 integration
+- Enable audit logging: Use DB2\_AUDIT option in RDS option groups with S3 integration
 - Implement role-based access: Use RDS default roles (`ROLE_NULLID_PACKAGES`, `ROLE_TABLESPACES`, `ROLE_PROCEDURES`)
 - Set connection limits: Configure workload management and connection limits
 - Use rdsadmin procedures: `rdsadmin.add_user`, `rdsadmin.create_role`, `rdsadmin.grant_role`
@@ -294,7 +294,7 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 
 #### 3. PostgreSQL-Specific Master User Operations
 
-**Operations Restricted to rds_superuser Role:**
+**Operations Restricted to rds\_superuser Role:**
 
 - CREATE EXTENSION / DROP EXTENSION (for supported extensions)
 - ALTER EXTENSION
@@ -312,7 +312,7 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 - System catalog access reveals database structure
 - Tablespace management affects storage allocation
 
-**Note:** RDS PostgreSQL master user has `rds_superuser` role, NOT full PostgreSQL superuser. Cannot access OS, modify pg_hba.conf, or perform certain system-level operations.
+**Note:** RDS PostgreSQL master user has `rds_superuser` role, NOT full PostgreSQL superuser. Cannot access OS, modify pg\_hba.conf, or perform certain system-level operations.
 
 #### 4. MySQL-Specific Master User Operations
 
@@ -320,10 +320,10 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 
 - CREATE ROLE / DROP ROLE
 - GRANT/REVOKE role memberships
-- SET_USER_ID privilege (impersonate users)
-- ROLE_ADMIN privilege
-- APPLICATION_PASSWORD_ADMIN
-- CONNECTION_ADMIN
+- SET\_USER\_ID privilege (impersonate users)
+- ROLE\_ADMIN privilege
+- APPLICATION\_PASSWORD\_ADMIN
+- CONNECTION\_ADMIN
 - REPLICATION CLIENT / REPLICATION SLAVE
 - RELOAD privilege (flush operations)
 - PROCESS privilege (view all connections)
@@ -331,11 +331,11 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 **Security Implications:**
 
 - Role management controls privilege inheritance
-- SET_USER_ID allows user impersonation
+- SET\_USER\_ID allows user impersonation
 - REPLICATION access enables data exfiltration
 - PROCESS privilege reveals all active queries
 - RELOAD can disrupt service or clear settings
-- CONNECTION_ADMIN bypasses connection limits
+- CONNECTION\_ADMIN bypasses connection limits
 
 **Note:** RDS MySQL master user does NOT have SUPER privilege. Cannot perform certain system-level operations or modify some global variables.
 
@@ -360,7 +360,7 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 - Backup access enables data exfiltration
 - Linked servers can expose other systems
 
-**Note:** RDS SQL Server master user is NOT a sysadmin. Cannot access OS, modify certain server configurations, or perform xp_cmdshell operations.
+**Note:** RDS SQL Server master user is NOT a sysadmin. Cannot access OS, modify certain server configurations, or perform xp\_cmdshell operations.
 
 #### 6. Oracle-Specific Master User Operations
 
@@ -581,7 +581,7 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 
 **PostgreSQL:**
 
-- Cannot access OS or modify pg_hba.conf
+- Cannot access OS or modify pg\_hba.conf
 - Cannot install arbitrary extensions (only AWS-supported)
 - Cannot modify certain system parameters
 - Has `rds_superuser` role, not full superuser
@@ -599,12 +599,12 @@ The master user account in Amazon RDS has elevated privileges specific to each d
 - Cannot access mysql.user table directly for some operations
 - Cannot modify certain global variables
 - Cannot perform OS-level operations
-- Limited access to performance_schema and information_schema tables
+- Limited access to performance\_schema and information\_schema tables
 
 **SQL Server:**
 
 - Not a member of sysadmin role
-- Cannot use xp_cmdshell
+- Cannot use xp\_cmdshell
 - Cannot access OS or file system directly
 - Limited server-level configuration access
 

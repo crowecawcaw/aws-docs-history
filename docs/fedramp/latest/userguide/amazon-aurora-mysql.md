@@ -81,23 +81,23 @@ Amazon Aurora MySQL administrative access is managed through the Master database
 
   - Master user: Limit to necessary privileges, avoid SUPER privilege, existing priviliged are already limited in RDS, ensure you follow least privilege in your creation
   - Use secure authentication methods = Avoid MySQL native, leverage IAM and Kerberos authentication where possible
-  - Enable SSL/TLS: require_secure_transport = ON
+  - Enable SSL/TLS: require\_secure\_transport = ON
   - Enable comprehensive audit logging:
 
-    - server_audit_logging = ON
-    - server_audit_events = 'CONNECT,QUERY,TABLE'
-    - server_audit_incl_users = 'admin,root' - This shoudl reflect your master user name.
+    - server\_audit\_logging = ON
+    - server\_audit\_events = 'CONNECT,QUERY,TABLE'
+    - server\_audit\_incl\_users = 'admin,root' - This shoudl reflect your master user name.
 
   - Set connection limits:
 
-    - max_connections appropriate for workload
-    - max_user_connections per user limits
+    - max\_connections appropriate for workload
+    - max\_user\_connections per user limits
 
   - Configure password validation if using MySQL native (avoid if possible):
 
-    - validate_password.policy = STRONG - Only if not using Kerberos or IAM
-    - validate_password.length = 20
-    - validate_password.mixed_case_count = 2
+    - validate\_password.policy = STRONG - Only if not using Kerberos or IAM
+    - validate\_password.length = 20
+    - validate\_password.mixed\_case\_count = 2
 
 ### Part 2: Administrative Settings
 
@@ -184,14 +184,14 @@ The master user account in Amazon Aurora MySQL has elevated privileges that cann
 - ALTER ROUTINE
 - DROP ROUTINE
 - EXECUTE on privileged routines
-- SET_USER_ID privilege (Aurora MySQL 3.x)
+- SET\_USER\_ID privilege (Aurora MySQL 3.x)
 
 **Security Implications:**
 
 - Stored procedures can execute with elevated privileges
 - Definer-rights procedures can bypass access controls
 - Malicious procedures could compromise database security
-- SET_USER_ID allows impersonation of other users
+- SET\_USER\_ID allows impersonation of other users
 
 #### 6. Event Scheduler Management
 
@@ -213,7 +213,7 @@ The master user account in Amazon Aurora MySQL has elevated privileges that cann
 
 **Operations:**
 
-- Enabling/disabling server_audit plugin
+- Enabling/disabling server\_audit plugin
 - Configuring audit log events and filters
 - Managing audit log retention
 
@@ -230,14 +230,14 @@ The master user account in Amazon Aurora MySQL has elevated privileges that cann
 
 - PROCESS privilege (view all connections)
 - RELOAD privilege (flush privileges, logs)
-- CONNECTION_ADMIN (Aurora MySQL 3.x)
+- CONNECTION\_ADMIN (Aurora MySQL 3.x)
 - KILL connections
 
 **Security Implications:**
 
 - PROCESS privilege reveals all active queries and data
 - RELOAD can disrupt service or clear security settings
-- CONNECTION_ADMIN allows bypassing connection limits
+- CONNECTION\_ADMIN allows bypassing connection limits
 - KILL privilege could be used for denial of service
 
 ### Best Practices for Master User Account Security

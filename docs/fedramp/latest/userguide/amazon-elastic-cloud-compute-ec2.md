@@ -87,7 +87,7 @@ Amazon EC2 instances run customer-managed operating systems. Unlike database ser
 
 **Best Practices:**
 
-- Disable direct root SSH login (`PermitRootLogin no` in sshd_config)
+- Disable direct root SSH login (`PermitRootLogin no` in sshd\_config)
 - Use sudo for privileged operations instead of su
 - Require individual user accounts with sudo access
 - Enable sudo logging and auditing
@@ -128,7 +128,7 @@ Amazon EC2 instances run customer-managed operating systems. Unlike database ser
 **Operations:**
 
 - Generate and distribute SSH key pairs
-- Manage authorized_keys files
+- Manage authorized\_keys files
 - Configure SSH daemon settings
 - Implement SSH certificate authorities
 
@@ -145,7 +145,7 @@ Amazon EC2 instances run customer-managed operating systems. Unlike database ser
 - Generate unique SSH keys per user
 - Implement SSH key rotation (90 days maximum)
 - Use SSH certificates instead of static keys where possible
-- Disable password authentication in sshd_config
+- Disable password authentication in sshd\_config
 - Implement SSH bastion hosts for access control
 - Use AWS Systems Manager Session Manager for auditable access
 
