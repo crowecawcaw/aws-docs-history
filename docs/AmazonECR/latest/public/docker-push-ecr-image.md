@@ -32,9 +32,9 @@ You can identify an image with the `repository:tag`
 value or the image ID in the resulting command output. 4. Tag your image with the Amazon ECR public registry, public repository, and optional
 image tag name combination to use. The public registry format is
 `public.ecr.aws/`registry_alias``.
- The public repository name should match the repository that you created for your
- image. If you omit the image tag, we assume that the tag is
- `latest`.
+The public repository name should match the repository that you created for your
+image. If you omit the image tag, we assume that the tag is
+`latest`.
 
 ```
 `docker tag `e9ae3c220b23` public.ecr.aws/`registry_alias`/`my-web-app:image-tag``
@@ -49,8 +49,8 @@ For this example command, note the following:
     * Image tag is `image-tag`
 
 5. Push the image using the **docker push** command (again,
-   (`my-web-app` is the name of the
-   repository, and `image-tag` is the image tag):
+(`my-web-app` is the name of the
+repository, and `image-tag` is the image tag):
 
 ```
 `docker push public.ecr.aws/`registry_alias`/`my-web-app:image-tag``
