@@ -52,7 +52,7 @@ JSON
 ```
 
 Log groups created by Amazon MWAA Serverless are available in Amazon CloudWatch log group `/aws/mwaa-serverless/`workflow id`/` (where `/`workflow id``  
- is the same string as the unique workflow id in the ARN of the workflow).
+is the same string as the unique workflow id in the ARN of the workflow).
 For specific task log streams, list the tasks for the workflow run and then get each task’s information. You can combine these operations into a single CLI command as shown below
 
 CLI

@@ -18,7 +18,7 @@ The following table lists the supported Apache Airflow DAG level parameters that
 
 | Parameter         | Validation Rule                                                                                                                                | Default Value |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| dag_id            | Must be a valid, non-empty string                                                                                                              |               |
+| dag\_id           | Must be a valid, non-empty string                                                                                                              |               |
 | `schedule`        | Must be a valid CRON expression format                                                                                                         |               |
 | `start_date`      | Must be in the future                                                                                                                          |               |
 | `end_date`        | Must be after or equal to `start_date`                                                                                                         |               |
