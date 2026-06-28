@@ -17,7 +17,7 @@ performance (such as uptime, and the number of concurrent users) and
 efficiency (such as cost per transaction, staying within budget, and
 revenue). In the case of government systems and services, it’s
 increasingly important to understand
-how *effective* a system is regardless of its
+how _effective_ a system is regardless of its
 performance or efficiency. Service effectiveness measurement could
 include both the policy and purpose measures, and the ongoing human
 impact measures. 
@@ -144,6 +144,6 @@ it’s legally compliant. High-integrity records keeping is also critical. A ser
 beautifully designed, architected, delivered, and operating perfectly, but if it isn’t
 demonstrably lawful or considered legitimate in the context of government, then it creates
 significant issues for the government organization and for the public, resulting in public
-distrust. Ideally, a modern government service should be *auditable in real
-time*, and have _governance_ that assures oversight and
+distrust. Ideally, a modern government service should be _auditable in real
+time_, and have _governance_ that assures oversight and
 escalation of issues as they emerge.
