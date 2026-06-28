@@ -50,22 +50,21 @@ You can attach policies to IAM identities. Here are two examples.
   cross-account permissions to another account. In this example, call it
   Account B, which could also be an AWS service.
 
-      1. Account A administrator creates an IAM role and attaches a
-       policy to the role that grants permissions to resources in
-       Account A.
-      2. Account A administrator attaches a trust policy to the role.
-       The policy identifies Account B as the principal who can assume
-       the role.
-      3. Account B administrator can then delegate permissions to
-       assume the role to any users in Account B. This allows users in
-       Account B to create or access resources in Account A. If you
-       want to grant an AWS service the permissions to assume the role,
-       the principal in the trust policy can also be an AWS service
-       principal.
-
-  For more information about using IAM to delegate permissions, see
-  [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
-  _IAM User Guide_.
+  1.  Account A administrator creates an IAM role and attaches a
+      policy to the role that grants permissions to resources in
+      Account A.
+  2.  Account A administrator attaches a trust policy to the role.
+      The policy identifies Account B as the principal who can assume
+      the role.
+  3.  Account B administrator can then delegate permissions to
+      assume the role to any users in Account B. This allows users in
+      Account B to create or access resources in Account A. If you
+      want to grant an AWS service the permissions to assume the role,
+      the principal in the trust policy can also be an AWS service
+      principal.
+      For more information about using IAM to delegate permissions, see
+      [Access Management](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") in the
+      _IAM User Guide_.
 
 For more information about using identity-based policies with Amazon Comprehend Medical, see
 [Using Identity-Based policies (IAM policies) for Amazon Comprehend Medical](security-iam-permissions.md "security-iam-permissions.md"). For more

@@ -39,7 +39,7 @@ The `MEDICAL_CONDITION` category detects the signs, symptoms, and diagnoses of m
 
 ### Type
 
-For the **MEDICAL_CONDITION** category, the following type is detected:
+For the **MEDICAL\_CONDITION** category, the following type is detected:
 
 - `DX_NAME:` An identification of a medical condition that is determined by evaluation of the symptoms.
 
@@ -70,7 +70,7 @@ The `TEST_TREATMENT_PROCEDURE` category detects the procedures that are used to 
 
 ### Type
 
-For the **TEST_TREATMENT_PROCEDURE** category, the following types are detected:
+For the **TEST\_TREATMENT\_PROCEDURE** category, the following types are detected:
 
 - `PROCEDURE_NAME:` Interventions performed on the patient to
   treat a medical condition or to provide patient care.
@@ -84,7 +84,7 @@ For the **TEST_TREATMENT_PROCEDURE** category, the following types are detected:
 
 ### Attributes
 
-For the **TEST_TREATMENT_PROCEDURE** category, the following attributes are detected:
+For the **TEST\_TREATMENT\_PROCEDURE** category, the following attributes are detected:
 
 - `TEST_NAME:` The diagnostic test performed.
 - `TEST_VALUE:` The numeric results from a diagnostic test.
