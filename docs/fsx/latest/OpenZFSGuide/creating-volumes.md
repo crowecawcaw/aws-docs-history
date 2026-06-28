@@ -54,38 +54,37 @@ To provide additional client configurations:
     4. Repeat the procedure to add another client configuration.For more information, see [NFS exports](#nfs-exports "#nfs-exports").
 
 13. For **Record size**, choose whether to use the
-    default suggested record size of 128 KiB, or to set a **User-configured** suggested record
-    size for the volume. Generally, workloads that write in fixed small or large
-    record sizes may benefit from setting a custom record size, like database workloads
-    (small record size) or media streaming workloads (large record size). We recommend using
-    the default setting for the majority of use cases. For more information about the
-    record size setting, see [Configurable volume properties](#volume-properties "#volume-properties").
-14. For **User and group quotas**, you can set a storage quota for
-    a user or group:
+default suggested record size of 128 KiB, or to set a **User-configured** suggested record
+size for the volume. Generally, workloads that write in fixed small or large
+record sizes may benefit from setting a custom record size, like database workloads
+(small record size) or media streaming workloads (large record size). We recommend using
+the default setting for the majority of use cases. For more information about the
+record size setting, see [Configurable volume properties](#volume-properties "#volume-properties"). 14. For **User and group quotas**, you can set a storage quota for
+a user or group:
 
-    1.  For **Quota type**, choose `USER` or
-        `GROUP`.
-    2.  For **User or group ID**, choose a number that is
-        the ID of the user or group.
-    3.  For **Usage quota**, choose a number that is
-        the storage quota of the user or group.
-    4.  Choose **Add quota**.
-    5.  Repeat the procedure to add a quota for another user or group.
+    1. For **Quota type**, choose `USER` or
+     `GROUP`.
+    2. For **User or group ID**, choose a number that is
+     the ID of the user or group.
+    3. For **Usage quota**, choose a number that is
+     the storage quota of the user or group.
+    4. Choose **Add quota**.
+    5. Repeat the procedure to add a quota for another user or group.
 
 15. To create a volume from an existing volume snapshot, use **Source snapshot ID - optional**, to specify the
-    ID of a snapshot from which to create a volume. Then choose a **Source snapshot copy strategy**
-    option for the type of volume you're creating:
+ID of a snapshot from which to create a volume. Then choose a **Source snapshot copy strategy**
+option for the type of volume you're creating:
 
-    - **Clone** creates a clone volume. The snapshot
-      will provide the seed content for the volume.
-    - **Full copy** creates a volume that will
-      contain data copied from the snapshot.
+    * **Clone** creates a clone volume. The snapshot
+     will provide the seed content for the volume.
+    * **Full copy** creates a volume that will
+     contain data copied from the snapshot.
 
 16. Choose **Confirm** to create the volume.
-    You can monitor the progress on the **File
-    systems** detail page, in the **Status**
-    column of the **Volumes** pane. The volume is ready for use
-    when its status is **Created**.
+You can monitor the progress on the **File
+systems** detail page, in the **Status**
+column of the **Volumes** pane. The volume is ready for use
+when its status is **Created**.
 
 - To create an FSx for OpenZFS volume, use the
   [create-volume](../../../cli/latest/reference/fsx/create-volume.md "../../../cli/latest/reference/fsx/create-volume.md")
@@ -193,30 +192,29 @@ quota limit.
   create a volume. Then use **Source snapshot copy strategy**
   to specify the type of volume to create:
 
-      + **Clone** creates a clone volume. A clone volume
-       is a writable copy that is initialized with the same
-       data as the snapshot from which it was created. Because clone volumes
-       reference the data from the snapshot, clone volumes are created
-       almost instantly, and initially consume no additional capacity. They only
-       consume the capacity required for the incremental changes made to the
-       source snapshot, providing an easy way to support multiple users or
-       applications in parallel from a shared dataset. However, a clone volume
-       maintains a dependency on its source snapshot, so you cannot delete this
-       source snapshot while the clone volume is in use.
-      + **Full copy** creates a full-copy volume.
-       A full-copy volume is a writable copy that is initialized with the same
-       data as the snapshot from which it was created. Unlike a clone volume,
-       it does not maintain any dependency on its source snapshot. Because a
-       full-copy volume requires copying all of the source snapshot data to a
-       new volume, creation time will depend on the size of the source snapshot.
-       While this data is being copied, your full-copy volume will be read only.
-       Once a full-copy volume is created, it is identical to a standard
-       FSx for OpenZFS volume. Files in the source snapshot will maintain their original
-       record size regardless of the record size of the destination volume. Files will
-       be compressed according to the compression property on the destination volume.
-
-  For more information on snapshots, see
-  [Protecting your data with snapshots](snapshots-openzfs.md "snapshots-openzfs.md").
+  - **Clone** creates a clone volume. A clone volume
+    is a writable copy that is initialized with the same
+    data as the snapshot from which it was created. Because clone volumes
+    reference the data from the snapshot, clone volumes are created
+    almost instantly, and initially consume no additional capacity. They only
+    consume the capacity required for the incremental changes made to the
+    source snapshot, providing an easy way to support multiple users or
+    applications in parallel from a shared dataset. However, a clone volume
+    maintains a dependency on its source snapshot, so you cannot delete this
+    source snapshot while the clone volume is in use.
+  - **Full copy** creates a full-copy volume.
+    A full-copy volume is a writable copy that is initialized with the same
+    data as the snapshot from which it was created. Unlike a clone volume,
+    it does not maintain any dependency on its source snapshot. Because a
+    full-copy volume requires copying all of the source snapshot data to a
+    new volume, creation time will depend on the size of the source snapshot.
+    While this data is being copied, your full-copy volume will be read only.
+    Once a full-copy volume is created, it is identical to a standard
+    FSx for OpenZFS volume. Files in the source snapshot will maintain their original
+    record size regardless of the record size of the destination volume. Files will
+    be compressed according to the compression property on the destination volume.
+    For more information on snapshots, see
+    [Protecting your data with snapshots](snapshots-openzfs.md "snapshots-openzfs.md").
 
 ### NFS exports
 

@@ -47,59 +47,58 @@ _Amazon Virtual Private Cloud User Guide_.
 Quick create (recommended)
 **To create a file system using Quick create**
 
-1.  Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
-2.  On the dashboard, choose **Create file system** to start
-    the file system creation wizard.
-3.  On the **Select file system type** page, choose
-    **Amazon FSx for OpenZFS**, and then choose **Next**. The
-    **Create OpenZFS file system** page appears. For **Creation
-    method**, choose **Quick create**. To create a file system
-    using the **Standard create** method, see [Creating an Amazon FSx for OpenZFS file system](creating-file-systems.md "creating-file-systems.md").
-4.  In the **Quick configuration** section, for **File system name -
-    optional**, enter a name for your file system. It's easier to find and manage your
-    file systems when you name them. You can use a maximum of 256 Unicode letters, white space, and
-    numbers, plus these special characters: **+**
-    **-** (hyphen) **=**
-    **.**
-    **\_** (underscore) **:**
-    **/**.
-5.  For **Storage class**, select **Intelligent-Tiering (elastic)**
-    or **SSD (provisioned)**.
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+2. On the dashboard, choose **Create file system** to start
+   the file system creation wizard.
+3. On the **Select file system type** page, choose
+   **Amazon FSx for OpenZFS**, and then choose **Next**. The
+   **Create OpenZFS file system** page appears. For **Creation
+   method**, choose **Quick create**. To create a file system
+   using the **Standard create** method, see [Creating an Amazon FSx for OpenZFS file system](creating-file-systems.md "creating-file-systems.md").
+4. In the **Quick configuration** section, for **File system name -
+   optional**, enter a name for your file system. It's easier to find and manage your
+   file systems when you name them. You can use a maximum of 256 Unicode letters, white space, and
+   numbers, plus these special characters: **+**
+   **-** (hyphen) **=**
+   **.**
+   **\_** (underscore) **:**
+   **/**.
+5. For **Storage class**, select **Intelligent-Tiering (elastic)**
+   or **SSD (provisioned)**.
 
-    - **Intelligent-Tiering (elastic)** offers fully elastic storage that is
-      suitable for most workloads, as well as an optional SSD read cache that provides SSD latencies for
-      reads of frequently accessed data. With Intelligent-Tiering, you are billed for the data you store,
-      depending on the size of your dataset, and do not need to specify a file system size.
-      Intelligent-Tiering is only supported for Multi-AZ (HA) file systems.
-    - **SSD (provisioned)** provides low-latency access to your data.
-      With SSD storage, you are billed for the amount of storage that you provision.
+   - **Intelligent-Tiering (elastic)** offers fully elastic storage that is
+     suitable for most workloads, as well as an optional SSD read cache that provides SSD latencies for
+     reads of frequently accessed data. With Intelligent-Tiering, you are billed for the data you store,
+     depending on the size of your dataset, and do not need to specify a file system size.
+     Intelligent-Tiering is only supported for Multi-AZ (HA) file systems.
+   - **SSD (provisioned)** provides low-latency access to your data.
+     With SSD storage, you are billed for the amount of storage that you provision.
 
-6.  For **Deployment type**, select **Multi-AZ (HA)** or **Single-AZ (HA)**.
+6. For **Deployment type**, select **Multi-AZ (HA)** or **Single-AZ (HA)**.
 
-        * **Multi-AZ (HA)** file systems offer high availability and high durability by replicating
-         your data and supporting failover across multiple Availability Zones in the same AWS Region, with a separate copy
-         of your data in each availability zone. Failover typically completes within 60 seconds.
-        * **Single-AZ (HA)** file systems offer high availability by deploying a primary and
-         standby file system within the same Availability Zone to deliver continuous availability in the event of failover
-         and failback. Failover typically completes within 60 seconds. Single-AZ (HA) is only available for file systems
-         using the SSD (provisioned) storage class.
+   - **Multi-AZ (HA)** file systems offer high availability and high durability by replicating
+     your data and supporting failover across multiple Availability Zones in the same AWS Region, with a separate copy
+     of your data in each availability zone. Failover typically completes within 60 seconds.
+   - **Single-AZ (HA)** file systems offer high availability by deploying a primary and
+     standby file system within the same Availability Zone to deliver continuous availability in the event of failover
+     and failback. Failover typically completes within 60 seconds. Single-AZ (HA) is only available for file systems
+     using the SSD (provisioned) storage class.
+     We recommend using Multi-AZ (HA) for most production workloads. We recommend using Single-AZ (HA) for workloads
+     that require consistent single-AZ latencies and as a cost-effective solution for workloads that do not require the
+     high levels of durability that Multi-AZ (HA) provides. For more information on how to choose between deployment types,
+     see [Availability by AWS Region](available-aws-regions.md "available-aws-regions.md") and
+     [File system performance](performance.md#zfs-fs-performance "performance.md#zfs-fs-performance").
 
-    We recommend using Multi-AZ (HA) for most production workloads. We recommend using Single-AZ (HA) for workloads
-    that require consistent single-AZ latencies and as a cost-effective solution for workloads that do not require the
-    high levels of durability that Multi-AZ (HA) provides. For more information on how to choose between deployment types,
-    see [Availability by AWS Region](available-aws-regions.md "available-aws-regions.md") and
-    [File system performance](performance.md#zfs-fs-performance "performance.md#zfs-fs-performance").
-
-7.  For **Throughput capacity** (Intelligent-Tiering only), select the desired throughput capacity of your file
-    system, in MBps. For file systems using the Intelligent-Tiering storage class, the minimum throughput capacity is 160 MBps.
-    To specify throughput capacity for a file system using the SSD (provisioned) storage class, create a file system using
-    **Standard Create**.
-8.  For **SSD read cache sizing mode** (Intelligent-Tiering only), select either **Automatic**,
-    **Custom**, or **None**. Automatic is selected by default. With this option, Amazon FSx automatically chooses a read cache size based on your provisioned throughput.
-    If you know the approximate size of your active working dataset, you can select
-    Custom to customize the size of the SSD read cache. If your workload is not latency-sensitive, you can also choose None to create an elastic file system without an SSD cache and reduce costs.
-9.  For **SSD storage capacity** (SSD (provisioned) only), specify the storage capacity of your file
-    system, in gibibytes (GiBs). Enter any whole number in the range of 64–524,288.
+7. For **Throughput capacity** (Intelligent-Tiering only), select the desired throughput capacity of your file
+   system, in MBps. For file systems using the Intelligent-Tiering storage class, the minimum throughput capacity is 160 MBps.
+   To specify throughput capacity for a file system using the SSD (provisioned) storage class, create a file system using
+   **Standard Create**.
+8. For **SSD read cache sizing mode** (Intelligent-Tiering only), select either **Automatic**,
+   **Custom**, or **None**. Automatic is selected by default. With this option, Amazon FSx automatically chooses a read cache size based on your provisioned throughput.
+   If you know the approximate size of your active working dataset, you can select
+   Custom to customize the size of the SSD read cache. If your workload is not latency-sensitive, you can also choose None to create an elastic file system without an SSD cache and reduce costs.
+9. For **SSD storage capacity** (SSD (provisioned) only), specify the storage capacity of your file
+   system, in gibibytes (GiBs). Enter any whole number in the range of 64–524,288.
 10. For **Virtual Private Cloud (VPC)**, choose the Amazon VPC that you want to
     associate with your file system.
 11. Choose **Next**.
@@ -128,42 +127,41 @@ letters, white space, and numbers, plus these special characters: +
 
 - = . \_ : /
 
-6.  For **Storage class**, select **Intelligent-Tiering (elastic)**
-    or **SSD (provisioned)**.
+6. For **Storage class**, select **Intelligent-Tiering (elastic)**
+   or **SSD (provisioned)**.
 
-    - **Intelligent-Tiering (elastic)** offers fully elastic, cost-effective storage
-      that is suitable for most workloads, as well as an optional SSD read cache that provides SSD latencies for
-      reads of frequently accessed data. With Intelligent-Tiering, you are billed for the data you store, depending
-      on the size of your dataset, and do not need to specify a file system size. Intelligent-Tiering is only supported
-      for Multi-AZ (HA) file systems.
-    - **SSD (provisioned)** provides high performance with low-latency access to your data.
-      With SSD storage, you are billed for the amount of storage that you provision.
+   - **Intelligent-Tiering (elastic)** offers fully elastic, cost-effective storage
+     that is suitable for most workloads, as well as an optional SSD read cache that provides SSD latencies for
+     reads of frequently accessed data. With Intelligent-Tiering, you are billed for the data you store, depending
+     on the size of your dataset, and do not need to specify a file system size. Intelligent-Tiering is only supported
+     for Multi-AZ (HA) file systems.
+   - **SSD (provisioned)** provides high performance with low-latency access to your data.
+     With SSD storage, you are billed for the amount of storage that you provision.
 
-7.  For **Deployment type**, select **Multi-AZ (HA)**, **Single-AZ (HA)**, or **Single-AZ (non-HA)**.
+7. For **Deployment type**, select **Multi-AZ (HA)**, **Single-AZ (HA)**, or **Single-AZ (non-HA)**.
 
-        * **Multi-AZ (HA)** file systems offer high availability and high durability by replicating your data and supporting failover across multiple Availability Zones in the same AWS Region, with a separate copy of your data in each Availability Zone. Failover typically completes within 60 seconds.
-        * **Single-AZ (HA)** file systems offer high availability by deploying a primary and standby file system within the same Availability Zone to
-         deliver continuous availability in the event of failover and failback. Failover typically completes within 60 seconds. Single-AZ (HA) is only available on file systems using the SSD (provisioned) storage class.
-        * **Single-AZ (non-HA)** file systems ensure self-healing recovery within a single Availability Zone by automatically
-         detecting and addressing component failures. Recovery typically completes within 30 minutes. Single-AZ (non-HA) is only available on file systems using the SSD (provisioned) storage class.
+   - **Multi-AZ (HA)** file systems offer high availability and high durability by replicating your data and supporting failover across multiple Availability Zones in the same AWS Region, with a separate copy of your data in each Availability Zone. Failover typically completes within 60 seconds.
+   - **Single-AZ (HA)** file systems offer high availability by deploying a primary and standby file system within the same Availability Zone to
+     deliver continuous availability in the event of failover and failback. Failover typically completes within 60 seconds. Single-AZ (HA) is only available on file systems using the SSD (provisioned) storage class.
+   - **Single-AZ (non-HA)** file systems ensure self-healing recovery within a single Availability Zone by automatically
+     detecting and addressing component failures. Recovery typically completes within 30 minutes. Single-AZ (non-HA) is only available on file systems using the SSD (provisioned) storage class.
+     We recommend using Multi-AZ (HA) for most production workloads. We recommend using Single-AZ (HA) for
+     workloads that require consistent single-AZ latencies and as a cost-effective solution for workloads that do not require the
+     high levels of durability that Multi-AZ (HA) provides. For more information on how to choose between deployment types,
+     see [Availability by AWS Region](available-aws-regions.md "available-aws-regions.md") and [File system performance](performance.md#zfs-fs-performance "performance.md#zfs-fs-performance").
 
-    We recommend using Multi-AZ (HA) for most production workloads. We recommend using Single-AZ (HA) for
-    workloads that require consistent single-AZ latencies and as a cost-effective solution for workloads that do not require the
-    high levels of durability that Multi-AZ (HA) provides. For more information on how to choose between deployment types,
-    see [Availability by AWS Region](available-aws-regions.md "available-aws-regions.md") and [File system performance](performance.md#zfs-fs-performance "performance.md#zfs-fs-performance").
+8. For **SSD storage capacity** (SSD (provisioned) only), specify the storage capacity of your file
+   system, in gibibytes (GiBs). Enter any whole number in the range of 64–524,288.
+9. For **Provisioned SSD IOPS** (SSD (provisioned) only), you have two
+   options to provision the number of IOPS for your file system:
 
-8.  For **SSD storage capacity** (SSD (provisioned) only), specify the storage capacity of your file
-    system, in gibibytes (GiBs). Enter any whole number in the range of 64–524,288.
-9.  For **Provisioned SSD IOPS** (SSD (provisioned) only), you have two
-    options to provision the number of IOPS for your file system:
-
-    - Choose **Automatic** (the default) if you
-      want Amazon FSx to automatically provision 3 IOPS per GB of SSD
-      storage.
-    - Choose **User-provisioned** if you want
-      to specify the number of IOPS, up to the maximum for your file system.
-      You pay for SSD IOPS that you provision above 3 IOPS per GB
-      of SSD storage.
+   - Choose **Automatic** (the default) if you
+     want Amazon FSx to automatically provision 3 IOPS per GB of SSD
+     storage.
+   - Choose **User-provisioned** if you want
+     to specify the number of IOPS, up to the maximum for your file system.
+     You pay for SSD IOPS that you provision above 3 IOPS per GB
+     of SSD storage.
 
 10. **Throughput capacity** is the sustained speed at
     which the file server that hosts your file system can serve data.
@@ -171,27 +169,23 @@ letters, white space, and numbers, plus these special characters: +
     options to provide your desired throughput capacity in megabytes per second
     (MBps).
 
-        * Choose the default **Recommended throughput
-         capacity** if you want Amazon FSx to automatically
-         choose the throughput capacity. The recommended value is
-         based on the storage capacity that you choose.
-        * Choose **Specify throughput capacity** if
-         you want to specify the throughput capacity value.
+    - Choose the default **Recommended throughput
+      capacity** if you want Amazon FSx to automatically
+      choose the throughput capacity. The recommended value is
+      based on the storage capacity that you choose.
+    - Choose **Specify throughput capacity** if
+      you want to specify the throughput capacity value.
 
-
-
-
-        	+ For Multi-AZ and SINGLE\_AZ\_2 file systems,
-        	 valid values are 160, 320, 640, 1280, 2560, 3840, 5120,
-        	 7680, or 10240 MBps.
-        	+ For SINGLE\_AZ\_1 file systems, valid values
-        	 are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.
+      - For Multi-AZ and SINGLE\_AZ\_2 file systems,
+        valid values are 160, 320, 640, 1280, 2560, 3840, 5120,
+        7680, or 10240 MBps.
+      - For SINGLE\_AZ\_1 file systems, valid values
+        are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.
         You pay for throughput capacity that you provision that
-         exceeds the recommended amount.
-
-    You can increase the amount of throughput capacity as needed at
-    any time after you create the file system. For more information, see
-    [Modifying throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md").
+        exceeds the recommended amount.
+        You can increase the amount of throughput capacity as needed at
+        any time after you create the file system. For more information, see
+        [Modifying throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md").
 
 11. For **SSD read cache sizing mode** (Intelligent-Tiering only), select either **Automatic**,
     **Custom**, or **None**. Automatic is selected by default. With this option, Amazon FSx automatically chooses a read cache size based on your provisioned throughput.

@@ -20,60 +20,59 @@ Restoring from a backup with a given storage class to a file system with a diffe
 
 ###### To restore a file system from backup (Amazon FSx console)
 
-1.  Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
-2.  From the console dashboard, choose **Backups** from the left side
-    navigation.
-3.  Choose the backup that you want to restore from the **Backups** table,
-    and then choose **Restore backup**. Doing so opens the file system creation wizard.
-4.  For **File system name - optional**, you can enter a name using a maximum of 256 Unicode
-    letters, white space, and numbers, plus these special characters: + - = . \_ : /
-5.  For **Storage capacity**, enter a value that is equal to or greater than the storage
-    capacity of the original file of which the backup was taken, in GiB. The range of valid values is 64–524288 GiB.
-6.  For **Provisioned SSD IOPS**, you have two options to provision
-    the number of IOPS for your file system:
+1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
+2. From the console dashboard, choose **Backups** from the left side
+   navigation.
+3. Choose the backup that you want to restore from the **Backups** table,
+   and then choose **Restore backup**. Doing so opens the file system creation wizard.
+4. For **File system name - optional**, you can enter a name using a maximum of 256 Unicode
+   letters, white space, and numbers, plus these special characters: + - = . \_ : /
+5. For **Storage capacity**, enter a value that is equal to or greater than the storage
+   capacity of the original file of which the backup was taken, in GiB. The range of valid values is 64–524288 GiB.
+6. For **Provisioned SSD IOPS**, you have two options to provision
+   the number of IOPS for your file system:
 
-    - Choose **Automatic** (the default) if you
-      want Amazon FSx to automatically provision 3 IOPS per GiB of SSD storage.
-    - Choose **User-provisioned** if you want to specify the number of IOPS. You
-      can provision a maximum of 160,000 SSD IOPS per file system for Single-AZ 1 (non-HA and HA) and a maximum of
-      400,000 SSD IOPS per file system for Single-AZ 2 (non-HA and HA) and Multi-AZ (HA)\*. You pay for SSD IOPS that you
-      provision that exceed 3 IOPS per GiB of SSD storage.
+   - Choose **Automatic** (the default) if you
+     want Amazon FSx to automatically provision 3 IOPS per GiB of SSD storage.
+   - Choose **User-provisioned** if you want to specify the number of IOPS. You
+     can provision a maximum of 160,000 SSD IOPS per file system for Single-AZ 1 (non-HA and HA) and a maximum of
+     400,000 SSD IOPS per file system for Single-AZ 2 (non-HA and HA) and Multi-AZ (HA)\*. You pay for SSD IOPS that you
+     provision that exceed 3 IOPS per GiB of SSD storage.
 
-    ###### Note
+   ###### Note
 
-    \*The maximum SSD IOPS you can provision for Multi-AZ file systems depends on the AWS Region your file system is located in. For more information, see
-    [Data access from disk](performance-ssd.md#data-access-disk "performance-ssd.md#data-access-disk").
+   \*The maximum SSD IOPS you can provision for Multi-AZ file systems depends on the AWS Region your file system is located in. For more information, see
+   [Data access from disk](performance-ssd.md#data-access-disk "performance-ssd.md#data-access-disk").
 
-7.  For **Throughput capacity**, you have two options to provide
-    your desired throughput capacity in megabytes per second (MBps).
-    **Throughput capacity** is the sustained speed
-    at which the file server that hosts your file system can serve data.
+7. For **Throughput capacity**, you have two options to provide
+   your desired throughput capacity in megabytes per second (MBps).
+   **Throughput capacity** is the sustained speed
+   at which the file server that hosts your file system can serve data.
 
-        * Choose **Recommended throughput capacity**
-         (the default) if you want Amazon FSx to automatically choose the throughput
-         capacity. The recommended value is based on the amount of storage capacity
-         that you chose.
-        * Choose **Specify throughput capacity** if you
-         want to specify the throughput capacity value, and choose a value of
-         64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps. You pay for additional
-         throughput capacity that you provision above the recommended amount.
+   - Choose **Recommended throughput capacity**
+     (the default) if you want Amazon FSx to automatically choose the throughput
+     capacity. The recommended value is based on the amount of storage capacity
+     that you chose.
+   - Choose **Specify throughput capacity** if you
+     want to specify the throughput capacity value, and choose a value of
+     64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps. You pay for additional
+     throughput capacity that you provision above the recommended amount.
+     You can increase the amount of throughput capacity as needed at
+     any time after you create the file system. For more information, see
+     [Modifying throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md").
 
-    You can increase the amount of throughput capacity as needed at
-    any time after you create the file system. For more information, see
-    [Modifying throughput capacity](managing-throughput-capacity.md "managing-throughput-capacity.md").
+8. In the **Network & security** section, provide networking and
+   security group information:
 
-8.  In the **Network & security** section, provide networking and
-    security group information:
+   - For **Virtual Private Cloud (VPC)**, choose the Amazon VPC that
+     you want to associate with your file system.
+   - For **VPC Security Groups**, the ID for the default security group
+     for your VPC should be already added.
+   - For **Subnet**, choose any value from the list of available subnets.
 
-    - For **Virtual Private Cloud (VPC)**, choose the Amazon VPC that
-      you want to associate with your file system.
-    - For **VPC Security Groups**, the ID for the default security group
-      for your VPC should be already added.
-    - For **Subnet**, choose any value from the list of available subnets.
-
-9.  In the **Encryption** section, for
-    **Encryption key**, choose the AWS Key Management Service (AWS KMS)
-    encryption key that protects your file system's data at rest.
+9. In the **Encryption** section, for
+   **Encryption key**, choose the AWS Key Management Service (AWS KMS)
+   encryption key that protects your file system's data at rest.
 
 ###### Note
 
@@ -134,31 +133,31 @@ following options for the file system's root volume:
     	5. Repeat the procedure to add a quota for another user or group.
 
 11. In **Backup and maintenance -
-    _optional_**, you can set the
-    following options:
+_optional_**, you can set the
+following options:
 
-    - For **Daily automatic backup**, choose
-      **Enabled** for automatic daily backups.
-      This option is enabled by default.
-    - For **Daily automatic backup window**,
-      set the time of the day in Coordinated Universal Time (UTC)
-      that you want the daily automatic backup window to start.
-      The window is 30 minutes starting from this specified time.
-      This window can't overlap with the
-      weekly maintenance backup window.
-    - For **Automatic backup retention
-      period**, set a period from 1–90
-      days that you want to retain automatic backups.
-    - For **Weekly maintenance window**, you can
-      set the time of the week that you want the maintenance window
-      to start. Day 1 is Monday, 2 is Tuesday, and so on. The
-      window is 30 minutes starting from this specified time.
-      This window can't overlap with the daily automatic backup window.
+    * For **Daily automatic backup**, choose
+     **Enabled** for automatic daily backups.
+     This option is enabled by default.
+    * For **Daily automatic backup window**,
+     set the time of the day in Coordinated Universal Time (UTC)
+     that you want the daily automatic backup window to start.
+     The window is 30 minutes starting from this specified time.
+     This window can't overlap with the
+     weekly maintenance backup window.
+    * For **Automatic backup retention
+     period**, set a period from 1–90
+     days that you want to retain automatic backups.
+    * For **Weekly maintenance window**, you can
+     set the time of the week that you want the maintenance window
+     to start. Day 1 is Monday, 2 is Tuesday, and so on. The
+     window is 30 minutes starting from this specified time.
+     This window can't overlap with the daily automatic backup window.
 
 12. For **Tags - _optional_**, you can enter a key and value
-    to add tags to your file system. A tag is a case-sensitive key-value
-    pair that helps you manage, filter, and search for your file
-    system.
+to add tags to your file system. A tag is a case-sensitive key-value
+pair that helps you manage, filter, and search for your file
+system.
 
 Choose **Next**. 13. Review the file system configuration shown on the
 **Create file system** page. For your reference, note

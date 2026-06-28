@@ -51,7 +51,7 @@ Limitations to using Amazon S3 operations are the following:
 
 - Maximum object size is 5 GB
 - `FSX_OPENZFS` is the only supported storage class
-- [SSE_FSX](s3-ap-manage-access-fsx.md#data-encryption "s3-ap-manage-access-fsx.md#data-encryption") is the only supported server-side encryption mode
+- [SSE\_FSX](s3-ap-manage-access-fsx.md#data-encryption "s3-ap-manage-access-fsx.md#data-encryption") is the only supported server-side encryption mode
 - The following Amazon S3 features are not supported: Object Annotations
   For examples of using access points to perform data access operations on file data, see
   [Using access points](access-points-usage-examples.md "access-points-usage-examples.md").

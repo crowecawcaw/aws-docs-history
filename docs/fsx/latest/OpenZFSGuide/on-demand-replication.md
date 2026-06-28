@@ -73,12 +73,11 @@ You can create or update a replica volume across file systems that are on the sa
 - To update an FSx for OpenZFS volume with a snapshot, use the [copy-snapshot-and-update-volume](../../../cli/latest/reference/fsx/copy-snapshot-and-update-volume.md "../../../cli/latest/reference/fsx/copy-snapshot-and-update-volume.md") CLI command, or the equivalent
   [CopySnapshotAndUpdateVolume](../APIReference/API_CopySnapshotAndUpdateVolume.md "../APIReference/API_CopySnapshotAndUpdateVolume.md") API command, and specify the following properties:
 
-      + `--volume-id` – The ID of the volume that you would like to update.
-      + `--source-snapshot-arn` – The ARN of the source snapshot.
-      + `--options` – Any intermediate clones, dependent snapshots, or intermediate data that need to be deleted. Valid values are `DELETE_INTERMEDIATE_SNAPSHOTS`, `DELETE_CLONED_VOLUMES`, and `DELETE_INTERMEDIATE_DATA`.
-      + `--copy-strategy` – Strategy used to copy data from the source volume. Value values are `FULL_COPY` and `INCREMENTAL_COPY`.
-
-  The following example shows how to update a volume with a snapshot using incremental copy and deleting all intermediate clones, dependent snapshots, and intermediate data.
+  - `--volume-id` – The ID of the volume that you would like to update.
+  - `--source-snapshot-arn` – The ARN of the source snapshot.
+  - `--options` – Any intermediate clones, dependent snapshots, or intermediate data that need to be deleted. Valid values are `DELETE_INTERMEDIATE_SNAPSHOTS`, `DELETE_CLONED_VOLUMES`, and `DELETE_INTERMEDIATE_DATA`.
+  - `--copy-strategy` – Strategy used to copy data from the source volume. Value values are `FULL_COPY` and `INCREMENTAL_COPY`.
+    The following example shows how to update a volume with a snapshot using incremental copy and deleting all intermediate clones, dependent snapshots, and intermediate data.
 
 ```
 `aws fsx copy-snapshot-and-update-volume \

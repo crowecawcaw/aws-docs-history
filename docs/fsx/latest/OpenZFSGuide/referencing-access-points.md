@@ -24,8 +24,8 @@ arn:aws::s3:`region`:`account-id`:accesspoint/`resource`
 ```
 
 `arn:aws:s3:us-west-2:777777777777:accesspoint/`test``
- represents the access point named`test`, owned by account 777777777777 in the
- Region `us-west-2`.
+represents the access point named `test`, owned by account 777777777777 in the
+Region `us-west-2`.
 
 ARNs for objects and files accessed through an access point use the following format:
 
@@ -34,8 +34,8 @@ arn:aws::s3:`region`:`account-id`:accesspoint/`access-point-name`/object/`resour
 ```
 
 `arn:aws:s3:us-west-2:111122223333:accesspoint/`test`/object/`lions.jpg``
- represents the file`lions.jpg`, accessed through the access point named `test`, owned by account 111122223333
- in the Region `us-west-2`.
+represents the file `lions.jpg`, accessed through the access point named `test`, owned by account 111122223333
+in the Region `us-west-2`.
 
 For more information about access point ARNs, see
 [Access point ARNs](../../../AmazonS3/latest/userguide/access-points-naming.md#access-points-arns "../../../AmazonS3/latest/userguide/access-points-naming.md#access-points-arns")

@@ -133,17 +133,17 @@ The **Update SSD storage capacity and IOPS** dialog box appears. 4. To increase 
      [Resource quotas for each file system](limits.md#limits-openzfs-resources-file-system "limits.md#limits-openzfs-resources-file-system").
 
 6. For **Provisioned SSD IOPS**, you have two options to modify
-   the number of provisioned SSD IOPS for your file system:
+the number of provisioned SSD IOPS for your file system:
 
-   - If you want Amazon FSx to automatically scale your SSD IOPS to maintain 3 provisioned SSD IOPS per
+    * If you want Amazon FSx to automatically scale your SSD IOPS to maintain 3 provisioned SSD IOPS per
      GiB of primary storage capacity, up to a maximum of 160,000 for Single-AZ 1 (non-HA and HA) and 400,000 for Single-AZ 2 (non-HA) and Multi-AZ (HA)\*, choose **Automatic**.
-   - If you want to specify the number of SSD IOPS, choose **User-provisioned**.
+    * If you want to specify the number of SSD IOPS, choose **User-provisioned**.
      Enter an absolute number of IOPS that is at least 3 times the amount of GiB of your primary storage tier, and less than or
      equal to the maximum number of IOPS for your file system.
 
 7. Choose **Update**.
-   To update the SSD storage capacity and provisioned IOPS for an FSx for OpenZFS file system,
-   use the AWS CLI command [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") (UpdateFileSystem is the equivalent API action). Set the following parameters:
+To update the SSD storage capacity and provisioned IOPS for an FSx for OpenZFS file system,
+use the AWS CLI command [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") (UpdateFileSystem is the equivalent API action). Set the following parameters:
 
 - Set `--file-system-id` to the ID of the file system that you are updating.
 - To increase your SSD primary storage capacity, set `--storage-capacity` to
@@ -152,24 +152,22 @@ The **Update SSD storage capacity and IOPS** dialog box appears. 4. To increase 
  DiskIopsConfiguration` property. This property has two
   parameters, `Iops` and `Mode`:
 
-      + If you want to specify the number of provisioned SSD IOPS, use `Iops=`number_of_IOPS``,
-       up to a maximum of 160,000 for Single-AZ 1 (non-HA and HA) and 400,000 for Single-AZ 2 (non-HA and HA) and Multi-AZ (HA)\*, and `Mode=USER_PROVISIONED`. The SSD IOPS value must be greater than or equal to 3 times the requested SSD storage
-       capacity. If you're not increasing the storage capacity, the
-       IOPs value must be greater than or equal to 3 times the current
-       SSD storage capacity.
+  - If you want to specify the number of provisioned SSD IOPS, use `Iops=`number_of_IOPS``,
+    up to a maximum of 160,000 for Single-AZ 1 (non-HA and HA) and 400,000 for Single-AZ 2 (non-HA and HA) and Multi-AZ (HA)\*, and `Mode=USER_PROVISIONED`. The SSD IOPS value must be greater than or equal to 3 times the requested SSD storage
+    capacity. If you're not increasing the storage capacity, the
+    IOPs value must be greater than or equal to 3 times the current
+    SSD storage capacity.
 
+  ###### Note
 
-      ###### Note
-
-      \*The maximum SSD IOPS you can provision for Multi-AZ file systems depends on the AWS Region your file system is located in. For more information, see
-       [Data access from disk](performance-ssd.md#data-access-disk "performance-ssd.md#data-access-disk").
-      + If you want Amazon FSx to automatically increase your SSD IOPS, use `Mode=AUTOMATIC` and
-       don't use the `Iops` parameter. Amazon FSx will
-       automatically maintain 3 provisioned SSD IOPS per GiB of your
-       primary storage capacity, up to a maximum of 160,000 for Single-AZ 1 (non-HA and HA) and 400,000 for Single-AZ 2 (non-HA and HA) and Multi-AZ (HA).
-
-  The following example requests an increase of 2000 GiB to the file system's SSD storage
-  capacity. It also requests 7000 provisioned SSD IOPS.
+  \*The maximum SSD IOPS you can provision for Multi-AZ file systems depends on the AWS Region your file system is located in. For more information, see
+  [Data access from disk](performance-ssd.md#data-access-disk "performance-ssd.md#data-access-disk").
+  - If you want Amazon FSx to automatically increase your SSD IOPS, use `Mode=AUTOMATIC` and
+    don't use the `Iops` parameter. Amazon FSx will
+    automatically maintain 3 provisioned SSD IOPS per GiB of your
+    primary storage capacity, up to a maximum of 160,000 for Single-AZ 1 (non-HA and HA) and 400,000 for Single-AZ 2 (non-HA and HA) and Multi-AZ (HA).
+    The following example requests an increase of 2000 GiB to the file system's SSD storage
+    capacity. It also requests 7000 provisioned SSD IOPS.
 
 ```
 `aws fsx update-file-system \
@@ -193,17 +191,17 @@ You can monitor file system updates in the **Updates** tab on the **File system 
 
 For SSD storage capacity and IOPS updates, you can view the following information:
 
-\***\*Update type\*\***
+****Update type****
 
 Supported types are **Storage capacity**, **IOPS Mode**,
 and **SSD IOPS**. The **IOPS Mode** and **SSD IOPS**
 values are listed for all storage capacity and IOPS scaling requests.
 
-\***\*Target value\*\***
+****Target value****
 
 The updated value for the file system's SSD storage capacity or IOPs.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. The possible values are as follows:
 
@@ -214,7 +212,7 @@ The current status of the update. The possible values are as follows:
 - **Failed** – The update request failed. Choose the question
   mark (**?**) to see details on why the request failed.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update action request.
 

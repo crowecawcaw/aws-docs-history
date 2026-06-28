@@ -45,7 +45,7 @@ The following tables show the cached read performance, and amount of memory avai
 Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems are only available in a certain subset of AWS Regions. For more information on which AWS Regions support Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems, see [Availability by AWS Region](available-aws-regions.md "available-aws-regions.md").
 
 | Provisioned throughput capacity (MBps) | Memory (GB) | Maximum network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | ----------- | ------------------------------------------ | ------------------------------------ | -------------------- | ----------------------------- |
+| -------------------------------------- | ----------- | ------------------------------------------ | ------------------------------------ | -------------------- |
 |                                        |             | **Baseline**                               | **Burst**                            |                      |                               |
 | 64                                     | 8           | 97                                         | 1,562                                | 4,096                | Tens of thousands of IOPS     |
 | 128                                    | 16          | 195                                        | 1,562                                | 8,192                |
@@ -57,7 +57,7 @@ Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems are only available in a certa
 | 4,096                                  | 512         | 6,250                                      | –                                    | 32,768               | Up to 1 million IOPS          |
 
 | Provisioned throughput capacity (MBps) | Memory (GB) | Maximum network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | ----------- | ------------------------------------------ | ------------------------------------ | -------------------- | ----------------------------- |
+| -------------------------------------- | ----------- | ------------------------------------------ | ------------------------------------ | -------------------- |
 |                                        |             | **Baseline**                               | **Burst**                            |                      |                               |
 | 64                                     | 2           | 200                                        | 3,200                                | 4,096                | Tens of thousands of IOPS     |
 | 128                                    | 4           | 400                                        | 3,200                                | 8,192                |
@@ -69,7 +69,7 @@ Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems are only available in a certa
 | 4,096                                  | 128         | 12,800                                     | –                                    | 32,768               | 1 million IOPS                |
 
 | Provisioned throughput capacity (MBps) | Memory (GB) | NVMe L2ARC cache (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | ----------- | --------------------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+| -------------------------------------- | ----------- | --------------------- | ---------------------------------- | ------------------------------------ | -------------------- |
 |                                        |             |                       | **Baseline**                       | **Burst**                            |                      |                               |
 | 160                                    | 8           | 40                    | 375                                | 3,125                                | 8,192                | Tens of thousands of IOPS     |
 | 320                                    | 16          | 80                    | 775                                | 3,750                                | 16,384               |
@@ -82,7 +82,7 @@ Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems are only available in a certa
 | 10,240                                 | 512         | 2,560                 | 21,000                             | –                                    | 32,768               |
 
 | Provisioned throughput capacity (MBps) | Memory (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- |
 |                                        |             | **Baseline**                       | **Burst**                            |                      |                               |
 | 160                                    | 16          | 195                                | 1,562                                | 8,192                | Tens of thousands of IOPS     |
 | 320                                    | 32          | 390                                | 1,562                                | 16,384               |
@@ -93,7 +93,7 @@ Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems are only available in a certa
 | 5,120                                  | 512         | 6,250                              | –                                    | 32,768               | Up to 1 million IOPS          |
 
 | Provisioned throughput capacity (MBps) | Memory (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- |
 |                                        |             | **Baseline**                       | **Burst**                            |                      |                               |
 | 160                                    | 8           | 375                                | 3,125                                | 8,192                | Tens of thousands of IOPS     |
 | 320                                    | 16          | 775                                | 3,750                                | 16,384               |
@@ -110,7 +110,7 @@ Single-AZ 1 (HA) and Single-AZ 2 (HA) file systems are only available in a certa
 For Multi-AZ file systems created in Canada (Central) and Asia Pacific (Mumbai) prior to July 9th, 2024, refer to Table 6 for performance details.
 
 | Provisioned throughput capacity (MBps) | Memory (GB) | Network throughput capacity (MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+| -------------------------------------- | ----------- | ---------------------------------- | ------------------------------------ | -------------------- |
 |                                        |             | **Baseline**                       | **Burst**                            |                      |                               |
 | 160                                    | 4           | 400                                | 3,200                                | 8,192                | Tens of thousands of IOPS     |
 | 320                                    | 8           | 800                                | 3,200                                | 16,384               |
@@ -126,7 +126,7 @@ For read and write access from the disks attached to the file server, performanc
 Similar to data accessed from cache, the performance of this connection is determined by the provisioned throughput capacity of the file system, which is equivalent to the baseline throughput capacity of your file server.
 
 | Provisioned throughput capacity (MBps) | Maximum disk throughput capacity (MBps) | Maximum disk IOPS |
-| -------------------------------------- | --------------------------------------- | ----------------- | ------------ | --------- |
+| -------------------------------------- | --------------------------------------- | ----------------- |
 |                                        | **Baseline**                            | **Burst**         | **Baseline** | **Burst** |
 | 64                                     | 64                                      | 1,024             | 2,500        | 40,000    |
 | 128                                    | 128                                     | 1,024             | 5,000        | 40,000    |
@@ -138,7 +138,7 @@ Similar to data accessed from cache, the performance of this connection is deter
 | 4,096                                  | 4,096                                   | –                 | 160,000      | –         |
 
 | Provisioned throughput capacity (MBps) | Maximum disk throughput capacity (MBps) | Maximum disk IOPS |
-| -------------------------------------- | --------------------------------------- | ----------------- | ------------ | --------- |
+| -------------------------------------- | --------------------------------------- | ----------------- |
 |                                        | **Baseline**                            | **Burst**         | **Baseline** | **Burst** |
 | 160                                    | 160                                     | 3,125             | 6,250        | 100,000   |
 | 320                                    | 320                                     | 3,125             | 12,500       | 100,000   |
@@ -151,7 +151,7 @@ Similar to data accessed from cache, the performance of this connection is deter
 | 10,240                                 | 10,240\*                                | –                 | 400,000      | –         |
 
 | Provisioned throughput capacity (MBps) | Maximum disk throughput capacity (MBps)\* | Maximum disk IOPS |
-| -------------------------------------- | ----------------------------------------- | ----------------- | ------------ | --------- |
+| -------------------------------------- | ----------------------------------------- | ----------------- |
 |                                        | **Baseline**                              | **Burst**         | **Baseline** | **Burst** |
 | 160                                    | 160                                       | 1,250             | 6,000        | 40,000    |
 | 320                                    | 320                                       | 1,250             | 12,000       | 40,000    |
@@ -166,7 +166,7 @@ Similar to data accessed from cache, the performance of this connection is deter
 \*Deployment hardware differences in these regions may cause disk throughput capacity to vary by up to 5% from the values shown in this table.
 
 | Provisioned throughput capacity (MBps) | Maximum disk throughput capacity (MBps) | Maximum disk IOPS |
-| -------------------------------------- | --------------------------------------- | ----------------- | ------------ | --------- |
+| -------------------------------------- | --------------------------------------- | ----------------- |
 |                                        | **Baseline**                            | **Burst**         | **Baseline** | **Burst** |
 | 160                                    | 160                                     | 3,125             | 6,250        | 100,000   |
 | 320                                    | 320                                     | 3,125             | 12,500       | 100,000   |
@@ -189,7 +189,7 @@ your file system will support the performance limits shown in the table.
 For Multi-AZ file systems created in Canada (Central) and Asia Pacific (Mumbai) prior to July 9th, 2024, refer to Table 11 for performance details.
 
 | Provisioned throughput capacity (MBps) | Maximum disk throughput capacity (MBps)\* | Maximum disk IOPS |
-| -------------------------------------- | ----------------------------------------- | ----------------- | ------------ | --------- |
+| -------------------------------------- | ----------------------------------------- | ----------------- |
 |                                        | **Baseline**                              | **Burst**         | **Baseline** | **Burst** |
 | 160                                    | 160                                       | 1,187             | 5,000        | 40,000    |
 | 320                                    | 320                                       | 1,187             | 10,000       | 40,000    |

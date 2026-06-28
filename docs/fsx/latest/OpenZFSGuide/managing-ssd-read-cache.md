@@ -37,25 +37,21 @@ The **Update SSD read cache** panel appears. 4. Select the new sizing mode that 
     * Choose **None** if you do not want to use an SSD read cache with your Intelligent-Tiering file system.
 
 5. Choose **Update**.
-   To update the SSD read cache for an Intelligent-Tiering file system,
-   use the AWS CLI command [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") or the equivalent UpdateFileSystem API action. Set the following parameters:
+To update the SSD read cache for an Intelligent-Tiering file system,
+use the AWS CLI command [update-file-system](../../../cli/latest/reference/fsx/update-file-system.md "../../../cli/latest/reference/fsx/update-file-system.md") or the equivalent UpdateFileSystem API action. Set the following parameters:
 
 - Set `--file-system-id` to the ID of the file system that you are updating.
 - To modify your SSD read cache, use the `--open-zfs-configuration
  ReadCacheConfiguration` property. This property has two
   parameters, `SizeGiB` and `SizingMode`:
 
-      + **SizeGiB** ‐ Sets the size of your SSD read cache in GiB when using `USER_PROVISIONED` mode.
-      + **SizingMode** ‐ Sets the sizing mode of your SSD read cache.
+  - **SizeGiB** ‐ Sets the size of your SSD read cache in GiB when using `USER_PROVISIONED` mode.
+  - **SizingMode** ‐ Sets the sizing mode of your SSD read cache.
 
-
-
-
-      	- Set to `NO_CACHE` if you do not want to use an SSD read cache with your Intelligent-Tiering file system.
-      	- Set to `USER_PROVISIONED` to specify the exact size of your SSD read cache.
-      	- Set to `PROPORTIONAL_TO_THROUGHPUT_CAPACITY` to have your SSD read cache automatically sized based on your throughput capacity.
-
-  The following example updates the SSD read cache sizing mode to **USER_PROVISIONED** and sets the size to 524288 GiB.
+    - Set to `NO_CACHE` if you do not want to use an SSD read cache with your Intelligent-Tiering file system.
+    - Set to `USER_PROVISIONED` to specify the exact size of your SSD read cache.
+    - Set to `PROPORTIONAL_TO_THROUGHPUT_CAPACITY` to have your SSD read cache automatically sized based on your throughput capacity.
+      The following example updates the SSD read cache sizing mode to **USER\_PROVISIONED** and sets the size to 524288 GiB.
 
 ```
 `aws fsx update-file-system \
@@ -77,15 +73,15 @@ You can monitor file system updates in the **Updates** tab on the **File system 
 
 For SSD read cache updates, you can view the following information:
 
-\***\*Update type\*\***
+****Update type****
 
 Supported types are **SSD read cache sizing mode** and **SSD read cache size**.
 
-\***\*Target value\*\***
+****Target value****
 
 The updated value for the file system's SSD read cache sizing mode or SSD read cache size.
 
-\***\*Status\*\***
+****Status****
 
 The current status of the update. The possible values are as follows:
 
@@ -96,7 +92,7 @@ The current status of the update. The possible values are as follows:
 - **Failed** – The update request failed. Choose the question
   mark (**?**) to see details on why the request failed.
 
-\***\*Request time\*\***
+****Request time****
 
 The time that Amazon FSx received the update action request.
 

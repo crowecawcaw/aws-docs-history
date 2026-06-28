@@ -50,7 +50,7 @@ the performance supported by the client-server network I/O connection, and the s
 The following table shows the cached read performance, and amount of memory available for in-memory caching and other activities, for file systems using the Intelligent-Tiering storage class, based on provisioned throughput capacity.
 
 | Provisioned throughput capacity (MBps) | Memory (GB) | Network throughput capacity<br>(MBps) | Maximum number of client connections | Maximum network IOPS |
-| -------------------------------------- | ----------- | ------------------------------------- | ------------------------------------ | -------------------- | ----------------------------- |
+| -------------------------------------- | ----------- | ------------------------------------- | ------------------------------------ | -------------------- |
 |                                        |             | **Baseline**                          | **Burst**                            |                      |                               |
 | 160                                    | 8           | 375                                   | 3,125                                | 8,192                | Tens of thousands of IOPS     |
 | 320                                    | 16          | 775                                   | 3,750                                | 16,384               |
@@ -68,7 +68,7 @@ For read and write access from the SSD read cache and Intelligent-Tiering, perfo
 Similar to data accessed from cache, the performance of this connection is determined by the provisioned throughput capacity of the file system, which is equivalent to the baseline throughput capacity of your file server.
 
 | Provisioned throughput capacity (MBps) | Maximum disk throughput capacity (MBps)\* | Maximum disk IOPS |
-| -------------------------------------- | ----------------------------------------- | ----------------- | --------- |
+| -------------------------------------- | ----------------------------------------- | ----------------- |
 |                                        |                                           | **Baseline**      | **Burst** |
 | 160                                    | 160                                       | 6,250             | 100,000   |
 | 320                                    | 320                                       | 12,500            | 100,000   |

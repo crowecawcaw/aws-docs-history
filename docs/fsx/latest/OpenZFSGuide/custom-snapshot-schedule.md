@@ -78,7 +78,7 @@ them for the needs of your file system volumes. This solution uses the following
 | FSx for OpenZFS resource ID         | No default value                            | The file system ID or volume ID on which the snapshot schedule will apply.<br>If you provide a file system ID, the schedule will take snapshots of all volumes<br>within that file system. |
 | CRON schedule pattern for snapshots | 0 0/6 \<br>• \<br>• ? \*<br>[Every 6 hours] | The schedule to run the CloudWatch event, triggering a new snapshot and deleting old snapshots<br>outside of the retention period.                                                         |
 | Snapshot retention (days)           | 7                                           | The number of days to keep user-initiated snapshots. The Lambda function deletes<br>user-initiated snapshots older than this number of days.                                               |
-| Name for snapshots                  | User-scheduled_snapshot                     | The name for these snapshots, which appears in the **Snapshot Name**<br>column of the Amazon FSx Management Console.                                                                       |
+| Name for snapshots                  | User-scheduled\_snapshot                    | The name for these snapshots, which appears in the **Snapshot Name**<br>column of the Amazon FSx Management Console.                                                                       |
 | Snapshot Notification               | Yes                                         | Choose whether to be notified when snapshots are successfully initiated. A<br>notification is always sent if there's an error.                                                             |
 | Email address                       | No default value                            | The email address to use in subscribing to the SNS notifications.                                                                                                                          |
 
@@ -89,7 +89,7 @@ them for the needs of your file system volumes. This solution uses the following
 6. Choose **Create** to deploy the stack.
 
 You can view the status of the stack in the CloudFormation console in the **Status**
-column. You should see a status of **CREATE_COMPLETE** in about five
+column. You should see a status of **CREATE\_COMPLETE** in about five
 minutes.
 
 ## Additional options

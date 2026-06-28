@@ -78,31 +78,29 @@ You can provide additional client configurations for the volume:
     4. Repeat the procedure to add another client configuration.For more information, see [NFS exports](creating-volumes.md#nfs-exports "creating-volumes.md#nfs-exports").
 
 10. For **Record size**, choose whether to use the
-    default suggested record size of 128 KiB, or to set a **User-configured** suggested record
-    size for the volume. Generally, workloads that write in fixed small or large
-    record sizes may benefit from setting a custom record size, like database workloads
-    (small record size) or media streaming workloads (large record size). We recommend
-    the default setting for the majority of use cases. For more information about the
-    record size setting, see [Configurable volume properties](creating-volumes.md#volume-properties "creating-volumes.md#volume-properties").
-11. For **User and group quotas**, you can change or set a storage quota for
-    a user or group:
+default suggested record size of 128 KiB, or to set a **User-configured** suggested record
+size for the volume. Generally, workloads that write in fixed small or large
+record sizes may benefit from setting a custom record size, like database workloads
+(small record size) or media streaming workloads (large record size). We recommend
+the default setting for the majority of use cases. For more information about the
+record size setting, see [Configurable volume properties](creating-volumes.md#volume-properties "creating-volumes.md#volume-properties"). 11. For **User and group quotas**, you can change or set a storage quota for
+a user or group:
 
-    1.  For **Quota type**, choose `USER` or
-        `GROUP`.
-    2.  For **User or group ID**, enter a number that is
-        the ID of the user or group.
-    3.  For **Usage quota**, enter a number that is
-        the storage quota in GiB of the user or group.
-    4.  To create additional user or group quotas, choose **Add quota**
-        and repeat the procedure to change or add a quota for another user or group.
+    1. For **Quota type**, choose `USER` or
+     `GROUP`.
+    2. For **User or group ID**, enter a number that is
+     the ID of the user or group.
+    3. For **Usage quota**, enter a number that is
+     the storage quota in GiB of the user or group.
+    4. To create additional user or group quotas, choose **Add quota**
+     and repeat the procedure to change or add a quota for another user or group.
 
 12. For **Record size**, enter the desired maximum size of a logical
-    block in a ZFS dataset. Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB.
-    The default is 128 KiB. Most file systems will use the default value.
-    Database workflows can benefit from a smaller record size, while streaming workflows
-    can benefit from a larger record size. For more information about Record size and file system
-    performance, see [ZFS record size](performance.md#record-size-performance "performance.md#record-size-performance").
-13. Choose **Update** to update the volume.
+block in a ZFS dataset. Valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB.
+The default is 128 KiB. Most file systems will use the default value.
+Database workflows can benefit from a smaller record size, while streaming workflows
+can benefit from a larger record size. For more information about Record size and file system
+performance, see [ZFS record size](performance.md#record-size-performance "performance.md#record-size-performance"). 13. Choose **Update** to update the volume.
 
 - To update the configuration of an FSx for OpenZFS volume, use the
   [update-volume](../../../cli/latest/reference/fsx/update-volume.md "../../../cli/latest/reference/fsx/update-volume.md")

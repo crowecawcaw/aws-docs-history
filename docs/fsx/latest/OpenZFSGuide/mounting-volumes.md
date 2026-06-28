@@ -19,23 +19,22 @@ on Amazon EC2 Mac instances.
 
 ###### To automatically mount your file system on reboot
 
-1.  Connect to your EC2 instance:
+1. Connect to your EC2 instance:
 
-        * To connect to your instance from a computer running macOS or Linux, specify the
-         .pem file for your SSH command. To do this, use the `-i` option and the
-         path to your private key.
-        * To connect to your instance from a computer running Windows, you can use either
-         MindTerm or PuTTY. To use PuTTY, install it and convert the .pem file to a .ppk file.
+   - To connect to your instance from a computer running macOS or Linux, specify the
+     .pem file for your SSH command. To do this, use the `-i` option and the
+     path to your private key.
+   - To connect to your instance from a computer running Windows, you can use either
+     MindTerm or PuTTY. To use PuTTY, install it and convert the .pem file to a .ppk file.
+     For more information, see the following topics in the
+     _Amazon EC2 User Guide_:
 
-    For more information, see the following topics in the
-    _Amazon EC2 User Guide_:
+   - [Connecting to your Linux instance
+     using SSH](AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md "AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md")
+   - [Connecting to your Linux instance from Windows
+     using PuTTY](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/UserGuide/putty.md")
 
-        * [Connecting to your Linux instance
-         using SSH](AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md "AWSEC2/latest/UserGuide/connect-linux-inst-ssh.md")
-        * [Connecting to your Linux instance from Windows
-         using PuTTY](../../../AWSEC2/latest/UserGuide/putty.md "../../../AWSEC2/latest/UserGuide/putty.md")
-
-2.  Create a local directory that will be used to mount the FSx for OpenZFS volume.
+2. Create a local directory that will be used to mount the FSx for OpenZFS volume.
 
 ```
 `sudo mkdir /fsx`
