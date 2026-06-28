@@ -87,20 +87,16 @@ JSON
     2. You can also replace the role name or use the default. This example uses
      `AutomationEVRole`.
 
-6. Choose **Next: Tags**.
-7. (Optional) You can use tags as key–value pairs to add metadata to the
-   policy.
-8. Choose **Next: Review**.
-9. On the **Review policy** page, enter a
-   **Name**, such as
-   `AutomationEVRolePolicy` and an optional
-   **Description**.
-10. Review the **Summary** page to see the permissions that the
-    policy allows. If you're satisfied with your policy, choose **Create
-    policy**.
-    This policy defines the actions that the role can take. For more information, see
-    [Creating IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the
-    _IAM User Guide_.
+6. Choose **Next: Tags**. 7. (Optional) You can use tags as key–value pairs to add metadata to the
+policy. 8. Choose **Next: Review**. 9. On the **Review policy** page, enter a
+**Name**, such as
+`AutomationEVRolePolicy` and an optional
+**Description**. 10. Review the **Summary** page to see the permissions that the
+policy allows. If you're satisfied with your policy, choose **Create
+policy**.
+This policy defines the actions that the role can take. For more information, see
+[Creating IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the
+_IAM User Guide_.
 
 After you create the policy, you must create an IAM role, and then attach the
 policy to that role.
@@ -237,7 +233,7 @@ example.
 15. For the **Input Path** field, enter
     `{"Instances":"$.resources"}`.
 16. For the second field, enter `{"InstanceId":
-<Instances>}`.
+ <Instances>}`.
 17. Choose **Use existing role**, and then choose the IAM role that
     you created, such as `AutomationEVRole`.
 

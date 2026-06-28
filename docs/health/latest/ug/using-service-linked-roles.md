@@ -15,12 +15,12 @@ can't be attached to any other IAM entity.
 
 AWS Health has two service-linked roles:
 
-- [AWSServiceRoleForHealth_Organizations](https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_Organizations "https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_Organizations") –
+- [AWSServiceRoleForHealth\_Organizations](https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_Organizations "https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_Organizations") –
   This role trusts the AWS Health (`health.amazonaws.com`) to assume
   the role to access AWS services for you. Attached to this role is the
   `Health_OrganizationsServiceRolePolicy` AWS managed
   policy.
-- [AWSServiceRoleForHealth_EventProcessor](https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_EventProcessor "https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_EventProcessor") – This role trusts
+- [AWSServiceRoleForHealth\_EventProcessor](https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_EventProcessor "https://console.aws.amazon.com/iam/home?#/roles/AWSServiceRoleForHealth_EventProcessor") – This role trusts
   the AWS Health service principal
   (`event-processor.health.amazonaws.com`) to assume the role for
   you. Attached to this role is the `AWSHealth_EventProcessorServiceRolePolicy`
@@ -33,11 +33,11 @@ For more information about the AWS managed policies, see [AWS managed policies f
 
 ## Creating a service-linked role for AWS Health
 
-You don't need to create the AWSServiceRoleForHealth_Organizations
+You don't need to create the AWSServiceRoleForHealth\_Organizations
 service-linked role. When you call the [EnableHealthServiceAccessForOrganization](../APIReference/API_EnableHealthServiceAccessForOrganization.md "../APIReference/API_EnableHealthServiceAccessForOrganization.md") operation, AWS Health creates the
 this service-linked role in the account for you.
 
-You must manually create the AWSServiceRoleForHealth_EventProcessor service-linked role
+You must manually create the AWSServiceRoleForHealth\_EventProcessor service-linked role
 in your account. For more information, see [Creating a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in the
 _IAM User Guide_.
 
@@ -51,11 +51,11 @@ _IAM User Guide_.
 
 ## Deleting a service-linked role for AWS Health
 
-To delete the AWSServiceRoleForHealth_Organizations role, you must
+To delete the AWSServiceRoleForHealth\_Organizations role, you must
 first call the [DisableHealthServiceAccessForOrganization](../APIReference/API_DisableHealthServiceAccessForOrganization.md "../APIReference/API_DisableHealthServiceAccessForOrganization.md") operation. You can then delete
 the role through the IAM console, IAM API, or AWS Command Line Interface (AWS CLI).
 
-To delete the AWSServiceRoleForHealth_EventProcessor role, contact AWS Support and ask
+To delete the AWSServiceRoleForHealth\_EventProcessor role, contact AWS Support and ask
 that they offboard your workloads from AWS Incident Detection and Response. After this process completes, you can
 then delete either role through the IAM console, IAM API, or AWS CLI.
 

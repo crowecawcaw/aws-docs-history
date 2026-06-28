@@ -10,7 +10,7 @@ view.
 To establish a delegated administrator, from the management account in your organization,
 call the following AWS Command Line Interface (AWS CLI) command. You can use this command from the management account
 or from an account that can assume the role with the required AWS Identity and Access Management permissions. In the
-following example command, replace **ACCOUNT_ID** with the member
+following example command, replace **ACCOUNT\_ID** with the member
 account ID that you want to register along with the AWS Health service principal
 "health.amazonaws.com".
 

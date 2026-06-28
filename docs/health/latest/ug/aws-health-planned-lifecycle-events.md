@@ -60,7 +60,7 @@ upcoming lifecycle changes and track action completion.
 **Type category:** Scheduled change
 
 **Event type code**:
-AWS\_{SERVICE}\_PLANNED_LIFECYCLE_EVENT
+AWS\_{SERVICE}\_PLANNED\_LIFECYCLE\_EVENT
 
 **Event start time:** Event start time is the soonest date at
 which your resources are affected by the change.
