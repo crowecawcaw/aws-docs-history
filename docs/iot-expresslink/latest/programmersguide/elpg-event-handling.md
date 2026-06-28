@@ -41,42 +41,42 @@ Acknowledgement of the command. No events where pending, a timer is started coun
 The following table contains the definition of common event identifiers and error codes implemented
 by all ExpressLink modules; they should be considered reserved:
 
-| Table 4 - ExpressLink event codes | Event Identifier   | Parameter             | Mnemonic                                                                                                                                                                                                                 | Description |
-| --------------------------------- | ------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| 0                                 | -                  | TIMEOUT               | A timout occurred.                                                                                                                                                                                                       |
-| 1                                 | Topic Index        | MSG                   | A message was received on the topic #.                                                                                                                                                                                   |
-| 2                                 | 0                  | STARTUP               | The module has entered the active state.                                                                                                                                                                                 |
-| 3                                 | 0                  | CONLOST               | Connection unexpectedly lost.                                                                                                                                                                                            |
-| 4                                 | 0                  | OVERRUN               | Receive buffer Overrun (topic in detail).                                                                                                                                                                                |
-| 5                                 | 0                  | OTA                   | OTA event (see the OTA? command for details).                                                                                                                                                                            |
-| 6                                 | Connection Hint    | CONNECT               | A connection was established or failed.                                                                                                                                                                                  |
-| 7                                 | 0                  | CONFMODE              | CONFMODE exit with success.                                                                                                                                                                                              |
-| 8                                 | Topic Index        | SUBACK                | A subscription was accepted.                                                                                                                                                                                             |
-| 9                                 | Topic Index        | SUBNACK               | A subscription was rejected.                                                                                                                                                                                             |
-| 10                                | Topic Index        | PUBACK                | A QoS1 PUBACK was received.                                                                                                                                                                                              |
-| 11..19                            | -                  | -                     | RESERVED                                                                                                                                                                                                                 |
-| 20                                | Shadow Index       | SHADOW INIT           | Shadow[Shadow Index] interface was initialized successfully.                                                                                                                                                             |
-| 21                                | Shadow Index       | SHADOW INIT FAILED    | The SHADOW[Shadow Index] interface initialization failed.                                                                                                                                                                |
-| 22                                | Shadow Index       | SHADOW DOC            | A Shadow document was received.                                                                                                                                                                                          |
-| 23                                | Shadow Index       | SHADOW UPDATE         | A Shadow update result was received.                                                                                                                                                                                     |
-| 24                                | Shadow Index       | SHADOW DELTA          | A Shadow delta update was received.                                                                                                                                                                                      |
-| 25                                | Shadow Index       | SHADOW DELETE         | A Shadow delete result was received.                                                                                                                                                                                     |
-| 26                                | Shadow Index       | SHADOW SUBACK         | A Shadow delta subscription was accepted.                                                                                                                                                                                |
-| 27                                | Shadow Index       | SHADOW SUBNACK        | A Shadow delta subscription was rejected.                                                                                                                                                                                |
-| 28...39                           | -                  | -                     | RESERVED                                                                                                                                                                                                                 |
-| 40                                | 0                  | BLE CONNECTED         | A BLE Connection was established peripheral role.                                                                                                                                                                        |
-| 41                                | 0 or Hint Code     | BLE DISCOVER COMPLETE | 0 for successful; >0 vendor defined Hint Codes.                                                                                                                                                                          |
-| 42                                | 0 or Central Index | BLE CONNECTION LOST   | Connection was terminated or 0 if peripheral role.                                                                                                                                                                       |
-| 43                                | GATT Index         | BLE SUBSCRIBE START   | Subscription started on BLEGATT# while on peripheral mode.                                                                                                                                                               |
-| 44                                | GATT Index         | BLE SUBSCRIBE STOP    | Subscription terminated on BLEGATT# while on peripheral mode.                                                                                                                                                            |
-| 45                                | GATT Index         | BLE READ REQUEST      | Read operation requested at BLEGATT# while on peripheral mode.                                                                                                                                                           |
-| 46                                | GATT Index         | BLE WRITE REQUEST     | Write operation requested at BLEGatt# while on peripheral mode.                                                                                                                                                          |
-| 47                                | Subscription Index | SUBSCRIPTION RECEIVED | Subscription was received on BLECentral# connection.                                                                                                                                                                     |
-| 48                                | BLECentral#        | BLE PAIR              | Pairing event (see [Table 3<br>• Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3"))                                             |
-| 49                                | Auth Index         | BLE AUTHORIZE         | Authorizing event (see [13.3.6 BLE AUTH[#] [0/1]   »Authorize access to a characteristic«](elpg-ble.md#elpg-ble-auth-command "elpg-ble.md#elpg-ble-auth-command"))<br>Auth Index encoding is defined below in _8.2.1.5_. |
-| 50                                | Hint code          | BLE EXCEPTION         | An exception occurred in the BLE stack. Codes are vendor specific.                                                                                                                                                       |
-| ≤ 999                             | -                  |                       | RESERVED.                                                                                                                                                                                                                |
-| ≥1000                             | -                  |                       | Available for custom implementation.                                                                                                                                                                                     |
+Table 4 - ExpressLink event codes| Event Identifier | Parameter | Mnemonic | Description |
+| --- | --- | --- | --- |
+| 0 | - | TIMEOUT | A timout occurred. |
+| 1 | Topic Index | MSG | A message was received on the topic #. |
+| 2 | 0 | STARTUP | The module has entered the active state. |
+| 3 | 0 | CONLOST | Connection unexpectedly lost. |
+| 4 | 0 | OVERRUN | Receive buffer Overrun (topic in detail). |
+| 5 | 0 | OTA | OTA event (see the OTA? command for details). |
+| 6 | Connection Hint | CONNECT | A connection was established or failed. |
+| 7 | 0 | CONFMODE | CONFMODE exit with success. |
+| 8 | Topic Index | SUBACK | A subscription was accepted. |
+| 9 | Topic Index | SUBNACK | A subscription was rejected. |
+| 10 | Topic Index | PUBACK | A QoS1 PUBACK was received. |
+| 11..19 | - | - | RESERVED |
+| 20 | Shadow Index | SHADOW INIT | Shadow[Shadow Index] interface was initialized successfully. |
+| 21 | Shadow Index | SHADOW INIT FAILED | The SHADOW[Shadow Index] interface initialization failed. |
+| 22 | Shadow Index | SHADOW DOC | A Shadow document was received. |
+| 23 | Shadow Index | SHADOW UPDATE | A Shadow update result was received. |
+| 24 | Shadow Index | SHADOW DELTA | A Shadow delta update was received. |
+| 25 | Shadow Index | SHADOW DELETE | A Shadow delete result was received. |
+| 26 | Shadow Index | SHADOW SUBACK | A Shadow delta subscription was accepted. |
+| 27 | Shadow Index | SHADOW SUBNACK | A Shadow delta subscription was rejected. |
+| 28...39 | - | - | RESERVED |
+| 40 | 0 | BLE CONNECTED | A BLE Connection was established peripheral role. |
+| 41 | 0 or Hint Code | BLE DISCOVER COMPLETE | 0 for successful; >0 vendor defined Hint Codes. |
+| 42 | 0 or Central Index | BLE CONNECTION LOST | Connection was terminated or 0 if peripheral role. |
+| 43 | GATT Index | BLE SUBSCRIBE START | Subscription started on BLEGATT# while on peripheral mode. |
+| 44 | GATT Index | BLE SUBSCRIBE STOP | Subscription terminated on BLEGATT# while on peripheral mode. |
+| 45 | GATT Index | BLE READ REQUEST | Read operation requested at BLEGATT# while on peripheral mode. |
+| 46 | GATT Index | BLE WRITE REQUEST | Write operation requested at BLEGatt# while on peripheral mode. |
+| 47 | Subscription Index | SUBSCRIPTION RECEIVED | Subscription was received on BLECentral# connection. |
+| 48 | BLECentral# | BLE PAIR | Pairing event (see [Table 3<br>• Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3")) |
+| 49 | Auth Index | BLE AUTHORIZE | Authorizing event (see [13.3.6 BLE AUTH[#] [0/1]   »Authorize access to a characteristic«](elpg-ble.md#elpg-ble-auth-command "elpg-ble.md#elpg-ble-auth-command"))<br>Auth Index encoding is defined below in _8.2.1.5_. |
+| 50 | Hint code | BLE EXCEPTION | An exception occurred in the BLE stack. Codes are vendor specific. |
+| ≤ 999 | - | | RESERVED. |
+| ≥1000 | - | | Available for custom implementation. |
 
 `8.2.1.3`   Sleep, reset, and factory reset commands
 
@@ -108,7 +108,7 @@ where Operation Value is:
 A BLE EXCEPTION is generated asynchronously by the BLE stack and the Hint Codes
 provided must be documented by the vendor in the specific module datasheet.
 
-### 8.2.2 EVENT! *time*   »Wait (blocking) for the next event or timeout«
+### 8.2.2 EVENT! _time_   »Wait (blocking) for the next event or timeout«
 
 This is a synchronous variant of the EVENT command meant to allow efficient event driven operation in
 systems that employ only the serial interface, without an additional event pin. The _time_ parameter is
@@ -185,7 +185,7 @@ OK 1 6{EOL}  #An even was already in the queue, a message on Topic # 6
 
 ## 8.3 Diagnostic commands
 
-### 8.3.1 DIAG *{command} [optional parameters]*   »Perform a diagnostic command«
+### 8.3.1 DIAG _{command} [optional parameters]_   »Perform a diagnostic command«
 
 A number of custom diagnostic commands can be added to assist the developer in
 their debugging efforts. These commands are vendor and model specific. See the

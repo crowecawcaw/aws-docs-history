@@ -33,7 +33,7 @@ Where:
 
 A short, alphabetical character string (including "\_", "!", and "?")
 that matches one of the commands listed in the following sections (CONNECT,
-TIME?, FACTORY_RESET).
+TIME?, FACTORY\_RESET).
 
 ###### Note
 
@@ -211,14 +211,14 @@ section [4.6.2 Response timeout](#elpg-response-timeout "#elpg-response-timeout"
 
 Where:
 
-**OK*[#]***
+_*OK*[#]_**
 
 Indicates that the command was valid and ran correctly. The
 optional numerical suffix `[#]`
 indicates the number of additional output lines, with no additional
 lines expected if this suffix is omitted.
 
-**ERR*{#}***
+_*ERR*{#}_**
 
 Indicates the command was invalid or an error occurred while running
 it. The required numerical suffix is an error code as defined in
@@ -251,37 +251,37 @@ Similarly on a successful response, the _detail_ may consist of multiple parts.
 To ensure future compatibility, a host application must stop parsing
 past the required parts as documented in the current technical specification revision.
 
-| Table 1 - Error codes | Code                     | ExpressLink text                                                                                                          | Description |
-| --------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| 1                     | OVERFLOW                 | More bytes have been received than fit in the receive buffer.                                                             |
-| 2                     | PARSE ERROR              | Message not formatted correctly.                                                                                          |
-| 3                     | COMMAND NOT FOUND        | Invalid command.                                                                                                          |
-| 4                     | PARAMETER ERROR          | Command does not recognize the parameters.                                                                                |
-| 5                     | INVALID ESCAPE           | An incorrect escape sequence was detected.                                                                                |
-| 6                     | NO CONNECTION            | Command requires an active connection to AWS IoT.                                                                         |
-| 7                     | OUT OF RANGE             | The index provided is out of range (0 or greater than MaxTopic).                                                          |
-| 8                     | PARAMETER UNDEFINED      | The key provided references an empty configuration parameter.                                                             |
-| 9                     | INVALID KEY LENGTH       | Key is longer than 16 characters.                                                                                         |
-| 10                    | INVALID KEY NAME         | A non-alphanumeric character was used in the key name.                                                                    |
-| 11                    | UNKNOWN KEY              | The supplied key cannot be found in the system.                                                                           |
-| 12                    | KEY READONLY             | The key cannot be written.                                                                                                |
-| 13                    | KEY WRITEONLY            | The key cannot be read.                                                                                                   |
-| 14                    | UNABLE TO CONNECT        | The module is unable to connect.                                                                                          |
-| 15                    | TIME NOT AVAILABLE       | A time fix could not be obtained.                                                                                         |
-| 16                    | LOCATION NOT AVAILABLE   | A location fix could not be obtained.                                                                                     |
-| 17                    | MODE NOT AVAILABLE       | The requested mode is not available.                                                                                      |
-| 18                    | ACTIVE CONNECTION        | An active connection prevents the command from running.                                                                   |
-| 19                    | HOST IMAGE NOT AVAILABLE | A host OTA command was issued but no valid HOTA image is present in the<br>OTA buffer.                                    |
-| 20                    | INVALID ADDRESS          | The OTA buffer pointer is out of bounds (> image size).                                                                   |
-| 21                    | INVALID OTA UPDATE       | The OTA update failed.                                                                                                    |
-| 22                    | [reserved]               |                                                                                                                           |
-| 23                    | INVALID SIGNATURE        | A signature verification failed.                                                                                          |
-| 24                    | SHADOW ERROR             | Shadow support disabled, not initialized, or request rejected.                                                            |
-| 25                    | NOT ALLOWED              | The module cannot accept the command at this time (it is busy<br>or operating in a mode that conflicts with the request). |
-| 26                    | INVALID CERTIFICATE      | The certificate was invalid or corrupted.                                                                                 |
-| 27                    | BLE ERROR                | Any error related to failed execution of BLE commands.                                                                    |
-| 28                    | CONFIGURATION ERROR      | When a command is entered but the correct configuration<br>is not set.                                                    |
-| 29                    | INSUFFICIENT SECURITY    | When a subscription to a characteristic has insufficient security<br>levels.                                              |
+Table 1 - Error codes| Code | ExpressLink text | Description |
+| --- | --- | --- |
+| 1 | OVERFLOW | More bytes have been received than fit in the receive buffer. |
+| 2 | PARSE ERROR | Message not formatted correctly. |
+| 3 | COMMAND NOT FOUND | Invalid command. |
+| 4 | PARAMETER ERROR | Command does not recognize the parameters. |
+| 5 | INVALID ESCAPE | An incorrect escape sequence was detected. |
+| 6 | NO CONNECTION | Command requires an active connection to AWS IoT. |
+| 7 | OUT OF RANGE | The index provided is out of range (0 or greater than MaxTopic). |
+| 8 | PARAMETER UNDEFINED | The key provided references an empty configuration parameter. |
+| 9 | INVALID KEY LENGTH | Key is longer than 16 characters. |
+| 10 | INVALID KEY NAME | A non-alphanumeric character was used in the key name. |
+| 11 | UNKNOWN KEY | The supplied key cannot be found in the system. |
+| 12 | KEY READONLY | The key cannot be written. |
+| 13 | KEY WRITEONLY | The key cannot be read. |
+| 14 | UNABLE TO CONNECT | The module is unable to connect. |
+| 15 | TIME NOT AVAILABLE | A time fix could not be obtained. |
+| 16 | LOCATION NOT AVAILABLE | A location fix could not be obtained. |
+| 17 | MODE NOT AVAILABLE | The requested mode is not available. |
+| 18 | ACTIVE CONNECTION | An active connection prevents the command from running. |
+| 19 | HOST IMAGE NOT AVAILABLE | A host OTA command was issued but no valid HOTA image is present in the<br>OTA buffer. |
+| 20 | INVALID ADDRESS | The OTA buffer pointer is out of bounds (> image size). |
+| 21 | INVALID OTA UPDATE | The OTA update failed. |
+| 22 | [reserved] | |
+| 23 | INVALID SIGNATURE | A signature verification failed. |
+| 24 | SHADOW ERROR | Shadow support disabled, not initialized, or request rejected. |
+| 25 | NOT ALLOWED | The module cannot accept the command at this time (it is busy<br>or operating in a mode that conflicts with the request). |
+| 26 | INVALID CERTIFICATE | The certificate was invalid or corrupted. |
+| 27 | BLE ERROR | Any error related to failed execution of BLE commands. |
+| 28 | CONFIGURATION ERROR | When a command is entered but the correct configuration<br>is not set. |
+| 29 | INSUFFICIENT SECURITY | When a subscription to a characteristic has insufficient security<br>levels. |
 
 ###### Note
 
@@ -386,7 +386,7 @@ numbered according to the following sequence of steps:
 | 1.  | **Backoff algorithm imposed delay**<br>(see 4.7.2.4)                                                                                                                                                                                                                                                                                                                            |
 | 2.  | **Failed to access network**<br>– reported by a Wi-Fi module when it fails to<br>connect to a local access point/router or by a cellular<br>module if it fails to connect to the nearest cell tower.<br>TipCheck SSID/passphrase or local router state.<br>After this step the device is assumed to be able to<br>communicate over the network (it has obtained an IP address). |
 | 3.  | **Failed to reach AWS endpoint**<br>– reported when the device fails to connect to an<br>AWS endpoint.<br>TipCheck the endpoint configuration parameter (URL)<br>After this step, the device is assumed to have reached an AWS server.                                                                                                                                          |
-| 4.  | \*_Failed to securely authenticate with<br>AWS_<br>• – reported when the device fails<br>to upgrade the socket to a secure socket (TLS).<br>TipCheck if the AWS root certificate might have expired.<br>After this step, a secure socket is established with AWS.                                                                                                               |
+| 4.  | *_Failed to securely authenticate with<br>AWS_<br>• – reported when the device fails<br>to upgrade the socket to a secure socket (TLS).<br>TipCheck if the AWS root certificate might have expired.<br>After this step, a secure socket is established with AWS.                                                                                                                |
 | 5.  | **Failed to login AWS (MQTT) broker**<br>– reported when the MQTT login is unsuccessful<br>TipCheck if the device certificate is present in the customer<br>account registry.<br>After this step, the device should be able to issue MQTT commands.                                                                                                                             |
 | 6.  | **Failed to register for Jobs**<br>– reported when the device fails to publish or<br>subscribe to standard AWS topics used for JOBS/OTA<br>(connection dropped by AWS server)<br>TipCheck policies attached to device certificate.<br>After this step, the device is connected and fully functional.                                                                            |
 
@@ -575,7 +575,7 @@ AT+SLEEP9A
 ERR4  PARAMETER ERROR     # a numerical value is expected for {mode}
 ```
 
-### 4.7.5 CONFMODE *[parameter]*   »Activate modal credential entry«
+### 4.7.5 CONFMODE _[parameter]_   »Activate modal credential entry«
 
 Some ExpressLink modules require the user to enter private/local credentials
 manually (for example, the Wi-Fi SSID and passphrase) or by means of a dedicated
@@ -643,7 +643,7 @@ If the command was successful, the module returns 'OK'.
 `4.7.6.2`   A **STARTUP** event
 is added to the event queue when the process is completed.
 
-### 4.7.7 FACTORY_RESET   »Request a factory reset of the ExpressLink module«
+### 4.7.7 FACTORY\_RESET   »Request a factory reset of the ExpressLink module«
 
 This command performs a full factory reset of the ExpressLink module, including
 re-initializing all non-persistent configuration parameters (see

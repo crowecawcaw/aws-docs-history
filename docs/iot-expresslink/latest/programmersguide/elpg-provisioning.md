@@ -161,7 +161,7 @@ by means of the following remote update process:
 `12.3.2.1`   When (and only when) in the
 _staging_ state, a connected ExpressLink module automatically
 subscribes ONLY to the endpoint-update topic:
-**`ThingName`/expresslink_config**.
+**`ThingName`/expresslink\_config**.
 Then, when it receives a message on the update topic with the following format:
 **{"Endpoint" : "value"}**, the module
 updates the Endpoint configuration parameter with the requested new value.

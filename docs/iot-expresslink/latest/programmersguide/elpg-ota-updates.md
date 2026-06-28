@@ -68,23 +68,23 @@ contents.
 The communication between the host processor and the ExpressLink module required to deliver an
 OTA payload is represented in the following diagram:
 
-| `9.1`   ExpressLink OTA/HOTA process                                                                                                                                                          | ExpressLink module                                                                                                                  | Host Processor |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| Receives an event indicating an OTA request and generates an event (also raising<br>the EVENT Pin).                                                                                           |                                                                                                                                     |
-|                                                                                                                                                                                               | EVENT? polls the event queue.                                                                                                       |
-| Returns OK OTA indicating an OTA event.                                                                                                                                                       |                                                                                                                                     |
-|                                                                                                                                                                                               | OTA? checks the OTA state.                                                                                                          |
-| Returns an OTA or HOTA ready state.                                                                                                                                                           |                                                                                                                                     |
-| if OTA ready                                                                                                                                                                                  |                                                                                                                                     |
-|                                                                                                                                                                                               | When safe, issue an OTA APPLY command to allow the ExpressLink<br>module to update its firmware and reboot (or OTA FLUSH to abort). |
-| If HOTA ready                                                                                                                                                                                 | Retrieve the payload in chunks of appropriate size.                                                                                 |
-|                                                                                                                                                                                               | READ 1024 – Requests the first chunk of payload data.                                                                               |
-|                                                                                                                                                                                               |                                                                                                                                     |
-| Delivers first chunk of payload data and advances pointer.                                                                                                                                    |                                                                                                                                     |
+`9.1`   ExpressLink OTA/HOTA process| ExpressLink module | Host Processor |
+| --- | --- |
+| Receives an event indicating an OTA request and generates an event (also raising<br>the EVENT Pin). | |
+| | EVENT? polls the event queue. |
+| Returns OK OTA indicating an OTA event. | |
+| | OTA? checks the OTA state. |
+| Returns an OTA or HOTA ready state. | |
+| if OTA ready | |
+| | When safe, issue an OTA APPLY command to allow the ExpressLink<br>module to update its firmware and reboot (or OTA FLUSH to abort). |
+| If HOTA ready | Retrieve the payload in chunks of appropriate size. |
+| | READ 1024 – Requests the first chunk of payload data. |
+| | |
+| Delivers first chunk of payload data and advances pointer. | |
 | The process repeats until the entire payload is<br>transferred to the host processor.<br>At any point, the Host processor can request a pointer reset or terminate the<br>process altogether. |
-| The module returns a 0 sized chunk, indicating transfer complete.                                                                                                                             |                                                                                                                                     |
-|                                                                                                                                                                                               | CLOSE – indicate to the ExpressLink module that the buffer can now be freed and<br>the process was completed successfully.          |
-| The ExpressLink module returns a Job complete notification to the AWS IoT OTA<br>service.                                                                                                     |                                                                                                                                     |
+| The module returns a 0 sized chunk, indicating transfer complete. | |
+| | CLOSE – indicate to the ExpressLink module that the buffer can now be freed and<br>the process was completed successfully. |
+| The ExpressLink module returns a Job complete notification to the AWS IoT OTA<br>service. | |
 
 The Host processor is not required to retrieve the entire payload at once, nor to follow a strictly
 sequential process, the fetching pointer can be moved (seek) to allow random access to the payload
@@ -191,7 +191,7 @@ AT+OTA ACCEPT             # accept the OTA download
 ERR21 INVALID OTA UPDATE  # No OTA pending, nothing there for the host to accept
 ```
 
-### 9.2.4 OTA READ *#bytes*   »Requests the next # bytes from the OTA buffer«
+### 9.2.4 OTA READ _#bytes_   »Requests the next # bytes from the OTA buffer«
 
 The read operation is designed to allow the host processor to retrieve the contents of the OTA
 buffer starting from the current position (0 initially). The # bytes must be provided as a decimal
@@ -245,7 +245,7 @@ The module returns an error if the OTA buffer is empty, or if it is in use and t
 download or signature verification processes have not been completed. The host processor
 should first check the OTA status using the OTA? command.
 
-### 9.2.5 OTA SEEK *{address}*   »Moves the read pointer to an absolute address«
+### 9.2.5 OTA SEEK _{address}_   »Moves the read pointer to an absolute address«
 
 This command moves the read pointer to the specified address in the OTA buffer. If no address
 is specified, the read pointer is moved back to the beginning (0). The # bytes must be provided
@@ -391,13 +391,13 @@ about the nature of the incoming OTA payload, signing method
 
 Specifically, ExpressLink devices will require the `fileType` attribute to be set to values according to Table 6.
 
-| Table 6 - Reserved OTA file type codes (0-255) | fileType                       | Reserved for                                                                      | Signature   | Certificate | Request Host Permission |
-| ---------------------------------------------- | ------------------------------ | --------------------------------------------------------------------------------- | ----------- | ----------- | ----------------------- |
-| 101                                            | Module firmware update         | Signed                                                                            | Module OTA  | Y           |
-| 103                                            | Module OTA certificate update  | Signed1                                                                           | Module OTA  | N           |
-| 107                                            | Server Root certificate update | Signed1                                                                           | Server Root | N           |
-| 202                                            | Host firmware update           | Optional                                                                          | Host OTA    | N           |
-| 204                                            | Host OTA certificate update    | Certificates are already hashed and signed, no additional<br>signing is required. | Host OTA    | N           |
+Table 6 - Reserved OTA file type codes (0-255)| fileType | Reserved for | Signature | Certificate | Request Host Permission |
+| --- | --- | --- | --- | --- |
+| 101 | Module firmware update | Signed | Module OTA | Y |
+| 103 | Module OTA certificate update | Signed1 | Module OTA | N |
+| 107 | Server Root certificate update | Signed1 | Server Root | N |
+| 202 | Host firmware update | Optional | Host OTA | N |
+| 204 | Host OTA certificate update | Certificates are already hashed and signed, no additional<br>signing is required. | Host OTA | N |
 
 [1] Not required if the HostCertificate parameter is empty (factory default).
 
@@ -568,7 +568,7 @@ parameter initially undefined (empty) and cleared at factory reset.
 the signature verification of an incoming (first) host OTA certificate payload cannot
 and will NOT be verified.
 
-### 9.11.2 CONF? *{certificate} pem*   »Special certificate output formatting option«
+### 9.11.2 CONF? _{certificate} pem_   »Special certificate output formatting option«
 
 The special qualifier _pem_ (case insensitive) can be appended
 to read a certificate configuration dictionary key (Certificate, HOTAcertificate,

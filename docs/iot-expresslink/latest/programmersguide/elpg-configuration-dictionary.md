@@ -12,56 +12,56 @@ throughout the life of the application and so are stored in non-volatile memory.
 that these key-value pairs have factory preset values, and can be read only or write
 only.
 
-| Table 2 - Configuration Dictionary Persistent Keys | Configuration Parameter | Type                     | Initial Value | Factory Reset | Buff Size                                                                                                                                                                                                                                                              | Description |
-| -------------------------------------------------- | ----------------------- | ------------------------ | ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| About                                              | R                       | Vendor<br>• Model        | N             | 64            | A concatenation of Vendor name and Model name (also see<br>11.1.5.3).                                                                                                                                                                                                  |
-| Version                                            | R                       | X.Y.Z<br>[suffix]        | N             | 32            | The specific module firmware version (also see 11.1.5.3). Note:<br>an optional alphanumeric suffix may be present.                                                                                                                                                     |
-| TechSpec                                           | R                       | TechSpec version         | N             | 16            | The Technical Specification version this model implements<br>(for example 'v0.6', 'v1.1.2').                                                                                                                                                                           |
-| ThingName                                          | R                       | UID                      | N             | 64            | The UID provided by the HW root of trust and present in<br>the device certificate (also see 11.1.3.1)<br>[12.1.3 ExpressLink Birth Certificate](elpg-provisioning.md#elpg-provisioning-birth-certificate "elpg-provisioning.md#elpg-provisioning-birth-certificate")). |
-| Certificate                                        | R                       | Device Birth Certificate | N             | ≥4KB          | Device certificate used to authenticate with AWS cloud, signed by the<br>manufacturer CA (also see<br>[12.1.3 ExpressLink Birth Certificate](elpg-provisioning.md#elpg-provisioning-birth-certificate "elpg-provisioning.md#elpg-provisioning-birth-certificate")).    |
-| CustomName                                         | R/W                     | {empty}                  | Y             | ≥128          | Custom Product Name, can be set by the host.                                                                                                                                                                                                                           |
-| Endpoint                                           | R/W                     | Staging account endpoint | Y             | ≥128          | The endpoint of the AWS account to which the ExpressLink module<br>connects (also see<br>[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")). |
-| RootCA                                             | R/W                     | AWS root CA              | N             | ≥4KB          | The server root certificate that will be used to authenticate<br>the cloud Endpoint (also see [9.12 Server Root Certificate Update](elpg-ota-updates.md#elpg-server-root-cert "elpg-ota-updates.md#elpg-server-root-cert")).                                           |
-| ShadowToken                                        | R/W                     | ExpressLink              | Y             | 64            | The default client-token that will be used to mark Device<br>Shadow updates.                                                                                                                                                                                           |
-| DefenderPeriod                                     | R/W                     | 0                        | Y             | ≥8            | The Device Defender upload period in seconds.<br>(0 indicates the service is disabled.)                                                                                                                                                                                |
-| HOTAcertificate                                    | R/W                     | {empty}                  | Y             | ≥4KB          | Host OTA certificate (see<br>[9.10 Host OTA Signature Verification](elpg-ota-updates.md#elpg-hota-sig-verification "elpg-ota-updates.md#elpg-hota-sig-verification")).                                                                                                 |
-| OTAcertificate                                     | W                       | Vendor OTA Certificate   | N             | ≥4KB          | Module OTA certificate. Vendor and Model specific (see<br>[9.5 Module OTA signature verification](elpg-ota-updates.md#elpg-ota-signature-verification "elpg-ota-updates.md#elpg-ota-signature-verification")).<br>(Wi-Fi modules only.)                                |
-| SSID                                               | R/W                     | {Empty}                  | Y             | 32            | SSID of local router (Wi-Fi modules only).                                                                                                                                                                                                                             |
-| Passphrase                                         | W                       | {Empty}                  | Y             | 64            | Passphrase of local router (Wi-Fi modules only).                                                                                                                                                                                                                       |
-| APN                                                | R/W                     | {default}                | Y             | 128           | Access Point Name (Cellular modules only).                                                                                                                                                                                                                             |
-| KeepAlive                                          | R/W                     | {default}                | N             | >=8           | The MQTT keep alive period in seconds.                                                                                                                                                                                                                                 |
-| LWTConfig                                          | R/W                     | {default}                | N             | >=128         | A JSON object describing the configuration of<br>the Last Will and Testament Topic and options<br>in case of unexpected connection loss. Expected<br>keys are: “topic”, “qos”, and “retain”.<br>Example: {“topic”: “abcde”, “qos”:0, “retain”:0}                       |
-| LWTMessage                                         | R/W                     | {default}                | N             | >=128         | Message to publish as Last Will and Testament<br>in case of unexpected connection loss. This can<br>can be any valid MQTT message.                                                                                                                                     |
+Table 2 - Configuration Dictionary Persistent Keys| Configuration Parameter | Type | Initial Value | Factory Reset | Buff Size | Description |
+| --- | --- | --- | --- | --- | --- |
+| About | R | Vendor<br>• Model | N | 64 | A concatenation of Vendor name and Model name (also see<br>11.1.5.3). |
+| Version | R | X.Y.Z<br>[suffix] | N | 32 | The specific module firmware version (also see 11.1.5.3). Note:<br>an optional alphanumeric suffix may be present. |
+| TechSpec | R | TechSpec version | N | 16 | The Technical Specification version this model implements<br>(for example 'v0.6', 'v1.1.2'). |
+| ThingName | R | UID | N | 64 | The UID provided by the HW root of trust and present in<br>the device certificate (also see 11.1.3.1)<br>[12.1.3 ExpressLink Birth Certificate](elpg-provisioning.md#elpg-provisioning-birth-certificate "elpg-provisioning.md#elpg-provisioning-birth-certificate")). |
+| Certificate | R | Device Birth Certificate | N | ≥4KB | Device certificate used to authenticate with AWS cloud, signed by the<br>manufacturer CA (also see<br>[12.1.3 ExpressLink Birth Certificate](elpg-provisioning.md#elpg-provisioning-birth-certificate "elpg-provisioning.md#elpg-provisioning-birth-certificate")). |
+| CustomName | R/W | {empty} | Y | ≥128 | Custom Product Name, can be set by the host. |
+| Endpoint | R/W | Staging account endpoint | Y | ≥128 | The endpoint of the AWS account to which the ExpressLink module<br>connects (also see<br>[21.3.2 ExpressLink onboarding states and transitions](elpg-provisioning.md#elpg-provisioning-onboarding-states "elpg-provisioning.md#elpg-provisioning-onboarding-states")). |
+| RootCA | R/W | AWS root CA | N | ≥4KB | The server root certificate that will be used to authenticate<br>the cloud Endpoint (also see [9.12 Server Root Certificate Update](elpg-ota-updates.md#elpg-server-root-cert "elpg-ota-updates.md#elpg-server-root-cert")). |
+| ShadowToken | R/W | ExpressLink | Y | 64 | The default client-token that will be used to mark Device<br>Shadow updates. |
+| DefenderPeriod | R/W | 0 | Y | ≥8 | The Device Defender upload period in seconds.<br>(0 indicates the service is disabled.) |
+| HOTAcertificate | R/W | {empty} | Y | ≥4KB | Host OTA certificate (see<br>[9.10 Host OTA Signature Verification](elpg-ota-updates.md#elpg-hota-sig-verification "elpg-ota-updates.md#elpg-hota-sig-verification")). |
+| OTAcertificate | W | Vendor OTA Certificate | N | ≥4KB | Module OTA certificate. Vendor and Model specific (see<br>[9.5 Module OTA signature verification](elpg-ota-updates.md#elpg-ota-signature-verification "elpg-ota-updates.md#elpg-ota-signature-verification")).<br>(Wi-Fi modules only.) |
+| SSID | R/W | {Empty} | Y | 32 | SSID of local router (Wi-Fi modules only). |
+| Passphrase | W | {Empty} | Y | 64 | Passphrase of local router (Wi-Fi modules only). |
+| APN | R/W | {default} | Y | 128 | Access Point Name (Cellular modules only). |
+| KeepAlive | R/W | {default} | N | >=8 | The MQTT keep alive period in seconds. |
+| LWTConfig | R/W | {default} | N | >=128 | A JSON object describing the configuration of<br>the Last Will and Testament Topic and options<br>in case of unexpected connection loss. Expected<br>keys are: “topic”, “qos”, and “retain”.<br>Example: {“topic”: “abcde”, “qos”:0, “retain”:0} |
+| LWTMessage | R/W | {default} | N | >=128 | Message to publish as Last Will and Testament<br>in case of unexpected connection loss. This can<br>can be any valid MQTT message. |
 
 The additional configuration parameters in Table 3 are non-persistent. They
 are re-initialized at power up, and following any reset event. The host processor
 might have to re-configure them following a reset and (possibly) a
 _deep sleep_ awakening (depending on the implementation).
 
-| Table 3 - Configuration dictionary non-persistent keys                                                                                                                                                                | Configuration Parameter | Type    | Initial Value | Buff Size                                     | Description |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------- | ------------- | --------------------------------------------- | ----------- |
-| QoS                                                                                                                                                                                                                   | R/W                     | 0       | 1             | QoS level selected for SEND commands          |
-| Topic1                                                                                                                                                                                                                | R/W                     | {Empty} | ≥128          | Custom defined topic 1                        |
-| Topic2                                                                                                                                                                                                                | R/W                     | {Empty} |               | Custom defined topic 2                        |
-| ...                                                                                                                                                                                                                   |                         |         |               |                                               |
-| Topic<Max Topic>                                                                                                                                                                                                      | R/W                     | {Empty} |               | Custom defined topic MaxTopic                 |
-| EnableShadow                                                                                                                                                                                                          | R/W                     | 0       | 1             | 0<br>• disabled, or 1<br>• enabled            |
+Table 3 - Configuration dictionary non-persistent keys| Configuration Parameter | Type | Initial Value | Buff Size | Description |
+| --- | --- | --- | --- | --- |
+| QoS | R/W | 0 | 1 | QoS level selected for SEND commands |
+| Topic1 | R/W | {Empty} | ≥128 | Custom defined topic 1 |
+| Topic2 | R/W | {Empty} | | Custom defined topic 2 |
+| ... | | | | |
+| Topic<Max Topic> | R/W | {Empty} | | Custom defined topic MaxTopic |
+| EnableShadow | R/W | 0 | 1 | 0<br>• disabled, or 1<br>• enabled |
 | Shadow configuration parameters (required<br>only by modules that support the Shadow feature, see<br>[10.2 AWS IoT Device Shadow](elpg-iot-services.md#elpg-device-shadow "elpg-iot-services.md#elpg-device-shadow")) |
-| Shadow1                                                                                                                                                                                                               | R/W                     | {Empty} | 64            | Custom defined named shadow                   |
-| ...                                                                                                                                                                                                                   |                         |         |               |                                               |
-| Shadow<MaxShadow>                                                                                                                                                                                                     | R/W                     | {Empty} |               | Custom defined named shadow                   |
-| BLE configuration parameters (required<br>only by modules that support BLE host control, see<br>[13 Bluetooth Low Energy (BLE)](elpg-ble.md "elpg-ble.md"))                                                           |
-| BLECentral1                                                                                                                                                                                                           | R/W                     | {Empty} | ≥ 128         | GAP Central discovery/connect configurations. |
-| BLECentral2                                                                                                                                                                                                           | R/W                     | {Empty} | ≥ 128         |                                               |
-| ...                                                                                                                                                                                                                   |                         |         |               |                                               |
-| BLECentral<MaxBLECentral>                                                                                                                                                                                             | R/W                     | {Empty} | ≥ 128         |                                               |
-| BLEGATT1                                                                                                                                                                                                              | R/W                     | {Empty} | ≥ 128         | GATT Characteristic definitions (JSON).       |
-| BLEGATT2                                                                                                                                                                                                              | R/W                     | {Empty} | ≥ 128         |                                               |
-| ...                                                                                                                                                                                                                   |                         |         |               |                                               |
-| BLEGATT<MaxBLEGatt>                                                                                                                                                                                                   | R/W                     | {Empty} | ≥ 128         |                                               |
-| BLEPeripheral                                                                                                                                                                                                         | R/W                     | {Empty} | ≥ 128         | GAP Peripheral advertising configuration.     |
-| BLEAllowList                                                                                                                                                                                                          | R                       | {Empty} | ≥ 128         | BLE Allow list                                |
-| BLEBondLIstl                                                                                                                                                                                                          | R                       | {Empty} | ≥ 128         | BLE Bonding list                              |
+| Shadow1 | R/W | {Empty} | 64 | Custom defined named shadow |
+| ... | | | | |
+| Shadow<MaxShadow> | R/W | {Empty} | | Custom defined named shadow |
+| BLE configuration parameters (required<br>only by modules that support BLE host control, see<br>[13 Bluetooth Low Energy (BLE)](elpg-ble.md "elpg-ble.md")) |
+| BLECentral1 | R/W | {Empty} | ≥ 128 | GAP Central discovery/connect configurations. |
+| BLECentral2 | R/W | {Empty} | ≥ 128 | |
+| ... | | | | |
+| BLECentral<MaxBLECentral> | R/W | {Empty} | ≥ 128 | |
+| BLEGATT1 | R/W | {Empty} | ≥ 128 | GATT Characteristic definitions (JSON). |
+| BLEGATT2 | R/W | {Empty} | ≥ 128 | |
+| ... | | | | |
+| BLEGATT<MaxBLEGatt> | R/W | {Empty} | ≥ 128 | |
+| BLEPeripheral | R/W | {Empty} | ≥ 128 | GAP Peripheral advertising configuration. |
+| BLEAllowList | R | {Empty} | ≥ 128 | BLE Allow list |
+| BLEBondLIstl | R | {Empty} | ≥ 128 | BLE Bonding list |
 
 ## 6.1 Data values referenced
 
@@ -98,7 +98,7 @@ If the parameter (value) length exceeds the buffer size as defined in
 
 ## 6.2 Dictionary data access - CONF command
 
-### 6.2.1 CONF KEY=*{value}*   »Assignment«
+### 6.2.1 CONF KEY=_{value}_   »Assignment«
 
 Assign a value to a configuration parameter present in the configuration
 dictionary. (See [9.11.2 CONF? {certificate} pem   »Special certificate output formatting option«](elpg-ota-updates.md#elpg-ota-confq-command "elpg-ota-updates.md#elpg-ota-confq-command")).
@@ -158,7 +158,7 @@ HOTAcertificate) if a required signature verification failed, then the module
 returns 'INVALID SIGNATURE'. (See [9.11 Host OTA certificate update](elpg-ota-updates.md#elpg-hota-cert-update "elpg-ota-updates.md#elpg-hota-cert-update") for more detail on the signature
 verification rules that apply to different types of certificates.)
 
-### 6.2.2 CONF? *key*   »Read the value of a configuration parameter«
+### 6.2.2 CONF? _key_   »Read the value of a configuration parameter«
 
 ###### Returns:
 

@@ -8,15 +8,15 @@ ExpressLink devices support the [AWS IoT Device
 Defender](../../../iot/latest/developerguide/device-defender.md "../../../iot/latest/developerguide/device-defender.md") service. They can publish a basic set of metrics to AWS IoT Core at
 a configurable interval, including the table below:
 
-| Table 7 - ExpressLink Defender metrics | ExpressLink Custom Metric | Type                                                       | Description |
-| -------------------------------------- | ------------------------- | ---------------------------------------------------------- | ----------- |
-| Bytes Out                              | Count                     | Number of bytes sent since last update.                    |
-| Messages sent                          | Count                     | Number of messages sent since last update.                 |
-| Messages received                      | Count                     | Number of messages received since last update.             |
-| Hard Reset Event                       | Flag                      | Set to 1 if a hardware reset occurred since last update.   |
-| Reconnect Events                       | Flag                      | Set to 1 if a reconnect occurred since last update.        |
-| Flash Memory Writes                    | Count                     | Number of writes to flash memory since last update.        |
-| <Module-Name Prefix> Custom Metric(s)  |                           | One or more manufacturer/module specific custom metrics... |
+Table 7 - ExpressLink Defender metrics| ExpressLink Custom Metric | Type | Description |
+| --- | --- | --- |
+| Bytes Out | Count | Number of bytes sent since last update. |
+| Messages sent | Count | Number of messages sent since last update. |
+| Messages received | Count | Number of messages received since last update. |
+| Hard Reset Event | Flag | Set to 1 if a hardware reset occurred since last update. |
+| Reconnect Events | Flag | Set to 1 if a reconnect occurred since last update. |
+| Flash Memory Writes | Count | Number of writes to flash memory since last update. |
+| <Module-Name Prefix> Custom Metric(s) | | One or more manufacturer/module specific custom metrics... |
 
 All ExpressLink custom metrics are volatile in nature, as their values are reset
 to 0 after each periodic update (or set to 1 upon a device reset/reboot for the
@@ -98,7 +98,7 @@ to simultaneously support a maximum number of named shadow documents
 documented in the manufacturer's module datasheet.
 
 The corresponding list of non-persistent parameters,
-**Shadow1 .. Shadow\***{MaxShadow}\*,
+**Shadow1 .. Shadow***{MaxShadow}*,
 will be pre-populated in the Configuration Dictionary and initialized to empty strings.
 (See [Table 3 - Configuration dictionary non-persistent keys](elpg-configuration-dictionary.md#elpg-table3 "elpg-configuration-dictionary.md#elpg-table3").)
 
@@ -280,7 +280,7 @@ OK 1 {"state": { "lamp": { "switch": "ON" } }, "version": 11, "timestamp": 1234 
 OK 0 {…} {EOL}              # The Device Shadow document request was rejected!
 ```
 
-### 10.2.6 SHADOW*[#]* UPDATE *{new state}*   »Request a device shadow document update«
+### 10.2.6 SHADOW*[#]* UPDATE _{new state}_   »Request a device shadow document update«
 
 Send a request to the Device Shadow service to update a device shadow. The
 _{new state}_ is a JSON document and should NOT contain a

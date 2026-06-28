@@ -28,8 +28,7 @@ See the [Document history](elpg-history.md "elpg-history.md") for changes in thi
 - [Appendix – Manufacturer Module Datasheet Requirements](elpg-appendix-b.md "elpg-appendix-b.md")
 - [Document history](elpg-history.md "elpg-history.md")
 - [Archive](elpg-archive.md "elpg-archive.md")
-
- 
+   
 
 **AWS IoT ExpressLink commands**
 

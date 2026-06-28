@@ -104,8 +104,8 @@ BLEPeripheral configuration parameters use JSON notation and expect the followin
 - **filterPolicy**:
   Used to apply a filter policy using the following keys:
 
-  - "**ALLOW_LIST_SCAN**": to grant scan requests to devices in the AllowList.
-  - "**ALLOW_LIST_CONNECT**": to grant connection requests to devices in the AllowList.
+  - "**ALLOW\_LIST\_SCAN**": to grant scan requests to devices in the AllowList.
+  - "**ALLOW\_LIST\_CONNECT**": to grant connection requests to devices in the AllowList.
 
 - **address**: is specified as:
 
@@ -128,12 +128,12 @@ by editing the advertisement configuration filterPolicy and re-advertising,
 it is not possible to do the same with the address type.
 For address type changes to take effect, you need to AT+RESET the device.
 
-| Table 8 - BLEPeripheral filterPolicy configuration options | ALLOW_LIST_CONNECT | ALLOW_LIST_SCAN                                                                     | Description |
-| ---------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------- | ----------- |
-| 0                                                          | 0                  | Allow both scan and connection request from anyone                                  |
-| 0                                                          | 1                  | Allow scan requests from AllowList devices only and connection requests from anyone |
-| 1                                                          | 0                  | Allow scan requests from anyone and connection requests from AllowList devices only |
-| 1                                                          | 1                  | Allow scan and connection requests from AllowList devices only                      |
+Table 8 - BLEPeripheral filterPolicy configuration options| ALLOW\_LIST\_CONNECT | ALLOW\_LIST\_SCAN | Description |
+| --- | --- | --- |
+| 0 | 0 | Allow both scan and connection request from anyone |
+| 0 | 1 | Allow scan requests from AllowList devices only and connection requests from anyone |
+| 1 | 0 | Allow scan requests from anyone and connection requests from AllowList devices only |
+| 1 | 1 | Allow scan and connection requests from AllowList devices only |
 
 - **raw** is used to assign pre-encoded complete (hex) strings
   for the advertisement and response.
@@ -217,14 +217,14 @@ AT+CONF BLEGATT2={"service": "180D", "chr": "2A38" }
 
 _Permission bitmasks_ are defined as decimal values computed as follows:
 
-| Table 9 - Characteristics Permissions Bitmask | Bit Position (lsb to msb) | Permission |
-| --------------------------------------------- | ------------------------- | ---------- |
-| 0                                             | On / Enabled              |
-| 1                                             | Encrypt                   |
-| 2                                             | Authenticate              |
-| 3                                             | Authorize                 |
-| 4                                             | Write-Without-Response    |
-| 5 and higher                                  | Reserved (must be 0)      |
+Table 9 - Characteristics Permissions Bitmask| Bit Position (lsb to msb) | Permission |
+| --- | --- |
+| 0 | On / Enabled |
+| 1 | Encrypt |
+| 2 | Authenticate |
+| 3 | Authorize |
+| 4 | Write-Without-Response |
+| 5 and higher | Reserved (must be 0) |
 
 Details:
 
@@ -248,14 +248,14 @@ overriding the 'write-without-response' option.
 Only if the peripheral has exclusively set the Write-Without-Response flag, a
 'write-without-response' operation is carried out.
 
-| Table 10 - Example Values for Write property | Value (Decimal) | Binary Representation        | Decoding                                                                           | Notes |
-| -------------------------------------------- | --------------- | ---------------------------- | ---------------------------------------------------------------------------------- | ----- |
-| 0                                            | 00000           |                              | Write Disable                                                                      |
-| 1                                            | 00001           | On                           | Write Enabled                                                                      |
-| 3                                            | 00011           | On + Encrypt                 | Encrypted link required for write operation                                        |
-| 7                                            | 00111           | On + Encrypt + Authenticate  | Encrypted and Authenticated (MITM protected) link required for write operation     |
-| 9                                            | 01001           | On + Authorize               | Trigger authorization event before allowing write operation for this attribute     |
-| 18                                           | 10010           | Encrypt + Write-Without-Resp | Encrypted but only write without response operation are allowed for this attribute |
+Table 10 - Example Values for Write property| Value (Decimal) | Binary Representation | Decoding | Notes |
+| --- | --- | --- | --- |
+| 0 | 00000 | | Write Disable |
+| 1 | 00001 | On | Write Enabled |
+| 3 | 00011 | On + Encrypt | Encrypted link required for write operation |
+| 7 | 00111 | On + Encrypt + Authenticate | Encrypted and Authenticated (MITM protected) link required for write operation |
+| 9 | 01001 | On + Authorize | Trigger authorization event before allowing write operation for this attribute |
+| 18 | 10010 | Encrypt + Write-Without-Resp | Encrypted but only write without response operation are allowed for this attribute |
 
 **BLE Descriptors Configuration**
 
@@ -311,7 +311,7 @@ Where:
 - **"mode": "LEGACY"** implies legacy advertisement mode (before BLE spec 5.0).
 - **"IOCapability":{"display":0,"keyboard": 0,"YesNo": 0}** the host has no special I/O
   capability but can perform "Just Works" pairing.
-- **"filterPolicy": {"ALLOW_LIST_SCAN":0,"ALLOW_LIST_CONNECT": 0}** allow both scan and
+- **"filterPolicy": {"ALLOW\_LIST\_SCAN":0,"ALLOW\_LIST\_CONNECT": 0}** allow both scan and
   connection requests from anyone
 - **"raw"** allows full configurability of the advertisement and response data.
 - **"address":{"type":"RPARandom"}** Random Identity Address (automatically generated random
@@ -392,7 +392,7 @@ OK
 
 ## 13.1 BLE initialization
 
-### 13.1.1 BLE INIT *[*CENTRAL|PERIPHERAL*]*   »Initializing the device role«
+### 13.1.1 BLE INIT _[*CENTRAL|PERIPHERAL*]_   »Initializing the device role«
 
 Initialize the BLE interface to operate in the selected (GAP) role. Note how this
 version of the ExpressLink specification allows a device to be configured as Central
@@ -471,7 +471,7 @@ OK
 
 ## 13.2 BLE CENTRAL role commands
 
-### 13.2.1 BLE*[#]* DISCOVER *[duration|*CANCEL*]*   »Scanning and Advertisement«
+### 13.2.1 BLE*[#]* DISCOVER _[duration|*CANCEL*]_   »Scanning and Advertisement«
 
 BLE capable devices can communicate with accessories without establishing permanent
 connections by means of a scanning and advertising protocol. This protocol is commonly
@@ -1214,7 +1214,7 @@ AT+BLE DISCONNECT{EOL}
 OK{EOL}
 ```
 
-### 13.3.3 BLE ADVERTISE *{*CANCEL*}*   »Advertise to nearby devices«
+### 13.3.3 BLE ADVERTISE _{*CANCEL*}_   »Advertise to nearby devices«
 
 Start the advertising process, making the module a connectable, scannable device.
 The process will continue until connected or cancelled by AT+BLE ADVERTISE CANCEL.
@@ -1386,7 +1386,7 @@ OK{EOL}
 The BLE AUTH command allows the host to authorize or deny access to a peripheral characteristic.
 This is used when a characteristic is configured to require a read or write authorization from the host.
 When a central device attempts to perform an authorization protected operation, the module configured as peripheral
-generates a BLE_AUTHORIZE event to notify the host. The host can use this command to authorize or deny access
+generates a BLE\_AUTHORIZE event to notify the host. The host can use this command to authorize or deny access
 as appropriate for application logic.
 
  
@@ -1455,7 +1455,7 @@ automatically after pairing.
 Pairing is a process that can require several steps optionally including user input over a long
 period of time. Once initiated using the AT+PAIR{#} commands, it continues asynchronously. The host
 is notified of progress via the BLE PAIR event (see [Table 4 - ExpressLink event codes](elpg-event-handling.md#elpg-table4 "elpg-event-handling.md#elpg-table4")). The pairing process is aborted if no
-response is received within 30 seconds. A BLE PAIR event with a PAIR_FAIL code followed by a BLE
+response is received within 30 seconds. A BLE PAIR event with a PAIR\_FAIL code followed by a BLE
 DISCONNECT event will be generated.
 
  
@@ -1481,7 +1481,7 @@ Figure 14 - Typical BLE Peripheral initialization and pairing flow
 ### 13.4.3 BLE PAIR?   »Query device pairing status«
 
 Fetch the status of the pairing process. This can be polled at any time or in response to a
-specific BLE PAIR event. If successful, the host can then respond by issuing appropriate PAIR_ACTION(s).
+specific BLE PAIR event. If successful, the host can then respond by issuing appropriate PAIR\_ACTION(s).
 
 ###### Returns:
 
@@ -1493,21 +1493,21 @@ See Table 11 – Pairing Codes to interpret the response.
 
 Device not connected or not initialized.
 
-| Table 11 – Pairing Codes | Code         | Mnemonic                                                            | Description       | Detail |
-| ------------------------ | ------------ | ------------------------------------------------------------------- | ----------------- | ------ |
-| 0                        | NONE         | No pairing in progress                                              | (empty)           |
-| 1                        | PASSKEY_REQ  | Request host to provide a 6-digit passkey                           | (empty)           |
-| 2                        | PASSKEY_RECV | Received a 6-digit passkey for host to display                      | (empty)           |
-| 3                        | NC_VALUE     | Numeric-comparison value ready, host must display and accept/reject | (empty)           |
-| 4                        | PAIR_OK      | Pairing completed successfully                                      | (empty)           |
-| 5                        | PAIR_FAIL    | Security Manager Error – see error code in detail                   | (error code, hex) |
+Table 11 – Pairing Codes| Code | Mnemonic | Description | Detail |
+| --- | --- | --- | --- |
+| 0 | NONE | No pairing in progress | (empty) |
+| 1 | PASSKEY\_REQ | Request host to provide a 6-digit passkey | (empty) |
+| 2 | PASSKEY\_RECV | Received a 6-digit passkey for host to display | (empty) |
+| 3 | NC\_VALUE | Numeric-comparison value ready, host must display and accept/reject | (empty) |
+| 4 | PAIR\_OK | Pairing completed successfully | (empty) |
+| 5 | PAIR\_FAIL | Security Manager Error – see error code in detail | (error code, hex) |
 
 The detailed error codes (hex values) definitions are found in the Bluetooth Core Specification: Vol 3, Part H, § 3.5.5 in the
 [Table 3.7: Pairing Failed reason codes](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-61/out/en/host/security-manager-specification.html#UUID-4fde8eb1-530c-dd12-bbd2-78a326f12f31_table-idm13359014795812 "https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-61/out/en/host/security-manager-specification.html#UUID-4fde8eb1-530c-dd12-bbd2-78a326f12f31_table-idm13359014795812").
 
-### 13.4.4 BLE PAIR_ACTION SET_PASSKEY {6-digit code} »Supply passkey to controller«
+### 13.4.4 BLE PAIR\_ACTION SET\_PASSKEY {6-digit code} »Supply passkey to controller«
 
-Use this action to supply the 6-digit passkey to the controller after you receive a BLE PAIRING event with pairing code: PASSKEY_REQ (2).
+Use this action to supply the 6-digit passkey to the controller after you receive a BLE PAIRING event with pairing code: PASSKEY\_REQ (2).
 
 ###### Returns:
 
@@ -1523,9 +1523,9 @@ The parameter is missing or malformed (expects a 6-digit decimal code).
 
 No passkey request is pending.
 
-### 13.4.6 BLE PAIR_ACTION NC {ACCEPT | REJECT} »Accept or reject numerical code«
+### 13.4.6 BLE PAIR\_ACTION NC {ACCEPT | REJECT} »Accept or reject numerical code«
 
-This command accepts or rejects the numerical code that you receive during the pairing process. Use this in response to pairing code: NC_VALUE(4).
+This command accepts or rejects the numerical code that you receive during the pairing process. Use this in response to pairing code: NC\_VALUE(4).
 
 ###### Returns:
 
@@ -1637,7 +1637,7 @@ BLE not initialized.
 
 Clearing failed.
 
-### 13.4.9 AT+BLE ALLOW_ADD »Add a device to the Allow list«
+### 13.4.9 AT+BLE ALLOW\_ADD »Add a device to the Allow list«
 
 Adds the connected device to the Allow list.
 
@@ -1655,7 +1655,7 @@ No device connected or BLE not initialized.
 
 Command failed. Could not add device to AllowList.
 
-### 13.4.10 AT+BLE ALLOW_REMOVE »Remove a device from the Allow list«
+### 13.4.10 AT+BLE ALLOW\_REMOVE »Remove a device from the Allow list«
 
 Remove the connected device from the Allow list.
 
@@ -1673,7 +1673,7 @@ No device connected or BLE not initialized.
 
 Command failed. Could not remove device from AllowList.
 
-### 13.4.11 AT+BLE ALLOW_CLEAR »Remove all devices from the Allow list«
+### 13.4.11 AT+BLE ALLOW\_CLEAR »Remove all devices from the Allow list«
 
 Remove all devices from the Allow list.
 
