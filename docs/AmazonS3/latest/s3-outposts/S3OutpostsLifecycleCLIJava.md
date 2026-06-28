@@ -64,7 +64,7 @@ information.
 2. Submit the JSON file as part of the
    `put-bucket-lifecycle-configuration` CLI command. To
    use this command, replace each `user input
-placeholder` with your own information.
+ placeholder` with your own information.
    For more information about this command, see [put-bucket-lifecycle-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/put-bucket-lifecycle-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3control/put-bucket-lifecycle-configuration.html") in the
    _AWS CLI Reference_.
 

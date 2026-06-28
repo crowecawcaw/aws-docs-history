@@ -32,7 +32,7 @@ access point alias meets all the requirements of a valid S3 on Outposts bucket n
 following parts:
 
 ``access point name
- prefix`-`metadata`--op-s3`
+prefix`-`metadata`--op-s3`
 
 ###### Note
 

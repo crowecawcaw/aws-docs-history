@@ -73,9 +73,9 @@ Based on the ARN format, S3 can then sign and route the request appropriately.
 Whenever a request is sent to the Amazon S3 control plane, the SDK extracts the components
 from the ARN and includes the additional header
 `x-amz-`outpost-id`, with the
- `outpost-id``value extracted from the ARN.
- The service name from the ARN is used to sign the request before it is routed to the
- S3 on Outposts endpoint. This behavior applies to all API operations handled by the
+ `outpost-id`` value extracted from the ARN.
+The service name from the ARN is used to sign the request before it is routed to the
+S3 on Outposts endpoint. This behavior applies to all API operations handled by the
 `s3control` client.
 
 The following table lists the extended API operations for Amazon S3 on Outposts and

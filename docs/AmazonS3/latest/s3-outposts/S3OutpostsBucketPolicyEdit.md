@@ -57,7 +57,7 @@ JSON
 
 2. Submit the JSON file as part of the `put-bucket-policy` CLI
    command. To run this command, replace the `user input
-placeholders` with your own information.
+ placeholders` with your own information.
 
 ```
 aws s3control put-bucket-policy --account-id `123456789012` --bucket arn:aws:s3-outposts:`region`:`123456789012`:outpost/`op-01ac5d28a6a232904`/bucket/`example-outposts-bucket` --policy file://`policy1.json`

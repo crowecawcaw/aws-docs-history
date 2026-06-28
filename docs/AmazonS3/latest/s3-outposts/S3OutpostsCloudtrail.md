@@ -107,8 +107,8 @@ For **Data event type**, choose **S3 Outposts**. Choose **Next**.
      that object-level logging is enabled for the bucket.
 
 9. On the **Step 3 Review and create** page, review the trail attributes and the
-   log events that you configured. Then, choose **Create
-   trail**.
+log events that you configured. Then, choose **Create
+trail**.
 
 ###### To disable CloudTrail data events logging for objects in an S3 on Outposts bucket
 

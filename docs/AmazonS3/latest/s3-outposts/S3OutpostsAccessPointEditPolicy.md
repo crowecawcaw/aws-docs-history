@@ -46,7 +46,7 @@ access point by using the AWS Management Console, AWS Command Line Interface (AW
 
 2. Submit the JSON file as part of the `put-access-point-policy`
    CLI command. Replace the `user input
-placeholders` with your own information.
+ placeholders` with your own information.
 
 ```
 aws s3control put-access-point-policy --account-id `123456789012` --name arn:aws:s3-outposts:`region`:`123456789012`:outpost/`op-01ac5d28a6a232904`/accesspoint/`example-outposts-access-point` --policy file://`appolicy1.json`

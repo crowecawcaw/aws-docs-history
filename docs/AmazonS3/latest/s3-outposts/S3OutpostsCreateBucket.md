@@ -50,21 +50,18 @@ The bucket name must:
      bucket name. The bucket name is visible in the URLs that point to the
      objects in the bucket.
 
-5.  For **Outpost**, choose the Outpost where you want the bucket to
-    reside.
-6.  Under **Bucket Versioning**, set the S3 Versioning state for your
-    S3 on Outposts bucket to one of the following options:
+5. For **Outpost**, choose the Outpost where you want the bucket to
+reside. 6. Under **Bucket Versioning**, set the S3 Versioning state for your
+S3 on Outposts bucket to one of the following options:
 
-        * **Disable** (default) – The bucket remains
-         unversioned.
-        * **Enable** – Enables S3 Versioning for the objects in
-         the bucket. All objects added to the bucket receive a unique version ID.
+    * **Disable** (default) – The bucket remains
+     unversioned.
+    * **Enable** – Enables S3 Versioning for the objects in
+     the bucket. All objects added to the bucket receive a unique version ID.
 
-    For more information about S3 Versioning, see [Managing S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md").
-
-7.  (Optional) Add any **optional tags** that you would like to associate
-    with the Outposts bucket. You can use tags to track criteria for individual projects or
-    groups of projects, or to label your buckets by using cost-allocation tags.
+For more information about S3 Versioning, see [Managing S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md"). 7. (Optional) Add any **optional tags** that you would like to associate
+with the Outposts bucket. You can use tags to track criteria for individual projects or
+groups of projects, or to label your buckets by using cost-allocation tags.
 
 By default, all objects stored in your Outposts bucket are stored by using
 server-side encryption with Amazon S3 managed encryption keys (SSE-S3). You can also
@@ -102,9 +99,8 @@ traffic. 12. (Optional for an existing VPC) Choose the **Endpoint access type**:
      network.
 
 13. (Optional) Specify the **Outpost access point policy**. The console
-    automatically displays the **Amazon Resource Name (ARN)** for the access point,
-    which you can use in the policy.
-14. Choose **Create Outposts bucket**.
+automatically displays the **Amazon Resource Name (ARN)** for the access point,
+which you can use in the policy. 14. Choose **Create Outposts bucket**.
 
 ###### Note
 

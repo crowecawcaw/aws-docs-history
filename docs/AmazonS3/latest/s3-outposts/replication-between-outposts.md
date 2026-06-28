@@ -100,11 +100,10 @@ source:
     	 key-value pair in the boxes. To add another tag, repeat the
     	 procedure. For more information about object tags, see [Adding tags for S3 on Outposts buckets](S3OutpostsBucketTags.md "S3OutpostsBucketTags.md").
 
-8. To access your S3 on Outposts source bucket for replication, under **Source access point name**, choose an access point that is attached to the source bucket.
-9. Under **Destination**, choose the access point ARN of the destination
-   Outposts bucket where you want S3 on Outposts to replicate objects. The destination
-   Outposts bucket can be in the same or a different AWS account as the source
-   Outposts bucket.
+8. To access your S3 on Outposts source bucket for replication, under **Source access point name**, choose an access point that is attached to the source bucket. 9. Under **Destination**, choose the access point ARN of the destination
+Outposts bucket where you want S3 on Outposts to replicate objects. The destination
+Outposts bucket can be in the same or a different AWS account as the source
+Outposts bucket.
 
 If the destination bucket is in a different account from the source
 Outposts bucket, you must add a bucket policy to the destination Outposts bucket
@@ -160,10 +159,10 @@ rule configuration:
      sync**. For more information, see [Replication status if Amazon S3 replica modification sync on Outposts is enabled](manage-outposts-replication.md#outposts-replication-status-sync "manage-outposts-replication.md#outposts-replication-status-sync").
 
 13. To finish, choose **Create rule**.
-    After you save your rule, you can edit, enable, disable, or delete your rule. To do so, go
-    to the **Management** tab for the source Outposts bucket, scroll down to
-    the **Replication rules** section, choose your rule, and then
-    choose **Edit rule**.
+After you save your rule, you can edit, enable, disable, or delete your rule. To do so, go
+to the **Management** tab for the source Outposts bucket, scroll down to
+the **Replication rules** section, choose your rule, and then
+choose **Edit rule**.
 
 To use the AWS CLI to set up replication when the source and destination
 Outposts buckets are owned by the same AWS account, you do the
@@ -222,7 +221,7 @@ aws s3control put-bucket-versioning --account-id `123456789012` --bucket arn:aws
    `DESTINATION-OUTPOSTS-BUCKET`
    bucket in the US West (Oregon) (`us-west-2`) Region. To use
    this command, replace the `user input
-placeholders` with your own
+ placeholders` with your own
    information.
 
 ###### Note
@@ -283,7 +282,7 @@ aws s3control put-bucket-versioning --account-id `123456789012` --bucket arn:aws
       ```
       2. Run the following command to create the role. Replace
          the `user input
-placeholders` with your own
+  placeholders` with your own
          information.
 
       ```
@@ -299,7 +298,7 @@ placeholders` with your own
          policy grants permissions for various S3 on Outposts
          bucket and object actions. To use this policy, replace
          the `user input
-placeholders` with your own
+  placeholders` with your own
          information.
 
       JSON
@@ -337,7 +336,7 @@ placeholders` with your own
       2. Run the following command to create a policy and
          attach it to the role. Replace the
          `user input
-placeholders` with your own
+  placeholders` with your own
          information.
 
       ```
@@ -354,7 +353,7 @@ placeholders` with your own
       JSON in a file called `replication.json` to
       the local directory on your computer. To use this configuration,
       replace the `user input
-placeholders` with your own
+  placeholders` with your own
       information.
 
    ```
@@ -377,7 +376,7 @@ placeholders` with your own
    2. Run the following `put-bucket-replication` command
       to add the replication configuration to your source Outposts
       bucket. To use this command, replace the `user
-input placeholders` with your own
+  input placeholders` with your own
       information.
 
    ```
@@ -386,7 +385,7 @@ input placeholders` with your own
    3. To retrieve the replication configuration, use the
       `get-bucket-replication` command. To use this
       command, replace the `user input
-placeholders` with your own
+  placeholders` with your own
       information.
 
    ```
