@@ -43,31 +43,30 @@ the keys and the certificate in a safe place following security best practices.
 
 ## Register as an OEM with AWS
 
-1.  Send an email with the following information to
-    `<expresslink-onboarding@amazon.com>`:
+1. Send an email with the following information to
+   `<expresslink-onboarding@amazon.com>`:
 
-    - Company name
-    - AWS account ID
-    - Technical/Developer Contact (name and email)
-    - Technical Manager Contact (name and email)
+   - Company name
+   - AWS account ID
+   - Technical/Developer Contact (name and email)
+   - Technical Manager Contact (name and email)
 
-2.  When it receives the request, the AWS IoT ExpressLink service team will:
+2. When it receives the request, the AWS IoT ExpressLink service team will:
 
-        * provide a secure mechanism for you to upload the certificate generated
-         in the previous section.
-        * create a
-         [universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier "https://en.wikipedia.org/wiki/Universally_unique_identifier") (UUID), a 128-bit string label for
-         your onboarding functionality. The UUID is required to connect to the
-         Staging Endpoint.
+   - provide a secure mechanism for you to upload the certificate generated
+     in the previous section.
+   - create a
+     [universally unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier "https://en.wikipedia.org/wiki/Universally_unique_identifier") (UUID), a 128-bit string label for
+     your onboarding functionality. The UUID is required to connect to the
+     Staging Endpoint.
+     The AWS IoT ExpressLink service team will send the UUID for the onboarding
+     functionality, instructions for uploading the certificate, related documentation,
+     and terms & conditions to the two technical contacts listed in your request.
 
-    The AWS IoT ExpressLink service team will send the UUID for the onboarding
-    functionality, instructions for uploading the certificate, related documentation,
-    and terms & conditions to the two technical contacts listed in your request.
-
-3.  After you receive the information listed in the previous step, follow the
-    instructions and upload the certificate
-    (``certificate fingerprint`.pem.crt`)
-    that you generated in the previous section.
+3. After you receive the information listed in the previous step, follow the
+   instructions and upload the certificate
+   (``certificate fingerprint`.pem.crt`)
+   that you generated in the previous section.
 
 ###### Warning
 
