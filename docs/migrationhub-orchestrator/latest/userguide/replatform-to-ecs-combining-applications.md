@@ -238,26 +238,25 @@ if __name__=="__main__":
 
 [Show moreShow less](# "#")###### To run the Python script
 
-1.  Install Python 3.8 or later on your application server. For information on how
-    to get the latest version of Python, see the official [Python documentation](https://www.python.org/downloads "https://www.python.org/downloads").
-2.  Install AWS SDK for Python (Boto3). For more information, see [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python "https://aws.amazon.com/sdk-for-python").
-3.  Configure Boto3 credentials. For more information, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html").
-4.  Run the `combine_applications.py` script while specifying
-    values for the following parameters:
+1. Install Python 3.8 or later on your application server. For information on how
+   to get the latest version of Python, see the official [Python documentation](https://www.python.org/downloads "https://www.python.org/downloads").
+2. Install AWS SDK for Python (Boto3). For more information, see [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python "https://aws.amazon.com/sdk-for-python").
+3. Configure Boto3 credentials. For more information, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html").
+4. Run the `combine_applications.py` script while specifying
+   values for the following parameters:
 
-        1. **region** – The Region where your
-         Amazon S3 bucket is located.
-        2. **workflow\_id** – The workflow
-         ID.
-        3. **s3\_input\_path** – The S3 path
-         that has the S3 artifacts uploaded that need to be combined.
-        4. **s3\_output\_path** – The output
-         path given when creating the workflow.
-        5. **temp\_workspace** – The workspace
-         directory to use. The default is `/tmp/`.
-
-    The following example demonstrates running the script with the required
-    parameters:
+   1. **region** – The Region where your
+      Amazon S3 bucket is located.
+   2. **workflow\_id** – The workflow
+      ID.
+   3. **s3\_input\_path** – The S3 path
+      that has the S3 artifacts uploaded that need to be combined.
+   4. **s3\_output\_path** – The output
+      path given when creating the workflow.
+   5. **temp\_workspace** – The workspace
+      directory to use. The default is `/tmp/`.
+      The following example demonstrates running the script with the required
+      parameters:
 
 ```
 python3 combine_applications.py --region `us-west-2` \

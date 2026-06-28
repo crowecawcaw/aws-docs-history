@@ -336,7 +336,6 @@ Q. **When do I need to put my databases in ‘readonly’
 mode?**
 
 A. Based on the type of migration selected there are different points to do this
-
 -
 
 1. For full backup only migrations set the databases to readonly before

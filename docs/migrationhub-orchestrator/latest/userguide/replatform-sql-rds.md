@@ -82,16 +82,16 @@ The details here help us to identify the details of your source SQL Server.
   migrations depending on your use-case.
 - - “_Use only Full backup_” - The template will only create a full
     backup of your databases and restore it on your target.
-  - “_Use Full backup and Differential backup for Cutover_” - A full
-    backup of your databases will be created and restored on the target, after which you
-    can mark the databases readonly, and a differential backup and restore will be used
-    to migrate the remainder of the data.
-  - “_Use Full backup, Differential backup for pre-cutover and T-Log backup for
-    cutover_” - A full backup of your databases will be created and restored
-    on the target. When you are getting ready for cutover, a differential backup and
-    restore will be used to migrate the remainder of the data.  Lastly, after you mark
-    your databases readonly, Tail-Log backups will be used to migrate the remainder of
-    the data.
+    - “_Use Full backup and Differential backup for Cutover_” - A full
+      backup of your databases will be created and restored on the target, after which you
+      can mark the databases readonly, and a differential backup and restore will be used
+      to migrate the remainder of the data.
+    - “_Use Full backup, Differential backup for pre-cutover and T-Log backup for
+      cutover_” - A full backup of your databases will be created and restored
+      on the target. When you are getting ready for cutover, a differential backup and
+      restore will be used to migrate the remainder of the data.  Lastly, after you mark
+      your databases readonly, Tail-Log backups will be used to migrate the remainder of
+      the data.
 - **Allow Migration Without Direct Connect** - This
   template uploads backup files from your source instance to S3 using the AWS CLI. The
   database files are transmitted over an HTTPS to AWS S3. However, if you are not
@@ -229,7 +229,7 @@ JSON
 - Deploy an Amazon EC2 instance and create an instance role.
 - - Attach the `AWSMigrationHubOrchestratorInstanceRolePolicy` and
     `AmazonSSMManagedInstanceCore` managed policies to this role.
-  - Add the following permissions to this role.
+    - Add the following permissions to this role.
 
 JSON
 

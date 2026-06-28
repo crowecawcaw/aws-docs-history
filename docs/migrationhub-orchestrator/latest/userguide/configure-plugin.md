@@ -278,7 +278,7 @@ server.
 
 ###### To set up key-based authentication on your Linux servers
 
-1. Copy the public key that was generated with the name **id_rsa_rubix.pub** from the following folder in the container:
+1. Copy the public key that was generated with the name **id\_rsa\_rubix.pub** from the following folder in the container:
 
 **/opt/amazon/mhub-orchestrator-plugin/remote-auth/linux/keys**. 2. Append the copied public key in the `$HOME/.ssh/authorized_keys` file
 for all of the remote machines. If there is no file available, create it using the
@@ -302,14 +302,14 @@ your application servers.
 
 The public key for the plugin can be found in the following location:
 
-**/opt/amazon/mhub-orchestrator-plugin/remote-auth/linux/keys/id_rsa_rubix.pub**
+**/opt/amazon/mhub-orchestrator-plugin/remote-auth/linux/keys/id\_rsa\_rubix.pub**
 
 This public key must be added to your CA for generating the certificate. 3. Copy the certificate that was generated in the previous step to the following
 location in the plugin:
 
 **/opt/amazon/mhub-orchestrator-plugin/remote-auth/linux/keys**
 
-The name of the certificate must be **id_rsa_rubix-cert.pub**. 4. Provide the certificate file name during setup.
+The name of the certificate must be **id\_rsa\_rubix-cert.pub**. 4. Provide the certificate file name during setup.
 
 ### Set up the source server configuration on Windows servers
 
