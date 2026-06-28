@@ -144,7 +144,7 @@ Segmentation allows you to group products, sites, customers, and channels based 
 **Segmentation table logic:**
 
 - **Within a single row (AND logic)**: When you fill in multiple fields in one row, all of those fields must match for a record to belong to that segment
-- **Across multiple rows (OR logic)**: When you create multiple rows with the same segment_type and segment_value, a record qualifies if it matches any of those rows
+- **Across multiple rows (OR logic)**: When you create multiple rows with the same segment\_type and segment\_value, a record qualifies if it matches any of those rows
 - **NULL values (wildcards)**: Leaving a field blank means "match any value"
 
 The segmentation table supports up to five hierarchy levels for both products and sites, along with additional fields like city, state, country, trading partner, company, and channel.
@@ -152,7 +152,7 @@ The segmentation table supports up to five hierarchy levels for both products an
 **Important considerations:**
 
 - Segment updates apply only to future insights, not historical data
-- segment_type and segment_value must each be 30 characters or fewer
+- segment\_type and segment\_value must each be 30 characters or fewer
 - A single insight can belong to multiple segments
 - Use hierarchy levels when possible, rather than listing hundreds of individual IDs
 

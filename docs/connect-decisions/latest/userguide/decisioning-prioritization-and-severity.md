@@ -53,5 +53,5 @@ You can filter and sort by financial impact to create a remediation roadmap that
 maximizes ROI, focusing first on insights with the highest financial implications.
 
 **Example**: A stockout exception might show $50,000 in
-daily revenue impact based on lost sales. An excess inventory exception might show $2,000
+ daily revenue impact based on lost sales. An excess inventory exception might show $2,000
 in daily cost impact from carrying costs plus potential markdown exposure.

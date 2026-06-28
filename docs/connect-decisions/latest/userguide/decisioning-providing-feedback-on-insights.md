@@ -28,7 +28,7 @@ operational knowledge that the agent should learn.
 alert / insight for electronic connectors at your Frankfurt site. The root cause
 agent attributes the root cause to a demand forecast error. You respond via NLI:
 
-_"The root cause isn't a forecast error — Supplier TP_00001 has a
+_"The root cause isn't a forecast error — Supplier TP\_00001 has a
 contractual max order quantity of 291 units per PO, and the system generated a
 single PO for 1,600 units. The supplier will reject this. Split the PO into
 multiple orders of 291 units or fewer."_
@@ -37,7 +37,7 @@ Decisions Teammate responds: _"Thank you for the correction. I've
 updated the root cause to reflect the supplier's max order quantity constraint.
 The recommendation has been regenerated as 6 split POs (5 x 291 + 1 x 145
 units). This supplier constraint will be applied to all future recommendations
-for TP_00001."_
+for TP\_00001."_
 
 ## Thumbs Up / Thumbs Down Ratings
 
@@ -47,7 +47,7 @@ was accurate and helpful. You can add a comment to provide additional context.
 
 **For example,** you receive a projected stockout
 alert / insight for running shoes at your Northeast distribution center. The RCA
-Agent identifies the root cause: _"Supplier TP_00012 shipment delayed
+Agent identifies the root cause: _"Supplier TP\_00012 shipment delayed
 by 8 days due to port congestion at Long Beach, combined with a 22% demand spike
 driven by the upcoming Boston Marathon."_ The Recommendation Agent
 suggests: _"Reallocate 1,200 units from 6 low-demand Southeast stores

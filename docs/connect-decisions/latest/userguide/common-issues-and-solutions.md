@@ -112,17 +112,17 @@ If you've added consensus rules to incorporate external forecasts but accuracy h
 If a consensus rule doesn't appear to change the forecast:
 
 - **The rule may have been overridden by a higher-priority rule.** Rules are applied in priority order. A later rule can undo an earlier one. Check the rule ordering.
-- **The rule condition may not match any products.** If the rule references a product attribute (e.g., product_group_id) that isn't in the item metadata, it will silently match nothing.
+- **The rule condition may not match any products.** If the rule references a product attribute (e.g., product\_group\_id) that isn't in the item metadata, it will silently match nothing.
 - **The rule language was misinterpreted.** The LLM agent generates code from natural language. Ambiguous phrasing can produce unexpected results. Be as specific and literal as possible. Use exact field names, explicit multipliers, and clear conditions.
 
 ### Consensus plan output is identical to the baseline forecast
 
 If the ConsensusForecast export has the same values as the Forecast (baseline) export, the consensus rules did not execute. Common causes:
 
-- **Dimension mismatch in the join.** The consensus engine joins plan inputs to the baseline on dimension columns (product ID, site ID, date). If the column names differ between the baseline and the plan inputs (e.g., baseline uses item_id while EDI uses product_id), the join produces no matches and all rules fall through to the baseline default. Verify that the dimension mapping in your data flow configuration correctly maps between the two schemas.
+- **Dimension mismatch in the join.** The consensus engine joins plan inputs to the baseline on dimension columns (product ID, site ID, date). If the column names differ between the baseline and the plan inputs (e.g., baseline uses item\_id while EDI uses product\_id), the join produces no matches and all rules fall through to the baseline default. Verify that the dimension mapping in your data flow configuration correctly maps between the two schemas.
 - **Date format mismatch.** The baseline may store dates as 2026-03-02 while plan inputs store them as 2026-03-02T00:00:00.000Z. If the join requires exact match, timezone-aware and timezone-naive dates won't match. Check that date columns are converted to the same format before joining.
 - **Plan inputs not loaded.** Verify that your plan input files (EDI, SIOP, etc.) were successfully ingested. Check the record counts in the system — if they show zero rows for a plan input, the file may have failed to load.
-- **The consensus forecast_id matches the baseline forecast_id.** If both exports share the same forecast_id, the consensus engine produced a direct copy of the baseline without processing. This indicates a system-level issue — contact your support team with the forecast_id and demand_plan_run_id.
+- **The consensus forecast\_id matches the baseline forecast\_id.** If both exports share the same forecast\_id, the consensus engine produced a direct copy of the baseline without processing. This indicates a system-level issue — contact your support team with the forecast\_id and demand\_plan\_run\_id.
 
 ### Consensus rules apply to wrong products or sites
 

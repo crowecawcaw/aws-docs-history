@@ -4,15 +4,14 @@ You can adjust forecasts based on your business knowledge and market insights.
 
 **To edit a forecast:**
 
-1.  Open the chat panel in Plans.
-2.  Specify your adjustment by clearly indicating:
+1. Open the chat panel in Plans.
+2. Specify your adjustment by clearly indicating:
 
-        * Time periods to adjust
-        * Products and sites affected
-        * New forecast values (as absolute numbers or percentage changes)
-        * Reason for your adjustment
-
-    **Example:** "Increase the forecast for Product A at Site B by 15% for January 2026 due to planned promotion."
+   - Time periods to adjust
+   - Products and sites affected
+   - New forecast values (as absolute numbers or percentage changes)
+   - Reason for your adjustment
+     **Example:** "Increase the forecast for Product A at Site B by 15% for January 2026 due to planned promotion."
 
 Monitor the status banner:
 
