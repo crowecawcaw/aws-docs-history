@@ -69,29 +69,29 @@ backups.
 
 ###### To restore an Amazon EFS file system
 
-1.  Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
-2.  Your EFS backup vault receives the access policy `Deny`
-    `backup:StartRestoreJob` upon creation. If you are restoring your backup
-    vault for the first time, you must change your access policy as follows.
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+2. Your EFS backup vault receives the access policy `Deny`
+   `backup:StartRestoreJob` upon creation. If you are restoring your backup
+   vault for the first time, you must change your access policy as follows.
 
-        1. Choose **Backup vaults**.
-        2. Choose the backup vault containing the recovery point you would like to
-         restore.
-        3. Scroll down to the vault **Access policy**
-        4. If present, delete `backup:StartRestoreJob` from the
-         `Statement`. Do this by choosing **Edit**, deleting
-         `backup:StartRestoreJob`, then choosing **Save
-         policy**.
+   1. Choose **Backup vaults**.
+   2. Choose the backup vault containing the recovery point you would like to
+      restore.
+   3. Scroll down to the vault **Access policy**
+   4. If present, delete `backup:StartRestoreJob` from the
+      `Statement`. Do this by choosing **Edit**, deleting
+      `backup:StartRestoreJob`, then choosing **Save
+      policy**.
 
-3.  In the navigation pane, choose **Protected resources** and the
-    EFS file system ID you want to restore.
-4.  On the **Resource details** page, a list of recovery points for
-    the selected file system ID is shown. To restore a file system, in the
-    **Backups** pane, choose the radio button next to the recovery
-    point ID of the file system. In the upper-right corner of the pane, choose
-    **Restore**.
-5.  Specify the restore parameters for your file system. The restore parameters you
-    enter are specific to the resource type that you selected.
+3. In the navigation pane, choose **Protected resources** and the
+   EFS file system ID you want to restore.
+4. On the **Resource details** page, a list of recovery points for
+   the selected file system ID is shown. To restore a file system, in the
+   **Backups** pane, choose the radio button next to the recovery
+   point ID of the file system. In the upper-right corner of the pane, choose
+   **Restore**.
+5. Specify the restore parameters for your file system. The restore parameters you
+   enter are specific to the resource type that you selected.
 
 You can perform a **Full restore**, which restores the entire
 file system. Or, you can restore specific files and directories using
@@ -120,43 +120,41 @@ file system. Or, you can restore specific files and directories using
     	 directories. You can select and restore up to five items within your EFS file
     	 system.
 
-6.  For **Restore location**
+6. For **Restore location**
 
-    - Choose **Restore to directory in source file system** if you
-      want to restore to the source file system.
-    - Choose **Restore to a new file system** if you want to
-      restore to a different file system.
+    * Choose **Restore to directory in source file system** if you
+     want to restore to the source file system.
+    * Choose **Restore to a new file system** if you want to
+     restore to a different file system.
 
-7.  For **File system type**
+7. For **File system type**
 
-        * (Recommended) Choose **Regional** if you want to restore your
-         file system across multiple AWS Availability Zones.
-        * Choose **One Zone** if you want to restore your file system
-         to a single Availability Zone. Then, in the **Availability Zone**
-         dropdown, choose the destination for your restore.
+    * (Recommended) Choose **Regional** if you want to restore your
+     file system across multiple AWS Availability Zones.
+    * Choose **One Zone** if you want to restore your file system
+     to a single Availability Zone. Then, in the **Availability Zone**
+     dropdown, choose the destination for your restore.
 
-    For more information, see [Managing Amazon EFS storage classes](../../../efs/latest/ug/storage-classes.md "../../../efs/latest/ug/storage-classes.md") in
-    the _Amazon EFS User Guide._
+For more information, see [Managing Amazon EFS storage classes](../../../efs/latest/ug/storage-classes.md "../../../efs/latest/ug/storage-classes.md") in
+the _Amazon EFS User Guide._ 8. For **Performance**
 
-8.  For **Performance**
+    * If you chose to perform a **Regional** restore, choose either
+     **(Recommended) General purpose** or **Max
+     I/O**.
+    * If you chose to perform a **One Zone** restore, you must
+     choose **(Recommended) General purpose**. One Zone restores do
+     not support **Max I/O**.
 
-    - If you chose to perform a **Regional** restore, choose either
-      **(Recommended) General purpose** or **Max
-      I/O**.
-    - If you chose to perform a **One Zone** restore, you must
-      choose **(Recommended) General purpose**. One Zone restores do
-      not support **Max I/O**.
+9. For **Enable encryption**
 
-9.  For **Enable encryption**
-
-    - Choose **Enable encryption**, if you want to encrypt your
-      file system. KMS key IDs and aliases appear in the list after they have been
-      created using the AWS Key Management Service (AWS KMS) console.
-    - In the **KMS key** text box, choose the key you want to use
-      from the list.
+    * Choose **Enable encryption**, if you want to encrypt your
+     file system. KMS key IDs and aliases appear in the list after they have been
+     created using the AWS Key Management Service (AWS KMS) console.
+    * In the **KMS key** text box, choose the key you want to use
+     from the list.
 
 10. For **Restore role**, choose the IAM role that AWS Backup will
-    assume for this restore.
+assume for this restore.
 
 ###### Note
 

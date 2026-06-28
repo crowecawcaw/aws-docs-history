@@ -7,14 +7,14 @@ endpoints, AWS Backup supports both Internet Protocols version 4 (IPv4) and vers
 (IPv6) for resource types that support IPv6.
 
 The newer public endpoint
-`backup.`[*Region*]`.api.aws`
+`backup.`[_Region_]`.api.aws`
 has dual-stack capabilities and can resolve either or both IPv4 endpoints and IPv6
 endpoints. When you make a request to a dual-stack AWS Backup API endpoint, the endpoint will
 resolve to the address determined by the configuration of the protocol used by your
 network and client.
 
 The older endpoint
-`backup.`[*Region*]`.amazonaws.com`
+`backup.`[_Region_]`.amazonaws.com`
 can be used for calls that reference only IPv4.
 
 You can view the [public service endpoints for AWS Backup](../../../general/latest/gr/bk.md "../../../general/latest/gr/bk.md") in the Amazon Web Services General Reference. You can

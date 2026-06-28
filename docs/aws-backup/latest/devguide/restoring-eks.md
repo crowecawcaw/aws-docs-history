@@ -297,3 +297,29 @@ recreated by Kubernetes or Amazon EKS:
 To receive notifications about skipped or failed objects during restore, subscribe to
 [SNS event notifications](backup-notifications.md "backup-notifications.md").
 For more information, see [Notification options with AWS Backup](backup-notifications.md "backup-notifications.md").
+
+**OIDC and IRSA considerations for cross-cluster restore**
+
+When restoring an Amazon EKS backup to a different cluster than the source,
+Kubernetes objects referencing IAM Roles for Service Accounts (IRSA) retain the source
+cluster's OIDC provider endpoint. These references exist in service account
+annotations and IAM trust policies. AWS Backup does not automatically update them during
+restore.
+
+If your workloads use IRSA, a cross-cluster restore requires:
+
+- The destination cluster must have an OIDC provider configured.
+- All IAM roles referenced by Kubernetes service accounts must have their
+  trust policies updated to include the destination cluster's OIDC provider
+  endpoint.
+- Service account annotations (`eks.amazonaws.com/role-arn`) will
+  still reference the original roles — verify these match valid roles in the
+  destination account.
+  If these dependencies are not satisfied, pods will fail to assume IAM roles after
+  restore, and restore jobs might report failures during validation.
+
+**Recommendation**: For workloads that require
+cross-cluster or cross-account restore portability, we recommend using
+[EKS Pod Identity](../../../eks/latest/userguide/pod-identities.md "../../../eks/latest/userguide/pod-identities.md")
+instead of IRSA. EKS Pod Identity does not depend on cluster-specific OIDC providers
+and simplifies cross-cluster restore scenarios.

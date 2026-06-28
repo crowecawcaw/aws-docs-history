@@ -70,7 +70,9 @@ To verify if a virtual disk has CBT enabled:
 1. Open the vSphere Client and select a powered-off virtual machine.
 2. Right-click the virtual machine and navigate to
    **Edit Settings** > **Options** > **Advanced/General**
-   > **Configuration Parameters**.
+
+> **Configuration Parameters**.
+
 3. The option `ctkEnabled` needs to equal `True`.
 
 ## Automating virtual machine backup by assigning resources to a backup plan

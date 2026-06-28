@@ -62,7 +62,7 @@ Before setting up Multi-party approval, configure the following access policies:
   AWS Backup logically air-gapped vaults, use the policy
   `arn:aws:mpa::aws:policy/backup.amazonaws.com/CreateRestoreAccessVault`.
   To list available policies, run `aws mpa list-policies --region
-us-east-1`. Multi-party approval team resources can only be created and
+ us-east-1`. Multi-party approval team resources can only be created and
   stored in US East (N. Virginia), so MPA commands must target this Region.
 - **AWS RAM sharing permissions:** When sharing your approval team
   across accounts, use the RAM permission
@@ -132,9 +132,9 @@ How you interact with Multi-party approval depends on your roles and responsibil
 at your organizations, as well as the permissions you have in your AWS Backup accounts.
 
 As shown in the [Multi-party approval User Guide](../../../mpa/latest/userguide/what-is.md "../../../mpa/latest/userguide/what-is.md"), members of your organization who use
-multi-party approval will either be a **_requester_**,
-an **_administrator_**, or an
-**_approver_**. Specific permissions apply to each
+multi-party approval will either be a _**requester**_,
+an _**administrator**_, or an
+_**approver**_. Specific permissions apply to each
 [job
 function](../../../mpa/latest/userguide/mpa-concepts.md "../../../mpa/latest/userguide/mpa-concepts.md"). In accordance with security best practices, an user should only
 fulfill one job function.

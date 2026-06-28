@@ -143,9 +143,9 @@ you if the bucket you select does not meet this requirement.
      modify the BPA (Block Public Access) and S3 versioning default settings.
 
 8. For the encryption of objects in your S3 bucket, you can choose your
-   **Restored object encryption**. Use **original encryption
-   keys** (default), **Amazon S3 key (SSE-S3)**, or
-   **AWS Key Management Service key (SSE-KMS)**.
+**Restored object encryption**. Use **original encryption
+keys** (default), **Amazon S3 key (SSE-S3)**, or
+**AWS Key Management Service key (SSE-KMS)**.
 
 These settings only apply to encryption of the objects in the S3 bucket. This does
 not affect the encryption for the bucket itself.
@@ -174,10 +174,9 @@ not affect the encryption for the bucket itself.
     	 text box. Alternatively, choose **Create key**.
 
 9. In the **Restore role** pane, choose the IAM role that AWS Backup
-   will assume for this restore.
-10. Choose **Restore backup**. The **Restore jobs**
-    pane appears. A message at the top of the page provides information about the restore
-    job.
+will assume for this restore. 10. Choose **Restore backup**. The **Restore jobs**
+pane appears. A message at the top of the page provides information about the restore
+job.
 
 ## Restore Amazon S3 recovery points through AWS CLI
 

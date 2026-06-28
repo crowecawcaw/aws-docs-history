@@ -11,16 +11,15 @@ destination backup vault:
 - A resource selection named `BackupSelectionName`.
 - - The resource assignment backs up the following resources:
 
-    - Any resource tagged with the key-value pair
-      `backupplan:dsi-sandbox-daily`.
-    - Any resource tagged with the value `prod` or values beginning
-      with `prod/`.
+        - Any resource tagged with the key-value pair
+         `backupplan:dsi-sandbox-daily`.
+        - Any resource tagged with the value `prod` or values beginning
+         with `prod/`.
+    - The resource assignment does not back up the following resources:
 
-  - The resource assignment does not back up the following resources:
-
-    - Any RDS, Aurora, Neptune, or DocumentDB cluster.
-    - Any resource tagged with the value `test` or values beginning
-      with `test/`.
+      - Any RDS, Aurora, Neptune, or DocumentDB cluster.
+      - Any resource tagged with the value `test` or values beginning
+        with `test/`.
 
 ```
 Description: "Template that creates Backup Selection and its dependencies"

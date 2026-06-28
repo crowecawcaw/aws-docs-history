@@ -56,7 +56,7 @@ the following AWS Backup API operations to manage your backup notifications.
 AWS Backup supports the following events:
 
 | Job type                | Event                            |
-| ----------------------- | -------------------------------- | ------------------------------ | ------------------------------------ | -------------------- | ------------------------ | ------------------------------- |
+| ----------------------- | -------------------------------- |
 | Backup job              | `BACKUP_JOB_STARTED`             | `BACKUP_JOB_COMPLETED`         | <br>`BACKUP_JOB_SUCCESSFUL`          | `BACKUP_JOB_FAILED`  | <br>`BACKUP_JOB_EXPIRED` | `CONTINUOUS_BACKUP_INTERRUPTED` |
 | Copy job                | `COPY_JOB_STARTED`               | `COPY_JOB_SUCCESSFUL`          | <br>`COPY_JOB_FAILED`                |
 | Restore job             | `RESTORE_JOB_STARTED`            | `RESTORE_JOB_COMPLETED`        | <br>`RESTORE_JOB_SUCCESSFUL`         | `RESTORE_JOB_FAILED` |

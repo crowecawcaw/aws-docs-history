@@ -233,16 +233,15 @@ during the legal hold are deleted within 24 hours after the legal hold is remove
 
 ###### To release a hold using the console
 
-1.  Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
-2.  Enter the description you would like associated with the release.
-3.  Review the details, then click **Release hold**.
-4.  When the Release hold dialogue box appears, confirm your intent to
-    release the hold by typing `confirm` into the text box.
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+2. Enter the description you would like associated with the release.
+3. Review the details, then click **Release hold**.
+4. When the Release hold dialogue box appears, confirm your intent to
+   release the hold by typing `confirm` into the text box.
 
-        1. Check the box that acknowledges you are cancelling the hold.
-
-    On the **Legal holds** page you can see all your holds. If the
-    release was successful, the status of that hold will be shown as `Released`.
+   1. Check the box that acknowledges you are cancelling the hold.
+      On the **Legal holds** page you can see all your holds. If the
+      release was successful, the status of that hold will be shown as `Released`.
 
 To remove a hold programmatically, use the API call
 [CancelLegalHold](../APIReference/API_CancelLegalHold.md "../APIReference/API_CancelLegalHold.md").

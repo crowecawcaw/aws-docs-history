@@ -271,8 +271,8 @@ information:
      (Mbps).
 
 5. _(Optional)_ Repeat the previous step as desired until
-   your bandwidth rate-limit schedule is complete. If you need to delete an interval
-   from your schedule, choose **Remove**.
+your bandwidth rate-limit schedule is complete. If you need to delete an interval
+from your schedule, choose **Remove**.
 
 ###### Important
 

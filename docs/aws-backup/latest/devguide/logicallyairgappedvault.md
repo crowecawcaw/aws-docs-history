@@ -340,7 +340,7 @@ Console
    1. Specify the destination Region.
    2. Destination backup vault drop-down menu displays eligible destination
       vaults. Select one with the type `logically air-gapped
-vault`
+  vault`
 
 6. Select **Copy** once all details are set to your preferences.
 
@@ -538,6 +538,12 @@ aws backup start-restore-job
 See [delete a vault](create-a-vault.md#delete-a-vault "create-a-vault.md#delete-a-vault"). Vaults cannot be deleted if they still
 contain backups (recovery points). Ensure the vault is empty of backups before you initiate
 a delete operation.
+
+###### Note
+
+A restore access backup vault is a view of an underlying logically air-gapped vault and contains no recovery points of its own.
+You can delete it with `DeleteBackupVault` from the recovery account even when it is in FAILED state.
+Vault Lock (compliance mode) does not block this deletion.
 
 Deletion of a vault also deletes the key associated with the vault seven days after
 the vault is deleted in accordance with key deletion policy.
@@ -872,7 +878,7 @@ encryption key during a data loss event.
 - A single key is only used for a specific vault and is not shared with any other
   account or other purpose.
 - These keys are deleted once the assigned (empty) vault is also deleted.
-- These keys are created using the [SYMMETRIC_DEFAULT
+- These keys are created using the [SYMMETRIC\_DEFAULT
   key spec](../../../kms/latest/developerguide/symm-asymm-choose-key-spec.md#symmetric-cmks "../../../kms/latest/developerguide/symm-asymm-choose-key-spec.md#symmetric-cmks").
 - The default rotation policy is 90 days. You can request rotation (once every 6
   months) of service-owned encryption keys for your logically air-gapped vaults through a
@@ -1012,3 +1018,16 @@ a logically air-gapped vault or its recovery points.
 **Resolution:**
 
 - Grant the permissions specified in the [Key policy for CMK encrypted logically air-gapped vault creation](#key-policy-lag-vault-creation "#key-policy-lag-vault-creation") section, then retry the vault creation workflow.
+
+### Restore access backup vault in "FAILED" state cannot be removed
+
+**Error:** A restore access backup vault is stuck in FAILED state. `RevokeRestoreAccessBackupVault` returns an error requiring the vault to be in AVAILABLE state, and `CreateRestoreAccessBackupVault` returns `LimitExceededException`.
+
+**Possible causes:**
+
+- The KMS key policy in the key vault account did not authorize `backup.amazonaws.com` from the recovery account at the time the vault was created.
+- The IAM role used to call `CreateRestoreAccessBackupVault` did not have the `mpa:StartSession` permission required for the Multi-party approval workflow.
+
+**Resolution:** Call `DeleteBackupVault` from the recovery account to remove the FAILED restore access backup vault. `RevokeRestoreAccessBackupVault`
+applies only to vaults in AVAILABLE state. Vault Lock does not prevent this deletion, because a restore access backup vault is a view of the underlying logically air-gapped vault
+and contains no recovery points of its own. After deletion, correct the KMS key policy and add the `mpa:StartSession` permission before recreating the vault.

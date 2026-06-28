@@ -376,8 +376,8 @@ workflow. Retry restore job.
 
 - **Error:** Encountered an issue restore a tenant database on an
   SAP HANA High Availability system: `b* -10709: Connection failed (RTE:[89006]
-System call 'connect' failed, rc=111:Connection refused ([::1]:40404 →
-localhost:30013))\n`
+ System call 'connect' failed, rc=111:Connection refused ([::1]:40404 →
+ localhost:30013))\n`
 
 **Resolution:** Check SAP HANA to ensure that the SYSTEMDB is up
 and running.

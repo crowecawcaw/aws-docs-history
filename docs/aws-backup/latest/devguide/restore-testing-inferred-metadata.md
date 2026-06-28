@@ -40,3 +40,41 @@ input, the restore will not be successful.
 | **Amazon RDS, Aurora, Amazon DocumentDB, Amazon Neptune<br>clusters** | `availabilityZones` with value set to a list of up to three random<br>availability zones<br>`dbClusterIdentifier` with a random value starting with<br>`awsbackup-restore-test`<br>`engine` with value set to the engine of the recovery point being<br>restored                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `availabilityZones`<br>`databaseName`<br>`dbClusterParameterGroupName`<br>`dbSubnetGroupName`<br>`enableCloudwatchLogsExports`<br>`enableIamDatabaseAuthentication`<br>`engine`<br>`engineMode`<br>`engineVersion`<br>`kmskeyId`<br>`port`<br>`optionGroupName`<br>`scalingConfiguration`<br>`vpcSecurityGroupIds`                                                                                    |
 | **Amazon RDS instances**                                              | `dbInstanceIdentifier` with a random value starting with<br>`awsbackup-restore-test-`<br>`deletionProtection` with value set to `false`<br>`multiAz` with value set to `false`<br>`publiclyAccessible` with value set to false                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `allocatedStorage`<br>`availabilityZones`<br>`dbInstanceClass`<br>`dbName`<br>`dbParameterGroupName`<br>`dbSubnetGroupName`<br>`domain`<br>`domainIamRoleName`<br>`enableCloudwatchLogsExports`<br>`enableIamDatabaseAuthentication`<br>`iops`<br>`licensemodel`<br>`multiAz`<br>`optionGroupName`<br>`port`<br>`processorFeatures`<br>`publiclyAccessible`<br>`storageType`<br>`vpcSecurityGroupIds` |
 | **Amazon Simple Storage Service (Amazon S3)**                         | `destinationBucketName` with a random value starting with<br>`awsbackup-restore-test-`<br>`encrypted` with value set to `true`<br>`encryptionType` with value set to `SSE-S3`<br>`newBucket` with value set to `true`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `encryptionType`<br>`kmsKey`                                                                                                                                                                                                                                                                                                                                                                          |
+
+## Format for list-typed override values
+
+Because `RestoreMetadataOverrides` is a map of string key-value pairs,
+override values that represent lists (such as `vpcSecurityGroupIds`,
+`availabilityZones`, `enableCloudwatchLogsExports`,
+`securityGroupIds`, and `subnetIds`) must be specified as
+JSON-array-encoded strings.
+
+For example, to specify a single security group:
+
+```
+"vpcSecurityGroupIds": "[\"sg-012d52c68c6e88f00\"]"
+```
+
+To specify multiple security groups:
+
+```
+"vpcSecurityGroupIds": "[\"sg-012d52c68c6e88f00\",\"sg-abcdef01234567890\"]"
+```
+
+In AWS CloudFormation templates, you can use the `!Sub` intrinsic function to
+reference resource attributes within the JSON-array string:
+
+```
+RestoreMetadataOverrides:
+  vpcSecurityGroupIds: !Sub '["${DBSecurityGroup.GroupId}"]'
+```
+
+For multiple values in CloudFormation:
+
+```
+RestoreMetadataOverrides:
+  vpcSecurityGroupIds: !Sub '["${DBSecurityGroup.GroupId}","${AnotherSecurityGroup.GroupId}"]'
+```
+
+This JSON-array-string format applies to all list-typed overrides in the preceding
+table. For more examples of this format, see [Restore an RDS database](restoring-rds.md "restoring-rds.md").

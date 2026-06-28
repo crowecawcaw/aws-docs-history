@@ -264,7 +264,7 @@ Region. Recovery points copied from another account are not evaluated by this co
 completed within the target restore time.
 
 This control checks if the restore time of a particular resource meets the target
-duration. The rule is NON_COMPLIANT if `LatestRestoreExecutionTimeMinutes` of
+duration. The rule is NON\_COMPLIANT if `LatestRestoreExecutionTimeMinutes` of
 a resource type is
 greater than `maxRestoreTime` in minutes.
 
@@ -290,7 +290,7 @@ for restores containing the same resources.
 
 **Description**: This control evaluates if resources have at least one
 recovery point copied to a logically air-gapped vault within the specified value and time
-frame. This control is NON_COMPLIANT if a recovery point has not been copied to a logically
+frame. This control is NON\_COMPLIANT if a recovery point has not been copied to a logically
 air-gapped vault in the time frame configured for the control.
 
 **Resource**: `AWS Backup: recovery points`

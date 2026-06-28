@@ -218,7 +218,7 @@ configurations:
      and weekly maintenance window.
 
 6. The **SSD Storage capacity** will display the file system’s
-   storage capacity.
+storage capacity.
 
 ###### Note
 

@@ -83,44 +83,43 @@ plan](creating-a-backup-plan.md "creating-a-backup-plan.md") just for SAP HANA r
 
 If you choose to create a new backup plan, you will have three options:
 
-1.  **Option 1: Start with a template**
+1. **Option 1: Start with a template**
 
-    1. Choose a backup plan template.
-    2. Specify a backup plan name.
-    3. Click **Create plan**.
+   1. Choose a backup plan template.
+   2. Specify a backup plan name.
+   3. Click **Create plan**.
 
-2.  **Option 2: Build a new plan**
+2. **Option 2: Build a new plan**
 
-    1. Specify a backup plan name.
-    2. Optionally specify tags to add to backup plan.
-    3. Specify the backup rule configuration.
+   1. Specify a backup plan name.
+   2. Optionally specify tags to add to backup plan.
+   3. Specify the backup rule configuration.
 
-       1. Specify a backup rule name.
-       2. Select an existing vault or create a new backup vault. This is where
-          your backups are stored.
-       3. Specify a backup frequency.
-       4. Specify a backup window.
-       5. Specify the retention period.
-       6. (_Optional_) Configure transition to cold storage and
-          copy to destination settings.
+      1. Specify a backup rule name.
+      2. Select an existing vault or create a new backup vault. This is where
+         your backups are stored.
+      3. Specify a backup frequency.
+      4. Specify a backup window.
+      5. Specify the retention period.
+      6. (_Optional_) Configure transition to cold storage and
+         copy to destination settings.
 
-       ###### Note
+      ###### Note
 
-       Continuous backups (transaction logs) cannot be copied to other Regions
-       or accounts. Snapshot backups can be copied from full backups. 7. (_Optional_) Specify tags to add to recovery
-       points.
+      Continuous backups (transaction logs) cannot be copied to other Regions
+      or accounts. Snapshot backups can be copied from full backups. 7. (_Optional_) Specify tags to add to recovery
+      points.
 
-    4. Click **Create plan**.
+   4. Click **Create plan**.
 
-3.  **Option 3: Define a plan using JSON**
+3. **Option 3: Define a plan using JSON**
 
-        1. Specify the JSON for your backup plan by either modifying the JSON
-         expression of an existing backup plan or creating a new expression.
-        2. Specify a backup plan name.
-        3. Click **Validate JSON**.
-
-    Once the backup plan is created successfully, you can assign resources to the
-    backup plan in the next step.
+   1. Specify the JSON for your backup plan by either modifying the JSON
+      expression of an existing backup plan or creating a new expression.
+   2. Specify a backup plan name.
+   3. Click **Validate JSON**.
+      Once the backup plan is created successfully, you can assign resources to the
+      backup plan in the next step.
 
 Whichever plan you use, ensure you [assign resources](assigning-resources.md "assigning-resources.md").
 You can choose which SAP HANA databases to assign, including system and tenant
@@ -313,9 +312,9 @@ addresses.
 
 - **Error: SSM for SAP registration fails due to HANA password containing
   special characters.** Example errors can include `Error connecting to
-database HBX/HBX when validating its credentials.` or `Discovery failed
-because credentials for HBX/SYSTEMDB either not provided or cannot be
-validated.` after testing a connection using `hdbsql` for
+ database HBX/HBX when validating its credentials.` or `Discovery failed
+ because credentials for HBX/SYSTEMDB either not provided or cannot be
+ validated.` after testing a connection using `hdbsql` for
   `systemdb` and `tenantdb` that was tested from HANA database
   Amazon EC2 instance.
 
@@ -327,8 +326,8 @@ In the AWS Backupconsole on the Jobs page, the backup job details can show a sta
 characters, such as $.
 
 - **Error: `b’* 447: backup could not be completed: [110507] Backint
-exited with exit code 1 instead of 0. console output:
-time...`**
+ exited with exit code 1 instead of 0. console output:
+ time...`**
 
 **Resolution:** The AWS BackInt Agent for SAP HANA installation
 might not have completed successfully. Retry the process to deploy the [AWS

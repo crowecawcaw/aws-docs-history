@@ -78,7 +78,7 @@ backups.
     snapshots and continuous backups with point-in-time recovery.
   - If you initiate a backup job from the Amazon RDS console, this can conflict
     with an Aurora clusters backup job, causing the error `Backup job
-expired before completion.` If this occurs, configure a longer
+   expired before completion.` If this occurs, configure a longer
     backup window in AWS Backup.
   - AWS Backup does not currently pass on the TDE option group when a copy job
     is created. If you intend to use this option group for copy job
@@ -100,7 +100,7 @@ expired before completion.` If this occurs, configure a longer
   `backup:TagResource` if your source resources contain tags or you
   want to add additional tags to your recovery points. Apply the
   `backup:TagResource` permission to `"Resource":
-"arn:aws:backup:*:*:recovery-point:*"`.
+ "arn:aws:backup:*:*:recovery-point:*"`.
 
 ## Troubleshooting deleting resources
 

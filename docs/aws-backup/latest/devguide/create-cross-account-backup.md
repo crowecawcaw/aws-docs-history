@@ -572,4 +572,4 @@ Be aware of the following when using performing cross-account backups in AWS Bac
 - If you delete a copy job role during a cross-account copy, AWS Backup can't unshare
   snapshots from the source account when the copy job completes. In this case, the
   backup job finishes, but the copy job status shows as **`Failed to unshare
-snapshot`**.
+ snapshot`**.

@@ -415,14 +415,14 @@ When this occurs, you'll see the following status message: `"Periodic/snapshot
 The following table shows when a full scan is required when changing BackupOptions for
 existing continuous recovery points:
 
-| Full scan behavior when BackupOptions is modified | Previous BackupOptions                        | New BackupOptions | Full scan |
-| ------------------------------------------------- | --------------------------------------------- | ----------------- | --------- |
-| backupACLs and backupObjectTags enabled           | backupACLs and backupObjectTags disabled      | No                |
-| backupACLs and backupObjectTags enabled           | backupACLs enabled; backupObjectTags disabled | No                |
-| backupACLs and backupObjectTags enabled           | backupACLs disabled; backupObjectTags enabled | No                |
-| backupACLs and backupObjectTags disabled          | backupACLs and backupObjectTags enabled       | Yes               |
-| backupACLs enabled; backupObjectTags disabled     | backupACLs and backupObjectTags enabled       | Yes               |
-| backupACLs disabled; backupObjectTags enabled     | backupACLs and backupObjectTags enabled       | Yes               |
+Full scan behavior when BackupOptions is modified| Previous BackupOptions | New BackupOptions | Full scan |
+| --- | --- | --- |
+| backupACLs and backupObjectTags enabled | backupACLs and backupObjectTags disabled | No |
+| backupACLs and backupObjectTags enabled | backupACLs enabled; backupObjectTags disabled | No |
+| backupACLs and backupObjectTags enabled | backupACLs disabled; backupObjectTags enabled | No |
+| backupACLs and backupObjectTags disabled | backupACLs and backupObjectTags enabled | Yes |
+| backupACLs enabled; backupObjectTags disabled | backupACLs and backupObjectTags enabled | Yes |
+| backupACLs disabled; backupObjectTags enabled | backupACLs and backupObjectTags enabled | Yes |
 
 ## S3 backup completion windows
 

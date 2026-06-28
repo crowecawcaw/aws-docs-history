@@ -7,12 +7,12 @@ Redshift Serverless and AWS Backup support _interchangeable restore_ for data wa
 snapshots. This means you can restore Redshift Serverless backups to [Amazon Redshift provisioned clusters](redshift-backups.md "redshift-backups.md") or restore provisioned backups to Redshift Serverless namespaces.
 This applies only to full database restore, not single table restore.
 
-| Restore capabilities for Redshift Serverless | Restore capabilities                                                                                                                                                                     | Namespace                                                                                              | Single table |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------ |
-| Type of snapshot                             | Manual                                                                                                                                                                                   | Manual                                                                                                 |
-| Information needed                           | • Source snapshot<br>• Target namespace<br>• Workgroup                                                                                                                                   | • Source snapshot<br>• Source database<br>• Source table name<br>• Target database<br>• New table name |
-| Restore target effect                        | Restores to an existing namespace through a destructive restore that overwrites<br>existing data                                                                                         | Restores to a new table                                                                                |
-| Interchangeable restore?                     | Yes.<br>• Redshift Serverless backups can be restored to Amazon Redshift provisioned clusters.<br>• Amazon Redshift provisioned backups can be restored to Redshift Serverless clusters. | Not supported.                                                                                         |
+Restore capabilities for Redshift Serverless| Restore capabilities | Namespace | Single table |
+| --- | --- | --- |
+| Type of snapshot | Manual | Manual |
+| Information needed | • Source snapshot<br>• Target namespace<br>• Workgroup | • Source snapshot<br>• Source database<br>• Source table name<br>• Target database<br>• New table name |
+| Restore target effect | Restores to an existing namespace through a destructive restore that overwrites<br>existing data | Restores to a new table |
+| Interchangeable restore? | Yes.<br>• Redshift Serverless backups can be restored to Amazon Redshift provisioned clusters.<br>• Amazon Redshift provisioned backups can be restored to Redshift Serverless clusters. | Not supported. |
 
 For more information about configurations, see [Snapshots and
 recovery points](../../../redshift/latest/mgmt/serverless-snapshots-recovery-points.md "../../../redshift/latest/mgmt/serverless-snapshots-recovery-points.md") in the _Amazon Redshift Management Guide_.
@@ -42,10 +42,10 @@ following table can help you determine the permissions, role, and policy to use.
 information on managing IAM policies, see [Identity and
 access management in Amazon Redshift](../../../redshift/latest/mgmt/redshift-iam-authentication-access-control.md "../../../redshift/latest/mgmt/redshift-iam-authentication-access-control.md").
 
-| Required permissions and roles for restore operations | Restore target                            | Needed permission(s)                                                                                                                                                                                              | IAM role and policy |
-| ----------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| Amazon Redshift provisioned cluster                   | `redshift:RestoreFromClusterSnapshot`     | `AWSBackupServiceRolePolicyForRestores` contains this permission;<br>it can be used for **aws backup start-restore-job**.                                                                                         |
-| Redshift Serverless namespace                         | `redshift-serverless:RestoreFromSnapshot` | You must add this permission to the role and policy you will use to call<br>**aws backup start-restore-job**.<br>Since this is a destructive restore job, the service role policy for<br>restores cannot be used. |
+Required permissions and roles for restore operations| Restore target | Needed permission(s) | IAM role and policy |
+| --- | --- | --- |
+| Amazon Redshift provisioned cluster | `redshift:RestoreFromClusterSnapshot` | `AWSBackupServiceRolePolicyForRestores` contains this permission;<br>it can be used for **aws backup start-restore-job**. |
+| Redshift Serverless namespace | `redshift-serverless:RestoreFromSnapshot` | You must add this permission to the role and policy you will use to call<br>**aws backup start-restore-job**.<br>Since this is a destructive restore job, the service role policy for<br>restores cannot be used. |
 
 ## Redshift Serverless restore procedure
 

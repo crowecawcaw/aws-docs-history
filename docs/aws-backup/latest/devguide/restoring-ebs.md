@@ -85,11 +85,10 @@ your indexed backups](backup-search.md "backup-search.md") to find the file name
      [Restore S3 data using AWS Backup](restoring-s3.md "restoring-s3.md").
 
 6. For **Restore role**, choose the IAM role that AWS Backup will
-   assume for this restore. If the AWS Backup default role is not present in your account, a
-   **Default role** is created for you with the correct permissions.
-   You can delete this default role or make it unusable.
-7. Choose **Restore backup** (**Restore items** is
-   displayed for file level restore).
+assume for this restore. If the AWS Backup default role is not present in your account, a
+**Default role** is created for you with the correct permissions.
+You can delete this default role or make it unusable. 7. Choose **Restore backup** (**Restore items** is
+displayed for file level restore).
 
 The **Restore jobs** pane will appear. A message at the top of
 the page provides information about the restore job.

@@ -516,8 +516,8 @@ viewed](restore-testing.md#restore-testing-jobs "restore-testing.md#restore-test
 CLI commands `list-restore-jobs-by-protected-resource` or
 `list-restore-jobs`.
 
-1. **\*Error:** `No default VPC for this user. `GroupName` is only supported 
-for EC2-Classic and default VPC.`\*
+1. _**Error:** `No default VPC for this user. `GroupName` is only supported 
+ for EC2-Classic and default VPC.`_
 
 **Solution 1:** Update your restore testing selection and [override](restore-testing-inferred-metadata.md "restore-testing-inferred-metadata.md") the parameter `SubnetId`. The AWS Backup console
 displays this parameter as "Subnet".
@@ -525,9 +525,9 @@ displays this parameter as "Subnet".
 **Solution 2:** Recreate the [default
 VPC](../../../vpc/latest/userguide/default-vpc.md#create-default-vpc "../../../vpc/latest/userguide/default-vpc.md#create-default-vpc").
 
-**Resource types affected:** Amazon EC2 2. **\*Error:**
+**Resource types affected:** Amazon EC2 2. _**Error:**
 `No subnets found for the default VPC [vpc]. Please specify a
- subnet.`\*
+ subnet.`_
 
 **Solution 1:** Update your restore testing selection and [override](restore-testing-inferred-metadata.md "restore-testing-inferred-metadata.md") the `SubnetId` restore parameter. The AWS Backup console
 displays this parameter as "Subnet".
@@ -536,9 +536,9 @@ displays this parameter as "Subnet".
 [Create a default
 subnet](../../../vpc/latest/userguide/default-vpc.md#create-default-subnet "../../../vpc/latest/userguide/default-vpc.md#create-default-subnet") in the default VPC.
 
-**Resource types affected:** Amazon EC2 3. **\*Error:**
+**Resource types affected:** Amazon EC2 3. _**Error:**
 `No default subnet detected in VPC. Please contact AWS Support to recreate default
- Subnets.`\*
+ Subnets.`_
 
 **Solution 1:** Update your restore testing selection and [override](restore-testing-inferred-metadata.md "restore-testing-inferred-metadata.md") the `DBSubnetGroupName` restore parameter. The AWS Backup
 console displays this parameter as Subnet group.
@@ -548,18 +548,18 @@ console displays this parameter as Subnet group.
 subnet](../../../vpc/latest/userguide/default-vpc.md#create-default-subnet "../../../vpc/latest/userguide/default-vpc.md#create-default-subnet") in the default VPC.
 
 **Resource types affected:** Amazon Aurora, Amazon DocumentDB, Amazon RDS,
-Neptune 4. **\*Error:**
-`IAM Role cannot be assumed by AWS Backup`.\*
+Neptune 4. _**Error:**
+`IAM Role cannot be assumed by AWS Backup`._
 
 **Solution:** The restore role must be assumable by AWS Backup. Either
 update the role's trust policy in IAM to allow it to be assumed by
 `"backup.amazonaws.com"` or update your restore testing selection to use a
 role that is assumable by AWS Backup.
 
-**Resource types affected:** all 5. **\*Error:**
+**Resource types affected:** all 5. _**Error:**
 `Access denied to KMS key.` or `The specified AWS KMS key
  *ARN* does not exist, is not enabled or you do not have
- permissions to access it.`\*
+ permissions to access it.`_
 
 **Solution:** Verify the following:
 
@@ -571,23 +571,23 @@ role that is assumable by AWS Backup.
 If the above conditions are not yet met, configure the restore role and the resource
 policies for appropriate access. Then, run the restore testing job again.
 
-**Resource types affected:** all 6. **\*Errors:**
+**Resource types affected:** all 6. _**Errors:**
 `User `ARN`is not authorized to perform
 `action`on`resource`because
  no identity based policy allows the`action`.` or
 `Access denied performing `s3:CreateBucket`on
-`awsbackup-restore-test-xxxxxx``.\*
+`awsbackup-restore-test-xxxxxx``._
 
 **Solution:** The restore role does not have adequate permissions.
 Update the permissions in IAM for the restore role.
 
-**Resource types affected:** all 7. **\*Errors:**
+**Resource types affected:** all 7. _**Errors:**
 `User `ARN`is not authorized to perform
 `action`on`resource`because
  no resource-based policy allows the`action`.` or
 `User `ARN`is not authorized to perform
 `action`on`resource` with an
- explicit deny in a resource based policy.`\*
+ explicit deny in a resource based policy.`_
 
 **Solution:** The restore role does not have adequate access to the
 resource specified in the message. Update the resource policy on the resource

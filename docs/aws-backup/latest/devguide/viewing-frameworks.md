@@ -48,7 +48,7 @@ the controls you included in your frameworks, see the resource component of [AWS
 
 - **Deployment status** refers to your framework’s deployment status.
   This status should most often be `Completed`, but can also be `Create in
-progress`, `Update in progress`, `Delete in progress`, and
+ progress`, `Update in progress`, `Delete in progress`, and
   `Failed`.
 
   - A status of `Failed` means the framework didn't deploy correctly.

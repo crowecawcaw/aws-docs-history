@@ -166,7 +166,7 @@ group. Supported groups include:
 ###### Multi-Region restore through AWS CLI using orchestrated restore metadata
 
 1. Create a restore job using the CLI command `aws backup
-start-restore-job` with the new multi-Region orchestration
+ start-restore-job` with the new multi-Region orchestration
    metadata:
 
 ###### Example
@@ -209,7 +209,7 @@ The metadata structure includes:
      `isDeletionProtectionEnabled` = `TRUE`.
 
 2. Monitor the restore job status using the `aws backup
-describe-restore-job` command:
+ describe-restore-job` command:
 
 ```
 aws backup describe-restore-job --restore-job-id job-12345678
@@ -265,7 +265,7 @@ Region.
 AWS Backup recommends as a best practice to create a cross-Region copy of your backup
 in the other Region from which you plan to restore the Multi-Region cluster, as
 multi-Region restore requires an identical copy of the same recovery point
-[*identical* in this operation means the recovery points have the
+[_identical_ in this operation means the recovery points have the
 same resource name and creation time]. 5. _"Will my restored cluster overwrite my existing
 cluster?"_
 

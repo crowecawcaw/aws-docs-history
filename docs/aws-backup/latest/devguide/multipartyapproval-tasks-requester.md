@@ -60,6 +60,12 @@ has granted the request, AWS Backup creates a restore access backup vault in you
 recovery account so that account will have access to recovery points in the
 connected logically air-gapped vault.
 
+**Required IAM permission:** The IAM role used to call `CreateRestoreAccessBackupVault`
+(CLI: [`create-restore-access-backup-vault`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-restore-access-backup-vault.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/create-restore-access-backup-vault.html"))
+must include the `mpa:StartSession` permission in addition to the required backup permissions. `mpa:StartSession` is required to start the approval session
+that allows the approval team to approve or decline the request. If this permission is missing, the request fails and `CreateRestoreAccessBackupVaultFailed` events appear
+in your AWS CloudTrail logs.
+
 Console
 
 ###### Request access to a logically air-gapped vault

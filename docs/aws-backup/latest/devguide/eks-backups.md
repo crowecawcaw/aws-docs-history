@@ -36,7 +36,7 @@ The following terms are used throughout the Amazon EKS backup documentation. For
 
 - **EKS Cluster Settings:**
 
-  - EKS Cluster [authorization mode](../../../eks/latest/userguide/setting-up-access-entries.md "../../../eks/latest/userguide/setting-up-access-entries.md") set to API or API_AND_CONFIG_MAP for AWS Backup to create [Access Entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md") to access the EKS cluster.
+  - EKS Cluster [authorization mode](../../../eks/latest/userguide/setting-up-access-entries.md "../../../eks/latest/userguide/setting-up-access-entries.md") set to API or API\_AND\_CONFIG\_MAP for AWS Backup to create [Access Entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md") to access the EKS cluster.
 
 - **Permissions:**
 
@@ -221,7 +221,7 @@ There are two conditions to check if you were expecting a `Completed` backup res
 
 No. AWS Backup does not require any agents or add-ons to be installed on your Amazon EKS cluster. The only
 pre-requisite is to have your EKS Cluster's [authorization mode](../../../eks/latest/userguide/setting-up-access-entries.md "../../../eks/latest/userguide/setting-up-access-entries.md")
-set to API or API_AND_CONFIG_MAP for AWS Backup to create [Access Entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md")
+set to API or API\_AND\_CONFIG\_MAP for AWS Backup to create [Access Entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md")
 to access the EKS cluster. 4. _"Does Amazon EKS Backups include Amazon EKS infrastructure components or Amazon ECR images?"_
 
 No. Amazon EKS backups focus on the EKS cluster state and application workloads, not the underlying

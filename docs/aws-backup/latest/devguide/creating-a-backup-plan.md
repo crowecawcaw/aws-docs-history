@@ -45,40 +45,39 @@ section, you will set the backup schedule, window, and lifecycle. 4. **Schedule:
 
 5. **Backup window:**
 
-   1. **Start time** defaults to 12:30 AM (00:30 in 24hr time) in your system’s local
-      timezone.
-   2. **Start within** defaults to 8 hours. You can change this to
-      specify a window of time for the backup to start.
-   3. **Complete within** defaults to 7 days. Ensure that there is enough time for
-      the backup up to complete even if the job starts at the end of the start window.
+    1. **Start time** defaults to 12:30 AM (00:30 in 24hr time) in your system’s local
+     timezone.
+    2. **Start within** defaults to 8 hours. You can change this to
+     specify a window of time for the backup to start.
+    3. **Complete within** defaults to 7 days. Ensure that there is enough time for
+     the backup up to complete even if the job starts at the end of the start window.
 
 6. **[Continuous backups and point-in-time recovery (PITR)](point-in-time-recovery.md "point-in-time-recovery.md"):** You can select **Enable
-   continuous backups for point-in-time recovery (PITR)**. To verify which
-   resources are supported for this type of backup, see the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") matrix.
-7. **Lifecycle**
+continuous backups for point-in-time recovery (PITR)**. To verify which
+resources are supported for this type of backup, see the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") matrix. 7. **Lifecycle**
 
-   1. **Cold storage:** Select this box to let eligible resource
-      types transition to cold storage in accordance with the timetable you specify in the
-      total retention period. To use cold storage, you must have a total retention period
-      of 90 days or greater. However please note the following. Some services support
-      incremental backups. For incremental backups, you must have at least one warm full
-      backup. AWS Backup recommends that you set your lifecycle settings to not move your backup
-      to cold storage until after at least 8 days. If the full backup is transitioned to
-      cold storage too soon (for example, a transition to cold storage after 1 day), AWS Backup
-      will create another warm full backup.
-   2. **Cold storage for Amazon EBS** is [Amazon EBS Snapshots
-      Archive](../../../ebs/latest/userguide/snapshot-archive.md "../../../ebs/latest/userguide/snapshot-archive.md"). Snapshots transitioned to archive storage tier will display
-      in the console as cold tier. If cold storage is enabled, and if your backup
-      frequency is monthly or less often, you can have your backup plan transition EBS
-      snapshots.
-   3. The **total retention period** is the number of days that you
-      store your resource in AWS Backup. It is the total number of days of warm storage plus
-      cold storage.
+    1. **Cold storage:** Select this box to let eligible resource
+     types transition to cold storage in accordance with the timetable you specify in the
+     total retention period. To use cold storage, you must have a total retention period
+     of 90 days or greater. However please note the following. Some services support
+     incremental backups. For incremental backups, you must have at least one warm full
+     backup. AWS Backup recommends that you set your lifecycle settings to not move your backup
+     to cold storage until after at least 8 days. If the full backup is transitioned to
+     cold storage too soon (for example, a transition to cold storage after 1 day), AWS Backup
+     will create another warm full backup.
+    2. **Cold storage for Amazon EBS** is [Amazon EBS Snapshots
+     Archive](../../../ebs/latest/userguide/snapshot-archive.md "../../../ebs/latest/userguide/snapshot-archive.md"). Snapshots transitioned to archive storage tier will display
+     in the console as cold tier. If cold storage is enabled, and if your backup
+     frequency is monthly or less often, you can have your backup plan transition EBS
+     snapshots.
+    3. The **total retention period** is the number of days that you
+     store your resource in AWS Backup. It is the total number of days of warm storage plus
+     cold storage.
 
 8. (_Optional_) You can opt in to have a backup index created
-   with each periodic backup of a supported resource type (continuous backups will have
-   daily indexes created). Only recovery points (backups) that have an associated index
-   can be included in a [backup search](backup-search.md "backup-search.md").
+with each periodic backup of a supported resource type (continuous backups will have
+daily indexes created). Only recovery points (backups) that have an associated index
+can be included in a [backup search](backup-search.md "backup-search.md").
 
 For example, each
 time your backup plan creates an S3 backup, you can have a backup index for that

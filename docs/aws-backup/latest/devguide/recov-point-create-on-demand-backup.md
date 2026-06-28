@@ -62,5 +62,5 @@ tag value. 11. **Advanced backup settings** options vary by resource type:
      from your backup by leaving **Backup Access Control Lists (ACLs)** unselected.
 
 12. Choose **Create on-demand backup**. This opens the
-    **Jobs** page, where you can see a list of jobs and view
-    job status.
+**Jobs** page, where you can see a list of jobs and view
+job status.
