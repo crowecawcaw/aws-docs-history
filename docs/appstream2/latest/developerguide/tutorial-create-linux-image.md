@@ -42,7 +42,7 @@ image builder.
    the following command:
 
 **[ImageBuilderAdmin]$ sudo yum update && sudo yum install
-chromium.x86_64**
+chromium.x86\_64**
 
 ###### Note
 
@@ -50,9 +50,7 @@ Download and install applications only from sites that you trust.
 
 ## Step 2: Generate Application Optimization Manifest File
 
-In this step, you generate a manifest file for each application you installed in step
-
-1.
+In this step, you generate a manifest file for each application you installed in step 1.
 
 ###### To generate a manifest file for optimizing the launch performance of an application
 

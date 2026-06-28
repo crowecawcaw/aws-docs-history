@@ -125,7 +125,7 @@ with desktop applications.
      to the agent.
    - **Enable user control mode** — Allow users to
      observe agent sessions in real time through their browser. Observers
-     see a live view of the desktop as the agent works. In VIEW_STOP mode,
+     see a live view of the desktop as the agent works. In VIEW\_STOP mode,
      observers can stop the agent using a button at the top of the screen.
      Once stopped, the agent must start a new session to resume.
 

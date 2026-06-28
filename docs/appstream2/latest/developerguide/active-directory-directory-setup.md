@@ -56,7 +56,7 @@ contains spaces, when a fleet or image builder attempts to rejoin the
 Active Directory domain, WorkSpaces Applications cannot cycle the computer objects
 correctly and the domain rejoin does not succeed. For information about
 how to troubleshoot this issue, see the
-_DOMAIN_JOIN_INTERNAL_SERVICE_ERROR_ topic for
+_DOMAIN\_JOIN\_INTERNAL\_SERVICE\_ERROR_ topic for
 "The account already exists" message in [Active Directory Domain Join](troubleshooting-notification-codes.md#troubleshooting-notification-codes-ad "troubleshooting-notification-codes.md#troubleshooting-notification-codes-ad").
 
 In addition, the default Computers container is not an OU and cannot
@@ -128,23 +128,22 @@ streaming sessions from your domain-joined fleet.
 
 ###### To configure SAML 2.0 for single sign-on access
 
-1.  Follow the procedures in [Setting Up SAML](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md").
-2.  WorkSpaces Applications requires that the SAML_Subject `NameID` value for the
-    user who is logging in be provided in either of the following
-    formats:
+1. Follow the procedures in [Setting Up SAML](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md").
+2. WorkSpaces Applications requires that the SAML\_Subject `NameID` value for the
+   user who is logging in be provided in either of the following
+   formats:
 
-        * ``domain`\username` using the
-         sAMAccountName
-        * `username@domain.com` using the
-         userPrincipalName
+   - ``domain`\username` using the
+     sAMAccountName
+   - `username@domain.com` using the
+     userPrincipalName
+     If you are using the sAMAccountName format, you can specify the
+     `domain` by using either the
+     NetBIOS name or the fully qualified domain name (FQDN).
 
-    If you are using the sAMAccountName format, you can specify the
-    `domain` by using either the
-    NetBIOS name or the fully qualified domain name (FQDN).
-
-3.  Provide access to your Active Directory users or groups to enable access
-    to the WorkSpaces Applications stack from your identity provider application portal.
-4.  Complete the remaining steps in [Setting Up SAML](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md").
+3. Provide access to your Active Directory users or groups to enable access
+   to the WorkSpaces Applications stack from your identity provider application portal.
+4. Complete the remaining steps in [Setting Up SAML](external-identity-providers-setting-up-saml.md "external-identity-providers-setting-up-saml.md").
 
 ###### To log in a user with SAML 2.0
 

@@ -33,42 +33,40 @@ image.
 
 ###### To share an image that you own with another AWS account
 
-1.  Open the WorkSpaces Applications console at
-    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
-2.  In the navigation pane, choose **Images**, **Image Registry**.
-3.  In the image list, select the image that you want to share.
-4.  Choose **Actions**, **Share**.
-5.  In the **Share image** dialog box, choose **Add account**.
-6.  Type the 12-digit AWS account ID of the account that you want to share the image with, and
-    then select whether the account can do one or both of the following:
+1. Open the WorkSpaces Applications console at
+   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+2. In the navigation pane, choose **Images**, **Image Registry**.
+3. In the image list, select the image that you want to share.
+4. Choose **Actions**, **Share**.
+5. In the **Share image** dialog box, choose **Add account**.
+6. Type the 12-digit AWS account ID of the account that you want to share the image with, and
+   then select whether the account can do one or both of the following:
 
-        * Use the image to launch an image builder, if you want to create a new image.
-        * Use the image with a fleet.
+   - Use the image to launch an image builder, if you want to create a new image.
+   - Use the image with a fleet.
+     To remove an account from the list of accounts that the image is shared with,
+     in the row for the account you want to remove, choose the X icon to the right of
+     the **Use for fleet** option.
 
-    To remove an account from the list of accounts that the image is shared with,
-    in the row for the account you want to remove, choose the X icon to the right of
-    the **Use for fleet** option.
-
-7.  To share the image with more AWS accounts, repeat step 6 for each account that you want to
-    share the image with.
-8.  Choose **Share Image**.
+7. To share the image with more AWS accounts, repeat step 6 for each account that you want to
+   share the image with.
+8. Choose **Share Image**.
 
 ###### To add or update image sharing permissions for an image that you own
 
-1.  Open the WorkSpaces Applications console at
-    [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
-2.  In the navigation pane, choose **Images**, **Image Registry**.
-3.  In the image list, select the image that you want to change the permissions for.
-4.  Below the image list, choose the **Permissions** tab for the image you selected, then choose **Edit**.
-5.  In the **Edit image permissions** dialog box, select or clear one or both of the following image sharing options as needed for one or more AWS accounts. If you clear both options for an account, the image is no longer shared with that account.
+1. Open the WorkSpaces Applications console at
+   [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+2. In the navigation pane, choose **Images**, **Image Registry**.
+3. In the image list, select the image that you want to change the permissions for.
+4. Below the image list, choose the **Permissions** tab for the image you selected, then choose **Edit**.
+5. In the **Edit image permissions** dialog box, select or clear one or both of the following image sharing options as needed for one or more AWS accounts. If you clear both options for an account, the image is no longer shared with that account.
 
-        * Use the image to launch an image builder, if you want to create a new image.
-        * Use the image with a fleet.
+   - Use the image to launch an image builder, if you want to create a new image.
+   - Use the image with a fleet.
+     To remove an account from the list of accounts that the image is shared with,
+     in the row for the account you want to remove, choose the X icon to the right of
+     the **Use for fleet** option.
 
-    To remove an account from the list of accounts that the image is shared with,
-    in the row for the account you want to remove, choose the X icon to the right of
-    the **Use for fleet** option.
-
-6.  To edit image sharing permissions for more AWS accounts, repeat step 5 for each account you
-    want to update permissions for.
-7.  Choose **Update image sharing permissions**.
+6. To edit image sharing permissions for more AWS accounts, repeat step 5 for each account you
+   want to update permissions for.
+7. Choose **Update image sharing permissions**.

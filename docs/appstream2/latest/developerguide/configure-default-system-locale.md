@@ -49,7 +49,7 @@ image. For information about how to create an image, see [Tutorial: Create a Cus
     * Update an existing fleet to use the new image.
 
 12. Associate your fleet with the stack that is assigned to the users for whom you
-    are configuring the default settings.
+are configuring the default settings.
 
 The default system locale setting that you configured is applied to the fleet
 instances and user streaming sessions that are launched from those

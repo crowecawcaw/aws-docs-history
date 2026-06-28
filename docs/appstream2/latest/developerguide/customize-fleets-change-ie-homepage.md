@@ -42,9 +42,9 @@ documentation.
 
    - For **Action**, choose **Update**.
    - For **Hive**, choose
-     **HKEY_CURRENT_USER**.
+     **HKEY\_CURRENT\_USER**.
    - For **Key Path**, browse to and select
-     HKEY_CURRENT_USER\SOFWARE\Microsoft\Internet Explorer\Main.
+     HKEY\_CURRENT\_USER\SOFWARE\Microsoft\Internet Explorer\Main.
    - For **Value Name**, enter **Start
      Page**.
    - For **Value Data**, enter your home page URL.
@@ -57,5 +57,5 @@ documentation.
 To enable your users to choose the **Use Default** button
 in their Internet Explorer browser settings and reset their default home
 page to your company home page, you can also set a value for
-Default_Page_URL without choosing **Apply Once** and
+Default\_Page\_URL without choosing **Apply Once** and
 **Do not Re-Apply**. 8. Choose **OK** and close the GPMC.

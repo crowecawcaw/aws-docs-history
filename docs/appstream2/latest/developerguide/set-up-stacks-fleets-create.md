@@ -203,67 +203,65 @@ it. For more information, see [WorkSpaces Applications Fleet Types](fleet-type.m
      redirected into the streaming session when using the Windows native
      client. For more information, see [Qualify USB Devices for Use with Streaming Applications](qualify-usb-devices.md "qualify-usb-devices.md").
 
-7. Choose **Next**.
-8. If you chose to create an Always-On or On-Demand fleet, for **Step 3:
-   Choose an Image**, choose an image that meets your needs and then
-   choose **Next**.
-9. If you chose to create an Elastic fleet, for **Step 3: Assign
-   applications**, choose the applications that users can launch from
-   this fleet.
-10. For **Step 4: Configure Network**, do the following:
+7. Choose **Next**. 8. If you chose to create an Always-On or On-Demand fleet, for **Step 3:
+Choose an Image**, choose an image that meets your needs and then
+choose **Next**. 9. If you chose to create an Elastic fleet, for **Step 3: Assign
+applications**, choose the applications that users can launch from
+this fleet. 10. For **Step 4: Configure Network**, do the following:
 
-    - To add internet access for fleet instances in a VPC with a public
-      subnet, choose **Default Internet Access**. If you are
-      providing internet access by using a NAT gateway, leave
-      **Default Internet Access** unselected. For more
-      information, see [Internet Access](internet-access.md "internet-access.md").
+    * To add internet access for fleet instances in a VPC with a public
+     subnet, choose **Default Internet Access**. If you are
+     providing internet access by using a NAT gateway, leave
+     **Default Internet Access** unselected. For more
+     information, see [Internet Access](internet-access.md "internet-access.md").
+
 
     ###### Note
 
     Your VPC must provide access to Amazon Simple Storage Service (S3)
-    if you enable features that rely on saving to an S3 bucket. For more
-    information, see [Using Amazon S3 VPC Endpoints for WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
-    - For **VPC** and **Subnet 1**, choose
-      a VPC and at least one subnet that has access to the network resources
-      that your application needs. For increased fault tolerance, we recommend
-      that you choose two subnets in different Availability Zones. For more
-      information, see [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md").
+     if you enable features that rely on saving to an S3 bucket. For more
+     information, see [Using Amazon S3 VPC Endpoints for WorkSpaces Applications Features](managing-network-vpce-iam-policy.md "managing-network-vpce-iam-policy.md").
+    * For **VPC** and **Subnet 1**, choose
+     a VPC and at least one subnet that has access to the network resources
+     that your application needs. For increased fault tolerance, we recommend
+     that you choose two subnets in different Availability Zones. For more
+     information, see [Configure a VPC with Private Subnets and a NAT Gateway](managing-network-internet-NAT-gateway.md "managing-network-internet-NAT-gateway.md").
+
 
     ###### Note
 
     Elastic fleets require that you specify at least two subnets that
-    are in different availability zones.
+     are in different availability zones.
+
 
     If you don't have your own VPC and subnet, you can use the [default VPC](default-vpc-with-public-subnet.md "default-vpc-with-public-subnet.md") or
-    create your own. To create your own, choose the **Create a new
-    VPC** and **Create new subnet** links to
-    create them. Choosing these links opens the Amazon VPC console. After you
-    create your VPC and subnets, return to the WorkSpaces Applications console and choose the
-    refresh icon to the left of the **Create a new VPC**
-    and **Create new subnet** links to display them in the
-    list. For more information, see [Configure a VPC for WorkSpaces Applications](appstream-vpc.md "appstream-vpc.md").
-    - For **Security group(s)**, choose up to five security
-      groups to associate with this fleet. If you don't have your own security
-      group and you don't want to use the default security group, choose the
-      **Create new security group** link to create one.
-      After you create your subnets in the Amazon VPC console, return to the WorkSpaces Applications
-      console and choose the refresh icon to the left of the **Create
-      new security group** link to display them in the list. For
-      more information, see [Security Groups in Amazon WorkSpaces Applications](managing-network-security-groups.md "managing-network-security-groups.md").
-    - For Always-On and On-Demand fleets, for **Active Directory
-      Domain (Optional)**, choose the Active Directory and
-      organizational unit (OU) for your streaming instance computer objects.
-      Ensure that the network access settings you selected enable DNS
-      resolvability and communication with your directory. For more
-      information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md").
+     create your own. To create your own, choose the **Create a new
+     VPC** and **Create new subnet** links to
+     create them. Choosing these links opens the Amazon VPC console. After you
+     create your VPC and subnets, return to the WorkSpaces Applications console and choose the
+     refresh icon to the left of the **Create a new VPC**
+     and **Create new subnet** links to display them in the
+     list. For more information, see [Configure a VPC for WorkSpaces Applications](appstream-vpc.md "appstream-vpc.md").
+    * For **Security group(s)**, choose up to five security
+     groups to associate with this fleet. If you don't have your own security
+     group and you don't want to use the default security group, choose the
+     **Create new security group** link to create one.
+     After you create your subnets in the Amazon VPC console, return to the WorkSpaces Applications
+     console and choose the refresh icon to the left of the **Create
+     new security group** link to display them in the list. For
+     more information, see [Security Groups in Amazon WorkSpaces Applications](managing-network-security-groups.md "managing-network-security-groups.md").
+    * For Always-On and On-Demand fleets, for **Active Directory
+     Domain (Optional)**, choose the Active Directory and
+     organizational unit (OU) for your streaming instance computer objects.
+     Ensure that the network access settings you selected enable DNS
+     resolvability and communication with your directory. For more
+     information, see [Using Active Directory with WorkSpaces Applications](active-directory.md "active-directory.md").
 
-11. Choose **Next**.
-12. For **Step 5: Review**, confirm the details for the fleet. To
-    change the configuration for any section, choose **Edit** and
-    make the needed changes. After you finish reviewing the configuration details,
-    choose **Create**.
-13. In the pricing acknowledgement dialog box, select the acknowledgement check
-    box, and choose **Create**.
+11. Choose **Next**. 12. For **Step 5: Review**, confirm the details for the fleet. To
+change the configuration for any section, choose **Edit** and
+make the needed changes. After you finish reviewing the configuration details,
+choose **Create**. 13. In the pricing acknowledgement dialog box, select the acknowledgement check
+box, and choose **Create**.
 
 ###### Note
 

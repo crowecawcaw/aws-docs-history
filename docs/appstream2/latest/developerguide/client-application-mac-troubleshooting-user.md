@@ -29,9 +29,9 @@ and troubleshoot cases. To collect and share the logs, choose from the
 following options:
 
 - Option 1: Open a terminal and enter `open
-~/Library/Containers/com.amazon.appstreamclient/Data/logs`
+ ~/Library/Containers/com.amazon.appstreamclient/Data/logs`
 - Option 2: Open **Finder**, and choose
-  **Users**, **User_Name**,
+  **Users**, **User\_Name**,
   **Library**, **Containers**,
   **Appstream**, **Data**, and
   **logs**

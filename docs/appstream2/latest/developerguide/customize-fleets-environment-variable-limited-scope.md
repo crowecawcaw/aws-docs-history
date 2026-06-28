@@ -4,8 +4,8 @@ Follow these steps to create an environment variable that is limited in scope to
 the processes that are spawned off the script. This approach is useful when you need
 to use the same environment variable name with different values for different
 applications. For example, if you have two different applications that use the
-environment variable "LIC_SERVER", but each application has a different value for
-"LIC_SERVER".
+environment variable "LIC\_SERVER", but each application has a different value for
+"LIC\_SERVER".
 
 ###### To create an environment variable that is limited in scope
 

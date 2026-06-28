@@ -57,7 +57,7 @@ script.
 If you are using a Microsoft PowerShell script, you must specify the
 "-File" parameter with the name of your post setup script as an
 executable argument. Additionally, ensure that the Execution Policy
-allows your script to be run. To learn more, see [about_Execution_Policies](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2 "https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2") and [What is PowerShell?](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2 "https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2").
+allows your script to be run. To learn more, see [about\_Execution\_Policies](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2 "https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.2") and [What is PowerShell?](https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2 "https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2").
 
 For **Execution duration in seconds** under
 **Script settings**, enter the timeout

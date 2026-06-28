@@ -31,8 +31,8 @@ settings on a domain-joined computer.
   profile.d scripts:
 
 - **User environment variables** in
-  /etc/profile.d/appstream_user_vars.sh
+  /etc/profile.d/appstream\_user\_vars.sh
 - **System environment variables** in
-  /etc/profile.d/appstream_system_vars.sh
+  /etc/profile.d/appstream\_system\_vars.sh
   To access the environment variables, you must explicitly source these files in your
   applications.

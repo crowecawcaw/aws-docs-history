@@ -63,29 +63,26 @@ image builder by doing either of the following:
 
 5. Open Internet Explorer and reset your settings by doing the following:
 
-   1. In the upper right area of the Internet Explorer browser window,
-      choose the **Tools** icon, then choose
-      **Internet options**.
-   2. Choose the **Advanced** tab, then choose
-      **Reset**.
-   3. When prompted to confirm your choice, choose
-      **Reset** again.
-   4. When the **Reset Internet Explorer Settings** message
-      displays, choose **Close**.
+    1. In the upper right area of the Internet Explorer browser window,
+     choose the **Tools** icon, then choose
+     **Internet options**.
+    2. Choose the **Advanced** tab, then choose
+     **Reset**.
+    3. When prompted to confirm your choice, choose
+     **Reset** again.
+    4. When the **Reset Internet Explorer Settings** message
+     displays, choose **Close**.
 
-6. Reboot image builder.
-7. Choose **Admin Commands**, **Switch User**,
-   and then do either of the following:
+6. Reboot image builder. 7. Choose **Admin Commands**, **Switch User**,
+and then do either of the following:
 
-   - If your image builder is not joined to an Active Directory domain, on
+    * If your image builder is not joined to an Active Directory domain, on
      the **Local User** tab, choose
      **Administrator**.
-   - If your image builder is joined to an Active Directory domain, choose
+    * If your image builder is joined to an Active Directory domain, choose
      the **Directory User** tab, and log in with the same
      domain account that you used in step 4.
 
-8. On the image builder desktop, open Image Assistant.
-9. In **Step 2. Configure Apps**, choose **Save
-   settings**.
-10. Follow the necessary steps in Image Assistant to finish creating your image.
-    For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+8. On the image builder desktop, open Image Assistant. 9. In **Step 2. Configure Apps**, choose **Save
+settings**. 10. Follow the necessary steps in Image Assistant to finish creating your image.
+For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").

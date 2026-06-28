@@ -36,7 +36,7 @@ the image builder.
    run the following command:
 
 **[ImageBuilderAdmin]$ sudo yum update && sudo yum install
-chromium.x86_64**
+chromium.x86\_64**
 
 ## Step 2: Create a TemplateUser Account
 

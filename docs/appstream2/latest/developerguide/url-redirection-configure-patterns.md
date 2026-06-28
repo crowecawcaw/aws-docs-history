@@ -17,10 +17,10 @@ https://docs.aws.amazon.com
 
 URL patterns support two wildcard characters for flexible matching.
 
-| Wildcard characters for URL pattern matching | Wildcard                           | Matches                         | Example                                                                          | Matches URLs |
-| -------------------------------------------- | ---------------------------------- | ------------------------------- | -------------------------------------------------------------------------------- | ------------ |
-| `*`                                          | Multiple characters (zero or more) | `https://www.youtube.com/*`     | `https://www.youtube.com/watch?v=abc`,<br>`https://www.youtube.com/playlist/xyz` |
-| `?`                                          | Single character (exactly one)     | `https://www.example.com/page?` | `https://www.example.com/page1`,<br>`https://www.example.com/pageA`              |
+Wildcard characters for URL pattern matching| Wildcard | Matches | Example | Matches URLs |
+| --- | --- | --- | --- |
+| `*` | Multiple characters (zero or more) | `https://www.youtube.com/*` | `https://www.youtube.com/watch?v=abc`,<br>`https://www.youtube.com/playlist/xyz` |
+| `?` | Single character (exactly one) | `https://www.example.com/page?` | `https://www.example.com/page1`,<br>`https://www.example.com/pageA` |
 
 **Common wildcard patterns**
 

@@ -23,9 +23,11 @@ instances. It is not supported on the macOS client.
 
 ###### Note
 
-For security reasons, only qualify USB devices from approved trusted sources.
-Qualifying all generic devices or classes of devices might allow unapproved
-devices to be used with your streaming applications.
+The device qualification process creates a device compatibility filter. This
+filter determines which USB devices are recognized for use during streaming
+sessions. This filter is not a security access control. Do not rely on it as a
+security boundary. Limit qualification to the devices your users need to avoid
+unexpected device behavior during streaming sessions.
 
 1. If you haven't already done so, install the WorkSpaces Applications client. For
    information, see [Install and Configure the WorkSpaces Applications Client](install-configure-client.md "install-configure-client.md").

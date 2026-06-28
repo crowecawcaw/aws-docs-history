@@ -38,7 +38,7 @@ EBS
 - `/dev/sda1` Root Device Name
 
 - Image Type: Machine
-- Architecture: x86_64
+- Architecture: x86\_64
 - Virtualization Type: HVM
 - Boot Mode: UEFI
 - TPM Support: v2.0. This is required, Refer to [https://docs.aws.amazon.com/ec2/latest/windows-ami-reference/ami-windows-tpm.html#ami-windows-tpm-find](../../../ec2/latest/windows-ami-reference/ami-windows-tpm.md#ami-windows-tpm-find "../../../ec2/latest/windows-ami-reference/ami-windows-tpm.md#ami-windows-tpm-find") to find a TPM enabled AMI.
@@ -145,35 +145,29 @@ Your console role will also need to include the `workspaces:DescribeWorkspaceIma
     * **AMI ID** - Enter an AMI ID for AMI that you would like to import to WorkSpaces Applications. You can also search for your AMI using this field.
     * **Amazon WorkSpaces Image** - Enter a WorkSpaces Image ID (starts with "wsi-"). You can also search for your WorkSpaces Image ID using this field.
 
-5.  **Image name** - Enter a unique name for the image that will be created because of import operation.
-6.  **Display name** _(Optional)_ - Enter a display name for the image.
-7.  **Description** _(Optional)_ – Enter a description for the image.
-8.  **IAM Role** - Select the IAM role that you have created for image import. For more details refer to [IAM Role Requirements](#iam-role-requirements "#iam-role-requirements").
+5. **Image name** - Enter a unique name for the image that will be created because of import operation. 6. **Display name** _(Optional)_ - Enter a display name for the image. 7. **Description** _(Optional)_ – Enter a description for the image. 8. **IAM Role** - Select the IAM role that you have created for image import. For more details refer to [IAM Role Requirements](#iam-role-requirements "#iam-role-requirements").
 
-    - Required for EC2 AMI import
-    - Not applicable for WorkSpaces image import
+    * Required for EC2 AMI import
+    * Not applicable for WorkSpaces image import
 
-9.  **Manage WorkSpaces Applications agent** – Select this option if you want to always use the latest WorkSpaces Applications agent version, your streaming instances are automatically updated with the latest features, performance improvements, and security updates that are available from AWS when a new agent version is released.
-10. **Runtime validation** _(Optional)_: Select this option and service will provision an instance with the image being imported and run streaming tests.
+9. **Manage WorkSpaces Applications agent** – Select this option if you want to always use the latest WorkSpaces Applications agent version, your streaming instances are automatically updated with the latest features, performance improvements, and security updates that are available from AWS when a new agent version is released. 10. **Runtime validation** _(Optional)_: Select this option and service will provision an instance with the image being imported and run streaming tests.
 
-    - ###### Note
+    * ###### Note
 
     These streaming tests will be executed in the background, you cannot connect to this instance via WorkSpaces Applications client.
-    - We recommend using this option to get higher confidence that your image is suitable for WorkSpaces Applications.
-    - You will be billed for the hourly price of that instance.
-    - You can avoid running runtime validation if you are re-importing your AMI after making minor changes that may not affect the streaming test, and if runtime validation passed the last time, you imported this AMI.
+    * We recommend using this option to get higher confidence that your image is suitable for WorkSpaces Applications.
+    * You will be billed for the hourly price of that instance.
+    * You can avoid running runtime validation if you are re-importing your AMI after making minor changes that may not affect the streaming test, and if runtime validation passed the last time, you imported this AMI.
 
-    - **Choose instance type** _(Optional)_: Select the right instance family, type, and size for running the streaming test. It is recommended that you use the same instance which you are planning to use for fleet creation.
+
+    * **Choose instance type** *(Optional)*: Select the right instance family, type, and size for running the streaming test. It is recommended that you use the same instance which you are planning to use for fleet creation.
 
 11. **Applications catalog and launch performance manifest** _(Optional)_: Provide details to create applications catalog for your end users and improve the launch performance of your applications.
 
-        * **Application catalog**: To create an application catalog specify details about the applications installed your image. For each application that you plan to stream, you can specify the name, display name, executable file to launch, and icon to display.
-        * **Launch performance**: Adding files to the application optimization manifest reduces the time that it takes for the application to launch for the first time on a new fleet instance. The optimization manifest is a line-delimited text file that is per application.
+    * **Application catalog**: To create an application catalog specify details about the applications installed your image. For each application that you plan to stream, you can specify the name, display name, executable file to launch, and icon to display.
+    * **Launch performance**: Adding files to the application optimization manifest reduces the time that it takes for the application to launch for the first time on a new fleet instance. The optimization manifest is a line-delimited text file that is per application.
 
-    To learn more refer to [Applications Details](applications-details.md "applications-details.md").
+To learn more refer to [Applications Details](applications-details.md "applications-details.md"). 12. **Tags** _(Optional)_ - Choose **Add Tag** and type the key and value for the tag. To add more tags, repeat this step. For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md"). 13. **Import Image** – Review all the information you have entered and choose **Import Image**. Service will run compatibility checks to make sure AMI is compatible with WorkSpaces Applications.
 
-12. **Tags** _(Optional)_ - Choose **Add Tag** and type the key and value for the tag. To add more tags, repeat this step. For more information, see [Tagging Your Amazon WorkSpaces Applications Resources](tagging-basic.md "tagging-basic.md").
-13. **Import Image** – Review all the information you have entered and choose **Import Image**. Service will run compatibility checks to make sure AMI is compatible with WorkSpaces Applications.
-
-    - If the static checks fail, you will receive an error straight away.
-    - If the static checks pass, your import request will be submitted and depending upon the options you have selected it could take 30-60 min to create a new WorkSpaces Applications image with `type = "custom"` or `type = "BYOL"`
+    * If the static checks fail, you will receive an error straight away.
+    * If the static checks pass, your import request will be submitted and depending upon the options you have selected it could take 30-60 min to create a new WorkSpaces Applications image with `type = "custom"` or `type = "BYOL"`

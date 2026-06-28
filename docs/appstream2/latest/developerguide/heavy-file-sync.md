@@ -11,7 +11,7 @@ more information, see [Enable and Administer Home Folders for Your WorkSpaces Ap
 To ensure a smooth experience and address some existing limitations, where an
 inconsistent file sync might be observed when users save large text files from their
 streaming instances to their Home Folders, WorkSpaces Applications administrators can turn on the
-**heavy_sync** configuration option if large file uploads to
+**heavy\_sync** configuration option if large file uploads to
 Amazon S3 is a common user scenario while using WorkSpaces Applications. Turning on this option
 means that it might add some latency to the home folder file sync process, but
 completeness of all syncs to Amazon S3 is guaranteed.

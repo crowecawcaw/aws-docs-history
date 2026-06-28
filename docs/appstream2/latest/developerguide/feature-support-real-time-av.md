@@ -27,86 +27,85 @@ steps.
 
 ###### Configure and test support for real-time AV
 
-1.  Create a new image builder or connect to an existing image builder
-    that meets the following requirements:
+1. Create a new image builder or connect to an existing image builder
+   that meets the following requirements:
 
-        * The image builder must run Windows Server 2016 or Windows
-         Server 2019.
-        * The image builder must use a version of the WorkSpaces Applications agent
-         released on or after June 1, 2021.
-        * For WorkSpaces Applications agents released on or after May 17, 2021,
-         real-time AV is enabled by default. To create a streaming
-         URL for testing, you can skip steps 3 through 6 and
-         disconnect from the image builder. If you need to disable
-         real-time AV, complete all of the steps, and disable webcam
-         permissions in step 4.
-        * The image builder must use a version of the WorkSpaces Applications agent
-         released on or after June 24, 2021 to support video when
-         connecting using web browser access. For more information
-         about supported web browsers, see [Web Browser Access](web-browser-user.md "web-browser-user.md").
+   - The image builder must run Windows Server 2016 or Windows
+     Server 2019.
+   - The image builder must use a version of the WorkSpaces Applications agent
+     released on or after June 1, 2021.
+   - For WorkSpaces Applications agents released on or after May 17, 2021,
+     real-time AV is enabled by default. To create a streaming
+     URL for testing, you can skip steps 3 through 6 and
+     disconnect from the image builder. If you need to disable
+     real-time AV, complete all of the steps, and disable webcam
+     permissions in step 4.
+   - The image builder must use a version of the WorkSpaces Applications agent
+     released on or after June 24, 2021 to support video when
+     connecting using web browser access. For more information
+     about supported web browsers, see [Web Browser Access](web-browser-user.md "web-browser-user.md").
+     For information about how to create an image builder, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
 
-    For information about how to create an image builder, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
+2. Connect to the image builder that you want to use and sign in as
+   Administrator. To connect to the image builder, do either of the
+   following:
 
-2.  Connect to the image builder that you want to use and sign in as
-    Administrator. To connect to the image builder, do either of the
-    following:
+   - [Use the WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections
+     only)
+   - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client
+     connections)
 
-    - [Use the WorkSpaces Applications console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections
-      only)
-    - [Create a streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client
-      connections)
+   ###### Note
 
-    ###### Note
+   If the image builder that you want to connect to is
+   joined to an Active Directory domain and your
+   organization requires smart card sign in, you must
+   create a streaming URL and use the WorkSpaces Applications client for the
+   connection. For information about smart card sign in,
+   see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
 
-    If the image builder that you want to connect to is
-    joined to an Active Directory domain and your
-    organization requires smart card sign in, you must
-    create a streaming URL and use the WorkSpaces Applications client for the
-    connection. For information about smart card sign in,
-    see [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
+3. On the image builder, open Registry Editor. To do so, on the image
+   builder desktop, in the search box on the taskbar, type
+   `regedit`. Then, select the top result for
+   **Registry Editor**.
+4. Under
+   **HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\AppStream\**,
+   create a new registry value that has the following type, name, and
+   value data:
 
-3.  On the image builder, open Registry Editor. To do so, on the image
-    builder desktop, in the search box on the taskbar, type
-    `regedit`. Then, select the top result for
-    **Registry Editor**.
-4.  Under
-    \*\*HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\AppStream\*\*,
-    create a new registry value that has the following type, name, and
-    value data:
+   - Registry value type: DWORD
+   - Registry value name: WebcamPermission
+   - Registry value data (Hexademical): 1 to enable or 0 to
+     disable webcam permissions
 
-    - Registry value type: DWORD
-    - Registry value name: WebcamPermission
-    - Registry value data (Hexademical): 1 to enable or 0 to
-      disable webcam permissions
+5. After you create the registry value, switch to **Template
+   User** or to a domain account that does not have
+   administrator permissions on the image builder. To switch to
+   **Template User**, in the toolbar on the top
+   right of the session window, choose **Admin
+   Commands**, **Switch User**,
+   **Template User**.
+6. Switch back to **Administrator**.
+7. Disconnect from the image builder and create a streaming URL for
+   the image builder. To do so:
 
-5.  After you create the registry value, switch to **Template
-    User** or to a domain account that does not have
-    administrator permissions on the image builder. To switch to
-    **Template User**, in the toolbar on the top
-    right of the session window, choose **Admin
-    Commands**, **Switch User**,
-    **Template User**.
-6.  Switch back to **Administrator**.
-7.  Disconnect from the image builder and create a streaming URL for
-    the image builder. To do so:
+   1. Open the WorkSpaces Applications console at
+      [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
+   2. In the navigation pane, choose
+      **Images**, then choose **Image
+      Builder**.
+   3. Select the image builder from which you just disconnected,
+      and choose **Actions**, **Create
+      streaming URL**.
+   4. Choose **Copy Link** and save the link to
+      a secure and accessible location. You will use the link in
+      the next step to connect to the image builder.
 
-    1. Open the WorkSpaces Applications console at
-       [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2").
-    2. In the navigation pane, choose
-       **Images**, then choose **Image
-       Builder**.
-    3. Select the image builder from which you just disconnected,
-       and choose **Actions**, **Create
-       streaming URL**.
-    4. Choose **Copy Link** and save the link to
-       a secure and accessible location. You will use the link in
-       the next step to connect to the image builder.
-
-8.  Using the streaming URL that you just created, connect to the
-    image builder by using the WorkSpaces Applications client or web browser
-    access.
-9.  Test the real-time AV experience on the image builder by following
-    the steps in [Video and Audio Conferencing](client-application-windows-how-to-use-local-webcam-user.md "client-application-windows-how-to-use-local-webcam-user.md").
+8. Using the streaming URL that you just created, connect to the
+   image builder by using the WorkSpaces Applications client or web browser
+   access.
+9. Test the real-time AV experience on the image builder by following
+   the steps in [Video and Audio Conferencing](client-application-windows-how-to-use-local-webcam-user.md "client-application-windows-how-to-use-local-webcam-user.md").
 10. After you verify that real-time AV is working as expected,
     disconnect from your streaming session, reconnect to the image
     builder and follow the necessary steps in Image Assistant to finish

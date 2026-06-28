@@ -27,7 +27,7 @@ account.
    the trust relationship is correctly configured. Choose
    **Cancel** and close the IAM console.
 
-## AWSServiceRoleForApplicationAutoScaling_AppStreamFleet trust relationship policy
+## AWSServiceRoleForApplicationAutoScaling\_AppStreamFleet trust relationship policy
 
 The `AWSServiceRoleForApplicationAutoScaling_AppStreamFleet` trust
 relationship policy must include **appstream.application-autoscaling.amazonaws.com** as the principal. This

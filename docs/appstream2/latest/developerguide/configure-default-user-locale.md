@@ -48,7 +48,7 @@ For information about how to create an image, see [Tutorial: Create a Custom Wor
     * Update an existing fleet to use the new image.
 
 11. Associate your fleet with the stack that is assigned to the users for whom you
-    are configuring the default settings.
+are configuring the default settings.
 
 The default user locale setting that you configured is applied to the fleet
 instances and user streaming sessions that are launched from those

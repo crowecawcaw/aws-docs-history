@@ -36,7 +36,7 @@ packages of your choice.
 
 **sudo yum install vlgothic-p-fonts.noarch**
 
-**sudo yum install ibus-kkc.x86_64** 3. In addition to the above commands, for Rocky Linux and Red Hat Enterprise
+**sudo yum install ibus-kkc.x86\_64** 3. In addition to the above commands, for Rocky Linux and Red Hat Enterprise
 Linux, run the following command:
 
 **sudo yum install glibc-langpack-ja**
@@ -55,12 +55,12 @@ To set the system locale and display language, run the following commands.
 
 1. Update the `cloud-init config` file by running the command
    **sudo vim /etc/cloud/cloud.cfg**, and change
-   **locale** to **locale: ja_JP.utf8**, then
+   **locale** to **locale: ja\_JP.utf8**, then
    save and close the file.
 2. Update the system settings by running **sudo localectl set-locale
-   LANG=ja_JP.utf8**.
+   LANG=ja\_JP.utf8**.
 3. Update the Gnome shell settings by running **sudo gsettings set
-   org.gnome.system.locale region "ja_JP.utf8"**.
+   org.gnome.system.locale region "ja\_JP.utf8"**.
 
 ## Step 4: Configure the Input Methods
 

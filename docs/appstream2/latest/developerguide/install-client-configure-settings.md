@@ -35,7 +35,7 @@ installation files and a Group Policy administrative template.
    opens a .zip file that contains the required files for the latest
    version of the tool.
 2. To extract the required files, navigate to the location where you downloaded the tool, right-click the
-   **AmazonAppStreamClient_EnterpriseSetup\_<version>**
+   **AmazonAppStreamClient\_EnterpriseSetup\_<version>**
    folder, and choose **Extract All**. The folder contains
    two installation programs and a Group Policy administrative
    template:
@@ -43,7 +43,7 @@ installation files and a Group Policy administrative template.
    - WorkSpaces Applications client installer (AmazonAppStreamClientSetup\_<version>.msi) — Installs the
      WorkSpaces Applications client.
    - WorkSpaces Applications USB driver installer (AmazonAppStreamUsbDriverSetup\_<version>.exe) — Installs the WorkSpaces Applications USB driver that is required to use USB devices with applications streamed through WorkSpaces Applications.
-   - WorkSpaces Applications client Group Policy administrative template (as2_client_config.adm) — Lets you configure the WorkSpaces Applications client through Group Policy.
+   - WorkSpaces Applications client Group Policy administrative template (as2\_client\_config.adm) — Lets you configure the WorkSpaces Applications client through Group Policy.
 
 ## Install the WorkSpaces Applications Client and USB Driver
 
@@ -413,7 +413,7 @@ The following table summarizes the registry values for additional client setting
 These values are case sensitive.
 
 | Value                                 | Registry path                           | Type   | Description                                                                                                                                                                                                                                | Data                                                                                 |
-| ------------------------------------- | --------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ----------------------- | ----------------------- | ------------------- |
+| ------------------------------------- | --------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
 | `EULAAccepted`                        | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to accept the WorkSpaces Applications client EULA on behalf of your users.                                                                                                                                        | `true`/`false`                                                                       |
 | `AcceptedEULAVersion`                 | `HKCU\Software\Amazon\Appstream Client` | String | The version of EULA that is accepted. If the current version of<br>the WorkSpaces Applications client EULA is different from the version of the EULA<br>that is accepted, users are prompted to accept the current<br>version of the EULA. | `1.0`                                                                                |
 | `DiagnosticInfoCollectionAllowed`     | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable WorkSpaces Applications to<br>automatically send diagnostic logs from the WorkSpaces Applications client to<br>WorkSpaces Applications (AWS).                                                           | `true`/`false`                                                                       |
@@ -421,7 +421,7 @@ These values are case sensitive.
 | `HardwareRenderingEnabled`            | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable hardware<br>rendering in the WorkSpaces Applications client.                                                                                                                                            | `true`/`false`                                                                       |
 | `FileRedirectionCustomDefaultFolders` | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to include at least one folder path for file<br>system redirection. Separate multiple folder paths by using '                                                                                                               | '.<br>By default, the following folder paths are specified:<br>%USERPROFILE%\Desktop | %USERPROFILE%\Documents | %USERPROFILE%\Downloads | `Valid folder path` |
 | `OpenIdpUrlInSystemBrowser`           | `HKCU\Software\Amazon\Appstream Client` | String | Set this value to `true` to enable the WorkSpaces Applications<br>client to open the IdP URL in a system default browser. This<br>feature is supported on client version 1.1.1360 and<br>later.                                            | `true`/`false`                                                                       |
-| `DataLossIndicator`                   | `HKLM\Software\Amazon\Appstream Client` | String | Set this value to SHOW_ON_LOSSY to include a red warning indicator when there is streaming data loss. Set this value to SHOW_ON_LOSSLESS to include a green healthy indicator when there is no streaming data loss.                        | `DISABLED/SHOW_ON_LOSSY/SHOW_ON_LOSSLESS`                                            |
+| `DataLossIndicator`                   | `HKLM\Software\Amazon\Appstream Client` | String | Set this value to SHOW\_ON\_LOSSY to include a red warning indicator when there is streaming data loss. Set this value to SHOW\_ON\_LOSSLESS to include a green healthy indicator when there is no streaming data loss.                    | `DISABLED/SHOW_ON_LOSSY/SHOW_ON_LOSSLESS`                                            |
 
 After the WorkSpaces Applications client is installed, you can run the following PowerShell script to
 create these registry keys. If you don’t want to create all of the registry keys,

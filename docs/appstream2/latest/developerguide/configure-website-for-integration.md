@@ -57,7 +57,7 @@ The configuration that generates the initial state of the user interface element
 
 The key, `AppStream.Embed.Options.HIDDEN_ELEMENTS`, specifies the user interface objects that are initially hidden when the embedded WorkSpaces Applications streaming session is initialized. Later, you can return both hidden and visible objects by using the `getInterfaceState` parameter.
 
-The value is an array of constants (toolbar buttons). For a list of constants that you can use, see [Working with HIDDEN_ELEMENTS](constants-functions-events-embedded-sessions.md#constants-hidden-elements "constants-functions-events-embedded-sessions.md#constants-hidden-elements").
+The value is an array of constants (toolbar buttons). For a list of constants that you can use, see [Working with HIDDEN\_ELEMENTS](constants-functions-events-embedded-sessions.md#constants-hidden-elements "constants-functions-events-embedded-sessions.md#constants-hidden-elements").
 
 **Type**: Map (`key`:`value`)
 

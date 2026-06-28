@@ -29,4 +29,4 @@ available under **My files**:
 - To take focus away from the streaming session, and put it on the first
   element of the toolbar to enable keyboard-based usage during sessions,
   use the keyboard shortcut `ctrl + alt + shift +
-F11`.
+ F11`.

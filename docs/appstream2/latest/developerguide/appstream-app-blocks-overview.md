@@ -31,4 +31,4 @@ under %USERPROFILE%, except new directories created under %APPDATA% and
 %LOCALAPPDATA% directories.
 
 Application Redirection technology does not record any registry changes
-under the current user, HKEY_CURRENT_USER (HKCU).
+under the current user, HKEY\_CURRENT\_USER (HKCU).

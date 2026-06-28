@@ -99,10 +99,7 @@ To specify an Amazon S3 endpoint, do the following:
     3. For **Subnet**, choose **Private subnet**.
     4. For **Policy**, keep the default value, **Full Access**.
 
-10. For **Enable DNS hostnames**, keep the default value, **Yes**.
-11. For **Hardware tenancy**, keep the default value, **Default**.
-12. Choose **Create VPC**.
-13. Note that it takes several minutes to set up your VPC. After the VPC is created, choose **OK**.
+10. For **Enable DNS hostnames**, keep the default value, **Yes**. 11. For **Hardware tenancy**, keep the default value, **Default**. 12. Choose **Create VPC**. 13. Note that it takes several minutes to set up your VPC. After the VPC is created, choose **OK**.
 
 ## Step 3: Add a Second Private Subnet
 
@@ -138,7 +135,7 @@ After you've created and configured your VPC, complete the following steps to sp
 
 1. In the navigation pane, choose **Subnets**, and
    select the public subnet that you created; for example, `WorkSpaces Applications
-Public Subnet`.
+ Public Subnet`.
 
    1. On the **Route Table** tab, choose the ID
       of the route table; for example,

@@ -89,21 +89,17 @@ associations configuration file:
      then choose **File Explorer**.
 
 6. Double-click **Set a default associations configuration
-   file**.
-7. In the **Set a default associations configuration file
-   properties** dialog box, choose **Enabled**, and
-   do one of the following:
+file**. 7. In the **Set a default associations configuration file
+properties** dialog box, choose **Enabled**, and
+do one of the following:
 
-   - If you are using Local Group Policy Editor, enter this path:
+    * If you are using Local Group Policy Editor, enter this path:
      `c:\default_associations.xml`.
-   - If you are using the GPMC, enter a network path. For example,
+    * If you are using the GPMC, enter a network path. For example,
      `\\networkshare\default_associations.xml`.
 
-8. Choose **Apply**, **OK**.
-9. Close Local Group Policy Editor or the GPMC.
-10. On the image builder desktop, open Image Assistant.
-11. Follow the necessary steps in Image Assistant to finish creating your image.
-    For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+8. Choose **Apply**, **OK**. 9. Close Local Group Policy Editor or the GPMC. 10. On the image builder desktop, open Image Assistant. 11. Follow the necessary steps in Image Assistant to finish creating your image.
+For more information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 The file associations that you configured are applied to the fleet instances
 and user streaming sessions that are launched from those instances.

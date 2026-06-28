@@ -58,7 +58,7 @@ following folders:
   Files and folders created outside of these folders are saved within the VHD and synced
   to Amazon S3. The default VHD maximum size is 1GB for Elastic fleets and 5GB for Always-On
   and On-Demand fleets. The size of the saved VHD is the total size of the files and
-  folders that it contains. WorkSpaces Applications automatically saves the HKEY_CURRENT_USER registry hive
+  folders that it contains. WorkSpaces Applications automatically saves the HKEY\_CURRENT\_USER registry hive
   for the user. For new users (users whose profiles don't exist in Amazon S3), WorkSpaces Applications creates
   the initial profile by using the default profile. This profile is created in the
   following location on the image builder: C:\users\default.

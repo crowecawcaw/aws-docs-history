@@ -13,33 +13,31 @@ locale and input method to match the language and region of the display language
 you want all three settings to match, you do not need to separately change the user
 locale or input method.
 
-1.  Connect to the image builder that you want to use and sign in with the
-    **Template User** account. To do so, do either of the
-    following:
+1. Connect to the image builder that you want to use and sign in with the
+   **Template User** account. To do so, do either of the
+   following:
 
-        * [Use the WorkSpaces Applications
-         console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
-        * [Create a
-         streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
+   - [Use the WorkSpaces Applications
+     console](managing-image-builders-connect-console.md "managing-image-builders-connect-console.md") (for web connections only)
+   - [Create a
+     streaming URL](managing-image-builders-connect-streaming-URL.md "managing-image-builders-connect-streaming-URL.md") (for web or WorkSpaces Applications client connections)
 
+   ###### Note
 
-        ###### Note
+   If the image builder that you want to connect to is joined to an
+   Active Directory domain and your organization requires smart card
+   sign in, you must create a streaming URL and use the WorkSpaces Applications client
+   for the connection. For information about smart card sign in, see
+   [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
+   **Template User** lets you create default application and
+   Windows settings for your users. For more information, see "Creating Default
+   Application and Windows Settings for Your WorkSpaces Applications Users" in [Default Application and Windows Settings and Application Launch Performance in Amazon WorkSpaces Applications](customizing-appstream-images.md "customizing-appstream-images.md").
 
-        If the image builder that you want to connect to is joined to an
-         Active Directory domain and your organization requires smart card
-         sign in, you must create a streaming URL and use the WorkSpaces Applications client
-         for the connection. For information about smart card sign in, see
-         [Smart Cards](feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards "feature-support-USB-devices-qualified.md#feature-support-USB-devices-qualified-smart-cards").
-
-    **Template User** lets you create default application and
-    Windows settings for your users. For more information, see "Creating Default
-    Application and Windows Settings for Your WorkSpaces Applications Users" in [Default Application and Windows Settings and Application Launch Performance in Amazon WorkSpaces Applications](customizing-appstream-images.md "customizing-appstream-images.md").
-
-2.  On the image builder desktop, choose the Windows **Start**
-    button, and choose **Control Panel**.
-3.  Choose **Clock, Language, and Region**, then
-    **Language**, **Add a language**.
-4.  Choose a language, and choose **Add**.
+2. On the image builder desktop, choose the Windows **Start**
+   button, and choose **Control Panel**.
+3. Choose **Clock, Language, and Region**, then
+   **Language**, **Add a language**.
+4. Choose a language, and choose **Add**.
 
 ###### Note
 
@@ -68,7 +66,7 @@ For information about how to create an image, see [Tutorial: Create a Custom Wor
     * Update an existing fleet to use the new image.
 
 16. Associate your fleet with the stack that is assigned to the users for whom you
-    are configuring the default settings.
+are configuring the default settings.
 
 The default display language and associated user locale and input method
 settings that you configured are applied to the fleet instances and user

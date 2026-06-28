@@ -21,7 +21,7 @@ Catalogue page, follow these steps:
 2. Open **Developer tools** and choose the
    **Console** tab.
 3. In the browser console, enter `window.siteConfig.logLevel =
-"INFO"` and choose **Enter**.
+ "INFO"` and choose **Enter**.
 4. Launch the application, and you should see
    **Logging** on the **Console**
    tab.

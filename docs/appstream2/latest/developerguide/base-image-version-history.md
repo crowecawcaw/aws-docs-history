@@ -96,7 +96,7 @@ Rocky Linux
 | Amazon CloudWatch Agent                              | 1.300064.0b1337-1                      | 1.300064.0b1337-1                         |
 | SSM Agent                                            | 3.3.3598.0-1                           | 3.3.3598.0-1                              |
 | NICE DCV Server AppStream                            | 2024.0.17598-18                        | 2024.0.17598-18                           |
-| Cloud-init                                           | 23.4-78_10.11.0.2                      | 23.4-78_10.11.0.2                         |
+| Cloud-init                                           | 23.4-78\_10.11.0.2                     | 23.4-78\_10.11.0.2                        |
 | Kernel                                               | 4.18.0-553.104.1                       | 4.18.0-553.104.1                          |
 | NVIDIA Graphics Driver for G4dn, G5 and G6 instances | 580.95.05                              | 580.95.05                                 |
 | Cuda Version                                         | 13.0                                   | 13.0                                      |
@@ -109,7 +109,7 @@ Red Hat Enterprise Linux
 | Amazon CloudWatch Agent                              | 1.300064.0b1337-1                      | 1.300064.0b1337-1                         |
 | SSM Agent                                            | 3.3.3598.0-1                           | 3.3.3598.0-1                              |
 | NICE DCV Server AppStream                            | 2024.0.17598-18                        | 2024.0.17598-18                           |
-| Cloud-init                                           | 23.4-78_10.11                          | 23.4-78_10.11                             |
+| Cloud-init                                           | 23.4-78\_10.11                         | 23.4-78\_10.11                            |
 | Kernel                                               | 4.18.0-553.105.1                       | 4.18.0-553.105.1                          |
 | NVIDIA Graphics Driver for G4dn, G5 and G6 instances | 580.95.05                              | 580.95.05                                 |
 | Cuda Version                                         | 13.0                                   | 13.0                                      |

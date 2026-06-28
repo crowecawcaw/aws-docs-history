@@ -25,35 +25,32 @@ Before you set up interface VPC endpoints for WorkSpaces Applications, be aware 
 
 ###### To create an interface endpoint
 
-1.  Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
-2.  In the navigation pane, choose **Endpoints**, **Create Endpoint**.
-3.  Choose **Create Endpoint**.
-4.  For **Service category**, ensure that **AWS services** is selected.
-5.  For **Service Name**, choose `com.amazonaws.``<AWS Region>``.appstream.streaming`.
-6.  Specify the following information. When you're done, choose **Create endpoint**.
+1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Endpoints**, **Create Endpoint**.
+3. Choose **Create Endpoint**.
+4. For **Service category**, ensure that **AWS services** is selected.
+5. For **Service Name**, choose `com.amazonaws.``<AWS Region>``.appstream.streaming`.
+6. Specify the following information. When you're done, choose **Create endpoint**.
 
-        * For **VPC**, choose a VPC in which to create the interface endpoint. You can choose a different VPC than the VPC with WorkSpaces Applications resources.
-        * For **Subnets**, choose the subnets (Availability Zones) in which to create the endpoint network interfaces. We recommend that you choose subnets in at least two Availability Zones.
-        * For **IP address type**, choose either IPV6 or IPV4.
-        * Ensure that the **Enable Private DNS Name** check box is selected.
+   - For **VPC**, choose a VPC in which to create the interface endpoint. You can choose a different VPC than the VPC with WorkSpaces Applications resources.
+   - For **Subnets**, choose the subnets (Availability Zones) in which to create the endpoint network interfaces. We recommend that you choose subnets in at least two Availability Zones.
+   - For **IP address type**, choose either IPV6 or IPV4.
+   - Ensure that the **Enable Private DNS Name** check box is selected.
 
+   ###### Note
 
-        ###### Note
+   If your users use a network proxy to access streaming instances, disable any proxy caching on
+   the domain and DNS names that are associated with the private
+   endpoint. The VPC endpoint DNS name should be allowed through the
+   proxy.
+   - For **Security group**, choose the security groups to associate with the endpoint network interfaces.
 
-        If your users use a network proxy to access streaming instances, disable any proxy caching on
-         the domain and DNS names that are associated with the private
-         endpoint. The VPC endpoint DNS name should be allowed through the
-         proxy.
-        * For **Security group**, choose the security groups to associate with the endpoint network interfaces.
+   ###### Note
 
-
-        ###### Note
-
-        The security groups must provide inbound access to the ports from the IP address range from which your users connect.
-
-    While your interface endpoint is being created, the status of the endpoint in the console
-    appears as **Pending**. After your endpoint is created, the
-    status changes to **Available.**
+   The security groups must provide inbound access to the ports from the IP address range from which your users connect.
+   While your interface endpoint is being created, the status of the endpoint in the console
+   appears as **Pending**. After your endpoint is created, the
+   status changes to **Available.**
 
 To update a stack to use the interface endpoint that you created for streaming sessions, perform the following steps.
 

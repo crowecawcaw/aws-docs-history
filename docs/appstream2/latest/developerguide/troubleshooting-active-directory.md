@@ -35,7 +35,7 @@ errors are also available using the WorkSpaces Applications API through the
 
 ## My users aren't able to log in with the SAML application.
 
-WorkSpaces Applications relies on the SAML_Subject "NameID" attribute from your identity provider
+WorkSpaces Applications relies on the SAML\_Subject "NameID" attribute from your identity provider
 to populate the username field to log in your user. The username can either be
 formatted as "``domain`\username`", or
  "`user@domain.com`". If you are using
@@ -43,7 +43,7 @@ formatted as "``domain`\username`", or
 `domain` can either be the NetBIOS
 name or the fully qualified domain name. If using "`user@domain.com`"
 format, the UserPrincipalName attribute can be used. If you've verified your
-SAML_Subject attribute is configured correctly and the problem persists, contact AWS Support. For more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+SAML\_Subject attribute is configured correctly and the problem persists, contact AWS Support. For more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
 ## My fleet instances work for one user but don't cycle correctly.
 
@@ -167,12 +167,12 @@ one of the following issues:
   logon, or it is expired. For more information, see step 7.a in [Prerequisites](certificate-based-authentication-prereq.md "certificate-based-authentication-prereq.md").
 - The certificate is not trusted. For more information, see step 7.c in
   [Prerequisites](certificate-based-authentication-prereq.md "certificate-based-authentication-prereq.md").
-- The userPrincipalName format for the SAML_Subject NameID is not formatted
+- The userPrincipalName format for the SAML\_Subject NameID is not formatted
   properly, or does not resolve to the actual domain for the user. For more
   information, see step 1 in [Prerequisites](certificate-based-authentication-prereq.md "certificate-based-authentication-prereq.md").
 - The (optional) ObjectSid attribute in your SAML assertion does not match
   the Active Directory security identifier (SID) for the user specified in the
-  SAML_Subject NameID. Confirm that the attribute mapping is correct in your
+  SAML\_Subject NameID. Confirm that the attribute mapping is correct in your
   SAML federation, and that your SAML identity provider is synchronizing the
   SID attribute for the Active Directory user.
 - The WorkSpaces Applications agent does not support certificate-based authentication. Use
@@ -225,7 +225,7 @@ will no longer be able to reuse the existing computer objects in the AD. This
 results in domain join failures on WorkSpaces Applications fleets, with one of the following error
 messages under fleet notifications:
 
-- DOMAIN_JOIN_INTERNAL_SERVICE_ERROR "The group name could not be
+- DOMAIN\_JOIN\_INTERNAL\_SERVICE\_ERROR "The group name could not be
   found."
 - An account with the same name exists in Active Directory. Re-using the
   account was blocked by security policy

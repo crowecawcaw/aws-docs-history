@@ -8,8 +8,8 @@ image.
 
 On Linux fleet instances, environment variables set using the Image Assistant
 (GUI) tool and the default system environment variables are exported through the
-/etc/profile.d/appstream_system_vars.sh script. To access these environment
-variables, you must explicitly source the /etc/profile.d/appstream_system_vars.sh
+/etc/profile.d/appstream\_system\_vars.sh script. To access these environment
+variables, you must explicitly source the /etc/profile.d/appstream\_system\_vars.sh
 script in your applications.
 
 ###### To create environment variables for your users

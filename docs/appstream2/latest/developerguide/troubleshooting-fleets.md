@@ -116,9 +116,8 @@ either of the following:
      User** tab, and log in as a domain user who has local
      administrator permissions on the image builder.
 
-8. On the image builder desktop, open Image Assistant.
-9. Follow the required steps in Image Assistant to finish creating your image. For more
-   information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
+8. On the image builder desktop, open Image Assistant. 9. Follow the required steps in Image Assistant to finish creating your image. For more
+information, see [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md "tutorial-image-builder.md").
 
 ## I need to persist environment variables across my fleet instances.
 

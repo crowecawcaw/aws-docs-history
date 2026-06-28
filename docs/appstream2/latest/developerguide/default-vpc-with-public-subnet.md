@@ -36,8 +36,8 @@ configure a non-default VPC with a public subnet. For more information, see
      Availability Zone.
 
    The default subnet names use the following format: `subnet-``subnet-id` `|
- (``IPv4 CIDR block``) |
- Default in` `availability-zone`.
+  (``IPv4 CIDR block``) |
+  Default in` `availability-zone`.
    - Optionally, for **Subnet 2**, choose a default subnet in a different Availability Zone.
    - For **Security groups**, select the default security group.
 
@@ -58,8 +58,8 @@ configure a non-default VPC with a public subnet. For more information, see
    - For **Subnet 1**, choose a default public subnet.
 
    The default subnet names use the following format: `subnet-``subnet-id` `|
- (``IPv4 CIDR block``) |
- Default in` `availability-zone`.
+  (``IPv4 CIDR block``) |
+  Default in` `availability-zone`.
    - For **Security groups**, select the default security group.
 
    The default security group name uses the following format: `sg-``security-group-id``-default`
@@ -81,8 +81,8 @@ configure a non-default VPC with a public subnet. For more information, see
    - For **Subnet 1**, choose a default public subnet.
 
    The default subnet names use the following format: `subnet-``subnet-id` `|
- (``IPv4 CIDR block``) |
- Default in` `availability-zone`.
+  (``IPv4 CIDR block``) |
+  Default in` `availability-zone`.
    - For **Security groups**, select the default security group.
 
    The default security group name uses the following format: `sg-``security-group-id``-default`

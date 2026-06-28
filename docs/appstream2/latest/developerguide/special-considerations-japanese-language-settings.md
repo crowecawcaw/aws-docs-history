@@ -17,15 +17,15 @@ WorkSpaces Applications automatically configures your image to use a Japanese ke
 that use the image are also automatically configured to use Japanese keyboards.
 However, if you want to use a Japanese keyboard within your image builder session,
 update the following registry settings for the
-HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters registry
+HKEY\_LOCAL\_MACHINE\SYSTEM\CurrentControlSet\Services\i8042prt\Parameters registry
 key:
 
-| Name                       | Type   | Data        |
-| -------------------------- | ------ | ----------- |
-| LayerDriver JPN            | REG_SZ | kbd106.dll  |
-| OverrideKeyboardIdentifier | REG_SZ | PCAT_106KEY |
-| OverrideKeyboardSubtype    | DWORD  | 2           |
-| OverrideKeyboardType       | DWORD  | 7           |
+| Name                       | Type    | Data         |
+| -------------------------- | ------- | ------------ |
+| LayerDriver JPN            | REG\_SZ | kbd106.dll   |
+| OverrideKeyboardIdentifier | REG\_SZ | PCAT\_106KEY |
+| OverrideKeyboardSubtype    | DWORD   | 2            |
+| OverrideKeyboardType       | DWORD   | 7            |
 
 After changing these settings, restart your image builder. To do so, choose the
 Windows **Start** button, and choose **Windows

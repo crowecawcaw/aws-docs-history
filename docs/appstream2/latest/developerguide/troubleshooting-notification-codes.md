@@ -12,7 +12,7 @@ command.
 Follow these steps if you receive an internal service error when you set up and
 use Active Directory with Amazon WorkSpaces Applications.
 
-**INTERNAL_SERVICE_ERROR**
+**INTERNAL\_SERVICE\_ERROR**
 
 **Message**: The user name or password is incorrect.
 
@@ -31,7 +31,7 @@ The following are notification codes and resolution steps for issues with domain
 join that you might encounter when you set up and use Active Directory with
 Amazon WorkSpaces Applications.
 
-**DOMAIN_JOIN_ERROR_ACCESS_DENIED**
+**DOMAIN\_JOIN\_ERROR\_ACCESS\_DENIED**
 
 **Message**: Access is denied.
 
@@ -41,7 +41,7 @@ create the computer object or reuse an existing one. Validate the
 permissions and start the image builder or fleet. For more information,
 see [Granting Permissions to Create and Manage Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
 
-**DOMAIN_JOIN_ERROR_LOGON_FAILURE**
+**DOMAIN\_JOIN\_ERROR\_LOGON\_FAILURE**
 
 **Message**: The username or password is
 incorrect.
@@ -51,7 +51,7 @@ specified in the directory configuration has an invalid username or
 password. Update the configuration and re-create the image builder or
 fleet that had the error.
 
-**DOMAIN_JOIN_NERR_PASSWORD_EXPIRED**
+**DOMAIN\_JOIN\_NERR\_PASSWORD\_EXPIRED**
 
 **Message**: The password of this user
 has expired.
@@ -62,7 +62,7 @@ expired. Change the password for the service account in your Active
 Directory domain, update the configuration, and then re-create the image
 builder or fleet that had the error.
 
-**DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED**
+**DOMAIN\_JOIN\_ERROR\_DS\_MACHINE\_ACCOUNT\_QUOTA\_EXCEEDED**
 
 **Message**: Your computer could not be
 joined to the domain. You have exceeded the maximum number of computer
@@ -75,7 +75,7 @@ create the computer object or reuse an existing one. Validate the
 permissions and start the image builder or fleet. For more information,
 see [Granting Permissions to Create and Manage Active Directory Computer Objects](active-directory-permissions.md "active-directory-permissions.md").
 
-**DOMAIN_JOIN_ERROR_INVALID_PARAMETER**
+**DOMAIN\_JOIN\_ERROR\_INVALID\_PARAMETER**
 
 **Message**: A parameter is incorrect.
 This error is returned if the `LpName` parameter is NULL or the `NameType`
@@ -86,7 +86,7 @@ the distinguished name for the OU is incorrect. Validate the OU and try again. I
 contact AWS Support. For more information, see
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-**DOMAIN_JOIN_ERROR_MORE_DATA**
+**DOMAIN\_JOIN\_ERROR\_MORE\_DATA**
 
 **Message**: More data is
 available.
@@ -95,7 +95,7 @@ available.
 name for the OU is incorrect. Validate the OU and try again. If you continue to encounter this error, contact AWS Support. For more information, see
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-**DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN**
+**DOMAIN\_JOIN\_ERROR\_NO\_SUCH\_DOMAIN**
 
 **Message**: The specified domain either
 does not exist or could not be contacted.
@@ -105,7 +105,7 @@ was unable to contact your Active Directory domain. To ensure network
 connectivity, confirm your VPC, subnet, and security group settings. For
 more information, see [My WorkSpaces Applications streaming instances aren't joining the Active Directory domain.](troubleshooting-active-directory.md#troubleshooting-active-directory-5 "troubleshooting-active-directory.md#troubleshooting-active-directory-5")
 
-**DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED**
+**DOMAIN\_JOIN\_NERR\_WORKSTATION\_NOT\_STARTED**
 
 **Message**: The Workstation service has
 not been started.
@@ -115,7 +115,7 @@ starting the Workstation service. Ensure that the service is enabled in
 your image. If you continue to encounter this error, contact AWS Support. For
 more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-**DOMAIN_JOIN_ERROR_NOT_SUPPORTED**
+**DOMAIN\_JOIN\_ERROR\_NOT\_SUPPORTED**
 
 **Message**: The request is not
 supported. This error is returned if a remote computer was specified in
@@ -125,7 +125,7 @@ computer.
 **Resolution**: Contact AWS Support for
 assistance. For more information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-**DOMAIN_JOIN_ERROR_FILE_NOT_FOUND**
+**DOMAIN\_JOIN\_ERROR\_FILE\_NOT\_FOUND**
 
 **Message**: The system cannot find the
 file specified.
@@ -136,7 +136,7 @@ The distinguished name must start with `OU=`.
 Validate the OU distinguished name and try again. For more information, see
 [Finding the Organizational Unit Distinguished Name](active-directory-oudn.md "active-directory-oudn.md").
 
-**DOMAIN_JOIN_INTERNAL_SERVICE_ERROR**
+**DOMAIN\_JOIN\_INTERNAL\_SERVICE\_ERROR**
 
 **Message**: The account already exists.
 
@@ -166,35 +166,34 @@ Validate the OU distinguished name and try again. For more information, see
   not succeed. To resolve this issue for a fleet, do the
   following:
 
-      1. Stop the fleet.
-      2. Edit the Active Directory domain settings for the
-       fleet to remove the Directory Config and Directory OU to
-       which the fleet is joined. For more information, see
-       [Step 3: Create a Domain-Joined Fleet](active-directory-directory-setup.md#active-directory-setup-fleet "active-directory-directory-setup.md#active-directory-setup-fleet").
-      3. Update the WorkSpaces Applications Directory Config to specify an OU
-       that doesn't contain spaces. For more information, see
-       [Step 1: Create a Directory Config Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
-      4. Edit the Active Directory domain settings for the
-       fleet to specify the Directory Config with the updated
-       Directory OU.
+  1.  Stop the fleet.
+  2.  Edit the Active Directory domain settings for the
+      fleet to remove the Directory Config and Directory OU to
+      which the fleet is joined. For more information, see
+      [Step 3: Create a Domain-Joined Fleet](active-directory-directory-setup.md#active-directory-setup-fleet "active-directory-directory-setup.md#active-directory-setup-fleet").
+  3.  Update the WorkSpaces Applications Directory Config to specify an OU
+      that doesn't contain spaces. For more information, see
+      [Step 1: Create a Directory Config Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
+  4.  Edit the Active Directory domain settings for the
+      fleet to specify the Directory Config with the updated
+      Directory OU.
+      To resolve this issue for an image builder, do the
+      following:
 
-  To resolve this issue for an image builder, do the
-  following:
-
-      1. Delete the image builder.
-      2. Update the WorkSpaces Applications Directory Config to specify an OU
-       that doesn't contain spaces. For more information, see
-       [Step 1: Create a Directory Config Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
-      3. Create a new image builder and specify the Directory
-       Config with the updated Directory OU. For more
-       information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
+  5.  Delete the image builder.
+  6.  Update the WorkSpaces Applications Directory Config to specify an OU
+      that doesn't contain spaces. For more information, see
+      [Step 1: Create a Directory Config Object](active-directory-directory-setup.md#active-directory-setup-config "active-directory-directory-setup.md#active-directory-setup-config").
+  7.  Create a new image builder and specify the Directory
+      Config with the updated Directory OU. For more
+      information, see [Launch an Image Builder to Install and Configure Streaming Applications](tutorial-image-builder-create.md "tutorial-image-builder-create.md").
 
 ## Image Internal Service
 
 If you receive an internal service error after you use managed WorkSpaces Applications image
 updates to initiate an image update, follow these steps.
 
-**INTERNAL_SERVICE_ERROR**
+**INTERNAL\_SERVICE\_ERROR**
 
 **Message**: WorkSpaces Applications could not update
 image `image-name`. Failed to
@@ -227,7 +226,7 @@ streaming session.
 "X" below equals the number of sessions that encountered a given error
 code.
 
-**USER_PROFILE_MOUNTING_FAILURE**
+**USER\_PROFILE\_MOUNTING\_FAILURE**
 
 **Message**: X session(s) encountered
 user profile mounting failures.
@@ -238,7 +237,7 @@ party processes on instance are interfering with user profile mounting.
 If you continue to encounter this error, contact AWS Support. For more
 information, see [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-**USER_PROFILE_DOWNLOADING_FAILURE**
+**USER\_PROFILE\_DOWNLOADING\_FAILURE**
 
 **Message**: X session(s) encountered
 user profile downloading failures.
@@ -248,7 +247,7 @@ issue, check your network configuration. If you continue to encounter
 this error, contact AWS Support. For more information, see
 [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
 
-**HOME_FOLDER_MOUNTING_FAILURE**
+**HOME\_FOLDER\_MOUNTING\_FAILURE**
 
 **Message**: X session(s) encountered
 home folder mounting failures.

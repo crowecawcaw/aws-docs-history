@@ -183,8 +183,8 @@ Before you can stream your applications, you need to set up a stack, choose an i
    - For **Subnet 1** and **Subnet 2**, keep the default public subnets selected.
 
    The default subnet names use the following format: `subnet-``subnet-id` `|
- (``IPv4 CIDR block``) |
- Default in` `availability-zone`.
+  (``IPv4 CIDR block``) |
+  Default in` `availability-zone`.
    - For **Security groups**, keep the default security group selected.
 
    The default security group name uses the following format: `sg-``security-group-id``-default`.
@@ -211,7 +211,7 @@ multi-session fleets.
      OneDrive, see [Enable OneDrive for Your WorkSpaces Applications Users](enable-onedrive.md "enable-onedrive.md").
 
 10. For **Step 6: User Settings**, configure the following settings. When you're done,
-    choose **Review**:
+choose **Review**:
 
 **Clipboard, file transfer, print to local device, and authentication permissions options**:
 

@@ -5,10 +5,10 @@ objects can be easily identified in your directory. Each computer object in the
 directory is created with the `Description` attribute, which specifies a
 fleet or an image builder instance and the name.
 
-| Computer Object Description Examples | Type                | Name                                                             | Description Attribute |
-| ------------------------------------ | ------------------- | ---------------------------------------------------------------- | --------------------- |
-| Fleet                                | ExampleFleet        | `WorkSpaces Applications<br>• fleet:ExampleFleet`                |
-| Image builder                        | ExampleImageBuilder | `WorkSpaces Applications -<br>image-builder:ExampleImageBuilder` |
+Computer Object Description Examples| Type | Name | Description Attribute |
+| --- | --- | --- |
+| Fleet | ExampleFleet | `WorkSpaces Applications<br>• fleet:ExampleFleet` |
+| Image builder | ExampleImageBuilder | `WorkSpaces Applications -<br>image-builder:ExampleImageBuilder` |
 
 You can identify and delete inactive computer objects created by WorkSpaces Applications by using
 the following `dsquery computer` and `dsrm` commands. For more

@@ -85,7 +85,7 @@ On-demand usage charges are rounded up to the next hour for each session.
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/ "https://console.aws.amazon.com/athena/").
 2. Choose **Saved Queries**. The five queries noted before this procedure should
    display. The name of each query begins with "AS2." For example,
-   "AS2_users_per_app_curr_mo."
+   "AS2\_users\_per\_app\_curr\_mo."
 3. To run a query, choose the query name rather than the option next to the name.
 4. The text of the query appears in the query pane. Choose **Run query**.
-   To view these queries in a separate CloudFormation template, see [athena-sample-queries-appstream-usage-data_template.yml](../../../code-samples/latest/catalog/cloudformation-appstream2-athena-sample-queries-appstream-usage-data_template.yml.md "../../../code-samples/latest/catalog/cloudformation-appstream2-athena-sample-queries-appstream-usage-data_template.yml.md") in the _AWS Code Sample Catalog._
+   To view these queries in a separate CloudFormation template, see [athena-sample-queries-appstream-usage-data\_template.yml](../../../code-samples/latest/catalog/cloudformation-appstream2-athena-sample-queries-appstream-usage-data_template.yml.md "../../../code-samples/latest/catalog/cloudformation-appstream2-athena-sample-queries-appstream-usage-data_template.yml.md") in the _AWS Code Sample Catalog._

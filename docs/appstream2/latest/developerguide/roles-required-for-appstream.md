@@ -11,7 +11,7 @@ following roles in your AWS account.
 
 - [AmazonAppStreamServiceAccess](#AmazonAppStreamServiceAccess "#AmazonAppStreamServiceAccess")
 - [ApplicationAutoScalingForAmazonAppStreamAccess](#ApplicationAutoScalingForAmazonAppStreamAccess "#ApplicationAutoScalingForAmazonAppStreamAccess")
-- [AWSServiceRoleForApplicationAutoScaling_AppStreamFleet](#AWSServiceRoleForApplicationAutoScaling_AppStreamFleet "#AWSServiceRoleForApplicationAutoScaling_AppStreamFleet")
+- [AWSServiceRoleForApplicationAutoScaling\_AppStreamFleet](#AWSServiceRoleForApplicationAutoScaling_AppStreamFleet "#AWSServiceRoleForApplicationAutoScaling_AppStreamFleet")
 - [AmazonAppStreamPCAAccess](#AppStreamPCAAccess "#AppStreamPCAAccess")
 
 ## AmazonAppStreamServiceAccess
@@ -54,7 +54,7 @@ cannot scale WorkSpaces Applications fleets.
 
 For more information, see [Checking for the ApplicationAutoScalingForAmazonAppStreamAccess Service Role and Policies](controlling-access-checking-for-iam-autoscaling.md "controlling-access-checking-for-iam-autoscaling.md").
 
-## AWSServiceRoleForApplicationAutoScaling_AppStreamFleet
+## AWSServiceRoleForApplicationAutoScaling\_AppStreamFleet
 
 This role is a service-linked role that is created for you automatically.
 For more information, see [Service-linked roles](../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md "../../../autoscaling/application/userguide/application-auto-scaling-service-linked-roles.md") in the _Application Auto Scaling User Guide_.
@@ -64,7 +64,7 @@ behalf. A _service-linked role_ is an IAM role that is
 linked directly to an AWS service. This role includes all the permissions that
 the service requires to call other AWS services on your behalf.
 
-For more information, see [Checking for the AWSServiceRoleForApplicationAutoScaling_AppStreamFleet Service-Linked Role and Policies](controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md "controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md").
+For more information, see [Checking for the AWSServiceRoleForApplicationAutoScaling\_AppStreamFleet Service-Linked Role and Policies](controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md "controlling-access-checking-for-iam-service-linked-role-application-autoscaling-appstream-fleet.md").
 
 ## AmazonAppStreamPCAAccess
 

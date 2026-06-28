@@ -107,73 +107,73 @@ The following table lists the AWS Sign-in endpoint.
 
 The following table lists the AWS Sign-in region endpoints for the Regions where WorkSpaces Applications is available.
 
-| AWS Sign-in region endpoints | Region                                      | Domain |
-| ---------------------------- | ------------------------------------------- | ------ |
-| US East (N. Virginia)        | `us-east-1.signin.aws.amazon.com`           |
-| US East (Ohio)               | `us-east-2.signin.aws.amazon.com`           |
-| US West (Oregon)             | `us-west-2.signin.aws.amazon.com`           |
-| Asia Pacific (Malaysia)      | `ap-southeast-5.signin.aws.amazon.com`      |
-| Asia Pacific (Mumbai)        | `ap-south-1.signin.aws.amazon.com`          |
-| Asia Pacific (Seoul)         | `ap-northeast-2.signin.aws.amazon.com`      |
-| Asia Pacific (Singapore)     | `ap-southeast-1.signin.aws.amazon.com`      |
-| Asia Pacific (Sydney)        | `ap-southeast-2.signin.aws.amazon.com`      |
-| Asia Pacific (Tokyo)         | `ap-northeast-1.signin.aws.amazon.com`      |
-| Canada (Central)             | `ca-central-1.signin.aws.amazon.com`        |
-| Europe (Frankfurt)           | `eu-central-1.signin.aws.amazon.com`        |
-| Europe (Ireland)             | `eu-west-1.signin.aws.amazon.com`           |
-| Europe (London)              | `eu-west-2.signin.aws.amazon.com`           |
-| Europe (Milan)               | `eu-south-1.signin.aws.amazon.com`          |
-| Europe (Paris)               | `eu-west-3.signin.aws.amazon.com`           |
-| Europe (Spain)               | `eu-south-2.signin.aws.amazon.com`          |
-| AWS GovCloud (US-East)       | `us-gov-east-1.signin.amazonaws-us-gov.com` |
-| AWS GovCloud (US-West)       | `signin.amazonaws-us-gov.com`               |
-| South America (São Paulo)    | `sa-east-1.signin.aws.amazon.com`           |
-| Israel (Tel Aviv)            | `il-central-1.signin.aws.amazon.com`        |
+AWS Sign-in region endpoints| Region | Domain |
+| --- | --- |
+| US East (N. Virginia) | `us-east-1.signin.aws.amazon.com` |
+| US East (Ohio) | `us-east-2.signin.aws.amazon.com` |
+| US West (Oregon) | `us-west-2.signin.aws.amazon.com` |
+| Asia Pacific (Malaysia) | `ap-southeast-5.signin.aws.amazon.com` |
+| Asia Pacific (Mumbai) | `ap-south-1.signin.aws.amazon.com` |
+| Asia Pacific (Seoul) | `ap-northeast-2.signin.aws.amazon.com` |
+| Asia Pacific (Singapore) | `ap-southeast-1.signin.aws.amazon.com` |
+| Asia Pacific (Sydney) | `ap-southeast-2.signin.aws.amazon.com` |
+| Asia Pacific (Tokyo) | `ap-northeast-1.signin.aws.amazon.com` |
+| Canada (Central) | `ca-central-1.signin.aws.amazon.com` |
+| Europe (Frankfurt) | `eu-central-1.signin.aws.amazon.com` |
+| Europe (Ireland) | `eu-west-1.signin.aws.amazon.com` |
+| Europe (London) | `eu-west-2.signin.aws.amazon.com` |
+| Europe (Milan) | `eu-south-1.signin.aws.amazon.com` |
+| Europe (Paris) | `eu-west-3.signin.aws.amazon.com` |
+| Europe (Spain) | `eu-south-2.signin.aws.amazon.com` |
+| AWS GovCloud (US-East) | `us-gov-east-1.signin.amazonaws-us-gov.com` |
+| AWS GovCloud (US-West) | `signin.amazonaws-us-gov.com` |
+| South America (São Paulo) | `sa-east-1.signin.aws.amazon.com` |
+| Israel (Tel Aviv) | `il-central-1.signin.aws.amazon.com` |
 
 The following table lists the WorkSpaces Applications relay state region endpoints.
 
-| WorkSpaces Applications relay state region endpoints | Region                                                                                                                                                                                                                                                                                                                                                                                                                                         | Domain |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| US East (N. Virginia)                                | `appstream2.euc-sso.us-east-1.aws.amazon.com`<br>(FIPS)<br>`appstream2.euc-sso-fips.us-east-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                  |
-| US East (Ohio)                                       | `appstream2.euc-sso.us-east-2.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                                  |
-| US West (Oregon)                                     | `appstream2.euc-sso.us-west-2.aws.amazon.com`<br>(FIPS)<br>`appstream2.euc-sso-fips.us-west-2.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                  |
-| Asia Pacific (Malaysia)                              | `appstream2.euc-sso.ap-southeast-5.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                             |
-| Asia Pacific (Mumbai)                                | `appstream2.euc-sso.ap-south-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Asia Pacific (Seoul)                                 | `appstream2.euc-sso.ap-northeast-2.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                             |
-| Asia Pacific (Singapore)                             | `appstream2.euc-sso.ap-southeast-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                             |
-| Asia Pacific (Sydney)                                | `appstream2.euc-sso.ap-southeast-2.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                             |
-| Asia Pacific (Tokyo)                                 | `appstream2.euc-sso.ap-northeast-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                             |
-| Canada (Central)                                     | `appstream2.euc-sso.ca-central-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                               |
-| Europe (Frankfurt)                                   | `appstream2.euc-sso.eu-central-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                               |
-| Europe (Ireland)                                     | `appstream2.euc-sso.eu-west-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Europe (London)                                      | `appstream2.euc-sso.eu-west-2.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Europe (Milan)                                       | `appstream2.euc-sso.eu-south-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Europe (Paris)                                       | `appstream2.euc-sso.eu-west-3.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Europe (Spain)                                       | `appstream2.euc-sso.eu-south-2.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                                 |
-| AWS GovCloud (US-East)                               | `appstream2.euc-sso.us-gov-east-1.amazonaws-us-gov.com`<br>(FIPS)<br>`appstream2.euc-sso-fips.us-gov-east-1.amazonaws-us-gov.com`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
-| AWS GovCloud (US-West)                               | `appstream2.euc-sso.us-gov-west-1.amazonaws-us-gov.com`<br>(FIPS)<br>`appstream2.euc-sso-fips.us-gov-west-1.amazonaws-us-gov.com`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
-| South America (São Paulo)                            | `appstream2.euc-sso.sa-east-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Israel (Tel Aviv)                                    | `appstream2.euc-sso.il-central-1.aws.amazon.com`                                                                                                                                                                                                                                                                                                                                                                                               |
+WorkSpaces Applications relay state region endpoints| Region | Domain |
+| --- | --- |
+| US East (N. Virginia) | `appstream2.euc-sso.us-east-1.aws.amazon.com`<br>(FIPS)<br>`appstream2.euc-sso-fips.us-east-1.aws.amazon.com` |
+| US East (Ohio) | `appstream2.euc-sso.us-east-2.aws.amazon.com` |
+| US West (Oregon) | `appstream2.euc-sso.us-west-2.aws.amazon.com`<br>(FIPS)<br>`appstream2.euc-sso-fips.us-west-2.aws.amazon.com` |
+| Asia Pacific (Malaysia) | `appstream2.euc-sso.ap-southeast-5.aws.amazon.com` |
+| Asia Pacific (Mumbai) | `appstream2.euc-sso.ap-south-1.aws.amazon.com` |
+| Asia Pacific (Seoul) | `appstream2.euc-sso.ap-northeast-2.aws.amazon.com` |
+| Asia Pacific (Singapore) | `appstream2.euc-sso.ap-southeast-1.aws.amazon.com` |
+| Asia Pacific (Sydney) | `appstream2.euc-sso.ap-southeast-2.aws.amazon.com` |
+| Asia Pacific (Tokyo) | `appstream2.euc-sso.ap-northeast-1.aws.amazon.com` |
+| Canada (Central) | `appstream2.euc-sso.ca-central-1.aws.amazon.com` |
+| Europe (Frankfurt) | `appstream2.euc-sso.eu-central-1.aws.amazon.com` |
+| Europe (Ireland) | `appstream2.euc-sso.eu-west-1.aws.amazon.com` |
+| Europe (London) | `appstream2.euc-sso.eu-west-2.aws.amazon.com` |
+| Europe (Milan) | `appstream2.euc-sso.eu-south-1.aws.amazon.com` |
+| Europe (Paris) | `appstream2.euc-sso.eu-west-3.aws.amazon.com` |
+| Europe (Spain) | `appstream2.euc-sso.eu-south-2.aws.amazon.com` |
+| AWS GovCloud (US-East) | `appstream2.euc-sso.us-gov-east-1.amazonaws-us-gov.com`<br>(FIPS)<br>`appstream2.euc-sso-fips.us-gov-east-1.amazonaws-us-gov.com`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
+| AWS GovCloud (US-West) | `appstream2.euc-sso.us-gov-west-1.amazonaws-us-gov.com`<br>(FIPS)<br>`appstream2.euc-sso-fips.us-gov-west-1.amazonaws-us-gov.com`<br>NoteFor more information about using WorkSpaces Applications in<br>AWS GovCloud (US) Regions, see [Amazon WorkSpaces Applications](../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md "../../../govcloud-us/latest/UserGuide/govcloud-appstream2.md") in the _AWS GovCloud (US) User<br>Guide_. |
+| South America (São Paulo) | `appstream2.euc-sso.sa-east-1.aws.amazon.com` |
+| Israel (Tel Aviv) | `appstream2.euc-sso.il-central-1.aws.amazon.com` |
 
 ## WorkSpaces Applications MCP endpoints
 
 The following table lists the WorkSpaces Applications Model Context Protocol (MCP) endpoints.
 
-| WorkSpaces Applications MCP endpoints | Region                                   | Domain |
-| ------------------------------------- | ---------------------------------------- | ------ |
-| Asia Pacific (Tokyo)                  | `agentaccess-mcp.ap-northeast-1.api.aws` |
-| Asia Pacific (Seoul)                  | `agentaccess-mcp.ap-northeast-2.api.aws` |
-| Asia Pacific (Mumbai)                 | `agentaccess-mcp.ap-south-1.api.aws`     |
-| Asia Pacific (Singapore)              | `agentaccess-mcp.ap-southeast-1.api.aws` |
-| Asia Pacific (Sydney)                 | `agentaccess-mcp.ap-southeast-2.api.aws` |
-| Canada (Central)                      | `agentaccess-mcp.ca-central-1.api.aws`   |
-| Europe (Frankfurt)                    | `agentaccess-mcp.eu-central-1.api.aws`   |
-| Europe (Ireland)                      | `agentaccess-mcp.eu-west-1.api.aws`      |
-| Europe (London)                       | `agentaccess-mcp.eu-west-2.api.aws`      |
-| Europe (Paris)                        | `agentaccess-mcp.eu-west-3.api.aws`      |
-| US East (N. Virginia)                 | `agentaccess-mcp.us-east-1.api.aws`      |
-| US East (Ohio)                        | `agentaccess-mcp.us-east-2.api.aws`      |
-| US West (Oregon)                      | `agentaccess-mcp.us-west-2.api.aws`      |
+WorkSpaces Applications MCP endpoints| Region | Domain |
+| --- | --- |
+| Asia Pacific (Tokyo) | `agentaccess-mcp.ap-northeast-1.api.aws` |
+| Asia Pacific (Seoul) | `agentaccess-mcp.ap-northeast-2.api.aws` |
+| Asia Pacific (Mumbai) | `agentaccess-mcp.ap-south-1.api.aws` |
+| Asia Pacific (Singapore) | `agentaccess-mcp.ap-southeast-1.api.aws` |
+| Asia Pacific (Sydney) | `agentaccess-mcp.ap-southeast-2.api.aws` |
+| Canada (Central) | `agentaccess-mcp.ca-central-1.api.aws` |
+| Europe (Frankfurt) | `agentaccess-mcp.eu-central-1.api.aws` |
+| Europe (Ireland) | `agentaccess-mcp.eu-west-1.api.aws` |
+| Europe (London) | `agentaccess-mcp.eu-west-2.api.aws` |
+| Europe (Paris) | `agentaccess-mcp.eu-west-3.api.aws` |
+| US East (N. Virginia) | `agentaccess-mcp.us-east-1.api.aws` |
+| US East (Ohio) | `agentaccess-mcp.us-east-2.api.aws` |
+| US West (Oregon) | `agentaccess-mcp.us-west-2.api.aws` |
 
 ## AWS IP address ranges
 

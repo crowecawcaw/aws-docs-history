@@ -21,30 +21,30 @@ that users can't change. For more information about administrative templates,
 see [Edit Administrative Template Policy Settings](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771479(v=ws.11)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771479(v=ws.11)") in the Microsoft
 documentation.
 
-1.  Open the WorkSpaces Applications console at
-    [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
-2.  If you are not using Active Directory in your environment, open Local
-    Group Policy Editor. If you are using Active Directory, open the GPMC.
-    Locate the **Scripts (Logon\Logoff)** policy setting:
+1. Open the WorkSpaces Applications console at
+   [https://console.aws.amazon.com/appstream2/home](https://console.aws.amazon.com/appstream2/home "https://console.aws.amazon.com/appstream2/home").
+2. If you are not using Active Directory in your environment, open Local
+   Group Policy Editor. If you are using Active Directory, open the GPMC.
+   Locate the **Scripts (Logon\Logoff)** policy setting:
 
-    - Local Group Policy Editor:
+   - Local Group Policy Editor:
 
-    On your image builder, open the command prompt as an
-    administrator, type `gpedit.msc`, and then press ENTER.
+   On your image builder, open the command prompt as an
+   administrator, type `gpedit.msc`, and then press ENTER.
 
-    Under **User Configuration**, expand
-    **Administrative Templates**, **Windows
-    Components**, and then choose **Internet
-    Explorer**.
-    - GPMC:
+   Under **User Configuration**, expand
+   **Administrative Templates**, **Windows
+   Components**, and then choose **Internet
+   Explorer**.
+   - GPMC:
 
-    In your directory or on a domain controller, open the command
-    prompt as an administrator, type `gpmc.msc`, and then
-    press ENTER.
+   In your directory or on a domain controller, open the command
+   prompt as an administrator, type `gpmc.msc`, and then
+   press ENTER.
 
-    In the left console tree, select the OU in which you want to
-    create a new GPO, or use an existing GPO, and then do either of the
-    following: :
+   In the left console tree, select the OU in which you want to
+   create a new GPO, or use an existing GPO, and then do either of the
+   following: :
 
         + Create a new GPO by opening the context (right-click) menu
          and choosing **Create a GPO in this domain, Link it
@@ -52,16 +52,16 @@ documentation.
          a descriptive name for this GPO.
         + Select an existing GPO.
 
-    Open the context menu for the GPO, and choose
-    **Edit**.
+   Open the context menu for the GPO, and choose
+   **Edit**.
 
-    Under **User Configuration**, expand
-    **Policies**, **Administrative
-    Templates**, **Windows Components**,
-    and then choose **Internet Explorer**.
+   Under **User Configuration**, expand
+   **Policies**, **Administrative
+   Templates**, **Windows Components**,
+   and then choose **Internet Explorer**.
 
-3.  Double-click **Disable changing home page settings**,
-    choose **Enabled**, and in **Home Page**,
-    enter a URL.
-4.  Choose **Apply**, **OK**.
-5.  Close Local Group Policy Editor or the GPMC.
+3. Double-click **Disable changing home page settings**,
+   choose **Enabled**, and in **Home Page**,
+   enter a URL.
+4. Choose **Apply**, **OK**.
+5. Close Local Group Policy Editor or the GPMC.

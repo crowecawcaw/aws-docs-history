@@ -22,11 +22,10 @@ scenarios:
   packaging of your application is currently unsupported by the WorkSpaces Applications app
   block builder:
 
-      + "Unable to create symbolic link"
-      + "Service doesn't support file renaming"
-
-  If there is no errorLog file, or if this file is empty, then check
-  your application installation logs to identify the reason for failures.
+  - "Unable to create symbolic link"
+  - "Service doesn't support file renaming"
+    If there is no errorLog file, or if this file is empty, then check
+    your application installation logs to identify the reason for failures.
 
 - Report a problem. Select the **Report a problem**
   button, which is available on the application builder assistant in the

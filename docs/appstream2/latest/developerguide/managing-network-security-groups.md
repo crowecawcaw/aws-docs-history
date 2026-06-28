@@ -38,12 +38,11 @@ Use these additional considerations when using security groups with WorkSpaces A
 - **To associate security groups with a
   fleet**
 
-      + *While creating the fleet* — Follow the
-       instructions at [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
-      + *For an existing fleet* — Edit the fleet
-       settings using the AWS Management Console.
-
-  You can also associate security groups to your fleets using the AWS CLI and SDKs.
+  - _While creating the fleet_ — Follow the
+    instructions at [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md "set-up-stacks-fleets-create.md").
+  - _For an existing fleet_ — Edit the fleet
+    settings using the AWS Management Console.
+    You can also associate security groups to your fleets using the AWS CLI and SDKs.
 
 - **AWS CLI** — Use the
   [create-fleet](../../../cli/latest/reference/appstream/create-fleet.md "../../../cli/latest/reference/appstream/create-fleet.md") and [update-fleet](../../../cli/latest/reference/appstream/update-fleet.md "../../../cli/latest/reference/appstream/update-fleet.md") commands.

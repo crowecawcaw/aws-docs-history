@@ -46,7 +46,7 @@ applicable provider.
 
 `DisplayName` must match the
 **DisplayName** registry value for the
-**HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall**
+**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall**
 key created for your application. 4. Install your dynamic app provider. 5. On the image builder desktop, open Image Assistant. 6. Optionally, install any other applications that you want to include in
 the image. 7. In Image Assistant, on the **1. Add Apps** page,
 select the **Enable dynamic app providers** check

@@ -14,18 +14,17 @@ Follow the guidance below for customer network interface ports.
 - If you join your streaming instances to a directory, the following ports must be
   open between your WorkSpaces Applications VPC and your directory controllers.
 
-      + TCP/UDP 53 - DNS
-      + TCP/UDP 88 - Kerberos authentication
-      + UDP 123 - NTP
-      + TCP 135 - RPC
-      + UDP 137-138 - Netlogon
-      + TCP 139 - Netlogon
-      + TCP/UDP 389 - LDAP
-      + TCP/UDP 445 - SMB
-      + TCP 1024-65535 - Dynamic ports for RPC
-
-  For a complete list of ports, see [Active Directory and Active Directory Domain Services Port
-  Requirements](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)") in the Microsoft documentation.
+  - TCP/UDP 53 - DNS
+  - TCP/UDP 88 - Kerberos authentication
+  - UDP 123 - NTP
+  - TCP 135 - RPC
+  - UDP 137-138 - Netlogon
+  - TCP 139 - Netlogon
+  - TCP/UDP 389 - LDAP
+  - TCP/UDP 445 - SMB
+  - TCP 1024-65535 - Dynamic ports for RPC
+    For a complete list of ports, see [Active Directory and Active Directory Domain Services Port
+    Requirements](<https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)> "https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)") in the Microsoft documentation.
 
 - All streaming instances require that port 80 (HTTP) be open to IP address
   `169.254.169.254` to allow access to the EC2 metadata

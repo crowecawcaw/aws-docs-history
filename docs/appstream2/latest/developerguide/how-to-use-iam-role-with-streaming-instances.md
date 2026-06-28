@@ -4,18 +4,18 @@ After you create an IAM role, you can apply it to an image builder or fleet stre
 
 When you apply an IAM role to your image builder or fleet streaming instance,
 WorkSpaces Applications retrieves temporary credentials and creates the
-**appstream_machine_role** credential profile on the instance.
+**appstream\_machine\_role** credential profile on the instance.
 The temporary credentials are valid for 1 hour, and new credentials retrieved every
 hour. The previous credentials do not expire, so you can use them for as long as
 they are valid. You can use the credential profile to call AWS services
 programmatically by using the AWS Command Line Interface (AWS CLI), AWS Tools
 for PowerShell, or the AWS SDK with the language of your choice.
 
-When you make the API calls, specify **appstream_machine_role** as the credential profile. Otherwise, the operation fails due to insufficient permissions.
+When you make the API calls, specify **appstream\_machine\_role** as the credential profile. Otherwise, the operation fails due to insufficient permissions.
 
 WorkSpaces Applications assumes the specified role while the streaming instance is provisioned. Because WorkSpaces Applications uses the elastic network interface that is attached to your VPC for AWS API calls, your application or script must wait for the elastic network interface to become available before making AWS API calls. If API calls are made before the elastic network interface is available, the calls fail.
 
-The following examples show how you can use the **appstream_machine_role** credential profile to describe streaming instances (EC2 instances) and to create the Boto client. Boto is the Amazon Web Services (AWS) SDK for Python.
+The following examples show how you can use the **appstream\_machine\_role** credential profile to describe streaming instances (EC2 instances) and to create the Boto client. Boto is the Amazon Web Services (AWS) SDK for Python.
 
 **Describe Streaming Instances (EC2 instances) by Using the AWS CLI**
 
