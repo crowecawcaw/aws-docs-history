@@ -32,8 +32,8 @@ unspecified the task will attempt to obtain credentials from the following sourc
 
 - From task variables named _AWS.AccessKeyID_, _AWS.SecretAccessKey_ and optionally _AWS.SessionToken_.
 - From credentials set in environment variables in the build agent process. When using environment variables in the
-  build agent process you may use the standard AWS environment variables: _AWS_ACCESS_KEY_ID_, _AWS_SECRET_ACCESS_KEY_ and
-  optionally _AWS_SESSION_TOKEN_.
+  build agent process you may use the standard AWS environment variables: _AWS\_ACCESS\_KEY\_ID_, _AWS\_SECRET\_ACCESS\_KEY_ and
+  optionally _AWS\_SESSION\_TOKEN_.
 - If the build agent is running on an Amazon EC2 instance, from the instance
   metadata associated with the EC2 instance. For credentials to be available from
   EC2 instance metadata the instance must have been started with an instance profile
@@ -49,7 +49,7 @@ the _Amazon Web Services General Reference_.
 
 If a Region is not specified in the task configuration the task will attempt to
 obtain the Region to be used using the standard AWS environment variable
-_AWS_REGION_ in the build agent process's environment. Tasks
+_AWS\_REGION_ in the build agent process's environment. Tasks
 running in build agents hosted on Amazon EC2 instances (Windows or Linux) will also
 attempt to obtain the Region using the instance metadata associated with the EC2
 instance if no Region is configured on the task or set in the environment
@@ -58,7 +58,7 @@ variable.
 **Note:** The Regions listed in the picker are those known
 at the time this software was released. New Regions that are not listed may still be
 used by entering the _region code_ of the Region (for example,
-_us_west_2_).
+_us\_west\_2_).
 
 ### Bucket Name\*
 
@@ -138,8 +138,8 @@ Sets a custom content type for the uploaded files. If a custom content type is n
 Choose a storage class depending on your use case scenario and performance access requirements.
 
 - _STANDARD_ – This storage class (the default) is ideal for performance-sensitive use cases and frequently accessed data.
-- _STANDARD_IA_ – This storage class (IA, for infrequent access) is optimized for long-lived and less frequently accessed data, for example backups and older data where frequency of access has diminished, but the use case still demands high performance. **Note** There is a retrieval fee associated with STANDARD_IA objects which makes it most suitable for infrequently accessed data.
-- _REDUCED_REDUNDANCY_ – The Reduced Redundancy Storage (RRS) storage class is designed for noncritical, reproducible data stored at lower levels of redundancy than the STANDARD storage class, which reduces storage costs.
+- _STANDARD\_IA_ – This storage class (IA, for infrequent access) is optimized for long-lived and less frequently accessed data, for example backups and older data where frequency of access has diminished, but the use case still demands high performance. **Note** There is a retrieval fee associated with STANDARD\_IA objects which makes it most suitable for infrequently accessed data.
+- _REDUCED\_REDUNDANCY_ – The Reduced Redundancy Storage (RRS) storage class is designed for noncritical, reproducible data stored at lower levels of redundancy than the STANDARD storage class, which reduces storage costs.
 
 For more information see [Storage Classes](../../../AmazonS3/latest/userguide/storage-class-intro.md "../../../AmazonS3/latest/userguide/storage-class-intro.md") in the Amazon S3 documentation for more information.
 
