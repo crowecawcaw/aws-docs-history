@@ -15,8 +15,8 @@ ssh `Domain_FQDN`\\`Username`@`SSH_bastion_name`
     or `SSH_bastion_IP`
 ```
 
-Which would look like this if your Domain_FQDN is "corp.domain.com", your account number is "123456789123",
-Your_Domain is "amazonaws.com", you choose bastion "4", and your user name is "JoeSmith":
+Which would look like this if your Domain\_FQDN is "corp.domain.com", your account number is "123456789123",
+Your\_Domain is "amazonaws.com", you choose bastion "4", and your user name is "JoeSmith":
 
 ```
 ssh corp.domain.com\\JoeSmith sshbastion4.A123456789123.amazonaws.com

@@ -24,8 +24,8 @@ Before you begin:
 sshbastion`(1-4)`.`Your_Domain`
 ```
 
-Which would look like this if your Domain_FQDN is "corp.domain.com", your
-AMS-managed Your_Domain is "amazonaws.com", you choose bastion "4", and your user name is "JoeSmith":
+Which would look like this if your Domain\_FQDN is "corp.domain.com", your
+AMS-managed Your\_Domain is "amazonaws.com", you choose bastion "4", and your user name is "JoeSmith":
 
 ```
 ssh corp.domain.com\\JoeSmith sshbastion4.amazonaws.com
@@ -34,38 +34,31 @@ ssh corp.domain.com\\JoeSmith sshbastion4.amazonaws.com
 - Find the IP address of the instance that you want to connect to; for information, see
   [Finding an instance ID or IP address](find-instance-id.md "find-instance-id.md").
 
-1.  Set up RDP over an SSH tunnel from a Linux desktop to a Windows instance. In order to
-    issue the `ssh` command with the right values, there are a couple of ways to proceed:
+1. Set up RDP over an SSH tunnel from a Linux desktop to a Windows instance. In order to
+   issue the `ssh` command with the right values, there are a couple of ways to proceed:
 
-        * In the Linux shell, set the variables, and then enter the SSH connection command:
+   - In the Linux shell, set the variables, and then enter the SSH connection command:
 
+   ```
+   BASTION="sshbastion`(1-4)`.`Your_Domain"`"
+   WINDOWS="`Windows_Instance_Private_IP`"
+   AD="`AD_Account_Number`"
+   USER="`AD_Username`"
+   ssh -L 3389:$WINDOWS:3389 A$AD\\\\$USER@$BASTION
+   ```
 
+   Example, if the following values are used:
 
-        ```
-        BASTION="sshbastion`(1-4)`.`Your_Domain"`"
-        WINDOWS="`Windows_Instance_Private_IP`"
-        AD="`AD_Account_Number`"
-        USER="`AD_Username`"
-        ssh -L 3389:$WINDOWS:3389 A$AD\\\\$USER@$BASTION
-        ```
+   `BASTION="sshbastion4.A123456789123.amazonaws.com"`
 
-        Example, if the following values are used:
+   `WINDOWS="172.16.3.254"`
 
+   `AD="ACORP_example"`
 
-        `BASTION="sshbastion4.A123456789123.amazonaws.com"`
-
-
-        `WINDOWS="172.16.3.254"`
-
-
-        `AD="ACORP_example"`
-
-
-        `USER="john.doe"`
-        * Add the variable values directly to the `ssh` command.
-
-    In either case, this is what the rendered request would be (assuming the same set of
-    variable values):
+   `USER="john.doe"`
+   - Add the variable values directly to the `ssh` command.
+     In either case, this is what the rendered request would be (assuming the same set of
+     variable values):
 
 ```
 ssh -L 3389:172.16.3.254:3389 ACORP_example\\\\john.doe@myamsadomain.com
@@ -135,38 +128,31 @@ sshbastion4.A123456789123.amazonaws.com
 - Find the IP address of the instance that you want to connect to; for information, see
   [Finding an instance ID or IP address](find-instance-id.md "find-instance-id.md").
 
-1.  Set up RDP over an SSH tunnel from a Linux desktop to a Windows instance. In order to
-    issue the `ssh` command with the right values, there are a couple of ways to proceed:
+1. Set up RDP over an SSH tunnel from a Linux desktop to a Windows instance. In order to
+   issue the `ssh` command with the right values, there are a couple of ways to proceed:
 
-        * In the Linux shell, set the variables, and then enter the SSH connection command:
+   - In the Linux shell, set the variables, and then enter the SSH connection command:
 
+   ```
+   BASTION="sshbastion`(1-4)`.A`AMSAccountNumber`.amazonaws.com"
+   WINDOWS="`WINDOWS_INSTANCE_PRIVATE_IP`"
+   AD="`AD_ACCOUNT_NUMBER`"
+   USER="`AD_USERNAME`"
+   ssh -L 3389:$WINDOWS:3389 A$AD\\\\$USER@$BASTION
+   ```
 
+   Example, if the following values are used:
 
-        ```
-        BASTION="sshbastion`(1-4)`.A`AMSAccountNumber`.amazonaws.com"
-        WINDOWS="`WINDOWS_INSTANCE_PRIVATE_IP`"
-        AD="`AD_ACCOUNT_NUMBER`"
-        USER="`AD_USERNAME`"
-        ssh -L 3389:$WINDOWS:3389 A$AD\\\\$USER@$BASTION
-        ```
+   `BASTION="sshbastion4.A123456789123.amazonaws.com"`
 
-        Example, if the following values are used:
+   `WINDOWS="172.16.3.254"`
 
+   `AD="ACORP_example"`
 
-        `BASTION="sshbastion4.A123456789123.amazonaws.com"`
-
-
-        `WINDOWS="172.16.3.254"`
-
-
-        `AD="ACORP_example"`
-
-
-        `USER="john.doe"`
-        * Add the variable values directly to the `ssh` command.
-
-    In either case, this is what the rendered request would be (assuming the same set of
-    variable values):
+   `USER="john.doe"`
+   - Add the variable values directly to the `ssh` command.
+     In either case, this is what the rendered request would be (assuming the same set of
+     variable values):
 
 ```
 ssh -L 3389:172.16.3.254:3389 ACORP_example\\\\john.doe@sshbastion4.A123456789123.amazonaws.com

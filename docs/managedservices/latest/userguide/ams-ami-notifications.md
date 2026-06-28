@@ -56,7 +56,7 @@ Possible AMS AMI topics to subscribe to:
 4. Provide the following information:
 
    1. **Topic ARN**: `arn:aws:sns:{`REGION`}:287847593866:{`AMS_AMI_NAME`}`
-      where REGION is the selected AWS Region (where the SNS notification was created) and AMS_AMI_NAME is the AMI that you want notifications about. Examples:
+      where REGION is the selected AWS Region (where the SNS notification was created) and AMS\_AMI\_NAME is the AMI that you want notifications about. Examples:
 
       - To subscribe to notifications of new AMS Amazon Linux AMIs in AWS Region us-east-1, use this
         **Topic ARN** = `arn:aws:sns:us-east-1:287847593866:customer-ams-amazon1`.

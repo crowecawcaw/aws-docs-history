@@ -39,9 +39,9 @@ related access setup with your Cloud Architect (CA). For example:
 - You could define your specific Amazon Forecast service role with naming
   like 'AmazonForecast-ExecutionRole-\*' and associated proper S3 bucket access.
   See the Service role - AmazonForecast-ExecutionRole-Admin and IAM
-  policy - customer_forecast_default_s3_access_policy, in the IAM console.
+  policy - customer\_forecast\_default\_s3\_access\_policy, in the IAM console.
 - You may need to associate related S3 buckets access to IAM federation role.
-  See the IAM policy - customer_forecast_default_s3_access_policy, in the IAM console.
+  See the IAM policy - customer\_forecast\_default\_s3\_access\_policy, in the IAM console.
 
 **Q: What are the prerequisites or dependencies to using Forecast in my AMS account?**
 
@@ -51,9 +51,9 @@ related access setup with your Cloud Architect (CA). For example:
   you must create a new service role with S3 access permissions on the buckets:
 
   1.  A new service role to be created with naming 'AmazonForecast-ExecutionRole-{suffix}'.
-  2.  A new IAM policy to be created which is similar to customer_forecast_default_s3_access_policy
+  2.  A new IAM policy to be created which is similar to customer\_forecast\_default\_s3\_access\_policy
       and to be associated with the new service role and related federation admin role
-      (e.g. 'customer_forecast_admin_role')
+      (e.g. 'customer\_forecast\_admin\_role')
 
 **Q: How can I enhance data security while using Amazon Forecast?**
 
@@ -63,13 +63,13 @@ related access setup with your Cloud Architect (CA). For example:
   - Enable default encryption on the bucket with the provision key and set up bucket
     policy to accept AWS KMS data encryption while putting data.
   - Enable the Amazon Forecast service role 'AmazonForecast-ExecutionRole-\*' and
-    federation admin role (e.g. 'customer_forecast_admin_role') as the AWS KMS key user.
+    federation admin role (e.g. 'customer\_forecast\_admin\_role') as the AWS KMS key user.
 
 - For data encryption in transit, you can set up the HTTPS protocol, which is required while
   transferring objects on Amazon S3 bucket policy.
 - Further restrictions on access control, enable a bucket policy for approved access
   for the Amazon Forecast service role 'AmazonForecast-ExecutionRole-\*' and admin role
-  (e.g. 'customer_forecast_admin_role').
+  (e.g. 'customer\_forecast\_admin\_role').
 
 **Q: What are the best practices while using Amazon Forecast?**
 
@@ -77,7 +77,7 @@ related access setup with your Cloud Architect (CA). For example:
   the related data security needs while using S3 buckets with Amazon Forecast.
 - For Amazon S3 bucket configuration, we strongly advise you to enable HTTPS enforcement
   in your S3 bucket policy.
-- You must be aware of the admin role 'customer_forecast_admin_role' support permissive
+- You must be aware of the admin role 'customer\_forecast\_admin\_role' support permissive
   access (Get/Delete/Put S3 objects) on Amazon S3 buckets with naming of 'customer-forecast-\*'.
   NOTE: If you require fine-grained access control for multiple teams, follow these practices:
 
@@ -90,7 +90,7 @@ related access setup with your Cloud Architect (CA). For example:
   - Enforce S3 bucket configuration for approved access for related IAM
     identities (user access and 'AmazonForecast-ExecutionRole-{team/project}' to the buckets.
 
-- If you want to use the 'customer_forecast_admin_role' for general purpose, consider
+- If you want to use the 'customer\_forecast\_admin\_role' for general purpose, consider
   points listed previously to protect S3 buckets.
 
 **Q: Where is compliance information about Amazon Forecast?**

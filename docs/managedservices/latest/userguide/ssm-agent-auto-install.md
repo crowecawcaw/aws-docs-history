@@ -24,11 +24,10 @@ For more information, see [Configure instance permissions required for Systems M
 
 - To block outbound traffic, ensure that the following interface endpoints are enabled on the VPC where the target instances reside, (replace "region" in the URL appropriately):
 
-      + ssm.<region>.amazonaws.com
-      + ssmmessages.<region>.amazonaws.com
-      + ec2messages.<region>.amazonaws.com
-
-  For more information, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](../../../systems-manager/latest/userguide/setup-create-vpc.md "../../../systems-manager/latest/userguide/setup-create-vpc.md").
+  - ssm.<region>.amazonaws.com
+  - ssmmessages.<region>.amazonaws.com
+  - ec2messages.<region>.amazonaws.com
+    For more information, see [Improve the security of EC2 instances by using VPC endpoints for Systems Manager](../../../systems-manager/latest/userguide/setup-create-vpc.md "../../../systems-manager/latest/userguide/setup-create-vpc.md").
 
 For general tips on enabling or troubleshooting managed node availability, see [Solution 2: Verify that an IAM instance profile has been specified for the instance (EC2 instances only)](../../../systems-manager/latest/userguide/troubleshooting-managed-instances.md#instances-missing-solution-2 "../../../systems-manager/latest/userguide/troubleshooting-managed-instances.md#instances-missing-solution-2").
 

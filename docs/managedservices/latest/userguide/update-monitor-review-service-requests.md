@@ -37,9 +37,6 @@ correspondence by going to your AMS console and using the case details page. 2. 
     * **Resolved**: Use to view cases that you know have been resolved. Resolved cases are maintained in history for twelve months.
     * **Any status**: Use this filter to see all cases, regardless of status.
 
-3. To check the latest status, refresh the page.
-4. If there are so many correspondences that they do not all appear on the page, choose **Load More**.
-5. To provide an update to the case status, choose **Reply**, enter the new correspondence, and then choose **Submit**.
-6. To close out the case after it has been resolved to your satisfaction, choose **Close case**.
+3. To check the latest status, refresh the page. 4. If there are so many correspondences that they do not all appear on the page, choose **Load More**. 5. To provide an update to the case status, choose **Reply**, enter the new correspondence, and then choose **Submit**. 6. To close out the case after it has been resolved to your satisfaction, choose **Close case**.
 
 Be sure to rate the service through the 1-5 star rating to let AMS know how we're doing!

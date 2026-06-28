@@ -54,7 +54,7 @@ No. Amazon Inspector is not part of the default AMI build or workload ingestion.
 - How do I access and install Amazon Inspector?
 
 Submit an RFC (Management | Other | Other | Create) to request account access and installation to Inspector and the AMS operations team will modify
-the Customer_ReadOnly_Role to provide Amazon Inspector console access (without SSM access).
+the Customer\_ReadOnly\_Role to provide Amazon Inspector console access (without SSM access).
 
 - Does the Amazon Inspector Agent have to be installed on all of the Amazon EC2 instances I want to assess?
 

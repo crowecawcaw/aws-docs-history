@@ -10,7 +10,7 @@ Shared Services Account is shown in the following graphic. 
 The Shared Services VPC is composed of the AD subnet, the EPS subnet, and the customer bastions subnet
 in the three availability zones (AZs). The resources created in the Shared Services VPC are listed below and require your input.
 
-- *Shared Services VPC CIDR range:* When you create a VPC, you must specify a range of IPv4 addresses
+- _Shared Services VPC CIDR range:_ When you create a VPC, you must specify a range of IPv4 addresses
   for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.1.0/24. This is the primary CIDR block
   for your VPC.
 

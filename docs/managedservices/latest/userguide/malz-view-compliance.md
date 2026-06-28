@@ -18,13 +18,12 @@ will work with you to take corrective action.
 
 - In that case, you see the following changes appear in your AMS accounts:
 
-      + AWS Config Rules under AWS Config > Rules
-      + Custom Config rules with their Lambda functions exist in your account
-      + Config Aggregator in Security account and Config Authorization in all accounts
-       (Multi-Account Landing Zone only)
-
-  The following is a sample of AWS Config Rules and their compliance evaluation results
-  is shown below:
+  - AWS Config Rules under AWS Config > Rules
+  - Custom Config rules with their Lambda functions exist in your account
+  - Config Aggregator in Security account and Config Authorization in all accounts
+    (Multi-Account Landing Zone only)
+    The following is a sample of AWS Config Rules and their compliance evaluation results
+    is shown below:
 
 ![AWS Config Rules dashboard showing compliant status for multiple security-related rules.](images/ams-malz-dd-rules-2.png)
 To learn more about AWS Config, see:

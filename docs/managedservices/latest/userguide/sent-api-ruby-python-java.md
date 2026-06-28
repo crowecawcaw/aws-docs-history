@@ -163,7 +163,7 @@ import botocore
 ###### Note
 
 Because the example models are in a directory named `models`, we add `./models` to
-AWS_DATA_PATH. If the directory was named `/ams/boto3models`, we would add the following code:
+AWS\_DATA\_PATH. If the directory was named `/ams/boto3models`, we would add the following code:
 
 ```
 import os.environ['AWS_DATA_PATH'] = './ams/boto3models'
@@ -210,7 +210,7 @@ import botocore
 ###### Note
 
 Because the example models are in a directory named `models`, We add `./models` to
-AWS_DATA_PATH. If the directory was named `/ams/boto3models`, we would add the
+AWS\_DATA\_PATH. If the directory was named `/ams/boto3models`, we would add the
 following code:
 
 ```

@@ -52,18 +52,17 @@ aws amsskms list-amis --vpc-id `VPC_ID` --query "Amis.sort_by(@,&Name)[? starts_
 
 - Windows Server AMIs:
 
-      + [Microsoft .NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653 "https://www.microsoft.com/en-us/download/details.aspx?id=30653")
-      + [PowerShell 5.1](https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1 "https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1")
-      + [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/ "https://aws.amazon.com/powershell/")
-      + AMS PowerShell Modules controlling boot, AD join, monitoring, security, and logging
-      + [Trend Micro Endpoint Protection Service Agent](https://www.trendmicro.com/en_us/business.html "https://www.trendmicro.com/en_us/business.html")
-      + [SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md")
-      + [CloudWatch Agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md")
-      + EC2Config service (through Windows Server 2012 R2)
-      + EC2Launch (Windows Server 2016 and Windows Server 2019)
-      + EC2LaunchV2 (Windows Server 2022 and later)
-
-  **Linux-based AMIs**:
+  - [Microsoft .NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653 "https://www.microsoft.com/en-us/download/details.aspx?id=30653")
+  - [PowerShell 5.1](https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1 "https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1")
+  - [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell/ "https://aws.amazon.com/powershell/")
+  - AMS PowerShell Modules controlling boot, AD join, monitoring, security, and logging
+  - [Trend Micro Endpoint Protection Service Agent](https://www.trendmicro.com/en_us/business.html "https://www.trendmicro.com/en_us/business.html")
+  - [SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md")
+  - [CloudWatch Agent](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md")
+  - EC2Config service (through Windows Server 2012 R2)
+  - EC2Launch (Windows Server 2016 and Windows Server 2019)
+  - EC2LaunchV2 (Windows Server 2022 and later)
+    **Linux-based AMIs**:
 
 - Amazon Linux 2023 (Latest Minor Release) (Minimal AMI not supported)
 - Amazon Linux 2 (Latest Minor Release)
@@ -82,25 +81,19 @@ For more information, see
 
 - SUSE Linux Enterprise Server for SAP applications 15 SP6:
 
-      + Run the following steps once per account:
+  - Run the following steps once per account:
 
+    1. Navigate to the **AWS Marketplace**.
+    2. Search for the SUSE 15 SAP product.
+    3. Choose **Continue to subscribe**.
+    4. Choose **Accept terms**.
 
+  - Complete the following steps **every time**
+    you need to launch a new **SUSE Linux Enterprise Server for SAP Applications 15 SP6** instance:
 
-
-      	1. Navigate to the **AWS Marketplace**.
-      	2. Search for the SUSE 15 SAP product.
-      	3. Choose **Continue to subscribe**.
-      	4. Choose **Accept terms**.
-      + Complete the following steps **every time**
-       you need to launch a new **SUSE Linux Enterprise Server for SAP Applications 15 SP6** instance:
-
-
-
-
-      	1. Note the AMI ID for the subscribed **SUSE Linux Enterprise Server for SAP Applications 15** AMI.
-      	2. Create a Deployment | Advanced stack components | EC2 stack | Create change type ct-14027q0sjyt1h RFC. Replace `InstanceAmiId` with the AWS Marketplace AMI ID that you subscribed to.
-
-  **Windows-based AMIs**:
+    1. Note the AMI ID for the subscribed **SUSE Linux Enterprise Server for SAP Applications 15** AMI.
+    2. Create a Deployment | Advanced stack components | EC2 stack | Create change type ct-14027q0sjyt1h RFC. Replace `InstanceAmiId` with the AWS Marketplace AMI ID that you subscribed to.
+       **Windows-based AMIs**:
 
 Microsoft Windows Server (2016, 2019, 2022, and 2025), based on latest Windows AMIs.
 

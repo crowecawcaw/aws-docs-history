@@ -33,11 +33,10 @@ Use [Tag | Update](../ctref/management-advanced-tag-update.md "../ctref/manageme
     * **Key:** TR-DAvU99Dc4C-Execution-Mode
     * **Value:** Inactive
 
-2. Use the **Remediation Configuration|Update** change type to request the configuration update.
-3. Enter the following parameters:
+2. Use the **Remediation Configuration|Update** change type to request the configuration update. 3. Enter the following parameters:
 
-   - **CheckIds:** DAvU99Dc4C
-   - **ExecutionMode:** Automated
+    * **CheckIds:** DAvU99Dc4C
+    * **ExecutionMode:** Automated
 
 4. Submit the RFC.
 

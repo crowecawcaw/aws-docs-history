@@ -13,7 +13,7 @@ Before you begin:
 sshbastion`(1-4)`.`YOUR_DOMAIN`
 ```
 
-Which would look like this if YOUR_DOMAIN is myamsaddomain.com" and you choose bastion 4:
+Which would look like this if YOUR\_DOMAIN is myamsaddomain.com" and you choose bastion 4:
 
 ```
 sshbastion4.myamsaddomain.com

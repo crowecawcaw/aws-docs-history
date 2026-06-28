@@ -86,42 +86,42 @@ yum repolist
 - **Amazon Linux** preconfigured repositories (usually
   four):
 
-| Repository ID       | Repository name                                   |
-| ------------------- | ------------------------------------------------- |
-| amzn-main/latest    | amzn-main-Base                                    |
-| amzn-updates/latest | amzn-updates-Base                                 |
-| epel/x86_64         | Extra Packages for Enterprise Linux 6<br>• x86_64 |
-| pbis                | PBIS Packages Updates                             |
+| Repository ID       | Repository name                                    |
+| ------------------- | -------------------------------------------------- |
+| amzn-main/latest    | amzn-main-Base                                     |
+| amzn-updates/latest | amzn-updates-Base                                  |
+| epel/x86\_64        | Extra Packages for Enterprise Linux 6<br>• x86\_64 |
+| pbis                | PBIS Packages Updates                              |
 
 - **Red Hat Enterprise Linux** preconfigured repositories
   (five for Red Hat Enterprise Linux 7 and five for Red Hat Enterprise Linux 6):
 
-| Repository ID                                   | Repository name                                            |
-| ----------------------------------------------- | ---------------------------------------------------------- |
-| rhui-REGION-client-config-server-7/x86_64       | Red Hat Update Infrastructure 2.0 Client Configuration Ser |
-| rhui-REGION-rhel-server-releases/7Server/x86_64 | Red Hat Enterprise Linux Server 7                          |
-| rhui-REGION-rhel-server-releases/7Server/x86_64 | Red Hat Enterprise Linux Server 7 RH Common(RPMs)          |
-| epel/x86_64                                     | Extra Packages for Enterprise Linux 7<br>• x86_64          |
-| pbis                                            | PBIS Packages Updates                                      |
+| Repository ID                                    | Repository name                                            |
+| ------------------------------------------------ | ---------------------------------------------------------- |
+| rhui-REGION-client-config-server-7/x86\_64       | Red Hat Update Infrastructure 2.0 Client Configuration Ser |
+| rhui-REGION-rhel-server-releases/7Server/x86\_64 | Red Hat Enterprise Linux Server 7                          |
+| rhui-REGION-rhel-server-releases/7Server/x86\_64 | Red Hat Enterprise Linux Server 7 RH Common(RPMs)          |
+| epel/x86\_64                                     | Extra Packages for Enterprise Linux 7<br>• x86\_64         |
+| pbis                                             | PBIS Packages Updates                                      |
 
 | Repository ID                      | Repository name                                    |
 | ---------------------------------- | -------------------------------------------------- |
 | rhui-REGION-client-config-server-6 | Red Hat Update Infrastructure 2.0                  |
 | rhui-REGION-rhel-server-releases   | Red Hat Enterprise Linux Server 6 (RPMs)           |
 | rhui-REGION-rhel-server-rh-common  | Red Hat Enterprise Linux Server 6 RH Common (RPMs) |
-| epel                               | Extra Packages for Enterprise Linux 6<br>• x86_64  |
+| epel                               | Extra Packages for Enterprise Linux 6<br>• x86\_64 |
 | pbis                               | PBIS Packages Updates                              |
 
 - **CentOS 7** preconfigured repositories (usually
   five):
 
-| Repository ID    | Repository Name                                   |
-| ---------------- | ------------------------------------------------- |
-| base/7/x86_64    | CentOS-7<br>• Base                                |
-| updates/7/x86_64 | CentOS-7<br>• Updates                             |
-| extras/7/x86_64  | CentOS-7<br>• Extras                              |
-| epel/x86_64      | Extra Packages for Enterprise Linux 7<br>• x86_64 |
-| pbis             | PBIS Packages Updates                             |
+| Repository ID     | Repository Name                                    |
+| ----------------- | -------------------------------------------------- |
+| base/7/x86\_64    | CentOS-7<br>• Base                                 |
+| updates/7/x86\_64 | CentOS-7<br>• Updates                              |
+| extras/7/x86\_64  | CentOS-7<br>• Extras                               |
+| epel/x86\_64      | Extra Packages for Enterprise Linux 7<br>• x86\_64 |
+| pbis              | PBIS Packages Updates                              |
 
 - For **Microsoft Windows Server**, all updates are
   detected and installed using the Windows Update Agent, which is configured

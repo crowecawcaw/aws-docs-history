@@ -21,7 +21,7 @@ An Amazon EC2 instance created through an Amazon EC2 Auto Scaling group will hav
 in and out and you have to use your Amazon EC2 console to find that IP address.
 
 - **User name** (for example `DOMAIN_FQDN\`\`USERNAME`) and 
-**Password**: Credentials for the account. The `USERNAME` must be your Active Directory user name.
+ **Password**: Credentials for the account. The `USERNAME` must be your Active Directory user name.
 
 Note that a user name in the format username@customerdomain.com can be used but can cause trouble with your PBIS setup.
 

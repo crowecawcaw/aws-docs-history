@@ -10,17 +10,14 @@ three types of Application accounts:
 
 - Root OU:
 
-      1. Applications OU
+  1.  Applications OU
 
+      - Managed OU: AMS-managed accounts
+      - Development OU: AMS-managed accounts with Developer mode enabled
 
-
-
-      	+ Managed OU: AMS-managed accounts
-      	+ Development OU: AMS-managed accounts with Developer mode enabled
-      2. Accelerate OU: AMS Accelerate Application accounts
-      3. Customer-managed OU: Customer-managed Application accounts
-
-  Application accounts are provisioned through an RFC submitted from the Management account:
+  2.  Accelerate OU: AMS Accelerate Application accounts
+  3.  Customer-managed OU: Customer-managed Application accounts
+      Application accounts are provisioned through an RFC submitted from the Management account:
 
 - Create Application Account With VPC
   [ct-1zdasmc2ewzrs](../ctref/deployment-managed-management-account-create-application-account-with-vpc.md "../ctref/deployment-managed-management-account-create-application-account-with-vpc.md")

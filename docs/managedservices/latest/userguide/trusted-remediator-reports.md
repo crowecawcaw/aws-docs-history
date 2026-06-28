@@ -43,16 +43,16 @@ The Trusted Remediator Configuration Summary report provides information about t
 
 The Trusted Advisor Check Summary report provides information about the current Trusted Advisor checks. This report collects data after each weekly remediation schedule. The default number of weeks is 1. To customize the report, specify the number of weeks based on your remediation cycle.
 
-| **Field Name**              | **Definition**                                                                                                                                  |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| Date                        | The date that the data was collected on.                                                                                                        |
-| Account ID                  | The AWS account ID that the configuration applies to                                                                                            |
-| Customer Name               | The AWS account name                                                                                                                            |
-| Check Category              | The AWS Trusted Advisor check category                                                                                                          |
-| Check Name                  | The name of the remediated Trusted Advisor check that the configuration applies to                                                              |
-| Check ID                    | The ID of the remediated Trusted Advisor check that the configuration applies to                                                                |
-| Status                      | The alert status of the check. Possible statuses are **ok\*<br>• (green), **warning*<br>• (yellow), \*\*error*<br>• (red), or **not_available** |
-| Resources Flagged           | The number of AWS resources that were flagged (listed) by the Trusted Advisor check.                                                            |
-| Resources Ignored           | The number of AWS resources that were ignored by Trusted Advisor because you marked them as suppressed.                                         |
-| Resources in critical state | The number of resources in critical state                                                                                                       |
-| Resources in warning state  | The number of resources in warning state                                                                                                        |
+| **Field Name**              | **Definition**                                                                                                                                |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Date                        | The date that the data was collected on.                                                                                                      |
+| Account ID                  | The AWS account ID that the configuration applies to                                                                                          |
+| Customer Name               | The AWS account name                                                                                                                          |
+| Check Category              | The AWS Trusted Advisor check category                                                                                                        |
+| Check Name                  | The name of the remediated Trusted Advisor check that the configuration applies to                                                            |
+| Check ID                    | The ID of the remediated Trusted Advisor check that the configuration applies to                                                              |
+| Status                      | The alert status of the check. Possible statuses are *_ok_<br>• (green), *_warning_<br>• (yellow), *_error_<br>• (red), or **not\_available** |
+| Resources Flagged           | The number of AWS resources that were flagged (listed) by the Trusted Advisor check.                                                          |
+| Resources Ignored           | The number of AWS resources that were ignored by Trusted Advisor because you marked them as suppressed.                                       |
+| Resources in critical state | The number of resources in critical state                                                                                                     |
+| Resources in warning state  | The number of resources in warning state                                                                                                      |

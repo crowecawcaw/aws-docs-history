@@ -38,17 +38,17 @@ You are required to author your runbook, with limited set of Systems Manager sup
 automation, only to run commands and/or scripts within your managed instances. The actions that are available
 to you along with any restrictions are outlined as below.
 
-| AWS Systems Manager Automation Limitations | Action                                      | Description                                                                                     | Limitation |
-| ------------------------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------- |
-| aws:assertAwsResourceProperty –            | Assert an AWS resource state or event state | Only EC2 instances                                                                              |
-| aws:aws:branch –                           | Run conditional automation steps            | No limitation                                                                                   |
-| aws:createTags –                           | Create tags for AWS resources               | Only to SSM automation runbooks that you author                                                 |
-| aws:executeAutomation –                    | Run another automation                      | Only the automation runbook that you author                                                     |
-| aws:executeScript –                        | Run a script                                | Only script that does not make any API call to any services                                     |
-| aws:pause –                                | Pause an automation                         | No limitation                                                                                   |
-| aws:runCommand –                           | Run a command on a managed instance         | Only using System Manager provided document<br>• AWS-RunShellScript and AWS-RunPowerShellScript |
-| aws:sleep –                                | Delay an automation                         | No limitation                                                                                   |
-| aws:waitForAwsResourceProperty –           | Wait on an AWS resource property            | Only EC2 instances                                                                              |
+AWS Systems Manager Automation Limitations| Action | Description | Limitation |
+| --- | --- | --- |
+| aws:assertAwsResourceProperty – | Assert an AWS resource state or event state | Only EC2 instances |
+| aws:aws:branch – | Run conditional automation steps | No limitation |
+| aws:createTags – | Create tags for AWS resources | Only to SSM automation runbooks that you author |
+| aws:executeAutomation – | Run another automation | Only the automation runbook that you author |
+| aws:executeScript – | Run a script | Only script that does not make any API call to any services |
+| aws:pause – | Pause an automation | No limitation |
+| aws:runCommand – | Run a command on a managed instance | Only using System Manager provided document<br>• AWS-RunShellScript and AWS-RunPowerShellScript |
+| aws:sleep – | Delay an automation | No limitation |
+| aws:waitForAwsResourceProperty – | Wait on an AWS resource property | Only EC2 instances |
 
 You can also chose to run command or script directly with Systems Manager provided runbook
 AWS-RunShellScript and AWS-RunPowerShellScript using the 'Run Command' feature from within the Systems Manager

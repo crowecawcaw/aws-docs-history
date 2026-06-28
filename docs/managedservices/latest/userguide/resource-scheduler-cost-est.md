@@ -15,7 +15,7 @@ cost from Cost Explorer for a given day.
 
 For example, if instance A is configured with Resource Scheduler to run from 9 a.m. to 5
 p.m., that is eight hours on a given day. Cost Explorer reports the cost as $1 and usage as 8. The average
-cost per hour is therefore $0.125. If the instance was not scheduled with Resource Scheduler,
+ cost per hour is therefore $0.125. If the instance was not scheduled with Resource Scheduler,
 then the instance would run 24 hours on that day. In that case, the cost would have been
 24x0.125 = $3. Resource Scheduler helped you achieve a cost savings of $2.
 

@@ -5,17 +5,16 @@
   or your managed resources, create a service request by using this interface.
 - _AWS Management Console_: Many AWS consoles can be useful for viewing AMS information, for example:
 
-      + *Amazon EC2 console*: Use to view instance information including bastion IP addresses,
-       Amazon EC2 Auto Scaling groups, and load balancers.
-      + *Multi-Account Landing Zone AWS Config Rules compliance*: You can view compliance
-       status across your accounts and identify non-compliant resources.
-      + *AWS CloudFormation console*: Use to view stack information including stack IDs (you can find
-       Amazon RDS stacks and Amazon RDS instance IDs here, and event information).
-      + *Amazon RDS console*: Use to view event information such as a post made to a WordPress app
-       on a site in your account. Note you must have the Amazon RDS instance ID.
-
-  Depending on the mode of your login role, you have different level of access to the AWS Management Console. For more information on modes, see
-  [AMS modes](ams-modes.md "ams-modes.md").
+  - _Amazon EC2 console_: Use to view instance information including bastion IP addresses,
+    Amazon EC2 Auto Scaling groups, and load balancers.
+  - _Multi-Account Landing Zone AWS Config Rules compliance_: You can view compliance
+    status across your accounts and identify non-compliant resources.
+  - _AWS CloudFormation console_: Use to view stack information including stack IDs (you can find
+    Amazon RDS stacks and Amazon RDS instance IDs here, and event information).
+  - _Amazon RDS console_: Use to view event information such as a post made to a WordPress app
+    on a site in your account. Note you must have the Amazon RDS instance ID.
+    Depending on the mode of your login role, you have different level of access to the AWS Management Console. For more information on modes, see
+    [AMS modes](ams-modes.md "ams-modes.md").
 
 - _AMS Advanced change management API_ – Read/Write: Use the change management API (CM API) to
   request additions and specific changes to your managed infrastructure including resource monitoring, log, backup, and

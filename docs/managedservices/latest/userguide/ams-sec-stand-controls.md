@@ -32,14 +32,14 @@ List of AMS Prefixes
 9. Mc\*
 10. sentinel\*
 11. Sentinel\*
-12. Managed_Services\*
+12. Managed\_Services\*
 13. NewAMS\*
 14. AWS\_\*
 15. aws\*
 16. VPC\_\*
 17. CloudTrail\*
 18. Cloudtrail\*
-19. /aws_reserved/
+19. /aws\_reserved/
 20. INGEST\*
 21. EPSDB\*
 22. MMS\*
@@ -51,7 +51,7 @@ List of AMS Prefixes
 28. Root\*
 29. LandingZone\*
 30. StateMachine\*
-31. codedeploy_service_role
+31. codedeploy\_service\_role
 32. managementhost
 33. sentinel.int.
 34. eps

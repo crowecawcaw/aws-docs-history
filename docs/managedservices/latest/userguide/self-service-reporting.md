@@ -7,7 +7,7 @@ configuration management, asset management, security management, and compliance.
 Use SSR to access the reports from the AMS console and report datasets through Amazon S3
 buckets (one bucket per account). You can plug the data into your favorite business
 intelligence (BI) tool to customize the reports based on your unique needs.
-AMS creates this S3 bucket (S3 bucket name: (ams-reporting-data-a<Account_ID>) in your primary AWS Region,
+AMS creates this S3 bucket (S3 bucket name: (ams-reporting-data-a<Account\_ID>) in your primary AWS Region,
 and the data is shared from the AMS control plane hosted in the us-east-1 Region.
 
 ###### Important
@@ -15,7 +15,7 @@ and the data is shared from the AMS control plane hosted in the us-east-1 Region
 To access this feature, you must have one of the following roles:
 
 - Multi-Account Landing Zone: **AWSManagedServicesReadOnlyRole**
-- Single-Account Landing Zone: **Customer_ReadOnly_Role**
+- Single-Account Landing Zone: **Customer\_ReadOnly\_Role**
 
 ###### Important
 

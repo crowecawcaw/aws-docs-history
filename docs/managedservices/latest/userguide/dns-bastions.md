@@ -18,7 +18,7 @@ For example, where the domain is `Your_Domain`:
     * `sshbastion4.`Your_Domain`.com`
 
 2. To access RDP (Windows) bastions, use DNS records like this:
-   `rdp-`Username`.`Your_Domain`.com`.
+`rdp-`Username`.`Your_Domain`.com`.
 
 For example, where the user name is `alex`, `test`,
 `demo`, or `bob`, and the domain is
@@ -45,7 +45,7 @@ For example, where `123456789012` is the account number:
     * `sshbastion4.A123456789012.amazonaws.com`
 
 2. To access RDP (Windows) bastions, use DNS records like this:
-   `rdpbastion`(1-4)`.A`ACCOUNT_NUMBER`.amazonaws.com`.
+`rdpbastion`(1-4)`.A`ACCOUNT_NUMBER`.amazonaws.com`.
 
 For example, where `123456789012` is the account number:
 

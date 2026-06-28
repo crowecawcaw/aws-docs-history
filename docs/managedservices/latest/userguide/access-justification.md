@@ -14,15 +14,15 @@ service calls and host-level activities might be performed for each access.
 
 Access justification, the triggers, and the initiator of the trigger are listed in the following table.
 
-| Access Triggers                        | Access | Initiator                                                                                     | Trigger |
-| -------------------------------------- | ------ | --------------------------------------------------------------------------------------------- | ------- |
-| Patching                               | AMS    | Patch issue                                                                                   |
-| Infrastructure deployments             | AMS    | Deployment issue                                                                              |
-| Internal problem investigation         | AMS    | Problem issue (an issue that has been identified as systemic)                                 |
-| Alert investigation and remediation    | AMS    | AWS Systems Manager operational work items (SSM OpsItems)                                     |
-| Manual RFC execution                   | You    | Request for Change (RFC) issue. (Non-automated RFCs may require AMS access to your resources) |
-| Incident investigation and remediation | You    | Inbound support case (an incident or service request you submit)                              |
-| Inbound service request fulfillment    | You    |
+Access Triggers| Access | Initiator | Trigger |
+| --- | --- | --- |
+| Patching | AMS | Patch issue |
+| Infrastructure deployments | AMS | Deployment issue |
+| Internal problem investigation | AMS | Problem issue (an issue that has been identified as systemic) |
+| Alert investigation and remediation | AMS | AWS Systems Manager operational work items (SSM OpsItems) |
+| Manual RFC execution | You | Request for Change (RFC) issue. (Non-automated RFCs may require AMS access to your resources) |
+| Incident investigation and remediation | You | Inbound support case (an incident or service request you submit) |
+| Inbound service request fulfillment | You |
 
 ## AMS customer account access IAM roles
 
@@ -33,41 +33,41 @@ activity in your account, the roles and their usage are logged in CloudTrail.
 
 Do not modify or delete these roles.
 
-| IAM roles for AMS access to customer accounts      | Role Name                                                                                 | Account Type (SALZ, MALZ Management, MALZ Application, etc.)                                                     | Description |
-| -------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------- |
-| ams-service-admin                                  | SALZ, MALZ                                                                                | AMS Service automation access and automated infrastructure deployments e.g Patch, Backup, Automated Remediation. |
-| ams-application-infra-read-only                    | SALZ, MALZ Application, MALZ Tools-Application                                            | Operator read only access                                                                                        |
-| ams-application-infra-operations                   | Operator access for incidents/service requests                                            |
-| ams-application-infra-admin                        | AD Admin access                                                                           |
-| ams-primary-read-only                              | MALZ Management                                                                           | Operator read only access                                                                                        |
-| ams-primary-operations                             | Operator access for incidents/service requests                                            |
-| ams-primary-admin                                  | AD Admin access                                                                           |
-| ams-logging-read-only                              | MALZ Logging                                                                              | Operator read only access                                                                                        |
-| ams-logging-operations                             | Operator access for incidents/service requests                                            |
-| ams-logging-admin                                  | AD Admin access                                                                           |
-| ams-networking-read-only                           | MALZ Networking                                                                           | Operator read only access                                                                                        |
-| ams-networking-operations                          | Operator access for incidents/service requests                                            |
-| ams-networking-admin                               | AD Admin access                                                                           |
-| ams-shared-services-read-only                      | MALZ Shared Services                                                                      | Operator read only access                                                                                        |
-| ams-shared-services-operations                     | Operator access for incidents/service requests                                            |
-| ams-shared-services-admin                          | AD Admin access                                                                           |
-| ams-security-read-only                             | MALZ Security                                                                             | Operator read only access                                                                                        |
-| ams-security-operations                            | Operator access for incidents/service requests                                            |
-| ams-security-admin                                 | AD Admin access                                                                           |
-| ams-access-security-analyst                        | SALZ, MALZ Application, MALZ Tools-Application, MALZ Core                                 | AMS Security access                                                                                              |
-| ams-access-security-analyst-read-only              | AMS Security, read only access                                                            |
-| Sentinel_AdminUser_Role_PXHazRQadu0PVcCDcMbHE      | SALZ                                                                                      | [BreakGlassRole]Used to breakGlass into the customer accounts                                                    |
-| Sentinel_PowerUser_Role_wZuPuS0ROOl0IazDbRI9       | SALZ, MALZ                                                                                | Poweruser access to customer accounts for RFC execution                                                          |
-| Sentinel_ReadOnlyUser_Role_Pd4L6Rw9RD0lnLkD5JOo    | ReadOnly access to customer accounts for RFC execution                                    |
-| ams_admin_role                                     | Admin access to customer accounts for RFC execution                                       |
-| AWSManagedServices_Provisioning_CustomerStacksRole | Used to launch and update CFN stacks on behalf of customers through CloudFormation Ingest |
-| customer_ssm_automation_role                       | Role passed by CT executions to SSM Automation for runbook execution                      |
-| ams_ssm_automation_role                            | SALZ, MALZ Application, MALZ Core                                                         | Role passed by AMS services to SSM Automation for runbook execution                                              |
-| ams_ssm_iam_deployment_role                        | MALZ Application                                                                          | Role used by IAM catalog                                                                                         |
-| ams_ssm_shared_svcs_intermediary_role              | MALZ Shared Services                                                                      | Role used by application ams_ssm_automation_role to execute specific SSM Documents in Shared Services account    |
-| AmsOpsCenterRole                                   | SALZ, MALZ                                                                                | Used to create and update OpsItems in customer accounts                                                          |
-| AMSOpsItemAutoExecutionRole                        | Used to get SSM Documents, describe resource tags, update OpsItems, and start automation  |
-| customer-mc-ec2-instance-profile                   | Default customer EC2 instance profile (role)                                              |
+IAM roles for AMS access to customer accounts| Role Name | Account Type (SALZ, MALZ Management, MALZ Application, etc.) | Description |
+| --- | --- | --- |
+| ams-service-admin | SALZ, MALZ | AMS Service automation access and automated infrastructure deployments e.g Patch, Backup, Automated Remediation. |
+| ams-application-infra-read-only | SALZ, MALZ Application, MALZ Tools-Application | Operator read only access |
+| ams-application-infra-operations | Operator access for incidents/service requests |
+| ams-application-infra-admin | AD Admin access |
+| ams-primary-read-only | MALZ Management | Operator read only access |
+| ams-primary-operations | Operator access for incidents/service requests |
+| ams-primary-admin | AD Admin access |
+| ams-logging-read-only | MALZ Logging | Operator read only access |
+| ams-logging-operations | Operator access for incidents/service requests |
+| ams-logging-admin | AD Admin access |
+| ams-networking-read-only | MALZ Networking | Operator read only access |
+| ams-networking-operations | Operator access for incidents/service requests |
+| ams-networking-admin | AD Admin access |
+| ams-shared-services-read-only | MALZ Shared Services | Operator read only access |
+| ams-shared-services-operations | Operator access for incidents/service requests |
+| ams-shared-services-admin | AD Admin access |
+| ams-security-read-only | MALZ Security | Operator read only access |
+| ams-security-operations | Operator access for incidents/service requests |
+| ams-security-admin | AD Admin access |
+| ams-access-security-analyst | SALZ, MALZ Application, MALZ Tools-Application, MALZ Core | AMS Security access |
+| ams-access-security-analyst-read-only | AMS Security, read only access |
+| Sentinel\_AdminUser\_Role\_PXHazRQadu0PVcCDcMbHE | SALZ | [BreakGlassRole]Used to breakGlass into the customer accounts |
+| Sentinel\_PowerUser\_Role\_wZuPuS0ROOl0IazDbRI9 | SALZ, MALZ | Poweruser access to customer accounts for RFC execution |
+| Sentinel\_ReadOnlyUser\_Role\_Pd4L6Rw9RD0lnLkD5JOo | ReadOnly access to customer accounts for RFC execution |
+| ams\_admin\_role | Admin access to customer accounts for RFC execution |
+| AWSManagedServices\_Provisioning\_CustomerStacksRole | Used to launch and update CFN stacks on behalf of customers through CloudFormation Ingest |
+| customer\_ssm\_automation\_role | Role passed by CT executions to SSM Automation for runbook execution |
+| ams\_ssm\_automation\_role | SALZ, MALZ Application, MALZ Core | Role passed by AMS services to SSM Automation for runbook execution |
+| ams\_ssm\_iam\_deployment\_role | MALZ Application | Role used by IAM catalog |
+| ams\_ssm\_shared\_svcs\_intermediary\_role | MALZ Shared Services | Role used by application ams\_ssm\_automation\_role to execute specific SSM Documents in Shared Services account |
+| AmsOpsCenterRole | SALZ, MALZ | Used to create and update OpsItems in customer accounts |
+| AMSOpsItemAutoExecutionRole | Used to get SSM Documents, describe resource tags, update OpsItems, and start automation |
+| customer-mc-ec2-instance-profile | Default customer EC2 instance profile (role) |
 
 ## Requesting instance access
 

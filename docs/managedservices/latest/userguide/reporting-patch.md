@@ -38,9 +38,9 @@ window execution time, stack details, and platform type. This report provides th
 | Stack Type                            | AMS stack (AMS infrastructure within customer account) or Customer stack (AMS managed infrastructure that<br>supports customer applications). Examples: AMS, CUSTOMER                                                                                                                             |
 | Auto Scaling Group Name               | Name of Auto Scaling Group (ASG) that contains the instance                                                                                                                                                                                                                                       |
 | Instance Patch Group                  | Patch group name used to group instances together and<br>apply the same maintenance window. If the patch group is unassigned the value will be "Unassigned"                                                                                                                                       |
-| Instance Patch Group Type             | Patch group type.<br>DEFAULT: default patch group with the default maintenance window, determined by the `AMSDefaultPatchGroup:True` tag on the instance.<br>CUSTOMER: customer created patch group.<br>NOT_ASSIGNED: no patch group assigned                                                     |
+| Instance Patch Group Type             | Patch group type.<br>DEFAULT: default patch group with the default maintenance window, determined by the `AMSDefaultPatchGroup:True` tag on the instance.<br>CUSTOMER: customer created patch group.<br>NOT\_ASSIGNED: no patch group assigned                                                    |
 | Instance State                        | State within the EC2 instance lifecycle. Examples: TERMINATED, RUNNING, STOPPING, STOPPED, SHUTTING-DOWN, PENDING.<br>For more information, see<br>[Instance lifecycle](../../../AWSEC2/latest/UserGuide/ec2-instance-lifecycle.md "../../../AWSEC2/latest/UserGuide/ec2-instance-lifecycle.md"). |
-| Maintenance Window Coverage           | If there is a future Maintenance Window on this<br>instance. Examples: COVERED or NOT_COVERED                                                                                                                                                                                                     |
+| Maintenance Window Coverage           | If there is a future Maintenance Window on this<br>instance. Examples: COVERED or NOT\_COVERED                                                                                                                                                                                                    |
 | Maintenance Window Execution Datetime | Next time the maintenance window is expected to execute. If NULL, single window execution, i.e. not recurring                                                                                                                                                                                     |
 
 ## Patch Details report
@@ -75,7 +75,7 @@ AWS Managed Services (AMS) Patch Details report provides patch details and maint
 | Maintenance Window Duration (hrs)          | The duration of the maintenance window in hours                                                                                                                                                                                                                                                     |
 | Maintenance Window Coverage                | The maintenance window coverage                                                                                                                                                                                                                                                                     |
 | Patch Baseline Id                          | Patch baseline currently attached to instance                                                                                                                                                                                                                                                       |
-| Patch Status                               | Overall patch compliance status. For example: COMPLIANT, NON_COMPLIANT. If there is at least<br>one missing patch, instance is considered noncompliant, otherwise compliant.                                                                                                                        |
+| Patch Status                               | Overall patch compliance status. For example: COMPLIANT, NON\_COMPLIANT. If there is at least<br>one missing patch, instance is considered noncompliant, otherwise compliant.                                                                                                                       |
 | Compliant<br>• Total                       | Count of compliant patches (all severities)                                                                                                                                                                                                                                                         |
 | Noncompliant<br>• Total                    | Count of noncompliant patches (all severities)                                                                                                                                                                                                                                                      |
 | Compliant<br>• Critical                    | Count of compliant patches with "critical" severity                                                                                                                                                                                                                                                 |
@@ -123,12 +123,12 @@ window execution, including:
 
 The AMS Patching SSM Coverage report informs you whether or not the EC2 instances in the account have the SSM Agent installed.
 
-| **Field Name**  | **Definition**                                                                               |
-| --------------- | -------------------------------------------------------------------------------------------- |
-| Customer Name   | Customer name for situations where there are multiple sub-customers                          |
-| Resource Region | AWS Region where the resource is located                                                     |
-| Account name    | The name of the account                                                                      |
-| AWS Account ID  | The ID of the AWS account                                                                    |
-| Resource Id     | ID of EC2 instance                                                                           |
-| Resource Name   | Name of EC2 instance                                                                         |
-| Compliant flag  | Indicates if the resource has the SSM Agent installed ("Compliant") or not ("NON_COMPLIANT") |
+| **Field Name**  | **Definition**                                                                                |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| Customer Name   | Customer name for situations where there are multiple sub-customers                           |
+| Resource Region | AWS Region where the resource is located                                                      |
+| Account name    | The name of the account                                                                       |
+| AWS Account ID  | The ID of the AWS account                                                                     |
+| Resource Id     | ID of EC2 instance                                                                            |
+| Resource Name   | Name of EC2 instance                                                                          |
+| Compliant flag  | Indicates if the resource has the SSM Agent installed ("Compliant") or not ("NON\_COMPLIANT") |

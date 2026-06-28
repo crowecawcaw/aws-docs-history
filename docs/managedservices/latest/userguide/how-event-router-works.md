@@ -13,9 +13,9 @@ For more information about rules, see [Rules](../../../eventbridge/latest/usergu
 
 ## Amazon EventBridge Managed Rules deployed by AMS
 
-| Amazon EventBridge Managed Rules | Rule Name                                                                                                              | Description                                                                                                      | Definition |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- |
-| AMSAdvancedCoreRule              | This rule forwards Amazon CloudWatch Alarms to AMS Monitoring. The Amazon CloudWatch events monitor CloudWatch Alarms. | `<br>{<br>{<br>"source": ["aws.cloudwatch"],<br>"detail-type": ["CloudWatch Alarm State Change"],<br>}<br>}<br>` |
+Amazon EventBridge Managed Rules| Rule Name | Description | Definition |
+| --- | --- | --- |
+| AMSAdvancedCoreRule | This rule forwards Amazon CloudWatch Alarms to AMS Monitoring. The Amazon CloudWatch events monitor CloudWatch Alarms. | `<br>{<br>{<br>"source": ["aws.cloudwatch"],<br>"detail-type": ["CloudWatch Alarm State Change"],<br>}<br>}<br>` |
 
 ## Creating Managed Rules for AMS
 

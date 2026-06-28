@@ -36,8 +36,7 @@ To add your CMA to Transit Gateway, request a new route with the
       You must select at least one subnet. You can select only one subnet per Availability Zone.
 
 5. Choose **Create attachment**. Record the ID of the newly created TGW Attachment.
-
- 
+    
 
 **Associating the TGW attachment to a route table**:
 

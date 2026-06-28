@@ -4,7 +4,7 @@ The AMS console **Requests for Change** create page
 provides you with an option to add email addresses to receive notifications of RFC
 state changes:
 
-![Add email addresses to receive notifications of RFC state changes.](images/emailNoticeOption2.png)
+![Add email addresses to receive notifications of RFC state changes.](/images/managedservices/latest/userguide/images/emailNoticeOption2.png)
 Additionally, you can add email addresses for notifications to any change type, for example:
 
 ```
