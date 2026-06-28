@@ -22,4 +22,4 @@ following:
     * At least one lowercase letter
 
 6. Choose **Change Password** or **Save
-   changes**.
+changes**.
