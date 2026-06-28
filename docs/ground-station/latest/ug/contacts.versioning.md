@@ -87,24 +87,24 @@ The `UpdateContact` API returns the `contactId` and the new
 [DescribeContactVersion](../APIReference/API_DescribeContactVersion.md "../APIReference/API_DescribeContactVersion.md") to check
 the status of the update. Some AWS SDKs and the AWS Command Line Interface provide a
 `ContactUpdated` waiter that polls until the version reaches ACTIVE or
-FAILED_TO_UPDATE status.
+FAILED\_TO\_UPDATE status.
 
 ###### Note
 
 Only one update can be in progress at a time. If the latest contact version is in the
 UPDATING state, the API returns a `ConflictException`. Wait for the current
-update to reach ACTIVE or FAILED_TO_UPDATE status before submitting another update.
+update to reach ACTIVE or FAILED\_TO\_UPDATE status before submitting another update.
 
 ## Contact version statuses
 
 Each contact version has one of the following statuses:
 
-| Status           | Description                                                                                                                                                    |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| UPDATING         | The version is being applied to the contact. The update has been submitted and<br>is being processed by AWS Ground Station.                                    |
-| ACTIVE           | The version is the currently active configuration for the contact. The ground<br>station is using this version's settings.                                     |
-| SUPERSEDED       | The version was previously active but has been replaced by a newer version.                                                                                    |
-| FAILED_TO_UPDATE | The update could not be applied. The contact reverts to the previously active<br>version. Check the `failureCodes` and `failureMessage` fields<br>for details. |
+| Status             | Description                                                                                                                                                    |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| UPDATING           | The version is being applied to the contact. The update has been submitted and<br>is being processed by AWS Ground Station.                                    |
+| ACTIVE             | The version is the currently active configuration for the contact. The ground<br>station is using this version's settings.                                     |
+| SUPERSEDED         | The version was previously active but has been replaced by a newer version.                                                                                    |
+| FAILED\_TO\_UPDATE | The update could not be applied. The contact reverts to the previously active<br>version. Check the `failureCodes` and `failureMessage` fields<br>for details. |
 
 ## Code examples
 

@@ -39,12 +39,12 @@ updated custom ephemeris data. For more information on providing custom ephemeri
 ## AWS Ground Station outage
 
 If AWS Ground Station causes a contact to fail, or cancels it, AWS Ground Station will set the contact status
-to _AWS_FAILED_, or _AWS_CANCELLED_. For more
+to _AWS\_FAILED_, or _AWS\_CANCELLED_. For more
 information on contact lifecycle, see
 [Understand contact lifecycle](contacts.lifecycle.md "contacts.lifecycle.md"). In some cases, AWS Ground Station
 may have a failure that prevents data from being delivered to your account, but doesn't result
-in the contact being in an _AWS_FAILED_ or
-_AWS_CANCELLED_ status. When this happens, AWS Ground Station should post an
+in the contact being in an _AWS\_FAILED_ or
+_AWS\_CANCELLED_ status. When this happens, AWS Ground Station should post an
 account-specific event to your AWS Health dashboard. For more information about the AWS
 Health dashboard, see
 [AWS Health User Guide](../../../health/latest/ug.md "../../../health/latest/ug.md") .

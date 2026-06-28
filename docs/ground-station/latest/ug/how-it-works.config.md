@@ -147,7 +147,7 @@ and attempts to find a dataflow endpoint _group_ within the AWS Region
 that contains all of the dataflow _endpoints_ specified by the dataflow
 endpoint _configs_ contained in your mission profile. If a suitable
 dataflow endpoint _group_ is found, the contact status will become
-SCHEDULED, otherwise it will become FAILED_TO_SCHEDULE. For more information about the
+SCHEDULED, otherwise it will become FAILED\_TO\_SCHEDULE. For more information about the
 possible statuses of a contact, see
 [AWS Ground Station contact statuses](contacts.lifecycle.md#contact-statuses "contacts.lifecycle.md#contact-statuses").
 

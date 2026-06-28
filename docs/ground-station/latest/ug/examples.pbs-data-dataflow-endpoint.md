@@ -436,7 +436,7 @@ The `AquaSnppJpssTerraDigIF` template includes the following additional resource
 * The option to select what software is installed in your instance and the AMI of your
   choice.
   The software options include `DDX 2.6.2 Only` and `DDX 2.6.2 with qRadio
-3.6.0`. These options will continue to expand as additional software updates and
+ 3.6.0`. These options will continue to expand as additional software updates and
   features are released.
 
 - **Additional mission profiles**

@@ -61,7 +61,7 @@ The following are common validation errors encountered when uploading OEM epheme
 
 Invalid reference frame
 
-_Error:_ "The REF_FRAME is not supported"
+_Error:_ "The REF\_FRAME is not supported"
 
 _Solution:_ Update your OEM file to use one of the supported reference
 frames: EME2000 or ITRF2000.
@@ -70,18 +70,18 @@ Missing required fields
 
 _Error:_ "Metadata field missing: INTERPOLATION"
 
-_Solution:_ Add the INTERPOLATION and INTERPOLATION_DEGREE fields to
+_Solution:_ Add the INTERPOLATION and INTERPOLATION\_DEGREE fields to
 your OEM metadata section. These are required for AWS Ground Station to generate accurate antenna pointing angles.
 
 Unsupported time system
 
-_Error:_ "The TIME_SYSTEM is not supported"
+_Error:_ "The TIME\_SYSTEM is not supported"
 
 _Solution:_ Ensure your OEM file uses UTC as the time system.
 
 Unsupported OEM version
 
-_Error:_ "The CCSDS_OEM_VERS is not supported"
+_Error:_ "The CCSDS\_OEM\_VERS is not supported"
 
 _Solution:_ Ensure your OEM file uses CCSDS OEM version 2.0.
 
@@ -164,75 +164,75 @@ that may be returned when ephemeris validation fails, organized by the high-leve
 These errors occur when required metadata fields are missing, incorrectly formatted, or contain
 unsupported values in the ephemeris data.
 
-| Error Code                   | Error Message                                                                                                                                                                                                         |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| MISMATCHED_SATCAT_ID         | The satellite catalog number present in the TLE ephemeris does not match the associated satellite's satellite catalog number                                                                                          |
-| OEM_VERSION_UNSUPPORTED      | The `CCSDS_OEM_VERS` in the OEM ephemeris is not supported. Supported values: [`2.0`]                                                                                                                                 |
-| ORIGINATOR_MISSING           | The `ORIGINATOR` header field is missing from the OEM ephemeris                                                                                                                                                       |
-| CREATION_DATE_MISSING        | The `CREATION_DATE` header field is missing from the OEM ephemeris                                                                                                                                                    |
-| OBJECT_NAME_MISSING          | The `OBJECT_NAME` metadata field is missing from the OEM ephemeris                                                                                                                                                    |
-| OBJECT_ID_MISSING            | The `OBJECT_ID` metadata field is missing from the OEM ephemeris                                                                                                                                                      |
-| REF_FRAME_UNSUPPORTED        | The `REF_FRAME` in the OEM ephemeris is not supported. Supported values: [`EME2000`, `ITRF2000`]                                                                                                                      |
-| REF_FRAME_EPOCH_UNSUPPORTED  | The `REF_FRAME_EPOCH` metadata field in the OEM ephemeris is not supported. Please remove this field from the ephemeris                                                                                               |
-| TIME_SYSTEM_UNSUPPORTED      | The `TIME_SYSTEM` in the OEM ephemeris is not supported. Supported values: [`UTC`]                                                                                                                                    |
-| CENTER_BODY_UNSUPPORTED      | The `CENTER_BODY` in the OEM ephemeris is not supported. Supported values: [`Earth`]                                                                                                                                  |
-| INTERPOLATION_MISSING        | The `INTERPOLATION` metadata field is missing from the OEM ephemeris                                                                                                                                                  |
-| INTERPOLATION_DEGREE_INVALID | The interpolation degree in the OEM ephemeris must be larger than 0 for the interpolation method                                                                                                                      |
-| AZ_EL_SEGMENT_LIST_MISSING   | The [`azElSegmentList`](../APIReference/API_AzElSegments.md "../APIReference/API_AzElSegments.md") field is missing                                                                                                   |
-| INSUFFICIENT_TIME_AZ_EL      | No [`TimeAzEl`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") fields were present in at least one [`azElSegmentList`](../APIReference/API_AzElSegments.md "../APIReference/API_AzElSegments.md") |
+| Error Code                     | Error Message                                                                                                                                                                                                         |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MISMATCHED\_SATCAT\_ID         | The satellite catalog number present in the TLE ephemeris does not match the associated satellite's satellite catalog number                                                                                          |
+| OEM\_VERSION\_UNSUPPORTED      | The `CCSDS_OEM_VERS` in the OEM ephemeris is not supported. Supported values: [`2.0`]                                                                                                                                 |
+| ORIGINATOR\_MISSING            | The `ORIGINATOR` header field is missing from the OEM ephemeris                                                                                                                                                       |
+| CREATION\_DATE\_MISSING        | The `CREATION_DATE` header field is missing from the OEM ephemeris                                                                                                                                                    |
+| OBJECT\_NAME\_MISSING          | The `OBJECT_NAME` metadata field is missing from the OEM ephemeris                                                                                                                                                    |
+| OBJECT\_ID\_MISSING            | The `OBJECT_ID` metadata field is missing from the OEM ephemeris                                                                                                                                                      |
+| REF\_FRAME\_UNSUPPORTED        | The `REF_FRAME` in the OEM ephemeris is not supported. Supported values: [`EME2000`, `ITRF2000`]                                                                                                                      |
+| REF\_FRAME\_EPOCH\_UNSUPPORTED | The `REF_FRAME_EPOCH` metadata field in the OEM ephemeris is not supported. Please remove this field from the ephemeris                                                                                               |
+| TIME\_SYSTEM\_UNSUPPORTED      | The `TIME_SYSTEM` in the OEM ephemeris is not supported. Supported values: [`UTC`]                                                                                                                                    |
+| CENTER\_BODY\_UNSUPPORTED      | The `CENTER_BODY` in the OEM ephemeris is not supported. Supported values: [`Earth`]                                                                                                                                  |
+| INTERPOLATION\_MISSING         | The `INTERPOLATION` metadata field is missing from the OEM ephemeris                                                                                                                                                  |
+| INTERPOLATION\_DEGREE\_INVALID | The interpolation degree in the OEM ephemeris must be larger than 0 for the interpolation method                                                                                                                      |
+| AZ\_EL\_SEGMENT\_LIST\_MISSING | The [`azElSegmentList`](../APIReference/API_AzElSegments.md "../APIReference/API_AzElSegments.md") field is missing                                                                                                   |
+| INSUFFICIENT\_TIME\_AZ\_EL     | No [`TimeAzEl`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") fields were present in at least one [`azElSegmentList`](../APIReference/API_AzElSegments.md "../APIReference/API_AzElSegments.md") |
 
 ### Invalid Reason: `TIME_RANGE_INVALID`
 
 These errors occur when the ephemeris contains invalid time ranges, including issues with
 start/end times, segment ordering, overlapping segments, or temporal inconsistencies.
 
-| Error Code                               | Error Message                                                                                                                                                                                                                                            |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| START_TIME_IN_FUTURE                     | Ephemeris start time is in the future, but must be in the past                                                                                                                                                                                           |
-| END_TIME_IN_PAST                         | Ephemeris end time is in the past, but must be in the future                                                                                                                                                                                             |
-| EXPIRATION_TIME_TOO_EARLY                | The provided expiration time is earlier than the ephemeris end time                                                                                                                                                                                      |
-| START_TIME_METADATA_TOO_EARLY            | The `START_TIME` metadata value is earlier than the earliest time present in the OEM ephemeris data                                                                                                                                                      |
-| STOP_TIME_METADATA_TOO_LATE              | The `STOP_TIME` metadata value is later than the latest time present in the OEM ephemeris data                                                                                                                                                           |
-| AZ_EL_SEGMENT_END_TIME_BEFORE_START_TIME | The [`endTime`](../APIReference/API_ISO8601TimeRange.md "../APIReference/API_ISO8601TimeRange.md") of at least one data segment is before the segment's [`startTime`](../APIReference/API_ISO8601TimeRange.md "../APIReference/API_ISO8601TimeRange.md") |
-| AZ_EL_SEGMENT_TIMES_OVERLAP              | The time range of at least one segment overlaps with other segment time ranges                                                                                                                                                                           |
-| AZ_EL_SEGMENTS_OUT_OF_ORDER              | The segments are not temporally ordered                                                                                                                                                                                                                  |
-| TIME_AZ_EL_ITEMS_OUT_OF_ORDER            | The [`TimeAzEl`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") items within a [`AzElSegment`](../APIReference/API_AzElSegment.md "../APIReference/API_AzElSegment.md") must be temporally in order                                  |
-| AZ_EL_SEGMENT_REFERENCE_EPOCH_INVALID    | The reference epoch for a segment is invalid or incorrectly formatted                                                                                                                                                                                    |
-| AZ_EL_SEGMENT_START_TIME_INVALID         | The start time in a segment's valid time range does not start after the first segment                                                                                                                                                                    |
-| AZ_EL_SEGMENT_END_TIME_INVALID           | The end time in a segment's valid time range does not end after the last segment                                                                                                                                                                         |
-| AZ_EL_SEGMENT_VALID_TIME_RANGE_INVALID   | The valid time range for a segment is invalid                                                                                                                                                                                                            |
-| AZ_EL_SEGMENT_END_TIME_TOO_LATE          | The end time of a segment exceeds the maximum allowed duration from the reference epoch                                                                                                                                                                  |
-| AZ_EL_TOTAL_DURATION_EXCEEDED            | The total duration across all segments exceeds the maximum allowed pointing angle duration                                                                                                                                                               |
+| Error Code                                      | Error Message                                                                                                                                                                                                                                            |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| START\_TIME\_IN\_FUTURE                         | Ephemeris start time is in the future, but must be in the past                                                                                                                                                                                           |
+| END\_TIME\_IN\_PAST                             | Ephemeris end time is in the past, but must be in the future                                                                                                                                                                                             |
+| EXPIRATION\_TIME\_TOO\_EARLY                    | The provided expiration time is earlier than the ephemeris end time                                                                                                                                                                                      |
+| START\_TIME\_METADATA\_TOO\_EARLY               | The `START_TIME` metadata value is earlier than the earliest time present in the OEM ephemeris data                                                                                                                                                      |
+| STOP\_TIME\_METADATA\_TOO\_LATE                 | The `STOP_TIME` metadata value is later than the latest time present in the OEM ephemeris data                                                                                                                                                           |
+| AZ\_EL\_SEGMENT\_END\_TIME\_BEFORE\_START\_TIME | The [`endTime`](../APIReference/API_ISO8601TimeRange.md "../APIReference/API_ISO8601TimeRange.md") of at least one data segment is before the segment's [`startTime`](../APIReference/API_ISO8601TimeRange.md "../APIReference/API_ISO8601TimeRange.md") |
+| AZ\_EL\_SEGMENT\_TIMES\_OVERLAP                 | The time range of at least one segment overlaps with other segment time ranges                                                                                                                                                                           |
+| AZ\_EL\_SEGMENTS\_OUT\_OF\_ORDER                | The segments are not temporally ordered                                                                                                                                                                                                                  |
+| TIME\_AZ\_EL\_ITEMS\_OUT\_OF\_ORDER             | The [`TimeAzEl`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") items within a [`AzElSegment`](../APIReference/API_AzElSegment.md "../APIReference/API_AzElSegment.md") must be temporally in order                                  |
+| AZ\_EL\_SEGMENT\_REFERENCE\_EPOCH\_INVALID      | The reference epoch for a segment is invalid or incorrectly formatted                                                                                                                                                                                    |
+| AZ\_EL\_SEGMENT\_START\_TIME\_INVALID           | The start time in a segment's valid time range does not start after the first segment                                                                                                                                                                    |
+| AZ\_EL\_SEGMENT\_END\_TIME\_INVALID             | The end time in a segment's valid time range does not end after the last segment                                                                                                                                                                         |
+| AZ\_EL\_SEGMENT\_VALID\_TIME\_RANGE\_INVALID    | The valid time range for a segment is invalid                                                                                                                                                                                                            |
+| AZ\_EL\_SEGMENT\_END\_TIME\_TOO\_LATE           | The end time of a segment exceeds the maximum allowed duration from the reference epoch                                                                                                                                                                  |
+| AZ\_EL\_TOTAL\_DURATION\_EXCEEDED               | The total duration across all segments exceeds the maximum allowed pointing angle duration                                                                                                                                                               |
 
 ### Invalid Reason: `TRAJECTORY_INVALID`
 
 These errors occur when the ephemeris contains invalid trajectory data, including issues with
 orbital parameters, angle ranges, or units.
 
-| Error Code                         | Error Message                                                                                                                                                                                  |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| MEAN_MOTION_INVALID                | The mean motion of the provided TLE ephemeris differs too greatly from the most recent reference ephemeris. Note: Ground Station uses Space-Track ephemerides as a reference during validation |
-| TIME_AZ_EL_AZ_RADIAN_RANGE_INVALID | AzEl [`az`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") must be greater than or equal to -π and less than or equal to 2π radians                                        |
-| TIME_AZ_EL_EL_RADIAN_RANGE_INVALID | AzEl [`el`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") must be greater than or equal to -π/2 and less than or equal to π/2 radians                                     |
-| TIME_AZ_EL_AZ_DEGREE_RANGE_INVALID | AzEl [`az`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") must be greater than or equal to -180 and less or equal to 360 degrees                                          |
-| TIME_AZ_EL_EL_DEGREE_RANGE_INVALID | AzEl [`el`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") must be greater than or equal to -90 degrees and less than or equal to 90 degrees                               |
-| TIME_AZ_EL_ANGLE_UNITS_INVALID     | Invalid AzEl angle units                                                                                                                                                                       |
+| Error Code                               | Error Message                                                                                                                                                                                  |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MEAN\_MOTION\_INVALID                    | The mean motion of the provided TLE ephemeris differs too greatly from the most recent reference ephemeris. Note: Ground Station uses Space-Track ephemerides as a reference during validation |
+| TIME\_AZ\_EL\_AZ\_RADIAN\_RANGE\_INVALID | AzEl [`az`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") must be greater than or equal to -π and less than or equal to 2π radians                                        |
+| TIME\_AZ\_EL\_EL\_RADIAN\_RANGE\_INVALID | AzEl [`el`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") must be greater than or equal to -π/2 and less than or equal to π/2 radians                                     |
+| TIME\_AZ\_EL\_AZ\_DEGREE\_RANGE\_INVALID | AzEl [`az`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") must be greater than or equal to -180 and less or equal to 360 degrees                                          |
+| TIME\_AZ\_EL\_EL\_DEGREE\_RANGE\_INVALID | AzEl [`el`](../APIReference/API_TimeAzEl.md "../APIReference/API_TimeAzEl.md") must be greater than or equal to -90 degrees and less than or equal to 90 degrees                               |
+| TIME\_AZ\_EL\_ANGLE\_UNITS\_INVALID      | Invalid AzEl angle units                                                                                                                                                                       |
 
 ### Invalid Reason: `KMS_KEY_INVALID`
 
 These errors occur when there are issues with the AWS Key Management Service (KMS) key used
 to encrypt the ephemeris data.
 
-| Error Code                   | Error Message                                                                         |
-| ---------------------------- | ------------------------------------------------------------------------------------- |
-| INSUFFICIENT_KMS_PERMISSIONS | Ground Station does not have sufficient permissions to access this ephemeris' KMS key |
+| Error Code                     | Error Message                                                                         |
+| ------------------------------ | ------------------------------------------------------------------------------------- |
+| INSUFFICIENT\_KMS\_PERMISSIONS | Ground Station does not have sufficient permissions to access this ephemeris' KMS key |
 
 ### Invalid Reason: `VALIDATION_ERROR`
 
 These errors occur when there are general validation issues with the ephemeris data that
 don't fall into the other specific categories.
 
-| Error Code          | Error Message                                                                                                             |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| INTERNAL_ERROR      | Internal error occurred during ephemeris validation                                                                       |
-| FILE_FORMAT_INVALID | The ephemeris file format is invalid or corrupted. Verify the file conforms to the expected format for the ephemeris type |
+| Error Code            | Error Message                                                                                                             |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| INTERNAL\_ERROR       | Internal error occurred during ephemeris validation                                                                       |
+| FILE\_FORMAT\_INVALID | The ephemeris file format is invalid or corrupted. Verify the file conforms to the expected format for the ephemeris type |

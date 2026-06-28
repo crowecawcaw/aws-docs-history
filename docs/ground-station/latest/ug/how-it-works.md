@@ -91,8 +91,8 @@ Contacts which can be performed and have availability result in
 _SCHEDULED_ contacts. With a scheduled contact, the resources which are
 needed to perform your contact have been reserved across the needed AWS Regions as defined by
 your mission profile. Contacts which cannot be performed, or have unavailable parts will
-result in _FAILED_TO_SCHEDULE_ contacts.
-See [Troubleshoot FAILED_TO_SCHEDULE contacts](troubleshooting-failed-to-schedule-contacts.md "troubleshooting-failed-to-schedule-contacts.md")
+result in _FAILED\_TO\_SCHEDULE_ contacts.
+See [Troubleshoot FAILED\_TO\_SCHEDULE contacts](troubleshooting-failed-to-schedule-contacts.md "troubleshooting-failed-to-schedule-contacts.md")
 for debugging details.
 
 ## Contact execution
@@ -125,7 +125,7 @@ available from AWS Ground Station antennas, and their supported frequencies and 
 At the end of your contact, AWS Ground Station will assess the performance of your contact and will
 determine a final contact status. Contacts where no errors are detected will result in a
 _COMPLETED_ contact status. Contacts where service errors have caused data
-delivery issues during the contact will result in an _AWS_FAILED_
+delivery issues during the contact will result in an _AWS\_FAILED_
 status. Contacts where client or user errors have caused data delivery issues during the
 contact will result in a _FAILED_ status. Errors outside a contact time,
 that is during pre-pass or post-pass, are not taken into account during the adjudication.

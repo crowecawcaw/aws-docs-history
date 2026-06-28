@@ -15,11 +15,11 @@ AWS Ground Station supports two versions of dataflow endpoint groups:
 - **DataflowEndpointGroup** - The original implementation that supports uplink and downlink using a [dataflow endpoint](../APIReference/API_DataflowEndpoint.md "../APIReference/API_DataflowEndpoint.md"), and downlink-only for an [AWS Ground Station Agent endpoint](../APIReference/API_AwsGroundStationAgentEndpoint.md "../APIReference/API_AwsGroundStationAgentEndpoint.md")
 - **DataflowEndpointGroupV2** - Updated version that supports both uplink and downlink dataflows for AWS Ground Station Agent endpoints with improved clarity and functionality
 
-| Dataflow endpoint group comparison | Feature                                         | DataflowEndpointGroup                                                      | DataflowEndpointGroupV2 |
-| ---------------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------- | ----------------------- |
-| Supported endpoint types           | DataflowEndpoint, AwsGroundStationAgentEndpoint | DownlinkAwsGroundStationAgentEndpoint, UplinkAwsGroundStationAgentEndpoint |
-| Endpoints supporting uplink        | DataflowEndpoint                                | UplinkAwsGroundStationAgentEndpoint                                        |
-| Endpoints supporting downlink      | DataflowEndpoint, AwsGroundStationAgentEndpoint | DownlinkAwsGroundStationAgentEndpoint                                      |
+Dataflow endpoint group comparison| Feature | DataflowEndpointGroup | DataflowEndpointGroupV2 |
+| --- | --- | --- |
+| Supported endpoint types | DataflowEndpoint, AwsGroundStationAgentEndpoint | DownlinkAwsGroundStationAgentEndpoint, UplinkAwsGroundStationAgentEndpoint |
+| Endpoints supporting uplink | DataflowEndpoint | UplinkAwsGroundStationAgentEndpoint |
+| Endpoints supporting downlink | DataflowEndpoint, AwsGroundStationAgentEndpoint | DownlinkAwsGroundStationAgentEndpoint |
 
 DataflowEndpointGroupV2 was created to support uplink dataflows and to make the language surrounding dataflow endpoint groups clearer. We recommend using [UplinkAwsGroundStationAgentEndpoint](../APIReference/API_UplinkAwsGroundStationAgentEndpoint.md "../APIReference/API_UplinkAwsGroundStationAgentEndpoint.md") and [DownlinkAwsGroundStationAgentEndpoint](../APIReference/API_DownlinkAwsGroundStationAgentEndpoint.md "../APIReference/API_DownlinkAwsGroundStationAgentEndpoint.md") endpoints with a [DataflowEndpointGroupV2](../APIReference/API_CreateDataflowEndpointGroupV2.md "../APIReference/API_CreateDataflowEndpointGroupV2.md") for all new use cases. DataflowEndpointGroup remains supported for backward compatibility, but DataflowEndpointGroupV2 provides enhanced functionality and clearer configuration options.
 

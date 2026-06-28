@@ -158,7 +158,7 @@ output similar to:
 ```
 
 4. List the available CloudWatch metrics by running `aws cloudwatch list-metrics
---region `ground-station-region-code`` .
+ --region `ground-station-region-code`` .
 
 If you've recently used AWS Ground Station, the method should return output that contains entries
 like:

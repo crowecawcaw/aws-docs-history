@@ -4,8 +4,8 @@ A contact will have a terminal contact status of **FAILED** when AWS Ground Stat
 
 ###### Note
 
-This guide is specifically for the **FAILED** contact status - and is not intended for other failure statuses, such as **AWS_FAILED**,
-**AWS_CANCELLED**, or **FAILED_TO_SCHEDULE**. For more information on contact statuses, see
+This guide is specifically for the **FAILED** contact status - and is not intended for other failure statuses, such as **AWS\_FAILED**,
+**AWS\_CANCELLED**, or **FAILED\_TO\_SCHEDULE**. For more information on contact statuses, see
 [AWS Ground Station contact statuses](contacts.lifecycle.md#contact-statuses "contacts.lifecycle.md#contact-statuses")
 
 ## Dataflow endpoint FAILED use cases
