@@ -166,9 +166,7 @@ Required: No
 
 **TaskCount**
 
-The number of tasks to create based on `TaskDefinition`. The default is
-
-1.
+The number of tasks to create based on `TaskDefinition`. The default is 1.
 
 Type: Integer
 
