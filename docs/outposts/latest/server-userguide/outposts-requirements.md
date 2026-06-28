@@ -60,16 +60,15 @@ To see the weight requirements for different Outposts resources, choose
   standard 19-inch EIA-310D racks, with a depth of at least 36 inches (914 mm).
   AWS provides a rail kit for rack-mounting the server.
 
-      + Outposts 2U servers require space with the following dimensions: 3.5 inches height
-       (88.9mm), 17.5 inches width (447 mm), 30 inches depth (762 mm)
-      + Outposts 1U servers require space with the following dimensions: 1.75 inches
-       height (44.45 mm), 17.5 inches width (447 mm), 24 inches depth (610 mm)
-      + Mounting AWS Outposts servers vertically is not supported.
-      + Outposts 1U servers are the same width as Outposts 2U servers, but half the
-       height and less depth
-
-  If you do not place the server in a rack, you must still meet the other site
-  requirements.
+  - Outposts 2U servers require space with the following dimensions: 3.5 inches height
+    (88.9mm), 17.5 inches width (447 mm), 30 inches depth (762 mm)
+  - Outposts 1U servers require space with the following dimensions: 1.75 inches
+    height (44.45 mm), 17.5 inches width (447 mm), 24 inches depth (610 mm)
+  - Mounting AWS Outposts servers vertically is not supported.
+  - Outposts 1U servers are the same width as Outposts 2U servers, but half the
+    height and less depth
+    If you do not place the server in a rack, you must still meet the other site
+    requirements.
 
 - Serviceability – Outposts servers are
   front-aisle serviceable.

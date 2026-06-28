@@ -125,14 +125,13 @@ outstanding charges associated with this Outpost.
 
 To pack your server, use the box and packaging material provided by AWS.
 
-1.  Pack the server in one of the following boxes:
+1. Pack the server in one of the following boxes:
 
-        * The box and packaging material that the server originally came in.
-        * The box and packaging material that the replacement server came in.
+   - The box and packaging material that the server originally came in.
+   - The box and packaging material that the replacement server came in.
+     Alternatively, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") to request a box.
 
-    Alternatively, contact [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") to request a box.
-
-2.  Affix the shipping label that AWS provided, to the outside of the box.
+2. Affix the shipping label that AWS provided, to the outside of the box.
 
 ###### Important
 

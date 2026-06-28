@@ -49,7 +49,7 @@ resources:
 - Action: `ec2:CreateSecurityGroup` on all AWS resources
 - Action: `ec2:CreateNetworkInterface` on all AWS resources
 
-#### AWSOutpostsPrivateConnectivityPolicy_OutpostID
+#### AWSOutpostsPrivateConnectivityPolicy\_OutpostID
 
 The
 `AWSOutpostsPrivateConnectivityPolicy_`OutpostID``
