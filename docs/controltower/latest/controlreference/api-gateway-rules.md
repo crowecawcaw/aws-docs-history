@@ -1703,7 +1703,7 @@ which is a predefined combination of minimum TLS version and cipher suite offere
 
 ### Remediation for rule failure
 
-Set the value of SecurityPolicy to TLS_1_2, or to adopt the default value, do not provide a value for SecurityPolicy.
+Set the value of SecurityPolicy to TLS\_1\_2, or to adopt the default value, do not provide a value for SecurityPolicy.
 
 The examples that follow show how to implement this remediation.
 

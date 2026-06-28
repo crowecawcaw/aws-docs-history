@@ -558,7 +558,7 @@ Resources:
 
 ## [CT.APPSYNC.PR.3] Require that an AWS AppSync GraphQL API is not authenticated with API keys
 
-This control checks that an AWS AppSync GraphQL API has been configured with an authentication type other than API_KEY authentication.
+This control checks that an AWS AppSync GraphQL API has been configured with an authentication type other than API\_KEY authentication.
 
 - **Control objective:** Enforce least privilege
 - **Implementation:** CloudFormation guard rule
@@ -584,7 +584,7 @@ If static API keys are stolen, an API can become vulnerable to replay attacks.
 
 ### Remediation for rule failure
 
-Set the AuthenticationType property to a value other than API_KEY, and ensure no entry in the AdditionalAuthenticationProviders property has an AuthenticationType value of API_KEY.
+Set the AuthenticationType property to a value other than API\_KEY, and ensure no entry in the AdditionalAuthenticationProviders property has an AuthenticationType value of API\_KEY.
 
 The examples that follow show how to implement this remediation.
 

@@ -504,7 +504,7 @@ This control checks whether AWS CodeBuild projects contain environment variables
 
 **Explanation**
 
-Authentication credentials AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY should never be stored in clear text, as this could lead to unintended data exposure and unauthorized access.
+Authentication credentials AWS\_ACCESS\_KEY\_ID and AWS\_SECRET\_ACCESS\_KEY should never be stored in clear text, as this could lead to unintended data exposure and unauthorized access.
 
 ###### Usage considerations
 

@@ -36,7 +36,7 @@ active/standby deployment mode includes two broker instances, which are configur
 
 ### Remediation for rule failure
 
-For Amazon MQ brokers with an engine type of ACTIVEMQ, set the DeploymentMode property to ACTIVE_STANDBY_MULTI_AZ.
+For Amazon MQ brokers with an engine type of ACTIVEMQ, set the DeploymentMode property to ACTIVE\_STANDBY\_MULTI\_AZ.
 
 The examples that follow show how to implement this remediation.
 
@@ -321,7 +321,7 @@ which are configured in a cluster across different availability zones.
 
 ### Remediation for rule failure
 
-For Amazon MQ brokers with an engine type of RABBITMQ, set the DeploymentMode property to CLUSTER_MULTI_AZ.
+For Amazon MQ brokers with an engine type of RABBITMQ, set the DeploymentMode property to CLUSTER\_MULTI\_AZ.
 
 The examples that follow show how to implement this remediation.
 

@@ -29,7 +29,7 @@ This control checks whether an Amazon CloudWatch alarm has at least one action c
 
 **Explanation**
 
-AWS Control Tower recommends configuring actions for alarms to alert you automatically when an alarm is in the alarm state and the monitored metric is outside the defined threshold. This configuration ensures that alarms are monitored, and that necessary actions are taken when the alarm is triggered. Monitoring alarms help you identify unusual activities and respond quickly to security and operational issues. You can specify the actions an alarm should take when it goes into OK, ALARM, and INSUFFICIENT_DATA states. The most common CloudWatch alarm action in the alarm state is to notify one or more users by sending a message to an Amazon Simple Notification Service (Amazon SNS) topic.
+AWS Control Tower recommends configuring actions for alarms to alert you automatically when an alarm is in the alarm state and the monitored metric is outside the defined threshold. This configuration ensures that alarms are monitored, and that necessary actions are taken when the alarm is triggered. Monitoring alarms help you identify unusual activities and respond quickly to security and operational issues. You can specify the actions an alarm should take when it goes into OK, ALARM, and INSUFFICIENT\_DATA states. The most common CloudWatch alarm action in the alarm state is to notify one or more users by sending a message to an Amazon Simple Notification Service (Amazon SNS) topic.
 
 ### Remediation for rule failure
 

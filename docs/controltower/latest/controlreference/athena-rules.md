@@ -40,7 +40,7 @@ The examples that follow show how to implement this remediation.
 
 #### Amazon Athena workgroup - Example
 
-Amazon Athena workgroup configured to encrypt Athena query results with AWS KMS (SSE_KMS). The example is shown in JSON and in YAML.
+Amazon Athena workgroup configured to encrypt Athena query results with AWS KMS (SSE\_KMS). The example is shown in JSON and in YAML.
 
 **JSON example**
 

@@ -39,19 +39,15 @@ available in the AWS Control Tower console. Enabled controls can be viewed throu
   rules are in place. However, non-compliant resources have been detected in one
   or more member accounts in the OU.
 
-      + **Reported for:** Detective controls
-       (AWS Config Rules)
-      + ###### What it checks:
-
-
-
-      	- Any individual detective control that's applied to the member
-      	 accounts in an OU
-      	- Multiple detective controls that are applied to the member
-      	 accounts in an OU
-
-  **The following status can be reported for any account, control,
-  or OU.**
+  - **Reported for:** Detective controls
+    (AWS Config Rules)
+  - ###### What it checks:
+    - Any individual detective control that's applied to the member
+      accounts in an OU
+    - Multiple detective controls that are applied to the member
+      accounts in an OU
+      **The following status can be reported for any account, control,
+      or OU.**
 
 **`Unknown`** – A compliance rule is
 broken or compliance cannot be guaranteed.

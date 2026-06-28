@@ -486,7 +486,7 @@ Resources:
 ## Detect whether an account has AWS CloudTrail or CloudTrail Lake enabled
 
 This control detects whether an account has AWS CloudTrail or CloudTrail Lake enabled.
-The rule is NON_COMPLIANT if either CloudTrail or CloudTrail Lake is not enabled in an
+The rule is NON\_COMPLIANT if either CloudTrail or CloudTrail Lake is not enabled in an
 account. This is a detective control with strongly recommended guidance. By
 default, this control is not enabled on any OUs.
 

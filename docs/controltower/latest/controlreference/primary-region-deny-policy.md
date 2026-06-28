@@ -1,7 +1,7 @@
 # Deny access to AWS based on the requested AWS Region
 
-*This control is commonly referred to as the Region deny control,
-or *landing zone* Region deny control.*
+_This control is commonly referred to as the Region deny control,
+or *landing zone* Region deny control._
 
 This control disallows access to unlisted operations in global and regional services
 outside of the specified Regions. That includes all Regions where AWS Control Tower is not available,

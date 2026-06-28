@@ -914,7 +914,7 @@ This control checks whether Elasticsearch domains are configured to send error l
 
 **Explanation**
 
-Enable error logs (ES_APPLICATION_LOGS) for Elasticsearch domains and send those logs to CloudWatch Logs for retention and response. Domain error logs can assist with security and access audits, and can help to diagnose availability issues.
+Enable error logs (ES\_APPLICATION\_LOGS) for Elasticsearch domains and send those logs to CloudWatch Logs for retention and response. Domain error logs can assist with security and access audits, and can help to diagnose availability issues.
 
 ### Remediation for rule failure
 
@@ -3753,7 +3753,7 @@ This control checks whether Amazon OpenSearch Service domains are configured to 
 
 **Explanation**
 
-Enable error logs (ES_APPLICATION_LOGS) for OpenSearch Service domains and send those logs to Amazon CloudWatch Logs for retention and response. Domain error logs can assist with security and access audits, and can help to diagnose availability issues.
+Enable error logs (ES\_APPLICATION\_LOGS) for OpenSearch Service domains and send those logs to Amazon CloudWatch Logs for retention and response. Domain error logs can assist with security and access audits, and can help to diagnose availability issues.
 
 ### Remediation for rule failure
 

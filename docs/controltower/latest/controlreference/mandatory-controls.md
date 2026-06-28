@@ -460,7 +460,7 @@ Resources:
 ### Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled
 
 This control detects whether shared accounts under the Security organizational unit
-have AWS CloudTrail or CloudTrail Lake enabled. The rule is NON_COMPLIANT if either CloudTrail or CloudTrail
+have AWS CloudTrail or CloudTrail Lake enabled. The rule is NON\_COMPLIANT if either CloudTrail or CloudTrail
 Lake is not enabled in a shared account. This is a detective control with mandatory
 guidance. By default, this control is enabled on the **Security OU**.
 

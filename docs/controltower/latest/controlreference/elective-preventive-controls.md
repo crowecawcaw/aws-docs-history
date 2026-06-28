@@ -6,17 +6,17 @@ The elective controls with preventive behavior are configurable. For more inform
 
 ###### Topics
 
-- [[AWS-GR_AUDIT_BUCKET_ENCRYPTION_ENABLED] Disallow modification of Amazon S3 bucket encryption](#aws-gr_audit_bucket_encryption_enabled "#aws-gr_audit_bucket_encryption_enabled")
-- [[AWS-GR_AUDIT_BUCKET_LOGGING_ENABLED] Disallow modification of server access logging for an Amazon S3 bucket](#aws-gr_audit_bucket_logging_enabled "#aws-gr_audit_bucket_logging_enabled")
-- [[AWS-GR_AUDIT_BUCKET_POLICY_CHANGES_PROHIBITED] Disallow policy changes to an Amazon S3 bucket](#aws-gr_audit_bucket_policy_changes_prohibited "#aws-gr_audit_bucket_policy_changes_prohibited")
-- [[AWS-GR_AUDIT_BUCKET_RETENTION_POLICY] Set a retention policy for log archive](#aws-gr_audit_bucket_retention_policy "#aws-gr_audit_bucket_retention_policy")
-- [[AWS-GR_DISALLOW_CROSS_REGION_NETWORKING] Disallow cross-region networking for Amazon EC2, Amazon CloudFront, and AWS Global Accelerator](#aws-gr_disallow_cross_region_networking "#aws-gr_disallow_cross_region_networking")
-- [[AWS-GR_DISALLOW_VPC_INTERNET_ACCESS] Disallow internet access for an Amazon VPC instance managed by a customer](#aws-gr_disallow_vpc_internet_access "#aws-gr_disallow_vpc_internet_access")
-- [[AWS-GR_DISALLOW_VPN_CONNECTIONS] Disallow Amazon Virtual Private Network (VPN) connections](#aws-gr_disallow_vpn_connections "#aws-gr_disallow_vpn_connections")
-- [[AWS-GR_RESTRICT_ROOT_USER_ACCESS_KEYS] Disallow creation of access keys for the root user](#aws-gr_restrict_root_user_access_keys "#aws-gr_restrict_root_user_access_keys")
-- [[AWS-GR_RESTRICT_ROOT_USER] Disallow actions as a root user](#aws-gr_restrict_root_user "#aws-gr_restrict_root_user")
-- [[AWS-GR_RESTRICT_S3_CROSS_REGION_REPLICATION] Disallow cross region replication for Amazon S3 buckets](#aws-gr_restrict_s3_cross_region_replication "#aws-gr_restrict_s3_cross_region_replication")
-- [[AWS-GR_RESTRICT_S3_DELETE_WITHOUT_MFA] Disallow delete actions on S3 buckets without MFA](#aws-gr_restrict_s3_delete_without_mfa "#aws-gr_restrict_s3_delete_without_mfa")
+- [[AWS-GR\_AUDIT\_BUCKET\_ENCRYPTION\_ENABLED] Disallow modification of Amazon S3 bucket encryption](#aws-gr_audit_bucket_encryption_enabled "#aws-gr_audit_bucket_encryption_enabled")
+- [[AWS-GR\_AUDIT\_BUCKET\_LOGGING\_ENABLED] Disallow modification of server access logging for an Amazon S3 bucket](#aws-gr_audit_bucket_logging_enabled "#aws-gr_audit_bucket_logging_enabled")
+- [[AWS-GR\_AUDIT\_BUCKET\_POLICY\_CHANGES\_PROHIBITED] Disallow policy changes to an Amazon S3 bucket](#aws-gr_audit_bucket_policy_changes_prohibited "#aws-gr_audit_bucket_policy_changes_prohibited")
+- [[AWS-GR\_AUDIT\_BUCKET\_RETENTION\_POLICY] Set a retention policy for log archive](#aws-gr_audit_bucket_retention_policy "#aws-gr_audit_bucket_retention_policy")
+- [[AWS-GR\_DISALLOW\_CROSS\_REGION\_NETWORKING] Disallow cross-region networking for Amazon EC2, Amazon CloudFront, and AWS Global Accelerator](#aws-gr_disallow_cross_region_networking "#aws-gr_disallow_cross_region_networking")
+- [[AWS-GR\_DISALLOW\_VPC\_INTERNET\_ACCESS] Disallow internet access for an Amazon VPC instance managed by a customer](#aws-gr_disallow_vpc_internet_access "#aws-gr_disallow_vpc_internet_access")
+- [[AWS-GR\_DISALLOW\_VPN\_CONNECTIONS] Disallow Amazon Virtual Private Network (VPN) connections](#aws-gr_disallow_vpn_connections "#aws-gr_disallow_vpn_connections")
+- [[AWS-GR\_RESTRICT\_ROOT\_USER\_ACCESS\_KEYS] Disallow creation of access keys for the root user](#aws-gr_restrict_root_user_access_keys "#aws-gr_restrict_root_user_access_keys")
+- [[AWS-GR\_RESTRICT\_ROOT\_USER] Disallow actions as a root user](#aws-gr_restrict_root_user "#aws-gr_restrict_root_user")
+- [[AWS-GR\_RESTRICT\_S3\_CROSS\_REGION\_REPLICATION] Disallow cross region replication for Amazon S3 buckets](#aws-gr_restrict_s3_cross_region_replication "#aws-gr_restrict_s3_cross_region_replication")
+- [[AWS-GR\_RESTRICT\_S3\_DELETE\_WITHOUT\_MFA] Disallow delete actions on S3 buckets without MFA](#aws-gr_restrict_s3_delete_without_mfa "#aws-gr_restrict_s3_delete_without_mfa")
 - [[CT.CLOUDFORMATION.PR.1] Disallow management of resource types, modules, and hooks within the CloudFormation registry](#disallow-cfn-extensions "#disallow-cfn-extensions")
 
 ## [AWS-GR\_AUDIT\_BUCKET\_ENCRYPTION\_ENABLED] Disallow modification of Amazon S3 bucket encryption
@@ -580,12 +580,12 @@ A typical use case for this control is a situation in which you do not wish to a
 - **Severity:** Critical
 - **AWS Service:** CloudFormation
 - **Resource types:** `AWS::CloudFormation::HookDefaultVersion,
-AWS::CloudFormation::HookTypeConfig,
-AWS::CloudFormation::HookVersion,
-AWS::CloudFormation::ModuleDefaultVersion,
-AWS::CloudFormation::ModuleVersion,
-AWS::CloudFormation::ResourceDefaultVersion,
-AWS::CloudFormation::ResourceVersion`
+ AWS::CloudFormation::HookTypeConfig,
+ AWS::CloudFormation::HookVersion,
+ AWS::CloudFormation::ModuleDefaultVersion,
+ AWS::CloudFormation::ModuleVersion,
+ AWS::CloudFormation::ResourceDefaultVersion,
+ AWS::CloudFormation::ResourceVersion`
 
 The following example shows the SCP artifact for this control.
 
