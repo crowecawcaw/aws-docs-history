@@ -19,11 +19,8 @@ close security gaps.
 
 AWS Trusted Advisor checks are available to customers with an AWS Business Support+, AWS Enterprise Support, or AWS Unified Operations plan.
 
-If you have a Basic or Developer Support plan, you can use the Trusted Advisor console to access
-all checks in the Service Limits category and [selected checks](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md") in the Security and Fault tolerance categories. Automatic check updates aren't available in the Basic and Developer Support plans. You must manually refresh Trusted Advisor checks in the Security category. To manually refresh a check, do the following:
-
 If you have a Basic Support plan, you can use the Trusted Advisor console to access
-all checks in the Service Limits category and [selected checks](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md") in the Security and Fault tolerance categories. Automatic check updates aren't available in the Basic and Developer Support plans. You must manually refresh Trusted Advisor checks in the Security category. To manually refresh a check, do the following:
+all checks in the Service Limits category and [selected checks](trusted-advisor-check-reference.md "trusted-advisor-check-reference.md") in the Security and Fault tolerance categories. Automatic check updates aren't available in the Basic Support plan. You must manually refresh Trusted Advisor checks in the Security category. To manually refresh a check, do the following:
 
 1. Sign in to the Trusted Advisor console at [https://console.aws.amazon.com/trustedadvisor/home](https://console.aws.amazon.com/trustedadvisor/home "https://console.aws.amazon.com/trustedadvisor/home").
 2. Select the **Refresh** button on the check that you want to refresh.

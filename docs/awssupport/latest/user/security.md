@@ -29,6 +29,7 @@ cloud and security _in_ the cloud:
 
 - [Data protection in AWS Support](data-protection.md "data-protection.md")
 - [Security for your AWS Support cases](security-for-support-cases.md "security-for-support-cases.md")
+- [AWS Support authorization](support-authorization.md "support-authorization.md")
 - [Identity and access management for AWS Support](security-iam.md "security-iam.md")
 - [Incident response](incident-response.md "incident-response.md")
 - [Logging and monitoring in AWS Support and AWS Trusted Advisor](monitoring-security.md "monitoring-security.md")

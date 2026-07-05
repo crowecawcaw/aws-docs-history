@@ -23,7 +23,7 @@ To upgrade to an AWS Business Support+ plan from Basic Support, complete the fol
     Or, to enroll at the account level, select the **My account** radio button, then check the box to agree to the subscription terms.
     3. Choose **Confirm upgrade** to complete your AWS Business Support+ plan subscription.###### Note
 
-After you subscribe your entire organization to AWS Business Support+, any new accounts created within that organization are automatically subscribed to AWS Business Support+. If an account that was previously subscribed to AWS Business Support+ at the organization-level leaves the organization, that account is downgraded to the Basic support plan.
+After you subscribe your entire organization to AWS Business Support+, any new accounts created within or invited to that organization are automatically subscribed to AWS Business Support+. If an account that was previously subscribed to AWS Business Support+ at the organization-level leaves the organization, that account is downgraded to the Basic support plan.
 
 ###### Note
 
