@@ -1,3 +1,5 @@
+Amazon Kendra will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
 # Identity and access management for Amazon Kendra
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access

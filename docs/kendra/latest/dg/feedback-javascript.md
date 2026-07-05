@@ -1,3 +1,5 @@
+Amazon Kendra will no longer be open to new customers starting on July 30, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Amazon Kendra, explore Amazon Bedrock Knowledge Bases. [Learn more](kendra-availability-change.md "kendra-availability-change.md").
+
 # Using the Amazon Kendra JavaScript library to submit feedback
 
 Amazon Kendra provides a JavaScript library that you can use to add click
