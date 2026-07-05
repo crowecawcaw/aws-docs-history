@@ -122,7 +122,7 @@ For testing purposes, you can use OpenSSL to create a self-signed certificate.
 #### Using AWS Private CA
 
 To sign the CSR using AWS Private CA, first decode the base64-encoded CSR and save it to a file, then use the
-[IssueCertificate](../../../acm-pca/latest/APIReference/API_IssueCertificate.md "../../../acm-pca/latest/APIReference/API_IssueCertificate.md") API.
+[IssueCertificate](../../../privateca/latest/APIReference/API_IssueCertificate.md "../../../privateca/latest/APIReference/API_IssueCertificate.md") API.
 
 ###### Example Sign CSR with AWS Private CA
 

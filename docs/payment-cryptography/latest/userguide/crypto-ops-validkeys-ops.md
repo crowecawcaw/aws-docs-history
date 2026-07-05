@@ -53,7 +53,7 @@ CVV codes `(generate)` but then unable to verify them `(verify)`.
 | Key Type           | Allowed Key Usage                      | Allowed Key Algorithm        | Allowed combination of key modes of use                                                                                              |
 | ------------------ | -------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | PIN Encryption Key | TR31\_P0\_PIN\_ENCRYPTION\_KEY         | • TDES\_2KEY<br>• TDES\_3KEY | • { Encrypt = true, Wrap = true }<br>• { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true }<br>• { NoRestrictions = true } |
-| PIN Generation Key | TR31\_V2\_VISA\_PIN\_VERIFICATION\_KEY | • TDES\_3KEY                 | • { Generate = true }<br>• { Generate = true, Verify = true }                                                                        |
+| PIN Generation Key | TR31\_V2\_VISA\_PIN\_VERIFICATION\_KEY | • TDES\_2KEY<br>• TDES\_3KEY | • { Generate = true }<br>• { Generate = true, Verify = true }                                                                        |
 
 ## GeneratePinData (for `IBM3624`)
 
@@ -71,7 +71,7 @@ CVV codes `(generate)` but then unable to verify them `(verify)`.
 | Key Type           | Allowed Key Usage                      | Allowed Key Algorithm        | Allowed combination of key modes of use                                                                                                |
 | ------------------ | -------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | PIN Encryption Key | TR31\_P0\_PIN\_ENCRYPTION\_KEY         | • TDES\_2KEY<br>• TDES\_3KEY | • { Decrypt = true, Unwrap = true }<br>• { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true }<br>• { NoRestrictions = true } |
-| PIN Generation Key | TR31\_V2\_VISA\_PIN\_VERIFICATION\_KEY | • TDES\_3KEY                 | • { Verify = true }<br>• { Generate = true, Verify = true }                                                                            |
+| PIN Generation Key | TR31\_V2\_VISA\_PIN\_VERIFICATION\_KEY | • TDES\_2KEY<br>• TDES\_3KEY | • { Verify = true }<br>• { Generate = true, Verify = true }                                                                            |
 
 ## VerifyPinData (for `IBM3624`)
 
