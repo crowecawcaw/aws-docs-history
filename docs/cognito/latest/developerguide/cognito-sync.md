@@ -2,6 +2,13 @@
 
 ###### Note
 
+Amazon Cognito Sync will no longer be open to new customers starting July 30, 2026.
+Existing Amazon Cognito Sync customers can continue using the service. For alternatives to
+Amazon Cognito Sync, please explore [AWS AppSync](../../../appsync.md "../../../appsync.md") and [DynamoDB](../../../dynamodb.md "../../../dynamodb.md").
+[Learn more](cognito-sync-availability-change.md "cognito-sync-availability-change.md").
+
+###### Note
+
 If you're new to Amazon Cognito Sync, use [AWS AppSync](https://aws.amazon.com/appsync/ "https://aws.amazon.com/appsync/"). Like Amazon Cognito Sync, AWS AppSync is
 a service for synchronizing application data across devices.
 
@@ -23,6 +30,7 @@ To learn more about Amazon Cognito Sync, see the following topics.
 
 ###### Topics
 
+- [Amazon Cognito Sync availability change](cognito-sync-availability-change.md "cognito-sync-availability-change.md")
 - [Getting started with Amazon Cognito Sync](getting-started-with-cognito-sync.md "getting-started-with-cognito-sync.md")
 - [Synchronizing data across clients](synchronizing-data.md "synchronizing-data.md")
 - [Handling event callbacks](handling-callbacks.md "handling-callbacks.md")

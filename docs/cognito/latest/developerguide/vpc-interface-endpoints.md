@@ -83,8 +83,6 @@ information about these operations, see the [Amazon Cognito user pools API
 Reference](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md") and [Amazon Cognito Federated Identities
 API Reference](../../../cognitoidentity/latest/APIReference/Welcome.md "../../../cognitoidentity/latest/APIReference/Welcome.md").
 
-AWS PrivateLink for Amazon Cognito is only available in commercial AWS Regions.
-
 ###### Topics
 
 - [User pools and AWS PrivateLink](#vpc-endpoint-considerations-user-pools "#vpc-endpoint-considerations-user-pools")

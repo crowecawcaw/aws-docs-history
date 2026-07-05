@@ -128,7 +128,7 @@ async function verifyJWT(token) {
     const verifier = CognitoJwtVerifier.create({
       userPoolId,
       tokenUse: '`access`', // or 'id' for ID tokens
-      clientId: '`1example23456789`', // Optional, only if you need to verify the token audience
+      clientId: '`1example23456789`', // you must verify the token audience
     });
 
     const payload = await verifier.verify(token);
@@ -275,9 +275,9 @@ You can also use AWS Lambda to decode user pool JWTs. For more information, see
       returns an error if your token has expired.
 
 2. The `aud` claim in an ID token and the `client_id` claim in
-   an access token should match the app client ID that was created in the Amazon Cognito user
+   an access token must match the app client ID that was created in the Amazon Cognito user
    pool.
-3. The issuer (`iss`) claim should match your user pool. For example, a
+3. The issuer (`iss`) claim must match your user pool. For example, a
    user pool created in the `us-east-1` Region will have the following
    `iss` value:
 
