@@ -23,7 +23,7 @@ console.
    sent, remaining sends, and percentage of sending quota used is displayed under
    **Daily email usage**.
 
-![](images/account_dashboard.png) 3. To update the display, select the refresh icon in the upper right-hand corner
+![AWS Management Console](images/account_dashboard.png) 3. To update the display, select the refresh icon in the upper right-hand corner
 of the **Daily email usage** box.
 
 ## Monitoring your sending quotas using the Amazon SES API
