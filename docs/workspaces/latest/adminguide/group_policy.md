@@ -83,8 +83,8 @@ For more information about enabling or disabling audio-in redirection, see
 - [Set the maximum lifetime for a Kerberos ticket](group_policy.md#gp_kerberos_ticket "group_policy.md#gp_kerberos_ticket")
 - [Configure device proxy server settings for internet access](group_policy.md#gp_device_proxy "group_policy.md#gp_device_proxy")
 
-  - [Proxying desktop traffic](group_policy.md#w2aac11c31c11c27c15 "group_policy.md#w2aac11c31c11c27c15")
-  - [Recommendation on the use of proxy servers](group_policy.md#w2aac11c31c11c27c17 "group_policy.md#w2aac11c31c11c27c17")
+  - [Proxying desktop traffic](group_policy.md#w2aac11c33c11c27c15 "group_policy.md#w2aac11c33c11c27c15")
+  - [Recommendation on the use of proxy servers](group_policy.md#w2aac11c33c11c27c17 "group_policy.md#w2aac11c33c11c27c17")
 
 - [Enable Zoom Meeting Media Plugin support](group_policy.md#zoom-integration "group_policy.md#zoom-integration")
 
@@ -299,7 +299,7 @@ falls back to basic printing.
 
 #### Troubleshooting
 
-**Advanced features not available**: - Verify “Enable Advanced Printing” is selected in the GPO - Check driver
+**Advanced features not available**: - Verify "Enable Advanced Printing" is selected in the GPO - Check driver
 versions match according to your validation mode - Consider using partial validation mode instead of exact. Make
 sure to restart for any changes on the GPO to take effect.
 
@@ -745,7 +745,7 @@ Users will need to install the Amazon DCV WebAuthn Redirection Extension to use 
 ###### Note
 
 This is a one-time browser prompt. Your users will get the notification when you update the DCV agent version to 2.0.0.1425 or higher.
-If your end users don’t need the WebAuthn redirection, they can just remove the extension from the browser. You can also block the WebAuthn Redirection Extension
+If your end users don't need the WebAuthn redirection, they can just remove the extension from the browser. You can also block the WebAuthn Redirection Extension
 installation prompt using GPO policy.
 
 - You can force install the redirection extension for your users using GPO policy. If you enable the GPO policy, the extension will
@@ -2026,7 +2026,7 @@ To enable or disable the **Remember Me** feature, see [Enable self-service WorkS
 
 ## Configure device proxy server settings for internet access
 
-By default, the WorkSpaces client applications use the proxy server that’s specified in the
+By default, the WorkSpaces client applications use the proxy server that's specified in the
 device operating system settings for HTTPS (port 443) traffic. The Amazon WorkSpaces client
 applications use the HTTPS port for updates, registration, and authentication.
 
@@ -2090,7 +2090,7 @@ which could negatively impact streaming quality and responsiveness.
 Zoom supports optimized real-time communication for DCV and PCoIP Windows-based WorkSpaces,
 with the Zoom VDI Plugin. Direct client communication allows video calls to bypass the cloud-based
 virtual desktop and provide a local-like Zoom experience when the meeting is
-running inside the your user’s WorkSpace.
+running inside the your user's WorkSpace.
 
 ### Enable Zoom Meeting Media Plugin for DCV
 

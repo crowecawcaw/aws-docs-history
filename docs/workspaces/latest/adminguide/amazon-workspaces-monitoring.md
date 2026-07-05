@@ -24,7 +24,7 @@ request that was made to WorkSpaces, the IP address from which the request was m
 who made the request, when it was made, and additional details. For more
 information, see [Logging WorkSpaces
 API Calls by Using CloudTrail](../api/cloudtrail_logging.md "../api/cloudtrail_logging.md"). AWS CloudTrail logs successful and unsuccessful
-sign-in events for smart card users. For more information, see [Understanding AWS sign-in events for smart card users](signin-events.md "signin-events.md").
+sign-in events for smart card users. For more information, see [Understanding AWS sign-in events for WorkSpaces Personal users](signin-events.md "signin-events.md").
 
 **CloudWatch Internet Monitor**
 

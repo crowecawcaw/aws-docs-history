@@ -186,7 +186,7 @@ After installing or uninstalling application bundles on your WorkSpaces, the fol
     To get those application bundles back on your WorkSpaces you need to run the Manage application workflow again,
     uninstall the application to start fresh, and then install again.
   - The application bundles that were removed from your WorkSpaces using the Manage applications workflow will be back
-    on your WorkSpaces. However, those application bundles won’t work properly because the license activation will be missing.
+    on your WorkSpaces. However, those application bundles won't work properly because the license activation will be missing.
     In order to get rid of those application bundles, run a manual uninstall of those application bundles from your WorkSpaces.
 
 - **Rebuild a WorkSpace** - Rebuilding a WorkSpace recreates the root volume. For more information, see

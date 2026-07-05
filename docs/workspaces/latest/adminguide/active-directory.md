@@ -1,5 +1,9 @@
 # Using Active Directory with WorkSpaces Pools
 
+###### Note
+
+After careful consideration, we decided to end support for Amazon WorkSpaces Pools, effective December 31, 2027. Amazon WorkSpaces Pools will no longer accept new customers beginning July 31, 2026. As an existing customer, you can continue to use the service as normal until December 31, 2027. After December 31, 2027, you will no longer be able to access the Amazon WorkSpaces Pools console or Amazon WorkSpaces Pools resources. For more information, see [Amazon WorkSpaces Pools end of support](wsp-pools-end-of-support.md "wsp-pools-end-of-support.md").
+
 You can join your Windows WorkSpaces in WorkSpaces Pools to domains in Microsoft Active Directory and
 use your existing Active Directory domains, either cloud-based or on-premises, to launch
 domain-joined streaming instances. You can also use AWS Directory Service for Microsoft Active Directory, also known as

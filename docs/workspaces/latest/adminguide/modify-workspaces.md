@@ -95,7 +95,7 @@ contacting AWS Support for assistance.
 If you want to increase both volumes, you must wait 20-30 minutes for the
 first operation to finish before you can start the second operation.
 
-- Non-GPU-enabled WorkSpaces’ root volume cannot be less than 175 GB when the user volume is 100 GB. Storage requirements for GPU-enabled WorkSpaces scale proportionally with instance sizing. As you select larger GPU-enabled WorkSpaces configurations,
+- Non-GPU-enabled WorkSpaces' root volume cannot be less than 175 GB when the user volume is 100 GB. Storage requirements for GPU-enabled WorkSpaces scale proportionally with instance sizing. As you select larger GPU-enabled WorkSpaces configurations,
   you must allocate correspondingly larger storage volumes to maintain optimal performance and accommodate increased workload demands.
   For the smallest instance size, begin with the following storage allocation: Root: 100 GB, User: 100 GB. GPU-enabled WorkSpaces support a minimum of 100 GB for the root volume and 100 GB for the user volume.
 - If the user volume is 50 GB, you cannot update the root volume to anything
@@ -241,10 +241,10 @@ The console provides a guided experience to change the protocol of a WorkSpace f
 
 ###### To change the protocol of a WorkSpace using the CLI
 
-1. [Optional] Reboot your WorkSpace and wait until it’s in the `AVAILABLE` state before
+1. [Optional] Reboot your WorkSpace and wait until it's in the `AVAILABLE` state before
    modifying the protocol.
 2. [Optional] Use the `describe-workspaces` command to list the
-   WorkSpace properties. Ensure that it’s in the `AVAILABLE` state and its
+   WorkSpace properties. Ensure that it's in the `AVAILABLE` state and its
    current `Protocol` is accurate.
 3. Use the `modify-workspace-properties` command and modify the
    `Protocols` property from `PCOIP` to `DCV`, or the other way around.
@@ -260,7 +260,7 @@ aws workspaces modify-workspace-properties
 The `Protocols` property is case-sensitive. Ensure that you use `PCOIP`
 or `WSP`. The input parameter for DCV (WSP) is `WSP`. 4. After you run the command, it can take up to 40 minutes for the WorkSpace to
 complete the protocol modification workflow. 5. Use the `describe-workspaces` command again to list the WorkSpace
-properties and verify that it’s in an `AVAILABLE` state and the current
+properties and verify that it's in an `AVAILABLE` state and the current
 `Protocols` property has been changed to the correct
 protocol.
 

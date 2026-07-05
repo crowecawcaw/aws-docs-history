@@ -1,5 +1,9 @@
 # Enable application settings persistence for your WorkSpaces Pools users
 
+###### Note
+
+After careful consideration, we decided to end support for Amazon WorkSpaces Pools, effective December 31, 2027. Amazon WorkSpaces Pools will no longer accept new customers beginning July 31, 2026. As an existing customer, you can continue to use the service as normal until December 31, 2027. After December 31, 2027, you will no longer be able to access the Amazon WorkSpaces Pools console or Amazon WorkSpaces Pools resources. For more information, see [Amazon WorkSpaces Pools end of support](wsp-pools-end-of-support.md "wsp-pools-end-of-support.md").
+
 WorkSpaces Pools supports persistent application settings for Windows-based directories. This
 means that your users' application customizations and Windows settings are automatically
 saved after each streaming session and applied during the next session. Examples of
