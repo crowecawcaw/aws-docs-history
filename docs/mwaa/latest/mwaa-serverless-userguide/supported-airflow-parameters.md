@@ -119,6 +119,7 @@ The following table lists the Apache Airflow Task level parameters that are not 
 | `trigger_rule`                          |
 | `executor`                              |
 | `task_group`                            |
+| `deferrable`                            |
 
 ## AWS base operator attributes
 

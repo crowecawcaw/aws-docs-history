@@ -16,6 +16,7 @@ The following table describes the types of Amazon VPCs Amazon MWAA Serverless su
 | ------------------------------------------------------------------------------ | --------- |
 | An Amazon VPC owned by the customer that is attempting to create the workflow. | Yes       |
 | A shared Amazon VPC owned by service to host customer tasks.                   | Yes       |
+| Amazon VPC subnets shared from another account using AWS RAM.                  | Yes       |
 
 ## VPC infrastructure overview
 
