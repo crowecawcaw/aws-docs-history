@@ -22,3 +22,4 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSSupport-EmptyS3Bucket](automation-aws-empty-s3-bucket.md "automation-aws-empty-s3-bucket.md")
 - [AWSSupport-TroubleshootS3EventNotifications](awssupport-troubleshoot-s3-event-notifications.md "awssupport-troubleshoot-s3-event-notifications.md")
 - [AWSSupport-ContainS3Resource](automation-awssupport-contains3resource.md "automation-awssupport-contains3resource.md")
+- [AWSSupport-TroubleshootS3AccessSameAccount](automation-aws-troubleshoots3accesssameaccount.md "automation-aws-troubleshoots3accesssameaccount.md")

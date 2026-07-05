@@ -11,3 +11,4 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSConfigRemediation-UpdateAPIGatewayMethodCaching](automation-aws-update-api-gateway.md "automation-aws-update-api-gateway.md")
 - [AWSSupport-TroubleshootAPIGatewayCustomDomainConfig](automation-awssupport-troubleshootapigateway-customdomainconfig.md "automation-awssupport-troubleshootapigateway-customdomainconfig.md")
 - [AWSSupport-TroubleshootAPIGatewayHttpErrors](automation-aws-troubleshootapigatewayhttp-errors.md "automation-aws-troubleshootapigatewayhttp-errors.md")
+- [AWSSupport-TroubleshootAPIGatewayLambdaInvocation](automation-awssupport-troubleshootapigatewaylambdainvocation.md "automation-awssupport-troubleshootapigatewaylambdainvocation.md")

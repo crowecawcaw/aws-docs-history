@@ -27,6 +27,7 @@ runbooks](../../../systems-manager/latest/userguide/automation-documents.md "../
 - [AWSPremiumSupport-PostgreSQLWorkloadReview](automation-aws-postgresqlworkloadreview.md "automation-aws-postgresqlworkloadreview.md")
 - [AWS-RebootRdsInstance](automation-aws-rebootrdsinstance.md "automation-aws-rebootrdsinstance.md")
 - [AWSSupport-ShareRDSSnapshot](automation-aws-sharerdssnapshot.md "automation-aws-sharerdssnapshot.md")
+- [AWSSupport-CleanupRDSParameterGroups](automation-aws-cleanuprdsparametergroups.md "automation-aws-cleanuprdsparametergroups.md")
 - [AWS-StartRdsInstance](automation-aws-startrdsinstance.md "automation-aws-startrdsinstance.md")
 - [AWS-StartStopAuroraCluster](start-stop-aurora-cluster.md "start-stop-aurora-cluster.md")
 - [AWS-StopRdsInstance](automation-aws-stoprdsinstance.md "automation-aws-stoprdsinstance.md")

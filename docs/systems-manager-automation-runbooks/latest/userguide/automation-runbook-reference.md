@@ -90,6 +90,7 @@ For information about running automations, see [Running a simple automation](../
 - [Systems Manager](automation-ref-sys.md "automation-ref-sys.md")
 - [Third-party](automation-ref-third-party.md "automation-ref-third-party.md")
 - [Amazon VPC](automation-ref-vpc.md "automation-ref-vpc.md")
+- [Amazon Route 53](automation-ref-r53.md "automation-ref-r53.md")
 - [AWS WAF](automation-ref-waf.md "automation-ref-waf.md")
 - [Amazon WorkSpaces](automation-ref-wsp.md "automation-ref-wsp.md")
 - [X-Ray](automation-ref-xray.md "automation-ref-xray.md")

@@ -2,19 +2,32 @@
 
 **Description**
 
-`AWSSupport-SetupIPMonitoringFromVPC` creates an Amazon Elastic Compute Cloud (Amazon EC2)
-instance in the specified subnet and monitors selected target IPs (IPv4 or IPv6) by
-continuously running ping, MTR, traceroute and tracetcp tests. The results are
-stored in Amazon CloudWatch Logs logs, and metric filters are applied to quickly visualize
-latency and packet loss statistics in a CloudWatch dashboard.
+`AWSSupport-SetupIPMonitoringFromVPC` creates a temporary Amazon Elastic Compute Cloud
+(Amazon EC2) instance running Amazon Linux 2023 in the specified subnet. The runbook
+continuously runs ping, MTR, traceroute, and tracetcp tests against the selected
+target IPs (IPv4 or IPv6). It stores the results in Amazon CloudWatch log groups and applies
+metric filters to quickly visualize latency and packet loss statistics in a CloudWatch
+dashboard.
+
+###### Additional costs
+
+This runbook incurs additional AWS costs. It provisions an Amazon EC2 instance,
+CloudWatch log groups, and a CloudWatch dashboard in your account using AWS CloudFormation. The test
+instance runs continuously until you delete the CloudFormation stack. If you set
+`RetainDashboardAndLogsOnDeletion` to `True`
+(default), the CloudWatch dashboard and log groups remain after stack deletion. These
+resources continue to incur charges until you manually remove them. For pricing
+details, see [Amazon EC2
+Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/") and [Amazon CloudWatch
+Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
 **Additional Information**
 
-The CloudWatch Logs data can be used for network troubleshooting and analysis of
-pattern/trends. Additionally, you can configure CloudWatch alarms with Amazon SNS notifications
-when packet loss and/or latency reach a threshold. The data can also be used when
-opening a case with AWS Support, to help isolate an issue quickly and reduce time to
-resolution when investigating a network issue.
+You can use the test results in Amazon CloudWatch Logs for network troubleshooting and analysis
+of patterns and trends. Additionally, you can configure CloudWatch alarms with Amazon Simple Notification Service
+notifications when packet loss or latency reaches a threshold. You can also use
+these results when opening a case with AWS Support, to help isolate an issue quickly
+and reduce time to resolution when investigating a network issue.
 
 [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC")
 
@@ -72,7 +85,7 @@ t4g.large
 
 Default: t3.micro
 
-Description: (Optional) The EC2 instance type for the EC2Rescue instance.
+Description: (Optional) The Amazon EC2 instance type for the monitoring instance.
 Recommended size: t3.micro.
 
 - SubnetId
@@ -81,16 +94,16 @@ Type: String
 
 Description: (Required) The subnet ID for the monitor instance. Be aware
 that if you specify a private subnet, then you must make sure there is
-Internet access to allow the monitor instance to setup the test (meaning,
-install the CloudWatch Logs agent, interact with Systems Manager and CloudWatch).
+internet access to allow the monitor instance to set up the test (for
+example, install the CloudWatch agent, interact with AWS Systems Manager and CloudWatch).
 
 - TargetIPs
 
 Type: String
 
-Description: (Required) Comma separated list of IPv4s and/or IPv6s to
+Description: (Required) Comma-separated list of IPv4 or IPv6 addresses to
 monitor. No spaces allowed. Maximum size is 255 characters. Be aware that if
-you provide an invalid IP, then the automation will fail and rollback the
+you provide an invalid IP, then the automation will fail and roll back the
 test setup.
 
 - TestInstanceSecurityGroupId
@@ -105,7 +118,7 @@ sure the security group allows outbound access to the monitoring IPs.
 
 Type: String
 
-Description: (Optional) The name of an existing IAM instance profile for
+Description: (Optional) The name of an existing AWS Identity and Access Management instance profile for
 the test instance. If not specified, the automation creates one during the
 instance creation. The role must have the following permissions:
 `logs:CreateLogStream`, `logs:DescribeLogGroups`,
@@ -125,11 +138,10 @@ minutes.
 
 Type: String
 
-Description: (Optional) Specify `False` to delete the Amazon
-CloudWatch dashboard and Logs when deleting the AWS AWS CloudFormation stack. The
-default value is `True`. By default, the dashboard and logs are
-retained and will need to be manually deleted when they are no longer
-needed.
+Description: (Optional) Specify `False` to delete the CloudWatch
+dashboard and log groups when deleting the CloudFormation stack. The default value
+is `True`. By default, the runbook retains the dashboard and
+logs. You must manually delete them when they are no longer needed.
 **Required IAM permissions**
 
 The `AutomationAssumeRole` parameter requires the following actions to
@@ -243,7 +255,7 @@ IAM permissions are not required to execute the runbook:
 
 1. **`aws:executeAwsApi`** - describe the provided subnet to get the VPC ID and IPv6 CIDR block association state.
 2. **`aws:executeScript`** - validate the provided target IPs are syntactically correct IPv4 and/or IPv6 addresses, get the architecture of the selected instance type, and verify the subnet has an IPv6 pool association if any target IP is IPv6.
-3. **`aws:createStack`** - create an AWS CloudFormation stack that provisions the test Amazon EC2 instance, IAM instance profile (if not provided), security group (if not provided), CloudWatch log groups, and CloudWatch dashboard.
+3. **`aws:createStack`** - create a CloudFormation stack that provisions the test Amazon EC2 instance, IAM instance profile (if not provided), security group (if not provided), CloudWatch log groups, and CloudWatch dashboard.
 
 (Cleanup) If the step fails:
 
@@ -265,7 +277,7 @@ IAM permissions are not required to execute the runbook:
 
 (Cleanup) If the step fails:
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 7. **`aws:runCommand`** - install the CloudWatch agent on the test instance.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 7. **`aws:runCommand`** - install the CloudWatch agent, `mtr`, and `traceroute` on the test instance.
 
 (Cleanup) If the step fails:
 
@@ -273,7 +285,7 @@ IAM permissions are not required to execute the runbook:
 
 (Cleanup) If the step fails:
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 9. **`aws:runCommand`** - start the network tests and schedule subsequent executions using cronjobs that run every TestInterval minutes.
+**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 9. **`aws:runCommand`** - start the network tests and schedule subsequent executions using systemd timers that run every TestInterval minutes.
 
 (Cleanup) If the step fails:
 
