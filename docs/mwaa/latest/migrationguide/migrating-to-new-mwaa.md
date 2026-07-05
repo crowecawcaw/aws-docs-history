@@ -320,8 +320,7 @@ Apache Airflow metadata tables such as `dag`, `dag_tag`, and `dag_code` automati
 Permission related tables also populate automatically based on your IAM execution role permission. You do not need to migrate them.
 
 You can migrate data related to DAG history, `variable`, `slot_pool`, `sla_miss`, and if needed, `xcom`, `job`, and `log` tables.
-Task instance log is stored in the CloudWatch Logs under the `airflow-`{environment_name}`` log group. If you want to see the task instance logs for older runs,
-those logs must be copied over to the new environment log group. We recommend that you move only a few days worth of logs in order to reduce associated costs.
+Task instance logs are stored in CloudWatch Logs under the `airflow-`{environment_name}`-Task` log group. If you want to access logs for older runs in your new environment, use one of these options: use the same environment name when you create the new environment, or manually copy the logs to the new environment log group.
 
 If you're migrating from an existing Amazon MWAA environment, there is no direct access to the metadata database. You must run a DAG to export the metadata from your existing Amazon MWAA environment to an Amazon S3 bucket of your choice.
 The following steps can also be used to export Apache Airflow metadata if you're migrating from a self-managed environment.
@@ -389,6 +388,35 @@ S3_BUCKET = 'mwaa-migration-`{UUID}`'
 8. After the environment is updated, access the Apache Airflow UI, unpause the `db_export` DAG, and trigger the workflow to run.
 9. Verify that the metadata is exported to `data/migration/`existing-version`_to_`new-version`/export/` in the `mwaa-migration-`{UUID}`` Amazon S3 bucket,
    with each table in it's own dedicated file.
+
+### Migrating CloudWatch Logs
+
+Each Amazon MWAA environment writes logs to a CloudWatch Logs log group named
+`airflow-`{environment-name}`-`{component}``.
+The log group name is derived from the environment name at creation time. If you create a new
+environment with a different name during migration, the new environment creates a new log group.
+Logs from the original environment remain in the original log groups and are not copied or linked
+to the new environment.
+
+If you require access to historical logs after migration, consider the following options:
+
+Option 1: Export logs to Amazon S3
+
+This option works well for large log volumes. Export logs from the original
+log group to Amazon S3 before decommissioning the old environment. For more
+information, see [Exporting log data to Amazon S3](../../../AmazonCloudWatch/latest/logs/S3Export.md "../../../AmazonCloudWatch/latest/logs/S3Export.md").
+
+Option 2: Keep old logs in place
+
+Rather than exporting logs, you can retain the original log groups and query
+them directly. Set a retention policy on the old log groups so they expire
+naturally, and use CloudWatch Logs Insights to query across both old and new log groups
+simultaneously.
+
+###### Important
+
+Changing the environment name during migration means historical task logs are not accessible
+from the new environment's Apache Airflow UI.
 
 ## Step four: Importing the metadata to your new environment
 
