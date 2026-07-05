@@ -45,7 +45,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   [Aurora MySQL parallel query limitations](../AuroraUserGuide/aurora-mysql-parallel-query.md#aurora-mysql-parallel-query-limitations "../AuroraUserGuide/aurora-mysql-parallel-query.md#aurora-mysql-parallel-query-limitations").
 - Fixed an issue which, in rare cases, can cause Aurora replicas to restart during the simultaneous execution of large update operations or
   Data Definition Language (DDL) workloads on the writer instance and read operations on the same set of tables on the Aurora replica.
-- Fixed an issue with the Aurora Serverless v2 reader instance scale down operation that can cause that reader instance to restart, and
+- Fixed an issue with the Aurora serverless reader instance scale down operation that can cause that reader instance to restart, and
   in some rare cases, cause data inconsistency.
 - Fixed an issue which can cause the DB instance to restart due to incorrectly accessing an invalid memory location when a connection
   to the DB instance is closed.

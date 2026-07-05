@@ -66,7 +66,7 @@ following CVE fixes are included:
   key constraint, or as a member of the referenced table.
 - Fixed an issue that can interrupt database recovery during startup if the restart occurred while running heavy insert
   operations involving `AUTO_INCREMENT` columns.
-- Fixed an issue in Aurora Serverless v2 that can lead to a database restart while scaling up.
+- Fixed an issue in Aurora serverless that can lead to a database restart while scaling up.
 
 **General improvements:**
 

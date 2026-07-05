@@ -36,10 +36,10 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 
 **New features:**
 
-- Amazon Aurora Serverless v2 is generally available. For more information, see the [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless/ "https://aws.amazon.com/rds/aurora/serverless/") overview,
+- Amazon Aurora serverless is generally available. For more information, see the [Amazon Aurora Serverless](https://aws.amazon.com/rds/aurora/serverless/ "https://aws.amazon.com/rds/aurora/serverless/") overview,
   [blog](https://aws.amazon.com/blogs/aws/amazon-aurora-serverless-v2-is-generally-available-instant-scaling-for-demanding-workloads/ "https://aws.amazon.com/blogs/aws/amazon-aurora-serverless-v2-is-generally-available-instant-scaling-for-demanding-workloads/"), and
   [Using Aurora Serverless v2](../AuroraUserGuide/aurora-serverless-v2.md "../AuroraUserGuide/aurora-serverless-v2.md") documentation.
-  Get started today by creating an Aurora Serverless v2 database using only a few steps in the AWS Management Console.
+  Get started today by creating an Aurora serverless database using only a few steps in the AWS Management Console.
 
 **Availability improvements:**
 

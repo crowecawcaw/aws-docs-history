@@ -56,8 +56,8 @@ If you have any questions or concerns, Support is available on the community for
 - Fixed an issue that could cause an engine restart when running `KILL <query-id>` after running `EXPLAIN FOR CONNECTION <query-id>` on a running parallel query.
 - Fixed an issue where out-of-memory (OOM) avoidance wasn't persisting the configured `aurora_oom_response` DB parameter value after database restart.
 - Fixed an issue that prevented users with `CONNECTION_ADMIN` or `SUPER` privileges from performing an additional connection beyond `max_connections` limit, as supported in MySQL Community Edition.
-- Fixed an issue with Aurora Serverless V2 scaling that resulted in DB instance restarts by preventing critical memory pages from being swapped out.
-- Fixed an issue that could cause Aurora MySQL Serverless v2 instances to restart when the `innodb_purge_threads` parameter was manually configured to a value different from the default. The `innodb_purge_threads` parameter is now automatically managed for Aurora Serverless v2 instances and can't be modified.
+- Fixed an issue with Aurora serverless scaling that resulted in DB instance restarts by preventing critical memory pages from being swapped out.
+- Fixed an issue that could cause Aurora MySQL serverless instances to restart when the `innodb_purge_threads` parameter was manually configured to a value different from the default. The `innodb_purge_threads` parameter is now automatically managed for Aurora serverless instances and can't be modified.
 - Fixed an issue that could cause a reader instance's restart to fail when the writer is running a large number of DDL operations.
 - Fixed an issue that could cause the writer instance to become unresponsive if reader instances restart while using Global Write Forwarding or Local Write Forwarding.
 - Fixed an issue that could cause engine restart during zero-downtime patching (ZDP)/zero-downtime restart (ZDR), when preserving SSL/TLS connections with active transactions.
@@ -79,7 +79,7 @@ If you have any questions or concerns, Support is available on the community for
 - Fixed an issue that can cause memory management issues when parallel query operations on the table with the blob fields.
 - Fixed an issue that could cause the `Previous_gtids` binlog event to exclude certain GTIDs with Enhanced Binlog enabled and `gtid_mode` set to `ON` or `ON_PERMISSIVE`.
 - Fixed an issue that causes unexpected "Internal write forwarding error" on reader instances when write forwarding is enabled.
-- Resolved a race condition that could cause incorrect page reads from the buffer pool during Aurora Serverless scale-down operations or during page eviction from the buffer pool. Ref community [Bug#116305](https://bugs.mysql.com/bug.php?id=116305 "https://bugs.mysql.com/bug.php?id=116305").
+- Resolved a race condition that could cause incorrect page reads from the buffer pool during Aurora serverless scale-down operations or during page eviction from the buffer pool. Ref community [Bug#116305](https://bugs.mysql.com/bug.php?id=116305 "https://bugs.mysql.com/bug.php?id=116305").
 - Fixed an issue where exporting a DB snapshot to Amazon S3 will be slower when exporting tables containing secondary indices with generated expressions.
 - Fixed an issue causing inaccurate `AbortedClients` metrics when multiple connections terminate unexpectedly.
 - Added a new global variable `aurora_lambda_request_timeout` to allow users configure AWS Lambda request timeouts (default: 10 seconds). For more information on invoking a Lambda function from an Aurora MySQL DB cluster see [Invoking a Lambda function from an Aurora MySQL DB cluster](../AuroraUserGuide/AuroraMySQL.Integrating.Lambda.md "../AuroraUserGuide/AuroraMySQL.Integrating.Lambda.md").

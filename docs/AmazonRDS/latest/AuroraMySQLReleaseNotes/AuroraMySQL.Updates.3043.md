@@ -70,7 +70,7 @@ following CVE fixes are included:
   `UPDATE` or `DELETE` foreign key constraint is defined
   on a table where a virtual column is involved either as a column in the foreign
   key constraint, or as a member of the referenced table.
-- Fixed an issue in Aurora Serverless v2 that can lead to a database restart while
+- Fixed an issue in Aurora serverless that can lead to a database restart while
   scaling up.
 
 **General improvements:**

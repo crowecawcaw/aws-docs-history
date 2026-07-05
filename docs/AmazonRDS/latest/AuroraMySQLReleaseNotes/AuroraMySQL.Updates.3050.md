@@ -56,7 +56,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 - Fixed an issue which can cause database cluster unavailability if the writer instance restarts while the database is creating or dropping triggers on internal system tables.
 - Fixed an issue which can cause a database instance restart due to a long semaphore wait when using the enhanced binlog feature on a cluster with an Aurora replica.
 - Fixed an issue which can cause a database instance to restart while executing a query which references an aggregate function.
-- Fixed an issue which, in rare conditions, can cause the database instance to restart when Aurora Serverless v2 incorrectly attempts to update the table cache while scaling.
+- Fixed an issue which, in rare conditions, can cause the database instance to restart when Aurora serverless incorrectly attempts to update the table cache while scaling.
 - Fixed an issue where unsupported index scan access methods were considered for common table expressions (CTE) while
   materializing intermediate temporary tables, which can lead to undesired behavior including database restarts or
   incorrect query results. We fixed this issue by avoiding the use of such unsupported index scan access methods on tables
@@ -64,7 +64,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 
 **General improvements:**
 
-- Fixed an issue which can cause database unavailability when enhanced binlog is enabled on an Aurora Serverless v2 database cluster running on Aurora MySQL 3.04.0.
+- Fixed an issue which can cause database unavailability when enhanced binlog is enabled on an Aurora serverless database cluster running on Aurora MySQL 3.04.0.
 - Removed unused storage metadata before writing to Aurora storage when the enhanced binlog feature is enabled. This avoids certain scenarios when a database
   restart or failover may occur because of increased write latency due to increased bytes transmitted over the network.
 - With the addition of the `malloc_stats` and `malloc_stats_totals` tables in the `performance_schema`, three advanced system variables were added
@@ -96,7 +96,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 - Fixed an issue which may cause the depletion of available memory when executing queries against the `INFORMATION_SCHEMA INNODB_TABLESPACES` table.
 - Fixed an issue where the reader instance is unable to open a table, with ERROR 1146. This issue occurs when executing certain types of online Data Definition Language (DDL)
   while the `INPLACE` algorithm is being used on the writer instance.
-- Fixed an issue to avoid an instance restart during Aurora Serverless v2 scaling when the internal monitoring process erroneously submits duplicate scaling requests.
+- Fixed an issue to avoid an instance restart during Aurora serverless scaling when the internal monitoring process erroneously submits duplicate scaling requests.
 - Fixed an issue which can cause a database restart when connected binary log (binlog) consumers are using duplicate binlog replication server IDs.
 - Introduced an in-memory [relay log](https://dev.mysql.com/doc/refman/8.0/en/replica-logs-relaylog.html "https://dev.mysql.com/doc/refman/8.0/en/replica-logs-relaylog.html") cache for Aurora MySQL managed binary log replicas. This improvement can help achieve up to a 40% increase in binary log
   replication throughput. This enhancement is enabled automatically when using single-threaded binary log replication or when using multi-threaded replication with

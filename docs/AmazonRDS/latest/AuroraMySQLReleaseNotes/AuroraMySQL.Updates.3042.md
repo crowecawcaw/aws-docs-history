@@ -90,7 +90,7 @@ The following CVE fixes are included in this release:
 - Fixed an issue where the reader DB instance is unable to open a table, with **`ERROR 1146`**. This
   issue occurs when running certain types of online Data Definition Language (DDL) statements while the
   `INPLACE` algorithm is being used on the writer DB instance.
-- Fixed an issue to avoid an instance restart during Aurora Serverless v2 scaling when the internal monitoring process
+- Fixed an issue to avoid an instance restart during Aurora serverless scaling when the internal monitoring process
   erroneously submits duplicate scaling requests.
 - Fixed an issue that can cause a database restart when connected binary log (binlog) consumers are using duplicate
   binlog replication server IDs.

@@ -52,7 +52,7 @@ following CVE fixes are included:
   foreign key constraint.
 - Fixed an issue that causes a DB instance to restart when attempting to recover
   the InnoDB data dictionary during database recovery.
-- Fixed an issue in Aurora Serverless v2 that can lead to a database restart while scaling up.
+- Fixed an issue in Aurora serverless that can lead to a database restart while scaling up.
 
 **General improvements:**
 

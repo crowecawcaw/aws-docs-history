@@ -44,7 +44,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   connection to the database instance is closed explicitly or implicitly.
 - Fixed an issue which can cause the database startup to be interrupted repeatedly on larger instance classes due to buffer pool
   initialization taking longer than expected.
-- Fixed an issue which, in rare conditions, can cause the database instance to restart when Aurora Serverless v2 incorrectly
+- Fixed an issue which, in rare conditions, can cause the database instance to restart when Aurora serverless incorrectly
   attempts to update the table cache while scaling.
 - Fixed an issue which, in rare conditions, could cause the database to restart when processing a query with a GROUP BY clause
   that truncates a decimal column to zero decimal places.
@@ -70,7 +70,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   in AMS 8.0 engine upgrade workflow, which causes the log records to be accumulated on the Aurora storage cluster volume
   and stops normal write operations. This issue mainly affected database clusters with large numbers of tables,
   approximately >750k.
-- Fixed an issue that prevents Aurora MySQL Serverless v2 idle instances from scaling down to 0.5 ACUs because the MySQL purge
+- Fixed an issue that prevents Aurora MySQL serverless idle instances from scaling down to 0.5 ACUs because the MySQL purge
   threads were incorrectly kept active.
 - Fixed an issue where applications may experience increased latency while connecting to a database instance when the instance
   is experiencing a sudden increase in incoming connections.

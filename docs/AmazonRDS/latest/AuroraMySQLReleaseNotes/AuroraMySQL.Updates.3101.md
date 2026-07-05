@@ -21,8 +21,8 @@ If you have any questions or concerns, AWS Support is available on the community
 
 - Fixed an issue with the page latching order sent to reader instances. It can cause the reader instance to restart due to a deadlatch when running SELECT queries over tables being updated by its writer.
 - Fixed an issue that could cause a reader instance's restart to fail when the writer is running a large number of DDL operations.
-- Fixed an issue which could cause Aurora MySQL Serverless v2 instances to restart when the innodb\_purge\_threads parameter was manually configured to a value different from the default. The innodb\_purge\_threads parameter is now automatically managed for Aurora Serverless v2 instances and cannot be modified.
-- Fixed an issue with Aurora Serverless V2 scaling that resulted in DB instance restarts by preventing critical memory pages from being swapped out.
+- Fixed an issue which could cause Aurora MySQL serverless instances to restart when the innodb\_purge\_threads parameter was manually configured to a value different from the default. The innodb\_purge\_threads parameter is now automatically managed for Aurora serverless instances and cannot be modified.
+- Fixed an issue with Aurora serverless scaling that resulted in DB instance restarts by preventing critical memory pages from being swapped out.
 - Fixed an issue where Aurora out of memory (OOM) avoidance wasn't persisting the configured aurora\_oom\_response DB parameter value after database restart.
 - Fixed a race condition which could cause availability issue after a failover in Multi-AZ clusters.
 - Fixed an issue in logical recovery with aurora\_enhanced\_binlog enabled that could prevent database restarts in case of aborted transactions.

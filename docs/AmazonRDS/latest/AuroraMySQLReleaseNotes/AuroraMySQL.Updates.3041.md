@@ -53,7 +53,7 @@ If you have any questions or concerns, AWS Support is available on the community
 
 **General improvements:**
 
-- Fixed an issue which can cause database unavailability when enhanced binlog is enabled on an Aurora Serverless v2 database cluster running on Aurora MySQL 3.04.0.
+- Fixed an issue which can cause database unavailability when enhanced binlog is enabled on an Aurora serverless database cluster running on Aurora MySQL 3.04.0.
 - Removed unused storage metadata before writing to Aurora Storage when the enhanced binlog feature is enabled. This avoids certain scenarios when a database
   restart or failover may occur because of increased write latency due to increased bytes transmitted over the network.
 - Fixed an issue where Aurora specific performance schema tables were not created upon an upgrade or migration.

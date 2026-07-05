@@ -33,10 +33,10 @@ If you have any questions or concerns, AWS Support is available on the community
 
 ###### Note
 
-Aurora MySQL enhanced binary log (binlog) is currently not supported for the Aurora Serverless v2 database instance on Aurora MySQL version 3.04.0.
+Aurora MySQL enhanced binary log (binlog) is currently not supported for the Aurora serverless database instance on Aurora MySQL version 3.04.0.
 Enabling this feature may lead to database unavailability. If you require the use of enhanced binary log on Aurora MySQL version 3.04.0, we recommend
 using a [non-serverless database instance class](../AuroraUserGuide/Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.Types "../AuroraUserGuide/Concepts.DBInstanceClass.md#Concepts.DBInstanceClass.Types")
-or setting the minimum and maximum ACU of the Serverless v2 database instance to the same value.
+or setting the minimum and maximum ACU of the serverless database instance to the same value.
 
 More information on enhanced binary logging in Aurora MySQL is available in the [Aurora User Guide](../AuroraUserGuide/AuroraMySQL.Replication.MySQL.md#AuroraMySQL.Enhanced.binlog "../AuroraUserGuide/AuroraMySQL.Replication.MySQL.md#AuroraMySQL.Enhanced.binlog").
 
@@ -94,7 +94,7 @@ The following CVE fixes are included in this release:
 - Fixed an issue that can cause database restarts during long transaction recovery.
 - Fixed an issue within database activity streams event encryption that can cause database restarts.
 - Fixed a memory management issue due to out of memory errors when the InnoDB buffer pool is being initialized during startup or
-  while scaling in Aurora Serverless v2. This issue might have caused database instance restarts or performance degradation
+  while scaling in Aurora serverless. This issue might have caused database instance restarts or performance degradation
   including throughput reduction or increased latency.
 - Fixed an issue that can cause an Aurora MySQL reader instance to restart while executing a query which utilizes an Aurora MySQL
   parallel query execution plan.

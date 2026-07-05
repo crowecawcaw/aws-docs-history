@@ -31,7 +31,7 @@ Below are the improvements made compared to Aurora MySQL 3.12.0, see [Aurora MyS
 - Fixed an issue where the database writer instance could restart unexpectedly during a global database switchover operation. The restart occurred while cleaning up temporary tables after SQL statement processing. This could result in longer switchover completion time.
 - Improved the performance of Aurora physical replication by applying changes from the writer instance on reader instances using multiple threads.
 - Fixed an issue which could cause read replicas to restart when the writer instance commits a large transaction with binlog enabled. This issue could also cause errors when reading the binlog file containing the large transaction.
-- Fixed an issue where a delay in InnoDB buffer pool resizing during Aurora Serverless v2 scaling operations could cause the database instance to become unresponsive and restart.
+- Fixed an issue where a delay in InnoDB buffer pool resizing during Aurora serverless scaling operations could cause the database instance to become unresponsive and restart.
 - Fixed an issue in the out-of-memory (OOM) avoidance mechanism that could cause a database instance restart while attempting to recover memory under critical memory pressure.
 - Fixed an issue where a reader instance could restart repeatedly after being restarted while the writer instance was performing a forceful purge of undo logs.
 - Fixed an issue which can cause an unexpected database restart on reader instances when subqueries using Parallel Query requests were not correctly closed on completion.
