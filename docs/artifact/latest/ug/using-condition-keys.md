@@ -69,8 +69,7 @@ The following policy lets you grant permission to read all AWS Artifact reports 
  ],
  "Condition": {
  "StringEquals": {
- "artifact:ReportSeries": "SOC",
- "artifact:ReportCategory": "Certifications and Attestations"
+ "artifact:ReportSeries": "SOC"
  }
  }
  }

@@ -16,4 +16,5 @@ For instructions on using the features of AWS Artifact, see the following topics
 
 - [Downloading reports](downloading-documents.md "downloading-documents.md")
 - [Managing agreements](managing-agreements.md "managing-agreements.md")
+- [Assurance Assistant](managing-compliance-inquiries.md "managing-compliance-inquiries.md")
 - [Configuring notifications](managing-notifications.md "managing-notifications.md")

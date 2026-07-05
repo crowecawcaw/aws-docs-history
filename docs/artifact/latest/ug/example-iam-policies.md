@@ -16,6 +16,7 @@ see [Example IAM policies for AWS Artifact in AWS GovCloud (US) Regions](example
 - [Example policies to integrate with AWS Organizations](#example-policy-integrate-with-organizations "#example-policy-integrate-with-organizations")
 - [Example policies to manage agreements for the management account](#example-policy-agreements-master "#example-policy-agreements-master")
 - [Example policies to manage organizational agreements](#example-policy-organizational-agreements "#example-policy-organizational-agreements")
+- [Example policies to manage compliance inquiries](#example-policy-compliance-inquiries "#example-policy-compliance-inquiries")
 - [Example policies to manage notifications](#example-policy-notifications "#example-policy-notifications")
 
 ###### Example policies to manage AWS reports through fine-grained permissions
@@ -579,6 +580,76 @@ The following policy grants permissions to view organizational agreements.
  "organizations:DescribeOrganization"
  ],
  "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+###### Example policies to manage compliance inquiries
+
+###### Tip
+
+We recommend using the [AWSArtifactComplianceInquiriesReadOnlyAccess](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
+or [AWSArtifactComplianceInquiriesFullAccess](security-iam-awsmanpol.md "security-iam-awsmanpol.md") managed policy instead of defining your own policy.
+
+The following policy grants read-only permission to list, view, export compliance inquiries, and list tags for compliance inquiry resources.
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListComplianceInquiries",
+ "Effect": "Allow",
+ "Action": [
+ "artifact:ListComplianceInquiries"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "ViewAndExportComplianceInquiries",
+ "Effect": "Allow",
+ "Action": [
+ "artifact:GetComplianceInquiryMetadata",
+ "artifact:ListComplianceInquiryQueries",
+ "artifact:ExportComplianceInquiry",
+ "artifact:ListTagsForResource"
+ ],
+ "Resource": "arn:aws:artifact:*:*:compliance-inquiry/*"
+ }
+ ]
+}`
+
+```
+
+The following policy grants full permission to create, list, view, export compliance inquiries, and manage tags for compliance inquiry resources.
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ListAndCreateComplianceInquiries",
+ "Effect": "Allow",
+ "Action": [
+ "artifact:ListComplianceInquiries",
+ "artifact:CreateComplianceInquiry"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "ViewExportAndTagComplianceInquiries",
+ "Effect": "Allow",
+ "Action": [
+ "artifact:GetComplianceInquiryMetadata",
+ "artifact:ListComplianceInquiryQueries",
+ "artifact:ExportComplianceInquiry",
+ "artifact:TagResource",
+ "artifact:UntagResource",
+ "artifact:ListTagsForResource"
+ ],
+ "Resource": "arn:aws:artifact:*:*:compliance-inquiry/*"
  }
  ]
 }`

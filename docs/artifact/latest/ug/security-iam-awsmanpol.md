@@ -62,16 +62,47 @@ This policy includes the following permissions.
 - `iam` – Allows principals to check if the required service linked role exists, and create one if it doesn't.
 - `organizations` – Allows principals to describe the current organization and to list/enable service access for that organization.
 
+## AWS managed policy: [AWSArtifactComplianceInquiriesReadOnlyAccess](../../../aws-managed-policy/latest/reference/AWSArtifactComplianceInquiriesReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AWSArtifactComplianceInquiriesReadOnlyAccess.md")
+
+You can attach the
+`AWSArtifactComplianceInquiriesReadOnlyAccess` policy to your IAM identities.
+
+With this policy attached, you can list, view, and export AWS Artifact compliance inquiries
+for Assurance Assistant.
+
+**Permissions details**
+
+This policy includes the following permissions.
+
+- `artifact` – Allows principals to list, view, and export
+  compliance inquiries in AWS Artifact.
+
+## AWS managed policy: [AWSArtifactComplianceInquiriesFullAccess](../../../aws-managed-policy/latest/reference/AWSArtifactComplianceInquiriesFullAccess.md "../../../aws-managed-policy/latest/reference/AWSArtifactComplianceInquiriesFullAccess.md")
+
+You can attach the
+`AWSArtifactComplianceInquiriesFullAccess` policy to your IAM identities.
+
+With this policy attached, you can create, list, view, and export AWS Artifact compliance
+inquiries for Assurance Assistant.
+
+**Permissions details**
+
+This policy includes the following permissions.
+
+- `artifact` – Allows principals to create, list, view, and
+  export compliance inquiries in AWS Artifact.
+
 ## AWS Artifact updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Artifact since this service
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
 the RSS feed on the AWS Artifact [Document history](doc-history.md "doc-history.md") page.
 
-| Change                                                                                                                                                                                 | Description                                                                                                                                                                                                           | Date       |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| [AWSArtifactReportsReadOnlyAccess](#security-iam-awsmanpol-AWSArtifactReportsReadOnlyAccess "#security-iam-awsmanpol-AWSArtifactReportsReadOnlyAccess") – Update to an existing policy | AWS Artifact added the `artifact:ListReportVersions` permission to allow listing report versions.                                                                                                                     | 2025-12-15 |
-| Updated AWS Agreements managed policies                                                                                                                                                | Updated AWSArtifactAgreementsFullAccess managed policy to scope `organizations:EnableAWSServiceAccess` permissions down to AWS Artifact's service principal. This does not impact the managed policy's functionality. | 2025-10-16 |
-| Updated AWS Reports managed policies                                                                                                                                                   | Updated AWSArtifactReportsReadOnlyAccess managed policy to remove the artifact:get permission.                                                                                                                        | 2025-03-21 |
-| Introduced AWS Agreements managed policies                                                                                                                                             | Introduced AWSArtifactAgreementsReadOnlyAccess and AWSArtifactAgreementsFullAccess managed policies.                                                                                                                  | 2024-11-21 |
-| AWS Artifact started tracking changes                                                                                                                                                  | AWS Artifact started tracking changes for its AWS managed policies and introduced AWSArtifactReportsReadOnlyAccess.                                                                                                   | 2023-12-15 |
+| Change                                                                                                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Date       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Introduced AWS Compliance Inquiries managed policies                                                                                                                                   | Introduced [AWSArtifactComplianceInquiriesReadOnlyAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSArtifactComplianceInquiriesReadOnlyAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSArtifactComplianceInquiriesReadOnlyAccess") and [AWSArtifactComplianceInquiriesFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSArtifactComplianceInquiriesFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AWSArtifactComplianceInquiriesFullAccess") managed policies for Assurance Assistant. | 2026-06-30 |
+| [AWSArtifactReportsReadOnlyAccess](#security-iam-awsmanpol-AWSArtifactReportsReadOnlyAccess "#security-iam-awsmanpol-AWSArtifactReportsReadOnlyAccess") – Update to an existing policy | AWS Artifact added the `artifact:ListReportVersions` permission to allow listing report versions.                                                                                                                                                                                                                                                                                                                                                                                                                                        | 2025-12-15 |
+| Updated AWS Agreements managed policies                                                                                                                                                | Updated AWSArtifactAgreementsFullAccess managed policy to scope `organizations:EnableAWSServiceAccess` permissions down to AWS Artifact's service principal. This does not impact the managed policy's functionality.                                                                                                                                                                                                                                                                                                                    | 2025-10-16 |
+| Updated AWS Reports managed policies                                                                                                                                                   | Updated AWSArtifactReportsReadOnlyAccess managed policy to remove the artifact:get permission.                                                                                                                                                                                                                                                                                                                                                                                                                                           | 2025-03-21 |
+| Introduced AWS Agreements managed policies                                                                                                                                             | Introduced AWSArtifactAgreementsReadOnlyAccess and AWSArtifactAgreementsFullAccess managed policies.                                                                                                                                                                                                                                                                                                                                                                                                                                     | 2024-11-21 |
+| AWS Artifact started tracking changes                                                                                                                                                  | AWS Artifact started tracking changes for its AWS managed policies and introduced AWSArtifactReportsReadOnlyAccess.                                                                                                                                                                                                                                                                                                                                                                                                                      | 2023-12-15 |
