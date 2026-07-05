@@ -77,3 +77,4 @@ Amazon MWAA is available in the following AWS Regions. To learn more about each 
 ## What's next?
 
 - Learn how to create an Amazon S3 bucket in [Create an Amazon S3 bucket for Amazon MWAA](mwaa-s3-bucket.md "mwaa-s3-bucket.md").
+- For information about using the AWS CDK to create Amazon MWAA resources, see [AWS CDK MWAA module](../../../cdk/api/v2/docs/aws-cdk-lib.aws_mwaa-readme.md "../../../cdk/api/v2/docs/aws-cdk-lib.aws_mwaa-readme.md") in the AWS CDK API Reference.

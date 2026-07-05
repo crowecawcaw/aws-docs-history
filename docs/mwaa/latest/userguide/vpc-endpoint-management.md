@@ -325,8 +325,16 @@ Complete the following steps to create the required Amazon VPC endpoints for you
 ###### Warning
 
 The `Owner` account must set up a security group in the `Owner` account to allow traffic from the new environment to the shared Amazon VPC.
-You can do this by creating a new security group in `Owner`, or editing an existing one. 3. Choose **Endpoints**, then create new endpoints for the environment database and the webserver (if in private mode) using the
-endpoint service names from the previous steps. Choose the shared Amazon VPC, the subnets you used for the environment, and the environment's security group.
+You can do this by creating a new security group in `Owner`, or editing an existing one. 3. Choose **Endpoints**, then choose **Create endpoint**. Under **Endpoint settings**,
+select **Endpoint services that use NLBs and GWLBs**. In the **Service name** field, enter the database endpoint service name
+you noted from the Amazon MWAA console, then choose **Verify service**. Choose the shared Amazon VPC, select the subnets you used for
+the environment, and select the security group you created in the previous step. Choose **Create endpoint**.
+If your environment uses a private webserver, repeat these steps using the webserver endpoint service name.
+
+###### Note
+
+If you create VPC endpoints using infrastructure as code, set the endpoint type to `Interface` explicitly.
+The default endpoint type in both AWS CloudFormation and Terraform is `Gateway`, which is not compatible with Amazon MWAA endpoint services.
 
 If successful, the environment will change from `PENDING` back to `CREATING`, then finally to `AVAILABLE`.
 When it is `AVAILABLE`, you can sign in to the Apache Airflow console.

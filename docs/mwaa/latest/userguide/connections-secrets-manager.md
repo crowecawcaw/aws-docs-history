@@ -75,10 +75,10 @@ the configuration you create in the following steps takes precedence and overrid
 5. Choose **Add custom configuration** in the **Airflow configuration options** pane. Add the following key-value pairs:
 
    1. `secrets.backend`: `airflow.providers.amazon.aws.secrets.secrets_manager.SecretsManagerBackend`
-   2. `secrets.backend_kwargs`: `{"connections_prefix" : "airflow/connections", "variables_prefix" : "airflow/variables"}`
+   2. `secrets.backend_kwargs`: `{"connections_prefix":"airflow/connections","variables_prefix":"airflow/variables"}`
       This configures Apache Airflow to search for connection strings and variables at `airflow/connections/*` and `airflow/variables/*` paths.
 
-   You can use a [lookup pattern](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/secrets-backends/aws-secrets-manager.html#optional-lookup "https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/secrets-backends/aws-secrets-manager.html#optional-lookup") to reduces
+   You can use a [lookup pattern](https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/secrets-backends/aws-secrets-manager.html#optional-lookup "https://airflow.apache.org/docs/apache-airflow-providers-amazon/stable/secrets-backends/aws-secrets-manager.html#optional-lookup") on the Apache Airflow website to reduce
    the number of API calls Amazon MWAA makes to Secrets Manager on your behalf. If you do not specify a lookup pattern, Apache Airflow searches for all connections and variables
    in the configured backend. By specifying a pattern, you narrow the possible paths that Apache Airflow searches. This lowers your costs when using Secrets Manager with
    Amazon MWAA.

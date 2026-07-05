@@ -18,7 +18,6 @@ an Amazon Managed Workflows for Apache Airflow environment. For more examples of
 - [Changing a DAG's timezone on Amazon MWAA](samples-plugins-timezone.md "samples-plugins-timezone.md")
 - [Refreshing a CodeArtifact token](samples-code-artifact.md "samples-code-artifact.md")
 - [Creating a custom plugin with Apache Hive and Hadoop](samples-hive.md "samples-hive.md")
-- [Creating a custom plugin for Apache Airflow PythonVirtualenvOperator](samples-virtualenv.md "samples-virtualenv.md")
 - [Invoking DAGs with a Lambda function](samples-lambda.md "samples-lambda.md")
 - [Invoking DAGs in different Amazon MWAA environments](samples-invoke-dag.md "samples-invoke-dag.md")
 - [Using Amazon MWAA with Amazon RDS for Microsoft SQL Server](samples-sql-server.md "samples-sql-server.md")

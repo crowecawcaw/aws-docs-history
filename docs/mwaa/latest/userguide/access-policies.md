@@ -553,7 +553,7 @@ JSON
 
 ## Apache Airflow UI access policy: AmazonMWAAWebServerAccess
 
-A user might need access to the `AmazonMWAAWebServerAccess` permissions policy if they need to access the Apache Airflow UI. It does not allow the user to access environments on the Amazon MWAA console or use the Amazon MWAA APIs to perform any actions. Specify the `Admin`, `Op`, `User`, `Viewer` or the `Public` role in `{airflow-role}` to customize the level of access for the user of the web token. For more information, refer to [Default Roles](https://airflow.apache.org/docs/apache-airflow/1.10.6/security.html?highlight=ldap#default-roles "https://airflow.apache.org/docs/apache-airflow/1.10.6/security.html?highlight=ldap#default-roles") in the _Apache Airflow reference guide_.
+You might need access to the `AmazonMWAAWebServerAccess` permissions policy to access the Apache Airflow UI. This policy does not allow you to access environments on the Amazon MWAA console or use the Amazon MWAA APIs to perform any actions. Specify the `Admin`, `Op`, `User`, `Viewer` or the `Public` role in `{airflow-role}` to customize your level of access for the web token. For more information, see [Access control](https://airflow.apache.org/docs/apache-airflow-providers-fab/stable/auth-manager/access-control.html "https://airflow.apache.org/docs/apache-airflow-providers-fab/stable/auth-manager/access-control.html") on the Apache Airflow website.
 
 JSON
 
@@ -575,8 +575,8 @@ JSON
 
 ###### Note
 
-- Amazon MWAA provides IAM integration with the five [default Apache Airflow role-based access control (RBAC) roles](https://airflow.apache.org/docs/apache-airflow/stable/security/access-control.html?highlight=roles "https://airflow.apache.org/docs/apache-airflow/stable/security/access-control.html?highlight=roles"). For more
-  information about working with custom Apache Airflow roles, refer to [Tutorial: Restricting an Amazon MWAA user's access to a subset of DAGs](limit-access-to-dags.md "limit-access-to-dags.md").
+- Amazon MWAA provides IAM integration with the five default Apache Airflow role-based access control (RBAC) roles. For more
+  information about working with custom Apache Airflow roles, see [Tutorial: Restricting an Amazon MWAA user's access to a subset of DAGs](limit-access-to-dags.md "limit-access-to-dags.md").
 - The `Resource` field in this policy can be used to specify
   the Apache Airflow role-based access control roles for the Amazon MWAA environment.
   However, it does not support the Amazon MWAA environment ARN (Amazon Resource
@@ -588,7 +588,7 @@ To access the Apache Airflow REST API, you must grant the `airflow:InvokeRestApi
 permission in your IAM policy. In the following policy sample, specify the
 `Admin`, `Op`, `User`, `Viewer` or the
 `Public` role in `{airflow-role}` to customize the level of
-user access. For more information, refer to [Default Roles](https://airflow.apache.org/docs/apache-airflow/1.10.6/security.html?highlight=ldap#default-roles "https://airflow.apache.org/docs/apache-airflow/1.10.6/security.html?highlight=ldap#default-roles") in the _Apache Airflow reference guide_.
+user access. For more information, see [Access control](https://airflow.apache.org/docs/apache-airflow-providers-fab/stable/auth-manager/access-control.html "https://airflow.apache.org/docs/apache-airflow-providers-fab/stable/auth-manager/access-control.html") on the Apache Airflow website.
 
 JSON
 
@@ -689,7 +689,7 @@ Let's say you're using a group in IAM named `AirflowDevelopmentGroup` to apply p
    1. `us-east-1` – the region of your Amazon MWAA environment (such as `us-east-1`)
    2. `123456789012` – your AWS account ID (such as `0123456789`)
    3. `{your-environment-name}` – your Amazon MWAA environment name (such as `MyAirflowEnvironment`)
-   4. `{airflow-role}` – the `Admin` Apache Airflow [Default Role](https://airflow.apache.org/docs/apache-airflow/1.10.6/security.html?highlight=ldap#default-roles "https://airflow.apache.org/docs/apache-airflow/1.10.6/security.html?highlight=ldap#default-roles")
+   4. `{airflow-role}` – the `Admin` Apache Airflow default role. For more information, see [Access control](https://airflow.apache.org/docs/apache-airflow-providers-fab/stable/auth-manager/access-control.html "https://airflow.apache.org/docs/apache-airflow-providers-fab/stable/auth-manager/access-control.html") on the Apache Airflow website.
 
 7. Choose **Review policy**.
 8. Type `AmazonMWAAWebServerAccess` in **Name**.

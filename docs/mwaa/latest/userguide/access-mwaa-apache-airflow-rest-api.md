@@ -243,122 +243,121 @@ Apache Airflow v3
 
 ```
 def trigger_dag(region, env_name, dag_id):
-						"""
-						Triggers a DAG in a specified MWAA environment using the Airflow REST API.
+    """
+    Triggers a DAG in a specified MWAA environment using the Airflow REST API.
 
-						Args:
-						region (str): AWS region where the MWAA environment is hosted.
-						env_name (str): Name of the MWAA environment.
-						dag_id (str): ID of the DAG to trigger.
-						"""
+    Args:
+    region (str): AWS region where the MWAA environment is hosted.
+    env_name (str): Name of the MWAA environment.
+    dag_id (str): ID of the DAG to trigger.
+    """
 
-						logging.info(f"Attempting to trigger DAG {dag_id} in environment {env_name} at region {region}")
+    logging.info(f"Attempting to trigger DAG {dag_id} in environment {env_name} at region {region}")
 
-						# Retrieve the web server hostname and token for authentication
-						try:
-						web_server_host_name, jwt_token = get_token_info(region, env_name)
-						if not jwt_token:
-						logging.error("Authentication failed, no jwt token retrieved.")
-						return
-						except Exception as e:
-						logging.error(f"Error retrieving token info: {str(e)}")
-						return
+    # Retrieve the web server hostname and token for authentication
+    try:
+        web_server_host_name, jwt_token = get_token_info(region, env_name)
+        if not jwt_token:
+            logging.error("Authentication failed, no jwt token retrieved.")
+            return
+    except Exception as e:
+        logging.error(f"Error retrieving token info: {str(e)}")
+        return
 
-						# Prepare headers and payload for the request
-						request_headers = {
-						"Authorization": f"Bearer {jwt_token}",
-						"Content-Type": "application/json" # Good practice to include, even for GET
-						}
+    # Prepare headers and payload for the request
+    request_headers = {
+        "Authorization": f"Bearer {jwt_token}",
+        "Content-Type": "application/json"
+    }
 
-						# sample request body input
-						json_body = {"logical_date": "2025-09-17T14:15:00Z"}
+    # sample request body input
+    json_body = {"logical_date": "2025-09-17T14:15:00Z"}
 
-						# Construct the URL for triggering the DAG
-						url = f"https://{web_server_host_name}/api/v2/dags/{dag_id}/dagRuns"
+    # Construct the URL for triggering the DAG
+    url = f"https://{web_server_host_name}/api/v2/dags/{dag_id}/dagRuns"
 
-						# Send the POST request to trigger the DAG
-						try:
-						response = requests.post(url, headers=request_headers, json=json_body)
-						# Check the response status code to determine if the DAG was triggered successfully
-						if response.status_code == 200:
-						logging.info("DAG triggered successfully.")
-						else:
-						logging.error(f"Failed to trigger DAG: HTTP {response.status_code} - {response.text}")
-						except requests.RequestException as e:
-						logging.error(f"Request to trigger DAG failed: {str(e)}")
+    # Send the POST request to trigger the DAG
+    try:
+        response = requests.post(url, headers=request_headers, json=json_body)
+        # Check the response status code to determine if the DAG was triggered successfully
+        if response.status_code == 200:
+            logging.info("DAG triggered successfully.")
+        else:
+            logging.error(f"Failed to trigger DAG: HTTP {response.status_code} - {response.text}")
+    except requests.RequestException as e:
+        logging.error(f"Request to trigger DAG failed: {str(e)}")
 
-						if __name__ == "__main__":
-						logging.basicConfig(level=logging.INFO)
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
 
-						# Check if the correct number of arguments is provided
-						if len(sys.argv) != 4:
-						logging.error("Incorrect usage. Proper format: python script_name.py {region} {env_name} {dag_id}")
-						sys.exit(1)
+    # Check if the correct number of arguments is provided
+    if len(sys.argv) != 4:
+        logging.error("Incorrect usage. Proper format: python script_name.py {region} {env_name} {dag_id}")
+        sys.exit(1)
 
-						region = sys.argv[1]
-						env_name = sys.argv[2]
-						dag_id = sys.argv[3]
+    region = sys.argv[1]
+    env_name = sys.argv[2]
+    dag_id = sys.argv[3]
 
-						# Trigger the DAG with the provided arguments
-						trigger_dag(region, env_name, dag_id)
+    # Trigger the DAG with the provided arguments
+    trigger_dag(region, env_name, dag_id)
 ```
 
 Apache Airflow v2
 
 ```
 def trigger_dag(region, env_name, dag_name):
-						"""
-						Triggers a DAG in a specified MWAA environment using the Airflow REST API.
+    """
+    Triggers a DAG in a specified MWAA environment using the Airflow REST API.
 
-						Args:
-						region (str): AWS region where the MWAA environment is hosted.
-						env_name (str): Name of the MWAA environment.
-						dag_name (str): Name of the DAG to trigger.
-						"""
+    Args:
+    region (str): AWS region where the MWAA environment is hosted.
+    env_name (str): Name of the MWAA environment.
+    dag_name (str): Name of the DAG to trigger.
+    """
 
-						logging.info(f"Attempting to trigger DAG {dag_name} in environment {env_name} at region {region}")
+    logging.info(f"Attempting to trigger DAG {dag_name} in environment {env_name} at region {region}")
 
-						# Retrieve the web server hostname and session cookie for authentication
-						try:
-						web_server_host_name, session_cookie = get_session_info(region, env_name)
-						if not session_cookie:
-						logging.error("Authentication failed, no session cookie retrieved.")
-						return
-						except Exception as e:
-						logging.error(f"Error retrieving session info: {str(e)}")
-						return
+    # Retrieve the web server hostname and session cookie for authentication
+    try:
+        web_server_host_name, session_cookie = get_session_info(region, env_name)
+        if not session_cookie:
+            logging.error("Authentication failed, no session cookie retrieved.")
+            return
+    except Exception as e:
+        logging.error(f"Error retrieving session info: {str(e)}")
+        return
 
-						# Prepare headers and payload for the request
-						cookies = {"session": session_cookie}
-						json_body = {"conf": {}}
+    # Prepare headers and payload for the request
+    cookies = {"session": session_cookie}
+    json_body = {"conf": {}}
 
-						# Construct the URL for triggering the DAG
-						url = f"https://{web_server_host_name}/api/v1/dags/{dag_id}/dagRuns"
+    # Construct the URL for triggering the DAG
+    url = f"https://{web_server_host_name}/api/v1/dags/{dag_name}/dagRuns"
 
-						# Send the POST request to trigger the DAG
-						try:
-						response = requests.post(url, cookies=cookies, json=json_body)
-						# Check the response status code to determine if the DAG was triggered successfully
-						if response.status_code == 200:
-						logging.info("DAG triggered successfully.")
-						else:
-						logging.error(f"Failed to trigger DAG: HTTP {response.status_code} - {response.text}")
-						except requests.RequestException as e:
-						logging.error(f"Request to trigger DAG failed: {str(e)}")
+    # Send the POST request to trigger the DAG
+    try:
+        response = requests.post(url, cookies=cookies, json=json_body)
+        # Check the response status code to determine if the DAG was triggered successfully
+        if response.status_code == 200:
+            logging.info("DAG triggered successfully.")
+        else:
+            logging.error(f"Failed to trigger DAG: HTTP {response.status_code} - {response.text}")
+    except requests.RequestException as e:
+        logging.error(f"Request to trigger DAG failed: {str(e)}")
 
-						if __name__ == "__main__":
-						logging.basicConfig(level=logging.INFO)
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
 
-						# Check if the correct number of arguments is provided
-						if len(sys.argv) != 4:
-						logging.error("Incorrect usage. Proper format: python script_name.py {region} {env_name} {dag_name}")
-						sys.exit(1)
+    # Check if the correct number of arguments is provided
+    if len(sys.argv) != 4:
+        logging.error("Incorrect usage. Proper format: python script_name.py {region} {env_name} {dag_name}")
+        sys.exit(1)
 
-						region = sys.argv[1]
-						env_name = sys.argv[2]
-						dag_name = sys.argv[3]
+    region = sys.argv[1]
+    env_name = sys.argv[2]
+    dag_name = sys.argv[3]
 
-						# Trigger the DAG with the provided arguments
-						trigger_dag(region, env_name, dag_name)
-
+    # Trigger the DAG with the provided arguments
+    trigger_dag(region, env_name, dag_name)
 ```

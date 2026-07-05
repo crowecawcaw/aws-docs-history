@@ -33,6 +33,8 @@ The service-linked role created in your account grants Amazon MWAA access to the
   - An additional Amazon VPC endpoint to enable network access to the webserver if you choose the [private network](configuring-networking.md "configuring-networking.md") option for your Apache Airflow webserver.
   - [Elastic Network Interfaces (ENIs)](../../../vpc/latest/userguide/VPC_ElasticNetworkInterfaces.md "../../../vpc/latest/userguide/VPC_ElasticNetworkInterfaces.md") in your Amazon VPC to enable network access to AWS resources hosted in your Amazon VPC.
 
+When you create or update an Amazon MWAA environment, Amazon MWAA performs a dry-run validation of the `ec2:CreateVpcEndpoint` permission against your IAM identity. This dry-run does not create any resources. It verifies that your identity has explicit permission to initiate VPC endpoint creation. If the dry-run fails, Amazon MWAA returns an `UnauthorizedOperation` error and the environment creation or update does not proceed.
+
 The following trust policy allows the service principal to assume the service-linked role. The service principal for Amazon MWAA
 is `airflow.amazonaws.com` as demonstrated by the policy.
 
@@ -158,6 +160,27 @@ JSON
 You must configure permissions to allow an IAM entity (such as a user, group, or role)
 to create, edit, or delete a service-linked role. For more information, refer to [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions")
 in the _IAM User Guide_.
+
+We recommend scoping the `ec2:CreateVpcEndpoint` permission using the `aws:CalledVia` condition key to restrict the permission to calls made through the Amazon MWAA service:
+
+```
+{
+  "Effect": "Allow",
+  "Action": "ec2:CreateVpcEndpoint",
+  "Resource": "arn:aws:ec2:*:*:vpc-endpoint/*",
+  "Condition": {
+    "ForAnyValue:StringEquals": {
+      "aws:CalledVia": ["airflow.amazonaws.com"]
+    }
+  }
+}
+```
+
+With this condition, the permission is only effective when the call originates through the Amazon MWAA service.
+
+###### Note
+
+If your security requirements do not allow granting `ec2:CreateVpcEndpoint` to end users, you can use customer-managed endpoints instead. For more information, see [Managing your own Amazon VPC endpoints on Amazon MWAA](vpc-endpoint-management.md "vpc-endpoint-management.md").
 
 ## Creating a service-linked role for Amazon MWAA
 

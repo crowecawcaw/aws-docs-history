@@ -194,7 +194,7 @@ Not on the CloudWatch console. However, you can create a DAG that writes custom 
 
 ### Can I use the `PythonVirtualenvOperator`?
 
-The `PythonVirtualenvOperator` is not explicitly supported on Amazon MWAA, but you can create a custom plugin that uses the `PythonVirtualenvOperator`. For sample code, refer to [Creating a custom plugin for Apache Airflow PythonVirtualenvOperator](samples-virtualenv.md "samples-virtualenv.md").
+With Amazon MWAA, you can use the `PythonVirtualenvOperator`, which comes preinstalled on every environment. Use it to run Python callables in a virtual environment with isolated dependencies. For more information about preinstalled packages, see [Apache Airflow provider packages installed on Amazon MWAA environments](connections-packages.md "connections-packages.md").
 
 ### How long does it take Amazon MWAA to recognize a new DAG file?
 

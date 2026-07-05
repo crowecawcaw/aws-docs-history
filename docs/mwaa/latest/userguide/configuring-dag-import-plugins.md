@@ -109,7 +109,7 @@ structure for Apache Airflow v3.
 ###### Example flat directory with `PythonVirtualenvOperator` plugins.zip
 
 The following example displays the main-level tree of a plugins.zip file for the
-`PythonVirtualenvOperator` custom plugin in [Creating a custom plugin for Apache Airflow PythonVirtualenvOperator](samples-virtualenv.md "samples-virtualenv.md").
+`PythonVirtualenvOperator` custom plugin.
 
 ```
 ├── virtual_python_plugin.py
@@ -159,7 +159,7 @@ The following example presents a `plugins.zip` file with a flat directory struct
 
 ###### Example flat directory with `PythonVirtualenvOperator` plugins.zip
 
-The following example displays the main-level tree of a plugins.zip file for the `PythonVirtualenvOperator` custom plugin in [Creating a custom plugin for Apache Airflow PythonVirtualenvOperator](samples-virtualenv.md "samples-virtualenv.md").
+The following example displays the main-level tree of a plugins.zip file for the `PythonVirtualenvOperator` custom plugin.
 
 ```
 ├── virtual_python_plugin.py
@@ -645,7 +645,6 @@ You need to specify the version of your `plugins.zip` file on the Amazon MWAA co
 ## Example use cases for plugins.zip
 
 - Learn how to create a custom plugin in [Custom plugin with Apache Hive and Hadoop](samples-hive.md "samples-hive.md").
-- Learn how to create a custom plugin in [Custom plugin to patch PythonVirtualenvOperator](samples-virtualenv.md "samples-virtualenv.md") .
 - Learn how to create a custom plugin in [Custom plugin with Oracle](samples-oracle.md "samples-oracle.md").
 - Learn how to create a custom plugin in [Changing a DAG's timezone on Amazon MWAA](samples-plugins-timezone.md "samples-plugins-timezone.md").
 
