@@ -1,4 +1,4 @@
-# Accept or reject a transit gateway and Direct Connect association proposal
+# Accept or reject a Transit Gateway and Direct Connect association proposal
 
 If you own the Direct Connect gateway, you must accept the association
 proposal in order to create the association. You also have the option of
@@ -13,7 +13,7 @@ rejecting the association proposal. You can accept or reject the association pro
    choose **View details**.
 4. On the **Pending proposals** tab, select the proposal
    and then choose **Accept proposal**.
-5. ((Optional) To specify a list of prefixes to be allowed from the transit gateway,
+5. ((Optional) To specify a list of prefixes to be allowed from the Transit Gateway,
    add the prefixes to **Allowed prefixes**, separating
    them using commas, or entering them on separate lines.
 6. Choose **Accept proposal**.

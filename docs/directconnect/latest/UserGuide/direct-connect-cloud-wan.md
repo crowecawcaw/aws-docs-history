@@ -1,6 +1,6 @@
 # Direct Connect gateway and AWS Cloud WAN core network associations
 
-Associate an Direct Connect gateway to an AWS Cloud WAN core network using a Direct Connect attachment
+Associate a Direct Connect gateway to an AWS Cloud WAN core network using a Direct Connect attachment
 type in Cloud WAN. This direct association routes traffic between your core network’s
 selected edge locations and your Direct Connect connections using the shortest available
 path
@@ -28,7 +28,7 @@ ap-southeast-2 and us-west-2 and is allowed access to the Development segment. E
 us-east-1 shares the same Development segment, the Direct Connect gateway attachment is not
 shared with that Region and is therefore not available.
 
-![An Direct Connect gateway attachment association with an AWS Cloud WAN core network.](images/dxattachment-cloudwan.png)
+![A Direct Connect gateway attachment association with an AWS Cloud WAN core network.](images/dxattachment-cloudwan.png)
 
 ###### Topics
 

@@ -1,4 +1,4 @@
-# Update an Direct Connect connection
+# Update a Direct Connect connection
 
 You can update the following connection attribute using either the Direct Connect console or using the command line or API.
 

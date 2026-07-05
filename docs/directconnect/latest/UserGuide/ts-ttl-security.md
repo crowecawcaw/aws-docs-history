@@ -17,6 +17,6 @@ Direct Connect uses single-hop eBGP and does not support multihop eBGP on virtua
 
 ###### Note
 
-Use this guidance for the BGP session on an Direct Connect virtual interface. BGP peering to a transit gateway over a transit virtual interface uses multihop BGP and is configured differently.
+Use this guidance for the BGP session on a Direct Connect virtual interface. BGP peering to a Transit Gateway over a transit virtual interface uses multihop BGP and is configured differently.
 
 If the BGP session does not establish after you remove the TTL security configuration, [contact AWS Support](https://aws.amazon.com/support/createCase "https://aws.amazon.com/support/createCase").

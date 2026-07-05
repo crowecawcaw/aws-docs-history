@@ -1,9 +1,9 @@
 # Direct Connect gateways
 
-Use Direct Connect gateway to connect your VPCs. You associate an Direct Connect gateway with any of
+Use Direct Connect gateway to connect your VPCs. You associate a Direct Connect gateway with any of
 the following:
 
-- A transit gateway when you have multiple VPCs in the same Region
+- A Transit Gateway when you have multiple VPCs in the same Region
 - A virtual private gateway
 - An AWS Cloud WAN core network
   You can also use a virtual private gateway to extend your Local Zone. This
@@ -55,7 +55,7 @@ following:
    A Direct Connect gateway does not prevent traffic from being sent from one gateway
    association back to the gateway association itself (for example when you have an
    on-premises supernet route that contains the prefixes from the gateway association). If
-   you have a configuration with multiple VPCs connected to transit gateways associated to same
+   you have a configuration with multiple VPCs connected to Transit Gateways associated to same
    Direct Connect gateway, the VPCs could communicate. To prevent the VPCs from communicating,
    associate a route table with the VPC attachments that have the
    **blackhole** option set.
@@ -100,12 +100,12 @@ The following diagram illustrates how the Direct Connect gateway enables you to
 create a single connection to your Direct Connect connection that all of your VPCs
 can use.
 
-![A Direct Connect gateway associated with a transit gateway with multiple VPC attachments.](images/direct-connect-tgw.png)
+![A Direct Connect gateway associated with a Transit Gateway with multiple VPC attachments.](images/direct-connect-tgw.png)
 The solution involves the following components:
 
-- A transit gateway that has VPC attachments.
+- A Transit Gateway that has VPC attachments.
 - A Direct Connect gateway.
-- An association between the Direct Connect gateway and the transit gateway.
+- An association between the Direct Connect gateway and the Transit Gateway.
 - A transit virtual interface that is attached to the Direct Connect
   gateway.
   This configuration offers the following benefits. You can:
@@ -114,16 +114,16 @@ The solution involves the following components:
   Region.
 - Advertise prefixes from on-premises to AWS and from AWS to
   on-premises.
-  For information about configuring transit gateways, see [Working with Transit
+  For information about configuring Transit Gateways, see [Working with Transit
   Gateways](../../../vpc/latest/tgw/tgw-dcg-attachments.md "../../../vpc/latest/tgw/tgw-dcg-attachments.md") in the _Amazon VPC Transit Gateways
   Guide_.
 
 Consider this scenario of a Direct Connect gateway owner (Account Z) who owns the
-Direct Connect gateway. Account A owns the transit gateway and wants to use the Direct Connect
+Direct Connect gateway. Account A owns the Transit Gateway and wants to use the Direct Connect
 gateway. Account Z accepts the association proposals and can optionally update the
-prefixes that are allowed from Account A's transit gateway. After Account Z accepts the
-proposals, the VPCs attached to the transit gateway can route traffic from the transit gateway to the
+prefixes that are allowed from Account A's Transit Gateway. After Account Z accepts the
+proposals, the VPCs attached to the Transit Gateway can route traffic from the Transit Gateway to the
 Direct Connect gateway. Account Z also owns the routing to the customers because
 Account Z owns the gateway.
 
-![A Direct Connect gateway from an AWS account associated with a transit gateway from another AWS account.](images/direct-connect-ma-tgw.png)
+![A Direct Connect gateway from an AWS account associated with a Transit Gateway from another AWS account.](images/direct-connect-ma-tgw.png)

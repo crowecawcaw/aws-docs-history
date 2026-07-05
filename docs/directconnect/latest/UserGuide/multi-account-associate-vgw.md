@@ -1,4 +1,4 @@
-# Associate an Direct Connect virtual private gateway across accounts
+# Associate a Direct Connect virtual private gateway across accounts
 
 You can associate a Direct Connect gateway with a virtual private gateway that is
 owned by any AWS account. The Direct Connect gateway can be an existing gateway, or
@@ -24,6 +24,6 @@ Consider the case where the VPC CIDR is 10.0.0.0/16. You can set the
 or 10.0.0.0/15 ( a value that is wider than the VPC CIDR).
 
 Any virtual interface inside network prefixes advertised over Direct Connect are
-only propagated to transit gateways across Regions, not within the same
+only propagated to Transit Gateways across Regions, not within the same
 Region. For more information on how allowed prefixes interact
-with virtual private gateways and transit gateways, see [Allowed prefixes interactions](allowed-to-prefixes.md "allowed-to-prefixes.md").
+with virtual private gateways and Transit Gateways, see [Allowed prefixes interactions](allowed-to-prefixes.md "allowed-to-prefixes.md").

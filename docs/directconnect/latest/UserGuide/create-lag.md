@@ -1,4 +1,4 @@
-# Create a LAG at an Direct Connect endpoint
+# Create a LAG at a Direct Connect endpoint
 
 You can create a LAG by provisioning new connections, or aggregating existing
 connections.

@@ -2,7 +2,7 @@
 
 You can use the AWS CLI to create and work with Direct Connect resources.
 
-The following example uses the AWS CLI commands to create an Direct Connect connection. You can also
+The following example uses the AWS CLI commands to create a Direct Connect connection. You can also
 download the Letter of Authorization and Connecting Facility Assignment (LOA-CFA) or
 provision a private or public virtual interface.
 
@@ -99,7 +99,7 @@ provider.
 
 ## Step 3: Create a virtual interface and get the router configuration
 
-After you have placed an order for an Direct Connect connection, you must create a virtual
+After you have placed an order for a Direct Connect connection, you must create a virtual
 interface to begin using it. You can create a private virtual interface to connect to
 your VPC. Or, you can create a public virtual interface to connect to AWS services that
 aren't in a VPC. You can create a virtual interface that supports IPv4 or IPv6

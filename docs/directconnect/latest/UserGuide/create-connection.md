@@ -1,7 +1,7 @@
-# Create an Direct Connect dedicated connection using the Connection wizard
+# Create a Direct Connect dedicated connection using the Connection wizard
 
 This section describes creating a connection using the Connection wizard. If you prefer to
-create a Classic connection, see the steps at [Step 2: Request an Direct Connect dedicated connection](toolkit-classic.md#ConnectionRequest "toolkit-classic.md#ConnectionRequest").
+create a Classic connection, see the steps at [Step 2: Request a Direct Connect dedicated connection](toolkit-classic.md#ConnectionRequest "toolkit-classic.md#ConnectionRequest").
 
 ###### To create a Connection wizard connection
 

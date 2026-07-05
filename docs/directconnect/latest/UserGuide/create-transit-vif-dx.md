@@ -1,6 +1,6 @@
 # Create a transit virtual interface to the Direct Connect gateway
 
-Before connecting a transit virtual interface to the Direct Connect gateway, familiarize yourself with the [text](create-vif.md#dx-vifs-prereqs "create-vif.md#dx-vifs-prereqs").
+Before connecting a transit virtual interface to the Direct Connect gateway, familiarize yourself with the [prerequisites for transit virtual interfaces](create-vif.md#dx-vifs-prereqs "create-vif.md#dx-vifs-prereqs").
 
 ###### To provision a transit virtual interface to a Direct Connect gateway
 

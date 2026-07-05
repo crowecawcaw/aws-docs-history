@@ -1,11 +1,11 @@
 # Dedicated Direct Connect connections
 
-To create an Direct Connect dedicated connection, you need the following information:
+To create a Direct Connect dedicated connection, you need the following information:
 
 **Direct Connect location**
 
 Work with a partner in the AWS Direct Connect Partner Program to help you establish
-network circuits between an Direct Connect location and your data center, office, or
+network circuits between a Direct Connect location and your data center, office, or
 colocation environment. They can also help provide colocation space within the
 same facility as the location. For more information, see [APN Partners Supporting
 Direct Connect](https://aws.amazon.com/directconnect/partners "https://aws.amazon.com/directconnect/partners").
@@ -39,18 +39,18 @@ The following operations are available for dedicated connections:
 - [Create a connection using the Connection wizard](create-connection.md "create-connection.md")
 - [Create a Classic connection](#connection-classic "#connection-classic")
 - [View Direct Connect connection details](viewdetails.md "viewdetails.md")
-- [Update an Direct Connect connection](updateconnection.md "updateconnection.md")
+- [Update a Direct Connect connection](updateconnection.md "updateconnection.md")
 - [Associate a MACsec CKN/CAK with a
   connection](associate-key-connection.md "associate-key-connection.md")
-- [Remove the association between a MACsec secret key and an Direct Connect connection](disassociate-key-connection.md "disassociate-key-connection.md")
-- [Delete an Direct Connect connection](deleteconnection.md "deleteconnection.md")
+- [Remove the association between a MACsec secret key and a Direct Connect connection](disassociate-key-connection.md "disassociate-key-connection.md")
+- [Delete a Direct Connect connection](deleteconnection.md "deleteconnection.md")
   You can add a dedicated connection to a link aggregation group (LAG) allowing you to treat
   multiple connections as a single one. For information, see [Associate a connection with a LAG](associate-connection-with-lag.md "associate-connection-with-lag.md").
 
 After you create a connection, create a virtual interface to connect to public and private
 AWS resources. For more information, see [Virtual interfaces and hosted virtual interfaces](WorkingWithVirtualInterfaces.md "WorkingWithVirtualInterfaces.md").
 
-If you do not have equipment at an Direct Connect location, first contact an AWS Direct Connect Partner at
+If you do not have equipment at a Direct Connect location, first contact an AWS Direct Connect Partner at
 the AWS Direct Connect Partner Program. For more information, see [APN Partners Supporting
 Direct Connect](https://aws.amazon.com/directconnect/partners "https://aws.amazon.com/directconnect/partners").
 
@@ -89,7 +89,7 @@ For the steps to download the LoA-CFA, see [Download the LOA-CFA](download-loa-c
 
 For more information about pricing, see [Direct Connect Pricing](https://aws.amazon.com/directconnect/pricing/ "https://aws.amazon.com/directconnect/pricing/"). If you no longer want the connection after you
 have reissued the LOA-CFA, you must delete the connection yourself. For more
-information, see [Delete an Direct Connect connection](deleteconnection.md "deleteconnection.md").
+information, see [Delete a Direct Connect connection](deleteconnection.md "deleteconnection.md").
 
 ###### Topics
 
@@ -101,7 +101,7 @@ information, see [Delete an Direct Connect connection](deleteconnection.md "dele
 - [Remove the association between a MACsec secret key
   and a connection](disassociate-key-connection.md "disassociate-key-connection.md")
 
-## Create an Direct Connect Classic connection
+## Create a Direct Connect Classic connection
 
 For dedicated connections, you can submit a connection request using the Direct Connect console. For hosted connections, work with an AWS Direct Connect Partner
 to request a hosted connection. Ensure that you have the following information:

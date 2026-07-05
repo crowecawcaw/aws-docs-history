@@ -1,4 +1,4 @@
-# Add a BGP peer to an Direct Connect virtual interface
+# Add a BGP peer to a Direct Connect virtual interface
 
 Add or delete an IPv4 or IPv6 BGP peering session to your virtual
 interface using either the Direct Connect console or using the command line or API.

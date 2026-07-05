@@ -1,10 +1,10 @@
 # What is Direct Connect?
 
-Direct Connect links your internal network to an Direct Connect location over a standard Ethernet
+Direct Connect links your internal network to a Direct Connect location over a standard Ethernet
 fiber-optic cable. One end of the cable is connected to your router, the other to an
 Direct Connect router. With this connection, you can create _virtual
 interfaces_ directly to public AWS services (for example, to Amazon S3) or to
-Amazon VPC, bypassing internet service providers in your network path. An Direct Connect location
+Amazon VPC, bypassing internet service providers in your network path. A Direct Connect location
 provides access to AWS in the Region with which it is associated. You can use a single
 connection in a public Region or AWS GovCloud (US) to access public AWS services in all other
 public Regions.
@@ -32,7 +32,7 @@ The following are the key components that you use for Direct Connect:
 
 **Connections**
 
-Create a _connection_ in an Direct Connect location
+Create a _connection_ in a Direct Connect location
 to establish a network connection from your premises to an AWS Region.
 For more information, see [Direct Connect dedicated and hosted connections](WorkingWithConnections.md "WorkingWithConnections.md").
 
@@ -46,13 +46,13 @@ interfaces, see [Direct Connect virtual interfaces and hosted virtual interfaces
 
 ## Network requirements
 
-To use Direct Connect in an Direct Connect location, your network must meet one of the following
+To use Direct Connect in a Direct Connect location, your network must meet one of the following
 conditions:
 
 - Your network is colocated with an existing Direct Connect location. For more
   information about available Direct Connect locations, see [AWS Direct Connect Product
   Details](https://aws.amazon.com/directconnect/details "https://aws.amazon.com/directconnect/details").
-- You are working with an Direct Connect partner who is a member of the AWS Partner
+- You are working with a Direct Connect partner who is a member of the AWS Partner
   Network (APN). For information, see [APN Partners Supporting AWS
   Direct Connect](https://aws.amazon.com//directconnect/partners/ "https://aws.amazon.com//directconnect/partners/").
 - You are working with an independent service provider to connect to
@@ -126,7 +126,7 @@ charges to use a multi-account AWS Direct Connect gateway.
 For publicly addressable AWS resources (for example, Amazon S3 buckets, Classic EC2
 instances, or EC2 traffic that goes through an internet gateway), if the outbound
 traffic is destined for public prefixes owned by the same AWS payer account and actively
-advertised to AWS through an Direct Connect public virtual Interface, the Data Transfer Out
+advertised to AWS through a Direct Connect public virtual Interface, the Data Transfer Out
 (DTO) usage is metered toward the resource owner at Direct Connect data transfer rate.
 
 For more information, see [AWS

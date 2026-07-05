@@ -1,12 +1,16 @@
 # Create a transit virtual interface to the Direct Connect gateway
 
-To connect your Direct Connect connection to the transit gateway, you must create a
+To connect your Direct Connect connection to the Transit Gateway, you must create a
 transit interface for your connection. Specify the Direct Connect gateway to which
 to connect. You can use either the Direct Connect console or use the command line or API.
 
 ###### Important
 
-If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both the transit gateway and the Direct Connect gateway, the association request fails.
+If you associate your Transit Gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the Transit Gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both the Transit Gateway and the Direct Connect gateway, the association request fails.
+
+Although the Transit Gateway and Direct Connect gateway must use different ASNs, the Transit
+Gateway ASN is not included in the AS\_PATH that is advertised to your on-premises router.
+The Direct Connect gateway replaces the AS\_PATH with its own ASN.
 
 ###### To provision a transit virtual interface to a Direct Connect gateway
 

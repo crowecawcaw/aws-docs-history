@@ -5,7 +5,7 @@ state. An alarm watches a single metric over a time period that you specify. It
 sends a notification to an Amazon SNS topic based on the value of the metric relative to
 a given threshold over a number of time periods.
 
-For example, you can create an alarm that monitors the state of an Direct Connect
+For example, you can create an alarm that monitors the state of a Direct Connect
 connection. It sends a notification when the connection state is **down** for five consecutive 1-minute periods. For details
 on what to know for creating an alarm and for more information on creating an alarm,
 see [Using Amazon CloudWatch Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")

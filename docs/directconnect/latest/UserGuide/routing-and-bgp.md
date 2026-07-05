@@ -79,7 +79,7 @@ _AWS General Reference_.
 
     - With a public ASN (both ASN and long ASN), prepending will work as expected,
       and your prepended ASN will be visible to other networks.
-    - With a private ASN (both ASN and long ASN, any prepending you do will be stripped
+    - With a private ASN (both ASN and long ASN), any prepending you do will be stripped
       when AWS replaces your private ASN with 7224. This means ASN prepending is not effective
       for influencing routing decisions outside of AWS when using a private ASN on a public virtual interface.
 
@@ -141,7 +141,7 @@ its advertised routes:
 
 To receive all AWS public prefixes do not apply any filter.
 
-Communities that are not supported for an Direct Connect public connection are
+Communities that are not supported for a Direct Connect public connection are
 removed.
 
 ### `NO_EXPORT` BGP community

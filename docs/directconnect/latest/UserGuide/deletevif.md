@@ -1,4 +1,4 @@
-# Delete an Direct Connect virtual interface
+# Delete a Direct Connect virtual interface
 
 Delete one or more virtual interfaces. Before you can delete a connection, you must
 delete its virtual interface. Deleting a virtual interface stops Direct Connect data transfer

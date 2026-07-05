@@ -1,4 +1,4 @@
-# Delete an Direct Connect virtual interface BGP peer
+# Delete a Direct Connect virtual interface BGP peer
 
 If your virtual interface has both an IPv4 and IPv6 BGP peering session, you can
 delete one of the BGP peering sessions (but not both). You can delete a virtual interface BGP peer using either the Direct Connect console or using the command line or API.

@@ -28,7 +28,7 @@ prefixes currently advertised by AWS, see [AWS IP Address Ranges](../../../gener
 
 You can create a _Direct Connect gateway_ in any public Region. Use
 it to connect your Direct Connect connection over a private virtual interface to VPCs in your
-account that are located in different Regions or to a transit gateway. For more
+account that are located in different Regions or to a Transit Gateway. For more
 information, see [Direct Connect gateways](direct-connect-gateways.md "direct-connect-gateways.md").
 
 Alternatively, you can create a public virtual interface for your Direct Connect connection

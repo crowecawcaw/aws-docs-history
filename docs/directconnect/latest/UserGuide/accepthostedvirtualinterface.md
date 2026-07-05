@@ -3,7 +3,7 @@
 Before you can begin using a hosted virtual interface, you must accept the virtual
 interface. For a private virtual interface, you must also have an existing virtual private
 gateway or Direct Connect gateway. For a transit virtual interface, you must have an
-existing transit gateway or Direct Connect gateway.
+existing Transit Gateway or Direct Connect gateway.
 
 You can accept a hosted virtual interface using either the Direct Connect console or the command
 line or API.

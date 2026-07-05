@@ -117,9 +117,9 @@ again.
 ###### To delete Direct Connect resources used by the `AWSServiceRoleForDirectConnect`
 
 1. Remove the association between all MACsec keys and connections. For more information,
-   see [Remove the association between a MACsec secret key and an Direct Connect connection](disassociate-key-connection.md "disassociate-key-connection.md")
+   see [Remove the association between a MACsec secret key and a Direct Connect connection](disassociate-key-connection.md "disassociate-key-connection.md")
 2. Remove the association between all MACsec keys and LAGs. For more information, see
-   [Remove the association between a MACsec secret key and an Direct Connect endpoint LAG](disassociate-key-lag.md "disassociate-key-lag.md")
+   [Remove the association between a MACsec secret key and a Direct Connect endpoint LAG](disassociate-key-lag.md "disassociate-key-lag.md")
 
 ###### To manually delete the service-linked role using IAM
 

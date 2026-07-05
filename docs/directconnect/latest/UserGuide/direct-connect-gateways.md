@@ -13,10 +13,10 @@ Cloud WAN core network.
 
 Using a virtual private gateway, you can associate the Direct Connect gateway over a private virtual interface to one or more VPCs in any account located in the same or different Regions.
 
-- [Transit gateway associations](direct-connect-transit-gateways.md "direct-connect-transit-gateways.md")
+- [Transit Gateway associations](direct-connect-transit-gateways.md "direct-connect-transit-gateways.md")
 
 Use a Direct Connect gateway to connect your Direct Connect connection over a transit
-virtual interface to the VPCs or VPNs that are attached to your transit gateway.
+virtual interface to the VPCs or VPNs that are attached to your Transit Gateway.
 
 - [Cloud WAN core network associations](direct-connect-cloud-wan.md "direct-connect-cloud-wan.md")
 
@@ -25,13 +25,13 @@ network.
 
 - [Allowed prefixes interactions](allowed-to-prefixes.md "allowed-to-prefixes.md")
 
-Use allowed prefixes to interact with transit gateways and virtual private gateways.
+Use allowed prefixes to interact with Transit Gateways and virtual private gateways.
 
 ###### Topics
 
 - [Direct Connect gateways](direct-connect-gateways-intro.md "direct-connect-gateways-intro.md")
 - [Virtual private gateway
   associations](virtualgateways.md "virtualgateways.md")
-- [Transit gateway associations](direct-connect-transit-gateways.md "direct-connect-transit-gateways.md")
+- [Transit Gateway associations](direct-connect-transit-gateways.md "direct-connect-transit-gateways.md")
 - [Cloud WAN core network associations](direct-connect-cloud-wan.md "direct-connect-cloud-wan.md")
 - [Allowed prefixes interactions](allowed-to-prefixes.md "allowed-to-prefixes.md")

@@ -1,11 +1,11 @@
 # Hosted Direct Connect connections
 
-To create an Direct Connect hosted connection, you need the following information:
+To create a Direct Connect hosted connection, you need the following information:
 
 **Direct Connect location**
 
 Work with an AWS Direct Connect Partner in the AWS Direct Connect Partner Program to help you establish network circuits
-between an Direct Connect location and your data center, office, or colocation
+between a Direct Connect location and your data center, office, or colocation
 environment. They can also help provide colocation space within the same
 facility as the location. For more information, see [Direct Connect Delivery
 Partners](https://aws.amazon.com/directconnect/partners "https://aws.amazon.com/directconnect/partners").

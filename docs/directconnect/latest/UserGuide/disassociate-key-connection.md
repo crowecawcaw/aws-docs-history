@@ -1,4 +1,4 @@
-# Remove the association between a MACsec secret key and an Direct Connect connection
+# Remove the association between a MACsec secret key and a Direct Connect connection
 
 You can remove the association between the connection and the MACsec key using either the Direct Connect console or through the command-line or API.
 

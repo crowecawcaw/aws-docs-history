@@ -1,4 +1,4 @@
-# Create an Direct Connect gateway
+# Create a Direct Connect gateway
 
 You can create a Direct Connect gateway in any supported Region using either the Direct Connect
 console or using the command line or API.

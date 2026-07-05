@@ -1,4 +1,4 @@
-# View LAG details at an Direct Connect endpoint
+# View LAG details at a Direct Connect endpoint
 
 After you create a LAG, you can view its details using either the Direct Connect console or using the command line or API.
 

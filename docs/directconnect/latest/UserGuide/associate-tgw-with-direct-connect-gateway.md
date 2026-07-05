@@ -1,8 +1,8 @@
-# Associate or disassociate Direct Connect with a transit gateway
+# Associate or disassociate Direct Connect with a Transit Gateway
 
-Associate or disassociate a transit gateway using either the Direct Connect console or using the command line or API.
+Associate or disassociate a Transit Gateway using either the Direct Connect console or using the command line or API.
 
-###### To associate a transit gateway
+###### To associate a Transit Gateway
 
 1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Direct Connect
@@ -10,7 +10,7 @@ Associate or disassociate a transit gateway using either the Direct Connect cons
 3. Choose **View details**.
 4. Choose **Gateway associations** and then choose
    **Associate gateway**.
-5. For **Gateways**, choose the transit gateway to associate.
+5. For **Gateways**, choose the Transit Gateway to associate.
 6. In **Allowed prefixes**, enter the prefixes (separated by
    a comma, or on a new line) which the Direct Connect gateway advertises to
    the on-premises data center. For more information on allowed prefixes, see
@@ -19,19 +19,19 @@ Associate or disassociate a transit gateway using either the Direct Connect cons
    You can view all of the gateways that are associated with the Direct Connect
    gateway by choosing **Gateway associations**.
 
-###### To disassociate a transit gateway
+###### To disassociate a Transit Gateway
 
 1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Direct Connect
    gateways** and then select the Direct Connect gateway.
 3. Choose **View details**.
 4. Choose **Gateway associations** and then select the
-   transit gateway.
+   Transit Gateway.
 5. Choose **Disassociate**.
 
-###### To update allowed prefixes for a transit gateway
+###### To update allowed prefixes for a Transit Gateway
 
-You can add or remove allowed prefixes to the transit gateway.
+You can add or remove allowed prefixes to the Transit Gateway.
 
 1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Direct Connect gateways**
@@ -52,28 +52,28 @@ In the **Gateway association** section the
 complete, the **State** changes to **associated**.
 This might take several minutes or longer to complete.
 
-###### To associate a transit gateway using the command line or API
+###### To associate a Transit Gateway using the command line or API
 
 - [create-direct-connect-gateway-association](../../../cli/latest/reference/directconnect/create-direct-connect-gateway-association.md "../../../cli/latest/reference/directconnect/create-direct-connect-gateway-association.md")
   (AWS CLI)
 - [CreateDirectConnectGatewayAssociation](../APIReference/API_CreateDirectConnectGatewayAssociation.md "../APIReference/API_CreateDirectConnectGatewayAssociation.md")
   (Direct Connect API)
 
-###### To view the transit gateways associated with a Direct Connect gateway using the command line or API
+###### To view the Transit Gateways associated with a Direct Connect gateway using the command line or API
 
 - [describe-direct-connect-gateway-associations](../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-associations.md "../../../cli/latest/reference/directconnect/describe-direct-connect-gateway-associations.md")
   (AWS CLI)
 - [DescribeDirectConnectGatewayAssociations](../APIReference/API_DescribeDirectConnectGatewayAssociations.md "../APIReference/API_DescribeDirectConnectGatewayAssociations.md")
   (Direct Connect API)
 
-###### To disassociate a transit gateway using the command line or API
+###### To disassociate a Transit Gateway using the command line or API
 
 - [delete-direct-connect-gateway-association](../../../cli/latest/reference/directconnect/delete-direct-connect-gateway-association.md "../../../cli/latest/reference/directconnect/delete-direct-connect-gateway-association.md")
   (AWS CLI)
 - [DeleteDirectConnectGatewayAssociation](../APIReference/API_DeleteDirectConnectGatewayAssociation.md "../APIReference/API_DeleteDirectConnectGatewayAssociation.md")
   (Direct Connect API)
 
-###### To update allowed prefixes for a transit gateway using the command line or API
+###### To update allowed prefixes for a Transit Gateway using the command line or API
 
 - [update-direct-connect-gateway-association](../../../cli/latest/reference/directconnect/update-direct-connect-gateway-association.md "../../../cli/latest/reference/directconnect/update-direct-connect-gateway-association.md") (AWS CLI)
 - [UpdateDirectConnectGatewayAssociation](../APIReference/API_UpdateDirectConnectGatewayAssociation.md "../APIReference/API_UpdateDirectConnectGatewayAssociation.md") (Direct Connect API)

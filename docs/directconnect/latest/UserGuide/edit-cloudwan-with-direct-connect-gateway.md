@@ -1,4 +1,4 @@
-# Verify an Direct Connect gateway association to an AWS Cloud WAN core network
+# Verify a Direct Connect gateway association to an AWS Cloud WAN core network
 
 You can verify the association of a Direct Connect gateway to a Cloud WAN core network using
 the Direct Connect console or the Direct Connect API or command line.

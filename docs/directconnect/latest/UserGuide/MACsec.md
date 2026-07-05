@@ -40,7 +40,7 @@ The following are the key concepts for MACsec:
   for security purposes and whenever a MACsec session is established.
 - **Connectivity Association Key Name (CKN)** and **Connectivity Association Key (CAK)** — The values
   in this pair are used to generate the MACsec key. You generate the pair values,
-  associate them with an Direct Connect connection, and then provision them on your edge
+  associate them with a Direct Connect connection, and then provision them on your edge
   device at your end of the Direct Connect connection. Direct Connect supports only
   static CAK mode but not dynamic CAK mode. Since only static CAK mode is
   supported, it's recommended that you follow your own key management policies for

@@ -1,4 +1,4 @@
-# Remove the association between a MACsec secret key and an Direct Connect endpoint LAG
+# Remove the association between a MACsec secret key and a Direct Connect endpoint LAG
 
 You can remove the association between the LAG and the MACsec key using either the Direct Connect console or using the command line or API.
 

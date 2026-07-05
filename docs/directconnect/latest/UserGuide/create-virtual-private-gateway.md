@@ -1,4 +1,4 @@
-# Create an Direct Connect virtual private gateway
+# Create a Direct Connect virtual private gateway
 
 The virtual private gateway must be attached to the VPC to which you want to connect. You
 can create a virtual private gateway and attach it to a VPC using either the Direct Connect

@@ -1,4 +1,4 @@
-# Create an Direct Connect public virtual interface
+# Create a Direct Connect public virtual interface
 
 When you create a public virtual interface, it can take up to 72 business hours for us to
 review and approve your request.

@@ -1,4 +1,4 @@
-# Update a LAG at an Direct Connect endpoint
+# Update a LAG at a Direct Connect endpoint
 
 You can update the following link aggregation group (LAG) attributes using either the Direct Connect console or using the command line or API:
 

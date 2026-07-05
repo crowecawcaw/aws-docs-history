@@ -1,7 +1,7 @@
 # Virtual interface Rate Limiters
 
 Use virtual interface (VIF) Rate Limiters to set a maximum bandwidth allocation for
-individual VIFs on an Direct Connect Dedicated connection. Rate Limiters help prevent network
+individual VIFs on a Direct Connect Dedicated connection. Rate Limiters help prevent network
 congestion caused by unexpected traffic spikes on a VIF, which can potentially consume all
 available bandwidth and impact workloads on other VIFs sharing the same dedicated connection.
 This feature is only supported on Dedicated connections. Hosted connections are always

@@ -1,4 +1,4 @@
-# Migrate an Direct Connect virtual interface
+# Migrate a Direct Connect virtual interface
 
 Use this procedure when you want to perform any of the following virtual interface migration
 operations:

@@ -1,4 +1,4 @@
-# Associate a connection with a LAG at an Direct Connect endpoint
+# Associate a connection with a LAG at a Direct Connect endpoint
 
 You can associate an existing connection with a LAG using either the Direct Connect console or using the command line or API. The connection can be standalone, or it
 can be part of another LAG. The connection must be on the same AWS device and must use

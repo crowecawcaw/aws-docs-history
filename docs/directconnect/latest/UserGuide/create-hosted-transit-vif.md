@@ -1,10 +1,10 @@
-# Create an Direct Connect hosted transit virtual interface
+# Create a Direct Connect hosted transit virtual interface
 
 ###### To create a hosted transit virtual interface
 
 ###### Important
 
-If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both the transit gateway and the Direct Connect gateway, the association request fails.
+If you associate your Transit Gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the Transit Gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both the Transit Gateway and the Direct Connect gateway, the association request fails.
 
 1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
 2. In the navigation pane, choose **Virtual Interfaces**.

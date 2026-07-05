@@ -1,7 +1,7 @@
 # Troubleshoot layer 1 (physical) issues
 
 If you or your network provider are having difficulty establishing physical
-connectivity to an Direct Connect device, use the following steps to troubleshoot the
+connectivity to a Direct Connect device, use the following steps to troubleshoot the
 issue.
 
 1. Verify with the colocation provider that the cross connect is complete. Ask

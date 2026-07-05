@@ -1,7 +1,6 @@
-# Create a transit gateway and Direct Connect association proposal
+# Create a Transit Gateway and Direct Connect association proposal
 
-If you own the transit gateway, you must create the association proposal. The transit gateway must
-be attached to a VPC or VPN in your AWS account. The owner of the Direct Connect
+If you own the Transit Gateway, you must create the association proposal. The owner of the Direct Connect
 gateway must share the ID of the Direct Connect gateway and the ID of its AWS
 account. After you create the proposal, the owner of the Direct Connect gateway
 must accept it in order for you to gain access to the on-premises network over
@@ -10,8 +9,8 @@ Direct Connect. You can create an association proposal using either the Direct C
 ###### To create an association proposal
 
 1. Open the **Direct Connect** console at [https://console.aws.amazon.com/directconnect/v2/home](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home").
-2. In the navigation pane, choose **Transit gateways**
-   and then select the transit gateway.
+2. In the navigation pane, choose **Transit Gateways**
+   and then select the Transit Gateway.
 3. Choose **View details**.
 4. Choose **Direct Connect gateway associations** and
    then choose **Associate Direct Connect
@@ -28,7 +27,7 @@ Direct Connect. You can create an association proposal using either the Direct C
       the account that owns the virtual interface for the
       association.
    3. (Optional) To specify a list of prefixes to be allowed from
-      the transit gateway, add the prefixes to **Allowed
+      the Transit Gateway, add the prefixes to **Allowed
       prefixes**, separating them using commas, or
       entering them on separate lines.
 

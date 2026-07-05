@@ -1,4 +1,4 @@
-# Configure an Direct Connect Classic connection
+# Configure a Direct Connect Classic connection
 
 Configure a Classic connection when you have existing Direct Connect connections.
 
@@ -12,7 +12,7 @@ To get started with AWS, you need an AWS account. For information about creating
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
 in the _AWS Account Management Reference Guide_.
 
-## Step 2: Request an Direct Connect dedicated connection
+## Step 2: Request a Direct Connect dedicated connection
 
 For dedicated connections, you can submit a connection request using the Direct Connect console. For hosted connections, work with an AWS Direct Connect Partner
 to request a hosted connection. Ensure that you have the following information:
@@ -46,7 +46,7 @@ accept. Skip the following procedure and go to [Accept your hosted connection](#
    4. For **Port Speed**, choose the connection
       bandwidth.
    5. For **On-premises**, select **Connect through
-      an Direct Connect partner** when you use this
+      a Direct Connect partner** when you use this
       connection to connect to your data center.
    6. For **Service provider**, select the AWS Direct Connect Partner. If
       you use a partner that is not in the list, select

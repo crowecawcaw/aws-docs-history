@@ -1,4 +1,4 @@
-# Delete an Direct Connect connection
+# Delete a Direct Connect connection
 
 You can delete a connection as long as there are no virtual interfaces attached to it.
 Deleting your connection stops all port hour charges for this connection, but you may

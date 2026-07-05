@@ -1,4 +1,4 @@
-# Associate a MACsec CKN/CAK with an Direct Connect endpoint LAG
+# Associate a MACsec CKN/CAK with a Direct Connect endpoint LAG
 
 After you create the LAG that supports MACsec, you can associate a CKN/CAK with the
 connection using either the Direct Connect console or using the command line or API.
@@ -7,7 +7,7 @@ connection using either the Direct Connect console or using the command line or 
 
 You cannot modify a MACsec secret key after you associate it with a LAG. If you need to
 modify the key, disassociate the key from the connection, and then associate a new
-key with the connection. For information about removing an association, see [Remove the association between a MACsec secret key and an Direct Connect endpoint LAG](disassociate-key-lag.md "disassociate-key-lag.md").
+key with the connection. For information about removing an association, see [Remove the association between a MACsec secret key and a Direct Connect endpoint LAG](disassociate-key-lag.md "disassociate-key-lag.md").
 
 ###### To associate a MACsec key with a LAG
 

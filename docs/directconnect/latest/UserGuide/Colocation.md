@@ -2,7 +2,7 @@
 
 After you have downloaded your Letter of Authorization and Connecting Facility Assignment
 (LOA-CFA), you must complete your cross-network connection, also known as a _cross
-connect_. If you already have equipment located in an Direct Connect location,
+connect_. If you already have equipment located in a Direct Connect location,
 contact the appropriate provider to complete the cross connect. For specific instructions
 for each provider, see the tables below. Partners and contact information are organized by
 Region. For specific cross connect pricing you'll need to contact the Direct Connect Partner
@@ -13,12 +13,12 @@ Some locations are set up as a campus. For more information, including available
 available at each location, see [Direct Connect
 Locations](https://aws.amazon.com/directconnect/details/#AWS_Direct_Connect_Locations "https://aws.amazon.com/directconnect/details/#AWS_Direct_Connect_Locations").
 
-If you do not already have equipment located in an Direct Connect location, you can work with one
-of the partners in the AWS Partner Network (APN). They help you to connect to an Direct Connect
+If you do not already have equipment located in a Direct Connect location, you can work with one
+of the partners in the AWS Partner Network (APN). They help you to connect to a Direct Connect
 location. For more information, see [APN Partners supporting Direct Connect](https://aws.amazon.com/directconnect/partners/ "https://aws.amazon.com/directconnect/partners/"). You must share the LOA-CFA with your selected
 provider to facilitate your cross connect request.
 
-An Direct Connect connection can provide access to resources in other Regions. For more
+A Direct Connect connection can provide access to resources in other Regions. For more
 information, see [Access to remote Direct Connect Regions](remote_regions.md "remote_regions.md").
 
 ###### Note
@@ -200,7 +200,7 @@ provide one or more of the following connectivity options:
 | CIDS Jiachuang IDC, Beijing     | Contact [dx-order@sinnet.com.cn](mailto:dx-order@sinnet.com.cn "mailto:dx-order@sinnet.com.cn"). |
 | Sinnet Jiuxianqiao IDC, Beijing | Contact [dx-order@sinnet.com.cn](mailto:dx-order@sinnet.com.cn "mailto:dx-order@sinnet.com.cn"). |
 | GDS No. 3 Data Center, Shanghai | Contact [dx@nwcdcloud.cn](mailto:ddx@nwcdcloud.cn "mailto:ddx@nwcdcloud.cn").                    |
-| GDS No. 3 Data Center, Shenzhen | Contact [dx@nwcdcloud.cn](mailto:ddx@nwcdcloud.cn "mailto:ddx@nwcdcloud.cn").                    |
+| GDS No. 3 Data Center, Shenzhen | This location is no longer accepting new connection requests.                                    |
 
 ## China (Ningxia)
 

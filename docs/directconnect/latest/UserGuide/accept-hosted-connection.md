@@ -1,4 +1,4 @@
-# Accept an Direct Connect hosted connection
+# Accept a Direct Connect hosted connection
 
 If you are interested in purchasing a hosted connection, you must contact an AWS Direct Connect Partner in
 the AWS Direct Connect Partner Program. The partner provisions the connection for you. After the connection is

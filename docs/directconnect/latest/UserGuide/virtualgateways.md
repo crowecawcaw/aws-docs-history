@@ -16,7 +16,7 @@ The following rules apply to virtual private gateway associations:
 - There are limits for creating and using Direct Connect gateways. For more
   information, see [Direct Connect quotas](limits.md "limits.md").
 - You cannot attach a Direct Connect gateway to a virtual private gateway when the
-  Direct Connect gateway is already associated with a transit gateway.
+  Direct Connect gateway is already associated with a Transit Gateway.
 - The VPCs to which you connect through a Direct Connect gateway cannot have
   overlapping CIDR blocks. If you add an IPv4 CIDR block to a VPC that's
   associated with a Direct Connect gateway, ensure that the CIDR block does not
@@ -60,9 +60,18 @@ The following rules apply to virtual private gateway associations:
   the value that you require for the VPN connection. Otherwise, the ASN on the virtual
   private gateway can be set to any permitted value. The Direct Connect gateway
   advertises all connected VPCs over the ASN assigned to it.
-  To connect your Direct Connect connection to a VPC in the same Region only, you can create a
-  Direct Connect gateway. Or, you can create a private virtual interface and attach it to the
-  virtual private gateway for the VPC. For more information, see [Create a private virtual interface](create-private-vif.md "create-private-vif.md") and [VPN CloudHub](../../../vpc/latest/userguide/VPN_CloudHub.md "../../../vpc/latest/userguide/VPN_CloudHub.md").
+
+###### Note
+
+When you associate a Direct Connect gateway with a virtual private gateway, the
+virtual private gateway ASN is not visible in the AS\_PATH advertised to your
+on-premises router; only the Direct Connect gateway ASN appears. The virtual private
+gateway ASN is advertised on-premises only when a private virtual interface
+attaches directly to the virtual private gateway, without a Direct Connect
+gateway.
+To connect your Direct Connect connection to a VPC in the same Region only, you can create a
+Direct Connect gateway. Or, you can create a private virtual interface and attach it to the
+virtual private gateway for the VPC. For more information, see [Create a private virtual interface](create-private-vif.md "create-private-vif.md") and [VPN CloudHub](../../../vpc/latest/userguide/VPN_CloudHub.md "../../../vpc/latest/userguide/VPN_CloudHub.md").
 
 To use your Direct Connect connection with a VPC in another account, you can create a hosted
 private virtual interface for that account. When the owner of the other account accepts

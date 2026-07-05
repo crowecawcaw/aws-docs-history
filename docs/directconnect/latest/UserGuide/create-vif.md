@@ -1,6 +1,6 @@
 # Direct Connect virtual interfaces
 
-You can create a transit virtual interface to connect to a transit gateway, a public
+You can create a transit virtual interface to connect to a Transit Gateway, a public
 virtual interface to connect to public resources (non-VPC services), or a private
 virtual interface to connect to a VPC.
 
@@ -20,7 +20,7 @@ Before you begin, ensure that you have read the information in [Prerequisites fo
 
 ## Prerequisites for transit virtual interfaces to a Direct Connect gateway
 
-To connect your Direct Connect connection to the transit gateway, you must create a
+To connect your Direct Connect connection to the Transit Gateway, you must create a
 transit interface for your connection. Specify the Direct Connect gateway to which
 to connect.
 
@@ -39,4 +39,4 @@ console and find **Jumbo Frame Capable** on the
 
 ###### Important
 
-If you associate your transit gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the transit gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both the transit gateway and the Direct Connect gateway, the association request fails.
+If you associate your Transit Gateway with one or more Direct Connect gateways, the Autonomous System Number (ASN) used by the Transit Gateway and the Direct Connect gateway must be different. For example, if you use the default ASN 64512 for both the Transit Gateway and the Direct Connect gateway, the association request fails.
