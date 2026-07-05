@@ -23,12 +23,17 @@ If you want to create an EventBridge integration with high availability, make su
 
 ## Simplified integration
 
-If you want to capture events from multiple AWS Regions, but prefer to configure only a
-single rule, then simplified integration is the appropriate option. To receive AWS Health events
+If you want to capture account-specific events from multiple AWS Regions, but prefer to configure only a
+single rule, then simplified integration is the appropriate option. To receive account-specific AWS Health events
 from all Regions in the standard AWS partition, you can set up a central rule in the
-US West (Oregon) Region. This single rule automatically aggregates events from all
-standard partition regions where you are receiving Health events. However, you won't have
+US West (Oregon) Region. This single rule automatically aggregates account-specific events from all
+standard partition Regions. However, you won't have
 high availability configuration.
+
+###### Note
+
+Simplified integration doesn't allow you to receive public events that are shown in the AWS Health Dashboard. Simplified integration is only recommended for ingesting action-required AWS Health events.
+For more information about public and account-specific events, see [Monitoring account-specific and public events for AWS Health](about-public-events.md "about-public-events.md").
 
 ## Global events
 
