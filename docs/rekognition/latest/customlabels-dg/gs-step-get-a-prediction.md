@@ -33,7 +33,7 @@ console shows the "Analyze Image" section with the AWS CLI command to detect
 custom labels on an image using a machine learning model, and instructions to
 start the model and provide image details.
 
-![Console screenshot with the AWS CLI command to detect custom labels on an image using a machine learning model, and instructions to start the model and provide image details.](/images/rekognition/latest/customlabels-dg/images/get-started-cli-code-analyze.png) 6. Upload an example image to an Amazon S3 bucket. For instructions, see [Getting an example image](#gs-example-images "#gs-example-images"). 7. At the command prompt, enter the AWS CLI command that you copied in the previous
+![Console screenshot with the AWS CLI command to detect custom labels on an image using a machine learning model, and instructions to start the model and provide image details.](images/get-started-cli-code-analyze.png) 6. Upload an example image to an Amazon S3 bucket. For instructions, see [Getting an example image](#gs-example-images "#gs-example-images"). 7. At the command prompt, enter the AWS CLI command that you copied in the previous
 step. It should look like the following example.
 
 The value of `--project-version-arn` should be Amazon Resource Name
@@ -123,7 +123,7 @@ _Amazon Simple Storage Service User Guide_.
 
 ### Multi-label classification
 
-![Spherical green flower head composed of densely packed overlapping petals or bracts forming a ball-like shape.](/images/rekognition/latest/customlabels-dg/images/multi-label-classification.jpg)
+![Spherical green flower head composed of densely packed overlapping petals or bracts forming a ball-like shape.](images/multi-label-classification.jpg)
 
 ### Brand detection
 

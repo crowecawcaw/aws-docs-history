@@ -44,5 +44,5 @@ The test results page shows images with predicted labels and confidence scores f
 machine learning model trained on backyard and front yard image categories.
 Two example images are displayed.
 
-![The test results page shows images with predicted labels and confidence scores.](images/get-started-image-test-results.jpg) 10. Use the metrics to evaluate the performance of the model. For more information, see
+![The test results page shows images with predicted labels and confidence scores.](/images/rekognition/latest/customlabels-dg/images/get-started-image-test-results.jpg) 10. Use the metrics to evaluate the performance of the model. For more information, see
 [Improving an Amazon Rekognition Custom Labels model](tr-improve-model.md "tr-improve-model.md").

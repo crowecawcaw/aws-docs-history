@@ -14,7 +14,7 @@ can restart your model at a later time. For more information, see [Running a tra
    2. In the **Start model** dialog box, choose **Start**. The
       following image shows the Start button in the model control
       panel.
-      ![Start model control panel with the Start button and an option to select one inference unit.](/images/rekognition/latest/customlabels-dg/images/get-started-start-model.jpg)
+      ![Start model control panel with the Start button and an option to select one inference unit.](images/get-started-start-model.jpg)
 
 3. Wait until the model is running. The following screenshot shows the console while the model is
    running, where the status in the **Start or stop model**
