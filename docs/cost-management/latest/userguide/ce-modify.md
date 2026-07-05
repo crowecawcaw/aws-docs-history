@@ -118,8 +118,8 @@ option again.
 
 ###### Note
 
-If you choose any forecasted dates, your current date’s cost and usage
-data shows as **Forecast**. The current date’s cost and
+If you choose any forecasted dates, your current date's cost and usage
+data shows as **Forecast**. The current date's cost and
 usage won't include historical data.
 
 - Custom

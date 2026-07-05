@@ -58,6 +58,8 @@ For a list of supported resources for these services, see [Supported resources](
 
 To view cost efficiency across all your accounts and regions, use the table view under **Optimization details** . You can search for specific accounts or Regions, and sort by cost efficiency by clicking the column header.
 
+You can also sort the table by **Potential savings** or **Total optimizable spend** by clicking the column header. This helps you identify the accounts or Regions with the largest savings opportunity or the highest optimizable spend.
+
 ## Frequently Asked Questions
 
 1. **Why am I not able to view the cost efficiency?**
