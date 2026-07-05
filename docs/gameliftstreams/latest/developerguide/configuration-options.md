@@ -19,7 +19,7 @@ Proton, we recommend that you test how your application runs on a local machine.
 
 ### Limitations
 
-Gamepad support is not available on Ubuntu 22.04 LTS. Other runtime environments support gamepads, depending on the end user's operating system and browser. For more information, see [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md").
+The Ubuntu 22.04 LTS runtime environment supports gamepads for applications that use the Simple DirectMedia Layer (SDL) libraries. If your application uses other input libraries, gamepad functionality might not work. If you experience issues, consider using a Proton or Windows runtime environment instead. For more information, see [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md").
 
 ## Stream classes
 

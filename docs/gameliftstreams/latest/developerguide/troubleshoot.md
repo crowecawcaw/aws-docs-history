@@ -1,5 +1,20 @@
 # Troubleshooting Amazon GameLift Streams
 
+Amazon GameLift Streams provides the following tools for monitoring and debugging your streams:
+
+- CloudTrail integration – Track API calls for auditing and operational troubleshooting. For
+  more information, see [Logging Amazon GameLift Streams API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").
+- CloudWatch metrics – Monitor stream group capacity, usage, and resource utilization. For
+  more information, see [Monitor Amazon GameLift Streams with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+- Application logging – Capture application logs during stream sessions. Configure logging
+  through the [CreateApplication](../apireference/API_CreateApplication.md "../apireference/API_CreateApplication.md") API.
+- Stream session file exports – Download session artifacts for post-session analysis. For
+  more information, see [Export stream session files](stream-sessions-export-files.md "stream-sessions-export-files.md").
+- Real-time performance stats – View live application-level and system-level resource usage
+  during active sessions. For more information, see [Real-time performance stats](realtime-performance-stats.md "realtime-performance-stats.md").
+- Admin shell terminal connections – Connect to the live runtime environment of an active
+  session for real-time debugging. For more information, see [Stream session admin shell](troubleshoot-admin-shell-guide.md "troubleshoot-admin-shell-guide.md").
+
 ## Access denied when making a request to Amazon GameLift Streams service
 
 If you encounter AccessDenied exceptions when making calls to Amazon GameLift Streams APIs or working with resources in the console, your AWS Identity and Access Management (IAM) role might
@@ -35,7 +50,8 @@ have insufficient permissions for Amazon GameLift Streams. Check the following:
 ## Application issues
 
 This section identifies potential causes for issues that prevent applications from running or cause them to appear differently on
-Amazon GameLift Streams.
+Amazon GameLift Streams. Inspect logs, query running processes, check GPU utilization, and examine application state in real time by opening a secure
+terminal connection into the live runtime environment of your stream session using the [CreateStreamSessionAdminShell](../apireference/API_CreateStreamSessionAdminShell.md "../apireference/API_CreateStreamSessionAdminShell.md") API.
 
 ### Preliminary checks
 
@@ -321,10 +337,12 @@ This section identifies potential causes and solutions for issues related to use
 - Be sure to check [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md") for additional information on
   supported browsers and input devices, including known issues and limitations.
 
-### Gamepad and microphone inputs don't work on native Linux applications
+### Gamepad input issues on the Ubuntu 22.04 LTS runtime environment
 
-Gamepad and microphone inputs are not supported in native Linux applications. See [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md") for additional information on supported input devices, including known issues and
-limitations.
+Gamepad input on the Ubuntu 22.04 LTS runtime environment is supported for applications that use the Simple DirectMedia Layer (SDL) libraries.
+If your application uses other input libraries, gamepad functionality might not work. If you experience issues, consider using a
+Proton or Windows runtime environment instead. See [Supported browsers and input](sdk-browsers-input.md "sdk-browsers-input.md") for
+additional information on supported input devices, including known issues and limitations.
 
 ### Key input appears stuck on MacOS client
 

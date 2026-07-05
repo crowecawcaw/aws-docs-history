@@ -32,10 +32,10 @@ metrics retention limitation.
 
 To pick up the fix for this issue, recreate your stream groups.
 
-| Metric             | Description                                                                                                                                                                                              | Dimension                 | Unit  |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----- |
-| **ActiveCapacity** | The number of compute resources that are provisioned and ready to stream. It includes resources that are<br>currently streaming and resources that are idle and ready to respond to new stream requests. | (StreamGroupId, Location) | Count |
-| **IdleCapacity**   | The numerical portion of active capacity that is not currently streaming. It represents the availability of<br>compute resources to respond to new stream requests.                                      | (StreamGroupId, Location) | Count |
+| Metric                | Description                                                                                                                                                                                              | Dimension                 | Unit  |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ----- |
+| **AllocatedCapacity** | The number of compute resources that are provisioned and ready to stream. It includes resources that are<br>currently streaming and resources that are idle and ready to respond to new stream requests. | (StreamGroupId, Location) | Count |
+| **IdleCapacity**      | The numerical portion of allocated capacity that is not currently streaming. It represents the availability of<br>compute resources to respond to new stream requests.                                   | (StreamGroupId, Location) | Count |
 
 ## Stream group performance and resource utilization
 
