@@ -50,3 +50,7 @@ The following IAM permissions are required only if you plan to use the correspon
 
   - `grafana:Read` permission
   - SSO configuration for dashboard access
+
+## Related topics
+
+- [Discover containers on a container fleet](containers-discovery.md "containers-discovery.md")

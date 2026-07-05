@@ -141,6 +141,7 @@ Unity.
 
 - [CreateContainerGroupDefinition](../apireference/API_CreateContainerGroupDefinition.md "../apireference/API_CreateContainerGroupDefinition.md"), _Amazon GameLift Servers API Reference_
 - [UpdateContainerGroupDefinition](../apireference/API_UpdateContainerGroupDefinition.md "../apireference/API_UpdateContainerGroupDefinition.md"), _Amazon GameLift Servers API Reference_
+- [Discover containers on a container fleet](containers-discovery.md "containers-discovery.md"), _Amazon GameLift Servers Developer Guide_
 - [Go server SDK for Amazon GameLift Servers -- Actions](integration-server-sdk-go-actions.md "integration-server-sdk-go-actions.md"), _Amazon GameLift Servers Developer Guide_
 - [C# server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md"), _Amazon GameLift Servers Developer Guide_
 - [C++ server SDK 5.x for Amazon GameLift Servers -- Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md"), _Amazon GameLift Servers Developer Guide_
