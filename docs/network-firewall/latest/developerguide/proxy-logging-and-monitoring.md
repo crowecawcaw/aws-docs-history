@@ -22,8 +22,8 @@ Steps to configure logging:
 
 There are some mandatory fields that cannot be unselected if you choose to configure logging. These include - event\_timestamp, proxy\_name and final\_action. Some log fields will be selected by default and if you do not make changes, these will be included in the logs. You can enable/ disable fields to customize the fields that will appear in your log.
 
-99. (Optional) You can also configure other fields such as output format and field delimiter.
-100. Click Add.
+102. (Optional) You can also configure other fields such as output format and field delimiter.
+103. Click Add.
      Log delivery is now successfully created.
 
 ## Contents of a proxy log
