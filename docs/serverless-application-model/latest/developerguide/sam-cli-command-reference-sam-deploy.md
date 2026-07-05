@@ -74,6 +74,18 @@ back to the last stable state. If you specify `--disable-rollback` and an
 error occurs during a deployment, then resources that were created or updated before the
 error occurred aren't rolled back.
 
+`--express | --no-express`
+
+Specifies whether to use CloudFormation Express mode. When active, stack operations
+complete once resource configuration is applied. Resources continue becoming
+ready in the background. Deployment time can be reduced by up to 4x.
+
+The AWS SAM CLI passes the rollback behavior to the CloudFormation
+`DeploymentConfig` parameter when you also specify
+`--disable-rollback`.
+
+The default value is `--no-express`.
+
 `--fail-on-empty-changeset | --no-fail-on-empty-changeset`
 
 Specify whether to return a non-zero exit code if there are no changes to make to
