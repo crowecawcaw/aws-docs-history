@@ -63,7 +63,7 @@ documentation available.
 
 ###### AWS SDK for Python (Boto3)
 
-- [QuickSight](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html")
+- [QuickSight](../../../boto3/latest/reference/services/quicksight.md "../../../boto3/latest/reference/services/quicksight.md")
 
 ###### AWS SDK for Ruby
 
