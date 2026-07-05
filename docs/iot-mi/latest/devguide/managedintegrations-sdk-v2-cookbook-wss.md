@@ -109,7 +109,7 @@ The following diagram shows the WSS architecture with cloud services, provisione
 
 The following diagram shows the complete WiFi Simple Setup workflow from barcode scanning through device activation:
 
-![The complete WiFi Simple Setup workflow diagram](images/wifi-simple-setup-flow.png)
+![The complete WiFi Simple Setup workflow diagram](/images/iot-mi/latest/devguide/images/wifi-simple-setup-flow.png)
 
 ### Workflow phases
 
