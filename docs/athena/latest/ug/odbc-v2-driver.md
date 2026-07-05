@@ -71,3 +71,4 @@ information, see [Use Trusted identity propagation with Amazon Athena drivers](u
 - [Migrate to the ODBC 2.x driver](odbc-v2-driver-migrating.md "odbc-v2-driver-migrating.md")
 - [Troubleshoot the ODBC 2.x driver](odbc-v2-driver-troubleshooting.md "odbc-v2-driver-troubleshooting.md")
 - [Amazon Athena ODBC 2.x release notes](odbc-v2-driver-release-notes.md "odbc-v2-driver-release-notes.md")
+- [Previous versions of the Athena ODBC 2.x driver](odbc-v2-driver-previous-versions.md "odbc-v2-driver-previous-versions.md")
