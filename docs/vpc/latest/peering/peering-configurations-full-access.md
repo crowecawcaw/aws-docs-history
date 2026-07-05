@@ -79,7 +79,7 @@ VPC A and VPC B (`pcx-12121212`), and a peering connection between VPC A and
 VPC C (`pcx-23232323`). All three VPCs are in the same AWS account and their
 CIDR blocks do not overlap.
 
-![One VPC peered with two VPCs](images/one-vpc-peered-to-two.png)
+![One VPC peered with two VPCs](/images/vpc/latest/peering/images/one-vpc-peered-to-two.png)
 
 VPC B and VPC C can't send traffic directly to each other through a VPC A, because VPC
 peering does not support transitive peering relationships. You can create a VPC peering
