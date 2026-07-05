@@ -30,7 +30,7 @@ Similarly, all traffic leaving the application servers (destination subnet) is r
 Gateway Load Balancer endpoint before it is routed back to the internet. The following network diagram is a visual
 representation of how a Gateway Load Balancer endpoint is used to access an endpoint service.
 
-![Using a Gateway Load Balancer endpoint to access an endpoint service](/images/elasticloadbalancing/latest/gateway/images/vpc-endpoint-service-gwlbe-new.png)
+![Using a Gateway Load Balancer endpoint to access an endpoint service](images/vpc-endpoint-service-gwlbe-new.png)
 
 The numbered items that follow, highlight and explain elements shown in the preceding image.
 
