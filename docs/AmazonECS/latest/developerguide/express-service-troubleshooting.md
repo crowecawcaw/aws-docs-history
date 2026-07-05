@@ -67,6 +67,27 @@ aws logs get-log-events --log-group-name /ecs/express-service-my-app --log-strea
 3. Test the container image locally to ensure it starts correctly.
 4. Review and adjust CPU and memory allocations if needed.
 
+## Custom task definition errors
+
+Service creation or update fails with an `InvalidParameterException` when using
+the `taskDefinitionArn` parameter.
+
+### "taskDefinitionArn cannot be provided with primaryContainer, executionRoleArn, taskRoleArn, cpu, or memory."
+
+The `taskDefinitionArn` parameter cannot be specified with
+`primaryContainer`, `executionRoleArn`,
+`taskRoleArn`, `cpu`, or `memory`
+in the same API call. Express Mode derives these values from the provided task definition.
+
+### "Task definition must contain a container named 'Main' with a single TCP port mapping."
+
+Your task definition does not meet Express Mode requirements. Ensure it has:
+
+- A container named `Main`
+- The `Main` container has exactly one TCP port mapping with a container port
+  and port name defined
+- The task definition has `FARGATE` in its compatibilities
+
 ## Connectivity issues
 
 ### Application unreachable via load balancer

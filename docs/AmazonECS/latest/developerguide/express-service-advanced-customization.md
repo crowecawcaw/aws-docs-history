@@ -17,8 +17,8 @@ prevent changes that might disrupt service functionality. This also means that y
 will not overwrite changes unless requested as part of an Express Mode update. You're responsible for understanding how modifications using direct APIs
 interact with Express Mode's configuration and for resolving any resulting conflicts or service issues.
 
-For more details on the defaults that Express Mode sets and the resources that it orchestrates, see
-[Resources created by Amazon ECS Express Mode services](AmazonECS/latest/developerguide/express-service-work.md "AmazonECS/latest/developerguide/express-service-work.md").
+For more information about the defaults that Express Mode sets and the resources it orchestrates, see
+[Resources created by Amazon ECS Express Mode services](express-service-work.md "express-service-work.md").
 
 ## Do I need to do anything before I can take advantage of Amazon ECS features in my Express Mode service?
 
@@ -32,6 +32,14 @@ restrict user permissions to the Express Mode APIs.
 ### Adding a sidecar to an Express Mode service
 
 You can add any sidecar container to your service. This example shows how to add a Fluent Bit logging sidecar.
+
+You can define a task definition with sidecar containers and provide it to your Express Mode service
+using the `taskDefinitionArn` parameter. Express Mode uses your task definition as-is,
+including any sidecar containers you configured. For more information, see
+[Create an Express Mode service with your own task definition](express-service-getting-started.md#express-service-create-byotd "express-service-getting-started.md#express-service-create-byotd").
+
+Alternatively, you can add a sidecar by editing the Express Mode created task definition directly,
+as described in the following procedure.
 
 1. Open the console at
    [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").

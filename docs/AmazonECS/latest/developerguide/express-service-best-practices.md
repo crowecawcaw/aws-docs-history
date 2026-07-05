@@ -144,3 +144,15 @@ CloudWatch Log Groups created by Express Mode are configured to never expire and
 
 Meaningful health checks and alarm based rollbacks can both help with rollback. Express Mode's canary deployment strategy combined with alarm based rollbacks
 on 4xx and 5xx traffic sets up your deployments for fast rollbacks in the event of faulty application code or configuration.
+
+### When to use a custom task definition
+
+Consider providing your own custom task definition only when:
+
+- Your team has standardized task definitions with security agents, logging sidecars, or compliance
+  configurations that must be present on all services.
+- You need task-level settings not directly configurable through Express Mode, such as container
+  health checks, custom log drivers (for example, FireLens), Linux parameters
+  (`initProcessEnabled`, `tmpfs` mounts), or additional sidecar containers.
+- You use infrastructure as code and want to define your task definition in your templates and
+  pass it to your Express Mode service.

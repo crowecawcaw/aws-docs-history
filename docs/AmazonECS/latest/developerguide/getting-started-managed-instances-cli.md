@@ -317,7 +317,7 @@ The output will show that the service is using the Amazon ECS Managed Instances 
             },
             "desiredCount": 1,
             "clusterArn": "arn:aws:ecs:`region`:`aws_account_id`:cluster/managed-instances-cluster",
-            "serviceArn": "arn:aws:ecs:`region`:`aws_account_id`:service/managed-instances-service",
+            "serviceArn": "arn:aws:ecs:`region`:`aws_account_id`:service/managed-instances-cluster/managed-instances-service",
             "serviceName": "managed-instances-service",
             "taskDefinition": "arn:aws:ecs:`region`:`aws_account_id`:task-definition/sample-managed-instances:1"
         }

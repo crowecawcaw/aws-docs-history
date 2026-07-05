@@ -660,6 +660,28 @@ The `c5n`, `d3`, `d3en`, `g3`,
 | c8ib.96xlarge     | 23                              | 120                          |
 | c8ib.metal-48xl   | 23                              | 120                          |
 | c8ib.metal-96xl   | 23                              | 120                          |
+| c9g.medium        | 1                               | 4                            |
+| c9g.large         | 2                               | 10                           |
+| c9g.xlarge        | 3                               | 20                           |
+| c9g.2xlarge       | 3                               | 40                           |
+| c9g.4xlarge       | 7                               | 60                           |
+| c9g.8xlarge       | 9                               | 60                           |
+| c9g.12xlarge      | 11                              | 60                           |
+| c9g.16xlarge      | 15                              | 120                          |
+| c9g.24xlarge      | 23                              | 120                          |
+| c9g.48xlarge      | 23                              | 120                          |
+| c9g.metal-48xl    | 23                              | 120                          |
+| c9gd.medium       | 1                               | 4                            |
+| c9gd.large        | 2                               | 10                           |
+| c9gd.xlarge       | 3                               | 20                           |
+| c9gd.2xlarge      | 3                               | 40                           |
+| c9gd.4xlarge      | 7                               | 60                           |
+| c9gd.8xlarge      | 9                               | 60                           |
+| c9gd.12xlarge     | 11                              | 60                           |
+| c9gd.16xlarge     | 15                              | 120                          |
+| c9gd.24xlarge     | 23                              | 120                          |
+| c9gd.48xlarge     | 23                              | 120                          |
+| c9gd.metal-48xl   | 23                              | 120                          |
 
 ## Memory optimized
 

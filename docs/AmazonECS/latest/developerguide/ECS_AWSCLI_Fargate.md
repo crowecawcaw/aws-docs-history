@@ -262,7 +262,7 @@ see [Describe Services](../APIReference/API_DescribeServices.md "../APIReference
             },
             "desiredCount": 1,
             "clusterArn": "arn:aws:ecs:`region`:`aws_account_id`:cluster/fargate-cluster",
-            "serviceArn": "arn:aws:ecs:`region`:`aws_account_id`:service/fargate-service",
+            "serviceArn": "arn:aws:ecs:`region`:`aws_account_id`:service/fargate-cluster/fargate-service",
             "deploymentConfiguration": {
                 "maximumPercent": 200,
                 "minimumHealthyPercent": 100

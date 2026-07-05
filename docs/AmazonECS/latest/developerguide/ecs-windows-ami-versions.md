@@ -41,12 +41,13 @@ The following table lists the current and previous versions of the
 Amazon ECS-optimized Windows Server 2025 Full AMI and their corresponding versions of the Amazon ECS
 container agent and Docker.
 
-| Amazon ECS-optimized Windows Server 2025 Full AMI               | Amazon ECS container agent version | Docker version       | Visibility |
-| --------------------------------------------------------------- | ---------------------------------- | -------------------- | ---------- |
-| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.02.13** | `1.101.3`                          | `25.0.6 (Docker CE)` | Public     |
+| Amazon ECS-optimized Windows Server 2025 Full AMI               | Amazon ECS container agent version | Docker version        | Visibility |
+| --------------------------------------------------------------- | ---------------------------------- | --------------------- | ---------- |
+| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.06.23** | `1.105.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.06.15** | `1.104.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2025-English-Full-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)`  | Public     |
 
 Use the following AWS CLI command to retrieve the current
 Amazon ECS-optimized Windows Server 2025 Full AMI.
@@ -60,12 +61,13 @@ The following table lists the current and previous versions of the
 Amazon ECS-optimized Windows Server 2025 Core AMI and their corresponding versions of the
 Amazon ECS container agent and Docker.
 
-| Amazon ECS-optimized Windows Server 2025 Core AMI               | Amazon ECS container agent version | Docker version       | Visibility |
-| --------------------------------------------------------------- | ---------------------------------- | -------------------- | ---------- |
-| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.02.13** | `1.101.3`                          | `25.0.6 (Docker CE)` | Public     |
+| Amazon ECS-optimized Windows Server 2025 Core AMI               | Amazon ECS container agent version | Docker version        | Visibility |
+| --------------------------------------------------------------- | ---------------------------------- | --------------------- | ---------- |
+| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.06.23** | `1.105.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.06.15** | `1.104.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2025-English-Core-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)`  | Public     |
 
 Use the following AWS CLI command to retrieve the current
 Amazon ECS-optimized Windows Server 2025 Core AMI.
@@ -79,12 +81,13 @@ The following table lists the current and previous versions of the
 Amazon ECS-optimized Windows Server 2022 Full AMI and their corresponding versions of the Amazon ECS
 container agent and Docker.
 
-| Amazon ECS-optimized Windows Server 2022 Full AMI               | Amazon ECS container agent version | Docker version       | Visibility |
-| --------------------------------------------------------------- | ---------------------------------- | -------------------- | ---------- |
-| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.02.13** | `1.101.3`                          | `25.0.6 (Docker CE)` | Public     |
+| Amazon ECS-optimized Windows Server 2022 Full AMI               | Amazon ECS container agent version | Docker version        | Visibility |
+| --------------------------------------------------------------- | ---------------------------------- | --------------------- | ---------- |
+| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.06.23** | `1.105.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.06.15** | `1.104.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2022-English-Full-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)`  | Public     |
 
 Use the following AWS CLI command to retrieve the current
 Amazon ECS-optimized Windows Server 2022 Full AMI.
@@ -98,12 +101,13 @@ The following table lists the current and previous versions of the
 Amazon ECS-optimized Windows Server 2022 Core AMI and their corresponding versions of the
 Amazon ECS container agent and Docker.
 
-| Amazon ECS-optimized Windows Server 2022 Core AMI               | Amazon ECS container agent version | Docker version       | Visibility |
-| --------------------------------------------------------------- | ---------------------------------- | -------------------- | ---------- |
-| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.02.13** | `1.101.3`                          | `25.0.6 (Docker CE)` | Public     |
+| Amazon ECS-optimized Windows Server 2022 Core AMI               | Amazon ECS container agent version | Docker version        | Visibility |
+| --------------------------------------------------------------- | ---------------------------------- | --------------------- | ---------- |
+| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.06.23** | `1.105.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.06.16** | `1.104.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2022-English-Core-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)`  | Public     |
 
 Use the following AWS CLI command to retrieve the current
 Amazon ECS-optimized Windows Server 2022 Full AMI.
@@ -117,12 +121,13 @@ The following table lists the current and previous versions of the
 Amazon ECS-optimized Windows Server 2019 Full AMI and their corresponding versions of the Amazon ECS
 container agent and Docker.
 
-| Amazon ECS-optimized Windows Server 2019 Full AMI               | Amazon ECS container agent version | Docker version       | Visibility |
-| --------------------------------------------------------------- | ---------------------------------- | -------------------- | ---------- |
-| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.02.13** | `1.101.3`                          | `25.0.6 (Docker CE)` | Public     |
+| Amazon ECS-optimized Windows Server 2019 Full AMI               | Amazon ECS container agent version | Docker version        | Visibility |
+| --------------------------------------------------------------- | ---------------------------------- | --------------------- | ---------- |
+| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.06.23** | `1.105.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.06.15** | `1.104.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2019-English-Full-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)`  | Public     |
 
 Use the following AWS CLI command to retrieve the current
 Amazon ECS-optimized Windows Server 2019 Full AMI.
@@ -136,12 +141,13 @@ The following table lists the current and previous versions of the
 Amazon ECS-optimized Windows Server 2019 Core AMI and their corresponding versions of the
 Amazon ECS container agent and Docker.
 
-| Amazon ECS-optimized Windows Server 2019 Core AMI               | Amazon ECS container agent version | Docker version       | Visibility |
-| --------------------------------------------------------------- | ---------------------------------- | -------------------- | ---------- |
-| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)` | Public     |
-| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.02.13** | `1.101.3`                          | `25.0.6 (Docker CE)` | Public     |
+| Amazon ECS-optimized Windows Server 2019 Core AMI               | Amazon ECS container agent version | Docker version        | Visibility |
+| --------------------------------------------------------------- | ---------------------------------- | --------------------- | ---------- |
+| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.06.23** | `1.105.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.06.15** | `1.104.0`                          | `25.0.16 (Docker CE)` | Public     |
+| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `25.0.6 (Docker CE)`  | Public     |
+| **Windows\_Server-2019-English-Core-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `25.0.6 (Docker CE)`  | Public     |
 
 Use the following AWS CLI command to retrieve the current
 Amazon ECS-optimized Windows Server 2019 Full AMI.
@@ -169,10 +175,11 @@ container agent and Docker.
 
 | Amazon ECS-optimized Windows Server 2016 Full AMI               | Amazon ECS container agent version | Docker version         | Visibility |
 | --------------------------------------------------------------- | ---------------------------------- | ---------------------- | ---------- |
+| **Windows\_Server-2016-English-Full-ECS\_Optimized-2026.06.23** | `1.105.0`                          | `20.10.23 (Docker CE)` | Public     |
+| **Windows\_Server-2016-English-Full-ECS\_Optimized-2026.06.12** | `1.104.0`                          | `20.10.23 (Docker CE)` | Public     |
 | **Windows\_Server-2016-English-Full-ECS\_Optimized-2026.05.15** | `1.103.1`                          | `20.10.23 (Docker CE)` | Public     |
 | **Windows\_Server-2016-English-Full-ECS\_Optimized-2026.04.16** | `1.103.0`                          | `20.10.23 (Docker CE)` | Public     |
 | **Windows\_Server-2016-English-Full-ECS\_Optimized-2026.03.13** | `1.102.0`                          | `20.10.23 (Docker CE)` | Public     |
-| **Windows\_Server-2016-English-Full-ECS\_Optimized-2026.02.13** | `1.101.3`                          | `20.10.23 (Docker CE)` | Public     |
 
 Use the following AWS CLI Amazon ECS-optimized Windows Server 2016 Full AMI.
 

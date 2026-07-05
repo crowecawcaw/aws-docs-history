@@ -210,7 +210,7 @@ created.
 The output includes the ARN of the service, with the following format:
 
 ```
-arn:aws:ecs:region:aws_account_id:service/service-bluegreen
+arn:aws:ecs:region:aws_account_id:service/tutorial-bluegreen-cluster/service-bluegreen
 ```
 
 ## Step 5: Create the AWS CodeDeploy Resources
@@ -428,7 +428,7 @@ Use the following steps to create and upload an application specification file
            "ecsTarget": {
                "deploymentId": "d-RPCR1U3TW",
                "targetId": "tutorial-bluegreen-cluster:service-bluegreen",
-               "targetArn": "arn:aws:ecs:region:aws_account_id:service/service-bluegreen",
+               "targetArn": "arn:aws:ecs:region:aws_account_id:service/tutorial-bluegreen-cluster/service-bluegreen",
                "lastUpdatedAt": 1543431490.226,
                "lifecycleEvents": [
                    {
@@ -529,7 +529,7 @@ avoid incurring charges for resources that you aren't using.
 
 ```
 `aws ecs delete-service \
- --service arn:aws:ecs:`region`:`aws_account_id`:service/`service-bluegreen` \
+ --service arn:aws:ecs:`region`:`aws_account_id`:service/`tutorial-bluegreen-cluster`/`service-bluegreen` \
  --force \
  --region `us-east-1``
 ```

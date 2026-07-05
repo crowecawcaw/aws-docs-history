@@ -66,6 +66,10 @@ The following defaults are set by Express Mode but can be updated in the Task De
 - requiresCompatibilities: ["FARGATE"] - Compatible with Fargate launch type
 - platformVersion: "LATEST" - Uses the latest Fargate platform version
 
+You can also provide a custom task definition using the `taskDefinitionArn` parameter.
+Express Mode uses your task definition as-is, including CPU, memory, container definitions,
+and any additional containers or settings you define.
+
 ## Container definition defaults
 
 The following defaults are configurable from within Express Mode for the container:
@@ -106,6 +110,9 @@ The following defaults are set by Express Mode but can be updated in the Task De
   Express Mode service
 - mode: "non-blocking" - Logging mode set to non-blocking
 - max-buffer-size: "25m" - Maximum buffer size for log writes
+
+When you provide a custom task definition using the `taskDefinitionArn` parameter,
+you configure logging within the task definition.
 
 ## Service defaults
 
@@ -212,6 +219,9 @@ The following IAM roles are configured by Express Mode automatically.
 - ecsServiceRoleForECS: Allows Amazon ECS to manage your cluster
 - AWSServiceRoleForElasticLoadBalancing: Calls other AWS services for you on your behalf - created automatically by Elastic Load Balancing
 - AWSServiceRoleForApplicationAutoScaling\_ECSService: Calls other AWS services on your behalf - created automatically by Application Auto Scaling
+
+When you provide a custom task definition using the `taskDefinitionArn` parameter,
+the task execution role and task role are read from your task definition.
 
 ## Application Auto Scaling defaults
 

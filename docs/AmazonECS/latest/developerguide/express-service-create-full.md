@@ -47,3 +47,4 @@ You need this role when your application accesses other AWS services, such as Am
 - Application Auto Scaling policies - metrics, target values, and task limits
 - CloudWatch Logs configuration
 - Resource tags
+- Task definition – use your own custom task definition

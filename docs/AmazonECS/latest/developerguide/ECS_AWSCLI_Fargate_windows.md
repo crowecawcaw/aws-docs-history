@@ -197,7 +197,7 @@ Output:
 ```
 {
     "serviceArns": [
-        "arn:aws:ecs:`region`:`aws_account_id`:service/fargate-service"
+        "arn:aws:ecs:`region`:`aws_account_id`:service/fargate-cluster/fargate-service"
     ]
 }
 ```
@@ -246,7 +246,7 @@ Messages](service-event-messages.md "service-event-messages.md"). For more infor
             "platformVersion": "LATEST",
             "serviceName": "fargate-service",
             "clusterArn": "arn:aws:ecs:`region`:`aws_account_id`:cluster/fargate-cluster",
-            "serviceArn": "arn:aws:ecs:`region`:`aws_account_id`:service/fargate-service",
+            "serviceArn": "arn:aws:ecs:`region`:`aws_account_id`:service/fargate-cluster/fargate-service",
             "deploymentConfiguration": {
                 "maximumPercent": 200,
                 "minimumHealthyPercent": 100

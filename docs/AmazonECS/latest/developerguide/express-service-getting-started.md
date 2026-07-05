@@ -136,6 +136,35 @@ This creates an application with:
 - Environment variables
 - Minimum 3 tasks, maximum 100 tasks for auto scaling
 
+### Create an Express Mode service with your own task definition
+
+You can also create an Express Mode service with your own task definition. With your own task definition,
+you have full control over task-level configuration. Express Mode continues to manage infrastructure,
+including load balancing, auto scaling, and canary deployments.
+
+The following AWS Command Line Interface (AWS AWS CLI) command creates an Express Mode service with a custom task definition:
+
+```
+aws ecs create-express-gateway-service \
+    --infrastructure-role-arn arn:aws:iam::123456789012:role/ecsInfrastructureRoleForExpressServices \
+    --task-definition-arn arn:aws:ecs:us-west-2:123456789012:task-definition/my-td:3 \
+    --health-check-path "/health" \
+    --monitor-resources
+
+```
+
+Your task definition must meet the following requirements:
+
+- A container named `Main`
+- The `Main` container must have a single TCP port mapping with a container port and port name
+- The task definition must have `FARGATE` in its compatibilities
+
+###### Note
+
+The `taskDefinitionArn` parameter cannot be specified with `primaryContainer`,
+`executionRoleArn`, `taskRoleArn`, `cpu`, or
+`memory` in the same API call. Express Mode derives these values from the provided task definition.
+
 ## Step 4: Monitor your deployment
 
 The `--monitor-resources` flag works on any Create, Update or Delete call to your Express Mode services. But in addition, you can monitor
@@ -143,14 +172,14 @@ the resources in a service at any time, separate from a mutating action. Deploym
 Once the status changes to `ACTIVE`, your application is ready to receive traffic.
 
 ```
-aws ecs monitor-express-gateway-service --service-arn arn:aws:ecs:region:123456789012:service/app-23d97h88
+aws ecs monitor-express-gateway-service --service-arn arn:aws:ecs:region:123456789012:service/default/app-23d97h88
 
 ```
 
 You can also find current configuration and status of your Express Mode service application:
 
 ```
-aws ecs describe-express-gateway-service --service-arn arn:aws:ecs:region:123456789012:service/app-23d97h88
+aws ecs describe-express-gateway-service --service-arn arn:aws:ecs:region:123456789012:service/default/app-23d97h88
 
 ```
 

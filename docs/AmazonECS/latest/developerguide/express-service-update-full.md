@@ -87,3 +87,50 @@ name. 6. Under **Configuration**:
     	2. For **Amazon CloudWatch log stream prefix**, enter a new prefix for log streams.
 
 8. Choose **Update** to update your Express Mode service.
+
+### Updating with a custom task definition
+
+You can update your Express Mode service with a custom task definition by specifying the
+`taskDefinitionArn` parameter. Express Mode uses your task definition as-is
+and continues to manage the rest of the infrastructure.
+
+On subsequent updates, you can either:
+
+- Create a new revision of your task definition and update the `taskDefinitionArn`.
+  Express Mode uses the new revision for the next service deployment.
+- Update Express Mode parameters directly:
+
+  - For parameters unrelated to the task definition (such as `healthCheckPath`,
+    `networkConfiguration`, or `scalingTarget`), Express Mode
+    applies the changes without modifying the task definition.
+  - For task-definition related parameters (such as image, CPU, or memory using
+    `primaryContainer` or `cpu`/`memory`),
+    Express Mode creates a new managed task definition with your changes while preserving your other
+    task-level configuration.
+
+###### To update with a custom task definition (Amazon ECS console)
+
+1. Open the Amazon ECS console and navigate to your Express Mode service.
+2. Choose the dropdown arrow next to **Update service**, then choose
+   **Update with custom task definition**.
+3. For **Task definition family**, select an existing task definition family.
+   To create a new task definition, choose the **Task definitions** link.
+4. For **Task definition revision**, select the revision to use, or leave blank
+   to use the latest revision.
+5. (Optional) Expand **Additional configurations** to update health check path,
+   networking, or auto scaling settings.
+6. Choose **Update**.
+
+The following AWS AWS CLI command updates your Express Mode service with a custom task definition:
+
+```
+aws ecs update-express-gateway-service \
+    --service-arn arn:aws:ecs:us-west-2:123456789012:service/default/my-service \
+    --task-definition-arn arn:aws:ecs:us-west-2:123456789012:task-definition/my-td:4
+
+```
+
+###### Note
+
+If you use CloudFormation and are adding `taskDefinitionArn` to your Express Mode service
+for the first time, redeploy your stack once first. This ensures rollback compatibility.

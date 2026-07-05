@@ -3,7 +3,9 @@
 The deployment circuit breaker is the rolling update mechanism that determines if the
 tasks reach a steady state. The deployment circuit breaker has an option that will
 automatically roll back a failed deployment to the deployment that is in the
-`COMPLETED` state.
+`COMPLETED` state. You can customize how the circuit breaker counts
+failures and the threshold at which it triggers, so that rollback behavior matches your
+application's startup characteristics and your tolerance for task failures.
 
 When a service deployment changes state, Amazon ECS sends a service deployment state change
 event to EventBridge. This provides a programmatic way to monitor the status of your service
@@ -32,8 +34,12 @@ launch in two stages.
     COMPLETED state because there is more than one task that transitioned to
     the RUNNING state. The failure criteria is skipped and the circuit
     breaker moves to stage 2.
-  - Failure - There are consecutive tasks that did not transition to the
-    RUNNING state and the deployment might transition to the FAILED state.
+  - Failure - By default, consecutive tasks that do not transition
+    to the RUNNING state count toward the failure threshold
+    (`resetOnHealthyTask` is `true`). When
+    `resetOnHealthyTask` is `false`, all task
+    failures accumulate regardless of whether healthy tasks start between
+    failures.
 
 - Stage 2 - The deployment enters this stage when there is at least one task in
   the RUNNING state. The circuit breaker checks the health checks for the tasks in
@@ -84,6 +90,23 @@ launch in two stages.
  --network-configuration "awsvpcConfiguration={subnets=[`subnet-12344321`],securityGroups=[`sg-12344321`],assignPublicIp=`ENABLED`}"`
 ```
 
+The following `create-service` AWS CLI example shows how to create a service
+with a custom deployment circuit breaker configuration that uses a fixed failure count
+of 5 and cumulative failure tracking.
+
+```
+`aws ecs create-service \
+ --service-name `MyService` \
+ --deployment-controller type=`ECS` \
+ --desired-count `10` \
+ --deployment-configuration "deploymentCircuitBreaker={enable=`true`,rollback=`true`,resetOnHealthyTask=`false`,thresholdConfiguration={type=`COUNT`,value=`5`}}" \
+ --task-definition `sample-fargate:1` \
+ --launch-type `FARGATE` \
+ --platform-family `LINUX` \
+ --platform-version `1.4.0` \
+ --network-configuration "awsvpcConfiguration={subnets=[`subnet-12344321`],securityGroups=[`sg-12344321`],assignPublicIp=`ENABLED`}"`
+```
+
 Example:
 
 Deployment 1 is in a `COMPLETED` state.
@@ -96,25 +119,90 @@ Deployment 3 cannot roll back, or launch tasks.
 
 ## Failure threshold
 
-The deployment circuit breaker calculates the threshold value, and then uses the
-value to determine when to move the deployment to a `FAILED`
-state.
+The deployment circuit breaker uses a failure threshold to determine when to move
+the deployment to a `FAILED` state. You can configure both how failures
+are counted and the threshold value itself.
 
-The deployment circuit breaker has a minimum threshold of 3 and a maximum
-threshold of 200. and uses the values in the following formula to determine the
-deployment failure.
+### Failure counting mode
+
+The `resetOnHealthyTask` setting controls how the circuit breaker
+counts task failures during a deployment.
+
+`true` (default)
+
+The failure count resets to 0 each time a task reaches a healthy
+state. Only consecutive failures count toward the threshold. This
+mode is useful for applications that might experience intermittent
+startup failures before stabilizing.
+
+`false`
+
+Task failures accumulate throughout the deployment. The failure
+count never resets, even when healthy tasks start between failures.
+This mode provides faster detection when any pattern of failures
+indicates a problematic deployment.
+
+### Threshold configuration
+
+The `thresholdConfiguration` setting defines when the circuit
+breaker triggers. It contains a `type` that determines how the
+threshold is calculated and a `value` that specifies the percentage
+or count to use.
+
+`BOUNDED_PERCENT` (default)
+
+Amazon ECS multiplies `value` by the latest service desired
+count to calculate the failure threshold. The result is clamped to a
+minimum of 3 and a maximum of 200. This is the default type with a
+default value of 50.
+
+`UNBOUNDED_PERCENT`
+
+Amazon ECS multiplies `value` by the latest service desired
+count to calculate the failure threshold. There is no minimum or
+maximum bound on the result. Use this type for services with large
+desired counts that need a proportional threshold without the 200
+cap.
+
+`COUNT`
+
+Amazon ECS uses `value` directly as the failure threshold.
+The threshold remains fixed regardless of the service desired count.
+Use this type when you want an exact number of tolerated failures,
+for example, a lower threshold for faster rollbacks in development
+environments.
+
+For the percentage types (`BOUNDED_PERCENT` and
+`UNBOUNDED_PERCENT`), the valid range for `value` is
+1–100. During a deployment, Amazon ECS continuously uses the latest service desired
+count in its calculation.
+
+### How `BOUNDED_PERCENT` calculates the threshold
+
+When you use the default `BOUNDED_PERCENT` threshold type, the
+deployment circuit breaker calculates the threshold using the following
+formula.
 
 ```
-Minimum threshold <= 0.5 * `desired task count` => maximum threshold
+Minimum threshold (3) <= (`value`/100) * `desired task count` => Maximum threshold (200)
 ```
 
-When the result of the calculation is greater than the minimum of 3, but smaller
-than the maximum of 200, the failure threshold is set to the calculated threshold
-(rounded up).
+When the result of the calculation is less than 3, the threshold is set to 3.
+When the result is greater than 200, the threshold is set to 200. Otherwise, the
+threshold is set to the calculated value (rounded up).
 
-###### Note
+The following table provides examples using the default value of 50.
 
-You cannot change either of the threshold values.
+| Desired task count | Calculation                        | Threshold                                              |
+| ------------------ | ---------------------------------- | ------------------------------------------------------ |
+| 1                  | `<br>3 <= 0.5<br>• 1 => 200<br>`   | 3 (the calculated value is less than the minimum)      |
+| 25                 | `<br>3 <= 0.5<br>• 25 => 200<br>`  | 13 (the value is rounded up)                           |
+| 400                | `<br>3 <= 0.5<br>• 400 => 200<br>` | 200 (the calculated value is greater than the maximum) |
+| 800                | `<br>3 <= 0.5<br>• 800 => 200<br>` | 200 (the calculated value is greater than the maximum) |
+
+With `UNBOUNDED_PERCENT`, the same calculation applies but without
+the minimum and maximum bounds. For example, a service with a desired count of
+800 and a value of 50 would have a threshold of 400.
 
 There are two stages for the deployment status check.
 
@@ -122,7 +210,7 @@ There are two stages for the deployment status check.
    deployment and checks for tasks that are in the `RUNNING` state.
    The scheduler ignores the failure criteria when a task in the current
    deployment is in the `RUNNING` state and proceeds to the next
-   stage. When tasks fail to reach in the `RUNNING` state, the
+   stage. When tasks fail to reach the `RUNNING` state, the
    deployment circuit breaker increases the failure count by one. When the
    failure count equals the threshold, the deployment is marked as
    `FAILED`.
@@ -137,15 +225,6 @@ There are two stages for the deployment status check.
      When a health check fails for the task, the deployment circuit breaker
      increases the failure count by one. When the failure count equals the
      threshold, the deployment is marked as `FAILED`.
-
-The following table provides some examples.
-
-| Desired task count | Calculation                        | Threshold                                              |
-| ------------------ | ---------------------------------- | ------------------------------------------------------ |
-| 1                  | `<br>3 <= 0.5<br>• 1 => 200<br>`   | 3 (the calculated value is less than the minimum)      |
-| 25                 | `<br>3 <= 0.5<br>• 25 => 200<br>`  | 13 (the value is rounded up)                           |
-| 400                | `<br>3 <= 0.5<br>• 400 => 200<br>` | 200                                                    |
-| 800                | `<br>3 <= 0.5<br>• 800 => 200<br>` | 200 (the calculated value is greater than the maximum) |
 
 For example, when the threshold is 3, the circuit breaker starts with the failure
 count set at 0. When a task fails to reach the `RUNNING` state, the
