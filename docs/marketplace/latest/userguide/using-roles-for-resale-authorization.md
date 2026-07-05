@@ -1,4 +1,4 @@
-# Using service-linked roles for Resale Authorization with AWS Marketplace
+# Using service-linked roles for Selling Authorization with AWS Marketplace
 
 AWS Marketplace uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
 linked directly to AWS Marketplace. Service-linked roles are predefined by AWS Marketplace and
@@ -31,7 +31,7 @@ documentation for that service.
 ## Service-linked role permissions for AWS Marketplace
 
 AWS Marketplace uses the service-linked role named **AWSServiceRoleForMarketplaceResaleAuthorization**, which
-enables access to AWS services and resources used or managed by AWS Marketplace for Resale
+enables access to AWS services and resources used or managed by AWS Marketplace for Selling
 Authorizations.
 
 The AWSServiceRoleForMarketplaceResaleAuthorization service-linked role trusts the following services to assume the
@@ -63,16 +63,16 @@ service-linked role in the AWS Marketplace Management Portal, AWS Marketplace cr
 2. In the **Settings** section, select the **Service-linked
    roles** tab.
 3. On the **Service-linked roles** page, select
-   **Service-linked role for Resale Authorizations** or **Resale
+   **Service-linked role for Selling Authorizations** or **Selling
    Authorizations integration**, and then choose **Create service-linked
    role** or **Configure integration**.
-4. On the **Service-linked role for Resale Authorizations** or
-   **Create Resale Authorizations integrations** page, review the
+4. On the **Service-linked role for Selling Authorizations** or
+   **Create Selling Authorizations integrations** page, review the
    information and confirm by choosing **Create service-linked role** or
    **Create integration**.
 
 A message appears on the **Service-linked roles** page, indicating
-that the Resale Authorization service-linked role was successfully created.
+that the Selling Authorization service-linked role was successfully created.
 
 If you delete a service-linked role, you can follow these steps to recreate it.
 
@@ -93,8 +93,8 @@ actively monitored or maintained.
 ###### Note
 
 If independent software vendors (ISVs) don't have the role, AWS Resource Access Manager won't
-automatically share new Resale Authorizations with the targeted channel partner. If
-channel partners don't have the role, AWS Resource Access Manager won't automatically accept the Resale
+automatically share new Selling Authorizations with the targeted channel partner. If
+channel partners don't have the role, AWS Resource Access Manager won't automatically accept the Selling
 Authorization targeted to them.
 
 **To manually delete the service-linked role using

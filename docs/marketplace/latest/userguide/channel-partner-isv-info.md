@@ -1,9 +1,5 @@
 # Creating a selling authorization for an AWS Marketplace Channel Partner as an ISV
 
-###### Note
-
-Starting July 1, 2026, ISVs must enter the 12-digit AWS account ID of the intended reseller when creating a selling authorization. The reseller selection dropdown will no longer be available. Resellers can find their account's AWS Account ID by following the guidance on this [AWS Documentation page](../../../accounts/latest/reference/manage-acct-identifiers.md "../../../accounts/latest/reference/manage-acct-identifiers.md").
-
 As an independent software vendor (ISV), you can authorize AWS Marketplace Channel Partners to resell your products by creating a selling authorization for that partner. The Channel Partner can use the selling authorization to create Channel Partner Private Offer (CPPO) to the end buyer. Supported product types include:
 
 - AMI-based products
@@ -26,7 +22,16 @@ Ensure that you are signed out from another AWS account before signing in with y
     ###### Note
 
     The information you enter in **Selling authorization name** will be visible to Channel Partners in their seller reports.
-    * For **Reseller**, choose the AWS Marketplace Channel Partner (reseller) that you want to authorize from the dropdown list. You can select resellers by name or account ID.
+    * For **Reseller**, enter the 12-digit AWS account ID in the available text box.
+
+
+
+
+    	+ For instructions on validating the 12-digit AWS account ID, see [Validating your AWS account ID](https://awsmarketplace.storylane.io/share/5oeofjaq5s4s "https://awsmarketplace.storylane.io/share/5oeofjaq5s4s") on the AWS Marketplace Storylane website.
+    	+ For instructions on locating your Channel Partner's AWS account ID from previous transactions, see [Locating a Channel Partner's AWS account ID](https://awsmarketplace.storylane.io/share/quvrsa2vqg3v "https://awsmarketplace.storylane.io/share/quvrsa2vqg3v") on the AWS Marketplace Storylane website.
+    ###### Note
+
+    You can validate the Channel Partner's (reseller) legal entity name in Step 4 (Review and create) of the selling authorization.
     * For **Product type**, select the type of product, and then select one of your **Products** for which you want to create selling authorization.
     * Choose **Continue to authorization details**.
 
@@ -57,19 +62,19 @@ Ensure that you are signed out from another AWS account before signing in with y
 
     ###### Important
 
-    Non-USD currencies are available for contract, contract with consumption, and pay-as-you-go pricing offers. Channel Partners must create offers in the same currency as the resale authorization.
+    Non-USD currencies are available for contract, contract with consumption, and pay-as-you-go pricing offers. Channel Partners must create offers in the same currency as the selling authorization.
 
 
 
     	+ **Channel Partner Private Offers (CPPOs):** ISVs and channel partners will receive disbursements in the same currency, as agreed upon during CPPO creation.
-    	+ **Currency restrictions:** CPPOs can only be created in the currency set in the resale authorization. If a Channel Partner wants to extend a CPPO in a different currency, they need to reach out to the ISV to ensure a resale authorization is issued in the new currency.
+    	+ **Currency restrictions:** CPPOs can only be created in the currency set in the selling authorization. If a Channel Partner wants to extend a CPPO in a different currency, they need to reach out to the ISV to ensure a selling authorization is issued in the new currency.
     	+ **Agreement Based Offers (ABO):** ABO will support changing the currency of the offer, as long as the seller and Channel Partner have configured the currency in their disbursement preferences.
     * For **Duration**, select the duration of the selling authorization.
 
 
     ###### Note
 
-    The start date for resellers must be earlier than the date that the manufacturer has listed in the resale authorization.
+    The start date for resellers must be earlier than the date that the manufacturer has listed in the selling authorization.
     * The **Product Dimension** section shows you currently available contract dimensions in the product. You can choose the dimensions you want to include in the selling authorization and provide a quantity or price. Contract pricing with installment plan lets you enter quantity per dimension, Contract pricing with upfront payments lets you enter price per dimension.
     * Choose **Manage custom dimensions** to add dimensions to the product that will be available in this product for future offers and selling authorizations. Custom dimensions added to the product cannot be removed.
      You can have up to 200 contract and 200 usage dimensions in 1 product.
