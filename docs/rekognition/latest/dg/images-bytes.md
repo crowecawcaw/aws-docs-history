@@ -112,7 +112,7 @@ public class DetectLabelsLocalFile {
 
 Python The following [AWS SDK for Python](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/") example
 shows how to load an image from the local file system and call the
-[detect\_labels](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_labels "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Client.detect_labels") operation. Change the value of
+[detect\_labels](../../../boto3/latest/reference/services/rekognition.md#Rekognition.Client.detect_labels "../../../boto3/latest/reference/services/rekognition.md#Rekognition.Client.detect_labels") operation. Change the value of
 `photo` to the path and file name of an image
 file (.jpg or .png format).
 
