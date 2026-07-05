@@ -7,11 +7,11 @@ Pre-built SageMaker Docker images](../dg/docker-containers-prebuilt.md "../dg/do
 
 Use the path as follows:
 
-- To create a training job ([create\_training\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job")), specify the Docker registry path
+- To create a training job ([create\_training\_job](../../../boto3/latest/reference/services/sagemaker.md#SageMaker.Client.create_training_job "../../../boto3/latest/reference/services/sagemaker.md#SageMaker.Client.create_training_job")), specify the Docker registry path
   (`TrainingImage`) and the training input mode
   (`TrainingInputMode`) for the training image. You create a
   training job to train a model using a specific dataset.
-- To create a model ([create\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model")), specify the Docker registry path
+- To create a model ([create\_model](../../../boto3/latest/reference/services/sagemaker.md#SageMaker.Client.create_model "../../../boto3/latest/reference/services/sagemaker.md#SageMaker.Client.create_model")), specify the Docker registry path
   (`Image`) for the inference image (`PrimaryContainer
  Image`). SageMaker AI launches machine learning compute instances that are
   based on the endpoint configuration and deploys the model, which includes
