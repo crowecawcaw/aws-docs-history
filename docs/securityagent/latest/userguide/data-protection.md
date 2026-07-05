@@ -43,6 +43,17 @@ For self-hosted providers (GitLab Self-Managed, GitHub Enterprise Server), you c
 
 In the default configuration, AWS Security Agent uses the public internet to reach your app for penetration testing. You can optionally configure penetration tests to use a VPC to access your application. For more information, see [Connect agent to private VPC resources](connect-agent-vpc.md "connect-agent-vpc.md").
 
+## Cross-Region data processing
+
+AWS Security Agent uses [cross-region inference](../../../bedrock/latest/userguide/cross-region-inference.md "../../../bedrock/latest/userguide/cross-region-inference.md") to optimize available compute resources and model availability. Depending on the Region where the request originates, we might process input prompts and output results in a different Region.
+
+- In US East (N. Virginia) – `us-east-1`, US West (Oregon) – `us-west-2`, Asia Pacific (Sydney) – `ap-southeast-2`, Asia Pacific (Tokyo) – `ap-northeast-1`, Europe (Frankfurt) – `eu-central-1`, and Europe (Ireland) – `eu-west-1`, AWS Security Agent uses [geographic cross-region inference](../../../bedrock/latest/userguide/geographic-cross-region-inference.md "../../../bedrock/latest/userguide/geographic-cross-region-inference.md"). For most features, data processing remains within the geographic boundary (such as US, EU, Australia, or Japan) where the request originated. For Code Remediation, requests from Australia and Japan are processed in the European Union. For feature-specific routing details, see the [Cross Region Inference table](security-best-practices.md "security-best-practices.md").
+- In Asia Pacific (Mumbai) – `ap-south-1`, Asia Pacific (Singapore) – `ap-southeast-1`, and South America (São Paulo) – `sa-east-1`, AWS Security Agent uses [global cross-region inference](../../../bedrock/latest/userguide/global-cross-region-inference.md "../../../bedrock/latest/userguide/global-cross-region-inference.md"). We might process input prompts and output results in any [commercial AWS Region](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region").
+
+In all cases, your data remains stored only in the Region where the request originated. All data transmitted during cross-Region operations remains on the AWS network and does not traverse the public internet. We encrypt data in transit between AWS Regions.
+
+Cross-Region inference is always enabled and cannot be opted out of. For details on which Regions process requests for each feature, see the Cross Region Inference section in [Security best practices for AWS Security Agent](security-best-practices.md "security-best-practices.md").
+
 ## Data deletion
 
 When you delete data from AWS Security Agent:

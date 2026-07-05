@@ -67,15 +67,25 @@ Accessible URLs specify additional endpoints that the penetration testing enviro
 
 ## Cross Region Inference
 
-AWS Security Agent will automatically select the optimal region to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data will remain stored only in the region where the request originated, however, input prompts and output results may be processed outside that region. All data will be transmitted encrypted across Amazon’s secure network.
+AWS Security Agent automatically selects the optimal Region to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data remains stored only in the Region where the request originated; however, input prompts and output results might be processed outside that Region. We transmit all data encrypted across the AWS network.
 
-The following table describes where your inference requests are processed based on the geography where the request originated and the feature used.
+AWS Security Agent uses two types of cross-region inference depending on the Region:
 
-| Request origin | All features except Code Remediation | [Code Remediation](remediate-code-scan-findings.md "remediate-code-scan-findings.md") |
-| -------------- | ------------------------------------ | ------------------------------------------------------------------------------------- |
-| European Union | European Union                       | European Union                                                                        |
-| United States  | United States                        | United States                                                                         |
-| Australia      | Australia                            | European Union                                                                        |
-| Japan          | Japan                                | European Union                                                                        |
+- **Geographic cross-region inference** – Keeps data processing within specific geographic boundaries (such as US, EU, Australia, or Japan) for most features. For [Code Remediation](remediate-code-scan-findings.md "remediate-code-scan-findings.md"), requests from Australia and Japan are processed in the European Union. Used in US East (N. Virginia) – `us-east-1`, US West (Oregon) – `us-west-2`, Asia Pacific (Sydney) – `ap-southeast-2`, Asia Pacific (Tokyo) – `ap-northeast-1`, Europe (Frankfurt) – `eu-central-1`, and Europe (Ireland) – `eu-west-1`.
+- **Global cross-region inference** – Routes inference requests to any [commercial AWS Region](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region"), optimizing available resources and enabling higher model throughput. Used in Asia Pacific (Mumbai) – `ap-south-1`, Asia Pacific (Singapore) – `ap-southeast-1`, and South America (São Paulo) – `sa-east-1`.
 
-Cross-Region inference is always enabled and cannot be opted out of. Cross-region inference is not impacted by customer policies in Service Control Policies (SCPs) or Control Tower that restrict customer content to specific regions.
+For Regions using global cross-region inference, input prompts and output results might be processed in any [commercial AWS Region](../../../glossary/latest/reference/glos-chap.md#region "../../../glossary/latest/reference/glos-chap.md#region"). All data transmitted during cross-region operations remains on the AWS network and does not traverse the public internet. We encrypt data in transit between AWS Regions.
+
+The following table describes where your inference requests are processed based on the Region where the request originated and the feature used.
+
+| Request origin                                                                       | All features except Code Remediation | [Code Remediation](remediate-code-scan-findings.md "remediate-code-scan-findings.md") |
+| ------------------------------------------------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------- |
+| United States — US East (N. Virginia) – `us-east-1`, US West (Oregon) – `us-west-2`  | United States                        | United States                                                                         |
+| European Union — Europe (Ireland) – `eu-west-1`, Europe (Frankfurt) – `eu-central-1` | European Union                       | European Union                                                                        |
+| Australia — Asia Pacific (Sydney) – `ap-southeast-2`                                 | Australia                            | European Union                                                                        |
+| Japan — Asia Pacific (Tokyo) – `ap-northeast-1`                                      | Japan                                | European Union                                                                        |
+| South America — South America (São Paulo) – `sa-east-1`                              | Any commercial AWS Region            | Any commercial AWS Region                                                             |
+| India — Asia Pacific (Mumbai) – `ap-south-1`                                         | Any commercial AWS Region            | Any commercial AWS Region                                                             |
+| Southeast Asia — Asia Pacific (Singapore) – `ap-southeast-1`                         | Any commercial AWS Region            | Any commercial AWS Region                                                             |
+
+Cross-Region inference is always enabled and cannot be opted out of. Cross-Region inference is not impacted by customer policies in Service Control Policies (SCPs) or AWS Control Tower that restrict customer content to specific Regions. For more information about how AWS Security Agent protects your data during cross-Region processing, see [Cross-Region data processing](data-protection.md "data-protection.md").
