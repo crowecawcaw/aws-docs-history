@@ -181,4 +181,4 @@ If you've configured your application correctly, you should see the complete cal
 from the controller down through the service calls,
 as shown in the following screen shot of the console.
 
-![](images/aop-spring-console.png)
+![The complete call stack.](images/aop-spring-console.png)
