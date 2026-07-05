@@ -13,7 +13,7 @@ you need to protect its encryption key. Eventually, you must protect the highest
 encryption key (known as a _root key_) in the hierarchy that
 protects your data. That's where AWS KMS comes in.
 
-![Root key protect the data keys that protect your data](/images/kms/latest/developerguide/images/key-hierarchy-root.png)
+![Root key protect the data keys that protect your data](images/key-hierarchy-root.png)
 
 AWS KMS protects your root keys. KMS keys are created, managed, used, and deleted
 entirely within AWS KMS. They never leave the service unencrypted. To use or manage your
