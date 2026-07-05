@@ -6,8 +6,8 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 
 The software running on the data retention bot Docker image will output to log
 files in the `/tmp/`<botname>`/logs`
-directory. They will rotate to a maximum of 5 files. You can get the logs by running
-the following command.
+directory. They will rotate to a maximum of 5 files. You can get the logs by
+running the following command.
 
 ```
 docker logs `<botname>`

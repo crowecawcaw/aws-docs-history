@@ -16,4 +16,4 @@ For more information about AWS Regions and Availability Zones, see [AWS Global
 Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
 
 In addition to the AWS global infrastructure, Wickr offers several features to
-help support your data resiliency and backup needs. For more information, see [Data retention for AWS Wickr](data-retention.md "data-retention.md").
+help support your data resiliency and backup needs. For more information, see [Data retention modules for AWS Wickr](data-retention.md "data-retention.md").

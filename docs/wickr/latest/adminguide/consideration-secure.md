@@ -12,6 +12,4 @@ security value.
 
 If you deploy a data retention bot, ensure it meets the highest security standards
 and aligns with your organizations security policy. For deployments using AWS
-services, follow the additional guidance in our [Security best
-practices for AWS Wickr](security-best-practices.md "security-best-practices.md") and AWS Cloud Security [Shared
-Responsibility Model.](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+services, follow the additional guidance in our [Security best practices for AWS Wickr](security-best-practices.md "security-best-practices.md") and AWS Cloud Security [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")

@@ -33,6 +33,12 @@ storage sizing:
 - [Start the data retention bot for your Wickr network](starting-data-retention-bot.md "starting-data-retention-bot.md")
 - [Stop the data retention bot for your Wickr network](stopping-data-retention-bot.md "stopping-data-retention-bot.md")
 
+###### Note
+
+Deactivating the docker bot will reset it. To reactivate, you must re-run the docker
+bot installation process using the bot password you configured during initial
+setup.
+
 ## Prerequisites to configure data retention for AWS Wickr
 
 This assumes you have an Amazon EC2 instance running already with the minimum storage

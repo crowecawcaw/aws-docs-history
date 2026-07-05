@@ -15,7 +15,7 @@ configuration, and data retention settings.
 - [Network tags for AWS Wickr](network-tags.md "network-tags.md")
 - [Read receipts for AWS Wickr](read-receipts.md "read-receipts.md")
 - [Manage network plan for AWS Wickr](manage-plan.md "manage-plan.md")
-- [Data retention for AWS Wickr](data-retention.md "data-retention.md")
+- [Data retention modules for AWS Wickr](data-retention.md "data-retention.md")
 - [What is ATAK?](what-is-atak.md "what-is-atak.md")
 - [Ports and domains to allow list for your Wickr network](allow-list-ports-domains.md "allow-list-ports-domains.md")
 - [GovCloud cross boundary classification and federation](govcloud-cross-boundary.md "govcloud-cross-boundary.md")

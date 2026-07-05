@@ -13,3 +13,9 @@ image.
 ```
 docker stop `compliance_1234567890_bot`
 ```
+
+###### Note
+
+Deactivating the docker bot will reset it. To reactivate, you must re-run the docker
+bot installation process using the bot password you configured during initial
+setup.

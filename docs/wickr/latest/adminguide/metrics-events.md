@@ -4,8 +4,8 @@ Administration Guide](../adminguide-classic/what-is-wickr.md "../adminguide-clas
 
 # Data retention metrics and events for your Wickr network
 
-Following are the Amazon CloudWatch (CloudWatch) metrics and Amazon Simple Notification Service (Amazon SNS) events that are
-currently supported by the 5.116 version of the AWS Wickr data retention
+Following are the Amazon CloudWatch (CloudWatch) metrics and Amazon Simple Notification Service (Amazon SNS) events that
+are currently supported by the 5.116 version of the AWS Wickr data retention
 bot.
 
 ###### Topics
