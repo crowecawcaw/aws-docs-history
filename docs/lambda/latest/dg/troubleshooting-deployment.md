@@ -154,15 +154,17 @@ following topics.
 **Error:**
 _Code storage limit exceeded._
 
-Lambda stores your function code in an internal S3 bucket that's private to your account.
-Each AWS account is allocated 75 GB of storage in each Region. Code storage includes the
+Lambda stores a copy of your function code in an internal S3 bucket that's private to your account.
+Each AWS account is allocated 300 GB of code storage (unzipped) in each Region. Code storage includes the
 total storage used by both Lambda functions and layers. If you reach the quota, you receive a
 _CodeStorageExceededException_ when you attempt to deploy new
 functions.
 
-Manage the storage space available by cleaning up old versions of functions, removing
-unused code, or using Lambda layers. In addition, it's good practice to [use separate AWS accounts for separate workloads](concepts-application-design.md#multiple-accounts "concepts-application-design.md#multiple-accounts") to
+To resolve this issue, you can clean up old versions of functions, remove
+unused code, or use Lambda layers to de-duplicate common code shared between functions. In addition, it's good practice to [use separate AWS accounts for separate workloads](concepts-application-design.md#multiple-accounts "concepts-application-design.md#multiple-accounts") to
 help manage storage quotas.
+
+Alternatively, you can configure your functions and layers to use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"). With self-managed S3 code storage, Lambda references your code directly from your S3 bucket, which does not count against your storage quota.
 
 You can view your total storage usage in the Lambda console, under the
 **Dashboard** submenu:

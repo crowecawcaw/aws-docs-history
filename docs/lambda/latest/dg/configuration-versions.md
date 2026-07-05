@@ -127,6 +127,7 @@ When you publish a version, Lambda creates an immutable snapshot of your functio
 - Architecture (x86\_64 or arm64)
 - Ephemeral storage size
 - Package type
+- Code storage mode (switching between Lambda-managed and [self-managed S3 storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"))
 - Logging configuration
 - File system configuration
 - SnapStart

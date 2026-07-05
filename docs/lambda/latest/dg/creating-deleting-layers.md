@@ -22,7 +22,9 @@ AWS Serverless Application Model (AWS SAM), see [Using AWS SAM with layers](laye
 ## Creating a layer
 
 To create a layer, you can either upload the .zip file archive from your local
-machine or from Amazon Simple Storage Service (Amazon S3). Lambda extracts the layer contents into the
+machine or from Amazon Simple Storage Service (Amazon S3). When uploading from Amazon S3, you can choose whether Lambda copies the code to Lambda-managed storage or references it directly from your S3 bucket. For more information, see [Self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md").
+
+Lambda extracts the layer contents into the
 `/opt` directory when setting up the execution environment for the function.
 
 Layers can have one or more [layer versions](chapter-layers.md#lambda-layer-versions "chapter-layers.md#lambda-layer-versions").
@@ -55,7 +57,7 @@ other configuration changes, you must create a new version of the layer.
 8. (Optional) For **License**, enter any necessary license information.
 9. Choose **Create**.
 
-Alternatively, you can run the [publish-layer-version](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html") AWS Command Line Interface (CLI) command. Example:
+Alternatively, you can run the [publish-layer-version](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/publish-layer-version.html") AWS Command Line Interface (CLI) command. When uploading from Amazon S3, include `S3ObjectStorageMode=REFERENCE` to use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"), or omit it (defaults to `COPY`) to use Lambda-managed storage. Example:
 
 ```
 aws lambda publish-layer-version --layer-name `my-layer` --zip-file fileb://layer.zip --compatible-runtimes `python3.14`
@@ -72,12 +74,20 @@ run the [delete-layer-version](https://awscli.amazonaws.com/v2/documentation/api
 aws lambda delete-layer-version --layer-name my-layer --version-number 1
 ```
 
-When you delete a layer version, you can no longer configure a Lambda function
-to use it. However, any function that already uses the version continues to have
-access to it. Also, Lambda never reuses version numbers for a layer name.
+When you delete a layer version, you can no longer configure new functions to use it. However, any function that already references the deleted layer version continues to run with that layer content. Lambda never reuses version numbers for a layer name.
 
-When calculating [quotas](gettingstarted-limits.md "gettingstarted-limits.md"), deleting
-a layer version means it's no longer counted as part of the default 75 GB quota for
-storage of functions and layers. However, for functions that consume a deleted layer
-version, the layer content still counts towards the function's deployment package size
-quota (i.e. 250MB for .zip file archives).
+### Storage quota impact of deleting layers
+
+The storage quota impact of deleting a layer version depends on the storage mode used by the layer and by the functions that reference it.
+
+Layer uses Lambda-managed storage (COPY)
+
+When you delete a layer version that uses Lambda-managed storage, the layer code is removed from your account's Lambda-managed storage quota. However, any function that still references the deleted layer version continues to have access to the layer content. The layer content counts towards the function's deployment package size quota (250 MB unzipped) but no longer counts towards the account-level Lambda-managed storage quota.
+
+Layer uses self-managed S3 storage (REFERENCE)
+
+Layers that use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md") do not consume Lambda-managed storage, so deleting them has no impact on your Lambda-managed storage quota. Functions that reference a deleted self-managed layer version continue to run normally. However, if you also delete the source object from your S3 bucket or revoke Lambda's access to it, you can no longer update function configuration with that layer.
+
+###### Note
+
+Deleting a layer version never deactivates functions that reference it. Functions remain `Active` regardless of whether the layer used Lambda-managed or self-managed S3 storage. The `Inactive` state only applies when Lambda loses access to a function's own source code stored in a self-managed S3 bucket.

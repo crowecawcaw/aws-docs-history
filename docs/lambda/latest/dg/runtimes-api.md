@@ -12,7 +12,7 @@ configured `AWS_LAMBDA_MAX_CONCURRENCY` limit. This enables multiple invocations
 simultaneously within a single execution environment. For more information about Managed Instances, see
 [Understanding the Lambda Managed Instances execution environment](lambda-managed-instances-execution-environment.md "lambda-managed-instances-execution-environment.md").
 
-![Architecture diagram of the execution environment.](/images/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
+![Architecture diagram of the execution environment.](images/telemetry-api-concept-diagram.png)
 The OpenAPI specification for the runtime API version **2018-06-01** is available
 in [runtime-api.zip](samples/runtime-api.zip.md "samples/runtime-api.zip.md")
 

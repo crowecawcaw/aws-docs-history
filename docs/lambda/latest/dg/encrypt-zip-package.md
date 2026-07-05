@@ -97,6 +97,10 @@ Use the following API parameters to configure customer managed keys for .zip dep
 
 When `SourceKMSKeyArn` and `KMSKeyArn` are both specified, Lambda uses the `KMSKeyArn` key to encrypt the unzipped version of the package that Lambda uses to invoke the function. When `SourceKMSKeyArn` is specified but `KMSKeyArn` is not, Lambda uses an [AWS managed key](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk") to encrypt the unzipped version of the package.
 
+###### Note
+
+For functions and layers that use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"), Lambda does not store a copy of your source code. Your code remains in your S3 bucket, and encryption at rest for your source code is managed by your S3 bucket configuration. Lambda will use `KMSKeyArn` to encrypt the unzipped version of the package that Lambda uses to invoke the function. For more information, see [Protecting data with server-side encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md") in the _Amazon Simple Storage Service User Guide_.
+
 Lambda console
 
 ###### To add customer managed key encryption when you create a function

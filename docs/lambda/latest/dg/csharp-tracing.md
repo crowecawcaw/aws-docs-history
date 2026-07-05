@@ -293,7 +293,7 @@ shows an application with two functions.
 The primary function processes events and sometimes returns errors. The second function at the top processes errors that appear
 in the first's log group and uses the AWS SDK to call X-Ray, Amazon Simple Storage Service (Amazon S3), and Amazon CloudWatch Logs.
 
-![A diagram that shows two separate applications and their respective service maps in X-Ray](/images/lambda/latest/dg/images/sample-errorprocessor-servicemap.png)
+![A diagram that shows two separate applications and their respective service maps in X-Ray](images/sample-errorprocessor-servicemap.png)
 
 X-Ray doesn't trace all requests to your application. X-Ray applies a sampling algorithm
 to ensure that tracing is efficient, while still providing a representative sample of all requests. The sampling rate is
@@ -310,7 +310,7 @@ node represents your specific Lambda function. The following example shows a tra
 are named **my-function**, but one has an origin of `AWS::Lambda` and the other has
 an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
 
-![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](/images/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
+![An X-Ray trace that shows latency across each subsegment of a specific Lambda invocation.](images/V2_sandbox_images/my-function-2-v1.png)
 
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 

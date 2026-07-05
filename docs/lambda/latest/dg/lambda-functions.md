@@ -12,6 +12,10 @@ The deployment package is a .zip file archive containing your function code and 
 Use container images to package your function code and dependencies when you need more control over the build process,
 or if your function requires custom runtime configurations. You can build, test, and deploy Lambda functions as container images using tools like Docker CLI.
 
+**[Self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md")**
+
+Configure your functions and layers to use your own S3 bucket for code storage. Lambda references your code directly from your S3 bucket, eliminating Lambda-managed storage limits and reducing time to first invoke.
+
 **[Memory](configuration-memory.md "configuration-memory.md")**
 
 Learn how and when to increase function memory.

@@ -164,7 +164,7 @@ image version build. You typically update a MicroVM image to:
   ship a new version of your application.
 - **Move to a newer MicroVM base image**
   – Change the MicroVM base image ARN to upgrade to newer versions
-  of Lambda's MicroVM base image. For more information, refer to
+  of the Lambda MicroVM base image. For more information, refer to
   [MicroVM image patching](#microvms-images-patching "#microvms-images-patching") and
   [MicroVM base images](#microvms-images-base-images "#microvms-images-base-images").
 - **Change the build role** –
@@ -265,7 +265,7 @@ operating system environment. You define that container with your
 `Dockerfile` sets the _container base image_
 for your application.
 
-You can either start with Lambda's base container image for Amazon Linux 2023
+You can either start with the Lambda base container image for Amazon Linux 2023
 (`public.ecr.aws/lambda/microvms:al2023-minimal`) and add your
 `Dockerfile` instructions on top of this, or use your own base
 container image. When using your own container images,

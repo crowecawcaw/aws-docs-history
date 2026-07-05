@@ -8,6 +8,8 @@ deployment package type. To configure a function defined as a container image, s
 You can use the Lambda console and the Lambda API to create a function defined with a .zip file archive. You can
 also upload an updated .zip file to change the function code.
 
+By default, when you upload a .zip file, Lambda stores a copy of your source code in Lambda-managed storage. With [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"), Lambda reads your source code from your S3 bucket during function creation and update operations, and does not store a separate copy of your source code. Lambda still creates an internal optimized representation of your code for invocation. Your source code in S3 is not accessed on every cold start.
+
 ###### Note
 
 You cannot change the [deployment package type](../api/API_CreateFunction.md#lambda-CreateFunction-request-PackageType "../api/API_CreateFunction.md#lambda-CreateFunction-request-PackageType") (.zip or container image) for an existing function. For example, you cannot convert a container image function to use a .zip file archive. You must create a new function.
@@ -114,6 +116,17 @@ machine. If the file is larger than 50 MB, upload the file to the function from 
 
    1. In the text box, enter the S3 link URL of the .zip file archive, then choose **Save**.
 
+When updating function code from an Amazon S3 bucket using the AWS CLI, you can specify the code storage mode. Set `S3ObjectStorageMode` to `REFERENCE` to use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"), or `COPY` (default) to use Lambda-managed storage. You can change the storage mode on each update.
+
+```
+`aws lambda update-function-code \
+ --function-name my-function \
+ --s3-bucket `my-bucket` \
+ --s3-key `my-function.zip` \
+ --s3-object-version `abc123` \
+ --s3-object-storage-mode REFERENCE`
+```
+
 ## Changing the runtime
 
 If you update the function configuration to use a new runtime, you may need to update the function
@@ -210,3 +223,4 @@ as a .zip file archive:
   - Runtime – Set the runtime value.
   - Architecture – Set the architecture value to `arm64` to use the AWS Graviton2
     processor. By default, the architecture value is `x86_64`.
+  - S3ObjectStorageMode – (Optional) Set to `REFERENCE` to use [self-managed S3 code storage](configuration-self-managed-storage.md "configuration-self-managed-storage.md"). Set to `COPY` (default) to use Lambda-managed storage.

@@ -280,7 +280,7 @@ You can also view your function's logs in CloudWatch Logs to see the console out
 2. Choose the log group for your function (`/aws/lambda/myDurableFunction`).
 3. Scroll down and choose the **Log stream** for the function invocations you want to look at.
 
-![List of log streams for a Lambda function.](/images/lambda/latest/dg/images/log-stream.png)
+![List of log streams for a Lambda function.](images/log-stream.png)
 
 You should see log entries for each invocation of your function, including the initial execution and the replay after the wait.
 

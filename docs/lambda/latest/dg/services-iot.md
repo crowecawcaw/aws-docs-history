@@ -30,16 +30,24 @@ events that your function could not process.
 You need to grant permission for the AWS IoT service to invoke your Lambda function. Use the
 `add-permission` command to add a permission statement to your function's resource-based policy.
 
+###### Important
+
+If you add a permission for an AWS IoT principal without providing the `source-arn` or
+`source-account`, any AWS account that creates a rule with your AWS Lambda action can activate
+rules to invoke your AWS Lambda function from AWS IoT. For more information, see [AWS Lambda permissions](access-control-resource-based.md "access-control-resource-based.md").
+
 ```
 `aws lambda add-permission --function-name `my-function` \
---statement-id iot-events --action "lambda:InvokeFunction" --principal iot.amazonaws.com`
+--statement-id iot-events --action "lambda:InvokeFunction" --principal iot.amazonaws.com \
+--source-arn arn:aws:iot:`us-east-1`:`123456789012`:rule/`my-rule` \
+--source-account `123456789012``
 ```
 
 You should see the following output:
 
 ```
 {
-    "Statement": "{\"Sid\":\"iot-events\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"iot.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-east-1:123456789012:function:my-function\"}"
+    "Statement": "{\"Sid\":\"iot-events\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"iot.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-east-1:123456789012:function:my-function\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:iot:us-east-1:123456789012:rule/my-rule\"},\"StringEquals\":{\"AWS:SourceAccount\":\"123456789012\"}}}"
 }
 
 ```
