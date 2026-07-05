@@ -38,7 +38,7 @@ make sure that you have created and set up the following network configurations:
   security group and the VPC Network ACLs for the subnet(s) where you're creating your FSx
   file system allow traffic on the ports and in the directions shown in the following diagram.
 
-![FSx for Windows File Server port configuration requirements for VPC security groups and network ACLs for the subnets where the file system is being created.](/images/fsx/latest/WindowsGuide/images/Windows-port-requirements.png)
+![FSx for Windows File Server port configuration requirements for VPC security groups and network ACLs for the subnets where the file system is being created.](images/Windows-port-requirements.png)
 
 The following table identifies the role of each port.
 
