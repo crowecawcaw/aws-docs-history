@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # AWS Database Migration Service (AWS DMS)
 
 AWS Database Migration Service (AWS DMS) helps you migrate databases to AMS easily and securely. You can migrate your data to and from most widely

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # CloudFormation Ingest examples: Defining resources
 
 When using AMS CloudFormation ingest, you customize a CloudFormation template and submit it to AMS in an RFC with the CloudFormation ingest change type (ct-36cn2avfrrj9v).
