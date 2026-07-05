@@ -1,10 +1,10 @@
 # Detect and Analyze
 
-**Reporting an Event**
+## Reporting an event
 
 You can raise a security event through the AWS Security Incident Response portal. It's important not to wait during a security event. AWS Security Incident Response uses automated and manual techniques to investigate security events, analyze logs, and look for anomalous patterns. Your partnership and understanding of your environment accelerates this analysis.
 
-**Enabling supported sources of detection**
+## Enabling supported sources of detection
 
 ###### Note
 
@@ -43,23 +43,17 @@ AWS Security Incident Response can monitor and investigate findings from the fol
 
 By enabling these integrations, you can significantly enhance the scope and effectiveness of AWS Security Incident Response's monitoring and investigation capabilities.
 
-**Detection**
+## Detection
 
 With [Proactive Response](setup-monitoring-and-investigation-workflows.md "setup-monitoring-and-investigation-workflows.md"), AWS Security Incident Response ingests findings from Amazon GuardDuty and AWS Security Hub CSPM through Amazon EventBridge rules that are deployed to your accounts during onboarding.
 
-AWS Security Incident Response automatically archives Amazon GuardDuty findings that are determined during automated triage to be benign or associated with expected activity. You can view archived findings in the Amazon GuardDuty console by selecting Archived from the findings Status filter. For more information, see [Viewing generated findings in GuardDuty console](../../../guardduty/latest/ug/guardduty_working-with-findings.md "../../../guardduty/latest/ug/guardduty_working-with-findings.md") in the _Amazon GuardDuty User Guide_.
-
-AWS Security Incident Response automatically archives Amazon GuardDuty findings that are determined during automated triage to be benign or associated with expected activity. This archiving occurs only for findings that have been triaged and have an outcome designated as "archive". Findings under active investigation remain visible in the Amazon GuardDuty console even after an investigation wraps up. You can view archived findings in the Amazon GuardDuty console by selecting **Archived** from the findings filter. For more information about working with archived findings, see [Working with findings](../../../guardduty/latest/ug/findings_managing.md "../../../guardduty/latest/ug/findings_managing.md") in the _Amazon GuardDuty User Guide_.
-
-When AWS Security Hub CSPM ingests security findings, the system updates each finding with a note indicating that automated triage has begun. The workflow state changes from NEW to NOTIFIED, which removes the finding from the default AWS Security Hub CSPM findings view. If triage determines that a finding is benign or associated with expected activity, the system adds a note to the finding and updates the workflow state to SUPPRESSED.
-
-**Analysis: Automated Triage**
+## Analysis: Automated triage
 
 AWS Security Incident Response automatically triages security findings. The triage process determines whether detected activity represents expected behavior, by analyzing data from multiple sources including the finding payload, AWS service metadata, AWS logging and monitoring data (such as AWS CloudTrail and VPC Flow Logs), AWS threat intelligence, and context that you are invited to provide about your AWS and on-premises environments.
 
 If automated triage determines that the detected activity is expected, the system takes no further investigative action.
 
-**Analysis: Incident Response Security Investigation**
+## Analysis: Incident response security investigation
 
 AWS Security Incident Response Engineering is a global, always-available team of security professionals with expertise in AWS and security incident response. If automated triage cannot determine that the activity is expected, AWS Security Incident Response Engineering is engaged to perform a security investigation. If the event was ingested from Security Hub, a note is posted to the related finding stating that AWS Security Incident Response Engineering's investigation is underway.
 
@@ -85,7 +79,7 @@ Windows
 
 To use EC2 Triage, you must deploy the **Containment with EC2 Triage** CloudFormation template to your accounts. For more information, see [Deploy containment and EC2 Triage roles](working-with-stacksets.md "working-with-stacksets.md"). The target Amazon EC2 instances must have [SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") installed and running, and must be online and managed by AWS Systems Manager. For setup information, see [Setting up Systems Manager for Amazon EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md").
 
-**Communicate**
+## Communicate
 
 AWS Security Incident Response keeps you informed during security investigations by engaging with your Incident Response team through a Security Incident Response case. Multiple AWS Security Incident Response Engineering members may support an investigation. Communication may include: acknowledgment or notification of the creation of a security investigation; establishing a call bridge; analysis of artifacts such as log files; requests for confirmation of expected activity; and sharing of investigation results.
 
@@ -97,9 +91,61 @@ When AWS Security Incident Response proactively engages your Incident Response t
 
 The effectiveness of AWS Security Incident Response improves with your collaboration and results in a more effectively monitored and secure AWS environment.
 
+## Updating findings
+
 **Updating Findings**
 
-AWS Security Incident Response manages findings differently depending on their source and triage outcome.
+AWS Security Incident Response manages findings differently depending on their source and triage
+outcome.
+
+**Amazon GuardDuty findings**
+
+AWS Security Incident Response archives Amazon GuardDuty findings only when triage determines that the detected
+activity is benign or associated with expected activity. Archiving behavior depends on
+the triage outcome category of each finding.
+
+_Findings that are archived:_
+
+- **Benign/Expected Activity (automated triage):**
+  Activity determined by automated triage to be benign or associated with expected
+  activity.
+- **Benign/Expected Activity (manual investigation):**
+  Activity confirmed as benign or associated with expected activity after further analysis
+  by AWS Security Incident Response.
+
+_Findings that aren't archived:_
+
+- **Unconfirmed Activity:** Findings determined
+  to require customer engagement and pending customer confirmation on whether the activity
+  is expected or benign.
+- **Inappropriate/Unintended Activity:** Findings
+  determined to represent confirmed inappropriate or unintended activity that requires
+  customer review or action.
+- **Posture Related:** Finding relates to your
+  security posture (for example, overly permissive policies, configuration, or missing
+  encryption). These aren't threat findings, but they're retained without archiving by
+  design.
+
+Findings that aren't archived remain visible in the GuardDuty console with their current
+status. The absence of archiving for these finding categories doesn't indicate that
+AWS Security Incident Response took no action — it reflects the design intent that these findings remain
+available for your review.
+
+You can view archived findings in the GuardDuty console by selecting
+**Archived** on the status drop-down menu. For more information about
+working with archived findings, see
+[Working with
+findings](../../../guardduty/latest/ug/findings_managing.md "../../../guardduty/latest/ug/findings_managing.md") in the _Amazon GuardDuty User Guide_.
+
+**AWS Security Hub CSPM findings**
+
+When Security Hub CSPM findings are ingested, the system updates each finding with a note
+indicating that automated triage has begun. The workflow state changes from NEW to
+NOTIFIED, which removes the finding from the default Security Hub CSPM findings view. If triage
+determines that a finding is benign or associated with expected activity, the system adds
+a note to the finding and updates the workflow state to SUPPRESSED.
+
+## Service tuning
 
 **Service Tuning**
 

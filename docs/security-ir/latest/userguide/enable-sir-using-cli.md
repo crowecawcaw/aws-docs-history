@@ -46,13 +46,13 @@ aws security-ir create-membership \
       "name": "`name`",
       "jobTitle": "`job-title`",
       "email": "`email@example.com`",
-      "communicationPreferences": ["email"]
-    }
+      "communicationPreferences": ["Case Created", "Case Closed"]
+    },
     {
       "name": "`name`",
       "jobTitle": "`job-title`",
       "email": "`email@example.com`",
-      "communicationPreferences": ["email"]
+      "communicationPreferences": ["Case Created", "Case Closed"]
     }
   ]'
 ```
@@ -89,13 +89,13 @@ aws security-ir create-membership \
       "name": "`name`",
       "jobTitle": "`job-title`",
       "email": "`email@example.com`",
-      "communicationPreferences": ["email"]
-    }
+      "communicationPreferences": ["Case Created", "Case Closed"]
+    },
     {
       "name": "`name`",
       "jobTitle": "`job-title`",
       "email": "`email@example.com`",
-      "communicationPreferences": ["email"]
+      "communicationPreferences": ["Case Created", "Case Closed"]
     }
   ]'
 ```
