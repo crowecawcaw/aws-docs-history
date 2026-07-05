@@ -91,7 +91,7 @@ owners**.
 ![The "Project owners" section of the project details page.](images/project-add-owners-console.png) 4. In the **Project owners** dialog box, select the check boxes for the
 users to be owners for this project.
 
-![Shows the "Project owners" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-owners-console.png)
+![Shows the "Project owners" dialog.](images/project-choose-owners-console.png)
 
 ###### Note
 
@@ -113,6 +113,6 @@ project owners.
 the check boxes for the project owners to receive an email, and then choose **Send
 invitations**.
 
-![The "Project owners" section of the project details page.](images/project-invite-owners-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
+![The "Project owners" section of the project details page.](/images/iot-sitewise/latest/appguide/images/project-invite-owners-console.png) 4. Your preferred email client opens, prepopulated with the recipients and the email body
 with details from your project. You can customize the email before you send it to the
 project owners.

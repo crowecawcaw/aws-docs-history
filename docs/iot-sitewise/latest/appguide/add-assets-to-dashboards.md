@@ -32,7 +32,7 @@ dashboard. 4. Choose **Properties** to view the asset's properties or
 you automatically add that alarm to the dashboard when you add its property. 5. Drag a property or alarm from the asset hierarchy to the dashboard. You can add
 multiple properties and alarms to one visualization.
 
-![A dashboard with a callout highlighting an asset property that you can drag onto the dashboard.](/images/iot-sitewise/latest/appguide/images/dashboard-add-visualization-console.png)
+![A dashboard with a callout highlighting an asset property that you can drag onto the dashboard.](images/dashboard-add-visualization-console.png)
 
 The asset property appears on the dashboard with a default visualization type:
 

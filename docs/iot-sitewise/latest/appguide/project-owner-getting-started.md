@@ -34,7 +34,7 @@ The following procedure assumes that you signed in the AWS IoT SiteWise Monitor 
 
 - In the navigation bar, choose the **Assets** icon.
 
-![The "Assets" icon in the navigation bar.](images/portal-navigation-asset-library-console.png)
+![The "Assets" icon in the navigation bar.](/images/iot-sitewise/latest/appguide/images/portal-navigation-asset-library-console.png)
 The **Assets** page
 appears.
 
@@ -102,7 +102,7 @@ more information, see [Configure thresholds](configure-thresholds.md "configure-
 ![A sample visualization with the visualization configuration icon highlighted.](images/dashboard-edit-visualization-configuration-console.png) 5. To move a visualization, choose the control icon in the upper left and then drag the
 visualization to a new location.
 
-![An example visualization with the gripper and resize controls highlighted.](/images/iot-sitewise/latest/appguide/images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
+![An example visualization with the gripper and resize controls highlighted.](images/dashboard-edit-visualization-bounds-console.png) 6. To change the size of a visualization, use the resize control in the lower right.
 Drag the corner to a new size and shape. Visualizations snap to the grid when resized,
 so you only have coarse control over the size. 7. After you finish editing the dashboard, choose **Save dashboard** to
 save your changes. The dashboard editor closes. If you try to close a dashboard that has
@@ -133,7 +133,7 @@ viewers**.
 ![The "Project viewers" section of a project page.](images/project-add-viewers-console.png) 4. In the **Project viewers** dialog box, select the check boxes for the
 users to be viewers for this project.
 
-![Shows the "Project viewers" dialog.](/images/iot-sitewise/latest/appguide/images/project-choose-viewers-console.png)
+![Shows the "Project viewers" dialog.](images/project-choose-viewers-console.png)
 
 ###### Note
 
