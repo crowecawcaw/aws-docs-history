@@ -12,13 +12,13 @@ You can attach `AWSWAFConsoleFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: April 06, 2020, 18:38 UTC
-- **Edited time:** April 08, 2026, 22:12 UTC
+- **Edited time:** July 01, 2026, 04:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSWAFConsoleFullAccess`
 
 ## Policy version
 
-**Policy version:** v21 (default)
+**Policy version:** v22 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -397,6 +397,26 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowListActionsForPricingPlanManager",
       "Effect" : "Allow",
       "Action" : "pricingplanmanager:ListSubscriptions",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "AllowActionsForAgentCoreGateway",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-agentcore:GatewayAssociateWebACL",
+        "bedrock-agentcore:GatewayDisassociateWebACL",
+        "bedrock-agentcore:GatewayGetWebACLForResource",
+        "bedrock-agentcore:GetGateway"
+      ],
+      "Resource" : "arn:aws:bedrock-agentcore:*:*:gateway/*"
+    },
+    {
+      "Sid" : "AllowListActionsForAgentCoreGateway",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-agentcore:GatewayListResourcesForWebACL",
+        "bedrock-agentcore:ListGateways"
+      ],
       "Resource" : "*"
     }
   ]

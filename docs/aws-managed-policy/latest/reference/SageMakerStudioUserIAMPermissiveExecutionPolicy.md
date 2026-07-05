@@ -12,13 +12,13 @@ You can attach `SageMakerStudioUserIAMPermissiveExecutionPolicy` to your users, 
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** June 04, 2026, 21:27 UTC
+- **Edited time:** June 29, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v21 (default)
+**Policy version:** v22 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -40,7 +40,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "redshift-serverless:*",
         "redshift:*",
         "s3:*",
-        "s3tables:*"
+        "s3tables:*",
+        "comprehend:*",
+        "textract:*",
+        "rekognition:*",
+        "sagemaker-data-science-assistant:*",
+        "rds:*",
+        "quicksight:*",
+        "events:*"
       ],
       "Resource" : "*"
     },
@@ -60,7 +67,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sqlworkbench:*",
         "emr-serverless:*",
         "airflow-serverless:*",
-        "airflow:*"
+        "airflow:*",
+        "application-autoscaling:*"
       ],
       "Resource" : "*"
     },
@@ -178,7 +186,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:GenerateCode",
         "datazone:SendMessage",
         "datazone:CancelMessage",
-        "datazone:QueryGraph"
+        "datazone:QueryGraph",
+        "datazone:StartCompute",
+        "datazone:StopCompute"
       ],
       "Resource" : "*"
     },
@@ -366,15 +376,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "CodeConnectionsUser",
       "Effect" : "Allow",
       "Action" : [
-        "codeconnections:UseConnection",
-        "codeconnections:ListConnections",
         "codeconnections:GetConnection",
-        "codeconnections:GetHost",
-        "codeconnections:ListTagsForResource",
-        "codestar-connections:UseConnection",
-        "codestar-connections:ListConnections",
+        "codeconnections:UseConnection",
         "codestar-connections:GetConnection",
+        "codestar-connections:UseConnection"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/for-use-with-all-datazone-projects" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "CodeConnectionsUserList",
+      "Effect" : "Allow",
+      "Action" : [
+        "codeconnections:GetHost",
+        "codeconnections:ListConnections",
+        "codeconnections:ListTagsForResource",
         "codestar-connections:GetHost",
+        "codestar-connections:ListConnections",
         "codestar-connections:ListTagsForResource"
       ],
       "Resource" : "*"
@@ -610,7 +632,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:CreateNetworkInterface",
         "ec2:DeleteNetworkInterface",
         "ec2:CreateNetworkInterfacePermission",
-        "ec2:DeleteNetworkInterfacePermission"
+        "ec2:DeleteNetworkInterfacePermission",
+        "ec2:CreateVpcEndpoint"
       ],
       "Resource" : "*"
     },

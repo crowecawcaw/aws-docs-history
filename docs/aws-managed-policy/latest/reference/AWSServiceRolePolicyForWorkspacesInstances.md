@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: June 11, 2025, 20:37 UTC
-- **Edited time:** April 07, 2026, 17:27 UTC
+- **Edited time:** June 29, 2026, 23:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForWorkspacesInstances`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -31,8 +31,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
+      "Sid" : "DescribeResources",
       "Effect" : "Allow",
       "Action" : [
+        "ec2:DescribeCapacityReservations",
         "ec2:DescribeInstances",
         "ec2:DescribeInstanceStatus",
         "ec2:DescribeTags",
@@ -41,6 +43,43 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
+      "Sid" : "CreateCapacityReservation",
+      "Effect" : "Allow",
+      "Action" : "ec2:CreateCapacityReservation",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/ManagedBy" : "workspaces-instances"
+        }
+      }
+    },
+    {
+      "Sid" : "ManageTaggedCapacityReservations",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:ModifyCapacityReservation",
+        "ec2:CancelCapacityReservation"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/ManagedBy" : "workspaces-instances"
+        }
+      }
+    },
+    {
+      "Sid" : "TagRemediation",
+      "Effect" : "Allow",
+      "Action" : "ec2:CreateTags",
+      "Resource" : "arn:aws:ec2:*:*:capacity-reservation/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/ManagedBy" : "workspaces-instances"
+        }
+      }
+    },
+    {
+      "Sid" : "ManagedInstanceOperations",
       "Effect" : "Allow",
       "Action" : [
         "ec2:CreateTags",

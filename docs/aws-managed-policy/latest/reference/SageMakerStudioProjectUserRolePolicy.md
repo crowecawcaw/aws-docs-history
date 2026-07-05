@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectUserRolePolicy` to your users, groups, and
 
 - **Type**: AWS managed policy
 - **Creation time**: November 20, 2024, 21:59 UTC
-- **Edited time:** June 04, 2026, 21:27 UTC
+- **Edited time:** June 29, 2026, 20:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioProjectUserRolePolicy`
 
 ## Policy version
 
-**Policy version:** v69 (default)
+**Policy version:** v71 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -345,21 +345,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "glue:BatchStopJobRun",
         "glue:StopWorkflowRun",
         "glue:StartJobRun",
-        "glue:CancelDataQualityRuleRecommendationRun",
-        "glue:CancelDataQualityRulesetEvaluationRun",
-        "glue:DeleteDataQualityRuleset",
-        "glue:GetDataQualityModel",
-        "glue:GetDataQualityModelResult",
-        "glue:GetDataQualityRuleRecommendationRun",
-        "glue:GetDataQualityRuleset",
-        "glue:GetDataQualityRulesetEvaluationRun",
-        "glue:GetDataQualityResult",
-        "glue:PublishDataQuality",
-        "glue:PutDataQualityProfileAnnotation",
-        "glue:PutDataQualityStatisticAnnotation",
-        "glue:StartDataQualityRuleRecommendationRun",
-        "glue:StartDataQualityRulesetEvaluationRun",
-        "glue:UpdateDataQualityRuleset",
+        "glue:*DataQuality*",
         "glue:GetJobRun",
         "glue:GetJobRuns",
         "glue:BatchGetJobs",
@@ -395,8 +381,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "GlueDQVetl",
       "Effect" : "Allow",
       "Action" : [
-        "glue:GetDataQualityResult",
-        "glue:PublishDataQuality"
+        "glue:*DataQuality*"
       ],
       "Resource" : [
         "arn:aws:glue:*:*:dataQualityRuleset/dq_etl_ruleset_${aws:PrincipalTag/AmazonDataZoneProject}_*"
@@ -693,7 +678,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "DataLakeCrossAccountDecryptKMSPermissions",
+      "Sid" : "XAcctKmsDecrypt",
       "Effect" : "Allow",
       "Action" : [
         "kms:Decrypt"
@@ -797,7 +782,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "AccessLevelControlS3BucketPermissions",
+      "Sid" : "S3BucketAcl",
       "Effect" : "Allow",
       "Action" : "s3:GetBucketAcl",
       "Resource" : "arn:aws:s3:::${aws:PrincipalTag/DomainBucketName}",
@@ -808,7 +793,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "TagS3ObjectPermissionsForBedrockEvaluation",
+      "Sid" : "BREvalS3Tag",
       "Effect" : "Allow",
       "Action" : "s3:PutObjectTagging",
       "Resource" : "arn:aws:s3:::${aws:PrincipalTag/DomainBucketName}/${aws:PrincipalTag/AmazonDataZoneDomain}/${aws:PrincipalTag/AmazonDataZoneProject}/genAI/assets/evaluations/*",
@@ -1021,9 +1006,26 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:ListEnvironmentBlueprints",
         "datazone:ListProjects",
         "datazone:UpdateConnection",
-        "datazone:PostLineageEvent"
+        "datazone:PostLineageEvent",
+        "datazone:*Compute*"
       ],
       "Resource" : "arn:aws:datazone:*:*:domain/${aws:PrincipalTag/AmazonDataZoneDomain}"
+    },
+    {
+      "Sid" : "CodeConnectionsUser",
+      "Effect" : "Allow",
+      "Action" : [
+        "codeconnections:GetConnection",
+        "codeconnections:UseConnection",
+        "codestar-connections:GetConnection",
+        "codestar-connections:UseConnection"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/for-use-with-all-datazone-projects" : "true"
+        }
+      }
     },
     {
       "Sid" : "GlueGetDefaultDatabase",
@@ -1432,7 +1434,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "RedshiftDataActionsIAMSessionRestriction",
+      "Sid" : "RSDataIAMSession",
       "Effect" : "Allow",
       "Action" : [
         "redshift-data:DescribeStatement",
@@ -1503,7 +1505,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "RedshiftServerlessWorkgroupWithResourceType",
+      "Sid" : "RSWgTagged",
       "Effect" : "Allow",
       "Action" : [
         "redshift-serverless:GetWorkgroup",
@@ -1519,7 +1521,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "RedshiftExistingComputeConnectToCatalog",
+      "Sid" : "RSExistCatalog",
       "Effect" : "Allow",
       "Action" : [
         "redshift:GetClusterCredentialsWithIAM"
@@ -1556,7 +1558,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "RedshiftDataActionsForManagedWorkgroup",
+      "Sid" : "RSDataMWg",
       "Effect" : "Allow",
       "Action" : [
         "redshift-data:BatchExecuteStatement",
@@ -1948,7 +1950,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "BedrockInvokeModelAppInferenceProfilePermissions",
+      "Sid" : "BRInvokeAppProfile",
       "Effect" : "Allow",
       "Action" : [
         "bedrock:GetInferenceProfile",
@@ -2053,7 +2055,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CreateEvaluationJobForFoundationModelPermissions",
+      "Sid" : "BREvalFM",
       "Effect" : "Allow",
       "Action" : "bedrock:CreateEvaluationJob",
       "Resource" : [
@@ -2062,7 +2064,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ]
     },
     {
-      "Sid" : "BedrockCreateEvaluationJobPermissions",
+      "Sid" : "BRCreateEval",
       "Effect" : "Allow",
       "Action" : "bedrock:CreateEvaluationJob",
       "Resource" : [
@@ -2121,7 +2123,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "BedrockRetrieveAndGeneratePermissions",
+      "Sid" : "BRRAG",
       "Effect" : "Allow",
       "Action" : "bedrock:RetrieveAndGenerate",
       "Resource" : "*",
@@ -2330,7 +2332,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "KmsViaSecretsManagerPermissionsForBedrock",
+      "Sid" : "BRKmsSM",
       "Effect" : "Allow",
       "Action" : [
         "kms:Decrypt",
@@ -2377,7 +2379,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "GetDataZoneEnvironmentCFNStackPermissions",
+      "Sid" : "DZEnvCfn",
       "Effect" : "Allow",
       "Action" : [
         "cloudformation:GetTemplate",
@@ -2466,12 +2468,18 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "arn:aws:logs:*:*:log-group:/aws/lambda/athenafederatedcatalog*"
     },
     {
-      "Sid" : "UnrestrictedDataConnectionPermissions",
+      "Sid" : "DataConnOpen",
       "Effect" : "Allow",
       "Action" : [
         "dynamodb:ListTables",
         "glue:ManagedConnector",
-        "glue:TestConnection"
+        "glue:TestConnection",
+        "codeconnections:GetHost",
+        "codeconnections:ListConnections",
+        "codeconnections:ListTagsForResource",
+        "codestar-connections:GetHost",
+        "codestar-connections:ListConnections",
+        "codestar-connections:ListTagsForResource"
       ],
       "Resource" : "*"
     },
@@ -2599,7 +2607,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : "*"
     },
     {
-      "Sid" : "CrossAccountLakeFormationResourceSharingPermissions",
+      "Sid" : "XAcctLFCreate",
       "Effect" : "Allow",
       "Action" : [
         "ram:CreateResourceShare"
@@ -2621,7 +2629,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CrossAccountRAMResourceSharingPermissions",
+      "Sid" : "XAcctRAMGlue",
       "Effect" : "Allow",
       "Action" : [
         "glue:DeleteResourcePolicy",
@@ -2642,7 +2650,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CrossAccountRAMResourceSharingViaLakeFormationPermissions",
+      "Sid" : "XAcctRAMLF",
       "Effect" : "Allow",
       "Action" : [
         "ram:AssociateResourceShare",
@@ -2681,7 +2689,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CrossAccountRAMResourceShareInvitationPermission",
+      "Sid" : "XAcctRAMInvite",
       "Effect" : "Allow",
       "Action" : [
         "ram:AcceptResourceShareInvitation"
@@ -2697,7 +2705,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "CrossAccountRAMResourceSharingViaLakeFormationHybrid",
+      "Sid" : "XAcctRAMLFHybrid",
       "Effect" : "Allow",
       "Action" : "ram:AssociateResourceSharePermission",
       "Resource" : "*",
@@ -2746,7 +2754,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "ManageQuickSightFolderAndDataSourceResources",
+      "Sid" : "QSFolderDS",
       "Effect" : "Allow",
       "Action" : [
         "quicksight:DescribeDataSource",
@@ -2828,16 +2836,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}"
         }
       }
-    },
-    {
-      "Sid" : "SageMakerUnifiedStudioMcp",
-      "Effect" : "Allow",
-      "Action" : [
-        "sagemaker-unified-studio-mcp:InvokeMcp",
-        "sagemaker-unified-studio-mcp:CallReadOnlyTool",
-        "sagemaker-unified-studio-mcp:CallPrivilegedTool"
-      ],
-      "Resource" : "*"
     }
   ]
 }

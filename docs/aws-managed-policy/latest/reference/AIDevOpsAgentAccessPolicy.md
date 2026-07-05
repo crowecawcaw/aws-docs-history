@@ -12,13 +12,13 @@ You can attach `AIDevOpsAgentAccessPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** June 26, 2026, 23:42 UTC
+- **Edited time:** July 02, 2026, 23:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsAgentAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -294,6 +294,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "devops-guru:Describe*",
         "devops-guru:GetResourceCollection",
         "devops-guru:List*",
+        "directconnect:DescribeConnections",
+        "directconnect:DescribeDirectConnectGatewayAssociations",
+        "directconnect:DescribeDirectConnectGatewayAttachments",
+        "directconnect:DescribeDirectConnectGateways",
+        "directconnect:DescribeHostedConnections",
+        "directconnect:DescribeInterconnects",
+        "directconnect:DescribeLags",
+        "directconnect:DescribeTags",
+        "directconnect:DescribeVirtualInterfaces",
         "dms:Describe*",
         "dms:List*",
         "ds:Describe*",
@@ -396,11 +405,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "glue:GetJobBookmark",
         "glue:GetJobRun",
         "glue:GetJobRuns",
+        "glue:GetPartitions",
         "glue:GetRegistry",
         "glue:GetResourcePolicy",
         "glue:GetSchema",
         "glue:GetSchemaVersion",
         "glue:GetTable",
+        "glue:GetTables",
         "glue:GetTags",
         "glue:GetTrigger",
         "glue:GetSecurityConfiguration",
@@ -754,6 +765,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:GetBucketTagging",
         "s3:GetBucketVersioning",
         "s3:GetEncryptionConfiguration",
+        "s3:GetIntelligentTieringConfiguration",
+        "s3:GetInventoryConfiguration",
         "s3:GetLifecycleConfiguration",
         "s3:GetMultiRegionAccessPoint",
         "s3:GetMultiRegionAccessPointPolicy",
@@ -932,6 +945,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "arn:aws:apigateway:*::/apis/*/integrations/*",
         "arn:aws:apigateway:*::/apis/*/stages",
         "arn:aws:apigateway:*::/apis/*/stages/*",
+        "arn:aws:apigateway:*::/domainnames",
         "arn:aws:apigateway:*::/domainnames/*"
       ]
     }

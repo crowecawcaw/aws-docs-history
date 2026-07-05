@@ -12,13 +12,13 @@ You can attach `SageMakerStudioAdminIAMDefaultExecutionPolicy` to your users, gr
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** June 04, 2026, 21:27 UTC
+- **Edited time:** June 29, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMDefaultExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v22 (default)
+**Policy version:** v23 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -164,7 +164,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "emr-serverless.amazonaws.com",
             "elasticmapreduce.amazonaws.com",
             "redshift.amazonaws.com",
-            "airflow-serverless.amazonaws.com"
+            "airflow-serverless.amazonaws.com",
+            "events.amazonaws.com"
           ]
         }
       }
@@ -252,7 +253,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:CreateBucket",
         "s3:DeleteBucketPolicy",
         "s3:Get*",
-        "s3:Put*"
+        "s3:Put*",
+        "s3:DeleteObject",
+        "s3:AbortMultipartUpload"
       ],
       "Resource" : [
         "arn:aws:s3:::amazon-sagemaker*"
@@ -305,6 +308,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "cloudwatch:PutMetricData",
         "cloudwatch:GetMetricData",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:PutMetricAlarm",
+        "cloudwatch:DeleteAlarms",
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
         "logs:Describe*",
@@ -547,7 +553,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:GetSecretValue",
         "secretsmanager:TagResource",
         "secretsmanager:UpdateSecret",
-        "secretsmanager:PutResourcePolicy"
+        "secretsmanager:PutResourcePolicy",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -565,7 +572,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:DescribeSecret",
         "secretsmanager:GetSecretValue",
         "secretsmanager:TagResource",
-        "secretsmanager:UpdateSecret"
+        "secretsmanager:UpdateSecret",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -912,7 +920,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:CreateNetworkInterface",
         "ec2:DeleteNetworkInterface",
         "ec2:CreateNetworkInterfacePermission",
-        "ec2:DeleteNetworkInterfacePermission"
+        "ec2:DeleteNetworkInterfacePermission",
+        "ec2:CreateVpcEndpoint"
       ],
       "Resource" : "*"
     },
@@ -1062,6 +1071,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "CanvasGeneralPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "comprehend:*",
+        "textract:*",
+        "rekognition:*",
+        "sagemaker-data-science-assistant:*",
+        "rds:DescribeDBInstances",
+        "application-autoscaling:PutScalingPolicy",
+        "application-autoscaling:RegisterScalableTarget",
+        "application-autoscaling:DescribeScalingActivities",
+        "quicksight:ListNamespaces",
+        "events:PutRule",
+        "events:DescribeRule",
+        "events:PutTargets",
+        "events:TagResource",
+        "events:ListTagsForResource"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CanvasRedshiftAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "redshift:GetClusterCredentials"
+      ],
+      "Resource" : [
+        "arn:aws:redshift:*:*:dbuser:*/sagemaker_access*",
+        "arn:aws:redshift:*:*:dbname:*"
+      ]
     }
   ]
 }

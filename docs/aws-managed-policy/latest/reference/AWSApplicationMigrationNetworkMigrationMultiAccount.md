@@ -12,13 +12,13 @@ You can attach `AWSApplicationMigrationNetworkMigrationMultiAccount` to your use
 
 - **Type**: AWS managed policy
 - **Creation time**: November 10, 2025, 09:04 UTC
-- **Edited time:** June 11, 2026, 07:42 UTC
+- **Edited time:** June 29, 2026, 08:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSApplicationMigrationNetworkMigrationMultiAccount`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -54,7 +54,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeSecurityGroups",
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
-        "ec2:DescribeNetworkInterfaces"
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeAvailabilityZones"
       ],
       "Resource" : [
         "*"

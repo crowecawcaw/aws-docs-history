@@ -12,13 +12,13 @@ You can attach `SageMakerStudioUserIAMDefaultExecutionPolicy` to your users, gro
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** June 04, 2026, 21:27 UTC
+- **Edited time:** June 29, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v26 (default)
+**Policy version:** v27 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -83,7 +83,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "datazone:GenerateCode",
         "datazone:SendMessage",
         "datazone:CancelMessage",
-        "datazone:QueryGraph"
+        "datazone:QueryGraph",
+        "datazone:StartCompute",
+        "datazone:StopCompute"
       ],
       "Resource" : "*"
     },
@@ -101,16 +103,6 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "ValidateCfn",
       "Effect" : "Allow",
       "Action" : "cloudformation:ValidateTemplate",
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "SageMakerUnifiedStudioMcp",
-      "Effect" : "Allow",
-      "Action" : [
-        "sagemaker-unified-studio-mcp:InvokeMcp",
-        "sagemaker-unified-studio-mcp:CallReadOnlyTool",
-        "sagemaker-unified-studio-mcp:CallPrivilegedTool"
-      ],
       "Resource" : "*"
     },
     {
@@ -194,7 +186,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "sagemaker:CreatePresignedDomainUrl",
         "sagemaker:CreateUserProfile",
-        "sagemaker:DeleteUserProfile"
+        "sagemaker:DeleteUserProfile",
+        "sagemaker:UpdateUserProfile"
       ],
       "Resource" : "arn:aws:sagemaker:*:*:user-profile/*",
       "Condition" : {
@@ -223,6 +216,25 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "sagemaker:SpaceSharingType" : [
             "Private"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "CanvasUserProfileApp",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker:CreateApp",
+        "sagemaker:DeleteApp",
+        "sagemaker:CreateSpace",
+        "sagemaker:DeleteSpace"
+      ],
+      "Resource" : [
+        "arn:aws:sagemaker:*:*:app/*/Canvas/*",
+        "arn:aws:sagemaker:*:*:space/*/CanvasManagedSpace*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonDataZoneUser" : "${aws:PrincipalTag/datazone:userId}"
         }
       }
     },
@@ -306,6 +318,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "cloudwatch:PutMetricData",
         "cloudwatch:GetMetricData",
+        "cloudwatch:DescribeAlarms",
+        "cloudwatch:PutMetricAlarm",
+        "cloudwatch:DeleteAlarms",
         "logs:CreateLogGroup",
         "logs:CreateLogStream",
         "logs:Describe*",
@@ -501,7 +516,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "emr-serverless.amazonaws.com",
             "elasticmapreduce.amazonaws.com",
             "redshift.amazonaws.com",
-            "airflow-serverless.amazonaws.com"
+            "airflow-serverless.amazonaws.com",
+            "events.amazonaws.com"
           ]
         }
       }
@@ -619,7 +635,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:DescribeSecret",
         "secretsmanager:GetSecretValue",
         "secretsmanager:UpdateSecret",
-        "secretsmanager:PutResourcePolicy"
+        "secretsmanager:PutResourcePolicy",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -635,7 +652,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:CreateSecret",
         "secretsmanager:DescribeSecret",
         "secretsmanager:GetSecretValue",
-        "secretsmanager:UpdateSecret"
+        "secretsmanager:UpdateSecret",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -668,15 +686,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "CodeConnectionsUser",
       "Effect" : "Allow",
       "Action" : [
-        "codeconnections:UseConnection",
-        "codeconnections:ListConnections",
         "codeconnections:GetConnection",
-        "codeconnections:GetHost",
-        "codeconnections:ListTagsForResource",
-        "codestar-connections:UseConnection",
-        "codestar-connections:ListConnections",
+        "codeconnections:UseConnection",
         "codestar-connections:GetConnection",
+        "codestar-connections:UseConnection"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/for-use-with-all-datazone-projects" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "CodeConnectionsUserList",
+      "Effect" : "Allow",
+      "Action" : [
+        "codeconnections:GetHost",
+        "codeconnections:ListConnections",
+        "codeconnections:ListTagsForResource",
         "codestar-connections:GetHost",
+        "codestar-connections:ListConnections",
         "codestar-connections:ListTagsForResource"
       ],
       "Resource" : "*"
@@ -912,7 +942,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:CreateNetworkInterface",
         "ec2:DeleteNetworkInterface",
         "ec2:CreateNetworkInterfacePermission",
-        "ec2:DeleteNetworkInterfacePermission"
+        "ec2:DeleteNetworkInterfacePermission",
+        "ec2:CreateVpcEndpoint"
       ],
       "Resource" : "*"
     },
@@ -967,6 +998,78 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticmapreduce:*Tag*"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "CanvasGeneralPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "comprehend:BatchDetect*",
+        "comprehend:Detect*",
+        "textract:Analyze*",
+        "textract:Start*",
+        "textract:Get*",
+        "rekognition:Detect*",
+        "sagemaker-data-science-assistant:*",
+        "rds:DescribeDBInstances",
+        "application-autoscaling:PutScalingPolicy",
+        "application-autoscaling:RegisterScalableTarget",
+        "application-autoscaling:DescribeScalingActivities",
+        "quicksight:ListNamespaces",
+        "events:ListTagsForResource"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CanvasRedshiftAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "redshift:GetClusterCredentials"
+      ],
+      "Resource" : [
+        "arn:aws:redshift:*:*:dbuser:*/sagemaker_access*",
+        "arn:aws:redshift:*:*:dbname:*"
+      ]
+    },
+    {
+      "Sid" : "CanvasEventBridgePutOperation",
+      "Effect" : "Allow",
+      "Action" : [
+        "events:PutRule"
+      ],
+      "Resource" : "arn:aws:events:*:*:rule/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/sagemaker:is-canvas-data-prep-job" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "CanvasEventBridgeOperations",
+      "Effect" : "Allow",
+      "Action" : [
+        "events:DescribeRule",
+        "events:PutTargets"
+      ],
+      "Resource" : "arn:aws:events:*:*:rule/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/sagemaker:is-canvas-data-prep-job" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "CanvasEventBridgeTagBasedOperations",
+      "Effect" : "Allow",
+      "Action" : [
+        "events:TagResource"
+      ],
+      "Resource" : "arn:aws:events:*:*:rule/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/sagemaker:is-canvas-data-prep-job" : "true",
+          "aws:ResourceTag/sagemaker:is-canvas-data-prep-job" : "true"
+        }
+      }
     }
   ]
 }

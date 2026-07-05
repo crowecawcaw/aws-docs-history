@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: August 01, 2025, 18:04 UTC
-- **Edited time:** June 25, 2026, 01:42 UTC
+- **Edited time:** June 30, 2026, 18:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -571,6 +571,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
         },
         "StringEquals" : {
           "iam:AWSServiceName" : "resource-explorer-2.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "TelemetryReadTagsForLogs",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:ListTagsForResource"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}",
+          "aws:ResourceTag/CloudWatchTelemetryRuleManaged" : "true"
         }
       }
     }

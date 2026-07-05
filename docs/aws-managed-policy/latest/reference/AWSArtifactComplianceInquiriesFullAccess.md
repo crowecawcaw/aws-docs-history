@@ -1,24 +1,24 @@
-# AWSCertificateManagerReadOnly
+# AWSArtifactComplianceInquiriesFullAccess
 
-**Description**: Provides read only access to AWS Certificate Manager (ACM).
+**Description**: Provides full access to the Artifact Compliance Inquiry.
 
-`AWSCertificateManagerReadOnly` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSArtifactComplianceInquiriesFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSCertificateManagerReadOnly` to your users, groups, and roles.
+You can attach `AWSArtifactComplianceInquiriesFullAccess` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: January 21, 2016, 17:07 UTC
-- **Edited time:** June 30, 2026, 16:57 UTC
+- **Creation time**: June 30, 2026, 19:27 UTC
+- **Edited time:** June 30, 2026, 19:27 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AWSCertificateManagerReadOnly`
+  `arn:aws:iam::aws:policy/AWSArtifactComplianceInquiriesFullAccess`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -28,27 +28,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
 ```
 {
   "Version" : "2012-10-17",
-  "Statement" : {
-    "Effect" : "Allow",
-    "Action" : [
-      "acm:DescribeCertificate",
-      "acm:ListCertificates",
-      "acm:SearchCertificates",
-      "acm:GetCertificate",
-      "acm:ListTagsForCertificate",
-      "acm:GetAccountConfiguration",
-      "acm:DescribeAcmeAccount",
-      "acm:DescribeAcmeDomainValidation",
-      "acm:DescribeAcmeEndpoint",
-      "acm:DescribeAcmeExternalAccountBinding",
-      "acm:ListAcmeAccounts",
-      "acm:ListAcmeDomainValidations",
-      "acm:ListAcmeEndpoints",
-      "acm:ListAcmeExternalAccountBindings",
-      "acm:ListTagsForResource"
-    ],
-    "Resource" : "*"
-  }
+  "Statement" : [
+    {
+      "Sid" : "ListAndCreateComplianceInquiryActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "artifact:ListComplianceInquiries",
+        "artifact:CreateComplianceInquiry"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ComplianceInquiryActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "artifact:ListComplianceInquiryQueries",
+        "artifact:GetComplianceInquiryMetadata",
+        "artifact:ExportComplianceInquiry"
+      ],
+      "Resource" : "arn:aws:artifact:*:*:compliance-inquiry/*"
+    }
+  ]
 }
 ```
 

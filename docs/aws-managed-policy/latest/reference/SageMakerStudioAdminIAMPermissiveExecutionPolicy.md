@@ -12,13 +12,13 @@ You can attach `SageMakerStudioAdminIAMPermissiveExecutionPolicy` to your users,
 
 - **Type**: AWS managed policy
 - **Creation time**: August 18, 2025, 17:19 UTC
-- **Edited time:** June 04, 2026, 21:27 UTC
+- **Edited time:** June 29, 2026, 16:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMPermissiveExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v19 (default)
+**Policy version:** v20 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -40,7 +40,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "redshift-serverless:*",
         "redshift:*",
         "s3:*",
-        "s3tables:*"
+        "s3tables:*",
+        "comprehend:*",
+        "textract:*",
+        "rekognition:*",
+        "sagemaker-data-science-assistant:*",
+        "rds:*",
+        "quicksight:*",
+        "events:*"
       ],
       "Resource" : "*"
     },
@@ -61,7 +68,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sqlworkbench:*",
         "emr-serverless:*",
         "airflow-serverless:*",
-        "airflow:*"
+        "airflow:*",
+        "application-autoscaling:*"
       ],
       "Resource" : "*"
     },
@@ -327,7 +335,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:GetSecretValue",
         "secretsmanager:TagResource",
         "secretsmanager:UpdateSecret",
-        "secretsmanager:PutResourcePolicy"
+        "secretsmanager:PutResourcePolicy",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -345,7 +354,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "secretsmanager:DescribeSecret",
         "secretsmanager:GetSecretValue",
         "secretsmanager:TagResource",
-        "secretsmanager:UpdateSecret"
+        "secretsmanager:UpdateSecret",
+        "secretsmanager:PutSecretValue"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -678,7 +688,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:CreateNetworkInterface",
         "ec2:DeleteNetworkInterface",
         "ec2:CreateNetworkInterfacePermission",
-        "ec2:DeleteNetworkInterfacePermission"
+        "ec2:DeleteNetworkInterfacePermission",
+        "ec2:CreateVpcEndpoint"
       ],
       "Resource" : "*"
     },

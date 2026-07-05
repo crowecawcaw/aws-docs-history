@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: October 25, 2022, 20:35 UTC
-- **Edited time:** February 27, 2026, 12:12 UTC
+- **Edited time:** July 01, 2026, 16:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSResourceExplorerServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v50 (default)
+**Policy version:** v51 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -31,21 +31,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "ResourceExplorerAccess",
+      "Sid" : "ResourceExplorerAndOrganizationsAccess",
       "Effect" : "Allow",
       "Action" : [
         "resource-explorer-2:UpdateIndexType",
         "resource-explorer-2:CreateIndex",
         "resource-explorer-2:CreateView",
         "resource-explorer-2:AssociateDefaultView",
-        "resource-explorer-2:DeleteIndex"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "OrganizationsAccess",
-      "Effect" : "Allow",
-      "Action" : [
+        "resource-explorer-2:DeleteIndex",
         "organizations:DescribeAccount",
         "organizations:DescribeOrganization",
         "organizations:ListAWSServiceAccessForOrganization",
@@ -131,7 +124,9 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "athena:ListDataCatalogs",
         "athena:ListWorkGroups",
         "auditmanager:GetAccountStatus",
+        "auditmanager:ListAssessmentFrameworks",
         "auditmanager:ListAssessments",
+        "auditmanager:ListControls",
         "autoscaling:DescribeAutoScalingGroups",
         "backup-gateway:ListHypervisors",
         "backup:ListBackupPlans",
@@ -182,9 +177,11 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "cloudfront:ListRealtimeLogConfigs",
         "cloudfront:ListResponseHeadersPolicies",
         "cloudfront:ListTagsForResource",
+        "cloudhsm:DescribeClusters",
         "cloudtrail:ListChannels",
         "cloudtrail:ListDashboards",
         "cloudtrail:ListEventDataStores",
+        "cloudtrail:ListTags",
         "cloudtrail:ListTrails",
         "cloudwatch:DescribeAlarms",
         "cloudwatch:DescribeInsightRules",
@@ -216,6 +213,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "connect:ListInstances",
         "connect:ListPhoneNumbersV2",
         "connect:ListPrompts",
+        "connect:ListQueueEmailAddresses",
         "connect:ListQueueQuickConnects",
         "connect:ListQueues",
         "connect:ListQuickConnects",
@@ -403,6 +401,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "gamelift:DescribeMatchmakingRuleSets",
         "gamelift:ListAliases",
         "gamelift:ListBuilds",
+        "gamelift:ListFleets",
+        "gamelift:ListGameServerGroups",
         "gamelift:ListLocations",
         "gamelift:ListScripts",
         "geo:ListMaps",
@@ -465,20 +465,25 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "iot:ListBillingGroups",
         "iot:ListCACertificates",
         "iot:ListCertificates",
+        "iot:ListCustomMetrics",
+        "iot:ListDimensions",
         "iot:ListFleetMetrics",
         "iot:ListJobTemplates",
         "iot:ListJobs",
         "iot:ListMitigationActions",
+        "iot:ListOTAUpdates",
         "iot:ListPolicies",
         "iot:ListProvisioningTemplates",
         "iot:ListRoleAliases",
         "iot:ListScheduledAudits",
         "iot:ListSecurityProfiles",
+        "iot:ListStreams",
         "iot:ListThingGroups",
         "iot:ListThingTypes",
         "iot:ListThings",
         "iot:ListTopicRuleDestinations",
         "iot:ListTopicRules",
+        "iot:ListTunnels",
         "iotanalytics:ListChannels",
         "iotanalytics:ListDatasets",
         "iotanalytics:ListDatastores",
@@ -601,11 +606,12 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "omics:ListReferenceStores",
         "omics:ListRunGroups",
         "omics:ListWorkflows",
-        "outposts:ListSites",
         "organizations:DescribeResourcePolicy",
         "organizations:ListPolicies",
+        "outposts:ListSites",
         "panorama:ListDevices",
         "panorama:ListPackages",
+        "partnercentral:ListBenefitApplications",
         "partnercentral:ListEngagementInvitations",
         "partnercentral:ListEngagements",
         "partnercentral:ListOpportunities",
@@ -627,10 +633,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "quicksight:DescribeAccountSubscription",
         "quicksight:ListDataSets",
         "quicksight:ListDataSources",
+        "quicksight:ListFolders",
         "quicksight:ListTemplates",
         "quicksight:ListThemes",
         "ram:GetResourceShares",
         "ram:ListPermissions",
+        "rbin:ListRules",
+        "rbin:ListTagsForResource",
         "rds:DescribeBlueGreenDeployments",
         "rds:DescribeDBClusterEndpoints",
         "rds:DescribeDBClusterParameterGroups",
@@ -663,6 +672,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "refactor-spaces:ListRoutes",
         "refactor-spaces:ListServices",
         "rekognition:DescribeProjects",
+        "rekognition:ListCollections",
+        "resiliencehub:ListAppAssessments",
         "resiliencehub:ListApps",
         "resiliencehub:ListResiliencyPolicies",
         "resource-explorer-2:GetIndex",
@@ -695,6 +706,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3:ListStorageLensConfigurations",
         "s3:ListStorageLensGroups",
         "s3express:ListAllMyDirectoryBuckets",
+        "s3vectors:ListIndexes",
+        "s3vectors:ListVectorBuckets",
         "sagemaker:DescribeInferenceComponent",
         "sagemaker:ListActions",
         "sagemaker:ListAlgorithms",
@@ -747,6 +760,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ses:ListContactLists",
         "ses:ListDedicatedIpPools",
         "ses:ListEmailIdentities",
+        "ses:ListEmailTemplates",
         "shield:ListProtectionGroups",
         "shield:ListProtections",
         "signer:ListSigningProfiles",
@@ -766,6 +780,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "states:ListStateMachines",
         "storagegateway:ListFileShares",
         "storagegateway:ListGateways",
+        "swf:ListDomains",
         "synthetics:DescribeCanaries",
         "synthetics:ListGroups",
         "transfer:ListAgreements",
@@ -776,11 +791,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "transfer:ListUsers",
         "transfer:ListWorkflows",
         "verifiedpermissions:ListPolicyStores",
+        "vpc-lattice:ListAccessLogSubscriptions",
         "vpc-lattice:ListListeners",
         "vpc-lattice:ListRules",
         "vpc-lattice:ListServiceNetworkServiceAssociations",
         "vpc-lattice:ListServiceNetworks",
         "vpc-lattice:ListServices",
+        "vpc-lattice:ListTagsForResource",
         "vpc-lattice:ListTargetGroups",
         "wafv2:ListIPSets",
         "wafv2:ListRegexPatternSets",
@@ -896,6 +913,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "mediaconnect:DescribeFlow",
         "panorama:DescribeDevice",
         "panorama:ListTagsForResource",
+        "partnercentral:GetBenefitApplication",
+        "partnercentral:ListTagsForResource",
         "ram:GetPermission",
         "rds:ListTagsForResource",
         "redshift:DescribeTags",
@@ -926,6 +945,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "s3express:GetEncryptionConfiguration",
         "s3express:GetLifecycleConfiguration",
         "s3express:ListTagsForResource",
+        "s3vectors:GetIndex",
+        "s3vectors:GetVectorBucket",
         "sagemaker:DescribeEndpoint",
         "sagemaker:ListTags",
         "secretsmanager:DescribeSecret",
@@ -935,6 +956,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "sns:ListTagsForResource",
         "sqs:GetQueueAttributes",
         "sqs:ListQueueTags",
+        "vpc-lattice:GetAccessLogSubscription",
         "xray:ListTagsForResource"
       ],
       "Resource" : "*"

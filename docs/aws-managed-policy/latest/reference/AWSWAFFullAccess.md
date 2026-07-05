@@ -12,13 +12,13 @@ You can attach `AWSWAFFullAccess` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: October 06, 2015, 20:44 UTC
-- **Edited time:** April 08, 2026, 22:27 UTC
+- **Edited time:** June 30, 2026, 22:42 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSWAFFullAccess`
 
 ## Policy version
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -257,6 +257,24 @@ request to access an AWS resource, AWS checks the default version of the policy 
           ]
         }
       }
+    },
+    {
+      "Sid" : "AllowActionsForAgentCoreGateway",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-agentcore:GatewayAssociateWebACL",
+        "bedrock-agentcore:GatewayDisassociateWebACL",
+        "bedrock-agentcore:GatewayGetWebACLForResource"
+      ],
+      "Resource" : "arn:aws:bedrock-agentcore:*:*:gateway/*"
+    },
+    {
+      "Sid" : "AllowListActionsForAgentCoreGateway",
+      "Effect" : "Allow",
+      "Action" : [
+        "bedrock-agentcore:GatewayListResourcesForWebACL"
+      ],
+      "Resource" : "*"
     }
   ]
 }

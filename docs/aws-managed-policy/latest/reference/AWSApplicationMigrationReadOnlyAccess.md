@@ -12,13 +12,13 @@ You can attach `AWSApplicationMigrationReadOnlyAccess` to your users, groups, an
 
 - **Type**: AWS managed policy
 - **Creation time**: April 07, 2021, 07:15 UTC
-- **Edited time:** March 20, 2023, 08:58 UTC
+- **Edited time:** July 01, 2026, 14:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSApplicationMigrationReadOnlyAccess`
 
 ## Policy version
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -65,6 +65,13 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Effect" : "Allow",
       "Action" : [
         "servicequotas:GetServiceQuota"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:GetParameter"
       ],
       "Resource" : "*"
     }

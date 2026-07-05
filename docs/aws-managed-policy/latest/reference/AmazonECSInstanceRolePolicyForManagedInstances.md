@@ -12,13 +12,13 @@ You can attach `AmazonECSInstanceRolePolicyForManagedInstances` to your users, g
 
 - **Type**: AWS managed policy
 - **Creation time**: September 26, 2025, 23:49 UTC
-- **Edited time:** February 12, 2026, 17:58 UTC
+- **Edited time:** July 02, 2026, 02:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonECSInstanceRolePolicyForManagedInstances`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -51,7 +51,10 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "ecs:Poll"
       ],
-      "Resource" : "arn:aws:ecs:*:*:container-instance/*"
+      "Resource" : [
+        "arn:aws:ecs:*:*:container-instance/*",
+        "arn:aws:ecs:*:*:task-set/*"
+      ]
     },
     {
       "Sid" : "ECSAgentTelemetryPermissions",
