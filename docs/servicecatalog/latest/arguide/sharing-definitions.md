@@ -1,3 +1,5 @@
+AWS Service Catalog AppRegistry will no longer be open to new customers starting July 30, 2026. If you would like to use the service, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](app-registry-availability-change.md "app-registry-availability-change.md").
+
 # Sharing resources with accounts in your organization
 
 You can share applications and attribute groups to an account, organizational unit, or organization.

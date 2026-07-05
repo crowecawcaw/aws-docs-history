@@ -1,3 +1,5 @@
+AWS Service Catalog AppRegistry will no longer be open to new customers starting July 30, 2026. If you would like to use the service, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](app-registry-availability-change.md "app-registry-availability-change.md").
+
 # Viewing applications in AWS Systems Manager Application Manager
 
 You can view applications in AWS Systems Manager Application Manager to gain operational information and detect issues with AWS resources.

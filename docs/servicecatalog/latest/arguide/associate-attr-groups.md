@@ -1,3 +1,5 @@
+AWS Service Catalog AppRegistry will no longer be open to new customers starting July 30, 2026. If you would like to use the service, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](app-registry-availability-change.md "app-registry-availability-change.md").
+
 # Associating and disassociating attribute groups
 
 This topic describes how to associate and disassociate attribute groups
@@ -5,10 +7,10 @@ in AppRegistry.
 
 ###### Topic
 
-- [Associate attribute groups to a new application](#w2aab9b9c19b7 "#w2aab9b9c19b7")
-- [Associate attribute groups to an existing application from the Applications screen](#w2aab9b9c19b9 "#w2aab9b9c19b9")
-- [Associate attribute groups to an existing application from the Attribute groups screen](#w2aab9b9c19c11 "#w2aab9b9c19c11")
-- [Disassociate attribute groups from an existing application](#w2aab9b9c19c13 "#w2aab9b9c19c13")
+- [Associate attribute groups to a new application](#w2aac13b9c19b7 "#w2aac13b9c19b7")
+- [Associate attribute groups to an existing application from the Applications screen](#w2aac13b9c19b9 "#w2aac13b9c19b9")
+- [Associate attribute groups to an existing application from the Attribute groups screen](#w2aac13b9c19c11 "#w2aac13b9c19c11")
+- [Disassociate attribute groups from an existing application](#w2aac13b9c19c13 "#w2aac13b9c19c13")
 
 ## Associate attribute groups to a new application
 

@@ -1,3 +1,5 @@
+AWS Service Catalog AppRegistry will no longer be open to new customers starting July 30, 2026. If you would like to use the service, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](app-registry-availability-change.md "app-registry-availability-change.md").
+
 # Managing tags
 
 Tags act as metadata to organize application resources.
@@ -12,10 +14,10 @@ to all resources in the application.
 
 ###### Topics
 
-- [Adding and deleting tags in a new application](#w2aab9c13b9 "#w2aab9c13b9")
-- [Adding and deleting tags from the Application details screen](#w2aab9c13c11 "#w2aab9c13c11")
-- [Adding and deleting tags in a new attribute group](#w2aab9c13c13 "#w2aab9c13c13")
-- [Adding and deleting tags from Attribute group details](#w2aab9c13c15 "#w2aab9c13c15")
+- [Adding and deleting tags in a new application](#w2aac13c13b9 "#w2aac13c13b9")
+- [Adding and deleting tags from the Application details screen](#w2aac13c13c11 "#w2aac13c13c11")
+- [Adding and deleting tags in a new attribute group](#w2aac13c13c13 "#w2aac13c13c13")
+- [Adding and deleting tags from Attribute group details](#w2aac13c13c15 "#w2aac13c13c15")
 
 ## Adding and deleting tags in a new application
 

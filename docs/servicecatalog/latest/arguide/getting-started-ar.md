@@ -1,3 +1,5 @@
+AWS Service Catalog AppRegistry will no longer be open to new customers starting July 30, 2026. If you would like to use the service, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](app-registry-availability-change.md "app-registry-availability-change.md").
+
 # Getting started with AppRegistry
 
 When you create a repository for all of your AWS applications and associated resources, you increase the visibility and governance of these applications, which helps you define and manage application metadata and better understand the AWS applications and resources in your organization.

@@ -1,3 +1,5 @@
+AWS Service Catalog AppRegistry will no longer be open to new customers starting July 30, 2026. If you would like to use the service, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS Service Catalog AppRegistry availability change](app-registry-availability-change.md "app-registry-availability-change.md").
+
 # Associating and disassociating application resources
 
 An application resource is an object within an AWS service that you can tag with [the `awsApplication` tag](overview-appreg.md#ar-user-tags "overview-appreg.md#ar-user-tags"), which is an AWS user tag that AppRegistry vends on your behalf.
@@ -13,9 +15,9 @@ when you create the application.
 
 ###### Topics
 
-- [Associate application resources in a new application](#w2aab9b7c19c21b9 "#w2aab9b7c19c21b9")
-- [Associate application resources in an existing application](#w2aab9b7c19c21c11 "#w2aab9b7c19c21c11")
-- [Disassociate application resources from an application](#w2aab9b7c19c21c13 "#w2aab9b7c19c21c13")
+- [Associate application resources in a new application](#w2aac13b7c19c21b9 "#w2aac13b7c19c21b9")
+- [Associate application resources in an existing application](#w2aac13b7c19c21c11 "#w2aac13b7c19c21c11")
+- [Disassociate application resources from an application](#w2aac13b7c19c21c13 "#w2aac13b7c19c21c13")
 
 ## Associate application resources in a new application
 
