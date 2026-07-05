@@ -28,6 +28,15 @@ After submitting a bulk match request, you can poll the job status using:
 GET [base]/$bulk-member-match-status/{jobId}
 ```
 
+Each request supports up to 500 members (5 MB maximum payload).
+
+## Quick start
+
+1. Submit: `POST [base]/Group/$bulk-member-match` with MemberBundles → receive jobId
+2. Poll: `GET [base]/$bulk-member-match-status/{jobId}` until status = COMPLETED
+3. Extract the MatchedMembers Group ID from the completed job response
+4. Export: `POST [base]/Group/{matched-group-id}/$davinci-data-export` to retrieve clinical data
+
 ## Supported parameters
 
 HealthLake supports the following FHIR `$bulk-member-match` parameters:
@@ -444,18 +453,29 @@ Every member submitted in a `$bulk-member-match` request is evaluated through a 
 1. **Structural validation** — Does the MemberBundle conform to required profiles? On failure: Error (not in any Group).
 2. **Patient matching** — Can HealthLake find patients matching the submitted demographics? On failure: NonMatchedMembers.
 3. **Coverage confirmation** — Can HealthLake narrow to exactly one patient with valid CoverageToMatch? On failure: NonMatchedMembers.
-4. **Consent evaluation** — Is the submitted Consent honorable right now? (status = active, period covers current date, performer can be validated). On failure: ConsentConstrainedMembers.
+4. **Consent evaluation** — Does `provision.period` cover the current date? On failure: ConsentConstrainedMembers.
 5. **Success** — All checks pass. Consent stored in datastore. Member placed in MatchedMembers.
 
 **Key principle:** A member can only appear in one destination. The first failing step determines placement. Members who fail Steps 2 or 3 are never placed in ConsentConstrainedMembers — that Group is exclusively for members who matched successfully but whose consent cannot be honored.
 
 **Consent evaluation details (Step 4):**
 
-- **Check 1 — Consent status:** Is `Consent.status` equal to "active"? If not → ConsentConstrainedMembers.
-- **Check 2 — Provision period:** Does `provision.period` cover the current date? If current date is before `period.start` or after `period.end` → ConsentConstrainedMembers.
-- **Check 3 — Performer validation:** Can the `Consent.performer` reference be validated? If the referenced resource is not found in the datastore or is not associated with the matched patient → ConsentConstrainedMembers.
+- **Provision period:** Does `provision.period` cover the current date? If current date is before `period.start` or after `period.end` → ConsentConstrainedMembers.
 
 All checks must pass for the member to be placed in MatchedMembers and for the Consent to be stored.
+
+###### Note
+
+The `performer` reference is not cross-validated against `patient`. A parent/guardian consenting on behalf of a dependent is valid.
+
+**Consent classification decision table:**
+
+- `permit` + `#regular` + `active` + period covers now → **MatchedMembers (Consent stored)**
+- `permit` + `#sensitive` + `active` + period covers now → **MatchedMembers (Consent stored)**
+- `permit` + #regular or #sensitive + `active` + period expired/not started → **ConsentConstrainedMembers**
+- `deny` + any + any + any → **400 Bad Request (Step 1)**
+- `permit` + URI not ending in #regular or #sensitive + any + any → **400 Bad Request (Step 1)**
+- any + any + not active + any → **400 Bad Request (Step 1)**
 
 ## Coverage matching behavior
 
@@ -469,7 +489,7 @@ The new payer may send a temporary or local patient reference in `Consent.perfor
 
 - If `Consent.performer` contains the same local reference as `Consent.patient`, HealthLake replaces it with the actual matched patient reference after matching succeeds.
 - HealthLake supports performer references of type Patient, RelatedPerson, Practitioner, PractitionerRole, and Organization (both direct references and logical identifier references).
-- If performer validation fails (resource not found or not associated with the matched patient), the member is placed in ConsentConstrainedMembers rather than returning an error.
+- The `performer` reference is not cross-validated against `patient`. A parent/guardian consenting on behalf of a dependent is valid and will not route the member to ConsentConstrainedMembers.
 
 ## Output Group resources
 
@@ -481,11 +501,11 @@ Contains Patient references for all successfully matched members whose consent i
 
 **NonMatchedMembers Group**
 
-Contains references to members where no unique match was found. A member is placed here when no patient in the datastore matches the provided demographics, no valid coverage exists for any matched patient candidate, or multiple patients match demographics and multiple have valid coverage (ambiguous).
+Contains references to members where no unique match was found. A member is placed here when no patient in the datastore matches the provided demographics, no valid coverage exists for any matched patient candidate, or multiple patients match demographics and multiple have valid coverage (ambiguous). This Group is **not instantiated** in the datastore. It exists only in the completed job response.
 
 **ConsentConstrainedMembers Group**
 
-Contains Patient references for members who were successfully matched (demographics and coverage confirmed) but whose consent cannot be honored at the time of the request. The Consent resource is _not_ stored for consent-constrained members. The matched member identity (MemberIdentifier and MemberId) is still included so the requesting payer knows who was constrained.
+Contains Patient references for members who were successfully matched (demographics and coverage confirmed) but whose consent cannot be honored at the time of the request. The Consent resource is _not_ stored for consent-constrained members. The matched member identity (MemberIdentifier and MemberId) is still included so the requesting payer knows who was constrained. This Group is **not instantiated** in the datastore. It exists only in the completed job response.
 
 The `Group.quantity` field contains the total count of members in each of their respective groups.
 
@@ -580,36 +600,37 @@ The following validation rules are applied to each MemberBundle at Step 1. Membe
 
 ### CoverageToMatch / CoverageToLink
 
-| Field                             | How HealthLake uses it                        | Validation failure if...        |
-| --------------------------------- | --------------------------------------------- | ------------------------------- |
-| `status`                          | Confirms coverage is actionable               | Missing                         |
-| `beneficiary`                     | Links coverage to a patient candidate         | Missing                         |
-| `payor`                           | Disambiguation when multiple candidates exist | Missing, or more than one payor |
-| `relationship`                    | Confirms subscriber-beneficiary relationship  | Missing                         |
-| `identifier (MB) or subscriberId` | Primary disambiguation key                    | Neither present                 |
+| Field                             | How HealthLake uses it                       | Validation failure if... |
+| --------------------------------- | -------------------------------------------- | ------------------------ |
+| `status`                          | Confirms coverage is actionable              | Missing                  |
+| `beneficiary`                     | Links coverage to a patient candidate        | Missing                  |
+| `relationship`                    | Confirms subscriber-beneficiary relationship | Missing                  |
+| `identifier (MB) or subscriberId` | Primary disambiguation key                   | Neither present          |
 
 ### Consent
 
-| Field              | How HealthLake uses it                            | Validation failure if...                                                                  |
-| ------------------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `scope`            | Confirms consent scope is patient-privacy         | Missing or no patient-privacy code                                                        |
-| `category`         | Confirms disclosure classification                | Missing                                                                                   |
-| `patient`          | Identifies the consent subject                    | Missing                                                                                   |
-| `performer`        | Identifies who is agreeing                        | Missing                                                                                   |
-| `sourceReference`  | Documents the consent source                      | Missing                                                                                   |
-| `policy.uri`       | Determines data sharing scope                     | Missing or URI not ending in #regular or #sensitive                                       |
-| `provision.type`   | Must be "permit" per HRex Consent profile         | Missing or not "permit" (including "deny")                                                |
-| `provision.period` | Evaluated at Step 4 for consent-constrained check | Missing or no start/end                                                                   |
-| `status`           | Evaluated at Step 4 (NOT Step 1)                  | Never causes Step 1 failure — HealthLake accepts any valid status and evaluates at Step 4 |
+| Field              | How HealthLake uses it                            | Validation failure if...                                                        |
+| ------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `scope`            | Confirms consent scope is patient-privacy         | Missing or no patient-privacy code                                              |
+| `category`         | Confirms disclosure classification                | Missing                                                                         |
+| `patient`          | Identifies the consent subject                    | Missing                                                                         |
+| `performer`        | Identifies who is agreeing                        | Missing                                                                         |
+| `sourceReference`  | Documents the consent source                      | Missing                                                                         |
+| `policy.uri`       | Determines data sharing scope                     | Missing or URI not ending in #regular or #sensitive                             |
+| `provision.type`   | Must be "permit" per HRex Consent profile         | Missing or not "permit" (including "deny")                                      |
+| `provision.period` | Evaluated at Step 4 for consent-constrained check | Missing or no start/end                                                         |
+| `provision.actor`  | Identifies source and recipient payers            | Missing or does not include required source + recipient actors per HRex profile |
+| `provision.action` | Confirms disclosure action                        | Missing or no "disclose" code                                                   |
+| `status`           | Must be "active" per HRex IG                      | Not "active" — returns 400 validation error                                     |
 
 ###### Note
 
-The HRex Consent profile defines status with a fixed value of "active". HealthLake intentionally relaxes this constraint so that a non-active Consent receives a meaningful classification (ConsentConstrainedMembers) rather than a blanket validation rejection.
+Per the HRex IG, `Consent.status` is fixed to "active". HealthLake enforces this at Step 1 (structural validation) and returns a 400 validation error if any other status is provided. Non-active consent will not be processed nor classified into ConsentConstrainedMembers — it is rejected upfront.
 
 ## Matching behavior
 
 - **Patient search (Step 2)** — HealthLake searches using `name.family` + `name.given` (exact, case-insensitive), `birthDate` (exact), `gender` (exact; Birth Sex used if gender absent), and `identifier` (when present, optional).
-- **Coverage disambiguation (Step 3)** — When multiple patient candidates are found, `CoverageToMatch` is used to narrow to one. A coverage is "valid" when an active Coverage resource exists in the datastore matching on `subscriberId` or `identifier` (MB type) AND `payor`.
+- **Coverage disambiguation (Step 3)** — When multiple patient candidates are found, `CoverageToMatch` is used to narrow to one. A coverage is "valid" when an active Coverage resource exists in the datastore matching on `subscriberId` or `identifier` (MB type).
 - **Consent evaluation (Step 4)** — Only performed after a successful unique match. See the consent evaluation details section above.
 
 ## Error handling
@@ -618,7 +639,7 @@ The operation handles the following error conditions:
 
 - **400 Bad Request**: Invalid request format, missing required parameters, or payload exceeds size limits (500 members or 5 MB).
 - **422 Unprocessable Entity**: Processing errors during job execution.
-- **Individual member errors**: When a specific member fails to process, the operation continues with remaining members and includes error details in the NonMatchedMembers Group with appropriate reason codes. For example, a `MemberBundle` with a Patient missing the `birthDate` parameter will return the following error:
+- **Individual member errors**: When a specific member fails to process, the operation continues with remaining members and includes error details with appropriate reason codes. For example, a `MemberBundle` with a Patient missing the `birthDate` parameter will return the following error:
 
 ```
 "errors": [
