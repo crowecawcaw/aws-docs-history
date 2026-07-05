@@ -24,12 +24,6 @@ requirements must be met:
   set up for your account to connect to the managed node. Therefore, the
   prerequisites for using Session Manager must have been completed for your account
   in the current AWS Region. For more information, see [Setting up Session Manager](session-manager-getting-started.md "session-manager-getting-started.md").
-
-###### Note
-
-Session Manager support for on-premises nodes is provided for the
-advanced-instances tier only. For more information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
-
 - The AWS user who is changing the password must have the
   `ssm:SendCommand` permission for the managed node. For more
   information, see [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access "run-command-setting-up.md#tag-based-access").
@@ -132,9 +126,7 @@ page, but the node isn't in the list.
 
 To use a non-EC2 machine with Systems Manager, create an IAM service role
 that gives Systems Manager permission to perform actions on your managed
-nodes. For more information, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md"). (Session Manager
-support for on-premises servers and VMs is provided for the
-advanced-instances tier only. For more information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").)
+nodes. For more information, see [Create the IAM service role required for Systems Manager in hybrid and multicloud environments](hybrid-multicloud-service-role.md "hybrid-multicloud-service-role.md").
 
 ### SSM Agent not up-to-date (console)
 

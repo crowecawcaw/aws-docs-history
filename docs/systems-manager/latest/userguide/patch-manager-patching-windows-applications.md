@@ -33,11 +33,9 @@ Microsoft on Windows Server machines.
 
 ###### Support for patching applications released by Microsoft on on-premises servers, edge devices, VMs, and other non-EC2 nodes
 
-To patch applications released by Microsoft on virtual machines (VMs) and
-other non-EC2 managed nodes, you must turn on the advanced-instances tier. There
-is a charge to use the advanced-instances tier. **However,
-there is no additional charge to patch applications released by Microsoft on
-Amazon Elastic Compute Cloud (Amazon EC2) instances.** For more information, see [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
+You can patch applications released by Microsoft on virtual machines (VMs) and
+other non-EC2 managed nodes. Patch Manager uses pay-as-you-go pricing when used on
+hybrid managed nodes. For more information about pricing, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
 ###### Windows update option for "other Microsoft products"
 

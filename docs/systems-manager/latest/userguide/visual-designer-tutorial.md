@@ -128,7 +128,7 @@ To define the branching logic, do the following:
 
 8. Drag a **Change an instance state** action to the empty
 **Drag action here** box under the **{{
- == "stopped"** condition.
+ GetInstanceState.InstanceState }} == "stopped"** condition.
 
     1. For the **Step name**, enter
      `StartInstance`.
@@ -140,7 +140,7 @@ To define the branching logic, do the following:
 
 9. Drag a **Wait on AWS resource** action to the empty
 **Drag action here** box under the **{{
- == "stopping"** condition. 10. For **Step name**, enter a value. For this tutorial, use the name
+ GetInstanceState.InstanceState }} == "stopping"** condition. 10. For **Step name**, enter a value. For this tutorial, use the name
 `WaitForInstanceStop`.
 
     1. For the **Service** field, choose
@@ -158,7 +158,7 @@ To define the branching logic, do the following:
 
 11. Drag a **Run command on instances** action to the empty
 **Drag action here** box under the **{{
- == "running"** condition. 12. For the **Step name**, enter
+ GetInstanceState.InstanceState }} == "running"** condition. 12. For the **Step name**, enter
 `SayHello`.
 
     1. In the **Inputs** tab, enter

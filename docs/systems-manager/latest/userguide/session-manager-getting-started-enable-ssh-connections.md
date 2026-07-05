@@ -52,13 +52,6 @@ node.
         + [How to install the SSM Agent on hybrid Windows nodes](hybrid-multicloud-ssm-agent-install-windows.md "hybrid-multicloud-ssm-agent-install-windows.md")
         + [How to install the SSM Agent on hybrid Linux nodes](hybrid-multicloud-ssm-agent-install-linux.md "hybrid-multicloud-ssm-agent-install-linux.md")
 
-   ###### Note
-
-   To use Session Manager with on-premises servers, edge devices,
-   and virtual machines (VMs) that you activated as managed
-   nodes, you must use the advanced-instances tier. For more
-   information about advanced instances, see [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
-
 2. On the local machine from which you want to connect to a managed node
    using SSH, do the following:
 

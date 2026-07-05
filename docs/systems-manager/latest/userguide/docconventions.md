@@ -16,17 +16,19 @@ Example:
 Linux & macOS
 
 ```
-aws ssm update-service-setting \
-    --setting-id arn:aws:ssm:`region`:`aws-account-id`:servicesetting/ssm/managed-instance/activation-tier \
-    --setting-value advanced
+aws ssm send-command \
+    --document-name "AWS-RunShellScript" \
+    --targets "Key=instanceids,Values=`i-02573cafcfEXAMPLE`" \
+    --parameters "commands=echo HelloWorld"
 ```
 
 Windows
 
 ```
-aws ssm update-service-setting ^
-    --setting-id arn:aws:ssm:`region`:`aws-account-id`:servicesetting/ssm/managed-instance/activation-tier ^
-    --setting-value advanced
+aws ssm send-command ^
+    --document-name "AWS-RunShellScript" ^
+    --targets "Key=instanceids,Values=`i-02573cafcfEXAMPLE`" ^
+    --parameters "commands=echo HelloWorld"
 ```
 
 **Elements in the user interface**

@@ -24,9 +24,20 @@ registering AWS IoT Greengrass devices for use with Systems Manager, see [Managi
 
 - Non-EC2 macOS machines aren't supported for Systems Manager hybrid and multicloud
   environments.
-  If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud (Amazon EC2) instances, or to use both Amazon EC2
-  instances and non-EC2 machines in hybrid and multicloud environment, follow the steps in
-  [Managing EC2 instances with Systems Manager](systems-manager-setting-up-ec2.md "systems-manager-setting-up-ec2.md") first.
+
+###### Note
+
+**Important:** Effective June 30, 2026, the
+advanced-instances tier has been removed. There is no longer a 1,000-instance limit for
+hybrid managed nodes, and you no longer need to enable a paid tier to use Session Manager on
+non-EC2 machines. Instead, starting September 30, 2026, Session Manager and Run Command use pay-as-you-go pricing
+when used on hybrid managed nodes.
+
+For more information about pricing, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
+
+If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud (Amazon EC2) instances, or to use both Amazon EC2
+instances and non-EC2 machines in hybrid and multicloud environment, follow the steps in
+[Managing EC2 instances with Systems Manager](systems-manager-setting-up-ec2.md "systems-manager-setting-up-ec2.md") first.
 
 After configuring your hybrid and multicloud environment for Systems Manager, you can do the
 following:
@@ -66,18 +77,6 @@ We strongly recommend that you avoid using OS versions that have reached End-of-
 OS vendors including AWS typically don't provide security patches or other updates for versions that have reached EOL.
 Continuing to use an EOL system greatly increases the risk of not being able to apply upgrades, including security
 fixes, and other operational problems. AWS does not test Systems Manager functionality on OS versions that have reached EOL.
-
-###### About instance tiers
-
-Systems Manager offers a standard-instances tier and an advanced-instances tier for non-EC2
-managed nodes in your hybrid and multicloud environment. The standard-instances tier
-allows you to register a maximum of 1,000 hybrid-activated machines per AWS account
-per AWS Region. If you need to register more than 1,000 non-EC2 machines in a single
-account and Region, then use the advanced-instances tier. Advanced instances also allow
-you to connect to your non-EC2 machines by using AWS Systems Manager Session Manager. Session Manager provides
-interactive shell access to your managed nodes.
-
-For more information, see [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
 
 ###### Topics
 

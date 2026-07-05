@@ -59,7 +59,7 @@ hierarchies in parameter names. For example:
 When you specify a parameter in an SSM document, command, or
 script, include `ssm` as part of the syntax. For example,
 {{ssm:`parameter-name`}} and {{
-, such as
+ ssm:`parameter-name` }}, such as
 `{{ssm:MyParameter}}`, and `{{ ssm:MyParameter
  }}.`
 

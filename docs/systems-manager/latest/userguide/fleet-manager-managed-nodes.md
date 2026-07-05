@@ -17,32 +17,15 @@ configure the following machine types as managed nodes:
 
 The only supported feature for macOS instances is viewing the file system.
 
-###### About Systems Manager instances tiers
+###### Note
 
-AWS Systems Manager offers a standard-instances tier and an advanced-instances tier. Both
-support managed nodes in your [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment. The standard-instances tier
-allows you to register a maximum of 1,000 machines per AWS account per AWS Region.
-If you need to register more than 1,000 machines in a single account and Region, then
-use the advanced-instances tier. You can create as many managed nodes as you like in the
-advanced-instances tier. All managed nodes configured for Systems Manager are priced on a
-pay-per-use basis. For more information about enabling the advanced instances tier, see
-[Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md"). For more information
-about pricing, see [AWS Systems Manager
-Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
+**Important:** Effective June 30, 2026, the
+advanced-instances tier has been removed. There is no longer a 1,000-instance limit for
+hybrid managed nodes, and you no longer need to enable a paid tier to use Session Manager on
+non-EC2 machines. Instead, starting September 30, 2026, Session Manager and Run Command use pay-as-you-go pricing
+when used on hybrid managed nodes.
 
-Note the following additional information about the standard-instances tier and
-advanced-instances tier:
-
-- Advanced instances also allow you to connect to your non-EC2 nodes in a
-  [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment by using AWS Systems Manager Session Manager. Session Manager provides interactive
-  shell access to your instances. For more information, see [AWS Systems Manager Session Manager](session-manager.md "session-manager.md").
-- The standard-instances quota also applies to EC2 instances that use a Systems Manager
-  on-premises activation (which isn't a common scenario).
-- To patch applications released by Microsoft on virtual machines (VMs) on-premises
-  instances, activate the advanced-instances tier. There is a charge to use the
-  advanced-instances tier. There is no additional charge to patch applications
-  released by Microsoft on Amazon Elastic Compute Cloud (Amazon EC2) instances. For more information, see
-  [Patching applications released by Microsoft on Windows Server](patch-manager-patching-windows-applications.md "patch-manager-patching-windows-applications.md").
+For more information about pricing, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/ "https://aws.amazon.com/systems-manager/pricing/").
 
 ###### Display managed nodes
 
@@ -96,7 +79,6 @@ deregistering managed nodes, see [Deregistering managed nodes in a hybrid and mu
 
 ###### Topics
 
-- [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md")
 - [Resetting passwords on managed nodes](fleet-manager-reset-password.md "fleet-manager-reset-password.md")
 - [Deregistering managed nodes in a hybrid and multicloud environment](fleet-manager-deregister-hybrid-nodes.md "fleet-manager-deregister-hybrid-nodes.md")
 - [Working with OS file systems using Fleet Manager](fleet-manager-file-system-management.md "fleet-manager-file-system-management.md")

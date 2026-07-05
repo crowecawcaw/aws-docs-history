@@ -14,8 +14,6 @@ AWS Systems Manager to configure and manage their organization's AWS IoT Greengr
   devices. To use Systems Manager to manage AWS IoT Core devices and non-AWS edge
   devices, you must configure them using a hybrid activation. For more
   information, see [Managing nodes in hybrid and multicloud environments with Systems Manager](systems-manager-hybrid-multicloud.md "systems-manager-hybrid-multicloud.md").
-- To use Session Manager and Microsoft application patching with your edge devices, you
-  must enable the advanced-instances tier. For more information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
 
 ###### Before you begin
 

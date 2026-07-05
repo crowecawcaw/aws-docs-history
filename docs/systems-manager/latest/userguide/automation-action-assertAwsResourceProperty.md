@@ -60,7 +60,7 @@ Api
 
 The name of the API operation that you want to run. You can view the API
 operations (also called methods) by choosing a service in the left
-navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html") page. Choose a method in the
+navigation on the following [Services Reference](../../../boto3/latest/reference/services/index.md "../../../boto3/latest/reference/services/index.md") page. Choose a method in the
 **Client** section for the service that you want to
 invoke. For example, all API operations (methods) for Amazon Relational Database Service (Amazon RDS) are
 listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html").
@@ -74,7 +74,7 @@ API operation inputs
 One or more API operation inputs. You can view the available inputs (also
 called parameters) by choosing a service in the left navigation on the
 following [Services
-Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html") page. Choose a method in the
+Reference](../../../boto3/latest/reference/services/index.md "../../../boto3/latest/reference/services/index.md") page. Choose a method in the
 **Client** section for the service that you want to
 invoke. For example, all methods for Amazon RDS are listed on the following page:
 [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html"). Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances") method and scroll down to see the
@@ -114,7 +114,7 @@ PropertySelector
 The JSONPath to a specific attribute in the response object. You can view
 the response objects by choosing a service in the left navigation on the
 following [Services
-Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html") page. Choose a method in the
+Reference](../../../boto3/latest/reference/services/index.md "../../../boto3/latest/reference/services/index.md") page. Choose a method in the
 **Client** section for the service that you want to
 invoke. For example, all methods for Amazon RDS are listed on the following page:
 [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html"). Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances") method and scroll down to the

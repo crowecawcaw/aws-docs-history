@@ -46,11 +46,6 @@ connection time is greatly reduced.
 You can connect to both Amazon Elastic Compute Cloud (Amazon EC2) instances and non-EC2 nodes in your
 [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") environment.
 
-To connect to non-EC2 nodes using Session Manager, you must first activate the
-advanced-instances tier. **There is a charge to use the
-advanced-instances tier.** However, there is no additional charge
-to connect to EC2 instances using Session Manager. For information, see [Configuring instance tiers](fleet-manager-configure-instance-tiers.md "fleet-manager-configure-instance-tiers.md").
-
 - **Port forwarding**
 
 Redirect any port inside your managed node to a local port on a client. After
@@ -127,11 +122,6 @@ SSH connections.
 Session Manager enables you to establish secure connections to your Amazon Elastic Compute Cloud (EC2) instances,
 edge devices, on-premises servers, and virtual machines (VMs). For a list of supported
 operating system types, see [Setting up Session Manager](session-manager-getting-started.md "session-manager-getting-started.md").
-
-###### Note
-
-Session Manager support for on-premises machines is provided for the advanced-instances tier
-only. For information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
 
 - **Console, CLI, and SDK access to Session Manager
   capabilities**

@@ -97,8 +97,7 @@ allows you to comply with corporate policies that require controlled access
 to edge devices and instances, strict security practices, and fully
 auditable logs with edge device and instance access details, while still
 providing end users with simple one-click cross-platform access to your edge
-devices and EC2 instances. To use Session Manager, you must enable the
-advanced-instances tier. For more information, see [Turning on the advanced-instances tier](fleet-manager-enable-advanced-instances-tier.md "fleet-manager-enable-advanced-instances-tier.md").
+devices and EC2 instances.
 
 State Manager
 Use [State Manager](systems-manager-state.md "systems-manager-state.md") to automate the
