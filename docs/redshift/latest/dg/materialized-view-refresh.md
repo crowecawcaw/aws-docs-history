@@ -1,6 +1,7 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
-Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
+We will start enforcing it in phases. For more information on the details of Python end of life
+and migration options, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
 
 # Refreshing a materialized view
 
@@ -179,7 +180,7 @@ Consider the following when you refresh materialized views:
 - Auto refresh is supported on materialized views defined on datasharing tables or Iceberg tables but not on the combination of the two.
 - For refresh status, you can check SVL\_MV\_REFRESH\_STATUS, which records queries that were
   user-initiated or autorefreshed.
-- To run REFRESH on recompute-only materialized views, make sure that you have the CREATE
+- To run full recompute REFRESH of materialized views, make sure that you have the CREATE
   permission on schemas. For more information, see [GRANT](r_GRANT.md "r_GRANT.md").
 
 Starting February 27, 2026, Auto REFRESH queries for Amazon Redshift materialized views are executed as user queries

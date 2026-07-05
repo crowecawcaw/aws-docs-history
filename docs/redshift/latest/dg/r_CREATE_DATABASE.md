@@ -1,6 +1,7 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
-Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
+We will start enforcing it in phases. For more information on the details of Python end of life
+and migration options, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
 
 # CREATE DATABASE
 
@@ -80,15 +81,28 @@ a zero-ETL integration table can only be queried in `Synced` state.
 REFRESH\_INTERVAL <interval>
 
 The REFRESH\_INTERVAL clause sets the approximate time interval, in seconds,
-to refresh data from the zero-ETL source to the target database. The value can
-be set 0–432,000 seconds (5 days) for zero-ETL integrations whose source type is
-Aurora MySQL, Aurora PostgreSQL, or RDS for MySQL. For Amazon DynamoDB zero-ETL integrations, the value
-can be set 900–432,000 seconds (15 minutes –5 days). The default
-`interval` is zero (0) seconds for zero-ETL integrations whose source type
-is Aurora MySQL, Aurora PostgreSQL, or RDS for MySQL.
-For Amazon DynamoDB
-zero-ETL integrations, the default `interval` is 900 seconds (15
-minutes).
+that Amazon Redshift waits after a refresh cycle completes to start the next one. Each
+cycle refreshes data from the zero-ETL integration source to the target database,
+applying all accumulated changes since the end of the previous cycle. A value
+of 0 starts the next cycle as soon as the previous one finishes (near-real-time
+replication). A higher value spaces cycles further apart, reducing refresh
+overhead at the cost of immediate data freshness. Amazon Redshift waits between cycles
+only when ingestion has caught up; when changes accumulate faster than they can
+be applied, cycles run with no wait.
+
+The `interval` can be set to 0–432,000 seconds (5 days)
+for zero-ETL integrations whose source type is Aurora MySQL, Aurora PostgreSQL, or the
+supported RDS engines, and the default is 0. For Amazon DynamoDB zero-ETL integrations, the
+`interval` can be set to 900–432,000 seconds (15
+minutes–5 days), and the default is 900 seconds (15 minutes); 0 is not
+supported.
+
+###### Note
+
+For write-intensive integrations other than DynamoDB that generate a high volume
+of changes, set REFRESH\_INTERVAL to a small non-zero value (for
+example, 60–120 seconds). Grouping more changes into each cycle
+reduces the overall compute overhead of replication.
 
 TRUNCATECOLUMNS [=] { TRUE | FALSE }
 

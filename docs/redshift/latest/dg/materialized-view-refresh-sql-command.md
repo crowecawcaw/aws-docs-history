@@ -1,6 +1,7 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
-Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
+We will start enforcing it in phases. For more information on the details of Python end of life
+and migration options, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
 
 # REFRESH MATERIALIZED VIEW
 
@@ -46,6 +47,10 @@ Only the owner of a materialized view can perform a `REFRESH MATERIALIZED
  VIEW` operation on that materialized view. Furthermore, the owner must have
 SELECT privilege on the underlying base tables to successfully run `REFRESH
  MATERIALIZED VIEW`.
+
+When a materialized view requires a full recompute, the owner must also have CREATE
+privilege on the schema that contains the materialized view. A full recompute can be
+triggered by operations such as VACUUM or TRUNCATE on base tables.
 
 The `REFRESH MATERIALIZED VIEW` command runs as a transaction of its own.
 Amazon Redshift transaction semantics are followed to determine what data from base
