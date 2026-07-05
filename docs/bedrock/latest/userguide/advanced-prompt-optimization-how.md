@@ -10,7 +10,7 @@ model as a baseline and up to 4 other models. If you are not changing models, ju
 your current model to see before and after optimization. The optimizer takes your prompt
 templates (up to 10 per job), example user inputs for variable values (evaluation samples, up to 100 per prompt
 template), ground truth answers, and an evaluation metric to guide the optimization. It's
-even compatible with multimodal inputs such as jpeg, png, or PDF. You can provide an
+even compatible with multimodal inputs such as JPG, JPEG, PNG, GIF, WebP, or PDF. You can provide an
 LLM-as-a-judge rubric, a Lambda function, or short natural language steering criteria. The
 evaluation steers the prompt optimization. The optimizer works in an evaluation-based
 feedback loop to optimize the prompt and resulting model responses, and outputs the original

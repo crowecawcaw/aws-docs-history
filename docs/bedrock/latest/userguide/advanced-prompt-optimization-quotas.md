@@ -40,6 +40,13 @@ When using the custom LLM-as-a-judge evaluation method, the following models are
 | Templates per job               | 10                        |
 | Evaluation samples per template | 100                       |
 | Text variables per template     | 20                        |
-| Multimodal files per sample     | 2                         |
+| Multimodal files per sample     | 100                       |
 | Models per job                  | 5                         |
 | Steering criteria per template  | 5                         |
+
+## Supported multimodal file types
+
+| Category | Supported formats                                              | Notes                                                                                                                                                                                                                                                       |
+| -------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Image    | JPG (.jpg), JPEG (.jpeg), PNG (.png), GIF (.gif), WebP (.webp) | Support depends on the target model. For animated GIF and WebP files, models typically use only the first frame. To include multiple frames, split them into separate image files and include them as individual multimodal files in the evaluation sample. |
+| Document | PDF (.pdf)                                                     |                                                                                                                                                                                                                                                             |

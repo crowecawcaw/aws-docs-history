@@ -148,7 +148,16 @@ This section provides some IAM policies that you can use to restrict access to a
 
 ### Deny an identity the ability to make calls with an Amazon Bedrock API key
 
-The action that allows an identity to make calls with an Amazon Bedrock API key is `bedrock:CallWithBearerToken`. To prevent an identity from making calls with the Amazon Bedrock API key, you can attach an IAM policy on an identity depending the type of key:
+To fully prevent an identity from making calls with an Amazon Bedrock API key, you must deny both of the following actions:
+
+- `bedrock:CallWithBearerToken` – Controls API key usage through the Amazon Bedrock endpoint.
+- `bedrock-mantle:CallWithBearerToken` – Controls API key usage through the Amazon Bedrock Mantle endpoint.
+
+###### Important
+
+Denying only `bedrock:CallWithBearerToken` does **not** prevent API key usage through the Mantle endpoint. You must also deny `bedrock-mantle:CallWithBearerToken` to completely block API key usage.
+
+To prevent an identity from making calls with an API key, attach an IAM policy on the identity depending on the type of key:
 
 - **Long-term key** – Attach the policy to the IAM user associated with the key.
 - **Short-term key** – Attach the policy to the IAM identity used to generate the key.
@@ -162,7 +171,10 @@ JSON
  "Version":"2012-10-17",
  "Statement": {
  "Effect": "Deny",
- "Action": "bedrock:CallWithBearerToken",
+ "Action": [
+ "bedrock:CallWithBearerToken",
+ "bedrock-mantle:CallWithBearerToken"
+ ],
  "Resource": "*"
  }
 }`

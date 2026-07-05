@@ -61,7 +61,7 @@ In this prompt dataset, you will also choose the evaluation method to steer the 
 | 12  | `evaluationSamples[].referenceResponse`                               | string          | No                                                             | Optional ground-truth reference response. Recommended for best optimization results.                                                                    |
 | 13  | `evaluationSamples[].inputVariablesMultimodal`                        | list of objects | Yes (if not using `inputVariables`)                            | Multimodal file inputs. At least one of `inputVariables` or `inputVariablesMultimodal` must be present per sample.                                      |
 | 14  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name`       | object          | Yes (if multimodal present)                                    | Name your multimodal variable. This is an arbitrary user-chosen name.                                                                                   |
-| 15  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name.type`  | string          | Yes (if multimodal present)                                    | "IMAGE" or "PDF". IMAGE accepts png and jpeg.                                                                                                           |
+| 15  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name.type`  | string          | Yes (if multimodal present)                                    | "IMAGE" or "PDF". IMAGE accepts JPG, JPEG, PNG, GIF, and WebP.                                                                                          |
 | 16  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name.s3Uri` | string          | Yes (if multimodal present)                                    | S3 URI path to the multimodal file.                                                                                                                     |
 
 ## Required fields
@@ -77,7 +77,7 @@ Use `{{variableName}}` syntax (double curly brackets) for placeholders in your p
 
 ## Evaluation samples
 
-Provide `inputVariables` as a list of single-key objects: `[{"variable1": "value1"}, {"variable2": "value2"}]`. Do NOT put multiple keys in one object. Optionally provide `referenceResponse` as the ground truth answer for better optimization results. For multimodal inputs, use the `inputVariablesMultimodal` array with `Arbitrary_Name` objects. Multimodal files are sent to the model in the payload along with the text prompt. Supported types are IMAGE (png, jpeg) and PDF, with a maximum of 2 multimodal files per sample. Multimodal inputs (images and PDFs) are sent in the payload to the model along with the prompt but should not be referenced in a double curly bracket `{{placeholder}}` variable.
+Provide `inputVariables` as a list of single-key objects: `[{"variable1": "value1"}, {"variable2": "value2"}]`. Do NOT put multiple keys in one object. Optionally provide `referenceResponse` as the ground truth answer for better optimization results. For multimodal inputs, use the `inputVariablesMultimodal` array with `Arbitrary_Name` objects. Multimodal files are sent to the model in the payload along with the text prompt. Supported types are IMAGE (JPG, JPEG, PNG, GIF, WebP) and PDF, with a maximum of 100 multimodal files per sample. Multimodal inputs (images and PDFs) are sent in the payload to the model along with the prompt but should not be referenced in a double curly bracket `{{placeholder}}` variable.
 
 ## Evaluation strategy
 
@@ -91,7 +91,7 @@ For the full list of quotas, see [Supported Regions, models, and quotas](advance
 - Maximum 100 evaluation samples per template
 - Maximum 5 models per job
 - Maximum 20 text variables per template
-- Maximum 2 multimodal files per sample
+- Maximum 100 multimodal files per sample
 - Maximum 5 steering criteria per template
 
 ## Common mistakes
@@ -105,15 +105,15 @@ For the full list of quotas, see [Supported Regions, models, and quotas](advance
 
 ## Use multimodal inputs
 
-**Supported file types:** IMAGE (png, jpeg) and PDF.
+**Supported file types:** IMAGE (JPG, JPEG, PNG, GIF, WebP) and PDF.
 
 ###### Tip
 
-To use GIF or WebP images and include all frames in the optimization, break the images down into individual frames, convert them to png or jpeg, and include them in sequential order in your evaluation samples.
+For GIF and WebP files, models that support these formats typically use only the first frame of an animated multi-frame file. To use multiple frames from an animated file, split the frames manually and include them as separate multimodal files in the evaluation sample.
 
 **How to include:** Use the `inputVariablesMultimodal` array with `Arbitrary_Name` objects containing `type` and `s3Uri`.
 
-**Limits:** Maximum 2 multimodal files per evaluation sample. You can mix and match so that you have up to 20 text variables and also 2 multimodal files per evaluation sample record.
+**Limits:** Maximum 100 multimodal files per evaluation sample. You can mix and match so that you have up to 20 text variables and also 100 multimodal files per evaluation sample record.
 
 **Mixing text and multimodal:** You can have both `inputVariables` (text) and `inputVariablesMultimodal` in the same sample. Double curly bracket `{{placeholders}}` are reserved for plaintext only. You cannot reference multimodal files via placeholders. Placeholder variables should not be used to point to an S3 location of a multimodal file. If you have multimodal files, they will be sent to the model in the payload along with the text prompt.
 

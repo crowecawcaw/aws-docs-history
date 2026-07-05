@@ -42,6 +42,7 @@ We will now look at the list of APIs supported by each model.
 
 | Model name                                                                                                                 | Invoke | Converse | Chat Completions | Responses | Messages |
 | -------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | ---------------- | --------- | -------- |
+| **[Claude Sonnet 5](model-card-anthropic-claude-sonnet-5.md "model-card-anthropic-claude-sonnet-5.md")**                   |        |          |                  |           |          |
 | **[Claude Mythos 5](model-card-anthropic-claude-mythos-5.md "model-card-anthropic-claude-mythos-5.md")**                   |        |          |                  |           |          |
 | **[Claude Fable 5](model-card-anthropic-claude-fable-5.md "model-card-anthropic-claude-fable-5.md")**                      |        |          |                  |           |          |
 | **[Claude Mythos Preview](model-card-anthropic-claude-mythos-preview.md "model-card-anthropic-claude-mythos-preview.md")** |        |          |                  |           |          |

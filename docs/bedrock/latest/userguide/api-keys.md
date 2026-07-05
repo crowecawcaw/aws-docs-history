@@ -250,19 +250,20 @@ From the console: go to **API keys** > **Long-term API keys** > select your key 
 
 If a key is compromised, take one of the following actions:
 
-| Action             | Key type   | How                                                                                                                                       |
-| ------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Deactivate         | Long-term  | Console: *_API keys_<br>• > select key > *_Actions_<br>• > **Deactivate**. API: `UpdateServiceSpecificCredential` with `Status=Inactive`. |
-| Reset              | Long-term  | Console: *_Actions_<br>• > **Reset key**. API: `ResetServiceSpecificCredential`.                                                          |
-| Delete             | Long-term  | Console: *_Actions_<br>• > **Delete**. API: `DeleteServiceSpecificCredential`.                                                            |
-| Invalidate session | Short-term | Attach an IAM policy to the identity that denies `bedrock:CallWithBearerToken`, or invalidate the session used to generate the key.       |
+| Action             | Key type   | How                                                                                                                                                                                                                                                                                                                                    |
+| ------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Deactivate         | Long-term  | Console: *_API keys_<br>• > select key > *_Actions_<br>• > **Deactivate**. API: `UpdateServiceSpecificCredential` with `Status=Inactive`.                                                                                                                                                                                              |
+| Reset              | Long-term  | Console: *_Actions_<br>• > **Reset key**. API: `ResetServiceSpecificCredential`.                                                                                                                                                                                                                                                       |
+| Delete             | Long-term  | Console: *_Actions_<br>• > **Delete**. API: `DeleteServiceSpecificCredential`.                                                                                                                                                                                                                                                         |
+| Invalidate session | Short-term | Invalidate the session used to generate the key, or attach an IAM policy that denies `CallWithBearerToken` ([Deny an identity the ability to make calls with an Amazon Bedrock API key](api-keys-revoke.md#api-keys-iam-policies-deny-call-with-bearer-token "api-keys-revoke.md#api-keys-iam-policies-deny-call-with-bearer-token")). |
 
 ## Control who can generate and use API keys
 
-Two IAM actions control API key generation and usage:
+IAM actions control API key generation and usage:
 
 - `iam:CreateServiceSpecificCredential` – Controls generation of long-term keys. Use the `iam:ServiceSpecificCredentialAgeDays` condition key to limit expiration (e.g., max 90 days).
-- `bedrock:CallWithBearerToken` – Controls usage of any API key. Use the `bedrock:bearerTokenType` condition key with values `SHORT_TERM` or `LONG_TERM` to target specific key types.
+- `bedrock:CallWithBearerToken` – Controls usage of an API key through the Amazon Bedrock endpoint. Use the `bedrock:bearerTokenType` condition key with values `SHORT_TERM` or `LONG_TERM` to target specific key types.
+- `bedrock-mantle:CallWithBearerToken` – Controls usage of an API key through the Amazon Bedrock Mantle endpoint. Use the `bedrock-mantle:bearerTokenType` condition key with values `SHORT_TERM` or `LONG_TERM` to target specific key types.
 
 ###### Example: Prevent an identity from using any API key
 
@@ -274,7 +275,10 @@ Attach this policy to the identity:
     "Statement": [
         {
             "Effect": "Deny",
-            "Action": "bedrock:CallWithBearerToken",
+            "Action": [
+                "bedrock:CallWithBearerToken",
+                "bedrock-mantle:CallWithBearerToken"
+            ],
             "Resource": "*"
         }
     ]

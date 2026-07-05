@@ -13,9 +13,11 @@ When you run model inference, there are quotas on the number of tokens that can 
 | `max_tokens`            | A parameter you provide in your request to set a maximum amount of output tokens the model can generate.                                                                                                                                                                         |
 | Burndown rate           | The rate at which input and output tokens are converted into token quota usage for the throttling system.                                                                                                                                                                        |
 
-The burndown rate for Anthropic Claude models version 4.8 is **15x for output tokens** (1 output token consumes 15 tokens from your quotas). For all other Anthropic models version 3.7 and later, the burndown is **5x for output tokens** (1 output token consumes 5 tokens from your quotas).
+The burndown rate for Anthropic Claude models version 4.8 is **15x for output tokens** (1 output token consumes 15 tokens from your quotas) and the burndown rate for Anthropic Claude Sonnet 5 is **10x for output tokens**. For all other Anthropic models version 4.7 and below, the burndown is **5x for output tokens** (1 output token consumes 5 tokens from your quotas).
 
 For all other models, the burndown rate is **1:1** (1 output token consumes 1 token from your quota).
+
+Token burndown rates apply only to models available on the `bedrock-runtime` endpoint. Models available exclusively on the `bedrock-mantle` endpoint have separate quotas for input and output tokens, so burndown does not apply.
 
 ###### Topics
 

@@ -1,8 +1,8 @@
 # How Amazon Bedrock Agents works
 
-|                                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _Accelerate agents to production with Amazon Bedrock AgentCore. AgentCore is an agentic platform to build, deploy, and operate highly capable agents securely at scale. For more information, see the [AgentCore developer guide](../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md "../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md")._ |
+###### Note
+
+Amazon Bedrock Agents (launched November 2023) is now 'Amazon Bedrock Agents Classic' and will no longer be open to new customers starting on July 30, 2026. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md "../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md"). If you would like to use Bedrock Agents Classic, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md "agents-classic-maintenance-mode.md").
 
 Amazon Bedrock Agents consists of the following two main sets of API operations to help you set up
 and run an agent:

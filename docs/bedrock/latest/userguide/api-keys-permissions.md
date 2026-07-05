@@ -13,18 +13,20 @@ You can use the following condition keys to impose conditions on the permission 
 
 ###### Controlling the usage of Amazon Bedrock API keys
 
-The [bedrock:CallWithBearerToken](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions") action controls the use of a short-term or long-term Amazon Bedrock API key.
+Amazon Bedrock API keys can be used with [two endpoints](endpoints.md "endpoints.md"), each controlled by a separate IAM action. To fully prevent all API key-based access, you must deny both actions.
 
-You can use the `bedrock:bearerTokenType` condition key with [string condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String") to specify the type of bearer token for which to apply the permission for `bedrock:CallWithBearerToken`. You can specify one of the following values:
+- `bedrock:CallWithBearerToken` – Controls the use of an API key through the Amazon Bedrock endpoint.
+- `bedrock-mantle:CallWithBearerToken` – Controls the use of an API key through the Amazon Bedrock Mantle endpoint.
+  Each action has a corresponding `bearerTokenType` condition key that you can use with [string condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String") to specify the type of bearer token for which to apply the permission. Use `bedrock:bearerTokenType` with `bedrock:CallWithBearerToken` and `bedrock-mantle:bearerTokenType` with `bedrock-mantle:CallWithBearerToken`. You can specify one of the following values:
 
 - `SHORT_TERM` – Specifies short-term Amazon Bedrock API keys in the condition.
 - `LONG_TERM` – Specifies long-term Amazon Bedrock API keys in the condition.
   The following table summarizes how to prevent an identity from generating or using Amazon Bedrock API keys:
 
-| Purpose                    | Long-term key                                                                                                 | Short-term key                                                                                                                        |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| Prevent generation of keys | Attach a policy that denies the `iam:CreateServiceSpecificCredential` action to an IAM identity.              | N/A                                                                                                                                   |
-| Prevent usage of a key     | Attach a policy that denies the `bedrock:CallWithBearerToken` action to the IAM user associated with the key. | Attach a policy that denies the `bedrock:CallWithBearerToken` action to IAM identities that you don't want to be able to use the key. |
+| Purpose                    | Long-term key                                                                                                                                    | Short-term key                                                                                                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Prevent generation of keys | Attach a policy that denies the `iam:CreateServiceSpecificCredential` action to an IAM identity.                                                 | N/A                                                                                                                                                                      |
+| Prevent usage of a key     | Attach a policy that denies both `bedrock:CallWithBearerToken` and `bedrock-mantle:CallWithBearerToken` to the IAM user associated with the key. | Attach a policy that denies both `bedrock:CallWithBearerToken` and `bedrock-mantle:CallWithBearerToken` to IAM identities that you don't want to be able to use the key. |
 
 ###### Warning
 
@@ -58,7 +60,8 @@ JSON
  "Effect": "Deny",
  "Action": [
  "iam:CreateServiceSpecificCredential",
- "bedrock:CallWithBearerToken"
+ "bedrock:CallWithBearerToken",
+ "bedrock-mantle:CallWithBearerToken"
  ],
  "Resource": [
  "*"
@@ -78,6 +81,37 @@ JSON
 
 To prevent an IAM identity from using short-term Amazon Bedrock API keys, attach the following policy to the identity:
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Deny",
+ "Action": "bedrock:CallWithBearerToken",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "bedrock:bearerTokenType": "SHORT_TERM"
+ }
+ }
+ },
+ {
+ "Effect": "Deny",
+ "Action": "bedrock-mantle:CallWithBearerToken",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "bedrock-mantle:bearerTokenType": "SHORT_TERM"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
 ### Prevent an identity from using long-term API keys
 
 To prevent an IAM identity from using long-term Amazon Bedrock API keys, attach the following policy to the identity:
@@ -95,6 +129,16 @@ JSON
  "Condition": {
  "StringEquals": {
  "bedrock:bearerTokenType": "LONG_TERM"
+ }
+ }
+ },
+ {
+ "Effect": "Deny",
+ "Action": "bedrock-mantle:CallWithBearerToken",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "bedrock-mantle:bearerTokenType": "LONG_TERM"
  }
  }
  }
@@ -124,8 +168,21 @@ JSON
  }
  },
  {
+ "Effect": "Deny",
+ "Action": "bedrock-mantle:CallWithBearerToken",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "bedrock-mantle:bearerTokenType": "SHORT_TERM"
+ }
+ }
+ },
+ {
  "Effect": "Allow",
- "Action": "bedrock:CallWithBearerToken",
+ "Action": [
+ "bedrock:CallWithBearerToken",
+ "bedrock-mantle:CallWithBearerToken"
+ ],
  "Resource": "*"
  }
  ]
@@ -154,8 +211,21 @@ JSON
  }
  },
  {
+ "Effect": "Deny",
+ "Action": "bedrock-mantle:CallWithBearerToken",
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "bedrock-mantle:bearerTokenType": "LONG_TERM"
+ }
+ }
+ },
+ {
  "Effect": "Allow",
- "Action": "bedrock:CallWithBearerToken",
+ "Action": [
+ "bedrock:CallWithBearerToken",
+ "bedrock-mantle:CallWithBearerToken"
+ ],
  "Resource": "*"
  }
  ]

@@ -65,10 +65,10 @@ For pricing, please refer to the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**               | **In-Region endpoint URL**                                      | **Geo inference ID**                                       | **Global inference ID**           |
-| ----------------- | -------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------- | --------------------------------- |
-| `bedrock-runtime` | `anthropic.claude-fable-5` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-fable-5``eu.anthropic.claude-fable-5` | `global.anthropic.claude-fable-5` |
-| `bedrock-mantle`  | `anthropic.claude-fable-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                                                        | N/A                               |
+| **Endpoint**      | **Model ID**               | **In-Region endpoint URL**                                      | **Geo inference ID**          | **Global inference ID**           |
+| ----------------- | -------------------------- | --------------------------------------------------------------- | ----------------------------- | --------------------------------- |
+| `bedrock-runtime` | `anthropic.claude-fable-5` | `https://bedrock-runtime.{region}.amazonaws.com`                | `us.anthropic.claude-fable-5` | `global.anthropic.claude-fable-5` |
+| `bedrock-mantle`  | `anthropic.claude-fable-5` | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | N/A                           | N/A                               |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws"._
 
@@ -94,14 +94,14 @@ Bedrock offers three inference options: **In-Region** keeps requests within a si
 | `us-west-2` (Oregon)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `ca-central-1` (Canada)        | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
 | `ca-west-1` (Calgary)          | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-central-1` (Frankfurt)     | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-central-2` (Zurich)        | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-north-1` (Stockholm)       | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-south-1` (Milan)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-south-2` (Spain)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-west-1` (Ireland)          | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-west-2` (London)           | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
-| `eu-west-3` (Paris)            | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon.                                 | Green circle with white checkmark icon. |
+| `eu-central-1` (Frankfurt)     | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `eu-central-2` (Zurich)        | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `eu-north-1` (Stockholm)       | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `eu-south-1` (Milan)           | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `eu-south-2` (Spain)           | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `eu-west-1` (Ireland)          | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `eu-west-2` (London)           | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+| `eu-west-3` (Paris)            | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-east-2` (Taipei)           | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-northeast-1` (Tokyo)       | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
 | `ap-northeast-2` (Seoul)       | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |

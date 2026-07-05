@@ -29,14 +29,14 @@ You can configure the following filters with Amazon Bedrock Guardrails:
   you detect sensitive content such as Personally Identifiable Information (PII) in
   standard formats or custom regex entities in user inputs and FM responses. This filter is a probabilistic maching learning (ML)
   based solution that is context dependent. It detects sensitive information based on the context within input prompts or model responses. Based on
-  your use case, you can block or mask inputs and responses containing sensitive information. For example, you can redact users’ personal information while
+  your use case, you can block or mask inputs and responses containing sensitive information. For example, you can redact users' personal information while
   generating summaries from customer and agent conversation transcripts.
 - **Contextual grounding checks** — Can help you
   detect and filter hallucinations in model responses if they are not grounded
   (factually inaccurate or add new information) in the source information or are
-  irrelevant to the user’s query. For example, you can block or flag responses in RAG (retrieval-augmented generation)
+  irrelevant to the user's query. For example, you can block or flag responses in RAG (retrieval-augmented generation)
   applications, if the model responses deviate from
-  the information in the retrieved passages or doesn’t answer the question from the
+  the information in the retrieved passages or doesn't answer the question from the
   user.
 - **Automated reasoning checks** — Can help you
   validate that model responses adhere to logical rules and policies that you define.

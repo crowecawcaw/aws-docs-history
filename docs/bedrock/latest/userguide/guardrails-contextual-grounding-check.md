@@ -7,7 +7,7 @@ science discipline. (Conversational QA / Chatbot use cases are not supported.)
 
 Contextual grounding checks check for relevance for each chunk processed. If any one
 chunk is deemed relevant, the whole response is considered relevant as it has the answer
-to user’s query. For streaming API, this can result in scenario where an irrelevant
+to user's query. For streaming API, this can result in scenario where an irrelevant
 response is returned to the user and is only marked as irrelevant after the whole
 response is streamed.
 
@@ -19,11 +19,11 @@ Contextual grounding checks the following paradigms:
   un-grounded.
 - **Relevance** – This checks if the model
   response is relevant to the user query.
-  Consider an example where the reference source contains “London is the capital of UK.
-  Tokyo is the capital of Japan” and the user query is “What is the capital of Japan?”. A
-  response such as “The capital of Japan is London” will be considered ungrounded and
-  factually incorrect, where as a response such as “The capital of UK is London” will be
-  considered irrelevant, even if it’s correct and grounded in the source.
+  Consider an example where the reference source contains "London is the capital of UK.
+  Tokyo is the capital of Japan" and the user query is "What is the capital of Japan?". A
+  response such as "The capital of Japan is London" will be considered ungrounded and
+  factually incorrect, where as a response such as "The capital of UK is London" will be
+  considered irrelevant, even if it's correct and grounded in the source.
 
 ###### Note
 
@@ -59,40 +59,40 @@ configured differently depending on whether you are using Invoke APIs,
 Converse APIs, or `ApplyGuardrail` directly.
 
 - Grounding source – contextual information needed to answer any user
-  queries. For example, “London is the capital of UK. Tokyo is the capital of
-  Japan”.
-- Query – a question a user may ask. For example, “What is the capital of
-  Japan?”.
+  queries. For example, "London is the capital of UK. Tokyo is the capital of
+  Japan".
+- Query – a question a user may ask. For example, "What is the capital of
+  Japan?".
 - Content to guard – the text that should be guarded relative to the
   grounding source and query. For Invoke and Converse APIs, this is
-  the model response. For example, this can be “The capital of Japan is
-  Tokyo”.
+  the model response. For example, this can be "The capital of Japan is
+  Tokyo".
   **Ungrounded example**
 
-- Grounding source - “London is the capital of UK. Tokyo is the capital of
-  Japan.”
-- Query - “What is the capital of Japan?”
-- Content to guard - “The capital of Japan is London.”
+- Grounding source - "London is the capital of UK. Tokyo is the capital of
+  Japan."
+- Query - "What is the capital of Japan?"
+- Content to guard - "The capital of Japan is London."
   In this example, the content to guard is relevant to the query but is ungrounded as it
   does not use the grounding source correctly. This would have a low grounding
   score.
 
 **Irrelevant example**
 
-- Grounding source - “London is the capital of UK. Tokyo is the capital of
-  Japan.”
-- Query - “What is the capital of Japan?”
-- Content to guard - “The capital of UK is London.”
+- Grounding source - "London is the capital of UK. Tokyo is the capital of
+  Japan."
+- Query - "What is the capital of Japan?"
+- Content to guard - "The capital of UK is London."
   In this example, the content to guard is grounded but not relevant. It uses
   information from the grounding source but does not answer the query. This would have a
   low relevance score.
 
 **Ungrounded and irrelevant example**
 
-- Grounding source - “London is the capital of UK. Tokyo is the capital of
-  Japan.”
-- Query - “What is the capital of Japan?”
-- Content to guard - “It is raining outside.”
+- Grounding source - "London is the capital of UK. Tokyo is the capital of
+  Japan."
+- Query - "What is the capital of Japan?"
+- Content to guard - "It is raining outside."
   In this example, the content to guard is not grounded and not relevant. It neither
   uses information from the grounding source nor does it answer the query. This would have
   a low grounding and relevance score.
@@ -110,7 +110,7 @@ Source:
 - There are no charges associated with domestic transfers.
 - The charges associated with late payments of credit card bill is
   23.99%.
-  Based on the above source, there can be four scenarios depending on the user’s
+  Based on the above source, there can be four scenarios depending on the user's
   query.
 
 **Grounded and Relevant**

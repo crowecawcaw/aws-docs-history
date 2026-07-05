@@ -19,7 +19,7 @@ TwelveLabs Pegasus 1.2 request parameters| Field | Type | Required | Description
 | --- | --- | --- | --- |
 | `inputPrompt` | string | Yes | Prompt to analyze the video. Max: 2000 tokens. |
 | `temperature` | double | No | Temperature for the model. Controls randomness in the output. Default: 0.2, Min: 0, Max: 1. |
-| `responseFormat` | Object | No | Lets users specify the structured output format. Currently supports json\_schema only. |
+| `responseFormat` | Object | No | Specifies a structured-output JSON Schema. Set the schema object directly under `responseFormat.jsonSchema`. |
 | `mediaSource` | object | Yes | Describes the media source. Either `base64String` or `s3Location` must be provided. |
 | `mediaSource.base64String` | string | No | Base64 encoded byte string for the video. Max: 25MB. |
 | `mediaSource.s3Location.uri` | string | No | S3 URI where the video could be downloaded from. Max: 1 hour long video (< 2GB file size). |
@@ -32,7 +32,7 @@ The following table describes the output fields for the TwelveLabs Pegasus 1.2 m
 
 TwelveLabs Pegasus 1.2 response fields| Field | Type | Description |
 | --- | --- | --- |
-| `message` | string | Output message containing the model's analysis of the video. |
+| `message` | string | Output message containing the model's analysis of the video. When `responseFormat.jsonSchema` is set, this field returns a JSON string that conforms to the supplied schema. Parse the string to access individual fields. |
 | `finishReason` | string | Stop reason that describes why the output ended. Valid values: `stop` (API returned the full completions without reaching any limits), `length` (the generation exceeded the max\_tokens limit). |
 
 ## TwelveLabs Pegasus 1.2 request and response
@@ -83,18 +83,14 @@ The following examples show request formats for the TwelveLabs Pegasus 1.2 model
     "temperature": 0.2,
     "maxOutputTokens": 2048,
     "responseFormat": {
-        "type": "json_schema",
         "jsonSchema": {
-            "name": "video_analysis",
-            "schema": {
-                "type": "object",
-                "properties": {
-                    "summary": {"type": "string"},
-                    "key_scenes": {"type": "array", "items": {"type": "string"}},
-                    "duration": {"type": "string"}
-                },
-                "required": ["summary", "key_scenes"]
-            }
+            "type": "object",
+            "properties": {
+                "summary":    { "type": "string" },
+                "key_scenes": { "type": "array", "items": { "type": "string" } },
+                "duration":   { "type": "string" }
+            },
+            "required": ["summary", "key_scenes"]
         }
     }
 }

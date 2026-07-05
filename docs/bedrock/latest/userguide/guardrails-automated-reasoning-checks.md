@@ -103,10 +103,9 @@ Source Document ──► Extracted Policy ──► Testing ──► Deploymen
    pipelines. For more information, see [Deploy your Automated Reasoning policy in your application](deploy-automated-reasoning-policy.md "deploy-automated-reasoning-policy.md").
 4. **Integrate.** At runtime, Automated Reasoning findings
    are returned through APIs that supports a Amazon Bedrock Guardrails configuration: `Converse`,
-   `InvokeModel`, `InvokeAgent`, and `RetrieveAndGenerate`,
-   as well as the standalone `ApplyGuardrail` API. Inspect the findings to decide
-   whether to serve the response, rewrite it using the feedback, or ask the user for clarification.
-   Automated Reasoning checks operate in _detect mode_ only — they return
+   `InvokeModel`, as well as the standalone `ApplyGuardrail` API. Inspect the
+   findings to decide whether to serve the response, rewrite it using the feedback, or ask the user
+   for clarification. Automated Reasoning checks operate in _detect mode_ only—they return
    findings and feedback rather than blocking content. For more information on how to integrate
    Automated Reasoning checks in your application, see [Integrate Automated Reasoning checks in your application](integrate-automated-reasoning-checks.md "integrate-automated-reasoning-checks.md"). For more information on the permissions
    required to enable Automated Reasoning checks, see [Permissions for Automated Reasoning policies with ApplyGuardrail](guardrail-automated-reasoning-permissions.md "guardrail-automated-reasoning-permissions.md").

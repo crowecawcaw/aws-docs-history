@@ -2,6 +2,10 @@
 
 ###### Note
 
+Amazon Bedrock Agents (launched November 2023) is now 'Amazon Bedrock Agents Classic' and will no longer be open to new customers starting on July 30, 2026. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md "../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md"). If you would like to use Bedrock Agents Classic, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md "agents-classic-maintenance-mode.md").
+
+###### Note
+
 Amazon Bedrock Agents supports all models supported by Amazon Bedrock. For more information about all models supported in Amazon Bedrock and the Regions they're supported in, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
 
 Amazon Bedrock Agents is supported in the following Regions:

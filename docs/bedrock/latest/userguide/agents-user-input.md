@@ -1,5 +1,9 @@
 # Configure agent to request information from user to increase accuracy of function prediction
 
+###### Note
+
+Amazon Bedrock Agents (launched November 2023) is now 'Amazon Bedrock Agents Classic' and will no longer be open to new customers starting on July 30, 2026. For capabilities similar to Bedrock Agents Classic, explore [Amazon Bedrock AgentCore](../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md "../../../bedrock-agentcore/latest/devguide/agentcore-get-started-cli.md"). If you would like to use Bedrock Agents Classic, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon Bedrock Agents Classic maintenance mode](agents-classic-maintenance-mode.md "agents-classic-maintenance-mode.md").
+
 You can configure your agent to request more information from the user if it doesn't have enough information to accomplish a task. If your agent has action groups or
 APIs with some parameters, by default, the agent will use the default values for those parameters or Foundation Model hallucinates to assume the values of the parameter
 to complete the API request if it is not provided by the user. This might lead to agent inaccurately predicting the next function or the method to invoke based on the current interaction and causing
