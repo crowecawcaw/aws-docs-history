@@ -62,3 +62,13 @@ sessions running will be reclaimed.
    **Desired Capacity**. Note that a fixed fleet has the desired
    number of instances available at all times and the fleet must be stopped to stop billing
    costs for that fleet.
+
+###### Important
+
+To delete a fleet that has an associated auto scaling policy, the IAM role used to
+perform the deletion must include the
+`application-autoscaling:DeregisterScalableTarget` permission. Without
+this permission, the fleet deletion will not fail, however, the service cannot
+deregister the auto scaling target associated with the fleet and it will remain as an
+orphan resource. Ensure this permission is included in the user's IAM policy before
+attempting to delete a fleet with active scaling policies.

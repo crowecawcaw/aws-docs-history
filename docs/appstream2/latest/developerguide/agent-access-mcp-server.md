@@ -68,6 +68,13 @@ How you authenticate the streaming session depends on your fleet type:
 - **Domain-joined fleets** — Pass a
   signed SAML assertion as metadata. See [Connecting with domain-joined fleets](#agent-access-mcp-server-connect-dj "#agent-access-mcp-server-connect-dj").
 
+###### Note
+
+At any given time, only one agent can connect to a unique session.
+Named users, specified through the `UserId` parameter, can
+have only one active session per fleet at a time. To run multiple agents
+concurrently, each agent must connect to its own unique session.
+
 ### Connecting with non-domain-joined fleets
 
 For non-domain-joined fleets, generate a streaming URL using the
@@ -109,10 +116,7 @@ in the _Amazon WorkSpaces Applications 2.0 API Reference_.
 
 When agents access domain-joined streaming instances, the connection
 must be federated through a SAML provider. This requirement applies to
-both standard and agent sessions. Standard sessions allow users to enter
-their password manually or use certificate-based authentication for a
-seamless login experience. For agent sessions, certificate-based
-authentication is required.
+both traditional and agent sessions. For agent sessions, [Certificate-Based Authentication](certificate-based-authentication.md "certificate-based-authentication.md") is required.
 
 Because domain-joined streaming instances require access through SAML,
 your MCP client must provide a signed SAML assertion instead of a
@@ -364,20 +368,45 @@ configured on the WorkSpaces application session to your agent.
 To set up MCP tool forwarding:
 
 1. **Enable tool forwarding** —
-   Turn on the `FORWARD_MCP_TOOLS` agent action
-   through the API or console settings.
-2. **Configure the MCP server on the
-   WorkSpace** — The service looks for a
+   Turn on the `FORWARD_MCP_TOOLS` agent action through the
+   API or console settings.
+2. **Verify that the MCP server configuration
+   file is present** — The service looks for a
    configuration file at the following path:
 
 ```
 C:\ProgramData\NICE\dcv\mcp_server_redirection_config.json
 ```
 
-3. **Verify tool availability** —
-   If the configuration file is present, the service connects to
-   the MCP servers configured in the file and forwards the tools.
-   The forwarded tools appear when the agent lists its available
+3. **Configure the MCP server on the WorkSpace
+   image** — The configuration file is JSON with a
+   single top-level `mcpServers` object. Each key is a
+   unique name that you choose for a server. Each value specifies how
+   to launch that server.
+
+```
+{
+    "mcpServers": {
+        "filesystem": {
+            "command": "C:/path/to/python.exe",
+            "args": ["C:/mcpServerPath/filesystem.py", "C:/UserName/Documents"]
+        },
+        "weather": {
+            "command": "C:/Program Files/my-mcp/weather.exe"
+        }
+    }
+}
+```
+
+| Field     | Required | Type             | Description                                |
+| --------- | -------- | ---------------- | ------------------------------------------ |
+| `command` | Yes      | String           | Absolute path to the executable to launch. |
+| `args`    | No       | Array of strings | Arguments passed to the executable.        |
+
+4. **Verify tool availability** —
+   If the configuration file is present, the service connects to the
+   MCP servers configured in the file and forwards the tools. The
+   forwarded tools appear when the agent lists its available
    tools.
 
 ###### Note
@@ -385,6 +414,50 @@ C:\ProgramData\NICE\dcv\mcp_server_redirection_config.json
 Both IAM access and the service setting must be enabled for tool
 forwarding to work. IAM permissions do not override the service
 setting.
+
+### MCP tool forwarding considerations
+
+Note the following considerations when you configure MCP tool
+forwarding:
+
+- **Transport is standard I/O (stdio)
+  only.** Each entry must launch a process that speaks MCP
+  over its standard input and output. Remote HTTP or SSE MCP
+  endpoints are not supported. To use a remote endpoint, wrap it in a
+  local stdio server.
+- **Only `command` and
+  `args` are supported.** There is no field for
+  environment variables or working directory. Each server inherits
+  the environment of the streaming session and runs as the session
+  user. Use absolute paths for `command` and for any path
+  arguments.
+- **Use forward slashes in paths**
+  (for example, `C:/Program Files/my-mcp/server.exe`).
+  JSON treats the backslash as an escape character, so a
+  Windows-style path written with single backslashes is invalid.
+  Windows accepts forward slashes for absolute paths, which avoids
+  the need to escape every separator as `\\`.
+- **Tool-call timeout.** Each
+  forwarded tool call must complete within 5 seconds. The MCP server
+  cancels calls that take longer and returns an error to the agent.
+  Design forwarded tools to return quickly.
+
+### How forwarded tools appear to the agent
+
+To prevent collisions between servers, the MCP server renames each
+forwarded tool in the agent's tool list using the following pattern:
+
+```
+forwarded___`server-name`___`original-tool-name`
+```
+
+The `server-name` is the key from your
+configuration file. For example, a `get_forecast` tool from the
+`weather` server is listed as
+`forwarded___weather___get_forecast`. When the agent calls the
+forwarded name, the MCP server routes the request to the original tool on
+the owning server. Agent code that matches on tool names must expect this
+prefix.
 
 ### IAM permissions for tool forwarding
 
@@ -398,7 +471,7 @@ using the `StackArn` condition key:
   "Resource": "*",
   "Condition": {
     "ArnLike": {
-      "ponte-mcp:StackArn": "arn:aws:appstream:`region`:`account-id`:stack/`stack-name`"
+      "agentaccess-mcp:StackArn": "arn:aws:appstream:`region`:`account-id`:stack/`stack-name`"
     }
   }
 }

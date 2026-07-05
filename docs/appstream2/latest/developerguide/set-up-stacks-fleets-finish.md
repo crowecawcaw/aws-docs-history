@@ -6,6 +6,16 @@ fleets.
 
 Note that you cannot delete a stack with an associated fleet.
 
+###### Important
+
+To delete a fleet that has an associated auto scaling policy, the IAM role used to
+perform the deletion must include the
+`application-autoscaling:DeregisterScalableTarget` permission. Without
+this permission, the fleet deletion will not fail, however, the service cannot
+deregister the auto scaling target associated with the fleet and it will remain as an
+orphan resource. Ensure this permission is included in the user's IAM policy before
+attempting to delete a fleet with active scaling policies.
+
 ###### To clean up your resources
 
 1. In the navigation pane, choose **Stacks**.

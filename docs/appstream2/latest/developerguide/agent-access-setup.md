@@ -33,6 +33,7 @@ WorkSpaces agent access configurations have the following limitations:
 - VPC endpoints are not supported.
 - Multi-session fleets are not supported.
 - Elastic fleets are not supported.
+- A single session supports only a single agent connection.
 
 ## How agent access works
 

@@ -222,6 +222,14 @@ The response includes a `StreamingURL` that you pass to your agent
 in the next step. The URL is valid for the duration specified by the
 `--validity` parameter.
 
+###### Note
+
+At any given time, only one agent can connect to a unique session.
+Named users, specified through the `UserId` parameter, can
+have only one active session per fleet at a time. To run multiple
+agents concurrently, each agent must connect to its own unique
+session.
+
 ## Step 3: Connect your agent to the MCP service
 
 Your agent connects to the managed MCP service at the following fixed
