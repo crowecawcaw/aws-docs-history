@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Trend Micro DSM | Remove Trend Micro EPS Agent (Managed Automation)
 
 For Bring Your Own EPS (BYOEPS) only. Remove the Trend Micro EPS agent installed on your AMS-managed Elastic Compute Cloud (EC2) instance.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Trend Micro DSM | Exclude Files and Folders (Managed Automation)
 
 Specify files and folders for Trend Micro DSM to ignore (exclude) when scanning; both real-time and on-demand scanning. Doing this might expose those files and folders to malware, but can optimize system resource utilization. Trend Micro DSM does not discover files and folders excluded from scanning, but details on excluded files and folders are included in reports

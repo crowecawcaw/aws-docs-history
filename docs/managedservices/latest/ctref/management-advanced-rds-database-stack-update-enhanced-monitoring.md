@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # RDS Database Stack | Update Enhanced Monitoring
 
 Update the Enhanced Monitoring property of an Amazon Relational Database Service (RDS) database instance or cluster. Enhanced Monitoring allows you to collect vital operating system metrics and process information, at the defined granularity.

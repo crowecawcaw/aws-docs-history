@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Directory | Create AD Trust
 
 Create a one-way trust between On-Prem Domain and (AWS) Managed Active Directory. For multi-account landing zone (MALZ), use this change type in the shared services account. Before creating the trust, you need to make sure that the following prerequisites are met: 1. You must create the AD trust first on the On-Prem Domain and save the trust password in the Secrets Manager. 2. You must set up a Managed Active Directory (MAD) Security Group with an outbound rule that allows all traffic to On-Prem CIDR ranges.

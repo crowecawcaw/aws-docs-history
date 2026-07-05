@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # RDS Snapshot | Copy (For Aurora)
 
 Create a copy of an Amazon Relational Database Service (Amazon RDS) DB Cluster snapshot. If you are copying a snapshot shared from another AWS account, it must be located in the same AWS Region as the specified DocumentName.

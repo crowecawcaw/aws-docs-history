@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Identity and Access Management (IAM) | Delete SAML Identity Provider
 
 Delete a SAML identity provider (IdP). The given IdP must not be referenced in any IAM role and must not be the only IdP in the account.

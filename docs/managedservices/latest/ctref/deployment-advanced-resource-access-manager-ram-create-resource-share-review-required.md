@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Resource Access Manager (RAM) | Create Resource Share (Review Required)
 
 Create a resource share through Resource Access Manager (RAM) to share supported AWS resources. You can share resources with AWS accounts that come under the same customer contract. If you are in an organization, you can share with that organization's organizational units or with the entire organization. You can also share with IAM Roles, IAM Users, and Service Principals using their respective ARNs.

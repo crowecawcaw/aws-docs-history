@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # RDS Snapshot | Create (For Cluster)
 
 Create a snapshot of Amazon Aurora or Multi-AZ DB (Amazon RDS) cluster in available state. The snapshot will be encrypted with the same KMS key as the DB cluster, or unencrypted if the DB cluster is unencrypted.

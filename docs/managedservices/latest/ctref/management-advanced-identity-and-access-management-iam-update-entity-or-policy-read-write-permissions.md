@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Identity and Access Management (IAM) | Update Entity or Policy (Read-Write Permissions)
 
 Update Identity and Access Management (IAM) role or policy with read-write permissions. You must have enabled this feature with change type ct-1706xvvk6j9hf before submitting this request. Automated IAM provisioning with read-write permissions runs over 200 validations to help ensure successful outcomes.

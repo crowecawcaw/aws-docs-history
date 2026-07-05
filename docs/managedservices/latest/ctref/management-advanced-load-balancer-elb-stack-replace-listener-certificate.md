@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Load Balancer (ELB) Stack | Replace Listener Certificate
 
 Replace the certificate of an existing Elastic (Classic) Load Balancer (ELB) listener. Use the RemediateDrift parameter to have the automation try to remediate the stack drift, if drift is introduced in the CloudFormation stack that was used to create the load balancer.

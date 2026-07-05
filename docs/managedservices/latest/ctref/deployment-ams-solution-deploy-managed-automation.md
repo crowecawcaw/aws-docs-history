@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Solution | Deploy (Managed Automation)
 
 Deploy an AMS pattern to the current account. Patterns provide tools, architectures, and step-by-step guidance for implementing the methodologies for the migration strategy. Multi-account landing zone accounts can also specify OrganizationalUnit to deploy the pattern to all the accounts in that OU.

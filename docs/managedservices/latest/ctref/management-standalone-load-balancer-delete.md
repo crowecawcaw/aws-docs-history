@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Load Balancer | Delete
 
 Delete a standalone load balancer (application or network). The deletion includes comprehensive validation of deletion protection, CloudFormation stack association, and the AMS Infrastructure tag, and only proceeds if all checks pass. Standalone resources for testing purposes are created by AMS upon your request, they are not part of a stack and they can't be deleted with ct-0q0bic0ywqk6c.

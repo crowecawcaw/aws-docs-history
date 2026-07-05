@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Security Group | Authorize Ingress Rule
 
 Authorize multiple ingress rules for the specified security group (SG). You must specify the configurations of the ingress rule that you are authorizing. Note that adding an ingress rule to the specified SG does not modify any existing ingress rules.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # VPC | Create DHCP Option Set
 
 Create a Dynamic Host Configuration Protocol (DHCP) option set for resources in your VPC to communicate over your virtual network. Each Region has a default DHCP option set that configures various options including domain names, DNS servers, NTP servers, and more.

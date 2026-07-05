@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Trend Micro DSM | Add Login (Read-Only)
 
 Request a read-only login to the Trend Micro console for your account. For multi-account landing zone (MALZ), use this change type in the shared services account.

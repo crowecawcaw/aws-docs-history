@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Application Load Balancer | Remove Listener Certificate
 
 Remove one or more Certificates attached to the ELB Listener. If a drift is introduced in the CloudFormation stack that was used to create the ELB, then the automation can try to remediate the stack drift.

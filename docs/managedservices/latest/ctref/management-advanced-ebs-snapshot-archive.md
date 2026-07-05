@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EBS Snapshot | Archive
 
 Archive Elastic Block Store (EBS) snapshots. The maximum number of EBS snapshots that can be archived concurrently depends on the 'In-progress snapshot archives per account' AWS Service Quota. Snapshots that are in the 'completed' state, storage tier is 'standard', or belonging to the current owner account, can be archived. Snapshots created by the AWS Backup service, used by AMIs, or shared with other accounts, cannot be archived. If you specify snapshots that are invalid, or the archival in-progress quota limit is reached, the RFC fails.

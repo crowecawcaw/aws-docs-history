@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EC2 Instance Stack | Update Instance Detailed Monitoring
 
 Update EC2 instances' detailed monitoring setting through direct API calls. The EC2 instances can be standalone or belong to a CloudFormation stack; in the latter case, the change might cause stack drift. To avoid causing stack drift, please use ct-38s4s4tm4ic4u instead, or ct-361tlo1k7339x if the EC2 instance was provisioned via CFN ingestion.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Finding | Remediate
 
 Run the SSM automation document associated with an OpsItem to remediate a Trusted Advisor finding. This change type only supports OpsItems created by the Trusted Remediator service. The OpsItem must have been created within the last 90 days. For OpsItems older than 90 days, use a Management/Other/Other/Update change type.

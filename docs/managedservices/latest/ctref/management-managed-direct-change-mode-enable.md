@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Direct Change Mode | Enable
 
 Enable Direct Change mode (DCM). DCM grants native AWS access to provision and update AWS resources. The resources and changes to them are fully supported by AMS, including monitoring, patch, backup, and incident response management.

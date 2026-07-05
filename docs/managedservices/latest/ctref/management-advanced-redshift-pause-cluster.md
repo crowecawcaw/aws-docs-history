@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Redshift | Pause Cluster
 
 Pause an Amazon Redshift cluster. If a recent snapshot is not available, a temporary manual snapshot is created with a retention period of one day. This snapshot is deleted towards the end of execution for both success and failure scenarios. It is safe for AMS to delete this snapshot as pausing the cluster creates an automated snapshot by default.

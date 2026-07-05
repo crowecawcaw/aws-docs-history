@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # RDS Database Stack | Rotate DB Certificate
 
 Rotate the DB certificate on an Amazon Relational Database Service (RDS) database (DB) instance. Update any client applications that use SSL/TLS and the server certificate to connect, to use the new CA certificate beforehand. Not doing this will cause an interruption of connectivity between your applications and your database.

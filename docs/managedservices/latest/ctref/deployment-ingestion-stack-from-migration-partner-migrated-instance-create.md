@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Stack from Migration Partner Migrated Instance | Create
 
 Migrate a running non-AMS instance into an AMS stack, in a given AMS-managed VPC and subnet. Must be an instance that was configured through a cloud migration service. Tags that exist on the instance to be migrated will be applied to the resources created in addition to tags requested in the RFC. Number of total tags between the instance to be migrated and the resources created cannot exceed fifty. Set a Name tag to give the EC2 instance, and AMI, names in the EC2 console. Please note that your RFC will be rejected if a tag on the instance to be migrated has the same key as a tag supplied in the RFC.

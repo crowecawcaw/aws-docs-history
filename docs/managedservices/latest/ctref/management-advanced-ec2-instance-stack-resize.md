@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EC2 Instance Stack | Resize
 
 Resize an existing EC2 instance in your account. The state of the instance can be either 'running' or 'stopped'. If 'running', the instance is stopped during the resize operation and returned to the initial state after the resizing is complete. Before resizing the instance, ensure that the instance's root volume is not an instance store volume. We highly recommended rigorous load and performance testing before, and after, making instance type changes, and that you also consider the pricing changes that result when instances are resized. Please be aware that this change may result in CloudFormation drift for any stacks that have this resource.

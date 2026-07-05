@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # RDS Database Stack | Update MultiAZ Setting
 
 Change the DB instance MultiAZ value through direct API calls. The MultiAZ setting determines whether or not the DB instance is deployed across multiple availability zones (AZs). The RDS instance can be standalone or belong to a CloudFormation stack; in the latter case, the change might cause stack drift. To avoid causing stack drift, please use ct-12w49boaiwtzp instead, or ct-361tlo1k7339x if the RDS instance was provisioned via CFN ingestion.

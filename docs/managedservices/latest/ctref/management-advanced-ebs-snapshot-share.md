@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EBS Snapshot | Share
 
 Share an Elastic Block Store (EBS) snapshot with another AMS account. If the destination account is onboarded in a different AMS Region, use change type ID ct-3lkbpansfv69k in the destination account to copy shared snapshot across regions. Only snapshots encrypted with managed KMS keys can be shared.

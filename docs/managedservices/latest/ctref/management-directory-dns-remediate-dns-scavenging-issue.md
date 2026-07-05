@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # DNS | Remediate DNS Scavenging Issue
 
 Remediates DNS scavenging issues for Windows failover clusters by updating permissions on CNO and VCO DNS records. Grants 'Read Permissions' to Everyone on CNO and VCO DNS records, 'Reset Password' permission to Everyone on the CNO computer object, and 'Full Control' permissions to the CNO computer object and specified cluster node computer objects on all CNO and VCO DNS records. This ensures that DNS records associated with the failover cluster are not inadvertently removed during DNS scavenging operations.

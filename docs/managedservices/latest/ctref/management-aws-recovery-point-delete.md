@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Recovery Point | Delete
 
 Delete one or more recovery points (snapshots) from the specified vault. Use this change type to delete recovery points that were manually created, and recovery points that were created through a backup plan, and that are older than 30 days. The deletion of recovery points cannot be rolled back.

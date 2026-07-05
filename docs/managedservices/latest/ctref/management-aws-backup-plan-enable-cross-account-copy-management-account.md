@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Backup Plan | Enable Cross Account Copy (Management Account)
 
 Enable and configure cross-account backup and monitoring in a management account. This automation can only be completed successfully in a management account.

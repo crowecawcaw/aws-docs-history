@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # VPC Endpoint | Update Policy (Managed Automation)
 
 Update the policy for a VPC endpoint. After you update the policy, it takes a few minutes for the changes to take effect. There are several considerations outlined in the Amazon VPC AWS PrivateLink User Guide documentation on using endpoint policies.

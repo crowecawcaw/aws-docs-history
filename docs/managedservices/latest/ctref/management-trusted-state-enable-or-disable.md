@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # State | Enable or Disable
 
 Enable or disable the Trusted Remediator service. Can only be used in the Trusted Remediator delegated administrator account. When disabled, remediations are not performed in all member accounts.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # High Availability One-Tier Stack | Create (With ELB)
 
 Create a stack with an Auto Scaling Group, and an Elastic Load Balancer (ELB) with up to two listeners, integrated with an existing security group that you specify.

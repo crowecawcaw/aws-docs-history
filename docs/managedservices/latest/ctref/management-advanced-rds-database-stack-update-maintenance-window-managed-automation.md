@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # RDS Database Stack | Update Maintenance Window (Managed Automation)
 
 Update an existing RDS maintenance window, which is a weekly time range (in UTC) during which system maintenance can occur. Changing an RDS maintenance window doesn't result in an outage. If moving this window to the current time, there must be at least 30 minutes between the current time and the end of the current window to ensure pending changes are applied.

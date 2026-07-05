@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EBS Volume | Detach
 
 Detach an EBS volume from an EC2 instance. For Linux instances, use this change type to detach volumes with filesystem types ext3, ext4, and XFS. You can't detach volumes managed by a Logical Volume Manager (LVM) in Linux instances. To attempt drift remediation in your CloudFormation stack while detaching a volume, enable RemediateStackDrift. Note that RemediateStackDrift isn't compatible with volumes that were originally created using the CloudFormation ingest change type (ct-36cn2avfrrj9v).

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Route 53 Resolver | Associate VPC With Resolver Rule
 
 Associate a VPC with a Route 53 resolver rule, this causes the resolver to forward all DNS queries for the domain name specified in the rule, and that originate in the VPC, to the IP addresses specified in the rule.

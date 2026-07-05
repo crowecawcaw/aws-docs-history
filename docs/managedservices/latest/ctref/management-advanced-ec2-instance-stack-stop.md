@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EC2 Instance Stack | Stop
 
 Stop up to 50 running EC2 instances. If you specify an EC2 instance that is part of an Auto Scaling group (ASG), the instance is terminated and replaced by the ASG. If not part of an ASG, the instance remains stopped, in the account, until started or deleted.

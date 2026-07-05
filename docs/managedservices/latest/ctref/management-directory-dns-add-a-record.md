@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # DNS | Add A Record
 
 Add a new static DNS A record in AWS Managed Microsoft Active Directory (AD). For multi-account landing zone (MALZ), use this change type in the shared services account.

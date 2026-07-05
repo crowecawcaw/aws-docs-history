@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # VPN Gateway | Create
 
 Create a virtual private network (VPN) gateway (the endpoint on the VPC side of your VPN connection), and associate it to an existing virtual private cloud (VPC) in your account.

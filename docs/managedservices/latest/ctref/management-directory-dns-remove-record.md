@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # DNS | Remove Record
 
 Remove the specified DNS resource record name, either an A or CNAME, or pointer record (PTR), from the specified DNS zone. By default, only the static record is removed per specified RecordName for A or CNAME records. Use the RecordData parameter to remove duplicates if there are multiple records with the same Host Name (RecordType A), either dynamic or static. For a PTR record type, all the static and dynamic records will be removed. For multi-account landing zone (MALZ), use this change type in the shared services account.

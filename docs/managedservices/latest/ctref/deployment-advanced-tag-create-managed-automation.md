@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Tag | Create (Managed Automation)
 
 Add tags to existing, supported resources except those in AMS infrastructure stacks (stacks named mc-\*). Tags simplify categorization, identification and targeting AWS resources. For Autoscaling, EC2, Elastic Load Balancing, RDS resources and S3 buckets, use the automated CT ct-3cx7we852p3af.

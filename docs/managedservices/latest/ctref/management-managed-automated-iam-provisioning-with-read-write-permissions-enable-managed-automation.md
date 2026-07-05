@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Automated IAM Provisioning With Read-Write Permissions | Enable (Managed Automation)
 
 Enable Automated IAM provisioning with read-write permissions in the account used to submit this CT. Once enabled, a new role 'AWSManagedServicesIAMProvisionAdminRole' is created in that account. Additionally, you can use three related change types (ct-1n9gfnog5x7fl, ct-1e0xmuy1diafq, ct-17cj84y7632o6) to create, update, or delete IAM roles and policies using Automated IAM provisioning with read-write permissions, which employs an automated review process with a predefined set of rules for IAM and AMS. Before using, we recommend a good familiarity with IAM rules. To confirm that an account has Automated IAM provisioning enabled, look for the IAM role 'AWSManagedServicesIAMProvisionAdminRole' in the IAM console for that account.

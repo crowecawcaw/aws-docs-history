@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Networking Account | Enable TGW Propagation
 
 Enable the Transit Gateway (TGW) attachment to propagate routes to the TGW route table. For multi-account landing zone (MALZ), use this change type in the Network account only.

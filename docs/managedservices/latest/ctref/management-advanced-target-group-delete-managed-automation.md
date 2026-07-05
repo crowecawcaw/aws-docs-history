@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Target Group | Delete (Managed Automation)
 
 Delete target groups that are not attached to any load balancer. Before deleting, deregister any targets associated with the target group and then ensure it's not referenced in any listener rules. Deleting a target group also deletes any associated health checks.

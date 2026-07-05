@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Load Balancer (ELB) Stack | Create
 
 Use to create an Amazon ELB Classic Load Balancer. Use alternate change types to create an Application Load Balancer (ct-111r1yayblnw4) or Network Load Balancer (ct-2qldv4h9osmau).

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EBS Snapshot | Delete
 
 Delete Elastic Block Store (EBS) snapshots. Because deleted snapshots cannot be restored, it's a best practice to schedule this RFC with enough lead to time to cancel the operation, if needed. At least one parameter must be specified. Note: If you use multiple parameters, only snapshots that match all the specified parameters are deleted. Snapshots created by AWS Backup service or used by AMIs cannot be deleted. If using the SnapshotCreationDate or SnapshotTag parameters, snapshots created within the last 30 days are not eligible for deletion. If a snapshot fails to delete, then the execution fails. You can optionally receive a failed snapshots report in an S3 bucket. You can delete up to 1000 snapshots in one execution.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EC2 Instance Stack | Replace Instance Profile
 
 Replace the instance profile of an EC2 instance that is not part of an Auto Scaling group. This change may result in CloudFormation drift for any stacks that have this resource.

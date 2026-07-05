@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Tag | Create
 
 Add tags to existing, supported resources: Autoscaling, EC2, Elastic Load Balancing, RDS, S3 buckets and Redshift clusters. Additionally, CloudWatch LogGroups that do not belong to a CloudFormation stack are supported. AMS infrastructure stacks (stacks named mc-\*) cannot have tags added with this change type.

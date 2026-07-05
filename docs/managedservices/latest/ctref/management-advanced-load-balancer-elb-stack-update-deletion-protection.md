@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Load Balancer (ELB) Stack | Update Deletion Protection
 
 Update the deletion protection setting for Elastic Load Balancers (Application, Network, Gateway Load Balancers) through direct API calls regardless of if the ELB is part of a CloudFormation stack.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # High Availability Two-Tier Stack | Create
 
 Creates a stack consisting of an Auto Scaling group, an RDS DB instance, and a load balancer (ELB). Optionally allows for application deployment with CodeDeploy by also creating a CodeDeploy application and deployment group both named the value given for ApplicationName. All resource parameters can be configured.

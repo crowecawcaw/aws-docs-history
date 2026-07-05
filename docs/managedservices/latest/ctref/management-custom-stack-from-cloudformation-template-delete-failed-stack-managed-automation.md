@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Stack from CloudFormation Template | Delete Failed Stack (Managed Automation)
 
 Use to delete a CloudFormation stack that's in the DELETE\_FAILED state. This is useful when stack deletion fails because of resource dependencies and you want to delete the stack while keeping specific resources.

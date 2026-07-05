@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Identity and Access Management (IAM) | Create Account Alias
 
 Create an AWS account alias. Note that an AWS account can have only one alias. This operation fails if the AWS account already has an alias. To update an existing account alias, use the Update Account Alias (ct-3skaisgnq0pf8) change type.

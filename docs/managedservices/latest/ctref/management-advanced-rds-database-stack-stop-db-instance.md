@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # RDS Database Stack | Stop DB Instance
 
 Stop an Amazon Relational Database Service (RDS) database (DB) instance. After seven days, the DB instance is automatically re-started. Supported engines are: MariaDB, Microsoft SQL Server, MySQL, Oracle, PostgreSQL. This change type doesn't apply to Aurora MySQL and Aurora PostgreSQL.

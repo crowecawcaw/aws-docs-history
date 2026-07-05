@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Resource Access Manager (RAM) | Create Resolver Rule Share
 
 Create a resource share through Resource Access Manager(RAM) to share up to 20 Route53 resolver rules. You can share resources with AWS accounts that come under the same customer contract. If you are in an organization, you can share with that organization's organizational units or with the entire organization.

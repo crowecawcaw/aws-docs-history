@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EBS Volume | Update
 
 Modify the properties of an existing Elastic Block Store (EBS) volume stack created using CT id ct-16xg8qguovg2w, version 1.0. No service interruption is expected during the update.

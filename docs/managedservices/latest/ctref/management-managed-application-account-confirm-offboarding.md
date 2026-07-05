@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Application Account | Confirm Offboarding
 
 Confirm offboarding of the specified application account. Run this from the application account that you want off-boarded. Once this CT is executed successfully, login into the Management account of your MALZ environment and run the Offboard application account CT (ct-0vdiy51oyrhhm). After you successfully submit both CTs, AMS can't undo the offboarding, repurpose the account, or help you to remediate issues in the account.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Networking Account | Create Application Route Table (Managed Automation)
 
 Create a custom AWS Transit Gateway (TGW) route table for the application accounts in the networking account. By default, the route table does not connect to the on-premise network, but contains preset routes. To request connections to the on-premise network, submit a Management|Other|Other|Update change type.

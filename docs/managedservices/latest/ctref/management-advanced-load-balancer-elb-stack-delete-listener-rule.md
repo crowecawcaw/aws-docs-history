@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Load Balancer (ELB) Stack | Delete Listener Rule
 
 Delete the specified listener rule for Application Load Balancers. Default rules canÆt be deleted. This change performs direct API actions regardless of whether the ALB is part of a stack as it might cause stack drift.

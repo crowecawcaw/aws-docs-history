@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # S3 Storage | Add Event Notification
 
 Add an event notification to the specified S3 bucket through direct API calls. The S3 bucket can be standalone or belong to a CloudFormation stack. For buckets in CloudFormation stacks, be aware that stack drift might occur if the bucket was provisioned through CFN ingestion.

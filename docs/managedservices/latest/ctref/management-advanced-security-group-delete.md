@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Security Group | Delete
 
 Delete up to 20 security groups. Note: Only security groups with no dependencies are deleted. If one or more security groups have dependencies, the operation fails. This change type does not require a review and can be used instead of the manual, review required, change type (ct-3cp96z7r065e4).

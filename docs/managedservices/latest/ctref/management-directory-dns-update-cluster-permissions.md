@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # DNS | Update Cluster Permissions
 
 Grants full control to the Cluster object on the Listener object to bring the SQL Server Listener object online. For multi-account landing zone (MALZ), use this change type in the shared services account.
