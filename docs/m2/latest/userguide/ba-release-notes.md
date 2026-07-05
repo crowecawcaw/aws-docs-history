@@ -1,4 +1,9 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+After careful consideration, we have made the decision to close new customer access to **AWS Mainframe Modernization self-managed experience**,
+effective June 30, 2026. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+AWS Mainframe Modernization self-managed experience, but we do not plan to introduce new features. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
 capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
 Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
 availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
@@ -17,6 +22,211 @@ For each release, AWS Transform for mainframe Runtime has been validated on spec
 For release notes predating this document, contact AWS Transform for mainframe delivery services. For information
 about the latest AWS Transform for mainframe refactor features, see [AWS Transform for mainframe refactor
 releases](https://bluinsights.aws/releases "https://bluinsights.aws/releases").
+
+## Release notes 5.194.0
+
+Released on: June 22, 2026
+
+This release of AWS Transform for mainframe Runtime and Transformation Engines delivers enhancements in two key areas: code quality improvements for generated code (see section Code quality) and runtime improvements.
+
+This version of the AWS Transform for mainframe Runtime has been tested with the following stack:
+
+|                           |                         |
+| ------------------------- | ----------------------- |
+| **Component**             | **Version tested**      |
+| Java                      | Java 21                 |
+| Presentation layer        | Node JS 24.11.1         |
+| Npm 11.6.2                |
+| Angular 21                |
+| Service layer             | Spring Boot 4.0.6       |
+| Spring Core 7.0.6         |
+| Spring Session 3.5.2      |
+| Spring statemachine 4.0.0 |
+| Persistence layer         | PostgreSQL engine 15.10 |
+| Oracle 21c                |
+| Report                    | Jasper 7                |
+| Application server        | Apache Tomcat 11.0.15   |
+
+## AWS Transform for mainframe Runtime
+
+### zOS
+
+###### Improvements
+
+- COBOL
+
+  - Improved support for packed decimal by using the new YML property dataSimplifier.zeroInvalidBcdNibbles, which treats invalid BCD nibbles (non-decimal hex digits) as 00
+  - Added support for configurable read buffer size for sequential files by using the new YML property gapwalk.io.sequential.readBufferSize, improving read performance on network-attached storage
+
+- CICS
+
+  - Added default INTERVAL for DELAY command
+  - Improved SQL transaction commit for LINK subprograms in CICS non-XA mode
+  - Improved support for START TERMID command to use scheduled path for cross-terminal
+  - Improved support for DELETEQ TS to return QIDERR on non-existent queue
+  - Improved CICS SYNCPOINT to close non-held cursors on commit and release row locks
+
+- Blusam
+
+  - Added support for schema names with numeric pattern
+  - Improved support for indexed file duplicate key when reading an indexed file (KSDS) sequentially via READ NEXT/READ PREVIOUS
+  - Improved support for REWRITE operations on indexed files (KSDS) with duplicate alternate keys. When you rewrite a record without changing the key value, the original insertion order of duplicate keys is preserved during sequential READ NEXT processing.
+  - Improved support for write behind flush during dataset close
+  - V7-18176 - Improved support for readNext and readPrevious operations on large indexed files (KSDS) when combined with delete operations across index page boundaries
+  - Added support for bulk delete operations on indexed files (KSDS) via a new bulkDelete() method, with configurable Redis batch size (bluesam.redis.deleteAllBatchSize, default: 1500) to handle large-scale deletions
+  - Added support for bulk insert to Redis cache with custom TTL (insertToCache) and a fluent builder API for bulk read operations (bulkRead()) with SQL query validation and optional result caching
+  - Improved support for index insertion (insertIndexes) where SkipList split operations maintain internal node references when inserting records into large indexed datasets
+  - Added support for duplicate key detection during data-loader append via a new property checkDuplicatesOnAppend (default: false). When enabled, incoming records with existing keys are skipped, preventing duplicate insertions.
+  - Added support for per-dataset prefetch window size override via a new YML property bluesam.datasetPrefetchWindowSize. Datasets not listed fall back to the global bluesam.prefetchWindowSize value
+  - Added support for warmup metadata for specific tables via two new YML properties: bluesam.metadataWarmUpFileList specifies the datasets whose index metadata will be pre-loaded into memory at startup, and bluesam.WarmUpMetadataCacheLimit sets the maximum number of index entries in the warm-up cache (0 = unlimited)
+  - Added support for configurable batch size for Redis cache bulk read operations via a new YML property bluesam.redis.readBatchSize (default: 1500)
+
+- SQL
+
+  - Improved support for null indicator output mapping when using DB2 cursors with ROWSET POSITIONING and FETCH NEXT ROWSET FOR N ROWS on nullable columns mapped with indicator arrays
+  - Improved support for savepoint lifecycle management when multiple queries with savepoints are executed in a program, ensuring the internal savepoint map stays synchronized with PostgreSQL's cascading RELEASE SAVEPOINT behavior
+
+- JCL - DSNTEP2
+
+  - Improved support for DB2 SQL queries using the CHAR() function, translating its various forms to their PostgreSQL equivalents
+
+- JCL - DSNUTILB
+
+  - Added support for REORG TABLESPACE/INDEX and STATISTICS commands
+  - Added support for MODIFY RECOVERY statement
+  - Added PostgreSQL support for DISCARD command
+
+- JCL - INFUTILB
+
+  - Improved support for SYSPUNCH on empty UNLOAD result set
+
+- JCL - IDCAMS
+
+  - Improved support for CYL comma separator
+  - Improved support for CATALOG followed by whitespaces
+  - Improved support for abbreviation of NEWNAME to NEWNM
+  - Added support for deleting matching files across all subfolders of the files directory when executing the DELETE command by using the new property idcams.deleteFromAllSubfolders (default: false)
+  - Improved support to REPRO with an early failure when an existing VSAM dataset (disp=OLD/SHR) is missing, according to a new YML property idcams.repro.failOnMissingOutput (default: false)
+
+- JCL - DFSORT
+
+  - Improved support for 'C' and 'I' in OUTFIL filenames
+  - Improved support for OUTREC nC'x' string constant
+  - Improved support for INREC with FINREP comparison when value of signed byte and unsigned byte differ
+
+- JCL - ICETOOL
+
+  - Added support for DATASORT operator
+
+- Screen
+
+  - Improved support for BMS cleared field detection, emitting DFHBMEOF when a user erases a field value
+
+### AS400
+
+###### Improvements
+
+- RPG
+
+  - Improved CLEAR operation on Elementary arrays
+  - Improved support of Program Status Data Structure
+
+- COBOL
+
+  - Added support for clause BEFORE ADVANCING in a WRITE statement for printer file
+  - Improved support for Program-Described DATABASE File
+
+- CL
+
+  - Added support for SAVE parameter in OVRPRTF command
+  - Added support for \*DTAQ keyword in ALCOBJ/DLCOBJ
+  - Improved support for ALCOBJ parameter validation, including blank object name detection and proper CPD0078 error signaling
+  - Improved support of screen DSPMSG and handling of the terminal message queues
+
+- Database access
+
+  - Improved STRCMTCTL / Commitment Control support
+  - Improved cursor greater/lesser operator support under commitment control
+  - Improved the API to release the database locks
+  - Improved Record Lock release on Dialog-Reset
+  - Improved support for default member resolution, defaulting to table name when no member is specified
+  - Improved support for commitment control (STRCMTCTL) with dirty-read visibility, allowing uncommitted changes (inserts, updates, deletes) to be visible across programs within the same job
+  - Improved support for file tracking under transaction management across multiple program contexts within the same job
+  - Improved support for File Handler lock release under commitment control when modified data is involved
+  - Improved support for Transaction lock priority, preventing unintended lock downgrade to File Handler lock
+  - Improved QTEMP partition deletion from thread-local list
+
+- Screen
+
+  - Improved DSPMSG function key handling and sender display
+
+- Job
+
+  - Improved handling of Quartz job key by adding timestamped unique ID to prevent collisions
+  - Improved thread safety in SchedulerHelper during startup, ensuring concurrent job queue access is synchronized
+
+## AWS Transform for mainframe Transformation Engines
+
+### zOS
+
+###### Improvements
+
+- COBOL
+
+  - Added support for EXIT PROGRAM AND CONTINUE RUN UNIT statement
+  - Added support for figurative SPACES in CALL statement
+  - Added support for DISPLAY UPON CERT statement
+  - Added support for FORMAT clause on WRITE/REWRITE for multi-format
+  - Added support for CALL LINKAGE IS PROCEDURE/PROGRAM without TYPE keyword
+  - Added optional 3270 base color mode for DEFAULT color fields
+  - Improved support for implicit redefinition of level-01 entries under FD
+  - Improved support for AND/OR precedence when level-88 booleans appear in compound conditions
+  - Improved support for EXEC CICS HANDLE CONDITION signal activator
+  - Improved support for COPY REPLACING pseudo-text matching to allow zero-width whitespace between tokens
+  - Improved support for COPY ... REPLACING directives where replacement values are prefixed by an operator (for example, -SMTH), parsing operator-prefixed identifiers across all REPLACING pairs
+  - Improved support for COBOL COPY statements with REPLACING clause spanning multiple lines via continuation characters (column 7 marker)
+  - Improved support for 88-level condition is TRUE comparison when the condition VALUE is a figurative constant ZERO applied to a group item
+  - Improved support for dynamic length substring
+
+- SQL
+
+  - Added support for FULL OUTER JOIN
+  - Added support for the "NO KEY LABEL" clause in CREATE TABLE statements
+  - Added support for SQL\_INDEX as a reserved keyword
+  - Added support for UNION DISTINCT, EXCEPT ALL/DISTINCT and INTERSECT
+  - Improved support for DISTINCT keyword
+
+- Screen
+
+  - Improved support for lines and continuations using bytes directly instead of String
+
+### AS400
+
+###### Improvements
+
+- RPG
+
+  - Added support for accessing elements of arrays that are part of an overlay
+
+### Code quality
+
+###### Improvements
+
+- Improved naming convention for generated entity identifiers.
+
+  - Class names, field names, and getter/setter names that previously had a \_<digits> prefix are now stripped to proper Java naming conventions. For example, \_90CallFlowMainContext becomes CallFlowMainContext, and get\_90CallFlow() becomes getCallFlow().
+  - A collision detection mechanism preserves the original prefix when multiple programs would produce the same name after stripping.
+  - Module-level program class names (for example, \_90CallFlowMainProcessImpl) are not affected.
+  - Impact: Applications referencing generated class names or bean names by their old \_<digits> form will need to update those references.
+
+- Added support for constructor injection in generated code by setting the new generation property constructorInjection (default: false). When set to true, the generated code uses constructor injection instead of field autowiring, eliminating Sonar rule java:S6813 issues in the Reliability section.
+- Improved support for 01-level group optimization: 01-level groups that are never used as a group are now removed, and their elementary fields are extracted as direct fields at the parent level. Elementary 01 items that are never referenced are also removed. Impact: Applications using double-byte character sets (DBCS) might not work correctly with this conversion. It is recommended to switch off the conversion by setting the property native.conversion.deactivated=true.
+- Improved support for native type generation: eligible alphanumeric fields (PIC X(n)) are now generated as native Java String types instead of DataSimplifier entities, producing more idiomatic Java code with direct String operations. Impact: Applications using DBCS might not work correctly with this conversion. It is recommended to switch off the conversion by setting the property native.conversion.deactivated=true.
+- Improved support for Sonar rule S115: constant names now use uppercase format (PROGRAM\_IDENTIFIERS and PROGRAM\_IDENTIFIER instead of programIdentifiers / programIdentifier) in all generated \*Process.java and \*ProgramContainerImpl.java files.
+- Improved support for Sonar rule S1845: if a legacy field name starts with "LOGGER", the generated Java field is now suffixed to avoid collision with the LOGGER constant.
+- Improved support for Sonar rule S6213: the parameter name record in generated entity constructors has been renamed to existingRecord to avoid using a restricted identifier since Java 16.
+- Improved support for Sonar rule S1186: generated context classes now include a comment in the cleanUp() method body to satisfy Sonar when no files need closing.
+- Improved support for Sonar rule S100: a new naming strategy ensures generated Java method names match camelCase convention (^[a-z][a-zA-Z0-9]\*$ — no underscores, no leading digits). Impact: This change will have a significant impact on the generated code.
 
 ## Release notes 5.125.0
 
