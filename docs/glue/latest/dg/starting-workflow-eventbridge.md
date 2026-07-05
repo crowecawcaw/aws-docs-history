@@ -186,7 +186,7 @@ aws glue create-trigger --workflow-name eventtest --type EVENT --name objectArri
          "bucketName": [
            "`<bucket-name>`"
          ]
-         "key" : [{ "prefix" : "`<folder1>`/`<folder2>`/*"}}]
+         "key" : [{ "prefix" : "`<folder1>`/`<folder2>`/*"}]
      }
    ```
    2. Use your preferred tool to convert the rule JSON object to an escaped string.

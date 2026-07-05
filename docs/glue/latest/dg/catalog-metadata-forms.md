@@ -65,6 +65,39 @@ aws glue put-attachment \
     --content '{"region":"us-east-1","complianceFramework":"SOC2","retentionDays":730}'
 ```
 
+### To view an asset's forms and attachments
+
+Use `GetAsset` to retrieve an asset along with its forms and
+attachments.
+
+The following command retrieves an asset:
+
+```
+aws glue get-asset --asset-identifier `asset-id`
+```
+
+### To attach a form to a column
+
+You can attach a form to a single column of an asset.
+
+Each column is a single item of the
+`columns` iterable form with column name as the item identifier.
+
+The following command attaches a form to a specific column:
+
+```
+aws glue put-attachment \
+    --asset-identifier `asset-id` \
+    --iterable-form-name columns \
+    --item-identifier region \
+    --attachment-name sensitivity \
+    --form-type-id DataClassification \
+    --content '{"classification":"PII","sensitivity":"HIGH"}'
+```
+
+After you attach the form, use `SearchAssets` to discover the asset by any
+searchable fields on the form.
+
 ## Retrieving column metadata
 
 ### To list columns for an asset
@@ -96,6 +129,19 @@ aws glue batch-get-iterable-forms \
 aws glue delete-attachment \
     --asset-identifier `asset-id` \
     --attachment-name residencyInfo
+```
+
+### To delete an attachment from a specific column
+
+To remove a form attached to a single column, run the following command.
+Pass the iterable form name, item identifier, and attachment name:
+
+```
+aws glue delete-attachment \
+    --asset-identifier `asset-id` \
+    --iterable-form-name columns \
+    --item-identifier region \
+    --attachment-name sensitivity
 ```
 
 ### To delete a form type

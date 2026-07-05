@@ -193,7 +193,7 @@ Output:
    results.
 
 ```
-owLevelOutcomes = SelectFromCollection.apply(
+rowLevelOutcomes = SelectFromCollection.apply(
 dfc=EvaluateDataQualityMultiframe,
 key="rowLevelOutcomes",
 transformation_ctx="rowLevelOutcomes",

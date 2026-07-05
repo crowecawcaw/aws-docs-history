@@ -6,7 +6,7 @@ your job runs.
 
 Job parameterization allows you to parameterize sources and targets,
 and save those parameters to the job when using the AWS Glue Data Catalog node.
-When you specify sources and targets as paramters, you are enabling the
+When you specify sources and targets as parameters, you are enabling the
 reusability of jobs, particularly when using the same job in multiple environments. This is useful when
 promoting code across deployment environments by saving time and effort in managing your sources and targets.
 In addition, the custom parameters you specify will override

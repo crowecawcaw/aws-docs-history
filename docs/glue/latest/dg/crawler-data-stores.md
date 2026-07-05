@@ -68,6 +68,12 @@ For each Delta Lake data store, you specify how to create the Delta tables:
 
 For each Iceberg data store, you specify an Amazon S3 path that contains the metadata for your Iceberg tables. If crawler discovers Iceberg table metadata, it registers it in the Data Catalog. You can set a schedule for the crawler to keep the tables updated.
 
+###### Avoid concurrent writers with Iceberg crawlers
+
+Use an Iceberg crawler only when it is the sole writer to a Data Catalog table. Do not use it alongside concurrent writers such as table optimizers, Apache Spark, or other engines that commit directly to the same table.
+
+The crawler syncs Iceberg metadata from an external catalog and must be the sole writer to the table. If another writer modifies the Data Catalog table while the crawler is running, the crawler fails to update the table.
+
 You can define these parameters for the data store:
 
 - **Exclusions**: Allows you to skip certain folders.

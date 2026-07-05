@@ -181,8 +181,10 @@ messages. Choosing no filter gives you all the log messages.
 
 **`--enable-glue-datacatalog`**
 
-Enables you to use the AWS Glue Data Catalog as an Apache Spark Hive metastore. To enable this
-feature, set the value to `true`.
+Enables you to use the AWS Glue Data Catalog as an Apache Spark Hive metastore. This parameter
+is a presence-based flag — including it in your job configuration enables the
+feature. Do not pass a value with this parameter. To disable this feature, remove this
+parameter entirely from your job configuration.
 
 **`--enable-job-insights`**
 
@@ -200,9 +202,9 @@ Enables fine-grained access control for AWS Glue jobs. For more information, see
 
 Enables the collection of metrics for job profiling for this job run. These metrics
 are available on the AWS Glue console and the Amazon CloudWatch console.
-The value of this parameter is not relevant. To enable this feature,
-you can provide this parameter with any value, but `true` is recommended for clarity.
-To disable this feature, remove this parameter from your job configuration.
+This parameter is a presence-based flag — including it in your job configuration
+enables the feature. Do not pass a value with this parameter. To disable this feature,
+remove this parameter entirely from your job configuration.
 
 **`--enable-observability-metrics`**
 

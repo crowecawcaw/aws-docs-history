@@ -15,6 +15,7 @@ The following are general limitations of or considerations about zero-ETL integr
 - The source DynamoDB table must be encrypted with either an Amazon-owned or customer-managed AWS KMS key. Amazon managed encryption is not supported for the source DynamoDB table.
 - SAP OData works using a delta token, where the combination of an OAuth client plus an entity, or basic authentication plus an entity, can have only a single delta token. Avoid using the same entity in two different integrations with the same client.
 - The following Salesforce entities or fields are unsupported for use in a zero-ETL integration with a Salesforce source. See [Unsupported entities and fields for Salesforce](zero-etl-sources.md#zero-etl-config-source-salesforce-unsupported "zero-etl-sources.md#zero-etl-config-source-salesforce-unsupported").
+- For zero-ETL integrations with a Salesforce source, the integration does not detect when a record is archived. Archived records remain in your target dataset without being removed or updated.
 - The following ServiceNow entities or fields are unsupported for use in a zero-ETL integration with a ServiceNow source. See [Unsupported entities and fields for ServiceNow](zero-etl-sources.md#zero-etl-config-source-servicenow-unsupported "zero-etl-sources.md#zero-etl-config-source-servicenow-unsupported").
   The following are target-specific limitations of zero-ETL integrations:
 
