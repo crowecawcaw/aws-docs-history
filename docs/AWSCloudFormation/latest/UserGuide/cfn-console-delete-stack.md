@@ -69,6 +69,23 @@ You can use one of the following commands:
 - [Remove-CFNStack](../../../powershell/latest/reference/items/Remove-CFNStack.md "../../../powershell/latest/reference/items/Remove-CFNStack.md") (AWS Tools for Windows PowerShell)
   For examples of using the command line to delete a stack, see [Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md").
 
+###### Express mode
+
+To delete a stack using express mode, add the `--deployment-config`
+parameter to the `delete-stack` command. Express mode completes the delete
+operation as soon as CloudFormation issues the delete API call for each resource, without
+waiting for resources to be fully removed. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
+
+```
+aws cloudformation delete-stack --stack-name `myteststack` \
+    --deployment-config '{"mode": "EXPRESS"}'
+```
+
+###### Note
+
+In the CloudFormation console, you can select **Express** for the
+deployment mode when deleting a stack to use express mode.
+
 ## Related resources
 
 For help troubleshooting stack deletion errors, see the [Delete stack fails](troubleshooting.md#troubleshooting-errors-delete-stack-fails "troubleshooting.md#troubleshooting-errors-delete-stack-fails") troubleshooting

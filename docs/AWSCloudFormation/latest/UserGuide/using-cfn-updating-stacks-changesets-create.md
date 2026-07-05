@@ -157,3 +157,26 @@ aws cloudformation create-change-set --stack-name `MyStack` \
     --parameters \
       `ParameterKey="InstanceType",UsePreviousValue=true ParameterKey="KeyPairName",UsePreviousValue=true ParameterKey="Purpose",ParameterValue="production"`
 ```
+
+###### Note
+
+In addition to property syntax validation and resource name conflict detection, change
+set creation checks for service quota limits, Recorder conflicts, and
+ECR repository delete readiness. These checks operate in WARN mode – CloudFormation
+creates the change set successfully, but warnings indicate potential issues. We recommend
+that you address these issues before you execute the change set.
+
+###### Express mode
+
+To create a change set that uses express mode, add the
+`--deployment-config` parameter:
+
+```
+aws cloudformation create-change-set --stack-name `MyStack` \
+    --change-set-name `MyExpressChangeSet` \
+    --use-previous-template \
+    --deployment-config '{"mode": "EXPRESS"}'
+```
+
+When you execute this change set, CloudFormation uses express mode, completing resource
+operations as soon as configuration is applied. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").

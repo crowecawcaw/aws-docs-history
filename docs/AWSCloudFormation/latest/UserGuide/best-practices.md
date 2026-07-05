@@ -86,6 +86,13 @@ Region you chose.
 For a step-by-step, hands-on walkthrough on how to use both tools to shorten the feedback
 loop, follow the [Linting and Testing lab](https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing "https://catalog.workshops.aws/cfn101/en-US/basics/templates/linting-and-testing") of the [CloudFormation Workshop](https://catalog.workshops.aws/cfn101/en-US "https://catalog.workshops.aws/cfn101/en-US").
 
+CloudFormation pre-deployment validation automatically catches common errors before any
+resources are provisioned. These errors include invalid property syntax and resource name
+conflicts. Pre-deployment validation runs by default on all Create Stack, Update Stack, and
+Create Change Set operations. No configuration is required. For CDK projects,
+`cdk validate` runs CloudFormation pre-deployment validation against your
+synthesized templates.
+
 ## Organize your stacks by lifecycle and ownership
 
 Use the lifecycle and ownership of your AWS resources to help you decide what resources
@@ -411,6 +418,13 @@ CloudFormation will create a new database and delete the old one; you will lose 
 old database unless you've already backed it up. If you generate a change set, you will see
 that your change will replace your database. This can help you plan before you update your
 stack. For more information, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
+
+###### Note
+
+If you use direct stack updates instead of change sets, pre-deployment validation still
+validates your templates automatically. However, change sets provide additional benefits.
+Use change sets to preview which resources will be added, modified, or replaced before you
+execute the update.
 
 ## Use stack policies to protect resources
 

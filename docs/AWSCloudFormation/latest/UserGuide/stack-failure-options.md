@@ -399,3 +399,28 @@ The command returns the following output.
 
 The **rollback-stack** operation will delete a stack if it doesn't contain
 a last known stable state.
+
+### Express mode and rollback
+
+When you use express mode, CloudFormation disables rollback by default. If a resource
+operation fails, CloudFormation does not automatically roll back previously completed changes.
+Instead, the stack enters a failed state and you can troubleshoot the issue before
+retrying.
+
+To re-enable rollback with express mode, set `disableRollback` to
+`false` in the `--deployment-config` parameter when issuing the stack
+operation:
+
+```
+aws cloudformation create-stack --stack-name `myteststack` \
+    --template-body `file://sampletemplate.json` \
+    --deployment-config '{"mode": "EXPRESS", "disableRollback": false}'
+```
+
+###### Note
+
+Disabling rollback isn't supported for immutable update operations. If an update
+requires replacing a resource and the operation fails, the failed state can't be preserved
+for retry.
+
+For more information about express mode, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").

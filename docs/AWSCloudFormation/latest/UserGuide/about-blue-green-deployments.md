@@ -110,6 +110,13 @@ made to your stack before performing stack update. Be aware that resource change
 listed in the order in which they will be performed during the stack update. For more
 information, see [Update CloudFormation stacks using change sets](using-cfn-updating-stacks-changesets.md "using-cfn-updating-stacks-changesets.md").
 
+Whether you use change sets or direct stack operations for your blue/green deployments,
+CloudFormation automatically runs pre-deployment validation to catch common template errors
+before any resources are provisioned. This includes property syntax validation and resource
+name conflict detection on all stack operations, plus additional checks (service quota
+limits, Recorder conflicts, and ECR repository delete readiness) available as
+warnings during change set creation.
+
 ## Monitoring stack events
 
 You can view the stack events generated at each step of the ECS deployment on the

@@ -129,3 +129,10 @@ diagram, the `LogicalId` of the `WebInfra-Storage-DB` child stack is
 In the CloudFormation console, you can also find the logical ID in the **Logical
 ID** column for the stack resource on the **Resources** tab or the
 **Events** tab. For more information, see [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md").
+
+###### Note
+
+The `RollbackStack` operation also supports express mode. You can use
+`--deployment-config '{"mode": "EXPRESS"}'` with the
+**rollback-stack** command to roll back a failed stack faster. For more
+information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").

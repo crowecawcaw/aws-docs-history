@@ -12,6 +12,8 @@ answers and post questions in the [CloudFormation community](https://repost.aws/
 - [Troubleshooting guide](#basic-ts-guide "#basic-ts-guide")
 - [Troubleshooting errors](#troubleshooting-errors "#troubleshooting-errors")
 - [Contacting support](#contacting-support "#contacting-support")
+- [Pre-deployment validation errors](#troubleshooting-pre-deployment-validation "#troubleshooting-pre-deployment-validation")
+- [Express mode completion behavior](#troubleshooting-express-mode "#troubleshooting-express-mode")
 
 ## Troubleshooting guide
 
@@ -439,3 +441,83 @@ put your stack in an unrecoverable state.
 
 You can also search for answers and post questions in the [CloudFormation community](https://repost.aws/tags/TAm3R3LNU3RfSX9L23YIpo3w "https://repost.aws/tags/TAm3R3LNU3RfSX9L23YIpo3w") on
 AWS re:Post.
+
+## Pre-deployment validation errors
+
+Pre-deployment validation catches common errors before CloudFormation provisions resources.
+When validation fails, the stack operation stops immediately.
+
+Property syntax validation failed
+
+_Cause:_ Your template contains resource property
+values that don't match the expected schema – for example, an invalid
+ARN pattern, a type mismatch (string instead of integer), an invalid enum
+value, or a missing required property.
+
+_Resolution:_ Review the
+`ValidationStatusReason` in the event details. It includes
+the exact property path where the error occurs. Fix the property value in
+your template and retry the operation.
+
+Resource name conflict
+
+_Cause:_ Your template specifies a resource name that
+already exists in your account, and the target resource type does not
+support using an existing resource with that name.
+
+_Resolution:_ Either change the resource name in your
+template or remove the existing resource that is causing the
+conflict.
+
+Service quota warning
+
+_Cause:_ Creating or updating resources would exceed
+your current AWS service quotas.
+
+_Resolution:_ Request a quota increase through the
+Service Quotas console, or modify your template to stay within current
+limits.
+
+###### Bypass validation
+
+If you determine a validation error is a false positive or you need to proceed
+despite the warning, use the `--disable-validation` AWS CLI flag or set
+`DisableValidation` to `true` in the API call.
+
+## Express mode completion behavior
+
+When you use express mode, stack operations complete as soon as CloudFormation applies
+the resource configuration. This means that resources might not be fully operational
+when the stack operation reports success.
+
+###### Note
+
+If a resource attribute is referenced in a stack output, CloudFormation waits for the
+resource to propagate so that it can read the attribute value, even in express
+mode.
+
+###### Common issues
+
+The following issues can occur when you use express mode.
+
+Resources not yet available
+
+Your application might depend on a resource being fully operational
+immediately after deployment—for example, an Amazon EC2 instance passing
+health checks or a CloudFront distribution being globally deployed. If so,
+wait for the resource to reach its final state before relying on it.
+
+Delete operations still in progress
+
+After a stack delete completes in express mode, some resources might not
+yet be fully removed. If you immediately try to create a new stack with the
+same resource names, you might encounter name conflicts.
+
+Dependent resource failures
+
+Because express mode doesn't wait for resource stabilization, downstream
+resources that depend on a previous resource being fully operational might
+fail. If this occurs, consider using the default deployment mode for that
+stack.
+
+For more information about express mode, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").

@@ -21,13 +21,20 @@ using the CloudFormation console, AWS CLI, or CloudFormation API.
 
 ###### Important
 
-Change sets don't indicate whether CloudFormation will successfully update a stack. For
-example, a change set doesn't check if you will surpass an account quota, if you're updating a
-resource that doesn't support updates, or if you have insufficient permissions to modify a
-resource, all of which can cause a stack update to fail. If an update fails, CloudFormation
-attempts to roll back your resources to their original state.
+Change sets don't guarantee that CloudFormation will successfully update a stack. However,
+pre-deployment validation checks for common failure causes during change set creation,
+including property syntax errors, resource name conflicts, service quota limits, and other
+constraints. Failures that occur because of runtime conditions (such as custom resource logic or
+service-specific constraints) might still occur during execution.
 
-###### Change Set Overview
+###### Note
+
+You can use express mode with change sets to complete stack operations faster. Specify
+the `--deployment-config '{"mode": "EXPRESS"}'` parameter when creating a change
+set. When the change set is executed, CloudFormation applies express mode, completing resource
+operations as soon as configuration is applied. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
+
+###### Change set overview
 
 The following diagram summarizes how you use change sets to update a stack:
 

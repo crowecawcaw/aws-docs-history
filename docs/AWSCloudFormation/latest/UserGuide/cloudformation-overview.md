@@ -225,9 +225,21 @@ You can use your own bucket and manage its permissions by manually uploading tem
 to Amazon S3. Then whenever you create or update a stack, specify the Amazon S3 URL of a template
 file.
 
+Before provisioning resources, CloudFormation runs pre-deployment validation on your template.
+This checks for common errors such as invalid property syntax and resource name conflicts. If
+validation fails, the operation stops before any resources are created. Validation runs
+automatically on all Create Stack, Update Stack, and Create Change Set operations. To skip
+validation, use the `DisableValidation` parameter. For more information, see [Validate stack deployments](validate-stack-deployments.md "validate-stack-deployments.md").
+
 After all the resources have been created, CloudFormation reports that your stack has been
 created. You can then start using the resources in your stack. If stack creation fails,
 CloudFormation rolls back your changes by deleting the resources that it created.
+
+###### Express mode
+
+For faster stack operations during development, use express mode. Express
+mode completes stack operations as soon as CloudFormation applies the resource configuration,
+without waiting for resources to fully stabilize. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
 
 ### Updating a stack with a change set
 

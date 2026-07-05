@@ -26,10 +26,15 @@ CloudFormation provides two methods for updating stacks:
 - Direct update – When you directly update a stack,
   you submit changes and CloudFormation immediately deploys them. Use direct updates when you want
   to quickly deploy your updates.
-  Deleting a stack deletes the resources associated with it. A
-  stack, for instance, can include all the resources required to run a web application, such as a
-  web server, a database, and networking rules. If you no longer require that web application, you
-  can simply delete the stack, and all of its related resources are deleted.
+  Express mode lets you complete stack operations as soon as
+  resource configuration is applied, without waiting for resources to reach a fully stabilized
+  state. Use express mode during iterative development workflows when speed is more important than
+  full resource stabilization. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
+
+Deleting a stack deletes the resources associated with it. A
+stack, for instance, can include all the resources required to run a web application, such as a
+web server, a database, and networking rules. If you no longer require that web application, you
+can simply delete the stack, and all of its related resources are deleted.
 
 ###### Note
 
@@ -46,6 +51,7 @@ deleted.
 ###### Topics
 
 - [Interfaces for managing your stacks](#interfaces-for-managing-stacks "#interfaces-for-managing-stacks")
+- [Agent setup guide](agent-setup-guide.md "agent-setup-guide.md")
 - [Create a stack from the CloudFormation console](cfn-console-create-stack.md "cfn-console-create-stack.md")
 - [View stack information from the CloudFormation console](cfn-console-view-stack-data-resources.md "cfn-console-view-stack-data-resources.md")
 - [Update your stack template](using-cfn-updating-stacks-get-template.md "using-cfn-updating-stacks-get-template.md")
@@ -62,6 +68,7 @@ deleted.
 - [Stack refactoring](stack-refactoring.md "stack-refactoring.md")
 - [Resource type support](resource-import-supported-resources.md "resource-import-supported-resources.md")
 - [Use quick-create links to create CloudFormation stacks](cfn-console-create-stacks-quick-create-links.md "cfn-console-create-stacks-quick-create-links.md")
+- [Deploy AWS CloudFormation stacks faster with express mode](cloudformation-express-mode.md "cloudformation-express-mode.md")
 - [Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md")
 
 ## Interfaces for managing your stacks

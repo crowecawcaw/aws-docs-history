@@ -292,6 +292,18 @@ For AWS Systems Manager, use the following format:
 `--template-url `"ssm-doc://arn:aws:ssm:region-code:account-id:document/document-name"``
 ```
 
+###### Express mode
+
+To create a stack using express mode, add the `--deployment-config`
+parameter. Express mode completes the stack operation as soon as CloudFormation applies
+the resource configuration. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
+
+```
+`aws cloudformation create-stack --stack-name `myteststack` \
+ --template-body `file://sampletemplate.json` \
+ --deployment-config '{"mode": "EXPRESS"}'`
+```
+
 ## Create a stack that includes transforms
 
 Use the [deploy](../../../cli/latest/reference/cloudformation/deploy.md "../../../cli/latest/reference/cloudformation/deploy.md")
@@ -389,6 +401,18 @@ After using `FORCE_DELETE_STACK`, you can use the
 `list-stack-resources` command to list the resources that were skipped
 during the stack deletion process. The retained resources will show a DELETE\_SKIPPED
 status. For more information, see [List stack resources](#list-stack-resources-sdk "#list-stack-resources-sdk").
+
+###### Express mode
+
+To delete a stack using express mode, add the `--deployment-config`
+parameter:
+
+```
+`aws cloudformation delete-stack --stack-name `myteststack` \
+ --deployment-config '{"mode": "EXPRESS"}'`
+```
+
+For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
 
 ## Describe stack events
 
@@ -1241,6 +1265,19 @@ Update-CFNStack -StackName "myStack" `
 
 To remove all notifications, specify for `[]` for the
 `--notification-arns` option.
+
+###### Express mode
+
+To update a stack using express mode, add the `--deployment-config`
+parameter:
+
+```
+`aws cloudformation update-stack --stack-name `myteststack` \
+ --template-body `file://sampletemplate.json` \
+ --deployment-config '{"mode": "EXPRESS"}'`
+```
+
+For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
 
 ## Validate your template
 

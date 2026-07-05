@@ -9,7 +9,15 @@ After you execute a change set, CloudFormation deletes any additional change set
 associated with the stack because they're no longer valid for the updated stack. If an
 update fails, you need to create a new change set.
 
-###### Stack Policies and Executing a Change Set
+###### Note
+
+If the change set was created with express mode
+(`--deployment-config '{"mode": "EXPRESS"}'`), CloudFormation applies express mode
+when you execute the change set. Express mode completes resource operations as soon as
+configuration is applied, without waiting for full stabilization. For more information, see
+[Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
+
+###### Stack policies and executing a change set
 
 If you execute a change set on a stack that has a stack policy associated with it,
 CloudFormation enforces the policy when it updates the stack. You can't specify a temporary

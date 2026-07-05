@@ -1,14 +1,16 @@
 # Validate stack deployments
 
 With pre-deployment validation, you can identify and resolve potential deployment issues
-before executing your CloudFormation change sets. This feature validates your templates against
-common failure scenarios, helping you catch issues early in the development cycle.
+before CloudFormation provisions resources. Pre-deployment validation runs automatically on
+Create Stack, Update Stack, and Create Change Set operations, catching common errors in
+seconds.
 
 ###### Topics
 
 - [How pre-deployment validation works](#validate-stack-deployments-how-it-works "#validate-stack-deployments-how-it-works")
 - [Considerations](#validate-stack-deployments-considerations "#validate-stack-deployments-considerations")
 - [Prerequisites](#validate-stack-deployments-prerequisites "#validate-stack-deployments-prerequisites")
+- [Disable pre-deployment validation](#validate-stack-deployments-disable "#validate-stack-deployments-disable")
 - [Validate a stack deployment (console)](#validate-stack-deployments-console "#validate-stack-deployments-console")
 - [Validate a stack deployment (AWS CLI)](#validate-stack-deployments-cli "#validate-stack-deployments-cli")
 - [Validation types](#validate-stack-deployments-validation-types "#validate-stack-deployments-validation-types")
@@ -18,15 +20,17 @@ common failure scenarios, helping you catch issues early in the development cycl
 
 Pre-deployment validation involves these phases:
 
-1. Create your change set – Generate a
-   change set as you normally would for your CloudFormation stack updates.
-   Pre-deployment validation is enabled by default when creating your change
-   set.
+1. Initiate a stack operation – Create a
+   stack, update a stack, or create a change set as you normally would.
+   Pre-deployment validation is enabled by default on all three
+   operations.
 2. Validation execution – CloudFormation runs
    multiple validation checks against your template and target environment.
-   Currently 3 types of validation are supported: Property syntax validation
-   against resource schemas, resource name conflict detection with existing
-   resources, and S3 bucket emptiness validation for deletion operations.
+   CloudFormation supports six types of pre-deployment validation. Property syntax
+   validation and resource name conflict detection run on all supported operations.
+   Four additional validations run during change set creation only: S3 bucket
+   emptiness validation, service quota checks, Recorder conflict
+   detection, and ECR repository delete readiness.
 3. Review validation results – CloudFormation
    provides detailed feedback on any issues found, including precise path
    pinpointing the issue location in template, eliminating manual template
@@ -34,22 +38,31 @@ Pre-deployment validation involves these phases:
 4. Resolve issues – Address identified
    problems by updating your templates or resolving conflicts before proceeding
    with deployment.
-5. Execute with confidence – Deploy your
-   change set knowing that common failure scenarios have been validated
+5. Execute with confidence – Proceed with
+   your deployment knowing that common failure scenarios have been validated
    upfront.
+
+###### Note
+
+For Create Stack and Update Stack operations, validation runs as part of the
+operation itself. If validation fails in FAIL mode, the operation stops before any
+resources are provisioned and the stack status reflects the validation failure. For
+change sets, the change set status shows `FAILED`.
 
 ## Considerations
 
 As you use pre-deployment validation, keep the following in mind:
 
-- Pre-deployment validation focuses on the three common deployment failure
+- Pre-deployment validation focuses on common deployment failure
   scenarios. It doesn't guarantee that your deployment will succeed, but reduces
   the likelihood of common failures.
 - Validation modes behave differently:
 
-  - FAIL mode prevents change set execution
-    when validation detects errors, ensuring problematic templates cannot
-    proceed to deployment. This applies to property syntax errors and
+  - FAIL mode stops the operation before
+    any resources are provisioned when validation detects errors. For
+    CreateStack and UpdateStack, the operation fails and the stack status
+    reflects the validation failure. For CreateChangeSet, the change set
+    status shows FAILED. This applies to property syntax errors and
     resource naming conflicts.
   - WARN mode allows change set creation to
     succeed despite validation failures, providing warnings that developers
@@ -57,88 +70,169 @@ As you use pre-deployment validation, keep the following in mind:
     violations like S3 bucket emptiness that may be resolvable through
     manual intervention.
 
-- Validation results are tied to the specific change set. If you modify your
-  template, you'll need to create a new change set to get updated validation
-  results.
+- For change set operations, validation results are tied to the specific change
+  set. If you modify your template, create a new change set to get updated
+  validation results. For CreateStack and UpdateStack operations, use the
+  `describe-events` command with the operation ID to access
+  validation results.
 - S3 bucket validation only checks for object presence, not for bucket policies
   or other constraints that might prevent deletion.
+- Pre-deployment validation adds a small amount of latency to Create Stack and
+  Update Stack operations while validations run. This is typically a few seconds.
+  If you need to skip validation for a specific operation, use the
+  `DisableValidation` parameter.
 
 ## Prerequisites
 
 To use pre-deployment validation, you must have:
 
-- The necessary IAM permissions to create change sets and read resources in
-  your account. For S3 bucket emptiness check, you need `s3:ListBucket`
-  permission.
+- The necessary IAM permissions to create stacks, update stacks, or create
+  change sets, and read resources in your account. The validation checks that run
+  during change set creation require the following additional permissions:
+
+  - Service quota check –
+    `cloudwatch:GetMetricData`,
+    `lambda:GetAccountSettings`,
+    `servicequotas:GetServiceQuota`,
+    `ec2:DescribeSecurityGroups`, and
+    `iam:GetAccountSummary`
+  - Recorder conflict check
+    – `config:ListConfigurationRecorders`
+  - S3 bucket emptiness and ECR repository
+    checks – `s3:ListBucketV2` and
+    `ecr:ListImages`
+
 - Access to the AWS Regions where your stacks are deployed.
 - CloudFormation templates that you want to validate before deployment.
 
+## Disable pre-deployment validation
+
+Pre-deployment validation runs by default. To skip validation for a specific
+operation, use the `DisableValidation` parameter.
+
+Disable validation in the following situations:
+
+- When you have already validated your template through other means (such as
+  `cfn-lint`, `cdk validate`, or CI checks)
+- When you need to minimize operation latency for time-sensitive
+  deployments
+- When a known false positive is blocking your deployment and you need to
+  proceed
+
+AWS CLI examples:
+
+```
+aws cloudformation create-stack --stack-name `MyStack` --template-body file://template.yaml --disable-validation
+```
+
+```
+aws cloudformation update-stack --stack-name `MyStack` --template-body file://template.yaml --disable-validation
+```
+
+API: Set the `DisableValidation` parameter to `true` on the
+`CreateStack` or `UpdateStack` API call.
+
+###### Note
+
+Disabling validation means CloudFormation does not catch common errors until it
+attempts to provision resources.
+
 ## Validate a stack deployment (console)
 
-Use the following procedure to validate your stack deployment using the
-console.
+Pre-deployment validation runs automatically on CreateStack and UpdateStack
+operations. No additional steps are required.
 
-###### To validate a template before deployment
+###### To validate during stack creation or update
+
+1. Create or update your stack as you normally would.
+2. If validation detects errors, the operation stops before provisioning begins.
+   The stack status reflects the validation failure.
+3. To review validation results, open the stack's **Events**
+   tab and choose the operation ID—or choose the link in the banner or the
+   **Status reason** column. The Operation view page opens
+   directly on the **Deployment validations** tab, which shows
+   validation details, including Logical ID, Resource type, Validation type, Mode,
+   and Status reason.
+4. Fix the identified issues in your template and retry the operation.
+
+### Validate using a change set (console)
+
+You can also use change sets to validate your template before deployment. Change
+sets support all six validation types, including WARN-mode validations (S3 bucket
+emptiness, service quota, Config Recorder conflict, and ECR repository delete
+readiness) that are only available during change set creation. You can use a change
+set to validate a new stack before you create it, or to validate an update to an
+existing stack.
+
+###### To validate using a change set
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
    [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
-2. On the navigation bar at the top of the screen, choose the AWS Region where
-   your stack is located.
-3. On the **Stacks** page, choose the running stack you want to
-   create a change set for.
-4. In the stack details pane, choose **Update Stack**, and then
-   choose **Create a change set**.
+2. On the navigation bar at the top of the screen, choose the AWS Region
+   where your stack is located.
+3. On the **Stacks** page, choose the running stack you
+   want to create a change set for.
+4. In the stack details pane, choose **Update Stack**, and
+   then choose **Create a change set**.
 5. On the **Create change set for
-   `stack-name`** page, upload your updated
-   template or specify the template source.
-6. Choose **Next** to proceed through the remaining change set
-   configuration steps.
-7. If the template includes IAM resources, for **Capabilities**,
-   choose **I acknowledge that CloudFormation might create IAM
-   resources**. IAM resources can modify permissions in your AWS
-   account; review these resources to ensure that you're permitting only the
-   actions that you intend. For more information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
+   `stack-name`** page, upload your
+   updated template or specify the template source.
+6. Choose **Next** to proceed through the remaining change
+   set configuration steps.
+7. If the template includes IAM resources, for
+   **Capabilities**, choose **I acknowledge that
+   CloudFormation might create IAM resources**. IAM resources can
+   modify permissions in your AWS account; review these resources to ensure
+   that you're permitting only the actions that you intend. For more
+   information, see [Acknowledging IAM resources in CloudFormation templates](control-access-with-iam.md#using-iam-capabilities "control-access-with-iam.md#using-iam-capabilities").
 8. On the **Review** page, choose **Create change
    set**.
-9. CloudFormation will create the change set and run validation checks. Review the
-   validation results in the **Deployment validation** tab.
+9. CloudFormation creates the change set and runs validation checks. Review the
+   validation results in the **Deployment validation**
+   tab.
 10. If validation passes or you're satisfied with the warnings, choose
     **Execute Change set** to deploy your changes.
-11. If validation fails, fix the issues and create a new change set to re-validate
-    your deployment.
+11. If validation fails, fix the issues and create a new change set to
+    re-validate your deployment.
 
 ## Validate a stack deployment (AWS CLI)
 
-The AWS CLI commands for pre-deployment validation include:
+Pre-deployment validation runs automatically on `create-stack` and
+`update-stack` commands.
 
-- [create-change-set](../../../cli/latest/reference/cloudformation/create-change-set.md "../../../cli/latest/reference/cloudformation/create-change-set.md") automatically validating during change set
-  creation.
-- [describe-change-set](../../../cli/latest/reference/cloudformation/describe-change-set.md "../../../cli/latest/reference/cloudformation/describe-change-set.md") to verify the change set status
-- [describe-events](../../../cli/latest/reference/cloudformation/describe-events.md "../../../cli/latest/reference/cloudformation/describe-events.md") to review validation results.
+###### Create a stack with validation
 
-Use the following procedure to validate your stack deployment using the AWS CLI.
-
-###### To validate a template before deployment
-
-1. Use the [create-change-set](../../../cli/latest/reference/cloudformation/create-change-set.md "../../../cli/latest/reference/cloudformation/create-change-set.md") command:
+Use the following command to create a stack. Pre-deployment validation runs
+automatically.
 
 ```
-aws cloudformation create-change-set \
+aws cloudformation create-stack \
   --stack-name `MyStack` \
-  --change-set-name `MyChangeSet` \
-  --change-set-type "CREATE" \
+  --template-body `file://template.yaml`
+```
+
+###### Update a stack with validation
+
+Use the following command to update a stack. Pre-deployment validation runs
+automatically.
+
+```
+aws cloudformation update-stack \
+  --stack-name `MyStack` \
   --template-body `file://updated-template.yaml`
 ```
 
-The command returns both the change set ARN and the stack ARN. 2. Use the [describe-events](../../../cli/latest/reference/cloudformation/describe-events.md "../../../cli/latest/reference/cloudformation/describe-events.md") command with either the change set ARN or the
-change set name to review validation status and results.
+###### View validation results
+
+Use the following command to view validation results for a stack
+operation.
 
 ```
 aws cloudformation describe-events \
-  --change-set-name "`arn:aws:cloudformation:us-east-1:123456789012:changeSet/MyChangeSet/94498df5-1afb-43b1-9869-9f82b2d877ac`"
+  --stack-name `MyStack`
 ```
 
-Example output of a validation errors:
+Example output of validation errors:
 
 ```
 {
@@ -147,7 +241,7 @@ Example output of a validation errors:
          "EventId":"9b5c9a29-4704-4ad0-8082-afb49418d55b",
          "StackId":"arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/c3908380-b357-11f0-a97f-0ad08f35df65",
          "OperationId":"f558b823-e1e3-4de3-a222-e6b930ddcad4",
-         "OperationType":"CREATE_CHANGESET",
+         "OperationType":"CREATE_STACK",
          "OperationStatus":"FAILED",
          "EventType":"STACK_EVENT",
          "Timestamp":"2025-10-27T17:10:02.923Z",
@@ -158,7 +252,7 @@ Example output of a validation errors:
          "EventId":"2d8c3262-3468-4283-82fb-6e780e9e4f1d",
          "StackId":"arn:aws:cloudformation:us-east-1:123456789012:stack/MyStack/c3908380-b357-11f0-a97f-0ad08f35df65",
          "OperationId":"f558b823-e1e3-4de3-a222-e6b930ddcad4",
-         "OperationType":"CREATE_CHANGESET",
+         "OperationType":"CREATE_STACK",
          "EventType":"VALIDATION_ERROR",
          "LogicalResourceId":"NotificationBucket",
          "PhysicalResourceId":"",
@@ -174,9 +268,34 @@ Example output of a validation errors:
 }
 ```
 
-3. Address any validation errors by updating your template, then create a new
-   change set.
-4. Once validation passes, execute the change set:
+### Validate using a change set (AWS CLI)
+
+Change sets also surface WARN-mode validations that are not available on direct
+stack operations.
+
+###### To validate using a change set
+
+1. Use the [create-change-set](../../../cli/latest/reference/cloudformation/create-change-set.md "../../../cli/latest/reference/cloudformation/create-change-set.md") command:
+
+```
+aws cloudformation create-change-set \
+  --stack-name `MyStack` \
+  --change-set-name `MyChangeSet` \
+  --change-set-type "CREATE" \
+  --template-body `file://updated-template.yaml`
+```
+
+The command returns both the change set ARN and the stack ARN. 2. Use the [describe-events](../../../cli/latest/reference/cloudformation/describe-events.md "../../../cli/latest/reference/cloudformation/describe-events.md") command with the change set ARN to review
+validation status and results.
+
+```
+aws cloudformation describe-events \
+  --change-set-name "`arn:aws:cloudformation:us-east-1:123456789012:changeSet/MyChangeSet/94498df5-1afb-43b1-9869-9f82b2d877ac`"
+```
+
+3. Address any validation errors by updating your template, then create a
+   new change set.
+4. After validation passes, execute the change set:
 
 ```
 aws cloudformation execute-change-set \
@@ -200,6 +319,32 @@ Pre-deployment validation includes the following types of checks:
   when attempting to delete S3 buckets that contain objects. It provides object
   counts to help assess deletion impact and helps prevent common S3 deletion
   failures.
+- Service Quota Validation – Checks
+  whether creating resources would exceed your AWS service quotas.
+  This validation currently runs during change set creation only and operates in
+  WARN mode. The operation proceeds, and you receive alerts about potential
+  quota issues.
+- Recorder Conflict Detection
+  – Warns when your template adds rules to an account that
+  doesn't have recording enabled, or defines an Recorder
+  in an account where one is already active. This validation currently runs during
+  change set creation only and operates in WARN mode.
+- ECR Repository Delete Readiness –
+  Validates that ECR repositories targeted for deletion are empty or have
+  appropriate force-delete settings. This validation currently runs during change
+  set creation only and operates in WARN mode.
+
+The following table summarizes each validation type, its mode, and the operations on
+which it runs.
+
+| Validation type                 | Mode | Available on                              |
+| ------------------------------- | ---- | ----------------------------------------- |
+| Property syntax validation      | FAIL | CreateStack, UpdateStack, CreateChangeSet |
+| Resource name conflict (RAE)    | FAIL | CreateStack, UpdateStack, CreateChangeSet |
+| S3 bucket emptiness             | WARN | CreateChangeSet                           |
+| Service Quota                   | WARN | CreateChangeSet                           |
+| Recorder conflict               | WARN | CreateChangeSet                           |
+| ECR Repository delete readiness | WARN | CreateChangeSet                           |
 
 Each validation type provides specific error messages and with error location in the
 template to help you resolve issues quickly.
@@ -623,3 +768,10 @@ The following resource types are not supported for pre-deployment validation:
 - `AWS::Redshift::EventSubscription`
 - `AWS::Redshift::ScheduledAction`
 - `AWS::ElastiCache::SubnetGroup`
+- `AWS::ApiGateway::BasePathMapping`
+- `AWS::ApiGatewayV2::DomainName`
+- `AWS::ApplicationAutoScaling::ScalableTarget`
+- `AWS::Connect::ApprovedOrigin`
+- `AWS::EKS::Cluster`
+- `AWS::IAM::InstanceProfile`
+- `AWS::Lambda::EventInvokeConfig`

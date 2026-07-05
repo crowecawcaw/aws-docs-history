@@ -14,6 +14,19 @@ When updating a stack, CloudFormation might interrupt resources or replace updat
 depending on which properties you update. For more information about resource update behaviors,
 see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md "using-cfn-updating-stacks-update-behaviors.md").
 
+###### Pre-deployment validation
+
+When you perform a direct stack update, CloudFormation automatically validates your template
+against common failure scenarios before modifying any resources. If validation detects errors,
+the update stops and no resources are changed.
+
+To view validation results in the console, open the stack's
+**Events** tab and choose the operation ID. Then choose the
+**Deployment validations** tab. To view results with the AWS CLI, use the
+[describe-events](../../../cli/latest/reference/cloudformation/describe-events.md "../../../cli/latest/reference/cloudformation/describe-events.md") command. To skip validation, use the
+`--disable-validation` flag in the AWS CLI or set `DisableValidation`
+to `true` in the API call.
+
 ###### To update a stack (console)
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at
@@ -126,3 +139,15 @@ You can use one of the following commands:
 - [update-stack](../../../cli/latest/reference/cloudformation/update-stack.md "../../../cli/latest/reference/cloudformation/update-stack.md") (AWS CLI)
 - [Update-CFNStack](../../../powershell/latest/reference/items/Update-CFNStack.md "../../../powershell/latest/reference/items/Update-CFNStack.md") (AWS Tools for Windows PowerShell)
   For examples of using the command line to update a stack, see [Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell](service_code_examples.md "service_code_examples.md").
+
+###### Express mode
+
+To update a stack using express mode, add the `--deployment-config`
+parameter. Express mode completes the stack operation as soon as resource configuration is
+applied. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
+
+```
+aws cloudformation update-stack --stack-name `myteststack` \
+    --template-body `file://sampletemplate.json` \
+    --deployment-config '{"mode": "EXPRESS"}'
+```

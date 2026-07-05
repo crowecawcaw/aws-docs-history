@@ -72,14 +72,14 @@ schemas. To download the resource provider schemas, see the [CloudFormation reso
    resources with write-only properties, the IaC generator console displays a warning with a
    summary of the type of issues. For example:
 
-![IaC generator console warning about write-only properties in generated template](images/IaC-generator-write-only-property-warning.png) 5. Choose **View warning details** for more details. The resources with
+![IaC generator console warning about write-only properties in generated template.](images/IaC-generator-write-only-property-warning.png) 5. Choose **View warning details** for more details. The resources with
 write-only properties are identified by the logical ID used in the generated template and
 resource type.
 
 Use the list of warnings to identify resources with write-only properties and look at each
 resource to determine what changes (if any) need to be made to the generated template.
 
-![IaC generator console detailed warnings about write-only properties in generated template](images/IaC-generator-write-only-property-resource-warning.png) 6. If your template must be updated to resolve issues with write-only properties, do the
+![IaC generator console detailed warnings about write-only properties in generated template.](images/IaC-generator-write-only-property-resource-warning.png) 6. If your template must be updated to resolve issues with write-only properties, do the
 following:
 
     1. Choose **Download** to download a copy of the template.

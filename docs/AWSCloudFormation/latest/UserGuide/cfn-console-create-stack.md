@@ -128,6 +128,15 @@ before creating it. On the **Review and create** page, choose
 **Create change set** and follow the directions. For more
 information, see [Preview the configuration of your stack](#cfn-console-create-stacks-changesets "#cfn-console-create-stacks-changesets"). 14. Choose **Submit** to launch your stack.
 
+###### Note
+
+CloudFormation automatically validates your template before provisioning resources. If
+validation detects errors such as invalid property syntax or resource name conflicts,
+the stack creation stops before any resources are provisioned. To review validation
+results, open the stack's **Events** tab and choose the operation ID.
+On the Operation view page, choose the **Deployment validations**
+tab.
+
 CloudFormation will then proceed to create all the resources defined in the template.
 
 You can monitor the progress and status of the stack creation on the
@@ -192,6 +201,13 @@ Failed resources will be in an `UPDATE_FAILED` state. Resources without
 a last known stable state will be deleted upon the next stack operation.
 
 You can also set the following advanced options for stack creation:
+
+###### Express mode
+
+Under **Deployment options**, you can select
+**Express** for the deployment mode. Express mode completes stack
+operations as soon as resource configuration is applied, without waiting for resources
+to reach a fully stabilized state. For more information, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
 
 **Stack policy**
 

@@ -30,6 +30,7 @@ stack.
 - [Example of a nested stack architecture](#nested-stack-examples "#nested-stack-examples")
 - [Performing stack operations on nested stacks](#perform-stack-operations-on-nested-stacks "#perform-stack-operations-on-nested-stacks")
 - [Related information](#nested-stacks-related-information "#nested-stacks-related-information")
+- [Express mode and nested stacks](#nested-stacks-express-mode "#nested-stacks-express-mode")
 
 ## Before and after example of splitting a template
 
@@ -233,3 +234,12 @@ name. 3. On the **Stack info** tab, in the
 - [Continue rolling back from failed nested stack updates](using-cfn-updating-stacks-continueupdaterollback.md#nested-stacks "using-cfn-updating-stacks-continueupdaterollback.md#nested-stacks")
 - [Nested
   stacks rollback failure](troubleshooting.md#troubleshooting-errors-nested-stacks-are-stuck "troubleshooting.md#troubleshooting-errors-nested-stacks-are-stuck")
+
+## Express mode and nested stacks
+
+When you use express mode on a parent stack, the setting propagates to all nested
+stacks in the hierarchy. You don't need to specify express mode for each nested stack
+separately. All resources across the hierarchy complete as soon as CloudFormation applies
+their configuration.
+
+For more information about express mode, see [Express mode](cloudformation-express-mode.md "cloudformation-express-mode.md").
