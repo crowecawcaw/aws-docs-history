@@ -151,10 +151,29 @@ enable appliance mode but later edit the attachment configuration to enable it. 
 enable or disable appliance mode using either the console or the command line or
 API.
 
+###### Important
+
+Appliance mode is only supported for VPC attachments.
+
+Prerequisites for AZ-aware routing: Route propagation must be enabled for the transit gateway route table associated with
+the appliance-mode VPC attachment. Without propagation, the transit gateway cannot
+determine the source and destination Availability Zones. All
+traffic—including the same-Availability-Zone flows described in Scenario
+1—falls back to flow-hash-based Availability Zone selection. This means
+traffic within the same Availability Zone might be routed to a different
+Availability Zone in the appliance VPC, breaking Availability Zone
+isolation.
+
 Appliance mode in AWS Transit Gateway optimizes traffic routing by considering the source and
 destination Availability Zones when determining the path through an appliance mode VPC.
-This approach enhances efficiency and reduces latency. The behavior varies depending on the specific configuration and traffic patterns. The following are example
-scenarios.
+This approach enhances efficiency and reduces latency. The behavior varies depending on
+the specific configuration and traffic patterns.
+
+The following scenarios assume that route propagation is enabled for the transit gateway route
+table associated with the appliance-mode VPC attachment. Without propagation, the transit gateway
+cannot determine the source and destination Availability Zones, and all scenarios
+default to flow-hash-based Availability Zone selection (the behavior described in
+Scenario 2).
 
 ### Scenario 1: Intra-Availability Zone Traffic Routing via Appliance VPC
 
@@ -175,9 +194,9 @@ consistently for the lifetime of the flow.
 ### Scenario 3: Routing traffic through an appliance VPC without Availability Zone data
 
 When traffic originates from source Availability Zone us-east-1a to a destination
-without Availability Zone information (e.g., internet-bound traffic), with Appliance
-Mode VPC attachments in both us-east-1a and us-east-1b, Transit Gateway selects a
-network interface from us-east-1a within the appliance VPC.
+without Availability Zone information (for example, internet-bound traffic), with
+Appliance Mode VPC attachments in both us-east-1a and us-east-1b, Transit Gateway
+selects a network interface from us-east-1a within the appliance VPC.
 
 ### Scenario 4: Routing traffic through an appliance VPC in an Availability Zone distinct from either the source or destination
 
@@ -186,12 +205,6 @@ Availability Zone us-east-1b, with Appliance Mode VPC attachments in different
 Availability Zone example us-east-1c and us-east-1d, Transit Gateway uses a flow
 hash algorithm to select either us-east-1c or us-east-1d in the appliance VPC. The
 chosen Availability Zone is used consistently for the lifetime of the flow.
-
-###### Note
-
-Appliance mode is only supported for VPC attachments. Ensure that route
-propagation is enabled for a route table associated with an appliance VPC
-attachment.
 
 ## Security group referencing
 
