@@ -177,6 +177,8 @@ To add tags to an EFS access point, see [Tagging Amazon EFS resources](../../../
 
 ## [EFS.6] EFS mount targets should not be associated with subnets that assign public IP addresses on launch
 
+**Related requirements:** NIST.800-53.r5 SC-7, NIST.800-171.r2 3.1.20, PCI DSS v4.0.1/1.4.4
+
 **Category:** Protect > Network security > Resources not
 publicly accessible
 
@@ -211,6 +213,12 @@ addresses, which could risk the file system data becoming accessible from public
 
 Mount targets in subnets with auto-assign public IPv6 addresses enabled can receive
 globally-routable IPv6 addresses.
+
+###### Note
+
+On July 30, 2026, Security Hub CSPM will remove this control from the [AWS Foundational Security Best Practices (FSBP) standard](fsbp-standard.md "fsbp-standard.md"). This control will now be available in the
+[NIST SP 800-53 Rev. 5 standard](nist-standard.md "nist-standard.md"), the
+[NIST SP 800-171 Revision 2 standard](standards-reference-nist-800-171.md "standards-reference-nist-800-171.md"), and the [PCI DSS v4.0.1 standard](pci-standard.md "pci-standard.md").
 
 ### Remediation
 

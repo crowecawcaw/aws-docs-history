@@ -402,7 +402,7 @@ This control checks whether an Amazon SageMaker AI data quality monitoring job d
 network isolation enabled. The control fails if the definition for a job that monitors data quality
 and drift has network isolation disabled.
 
-Network isolation reduces the attack. surface and prevents external access thereby protecting
+Network isolation reduces the attack surface and prevents external access thereby protecting
 against unauthorized external access, accidental data exposure and potential data exfiltration.
 
 ### Remediation
@@ -526,7 +526,7 @@ encryption enabled when using multiple compute instances. The control fails if
 `EnableInterContainerTrafficEncryption` is set to false or is not configured for job definitions
 with an instance count of 2 or greater.
 
-EInter-container traffic encryption protects data transmitted between compute instances during
+Inter-container traffic encryption protects data transmitted between compute instances during
 distributed model bias monitoring jobs. Encryption prevents unauthorized access to model-related information
 such as weights that are transmitted between instances.
 
@@ -673,4 +673,210 @@ public internet, reducing the risk of supply chain attacks or image tampering.
 To configure private docker registries for SageMaker AI real-time inference containers,
 see [Use
 a Private Docker Registry for Real-Time Inference Containers](../../../sagemaker/latest/dg/your-algorithms-containers-inference-private.md "../../../sagemaker/latest/dg/your-algorithms-containers-inference-private.md") in the
+_Amazon SageMaker AI Developer Guide_.
+
+## [SageMaker.20] SageMaker model explainability job definitions should have network isolation enabled
+
+**Category:** Protect > Secure network
+configuration > Resources not publicly accessible
+
+**Severity:** High
+
+**Resource type:**
+`AWS::SageMaker::ModelExplainabilityJobDefinition`
+
+**AWS Config rule:**
+[sagemaker-model-explainability-job-network-isolation](../../../config/latest/developerguide/sagemaker-model-explainability-job-network-isolation.md "../../../config/latest/developerguide/sagemaker-model-explainability-job-network-isolation.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether a SageMaker AI model explainability job definition has network
+isolation enabled. The control fails if the job definition does not have network
+isolation enabled.
+
+Network isolation prevents model explainability job containers from making outbound
+network calls, reducing the risk of data exfiltration and providing defense-in-depth for
+sensitive model and training data.
+
+### Remediation
+
+To enable network isolation for a SageMaker AI model explainability job definition, set
+`NetworkConfig.EnableNetworkIsolation` to `true` when
+creating the job definition. For more information about network isolation for SageMaker AI,
+see [Run training and inference containers in internet-free mode](../../../sagemaker/latest/dg/mkt-algo-model-internet-free.md#mkt-algo-model-internet-free-isolation "../../../sagemaker/latest/dg/mkt-algo-model-internet-free.md#mkt-algo-model-internet-free-isolation") in the
+_Amazon SageMaker AI Developer Guide_.
+
+## [SageMaker.21] SageMaker notebook instances should be encrypted with customer managed AWS KMS keys
+
+**Category:** Protect > Data protection >
+Encryption of data at rest
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::NotebookInstance`
+
+**AWS Config rule:**
+[sagemaker-notebook-instance-storage-vol-kms-encrypted](../../../config/latest/developerguide/sagemaker-notebook-instance-storage-vol-kms-encrypted.md "../../../config/latest/developerguide/sagemaker-notebook-instance-storage-vol-kms-encrypted.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether a SageMaker AI notebook instance is configured with an AWS KMS key
+for storage volume encryption. The control fails if a KMS key is not configured for the
+notebook instance.
+
+Encryption of data at rest with a customer managed KMS key provides additional access
+control over the default AWS managed encryption. SageMaker AI notebook instances store user
+notebooks, datasets, model artifacts, and temporary processing data on ML storage
+volumes. A customer managed key enables fine-grained key policy control, CloudTrail audit
+logging of key usage, and compliance with frameworks requiring customer-controlled
+encryption.
+
+### Remediation
+
+To configure a KMS key for a SageMaker AI notebook instance, see [Notebook instances,
+SageMaker AI jobs, and Endpoints](../../../sagemaker/latest/dg/encryption-at-rest-nbi.md "../../../sagemaker/latest/dg/encryption-at-rest-nbi.md") in the _Amazon SageMaker AI Developer Guide_. Note that `KmsKeyId` can only be set at
+notebook instance creation time. To remediate, create a new notebook instance with
+the KMS key specified and migrate your data from the existing instance.
+
+## [SageMaker.22] SageMaker monitoring schedules should have inter-container traffic encryption enabled
+
+**Category:** Protect > Data protection >
+Encryption of data in transit
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::MonitoringSchedule`
+
+**AWS Config rule:**
+[sagemaker-monitoring-schedule-traffic-encryption](../../../config/latest/developerguide/sagemaker-monitoring-schedule-traffic-encryption.md "../../../config/latest/developerguide/sagemaker-monitoring-schedule-traffic-encryption.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon SageMaker AI monitoring schedule has encryption enabled for
+inter-container traffic. The control fails if the monitoring job definition does not have
+encryption enabled for inter-container traffic.
+
+Inter-container traffic encryption ensures that data transmitted between containers
+during monitoring jobs is encrypted in transit. Without this encryption, sensitive data
+processed during model monitoring could be exposed to unauthorized access within the
+network. Enabling this setting helps meet compliance requirements for protecting data in
+transit.
+
+### Remediation
+
+For an existing SageMaker AI monitoring schedule, inter-container traffic encryption
+cannot be updated in place. To create a new SageMaker AI monitoring schedule with
+inter-container traffic encryption enabled, use [API](../../../sagemaker/latest/APIReference/API_CreateMonitoringSchedule.md "../../../sagemaker/latest/APIReference/API_CreateMonitoringSchedule.md") or [CLI](../../../cli/latest/reference/sagemaker/create-monitoring-schedule.md "../../../cli/latest/reference/sagemaker/create-monitoring-schedule.md") or CloudFormation and set
+`EnableInterContainerTrafficEncryption` to `true` in the
+`NetworkConfig` of the
+`MonitoringJobDefinition`.
+
+## [SageMaker.23] SageMaker inference experiments should have instance storage volume encrypted with customer managed AWS KMS keys
+
+**Category:** Protect > Data protection >
+Encryption of data at rest
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::InferenceExperiment`
+
+**AWS Config rule:**
+[sagemaker-inf-experiment-instance-storage-kms-encrypted](../../../config/latest/developerguide/sagemaker-inf-experiment-instance-storage-kms-encrypted.md "../../../config/latest/developerguide/sagemaker-inf-experiment-instance-storage-kms-encrypted.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether a SageMaker AI inference experiment is configured with an AWS KMS
+key for instance storage volume encryption. The control fails if a KMS key is not
+specified for instance storage volume encryption.
+
+Encrypting instance storage volumes with customer managed KMS keys provides centralized
+key management, audit logging, and key rotation control for model artifacts and temporary
+inference data stored on ML compute instances during shadow tests.
+
+### Remediation
+
+To configure a KMS key for a SageMaker AI inference experiment, specify the
+`KmsKey` parameter when calling
+`CreateInferenceExperiment`. The `KmsKey` can be a KMS key
+ID, ARN, alias, or alias ARN. The SageMaker AI execution role must have
+`kms:CreateGrant` permission on the key. For more information on
+specifying a customer managed AWS KMS key to SageMaker AI, see [Notebook instances,
+SageMaker AI jobs, and Endpoints](../../../sagemaker/latest/dg/encryption-at-rest-nbi.md "../../../sagemaker/latest/dg/encryption-at-rest-nbi.md") in the _Amazon SageMaker AI Developer Guide_.
+
+## [SageMaker.24] SageMaker inference experiments should have data storage encrypted with customer managed AWS KMS keys
+
+**Category:** Protect > Data protection >
+Encryption of data at rest
+
+**Severity:** Medium
+
+**Resource type:**
+`AWS::SageMaker::InferenceExperiment`
+
+**AWS Config rule:**
+[sagemaker-inf-experiment-data-storage-kms-encrypted](../../../config/latest/developerguide/sagemaker-inf-experiment-data-storage-kms-encrypted.md "../../../config/latest/developerguide/sagemaker-inf-experiment-data-storage-kms-encrypted.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether a SageMaker AI inference experiment with data capture enabled has a
+KMS key configured to encrypt captured data at rest. The control fails if the data
+storage configuration does not specify a KMS key for encryption.
+
+Encrypting captured inference request and response data with customer managed KMS keys
+ensures that sensitive inference payloads stored in Amazon S3 are protected with centralized
+key management and audit capabilities.
+
+### Remediation
+
+To configure a KMS key for data storage in a SageMaker AI inference experiment, specify
+the `KmsKey` field within `DataStorageConfig` when calling
+`CreateInferenceExperiment`. The `KmsKey` encrypts
+captured inference request and response data at rest in the specified Amazon S3 bucket.
+For more information on specifying a customer managed AWS KMS key to SageMaker AI, see [Notebook instances,
+SageMaker AI jobs, and Endpoints](../../../sagemaker/latest/dg/encryption-at-rest-nbi.md "../../../sagemaker/latest/dg/encryption-at-rest-nbi.md") in the _Amazon SageMaker AI Developer Guide_.
+
+## [SageMaker.25] SageMaker model quality job definitions should have network isolation enabled
+
+**Category:** Protect > Secure network
+configuration > Resources not publicly accessible
+
+**Severity:** High
+
+**Resource type:**
+`AWS::SageMaker::ModelQualityJobDefinition`
+
+**AWS Config rule:**
+[sagemaker-model-quality-job-definition-isolation](../../../config/latest/developerguide/sagemaker-model-quality-job-definition-isolation.md "../../../config/latest/developerguide/sagemaker-model-quality-job-definition-isolation.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon SageMaker AI model quality job definition has network
+isolation enabled. The control fails if the model quality job definition does not have
+network isolation enabled.
+
+Network isolation reduces the attack surface and prevents external access, thereby
+protecting against unauthorized external access, accidental data exposure, and potential
+data exfiltration.
+
+### Remediation
+
+When you create a model quality job definition, you can enable network isolation by
+setting the value for the `EnableNetworkIsolation` parameter to
+`True`. For more information about network isolation for SageMaker AI, see
+[Run training and inference containers in internet-free mode](../../../sagemaker/latest/dg/mkt-algo-model-internet-free.md#mkt-algo-model-internet-free-isolation "../../../sagemaker/latest/dg/mkt-algo-model-internet-free.md#mkt-algo-model-internet-free-isolation") in the
 _Amazon SageMaker AI Developer Guide_.

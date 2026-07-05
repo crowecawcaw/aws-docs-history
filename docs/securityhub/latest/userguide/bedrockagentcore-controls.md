@@ -207,3 +207,35 @@ malicious activity during automated browsing sessions.
 For instructions on how to enable browser session recording, see [Session
 Recording and Replay](../../../bedrock-agentcore/latest/devguide/browser-session-recording.md "../../../bedrock-agentcore/latest/devguide/browser-session-recording.md") in the _Amazon Bedrock
 AgentCore Developer Guide_.
+
+## [BedrockAgentCore.7] Bedrock AgentCore custom code interpreters should use a private network configuration
+
+**Category:** Protect > Secure network
+configuration > Resources within VPC
+
+**Severity:** High
+
+**Resource type:**
+`AWS::BedrockAgentCore::CodeInterpreterCustom`
+
+**AWS Config rule:**
+[bedrockagentcore-codeinterpreter-networkmode-check](../../../config/latest/developerguide/bedrockagentcore-codeinterpreter-networkmode-check.md "../../../config/latest/developerguide/bedrockagentcore-codeinterpreter-networkmode-check.md")
+
+**Schedule type:** Change triggered
+
+**Parameters:** None
+
+This control checks whether an Amazon Bedrock AgentCore custom code interpreter is
+configured with a private network mode. The control fails if the network mode is set to
+`PUBLIC` or `SANDBOX`.
+
+Configuring Bedrock AgentCore custom code interpreters with a private network mode
+ensures that code execution environments are isolated within your VPC. Public or sandbox
+network modes expose the code interpreter to the internet, increasing the risk of
+unauthorized access and data exfiltration. Using private network mode restricts network
+access and helps protect sensitive data processed during code interpretation.
+
+### Remediation
+
+To remediate this finding, delete the non-compliant Bedrock AgentCore custom code
+interpreter and recreate it with VPC network mode. For instructions, see [Configuring VPC access for runtime and tools](../../../bedrock-agentcore/latest/devguide/agentcore-vpc.md#agentcore-configuration "../../../bedrock-agentcore/latest/devguide/agentcore-vpc.md#agentcore-configuration") in the _Amazon Bedrock AgentCore Developer Guide_.

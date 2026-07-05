@@ -14,6 +14,12 @@ Security Hub CSPM currently supports the following standards:
   size. It provides a set of controls that detect when your AWS accounts and
   resources deviate from security best practices. It also provides prescriptive
   guidance about how to improve and maintain your security posture.
+- **AI Security Best Practices** – Developed by
+  AWS security experts, this standard provides a curated set of controls that detect
+  when deployed AI resources do not align with security best practices. It helps you
+  identify areas where your AI workloads deviate from recommended security
+  configurations, covering domains such as network isolation, encryption, VPC
+  placement, and AWS KMS key usage.
 - **AWS Resource Tagging** – Developed by
   Security Hub CSPM, this standard can help you determine whether your AWS resources have tags.
   A _tag_ is a key-value pair that acts as metadata
@@ -68,6 +74,7 @@ only one finding for the control. For more information, see [Consolidated contro
 ###### Detailed reference by standard
 
 - [AWS Foundational Security Best Practices](fsbp-standard.md "fsbp-standard.md")
+- [AI Security Best Practices](standards-ai-security.md "standards-ai-security.md")
 - [AWS Resource Tagging](standards-tagging.md "standards-tagging.md")
 - [CIS AWS Foundations Benchmark](cis-aws-foundations-benchmark.md "cis-aws-foundations-benchmark.md")
 - [NIST SP 800-53 Revision 5](standards-reference-nist-800-53.md "standards-reference-nist-800-53.md")

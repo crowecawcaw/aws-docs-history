@@ -107,6 +107,7 @@ requirement.
 - [[EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN connection should be up](ec2-controls.md#ec2-20 "ec2-controls.md#ec2-20")
 - [[EC2.21] Network ACLs should not allow ingress from 0.0.0.0/0 to port 22 or port 3389](ec2-controls.md#ec2-21 "ec2-controls.md#ec2-21")
 - [[EC2.51] EC2 Client VPN endpoints should have client connection logging enabled](ec2-controls.md#ec2-51 "ec2-controls.md#ec2-51")
+- [[EFS.6] EFS mount targets should not be associated with subnets that assign public IP addresses on launch](efs-controls.md#efs-6 "efs-controls.md#efs-6")
 - [[ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate provided by AWS Certificate Manager](elb-controls.md#elb-2 "elb-controls.md#elb-2")
 - [[ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS termination](elb-controls.md#elb-3 "elb-controls.md#elb-3")
 - [[ELB.8] Classic Load Balancers with SSL listeners should use a predefined security policy that has strong AWS Configuration](elb-controls.md#elb-8 "elb-controls.md#elb-8")
