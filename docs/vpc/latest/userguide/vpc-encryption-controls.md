@@ -160,6 +160,10 @@ This functionality is supported in new clusters for 4.1 in their own VPC. The fo
 - Customer enables VPC Encryption on a VPC with no other MSK clusters
 - Customer creates cluster with Kafka version 4.1 and instancetype as M7g
 
+###### Gateway Load Balancer and AWS Network Firewall
+
+Gateway Load Balancer and AWS Network Firewall are not supported with VPCs in enforce mode. If these resources are present in your VPC, you must run your VPC in monitor mode.
+
 ### Regional and zone limitations
 
 - **Local Zone Subnets**: Not supported in enforce mode - must be deleted from VPC
@@ -182,6 +186,56 @@ You must enable encryption support on a Transit Gateway explicitly to encrypt tr
 
 For more details on Transit Gateway encryption support, see [the transit gateway documentation](../tgw/tgw-encryption-support.md "../tgw/tgw-encryption-support.md").
 
+### Enable VPC Encryption Controls at the Account level
+
+Account-level VPC Encryption Controls allow you to set the encryption control mode and resource exclusions that apply to all VPCs in your account. This provides centralized management of encryption policies without needing to configure each VPC individually.
+
+Account-level encryption controls support the same eight resource exclusions as VPC-level controls: Internet Gateway, NAT Gateway, Egress-only Internet Gateway, VPC Peering, Virtual Private Gateway, Lambda, VPC Lattice, and Elastic File System.
+
+#### Account-level Encryption Controls modes
+
+You can set the following modes at the account level:
+
+**Unmanaged**
+
+VPC Encryption Controls remain in their current mode and can be managed at the VPC level.
+
+**Attempt Monitor**
+
+Attempts to transition all VPCs in the account to monitor mode. Identifies unencrypted resources without blocking creation.
+
+**Attempt Enforce**
+
+Attempts to transition all VPCs in the account to enforce mode. Blocks creation of unencrypted resources.
+
+#### Account-level Encryption Controls states
+
+Account-level VPC Encryption Controls can have one of the following states:
+
+**default-state**
+
+The account-level VPC Encryption Control has not been enabled.
+
+**transitions-in-progress**
+
+The VPCs in the account are being transitioned to the specified mode.
+
+**transitions-partially-successful**
+
+One or more VPCs did not transition to the expected mode.
+
+**transitions-successful**
+
+All VPCs successfully transitioned to the expected mode.
+
+**transitions-failed**
+
+All VPCs failed to transition to the expected mode.
+
+### Enable VPC Encryption Controls at the Organization level
+
+If you are using AWS Organizations to manage accounts in your organization, you can use an [AWS Organizations declarative policy](../../../organizations/latest/userguide/orgs_manage_policies_declarative_policies.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative_policies.md") to enforce VPC Encryption Controls on the accounts in the organization. For more information about the VPC Encryption Controls declarative policy, see [Supported declarative policies](../../../organizations/latest/userguide/orgs_manage_policies_ec2_syntax.md#declarative-policy-vpc-block-public-access "../../../organizations/latest/userguide/orgs_manage_policies_ec2_syntax.md#declarative-policy-vpc-block-public-access") in the AWS Organizations User Guide.
+
 ## Pricing
 
 For pricing information, see the [Amazon VPC Pricing](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
@@ -192,6 +246,8 @@ For pricing information, see the [Amazon VPC Pricing](https://aws.amazon.com/vpc
 
 - [aws ec2 create-vpc-encryption-control](../../../cli/latest/reference/ec2/create-vpc-encryption-control.md "../../../cli/latest/reference/ec2/create-vpc-encryption-control.md")
 - [aws ec2 modify-vpc-encryption-control](../../../cli/latest/reference/ec2/modify-vpc-encryption-control.md "../../../cli/latest/reference/ec2/modify-vpc-encryption-control.md")
+- [aws ec2 modify-account-vpc-encryption-control](../../../cli/latest/reference/ec2/modify-account-vpc-encryption-control.md "../../../cli/latest/reference/ec2/modify-account-vpc-encryption-control.md")
+- [aws ec2 describe-account-vpc-encryption-control](../../../cli/latest/reference/ec2/describe-account-vpc-encryption-control.md "../../../cli/latest/reference/ec2/describe-account-vpc-encryption-control.md")
 - [aws ec2 tgw modify-transit-gateway](../../../cli/latest/reference/ec2/modify-transit-gateway.md "../../../cli/latest/reference/ec2/modify-transit-gateway.md")
 
 ### Monitoring and troubleshooting
