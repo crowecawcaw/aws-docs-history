@@ -169,7 +169,8 @@ domains that share a VPC endpoint connection.
    **Outbound connections** table. After the
    connection between the two domains is active, an endpoint becomes
    available in the **Endpoint** column in the table. Copy
-   the endpoint.
+   this endpoint, you will use it as the remote host in the reindex request
+   in step 8.
 7. Open the dashboard for the local domain and choose **Dev
    Tools** in the left navigation. To confirm that the remote
    domain index doesn't exist on your local domain yet, run the following
@@ -186,8 +187,10 @@ GET `remote-domain-index-name`/_search
 ```
 
 In the output, you should see an error that indicates that the index
-wasn't found. 8. Below your GET request, create a POST request and use your endpoint as
-the remote host, as follows.
+wasn't found. 8. Below your GET request, create a POST request and use the VPC
+endpoint connection endpoint from step 6 (found in the
+**Endpoint** column of the **Outbound
+connections** table) as the remote host, as follows.
 
 ```
 POST _reindex
@@ -361,10 +364,20 @@ values:
 
 We recommend tuning these parameters to accommodate your data. For large documents,
 consider a smaller batch size and/or longer timeout. As a general guideline, documents
-larger than 100 MB should be considered "large" and may require a batch size of 100 or
-fewer. For documents between 10 MB and 100 MB, a batch size of 500 is recommended.
-Adjust the socket timeout to at least 60 seconds for documents exceeding 50 MB. For
+larger than 100 KB should be considered "large" and may require a batch size of 500 or
+fewer. For documents larger than 1 MB, reduce the batch size to 50 or fewer and
+increase the socket timeout to at least 60 seconds. For documents exceeding 10 MB, use
+a batch size of 5–10 and a socket timeout of 120 seconds or more. For
 more information, see [Paginate results](https://docs.opensearch.org/docs/latest/search-plugins/searching-data/paginate/ "https://docs.opensearch.org/docs/latest/search-plugins/searching-data/paginate/").
+
+###### Note
+
+The default batch size for remote reindex is 1,000 documents, and the default
+socket timeout is 30 seconds. AWS recommends a total bulk request size of 3–5
+MiB. If your average document size multiplied by the batch size exceeds this range,
+reduce the batch size accordingly. These are general guidelines — tune these
+parameters based on your domain configuration, resource utilization, and workload
+characteristics.
 
 ```
 POST _reindex?pretty=true&scroll=10h&wait_for_completion=false

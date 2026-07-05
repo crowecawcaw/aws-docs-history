@@ -28,7 +28,7 @@ POST https://es.`us-east-1`.amazonaws.com/2021-01-01/opensearch/domain/`movies`/
 }
 ```
 
-If you use one of the SDKs, such as [Boto 3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.update_domain_config "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opensearch.html#OpenSearchService.Client.update_domain_config"), the SDK automatically handles the request signing:
+If you use one of the SDKs, such as [Boto 3](../../../boto3/latest/reference/services/opensearch.md#OpenSearchService.Client.update_domain_config "../../../boto3/latest/reference/services/opensearch.md#OpenSearchService.Client.update_domain_config"), the SDK automatically handles the request signing:
 
 ```
 import boto3

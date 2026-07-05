@@ -3,6 +3,12 @@
 The Amazon SageMaker CloudFormation templates define multiple AWS resources in order to
 set up the neural plugin and semantic search for you.
 
+###### Note
+
+Cross-Region connections to Amazon SageMaker or Amazon Bedrock endpoints are not supported
+by these CloudFormation templates. The ML connector and the OpenSearch Service domain must reside
+in the same AWS Region.
+
 Begin by using the **Integration with text embedding models through
 Amazon SageMaker** template to deploy a text embedding model in SageMaker Runtime
 as a server. If you don't provide a model endpoint, CloudFormation creates an IAM role

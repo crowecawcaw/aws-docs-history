@@ -23,6 +23,12 @@ allow any resource in that account to be associated with the cross-service use.
 
 The value of `aws:SourceArn` must be the ARN of the OpenSearch Service domain.
 
+###### Manual snapshot IAM role limitation
+
+Amazon OpenSearch Service doesn't support the `aws:SourceArn` and
+`aws:SourceAccount` condition keys on the trust policy of the IAM role that
+you use for manual snapshots.
+
 The most effective way to protect against the confused deputy problem is to use the
 `aws:SourceArn` global condition context key with the full ARN of the
 resource. If you don't know the full ARN of the resource or if you are specifying multiple

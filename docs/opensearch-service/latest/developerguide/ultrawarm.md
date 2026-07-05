@@ -125,6 +125,14 @@ Just like any other OpenSearch workload, the most important step to determining 
 UltraWarm meets your needs is to perform representative client testing using a realistic
 dataset.
 
+###### Note
+
+When UltraWarm is enabled on a domain, the `search.max_buckets`
+setting defaults to 10,000 instead of the standard OpenSearch default of 65,536.
+This setting limits the maximum number of buckets allowed in a single aggregation
+response. If your aggregations require more buckets, you can increase this value by
+updating the domain's advanced cluster settings.
+
 ## UltraWarm pricing
 
 With hot storage, you pay for what you provision. Some instances require an attached

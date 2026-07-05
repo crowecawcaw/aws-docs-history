@@ -96,7 +96,8 @@ OpenSearch Service supports the following versions of legacy **Elasticsearch**:
 
 We recommend upgrading to the latest available OpenSearch version to get the best use
 of OpenSearch Service, in terms of price-performance, feature richness, and security
-improvements.
+improvements. For information about upgrade paths, breaking changes, and
+version-specific considerations, see [Upgrading Amazon OpenSearch Service domains](version-migration.md "version-migration.md").
 
 ## Standard and extended support
 

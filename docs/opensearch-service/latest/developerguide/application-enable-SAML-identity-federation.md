@@ -186,24 +186,22 @@ To create your AWS Identity and Access Management role, complete the following s
 5. For **SAML 2.0-based provider**, choose the identity
    provider you created earlier.
 6. Select **Allow programmatic and AWS Management Console access**.
-7. Choose **Next**.
-8. In the **Permissions policies** list, select the check
-   boxes for policies that grant OpenSearch Service permissions, for example,
-   AWS managed policy **AmazonOpenSearchServiceFullAccess**.
-9. Choose **Next**.
-10. In the **Review** area, for **Role
-    name**, enter the name of your role; for example,
-    `oktarole`.
-11. (Optional) For **Description**, enter a brief description
-    of the purpose of the role.
-12. Choose **Create role**.
-13. Navigate to the role that you just created, choose the **Trust
-    Relationships** tab, and then choose **Edit trust
-    policy**.
-14. In the **Edit statement** pane, under **Add
-    actions for STS**, select the box for
-    **TagSession**.
-15. Choose **Update policy**.
+7. ###### Note
+
+Under **Sign-in endpoints**, select **without
+unique identifiers**. If you select **with unique
+identifiers**, the `SAML:aud` condition in the
+trust policy will not match the SAML assertion audience, resulting in an
+`AccessDenied` error when users attempt to sign in. 8. Choose **Next**. 9. In the **Permissions policies** list, select the check
+boxes for policies that grant OpenSearch Service permissions, for example,
+AWS managed policy **AmazonOpenSearchServiceFullAccess**. 10. Choose **Next**. 11. In the **Review** area, for **Role
+name**, enter the name of your role; for example,
+`oktarole`. 12. (Optional) For **Description**, enter a brief description
+of the purpose of the role. 13. Choose **Create role**. 14. Navigate to the role that you just created, choose the **Trust
+Relationships** tab, and then choose **Edit trust
+policy**. 15. In the **Edit statement** pane, under **Add
+actions for STS**, select the box for
+**TagSession**. 16. Choose **Update policy**.
 
 ## Step 3: Create the Amazon OpenSearch Service access policy in IAM
 

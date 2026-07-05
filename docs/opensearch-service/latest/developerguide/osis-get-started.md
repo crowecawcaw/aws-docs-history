@@ -185,8 +185,11 @@ JSON
 
 For more information about creating domain-level access policies, see [Resource-based policies](ac.md#ac-types-resource "ac.md#ac-types-resource").
 
-If you already have a domain created, modify its existing access policy to provide the
-above permissions to `OpenSearchIngestion-PipelineRole`.
+If you already have a domain created, open the Amazon OpenSearch Service console, select your
+domain, choose the **Security configuration** tab, and choose
+**Edit**. Under **Access policy**, add the above
+permissions for `OpenSearchIngestion-PipelineRole` to the existing policy
+JSON.
 
 ## Step 3: Create a pipeline
 

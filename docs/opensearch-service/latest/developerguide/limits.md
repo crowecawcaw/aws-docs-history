@@ -361,6 +361,14 @@ The following table shows the maximum size of HTTP request payloads.
 | m6g.4xlarge.search    | 100 MiB                               |
 | m6g.8xlarge.search    | 100 MiB                               |
 | m6g.12xlarge.search   | 100 MiB                               |
+| m7g.medium.search     | 10 MiB                                |
+| m7g.large.search      | 10 MiB                                |
+| m7g.xlarge.search     | 100 MiB                               |
+| m7g.2xlarge.search    | 100 MiB                               |
+| m7g.4xlarge.search    | 100 MiB                               |
+| m7g.8xlarge.search    | 100 MiB                               |
+| m7g.12xlarge.search   | 100 MiB                               |
+| m7g.16xlarge.search   | 100 MiB                               |
 | c4.large.search       | 10 MiB                                |
 | c4.xlarge.search      | 100 MiB                               |
 | c4.2xlarge.search     | 100 MiB                               |

@@ -329,6 +329,10 @@ Before you set up an interface endpoint for OpenSearch Serverless, consider the 
 - If you enable public internet access to your collection's API or Dashboards in
   a network policy, your collection is accessible by any VPC and by the public
   internet.
+- Even with public network access enabled, data access policies still control
+  who can read and write data to the collection. Network access determines which
+  networks can reach the endpoint, while data access policies determine which
+  principals can perform operations on the data. For more information, see [Data access control for Amazon OpenSearch Serverless](serverless-data-access.md "serverless-data-access.md").
 - If you're on-premises and outside of the VPC, you can't use a DNS resolver for
   the OpenSearch Serverless VPC endpoint resolution directly. If you need VPN access, the VPC
   needs a DNS proxy resolver for external clients to use. Route 53 provides an

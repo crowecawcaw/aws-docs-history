@@ -25,22 +25,23 @@ SDKs.
 To quickly configure a production domain with best practices, you can
 choose **Easy create**. For the development and testing
 purposes of this tutorial, we'll use **Standard
-create**. 6. For templates, choose **Dev/test**. 7. For the deployment option, choose **Domain with
-standby**. 8. For **Version**, choose the latest version. 9. For now, ignore the **Data nodes**, **Warm and cold
+create**. 6. For **Use cases**, choose
+**Observability**. 7. For templates, choose **Dev/test**. 8. For the deployment option, choose **Domain with
+standby**. 9. For **Version**, choose the latest version. 10. For now, ignore the **Data nodes**, **Warm and cold
 data storage**, **Dedicated master nodes**,
 **Snapshot configuration**, and **Custom
 endpoint** sections. Note that the default data node instance type
 (`r7g.large.search`) incurs charges. If you want to minimize costs
 for this tutorial, consider selecting a smaller instance type such as
-`t3.small.search` under **Data nodes**. 10. For simplicity in this tutorial, use a public access domain. Under
+`t3.small.search` under **Data nodes**. 11. For simplicity in this tutorial, use a public access domain. Under
 **Network**, choose **Public
-access**. 11. In the fine-grained access control settings, keep the **Enable
+access**. 12. In the fine-grained access control settings, keep the **Enable
 fine-grained access control** check box selected. Select
 **Create master user** and provide a username and
-password. 12. For now, ignore the **SAML authentication** and
-**Amazon Cognito authentication** sections. 13. For **Access policy**, choose **Only use fine-grained
+password. 13. For now, ignore the **SAML authentication** and
+**Amazon Cognito authentication** sections. 14. For **Access policy**, choose **Only use fine-grained
 access control**. In this tutorial, fine-grained access control
-handles authentication, not the domain access policy. 14. Ignore the rest of the settings and choose **Create**. New domains typically take 15–30 minutes to
+handles authentication, not the domain access policy. 15. Ignore the rest of the settings and choose **Create**. New domains typically take 15–30 minutes to
 initialize, but can take longer depending on the configuration. After your
 domain initializes, select it to open its configuration pane. Note the domain
 endpoint under **General information** (for example,

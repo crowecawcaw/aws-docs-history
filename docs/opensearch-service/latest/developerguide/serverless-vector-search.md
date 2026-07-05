@@ -696,4 +696,4 @@ try the following exercises:
   tutorial on [GitHub](https://github.com/opensearch-project/opensearch-java/blob/main/guides/plugins/knn.md "https://github.com/opensearch-project/opensearch-java/blob/main/guides/plugins/knn.md").
 - Set up LangChain to use OpenSearch as a vector store. LangChain is an open
   source framework for developing applications powered by language models. For
-  more information, see the [LangChain documentation](https://python.langchain.com/docs/integrations/vectorstores/opensearch "https://python.langchain.com/docs/integrations/vectorstores/opensearch").
+  more information, see the [LangChain documentation](https://docs.langchain.com/oss/python/integrations/vectorstores/opensearch "https://docs.langchain.com/oss/python/integrations/vectorstores/opensearch").

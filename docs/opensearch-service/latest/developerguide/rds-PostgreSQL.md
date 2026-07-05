@@ -305,7 +305,7 @@ inbound traffic from the pipeline's VPC security group to the database port. For
 more information, see [Controlling access with security groups](../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md "../../../AmazonRDS/latest/AuroraUserGuide/Overview.RDSSecurityGroups.md").
 
 If you're using the AWS Management Console to create your pipeline, you must also attach your
-pipeline to your VPC in order to use Amazon Aurora as a source. To do this, find the
+pipeline to your VPC in order to use RDS for PostgreSQL as a source. To do this, find the
 **Network configuration** section, choose **Attach to
 VPC**, and choose your CIDR from one of the provided default options,
 or select your own. The CIDR block must use a /24 prefix length. You can use any /24 CIDR from a private address space as defined in
@@ -314,7 +314,7 @@ Practice](https://datatracker.ietf.org/doc/html/rfc1918 "https://datatracker.iet
 
 To provide a custom CIDR, select **Other** from the dropdown
 menu. To avoid a collision in IP addresses between OpenSearch Ingestion and Amazon RDS, ensure
-that the Amazon Aurora VPC CIDR is different from the CIDR for
+that the Amazon RDS VPC CIDR is different from the CIDR for
 OpenSearch Ingestion.
 
 For more information, see [Configuring VPC access for a pipeline](pipeline-security.md#pipeline-vpc-configure "pipeline-security.md#pipeline-vpc-configure").

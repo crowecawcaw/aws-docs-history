@@ -5,7 +5,7 @@ to Amazon Security Lake. Security Lake collects and stores security data from AW
 environments, and SaaS providers in a dedicated data lake.
 
 To configure your pipeline to write log data to Security Lake, use the preconfigured
-**Firewall Traffic logs** blueprint. The blueprint includes a
+**Security Lake** blueprint. The blueprint includes a
 default configuration for retrieving raw security logs or other data stored in an
 Amazon S3 bucket, processing the records, and normalizing them. It then maps the data to
 Open Cybersecurity Schema Framework (OCSF) and sends the transformed OCSF-compliant

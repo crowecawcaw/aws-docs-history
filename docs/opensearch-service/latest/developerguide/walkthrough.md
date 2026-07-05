@@ -202,6 +202,7 @@ json_document = {'transcript': transcript, 'keywords': keywords, 'sentiment': se
 # Provide all details necessary to sign the indexing request.
 credentials = boto3.Session().get_credentials()
 awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, 'opensearchservice', session_token=credentials.token)
+headers = {"Content-Type": "application/json"}
 
 # Index the document.
 print('Indexing document...')

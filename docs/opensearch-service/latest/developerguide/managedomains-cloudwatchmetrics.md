@@ -24,6 +24,7 @@ OpenSearch Service publishes the following metrics to CloudWatch:
 - [Warm metrics](#managedomains-cloudwatchmetrics-uw "#managedomains-cloudwatchmetrics-uw")
 - [Dedicated coordinator node metrics](#managedomains-dedicated-coordinator-nodes "#managedomains-dedicated-coordinator-nodes")
 - [Cold storage metrics](#managedomains-cloudwatchmetrics-coldstorage "#managedomains-cloudwatchmetrics-coldstorage")
+- [Optimized engine metrics](#managedomains-cloudwatchmetrics-optimized "#managedomains-cloudwatchmetrics-optimized")
 - [Alerting metrics](#managedomains-cloudwatchmetrics-alerting "#managedomains-cloudwatchmetrics-alerting")
 - [Anomaly detection metrics](#managedomains-cloudwatchmetrics-anomaly-detection "#managedomains-cloudwatchmetrics-anomaly-detection")
 - [Asynchronous search metrics](#managedomains-cloudwatchmetrics-asynchronous-search "#managedomains-cloudwatchmetrics-asynchronous-search")
@@ -321,6 +322,29 @@ instances](or1.md "or1.md").
 | `RemoteStorageUsedSpace`     | The total amount of Amazon S3 space, in MiB, that the cluster is<br>using.<br>Relevant statistics: Sum                                                                                                                  |
 | `RemoteStorageWriteRejected` | The total number of requests rejected on primary shards due to<br>remote storage and replication pressure. This is calculated starting<br>from the last OpenSearch Service process startup.<br>Relevant statistics: Sum |
 | `ReplicationLagMaxTime`      | The amount of time, in milliseconds, that replica shards are<br>behind the primary shards.<br>Relevant statistics: Maximum                                                                                              |
+
+## Optimized engine metrics
+
+Amazon OpenSearch Service provides the following metrics for domains running the Optimized engine
+(log analytics). For more information, see [Optimized for log analytics](optimized-log-analytics.md "optimized-log-analytics.md").
+
+| Metric                              | Description                                                                                                                                                                                                                                                                                       |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NativeMemoryPressure`              | The percentage of native (off-heap) memory in use on the node.<br>This metric is analogous to `JVMMemoryPressure` but<br>measures memory consumed by the native analytics engine rather<br>than the Java heap. Applicable to hot, warm, and coordinator<br>nodes.<br>Relevant statistics: Maximum |
+| `NativeRuntimeResidentMemory`       | The amount of resident memory, in bytes, consumed by the native<br>analytics engine on the node. Applicable to hot, warm, and<br>coordinator nodes.<br>Relevant statistics: Maximum, Average                                                                                                      |
+| `NativeSearchRuntimeCPUUtilization` | The CPU utilization, as a percentage, of the DataFusion query<br>execution engine on the node. Applicable to hot, warm, and<br>coordinator nodes.<br>Relevant statistics: Maximum, Average                                                                                                        |
+| `ThreadpoolNativeSearchCPUQueue`    | The number of queued tasks in the native search CPU thread pool.<br>If the queue size is consistently high, consider scaling your<br>cluster. Applicable to hot, warm, and coordinator nodes.<br>Relevant statistics: Maximum                                                                     |
+| `ThreadpoolNativeSearchCPUThreads`  | The size of the native search CPU thread pool. Applicable to<br>hot, warm, and coordinator nodes.<br>Relevant statistics: Maximum                                                                                                                                                                 |
+
+###### Note
+
+The following metrics don't apply to Optimized domains because OpenSearch Dashboards is not available:
+
+- `OpenSearchDashboardsHealthyNodes`
+- `OpensearchDashboardsReportingFailedRequestSysErrCount`
+- `OpensearchDashboardsReportingFailedRequestUserErrCount`
+- `OpensearchDashboardsReportingRequestCount`
+- `OpensearchDashboardsReportingSuccessCount`
 
 ## Alerting metrics
 

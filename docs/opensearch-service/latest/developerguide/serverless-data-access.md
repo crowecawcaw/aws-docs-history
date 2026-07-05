@@ -238,6 +238,14 @@ API operations that each permission allows, see [Supported OpenSearch API operat
 - `aoss:DescribeIndex`
 - `aoss:*`
 
+###### Note
+
+These permissions are specific to data access policies and are not IAM actions.
+They do not appear in the IAM console or IAM policy simulator. To grant
+principals access to collection resources, you also need the IAM permissions
+`aoss:APIAccessAll` and `aoss:DashboardsAccessAll`. For
+more information, see [Data access policies versus IAM policies](serverless-data-access.md#serverless-data-vs-iam "serverless-data-access.md#serverless-data-vs-iam").
+
 ## Sample datasets on OpenSearch Dashboards
 
 OpenSearch Dashboards provides [sample datasets](https://opensearch.org/docs/latest/dashboards/quickstart-dashboards/#adding-sample-data "https://opensearch.org/docs/latest/dashboards/quickstart-dashboards/#adding-sample-data") that come with visualizations, dashboards, and other tools

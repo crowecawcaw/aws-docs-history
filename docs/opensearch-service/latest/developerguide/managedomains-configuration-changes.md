@@ -291,18 +291,18 @@ import boto3
 
 client = boto3.client('opensearch')
 
-response = client.UpdateDomainConfig(
+response = client.update_domain_config(
     ClusterConfig={
         'WarmCount': 3,
         'WarmEnabled': True,
-        'WarmCount': 123,
+        'WarmType': 'ultrawarm1.large.search',
     },
     DomainName='test-domain',
     DryRun=True,
     DryRunMode='Verbose'
 )
 
-dry_run_id = response.DryRunProgressStatus.DryRunId
+dry_run_id = response.get("DryRunProgressStatus").get("DryRunId")
 
 retry_count = 0
 
@@ -312,20 +312,23 @@ while True:
         print('An error occured')
         break
 
-    dry_run_progress_response = client.DescribeDryRunProgress('test-domain', dry_run_id)
-    dry_run_status = dry_run_progress_response.DryRunProgressStatus.DryRunStatus
+    dry_run_progress_response = client.describe_dry_run_progress(
+        DomainName='test-domain', DryRunId=dry_run_id)
+    dry_run_status = dry_run_progress_response.get("DryRunProgressStatus").get("DryRunStatus")
 
     if dry_run_status == 'succeeded':
-        client.UpdateDomainConfig(
+        client.update_domain_config(
             ClusterConfig={
-            'WarmCount': 3,
-            'WarmEnabled': True,
-            'WarmCount': 123,
-        })
+                'WarmCount': 3,
+                'WarmEnabled': True,
+                'WarmType': 'ultrawarm1.large.search',
+            },
+            DomainName='test-domain')
+        print("Success!")
         break
 
     elif dry_run_status == 'failed':
-        validation_failures_list = dry_run_progress_response.DryRunProgressStatus.ValidationFailures
+        validation_failures_list = dry_run_progress_response.get("DryRunProgressStatus").get("ValidationFailures")
         for item in validation_failures_list:
             print(f"Code: {item['Code']}, Message: {item['Message']}")
         break

@@ -59,7 +59,12 @@ emerge.
 
 To calculate the number of primary shards, use this formula: 450,000 GB \* 1.1
 / 100 GB per shard = 4,950 shards. Doubling that number to account for replicas
-is 9,900 shards, which represents a major concern if all shards are active. But
+is 9,900 shards, which represents a major concern if all shards are active. If
+index rotation is not applicable, consider the following options to manage shard
+count: use [ISM rollover policies](bp-sharding.md "bp-sharding.md") to control
+index growth, migrate older data to [UltraWarm](ultrawarm.md "ultrawarm.md")
+or [cold storage](cold-storage.md "cold-storage.md"), or increase your data node
+count to distribute shards across more nodes. But
 if you rotate indexes and only 1/7th or
 1/14th of the shards are active on any given day
 (1,414 or 707 shards, respectively), the cluster might work well. As always, the
