@@ -42,3 +42,5 @@ For more information, see [Amazon DataZone terminology and concepts](datazone-co
 - [Using machine learning and generative AI in Amazon DataZone](autodoc.md "autodoc.md")
 - [Data lineage in Amazon DataZone](datazone-data-lineage.md "datazone-data-lineage.md")
 - [Metadata enforcement rules for publishing](metadata-rules-publishing.md "metadata-rules-publishing.md")
+- [Connect Snowflake as a data source in Amazon DataZone](snowflake-data-source.md "snowflake-data-source.md")
+- [Enable Snowflake lineage for AWS Glue Spark jobs](snowflake-lineage-glue-spark.md "snowflake-lineage-glue-spark.md")
