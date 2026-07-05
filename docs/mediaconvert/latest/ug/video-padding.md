@@ -18,7 +18,7 @@ video.
 In the following horizontal bar graph, black frames fill in the beginning and end of the
 video to match the length of the audio.
 
-![](images/pad-video-example-2.png)
+![Horizontal bar graph with black frames filling the beginning and end of the video track.](images/pad-video-example-2.png)
 
 ## Pad video FAQ
 
