@@ -35,7 +35,7 @@ later.
 ### Using a Script Tag
 
 The Web broadcast SDK is distributed as a JavaScript library and can be
-retrieved at [https://web-broadcast.live-video.net/1.36.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.36.0/amazon-ivs-web-broadcast.js "https://web-broadcast.live-video.net/1.36.0/amazon-ivs-web-broadcast.js").
+retrieved at [https://web-broadcast.live-video.net/1.37.0/amazon-ivs-web-broadcast.js](https://web-broadcast.live-video.net/1.37.0/amazon-ivs-web-broadcast.js "https://web-broadcast.live-video.net/1.37.0/amazon-ivs-web-broadcast.js").
 
 When loaded via `<script>` tag, the library exposes a global
 variable in the window scope named `IVSBroadcastClient`.
@@ -92,7 +92,7 @@ repositories {
 }
 
 dependencies {
-     implementation 'com.amazonaws:ivs-broadcast:1.43.0:stages@aar'
+     implementation 'com.amazonaws:ivs-broadcast:1.44.0:stages@aar'
 }
 ```
 

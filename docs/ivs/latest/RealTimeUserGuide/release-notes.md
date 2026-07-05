@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first,
 organized by date of release.
 
+## July 2, 2026
+
+### Amazon IVS Broadcast SDK: Android 1.44.0, iOS 1.44.0 (Real-Time Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android Broadcast SDK<br>1.44.0](broadcast-android.md "broadcast-android.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.44.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.44.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.44.0/android/")<br>• Improved network utilization during publish and subscribe operations.<br>• Improved recovery performance for subscribers after network degradation.                                                                                                                                                                                                                                                                                            |
+| [iOS Broadcast SDK<br>1.44.0](broadcast-ios.md "broadcast-ios.md")             | **Download for real-time streaming:**<br>[https://broadcast.live-video.net/1.44.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.44.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.44.0/AmazonIVSBroadcast-Stages.xcframework.zip")<br>**Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.44.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.44.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.44.0/ios/")<br>• Improved network utilization during publish and subscribe operations.<br>• Improved recovery performance for subscribers after network degradation. |
+
+#### Broadcast SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 6.061           | 14.699            |
+| armeabi-v7a  | 5.250           | 10.175            |
+| x86\_64      | 6.176           | 15.289            |
+| x86          | 6.452           | 15.922            |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 4.072           | 8.264             |
+
+## July 2, 2026
+
+### IVS Broadcast SDK: Web 1.37.0 (Real-Time Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                 |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.37.0](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Bug fixes and stability improvements. |
+
 ## June 4, 2026
 
 ### Amazon IVS Broadcast SDK: Android 1.43.0, iOS 1.43.0 (Real-Time Streaming)
