@@ -121,7 +121,7 @@ Version 2.0.18836| Region | ARN |
 | Middle East (Bahrain) | `arn:aws:lambda:me-south-1:559955524753:layer:AWS-AppConfig-Extension:254` |
 | AWS GovCloud (US-East) | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension:221` |
 | AWS GovCloud (US-West) | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension:222` |
-| | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension:74` |
+| AWS European Sovereign Cloud (Germany) | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension:74` |
 
 ## ARM64 platform
 
@@ -167,7 +167,7 @@ Version 2.0.18836| Region | ARN |
 | China (Ningxia) | `arn:aws-cn:lambda:cn-northwest-1:615084187847:layer:AWS-AppConfig-Extension-Arm64:165` |
 | AWS GovCloud (US-East) | `arn:aws-us-gov:lambda:us-gov-east-1:946561847325:layer:AWS-AppConfig-Extension-Arm64:167` |
 | AWS GovCloud (US-West) | `arn:aws-us-gov:lambda:us-gov-west-1:946746059096:layer:AWS-AppConfig-Extension-Arm64:168` |
-| | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension-Arm64:49` |
+| AWS European Sovereign Cloud (Germany) | `arn:aws-eusc:lambda:eusc-de-east-1:426221636601:layer:AWS-AppConfig-Extension-Arm64:49` |
 
 ## Older extension versions
 

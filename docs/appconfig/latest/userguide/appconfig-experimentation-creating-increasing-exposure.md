@@ -8,8 +8,6 @@ If you detect operational issues, invalid experiment behavior, or unexpected tre
 
 ###### To increase exposure
 
-Monitor traffic and metrics as described earlier. When you're ready, repeat this procedure to increase audience exposure further.
-
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/ "https://console.aws.amazon.com/systems-manager/appconfig/").
 2. In the navigation pane, choose **Experiments**, and then choose a running experiment. The experiment dashboard opens.
 3. In the **Audience exposure** section, choose **Increase exposure**.
@@ -19,3 +17,4 @@ Monitor traffic and metrics as described earlier. When you're ready, repeat this
 ###### Important
 
 Once audience exposure is increased, it cannot be decreased within the same experiment run. To reduce exposure, you must stop the experiment run and start a new run at a lower percentage. 6. In the **Confirmation** section, type `confirm`. 7. (Optional) Expand **Deployment parameters** to assign a AWS Key Management Service (AWS KMS) key and tags to the experiment run. 8. Choose **Increase exposure**. AWS AppConfig experimentation opens the experiment dashboard with the increased exposure displayed.
+Monitor traffic and metrics as described earlier. When you're ready, repeat this procedure to increase audience exposure further.

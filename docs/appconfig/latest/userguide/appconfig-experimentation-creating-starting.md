@@ -4,8 +4,6 @@ Before you start an experiment, verify you completed the prerequisites. For more
 
 ###### To start an experiment
 
-At 0% exposure, no audience traffic is assigned to treatments unless overrides are configured. Use this stage to validate feature flags, treatment logic, metrics, and logging before increasing exposure. For more information, see [Operational considerations](appconfig-experimentation-about-running-an-experiment.md#appconfig-experimentation-about-running-an-experiment-operational-considerations "appconfig-experimentation-about-running-an-experiment.md#appconfig-experimentation-about-running-an-experiment-operational-considerations").
-
 1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/appconfig/](https://console.aws.amazon.com/systems-manager/appconfig/ "https://console.aws.amazon.com/systems-manager/appconfig/").
 2. In the navigation pane, choose **Experiments**, and then choose an experiment to run. The experiment definition page opens.
 3. Choose **Start experiment run**.
@@ -16,3 +14,4 @@ At 0% exposure, no audience traffic is assigned to treatments unless overrides a
 8. (Optional) Expand **Deployment parameters** to assign a AWS Key Management Service (AWS KMS) key and tags to the experiment run.
 9. For an initial experiment run, leave audience exposure set to 0%.
 10. Choose **Start experiment run**. AWS AppConfig experimentation opens the dashboard for the running experiment.
+    At 0% exposure, no audience traffic is assigned to treatments unless overrides are configured. Use this stage to validate feature flags, treatment logic, metrics, and logging before increasing exposure. For more information, see [Operational considerations](appconfig-experimentation-about-running-an-experiment.md#appconfig-experimentation-about-running-an-experiment-operational-considerations "appconfig-experimentation-about-running-an-experiment.md#appconfig-experimentation-about-running-an-experiment-operational-considerations").
