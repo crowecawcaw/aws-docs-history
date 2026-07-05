@@ -670,6 +670,8 @@ MQTT-based File Delivery Throttling| API | Transactions Per Second |
 | DescribeStream | 15 TPS |
 | ListStreams | 15 TPS |
 | UpdateStream | 15 TPS |
+| GetStream (MQTT-based) | 1000 TPS |
+| DescribeStream (MQTT-based) | 1000 TPS |
 
 ### AWS IoT Core Device Advisor limits and quotas
 

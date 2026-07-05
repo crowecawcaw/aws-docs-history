@@ -15,7 +15,7 @@ The following are the service endpoints and service quotas for this service.
 | ------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
 | US East (Ohio)            | us-east-2      | evs.us-east-2.amazonaws.com<br>evs-fips.us-east-2.api.aws<br>evs-fips.us-east-2.amazonaws.com<br>evs.us-east-2.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 | US East (N. Virginia)     | us-east-1      | evs.us-east-1.amazonaws.com<br>evs-fips.us-east-1.api.aws<br>evs-fips.us-east-1.amazonaws.com<br>evs.us-east-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
-| US West (N. California)   | us-west-1      | evs.us-west-1.amazonaws.com<br>evs.us-west-1.api.aws                                                                   | HTTPS<br>HTTPS                   |
+| US West (N. California)   | us-west-1      | evs.us-west-1.amazonaws.com<br>evs-fips.us-west-1.api.aws<br>evs-fips.us-west-1.amazonaws.com<br>evs.us-west-1.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 | US West (Oregon)          | us-west-2      | evs.us-west-2.amazonaws.com<br>evs-fips.us-west-2.api.aws<br>evs-fips.us-west-2.amazonaws.com<br>evs.us-west-2.api.aws | HTTPS<br>HTTPS<br>HTTPS<br>HTTPS |
 | Asia Pacific (Hyderabad)  | ap-south-2     | evs.ap-south-2.amazonaws.com<br>evs.ap-south-2.api.aws                                                                 | HTTPS<br>HTTPS                   |
 | Asia Pacific (Malaysia)   | ap-southeast-5 | evs.ap-southeast-5.amazonaws.com<br>evs.ap-southeast-5.api.aws                                                         | HTTPS<br>HTTPS                   |

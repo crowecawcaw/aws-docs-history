@@ -30,6 +30,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (London)           | eu-west-2      | kinesisvideo.eu-west-2.amazonaws.com          | HTTPS    |
 | Europe (Paris)            | eu-west-3      | kinesisvideo.eu-west-3.amazonaws.com          | HTTPS    |
 | Europe (Spain)            | eu-south-2     | kinesisvideo.eu-south-2.amazonaws.com         | HTTPS    |
+| Israel (Tel Aviv)         | il-central-1   | kinesisvideo.il-central-1.amazonaws.com       | HTTPS    |
 | Middle East (Bahrain)     | me-south-1     | kinesisvideo.me-south-1.amazonaws.com         | HTTPS    |
 | South America (São Paulo) | sa-east-1      | kinesisvideo.sa-east-1.amazonaws.com          | HTTPS    |
 | AWS GovCloud (US-East)    | us-gov-east-1  | kinesisvideo-fips.us-gov-east-1.amazonaws.com | HTTPS    |
