@@ -109,9 +109,14 @@ Private connections are account-level resources. After you create a private conn
 8. (Optional) For **Number of IPv4 addresses**, if you selected IPv4 or Dualstack for the IP address type, you can enter the number of IPv4 addresses per ENI for your resource gateway. The default is 16 IPv4 addresses per ENI.
 9. (Optional) For **Security groups**, select existing security groups (up to 5) to restrict what traffic is allowed to reach your target service. If you don't select any, a default security group is created.
 10. (Optional) For **Port ranges**, specify the TCP ports your target application listens on (for example, `443` or `8080-8090`). You can specify up to 11 port ranges.
-11. For **Host address**, enter the IP address or DNS name of your target service (for example, `mcp.internal.example.com` or `10.0.1.50`). The service must be reachable from the selected VPC. If you choose a DNS name, it must be publicly resolvable.
-12. (Optional) For **Certificate public key**, if the host address you specified uses TLS certificates issued by a private certificate authority, enter the PEM-encoded public key of the certificate. This allows AWS DevOps Agent to trust the TLS connection to your target service.
-13. Choose **Create connection**.
+11. For **Host address**, enter the IP address or DNS name of your target service (for example, `mcp.internal.example.com` or `10.0.1.50`). The service must be reachable from the selected VPC. If you enter a DNS name, how it is resolved depends on the **DNS resolution** mode you choose in the next step.
+12. For **DNS resolution**, choose how the host address DNS name is resolved:
+
+    - **Public** (default) – The DNS name is resolved using public DNS. If you enter a DNS name as the host address, it must be publicly resolvable. Use this mode when your hostname has a public DNS record (which can point to a private IP address). If you specify an IP address as the host address, this setting has no effect.
+    - **In VPC** – The DNS name is resolved from within your VPC context, so hostnames that exist only in a [private hosted zone](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md") resolve correctly without any public DNS record. Use this mode when your target service's hostname is private to your VPC.
+
+13. (Optional) For **Certificate public key**, if the host address you specified uses TLS certificates issued by a private certificate authority, enter the PEM-encoded public key of the certificate. This allows AWS DevOps Agent to trust the TLS connection to your target service.
+14. Choose **Create connection**.
 
 The connection status changes to **Create in progress**. This process can take up to 10 minutes. When the status changes to **Active**, the network path is ready.
 
@@ -143,10 +148,13 @@ aws devops-agent create-private-connection \
             "securityGroupIds": [
                 "sg-0123456789abcdef0"
             ],
-            "portRanges": ["443"]
+            "portRanges": ["443"],
+            "dnsResolution": "PUBLIC"
         }
     }'
 ```
+
+The `dnsResolution` field controls how the `hostAddress` DNS name is resolved. Valid values are `PUBLIC` (the default when omitted) and `IN_VPC`. Use `IN_VPC` when your host address only resolves inside your VPC (for example, a name in a private hosted zone). If you specify an IP address for `hostAddress`, this field has no effect.
 
 The response includes the connection name and a status of `CREATE_IN_PROGRESS`:
 
@@ -194,6 +202,43 @@ In the AWS DevOps Agent console, private connections can be linked to a capabili
 ###### Note
 
 When you select a private connection for a capability provider that uses OAuth authentication (Client Credentials or 3LO), the private connection applies to both the capability provider endpoint and the token exchange endpoint. Ensure the private connection is configured with a host address that can route traffic to both endpoints.
+
+#### Routing the endpoint and the OAuth token exchange through different private connections
+
+For OAuth-based MCP server capability providers, the agent makes requests to two different endpoints: the **target URL** (the MCP server endpoint you register) and the **exchange URL** (the OAuth token exchange endpoint). By default, a single `privateConnectionName` is used for both. If these two endpoints are reachable through different private network paths, you can route each one through its own private connection by using `targetUrlPrivateConnectionName` and `exchangeUrlPrivateConnectionName` instead:
+
+- `targetUrlPrivateConnectionName` – the private connection used to reach the MCP server endpoint (target URL).
+- `exchangeUrlPrivateConnectionName` – the private connection used to reach the OAuth token exchange endpoint (exchange URL).
+
+You can specify either or both. If you set only one, the other endpoint is reached over the public internet (it does not fall back to the other private connection).
+
+###### Important
+
+`targetUrlPrivateConnectionName` and `exchangeUrlPrivateConnectionName` cannot be combined with `privateConnectionName` in the same request. Use either the single `privateConnectionName` (applies to both endpoints) or the per-endpoint names — not both.
+
+The following example registers an OAuth Client Credentials MCP Server that reaches its endpoint and its token exchange endpoint through two separate private connections:
+
+```
+aws devops-agent register-service \
+    --service mcpserver \
+    --target-url-private-connection-name my-target-connection \
+    --exchange-url-private-connection-name my-exchange-connection \
+    --service-details '{
+        "mcpserver": {
+            "name": "my-mcp-tool",
+            "endpoint": "https://mcp.internal.example.com",
+            "authorizationConfig": {
+                "oAuthClientCredentials": {
+                    "clientName": "MyOAuthClient",
+                    "clientId": "client-id",
+                    "clientSecret": "secret-value",
+                    "exchangeUrl": "https://auth.internal.example.com/token"
+                }
+            }
+        }
+    }' \
+    --region us-east-1
+```
 
 ### Use a private connection with a capability provider using the AWS CLI
 

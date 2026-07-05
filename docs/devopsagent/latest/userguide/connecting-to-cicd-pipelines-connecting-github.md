@@ -37,7 +37,7 @@ If GitHub hasn't been registered yet, you'll be prompted to register it first.
 On the "Register GitHub Account / Organization" screen, select whether you're connecting as a user or organization:
 
 - **User** – Your personal GitHub account with a username and profile
-- **Organization** – A shared GitHub account where multiple people can collaborate across many projects at once
+- **Organization** – A shared GitHub account where multiple people can collaborate across many projects at once. If you select **Organization**, enter the GitHub organization name. The name must match your GitHub organization name exactly, because you must authorize and install the app on that organization in the following steps.
 
 Select the **GitHub App permissions** for your GitHub App. The permission level determines the actions the GitHub App can perform in your repository:
 
@@ -58,9 +58,18 @@ Choose **Submit** to begin the app setup process. The next steps differ dependin
 
 #### For GitHub.com
 
-1. You'll be redirected to GitHub to install the AWS DevOps Agent GitHub app.
-2. Select which account or organization to install the app in.
-3. The app allows AWS DevOps Agent to receive events from connected repositories, including deployment events.
+1. GitHub redirects you to sign in and authorize AWS DevOps Agent.
+2. Review the authorization request and authorize AWS DevOps Agent.
+3. After you authorize, AWS DevOps Agent completes the registration. If the GitHub App is not yet installed on the account or organization you specified, you continue to the installation page (see Step 4). If the app is already installed, registration completes without reinstalling it.
+4. After installation, AWS DevOps Agent receives events from your connected repositories, including deployment events.
+
+###### Note
+
+You must authorize and install the app on the same User or Organization you specified during registration. If you authorize or install on a different account or organization, registration fails and you must restart the process, selecting the correct account or organization.
+
+###### Note
+
+AWS DevOps Agent uses a separate GitHub App for each permission level (Read & Write and Read Only), and each app is authorized independently. GitHub remembers an authorization until you revoke it under Settings > Applications > Authorized GitHub Apps. If you previously authorized the app at this permission level, GitHub might skip the authorization screen. If you change the permission level, GitHub prompts you to authorize the corresponding app the first time.
 
 #### For GitHub Enterprise Server
 
@@ -72,7 +81,9 @@ GitHub Enterprise Server uses a GitHub App Manifest flow, which automatically se
 
 ### Step 4: Select repositories and complete installation
 
-1. You'll see the **Install & Authorize** page for the GitHub App.
+Skip this step if the GitHub App is already installed on your account or organization.
+
+1. The **Install & Authorize** page for the GitHub App appears.
 2. Select which repositories to allow the app to access:
 
    - **All repositories** – Grant access to all current and future repositories

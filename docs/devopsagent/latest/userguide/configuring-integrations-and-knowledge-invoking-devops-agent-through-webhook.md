@@ -15,7 +15,7 @@ Before configuring webhook access, ensure you have:
 AWS DevOps Agent supports the following types of webhooks:
 
 - **Integration-specific webhooks** – Automatically generated when you configure third-party integrations like Dynatrace, Splunk, Datadog, New Relic, ServiceNow, or Slack. These webhooks are associated with the specific integration and use authentication methods determined by the integration type
-- **Generic webhooks** – Can be manually created for triggering investigations from any source not covered by a specific integration. Generic webhooks currently use **HMAC** authentication (bearer token not currently available).
+- **Generic webhooks** – Can be manually created for triggering investigations from any source not covered by a specific integration. In the AWS DevOps Agent console, a generic webhook is created as an **Agent Space webhook** (scoped to an Agent Space). When you create a generic webhook, you choose its authentication method: **HMAC** or **API key** (bearer token).
 - **Grafana alert webhooks** – Grafana can send alert notifications directly to AWS DevOps Agent through webhook contact points. For setup instructions including a custom notification template, see [Connecting Grafana](connecting-telemetry-sources-connecting-grafana.md "connecting-telemetry-sources-connecting-grafana.md").
 
 ## Webhook authentication methods
@@ -25,7 +25,8 @@ The authentication method for your webhook depends on which integration it's ass
 **HMAC authentication** – Used by:
 
 - Dynatrace integration webhooks
-- Generic webhooks (not linked to a specific third-party integration)
+- Generic webhooks (select **HMAC** at creation)
+- MCP server webhooks (select **HMAC** at creation)
 
 **Bearer token authentication** – Used by:
 
@@ -35,6 +36,8 @@ The authentication method for your webhook depends on which integration it's ass
 - ServiceNow integration webhooks
 - Slack integration webhooks
 - Grafana integration webhooks
+- Generic webhooks (select **API key** at creation)
+- MCP server webhooks (select **API key** at creation)
 
 ### Understanding HMAC authentication
 
@@ -70,8 +73,12 @@ Webhooks are automatically generated when you complete the configuration of a th
 **For generic webhooks:**
 
 1. Choose **Generate webhook**
-2. The system will generate an HMAC key pair
-3. Securely store the generated key and secret—you won't be able to retrieve them again
+2. For **Webhook authentication type**, choose **HMAC** or **API key**:
+
+   - **HMAC** – The system generates a webhook signing secret. Your client signs each request and sends the signature in the `x-amzn-event-signature` header (see Version 1 below).
+   - **API key** – The system generates an API key (bearer token). Your client sends it in the `Authorization: Bearer <token>` header (see Version 2 below).
+
+3. Securely store the generated secret or API key. You won't be able to retrieve it again.
 4. Copy the webhook endpoint URL provided
 
 ### Step 3: Configure your external system

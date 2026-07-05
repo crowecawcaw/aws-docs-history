@@ -133,7 +133,7 @@ AWS DevOps Agent supports several integration types, each with its own security 
 
 - **Native bidirectional integrations** – Built-in integrations that can send data to the agent and receive updates from the agent. This uses the vendor’s authentication methods
 - **MCP servers** – Remote Model Context Protocol servers that use OAuth 2.0 authentication flows and API keys to securely communicate with external systems.
-- **Webhook triggers** – Investigation triggers from remote services such as tickets or observability systems. Webhooks use Hash-based Message Authentication Code (HMAC) for security.
+- **Webhook triggers** – Investigation triggers from remote services such as tickets or observability systems. Webhooks use either Hash-based Message Authentication Code (HMAC) signatures or an API key (bearer token) for security.
 - **Outbound communication** – Integrations like Slack and ticketing systems receive updates from the agent but do not yet support bidirectional communication.
 
 ### Registration providers

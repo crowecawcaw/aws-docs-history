@@ -83,18 +83,20 @@ A single log type is supported: `APPLICATION_LOGS`. This log type covers all ope
 
 The following table summarizes the events that AWS DevOps Agent logs.
 
-| Event                                 | Description                                                                                                                                                                                                     | Log level  |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| Agent inbound event received          | An agent is triggered by an integrated source and receives an inbound event (for example, a PagerDuty incident event).                                                                                          | INFO       |
-| Agent inbound event dropped           | An inbound event was dropped before the agent processed it. The log includes the reason (for example, malformed data).                                                                                          | TBD        |
-| Agent outbound communication failure  | An outbound communication to a third-party integration failed. The log includes the task ID and destination identifier (for example, an authentication error).                                                  | TBD        |
-| Topology creation queued              | A topology creation job was queued for processing.                                                                                                                                                              | INFO       |
-| Topology creation started             | A topology creation job began processing.                                                                                                                                                                       | INFO       |
-| Topology creation finished            | A topology creation job completed processing. This event applies to initial creation, updates, and daily refreshes.                                                                                             | INFO       |
-| Resource discovery failed             | Resource discovery during topology creation encountered a failure.                                                                                                                                              | ERROR      |
-| Service registration failed           | Service registration encounters an unrecoverable failure                                                                                                                                                        | ERROR      |
-| Webhook Validation fails              | When webhook received by Devops agent doesn't match the expected schema                                                                                                                                         | ERROR      |
-| Association Validation status updates | When a Agent space association(typical primary/secondary account), validation status changes from valid to invalid and vice versa(for example, caused by malformed role, that is not assumable by the service). | ERROR/INFO |
+| Event                                 | Description                                                                                                                                                                                                                                                          | Log level  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Agent inbound event received          | An agent is triggered by an integrated source and receives an inbound event (for example, a PagerDuty incident event).                                                                                                                                               | INFO       |
+| Agent inbound event dropped           | An inbound event was dropped before the agent processed it. The log includes the reason (for example, malformed data).                                                                                                                                               | TBD        |
+| Agent outbound communication failure  | An outbound communication to a third-party integration failed. The log includes the task ID and destination identifier (for example, an authentication error).                                                                                                       | TBD        |
+| Third-party provider call failed      | An outbound call to a connected third-party provider failed because the provider returned an error or a network error occurred. The log includes the HTTP status code and the service type.                                                                          | ERROR      |
+| Association credential access denied  | Access was denied or authorization failed while retrieving the stored credentials for an association — for example, insufficient permissions, or an encryption key that is disabled or unavailable. The log records the public AWS error code in `optional_details`. | ERROR      |
+| Topology creation queued              | A topology creation job was queued for processing.                                                                                                                                                                                                                   | INFO       |
+| Topology creation started             | A topology creation job began processing.                                                                                                                                                                                                                            | INFO       |
+| Topology creation finished            | A topology creation job completed processing. This event applies to initial creation, updates, and daily refreshes.                                                                                                                                                  | INFO       |
+| Resource discovery failed             | Resource discovery during topology creation encountered a failure.                                                                                                                                                                                                   | ERROR      |
+| Service registration failed           | Service registration encounters an unrecoverable failure                                                                                                                                                                                                             | ERROR      |
+| Webhook Validation fails              | When webhook received by Devops agent doesn't match the expected schema                                                                                                                                                                                              | ERROR      |
+| Association Validation status updates | When a Agent space association(typical primary/secondary account), validation status changes from valid to invalid and vice versa(for example, caused by malformed role, that is not assumable by the service).                                                      | ERROR/INFO |
 
 ### Permissions
 
@@ -268,28 +270,28 @@ AWS DevOps Agent uses a shared log schema across all event types. Not every log 
 
 The following table describes the fields in the log schema.
 
-| Field                            | Type          | Description                                                                    |
-| -------------------------------- | ------------- | ------------------------------------------------------------------------------ |
-| event\_timestamp                 | Long          | Unix timestamp of when the event occurred                                      |
-| resource\_arn                    | String        | ARN of the resource that generated the event                                   |
-| optional\_account\_id            | String        | AWS account ID associated with the log.                                        |
-| optional\_level                  | String        | Log level: `INFO`, `WARN`, `ERROR`                                             |
-| optional\_agent\_space\_id       | String        | Identifier of the agent space.                                                 |
-| optional\_association\_id        | String        | Association identifier for the log.                                            |
-| optional\_status                 | String        | Status of the topology operation.                                              |
-| optional\_webhook\_id            | String        | Webhook identifier.                                                            |
-| optional\_mcp\_endpoint\_url     | String        | MCP server endpoint URL                                                        |
-| optional\_service\_type          | String        | Type of the Service: `DYNATRACE`, `DATADOG`, `GITHUB`, `SLACK`, `SERVICENOW`.  |
-| optional\_service\_endpoint\_url | String        | Endpoint URL for third-party integrations.                                     |
-| optional\_service\_id            | String        | Identifier of the source.                                                      |
-| request\_id                      | String        | Request identifier for correlating with AWS CloudTrail or support tickets.     |
-| optional\_operation              | String        | Name of the operation that was performed.                                      |
-| optional\_task\_type             | String        | Agent backlog task type: `INVESTIGATION` or `EVALUATION`                       |
-| optional\_task\_id               | String        | Agent Backlog Task IDAgent backlog task identifier.                            |
-| optional\_reference              | String        | Reference from an agent task (for example, a Jira ticket).                     |
-| optional\_error\_type            | String        | Error type                                                                     |
-| optional\_error\_message         | String        | Error description when an operation fails.                                     |
-| optional\_details                | String (JSON) | Service-specific event payload that contains operation parameters and results. |
+| Field                            | Type          | Description                                                                                                                                                                     |
+| -------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| event\_timestamp                 | Long          | Unix timestamp of when the event occurred                                                                                                                                       |
+| resource\_arn                    | String        | ARN of the resource that generated the event                                                                                                                                    |
+| optional\_account\_id            | String        | AWS account ID associated with the log.                                                                                                                                         |
+| optional\_level                  | String        | Log level: `INFO`, `WARN`, `ERROR`                                                                                                                                              |
+| optional\_agent\_space\_id       | String        | Identifier of the agent space.                                                                                                                                                  |
+| optional\_association\_id        | String        | Association identifier for the log.                                                                                                                                             |
+| optional\_status                 | String        | Status of the topology operation.                                                                                                                                               |
+| optional\_webhook\_id            | String        | Webhook identifier.                                                                                                                                                             |
+| optional\_mcp\_endpoint\_url     | String        | MCP server endpoint URL                                                                                                                                                         |
+| optional\_service\_type          | String        | Type of the Service: `DYNATRACE`, `DATADOG`, `GITHUB`, `SLACK`, `SERVICENOW`.                                                                                                   |
+| optional\_service\_endpoint\_url | String        | Endpoint URL for third-party integrations.                                                                                                                                      |
+| optional\_service\_id            | String        | Identifier of the source.                                                                                                                                                       |
+| request\_id                      | String        | Request identifier for correlating with AWS CloudTrail or support tickets.                                                                                                      |
+| optional\_operation              | String        | Name of the operation that was performed.                                                                                                                                       |
+| optional\_task\_type             | String        | Agent backlog task type: `INVESTIGATION` or `EVALUATION`                                                                                                                        |
+| optional\_task\_id               | String        | Agent Backlog Task IDAgent backlog task identifier.                                                                                                                             |
+| optional\_reference              | String        | Reference from an agent task (for example, a Jira ticket).                                                                                                                      |
+| optional\_error\_type            | String        | Error type. For example, `PROVIDER_ERROR` when a third-party provider call fails, or `TOKEN_ACCESS_DENIED` when access is denied while retrieving an association's credentials. |
+| optional\_error\_message         | String        | Error description when an operation fails.                                                                                                                                      |
+| optional\_details                | String (JSON) | Service-specific event payload that contains operation parameters and results.                                                                                                  |
 
 ### Manage and disable log delivery
 
