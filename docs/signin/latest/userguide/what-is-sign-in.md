@@ -129,3 +129,64 @@ to restrict console access based on network location and principal identity. For
 network location is validated before the password prompt appears. For all principal types,
 policies are evaluated at pre-authentication and post-authentication. For more information,
 see [Controlling console access with resource-based policies and resource control policies](console-access-control.md "console-access-control.md").
+
+AWS Sign-In logs policy evaluation events to CloudTrail. When a resource-based policy or resource
+control policy (RCP) denies access during sign-in, CloudTrail records the evaluation result,
+including the policy statements that were evaluated and the final decision (allow or deny). Use
+these logs to monitor unauthorized access attempts and troubleshoot policy configuration
+issues. For more information, see [Monitor and audit continuously](console-access-control.md#console-access-control-bp-monitoring "console-access-control.md#console-access-control-bp-monitoring").
+
+The following example shows a CloudTrail event for a failed console login attempt denied by a
+resource-based policy:
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "IAMUser",
+    "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+    "arn": "arn:aws:iam::111122223333:user/ExampleUser",
+    "accountId": "111122223333",
+    "userName": "ExampleUser"
+  },
+  "eventTime": "2026-02-18T21:19:28Z",
+  "eventSource": "signin.amazonaws.com",
+  "eventName": "ConsoleLogin",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "[IP_ADDRESS]",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) ...",
+  "errorCode": "AccessDenied",
+  "errorMessage": "Authorization denied because of a resource-based policy",
+  "requestParameters": null,
+  "responseElements": {
+    "ConsoleLogin": "Failure"
+  },
+  "additionalEventData": {
+    "LoginTo": "https://console.aws.amazon.com/console/home?region=us-east-1",
+    "MobileVersion": "No",
+    "MFAUsed": "No"
+  },
+  "eventID": "db26d1f9-ce73-4dd9-9081-cdf2aEXAMPLE",
+  "readOnly": false,
+  "eventType": "AwsConsoleSignIn",
+  "managementEvent": true,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "signin.aws.amazon.com"
+  }
+}
+```
+
+This CloudTrail event shows a failed console login attempt where access was denied by a
+resource-based policy. The `errorMessage` field indicates the policy type that
+caused the denial: "Authorization denied because of a resource-based policy" for
+resource-based policy, or "Authorization denied because of a resource control policy" for
+RCPs. The event captures the IAM user identity, timestamp, source IP address, and login
+destination.
+
+CloudTrail generates events for both pre-authentication denials (when AWS Sign-In blocks the
+credential page for root users) and post-authentication denials (when a policy denies access after
+credentials are validated).
