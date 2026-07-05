@@ -1,5 +1,11 @@
 # Categorize text with text classification (Single Label)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 To categorize articles and text into predefined categories, use text classification. For
 example, you can use text classification to identify the sentiment conveyed in a review or
 the emotion underlying a section of text. Use Amazon SageMaker Ground Truth text classification to have workers

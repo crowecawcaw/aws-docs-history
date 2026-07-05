@@ -6,8 +6,6 @@ just a few lines of code using the SageMaker Python SDK.
 1. First, find the model ID for the model of your choice in the [Built-in Algorithms with pre-trained Model Table](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html "https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html").
 2. Using the model ID, define your model as a JumpStart model.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.serve import ModelBuilder
 from sagemaker.core.jumpstart.configs import JumpStartConfig
@@ -16,30 +14,13 @@ jumpstart_config = JumpStartConfig(model_id=`"huggingface-text2text-flan-t5-xl"`
 model_builder = ModelBuilder.from_jumpstart_config(jumpstart_config=jumpstart_config)
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.jumpstart.model import JumpStartModel
-
-model_id = `"huggingface-text2text-flan-t5-xl"`
-my_model = JumpStartModel(model_id=model_id)
-```
-
 3. Use the `deploy` method to automatically deploy your model
    for inference. In this example, we use the FLAN-T5 XL model from
    Hugging Face.
 
-SageMaker Python SDK v3
-
 ```
 model = model_builder.build()
 endpoint = model_builder.deploy()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = my_model.deploy()
 ```
 
 4. You can then run inference with the deployed model using the

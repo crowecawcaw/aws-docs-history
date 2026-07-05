@@ -1,5 +1,11 @@
 # Debugging training jobs using Amazon SageMaker Debugger
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 To prepare your training script and run training jobs with SageMaker Debugger to debug model
 training progress, you follow the typical two-step process: modify your training script
 using the `sagemaker-debugger` Python SDK, and construct a SageMaker AI ModelTrainer using

@@ -95,8 +95,6 @@ Training Job.
 - `compiler_cache_url`: Cache to be used to save the compiled
   artifacts, such as an Amazon S3 artifact.
 
-SageMaker Python SDK v3
-
 ```
 import os
 import boto3
@@ -145,53 +143,6 @@ model_trainer = ModelTrainer(
 model_trainer.train(input_data_config=[
     InputData(channel_name="train", data_source="your-inputs")
 ], wait=True)
-
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import os
-import sagemaker,boto3
-from sagemaker.debugger import TensorBoardOutputConfig
-
-from sagemaker.pytorch import PyTorch
-
-sagemaker_session = sagemaker.Session()
-role = sagemaker.get_execution_role()
-
-recipe_overrides = {
-    "run": {
-        "results_dir": "/opt/ml/model",
-    },
-    "exp_manager": {
-        "explicit_log_dir": "/opt/ml/output/tensorboard",
-    },
-    "data": {
-        "train_dir": "/opt/ml/input/data/train",
-    },
-    "model": {
-        "model_config": "/opt/ml/input/data/train/config.json",
-    },
-    "compiler_cache_url": "`<compiler_cache_url>`"
-}
-
-tensorboard_output_config = TensorBoardOutputConfig(
-    s3_output_path=os.path.join(output, 'tensorboard'),
-    container_local_output_path=overrides["exp_manager"]["explicit_log_dir"]
-)
-
-estimator = PyTorch(
-    output_path=output_path,
-    base_job_name=f"llama-trn",
-    role=role,
-    instance_type="ml.trn1.32xlarge",
-    sagemaker_session=sagemaker_session,
-    training_recipe="training/llama/hf_llama3_70b_seq8k_trn1x16_pretrain",
-    recipe_overrides=recipe_overrides,
-)
-
-estimator.fit(inputs={"train": "your-inputs"}, wait=True)
 
 ```
 

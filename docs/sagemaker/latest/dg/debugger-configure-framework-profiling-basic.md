@@ -1,5 +1,10 @@
 # Default framework profiling
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 Debugger framework default profiling includes the following options: detailed
 profiling, data loader profiling, and Python profiling. The following example code
 is the simplest `profiler_config` parameter setting to start the default
@@ -7,20 +12,8 @@ system monitoring and the default framework profiling. The
 `FrameworkProfile` class in the following example code initiates the
 default framework profiling when a training job starts.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
-
-profiler_config=ProfilerConfig(
-    framework_profile_params=FrameworkProfile()
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import ProfilerConfig, FrameworkProfile
 
 profiler_config=ProfilerConfig(
     framework_profile_params=FrameworkProfile()
@@ -43,21 +36,8 @@ parameter explicitly with the `framework_profile_params` parameter. For
 example, to monitor every 1000 milliseconds and enable the default framework
 profiling, use the following example code.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import ProfilerConfig, FrameworkProfile
-
-profiler_config=ProfilerConfig(
-    system_monitor_interval_millis=`1000`,
-    framework_profile_params=FrameworkProfile()
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import ProfilerConfig, FrameworkProfile
 
 profiler_config=ProfilerConfig(
     system_monitor_interval_millis=`1000`,

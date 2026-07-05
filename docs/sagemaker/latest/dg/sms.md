@@ -1,5 +1,11 @@
 # Training data labeling using humans with Amazon SageMaker Ground Truth
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 To train a machine learning model, you need a large, high-quality, labeled dataset. Ground Truth
 helps you build high-quality training datasets for your machine learning models. With Ground Truth,
 you can use workers from either Amazon Mechanical Turk, a vendor company that you choose, or an internal,

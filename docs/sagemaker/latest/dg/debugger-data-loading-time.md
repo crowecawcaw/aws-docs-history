@@ -1,5 +1,10 @@
 # Profiling data loaders
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 In PyTorch, data loader iterators, such as `SingleProcessingDataLoaderIter`
 and `MultiProcessingDataLoaderIter`, are initiated at the beginning of every
 iteration over a dataset. During the initialization phase, PyTorch turns on worker

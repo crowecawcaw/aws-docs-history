@@ -1,5 +1,11 @@
 # Troubleshooting
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Studio Lab, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md").
+
 The guide shows common errors that might occur when using Amazon SageMaker Studio Lab (Studio Lab). Each error
 contains a description, as well as a solution to the error.
 

@@ -1,5 +1,11 @@
 # Use Debugger built-in actions for rules
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Use Debugger built-in actions to respond to issues found by [Debugger rule](debugger-built-in-rules.md#debugger-built-in-rules-Rule "debugger-built-in-rules.md#debugger-built-in-rules-Rule"). The Debugger `rule_configs` class provides tools to configure a list of
 actions, including automatically stopping training jobs and sending notifications using
 Amazon Simple Notification Service (Amazon SNS) when the Debugger rules find training issues. The following topics takes you
@@ -178,8 +184,6 @@ following template to construct the ModelTrainer, and Debugger will stop trainin
 and send notifications through email and text for any rules that you use to monitor
 your training job progress.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import Rule, rule_configs
 
@@ -205,35 +209,6 @@ model_trainer = ModelTrainer(
 )
 
 model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import Rule, rule_configs
-
-# Configure an action list object for Debugger rules
-`actions` = rule_configs.ActionList(
-    `rule_configs.StopTraining()`,
-    `rule_configs.Email("abc@abc.com")`,
-    `rule_configs.SMS("+1234567890")`
-)
-
-# Configure rules for debugging with the actions parameter
-`rules` = [
-    Rule.sagemaker(
-        base_config=rule_configs.`built_in_rule`(),         # Required
-        rule_parameters={"`paramter_key`": `value` },        # Optional
-        actions=`actions`
-    )
-]
-
-estimator = Estimator(
-    `...`
-    rules = `rules`
-)
-
-estimator.fit(wait=False)
 ```
 
 **To create multiple built-in action objects to assign different actions
@@ -248,8 +223,6 @@ This example shows how to set up [StalledTrainingRule](debugger-built-in-rules.m
 to `abc@abc.com` when a training job stalls for 60
 seconds, and stop the training job if stalling for 120 seconds.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import Rule, rule_configs
 import time
@@ -294,54 +267,6 @@ model_trainer = ModelTrainer(
 )
 
 model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import Rule, rule_configs
-import time
-
-base_job_name_prefix= 'smdebug-stalled-demo-' + str(int(time.time()))
-
-# Configure an action object for StopTraining
-`action_stop_training` = rule_configs.ActionList(
-    rule_configs.StopTraining()
-)
-
-# Configure an action object for Email
-`action_email` = rule_configs.ActionList(
-    rule_configs.Email("`abc@abc.com`")
-)
-
-# Configure a rule with the Email built-in action to trigger if a training job stalls for 60 seconds
-`stalled_training_job_rule_email` = Rule.sagemaker(
-        base_config=rule_configs.stalled_training_rule(),
-        rule_parameters={
-                "threshold": "`60`",
-                "training_job_name_prefix": base_job_name_prefix
-        },
-        actions=`action_email`
-)
-stalled_training_job_rule_text.name="`StalledTrainingJobRuleEmail`"
-
-# Configure a rule with the StopTraining built-in action to trigger if a training job stalls for 120 seconds
-`stalled_training_job_rule` = Rule.sagemaker(
-        base_config=rule_configs.stalled_training_rule(),
-        rule_parameters={
-                "threshold": "`120`",
-                "training_job_name_prefix": base_job_name_prefix
-        },
-        actions=`action_stop_training`
-)
-stalled_training_job_rule.name="`StalledTrainingJobRuleStopTraining`"
-
-estimator = Estimator(
-    `...`
-    rules = [`stalled_training_job_rule_email`, `stalled_training_job_rule`]
-)
-
-estimator.fit(wait=False)
 ```
 
 While the training job is running, the Debugger built-in action sends notification

@@ -1,5 +1,10 @@
 # Default system monitoring and customized framework profiling with different profiling options
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 This section gives information about the supported profiling configuration
 classes, as well as an example configuration. You can use the following profiling
 configuration classes to manage the framework profiling options:
@@ -72,43 +77,9 @@ increases with respect to time because of its sampling mechanism.
 The following example configuration shows the full structure when you use the
 different profiling options with specified values.
 
-SageMaker Python SDK v3
-
 ```
 import time
 from sagemaker.core.debugger import (ProfilerConfig,
-                                FrameworkProfile,
-                                DetailedProfilingConfig,
-                                DataloaderProfilingConfig,
-                                PythonProfilingConfig,
-                                PythonProfiler, cProfileTimer)
-
-profiler_config=ProfilerConfig(
-    system_monitor_interval_millis=`500`,
-    framework_profile_params=FrameworkProfile(
-        detailed_profiling_config=DetailedProfilingConfig(
-            start_step=`5`,
-            num_steps=`1`
-        ),
-        dataloader_profiling_config=DataloaderProfilingConfig(
-            start_step=`7`,
-            num_steps=`1`
-        ),
-        python_profiling_config=PythonProfilingConfig(
-            start_step=`9`,
-            num_steps=`1`,
-            python_profiler=PythonProfiler.`CPROFILE`,
-            cprofile_timer=`cProfileTimer.TOTAL_TIME`
-        )
-    )
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import time
-from sagemaker.debugger import (ProfilerConfig,
                                 FrameworkProfile,
                                 DetailedProfilingConfig,
                                 DataloaderProfilingConfig,

@@ -1,5 +1,10 @@
 # Overview: Run processing jobs using `ProcessingJob` and a SageMaker geospatial container
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 SageMaker geospatial provides a purpose-built processing container,
 `081189585635.dkr.ecr.us-west-2.amazonaws.com/sagemaker-geospatial-v1-0:latest`.
 You can use this container when running a job with Amazon SageMaker Processing. When you create an instance of

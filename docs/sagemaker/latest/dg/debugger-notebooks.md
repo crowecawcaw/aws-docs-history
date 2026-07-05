@@ -1,5 +1,11 @@
 # Debugger example notebooks
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 [SageMaker Debugger example notebooks](https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-debugger/ "https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-debugger/") are provided in the [aws/amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples "https://github.com/aws/amazon-sagemaker-examples") repository. The Debugger example
 notebooks walk you through basic to advanced use cases of debugging and
 profiling training jobs.

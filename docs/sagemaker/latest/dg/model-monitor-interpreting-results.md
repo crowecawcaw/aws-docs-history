@@ -1,5 +1,11 @@
 # Interpret results
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 After you run a baseline processing job and obtained statistics and constraint for
 your dataset, you can execute monitoring jobs that calculate statistics and list any
 violations encountered relative to the baseline constraints. Amazon CloudWatch metrics are also

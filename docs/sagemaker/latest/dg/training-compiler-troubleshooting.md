@@ -169,30 +169,12 @@ variable:
   example, if you use an `ml.p3.8xlarge` instance that has four
   GPUs, do the following:
 
-SageMaker Python SDK v3
-
 ```
 # Using the SageMaker Python SDK's ModelTrainer
 
 model_trainer=ModelTrainer(
     ...
     compute=Compute(instance_type="`ml.p3.8xlarge`", instance_count=1),
-    hyperparameters={...},
-    environment={
-        ...
-        **"GPU\_NUM\_DEVICES": "`4`"** # corresponds to number of GPUs on the specified instance
-    },
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Using the SageMaker Python SDK's HuggingFace estimator
-
-hf_estimator=HuggingFace(
-    ...
-    instance_type="`ml.p3.8xlarge`",
     hyperparameters={...},
     environment={
         ...
@@ -211,8 +193,6 @@ hf_estimator=HuggingFace(
   For example, if you use an `ml.p3.8xlarge` instance
   that has four GPUs, do the following:
 
-  SageMaker Python SDK v3
-
   ```
   # Using the SageMaker Python SDK's ModelTrainer
 
@@ -226,23 +206,6 @@ hf_estimator=HuggingFace(
       }
   )
   model_trainer.train()
-  ```
-
-  SageMaker Python SDK v2 (Legacy)
-
-  ```
-  # Using the SageMaker Python SDK's HuggingFace estimator
-
-  hf_estimator=HuggingFace(
-      ...
-      entry_point = "`train.py`"
-      instance_type= "`ml.p3.8xlarge`",
-      hyperparameters = {
-          ...
-          **"n\_gpus": `4`** # corresponds to number of GPUs on specified instance
-      }
-  )
-  hf_estimator.fit()
   ```
   2.  In your training script, parse the `n_gpus`
       hyperparameter and specify it as an input for the

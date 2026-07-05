@@ -11,8 +11,6 @@ provided and maintained by SageMaker AI. Note that when you run the job, you can
 directory that specifies the dependencies for your processing script(s). SageMaker Processing installs the dependencies in `requirements.txt`
 in the container for you.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.resources import ProcessingJob
 from sagemaker.core.helper.session_helper import get_execution_role
@@ -38,49 +36,6 @@ processing_job = ProcessingJob.create(
             {"output_name": "predictions", "s3_output": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_OUTPUT_PATH}}`", "local_path": "/opt/ml/processing/output", "s3_upload_mode": "EndOfJob"}}
         ]
     }
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.tensorflow import TensorFlowProcessor
-from sagemaker.processing import ProcessingInput, ProcessingOutput
-from sagemaker import get_execution_role
-
-#Initialize the TensorFlowProcessor
-tp = TensorFlowProcessor(
-    framework_version='2.3',
-    role=get_execution_role(),
-    instance_type='ml.m5.xlarge',
-    instance_count=1,
-    base_job_name='frameworkprocessor-TF',
-    py_version='py37'
-)
-
-#Run the processing job
-tp.run(
-    code='`processing-script.py`',
-    source_dir='`scripts`',
-    inputs=[
-        ProcessingInput(
-            input_name='data',
-            source=f'`s3://{BUCKET}/{S3_INPUT_PATH}`',
-            destination='/opt/ml/processing/input/data'
-        ),
-        ProcessingInput(
-            input_name='model',
-            source=f'`s3://{BUCKET}/{S3_PATH_TO_MODEL}`',
-            destination='/opt/ml/processing/input/model'
-        )
-    ],
-    outputs=[
-        ProcessingOutput(
-            output_name='predictions',
-            source='/opt/ml/processing/output',
-            destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`'
-        )
-    ]
 )
 ```
 

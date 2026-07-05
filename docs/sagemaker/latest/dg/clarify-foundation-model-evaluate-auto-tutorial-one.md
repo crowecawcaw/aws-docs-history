@@ -62,8 +62,6 @@ print("ERROR - please make sure file exists: crows-pairs_sample.jsonl")
 
 4. Define a JumpStart model as follows:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.serve import ModelBuilder
 from sagemaker.core.jumpstart.configs import JumpStartConfig
@@ -74,21 +72,8 @@ model_id, model_version, = (
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.jumpstart.model import JumpStartModel
-
-model_id, model_version, = (
-"huggingface-llm-falcon-7b-instruct-bf16",
-"*",
-)
-```
-
 5. Deploy the JumpStart model and create an endpoint as
    follows:
-
-SageMaker Python SDK v3
 
 ```
 jumpstart_config = JumpStartConfig(model_id=model_id)
@@ -96,14 +81,6 @@ model_builder = ModelBuilder.from_jumpstart_config(jumpstart_config=jumpstart_co
 model = model_builder.build()
 endpoint = model_builder.deploy()
 endpoint_name = endpoint.endpoint_name
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-my_model = JumpStartModel(model_id=model_id)
-predictor = my_model.deploy()
-endpoint_name = predictor.endpoint_name
 ```
 
 6. Define a prompt and the format of the model request, or payload,
@@ -168,20 +145,11 @@ For more information about parameters for this `Hugging
 To test your model, send a sample request to your model and print the
 model response as follows:
 
-SageMaker Python SDK v3
-
 ```
 import json
 response = endpoint.invoke(body=json.dumps(payload), content_type="application/json")
 result = json.loads(response.body.read().decode('utf-8'))
 print(result[0]["generated_text"])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-response = predictor.predict(payload)
-print(response[0]["generated_text"])
 ```
 
 In the previous code example, if your model provided the response

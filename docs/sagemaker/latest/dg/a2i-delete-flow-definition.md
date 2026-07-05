@@ -1,5 +1,11 @@
 # Delete a Human Review Workflow
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 When you delete a human review workflow or you delete your AWS account while a human
 loop is in process, your human review workflow status changes to `Deleting`.
 Amazon A2I automatically stops and deletes all associated human loops if workers have not

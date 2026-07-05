@@ -1,5 +1,11 @@
 # Input data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 The input data are the data objects that you send to your workforce to be labeled.
 There are two ways to send data objects to Ground Truth for labeling:
 

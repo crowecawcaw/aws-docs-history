@@ -1,5 +1,11 @@
 # Actions on rules using Amazon CloudWatch and AWS Lambda
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Amazon CloudWatch collects Amazon SageMaker AI model training job logs and Amazon SageMaker Debugger rule processing job
 logs. Configure Debugger with Amazon CloudWatch Events and AWS Lambda to take action based on Debugger rule
 evaluation status.

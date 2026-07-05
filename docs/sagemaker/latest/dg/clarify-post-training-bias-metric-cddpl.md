@@ -1,5 +1,11 @@
 # Conditional Demographic Disparity in Predicted Labels (CDDPL)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The demographic disparity metric (DDPL) determines whether facet _d_ has a larger proportion of the predicted rejected labels
 than of the predicted accepted labels. It enables a comparison of difference in
 predicted rejection proportion and predicted acceptance proportion across facets. This

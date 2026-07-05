@@ -1,5 +1,11 @@
 # Information for creating a 3D point cloud object tracking adjustment or verification labeling job
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 You can create an adjustment and verification labeling job using the Ground Truth console or
 `CreateLabelingJob` API. To learn more about adjustment and verification
 labeling jobs, and to learn how create one, see [Label verification and adjustment](sms-verification-data.md "sms-verification-data.md").

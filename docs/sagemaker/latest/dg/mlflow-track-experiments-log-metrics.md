@@ -44,8 +44,6 @@ The following example takes you through a basic model training workflow using SK
 and shows you how to track that model in an MLflow experiment run. This example logs
 parameters, metrics, and model artifacts.
 
-SageMaker Python SDK v3
-
 ```
 import mlflow
 
@@ -102,32 +100,6 @@ with mlflow.start_run():
         input_example=`X_train`,
         registered_model_name=`"tracking-quickstart"`,
     )
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import mlflow.sklearn
-from mlflow.models import infer_signature
-from sklearn.datasets import make_regression
-from sklearn.ensemble import RandomForestRegressor
-
-mlflow.set_tracking_uri(arn)
-params = {"n_estimators": 3, "random_state": 42}
-X, y = make_regression(n_features=4, n_informative=2, random_state=0, shuffle=False)
-
-# Log MLflow entities
-with mlflow.start_run() as run:
-    rfr = RandomForestRegressor(**params).fit(X, y)
-    signature = infer_signature(X, rfr.predict(X))
-    mlflow.log_params(params)
-    mlflow.sklearn.log_model(rfr, artifact_path="sklearn-model", signature=signature)
-
-model_uri = f"runs:/{run.info.run_id}/sklearn-model"
-mv = mlflow.register_model(model_uri, "RandomForestRegressionModel")
-
-print(f"Name: {mv.name}")
-print(f"Version: {mv.version}")
 ```
 
 Within the MLflow UI, choose the experiment name in

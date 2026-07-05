@@ -1,5 +1,11 @@
 # Get Started with Amazon Augmented AI
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 To get started using Amazon Augmented AI, review the [Core Components of Amazon A2I](a2i-getting-started-core-components.md "a2i-getting-started-core-components.md") and [Prerequisites to Using Augmented AI](a2i-getting-started-prerequisites.md "a2i-getting-started-prerequisites.md"). Then, use the following
 documentation to learn how to use the Amazon A2I console and API.
 

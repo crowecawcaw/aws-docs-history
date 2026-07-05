@@ -10,7 +10,8 @@ with a specific record identifier. For more information on Feature Store concept
 After you successfully add features to a feature group, you cannot remove those features.
 The features that you have added do not add any data to your records. You can add new
 records to the feature group or overwrite them using the [PutRecord](../APIReference/API_feature_store_PutRecord.md "../APIReference/API_feature_store_PutRecord.md")
-API. For examples on updating, describing, and putting records into a feature group, see
+or [BatchWriteRecord](../APIReference/API_feature_store_BatchWriteRecord.md "../APIReference/API_feature_store_BatchWriteRecord.md") API operations. For examples on updating, describing, and putting
+records into a feature group, see
 [Example code](#feature-store-update-feature-group-example "#feature-store-update-feature-group-example").
 
 You can use the console to add features to a feature group. For more
@@ -18,7 +19,7 @@ information on how to update your feature groups using the console, see
 [Update a feature group from the console](feature-store-use-with-studio.md#feature-store-update-feature-group-studio "feature-store-use-with-studio.md#feature-store-update-feature-group-studio").
 
 The following sections provide an overview of using Feature Store APIs to add features to a feature
-group followed by examples. With the API, you can also add or overwrite records after you've
+group followed by examples. With the API, you can also add or overwrite records after you have
 updated the feature group.
 
 ###### Topics
@@ -31,14 +32,16 @@ updated the feature group.
 Use the [`UpdateFeatureGroup`](../APIReference/API_UpdateFeatureGroup.md "../APIReference/API_UpdateFeatureGroup.md") operation to add features to a feature
 group.
 
-You can use the [`DescribeFeatureGroup`](../APIReference/API_DescribeFeatureGroup.md "../APIReference/API_DescribeFeatureGroup.md") operation to see if you've added the
+You can use the [`DescribeFeatureGroup`](../APIReference/API_DescribeFeatureGroup.md "../APIReference/API_DescribeFeatureGroup.md") operation to see if you have added the
 features successfully.
 
-To add or overwrite records, use the [`PutRecord`](../APIReference/API_feature_store_PutRecord.md "../APIReference/API_feature_store_PutRecord.md") operation.
+To add or overwrite records, use the [PutRecord](../APIReference/API_feature_store_PutRecord.md "../APIReference/API_feature_store_PutRecord.md") operation. To write up to 25 records in a
+single request, use the
+`BatchWriteRecord` operation.
 
-To see the updates that you've made to a record, use the [`GetRecord`](../APIReference/API_feature_store_GetRecord.md "../APIReference/API_feature_store_GetRecord.md") operation. To see the updates that you've made
-to multiple records, use the [`BatchGetRecord`](../APIReference/API_feature_store_BatchGetRecord.md "../APIReference/API_feature_store_BatchGetRecord.md") operation. It can take up to five minutes
-for the updates that you've made to appear.
+To see the updates that you have made to a record, use the [GetRecord](../APIReference/API_feature_store_GetRecord.md "../APIReference/API_feature_store_GetRecord.md") operation. To see the updates that you have made
+to multiple records, use the [BatchGetRecord](../APIReference/API_feature_store_BatchGetRecord.md "../APIReference/API_feature_store_BatchGetRecord.md") operation. It can take up to five minutes
+for the updates to appear.
 
 You can use the example code in the following section to walk through adding features and
 records using the AWS SDK for Python (Boto3).
@@ -48,14 +51,15 @@ records using the AWS SDK for Python (Boto3).
 The example code walks you through the following process:
 
 1. Adding features to the feature group
-2. Verifying that you've added them successfully
+2. Verifying that you have added them successfully
 3. Adding a record to the feature group
-4. Verifying that you've added it successfully
+4. Adding multiple records in bulk to the feature group
+5. Verifying that you have added them successfully
 
 ### Step 1: Add features to a feature group
 
 The following code uses the [`UpdateFeatureGroup`](../APIReference/API_UpdateFeatureGroup.md "../APIReference/API_UpdateFeatureGroup.md") operation to add new features to
-the feature group. It assumes that you've set up Feature Store and created a feature group.
+the feature group. It assumes that you have set up Feature Store and created a feature group.
 For more information about getting started, see [Introduction to Feature Store example notebook](feature-store-introduction-notebook.md "feature-store-introduction-notebook.md").
 
 ```
@@ -77,7 +81,7 @@ sagemaker_client.update_feature_group(
 
 The following code uses the [`DescribeFeatureGroup`](../APIReference/API_DescribeFeatureGroup.md "../APIReference/API_DescribeFeatureGroup.md") operation to check the status of
 the update. If the [`LastUpdateStatus`](../APIReference/API_DescribeFeatureGroup.md#sagemaker-DescribeFeatureGroup-response-LastUpdateStatus "../APIReference/API_DescribeFeatureGroup.md#sagemaker-DescribeFeatureGroup-response-LastUpdateStatus") field is `Successful`,
-you've added the features successfully.
+you have added the features successfully.
 
 ```
 
@@ -90,7 +94,7 @@ sagemaker_client.describe_feature_group(
 ### Step 2: Add a new record to the feature group
 
 The following code uses the [`PutRecord`](../APIReference/API_feature_store_PutRecord.md "../APIReference/API_feature_store_PutRecord.md") operation to add records to the feature
-group that you've created.
+group that you have created.
 
 ```
 
@@ -127,6 +131,58 @@ sagemaker_runtime_client.put_record(
 ```
 
 Use the [`GetRecord`](../APIReference/API_feature_store_GetRecord.md "../APIReference/API_feature_store_GetRecord.md") operation to see which records in your
-feature group don't have data for the features that you've added. You can use the
+feature group do not have data for the features that you have added. You can use the
 [`PutRecord`](../APIReference/API_feature_store_PutRecord.md "../APIReference/API_feature_store_PutRecord.md") operation to overwrite the records that
-don't have data for the features that you've added.
+do not have data for the features that you have added.
+
+### Step 3: Add multiple records in bulk using BatchWriteRecord
+
+To add or overwrite multiple records, use the [BatchWriteRecord](../APIReference/API_feature_store_BatchWriteRecord.md "../APIReference/API_feature_store_BatchWriteRecord.md") operation. To automatically expire records,
+specify a `TtlDuration`:
+
+```
+
+response = sagemaker_featurestore_runtime_client.batch_write_record(
+    Entries=[
+        {
+            'FeatureGroupName': feature_group_name,
+            'Record': [
+                {'FeatureName': `"record-identifier-feature-name"`, 'ValueAsString': `'record_1'`},
+                {'FeatureName': `"event-time-feature"`, 'ValueAsString': `"2024-01-01T00:00:00Z"`},
+                {'FeatureName': `"new-feature-1"`, 'ValueAsString': `"value-1"`},
+            ],
+            'TtlDuration': {'Unit': 'Hours', 'Value': 24}
+        },
+        {
+            'FeatureGroupName': feature_group_name,
+            'Record': [
+                {'FeatureName': `"record-identifier-feature-name"`, 'ValueAsString': `'record_2'`},
+                {'FeatureName': `"event-time-feature"`, 'ValueAsString': `"2024-01-01T00:00:00Z"`},
+                {'FeatureName': `"new-feature-1"`, 'ValueAsString': `"value-2"`},
+            ]
+        }
+    ]
+)
+
+# Check for failed records.
+if response['Errors']:
+    for error in response['Errors']:
+        print(f"Error: {error['ErrorCode']} - {error['ErrorMessage']}")
+
+# Retry unprocessed entries.
+unprocessed = response.get('UnprocessedEntries', [])
+while unprocessed:
+    response = sagemaker_featurestore_runtime_client.batch_write_record(Entries=unprocessed)
+    unprocessed = response.get('UnprocessedEntries', [])
+
+```
+
+The response includes an `Errors` list for records that failed and an
+`UnprocessedEntries` list for records that can be retried.
+
+###### Note
+
+The `TtlDuration` is calculated relative to the record's
+`EventTime`. If the `EventTime` plus the
+`TtlDuration` is in the past, Amazon SageMaker Feature Store
+does not store the record in the online store.

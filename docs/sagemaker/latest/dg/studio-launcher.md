@@ -1,6 +1,6 @@
 # Use the Amazon SageMaker Studio Classic Launcher
 
-###### Important
+###### Note
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
 Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For

@@ -276,8 +276,6 @@ built-in algorithms [XGBoost](xgboost.md "xgboost.md") and [Linear Learner](line
 your tuning job contains only one training algorithm, omit one of the containers and one
 of the ModelTrainers.
 
-SageMaker Python SDK v3
-
 ```
 import sagemaker
 from sagemaker.core import image_uris
@@ -328,59 +326,9 @@ ll_model_trainer = ModelTrainer(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker import image_uris
-
-from sagemaker.estimator import Estimator
-
-sess = sagemaker.Session()
-region = sess.boto_region_name
-role = sagemaker.get_execution_role()
-
-bucket = sess.default_bucket()
-prefix = "sagemaker/multi-algo-hpo"
-
-# Define the training containers and intialize the estimators
-xgb_container = image_uris.retrieve("xgboost", region, "latest")
-ll_container = image_uris.retrieve("linear-learner", region, "latest")
-
-xgb_estimator = Estimator(
-    xgb_container,
-    role=role,
-    instance_count=1,
-    instance_type="ml.m4.xlarge",
-    output_path='s3://{}/{}/xgb_output".format(bucket, prefix)',
-    sagemaker_session=sess,
-)
-
-ll_estimator = Estimator(
-    ll_container,
-    role,
-    instance_count=1,
-    instance_type="ml.c4.xlarge",
-    output_path="s3://{}/{}/ll_output".format(bucket, prefix),
-    sagemaker_session=sess,
-)
-
-# Set static hyperparameters
-ll_estimator.set_hyperparameters(predictor_type="binary_classifier")
-xgb_estimator.set_hyperparameters(
-    eval_metric="auc",
-    objective="binary:logistic",
-    num_round=100,
-    rate_drop=0.3,
-    tweedie_variance_power=1.4,
-)
-```
-
 Next, define your input data by specifying the training, validation, and testing
 datasets, as shown in the following code example. This example shows how to tune multiple
 training algorithms.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.train.configs import InputData
@@ -409,33 +357,6 @@ train_inputs = {
 }
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-training_data = sagemaker.inputs.TrainingInput(
-    s3_data="s3://{}/{}/train".format(bucket, prefix), content_type="csv"
-)
-validation_data = sagemaker.inputs.TrainingInput(
-    s3_data="s3://{}/{}/validate".format(bucket, prefix), content_type="csv"
-)
-test_data = sagemaker.inputs.TrainingInput(
-    s3_data="s3://{}/{}/test".format(bucket, prefix), content_type="csv"
-)
-
-train_inputs = {
-    "estimator-1": {
-        "train": training_data,
-        "validation": validation_data,
-        "test": test_data,
-    },
-    "estimator-2": {
-        "train": training_data,
-        "validation": validation_data,
-        "test": test_data,
-    },
-}
-```
-
 If your tuning algorithm contains only one training algorithm, your
 `train_inputs` should contain only one entry.
 
@@ -455,8 +376,6 @@ training algorithms.
 
 The following code example shows how to initialize a tuner and set hyperparameter
 ranges for one SageMaker AI built-in algorithm, XGBoost.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.train import HyperparameterTuner
@@ -479,29 +398,6 @@ tuner = HyperparameterTuner(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.tuner import HyperparameterTuner
-from sagemaker.parameter import ContinuousParameter, IntegerParameter
-
-hyperparameter_ranges = {
-    "max_depth": IntegerParameter(1, 10),
-    "eta": ContinuousParameter(0.1, 0.3),
-}
-
-objective_metric_name = "validation:accuracy"
-
-tuner = HyperparameterTuner(
-    xgb_estimator,
-    objective_metric_name,
-    hyperparameter_ranges,
-    objective_type="Maximize",
-    max_jobs=5,
-    max_parallel_jobs=2,
-)
-```
-
 #### Tune multiple training algorithms
 
 Each training job requires different configurations, and these are specified using a
@@ -511,8 +407,6 @@ Linear Learner. The code example also shows how to set a tuning
 strategy and other job settings, such as the compute resources for the tuning job. The
 following code example uses `metric_definitions_dict`, which is
 optional.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.train import HyperparameterTuner
@@ -549,57 +443,12 @@ tuner = HyperparameterTuner.create(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.tuner import HyperparameterTuner
-from sagemaker.parameter import ContinuousParameter, IntegerParameter
-
-# Initialize your tuner
-tuner = HyperparameterTuner.create(
-    estimator_dict={
-        "estimator-1": xgb_estimator,
-        "estimator-2": ll_estimator,
-    },
-    objective_metric_name_dict={
-        "estimator-1": "validation:auc",
-        "estimator-2": "test:binary_classification_accuracy",
-    },
-    hyperparameter_ranges_dict={
-        "estimator-1": {"eta": ContinuousParameter(0.1, 0.3)},
-        "estimator-2": {"learning_rate": ContinuousParameter(0.1, 0.3)},
-    },
-    metric_definitions_dict={
-        "estimator-1": [
-            {"Name": "validation:auc", "Regex": "Overall test accuracy: (.*?);"}
-        ],
-        "estimator-2": [
-            {
-                "Name": "test:binary_classification_accuracy",
-                "Regex": "Overall test accuracy: (.*?);",
-            }
-        ],
-    },
-    strategy="Bayesian",
-    max_jobs=10,
-    max_parallel_jobs=3,
-)
-```
-
 ### Run your HPO tuning job
 
 Now you can run your tuning job by passing your training inputs to the
 tuner. The following code example shows how to pass the `train_inputs`
 parameter, that is defined in a previous code example, to your tuner.
 
-SageMaker Python SDK v3
-
 ```
 tuner.tune(inputs=train_inputs, model_trainer_kwargs={})
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-tuner.fit(inputs=train_inputs, include_cls_metadata ={}, estimator_kwargs ={})
 ```

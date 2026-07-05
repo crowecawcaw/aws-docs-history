@@ -11,29 +11,8 @@ the your execution role. You can include a description in
 `stage-description`. See [Set up Staging Construct Examples](model-registry-staging-construct-set-up.md "model-registry-staging-construct-set-up.md") for more
 information.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.helper.session_helper import get_execution_role, session
-import boto3
-
-region = boto3.Session().region_name role = get_execution_role()
-sm_client = boto3.client('sagemaker', region_name=region)
-
-model_package_update_input_dict = {
-    "ModelLifeCycle" : {
-        "stage" : "Development",
-        "stageStatus" : "Approved",
-        "stageDescription" : "`stage-description`"
-    }
-}
-model_package_update_response = sm_client.update_model_package(**model_package_update_input_dict)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker import get_execution_role, session
 import boto3
 
 region = boto3.Session().region_name role = get_execution_role()

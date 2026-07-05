@@ -1,5 +1,11 @@
 # Specify a deduplication key and ID in an Amazon SNS message
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you send a data object to your streaming labeling job using an Amazon SNS
 message, you have the option to specify your deduplication key and deduplication
 ID in one of the following ways. In all of these scenarios, identify your

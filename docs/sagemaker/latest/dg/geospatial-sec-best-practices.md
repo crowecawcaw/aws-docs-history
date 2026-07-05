@@ -1,5 +1,10 @@
 # Security Best Practices for SageMaker geospatial capabilities
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 Amazon SageMaker geospatial capabilities provide a number of security features to consider as you develop and implement your
 own security policies. The following best practices are general guidelines and don't represent a complete
 security solution. Because these best practices might not be appropriate or sufficient for your environment,

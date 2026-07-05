@@ -1,5 +1,10 @@
 # Download the SageMaker Debugger profiling report
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 Download the SageMaker Debugger profiling report while your training job is running or after
 the job has finished using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") and AWS Command Line Interface (CLI).
 

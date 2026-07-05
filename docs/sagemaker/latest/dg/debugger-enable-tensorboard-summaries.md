@@ -1,5 +1,11 @@
 # Visualize Amazon SageMaker Debugger output tensors in TensorBoard
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 ###### Important
 
 This page is deprecated in favor of Amazon SageMaker AI with TensoBoard, which provides a
@@ -77,8 +83,6 @@ objects. The following example template shows how to create a generic SageMaker 
 ModelTrainer. Available
 ModelTrainer frameworks for this functionality are `TensorFlow`, `PyTorch`, and `MXNet`.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 
@@ -89,20 +93,6 @@ model_trainer = ModelTrainer(
     tensorboard_output_config=tensorboard_output_config
 )
 model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.`estimator` import `Estimator`
-
-estimator = `Estimator`(
-    ...
-    # Debugger parameters
-    debugger_hook_config=hook_config,
-    tensorboard_output_config=tensorboard_output_config
-)
-estimator.fit()
 ```
 
 The `model_trainer.train()` method starts a training job, and Debugger writes

@@ -11,8 +11,6 @@ and dependencies in the `source_dir` argument, and you can have a `requirements.
 inside your `source_dir` directory that specifies the dependencies for your processing script(s). SageMaker Processing installs the
 dependencies in `requirements.txt` in the container for you.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.resources import ProcessingJob
 from sagemaker.core.helper.session_helper import get_execution_role
@@ -59,42 +57,6 @@ processing_job = ProcessingJob.create(
             {"output_name": "val", "s3_output": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_OUTPUT_PATH}}`", "local_path": "/opt/ml/processing/output/val/", "s3_upload_mode": "EndOfJob"}}
         ]
     }
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.huggingface import HuggingFaceProcessor
-from sagemaker.processing import ProcessingInput, ProcessingOutput
-from sagemaker import get_execution_role
-
-#Initialize the HuggingFaceProcessor
-hfp = HuggingFaceProcessor(
-    role=get_execution_role(),
-    instance_count=1,
-    instance_type='ml.g4dn.xlarge',
-    transformers_version='4.4.2',
-    pytorch_version='1.6.0',
-    base_job_name='frameworkprocessor-hf'
-)
-
-#Run the processing job
-hfp.run(
-    code='`processing-script.py`',
-    source_dir='`scripts`',
-    inputs=[
-        ProcessingInput(
-            input_name='data',
-            source=f'`s3://{BUCKET}/{S3_INPUT_PATH}`',
-            destination='/opt/ml/processing/input/data/'
-        )
-    ],
-    outputs=[
-        ProcessingOutput(output_name='train', source='/opt/ml/processing/output/train/', destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`'),
-        ProcessingOutput(output_name='test', source='/opt/ml/processing/output/test/', destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`'),
-        ProcessingOutput(output_name='val', source='/opt/ml/processing/output/val/', destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`')
-    ]
 )
 ```
 

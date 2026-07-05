@@ -1,5 +1,10 @@
 # Access the Sentinel-2 raster data collection and create an earth observation job to perform land segmentation
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 This Python-based tutorial uses the SDK for Python (Boto3) and an Amazon SageMaker Studio Classic notebook. To
 complete this demo successfully, make sure that you have the required AWS Identity and Access Management (IAM)
 permissions to use SageMaker geospatial and Studio Classic. SageMaker geospatial requires that you have a

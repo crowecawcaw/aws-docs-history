@@ -1,5 +1,11 @@
 # Endpoint requests for time series data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 A SageMaker Clarify processing job serializes data into arbitrary JSON structures
 (with MIME type: `application/json`). To do this, you must provide a template
 string to the analysis configuration `content_template` parameter.

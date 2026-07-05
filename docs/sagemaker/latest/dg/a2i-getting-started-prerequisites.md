@@ -1,5 +1,11 @@
 # Prerequisites to Using Augmented AI
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 Amazon A2I uses resources in IAM, SageMaker AI, and Amazon S3 to create and run your human review
 workflows. You can create some of these resources in the Amazon A2I console when you
 create a human review workflow. To learn how, see [Tutorial: Get Started in the Amazon A2I Console](a2i-get-started-console.md "a2i-get-started-console.md").

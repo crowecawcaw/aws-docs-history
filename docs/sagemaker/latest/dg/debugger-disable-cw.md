@@ -1,5 +1,11 @@
 # Disable the CloudWatch Events rule to stop using the automated training job termination
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 If you want to disable the automated training job termination, you need to disable
 the CloudWatch Events rule. In the Lambda **Designer** panel, choose the
 **EventBridge (CloudWatch Events)** block linked to the Lambda

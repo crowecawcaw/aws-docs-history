@@ -1,5 +1,11 @@
 # Output Data and Storage Volume Encryption
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 With Amazon SageMaker Ground Truth, you can label highly sensitive data, stay in control of your data, and
 employ security best practices. While your labeling job is running, Ground Truth encrypts data
 in transit and at rest. Additionally, you can use AWS Key Management Service (AWS KMS) with Ground Truth to do the

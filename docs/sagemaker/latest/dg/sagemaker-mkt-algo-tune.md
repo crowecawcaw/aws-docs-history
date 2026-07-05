@@ -182,8 +182,6 @@ the value of the `algorithm_arn` argument. Then initialize a
 `ModelTrainer` argument. Finally, call the `train` method
 of the `ModelTrainer`. For example:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer, HyperparameterTuner
 from sagemaker.train.configs import Compute
@@ -206,37 +204,6 @@ tuner = HyperparameterTuner(model_trainer=model_trainer, base_tuning_job_name='s
                                 max_jobs=2, max_parallel_jobs=2)
 
 tuner.tune({'training': train_input})
-tuner.wait()
-
-
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker import AlgorithmEstimator
-from sagemaker.tuner import HyperparameterTuner
-
-data_path = os.path.join(DATA_DIR, 'marketplace', 'training')
-
-algo = AlgorithmEstimator(
-            algorithm_arn='arn:aws:sagemaker:us-east-2:764419575721:algorithm/scikit-decision-trees-1542410022',
-            role='SageMakerRole',
-            instance_count=1,
-            instance_type='ml.c4.xlarge',
-            sagemaker_session=sagemaker_session,
-            base_job_name='test-marketplace')
-
-train_input = algo.sagemaker_session.upload_data(
-    path=data_path, key_prefix='integ-test-data/marketplace/train')
-
-algo.set_hyperparameters(max_leaf_nodes=10)
-tuner = HyperparameterTuner(estimator=algo, base_tuning_job_name='some-name',
-                                objective_metric_name='validation:accuracy',
-                                hyperparameter_ranges=hyperparameter_ranges,
-                                max_jobs=2, max_parallel_jobs=2)
-
-tuner.fit({'training': train_input}, include_cls_metadata=False)
 tuner.wait()
 
 

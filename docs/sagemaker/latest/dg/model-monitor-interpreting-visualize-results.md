@@ -1,5 +1,11 @@
 # Visualize results for real-time endpoints in Amazon SageMaker Studio
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 If you are monitoring a real-time endpoint, you can also visualize the results in
 Amazon SageMaker Studio. You can view the details of any monitoring job run, and you can create
 charts that show the baseline and captured values for any metric that the monitoring job

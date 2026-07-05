@@ -187,8 +187,6 @@ The following shows how to train a model with an augmented manifest
 file
 using the SageMaker AI high-level Python library:
 
-SageMaker Python SDK v3
-
 ```
 import sagemaker
 from sagemaker.train import ModelTrainer
@@ -230,41 +228,6 @@ train_data = Channel(
 
 # Train a model.
 model_trainer.train(input_data_config=[train_data])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-
-# Create a model object set to using "Pipe" mode.
-model = sagemaker.estimator.Estimator(
-    `training_image`,
-    role,
-    instance_count=1,
-    instance_type='ml.p3.2xlarge',
-    volume_size = 50,
-    max_run = 360000,
-    input_mode = 'Pipe',
-    output_path=`s3_output_location`,
-    sagemaker_session=`session`
-)
-
-# Create a train data channel with S3_data_type as 'AugmentedManifestFile' and attribute names.
-train_data = sagemaker.inputs.TrainingInput(
-    `your_augmented_manifest_file`,
-    distribution='FullyReplicated',
-    content_type='application/x-recordio',
-    s3_data_type='AugmentedManifestFile',
-    attribute_names=[`'source-ref'`, `'annotations'`],
-    input_mode='Pipe',
-    record_wrapping='RecordIO'
-)
-
-data_channels = {'train': train_data}
-
-# Train a model.
-model.fit(inputs=data_channels, logs=True)
 ```
 
 After the training job has finished, SageMaker AI stores the model artifacts in the bucket

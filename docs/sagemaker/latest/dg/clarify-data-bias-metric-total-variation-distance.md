@@ -1,5 +1,11 @@
 # Total Variation Distance (TVD)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The total variation distance data bias metric (TVD) is half the
 L1-norm. The TVD is the largest possible difference
 between the probability distributions for label outcomes of facets _a_ and _d_. The

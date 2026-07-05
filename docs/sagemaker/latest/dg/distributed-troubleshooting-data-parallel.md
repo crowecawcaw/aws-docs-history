@@ -33,8 +33,6 @@ enable SageMaker AI distributed data parallel.
   Debugger by passing `debugger_hook_config=False`, which is equivalent
   to the following framework `ModelTrainer` example.
 
-SageMaker Python SDK v3
-
 ```
 bucket=Session().default_bucket()
 base_job_name="sagemaker-checkpoint-test"
@@ -44,26 +42,6 @@ checkpoint_in_bucket="checkpoints"
 checkpoint_s3_bucket="s3://{}/{}/{}".format(bucket, base_job_name, checkpoint_in_bucket)
 
 model_trainer = ModelTrainer(
-    ...
-
-    distribution={"smdistributed": {"dataparallel": { "enabled": True }}},
-    checkpoint_s3_uri=checkpoint_s3_bucket,
-    checkpoint_local_path="/opt/ml/checkpoints",
-    debugger_hook_config=False
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-bucket=sagemaker.Session().default_bucket()
-base_job_name="sagemaker-checkpoint-test"
-checkpoint_in_bucket="checkpoints"
-
-# The S3 URI to store the checkpoints
-checkpoint_s3_bucket="s3://{}/{}/{}".format(bucket, base_job_name, checkpoint_in_bucket)
-
-estimator = TensorFlow(
     ...
 
     distribution={"smdistributed": {"dataparallel": { "enabled": True }}},

@@ -1,5 +1,11 @@
 # Adding automation with Liquid
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Our custom template system uses [Liquid](https://shopify.github.io/liquid/ "https://shopify.github.io/liquid/") for automation. It is an open source inline markup language. In Liquid, the text between single curly braces and percent symbols is an instruction or _tag_ that performs an operation like control flow or iteration. Text between double curly braces is a variable or _object_ that outputs its value.
 
 The most common use of Liquid will be to parse the data coming from your input manifest file, and pull out the relevant variables to create the task. Ground Truth automatically generates the tasks unless a pre-annotation Lambda is specified. The `taskInput` object returned by Ground Truth or your [Pre-annotation Lambda](sms-custom-templates-step3-lambda-requirements.md#sms-custom-templates-step3-prelambda "sms-custom-templates-step3-lambda-requirements.md#sms-custom-templates-step3-prelambda") is the `task.input` object in your templates.

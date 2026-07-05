@@ -31,8 +31,6 @@ v1.6.0 or later.
 
 **Configure a SageMaker PyTorch ModelTrainer**
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train.configs import SourceCode, Compute, InputData
 from sagemaker.core import image_uris
@@ -82,43 +80,6 @@ smp_model_trainer = ModelTrainer(
 smp_model_trainer.train(input_data_config=[
     InputData(channel_name="training", data_source='`s3://my_bucket/my_training_data/`')
 ])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-mpi_options = {
-    "enabled" : True,
-    "processes_per_host" : 8,               # 8 processes
-    "custom_mpi_options" : "--mca btl_vader_single_copy_mechanism none "
-}
-               
-smp_options = {
-    "enabled":True,
-    "parameters": {
-        "pipeline_parallel_degree": 1,    # alias for "partitions"
-        "placement_strategy": "cluster",
-        **"tensor\_parallel\_degree": 4**,      # tp over 4 devices
-        "ddp": True
-    }
-}
-              
-smp_estimator = PyTorch(
-    entry_point='`your_training_script.py`', # Specify
-    role=role,
-    instance_type='`ml.p3.16xlarge`',
-    sagemaker_session=sagemaker_session,
-    framework_version='1.13.1',
-    py_version='py36',
-    instance_count=1,
-    distribution={
-        "smdistributed": {"modelparallel": smp_options},
-        "mpi": mpi_options
-    },
-    base_job_name="`SMD-MP-demo`",
-)
-
-smp_estimator.fit('`s3://my_bucket/my_training_data/`')
 ```
 
 ###### Tip
@@ -231,8 +192,6 @@ v1.6.0 or later.
 
 **Configure a SageMaker PyTorch ModelTrainer**
 
-SageMaker Python SDK v3
-
 ```
 mpi_options = {
     "enabled" : True,
@@ -280,44 +239,6 @@ smp_model_trainer = ModelTrainer(
 smp_model_trainer.train(input_data_config=[
     InputData(channel_name="training", data_source='`s3://my_bucket/my_training_data/`')
 ])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-mpi_options = {
-    "enabled" : True,
-    "processes_per_host" : 8,               # 8 processes
-    "custom_mpi_options" : "--mca btl_vader_single_copy_mechanism none "
-}
-               
-smp_options = {
-    "enabled":True,
-    "parameters": {
-    "microbatches": 4,
-        `"pipeline_parallel_degree": 2`,    # alias for "partitions"
-        "placement_strategy": "cluster",
-        `"tensor_parallel_degree": 2`,      # tp over 2 devices
-        "ddp": True
-    }
-}
-              
-smp_estimator = PyTorch(
-    entry_point='`your_training_script.py`', # Specify
-    role=role,
-    instance_type='`ml.p3.16xlarge`',
-    sagemaker_session=sagemaker_session,
-    framework_version='1.13.1',
-    py_version='py36',
-    instance_count=1,
-    distribution={
-        "smdistributed": {"modelparallel": smp_options},
-        "mpi": mpi_options
-    },
-    base_job_name="`SMD-MP-demo`",
-)
-
-smp_estimator.fit('`s3://my_bucket/my_training_data/`')  
 ```
 
 **Adapt your PyTorch training script**

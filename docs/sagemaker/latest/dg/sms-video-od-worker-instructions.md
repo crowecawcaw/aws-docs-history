@@ -1,5 +1,11 @@
 # Video Frame Object Detection Tasks
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Video frame object detection tasks required you to classify and identify the
 location of objects in video frames using annotations. A video frame is a still
 image from a video scene.

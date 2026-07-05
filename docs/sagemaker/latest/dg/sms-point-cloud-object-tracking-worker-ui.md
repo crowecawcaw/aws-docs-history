@@ -1,5 +1,11 @@
 # View the worker task interface for a 3D point cloud object tracking task
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Ground Truth provides workers with a web portal and tools to complete your 3D point cloud
 object tracking annotation tasks. When you create the labeling job, you provide the
 Amazon Resource Name (ARN) for a pre-built Ground Truth UI in the `HumanTaskUiArn`

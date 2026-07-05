@@ -1,5 +1,11 @@
 # Create a custom workflow using the API
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you have created your custom UI template (Step 2) and processing Lambda functions
 (Step 3), you should place the template in an Amazon S3 bucket with a file name format of:
 `<FileName>.liquid.html`. Use the [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md") action to configure your task. You'll use the

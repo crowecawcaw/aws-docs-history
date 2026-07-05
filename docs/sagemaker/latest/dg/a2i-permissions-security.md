@@ -1,5 +1,11 @@
 # Permissions and Security in Amazon Augmented AI
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 When using Amazon Augmented AI (Amazon A2I) to create a human review workflow for your ML/AI
 application, you create and configure _resources_ in Amazon SageMaker AI such as a human
 workforce and worker task templates. To configure and start a human loop, you either integrate

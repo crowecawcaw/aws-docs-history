@@ -13,8 +13,6 @@ in the container for you.
 For the PyTorch versions supported by SageMaker AI, see the available
 [Deep Learning Container images](https://github.com/aws/deep-learning-containers/blob/master/available_images.md "https://github.com/aws/deep-learning-containers/blob/master/available_images.md").
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.resources import ProcessingJob
 from sagemaker.core.helper.session_helper import get_execution_role
@@ -43,43 +41,6 @@ processing_job = ProcessingJob.create(
             {"output_name": "logs", "s3_output": {"s3_uri": f"`s3://{{BUCKET}}/{{S3_OUTPUT_PATH}}`", "local_path": "/opt/ml/processing/logs", "s3_upload_mode": "EndOfJob"}}
         ]
     }
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.pytorch.processing import PyTorchProcessor
-from sagemaker.processing import ProcessingInput, ProcessingOutput
-from sagemaker import get_execution_role
-
-#Initialize the PyTorchProcessor
-pytorch_processor = PyTorchProcessor(
-    framework_version='1.8',
-    role=get_execution_role(),
-    instance_type='ml.m5.xlarge',
-    instance_count=1,
-    base_job_name='frameworkprocessor-PT'
-)
-
-#Run the processing job
-pytorch_processor.run(
-    code='`processing-script.py`',
-    source_dir='`scripts`',
-    inputs=[
-        ProcessingInput(
-            input_name='data',
-            source=f'`s3://{BUCKET}/{S3_INPUT_PATH}`',
-            destination='/opt/ml/processing/input'
-        )
-    ],
-    outputs=[
-        ProcessingOutput(output_name='data_structured', source='/opt/ml/processing/tmp/data_structured', destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`'),
-        ProcessingOutput(output_name='train', source='/opt/ml/processing/output/train', destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`'),
-        ProcessingOutput(output_name='validation', source='/opt/ml/processing/output/val', destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`'),
-        ProcessingOutput(output_name='test', source='/opt/ml/processing/output/test', destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`'),
-        ProcessingOutput(output_name='logs', source='/opt/ml/processing/logs', destination=f'`s3://{BUCKET}/{S3_OUTPUT_PATH}`')
-    ]
 )
 ```
 

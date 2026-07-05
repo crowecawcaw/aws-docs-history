@@ -1,5 +1,11 @@
 # Pre-check endpoint request and response for tabular data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 We recommend that you deploy your model to a SageMaker AI real-time inference endpoint,
 and send requests to the endpoint. Manually examine the requests and responses to
 make sure that both are compliant with the requirements in the [Endpoint requests for tabular data](clarify-processing-job-data-format-tabular-request.md "clarify-processing-job-data-format-tabular-request.md") section and the

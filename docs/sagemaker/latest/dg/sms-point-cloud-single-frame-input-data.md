@@ -1,5 +1,11 @@
 # Create a Point Cloud Frame Input Manifest File
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 The manifest is a UTF-8 encoded file in which each line is a complete and valid
 JSON object. Each line is delimited by a standard line break, \n or \r\n. Because
 each line must be a valid JSON object, you can't have unescaped line break

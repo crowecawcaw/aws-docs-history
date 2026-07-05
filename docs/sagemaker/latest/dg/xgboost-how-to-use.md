@@ -20,8 +20,6 @@ code example, SageMaker Python SDK provides the XGBoost API as a framework. This
 functions similarly to how SageMaker AI provides other framework APIs, such as
 TensorFlow, MXNet, and PyTorch.
 
-SageMaker Python SDK v3
-
 ```
 import boto3
 from sagemaker.train import ModelTrainer
@@ -76,50 +74,6 @@ validation_input = InputData(channel_name="validation", data_source="s3://{}/{}/
 model_trainer.train(input_data_config=[train_input, validation_input])
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import boto3
-import sagemaker
-from sagemaker.xgboost.estimator import XGBoost
-from sagemaker.session import Session
-from sagemaker.inputs import TrainingInput
-
-# initialize hyperparameters
-hyperparameters = {
-        "max_depth":"5",
-        "eta":"0.2",
-        "gamma":"4",
-        "min_child_weight":"6",
-        "subsample":"0.7",
-        "verbosity":"1",
-        "objective":"reg:squarederror",
-        "num_round":"50"}
-
-# set an output path where the trained model will be saved
-bucket = sagemaker.Session().default_bucket()
-prefix = 'DEMO-xgboost-as-a-framework'
-output_path = 's3://{}/{}/{}/output'.format(bucket, prefix, 'abalone-xgb-framework')
-
-# construct a SageMaker AI XGBoost estimator
-# specify the entry_point to your xgboost training script
-estimator = XGBoost(entry_point = "`your_xgboost_abalone_script.py`",
-                    framework_version='`1.7-1`',
-                    hyperparameters=hyperparameters,
-                    role=sagemaker.get_execution_role(),
-                    instance_count=1,
-                    instance_type='ml.m5.2xlarge',
-                    output_path=output_path)
-
-# define the data type and paths to the training and validation datasets
-content_type = "libsvm"
-train_input = TrainingInput("s3://{}/{}/{}/".format(bucket, prefix, 'train'), content_type=content_type)
-validation_input = TrainingInput("s3://{}/{}/{}/".format(bucket, prefix, 'validation'), content_type=content_type)
-
-# execute the XGBoost training job
-estimator.fit({'train': train_input, 'validation': validation_input})
-```
-
 For an end-to-end example of using SageMaker AI XGBoost as a framework, see [Regression with Amazon SageMaker AI XGBoost](https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/xgboost_abalone/xgboost_abalone_dist_script_mode.html "https://sagemaker-examples.readthedocs.io/en/latest/introduction_to_amazon_algorithms/xgboost_abalone/xgboost_abalone_dist_script_mode.html").
 
 ## Use XGBoost as a built-in algorithm
@@ -134,7 +88,6 @@ parameters for built-in algorithms](sagemaker-algo-docker-registry-paths.md "sag
 `xgboost` from the full list of built-in algorithm image URIs and
 available regions.
 
-SageMaker Python SDK v3
 After specifying the XGBoost image URI, use the XGBoost container to construct
 a `ModelTrainer` and initiate a training job. This
 XGBoost built-in algorithm mode does not incorporate your own XGBoost training
@@ -197,67 +150,6 @@ validation_input = InputData(channel_name="validation", data_source="s3://{}/{}/
 
 # execute the XGBoost training job
 model_trainer.train(input_data_config=[train_input, validation_input])
-```
-
-SageMaker Python SDK v2 (Legacy)
-After specifying the XGBoost image URI, use the XGBoost container to construct
-an estimator using the SageMaker AI Estimator API and initiate a training job. This
-XGBoost built-in algorithm mode does not incorporate your own XGBoost training
-script and runs directly on the input datasets.
-
-###### Important
-
-When you retrieve the SageMaker AI XGBoost image URI, do not use
-`:latest` or `:1` for the image URI tag. You must
-specify one of the [Supported versions](xgboost.md#xgboost-supported-versions "xgboost.md#xgboost-supported-versions") to choose the SageMaker AI-managed
-XGBoost container with the native XGBoost package version that you want to
-use. To find the package version migrated into the SageMaker AI XGBoost containers,
-see [Docker Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md "../dg-ecr-paths/sagemaker-algo-docker-registry-paths.md"). Then choose your
-AWS Region, and navigate to the **XGBoost
-(algorithm)** section.
-
-```
-import sagemaker
-import boto3
-from sagemaker import image_uris
-from sagemaker.session import Session
-from sagemaker.inputs import TrainingInput
-
-# initialize hyperparameters
-hyperparameters = {
-        "max_depth":"5",
-        "eta":"0.2",
-        "gamma":"4",
-        "min_child_weight":"6",
-        "subsample":"0.7",
-        "objective":"reg:squarederror",
-        "num_round":"50"}
-
-# set an output path where the trained model will be saved
-bucket = sagemaker.Session().default_bucket()
-prefix = 'DEMO-xgboost-as-a-built-in-algo'
-output_path = 's3://{}/{}/{}/output'.format(bucket, prefix, 'abalone-xgb-built-in-algo')
-
-# this line automatically looks for the XGBoost image URI and builds an XGBoost container.
-# specify the repo_version depending on your preference.
-xgboost_container = sagemaker.image_uris.retrieve("xgboost", region, "`1.7-1`")
-
-# construct a SageMaker AI estimator that calls the xgboost-container
-estimator = sagemaker.estimator.Estimator(image_uri=xgboost_container,
-                                          hyperparameters=hyperparameters,
-                                          role=sagemaker.get_execution_role(),
-                                          instance_count=1,
-                                          instance_type='ml.m5.2xlarge',
-                                          volume_size=5, # 5 GB
-                                          output_path=output_path)
-
-# define the data type and paths to the training and validation datasets
-content_type = "libsvm"
-train_input = TrainingInput("s3://{}/{}/{}/".format(bucket, prefix, 'train'), content_type=content_type)
-validation_input = TrainingInput("s3://{}/{}/{}/".format(bucket, prefix, 'validation'), content_type=content_type)
-
-# execute the XGBoost training job
-estimator.fit({'train': train_input, 'validation': validation_input})
 ```
 
 For more information about how to set up the XGBoost as a built-in algorithm,

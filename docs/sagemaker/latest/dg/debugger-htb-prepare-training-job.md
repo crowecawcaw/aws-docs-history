@@ -83,22 +83,12 @@ save the TensorBoard data to the S3 output bucket.
 
 ## Step 2: Create a SageMaker training ModelTrainer object with the TensorBoard output configuration
 
-SageMaker Python SDK v3
 Use the `sagemaker.debugger.TensorBoardOutputConfig` while configuring
 a SageMaker AI ModelTrainer. This configuration API maps the S3 bucket you specify
 for saving TensorBoard data with the local path in the training container
 (`/opt/ml/output/tensorboard`). Pass the object of the module to the
 `tensorboard_output_config` parameter of the ModelTrainer class. The
 following code snippet shows an example of preparing a TensorFlow ModelTrainer with the
-TensorBoard output configuration parameter.
-
-SageMaker Python SDK v2 (Legacy)
-Use the `sagemaker.debugger.TensorBoardOutputConfig` while configuring
-a SageMaker AI framework estimator. This configuration API maps the S3 bucket you specify
-for saving TensorBoard data with the local path in the training container
-(`/opt/ml/output/tensorboard`). Pass the object of the module to the
-`tensorboard_output_config` parameter of the estimator class. The
-following code snippet shows an example of preparing a TensorFlow estimator with the
 TensorBoard output configuration parameter.
 
 ###### Note
@@ -113,8 +103,6 @@ of the [CreateTrainingJob](../APIReference/API_CreateTrainingJob.md "../APIRefer
   "S3OutputPath": "`s3_output_bucket`"
 }
 ```
-
-SageMaker Python SDK v3
 
 ```
 import os
@@ -143,40 +131,6 @@ model_trainer = ModelTrainer(
     role=`role`,
     training_image=`image_uri`,
     compute=Compute(instance_count=`1`, instance_type="`ml.c5.xlarge`"),
-    base_job_name="`your-training_job_name`",
-    **tensorboard\_output\_config=`tensorboard_output_config`,**
-    hyperparameters=`hyperparameters`
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.tensorflow import TensorFlow
-from sagemaker.debugger import TensorBoardOutputConfig
-
-# Set variables for training job information,
-# such as s3_out_bucket and other unique tags.
-...
-
-LOG_DIR="/opt/ml/output/tensorboard"
-
-output_path = os.path.join(
-    "`s3_output_bucket`", "`sagemaker-output`", "`date_str`", "`your-training_job_name`"
-)
-
-**tensorboard\_output\_config = TensorBoardOutputConfig(
- s3\_output\_path=os.path.join(output\_path, '`tensorboard`'),
- container\_local\_output\_path=LOG\_DIR
-)**
-
-estimator = TensorFlow(
-    entry_point="`train.py`",
-    source_dir="`src`",
-    role=`role`,
-    image_uri=`image_uri`,
-    instance_count=`1`,
-    instance_type="`ml.c5.xlarge`",
     base_job_name="`your-training_job_name`",
     **tensorboard\_output\_config=`tensorboard_output_config`,**
     hyperparameters=`hyperparameters`

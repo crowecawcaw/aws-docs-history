@@ -1,5 +1,11 @@
 # Creating custom rules using the Debugger client library
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 You can create custom rules to monitor your training job using the Debugger rule APIs and
 the open source [`smdebug` Python library](https://github.com/awslabs/sagemaker-debugger/ "https://github.com/awslabs/sagemaker-debugger/") that provide tools to build your own
 rule containers.

@@ -49,8 +49,6 @@ attached to it: `AmazonSageMakerFullAccess` and
 `AmazonSageMakerFeatureStoreAccess`. For information about adding policies to your
 IAM role, see [Adding policies to your IAM role](feature-store-adding-policies.md "feature-store-adding-policies.md").
 
-SageMaker Python SDK v3
-
 ```
 import boto3
 import sagemaker
@@ -72,31 +70,6 @@ feature_store_session = Session(
     boto_session=boto_session,
     sagemaker_client=sagemaker_client,
     sagemaker_featurestore_runtime_client=featurestore_runtime
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import boto3
-import sagemaker
-from sagemaker.session import Session
-
-sagemaker_session = sagemaker.Session()
-region = sagemaker_session.boto_region_name
-boto_session = boto3.Session(region_name=region)
-role = sagemaker.get_execution_role()
-default_bucket = sagemaker_session.default_bucket()
-prefix = 'sagemaker-featurestore'
-offline_feature_store_bucket = 's3://{}/{}'.format(default_bucket, prefix)
-
-sagemaker_client = boto_session.client(service_name='sagemaker', region_name=region)
-featurestore_runtime = boto_session.client(service_name='sagemaker-featurestore-runtime', region_name=region)
-
-feature_store_session = Session(
-    boto_session=boto_session,
-    sagemaker_client=sagemaker_client,
-    sagemaker_featurestore_runtime_client=featurestore_runtime
 )
 ```
 
@@ -144,28 +117,16 @@ transformed_transaction_data = transformed_transaction_data.rename(columns={"car
 When you set up your feature groups, you need to customize the feature names with a unique
 name and set up each feature group with the `FeatureGroup` class.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.feature_store import FeatureGroup
 
 # No separate instantiation needed in v3; FeatureGroup.create() is called directly
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.feature_store.feature_group import FeatureGroup
-feature_group_name = "some string for a name"
-feature_group = FeatureGroup(name=feature_group_name, sagemaker_session=feature_store_session)
-```
-
 For example, in the fraud detection example, the two feature groups are
 `identity` and `transaction`. In the following code you can see how
 the names are customized with a timestamp, and then each group is set up by passing in the
 name and the session.
-
-SageMaker Python SDK v3
 
 ```
 import time
@@ -176,20 +137,6 @@ identity_feature_group_name = 'identity-feature-group-' + strftime('%d-%H-%M-%S'
 transaction_feature_group_name = 'transaction-feature-group-' + strftime('%d-%H-%M-%S', gmtime())
 
 # No separate instantiation needed in v3; FeatureGroup.create() is called directly below
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import time
-from time import gmtime, strftime, sleep
-from sagemaker.feature_store.feature_group import FeatureGroup
-
-identity_feature_group_name = 'identity-feature-group-' + strftime('%d-%H-%M-%S', gmtime())
-transaction_feature_group_name = 'transaction-feature-group-' + strftime('%d-%H-%M-%S', gmtime())
-
-identity_feature_group = FeatureGroup(name=identity_feature_group_name, sagemaker_session=feature_store_session)
-transaction_feature_group = FeatureGroup(name=transaction_feature_group_name, sagemaker_session=feature_store_session)
 ```
 
 ## Step 4: Set up record identifier and event time features
@@ -220,15 +167,6 @@ the schema, map it, and add it as a `FeatureDefinition` that you can use to crea
 the `FeatureGroup`. This example also covers a AWS SDK for Python (Boto3) implementation, which
 you can use instead of the SageMaker Python SDK.
 
-SageMaker Python SDK v3
-
-```
-identity_feature_group.load_feature_definitions(data_frame=identity_data); # output is suppressed
-transaction_feature_group.load_feature_definitions(data_frame=transformed_transaction_data); # output is suppressed
-```
-
-SageMaker Python SDK v2 (Legacy)
-
 ```
 identity_feature_group.load_feature_definitions(data_frame=identity_data); # output is suppressed
 transaction_feature_group.load_feature_definitions(data_frame=transformed_transaction_data); # output is suppressed
@@ -241,31 +179,9 @@ following code shows all of the available parameters. The online store is not cr
 default, so you must set this as `True` if you want to enable it. The
 `s3_uri` is the S3 bucket location of your offline store.
 
-SageMaker Python SDK v3
-
 ```
 # create a FeatureGroup
 FeatureGroup.create(
-    description = "Some info about the feature group",
-    feature_group_name = feature_group_name,
-    record_identifier_name = record_identifier_name,
-    event_time_feature_name = event_time_feature_name,
-    feature_definitions = feature_definitions,
-    role_arn = role,
-    s3_uri = offline_feature_store_bucket,
-    enable_online_store = True,
-    online_store_kms_key_id = None,
-    offline_store_kms_key_id = None,
-    disable_glue_table_creation = False,
-    data_catalog_config = None,
-    tags = ["tag1","tag2"])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-# create a FeatureGroup
-feature_group.create(
     description = "Some info about the feature group",
     feature_group_name = feature_group_name,
     record_identifier_name = record_identifier_name,
@@ -307,17 +223,9 @@ When you create a feature group, it takes time to load the data, and you need to
 until the feature group is created before you can use it. You can check status using the
 following method.
 
-SageMaker Python SDK v3
-
 ```
 fg = FeatureGroup.get(feature_group_name=feature_group_name)
 status = fg.feature_group_status
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-status = feature_group.describe().get("FeatureGroupStatus")
 ```
 
 While the feature group is being created, you receive `Creating` as a response.
@@ -346,16 +254,8 @@ tasks:
 You can retrieve information about your feature group with the
 `describe` function.
 
-SageMaker Python SDK v3
-
 ```
 FeatureGroup.get(feature_group_name=feature_group_name)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-feature_group.describe()
 ```
 
 ### List feature groups
@@ -412,14 +312,6 @@ The SageMaker Python SDK’s `FeatureStore` class also provides the functionalit
 generate Hive DDL commands. The schema of the table is generated based on the feature
 definitions. Columns are named after feature name and data-type are inferred based on
 feature type.
-
-SageMaker Python SDK v3
-
-```
-print(feature_group.as_hive_ddl())
-```
-
-SageMaker Python SDK v2 (Legacy)
 
 ```
 print(feature_group.as_hive_ddl())
@@ -481,28 +373,11 @@ From here you can train a model using this data set and then perform inference.
 
 You can delete a feature group with the `delete` function.
 
-SageMaker Python SDK v3
-
-```
-feature_group.delete()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
 ```
 feature_group.delete()
 ```
 
 The following code example is from the fraud detection example.
-
-SageMaker Python SDK v3
-
-```
-identity_feature_group.delete()
-transaction_feature_group.delete()
-```
-
-SageMaker Python SDK v2 (Legacy)
 
 ```
 identity_feature_group.delete()

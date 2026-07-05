@@ -1,5 +1,11 @@
 # Access CloudWatch logs for Debugger rules and training jobs
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 You can use the training and Debugger rule job status in the CloudWatch logs to take
 further actions when there are training issues. The following procedure shows how to
 access the related CloudWatch logs. For more information about monitoring training jobs

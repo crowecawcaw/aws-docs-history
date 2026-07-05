@@ -1,5 +1,10 @@
 # Turn off Debugger
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 If you want to completely turn off Debugger, do one of the following:
 
 - Before starting a training job, do the following:

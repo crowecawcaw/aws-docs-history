@@ -1,5 +1,11 @@
 # Monitor and Manage Your Human Loop
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 Once you've started a human review loop, you can check the results of tasks sent to the
 loop and manage it using the [Amazon Augmented AI Runtime API](../../../augmented-ai/2019-11-07/APIReference/Welcome.md "../../../augmented-ai/2019-11-07/APIReference/Welcome.md").
 Additionally, Amazon A2I integrates with Amazon EventBridge (also known as Amazon CloudWatch Events) to alert you

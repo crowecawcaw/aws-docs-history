@@ -1,5 +1,11 @@
 # Label verification and adjustment data in the output manifest
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Amazon SageMaker Ground Truth writes label verification data to the output manifest within the metadata
 for the label. It adds two properties to the metadata:
 

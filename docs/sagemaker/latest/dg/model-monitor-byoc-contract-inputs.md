@@ -1,5 +1,11 @@
 # Container Contract Inputs
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 The Amazon SageMaker Model Monitor platform invokes your container code according to a specified
 schedule. If you choose to write your own container code, the following
 environment variables are available. In this context, you can analyze the

@@ -27,8 +27,6 @@ field in the `OutputDataConfig` API to `NONE`.
 The following code example shows you how to create a training job in uncompressed upload
 mode using the SageMaker Python SDK.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute
@@ -43,21 +41,5 @@ model_trainer = ModelTrainer(
         instance_type='`ml.c4.xlarge`',
     ),
     output_data_config=OutputDataConfig(compression_type="NONE")
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker.estimator import Estimator
-
-estimator = Estimator(
-    image_uri="`your-own-image-uri`",
-    role=sagemaker.get_execution_role(),
-    sagemaker_session=sagemaker.Session(),
-    instance_count=1,
-    instance_type='`ml.c4.xlarge`',
-    disable_output_compression=True
 )
 ```

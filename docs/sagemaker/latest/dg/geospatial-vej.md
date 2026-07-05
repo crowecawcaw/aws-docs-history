@@ -1,5 +1,10 @@
 # Vector Enrichment Jobs
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 A Vector Enrichment Job (VEJ) performs operations on your vector data.
 Currently, you can use a VEJ to do reverse geocoding or map matching.
 

@@ -31,8 +31,6 @@ pedestriants in the street. We pre-downloaded the dataset and made it available 
 Amazon S3. To fine-tune your model, call `.train()` using the Amazon S3 location of your
 training dataset.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core import image_uris
 from sagemaker.core import model_uris, script_uris, hyperparameters
@@ -87,58 +85,6 @@ tf_od_model_trainer.train(
         InputData(channel_name="model", data_source=train_model_uri),
     ]
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker import image_uris, model_uris, script_uris, hyperparameters
-from sagemaker.estimator import Estimator
-
-model_id, model_version = "tensorflow-od1-ssd-resnet50-v1-fpn-640x640-coco17-tpu-8", "*"
-training_instance_type = "ml.p3.2xlarge"
-
-# Retrieve the Docker image
-train_image_uri = image_uris.retrieve(model_id=model_id,model_version=model_version,image_scope="training",instance_type=training_instance_type,region=None,framework=None)
-
-# Retrieve the training script
-train_source_uri = script_uris.retrieve(model_id=model_id, model_version=model_version, script_scope="training")
-
-# Retrieve the pretrained model tarball for transfer learning
-train_model_uri = model_uris.retrieve(model_id=model_id, model_version=model_version, model_scope="training")
-
-# Retrieve the default hyperparameters for fine-tuning the model
-hyperparameters = hyperparameters.retrieve_default(model_id=model_id, model_version=model_version)
-
-# [Optional] Override default hyperparameters with custom values
-hyperparameters["epochs"] = "5"
-
-# Sample training data is available in this bucket
-training_data_bucket = f"jumpstart-cache-prod-{aws_region}"
-training_data_prefix = "training-datasets/PennFudanPed_COCO_format/"
-
-training_dataset_s3_path = f"s3://{training_data_bucket}/{training_data_prefix}"
-
-output_bucket = sess.default_bucket()
-output_prefix = "jumpstart-example-od-training"
-s3_output_location = f"s3://{output_bucket}/{output_prefix}/output"
-
-# Create an Estimator instance
-tf_od_estimator = Estimator(
-    role=aws_role,
-    image_uri=train_image_uri,
-    source_dir=train_source_uri,
-    model_uri=train_model_uri,
-    entry_point="transfer_learning.py",
-    instance_count=1,
-    instance_type=training_instance_type,
-    max_run=360000,
-    hyperparameters=hyperparameters,
-    output_path=s3_output_location,
-)
-
-# Launch a training job
-tf_od_estimator.fit({"training": training_dataset_s3_path}, logs=True)
 ```
 
 For more information about how to use the SageMaker AI Object Detection - TensorFlow algorithm for

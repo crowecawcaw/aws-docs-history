@@ -1,5 +1,11 @@
 # Use external resources in Amazon SageMaker Studio Lab
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Studio Lab, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md").
+
 With Amazon SageMaker Studio Lab, you can integrate external resources, such as Jupyter notebooks and data,
 from Git repositories and Amazon S3. You can also add an **Open in Studio Lab** button
 to your GitHub repo and notebooks. This button lets you clone your notebooks directly from

@@ -1,5 +1,11 @@
 # Create a Labeling Job (API)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 To create a labeling job using the Amazon SageMaker API, you use the [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md") operation. For specific instructions on
 creating a labeling job for a built-in task type, see that [task type page](sms-task-types.md "sms-task-types.md"). To learn how to
 create a streaming labeling job, which is a labeling job that runs perpetually, see [Create a streaming labeling job](sms-streaming-create-job.md "sms-streaming-create-job.md").

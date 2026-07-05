@@ -13,8 +13,6 @@ or PyTorch. The environment variable is not needed for TensorFlow.
 The following is an example of how you can
 compile a model using the `trained_model_estimator` object:
 
-SageMaker Python SDK v3
-
 ```
 # Neo compilation in V3 uses ModelBuilder.optimize() with compilation_config
 from sagemaker.serve import ModelBuilder
@@ -40,21 +38,6 @@ optimized_model = model_builder.optimize(
         },
     },
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Replace the value of expected_trained_model_input below and
-# specify the name & shape of the expected inputs for your trained model
-# in json dictionary form
-expected_trained_model_input = {'data':[1, 784]}
-
-# Replace the example target_instance_family below to your preferred target_instance_family
-compiled_model = trained_model_estimator.compile_model(target_instance_family='ml_c5',
-        input_shape=expected_trained_model_input,
-        output_path='insert s3 output path',
-        env={'MMS_DEFAULT_RESPONSE_TIMEOUT': '500'})
 ```
 
 The code compiles the model, saves the optimized model at `output_path`,

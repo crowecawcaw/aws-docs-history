@@ -1,5 +1,11 @@
 # Model quality
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Model quality monitoring jobs monitor the performance of a model by comparing the
 predictions that the model makes with the actual Ground Truth labels that the model attempts to
 predict. To do this, model quality monitoring merges data that is captured from

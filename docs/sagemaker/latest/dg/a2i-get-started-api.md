@@ -1,5 +1,11 @@
 # Tutorial: Get Started Using the Amazon A2I API
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 This tutorial explains the API operations you can use to get started using Amazon A2I.
 
 To use a Jupyter Notebook to run these operations, select a Jupyter Notebook from

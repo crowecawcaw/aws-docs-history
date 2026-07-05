@@ -1,5 +1,11 @@
 # Difference in Proportions of Labels (DPL)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The difference in proportions of labels (DPL) compares the proportion of observed
 outcomes with positive labels for facet _d_ with
 the proportion of observed outcomes with positive labels of facet _a_ in a training dataset. For example, you could use it

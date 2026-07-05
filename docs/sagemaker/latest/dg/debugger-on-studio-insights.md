@@ -1,5 +1,10 @@
 # Open the Amazon SageMaker Debugger Insights dashboard
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 In the SageMaker Debugger Insights dashboard in Studio Classic, you can see the compute resource
 utilization, resource utilization, and system bottleneck information of your training
 job that runs on Amazon EC2 instances in real time and after trainings

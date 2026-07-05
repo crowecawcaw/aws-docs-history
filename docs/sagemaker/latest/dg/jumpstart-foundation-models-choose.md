@@ -57,7 +57,7 @@ deploying a JumpStart foundation model or opening a JumpStart foundation model
 notebook in Studio Classic. To get started with JumpStart foundation models in
 Studio Classic, see [Use foundation models in Amazon SageMaker Studio Classic](jumpstart-foundation-models-use-studio.md "jumpstart-foundation-models-use-studio.md").
 
-###### Important
+###### Note
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
 Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For

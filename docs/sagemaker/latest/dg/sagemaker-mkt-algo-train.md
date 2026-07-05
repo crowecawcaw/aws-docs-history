@@ -133,8 +133,6 @@ either the Amazon Resource Name (ARN) or the name of the algorithm as the value
 of the `algorithm_arn` argument. Then call the `train`
 method of the ModelTrainer. For example:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute
@@ -151,24 +149,4 @@ train_input = sagemaker_session.upload_data(
 path=data_path, key_prefix='integ-test-data/marketplace/train')
 
 model_trainer.train({'training': train_input})
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker import AlgorithmEstimator
-data_path = os.path.join(DATA_DIR, 'marketplace', 'training')
-
-algo = AlgorithmEstimator(
-algorithm_arn='arn:aws:sagemaker:us-east-2:012345678901:algorithm/my-algorithm',
-        role='SageMakerRole',
-        instance_count=1,
-        instance_type='ml.c4.xlarge',
-        sagemaker_session=sagemaker_session,
-        base_job_name='test-marketplace')
-
-train_input = algo.sagemaker_session.upload_data(
-path=data_path, key_prefix='integ-test-data/marketplace/train')
-
-algo.fit({'training': train_input})
 ```

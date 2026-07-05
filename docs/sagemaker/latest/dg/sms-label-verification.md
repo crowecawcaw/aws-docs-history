@@ -1,5 +1,11 @@
 # Image Label Verification
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Building a highly accurate training dataset for your machine learning (ML) algorithm is
 an iterative process. Typically, you review and continuously adjust your labels until you
 are satisfied that they accurately represent the ground truth, or what is directly

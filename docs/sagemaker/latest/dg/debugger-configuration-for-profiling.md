@@ -1,5 +1,10 @@
 # Estimator configuration with parameters for basic profiling using the Amazon SageMaker Debugger Python modules
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 By default, SageMaker Debugger basic profiling is on by default and monitors resource utilization
 metrics, such as CPU utilization, GPU utilization, GPU memory utilization, Network, and I/O
 wait time, of all SageMaker training jobs submitted using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"). SageMaker Debugger
@@ -35,16 +40,14 @@ IPython.Application.instance().kernel.do_shutdown(True)
 ## Code template for configuring a SageMaker AI estimator object with the SageMaker Debugger Python modules in the SageMaker AI Python SDK
 
 To adjust the basic profiling configuration (`profiler_config`) or add the
-profiler rules (`rules`), choose one of the tabs to get the template for
-setting up a SageMaker AI estimator. In the subsequent pages, you can find more information
-about how to configure the two parameters.
+profiler rules (`rules`), use the following template for setting up a SageMaker AI
+training job. In the subsequent pages, you can find more information about how to
+configure the two parameters.
 
 ###### Note
 
 The following code examples are not directly executable. Proceed to the next
 sections to learn how to configure each parameter.
-
-SageMaker Python SDK v3
 
 ```
 # An example of creating a training job with profiler configuration
@@ -104,179 +107,6 @@ TrainingJob.create(
 For MXNet and XGBoost, when configuring the `profiler_config`
 parameter, you can only configure for system monitoring. Profiling
 framework metrics is not supported for MXNet or XGBoost.
-
-SageMaker Python SDK v2 (Legacy)
-**PyTorch:**
-
-```
-# An example of constructing a SageMaker AI PyTorch estimator
-import boto3
-import sagemaker
-from sagemaker.pytorch import PyTorch
-from sagemaker.debugger import ProfilerConfig, ProfilerRule, rule_configs
-
-session=boto3.session.Session()
-region=session.region_name
-
-`profiler_config`=`ProfilerConfig(...)`
-`rules`=[
-    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
-]
-
-estimator=PyTorch(
-    entry_point="`directory/to/your_training_script.py`",
-    role=sagemaker.get_execution_role(),
-    base_job_name="`debugger-profiling-demo`",
-    instance_count=`1`,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`1.12.0`",
-    py_version="`py37`",
-
-    # SageMaker Debugger parameters
-    profiler_config=`profiler_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
-
-**TensorFlow:**
-
-```
-# An example of constructing a SageMaker AI TensorFlow estimator
-import boto3
-import sagemaker
-from sagemaker.tensorflow import TensorFlow
-from sagemaker.debugger import ProfilerConfig, ProfilerRule, rule_configs
-
-session=boto3.session.Session()
-region=session.region_name
-
-`profiler_config`=`ProfilerConfig(...)`
-`rules`=[
-    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
-]
-
-estimator=TensorFlow(
-    entry_point="`directory/to/your_training_script.py`",
-    role=sagemaker.get_execution_role(),
-    base_job_name="`debugger-profiling-demo`",
-    instance_count=`1`,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`2.8.0`",
-    py_version="`py37`",
-
-    # SageMaker Debugger parameters
-    profiler_config=`profiler_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
-
-**MXNet:**
-
-```
-# An example of constructing a SageMaker AI MXNet estimator
-import sagemaker
-from sagemaker.mxnet import MXNet
-from sagemaker.debugger import ProfilerConfig, ProfilerRule, rule_configs
-
-`profiler_config`=`ProfilerConfig(...)`
-`rules`=[
-    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
-]
-
-estimator=MXNet(
-    entry_point="`directory/to/your_training_script.py`",
-    role=sagemaker.get_execution_role(),
-    base_job_name="`debugger-profiling-demo`",
-    instance_count=`1`,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`1.7.0`",
-    py_version="`py37`",
-
-    # SageMaker Debugger parameters
-    profiler_config=`profiler_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
-
-###### Note
-
-For MXNet, when configuring the `profiler_config`
-parameter, you can only configure for system monitoring. Profiling
-framework metrics is not supported for MXNet.
-
-**XGBoost:**
-
-```
-# An example of constructing a SageMaker AI XGBoost estimator
-import sagemaker
-from sagemaker.xgboost.estimator import XGBoost
-from sagemaker.debugger import ProfilerConfig, ProfilerRule, rule_configs
-
-`profiler_config`=`ProfilerConfig(...)`
-`rules`=[
-    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
-]
-
-estimator=XGBoost(
-    entry_point="`directory/to/your_training_script.py`",
-    role=sagemaker.get_execution_role(),
-    base_job_name="`debugger-profiling-demo`",
-    instance_count=`1`,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`1.5-1`",
-
-    # Debugger-specific parameters
-    profiler_config=`profiler_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
-
-###### Note
-
-For XGBoost, when configuring the `profiler_config`
-parameter, you can only configure for system monitoring. Profiling
-framework metrics is not supported for XGBoost.
-
-**Generic estimator:**
-
-```
-# An example of constructing a SageMaker AI generic estimator using the XGBoost algorithm base image
-import boto3
-import sagemaker
-from sagemaker.estimator import Estimator
-from sagemaker import image_uris
-from sagemaker.debugger import ProfilerConfig, DebuggerHookConfig, Rule, ProfilerRule, rule_configs
-
-`profiler_config`=`ProfilerConfig(...)`
-`rules`=[
-    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
-]
-
-region=boto3.Session().region_name
-xgboost_container=sagemaker.image_uris.retrieve("xgboost", region, "1.5-1")
-
-estimator=Estimator(
-    role=sagemaker.get_execution_role()
-    image_uri=xgboost_container,
-    base_job_name="`debugger-demo`",
-    instance_count=`1`,
-    instance_type="`ml.m5.2xlarge`",
-
-    # Debugger-specific parameters
-    profiler_config=`profiler_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
 
 The following provides brief descriptions of the parameters.
 

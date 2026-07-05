@@ -1,5 +1,11 @@
 # Use Cases and Examples Using Amazon A2I
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 You can use Amazon Augmented AI to incorporate a human review into your workflow for
 _built-in task types_, Amazon Textract and Amazon Rekognition, or your own custom
 tasks using a _custom task type_.

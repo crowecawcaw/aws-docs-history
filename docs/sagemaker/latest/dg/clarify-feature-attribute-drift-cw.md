@@ -1,5 +1,11 @@
 # CloudWatch Metrics for Feature Drift Analysis
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 This guide shows CloudWatch metrics and their properties that you can use for feature
 attribute drift analysis in SageMaker Clarify. Feature attribute drift monitoring jobs compute and
 publish two types of metrics:

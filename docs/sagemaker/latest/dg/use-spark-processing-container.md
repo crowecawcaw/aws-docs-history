@@ -22,8 +22,6 @@ number of instances vs. time to completion.
 The following code example shows how to run a processing job that invokes
 your PySpark script `preprocess.py`.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.spark.processing import PySparkProcessor
 
@@ -42,29 +40,6 @@ spark_processor.run(
                's3_input_key_prefix', input_prefix,
                's3_output_bucket', bucket,
                's3_output_key_prefix', output_prefix],
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.spark.processing import PySparkProcessor
-
-spark_processor = PySparkProcessor(
-    base_job_name="spark-preprocessor",
-    framework_version="2.4",
-    role=role,
-    instance_count=2,
-    instance_type="ml.m5.xlarge",
-    max_runtime_in_seconds=1200,
-)
-
-spark_processor.run(
-    submit_app="preprocess.py",
-    arguments=['s3_input_bucket', bucket,
-               's3_input_key_prefix', input_prefix,
-               's3_output_bucket', bucket,
-               's3_output_key_prefix', output_prefix]
 )
 ```
 

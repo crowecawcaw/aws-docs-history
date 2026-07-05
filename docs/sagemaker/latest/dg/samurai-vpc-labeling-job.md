@@ -1,5 +1,11 @@
 # Run an Amazon SageMaker Ground Truth Labeling Job in an Amazon Virtual Private Cloud
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Ground Truth supports the following functionalities in Amazon VPC.
 
 - You can use Amazon S3 bucket policies to control access to buckets from specific Amazon VPC endpoints, or specific VPCs. If you launch a labeling job and your input data is located in an Amazon S3 bucket that is restricted to users in your VPC, you can add a bucket policy to also grant a Ground Truth endpoint permission to access the bucket. To learn more, see [Allow Ground Truth to Access VPC Restricted Amazon S3 Buckets](#sms-vpc-permissions-s3 "#sms-vpc-permissions-s3").

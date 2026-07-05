@@ -1,5 +1,11 @@
 # Amazon SageMaker Debugger references
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Find more information and references about using Amazon SageMaker Debugger in the following topics.
 
 ###### Topics

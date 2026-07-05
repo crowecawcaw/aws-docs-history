@@ -1,5 +1,10 @@
 # Prepare and run a training job with SageMaker Profiler
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 Setting up to running a training job with the SageMaker Profiler consists of two steps: adapting
 the training script and configuring the SageMaker training job launcher.
 
@@ -55,8 +60,6 @@ manager. This wrapper is recommended if you want to profile by functions instead
 code lines. The following example script shows how to implement the context manager
 to wrap the training loop and full functions in each iteration.
 
-SageMaker Python SDK v3
-
 ```
 import smprof
 
@@ -88,52 +91,6 @@ for epoch in range(args.epochs):
                 loss.backward()
             with smprof.annotate(`"Optimizer"`):
                 optimizer.step()
-
-SMProf.stop_profiling()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import smprof
-
-SMProf = smprof.SMProfiler.instance()
-config = smprof.Config()
-config.profiler = {
-    "EnableCuda": "1",
-}
-SMProf.configure(config)
-SMProf.start_profiling()
-
-for epoch in range(args.epochs):
-    if world_size > 1:
-        sampler.set_epoch(epoch)
-    tstart = time.perf_counter()
-    for i, data in enumerate(trainloader, 0):
-        step_annotator = smprof.annotation_begin(`"step_" + str(i)`)
-
-        inputs, labels = data
-        inputs = inputs.to("cuda", non_blocking=True)
-        labels = labels.to("cuda", non_blocking=True)
-        optimizer.zero_grad()
-
-        forward_annotator = smprof.annotation_begin(`"Forward"`)
-        outputs = net(inputs)
-        smprof.annotation_end(forward_annotator)
-
-        loss_annotator = smprof.annotation_begin(`"Loss"`)
-        loss = criterion(outputs, labels)
-        smprof.annotation_end(loss_annotator)
-
-        backward_annotator = smprof.annotation_begin(`"Backward"`)
-        loss.backward()
-        smprof.annotation_end(backward_annotator)
-
-        optimizer_annotator = smprof.annotation_begin(`"Optimizer"`)
-        optimizer.step()
-        smprof.annotation_end(optimizer_annotator)
-
-        smprof.annotation_end(step_annotator)
 
 SMProf.stop_profiling()
 ```
@@ -150,8 +107,6 @@ ends at the end of the iteration. Meanwhile, other detailed annotators for each
 operations are defined and wrap around the target operations throughout each
 iteration.
 
-SageMaker Python SDK v3
-
 ```
 import smprof
 
@@ -192,43 +147,6 @@ for epoch in range(args.epochs):
         smprof.annotation_end(optimizer_annotator)
 
         smprof.annotation_end(step_annotator)
-
-SMProf.stop_profiling()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import smprof
-
-SMProf = smprof.SMProfiler.instance()
-config = smprof.Config()
-config.profiler = {
-    "EnableCuda": "1",
-}
-SMProf.configure(config)
-SMProf.start_profiling()
-
-for epoch in range(args.epochs):
-    if world_size > 1:
-        sampler.set_epoch(epoch)
-    tstart = time.perf_counter()
-    for i, data in enumerate(trainloader, 0):
-        with smprof.annotate(`"step_"+str(i)`):
-            inputs, labels = data
-            inputs = inputs.to("cuda", non_blocking=True)
-            labels = labels.to("cuda", non_blocking=True)
-
-            optimizer.zero_grad()
-
-            with smprof.annotate(`"Forward"`):
-                outputs = net(inputs)
-            with smprof.annotate(`"Loss"`):
-                loss = criterion(outputs, labels)
-            with smprof.annotate(`"Backward"`):
-                loss.backward()
-            with smprof.annotate(`"Optimizer"`):
-                optimizer.step()
 
 SMProf.stop_profiling()
 ```
@@ -275,8 +193,6 @@ of the [TensorFlow
 versions](profiler-support.md#profiler-support-frameworks-tensorflow "profiler-support.md#profiler-support-frameworks-tensorflow") supported by SageMaker Profiler. For more information about
 supported frameworks and instance types, see [SageMaker AI framework images pre-installed with SageMaker Profiler](profiler-support.md#profiler-support-frameworks "profiler-support.md#profiler-support-frameworks").
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode
@@ -301,43 +217,6 @@ model_trainer = ModelTrainer(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import smprof
-
-SMProf = smprof.SMProfiler.instance()
-config = smprof.Config()
-config.profiler = {
-    "EnableCuda": "1",
-}
-SMProf.configure(config)
-SMProf.start_profiling()
-
-for epoch in range(args.epochs):
-    if world_size > 1:
-        sampler.set_epoch(epoch)
-    tstart = time.perf_counter()
-    for i, data in enumerate(trainloader, 0):
-        with smprof.annotate(`"step_"+str(i)`):
-            inputs, labels = data
-            inputs = inputs.to("cuda", non_blocking=True)
-            labels = labels.to("cuda", non_blocking=True)
-
-            optimizer.zero_grad()
-
-            with smprof.annotate(`"Forward"`):
-                outputs = net(inputs)
-            with smprof.annotate(`"Loss"`):
-                loss = criterion(outputs, labels)
-            with smprof.annotate(`"Backward"`):
-                loss.backward()
-            with smprof.annotate(`"Optimizer"`):
-                optimizer.step()
-
-SMProf.stop_profiling()
-```
-
 3. Start the training job by running the `train` method. With
    `wait=False`, you can silence the training job logs and let
    it run in the background.
@@ -352,8 +231,6 @@ and visualizing the saved profiles.
 
 If you want to directly access the profile data saved in the Amazon S3
 bucket, use the following script to retrieve the S3 URI.
-
-SageMaker Python SDK v3
 
 ```
 import os
@@ -377,33 +254,6 @@ def get_detailed_profiler_output_uri(model_trainer):
 print(
     f"Profiler output S3 bucket: ",
     get_detailed_profiler_output_uri(model_trainer)
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import os
-# This is an ad-hoc function to get the S3 URI
-# to where the profile output data is saved
-def get_detailed_profiler_output_uri(estimator):
-    config_name = None
-    for processing in estimator.profiler_rule_configs:
-        params = processing.get("RuleParameters", dict())
-        rule = config_name = params.get("rule_to_invoke", "")
-        if rule == "DetailedProfilerProcessing":
-            config_name = processing.get("RuleConfigurationName")
-            break
-    return os.path.join(
-        estimator.output_path,
-        estimator.latest_training_job.name,
-        "rule-output",
-        config_name,
-    )
-
-print(
-    f"Profiler output S3 bucket: ",
-    get_detailed_profiler_output_uri(estimator)
 )
 ```
 

@@ -17,7 +17,6 @@ your training scripts. 
 SageMaker Training supports distributed training on a single instance as well as multiple
 instances, so you can run any size of training at scale.
 
-SageMaker Python SDK v3
 We recommend you to use the ModelTrainer class with [PyTorch](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") and [TensorFlow](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the SageMaker Python SDK, which are the training job launchers with
 various distributed training options. When you create a ModelTrainer object, the object sets up
 distributed training infrastructure, runs the `CreateTrainingJob` API in the
@@ -26,16 +25,6 @@ pre-built AWS deep learning container prepackaged with a number of libraries inc
 learning frameworks, distributed training frameworks, and the [EFA](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") driver. If you want to mount an FSx file
 system to the training instances, you need to pass your VPC subnet and security group ID to
 the ModelTrainer.
-
-SageMaker Python SDK v2 (Legacy)
-We recommend you to use the framework estimator classes such as [PyTorch](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#pytorch-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#pytorch-estimator") and [TensorFlow](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator") in the SageMaker Python SDK, which are the training job launchers with
-various distributed training options. When you create an estimator object, the object sets up
-distributed training infrastructure, runs the `CreateTrainingJob` API in the
-backend, finds the Region where your current session is running, and pulls one of the
-pre-built AWS deep learning container prepackaged with a number of libraries including deep
-learning frameworks, distributed training frameworks, and the [EFA](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") driver. If you want to mount an FSx file
-system to the training instances, you need to pass your VPC subnet and security group ID to
-the estimator.
 
 Before running your distributed training job in SageMaker AI, read the following
 general guidance on the basic infrastructure setup.
@@ -76,8 +65,6 @@ data parallelism (FSDP)](https://pytorch.org/docs/stable/fsdp.html "https://pyto
 `PyTorch` estimator for launching a distributed training job on two
 `ml.p4d.24xlarge` instances.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute
@@ -88,22 +75,6 @@ model_trainer = ModelTrainer(
     compute=Compute(instance_count=`2`, instance_type="`ml.p4d.24xlarge`"),
     # Activate distributed training with SMDDP
     distributed=Torchrun()
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.pytorch import PyTorch
-
-estimator = PyTorch(
-    ...,
-    instance_count=`2`,
-    instance_type="`ml.p4d.24xlarge`",
-    # Activate distributed training with SMDDP
-    distribution={ "pytorchddp": { "enabled": True } }  # mpirun, activates SMDDP AllReduce OR AllGather
-    # distribution={ "torch_distributed": { "enabled": True } }  # torchrun, activates SMDDP AllGather
-    # distribution={ "smdistributed": { "dataparallel": { "enabled": True } } }  # mpirun, activates SMDDP AllReduce OR AllGather
 )
 ```
 
@@ -119,17 +90,9 @@ and more. To learn more about what the SMP library offers, see [Core Features of
 To use SageMaker AI's model parallelism library, configure the `distribution` parameter
 of the SageMaker AI framework estimators.
 
-SageMaker Python SDK v3
 The ModelTrainer class supports [PyTorch](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") and [TensorFlow](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html"). The following code example shows how to construct a ModelTrainer
 for distributed training with the model parallelism library on two
 `ml.p4d.24xlarge` instances.
-
-SageMaker Python SDK v2 (Legacy)
-Supported framework estimators are [PyTorch](https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#pytorch-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/pytorch/sagemaker.pytorch.html#pytorch-estimator") and [TensorFlow](https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator "https://sagemaker.readthedocs.io/en/stable/frameworks/tensorflow/sagemaker.tensorflow.html#tensorflow-estimator"). The following code example shows how to construct a framework estimator
-for distributed training with the model parallelism library on two
-`ml.p4d.24xlarge` instances.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.train import ModelTrainer
@@ -140,34 +103,6 @@ model_trainer = ModelTrainer(
     ...,
     compute=Compute(instance_count=`2`, instance_type="`ml.p4d.24xlarge`"),
     distributed=Torchrun()
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.`framework` import `Framework`
-
-distribution={
-    "smdistributed": {
-        "modelparallel": {
-            "enabled":True,
-            "parameters": {
-                ...   # enter parameter key-value pairs here
-            }
-        },
-    },
-    "mpi": {
-        "enabled" : True,
-        ...           # enter parameter key-value pairs here
-    }
-}
-
-estimator = `Framework`(
-    ...,
-    instance_count=`2`,
-    instance_type="`ml.p4d.24xlarge`",
-    distribution=*distribution*
 )
 ```
 
@@ -189,8 +124,6 @@ SageMaker AI also supports the following options to operate `mpirun` and
 
 This option is available for PyTorch 1.12.0 and later.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute
@@ -200,19 +133,6 @@ model_trainer = ModelTrainer(
     ...,
     compute=Compute(instance_count=`2`, instance_type="`ml.p4d.24xlarge`"),
     distributed=Torchrun()  # runs torchrun in the backend
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.pytorch import PyTorch
-
-estimator = PyTorch(
-    ...,
-    instance_count=`2`,
-    instance_type="`ml.p4d.24xlarge`",
-    distribution={"pytorchddp": {"enabled": True}}  # runs mpirun in the backend
 )
 ```
 
@@ -231,8 +151,6 @@ The following code snippet shows an example of constructing a SageMaker AI PyTor
 to run distributed training on two `ml.p4d.24xlarge` instances with the
 `torch_distributed` distribution option.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute
@@ -242,19 +160,6 @@ model_trainer = ModelTrainer(
     ...,
     compute=Compute(instance_count=`2`, instance_type="`ml.p4d.24xlarge`"),
     distributed=Torchrun()  # runs torchrun in the backend
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.pytorch import PyTorch
-
-estimator = PyTorch(
-    ...,
-    instance_count=`2`,
-    instance_type="`ml.p4d.24xlarge`",
-    distribution={"torch_distributed": {"enabled": True}}   # runs torchrun in the backend
 )
 ```
 

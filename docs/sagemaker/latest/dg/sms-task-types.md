@@ -1,5 +1,11 @@
 # Built-in Task Types
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Amazon SageMaker Ground Truth has several built-in task types.
 Ground Truth provides a worker task template for built-in task types. Additionally, some built in task types support [Automate data labeling](sms-automated-labeling.md "sms-automated-labeling.md").
 The following topics describe each built-in task type and demo the

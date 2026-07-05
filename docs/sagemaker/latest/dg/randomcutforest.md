@@ -54,8 +54,6 @@ the `Channel` and `S3DataSource` shapes in
 SageMaker Python SDK v3. Distribution type is configured on the
 `S3DataSource` within a `Channel`.
 
-SageMaker Python SDK v3
-
 ```
   import sagemaker
   from sagemaker.train import ModelTrainer
@@ -79,24 +77,6 @@ SageMaker Python SDK v3
 
   # run the training job on input data stored in S3
   rcf.train(input_data_config=[train_data])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-  import sagemaker
-
-  # specify Random Cut Forest training job information and hyperparameters
-  rcf = sagemaker.estimator.Estimator(...)
-
-  # explicitly specify "ShardedByS3Key" distribution type
-  train_data = sagemaker.inputs.TrainingInput(
-       s3_data=s3_training_data_location,
-       content_type='text/csv;label_size=0',
-       distribution='ShardedByS3Key')
-
-  # run the training job on input data stored in S3
-  rcf.fit({'train': train_data})
 ```
 
 To avoid common errors around execution roles, ensure that you have the

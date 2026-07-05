@@ -1,5 +1,11 @@
 # Specificity difference (SD)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The specificity difference (SD) is the difference in specificity between the favored
 facet _a_ and disfavored facet _d_. Specificity measures how often the model correctly predicts a
 negative outcome (y'=0). Any difference in these specificities is a potential form of

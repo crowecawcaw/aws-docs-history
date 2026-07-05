@@ -35,7 +35,7 @@ experiment.
 **To view the runs list from the experiments list**
 
 1. In the left sidebar of Studio Classic, choose the **Home** icon (
-   ![](/images/sagemaker/latest/dg/images/studio/icons/house.png)
+   ![](images/studio/icons/house.png)
    ).
 2. Select **Experiments** from the menu.
 3. Use search bar or **Filter** icon (

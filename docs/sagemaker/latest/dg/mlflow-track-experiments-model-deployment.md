@@ -63,8 +63,6 @@ or later of the SageMaker Python SDK to use `ModelBuilder`.
 Use the following code example for reference. For end-to-end examples that show you how to
 deploy registered MLflow models, see [MLflow tutorials using example Jupyter notebooks](mlflow-tutorials.md "mlflow-tutorials.md").
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.serve import ModelBuilder
 from sagemaker.serve.mode.function_pointers import Mode
@@ -87,32 +85,6 @@ model_builder = ModelBuilder(
 )
 model = model_builder.build()
 endpoint = model_builder.deploy(endpoint_name="`my-endpoint`", instance_type="`ml.c6i.xlarge`")
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.serve import ModelBuilder
-from sagemaker.serve.mode.function_pointers import Mode
-from sagemaker.serve import SchemaBuilder
-
-my_schema = SchemaBuilder(
-    sample_input=`sample_input`,
-    sample_output=`sample_output`
-)
-
-model_builder = ModelBuilder(
-    mode=Mode.SAGEMAKER_ENDPOINT,
-    schema_builder=my_schema,
-    role_arn="`Your-service-role-ARN`",
-    model_metadata={
-        # both model path and tracking server ARN are required if you use an mlflow run ID or mlflow model registry path as input
-        "MLFLOW_MODEL_PATH": "`models:/sklearn-model/1`"
-        "MLFLOW_TRACKING_ARN": "`arn:aws:sagemaker:region:account-id:mlflow-tracking-server/tracking-server-name`"
-    }
-)
-model = model_builder.build()
-predictor = model.deploy( initial_instance_count=`1`, instance_type="`ml.c6i.xlarge`" )
 ```
 
 To maintain [lineage

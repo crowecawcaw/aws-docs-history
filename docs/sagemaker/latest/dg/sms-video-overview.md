@@ -1,5 +1,11 @@
 # Video frame labeling job reference
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Use this page to learn about the object detection and object tracking video frame labeling
 jobs. The information on this page applies to both of these built-in task types.
 

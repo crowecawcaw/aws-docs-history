@@ -26,7 +26,6 @@ all instances in the training job.
 
 **With MPI**
 
-SageMaker Python SDK v3
 **PyTorch**
 
 ```
@@ -56,47 +55,11 @@ model_trainer = `ModelTrainer`(
     ...
     instance_groups=[`instance_group_1`, `instance_group_2`],
     distributed=Torchrun()
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-**PyTorch**
-
-```
-from sagemaker.`pytorch` import `PyTorch`
-
-estimator = `PyTorch`(
-    ...
-    instance_groups=[`instance_group_1`, `instance_group_2`],
-    distribution={
-        "mpi": {
-            "enabled": True, "processes_per_host": `8`
-        },
-        "instance_groups": [`instance_group_2`]
-    }
-)
-```
-
-**TensorFlow**
-
-```
-from sagemaker.`tensorflow` import `TensorFlow`
-
-estimator = `TensorFlow`(
-    ...
-    instance_groups=[`instance_group_1`, `instance_group_2`],
-    distribution={
-        "mpi": {
-            "enabled": True, "processes_per_host": `8`
-        },
-        "instance_groups": [`instance_group_2`]
-    }
 )
 ```
 
 **With the SageMaker AI data parallel library**
 
-SageMaker Python SDK v3
 **PyTorch**
 
 ```
@@ -120,45 +83,6 @@ model_trainer = `ModelTrainer`(
     ...
     instance_groups=[`instance_group_1`, `instance_group_2`],
     distributed=Torchrun()
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-**PyTorch**
-
-```
-from sagemaker.`pytorch` import `PyTorch`
-
-estimator = `PyTorch`(
-    ...
-    instance_groups=[`instance_group_1`, `instance_group_2`],
-    distribution={
-        "smdistributed": {
-            "dataparallel": {
-                "enabled": True
-            }
-        },
-        "instance_groups": [`instance_group_2`]
-    }
-)
-```
-
-**TensorFlow**
-
-```
-from sagemaker.`tensorflow` import `TensorFlow`
-
-estimator = `TensorFlow`(
-    ...
-    instance_groups=[`instance_group_1`, `instance_group_2`],
-    distribution={
-        "smdistributed": {
-            "dataparallel": {
-                "enabled": True
-            }
-        },
-        "instance_groups": [`instance_group_2`]
-    }
 )
 ```
 
@@ -172,7 +96,6 @@ Parallel Training](data-parallel.md "data-parallel.md").
 
 **With the SageMaker AI model parallel library**
 
-SageMaker Python SDK v3
 **PyTorch**
 
 ```
@@ -196,51 +119,6 @@ model_trainer = `ModelTrainer`(
     ...
     instance_groups=[`instance_group_1`, `instance_group_2`],
     distributed=Torchrun()
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-**PyTorch**
-
-```
-from sagemaker.`pytorch` import `PyTorch`
-
-estimator = `PyTorch`(
-    ...
-    instance_groups=[`instance_group_1`, `instance_group_2`],
-    distribution={
-        "smdistributed": {
-            "modelparallel": {
-                "enabled":True,
-                "parameters": {
-                    ...   # SageMaker AI model parallel parameters
-                }
-            }
-        },
-        "instance_groups": [`instance_group_2`]
-    }
-)
-```
-
-**TensorFlow**
-
-```
-from sagemaker.`tensorflow` import `TensorFlow`
-
-estimator = `TensorFlow`(
-    ...
-    instance_groups=[`instance_group_1`, `instance_group_2`],
-    distribution={
-        "smdistributed": {
-            "modelparallel": {
-                "enabled":True,
-                "parameters": {
-                    ...   # SageMaker AI model parallel parameters
-                }
-            }
-        },
-        "instance_groups": [`instance_group_2`]
-    }
 )
 ```
 

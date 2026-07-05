@@ -295,8 +295,8 @@ Feature Store operational metrics| Metric | Description |
 
 Dimensions for Feature Store operational metrics| Dimension | Description |
 | --- | --- |
-| `FeatureGroupName`, `OperationName` | Filters feature store runtime operational metrics of the feature group and the<br>operation that you've specified. You can use these dimensions for non batch<br>operations, such as GetRecord, PutRecord, and DeleteRecord. |
-| `OperationName` | Filters feature store runtime operational metrics for the operation that<br>you've specified. You can use this dimension for batch operations such as<br>BatchGetRecord. |
+| `FeatureGroupName`, `OperationName` | Filters feature store runtime operational metrics of the feature group and the<br>operation that you've specified. You can use these dimensions for non batch<br>operations, such as GetRecord, PutRecord, DeleteRecord, and ListRecords. |
+| `OperationName` | Filters feature store runtime operational metrics for the operation that<br>you've specified. You can use this dimension for batch operations such as<br>BatchGetRecord and BatchWriteRecord. |
 
 ## SageMaker pipelines metrics
 

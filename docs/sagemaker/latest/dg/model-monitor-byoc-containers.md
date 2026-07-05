@@ -1,5 +1,11 @@
 # Support for Your Own Containers With Amazon SageMaker Model Monitor
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Amazon SageMaker Model Monitor provides a prebuilt container with ability to analyze the data captured
 from endpoints or batch transform jobs for tabular datasets. If you would like
 to bring your own container, Model Monitor provides extension points which you can

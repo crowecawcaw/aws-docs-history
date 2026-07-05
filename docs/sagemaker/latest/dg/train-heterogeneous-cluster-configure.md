@@ -72,8 +72,6 @@ assign the instance groups created in the example of the previous step. You
 can also specify Amazon S3 bucket paths for the instance groups to
 process data for your usage purposes.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train.configs import InputData
 from sagemaker.core.shapes import Channel, DataSource, S3DataSource
@@ -112,35 +110,6 @@ see the following links.
     * The [S3DataSource](../APIReference/API_S3DataSource.md "../APIReference/API_S3DataSource.md") API in the *SageMaker AI
      API Reference*
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.inputs import TrainingInput
-
-training_input_channel_1 = TrainingInput(
-    s3_data_type='`S3Prefix`', # Available Options: S3Prefix | ManifestFile | AugmentedManifestFile
-    s3_data='`s3://your-training-data-storage/folder1`',
-    distribution='`FullyReplicated`', # Available Options: FullyReplicated | ShardedByS3Key
-    input_mode='`File`', # Available Options: File | Pipe | FastFile
-    instance_groups=["`instance_group_1`"]
-)
-
-training_input_channel_2 = TrainingInput(
-    s3_data_type='`S3Prefix`',
-    s3_data='`s3://your-training-data-storage/folder2`',
-    distribution='`FullyReplicated`',
-    input_mode='`File`',
-    instance_groups=["`instance_group_2`"]
-)
-```
-
-For more information about the arguments of `TrainingInput`,
-see the following links.
-
-    * The [sagemaker.inputs.TrainingInput](https://sagemaker.readthedocs.io/en/stable/api/utility/inputs.html "https://sagemaker.readthedocs.io/en/stable/api/utility/inputs.html") class in the *SageMaker Python SDK documentation*
-    * The [S3DataSource](../APIReference/API_S3DataSource.md "../APIReference/API_S3DataSource.md") API in the *SageMaker AI
-     API Reference*
-
 3. Configure a SageMaker AI training object with the `instance_groups` argument
 as shown in the following code example. The `instance_groups`
 argument accepts a list of `InstanceGroup` objects.
@@ -153,7 +122,6 @@ find a complete list of available framework containers, framework
 versions, and Python versions, see [SageMaker AI Framework Containers](https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only "https://github.com/aws/deep-learning-containers/blob/master/available_images.md#sagemaker-framework-containers-sm-support-only") in the AWS Deep Learning
 Container GitHub repository.
 
-SageMaker Python SDK v3
 **PyTorch**
 
 ```
@@ -198,37 +166,6 @@ model_trainer = `ModelTrainer`(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-**PyTorch**
-
-```
-from sagemaker.`pytorch` import `PyTorch`
-
-estimator = `PyTorch`(
-    ...
-    entry_point='`my-training-script.py`',
-    framework_version='`x.y.z`',    # 1.10.0 or later
-    py_version='py`xy`',
-    job_name='`my-training-job-with-heterogeneous-cluster`',
-    instance_groups=[`instance_group_1`, `instance_group_2`]
-)
-```
-
-**TensorFlow**
-
-```
-from sagemaker.`tensorflow` import `TensorFlow`
-
-estimator = `TensorFlow`(
-    ...
-    entry_point='`my-training-script.py`',
-    framework_version='`x.y.z`', # 2.6.0 or later
-    py_version='py`xy`',
-    job_name='`my-training-job-with-heterogeneous-cluster`',
-    instance_groups=[`instance_group_1`, `instance_group_2`]
-)
-```
-
 ###### Note
 
 The `instance_type` and `instance_count`
@@ -245,21 +182,8 @@ versions, and Python versions, see [SageMaker AI Framework Containers](https://g
 Container GitHub repository. 4. Start the training job with the training input channels configured with
 the instance groups.
 
-SageMaker Python SDK v3
-
 ```
 model_trainer.train(
-    inputs={
-        'training': `training_input_channel_1`,
-        '`dummy-input-channel`': `training_input_channel_2`
-    }
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-estimator.fit(
     inputs={
         'training': `training_input_channel_1`,
         '`dummy-input-channel`': `training_input_channel_2`

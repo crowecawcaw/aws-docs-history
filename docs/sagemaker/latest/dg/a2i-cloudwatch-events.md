@@ -1,5 +1,11 @@
 # Use Amazon CloudWatch Events in Amazon Augmented AI
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 Amazon Augmented AI uses Amazon CloudWatch Events to alert you when a human review loop status changes to
 `Completed`, `Failed`, or `Stopped`. This event delivery is
 guaranteed at least once, which means all events created when human loops finish are

@@ -1,5 +1,11 @@
 # Manage labeling requests with an Amazon SQS queue
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When Ground Truth creates your streaming labeling job, it creates an Amazon SQS
 queue in the AWS account used to create the labeling job. The queue name is
 `GroundTruth-`labeling_job_name` where`labeling_job_name`` is the name of

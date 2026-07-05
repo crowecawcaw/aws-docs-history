@@ -1,5 +1,11 @@
 # Getting started: Create a bounding box labeling job with Ground Truth
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 To get started using Amazon SageMaker Ground Truth, follow the instructions in the following sections. The
 sections here explain how to use the console to create a bounding box labeling job, assign a
 public or private workforce, and send the labeling job to your workforce. You can also learn

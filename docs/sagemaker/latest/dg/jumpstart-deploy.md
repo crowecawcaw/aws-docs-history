@@ -4,7 +4,7 @@ When you deploy a model from JumpStart, SageMaker AI hosts the model and deploys
 that you can use for inference. JumpStart also provides an example notebook that you can use
 to access the model after it's deployed.
 
-###### Important
+###### Note
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
 Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For

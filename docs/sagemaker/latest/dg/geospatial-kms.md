@@ -1,5 +1,10 @@
 # Use AWS KMS Permissions for Amazon SageMaker geospatial capabilities
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 You can protect your data at rest using encryption for SageMaker geospatial capabilities. By default, it uses server-side encryption with an Amazon SageMaker geospatial owned key.
 SageMaker geospatial capabilities also supports an option for server-side encryption with a customer managed KMS key.
 

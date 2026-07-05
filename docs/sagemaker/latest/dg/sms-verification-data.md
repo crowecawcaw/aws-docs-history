@@ -1,5 +1,11 @@
 # Label verification and adjustment
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When the labels on a dataset need to be validated, Amazon SageMaker Ground Truth provides functionality to
 have workers verify that labels are correct or to adjust previous labels. These types of
 jobs fall into two distinct categories:

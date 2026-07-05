@@ -1,5 +1,11 @@
 # Delete a Human Loop
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 When you delete a human loop, the status changes to `Deleting`. When the
 human loop is deleted, the associated human review task is no longer available to workers.
 You might want to delete a human loop in one of the following circumstances:

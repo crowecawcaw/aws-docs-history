@@ -5,7 +5,6 @@ frameworks](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readt
 while configuring the SageMaker AI `ModelTrainer` class or the `ModelTrainer.train`
 method. The following code templates show the two ways to specify input modes.
 
-SageMaker Python SDK v3
 **To specify the input mode using the ModelTrainer class**
 
 ```
@@ -57,56 +56,6 @@ model_trainer.train(
 ```
 
 For more information, see the [sagemaker.train.ModelTrainer.train](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") class method and the [sagemaker.train.configs.InputData](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") class in the _SageMaker Python SDK
-documentation_.
-
-SageMaker Python SDK v2 (Legacy)
-**To specify the input mode using the Estimator class**
-
-```
-from sagemaker.`estimator` import `Estimator`
-from sagemaker.inputs import TrainingInput
-
-estimator = Estimator(
-    checkpoint_s3_uri='`s3://amzn-s3-demo-bucket/checkpoint-destination/`',
-    output_path='`s3://amzn-s3-demo-bucket/output-path/`',
-    base_job_name='`job-name`',
-    input_mode='`File`'  # Available options: File | Pipe | FastFile
-    ...
-)
-
-# Run the training job
-estimator.fit(
-    inputs=TrainingInput(s3_data="`s3://amzn-s3-demo-bucket/my-data/train`")
-)
-```
-
-For more information, see the [sagemaker.estimator.Estimator](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator") class in the _SageMaker Python SDK
-documentation_.
-
-**To specify the input mode through the `estimator.fit()`
-method**
-
-```
-from sagemaker.`estimator` import `Estimator`
-from sagemaker.inputs import TrainingInput
-
-estimator = Estimator(
-    checkpoint_s3_uri='`s3://amzn-s3-demo-bucket/checkpoint-destination/`',
-    output_path='`s3://amzn-s3-demo-bucket/output-path/`',
-    base_job_name='`job-name`',
-    ...
-)
-
-# Run the training job
-estimator.fit(
-    inputs=TrainingInput(
-        s3_data="`s3://amzn-s3-demo-bucket/my-data/train`",
-        input_mode='`File`'  # Available options: File | Pipe | FastFile
-    )
-)
-```
-
-For more information, see the [sagemaker.estimator.Estimator.fit](https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator.fit "https://sagemaker.readthedocs.io/en/stable/api/training/estimators.html#sagemaker.estimator.Estimator.fit") class method and the [sagemaker.inputs.TrainingInput](https://sagemaker.readthedocs.io/en/stable/api/utility/inputs.html#sagemaker.inputs.TrainingInput "https://sagemaker.readthedocs.io/en/stable/api/utility/inputs.html#sagemaker.inputs.TrainingInput") class in the _SageMaker Python SDK
 documentation_.
 
 ###### Tip

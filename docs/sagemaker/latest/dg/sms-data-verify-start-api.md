@@ -1,5 +1,11 @@
 # Start a label verification or adjustment job (API)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Start a label verification or adjustment job by chaining a successfully completed
 job or starting a new job from scratch using the [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md") operation. The procedure is almost the
 same as setting up a new labeling job with `CreateLabelingJob`, with a

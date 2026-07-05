@@ -1,5 +1,10 @@
 # Configure settings for basic profiling of system resource utilization
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 To adjust the time interval for collecting the utilization metrics, use the
 `ProfilerConfig` API operation to create a parameter object while
 constructing a SageMaker AI framework or generic estimator depending on your preference.
@@ -17,20 +22,8 @@ default S3 bucket URI is
 The following code example shows how to set up the `profiler_config`
 parameter with a system monitoring time interval of 1000 milliseconds.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import ProfilerConfig
-
-profiler_config=ProfilerConfig(
-    system_monitor_interval_millis=`1000`
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import ProfilerConfig
 
 profiler_config=ProfilerConfig(
     system_monitor_interval_millis=`1000`

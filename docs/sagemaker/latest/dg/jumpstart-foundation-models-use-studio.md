@@ -3,7 +3,7 @@
 You can fine-tune and deploy both publicly available and proprietary JumpStart
 foundation models through the Studio Classic UI.
 
-###### Important
+###### Note
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
 Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For

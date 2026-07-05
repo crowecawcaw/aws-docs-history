@@ -8,7 +8,7 @@ case you do not provide a AWS KMS key then we ensure that your data is encrypted
 using an AWS owned AWS KMS key or AWS managed AWS KMS key. While creating a feature group, you can select
 storage type and optionally provide a AWS KMS key for encrypting data, then you can call
 various APIs for data management such as `PutRecord`, `GetRecord`,
-`DeleteRecord`.
+`DeleteRecord`, `ListRecords`, and `BatchWriteRecord`.
 
 Feature Store allows you to grant or deny access to individuals at the feature
 group-level and enables cross-account access to Feature Store. For example, you can set
@@ -180,12 +180,31 @@ Feature Store sends to AWS KMS on your behalf.
 
 ## Accessing data in your online store
 
-The **caller (either user or role)** to **ALL DataPlane operations (Put, Get, DeleteRecord)** must have below
-permissions on the customer managed key:
+The **caller (either user or role)** to DataPlane
+operations must have the corresponding IAM action permissions on the target feature
+group resource. In addition, all DataPlane operations require
+`kms:Decrypt` on the customer managed key.
 
-```
-"kms:Decrypt"
-```
+- **PutRecord** – Requires
+  `sagemaker:PutRecord`
+- **GetRecord** – Requires
+  `sagemaker:GetRecord`
+- **DeleteRecord** – Requires
+  `sagemaker:DeleteRecord`
+- **ListRecords** – Requires
+  `sagemaker:ListRecords`
+- **BatchWriteRecord** – Requires
+  `sagemaker:BatchWriteRecord` and
+  `sagemaker:PutRecord`
+- **BatchGetRecord** – Requires
+  `sagemaker:BatchGetRecord`
+
+###### Note
+
+The `BatchWriteRecord` API requires the caller to have both
+`sagemaker:BatchWriteRecord` and `sagemaker:PutRecord`
+permissions on the target feature group. An explicit Deny on either action
+blocks the request.
 
 ## Authorizing use of a customer managed key for your offline store
 

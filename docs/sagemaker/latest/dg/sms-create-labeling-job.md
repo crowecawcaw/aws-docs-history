@@ -1,5 +1,11 @@
 # Create a Labeling Job
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 You can create a labeling job in the Amazon SageMaker AI console and by using an AWS SDK in your
 preferred language to run `CreateLabelingJob`. After a labeling job has been
 created, you can track worker metrics (for private workforces) and your labeling job status

@@ -1,5 +1,11 @@
 # Create a streaming labeling job
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Streaming labeling jobs enable you to send individual data objects in real time to a perpetually running, streaming labeling job. To create a streaming labeling job, you can specify the Amazon SNS _input topic_ ARN, `SnsTopicArn`, in the `InputConfig` parameter when making a [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md") request. Optionally, you can also create an Amazon SNS _output topic_ and specify it in `OutputConfig`if you want to receive label data in real time.
 
 ###### Important

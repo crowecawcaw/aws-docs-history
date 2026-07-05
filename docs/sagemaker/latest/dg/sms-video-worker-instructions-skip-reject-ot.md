@@ -1,5 +1,11 @@
 # Understand Release, Stop and Resume, and Decline Task Options
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you open the labeling task, three buttons on the top right allow you to
 decline the task (**Decline task**), release it
 (**Release task**), and stop and resume it at a later time

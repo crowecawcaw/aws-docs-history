@@ -13,7 +13,7 @@ own image to use with RStudio on SageMaker AI takes three steps:
    your Amazon SageMaker AI domain.
 3. Launch a new session in RStudio with your custom image.
    You can create images and image versions, and attach image versions to your domain,
-   using the SageMaker AI control panel, the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html"), and the [AWS Command Line Interface (AWS CLI)](../../../cli/latest/reference/sagemaker.md "../../../cli/latest/reference/sagemaker.md"). You can also create
+   using the SageMaker AI control panel, the [AWS SDK for Python (Boto3)](../../../boto3/latest/reference/services/sagemaker.md "../../../boto3/latest/reference/services/sagemaker.md"), and the [AWS Command Line Interface (AWS CLI)](../../../cli/latest/reference/sagemaker.md "../../../cli/latest/reference/sagemaker.md"). You can also create
    images and image versions using the SageMaker AI console, even if you haven't onboarded to a
    domain.
 

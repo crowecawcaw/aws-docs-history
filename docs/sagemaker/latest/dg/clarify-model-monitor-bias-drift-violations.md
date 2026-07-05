@@ -1,5 +1,11 @@
 # Bias Drift Violations
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Bias drift jobs evaluate the baseline constraints provided by the [baseline configuration](../APIReference/API_CreateModelBiasJobDefinition.md#sagemaker-CreateModelBiasJobDefinition-request-ModelBiasBaselineConfig "../APIReference/API_CreateModelBiasJobDefinition.md#sagemaker-CreateModelBiasJobDefinition-request-ModelBiasBaselineConfig") against the analysis results of current
 `MonitoringExecution`. If violations are detected, the job lists them to
 the _constraint\_violations.json_ file in the execution

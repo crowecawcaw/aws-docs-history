@@ -1,5 +1,11 @@
 # Create and Delete Worker Task Templates
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 You can use a worker template to customize the interface and instructions that your
 workers see when working on your tasks. Use the instructions on this page to create a worker
 task template in the Augmented AI area of the Amazon SageMaker AI console. A starter template is provided for

@@ -1,5 +1,11 @@
 # The cron expression for monitoring schedule
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 To provide details for the monitoring schedule, use [`ScheduleConfig`](../APIReference/API_ScheduleConfig.md "../APIReference/API_ScheduleConfig.md"), which is a `cron` expression that
 describes details about the monitoring schedule.
 

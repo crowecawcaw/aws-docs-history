@@ -17,24 +17,12 @@ roles. The users assuming a role can use the relevant `stage` and
 `stageStatus` and include their own
 `stageDescription`.
 
-SageMaker Python SDK v3
-
 ```
 ModelLifeCycle {
     stage: String # Required (e.g., Development/QA/Production)
     stageStatus: String # Required (e.g., PendingApproval/Approved/Rejected)
     stageDescription: String # Optional
 }
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-model_package_update_input_dict = {
-    "ModelPackageArn" : model_package_arn,
-    "ModelApprovalStatus" : "Approved"
-}
-model_package_update_response = sm_client.update_model_package(**model_package_update_input_dict)
 ```
 
 The following table contains Model Registry pre-defined stage construct templates. You

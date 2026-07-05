@@ -273,23 +273,11 @@ see [APIs](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readth
    example imports the SDK for Python (Boto3). It also imports the classes from the SageMaker AI
    Python SDK that you use to define and work with models:
 
-SageMaker Python SDK v3
-
 ```
 import boto3
 from sagemaker.serve.model_builder import ModelBuilder
 from sagemaker.serve.builder.schema_builder import SchemaBuilder
 from sagemaker.core.helper.session_helper import Session
-from pathlib import Path
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import boto3
-from sagemaker.serve.builder.model_builder import ModelBuilder
-from sagemaker.serve.builder.schema_builder import SchemaBuilder
-from sagemaker.session import Session
 from pathlib import Path
 ```
 
@@ -385,19 +373,8 @@ The `optimize()` method returns a `Model` object,
 which you can use to deploy your model to an endpoint. 2. When the job completes, deploy the model. The following example uses the
 `deploy()` method:
 
-SageMaker Python SDK v3
-
 ```
 endpoint = model_builder.deploy(
-    instance_type="`instance-type`",
-    accept_eula=True,
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = optimized_model.deploy(
     instance_type="`instance-type`",
     accept_eula=True,
 )
@@ -444,16 +421,8 @@ The `optimize()` method returns a `Model` object,
 which you can use to deploy your model to an endpoint. 2. When the job completes, deploy the model. The following example uses the
 `deploy()` method:
 
-SageMaker Python SDK v3
-
 ```
 endpoint = model_builder.deploy(accept_eula=True)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = optimized_model.deploy(accept_eula=True)
 ```
 
 The `deploy()` method returns an `Endpoint` object, which you can
@@ -536,16 +505,8 @@ The `optimize()` method returns a `Model` object,
 which you can use to deploy your model to an endpoint. 4. When the job completes, deploy the model. The following example uses the
 `deploy()` method:
 
-SageMaker Python SDK v3
-
 ```
 endpoint = model_builder.deploy(accept_eula=True)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = optimized_model.deploy(accept_eula=True)
 ```
 
 The `deploy()` method returns an `Endpoint` object, which you can
@@ -585,16 +546,8 @@ path to the S3 location where you store the optimized model that the job
 creates. 2. When the job completes, deploy the model. The following example uses the
 `deploy()` method:
 
-SageMaker Python SDK v3
-
 ```
 endpoint = model_builder.deploy(accept_eula=True)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = optimized_model.deploy(accept_eula=True)
 ```
 
 The `deploy()` method returns an `Endpoint` object, which you can
@@ -608,19 +561,11 @@ use to send inference requests to the endpoint that hosts the model.
   to the `SchemaBuilder` class in the examples to define your
   model:
 
-SageMaker Python SDK v3
-
 ```
 import json
 
 response = endpoint.invoke(body=json.dumps(sample_input), content_type="application/json")
 result = json.loads(response.body.read().decode('utf-8'))
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor.predict(sample_input)
 ```
 
 The sample input has the prompt, `"What is the largest planet in the

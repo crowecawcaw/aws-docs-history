@@ -1,5 +1,11 @@
 # Bias drift for models in production
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Amazon SageMaker Clarify bias monitoring helps data scientists and ML engineers monitor predictions for
 bias on a regular basis. As the model is monitored, customers can view exportable reports
 and graphs detailing bias in SageMaker Studio and configure alerts in Amazon CloudWatch to receive

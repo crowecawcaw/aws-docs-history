@@ -1,5 +1,11 @@
 # Creating Amazon S3 based bucket event notifications based of the Amazon SNS defined in your labeling job
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Changes to your Amazon S3 bucket, event notifications, are enabled either the Amazon S3 console, API, language specific AWS SDKs, or the AWS Command Line Interface. Events must use the same Amazon SNS input topic ARN, `SnsTopicArn`, specified in the `InputConfig` parameter as part of your `CreateLabelingJob` request.
 
 ###### Amazon S3 bucket notifications and your input data should not be the same Amazon S3 bucket

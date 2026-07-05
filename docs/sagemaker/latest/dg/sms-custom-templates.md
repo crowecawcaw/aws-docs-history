@@ -1,5 +1,11 @@
 # Custom labeling workflows
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 These topics help you set up a Ground Truth labeling job that uses a custom labeling template. A
 custom labeling template allows you to create a custom worker portal UI that workers will
 use to label data. Template can be created using HTML, CSS, JavaScript, [Liquid template language](https://shopify.github.io/liquid/ "https://shopify.github.io/liquid/"), and [Crowd HTML

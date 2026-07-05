@@ -1,5 +1,11 @@
 # Creating Good Worker Instructions
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 Creating good instructions for your human review jobs improves your worker's accuracy
 in completing their task. You can modify the default instructions that are provided in the
 console when creating a human review workflow, or you can use the console to create a custom

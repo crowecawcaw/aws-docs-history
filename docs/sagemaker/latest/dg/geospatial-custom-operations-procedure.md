@@ -1,5 +1,10 @@
 # Using `ProcessingJob` to calculate the Normalized Difference Vegetation Index (NDVI) using Sentinel-2 satellite data
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 The
 following code samples show you how to calculate the normalized
 difference vegetation index of a specific geographical area using the purpose-built

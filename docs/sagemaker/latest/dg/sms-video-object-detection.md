@@ -1,5 +1,11 @@
 # Identify objects using video frame object detection
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 You can use the video frame object detection task type to have workers identify and
 locate objects in a sequence of video frames (images extracted from a video) using
 bounding boxes, polylines, polygons or keypoint _annotation

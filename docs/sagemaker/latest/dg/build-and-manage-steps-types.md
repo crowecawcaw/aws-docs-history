@@ -119,8 +119,6 @@ A processing step requires a processor, a Python script that defines the
 processing code, outputs for processing, and job arguments. The following example
 shows how to create a `ProcessingStep` definition.
 
-**SageMaker Python SDK v3:**
-
 ```
 from sagemaker.core.processing import Processor, ProcessingInput, ProcessingOutput
 
@@ -190,77 +188,6 @@ step_process = ProcessingStep(
 )
 ```
 
-**SageMaker Python SDK v2 (Legacy):**
-
-```
-from sagemaker.sklearn.processing import SKLearnProcessor
-
-sklearn_processor = SKLearnProcessor(framework_version='1.0-1',
-                                     role=`<role>`,
-                                     instance_type='ml.m5.xlarge',
-                                     instance_count=1)
-```
-
-```
-from sagemaker.processing import ProcessingInput, ProcessingOutput
-from sagemaker.workflow.steps import ProcessingStep
-
-inputs = [
-    ProcessingInput(source=`<input_data>`, destination="/opt/ml/processing/input"),
-]
-
-outputs = [
-    ProcessingOutput(output_name="train", source="/opt/ml/processing/train"),
-    ProcessingOutput(output_name="validation", source="/opt/ml/processing/validation"),
-    ProcessingOutput(output_name="test", source="/opt/ml/processing/test")
-]
-
-step_process = ProcessingStep(
-    name="AbaloneProcess",
-    step_args = sklearn_processor.run(inputs=inputs, outputs=outputs,
-        code="abalone/preprocessing.py")
-)
-```
-
-**Pass runtime parameters**
-
-The following example shows how to pass runtime parameters from a PySpark
-processor to a `ProcessingStep`.
-
-```
-from sagemaker.workflow.pipeline_context import PipelineSession
-from sagemaker.spark.processing import PySparkProcessor
-from sagemaker.processing import ProcessingInput, ProcessingOutput
-from sagemaker.workflow.steps import ProcessingStep
-
-pipeline_session = PipelineSession()
-
-pyspark_processor = PySparkProcessor(
-    framework_version='2.4',
-    role=`<role>`,
-    instance_type='ml.m5.xlarge',
-    instance_count=1,
-    sagemaker_session=pipeline_session,
-)
-
-step_args = pyspark_processor.run(
-    inputs=[ProcessingInput(source=`<input_data>`, destination="/opt/ml/processing/input"),],
-    outputs=[
-        ProcessingOutput(output_name="train", source="/opt/ml/processing/train"),
-        ProcessingOutput(output_name="validation", source="/opt/ml/processing/validation"),
-        ProcessingOutput(output_name="test", source="/opt/ml/processing/test")
-    ],
-    code="preprocess.py",
-    arguments=None,
-)
-
-
-step_process = ProcessingStep(
-    name="AbaloneProcess",
-    step_args=step_args,
-)
-```
-
 For more information on processing step requirements, see the [sagemaker.workflow.steps.ProcessingStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.ProcessingStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.ProcessingStep") documentation. For an in-depth
 example, see the [Orchestrate Jobs to Train and Evaluate Models with Amazon SageMaker Pipelines](https://github.com/aws/amazon-sagemaker-examples/blob/62de6a1fca74c7e70089d77e36f1356033adbe5f/sagemaker-pipelines/tabular/abalone_build_train_deploy/sagemaker-pipelines-preprocess-train-evaluate-batch-transform.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/62de6a1fca74c7e70089d77e36f1356033adbe5f/sagemaker-pipelines/tabular/abalone_build_train_deploy/sagemaker-pipelines-preprocess-train-evaluate-batch-transform.ipynb")
 example notebook. The _Define a Processing Step for Feature
@@ -299,8 +226,6 @@ SageMaker Python SDK
 The following example shows how to create a `TrainingStep` definition.
 For more information about training step requirements, see the [sagemaker.workflow.steps.TrainingStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TrainingStep "https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.steps.TrainingStep") documentation.
 
-**SageMaker Python SDK v3:**
-
 ```
 from sagemaker.core.workflow.pipeline_context import PipelineSession
 from sagemaker.train import ModelTrainer
@@ -334,43 +259,6 @@ step_args = model_trainer.train(
             ].S3Output.S3Uri,
         )
     ]
-)
-
-step_train = TrainingStep(
-    name="TrainAbaloneModel",
-    step_args=step_args,
-)
-```
-
-**SageMaker Python SDK v2 (Legacy):**
-
-```
-from sagemaker.workflow.pipeline_context import PipelineSession
-
-from sagemaker.inputs import TrainingInput
-from sagemaker.workflow.steps import TrainingStep
-
-from sagemaker.xgboost.estimator import XGBoost
-
-pipeline_session = PipelineSession()
-
-xgb_estimator = XGBoost(..., sagemaker_session=pipeline_session)
-
-step_args = xgb_estimator.fit(
-    inputs={
-        "train": TrainingInput(
-            s3_data=step_process.properties.ProcessingOutputConfig.Outputs[
-                "train"
-            ].S3Output.S3Uri,
-            content_type="text/csv"
-        ),
-        "validation": TrainingInput(
-            s3_data=step_process.properties.ProcessingOutputConfig.Outputs[
-                "validation"
-            ].S3Output.S3Uri,
-            content_type="text/csv"
-        )
-    }
 )
 
 step_train = TrainingStep(
@@ -542,33 +430,10 @@ Model with Amazon SageMaker AI](how-it-works-training.md "how-it-works-training.
 
 The following example shows how to create a `ModelStep` definition.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.workflow.pipeline_context import PipelineSession
 from sagemaker.core.resources import Model
 from sagemaker.mlops.workflow.model_step import ModelStep
-
-step_train = TrainingStep(...)
-model = Model(
-    image_uri=pytorch_estimator.training_image_uri(),
-    model_data=step_train.properties.ModelArtifacts.S3ModelArtifacts,
-    sagemaker_session=PipelineSession(),
-    role=role,
-)
-
-step_model_create = ModelStep(
-   name="MyModelCreationStep",
-   step_args=model.create(instance_type="ml.m5.xlarge"),
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.pipeline_context import PipelineSession
-from sagemaker.model import Model
-from sagemaker.workflow.model_step import ModelStep
 
 step_train = TrainingStep(...)
 model = Model(
@@ -594,8 +459,6 @@ about how to register a model, see [Model Registration Deployment with Model Reg
 
 The following example shows how to create a `ModelStep` that registers a
 `PipelineModel`.
-
-SageMaker Python SDK v3
 
 ```
 import time
@@ -632,63 +495,6 @@ xgboost_model = XGBoostModel(
 
 from sagemaker.mlops.workflow.model_step import ModelStep
 from sagemaker.core.pipeline_model import PipelineModel
-
-pipeline_model = PipelineModel(
-   models=[sklearn_model, xgboost_model],
-   role=role,sagemaker_session=pipeline_session,
-)
-
-register_model_step_args = pipeline_model.register(
-    content_types=["application/json"],
-   response_types=["application/json"],
-   inference_instances=["ml.t2.medium", "ml.m5.xlarge"],
-   transform_instances=["ml.m5.xlarge"],
-   model_package_group_name='sipgroup',
-)
-
-step_model_registration = ModelStep(
-   name="AbaloneRegisterModel",
-   step_args=register_model_step_args,
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import time
-
-from sagemaker.workflow.pipeline_context import PipelineSession
-from sagemaker.sklearn import SKLearnModel
-from sagemaker.xgboost import XGBoostModel
-
-pipeline_session = PipelineSession()
-
-code_location = 's3://{0}/{1}/code'.format(`bucket_name`, prefix)
-
-sklearn_model = SKLearnModel(
-   model_data=processing_step.properties.ProcessingOutputConfig.Outputs['model'].S3Output.S3Uri,
-   entry_point='inference.py',
-   source_dir='sklearn_source_dir/',
-   code_location=code_location,
-   framework_version='1.0-1',
-   role=role,
-   sagemaker_session=pipeline_session,
-   py_version='py3'
-)
-
-xgboost_model = XGBoostModel(
-   model_data=training_step.properties.ModelArtifacts.S3ModelArtifacts,
-   entry_point='inference.py',
-   source_dir='xgboost_source_dir/',
-   code_location=code_location,
-   framework_version='0.90-2',
-   py_version='py3',
-   sagemaker_session=pipeline_session,
-   role=role
-)
-
-from sagemaker.workflow.model_step import ModelStep
-from sagemaker import PipelineModel
 
 pipeline_model = PipelineModel(
    models=[sklearn_model, xgboost_model],
@@ -932,7 +738,6 @@ editor, do the following:
    create an edge.
 
 SageMaker Python SDK
-**SageMaker Python SDK v3:**
 
 ```
 from sagemaker.core.workflow.pipeline_context import PipelineSession
@@ -940,23 +745,6 @@ from sagemaker.core.workflow.pipeline_context import PipelineSession
 from sagemaker.core.transformer import Transformer
 from sagemaker.train.configs import TransformInput
 from sagemaker.mlops.workflow.steps import TransformStep
-
-transformer = Transformer(..., sagemaker_session=PipelineSession())
-
-step_transform = TransformStep(
-    name="AbaloneTransform",
-    step_args=transformer.transform(data="s3://`amzn-s3-demo-bucket/my-data`"),
-)
-```
-
-**SageMaker Python SDK v2 (Legacy):**
-
-```
-from sagemaker.workflow.pipeline_context import PipelineSession
-
-from sagemaker.transformer import Transformer
-from sagemaker.inputs import TransformInput
-from sagemaker.workflow.steps import TransformStep
 
 transformer = Transformer(..., sagemaker_session=PipelineSession())
 
@@ -1009,36 +797,10 @@ definition.
   same step functionality in both branches, duplicate the step and give it a
   different name.
 
-**SageMaker Python SDK v3:**
-
 ```
 from sagemaker.core.workflow.conditions import ConditionLessThanOrEqualTo
 from sagemaker.mlops.workflow.condition_step import ConditionStep
 from sagemaker.core.workflow.functions import JsonGet
-
-cond_lte = ConditionLessThanOrEqualTo(
-    left=JsonGet(
-        step_name=step_eval.name,
-        property_file=evaluation_report,
-        json_path="regression_metrics.mse.value"
-    ),
-    right=6.0
-)
-
-step_cond = ConditionStep(
-    name="AbaloneMSECond",
-    conditions=[cond_lte],
-    if_steps=[step_register, step_create_model, step_transform],
-    else_steps=[]
-)
-```
-
-**SageMaker Python SDK v2 (Legacy):**
-
-```
-from sagemaker.workflow.conditions import ConditionLessThanOrEqualTo
-from sagemaker.workflow.condition_step import ConditionStep
-from sagemaker.workflow.functions import JsonGet
 
 cond_lte = ConditionLessThanOrEqualTo(
     left=JsonGet(
@@ -1090,43 +852,8 @@ step or the pipeline DAG doesn't display. To update Studio Classic, see [Shut Do
 
 The following sample shows an implementation of the preceding procedure.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.workflow.callback_step import CallbackStep
-
-step_callback = CallbackStep(
-    name="MyCallbackStep",
-    sqs_queue_url="https://sqs.us-east-2.amazonaws.com/012345678901/MyCallbackQueue",
-    inputs={...},
-    outputs=[...]
-)
-
-callback_handler_code = '
-    import boto3
-    import json
-
-    def handler(event, context):
-        sagemaker_client=boto3.client("sagemaker")
-
-        for record in event["Records"]:
-            payload=json.loads(record["body"])
-            token=payload["token"]
-
-            # Custom processing
-
-            # Call SageMaker AI to complete the step
-            sagemaker_client.send_pipeline_execution_step_success(
-                CallbackToken=token,
-                OutputParameters={...}
-            )
-'
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.callback_step import CallbackStep
 
 step_callback = CallbackStep(
     name="MyCallbackStep",
@@ -1238,31 +965,8 @@ be uploaded
   The following example shows how to create a `Lambda` step definition that
   invokes an existing Lambda function.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.workflow.lambda_step import LambdaStep
-from sagemaker.lambda_helper import Lambda
-
-step_lambda = LambdaStep(
-    name="ProcessingLambda",
-    lambda_func=Lambda(
-        function_arn="arn:aws:lambda:us-west-2:012345678910:function:split-dataset-lambda"
-    ),
-    inputs={
-        s3_bucket = s3_bucket,
-        data_file = data_file
-    },
-    outputs=[
-        "train_file", "test_file"
-    ]
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.lambda_step import LambdaStep
 from sagemaker.lambda_helper import Lambda
 
 step_lambda = LambdaStep(
@@ -1414,8 +1118,6 @@ SDK for Python_. For an Amazon SageMaker Studio Classic notebook that shows how 
 
 ###### Example Create a `ClarifyCheck` step for data bias check
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.workflow.check_job_config import CheckJobConfig
 from sagemaker.mlops.workflow.clarify_check_step import DataBiasCheckConfig, ClarifyCheckStep
@@ -1455,49 +1157,6 @@ data_bias_check_step = ClarifyCheckStep(
     skip_check=False,
     register_new_baseline=False,
     supplied_baseline_constraints="`s3://sagemaker-us-west-2-111122223333/baseline/analysis.json`",
-    model_package_group_name="`MyModelPackageGroup`"
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.check_job_config import CheckJobConfig
-from sagemaker.workflow.clarify_check_step import DataBiasCheckConfig, ClarifyCheckStep
-from sagemaker.workflow.execution_variables import ExecutionVariables
-
-check_job_config = CheckJobConfig(
-    role=role,
-    instance_count=1,
-    instance_type="`ml.c5.xlarge`",
-    volume_size_in_gb=`120`,
-    sagemaker_session=sagemaker_session,
-)
-
-data_bias_data_config = DataConfig(
-    s3_data_input_path=step_process.properties.ProcessingOutputConfig.Outputs["train"].S3Output.S3Uri,
-    s3_output_path=Join(on='/', values=['s3:/', your_bucket, base_job_prefix, ExecutionVariables.PIPELINE_EXECUTION_ID, '`databiascheckstep`']),
-    label=0,
-    dataset_type="`text/csv`",
-    s3_analysis_config_output_path=data_bias_analysis_cfg_output_path,
-)
-
-data_bias_config = BiasConfig(
-    label_values_or_threshold=[`15.0`], facet_name=[`8`], facet_values_or_threshold=[[`0.5`]]
-)
-
-data_bias_check_config = DataBiasCheckConfig(
-    data_config=data_bias_data_config,
-    data_bias_config=data_bias_config,
-)h
-
-data_bias_check_step = ClarifyCheckStep(
-    name="`DataBiasCheckStep`",
-    clarify_check_config=data_bias_check_config,
-    check_job_config=check_job_config,
-    skip_check=False,
-    register_new_baseline=False
-   supplied_baseline_constraints="`s3://sagemaker-us-west-2-111122223333/baseline/analysis.json`",
     model_package_group_name="`MyModelPackageGroup`"
 )
 ```
@@ -1578,47 +1237,12 @@ SDK for Python_. For an Amazon SageMaker Studio Classic notebook that shows how 
 
 ###### Example Create a `QualityCheck` step for data quality check
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.workflow.check_job_config import CheckJobConfig
 from sagemaker.mlops.workflow.quality_check_step import DataQualityCheckConfig, QualityCheckStep
 from sagemaker.workflow.execution_variables import ExecutionVariables
 from sagemaker.core.model_monitor.dataset_format import DatasetFormat
 from sagemaker.core.workflow.functions import Join
-
-check_job_config = CheckJobConfig(
-    role=role,
-    instance_count=1,
-    instance_type="`ml.c5.xlarge`",
-    volume_size_in_gb=`120`,
-    sagemaker_session=sagemaker_session,
-)
-
-data_quality_check_config = DataQualityCheckConfig(
-    baseline_dataset=step_process.properties.ProcessingOutputConfig.Outputs["`train`"].S3Output.S3Uri,
-    dataset_format=DatasetFormat.csv(header=False, output_columns_position="START"),
-    output_s3_uri=Join(on='/', values=['s3:/', your_bucket, base_job_prefix, ExecutionVariables.PIPELINE_EXECUTION_ID, 'dataqualitycheckstep'])
-)
-
-data_quality_check_step = QualityCheckStep(
-    name="DataQualityCheckStep",
-    skip_check=False,
-    register_new_baseline=False,
-    quality_check_config=data_quality_check_config,
-    check_job_config=check_job_config,
-    supplied_baseline_statistics="s3://`sagemaker-us-west-2-555555555555/baseline/statistics.json`",
-    supplied_baseline_constraints="s3://`sagemaker-us-west-2-555555555555/baseline/constraints.json`",
-    model_package_group_name="`MyModelPackageGroup`"
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.check_job_config import CheckJobConfig
-from sagemaker.workflow.quality_check_step import DataQualityCheckConfig, QualityCheckStep
-from sagemaker.workflow.execution_variables import ExecutionVariables
 
 check_job_config = CheckJobConfig(
     role=role,

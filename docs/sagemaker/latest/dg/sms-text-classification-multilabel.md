@@ -1,5 +1,11 @@
 # Categorize text with text classification (Multi-label)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 To categorize articles and text into multiple predefined categories, use the multi-label
 text classification task type. For example, you can use this task type to identify more than
 one emotion conveyed in text. The following sections give information about how to create a

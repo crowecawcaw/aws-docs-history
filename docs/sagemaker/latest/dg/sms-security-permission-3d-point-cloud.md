@@ -1,5 +1,11 @@
 # 3D point cloud labeling job permission requirements
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you create a 3D point cloud labeling job, in addition to the permission requirements
 found in [Assign IAM Permissions to Use Ground Truth](sms-security-permission.md "sms-security-permission.md"),
 you must add a CORS policy to your S3 bucket that contains your input manifest file.

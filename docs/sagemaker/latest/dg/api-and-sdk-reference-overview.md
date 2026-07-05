@@ -15,7 +15,7 @@ and manage notebook instances and train and deploy models.
 - [AWS SDK for Java](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/sagemaker/AmazonSageMaker.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/sagemaker/AmazonSageMaker.md")
 - [AWS SDK for JavaScript](../../../AWSJavaScriptSDK/latest/AWS/SageMaker.md "../../../AWSJavaScriptSDK/latest/AWS/SageMaker.md")
 - [AWS SDK for PHP](../../../aws-sdk-php/v3/api/api-sagemaker-2017-07-24.md "../../../aws-sdk-php/v3/api/api-sagemaker-2017-07-24.md")
-- [AWS SDK for Python (Boto)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html")
+- [AWS SDK for Python (Boto)](../../../boto3/latest/reference/services/sagemaker.md "../../../boto3/latest/reference/services/sagemaker.md")
 - [AWS SDK for Ruby](../../../sdk-for-ruby/v3/api/Aws/SageMaker.md "../../../sdk-for-ruby/v3/api/Aws/SageMaker.md")
 - [Amazon SageMaker AI Spark](https://github.com/aws/sagemaker-spark/blob/master/README.md "https://github.com/aws/sagemaker-spark/blob/master/README.md")
   You can also get code examples from the Amazon SageMaker AI example notebooks GitHub

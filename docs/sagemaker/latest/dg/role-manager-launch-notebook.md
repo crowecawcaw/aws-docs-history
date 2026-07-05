@@ -1,5 +1,11 @@
 # Launch Studio Classic
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Role Manager, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md "role-manager-availability-change.md").
+
 Use your persona-focused roles to launch Studio Classic. If you are an administrator, you
 can give your users access to Studio Classic and have them assume their persona role either
 directly through the AWS Management Console or through the AWS IAM Identity Center.

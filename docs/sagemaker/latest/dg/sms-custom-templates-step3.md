@@ -1,5 +1,11 @@
 # Processing data in a custom labeling workflow with AWS Lambda
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 In this topic, you can learn how to deploy optional [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/") functions when creating a custom labeling workflow. You can specify two types of Lambda functions to use with your custom labeling workflow.
 
 - _Pre-annotation Lambda_: This function pre-processes each data object sent to your labeling job prior to sending it to workers.

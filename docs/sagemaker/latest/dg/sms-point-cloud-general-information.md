@@ -1,5 +1,11 @@
 # 3D point cloud labeling jobs overview
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 This topic provides an overview of the unique features of a Ground Truth 3D point cloud labeling
 job. You can use the 3D point cloud labeling jobs to have workers label objects in a 3D
 point cloud generated from a 3D sensors like LiDAR and depth cameras or generated from 3D

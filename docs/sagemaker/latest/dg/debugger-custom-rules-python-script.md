@@ -1,5 +1,11 @@
 # Use the `smdebug` client library to create a custom rule as a Python script
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 The `smdebug` Rule API provides an interface to set up your own custom rules.
 The following python script is a sample of how to construct a custom rule, `CustomGradientRule`.
 This tutorial custom rule watches if the gradients are getting too large and set the default threshold as 10.

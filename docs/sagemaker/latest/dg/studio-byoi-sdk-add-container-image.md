@@ -1,6 +1,6 @@
 # Add a Docker Image Compatible with Amazon SageMaker Studio Classic to Amazon ECR
 
-###### Important
+###### Note
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
 Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For

@@ -1,5 +1,11 @@
 # Enhanced data labeling
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Amazon SageMaker Ground Truth manages sending your data objects to workers to be labeled. Labeling each data
 object is a _task_. Workers complete each task until the entire labeling
 job is complete. Ground Truth divides the total number of tasks into smaller

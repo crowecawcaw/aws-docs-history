@@ -1,5 +1,11 @@
 # Create a SHAP Baseline for Models in Production
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Explanations are typically contrastive, that is, they account for deviations from a
 baseline. For information on explainability baselines, see [SHAP Baselines for Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md").
 

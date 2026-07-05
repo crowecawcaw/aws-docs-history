@@ -1,5 +1,11 @@
 # Understand the 3D point cloud semantic segmentation task type
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Semantic segmentation involves classifying individual points of a 3D point cloud into
 pre-specified categories. Use this task type when you want workers to create a point-level
 semantic segmentation mask for 3D point clouds. For example, if you specify the classes

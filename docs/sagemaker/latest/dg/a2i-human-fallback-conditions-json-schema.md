@@ -1,5 +1,11 @@
 # JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 The `HumanLoopActivationConditions` is an input parameter of the [`CreateFlowDefinition`](../APIReference/API_CreateFlowDefinition.md "../APIReference/API_CreateFlowDefinition.md") API. This parameter is a JSON-formatted
 string. The JSON models the conditions under which a human loop is created when those
 conditions are evaluated against the response from an integrating AI service API (such as

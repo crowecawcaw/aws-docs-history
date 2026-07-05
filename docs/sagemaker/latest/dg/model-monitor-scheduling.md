@@ -1,5 +1,11 @@
 # Schedule monitoring jobs
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Amazon SageMaker Model Monitor provides you the ability to monitor the data collected from your real-time
 endpoints. You can monitor your data on a recurring schedule, or you can monitor it one
 time, immediately. You can create a monitoring schedule with the [`CreateMonitoringSchedule`](../APIReference/API_CreateMonitoringSchedule.md "../APIReference/API_CreateMonitoringSchedule.md") API.

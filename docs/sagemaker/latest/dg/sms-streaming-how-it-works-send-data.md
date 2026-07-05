@@ -1,5 +1,11 @@
 # Send data to a streaming labeling job
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 You can optionally submit input data to a streaming labeling job one time when you
 create the labeling job using an input manifest file. Once the labeling job has
 started and the state is `InProgress`, you can submit new data objects to

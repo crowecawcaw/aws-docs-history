@@ -1,5 +1,11 @@
 # JSON (AWS CLI)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Amazon SageMaker Debugger built-in rules can be configured for a training job using the [DebugHookConfig](../APIReference/API_DebugHookConfig.md "../APIReference/API_DebugHookConfig.md"), [DebugRuleConfiguration](../APIReference/API_DebugRuleConfiguration.md "../APIReference/API_DebugRuleConfiguration.md"), [ProfilerConfig](../APIReference/API_ProfilerConfig.md "../APIReference/API_ProfilerConfig.md"),
 and [ProfilerRuleConfiguration](../APIReference/API_ProfilerRuleConfiguration.md "../APIReference/API_ProfilerRuleConfiguration.md") objects through the SageMaker AI [CreateTrainingJob](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") API operation. You need to specify the right image URI in
 the `RuleEvaluatorImage` parameter, and the following examples walk you

@@ -1,5 +1,11 @@
 # Amazon SageMaker Model Monitor prebuilt container
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 SageMaker AI provides a built-in image called `sagemaker-model-monitor-analyzer` that
 provides you with a range of model monitoring capabilities, including constraint suggestion,
 statistics generation, constraint validation against a baseline, and emitting Amazon CloudWatch

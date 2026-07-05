@@ -19,24 +19,8 @@ explain this procedure in detail with examples.
 To create a step using the `@step` decorator, annotate the function with `@step`.
 The following example shows a `@step`-decorated function that preprocesses the data.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.workflow.function_step import step
-
-@step
-def preprocess(raw_data):
-    df = pandas.read_csv(raw_data)
-    ...
-    return procesed_dataframe
-
-step_process_result = preprocess(raw_data)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.function_step import step
 
 @step
 def preprocess(raw_data):
@@ -69,31 +53,8 @@ in the `DelayedReturn` output of the `preprocess` function
 to the `train` function creates
 a dependency between `preprocess` and `train`.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.workflow.function_step import step
-
-@step
-def preprocess(raw_data):
-    df = pandas.read_csv(raw_data)
-    ...
-    return procesed_dataframe
-
-@step
-def train(training_data):
-    ...
-    return trained_model
-
-step_process_result = preprocess(raw_data)
-step_train_result = train(step_process_result)
-
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.function_step import step
 
 @step
 def preprocess(raw_data):
@@ -135,35 +96,8 @@ The following example
 shows you how to create a dependency between `preprocess` and `train`
 using `get_step()` and `add_depends_on()`.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.workflow.step_outputs import get_step
-
-@step
-def preprocess(raw_data):
-    df = pandas.read_csv(raw_data)
-    ...
-    processed_data = ..
-    return s3.upload(processed_data)
-
-@step
-def train():
-    training_data = s3.download(....)
-    ...
-    return trained_model
-
-step_process_result = preprocess(raw_data)
-step_train_result = train()
-
-get_step(step_train_result).add_depends_on([step_process_result])
-
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.step_outputs import get_step
 
 @step
 def preprocess(raw_data):
@@ -194,8 +128,6 @@ example, you can use `ProcessingStep` to process the data and pass its result
 to the `@step`-decorated training function. In the following example,
 a `@step`-decorated training step references the output of a processing step.
 
-SageMaker Python SDK v3
-
 ```
 # Define processing step
 
@@ -208,37 +140,6 @@ sklearn_processor = Processor(
     role='arn:aws:iam::123456789012:role/SagemakerExecutionRole',
     instance_type='ml.m5.large',
     instance_count=1,
-)
-
-inputs = [
-    ProcessingInput(source=`input_data`, destination="/opt/ml/processing/input"),
-]
-outputs = [
-    ProcessingOutput(output_name="train", source="/opt/ml/processing/train"),
-    ProcessingOutput(output_name="validation", source="/opt/ml/processing/validation"),
-    ProcessingOutput(output_name="test", source="/opt/ml/processing/test")
-]
-
-process_step = ProcessingStep(
-    name="MyProcessStep",
-    step_args=sklearn_processor.run(inputs=inputs, outputs=outputs,code='preprocessing.py'),
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Define processing step
-
-from sagemaker.sklearn.processing import SKLearnProcessor
-from sagemaker.processing import ProcessingInput, ProcessingOutput
-from sagemaker.workflow.steps import ProcessingStep
-
-sklearn_processor = SKLearnProcessor(
-    framework_version='1.2-1',
-    role='arn:aws:iam::123456789012:role/SagemakerExecutionRole',
-    instance_type='ml.m5.large',
-    instance_count='1',
 )
 
 inputs = [
@@ -296,37 +197,12 @@ def register_model():
     ...
 ```
 
-SageMaker Python SDK v3
-
 ```
 # Define ConditionStep
 
 from sagemaker.mlops.workflow.condition_step import ConditionStep
 from sagemaker.core.workflow.conditions import ConditionGreaterThanOrEqualTo
 from sagemaker.mlops.workflow.fail_step import FailStep
-
-conditionally_register = ConditionStep(
-    name="conditional_register",
-    conditions=[
-        ConditionGreaterThanOrEqualTo(
-            # Output of the evaluate step must be json serializable
-            left=evaluate_model()["rmse"],  #
-            right=5,
-        )
-    ],
-    if_steps=[FailStep(name="Fail", error_message="Model performance is not good enough")],
-    else_steps=[register_model()],
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Define ConditionStep
-
-from sagemaker.workflow.condition_step import ConditionStep
-from sagemaker.workflow.conditions import ConditionGreaterThanOrEqualTo
-from sagemaker.workflow.fail_step import FailStep
 
 conditionally_register = ConditionStep(
     name="conditional_register",
@@ -354,22 +230,8 @@ pipeline receives the `DelayedReturn` object for the `train` function.
 SageMaker AI adds the `preprocess` step, as a previous step of `train`, to the pipeline
 graph.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.workflow.pipeline import Pipeline
-
-pipeline = Pipeline(
-    name="`<pipeline-name>`",
-    steps=[step_train_result],
-    sagemaker_session=`<sagemaker-session>`,
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.pipeline import Pipeline
 
 pipeline = Pipeline(
     name="`<pipeline-name>`",

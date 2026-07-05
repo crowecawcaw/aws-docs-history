@@ -54,8 +54,6 @@ import sagemaker
 import sys
 ```
 
-SageMaker Python SDK v3
-
 ```
 import boto3
 import pandas as pd
@@ -68,24 +66,6 @@ prefix = 'sagemaker-featurestore-introduction'
 role = get_execution_role()
 
 sagemaker_session = Session()
-region = sagemaker_session.boto_region_name
-s3_bucket_name = sagemaker_session.default_bucket()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import boto3
-import pandas as pd
-import numpy as np
-import io
-from sagemaker.session import Session
-from sagemaker import get_execution_role
-
-prefix = 'sagemaker-featurestore-introduction'
-role = get_execution_role()
-
-sagemaker_session = sagemaker.Session()
 region = sagemaker_session.boto_region_name
 s3_bucket_name = sagemaker_session.default_bucket()
 ```
@@ -125,25 +105,10 @@ orders_feature_group_name = 'orders-feature-group-' + strftime('%d-%H-%M-%S', gm
 In V3, `FeatureGroup.create()` is a classmethod that directly creates
 and returns the feature group, so no separate instantiation step is needed.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.feature_store import FeatureGroup
 
 # No separate instantiation needed in v3; FeatureGroup.create() is called directly below
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.feature_store.feature_group import FeatureGroup
-
-customers_feature_group = FeatureGroup(
-    name=customers_feature_group_name, sagemaker_session=sagemaker_session
-)
-orders_feature_group = FeatureGroup(
-    name=orders_feature_group_name, sagemaker_session=sagemaker_session
-)
 ```
 
 ```
@@ -162,8 +127,6 @@ orders_data["EventTime"] = pd.Series([current_time_sec]*len(orders_data), dtype=
 
 Load feature definitions to your feature group:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.feature_store import load_feature_definitions_from_dataframe
 
@@ -171,18 +134,9 @@ customer_feature_defs = load_feature_definitions_from_dataframe(customer_data)
 order_feature_defs = load_feature_definitions_from_dataframe(orders_data)
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-customers_feature_group.load_feature_definitions(data_frame=customer_data)
-orders_feature_group.load_feature_definitions(data_frame=orders_data)
-```
-
 The following calls `create` to create two feature groups,
 `customers_feature_group` and `orders_feature_group`,
 respectively:
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.mlops.feature_store import OnlineStoreConfig, OfflineStoreConfig, S3StorageConfig
@@ -212,30 +166,8 @@ FeatureGroup.create(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-customers_feature_group.create(
-    s3_uri=f"s3://{s3_bucket_name}/{prefix}",
-    record_identifier_name=record_identifier_feature_name,
-    event_time_feature_name="EventTime",
-    role_arn=role,
-    enable_online_store=True
-)
-
-orders_feature_group.create(
-    s3_uri=f"s3://{s3_bucket_name}/{prefix}",
-    record_identifier_name=record_identifier_feature_name,
-    event_time_feature_name="EventTime",
-    role_arn=role,
-    enable_online_store=True
-)
-```
-
 To confirm that your feature group was created, we display it by using
 `DescribeFeatureGroup` and `ListFeatureGroups` APIs:
-
-SageMaker Python SDK v3
 
 ```
 customers_fg = FeatureGroup.get(feature_group_name=customers_feature_group_name)
@@ -243,16 +175,6 @@ customers_fg = FeatureGroup.get(feature_group_name=customers_feature_group_name)
 
 ```
 orders_fg = FeatureGroup.get(feature_group_name=orders_feature_group_name)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-customers_feature_group.describe()
-```
-
-```
-orders_feature_group.describe()
 ```
 
 ```
@@ -280,8 +202,6 @@ check_feature_group_status(customers_feature_group)
 check_feature_group_status(orders_feature_group)
 ```
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.feature_store import ingest_dataframe
 
@@ -293,20 +213,6 @@ ingest_dataframe(
 ```
 ingest_dataframe(
     feature_group_name=orders_feature_group_name, data_frame=orders_data, max_workers=3, wait=True
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-customers_feature_group.ingest(
-    data_frame=customer_data, max_workers=3, wait=True
-)
-```
-
-```
-orders_feature_group.ingest(
-    data_frame=orders_data, max_workers=3, wait=True
 )
 ```
 
@@ -350,18 +256,9 @@ print(all_records)
 
 Here we remove the Feature Groups that we created.
 
-SageMaker Python SDK v3
-
 ```
 FeatureGroup(feature_group_name=customers_feature_group_name).delete()
 FeatureGroup(feature_group_name=orders_feature_group_name).delete()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-customers_feature_group.delete()
-orders_feature_group.delete()
 ```
 
 ## Step 6: Next steps

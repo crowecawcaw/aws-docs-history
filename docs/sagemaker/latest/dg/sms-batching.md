@@ -1,5 +1,11 @@
 # Control the flow of data objects sent to workers
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Depending on the type of labeling job you create, Amazon SageMaker Ground Truth sends data objects to workers in batches or in a streaming fashion. You can control the flow of data objects to workers in the following ways:
 
 - For both types of labeling jobs, you can use

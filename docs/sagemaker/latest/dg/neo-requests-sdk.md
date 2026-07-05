@@ -25,8 +25,6 @@ The API varies based on the SageMaker AI SDK for Python version:
 The following code example shows how to use these APIs to send an
 image for inference:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.resources import Endpoint
 
@@ -40,23 +38,6 @@ with open("image.jpg", 'rb') as f:
 endpoint = Endpoint(endpoint_name=endpoint_name)
 inference_response = endpoint.invoke(body=payload, content_type='application/x-image')
 print(inference_response.body.read().decode('utf-8'))
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.predictor import Predictor
-
-endpoint = `'insert name of your endpoint here'`
-
-# Read image into memory
-payload = None
-with open("image.jpg", 'rb') as f:
-    payload = f.read()
-
-predictor = Predictor(endpoint)
-inference_response = predictor.predict(data=payload)
-print (inference_response)
 ```
 
 ## TensorFlow

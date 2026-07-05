@@ -211,8 +211,6 @@ The following example shows you how to create a [single model
 real-time inference endpoint](realtime-endpoints-deployment.md "realtime-endpoints-deployment.md"), deploy the model to the endpoint, and test
 the endpoint by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.serve import ModelBuilder
 from sagemaker.core.resources import Endpoint
@@ -247,35 +245,6 @@ response = endpoint.invoke(
 res = json.loads(response.body.read().decode('utf-8'))
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.model import Model
-from sagemaker.predictor import Predictor
-
-# create the single model endpoint and deploy it on SageMaker AI
-model = Model(model_data = f'{output_path}/mnist.tar.gz',
-              image_uri = baseimage,
-              role = role,
-              predictor_cls = Predictor,
-              name = "mnist",
-              sagemaker_session = smsess)
-
-endpoint_name = 'torchserve-endpoint-' + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
-predictor = model.deploy(instance_type='ml.g4dn.xlarge',
-                         initial_instance_count=1,
-                         endpoint_name = endpoint_name,
-                         serializer=JSONSerializer(),
-                         deserializer=JSONDeserializer())
-
-# test the endpoint
-import random
-import numpy as np
-dummy_data = {"inputs": np.random.rand(16, 1, 28, 28).tolist()}
-
-res = predictor.predict(dummy_data)
-```
-
 ## Using multi-model endpoints to deploy with TorchServe
 
 [Multi-model endpoints](multi-model-endpoints.md "multi-model-endpoints.md") are a scalable and cost-effective solution to
@@ -294,8 +263,6 @@ provide.
 The following example shows you how to create a multi-model endpoint, deploy the
 model to the endpoint, and test the endpoint by using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 Additional details can be found in this [notebook example](https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/torchserve_multi_model_endpoint.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/inference/torchserve/mme-gpu/torchserve_multi_model_endpoint.ipynb").
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.serve import ModelBuilder
@@ -329,54 +296,6 @@ response = endpoint.invoke(
     target_model="mnist.tar.gz"
 )
 res = json.loads(response.body.read().decode('utf-8'))
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.multidatamodel import MultiDataModel
-from sagemaker.model import Model
-from sagemaker.predictor import Predictor
-
-# create the single model endpoint and deploy it on SageMaker AI
-model = Model(model_data = f'{output_path}/mnist.tar.gz',
-              image_uri = baseimage,
-              role = role,
-              sagemaker_session = smsess)
-
-endpoint_name = 'torchserve-endpoint-' + time.strftime("%Y-%m-%d-%H-%M-%S", time.gmtime())
-mme = MultiDataModel(
-    name = endpoint_name,
-    model_data_prefix = output_path,
-    model = model,
-    sagemaker_session = smsess)
-
-mme.deploy(
-    initial_instance_count = 1,
-    instance_type = "ml.g4dn.xlarge",
-    serializer=sagemaker.serializers.JSONSerializer(),
-    deserializer=sagemaker.deserializers.JSONDeserializer())
-
-# list models
-list(mme.list_models())
-
-# create mnist v2 model artifacts
-cp mnist.tar.gz mnistv2.tar.gz
-
-# add mnistv2
-mme.add_model(mnistv2.tar.gz)
-
-# list models
-list(mme.list_models())
-
-predictor = Predictor(endpoint_name=mme.endpoint_name, sagemaker_session=smsess)
-
-# test the endpoint
-import random
-import numpy as np
-dummy_data = {"inputs": np.random.rand(16, 1, 28, 28).tolist()}
-
-res = predictor.predict(date=dummy_data, target_model="mnist.tar.gz")
 ```
 
 ## Metrics

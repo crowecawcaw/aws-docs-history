@@ -7,16 +7,8 @@ Locate checkpoint files using the SageMaker Python SDK and the Amazon S3 console
 To retrieve the S3 bucket URI where the checkpoints are saved, check the following
 attribute:
 
-SageMaker Python SDK v3
-
 ```
 model_trainer.checkpoint_config.s3_uri
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-estimator.checkpoint_s3_uri
 ```
 
 This returns the S3 output path for checkpoints configured while requesting the

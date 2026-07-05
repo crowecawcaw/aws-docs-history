@@ -27,8 +27,6 @@ Amazon Resource Name (ARN) of the new Model Group.
 
 First, import the required packages and set up the SageMaker AI Boto3 client.
 
-SageMaker Python SDK v3
-
 ```
 import time
 import os
@@ -42,24 +40,7 @@ role = get_execution_role()
 sm_client = boto3.client('sagemaker', region_name=region)
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import time
-import os
-from sagemaker import get_execution_role, session
-import boto3
-
-region = boto3.Session().region_name
-
-role = get_execution_role()
-
-sm_client = boto3.client('sagemaker', region_name=region)
-```
-
 Now create the Model Group.
-
-SageMaker Python SDK v3
 
 ```
 import time
@@ -71,21 +52,6 @@ model_package_group_input_dict = {
 
 create_model_package_group_response = sm_client.create_model_package_group(**model_package_group_input_dict)
 print('ModelPackageGroup Arn : {}'.format(create_model_package_group_response['ModelPackageGroupArn']))
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import time
-import os
-from sagemaker import get_execution_role, session
-import boto3
-
-region = boto3.Session().region_name
-
-role = get_execution_role()
-
-sm_client = boto3.client('sagemaker', region_name=region)
 ```
 
 ## Create a Model Group (Studio or Studio Classic)

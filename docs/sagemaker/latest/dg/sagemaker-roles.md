@@ -248,18 +248,8 @@ The following [`get_execution_role`](https://sagemaker.readthedocs.io/en/stable/
 command retrieves the ARN of the execution role attached to the
 space.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.helper.session_helper import get_execution_role
-role = get_execution_role()
-print(role)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker import get_execution_role
 role = get_execution_role()
 print(role)
 ```

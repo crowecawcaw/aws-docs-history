@@ -434,8 +434,6 @@ role=get_execution_role()
 4. Paste the following example script into the notebook code cell to
    configure a SageMaker AI ModelTrainer using your extended container.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute, SourceCode
@@ -450,24 +448,6 @@ model_trainer=ModelTrainer(
 
 train_data=InputData(channel_name='training', data_source='file:///tmp/pytorch-example/cifar-10-data')
 model_trainer.train(input_data_config=[train_data])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.estimator import Estimator
-
-hyperparameters={'epochs': 1}
-
-estimator=Estimator(
-    image_uri='pytorch-extended-container-test',
-    role=role,
-    instance_count=1,
-    instance_type='local',
-    hyperparameters=hyperparameters
-)
-
-estimator.fit('file:///tmp/pytorch-example/cifar-10-data')
 ```
 
 5. Run the code cell. This test outputs the training environment configuration,
@@ -542,8 +522,6 @@ ecr_image
 3. Use the `ecr_image` retrieved from the previous step to configure a SageMaker AI ModelTrainer
    object. The following code sample configures a SageMaker AI PyTorch ModelTrainer.
 
-SageMaker Python SDK v3
-
 ```
 import sagemaker
 
@@ -560,29 +538,6 @@ model_trainer=ModelTrainer(
 
 # start training
 model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-
-from sagemaker import get_execution_role
-from sagemaker.estimator import Estimator
-
-estimator=Estimator(
-    image_uri=ecr_image,
-    role=get_execution_role(),
-    base_job_name='`pytorch-extended-container-test`',
-    instance_count=1,
-    instance_type='ml.p2.xlarge'
-)
-
-# start training
-estimator.fit()
-
-# deploy the trained model
-predictor=estimator.deploy(1, instance_type)
 ```
 
 ### Step 6: Clean up Resources

@@ -1,5 +1,11 @@
 # Workforce Authentication and Restrictions
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Ground Truth enables you to use your own private workforce to work on labeling jobs. A
 _private workforce_ is an abstract concept which refers to a set
 of people who work for you. Each labeling job is created using a work team, composed of

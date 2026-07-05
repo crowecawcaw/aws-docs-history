@@ -1,5 +1,11 @@
 # ML activity reference
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Role Manager, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md "role-manager-availability-change.md").
+
 ML activities are common AWS tasks related to machine learning with SageMaker AI that
 require specific IAM permissions. Each [persona](role-manager-personas.md "role-manager-personas.md") suggests
 related ML activities when creating a role with Amazon SageMaker Role Manager. You can select any additional

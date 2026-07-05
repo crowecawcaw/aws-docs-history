@@ -1,5 +1,11 @@
 # Create a Labeling Job (Console)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 You can use the Amazon SageMaker AI console to create a labeling job for all of the Ground Truth built-in
 task types and custom labeling workflows. For built-in task types, we recommend that you use
 this page alongside the [page for your task type](sms-task-types.md "sms-task-types.md"). Each task

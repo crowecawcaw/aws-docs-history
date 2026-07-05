@@ -1,5 +1,11 @@
 # Role Manager FAQs
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Role Manager, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md "role-manager-availability-change.md").
+
 Refer to the following FAQ items for answers to commonly asked questions about
 Amazon SageMaker Role Manager.
 

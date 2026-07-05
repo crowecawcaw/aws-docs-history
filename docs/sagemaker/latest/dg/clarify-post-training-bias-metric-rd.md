@@ -1,5 +1,11 @@
 # Recall Difference (RD)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The recall difference (RD) metric is the difference in recall of the model between the
 favored facet _a_ and disfavored facet _d_. Any difference in these recalls is a potential form of
 bias. Recall is the true positive rate (TPR), which measures how often the model

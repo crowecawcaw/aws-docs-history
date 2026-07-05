@@ -1,5 +1,11 @@
 # Create instruction pages
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Create custom instructions for labeling jobs to improve your worker's accuracy in
 completing their task. You can modify the default instructions that are provided in the
 console or you can create your own. The instructions are shown to the worker on the page

@@ -1,5 +1,11 @@
 # Amazon SageMaker Debugger architecture
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 This topic walks you through a high-level overview of the Amazon SageMaker Debugger workflow.
 
 Debugger supports profiling functionality for _performance

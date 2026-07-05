@@ -1,5 +1,11 @@
 # Stop a Streaming Labeling Job
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 You can manually stop your streaming labeling job using the operation [StopLabelingJob](../APIReference/API_StopLabelingJob.md "../APIReference/API_StopLabelingJob.md").
 
 If your labeling job remains idle for over 10 days, it is automatically stopped by

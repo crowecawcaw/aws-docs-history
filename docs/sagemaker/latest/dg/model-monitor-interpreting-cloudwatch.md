@@ -1,5 +1,11 @@
 # CloudWatch Metrics
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 You can use the built-in Amazon SageMaker Model Monitor container for CloudWatch metrics. When the
 `emit_metrics` option is `Enabled` in the baseline
 constraints file, SageMaker AI emits these metrics for each feature/column observed in the

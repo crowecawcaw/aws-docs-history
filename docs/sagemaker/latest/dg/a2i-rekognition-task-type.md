@@ -1,5 +1,11 @@
 # Use Amazon Augmented AI with Amazon Rekognition
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 Amazon Rekognition makes it easy to add image analysis to your applications. The Amazon Rekognition
 `DetectModerationLabels` API operation is directly integrated with Amazon A2I
 so that you can easily create a human loop to review unsafe images, such as explicit adult

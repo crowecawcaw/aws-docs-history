@@ -1,5 +1,10 @@
 # Use built-in profiler rules managed by Amazon SageMaker Debugger
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 The Amazon SageMaker Debugger built-in profiler rules analyze system metrics and framework operations
 collected during the training of a model. Debugger offers the `ProfilerRule` API
 operation that helps configure the rules to monitor training compute resources and

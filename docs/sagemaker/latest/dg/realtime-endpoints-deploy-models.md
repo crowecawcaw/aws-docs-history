@@ -446,7 +446,7 @@ The following section describes both methods to create your model and deploy you
 The following examples prepare for the model deployment process. They import the
 necessary libraries and define the S3 URL that locates the model artifacts.
 
-SageMaker Python SDK v3
+SageMaker Python SDK
 
 ###### Example import statements
 
@@ -459,25 +459,6 @@ import boto3
 from sagemaker.serve import ModelBuilder
 from sagemaker.core.resources import Endpoint
 from sagemaker.core.helper.session_helper import Session
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-###### Example import statements
-
-The following example imports modules from the SageMaker Python SDK v2 (Legacy), the
-SDK for Python (Boto3), and the Python Standard Library. These modules provide
-useful methods that help you deploy models, and they're used by the
-remaining examples that follow.
-
-```
-import boto3
-from datetime import datetime
-from sagemaker.compute_resource_requirements.resource_requirements import ResourceRequirements
-from sagemaker.predictor import Predictor
-from sagemaker.enums import EndpointType
-from sagemaker.model import Model
-from sagemaker.session import Session
 ```
 
 Boto3 (Inference Components)
@@ -542,7 +523,7 @@ SDK for Python (Boto3). The following sections summarize the steps that you comp
 possible approaches. These steps are demonstrated by the examples that
 follow.
 
-SageMaker Python SDK v3
+SageMaker Python SDK
 Using the SageMaker Python SDK v3, you build and deploy your model with
 `ModelBuilder`. You provide model artifacts or inference code,
 and `ModelBuilder` automatically captures your dependencies,
@@ -554,54 +535,17 @@ the following steps:
    role, and instance type.
 2. Call `deploy()` to deploy the model to an endpoint.
 
-SageMaker Python SDK v2 (Legacy)
-Using the SageMaker Python SDK, you can build your model in either of the
-following ways:
-
-- **Create a model object from the
-  `Model` class** – You must
-  specify the model package or inference code (depending on your
-  model server), scripts to handle serialization and
-  deserialization of data between the client and server, and any
-  dependencies to be uploaded to Amazon S3 for consumption.
-- **Create a model object from the
-  `ModelBuilder` class** – You
-  provide model artifacts or inference code, and
-  `ModelBuilder` automatically captures your
-  dependencies, infers the needed serialization and
-  deserialization functions, and packages your dependencies to
-  create your `Model` object.
-
-For more information about `ModelBuilder`, see
-[Create a model in Amazon SageMaker AI with ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md"). You
-can also see the blog [Package and deploy classical ML models and LLMs easily with SageMaker AI
-– Part 1](https://aws.amazon.com/blogs/machine-learning/package-and-deploy-classical-ml-and-llms-easily-with-amazon-sagemaker-part-1-pysdk-improvements/ "https://aws.amazon.com/blogs/machine-learning/package-and-deploy-classical-ml-and-llms-easily-with-amazon-sagemaker-part-1-pysdk-improvements/") for more information.
-
-The examples that follow describe both methods to create your model
-and deploy your model object. To deploy a model in these ways, you
-complete the following steps:
-
-1. Define the endpoint resources to allocate to the model with a
-   `ResourceRequirements` object.
-2. Create a model object from the `Model` or
-   `ModelBuilder` classes. The
-   `ResourceRequirements` object is specified in the
-   model settings.
-3. Deploy the model to an endpoint by using the
-   `deploy` method of the `Model`
-   object.
-
 Boto3 (Inference Components)
 The examples that follow demonstrate how to assign a model to an
 inference component and then deploy the inference component to an
 endpoint. To deploy a model in this way, you complete the following
 steps:
 
-1. (Optional) Create a SageMaker AI model object by using the [`create_model`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_model.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_model.html") method.
+1. (Optional) Create a SageMaker AI model object by using the [`create_model`](../../../boto3/latest/reference/services/sagemaker/client/create_model.md "../../../boto3/latest/reference/services/sagemaker/client/create_model.md") method.
 2. Specify the settings for your endpoint by creating an endpoint
-   configuration object. To create one, you use the [`create_endpoint_config`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint_config.html#create-endpoint-config "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint_config.html#create-endpoint-config")
+   configuration object. To create one, you use the [`create_endpoint_config`](../../../boto3/latest/reference/services/sagemaker/client/create_endpoint_config.md#create-endpoint-config "../../../boto3/latest/reference/services/sagemaker/client/create_endpoint_config.md#create-endpoint-config")
    method.
-3. Create your endpoint by using the [`create_endpoint`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint.html") method, and in
+3. Create your endpoint by using the [`create_endpoint`](../../../boto3/latest/reference/services/sagemaker/client/create_endpoint.md "../../../boto3/latest/reference/services/sagemaker/client/create_endpoint.md") method, and in
    your request, provide the endpoint configuration that you
    created.
 4. Create an inference component by using the
@@ -622,12 +566,12 @@ The examples that follow demonstrate how to create a model object and
 then deploy the model to an endpoint. To deploy a model in this way, you
 complete the following steps:
 
-1. Create a SageMaker AI model by using the [`create_model`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_model.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_model.html") method.
+1. Create a SageMaker AI model by using the [`create_model`](../../../boto3/latest/reference/services/sagemaker/client/create_model.md "../../../boto3/latest/reference/services/sagemaker/client/create_model.md") method.
 2. Specify the settings for your endpoint by creating an endpoint
-   configuration object. To create one, you use the [`create_endpoint_config`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint_config.html#create-endpoint-config "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint_config.html#create-endpoint-config") method. In
+   configuration object. To create one, you use the [`create_endpoint_config`](../../../boto3/latest/reference/services/sagemaker/client/create_endpoint_config.md#create-endpoint-config "../../../boto3/latest/reference/services/sagemaker/client/create_endpoint_config.md#create-endpoint-config") method. In
    the endpoint configuration, you assign the model object to a
    production variant.
-3. Create your endpoint by using the [`create_endpoint`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint.html") method. In your
+3. Create your endpoint by using the [`create_endpoint`](../../../boto3/latest/reference/services/sagemaker/client/create_endpoint.md "../../../boto3/latest/reference/services/sagemaker/client/create_endpoint.md") method. In your
    request, provide the endpoint configuration that you created.
 
 When you create the endpoint, SageMaker AI provisions the endpoint
@@ -638,7 +582,7 @@ resources, and it deploys the model to the endpoint.
 The following examples configure the resources that you require to deploy a model
 to an endpoint.
 
-SageMaker Python SDK v3
+SageMaker Python SDK
 The following example configures a `ModelBuilder` with your
 model artifacts. `ModelBuilder`
 provides a unified interface for model packaging and deployment.
@@ -652,66 +596,6 @@ model_builder = ModelBuilder(
     role_arn="arn:aws:iam::`111122223333`:role/service-role/`role-name`",
     instance_type="`ml.p4d.24xlarge`",
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-The following example assigns endpoint resources to a model with a
-`ResourceRequirements` object. These resources include
-CPU cores, accelerators, and memory. Then, the example creates a model
-object from the `Model` class. Alternatively you can create a
-model object by instantiating the [ModelBuilder](how-it-works-modelbuilder-creation.md "how-it-works-modelbuilder-creation.md") class and running
-`build`—this method is also shown in the example.
-`ModelBuilder` provides a unified interface for model
-packaging, and in this instance, prepares a model for a large model
-deployment. The example utilizes `ModelBuilder` to construct
-a Hugging Face model. (You can also pass a JumpStart model). Once you
-build the model, you can specify resource requirements in the model
-object. In the next step, you use this object to deploy the model to an
-endpoint.
-
-```
-resources = ResourceRequirements(
-    requests = {
-        "num_cpus": `2`,  # Number of CPU cores required:
-        "num_accelerators": `1`, # Number of accelerators required
-        "memory": `8192`,  # Minimum memory required in Mb (required)
-        "copies": `1`,
-    },
-    limits = {},
-)
-
-now = datetime.now()
-dt_string = now.strftime("%d-%m-%Y-%H-%M-%S")
-model_name = "`my-sm-model`"+dt_string
-
-# build your model with Model class
-model = Model(
-    name = "`model-name`",
-    image_uri = "`image-uri`",
-    model_data = model_url,
-    role = "arn:aws:iam::`111122223333`:role/service-role/`role-name`",
-    resources = resources,
-    predictor_cls = Predictor,
-)
-
-# Alternate mechanism using ModelBuilder
-# uncomment the following section to use ModelBuilder
-/*
-model_builder = ModelBuilder(
-    model="`<HuggingFace-ID>`", # like "meta-llama/Llama-2-7b-hf"
-    schema_builder=SchemaBuilder(`sample_input`,`sample_output`),
-    env_vars={ "HUGGING_FACE_HUB_TOKEN": "`<HuggingFace_token>`}" }
-)
-
-# build your Model object
-model = model_builder.build()
-
-# create a unique name from string 'mb-inference-component'
-model.model_name = unique_name_from_base("mb-inference-component")
-
-# assign resources to your model
-model.resources = resources
-*/
 ```
 
 Boto3 (Inference Components)
@@ -821,7 +705,7 @@ This example specifies the following keys for the
 
 The following examples deploy a model to an endpoint.
 
-SageMaker Python SDK v3
+SageMaker Python SDK
 The following example deploys the model to a real-time, HTTPS endpoint
 using the `deploy` method of `ModelBuilder`.
 
@@ -840,51 +724,8 @@ response = endpoint.invoke(
 print(response)
 ```
 
-SageMaker Python SDK v2 (Legacy)
-The following example deploys the model to a real-time, HTTPS endpoint
-with the `deploy` method of the model object. If you specify
-a value for the `resources` argument for both model creation
-and deployment, the resources you specify for deployment take
-precedence.
-
-```
-predictor = model.deploy(
-    initial_instance_count = `1`,
-    instance_type = "`ml.p4d.24xlarge`",
-    endpoint_type = EndpointType.INFERENCE_COMPONENT_BASED,
-    resources = resources,
-)
-```
-
-For the `instance_type` field, the example specifies the
-name of the Amazon EC2 instance type for the model. For the
-`initial_instance_count` field, it specifies the initial
-number of instances to run the endpoint on.
-
-The following code sample demonstrates another case where you deploy a
-model to an endpoint and then deploy another model to the same endpoint.
-In this case you must supply the same endpoint name to the
-`deploy` methods of both models.
-
-```
-# Deploy the model to inference-component-based endpoint
-falcon_predictor = falcon_model.deploy(
-    initial_instance_count = 1,
-    instance_type = "ml.p4d.24xlarge",
-    endpoint_type = EndpointType.INFERENCE_COMPONENT_BASED,
-    endpoint_name = "`<endpoint_name>`"
-    resources = resources,
-)
-
-# Deploy another model to the same inference-component-based endpoint
-llama2_predictor = llama2_model.deploy( # resources already set inside llama2_model
-    endpoint_type = EndpointType.INFERENCE_COMPONENT_BASED,
-    endpoint_name = "`<endpoint_name>`"  # same endpoint name as for falcon model
-)
-```
-
 Boto3 (Inference Components)
-Once you have an endpoint configuration, use the [create\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint.html") method to create your endpoint. The
+Once you have an endpoint configuration, use the [create\_endpoint](../../../boto3/latest/reference/services/sagemaker/client/create_endpoint.md "../../../boto3/latest/reference/services/sagemaker/client/create_endpoint.md") method to create your endpoint. The
 endpoint name must be unique within an AWS Region in your AWS
 account.
 
@@ -930,7 +771,7 @@ Provide the endpoint configuration to SageMaker AI. The service launches the
 ML compute instances and deploys the model or models as specified in the
 configuration.
 
-Once you have your model and endpoint configuration, use the [create\_endpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker/client/create_endpoint.html") method to create your endpoint. The
+Once you have your model and endpoint configuration, use the [create\_endpoint](../../../boto3/latest/reference/services/sagemaker/client/create_endpoint.md "../../../boto3/latest/reference/services/sagemaker/client/create_endpoint.md") method to create your endpoint. The
 endpoint name must be unique within an AWS Region in your AWS
 account.
 

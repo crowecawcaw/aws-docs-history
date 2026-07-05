@@ -1,5 +1,11 @@
 # How to configure Debugger built-in rules
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 In the following topics, you'll learn how to use the SageMaker Debugger built-in
 rules. Amazon SageMaker Debugger's built-in rules analyze tensors emitted during the training of a model. SageMaker AI
 Debugger offers the `Rule` API operation that monitors training job progress and

@@ -270,20 +270,9 @@ directs SageMaker AI to deploy the model on a single `ml.c6i.xlarge` instance.
 A model constructed from `ModelBuilder` enables live
 logging during deployment as an added feature.
 
-SageMaker Python SDK v3
-
 ```
 endpoint = model_builder.deploy(
     endpoint_name="`my-endpoint`",
-    instance_type="ml.c6i.xlarge"
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = model.deploy(
-    initial_instance_count=1,
     instance_type="ml.c6i.xlarge"
 )
 ```
@@ -296,8 +285,6 @@ and maximum bound of memory (in MB). To use this feature, you need to specify yo
 endpoint type as `EndpointType.INFERENCE_COMPONENT_BASED`. The following example requests four accelerators,
 a minimum memory size of 1024 MB, and one copy of your model to be deployed to an endpoint
 of type `EndpointType.INFERENCE_COMPONENT_BASED`.
-
-SageMaker Python SDK v3
 
 ```
 resource_requirements = ResourceRequirements(
@@ -314,25 +301,6 @@ endpoint = model_builder.deploy(
     endpoint_type=EndpointType.INFERENCE_COMPONENT_BASED,
     resources=resource_requirements,
     role_arn="`role`"
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-resource_requirements = ResourceRequirements(
-    requests={
-        "num_accelerators": 4,
-        "memory": 1024,
-        "copies": 1,
-    },
-    limits={},
-)
-predictor = model.deploy(
-    mode=Mode.SAGEMAKER_ENDPOINT,
-    endpoint_type=EndpointType.INFERENCE_COMPONENT_BASED,
-    resources=resource_requirements,
-    role="`role`"
 )
 ```
 
@@ -382,16 +350,8 @@ xgb_local_builder = model_builder_local.build()
 Call the `deploy` function to deploy locally, as shown in the following snippet.
 If you specify parameters for instance type or count, these arguments are ignored.
 
-SageMaker Python SDK v3
-
 ```
 local_endpoint = xgb_local_builder.deploy_local()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor_local = xgb_local_builder.deploy()
 ```
 
 ### Troubleshooting local mode

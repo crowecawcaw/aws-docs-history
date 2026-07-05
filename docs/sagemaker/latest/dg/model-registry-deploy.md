@@ -25,8 +25,6 @@ is responsible for deploying and updating models.
 To deploy a model version using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") use the following
 code snippet:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.serve import ModelBuilder
 
@@ -46,19 +44,6 @@ endpoint = model_builder.deploy(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker import ModelPackage
-from time import gmtime, strftime
-
-model_package_arn = 'arn:aws:sagemaker:us-east-2:12345678901:model-package/modeltest/1'
-model = ModelPackage(role=role,
-                     model_package_arn=model_package_arn,
-                     sagemaker_session=sagemaker_session)
-model.deploy(initial_instance_count=1, instance_type='`ml.m5.xlarge`')
-```
-
 ## Deploy a Model from the Registry (Boto3)
 
 To deploy a model version using the AWS SDK for Python (Boto3), complete the following
@@ -68,11 +53,9 @@ steps:
    client `sm_client` and a model version whose ARN is stored in
    the variable `model_version_arn`.
 
-Create a model object from the model version by calling the [create\_model](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_model") API operation. Pass the Amazon Resource Name
+Create a model object from the model version by calling the [create\_model](../../../boto3/latest/reference/services/sagemaker.md#SageMaker.Client.create_model "../../../boto3/latest/reference/services/sagemaker.md#SageMaker.Client.create_model") API operation. Pass the Amazon Resource Name
 (ARN) of the model version as part of the `Containers` for
 the model object:
-
-SageMaker Python SDK v3
 
 ```
 model_name = 'DEMO-modelregistry-model-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
@@ -85,21 +68,6 @@ create_model_response = sm_client.create_model(
     Containers = container_list
 )
 print("Model arn : {}".format(create_model_response["ModelArn"]))
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import time
-import os
-from sagemaker import get_execution_role, session
-import boto3
-
-region = boto3.Session().region_name
-
-role = get_execution_role()
-
-sm_client = boto3.client('sagemaker', region_name=region)
 ```
 
 2. Create an endpoint configuration by calling
@@ -122,8 +90,6 @@ create_endpoint_config_response = sm_client.create_endpoint_config(
 
 3. Create the endpoint by calling `create_endpoint`.
 
-SageMaker Python SDK v3
-
 ```
 endpoint_name = 'DEMO-modelregistry-endpoint-' + strftime("%Y-%m-%d-%H-%M-%S", gmtime())
 print("EndpointName={}".format(endpoint_name))
@@ -132,21 +98,6 @@ create_endpoint_response = sm_client.create_endpoint(
     EndpointName=endpoint_name,
     EndpointConfigName=endpoint_config_name)
 print(create_endpoint_response['EndpointArn'])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import time
-import os
-from sagemaker import get_execution_role, session
-import boto3
-
-region = boto3.Session().region_name
-
-role = get_execution_role()
-
-sm_client = boto3.client('sagemaker', region_name=region)
 ```
 
 ## Deploy a Model Version from a Different Account
@@ -190,8 +141,6 @@ that you previously defined the following variables:
   which you want to grant cross-account access.
 - `model_package_group_arn` – The Model Group ARN to
   which you want to grant cross-account access.
-
-SageMaker Python SDK v3
 
 ```
 import json
@@ -297,83 +246,4 @@ print("First Versioned ModelPackageArn: " + model_package_arn)
 print("Second Versioned ModelPackageArn: " + model_package_arn2)
 
 print("Success! You are all set to proceed for cross-account deployment.")
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import json
-
-# The Model Registry account id of the Model Group
-model_registry_account = "`111111111111`"
-
-# The model training account id where training happens
-model_training_account = "`222222222222`"
-
-# 1. Create a policy for access to the ECR repository
-# in the model training account for the Model Registry account Model Group
-ecr_repository_policy = {"Version": "2012-10-17",
-    "Statement": [{"Sid": "AddPerm",
-        "Effect": "Allow",
-        "Principal": {
-          "AWS": f"arn:aws:iam::{model_registry_account}:root"
-        },
-        "Action": [
-          "ecr:BatchGetImage",
-          "ecr:Describe*"
-        ]
-    }]
-}
-
-# Convert the ECR policy from JSON dict to string
-ecr_repository_policy = json.dumps(ecr_repository_policy)
-
-# Set the new ECR policy
-ecr = boto3.client('ecr')
-response = ecr.set_repository_policy(
-    registryId = model_training_account,
-    repositoryName = "decision-trees-sample",
-    policyText = ecr_repository_policy
-)
-
-# 2. Create a policy in the model training account for access to the S3 bucket
-# where the model is present in the Model Registry account Model Group
-bucket_policy = {"Version": "2012-10-17",
-    "Statement": [{"Sid": "AddPerm",
-        "Effect": "Allow",
-        "Principal": {"AWS": f"arn:aws:iam::{model_registry_account}:root"
-        },
-        "Action": [
-          "s3:GetObject",
-          "s3:GetBucketAcl",
-          "s3:GetObjectAcl"
-        ],
-        "Resource": [
-          "arn:aws:s3:::{`bucket`}/*",
-	  "Resource: arn:aws:s3:::{`bucket`}"
-        ]
-    }]
-}
-
-# Convert the S3 policy from JSON dict to string
-bucket_policy = json.dumps(bucket_policy)
-
-# Set the new bucket policy
-s3 = boto3.client("s3")
-response = s3.put_bucket_policy(
-    Bucket = `bucket`,
-    Policy = bucket_policy)
-
-# 3. Create the KMS grant for the key used during training for encryption
-# in the model training account to the Model Registry account Model Group
-client = boto3.client("kms")
-
-response = client.create_grant(
-    GranteePrincipal=model_registry_account,
-    KeyId=kms_key_id
-    Operations=[
-        "Decrypt",
-        "GenerateDataKey",
-    ],
-)
 ```

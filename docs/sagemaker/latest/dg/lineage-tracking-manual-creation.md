@@ -30,29 +30,12 @@ training job and endpoint. You perform the following steps:
 
 1. Import the lineage tracking entities.
 
-SageMaker Python SDK v3
-
 ```
 import sys
 !{sys.executable} -m pip install -q sagemaker
 
 from sagemaker.core.helper.session_helper import get_execution_role
 from sagemaker.core.helper.session_helper import Session
-**from sagemaker.lineage import context, artifact, association, action**
-
-import boto3
-boto_session = boto3.Session(region_name=`region`)
-sagemaker_client = boto_session.client("sagemaker")
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sys
-!{sys.executable} -m pip install -q sagemaker
-
-from sagemaker import get_execution_role
-from sagemaker.session import Session
 **from sagemaker.lineage import context, artifact, association, action**
 
 import boto3
@@ -108,8 +91,6 @@ for artifact_arn in output_artifacts:
 
 5. Create the inference endpoint.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.serve import ModelBuilder
 
@@ -126,16 +107,7 @@ endpoint = model_builder.deploy(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = mnist_estimator.deploy(initial_instance_count=1,
-                                     instance_type='ml.m4.xlarge')
-```
-
 6. Create the endpoint context.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.lineage import context
@@ -145,21 +117,6 @@ endpoint_arn = endpoint_details['EndpointArn']
 
 endpoint_context_arn = context.Context.create(
     context_name=endpoint.endpoint_name,
-    context_type='Endpoint',
-    source_uri=endpoint_arn
-).context_arn
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.lineage import context
-
-endpoint = sagemaker_client.describe_endpoint(EndpointName=predictor.endpoint_name)
-endpoint_arn = endpoint['EndpointArn']
-
-endpoint_context_arn = context.Context.create(
-    context_name=predictor.endpoint_name,
     context_type='Endpoint',
     source_uri=endpoint_arn
 ).context_arn
@@ -186,29 +143,12 @@ the endpoint. You perform the following steps:
 
 1. Import the tracking entities.
 
-SageMaker Python SDK v3
-
 ```
 import sys
 !{sys.executable} -m pip install -q sagemaker
 
 from sagemaker.core.helper.session_helper import get_execution_role
 from sagemaker.core.helper.session_helper import Session
-**from sagemaker.lineage import context, artifact, association, action**
-
-import boto3
-boto_session = boto3.Session(region_name=region)
-sagemaker_client = boto_session.client("sagemaker")
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sys
-!{sys.executable} -m pip install -q sagemaker
-
-from sagemaker import get_execution_role
-from sagemaker.session import Session
 **from sagemaker.lineage import context, artifact, association, action**
 
 import boto3

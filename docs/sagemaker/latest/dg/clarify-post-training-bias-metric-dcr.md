@@ -1,5 +1,11 @@
 # Difference in Conditional Rejection (DCR)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 This metric compares the observed labels to the labels predicted by the model and
 assesses whether this is the same across facets for negative outcomes (rejections). This
 metric comes close to mimicking human bias, in that it quantifies how many more negative

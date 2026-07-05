@@ -172,8 +172,6 @@ dataset, configure, and test `ModelRunner`.
      [Llama 2 foundation model](https://aws.amazon.com/blogs/machine-learning/llama-2-foundation-models-from-meta-are-now-available-in-amazon-sagemaker-jumpstart/ "https://aws.amazon.com/blogs/machine-learning/llama-2-foundation-models-from-meta-are-now-available-in-amazon-sagemaker-jumpstart/") that's
      available through JumpStart.
 
-SageMaker Python SDK v3
-
 ```
 import sagemaker
 import json
@@ -193,29 +191,12 @@ endpoint_name = endpoint.endpoint_name
 response = endpoint.invoke(body=json.dumps({"inputs": [[{"role":"user", "content": "Hello how are you?"}]]}))
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker.jumpstart.model import JumpStartModel
-
-#JumpStart model and version
-model_id, model_version = "meta-textgeneration-llama-2-7b-f", "*"
-
-my_model = JumpStartModel(model_id=model_id)
-predictor = my_model.deploy()
-endpoint_name = predictor.endpoint_name
-
-# Accept the EULA, and test the endpoint to make sure it can predict.
-predictor.predict({"inputs": [[{"role":"user", "content": "Hello how are you?"}]]}, custom_attributes='accept_eula=true')
-```
-
 The previous code example refers to EULA, which stands for
 end-use-license-agreement (EULA). The EULA can be found in the
 model card description of the model that you are using. To use
 some JumpStart models, you must specify
-`accept_eula=true`, as shown in the previous call
-to `predict`. For more information about EULA, see
+`accept_eula=true`, as shown in the
+`JumpStartConfig` configuration. For more information about EULA, see
 the **Licenses and model sources**
 section in [Model sources and license agreements](jumpstart-foundation-models-choose.md "jumpstart-foundation-models-choose.md")
 .

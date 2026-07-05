@@ -27,8 +27,6 @@ pipeline.
 Once you run it again, the following code example turns off caching for a training
 step:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.workflow.pipeline_context import PipelineSession
 from sagemaker.mlops.workflow.steps import CacheConfig
@@ -40,33 +38,6 @@ model_trainer = ModelTrainer(..., sagemaker_session=PipelineSession())
 step_train = TrainingStep(
     name="TrainAbaloneModel",
     step_args=model_trainer.train(input_data_config=inputs),
-    cache_config=cache_config
-)
-
-# define pipeline
-pipeline = Pipeline(
-    steps=[step_train]
-)
-
-# update the pipeline
-pipeline.update()
-# or, call upsert() to update the pipeline
-# pipeline.upsert()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.pipeline_context import PipelineSession
-from sagemaker.workflow.steps import CacheConfig
-from sagemaker.workflow.pipeline import Pipeline
-
-cache_config = CacheConfig(enable_caching=False, expire_after="PT1H")
-estimator = Estimator(..., sagemaker_session=PipelineSession())
-
-step_train = TrainingStep(
-    name="TrainAbaloneModel",
-    step_args=estimator.fit(inputs=inputs),
     cache_config=cache_config
 )
 

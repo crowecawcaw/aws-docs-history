@@ -1,5 +1,11 @@
 # Use Debugger built-in rules with custom parameter values
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 If you want to adjust the built-in rule parameter values and customize tensor
 collection regex, configure the `base_config` and
 `rule_parameters` parameters for the `ProfilerRule.sagemaker`
@@ -25,33 +31,8 @@ the rules to be triggered.
     For more information about the Debugger rule class, methods, and parameters, see [SageMaker AI
     Debugger Rule class](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html") in the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable").
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import Rule, ProfilerRule, rule_configs, CollectionConfig
-
-rules=[
-    Rule.sagemaker(
-        base_config=rule_configs.`built_in_rule_name`(),
-        rule_parameters={
-                "`key`": "`value`"
-        },
-        collections_to_save=[
-            CollectionConfig(
-                name="`tensor_collection_name`",
-                parameters={
-                    "`key`": "`value`"
-                }
-            )
-        ]
-    )
-]
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import Rule, ProfilerRule, rule_configs, CollectionConfig
 
 rules=[
     Rule.sagemaker(

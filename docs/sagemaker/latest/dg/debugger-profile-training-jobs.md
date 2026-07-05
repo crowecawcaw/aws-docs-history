@@ -1,5 +1,10 @@
 # Monitor AWS compute resource utilization in Amazon SageMaker Studio Classic
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 To track compute resource utilization of your training job, use the monitoring tools
 offered by Amazon SageMaker Debugger.
 

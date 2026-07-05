@@ -2,6 +2,12 @@
 
 ###### Note
 
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Studio Lab, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md").
+
+###### Note
+
 As of August 8, 2025, Amazon SageMaker Studio Lab uses JupyterLab 4 instead of JupyterLab 3. If you
 experience dependency issues, reinstall any extensions that you added to your
 environments.
@@ -39,6 +45,7 @@ The following topics give information about Studio Lab and how to use it
 
 ###### Topics
 
+- [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md")
 - [Amazon SageMaker Studio Lab components overview](studio-lab-overview.md "studio-lab-overview.md")
 - [Onboard to Amazon SageMaker Studio Lab](studio-lab-onboard.md "studio-lab-onboard.md")
 - [Manage your account](studio-lab-manage-account.md "studio-lab-manage-account.md")

@@ -1,5 +1,11 @@
 # Model quality metrics and Amazon CloudWatch monitoring
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Model quality monitoring jobs compute different metrics to evaluate the quality and performance of your machine learning models. The specific metrics calculated depend on the type of ML
 problem: regression, binary classification, or multiclass classification. Monitoring these metrics is crucial for detecting model drift over time. The following sections cover the key model quality metrics for each problem type, as well as how to set up automated monitoring and alerting using CloudWatch to continuously track your model's performance.
 

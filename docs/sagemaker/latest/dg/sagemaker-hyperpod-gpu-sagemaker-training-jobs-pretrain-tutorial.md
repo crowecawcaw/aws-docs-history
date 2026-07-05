@@ -99,8 +99,6 @@ It leverages the PyTorch ModelTrainer from the [SageMaker AI Python SDK](https:/
 submit the recipe. The following example launches the llama3-8b recipe on the SageMaker AI
 Training platform.
 
-SageMaker Python SDK v3
-
 ```
 import os
 import boto3
@@ -155,59 +153,6 @@ model_trainer.train(input_data_config=[
 
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import os
-import sagemaker,boto3
-from sagemaker.debugger import TensorBoardOutputConfig
-
-from sagemaker.pytorch import PyTorch
-
-sagemaker_session = sagemaker.Session()
-role = sagemaker.get_execution_role()
-
-bucket = sagemaker_session.default_bucket()
-output = os.path.join(f"s3://{bucket}", "output")
-output_path = "`<s3-URI>`"
-
-overrides = {
-    "run": {
-        "results_dir": "/opt/ml/model",
-    },
-    "exp_manager": {
-        "exp_dir": "",
-        "explicit_log_dir": "/opt/ml/output/tensorboard",
-        "checkpoint_dir": "/opt/ml/checkpoints",
-    },
-    "model": {
-        "data": {
-            "train_dir": "/opt/ml/input/data/train",
-            "val_dir": "/opt/ml/input/data/val",
-        },
-    },
-}
-
-tensorboard_output_config = TensorBoardOutputConfig(
-    s3_output_path=os.path.join(output, 'tensorboard'),
-    container_local_output_path=overrides["exp_manager"]["explicit_log_dir"]
-)
-
-estimator = PyTorch(
-    output_path=output_path,
-    base_job_name=f"llama-recipe",
-    role=role,
-    instance_type="ml.p5.48xlarge",
-    training_recipe="training/llama/hf_llama3_8b_seq8k_gpu_p5x16_pretrain",
-    recipe_overrides=recipe_overrides,
-    sagemaker_session=sagemaker_session,
-    tensorboard_output_config=tensorboard_output_config,
-)
-
-estimator.fit(inputs={"train": "s3 or fsx input", "val": "s3 or fsx input"}, wait=True)
-
-```
-
 The preceding code creates a ModelTrainer object with the training recipe and
 then trains the model using the `train()` method. Use the training\_recipe
 parameter to specify the recipe you want to use for training.
@@ -229,8 +174,6 @@ SageMaker HyperPod provides don't contain the dependencies required for inferenc
 deployment. The following is an example of how an inference image can be used for
 deployment:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.serve import ModelBuilder
 from sagemaker.core import image_uris
@@ -245,15 +188,6 @@ model_builder = ModelBuilder(
 )
 model = model_builder.build()
 endpoint = model_builder.deploy(endpoint_name="my-endpoint")
-
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker import image_uris
-container=image_uris.retrieve(framework='pytorch',region='us-west-2',version='2.0',py_version='py310',image_scope='inference', instance_type='ml.p4d.24xlarge')
-predictor = estimator.deploy(initial_instance_count=1,instance_type='ml.p4d.24xlarge',image_uri=container)
 
 ```
 

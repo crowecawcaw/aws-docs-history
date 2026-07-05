@@ -1,5 +1,11 @@
 # Use Debugger with custom training containers
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Amazon SageMaker Debugger is available for any deep learning models that you bring to Amazon SageMaker AI. The AWS CLI,
 SageMaker AI `ModelTrainer` API, and the Debugger APIs enable you to use any Docker base
 images to build and customize containers to train your models. To use Debugger with customized
@@ -211,8 +217,6 @@ job by using the `smdebug` core features and tools. Configuring a workflow of
 Debugger rule monitoring process with Amazon CloudWatch Events and AWS Lambda, you can automate a stopping
 training job process whenever the Debugger rules spots training issues.
 
-SageMaker Python SDK v3
-
 ```
 import sagemaker
 from sagemaker.train import ModelTrainer
@@ -243,36 +247,4 @@ model_trainer=ModelTrainer(
 
 # start training
 model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker.estimator import Estimator
-from sagemaker.debugger import Rule, DebuggerHookConfig, CollectionConfig, rule_configs
-
-`profiler_config`=`ProfilerConfig(...)`
-`debugger_hook_config`=`DebuggerHookConfig(...)`
-`rules`=[
-    `Rule.sagemaker(rule_configs.built_in_rule())`,
-    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
-]
-
-estimator=Estimator(
-    image_uri=byoc_image_uri,
-    entry_point="./debugger_custom_container_test_folder/your-training-script.py"
-    role=sagemaker.get_execution_role(),
-    base_job_name='debugger-custom-container-test',
-    instance_count=1,
-    instance_type='ml.p3.2xlarge',
-
-    # Debugger-specific parameters
-    profiler_config=`profiler_config`,
-    debugger_hook_config=`debugger_hook_config`,
-    rules=`rules`
-)
-
-# start training
-estimator.fit()
 ```

@@ -74,8 +74,6 @@ Add the FP16 parameter (`"fp16"`) to the distribution configuration for
 model parallelism when creating a SageMaker PyTorch ModelTrainer object. For a complete list of
 the configuration parameters for model parallelism, see [Parameters for `smdistributed`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#parameters-for-smdistributed "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smd_model_parallel_general.html#parameters-for-smdistributed").
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode
@@ -103,36 +101,6 @@ fp16_model_trainer = ModelTrainer(
 )
 
 fp16_model_trainer.train(...)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.pytorch import PyTorch
-
-smp_options = {
-    "enabled": True,
-    "parameters":  {
-        "microbatches":  `4`,
-        "pipeline_parallel_degree":  `2`,
-        "tensor_parallel_degree":  `2`,
-        ...,
-
-        "fp16": `True`
-    }
-}
-
-fp16_estimator = PyTorch(
-    entry_point="`fp16_training_script.py`", # Specify your train script
-    ...,
-
-    distribution={
-        "smdistributed": {"modelparallel": smp_options},
-        "mpi": {...}
-    }
-)
-
-fp16_estimator.fit(...)
 ```
 
 When FP16 training starts, the model and the optimizer are wrapped by

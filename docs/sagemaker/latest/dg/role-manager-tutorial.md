@@ -1,5 +1,11 @@
 # Using the role manager (console)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Role Manager, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md "role-manager-availability-change.md").
+
 You can use the Amazon SageMaker Role Manager from the following locations on the left-hand navigation of the Amazon SageMaker AI console:
 
 - **Getting started** – Quickly add permissions policies for your users.

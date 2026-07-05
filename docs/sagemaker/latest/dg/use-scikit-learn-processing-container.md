@@ -21,8 +21,6 @@ Registry Paths and Example Code](../dg-ecr-paths/sagemaker-algo-docker-registry-
 The following code example shows how to run a processing job using a scikit-learn
 Docker image provided and maintained by SageMaker AI.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.resources import ProcessingJob
 
@@ -68,28 +66,6 @@ processing_job = ProcessingJob.create(
         ]
     }
 )
-
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.sklearn.processing import SKLearnProcessor
-from sagemaker.processing import ProcessingInput, ProcessingOutput
-
-sklearn_processor = SKLearnProcessor(framework_version='0.20.0',
-                                     role=role,
-                                     instance_type='ml.m5.xlarge',
-                                     instance_count=1)
-
-sklearn_processor.run(code='preprocessing.py',
-                      inputs=[ProcessingInput(
-                        source='s3://path/to/my/input-data.csv',
-                        destination='/opt/ml/processing/input')],
-                      outputs=[ProcessingOutput(source='/opt/ml/processing/output/train'),
-                               ProcessingOutput(source='/opt/ml/processing/output/validation'),
-                               ProcessingOutput(source='/opt/ml/processing/output/test')]
-                     )
 
 ```
 

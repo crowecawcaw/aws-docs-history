@@ -1,5 +1,11 @@
 # SDK for Python (Boto3)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Amazon SageMaker Debugger built-in rules can be configured for a training job using the [`create_training_job()`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_training_job") function of the AWS Boto3 SageMaker AI
 client. You need to specify the right image URI in the `RuleEvaluatorImage`
 parameter, and the following examples walk you through how to set up the request body

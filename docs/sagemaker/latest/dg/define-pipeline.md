@@ -171,8 +171,6 @@ Create a new SageMaker AI session using the following code block. This returns t
 for the session. This role ARN should be the execution role ARN that you set up as a
 prerequisite.
 
-SageMaker Python SDK v3
-
 ```
 import boto3
 import sagemaker
@@ -182,24 +180,6 @@ from sagemaker.core.helper.session_helper import Session, get_execution_role
 region = boto3.Session().region_name
 sagemaker_session = Session()
 role = get_execution_role()
-default_bucket = sagemaker_session.default_bucket()
-
-pipeline_session = PipelineSession()
-
-model_package_group_name = f"AbaloneModelPackageGroupName"
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import boto3
-import sagemaker
-import sagemaker.session
-from sagemaker.workflow.pipeline_context import PipelineSession
-
-region = boto3.Session().region_name
-sagemaker_session = sagemaker.session.Session()
-role = sagemaker.get_execution_role()
 default_bucket = sagemaker_session.default_bucket()
 
 pipeline_session = PipelineSession()
@@ -302,24 +282,8 @@ print(batch_data_uri)
 
 #### Step 2: Define pipeline parameters
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.workflow.parameters import (
-    ParameterInteger,
-    ParameterString,
-)
-
-processing_instance_count = ParameterInteger(name="ProcessingInstanceCount", default_value=1)
-model_approval_status = ParameterString(name="ModelApprovalStatus", default_value="PendingManualApproval")
-input_data = ParameterString(name="InputData", default_value=input_data_uri)
-batch_data = ParameterString(name="BatchData", default_value=batch_data_uri)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.parameters import (
     ParameterInteger,
     ParameterString,
 )
@@ -337,8 +301,6 @@ This section shows how to create a processing step to prepare the data from the 
 ###### To create a processing step
 
 1. Create an instance of a processor to pass in to the processing step.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.core.processing import Processor
@@ -363,51 +325,11 @@ sklearn_processor = Processor(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.sklearn.processing import SKLearnProcessor
-
-framework_version = "0.23-1"
-
-sklearn_processor = SKLearnProcessor(
-    framework_version=framework_version,
-    instance_type="ml.m5.xlarge",
-    instance_count=processing_instance_count,
-    base_job_name="sklearn-abalone-process",
-    sagemaker_session=pipeline_session,
-    role=role,
-)
-```
-
 2. Create a processing step.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.core.processing import ProcessingInput, ProcessingOutput
 from sagemaker.mlops.workflow.steps import ProcessingStep
-
-processor_args = sklearn_processor.run(
-    inputs=[
-      ProcessingInput(source=input_data, destination="/opt/ml/processing/input"),
-    ],
-    outputs=[
-        ProcessingOutput(output_name="train", source="/opt/ml/processing/train"),
-        ProcessingOutput(output_name="validation", source="/opt/ml/processing/validation"),
-        ProcessingOutput(output_name="test", source="/opt/ml/processing/test")
-    ],
-    code="abalone/preprocessing.py",
-)
-
-step_process = ProcessingStep(name="AbaloneProcess", step_args=processor_args)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.processing import ProcessingInput, ProcessingOutput
-from sagemaker.workflow.steps import ProcessingStep
 
 processor_args = sklearn_processor.run(
     inputs=[
@@ -437,8 +359,6 @@ model_path = f"s3://{default_bucket}/AbaloneTrain"
 ```
 
 2. Configure a training estimator for the XGBoost algorithm and the input dataset.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.train import ModelTrainer
@@ -471,41 +391,7 @@ xgb_train = ModelTrainer(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.estimator import Estimator
-
-image_uri = sagemaker.image_uris.retrieve(
-    framework="xgboost",
-    region=region,
-    version="1.0-1",
-    py_version="py3",
-    instance_type="ml.m5.xlarge"
-)
-xgb_train = Estimator(
-    image_uri=image_uri,
-    instance_type="ml.m5.xlarge",
-    instance_count=1,
-    output_path=model_path,
-    sagemaker_session=pipeline_session,
-    role=role,
-)
-xgb_train.set_hyperparameters(
-    objective="reg:linear",
-    num_round=50,
-    max_depth=5,
-    eta=0.2,
-    gamma=4,
-    min_child_weight=6,
-    subsample=0.7,
-    silent=0
-)
-```
-
 3. Create a `TrainingStep` using the training instance and properties of the `ProcessingStep`.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.train.configs import InputData
@@ -533,41 +419,13 @@ train_args = xgb_train.train(
 step_train = TrainingStep(name="AbaloneTrain", step_args=train_args)
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.inputs import TrainingInput
-from sagemaker.workflow.steps import TrainingStep
-
-train_args = xgb_train.fit(
-    inputs={
-        "train": TrainingInput(
-            s3_data=step_process.properties.ProcessingOutputConfig.Outputs[
-                "train"
-            ].S3Output.S3Uri,
-            content_type="text/csv"
-        ),
-        "validation": TrainingInput(
-            s3_data=step_process.properties.ProcessingOutputConfig.Outputs[
-                "validation"
-            ].S3Output.S3Uri,
-            content_type="text/csv"
-        )
-    },
-)
-
-step_train = TrainingStep(name="AbaloneTrain", step_args=train_args)
-```
-
 #### Step 5: Define a processing step for model evaluation
 
 This section shows how to create a processing step to evaluate the accuracy of the model.
 
 ###### To define a processing step for model evaluation
 
-1. Create an instance of a `Processor` (V3) or `ScriptProcessor` (V2) for evaluation.
-
-SageMaker Python SDK v3
+1. Create an instance of a `Processor` for evaluation.
 
 ```
 from sagemaker.core.processing import Processor
@@ -583,65 +441,10 @@ script_eval = Processor(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.processing import ScriptProcessor
-
-script_eval = ScriptProcessor(
-    image_uri=image_uri,
-    command=["python3"],
-    instance_type="ml.m5.xlarge",
-    instance_count=1,
-    base_job_name="script-abalone-eval",
-    sagemaker_session=pipeline_session,
-    role=role,
-)
-```
-
 2. Create a `ProcessingStep` using the processor instance, the input and output channels, and the `evaluation.py` script.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.core.workflow.properties import PropertyFile
-
-evaluation_report = PropertyFile(
-    name="EvaluationReport",
-    output_name="evaluation",
-    path="evaluation.json"
-)
-
-eval_args = script_eval.run(
-    inputs=[
-        ProcessingInput(
-            source=step_train.properties.ModelArtifacts.S3ModelArtifacts,
-            destination="/opt/ml/processing/model"
-        ),
-        ProcessingInput(
-            source=step_process.properties.ProcessingOutputConfig.Outputs[
-                "test"
-            ].S3Output.S3Uri,
-            destination="/opt/ml/processing/test"
-        )
-    ],
-    outputs=[
-        ProcessingOutput(output_name="evaluation", source="/opt/ml/processing/evaluation"),
-    ],
-    code="abalone/evaluation.py",
-)
-
-step_eval = ProcessingStep(
-    name="AbaloneEval",
-    step_args=eval_args,
-    property_files=[evaluation_report],
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.properties import PropertyFile
 
 evaluation_report = PropertyFile(
     name="EvaluationReport",
@@ -683,8 +486,6 @@ This section shows how to create a SageMaker AI model from the output of the tra
 
 - Create a SageMaker AI model and model step.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.serve import ModelBuilder
 from sagemaker.mlops.workflow.model_step import ModelStep
@@ -702,32 +503,6 @@ step_create_model = ModelStep(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.model import Model
-from sagemaker.inputs import CreateModelInput
-from sagemaker.workflow.steps import CreateModelStep
-
-model = Model(
-    image_uri=image_uri,
-    model_data=step_train.properties.ModelArtifacts.S3ModelArtifacts,
-    sagemaker_session=pipeline_session,
-    role=role,
-)
-
-inputs = CreateModelInput(
-    instance_type="ml.m5.large",
-    accelerator_type="ml.eia1.medium",
-)
-
-step_create_model = CreateModelStep(
-    name="AbaloneCreateModel",
-    model=model,
-    inputs=inputs,
-)
-```
-
 #### Step 7: Define a TransformStep to perform batch transformation
 
 This section shows how to create a `TransformStep` to perform batch transformation on a dataset after the model is trained.
@@ -735,8 +510,6 @@ This section shows how to create a `TransformStep` to perform batch transformati
 ###### To define a TransformStep to perform batch transformation
 
 - Create a transformer instance and a `TransformStep`.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.core.transformer import Transformer
@@ -758,27 +531,6 @@ step_transform = TransformStep(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.transformer import Transformer
-from sagemaker.inputs import TransformInput
-from sagemaker.workflow.steps import TransformStep
-
-transformer = Transformer(
-    model_name=step_create_model.properties.ModelName,
-    instance_type="ml.m5.xlarge",
-    instance_count=1,
-    output_path=f"s3://{default_bucket}/AbaloneTransform"
-)
-
-step_transform = TransformStep(
-    name="AbaloneTransform",
-    transformer=transformer,
-    inputs=TransformInput(data=batch_data)
-)
-```
-
 #### Step 8: Define a RegisterModel step to create a model package
 
 This section shows how to register a model. The result is a model package for inference.
@@ -786,8 +538,6 @@ This section shows how to register a model. The result is a model package for in
 ###### To define a model registration step to create a model package
 
 - Construct a model registration step.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.core.model_metrics import MetricsSource, ModelMetrics
@@ -826,34 +576,6 @@ step_register = ModelStep(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.model_metrics import MetricsSource, ModelMetrics
-from sagemaker.workflow.step_collections import RegisterModel
-
-model_metrics = ModelMetrics(
-    model_statistics=MetricsSource(
-        s3_uri="`{}/evaluation.json`".format(
-            step_eval.arguments["ProcessingOutputConfig"]["Outputs"][0]["S3Output"]["S3Uri"]
-        ),
-        content_type="application/json"
-    )
-)
-step_register = RegisterModel(
-    name="`AbaloneRegisterModel`",
-    estimator=xgb_train,
-    model_data=step_train.properties.ModelArtifacts.S3ModelArtifacts,
-    content_types=["text/csv"],
-    response_types=["text/csv"],
-    inference_instances=["`ml.t2.medium", "ml.m5.xlarge`"],
-    transform_instances=["`ml.m5.xlarge`"],
-    model_package_group_name=model_package_group_name,
-    approval_status=model_approval_status,
-    model_metrics=model_metrics
-)
-```
-
 #### Step 9: Define a condition step to verify model accuracy
 
 A `ConditionStep` allows Pipelines to support conditional running in your pipeline DAG based on the condition of step properties.
@@ -862,36 +584,10 @@ A `ConditionStep` allows Pipelines to support conditional running in your pipeli
 
 - Define a condition and construct a `ConditionStep`.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.workflow.conditions import ConditionLessThanOrEqualTo
 from sagemaker.mlops.workflow.condition_step import ConditionStep
 from sagemaker.core.workflow.functions import JsonGet
-
-cond_lte = ConditionLessThanOrEqualTo(
-    left=JsonGet(
-        step_name=step_eval.name,
-        property_file=evaluation_report,
-        json_path="regression_metrics.mse.value"
-    ),
-    right=6.0
-)
-
-step_cond = ConditionStep(
-    name="AbaloneMSECond",
-    conditions=[cond_lte],
-    if_steps=[step_register, step_create_model, step_transform],
-    else_steps=[],
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.conditions import ConditionLessThanOrEqualTo
-from sagemaker.workflow.condition_step import ConditionStep
-from sagemaker.workflow.functions import JsonGet
 
 cond_lte = ConditionLessThanOrEqualTo(
     left=JsonGet(
@@ -918,28 +614,8 @@ Now that you've created all of the steps, combine them into a pipeline.
 
 1. Define the following for your pipeline: `name`, `parameters`, and `steps`.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.workflow.pipeline import Pipeline
-
-pipeline_name = f"AbalonePipeline"
-pipeline = Pipeline(
-    name=pipeline_name,
-    parameters=[
-        processing_instance_count,
-        model_approval_status,
-        input_data,
-        batch_data,
-    ],
-    steps=[step_process, step_train, step_eval, step_cond],
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.pipeline import Pipeline
 
 pipeline_name = f"AbalonePipeline"
 pipeline = Pipeline(

@@ -1,5 +1,11 @@
 # Demo template: Annotation of images with `crowd-bounding-box`
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you chose to use a custom template as your task type in the Amazon SageMaker Ground Truth
 console, you reach the **Custom labeling task panel**. There you can
 choose from multiple base templates. The templates represent some of the most common

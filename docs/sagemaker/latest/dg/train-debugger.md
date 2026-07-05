@@ -1,5 +1,11 @@
 # Amazon SageMaker Debugger
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Debug model output tensors from machine learning training jobs in real time and detect
 non-converging issues using Amazon SageMaker Debugger.
 
@@ -55,6 +61,7 @@ The SageMaker Debugger developer guide walks you through the following topics.
 
 ###### Topics
 
+- [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md")
 - [Supported frameworks and algorithms](debugger-supported-frameworks.md "debugger-supported-frameworks.md")
 - [Amazon SageMaker Debugger architecture](debugger-how-it-works.md "debugger-how-it-works.md")
 - [Debugger tutorials](debugger-tutorial.md "debugger-tutorial.md")

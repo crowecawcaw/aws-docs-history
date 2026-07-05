@@ -35,8 +35,6 @@ To register a model version by using Boto3, call the
 First, you set up the parameter dictionary to pass to the
 `create_model_package` API operation.
 
-SageMaker Python SDK v3
-
 ```
 # Specify the model source
 model_url = "s3://`your-bucket-name/model.tar.gz`"
@@ -63,42 +61,6 @@ create_model_package_input_dict = {
     "ModelApprovalStatus" : "PendingManualApproval"
 }
 create_model_package_input_dict.update(modelpackage_inference_specification)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Specify the model source
-model_url = "s3://{`bucket`}/model.tar.gz"
-
-#Set up the parameter dictionary to pass to the create_model_package API operation
-modelpackage_inference_specification =  {
-    "InferenceSpecification": {
-        "Containers": [
-            {
-                "Image": f"{`model_training_account`}.dkr.ecr.us-east-2.amazonaws.com/decision-trees-sample:latest",
-                "ModelDataUrl": model_url
-            }
-        ],
-        "SupportedContentTypes": [ "text/csv" ],
-        "SupportedResponseMIMETypes": [ "text/csv" ],
-    }
-}
-
-# Alternatively, you can specify the model source like this:
-# modelpackage_inference_specification["InferenceSpecification"]["Containers"][0]["ModelDataUrl"]=model_url
-
-create_model_package_input_dict = {
-    "ModelPackageGroupName" : `model_package_group_arn`,
-    "ModelPackageDescription" : "Model to detect 3 different types of irises (Setosa, Versicolour, and Virginica)",
-    "ModelApprovalStatus" : "PendingManualApproval"
-}
-create_model_package_input_dict.update(modelpackage_inference_specification)
-
-# Create the model package in the Model Registry account
-create_model_package_response = sm_client.create_model_package(**create_model_package_input_dict)
-model_package_arn = create_model_package_response["ModelPackageArn"]
-print('ModelPackage Version ARN : {}'.format(model_package_arn))
 ```
 
 Then you call the `create_model_package` API operation, passing in
@@ -335,8 +297,6 @@ JSON
 The following policy configuration applies the policies discussed in the
 previous section and must be put in the model training account.
 
-SageMaker Python SDK v3
-
 ```
 import json
 
@@ -414,118 +374,8 @@ response = client.create_grant(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import json
-
-# The cross-account id to grant access to
-cross_account_id = "123456789012"
-
-# Create the policy for access to the ECR repository
-ecr_repository_policy = {
-    'Version': '2012-10-17',
-    'Statement': [{
-        'Sid': 'AddPerm',
-        'Effect': 'Allow',
-        'Principal': {
-            'AWS': f'arn:aws:iam::{cross_account_id}:root'
-        },
-        'Action': ['ecr:*']
-    }]
-}
-
-# Convert the ECR policy from JSON dict to string
-ecr_repository_policy = json.dumps(ecr_repository_policy)
-
-# Set the new ECR policy
-ecr = boto3.client('ecr')
-response = ecr.set_repository_policy(
-    registryId = account,
-    repositoryName = 'decision-trees-sample',
-    policyText = ecr_repository_policy
-)
-
-# Create a policy for accessing the S3 bucket
-bucket_policy = {
-    'Version': '2012-10-17',
-    'Statement': [{
-        'Sid': 'AddPerm',
-        'Effect': 'Allow',
-        'Principal': {
-            'AWS': f'arn:aws:iam::{cross_account_id}:root'
-        },
-        'Action': 's3:*',
-        'Resource': f'arn:aws:s3:::{bucket}/*'
-    }]
-}
-
-# Convert the policy from JSON dict to string
-bucket_policy = json.dumps(bucket_policy)
-
-# Set the new policy
-s3 = boto3.client('s3')
-response = s3.put_bucket_policy(
-    Bucket = bucket,
-    Policy = bucket_policy)
-
-# Create the KMS grant for encryption in the source account to the
-# Model Registry account Model Group
-client = boto3.client('kms')
-
-response = client.create_grant(
-    GranteePrincipal=cross_account_id,
-    KeyId=kms_key_id
-    Operations=[
-        'Decrypt',
-        'GenerateDataKey',
-    ],
-)
-
-# 3. Create a policy for access to the Model Group.
-model_package_group_policy = {
-    'Version': '2012-10-17',
-    'Statement': [{
-        'Sid': 'AddPermModelPackageGroup',
-        'Effect': 'Allow',
-        'Principal': {
-            'AWS': f'arn:aws:iam::{cross_account_id}:root'
-        },
-        'Action': ['sagemaker:DescribeModelPackageGroup'],
-        'Resource': f'arn:aws:sagemaker:{region}:{account}:model-package-group/{model_package_group_name}'
-    },{
-        'Sid': 'AddPermModelPackageVersion',
-        'Effect': 'Allow',
-        'Principal': {
-            'AWS': f'arn:aws:iam::{cross_account_id}:root'
-        },
-        'Action': ["sagemaker:DescribeModelPackage",
-                   "sagemaker:ListModelPackages",
-                   "sagemaker:UpdateModelPackage",
-                   "sagemaker:CreateModel"],
-        'Resource': f'arn:aws:sagemaker:{region}:{account}:model-package/{model_package_group_name}/*'
-    }]
-}
-
-# Convert the policy from JSON dict to string
-model_package_group_policy = json.dumps(model_package_group_policy)
-
-# Set the policy to the Model Group
-response = sm_client.put_model_package_group_policy(
-    ModelPackageGroupName = model_package_group_name,
-    ResourcePolicy = model_package_group_policy)
-
-print('ModelPackageGroupArn : {}'.format(create_model_package_group_response['ModelPackageGroupArn']))
-print("First Versioned ModelPackageArn: " + model_package_arn)
-print("Second Versioned ModelPackageArn: " + model_package_arn2)
-
-print("Success! You are all set to proceed for cross-account deployment.")
-```
-
 The following configuration needs to be put in the Model Registry account where the
 Model Group exists.
-
-SageMaker Python SDK v3
 
 ```
 
@@ -556,89 +406,8 @@ response = sm_client.put_model_package_group_policy(
 
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import json
-
-# The Model Registry account id of the Model Group
-model_registry_account = "`111111111111`"
-
-# The model training account id where training happens
-model_training_account = "`222222222222`"
-
-# 1. Create a policy for access to the ECR repository
-# in the model training account for the Model Registry account Model Group
-ecr_repository_policy = {"Version": "2012-10-17",
-    "Statement": [{"Sid": "AddPerm",
-        "Effect": "Allow",
-        "Principal": {
-          "AWS": f"arn:aws:iam::{model_registry_account}:root"
-        },
-        "Action": [
-          "ecr:BatchGetImage",
-          "ecr:Describe*"
-        ]
-    }]
-}
-
-# Convert the ECR policy from JSON dict to string
-ecr_repository_policy = json.dumps(ecr_repository_policy)
-
-# Set the new ECR policy
-ecr = boto3.client('ecr')
-response = ecr.set_repository_policy(
-    registryId = model_training_account,
-    repositoryName = "decision-trees-sample",
-    policyText = ecr_repository_policy
-)
-
-# 2. Create a policy in the model training account for access to the S3 bucket
-# where the model is present in the Model Registry account Model Group
-bucket_policy = {"Version": "2012-10-17",
-    "Statement": [{"Sid": "AddPerm",
-        "Effect": "Allow",
-        "Principal": {"AWS": f"arn:aws:iam::{model_registry_account}:root"
-        },
-        "Action": [
-          "s3:GetObject",
-          "s3:GetBucketAcl",
-          "s3:GetObjectAcl"
-        ],
-        "Resource": [
-          "arn:aws:s3:::{`bucket`}/*",
-	  "Resource: arn:aws:s3:::{`bucket`}"
-        ]
-    }]
-}
-
-# Convert the S3 policy from JSON dict to string
-bucket_policy = json.dumps(bucket_policy)
-
-# Set the new bucket policy
-s3 = boto3.client("s3")
-response = s3.put_bucket_policy(
-    Bucket = `bucket`,
-    Policy = bucket_policy)
-
-# 3. Create the KMS grant for the key used during training for encryption
-# in the model training account to the Model Registry account Model Group
-client = boto3.client("kms")
-
-response = client.create_grant(
-    GranteePrincipal=model_registry_account,
-    KeyId=kms_key_id
-    Operations=[
-        "Decrypt",
-        "GenerateDataKey",
-    ],
-)
-```
-
 Finally, use the `create_model_package` action from the model
 training account to register the model package in the cross-account.
-
-SageMaker Python SDK v3
 
 ```
 # Specify the model source
@@ -672,34 +441,4 @@ create_model_package_input_dict.update(modelpackage_inference_specification)
 create_model_package_response = sm_client.create_model_package(**create_model_package_input_dict)
 model_package_arn = create_model_package_response["ModelPackageArn"]
 print('ModelPackage Version ARN : {}'.format(model_package_arn))
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Specify the model source
-model_url = "s3://`your-bucket-name/model.tar.gz`"
-
-modelpackage_inference_specification =  {
-    "InferenceSpecification": {
-      "Containers": [
-         {
-            "Image": `image_uri`,
-	    "ModelDataUrl": `model_url`
-         }
-      ],
-      "SupportedContentTypes": [ "text/csv" ],
-      "SupportedResponseMIMETypes": [ "text/csv" ],
-   }
- }
-
-# Alternatively, you can specify the model source like this:
-# modelpackage_inference_specification["InferenceSpecification"]["Containers"][0]["ModelDataUrl"]=model_url
-
-create_model_package_input_dict = {
-    "ModelPackageGroupName" : model_package_group_name,
-    "ModelPackageDescription" : "Model to detect 3 different types of irises (Setosa, Versicolour, and Virginica)",
-    "ModelApprovalStatus" : "PendingManualApproval"
-}
-create_model_package_input_dict.update(modelpackage_inference_specification)
 ```

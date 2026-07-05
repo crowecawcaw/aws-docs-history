@@ -1,5 +1,11 @@
 # Example notebooks and code samples to configure Debugger rules
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 In the following sections, notebooks and code samples of how to use Debugger rules to monitor SageMaker training jobs are provided.
 
 ###### Topics
@@ -41,8 +47,6 @@ use the `rules_configs` API operation to call the built-in rules.
 To find a full list of Debugger built-in rules and default parameter values, see
 [List of Debugger built-in rules](debugger-built-in-rules.md "debugger-built-in-rules.md").
 
-SageMaker Python SDK v3
-
 ```
 import boto3
 import sagemaker
@@ -80,35 +84,6 @@ sagemaker_model_trainer=ModelTrainer(
 sagemaker_model_trainer.train()
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker.tensorflow import TensorFlow
-from sagemaker.debugger import Rule, CollectionConfig, rule_configs
-
-# call built-in rules that you want to use.
-**built\_in\_rules**=[
-            Rule.sagemaker(rule_configs.vanishing_gradient())
-            Rule.sagemaker(rule_configs.loss_not_decreasing())
-]
-
-# construct a SageMaker AI estimator with the Debugger built-in rules
-sagemaker_estimator=TensorFlow(
-    entry_point='directory/to/your_training_script.py',
-    role=sm.get_execution_role(),
-    base_job_name='debugger-built-in-rules-demo',
-    instance_count=1,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`2.9.0`",
-    py_version="`py39`",
-
-    **# debugger-specific arguments below**
-    **rules=built\_in\_rules**
-)
-sagemaker_estimator.fit()
-```
-
 ###### Note
 
 The Debugger built-in rules run in parallel with your training job. The maximum number of
@@ -127,8 +102,6 @@ In this example, the `stalled_training_rule` collects the `losses`
 tensor collection from a training job at every 50 steps and an evaluation stage at every
 10 steps. If the training process starts stalling and not collecting tensor outputs for
 120 seconds, the `stalled_training_rule` stops the training job.
-
-SageMaker Python SDK v3
 
 ```
 import boto3
@@ -186,51 +159,4 @@ sagemaker_model_trainer=ModelTrainer(
     **rules=built\_in\_rules\_modified**
 )
 sagemaker_model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker.tensorflow import TensorFlow
-from sagemaker.debugger import Rule, CollectionConfig, rule_configs
-
-# call the built-in rules and modify the CollectionConfig parameters
-
-base_job_name_prefix= 'smdebug-stalled-demo-' + str(int(time.time()))
-
-**built\_in\_rules\_modified**=[
-    Rule.sagemaker(
-        base_config=rule_configs.stalled_training_rule(),
-        rule_parameters={
-                'threshold': '120',
-                'training_job_name_prefix': base_job_name_prefix,
-                'stop_training_on_fire' : 'True'
-        }
-        collections_to_save=[
-            CollectionConfig(
-                name="losses",
-                parameters={
-                      "train.save_interval": "50"
-                      "eval.save_interval": "10"
-                }
-            )
-        ]
-    )
-]
-
-# construct a SageMaker AI estimator with the modified Debugger built-in rule
-sagemaker_estimator=TensorFlow(
-    entry_point='directory/to/your_training_script.py',
-    role=sm.get_execution_role(),
-    base_job_name=base_job_name_prefix,
-    instance_count=1,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`2.9.0`",
-    py_version="`py39`",
-
-    # debugger-specific arguments below
-    **rules=built\_in\_rules\_modified**
-)
-sagemaker_estimator.fit()
 ```

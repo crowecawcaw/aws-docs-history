@@ -1,5 +1,11 @@
 # Data and model quality monitoring with Amazon SageMaker Model Monitor
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Amazon SageMaker Model Monitor monitors the quality of Amazon SageMaker AI machine learning models in production. With Model Monitor,
 you can set up:
 
@@ -26,6 +32,7 @@ Model Monitor provides the following types of monitoring:
 
 ###### Topics
 
+- [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md")
 - [Monitoring a Model in Production](how-it-works-model-monitor.md "how-it-works-model-monitor.md")
 - [How Amazon SageMaker Model Monitor works](#model-monitor-how-it-works "#model-monitor-how-it-works")
 - [Data capture](model-monitor-data-capture.md "model-monitor-data-capture.md")
@@ -41,6 +48,12 @@ Model Monitor provides the following types of monitoring:
 - [Model Monitor FAQs](model-monitor-faqs.md "model-monitor-faqs.md")
 
 ## How Amazon SageMaker Model Monitor works
+
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
 
 Amazon SageMaker Model Monitor automatically monitors machine learning (ML) models in production and notifies
 you when quality issues happen. Model Monitor uses rules to detect drift in your models and alerts

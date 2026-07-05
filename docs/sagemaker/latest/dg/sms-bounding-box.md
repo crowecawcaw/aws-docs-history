@@ -1,5 +1,11 @@
 # Classify image objects using a bounding box
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 The images used to train a machine learning model often contain more than one object. To
 classify and localize one or more objects within images, use the Amazon SageMaker Ground Truth bounding box labeling
 job task type. In this context, localization means the pixel-location of the bounding box. You

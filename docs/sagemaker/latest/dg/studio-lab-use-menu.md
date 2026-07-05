@@ -1,5 +1,11 @@
 # Use the Amazon SageMaker Studio Lab notebook toolbar
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Studio Lab, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md").
+
 Amazon SageMaker Studio Lab notebooks extend the JupyterLab interface. For an overview of the basic
 JupyterLab interface, see [The JupyterLab
 Interface](https://jupyterlab.readthedocs.io/en/latest/user/interface.html "https://jupyterlab.readthedocs.io/en/latest/user/interface.html").

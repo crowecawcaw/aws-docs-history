@@ -46,41 +46,10 @@ For details about local mode pipeline runs, see [Run pipelines using local mode]
 instead of a `SageMakerSession` to your pipeline definition, as shown in the following
 example:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.mlops.workflow.function_step import step
 from sagemaker.mlops.workflow.pipeline import Pipeline
 from sagemaker.core.workflow.pipeline_context import LocalPipelineSession
-
-@step
-def train():
-    training_data = s3.download(....)
-    ...
-    return trained_model
-
-step_train_result = train()
-
-local_pipeline_session = LocalPipelineSession()
-
-local_pipeline = Pipeline(
-    name="`<pipeline-name>`",
-    steps=[step_train_result],
-    sagemaker_session=local_pipeline_session # needed for local mode
-)
-
-local_pipeline.create(role_arn="role_arn")
-
-# pipeline runs locally
-execution = local_pipeline.start()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.workflow.function_step import step
-from sagemaker.workflow.pipeline import Pipeline
-from sagemaker.workflow.pipeline_context import LocalPipelineSession
 
 @step
 def train():

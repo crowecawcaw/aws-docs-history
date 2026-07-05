@@ -1,5 +1,10 @@
 # Use Amazon SageMaker geospatial capabilities in Your Amazon Virtual Private Cloud
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 The following topic gives information on how to use SageMaker notebooks with a SageMaker geospatial image in a Amazon SageMaker AI domain with VPC only mode.
 For more information on VPCs in Amazon SageMaker Studio Classic see [Choose an Amazon VPC](onboard-vpc.md "onboard-vpc.md").
 

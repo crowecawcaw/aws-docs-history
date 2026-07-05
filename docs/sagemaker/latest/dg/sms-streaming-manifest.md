@@ -1,5 +1,11 @@
 # Create a Manifest File (Optional)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you create a streaming labeling job, you have the one time option to add
 objects (such as images or text) to an input manifest file that you specify in
 `ManifestS3Uri` of `CreateLabelingJob`. When the streaming

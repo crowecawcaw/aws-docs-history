@@ -1,5 +1,11 @@
 # Parameters to Monitor Bias Drift
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Amazon SageMaker Clarify bias monitoring reuses a subset of the parameters used in the analysis
 configuration of [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md"). After describing the
 configuration parameters, this topic provides examples of JSON files. These files are

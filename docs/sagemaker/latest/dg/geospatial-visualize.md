@@ -1,5 +1,10 @@
 # Visualization Using SageMaker geospatial capabilities
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 Using the visualization functionalities provided by Amazon SageMaker geospatial you can visualize geospatial data,
 the inputs to your EOJ or VEJ jobs as well as the outputs exported from your Amazon S3 bucket.
 The visualization tool is powered by [Foursquare Studio](https://studio.foursquare.com/home "https://studio.foursquare.com/home").

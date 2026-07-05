@@ -1,5 +1,11 @@
 # Using the role manager (AWS CDK)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Role Manager, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Role Manager, but we do not plan to introduce new features. For more information, see [Role Manager availability change](role-manager-availability-change.md "role-manager-availability-change.md").
+
 Use the AWS Cloud Development Kit (AWS CDK) with Amazon SageMaker Role Manager to programmatically create roles and set permissions. You can use the AWS CDK to accomplish any task that you could perform using the AWS Management Console. The programmatic access of the CDK makes it easier to provide permissions that give your users access to specific resources.
 For more information about the AWS CDK, see [What is AWS CDK?](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
 

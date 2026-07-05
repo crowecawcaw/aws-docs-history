@@ -1,5 +1,11 @@
 # Create a Monitoring Schedule for a Real-time Endpoint with an CloudFormation Custom Resource
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 If you are using a real-time endpoint, you can use a CloudFormation custom resource to
 create a monitoring schedule. The custom resource is in Python. To deploy it, see
 [Python Lambda deployment](../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md "../../../lambda/latest/dg/lambda-python-how-to-create-deployment-package.md").

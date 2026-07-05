@@ -41,24 +41,12 @@ can also create a step in a pipeline that automatically deploys a new model
 version when it is approved. The following code snippet shows how to manually
 change the approval status to `Approved`.
 
-SageMaker Python SDK v3
-
 ```
 model_package_update_input_dict = {
     "ModelPackageArn" : model_package_arn,
     "ModelApprovalStatus" : "Approved"
 }
 model_package_update_response = sm_client.update_model_package(**model_package_update_input_dict)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-ModelLifeCycle {
-    stage: String # Required (e.g., Development/QA/Production)
-    stageStatus: String # Required (e.g., PendingApproval/Approved/Rejected)
-    stageDescription: String # Optional
-}
 ```
 
 ## Update the Approval Status of a Model (Studio or Studio Classic)

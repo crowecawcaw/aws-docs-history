@@ -283,8 +283,6 @@ The command flags used in this example accomplish the following:
 
 For example, you can use a `sagemaker.TensorFlow` to define a TensorFlow estimator:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import Compute, SourceCode
@@ -307,31 +305,8 @@ Then train the model with the `.train` method:
 model_trainer.train(inputs)
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.tensorflow import TensorFlow
-
-estimator = TensorFlow(entry_point='mnist.py',
-                        role=role,  #param role can be arn of a sagemaker execution role
-                        framework_version='1.15.3',
-                        py_version='py3',
-                        training_steps=1000,
-                        evaluation_steps=100,
-                        instance_count=2,
-                        instance_type='ml.c4.xlarge')
-```
-
-Then train the model with `.fit` built-in method:
-
-```
-estimator.fit(inputs)
-```
-
 Before finally compiling model with the build in
 `compile_model` method:
-
-SageMaker Python SDK v3
 
 ```
 # Neo compilation in V3 uses ModelBuilder.optimize() with compilation_config
@@ -358,24 +333,9 @@ optimized_model = model_builder.optimize(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Specify output path of the compiled model
-output_path = '/'.join(estimator.output_path.split('/')[:-1])
-
-# Compile model
-optimized_estimator = estimator.compile_model(target_instance_family='ml_c5',
-                              input_shape={'data':[1, 784]},  # Batch size 1, 3 channels, 224x224 Images.
-                              output_path=output_path,
-                              framework='tensorflow', framework_version='1.15.3')
-```
-
 You can also use the `sagemaker.estimator.Estimator` Class to initialize an
 estimator object for training and compiling a built-in algorithm with the
 `compile_model` method from the SageMaker Python SDK:
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.core import image_uris
@@ -429,53 +389,6 @@ optimized_model = model_builder.optimize(
         },
     },
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker.image_uris import retrieve
-sagemaker_session = sagemaker.Session()
-aws_region = sagemaker_session.boto_region_name
-
-# Specify built-in algorithm training image
-training_image = retrieve(framework='image-classification',
-                          region=aws_region, image_scope='training')
-
-training_image = retrieve(framework='image-classification', region=aws_region, image_scope='training')
-
-# Create estimator object for training
-estimator = sagemaker.estimator.Estimator(image_uri=training_image,
-                                          role=role,  #param role can be arn of a sagemaker execution role
-                                          instance_count=1,
-                                          instance_type='ml.p3.8xlarge',
-                                          volume_size = 50,
-                                          max_run = 360000,
-                                          input_mode= 'File',
-                                          output_path=s3_training_output_location,
-                                          base_job_name='image-classification-training'
-                                          )
-
-# Setup the input data_channels to be used later for training.
-train_data = sagemaker.inputs.TrainingInput(s3_training_data_location,
-                                            content_type='application/x-recordio',
-                                            s3_data_type='S3Prefix')
-validation_data = sagemaker.inputs.TrainingInput(s3_validation_data_location,
-                                                content_type='application/x-recordio',
-                                                s3_data_type='S3Prefix')
-data_channels = {'train': train_data, 'validation': validation_data}
-
-
-# Train model
-estimator.fit(inputs=data_channels, logs=True)
-
-# Compile model with Neo
-optimized_estimator = estimator.compile_model(target_instance_family='ml_c5',
-                                          input_shape={'data':[1, 3, 224, 224], 'softmax_label':[1]},
-                                          output_path=s3_compilation_output_location,
-                                          framework='mxnet',
-                                          framework_version='1.7')
 ```
 
 For more information about compiling models with the SageMaker Python SDK,

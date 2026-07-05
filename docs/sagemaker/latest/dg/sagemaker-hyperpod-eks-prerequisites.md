@@ -25,8 +25,7 @@ configured with VPC and installed using Helm.
 
 1. **Kubernetes version support**
 
-   - SageMaker HyperPod supports Kubernetes versions 1.28, 1.29, 1.30,
-     1.31, 1.32, 1.33, and 1.34.
+   - SageMaker HyperPod supports Kubernetes versions 1.30, 1.31, 1.32, 1.33, 1.34, and 1.35.
 
 2. **Amazon EKS cluster authentication mode**
 

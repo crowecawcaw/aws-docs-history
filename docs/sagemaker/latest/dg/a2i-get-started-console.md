@@ -1,5 +1,11 @@
 # Tutorial: Get Started in the Amazon A2I Console
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 The following tutorial shows you how to get started using Amazon A2I in the Amazon A2I
 console.
 

@@ -1,5 +1,10 @@
 # Profile and optimize computational performance
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 When training state-of-the-art deep learning models that rapidly grow in size, scaling the
 training job of such models to a large GPU cluster and identifying computational performance
 issues from billions and trillions of operations and communications in every iteration of
@@ -54,6 +59,7 @@ Debugger UI in SageMaker Studio Experiments](debugger-on-studio.md "debugger-on-
 
 ###### Topics
 
+- [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md")
 - [Amazon SageMaker Profiler](train-use-sagemaker-profiler.md "train-use-sagemaker-profiler.md")
 - [Monitor AWS compute resource utilization in Amazon SageMaker Studio Classic](debugger-profile-training-jobs.md "debugger-profile-training-jobs.md")
 - [Release notes for profiling capabilities of Amazon SageMaker AI](profiler-release-notes.md "profiler-release-notes.md")

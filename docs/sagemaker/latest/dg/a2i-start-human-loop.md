@@ -1,5 +1,11 @@
 # Create and Start a Human Loop
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 A _human loop_ starts your human review workflow and sends data review
 tasks to human workers. When you use one of the Amazon A2I built-in task types, the
 corresponding AWS service creates and starts a human loop on your behalf when the conditions

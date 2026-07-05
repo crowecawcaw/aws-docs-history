@@ -1,5 +1,11 @@
 # Create a model quality baseline
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Create a baseline job that compares your model predictions with
 ground
 truth labels in a baseline dataset that you have stored in Amazon S3.

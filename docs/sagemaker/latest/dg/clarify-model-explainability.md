@@ -1,5 +1,11 @@
 # Model Explainability
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 Amazon SageMaker Clarify provides tools to help explain how machine learning (ML) models make
 predictions. These tools can help ML modelers and developers and other internal stakeholders
 understand model characteristics as a whole prior to deployment and to debug predictions

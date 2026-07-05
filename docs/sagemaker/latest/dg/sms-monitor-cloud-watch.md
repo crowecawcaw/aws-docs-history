@@ -1,5 +1,11 @@
 # Monitor Labeling Job Status
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 To monitor the status of your labeling jobs, you can set up an [Amazon CloudWatch Events](monitoring-cloudwatch.md#cloudwatch-metrics-ground-truth "monitoring-cloudwatch.md#cloudwatch-metrics-ground-truth")
 (CloudWatch Events) rule for Amazon SageMaker Ground Truth (Ground Truth) to send an event to CloudWatch Events when a labeling job status
 changes to `Completed`, `Failed`, or `Stopped` or when a worker accepts, declines, submits, or returns a task.

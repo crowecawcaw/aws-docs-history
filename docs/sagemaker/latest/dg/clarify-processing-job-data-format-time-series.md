@@ -1,5 +1,11 @@
 # Time series data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 Time series data refers to data that can be loaded into a three-dimensional data frame.
 In the frame, in every timestamp, each row represents a target record, and each target
 record has one or more related columns. The values within each data frame cell can be of

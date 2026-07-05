@@ -6,7 +6,7 @@ datasets and less training time. You can fine-tune a model if its card shows a *
 
 ![JumpStart fine-tunable Image Classification - TensorFlow model.](images/jumpstart/jumpstart-finetune-model.png)
 
-###### Important
+###### Note
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
 Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For

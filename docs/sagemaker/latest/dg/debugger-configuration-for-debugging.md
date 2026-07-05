@@ -1,5 +1,11 @@
 # Launch training jobs with Debugger using the SageMaker Python SDK
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 To configure a SageMaker AI estimator with SageMaker Debugger, use [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") and
 specify Debugger-specific parameters. To fully utilize the debugging functionality, there are
 three parameters you need to configure: `debugger_hook_config`,
@@ -20,8 +26,6 @@ Debugger-specific parameters.
 The following code examples are templates for constructing the SageMaker AI framework estimators
 and not directly executable. You need to proceed to the next sections and configure
 the Debugger-specific parameters.
-
-SageMaker Python SDK v3
 
 ```
 # An example of creating a training job with debugger configuration
@@ -75,168 +79,6 @@ TrainingJob.create(
     debug_hook_config=`debug_hook_config`,
     debug_rule_configurations=`debug_rule_configurations`,
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-**PyTorch:**
-
-```
-# An example of constructing a SageMaker AI PyTorch estimator
-import boto3
-import sagemaker
-from sagemaker.pytorch import PyTorch
-from sagemaker.debugger import CollectionConfig, DebuggerHookConfig, Rule, rule_configs
-
-session=boto3.session.Session()
-region=session.region_name
-
-`debugger_hook_config`=`DebuggerHookConfig(...)`
-`rules`=[
-    `Rule.sagemaker(rule_configs.built_in_rule())`
-]
-
-estimator=PyTorch(
-    entry_point="`directory/to/your_training_script.py`",
-    role=sagemaker.get_execution_role(),
-    base_job_name="`debugger-demo`",
-    instance_count=`1`,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`1.12.0`",
-    py_version="`py37`",
-
-    # Debugger-specific parameters
-    debugger_hook_config=`debugger_hook_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
-
-**TensorFlow:**
-
-```
-# An example of constructing a SageMaker AI TensorFlow estimator
-import boto3
-import sagemaker
-from sagemaker.tensorflow import TensorFlow
-from sagemaker.debugger import CollectionConfig, DebuggerHookConfig, Rule, rule_configs
-
-session=boto3.session.Session()
-region=session.region_name
-
-`debugger_hook_config`=`DebuggerHookConfig(...)`
-`rules`=[
-    `Rule.sagemaker(rule_configs.built_in_rule())`,
-    `ProfilerRule.sagemaker(rule_configs.BuiltInRule())`
-]
-
-estimator=TensorFlow(
-    entry_point="`directory/to/your_training_script.py`",
-    role=sagemaker.get_execution_role(),
-    base_job_name="`debugger-demo`",
-    instance_count=`1`,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`2.9.0`",
-    py_version="`py39`",
-
-    # Debugger-specific parameters
-    debugger_hook_config=`debugger_hook_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
-
-**MXNet:**
-
-```
-# An example of constructing a SageMaker AI MXNet estimator
-import sagemaker
-from sagemaker.mxnet import MXNet
-from sagemaker.debugger import CollectionConfig, DebuggerHookConfig, Rule, rule_configs
-
-`debugger_hook_config`=`DebuggerHookConfig(...)`
-`rules`=[
-    `Rule.sagemaker(rule_configs.built_in_rule())`
-]
-
-estimator=MXNet(
-    entry_point="`directory/to/your_training_script.py`",
-    role=sagemaker.get_execution_role(),
-    base_job_name="`debugger-demo`",
-    instance_count=`1`,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`1.7.0`",
-    py_version="`py37`",
-
-    # Debugger-specific parameters
-    debugger_hook_config=`debugger_hook_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
-
-**XGBoost:**
-
-```
-# An example of constructing a SageMaker AI XGBoost estimator
-import sagemaker
-from sagemaker.xgboost.estimator import XGBoost
-from sagemaker.debugger import CollectionConfig, DebuggerHookConfig, Rule, rule_configs
-
-`debugger_hook_config`=`DebuggerHookConfig(...)`
-`rules`=[
-    `Rule.sagemaker(rule_configs.built_in_rule())`
-]
-
-estimator=XGBoost(
-    entry_point="`directory/to/your_training_script.py`",
-    role=sagemaker.get_execution_role(),
-    base_job_name="`debugger-demo`",
-    instance_count=`1`,
-    instance_type="`ml.p3.2xlarge`",
-    framework_version="`1.5-1`",
-
-    # Debugger-specific parameters
-    debugger_hook_config=`debugger_hook_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
-```
-
-**Generic estimator:**
-
-```
-# An example of constructing a SageMaker AI generic estimator using the XGBoost algorithm base image
-import boto3
-import sagemaker
-from sagemaker.estimator import Estimator
-from sagemaker import image_uris
-from sagemaker.debugger import CollectionConfig, DebuggerHookConfig, Rule, rule_configs
-
-`debugger_hook_config`=`DebuggerHookConfig(...)`
-`rules`=[
-    `Rule.sagemaker(rule_configs.built_in_rule())`
-]
-
-region=boto3.Session().region_name
-xgboost_container=sagemaker.image_uris.retrieve("xgboost", region, "1.5-1")
-
-estimator=Estimator(
-    role=sagemaker.get_execution_role()
-    image_uri=xgboost_container,
-    base_job_name="`debugger-demo`",
-    instance_count=`1`,
-    instance_type="`ml.m5.2xlarge`",
-
-    # Debugger-specific parameters
-    debugger_hook_config=`debugger_hook_config`,
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
 ```
 
 Configure the following parameters to activate SageMaker Debugger:

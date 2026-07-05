@@ -62,8 +62,6 @@ You can either copy the script to the container or pass it via the `entry_point`
 argument (of your ModelTrainer entity) or `code` argument (of your processor entity),
 as demonstrated in the following code sample.
 
-SageMaker Python SDK v3
-
 ```
 step_process = ProcessingStep(
     name="PreprocessAbaloneData",
@@ -97,45 +95,6 @@ sklearn_image_uri = image_uris.retrieve(
 sklearn_estimator = ModelTrainer(
     source_code=SourceCode(entry_script=os.path.join(BASE_DIR, "train.py")), ## Code is passed through source_code
     training_image=sklearn_image_uri,
-    instance_type=training_instance_type,
-    role=role,
-    output_path=model_path, # New
-    sagemaker_session=sagemaker_session, # New
-    instance_count=1, # New
-    base_job_name=f"{base_job_prefix}/pilot-train",
-    metric_definitions=[
-        {'Name': 'train:accuracy', 'Regex': 'accuracy_train=(.*?);'},
-        {'Name': 'validation:accuracy', 'Regex': 'accuracy_validation=(.*?);'}
-    ],
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-step_process = ProcessingStep(
-    name="PreprocessAbaloneData",
-    processor=sklearn_processor,
-    inputs = [
-        ProcessingInput(
-            input_name='dataset',
-            source=...,
-            destination="/opt/ml/processing/code",
-        )
-    ],
-    outputs=[
-        ProcessingOutput(output_name="train", source="/opt/ml/processing/train", destination = processed_data_path),
-        ProcessingOutput(output_name="validation", source="/opt/ml/processing/validation", destination = processed_data_path),
-        ProcessingOutput(output_name="test", source="/opt/ml/processing/test", destination = processed_data_path),
-    ],
-    code=os.path.join(BASE_DIR, "process.py"), ## Code is passed through an argument
-    cache_config = cache_config,
-    job_arguments = ['--input', 'arg1']
-)
-
-sklearn_estimator = SKLearn(
-    entry_point=os.path.join(BASE_DIR, "train.py"), ## Code is passed through the entry_point
-    framework_version="0.23-1",
     instance_type=training_instance_type,
     role=role,
     output_path=model_path, # New

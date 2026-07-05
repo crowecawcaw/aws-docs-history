@@ -1,5 +1,11 @@
 # Accepted Raw 3D Data Formats
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Ground Truth uses your 3D point cloud data to render a 3D scenes that workers annotate. This
 section describes the raw data formats that are accepted for point cloud data and sensor
 fusion data for a point cloud frame. To learn how to create an input manifest file to

@@ -12,8 +12,6 @@ lines of code using the SageMaker Python SDK.
 2. Using the model ID, define your training job as a JumpStart
    estimator.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.core.jumpstart.configs import JumpStartConfig
@@ -22,19 +20,8 @@ jumpstart_config = JumpStartConfig(model_id=`"huggingface-textgeneration1-gpt-j-
 model_trainer = ModelTrainer.from_jumpstart_config(jumpstart_config=jumpstart_config)
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.jumpstart.estimator import JumpStartEstimator
-
-model_id = `"huggingface-textgeneration1-gpt-j-6b"`
-estimator = JumpStartEstimator(model_id=model_id)
-```
-
 3. Run `estimator.fit()` on your model, pointing to the
    training data to use for fine-tuning.
-
-SageMaker Python SDK v3
 
 ```
 model_trainer.train(
@@ -42,19 +29,9 @@ model_trainer.train(
 )
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-estimator.fit(
-    {"train": `training_dataset_s3_path`, "validation": `validation_dataset_s3_path`}
-)
-```
-
 4. Then, use the `deploy` method to automatically deploy your
    model for inference. In this example, we use the GPT-J 6B model from
    Hugging Face.
-
-SageMaker Python SDK v3
 
 ```
 from sagemaker.serve import ModelBuilder
@@ -64,29 +41,13 @@ model = model_builder.build()
 endpoint = model_builder.deploy()
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = estimator.deploy()
-```
-
 5. You can then run inference with the deployed model using the
    `predict` method.
-
-SageMaker Python SDK v3
 
 ```
 question = `"What is Southern California often abbreviated as?"`
 response = endpoint.invoke(body=question, content_type="text/plain")
 print(response.body.read().decode('utf-8'))
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-question = `"What is Southern California often abbreviated as?"`
-response = predictor.predict(question)
-print(response)
 ```
 
 ###### Note

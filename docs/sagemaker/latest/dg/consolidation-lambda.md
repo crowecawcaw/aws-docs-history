@@ -1,5 +1,11 @@
 # Annotation consolidation function creation
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 You can choose to use your own annotation consolidation function to determine the
 final labels for your labeled objects. There are many possible approaches for
 writing a function and the approach that you take depends on the nature of the

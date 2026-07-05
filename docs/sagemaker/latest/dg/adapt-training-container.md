@@ -207,8 +207,6 @@ command:
 2. Paste the following example script into the notebook code cell to configure a
    SageMaker AI ModelTrainer.
 
-SageMaker Python SDK v3
-
 ```
 import sagemaker
 from sagemaker.train import ModelTrainer
@@ -221,20 +219,6 @@ model_trainer = ModelTrainer(training_image='`tf-custom-container-test`',
                                       instance_type=`'local'`))
 
 model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker.estimator import Estimator
-
-estimator = Estimator(image_uri='`tf-custom-container-test`',
-                      role=`sagemaker.get_execution_role()`,
-                      instance_count=`1`,
-                      instance_type=`'local'`)
-
-estimator.fit()
 ```
 
 In the preceding code example, `get_execution_role()` is

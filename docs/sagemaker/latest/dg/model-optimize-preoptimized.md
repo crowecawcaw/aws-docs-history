@@ -45,22 +45,11 @@ see [APIs](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readth
    example imports the SDK for Python (Boto3). It also imports the modules from the SageMaker AI
    Python SDK that you use to define and work with models:
 
-SageMaker Python SDK v3
-
 ```
 import boto3
 from sagemaker.serve.model_builder import ModelBuilder
 from sagemaker.serve.builder.schema_builder import SchemaBuilder
 from sagemaker.core.helper.session_helper import Session
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import boto3
-from sagemaker.serve.builder.model_builder import ModelBuilder
-from sagemaker.serve.builder.schema_builder import SchemaBuilder
-from sagemaker.session import Session
 ```
 
 2. Initialize a SageMaker AI session. The following example uses the
@@ -176,16 +165,8 @@ The `.build()` method returns a deployable `Model`
 instance. 3. Deploy your model to an inference endpoint. The following example uses the
 `.deploy()` method of the `ModelBuilder` instance:
 
-SageMaker Python SDK v3
-
 ```
 endpoint = model_builder.deploy(accept_eula=True)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor = optimized_model.deploy(accept_eula=True)
 ```
 
 The `deploy()` method returns an `Endpoint`
@@ -197,19 +178,11 @@ object, which you can use to send inference requests to the model.
   predictions. The following example sends an inference request by using the
   `Endpoint` object:
 
-SageMaker Python SDK v3
-
 ```
 import json
 
 response = endpoint.invoke(body=json.dumps(sample_input), content_type="application/json")
 result = json.loads(response.body.read().decode('utf-8'))
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-predictor.predict(sample_input)
 ```
 
 The model returns the text that it generates with a response like the

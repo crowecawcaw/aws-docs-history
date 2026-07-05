@@ -1,6 +1,6 @@
 # Custom Images in Amazon SageMaker Studio Classic
 
-###### Important
+###### Note
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
 Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For
@@ -17,7 +17,7 @@ images for you to use. For the list of built-in images, see [Amazon SageMaker Im
 
 If you need different functionality, you can bring your own custom images to Studio Classic. You
 can create images and image versions, and attach image versions to your domain or shared space,
-using the SageMaker AI control panel, the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html"), and the [AWS Command Line Interface (AWS CLI)](../../../cli/latest/reference/sagemaker.md "../../../cli/latest/reference/sagemaker.md"). You can also create images
+using the SageMaker AI control panel, the [AWS SDK for Python (Boto3)](../../../boto3/latest/reference/services/sagemaker.md "../../../boto3/latest/reference/services/sagemaker.md"), and the [AWS Command Line Interface (AWS CLI)](../../../cli/latest/reference/sagemaker.md "../../../cli/latest/reference/sagemaker.md"). You can also create images
 and image versions using the SageMaker AI console, even if you haven't onboarded to a SageMaker AI domain. SageMaker AI
 provides sample Dockerfiles to use as a starting point for your custom SageMaker images in the [SageMaker Studio Classic
 Custom Image Samples](https://github.com/aws-samples/sagemaker-studio-custom-image-samples/ "https://github.com/aws-samples/sagemaker-studio-custom-image-samples/") repository.

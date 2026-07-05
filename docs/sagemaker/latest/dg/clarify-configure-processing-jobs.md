@@ -1,5 +1,11 @@
 # Fairness, model explainability and bias detection with SageMaker Clarify
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 You can use Amazon SageMaker Clarify to understand fairness and model explainability and to
 explain and detect bias in your models. You can configure an SageMaker Clarify processing job to
 compute bias metrics and feature attributions and generate reports for model explainability. SageMaker Clarify processing

@@ -1,5 +1,10 @@
 # Explore the Amazon SageMaker Debugger Insights dashboard
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 When you initiate a SageMaker training job, SageMaker Debugger starts monitoring the resource
 utilization of the Amazon EC2 instances by default. You can track the system utilization
 rates, statistics overview, and built-in rule analysis through the Insights dashboard.

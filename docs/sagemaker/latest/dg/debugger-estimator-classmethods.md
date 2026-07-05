@@ -1,5 +1,11 @@
 # Useful SageMaker AI estimator class methods for Debugger
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 The following estimator class methods are useful for accessing your SageMaker training job
 information and retrieving output paths of training data collected by Debugger. The
 following methods are executable after you initiate a training job with the

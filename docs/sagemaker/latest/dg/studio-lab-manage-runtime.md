@@ -1,5 +1,11 @@
 # Launch your Amazon SageMaker Studio Lab project runtime
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Studio Lab, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md").
+
 The Amazon SageMaker Studio Lab project runtime lets you write and run code directly from your browser. It
 is based on JupyterLab and has an integrated terminal and console. For more information about
 JupyterLab, see the [JupyterLab

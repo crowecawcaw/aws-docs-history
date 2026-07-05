@@ -1,5 +1,11 @@
 # Data quality
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
 Data quality monitoring automatically monitors machine learning (ML) models in
 production and notifies you when data quality issues arise. ML models in production have
 to make predictions on real-life data that is not carefully curated like most training

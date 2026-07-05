@@ -49,8 +49,6 @@ models, see [Tested Models](training-compiler-support.md#training-compiler-teste
   This enables SageMaker AI to put the debugging logs into SageMaker training job
   logs.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.training_compiler import TrainingCompilerConfig
 from sagemaker.train import ModelTrainer
@@ -69,15 +67,6 @@ training_image = image_uris.retrieve(
 model_trainer=ModelTrainer(
     training_image=training_image,
     ...
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-huggingface_estimator=HuggingFace(
-    ...
-    compiler_config=TrainingCompilerConfig(debug=True)
 )
 ```
 

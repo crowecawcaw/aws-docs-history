@@ -1,5 +1,11 @@
 # Use Human Loop Activation Conditions JSON Schema with Amazon Rekognition
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 When used with Amazon A2I, the Amazon Rekognition `DetectModerationLabels` operation
 supports the following inputs in the `ConditionType` parameters:
 

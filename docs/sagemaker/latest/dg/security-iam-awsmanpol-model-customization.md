@@ -53,6 +53,10 @@ This AWS managed policy includes the following permissions.
   for job configuration. Read-only.
 - `ec2` – Allows principals to describe VPCs for job
   configuration. Read-only.
+- `servicequotas` – Allows principals to list service quotas
+  for Amazon SageMaker AI. This enables the Studio UI to look up instance-type-specific quota
+  codes and provide direct links to the Service Quotas console when a quota limit
+  is reached. Read-only.
 
 ###### Example Permissions policy
 
@@ -360,7 +364,8 @@ This AWS managed policy includes the following permissions.
                 "kms:DescribeKey",
                 "kms:ListAliases",
                 "iam:ListRoles",
-                "ec2:DescribeVpcs"
+                "ec2:DescribeVpcs",
+                "servicequotas:ListServiceQuotas"
             ],
             "Resource": "*",
             "Condition": {
@@ -567,6 +572,7 @@ since this service began tracking these changes. For automatic alerts about chan
 this page, subscribe to the RSS feed on the SageMaker AI [Document
 history page.](doc-history.md "doc-history.md")
 
-| Policy                                                      | Version | Change         | Date         |
-| ----------------------------------------------------------- | ------- | -------------- | ------------ |
-| AmazonSageMakerModelCustomizationCoreAccess<br>• New policy | 1       | Initial policy | May 26, 2026 |
+| Policy                                                                                                                                                                                                                        | Version | Change                                                                                                                                                                                                                                                                                                                                 | Date          |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| [AWS managed policy: AmazonSageMakerModelCustomizationCoreAccess](#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess "#security-iam-awsmanpol-AmazonSageMakerModelCustomizationCoreAccess") – Updated policy | 2       | Added `servicequotas:ListServiceQuotas` to the<br>`SageMakerJobAdvancedSettings` statement. This allows<br>the Amazon SageMaker AI Studio UI to look up instance-type-specific service<br>quota codes and provide direct links to the Service Quotas console<br>when a quota limit is reached during model customization<br>workflows. | June 30, 2026 |
+| AmazonSageMakerModelCustomizationCoreAccess<br>• New policy                                                                                                                                                                   | 1       | Initial policy                                                                                                                                                                                                                                                                                                                         | May 26, 2026  |

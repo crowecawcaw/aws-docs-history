@@ -1,5 +1,11 @@
 # Treatment Equality (TE)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The treatment equality (TE) is the difference in the ratio of false negatives to false
 positives between facets _a_ and _d_. The main idea of this metric is to assess whether, even
 if the accuracy across groups is the same, is it the case that errors are more harmful

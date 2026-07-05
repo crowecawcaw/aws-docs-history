@@ -16,8 +16,9 @@ new notebook instances. We strongly recommend upgrading to AL2023
 (`notebook-al2023-v1`) for continued support. To learn more, see
 [AL2023 notebook instances](nbi-al2023.md "nbi-al2023.md").
 
-Starting July 15, 2026, SageMaker AI will attempt to upgrade the following platforms to
-AL2023:
+From August 1, 2026 onward, Amazon SageMaker AI will begin upgrading remaining AL2 notebook
+instances to AL2023 in phases to ensure continued security and compatibility. The
+following platforms will be upgraded:
 
 - `notebook-al2-v1` (JupyterLab 1)
 - `notebook-al2-v2` (JupyterLab 3)
@@ -76,12 +77,12 @@ SageMaker notebook instance kernels
 
 The following table is a timeline for the Amazon Linux 2 end of support on notebook instances.
 
-| Date          | Description                                                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| May 15, 2026  | The default platform identifier for new notebook instances changes<br>from `notebook-al2-v3` to<br>`notebook-al2023-v1`. |
-| June 30, 2026 | AL2 reaches end of support. AL2 notebook instances no longer<br>receive security updates or bug fixes.                   |
-| July 1, 2026  | AL2 notebook instances can no longer be created or restarted.                                                            |
-| July 15, 2026 | SageMaker AI will attempt to upgrade remaining AL2 instances to AL2023.                                                  |
+| Date           | Description                                                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| May 15, 2026   | The default platform identifier for new notebook instances changes<br>from `notebook-al2-v3` to<br>`notebook-al2023-v1`. |
+| June 30, 2026  | AL2 reaches end of support. AL2 notebook instances no longer<br>receive security updates or bug fixes.                   |
+| July 1, 2026   | AL2 notebook instances can no longer be created or restarted.                                                            |
+| August 1, 2026 | Amazon SageMaker AI begins upgrading remaining AL2 notebook instances to<br>AL2023 in phases.                            |
 
 ### Migrating from Amazon Linux 2 to AL2023
 

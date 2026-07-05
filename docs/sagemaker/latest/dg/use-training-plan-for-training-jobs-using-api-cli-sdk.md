@@ -76,8 +76,6 @@ with a provided training plan using the `training_plan` attribute in the
 
 For more information on the SageMaker ModelTrainer, see [Use a SageMaker ModelTrainer to run a training job](docker-containers-adapt-your-own-private-registry-estimator.md "docker-containers-adapt-your-own-private-registry-estimator.md").
 
-SageMaker Python SDK v3
-
 ```
 import boto3
 from sagemaker.core.helper.session_helper import get_execution_role
@@ -115,48 +113,6 @@ model_trainer = ModelTrainer(
 
 # Create the training job
 model_trainer.train(input_data_config=[trainingInput])
-
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-import boto3
-from sagemaker import get_execution_role
-from sagemaker.estimator import Estimator
-from sagemaker.inputs import TrainingInput
-
-# Set up the session and SageMaker client
-session = boto3.Session()
-region = session.region_name
-sagemaker_session = session.client('sagemaker')
-
-# Get the execution role for the training job
-role = get_execution_role()
-
-# Define the input data configuration
-trainingInput = TrainingInput(
-    s3_data='`s3://input-path`',
-    distribution='`ShardedByS3Key`',
-    s3_data_type='`S3Prefix`'
-)
-
-estimator = Estimator(
-    entry_point='train.py',
-    image_uri="`123456789123.dkr.ecr.{}.amazonaws.com/image:tag`",
-    role=role,
-    instance_count=`4`,
-    instance_type='`ml.p5.48xlarge`',
-    training_plan="`training-plan-arn`",
-    volume_size=`20`,
-    max_run=`3600`,
-    sagemaker_session=sagemaker_session,
-    output_path="`s3://output-path`"
-)
-
-# Create the training job
-estimator.fit(inputs=trainingInput, job_name=`job_name`)
 
 ```
 

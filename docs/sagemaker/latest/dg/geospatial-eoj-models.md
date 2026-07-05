@@ -1,5 +1,10 @@
 # Types of Operations
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 When you create an EOJ, you select an operation based on your use case.
 Amazon SageMaker geospatial capabilities provide a combination of purpose-built operations and pre-trained models.
 You can use these operations to understand the impact of environmental changes and

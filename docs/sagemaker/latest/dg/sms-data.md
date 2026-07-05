@@ -1,5 +1,11 @@
 # Use input and output data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 The input data that you provide to Amazon SageMaker Ground Truth is sent to your workers for labeling. You
 choose the data to send to your workers by creating a single manifest file that defines all
 of the data that requires labeling or by sending input data objects to an ongoing, streaming

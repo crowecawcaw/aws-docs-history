@@ -1,5 +1,11 @@
 # Labeling job output data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 The output from a labeling job is placed in the Amazon S3 location that you specified in
 the console or in the call to the [CreateLabelingJob](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md") operation. Output data appears in this location when the
 workers have submitted one or more tasks, or when tasks expire. Note that it may take a

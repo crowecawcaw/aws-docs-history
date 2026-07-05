@@ -4,8 +4,6 @@ You can use the SageMaker Python SDK to run your own processing image. The follo
 processing container with one input from Amazon Simple Storage Service (Amazon S3) and one output to
 Amazon S3.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.resources import ProcessingJob
 
@@ -46,25 +44,6 @@ processing_job = ProcessingJob.create(
         ]
     }
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.processing import Processor, ProcessingInput, ProcessingOutput
-
-processor = Processor(image_uri='<your_ecr_image_uri>',
-                     role=role,
-                     instance_count=1,
-                     instance_type="ml.m5.xlarge")
-
-processor.run(inputs=[ProcessingInput(
-                        source='<s3_uri or local path>',
-                        destination='/opt/ml/processing/input_data')],
-                    outputs=[ProcessingOutput(
-                        source='/opt/ml/processing/processed_data',
-                        destination='<s3_uri>')],
-                    )
 ```
 
 Instead of building your processing code into your processing image, you can

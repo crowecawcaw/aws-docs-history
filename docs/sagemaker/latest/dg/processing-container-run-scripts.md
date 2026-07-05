@@ -59,8 +59,6 @@ processing_repository_uri = '{}.dkr.ecr.{}.amazonaws.com/{}'.format(account_id, 
    `s3://path/to/my/input-data.csv` with the
    Amazon S3 path to your input data.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.resources import ProcessingJob
 
@@ -106,26 +104,6 @@ processing_job = ProcessingJob.create(
         ]
     }
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.processing import ScriptProcessor, ProcessingInput, ProcessingOutput
-
-script_processor = ScriptProcessor(command=['python3'],
-                image_uri='`image_uri`',
-                role='`role_arn`',
-                instance_count=1,
-                instance_type='ml.m5.xlarge')
-
-script_processor.run(code='`preprocessing.py`',
-                     inputs=[ProcessingInput(
-                        source='`s3://path/to/my/input-data.csv`',
-                        destination='/opt/ml/processing/input')],
-                     outputs=[ProcessingOutput(source='/opt/ml/processing/output/train'),
-                               ProcessingOutput(source='/opt/ml/processing/output/validation'),
-                               ProcessingOutput(source='/opt/ml/processing/output/test')])
 ```
 
 You can use the same procedure with any other library or system dependencies. You can

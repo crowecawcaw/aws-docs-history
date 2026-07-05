@@ -199,12 +199,6 @@ Offline Store can be used for training and batch inference.
 High-quality training datasets by using workers along with machine learning to
 create labeled datasets.
 
-**[SageMaker Ground Truth Plus](gtp.md "gtp.md")**
-
-A turnkey data labeling feature to create high-quality training datasets without
-having to build labeling applications and manage the labeling workforce on your
-own.
-
 **[SageMaker Inference Recommender](inference-recommender.md "inference-recommender.md")**
 
 Get recommendations on inference instance types and configurations (e.g. instance

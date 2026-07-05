@@ -22,8 +22,6 @@ downloaded and sent to the Spark ML model. After the transform job has finished,
 Amazon S3 location specified by `output_data_path` contains the output data
 returned by the XGBoost model in CSV format.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.transform import TransformJob
 
@@ -53,25 +51,4 @@ transform_job = TransformJob.create(
     transform_job_name = 'inference-pipelines-batch',
     batch_strategy = 'SingleRecord'
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-input_data_path = 's3://{}/{}/{}'.format(default_bucket, 'key', 'file_name')
-output_data_path = 's3://{}/{}'.format(default_bucket, 'key')
-transform_job = sagemaker.transformer.Transformer(
-    model_name = model_name,
-    instance_count = 1,
-    instance_type = 'ml.m4.xlarge',
-    strategy = 'SingleRecord',
-    assemble_with = 'Line',
-    output_path = output_data_path,
-    base_transform_job_name='inference-pipelines-batch',
-    sagemaker_session=sagemaker.Session(),
-    accept = CONTENT_TYPE_CSV)
-transform_job.transform(data = input_data_path,
-                        content_type = CONTENT_TYPE_CSV,
-                        split_type = 'Line')
 ```

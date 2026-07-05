@@ -1,5 +1,11 @@
 # Counterfactual Fliptest (FT)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The fliptest is an approach that looks at each member of facet _d_ and assesses whether similar members of facet _a_ have different model predictions. The members of facet _a_ are chosen to be k-nearest neighbors of the observation
 from facet _d_. We assess how many nearest neighbors of
 the opposite group receive a different prediction, where the flipped prediction can go

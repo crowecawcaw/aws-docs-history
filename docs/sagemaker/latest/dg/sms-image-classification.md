@@ -1,5 +1,11 @@
 # Create an image classification job (Single Label)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Use an Amazon SageMaker Ground Truth image classification labeling task when you need workers to classify
 images using predefined labels that you specify. Workers are shown images and are asked to
 choose one label for each image. You can create an image classification labeling job using

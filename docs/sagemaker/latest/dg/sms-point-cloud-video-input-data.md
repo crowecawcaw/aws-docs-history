@@ -1,5 +1,11 @@
 # Choose Video Files or Video Frames for Input Data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you create a video frame object detection or object tracking labeling job, you
 can provide a sequence of video frames (images) or you can use the Amazon SageMaker AI console to have
 Ground Truth automatically extract video frames from your video files. Use the following

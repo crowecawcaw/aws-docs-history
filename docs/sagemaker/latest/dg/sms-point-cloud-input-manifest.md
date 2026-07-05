@@ -1,5 +1,11 @@
 # Input Manifest Files for 3D Point Cloud Labeling Jobs
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you create a labeling job, you provide an input manifest file where each line of
 the manifest describes a unit of task to be completed by annotators. The format of your
 input manifest file depends on your task type.

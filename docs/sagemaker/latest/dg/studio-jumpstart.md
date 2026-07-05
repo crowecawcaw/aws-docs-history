@@ -72,7 +72,7 @@ models can also be found here.
 The following sections give information on how to open, use, and manage JumpStart from the
 Amazon SageMaker Studio Classic UI.
 
-###### Important
+###### Note
 
 As of November 30, 2023, the previous Amazon SageMaker Studio experience is now named
 Amazon SageMaker Studio Classic. The following section is specific to using the Studio Classic application. For

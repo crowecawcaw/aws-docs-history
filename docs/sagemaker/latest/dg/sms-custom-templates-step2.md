@@ -1,5 +1,11 @@
 # Creating a custom worker task template
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 To create a custom labeling job, you need to update the worker task template, map the input data from your manifest file to the variables used in the template, and map the output data to Amazon S3. To learn more about advanced features that use Liquid automation, see [Adding automation with Liquid](sms-custom-templates-step2-automate.md "sms-custom-templates-step2-automate.md").
 
 The following sections describe each of the required steps.

@@ -1,5 +1,11 @@
 # Amazon A2I Output Data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS A2I, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+A2I, but we do not plan to introduce new features.
+
 When your machine learning workflow sends Amazon A2I a data object, a _human loop_ is created and human reviewers receive a _task_ to review that data object. The output data from each
 human review task is stored in the Amazon Simple Storage Service (Amazon S3) output bucket you specify in your human
 review workflow. In the path to the data,

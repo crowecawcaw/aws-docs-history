@@ -1,26 +1,19 @@
 # Configure tensor collections using the `CollectionConfig` API
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Use the `CollectionConfig` API operation to configure tensor
 collections. Debugger provides pre-built tensor collections that cover a variety of
 regular expressions (regex) of parameters if using Debugger-supported deep learning
 frameworks and machine learning algorithms. As shown in the following example code,
 add the built-in tensor collections you want to debug.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import CollectionConfig
-
-collection_configs=[
-    CollectionConfig(name="weights"),
-    CollectionConfig(name="gradients")
-]
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import CollectionConfig
 
 collection_configs=[
     CollectionConfig(name="weights"),
@@ -37,28 +30,8 @@ If you want to customize the built-in collections, such as changing the save
 intervals and tensor regex, use the following `CollectionConfig` template
 to adjust parameters.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import CollectionConfig
-
-collection_configs=[
-    CollectionConfig(
-        name="`tensor_collection`",
-        parameters={
-            "`key_1`": "`value_1`",
-            "`key_2`": "`value_2`",
-            ...
-            "`key_n`": "`value_n`"
-        }
-    )
-]
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import CollectionConfig
 
 collection_configs=[
     CollectionConfig(
@@ -78,26 +51,8 @@ following code example shows how you can adjust the save intervals of the "losse
 tensor collection at different phases of training: save loss every 100 steps in
 training phase and validation loss every 10 steps in validation phase.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import CollectionConfig
-
-collection_configs=[
-    CollectionConfig(
-        name="`losses`",
-        parameters={
-            "`train.save_interval`": "`100`",
-            "`eval.save_interval`": "`10`"
-        }
-    )
-]
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import CollectionConfig
 
 collection_configs=[
     CollectionConfig(

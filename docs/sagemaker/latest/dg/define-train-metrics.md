@@ -48,7 +48,6 @@ character.
 
 ## Define Metrics Using the SageMaker AI Python SDK
 
-SageMaker Python SDK v3
 Define the metrics that you want to send to CloudWatch by specifying a list of metric
 definitions in the `AlgorithmSpecification` when you create a
 `TrainingJob` using `sagemaker-core`. For example, if you
@@ -89,34 +88,6 @@ TrainingJob.create(
 ```
 
 For more information about training by using [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") ModelTrainers,
-see[Sagemaker Python SDK](https://github.com/aws/sagemaker-python-sdk#sagemaker-python-sdk-overview "https://github.com/aws/sagemaker-python-sdk#sagemaker-python-sdk-overview") on GitHub.
-
-SageMaker Python SDK v2 (Legacy)
-Define the metrics that you want to send to CloudWatch by specifying a list of metric
-names and regular expressions as the `metric_definitions` argument when
-you initialize an `Estimator` object. For example, if you want to monitor
-both the `train:error` and `validation:error` metrics in CloudWatch,
-your `Estimator` initialization would look like the following
-example:
-
-```
-import sagemaker
-from sagemaker.estimator import Estimator
-
-estimator = Estimator(
-    image_uri="`your-own-image-uri`",
-    role=sagemaker.get_execution_role(),
-    sagemaker_session=sagemaker.Session(),
-    instance_count=`1`,
-    instance_type='`ml.c4.xlarge`',
-    metric_definitions=[
-       {'Name': 'train:error', 'Regex': 'Train_error=(.*?);'},
-       {'Name': 'validation:error', 'Regex': 'Valid_error=(.*?);'}
-    ]
-)
-```
-
-For more information about training by using [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") estimators,
 see[Sagemaker Python SDK](https://github.com/aws/sagemaker-python-sdk#sagemaker-python-sdk-overview "https://github.com/aws/sagemaker-python-sdk#sagemaker-python-sdk-overview") on GitHub.
 
 ## Define Metrics Using the SageMaker AI Console

@@ -2,6 +2,12 @@
 
 ###### Note
 
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Model Monitor, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Model Monitor, but we do not plan to introduce new features. For more information, see [Amazon SageMaker Model Monitor availability change](model-monitor-availability-change.md "model-monitor-availability-change.md").
+
+###### Note
+
 To prevent impact to inference requests, Data Capture stops capturing requests
 at high levels of disk usage. It is recommended you keep your disk utilization
 below 75% in order to ensure data capture continues capturing requests.
@@ -231,8 +237,6 @@ the `Endpoint` object to invoke your endpoint in a future step.
 Provide the name of your endpoint (defined earlier as
 `endpoint_name`).
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.resources import Endpoint
 
@@ -241,27 +245,6 @@ endpoint = Endpoint(endpoint_name=endpoint_name)
 # Example
 #from sagemaker.core.resources import Endpoint
 #endpoint = Endpoint(endpoint_name=endpoint_name)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.predictor import Predictor
-from sagemaker.serializers import `<Serializer>`
-from sagemaker.deserializers import `<Deserializers>`
-
-predictor = Predictor(endpoint_name=endpoint_name,
-                      serializer = `<Serializer_Class>`,
-                      deserializer = `<Deserializer_Class>`)
-
-# Example
-#from sagemaker.predictor import Predictor
-#from sagemaker.serializers import CSVSerializer
-#from sagemaker.deserializers import JSONDeserializer
-
-#predictor = Predictor(endpoint_name=endpoint_name,
-#                      serializer=CSVSerializer(),
-#                      deserializer=JSONDeserializer())
 ```
 
 In the proceeding code example scenario we invoke the endpoint with sample
@@ -281,8 +264,6 @@ values of 0 and 1.0. If the probability returned by the model is greater than
 80% (0.8) we assign the prediction an integer value label of 1. Otherwise, we
 assign the prediction an integer value label of 0.
 
-SageMaker Python SDK v3
-
 ```
 from time import sleep
 
@@ -299,35 +280,6 @@ with open(f"test_data/{validate_dataset}", "w") as validation_file:
         for row in f:
             (label, input_cols) = row.split(",", 1)
             probability = float(endpoint.invoke(input_cols))
-            prediction = "1" if probability > cutoff else "0"
-            baseline_file.write(f"{probability},{prediction},{label}\n")
-            i += 1
-            if i > limit:
-                break
-            print(".", end="", flush=True)
-            sleep(0.5)
-print()
-print("Done!")
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from time import sleep
-
-validate_dataset = "validation_with_predictions.csv"
-
-# Cut off threshold of 80%
-cutoff = 0.8
-
-limit = 200  # Need at least 200 samples to compute standard deviations
-i = 0
-with open(f"test_data/{validate_dataset}", "w") as validation_file:
-    validation_file.write("probability,prediction,label\n")  # CSV header
-    with open("test_data/validation.csv", "r") as f:
-        for row in f:
-            (label, input_cols) = row.split(",", 1)
-            probability = float(predictor.predict(input_cols))
             prediction = "1" if probability > cutoff else "0"
             baseline_file.write(f"{probability},{prediction},{label}\n")
             i += 1

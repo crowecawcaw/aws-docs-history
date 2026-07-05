@@ -51,8 +51,6 @@ to experiment and see. To switch from file mode to fast file mode (and back), ju
 remove) the `input_mode='FastFile'` parameter while defining your input channel
 using the SageMaker Python SDK:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train.configs import InputData, OutputDataConfig, CheckpointConfig
 from sagemaker.core.shapes import Channel, DataSource, S3DataSource
@@ -63,12 +61,6 @@ Channel(
     ),
     input_mode='FastFile',
 )
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-sagemaker.inputs.TrainingInput(S3_INPUT_FOLDER,  input_mode = 'FastFile')
 ```
 
 ## When to use Amazon FSx for Lustre

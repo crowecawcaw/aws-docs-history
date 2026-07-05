@@ -1,5 +1,11 @@
 # Label Images
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 Use Ground Truth to label images. Select one of the following built in task types to learn more about that task type.
 Each page includes instructions to help you create a labeling job using that task type.
 

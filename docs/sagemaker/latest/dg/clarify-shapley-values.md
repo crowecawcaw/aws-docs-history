@@ -1,5 +1,11 @@
 # Feature Attributions that Use Shapley Values
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 SageMaker Clarify provides feature attributions based on the concept of [Shapley value](https://en.wikipedia.org/wiki/Shapley_value "https://en.wikipedia.org/wiki/Shapley_value"). You can use
 Shapley values to determine the contribution that each feature made to model
 predictions. These attributions can be provided for specific predictions and at a global

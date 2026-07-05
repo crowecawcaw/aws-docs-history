@@ -1,5 +1,11 @@
 # Using Amazon SageMaker Ground Truth in an Amazon Virtual Private Cloud
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 With [Amazon Virtual Private Cloud](../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md "../../../AmazonVPC/latest/UserGuide/VPC_Introduction.md") (Amazon VPC) you can launch AWS resources in a logically isolated virtual network that you define. Ground Truth supports running labeling jobs inside an Amazon VPC instead of connecting over the internet. When you launch a labeling job in an Amazon VPC, communication between your VPC and Ground Truth is conducted entirely and securely within the AWS network.
 
 This guide shows how you can use Ground Truth in an Amazon VPC in the following ways:

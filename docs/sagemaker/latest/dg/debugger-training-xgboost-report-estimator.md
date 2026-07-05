@@ -1,5 +1,11 @@
 # Construct a SageMaker AI XGBoost ModelTrainer with the Debugger XGBoost Report rule
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 The [CreateXgboostReport](debugger-built-in-rules.md#create-xgboost-report "debugger-built-in-rules.md#create-xgboost-report")
 rule collects the following output tensors from your training job:
 
@@ -14,8 +20,6 @@ rule collects the following output tensors from your training job:
 
 When you construct a SageMaker AI ModelTrainer for an XGBoost training job, specify the rule
 as shown in the following example code.
-
-SageMaker Python SDK v3
 
 ```
 import boto3
@@ -43,34 +47,4 @@ model_trainer=ModelTrainer(
 )
 
 model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import boto3
-import sagemaker
-from sagemaker.estimator import Estimator
-from sagemaker import image_uris
-from sagemaker.debugger import Rule, rule_configs
-
-`rules`=[
-    `Rule.sagemaker(rule_configs.create_xgboost_report())`
-]
-
-region = boto3.Session().region_name
-xgboost_container=sagemaker.image_uris.retrieve("xgboost", region, "`1.2-1`")
-
-estimator=Estimator(
-    role=sagemaker.get_execution_role()
-    image_uri=xgboost_container,
-    base_job_name="`debugger-xgboost-report-demo`",
-    instance_count=`1`,
-    instance_type="`ml.m5.2xlarge`",
-
-    # Add the Debugger XGBoost report rule
-    rules=`rules`
-)
-
-estimator.fit(wait=False)
 ```

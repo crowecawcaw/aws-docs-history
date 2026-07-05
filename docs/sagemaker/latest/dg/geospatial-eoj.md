@@ -1,5 +1,10 @@
 # Earth Observation Jobs
 
+###### Note
+
+Amazon SageMaker geospatial capabilities will no longer be open to new customers starting on 7/30/26. Offboard any
+previously saved jobs to Amazon S3 by using the [ExportEarthObservationJob](../APIReference/API_geospatial_ExportEarthObservationJob.md "../APIReference/API_geospatial_ExportEarthObservationJob.md") and [ExportVectorEnrichmentJob](../APIReference/API_geospatial_ExportVectorEnrichmentJob.md "../APIReference/API_geospatial_ExportVectorEnrichmentJob.md") API operations.
+
 Using an Earth Observation job (EOJ), you can acquire, transform, and visualize
 geospatial data to make predictions. You can choose an operation based on your use case from a wide range of operations and models.
 You get the flexibility of choosing your area of interest, selecting the data providers, and setting time-range based and cloud-cover-percentage-based filters.

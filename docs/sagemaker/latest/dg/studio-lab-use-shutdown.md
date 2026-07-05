@@ -1,5 +1,11 @@
 # Shut down Studio Lab resources
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Studio Lab, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Studio Lab, but we do not plan to introduce new features. For more information, see [Studio Lab availability change](studio-lab-availability-change.md "studio-lab-availability-change.md").
+
 You can view and shut down your running Amazon SageMaker Studio Lab resources from one location in your
 Studio Lab environment. The running resource types include terminals, and kernels. You can also
 shut down all resources of one resource type at the same time.

@@ -1,5 +1,11 @@
 # Set up your workforce
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 In this step you use the console to establish which worker type to use and make the
 necessary sub-selections for the worker type. It assumes you have already completed the
 steps up to this point in the [Getting started: Create a bounding box labeling job with Ground Truth](sms-getting-started.md "sms-getting-started.md") section and have chosen the **Custom

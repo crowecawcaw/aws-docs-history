@@ -191,8 +191,6 @@ variable used to train the new model.
 Get an AWS Identity and Access Management (IAM) role that grants required permissions and initialize
 environment variables:
 
-SageMaker Python SDK v3
-
 ```
 import sagemaker
 from sagemaker.core.helper.session_helper import Session, get_execution_role
@@ -203,22 +201,6 @@ role = get_execution_role()
 print(role)
 
 sess = Session()
-
-bucket=sess.default_bucket()
-print(bucket)
-prefix = 'ic-incr-training'
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-import sagemaker
-from sagemaker import get_execution_role
-
-role = get_execution_role()
-print(role)
-
-sess = sagemaker.Session()
 
 bucket=sess.default_bucket()
 print(bucket)
@@ -293,8 +275,6 @@ hyperparams = { "num_layers": "18",
 Create an estimator object and train the first model using the training and validation
 datasets:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train.configs import InputData, StoppingCondition
 from sagemaker.core.shapes import OutputDataConfig, Channel, DataSource, S3DataSource
@@ -341,38 +321,10 @@ data_channels = {'train': train_data, 'validation': validation_data}
 ic.train(input_data_config=[train_data, validation_data])
 ```
 
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Fit the base estimator
-s3_output_location = 's3://{}/{}/output'.format(bucket, prefix)
-ic = sagemaker.estimator.Estimator(training_image,
-                                   role,
-                                   instance_count=1,
-                                   instance_type='ml.p2.xlarge',
-                                   volume_size=50,
-                                   max_run=360000,
-                                   input_mode='File',
-                                   output_path=s3_output_location,
-                                   sagemaker_session=sess,
-                                   hyperparameters=hyperparams)
-
-train_data = sagemaker.inputs.TrainingInput(s3train, distribution='FullyReplicated',
-                                        content_type='application/x-recordio', s3_data_type='S3Prefix')
-validation_data = sagemaker.inputs.TrainingInput(s3validation, distribution='FullyReplicated',
-                                             content_type='application/x-recordio', s3_data_type='S3Prefix')
-
-data_channels = {'train': train_data, 'validation': validation_data}
-
-ic.fit(inputs=data_channels, logs=True)
-```
-
 To use the model to incrementally train another model, create a new estimator object
 and use the model artifacts (`ic.model_data`, in this example)
 for
 the `model_uri` input argument:
-
-SageMaker Python SDK v3
 
 ```
 # Given the base ModelTrainer, create a new one for incremental training
@@ -392,24 +344,6 @@ incr_ic = ModelTrainer(training_image=training_image,
                                             InputData(channel_name="model", data_source=ic.model_data),
                                         ])
 incr_ic.train(input_data_config=[train_data, validation_data])
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-# Given the base estimator, create a new one for incremental training
-incr_ic = sagemaker.estimator.Estimator(training_image,
-                                        role,
-                                        instance_count=1,
-                                        instance_type='ml.p2.xlarge',
-                                        volume_size=50,
-                                        max_run=360000,
-                                        input_mode='File',
-                                        output_path=s3_output_location,
-                                        sagemaker_session=sess,
-                                        hyperparameters=hyperparams,
-                                        model_uri=ic.model_data) # This parameter will ingest the previous job's model as a new channel
-incr_ic.fit(inputs=data_channels, logs=True)
 ```
 
 After the training job has completed, the newly trained model artifacts are stored

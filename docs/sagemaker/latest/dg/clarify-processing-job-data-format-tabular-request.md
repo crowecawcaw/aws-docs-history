@@ -1,5 +1,11 @@
 # Endpoint requests for tabular data
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 To obtain model predictions for post-training bias analysis and feature importance
 analysis, SageMaker Clarify processing jobs serialize the tabular data into bytes and sends
 these to an inference endpoint as a request payload. This tabular data is either

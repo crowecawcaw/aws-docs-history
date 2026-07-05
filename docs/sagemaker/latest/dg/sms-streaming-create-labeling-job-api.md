@@ -1,5 +1,11 @@
 # Create a Streaming Labeling Job with the SageMaker API
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 The following is an example of an [AWS Python SDK (Boto3) request](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job") that you can use to start a streaming
 labeling job for a built-in task type in the US East (N. Virginia) Region. For more
 details about each parameter below see [`CreateLabelingJob`](../APIReference/API_CreateLabelingJob.md "../APIReference/API_CreateLabelingJob.md"). To learn how you can create a

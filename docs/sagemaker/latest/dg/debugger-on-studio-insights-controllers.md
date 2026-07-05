@@ -1,5 +1,10 @@
 # Amazon SageMaker Debugger Insights dashboard controller
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 There are different components of the Debugger controller for monitoring and profiling.
 In this guide, you learn about the Debugger controller components.
 

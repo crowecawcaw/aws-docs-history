@@ -1,5 +1,10 @@
 # Analyze data using the Debugger Python client library
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 While your training job is running or after it has completed, you can access the training
 data collected by Debugger using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") and the [SMDebug client library](https://github.com/awslabs/sagemaker-debugger/ "https://github.com/awslabs/sagemaker-debugger/"). The
 Debugger Python client library provides analysis and visualization tools that enable you to

@@ -1,5 +1,11 @@
 # Adapt your PyTorch training script
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 To start collecting model output tensors and debug training issues, make the following
 modifications to your PyTorch training script.
 

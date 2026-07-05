@@ -1,5 +1,11 @@
 # Encrypt Output Data and Storage Volume with AWS KMS
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 You can use AWS Key Management Service (AWS KMS) to encrypt output data from a labeling job by
 specifying a [customer managed key](../../../kms/latest/developerguide/concepts.md#master_keys "../../../kms/latest/developerguide/concepts.md#master_keys")
 when you create the

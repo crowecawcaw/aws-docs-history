@@ -23,8 +23,6 @@ The following template of a TensorFlow or PyTorch estimator shows how to configu
 the `distribution` parameter for using the SageMaker model parallel library
 with MPI.
 
-SageMaker Python SDK v3
-
 ```
 import sagemaker
 from sagemaker.train import ModelTrainer
@@ -49,91 +47,6 @@ smd_mp_model_trainer = ModelTrainer(
 )
 
 smd_mp_model_trainer.train('`s3://my_bucket/my_training_data/`')
-```
-
-SageMaker Python SDK v2 (Legacy)
-**Using the SageMaker TensorFlow estimator**
-
-```
-import sagemaker
-from sagemaker.tensorflow import TensorFlow
-
-smp_options = {
-    "enabled":True,              # Required
-    "parameters": {
-        "partitions": 2,         # Required
-        "microbatches": 4,
-        "placement_strategy": "spread",
-        "pipeline": "interleaved",
-        "optimize": "speed",
-        "horovod": True,         # Use this for hybrid model and data parallelism
-    }
-}
-
-mpi_options = {
-    "enabled" : True,            # Required
-    "processes_per_host" : 8,    # Required
-    # "custom_mpi_options" : "--mca btl_vader_single_copy_mechanism none"
-}
-
-smd_mp_estimator = TensorFlow(
-    entry_point="`your_training_script.py`", # Specify your train script
-    source_dir="`location_to_your_script`",
-    role=sagemaker.get_execution_role(),
-    instance_count=1,
-    instance_type='`ml.p3.16xlarge`',
-    framework_version='`2.6.3`',
-    py_version='`py38`',
-    `distribution={
- "smdistributed": {"modelparallel": smp_options},
- "mpi": mpi_options
- },`
-    base_job_name="`SMD-MP-demo`",
-)
-
-smd_mp_estimator.fit('`s3://my_bucket/my_training_data/`')
-```
-
-**Using the SageMaker PyTorch estimator**
-
-```
-import sagemaker
-from sagemaker.pytorch import PyTorch
-
-smp_options = {
-    "enabled":True,
-    "parameters": {                        # Required
-        "pipeline_parallel_degree": 2,     # Required
-        "microbatches": 4,
-        "placement_strategy": "spread",
-        "pipeline": "interleaved",
-        "optimize": "speed",
-        "ddp": True,
-    }
-}
-
-mpi_options = {
-    "enabled" : True,                      # Required
-    "processes_per_host" : 8,              # Required
-    # "custom_mpi_options" : "--mca btl_vader_single_copy_mechanism none"
-}
-
-smd_mp_estimator = PyTorch(
-    entry_point="`your_training_script.py`", # Specify your train script
-    source_dir="`location_to_your_script`",
-    role=sagemaker.get_execution_role(),
-    instance_count=1,
-    instance_type='`ml.p3.16xlarge`',
-    framework_version='`1.13.1`',
-    py_version='`py38`',
-    `distribution={
- "smdistributed": {"modelparallel": smp_options},
- "mpi": mpi_options
- },`
-    base_job_name="`SMD-MP-demo`",
-)
-
-smd_mp_estimator.fit('`s3://my_bucket/my_training_data/`')
 ```
 
 To enable the library, you need to pass configuration dictionaries to the

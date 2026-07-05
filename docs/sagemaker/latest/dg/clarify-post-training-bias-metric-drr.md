@@ -1,5 +1,11 @@
 # Difference in Rejection Rates (DRR)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The difference in rejection rates (DRR) metric is the difference in the ratios of the
 true negative (TN) predictions to the observed negatives (TN + FN) for facets _a_ and _d_. This metric
 measures the difference in the precision of the model for predicting rejections from

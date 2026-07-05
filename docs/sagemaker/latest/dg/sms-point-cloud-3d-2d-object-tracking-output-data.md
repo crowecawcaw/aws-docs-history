@@ -1,5 +1,11 @@
 # Output data for a 3D-2D object tracking labeling job
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 When you create a 3D-2D object tracking labeling job, tasks are sent to workers. When
 these workers complete their tasks, their annotations are written to the Amazon S3 bucket you
 specified when you created the labeling job. The output data format determines what you

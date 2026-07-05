@@ -1,5 +1,10 @@
 # Merge timelines of multiple profile trace files
 
+###### Note
+
+On 6/30/27, AWS will discontinue support for Amazon SageMaker Profiler. After 6/30/27, you will no longer be able to access the Profiler console or Profiler resources.
+For more information, see [Profiler availability change](profiler-availability-change.md "profiler-availability-change.md").
+
 The SMDebug client library provide profiling analysis and visualization tools for
 merging timelines of system metrics, framework metrics, and Python profiling data
 collected by Debugger.

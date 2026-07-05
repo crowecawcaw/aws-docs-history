@@ -1,29 +1,17 @@
 # Use the Debugger APIs to run your own custom rules
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 The following code sample shows how to configure a custom rule with the
 [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable"). This example assumes that the custom rule script you created in the previous step
 is located at '_path/to/my\_custom\_rule.py_'.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import Rule, CollectionConfig
-
-**custom\_rule** = Rule.custom(
-    name='MyCustomRule',
-    image_uri='759209512951.dkr.ecr.us-west-2.amazonaws.com/sagemaker-debugger-rule-evaluator:latest',
-    instance_type='ml.t3.medium',
-    source='path/to/my_custom_rule.py',
-    rule_to_invoke='CustomGradientRule',
-    collections_to_save=[CollectionConfig("gradients")],
-    rule_parameters={"threshold": "20.0"}
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import Rule, CollectionConfig
 
 **custom\_rule** = Rule.custom(
     name='MyCustomRule',
@@ -59,8 +47,6 @@ The following list explains the Debugger `Rule.custom` API arguments.
   After you set up the `custom_rule` object, you can use it for building a SageMaker AI estimator for any training jobs.
   Specify the `entry_point` to your training script. You do not need to make any change of your training script.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.train import ModelTrainer
 from sagemaker.train.configs import SourceCode, Compute
@@ -78,25 +64,6 @@ model_trainer = ModelTrainer(
 )
 
 model_trainer.train()
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.tensorflow import TensorFlow
-
-estimator = TensorFlow(
-                role=sagemaker.get_execution_role(),
-                base_job_name='smdebug-custom-rule-demo-tf-keras',
-                entry_point='path/to/your_training_script.py'
-                train_instance_type='ml.p2.xlarge'
-                ...
-
-                # debugger-specific arguments below
-                rules = [**custom\_rule**]
-)
-
-estimator.fit()
 ```
 
 For more variations and advanced examples of using Debugger custom rules, see the following example notebooks.

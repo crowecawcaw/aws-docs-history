@@ -1,5 +1,11 @@
 # Automate data labeling
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 If you choose, Amazon SageMaker Ground Truth can use active learning to automate the labeling of your
 input data for certain built-in task types. _Active learning_ is a
 machine learning technique that identifies data that should be labeled by your workers.

@@ -1,5 +1,11 @@
 # Using the Amazon Mechanical Turk Workforce
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Mechanical Turk, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Mechanical Turk, but we do not plan to introduce new features.
+
 The Amazon Mechanical Turk (Mechanical Turk) workforce provides the most workers for your [Amazon SageMaker Ground Truth](a2i.md "a2i.md") labeling job
 and [Amazon Augmented AI](a2i-use-augmented-ai-a2i-human-review-loops.md "a2i-use-augmented-ai-a2i-human-review-loops.md") human review task. The Amazon Mechanical Turk workforce is a world-wide resource.
 Workers are available 24 hours a day, 7 days a week. You typically get the fastest

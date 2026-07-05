@@ -1,5 +1,11 @@
 # Kullback-Leibler Divergence (KL)
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Clarify, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Clarify, but we do not plan to introduce new features. For more information, see [Clarify availability change](clarify-availability-change.md "clarify-availability-change.md").
+
 The Kullback-Leibler divergence (KL) measures how much the observed label
 distribution of facet _a_,
 Pa(y), diverges from distribution of facet _d_, Pd(y). It is also known as

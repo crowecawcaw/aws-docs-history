@@ -1,23 +1,17 @@
 # Configure the `DebuggerHookConfig` API to save tensors
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to Amazon Sagemaker Debugger, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Debugger, but we do not plan to introduce new features. For more information, see [Debugger availability change](debugger-availability-change.md "debugger-availability-change.md").
+
 Use the [DebuggerHookConfig](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html #sagemaker.debugger.DebuggerHookConfig "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html #sagemaker.debugger.DebuggerHookConfig") API to create a `debugger_hook_config`
 object using the `collection_configs` object you created in the previous
 step.
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import DebuggerHookConfig
-
-debugger_hook_config=DebuggerHookConfig(
-    collection_configs=`collection_configs`
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import DebuggerHookConfig
 
 debugger_hook_config=DebuggerHookConfig(
     collection_configs=`collection_configs`
@@ -31,24 +25,11 @@ format of the default S3 bucket URI is
 If you want to specify an exact S3 bucket URI, use the following code
 example:
 
-SageMaker Python SDK v3
-
 ```
 from sagemaker.core.debugger import DebuggerHookConfig
 
 debugger_hook_config=DebuggerHookConfig(
     s3_output_path="`specify-uri`",
-    collection_configs=`collection_configs`
-)
-```
-
-SageMaker Python SDK v2 (Legacy)
-
-```
-from sagemaker.debugger import DebuggerHookConfig
-
-debugger_hook_config=DebuggerHookConfig(
-    s3_output_path="`specify-uri`"
     collection_configs=`collection_configs`
 )
 ```

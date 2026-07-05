@@ -1,5 +1,11 @@
 # Requirements to create verification and adjustment labeling jobs
 
+###### Note
+
+After careful consideration, we have made the decision to close new customer access to AWS Ground Truth, effective 7/30/26.
+Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for
+Ground Truth, but we do not plan to introduce new features.
+
 To create a label verification or adjustment job, you must satisfy the following
 criteria.
 
