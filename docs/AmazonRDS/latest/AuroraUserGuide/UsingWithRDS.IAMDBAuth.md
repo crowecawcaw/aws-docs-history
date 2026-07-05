@@ -27,8 +27,7 @@ IAM database authentication provides the following benefits:
 - For applications running on Amazon EC2, you can use profile credentials specific to
   your EC2 instance to access your database instead of a password, for greater
   security.
-  In general, consider using IAM database authentication when your applications create fewer than 200 connections
-  per second, and you don't want to manage usernames and passwords directly in your application code.
+  In general, consider using IAM database authentication when you don't want to manage usernames and passwords directly in your application code.
 
 The Amazon Web Services (AWS) JDBC Driver supports IAM database authentication. For more information, see
 [AWS
@@ -66,7 +65,7 @@ and for the following language-specific AWS SDKs:
 - [AWS SDK for Java](../../../sdk-for-java/latest/reference/software/amazon/awssdk/services/rds/RdsUtilities.md "../../../sdk-for-java/latest/reference/software/amazon/awssdk/services/rds/RdsUtilities.md")
 - [AWS SDK for JavaScript](../../../AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.md "../../../AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_rds_signer.md")
 - [AWS SDK for PHP](../../../aws-sdk-php/v3/api/class-Aws.Rds.AuthTokenGenerator.md "../../../aws-sdk-php/v3/api/class-Aws.Rds.AuthTokenGenerator.md")
-- [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.generate_db_auth_token "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.generate_db_auth_token")
+- [AWS SDK for Python (Boto3)](../../../boto3/latest/reference/services/rds.md#RDS.Client.generate_db_auth_token "../../../boto3/latest/reference/services/rds.md#RDS.Client.generate_db_auth_token")
 - [AWS SDK for Ruby](../../../sdk-for-ruby/v3/api/Aws/RDS/AuthTokenGenerator.md "../../../sdk-for-ruby/v3/api/Aws/RDS/AuthTokenGenerator.md")
 
 ## Limitations for IAM database authentication
@@ -100,23 +99,6 @@ the memory used by other parameters like buffers and cache by the same amount.
 ## Recommendations for IAM database authentication
 
 We recommend the following when using IAM database authentication:
-
-- Use IAM database authentication when your application requires fewer than
-  200 new IAM database authentication connections per second.
-
-The database engines that work with Amazon Aurora
-don't impose any limits on authentication attempts per second. However, when you use IAM database authentication,
-your application must generate an authentication token. Your application then uses that
-token to connect to the DB cluster. If you exceed the limit of maximum new
-connections per second, then the extra overhead of IAM database authentication can cause
-connection throttling.
-
-Consider using connection pooling in your applications to mitigate constant
-connection creation. This can reduce the overhead from IAM DB authentication
-and allow your applications to reuse existing connections. Alternatively,
-consider using RDS Proxy for these use cases. RDS Proxy has additional costs. See
-[RDS Proxy
-pricing](https://aws.amazon.com/rds/proxy/pricing/ "https://aws.amazon.com/rds/proxy/pricing/").
 
 - The size of an IAM database authentication token depends on many things including the number of IAM tags,
   IAM service policies, ARN lengths, as well as other IAM and database properties. The minimum size of this token is

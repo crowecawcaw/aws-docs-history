@@ -238,7 +238,7 @@ The restore process for express configuration clusters follows the same workflow
 
 The following limitations apply to clusters created with express configuration and the internet access gateway that is enabled by default.
 
-- You can only use express configuration with Aurora PostgreSQL only.
+- You can use express configuration only with Aurora PostgreSQL.
 - Cluster created with express configuration are encrypted with AWS/RDS service managed key. You cannot use a custom AWS KMS key to encrypt the database.
 - You cannot associate express clusters with an Amazon Virtual Private Cloud (VPC). When connecting from a machine that is inside a VPC to the database with the express cluster with internet access gateway enabled, ensure that the machine allows inbound and outbound traffic from the internet.
 - You cannot disable the internet access gateway for clusters created with express configuration.
@@ -263,7 +263,7 @@ If you disable the `rds_iam` role for the master username, you will lose access 
   - Zero Downtime Patching
   - Babelfish
 
-- Data API can be enabled for a cluster with express configuration after creation using the ModifyDBCluster operation. However, it doesn't support authentication with master username/password. You must create new user credentials to access Data API.
+- Data API can be enabled for a cluster with express configuration after creation using the [EnableHttpEndpoint](../APIReference/API_EnableHttpEndpoint.md "../APIReference/API_EnableHttpEndpoint.md") operation. However, it doesn't support authentication with master username/password. You must create new user credentials to access Data API.
 - Database Insights Advanced mode can be enabled on a cluster with express configuration after creation using the ModifyDBCluster operation.
 - Clusters with express configuration support IPv4 addresses only. IPv6 is not supported.
 - Clusters with express configuration does not support changing all settings at the time of create operations. For example, you can only choose Aurora standard storage when creating with express configuration. You can change the storage type after the cluster is created. See, Express configuration settings for a list of all other settings and default values that apply with express configuration.
