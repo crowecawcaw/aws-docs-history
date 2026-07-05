@@ -126,7 +126,7 @@ For more information, see [Amazon EVS service quotas](service-quotas-evs.md "ser
 
 ###### Important
 
-Amazon EVS environment creation fails if the host count per EVS environment quota value is not at least 4.
+Amazon EVS environment creation fails if the host count per EVS environment quota is not high enough for your VCF deployment topology. For host count requirements, see the [VMware Cloud Foundation documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf.html").
 
 ## Plan VPC CIDR sizes
 
@@ -298,6 +298,11 @@ You should also familiarize yourself with VCF 5.2.x requirements. See the [VCF 5
 For information about VCF versions provided by Amazon EVS, see [VCF versions and EC2 instance types provided by Amazon EVS](versions-provided.md "versions-provided.md").
 
 ## Acquire VCF license keys
+
+You need to bring your own VCF licenses to run VCF on Amazon EVS, regardless of how you deploy it. Amazon EVS collects and reports license usage.
+
+- When Amazon EVS deploys VCF for you, you provide license keys at environment creation time.
+- In Self-deployed mode, you do not provide license keys at creation time. Instead, add them in your VCF management appliance after you install VCF, and Amazon EVS reports usage from there. For more information, see [Create an Amazon EVS environment connector](evs-env-create-connector.md "evs-env-create-connector.md").
 
 To use Amazon EVS, you need to provide a VCF solution key and a vSAN license key.
 The specific requirements for core count and vSAN capacity depend on the instance type you select.

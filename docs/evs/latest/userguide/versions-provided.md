@@ -84,14 +84,17 @@ If the version you need shows `RESTRICTED`, and you have a particular need, see 
 
 Amazon EVS currently provides the following VCF versions for environment creation:
 
-| VCF version | Default ESX version  | Status     | EC2 instance types        |
-| ----------- | -------------------- | ---------- | ------------------------- |
-| VCF-5.2.2   | ESXi-8.0U3g-24859861 | AVAILABLE  | i4i.metal, i7i.metal-24xl |
-| VCF-5.2.1   | ESXi-8.0U3b-24280767 | RESTRICTED | i4i.metal, i7i.metal-24xl |
+| VCF version    | Default ESX version  | Status     | EC2 instance types        |
+| -------------- | -------------------- | ---------- | ------------------------- |
+| VCF-5.2.2      | ESXi-8.0U3g-24859861 | AVAILABLE  | i4i.metal, i7i.metal-24xl |
+| VCF-5.2.1      | ESXi-8.0U3b-24280767 | RESTRICTED | i4i.metal, i7i.metal-24xl |
+| SELF\_DEPLOYED | N/A                  | AVAILABLE  | i4i.metal, i7i.metal-24xl |
 
 ###### Note
 
 When creating a new Amazon EVS environment, you must specify a VCF version.
+Specify `SELF_DEPLOYED` to provision infrastructure only and install VCF (including ESXi) yourself.
+For more information, see [Creating an Amazon EVS environment with Self-deployed mode](getting-started.md#getting-started-self-deployed "getting-started.md#getting-started-self-deployed").
 
 ## ESX version considerations
 

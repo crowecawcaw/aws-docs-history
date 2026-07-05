@@ -104,7 +104,7 @@ You can create and configure additional Tier-1 gateways if you need them.
 ### NSX Edge cluster
 
 Amazon EVS uses the NSX Manager interface to deploy an NSX Edge cluster with two NSX Edge nodes that run in Active/Standby mode.
-This NSX Edge cluster provides the platform on which the Tier-0 and Tier-1 gateways run, along with IPsec VPN connections and their BGP routing machinery.
+This NSX Edge cluster provides the platform on which the Tier-0 and Tier-1 gateways run, along with IPsec VPN connections and their Border Gateway Protocol (BGP) routing machinery.
 
 ## Amazon EVS resources
 
@@ -118,10 +118,5 @@ Modification of these resources outside of the Amazon EVS console and API could 
 - Amazon EVS elastic network interfaces that enable connectivity to your VCF appliances and hosts.
 - Amazon EVS ESX hosts that run on Amazon EC2 bare metal instances.
   For more information, see [Amazon EVS host](concepts.md#concepts-evs-host "concepts.md#concepts-evs-host").
-
-###### Important
-
-Your Amazon EVS environment must have a minimum of 4 hosts and no more than 32 hosts. Amazon EVS only support environments with 4-32 hosts.
-
 - Amazon EVS VLAN subnets that connect your VPC to VCF appliances.
   For more information, see [Amazon EVS VLAN subnet](concepts.md#concepts-evs-network "concepts.md#concepts-evs-network").

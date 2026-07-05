@@ -5,6 +5,11 @@
 Amazon EVS does not support perpetual vSphere licenses.
 You must have a valid and active VMware Cloud Foundation subscription to use Amazon EVS.
 
+###### Important
+
+The license-key sizing and pre-creation license-key requirements described on this page apply when Amazon EVS deploys VCF for you (VCF 5.2.x).
+In Self-deployed mode, you do not provide license keys at environment creation. Add and manage license keys directly in your VCF management appliance after you install VCF.
+
 Amazon EVS uses VMware Cloud Foundation (VCF) subscriptions with license portability entitlements that you bring to AWS (BYOS).
 To successfully deploy an Amazon EVS environment, you need to provide a valid VCF solution key and a vSAN license key in the environment creation request.
 The vSphere license key serves as the solution key for VCF.

@@ -124,11 +124,11 @@ AWS CLI and SDDC Manager UI
 ```
 aws evs create-environment-host \
     --environment-id "env-abcde12345" \
+    --esx-version "ESXi-8.0U3g-24859861" \
     --host '{ \
         "hostName": "esxi-host-05", \
         "keyName": "your-ec2-keypair-name", \
         "instanceType": "i4i.metal" \
-        "esxVersion": "ESXi-8.0U3g-24859861"\
     }'
 ```
 

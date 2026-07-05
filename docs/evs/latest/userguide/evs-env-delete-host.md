@@ -1,8 +1,7 @@
 # Delete an Amazon EVS host
 
 You can delete an Amazon EVS host from your environment when the host is no longer needed.
-Amazon EVS requires that your environment have a minimum of four hosts.
-Amazon EVS does not support environments with fewer than four hosts.
+Before deleting a host, ensure that your environment retains enough hosts to satisfy your VCF deployment topology requirements. For minimum host counts, see the [VMware Cloud Foundation documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf.html").
 
 ###### Warning
 

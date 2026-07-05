@@ -1,8 +1,8 @@
 # Create an Amazon EVS host
 
 After an Amazon EVS environment deploys, you can add hosts to increase capacity and workload resiliency.
-Amazon EVS supports 4-32 hosts and a default throughput bandwidth of up to 600 Gbps per environment.
 This action can only be used after the Amazon EVS environment is deployed.
+For host count requirements based on your VCF deployment topology, see the [VMware Cloud Foundation documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf.html").
 
 ###### Note
 
@@ -14,9 +14,9 @@ Follow these steps to create an Amazon EVS host.
 
 ###### Warning
 
-Amazon EVS hosts use the Amazon EVS Custom Addon to provide important host functionality.
-When you add a host to your environment, it will have the latest available version of the Amazon EVS Custom Addon.
-If your environment uses hosts with an older Custom Addon version, adding host to your vSphere cluster will cause cluster image remediation to fail.
+Amazon EVS hosts use a custom vendor add-on to provide important host functionality.
+When you add a host to your environment, it will have the latest available version of the Amazon EVS custom add-on.
+If your environment uses hosts with an older add-on version, adding host to your vSphere cluster will cause cluster image remediation to fail.
 For steps to troubleshoot this issue, see [Troubleshoot add host failure due to incompatible cluster image](evs-env-ami-maintenance.md#troubleshoot-add-host-failure-cluster-image "evs-env-ami-maintenance.md#troubleshoot-add-host-failure-cluster-image").
 
 ###### Warning
@@ -72,11 +72,11 @@ AWS CLI and SDDC Manager UI
 ```
 aws evs create-environment-host \
     --environment-id "env-abcde12345" \
+    --esx-version "ESXi-8.0U3g-24859861" \
     --host '{ \
         "hostName": "esxi-host-05", \
         "keyName": "your-ec2-keypair-name", \
-        "instanceType": "i4i.metal",\
-        "esxVersion": "ESXi-8.0U3g-24859861"\
+        "instanceType": "i4i.metal" \
     }'
 ```
 

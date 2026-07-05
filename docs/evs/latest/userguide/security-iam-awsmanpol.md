@@ -25,7 +25,7 @@ This policy allows the `AWSServiceRoleForAmazonEVS` service-linked role to call 
 This policy includes the following permissions that allow Amazon EVS to complete the following tasks.
 
 - `ec2` - Discover VPC networking components, including subnets and VPCs.
-  Create, modify, tag, and delete elastic network interfaces that are used to establish a persistent connection between Amazon EVS and the VMware Virtual Cloud Foundation (VCF) SDDC Manager appliance in your VPC subnet.
+  Create, modify, tag, and delete elastic network interfaces that are used to establish a persistent connection between Amazon EVS and the VMware Cloud Foundation (VCF) SDDC Manager appliance in your VPC subnet.
   This connectivity is required for Amazon EVS to deploy, manage, and monitor the VCF deployment.
 - `ec2` - Delete EC2 instances that Amazon EVS creates when you make an EVS host deletion request.
   Describe and modify EC2 instance attributes so that default EC2 instance termination and stop protection can be disabled if needed to support EVS host deletion.
