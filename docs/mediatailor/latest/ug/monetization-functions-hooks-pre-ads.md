@@ -9,7 +9,7 @@ opportunity is encountered during manifest processing.
 ## Input
 
 All fields from `PRE_SESSION_INITIALIZATION`, plus
-`avail.*`, `scte.*`, and `adsRequest.*` (url,
+`avail.*`, `scte.*`, `asset.*`, and `adsRequest.*` (url,
 method, headers, body). For all available fields, see [Input field reference](monetization-functions-hooks.md#monetization-functions-hooks-input-ref "monetization-functions-hooks.md#monetization-functions-hooks-input-ref").
 
 ## Output namespace allowed
@@ -20,6 +20,7 @@ method, headers, body). For all available fields, see [Input field reference](mo
 | `session.*`       | Strings, numbers, booleans | Overrides session variables for this ad break. Available to the<br>ADS request URL through dynamic variable substitution.                                                                                                                                                                                    |
 | `avail.*`         | Strings, numbers, booleans | Overrides avail variables for this ad break. Available to the ADS<br>request URL through dynamic variable substitution.                                                                                                                                                                                      |
 | `scte.*`          | Strings, numbers, booleans | Overrides SCTE variables for this ad break. Available to the ADS<br>request URL through dynamic variable substitution.                                                                                                                                                                                       |
+| `asset.*`         | Strings, numbers, booleans | Overrides asset metadata variables (from `EXT-X-ASSET`<br>tags) for this ad break. Available to the ADS request URL through<br>dynamic variable substitution. For more information about HLS ad<br>markers, see [HLS ad markers](hls-ad-markers.md "hls-ad-markers.md").                                     |
 | `adsRequest.*`    | String                     | Overrides the ADS request for this ad break only. Supported<br>fields: `url`, `method`,<br>`headers.<name>`, `body`. The<br>`url` value is treated as a template and supports<br>[MediaTailor dynamic ad variables for ADS requests](variables.md "variables.md") after the<br>function runs. Not persisted. |
 
 ###### Note

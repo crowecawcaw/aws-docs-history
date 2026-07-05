@@ -57,6 +57,7 @@ runs repeatedly and can tailor each ADS request to the specific ad break.
 | `scte.sub_segment_num`                 | Int     | ✗                            | ✓                 |
 | `scte.sub_segments_expected`           | Int     | ✗                            | ✓                 |
 | `scte.avails_expected`                 | Long    | ✗                            | ✓                 |
+| `asset.*`                              | String  | ✗                            | ✓                 |
 | `adsRequest.url`                       | String  | ✗                            | ✓                 |
 | `adsRequest.method`                    | String  | ✗                            | ✓                 |
 | `adsRequest.headers.<key>`             | String  | ✗                            | ✓                 |

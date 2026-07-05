@@ -106,16 +106,16 @@ MediaTailor:
 
 ```
 {
-        "Sid": "Enable MediaTailor Channel Assembly access token usage for the MediaTailorManagement IAM role",
-        "Effect": "Allow",
-        "Principal": {
+    "Sid": "Enable MediaTailor Channel Assembly access token usage for the MediaTailorManagement IAM role",
+    "Effect": "Allow",
+    "Principal": {
         "AWS": "arn:aws:iam::`account number`:role/MediaTailorManagement"
     },
-     "Action": "kms:CreateGrant",
-     "Resource": "*",
-     "Condition": {
-         "StringEquals": {
-             "kms:ViaService": "mediatailor.`region`.amazonaws.com"
+    "Action": "kms:CreateGrant",
+    "Resource": "*",
+    "Condition": {
+        "StringEquals": {
+            "kms:ViaService": "mediatailor.`region`.amazonaws.com"
         }
     }
 }
