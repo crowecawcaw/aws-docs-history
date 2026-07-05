@@ -45,9 +45,9 @@ you follow these guidelines:
   instance, do any or all of the following:
 
   - Migrate to a different DB instance class with high I/O capacity.
-  - Convert from magnetic storage to either General Purpose or Provisioned IOPS storage, depending
-    on how much of an increase you need. For information on available
-    storage types, see [Amazon RDS storage types](CHAP_Storage.md#Concepts.Storage "CHAP_Storage.md#Concepts.Storage").
+  - Convert from General Purpose SSD to Provisioned IOPS SSD storage,
+    depending on how much of an increase you need. For information on
+    available storage types, see [Amazon RDS storage types](CHAP_Storage.md#Concepts.Storage "CHAP_Storage.md#Concepts.Storage").
 
   If you convert to Provisioned IOPS storage, make sure you also use a
   DB instance class that is optimized for Provisioned IOPS. For information on Provisioned IOPS,

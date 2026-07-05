@@ -18,11 +18,16 @@ snapshots](../../../AWSEC2/latest/UserGuide/EBSSnapshots.md "../../../AWSEC2/lat
 To help mitigate the effects of lazy loading on tables to which you require quick access, you can perform operations that involve
 full-table scans, such as `SELECT *`. This allows Amazon RDS to download all of the backed-up table data from S3.
 
+###### Important
+
+Starting July 1, 2026, you can no longer restore a snapshot to magnetic storage. When
+you restore a snapshot of a magnetic volume, you must choose a different storage type,
+such as General Purpose SSD (gp3) or Provisioned IOPS SSD (io2 Block Express). For more
+information about Amazon RDS storage types, see [Amazon RDS DB instance storage](CHAP_Storage.md "CHAP_Storage.md").
+
 You can restore a DB instance and use a different storage type than the source DB snapshot. In this case,
 the restore process is slower because of the additional work required to migrate the data to
-the new storage type. If you restore to or from magnetic storage, the migration process is
-the slowest. That's because magnetic storage doesn't have the IOPS capability of Provisioned
-IOPS or General Purpose (SSD) storage.
+the new storage type.
 
 You can use CloudFormation to restore a DB instance from a DB instance snapshot. For more information,
 see [AWS::RDS::DBInstance](../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.md")

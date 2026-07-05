@@ -23,7 +23,7 @@ For more information, see [Amazon RDS for Oracle database log files](USER_LogAcc
 
 In force logging mode, Oracle logs all changes to the database except changes in
 temporary tablespaces and temporary segments (`NOLOGGING` clauses are
-ignored). For more information, see [Specifying FORCE LOGGING mode](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-the-redo-log.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-the-redo-log.html") in the Oracle documentation.
+ignored). For more information, see [Specifying FORCE LOGGING mode](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-ACEA5B83-D70F-4F30-A85B-3030248F597B "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/creating-and-configuring-an-oracle-database.html#GUID-ACEA5B83-D70F-4F30-A85B-3030248F597B") in the Oracle documentation.
 
 To set force logging, use the Amazon RDS procedure
 `rdsadmin.rdsadmin_util.force_logging`. The

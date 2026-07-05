@@ -99,12 +99,13 @@ The following list describes the rules for each VPC option:
   database in? Having your database in close proximity to your application or web
   service can reduce network latency. For more information, see [Regions, Availability Zones, and Local Zones](Concepts.RegionsAndAvailabilityZones.md "Concepts.RegionsAndAvailabilityZones.md").
 - **DB disk subsystem** – What are your storage
-  requirements? Amazon RDS provides three storage types:
+  requirements? Amazon RDS provides two storage types:
 
   - General Purpose (SSD)
   - Provisioned IOPS (PIOPS)
-  - Magnetic (also known as standard storage)
-    For more information on Amazon RDS storage, see [Amazon RDS DB instance storage](CHAP_Storage.md "CHAP_Storage.md").
+    Magnetic storage (also known as standard storage) is deprecated and is no
+    longer offered for new DB instances. For more information on Amazon RDS storage, see
+    [Amazon RDS DB instance storage](CHAP_Storage.md "CHAP_Storage.md").
 
 When you have the information you need to create the security group and the DB instance,
 continue to the next step.

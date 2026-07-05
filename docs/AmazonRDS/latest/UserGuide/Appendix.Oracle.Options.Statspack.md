@@ -2,8 +2,9 @@
 
 The Oracle Statspack option installs and enables the Oracle Statspack performance
 statistics feature. Oracle Statspack is a collection of SQL, PL/SQL, and SQL\*Plus
-scripts that collect, store, and display performance data. For information about using
-Oracle Statspack, see [Oracle Statspack](https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/gathering-database-statistics.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/gathering-database-statistics.html") in the Oracle documentation.
+scripts that collect, store, and display performance data. The Statspack scripts and their
+documentation are installed with the database under
+`$ORACLE_HOME/rdbms/admin` (for example, `spdoc.txt`).
 
 ###### Note
 

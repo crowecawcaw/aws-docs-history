@@ -21,6 +21,6 @@ back to the Oracle default.
 EXEC rdsadmin.rdsadmin_util.alter_default_edition('ORA$BASE');
 ```
 
-For more information about Oracle edition-based redefinition, see [About
-editions and edition-based redefinition](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/getting-started-with-database-administration.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/getting-started-with-database-administration.html") in the Oracle
+For more information about Oracle edition-based redefinition, see [Managing
+editions](https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-schema-objects.html "https://docs.oracle.com/en/database/oracle/oracle-database/19/admin/managing-schema-objects.html") in the Oracle
 documentation.

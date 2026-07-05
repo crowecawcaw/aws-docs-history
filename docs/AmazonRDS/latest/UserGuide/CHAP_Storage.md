@@ -22,26 +22,25 @@ For more information about instance storage pricing, see [Amazon RDS pricing](ht
 
 ###### Important
 
-Amazon RDS is deprecating magnetic storage on April 30, 2026. We recommend that you
-upgrade your magnetic storage volumes to gp3 or io2 before April 29, 2026. After
-April 29, 2026, Amazon RDS will begin forced migration of magnetic storage volumes to gp3
-storage volumes. In addition, the default storage type when restoring snapshots of
-magnetic volumes will be changed to gp3 by June 1, 2026. You can override this
-default with your preferred storage type.
+Amazon RDS has deprecated magnetic storage. You can no longer create new DB instances using
+magnetic storage, and Amazon RDS has migrated existing magnetic storage volumes to gp3.
+Starting July 1, 2026, you can no longer restore a snapshot to magnetic storage. When
+you restore a snapshot of a magnetic volume, you must choose a different storage type,
+such as gp3 or io2 Block Express. For more information, see [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
 
 ## Amazon RDS storage types
 
-Amazon RDS provides three storage types: Provisioned IOPS SSD (also known as io1 and io2
-Block Express), General Purpose SSD (also known as gp2 and gp3), and magnetic (also
-known as standard). They differ in performance characteristics and price, which means
-that you can tailor your storage performance and cost to the needs of your database
-workload. You can create Db2, MySQL, MariaDB, and PostgreSQL
-RDS DB instances with up to 64 tebibytes (TiB) of storage. You can create Oracle and SQL
-Server instances with up to 256 TiB of storage with additional storage volumes. For
-more information, see [Additional storage volumes](#Welcome.AdditionalStorageVolumes "#Welcome.AdditionalStorageVolumes"). RDS for Db2
-doesn't support the gp2 and magnetic storage types.
+Amazon RDS provides two storage types: Provisioned IOPS SSD (also known as io1 and io2
+Block Express) and General Purpose SSD (also known as gp2 and gp3). They differ in
+performance characteristics and price, which means that you can tailor your storage
+performance and cost to the needs of your database workload. You can create Db2, MySQL, MariaDB, and PostgreSQL RDS DB instances with up to 64
+tebibytes (TiB) of storage. You can create Oracle and SQL Server instances with up
+to 256 TiB of storage with additional storage volumes. For more information, see
+[Additional storage volumes](#Welcome.AdditionalStorageVolumes "#Welcome.AdditionalStorageVolumes"). RDS for Db2 doesn't support the gp2 storage type. Magnetic storage
+(also known as standard) is deprecated and is no longer offered for new DB instances. For more
+information, see [Magnetic storage (legacy, not recommended)](#CHAP_Storage.Magnetic "#CHAP_Storage.Magnetic").
 
-The following list briefly describes the three storage types:
+The following list briefly describes the storage types:
 
 - Provisioned IOPS SSD – Provisioned IOPS
   storage is designed to meet the needs of I/O-intensive workloads, particularly
@@ -59,11 +58,11 @@ size ranges, see [Provisioned IOPS SSD storage](#USER_PIOPS "#USER_PIOPS").
 For more information about General Purpose SSD storage, including the storage
 size ranges, see [General Purpose SSD storage](#Concepts.Storage.GeneralSSD "#Concepts.Storage.GeneralSSD").
 
-- Magnetic – Amazon RDS also supports magnetic
-  storage for backward compatibility. We recommend that you use General Purpose
-  SSD or Provisioned IOPS SSD for any new storage needs. The maximum amount of
-  storage allowed for DB instances on magnetic storage is 3 TiB. For more
-  information, see [Magnetic storage (legacy, not recommended)](#CHAP_Storage.Magnetic "#CHAP_Storage.Magnetic").
+- Magnetic (deprecated) – Magnetic storage
+  is deprecated and is no longer offered for new DB instances. Starting July 1, 2026,
+  you can no longer restore a snapshot to magnetic storage. Use General Purpose
+  SSD or Provisioned IOPS SSD for any new storage needs. For more information, see
+  [Magnetic storage (legacy, not recommended)](#CHAP_Storage.Magnetic "#CHAP_Storage.Magnetic").
 
 ## Provisioned IOPS SSD storage
 
@@ -394,18 +393,15 @@ types](../../../AWSEC2/latest/UserGuide/ebs-optimized.md#ebs-optimization-suppor
 
 ###### Warning
 
-Amazon RDS is deprecating magnetic storage on April 30, 2026. We recommend that you
-upgrade your magnetic storage volumes to the latest SSD-based storage volumes (gp3 or
-io2) before April 29, 2026. After April 29, 2026, Amazon RDS will begin forced migration
-of magnetic storage volumes to gp3 storage volumes.
+Amazon RDS has deprecated magnetic storage. You can no longer create new DB instances using
+magnetic storage, and Amazon RDS has migrated existing magnetic storage volumes to gp3.
+Starting July 1, 2026, you can no longer restore a snapshot to magnetic storage.
+When you restore a snapshot of a magnetic volume, you must choose a different
+storage type, such as gp3 or io2 Block Express.
 
-In addition, the default storage type when restoring snapshots of magnetic volumes
-will be changed to gp3 by June 1, 2026. You can override this default with your
-preferred storage type.
-
-Amazon RDS also supports magnetic storage for backward compatibility. We recommend that you
-use General Purpose SSD or Provisioned IOPS SSD for any new storage needs. The following
-are some limitations for magnetic storage:
+Magnetic storage is deprecated and is no longer offered for new DB instances. Use General
+Purpose SSD or Provisioned IOPS SSD for any new storage needs. The following limitations
+apply to magnetic storage:
 
 - Doesn't allow you to scale storage when using the SQL Server database
   engine.

@@ -29,12 +29,18 @@ For more information, see
 
 ## Verifying that NNE is active
 
-After connecting to your DB instance, run the following query to confirm your session is encrypted:
+After connecting to your DB instance, query `V$SESSION_CONNECT_INFO` for your
+session to confirm that native network encryption is active:
 
 ```
-SELECT SYS_CONTEXT('USERENV', 'NETWORK_PROTOCOL') AS PROTOCOL,
-       SYS_CONTEXT('USERENV', 'ENCRYPTION_TYPE') AS ENCRYPTION
-FROM DUAL;
+SELECT NETWORK_SERVICE_BANNER
+FROM V$SESSION_CONNECT_INFO
+WHERE SID = SYS_CONTEXT('USERENV', 'SID');
 ```
 
-If NNE is active, the `ENCRYPTION` column shows the algorithm in use (for example, `AES256`). If it shows blank or NULL, the connection is not encrypted.
+If NNE is active, the results include a banner that contains
+`encryption service adapter`. The banner text shows the negotiated algorithm,
+for example `AES256`. If checksumming is also enabled, the results include a
+`crypto-checksumming service adapter` banner. If the query returns no
+encryption service adapter banner, the connection is not using native network
+encryption.

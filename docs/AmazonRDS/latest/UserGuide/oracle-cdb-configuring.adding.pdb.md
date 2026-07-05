@@ -120,7 +120,7 @@ The output looks similar to the following.
          {
             "DbiResourceId" : "db-abc123",
             "TenantDatabaseResourceId" : "tdb-bac567",
-            "TenantDatabaseArn" : "arn:aws:rds:us-east-1:123456789012:db:my-cdb-inst:mypdb2",
+            "TenantDatabaseARN" : "arn:aws:rds:us-east-1:123456789012:db:my-cdb-inst:mypdb2",
             "DBInstanceIdentifier" : "my-cdb-inst",
             "TenantDBName" : "mypdb2",
             "Status" : "creating",

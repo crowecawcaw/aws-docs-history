@@ -229,11 +229,11 @@ particularly database workloads, that require low I/O latency and consistent I/O
 throughput. Provisioned IOPS storage is best suited for production
 environments.
 
-- Magnetic
+- Magnetic (deprecated)
 
-Amazon RDS supports magnetic storage for backward compatibility. We recommend
-that you use General Purpose SSD or Provisioned IOPS SSD for any new storage
-needs.
+Magnetic storage is deprecated and is no longer offered for new DB instances.
+Starting July 1, 2026, you can no longer restore a snapshot to magnetic storage.
+Use General Purpose SSD or Provisioned IOPS SSD for any new storage needs.
 
 The storage types differ in performance characteristics and price. You can tailor your
 storage performance and cost to the requirements of your database.

@@ -98,7 +98,7 @@ initialization parameter set to `true`. For more information about the
 
 ###### Note
 
-This is a static parameter. You must reboot the DB instance after modifying the parameter group for the change to take effect. To verify: `SHOW PARAMETER ENABLE_GOLDENGATE_REPLICATION`
+This is a dynamic parameter. The change takes effect after you apply the modified parameter group to the DB instance, without requiring a reboot. To verify the setting, run `SHOW PARAMETER ENABLE_GOLDENGATE_REPLICATION`.
 
 ### Step 3: Set the log retention period on the source database
 

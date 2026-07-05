@@ -73,7 +73,7 @@ This command produces output similar to the following.
     "TenantDatabase" : {
         "DbiResourceId" : "db-abc123",
         "TenantDatabaseResourceId" : "tdb-bac567",
-        "TenantDatabaseArn" : "arn:aws:rds:us-east-1:123456789012:db:my-cdb-inst:pdb1",
+        "TenantDatabaseARN" : "arn:aws:rds:us-east-1:123456789012:db:my-cdb-inst:pdb1",
         "DBInstanceIdentifier" : "my-cdb-inst",
         "TenantDBName" : "pdb1",
         "Status" : "modifying",

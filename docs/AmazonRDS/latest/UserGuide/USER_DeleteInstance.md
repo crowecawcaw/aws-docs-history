@@ -33,8 +33,12 @@ replica status. Consider the following issues:
 
   - If you take a final snapshot, you can use it to restore your deleted DB instance. RDS retains
     both the final snapshot and any manual snapshots that you took
-    previously. You can't create a final DB snapshot of your DB instance if it isn't in the
-    `Available` state. For more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
+    previously. You can't create a final DB snapshot when your DB instance is in the
+    `creating`, `deleting`, `failed`,
+    `incompatible-create`, `incompatible-network`,
+    `incompatible-restore`, `insufficient-capacity`,
+    `restore-error`, or `upgrade-failed` state. For
+    more information, see [Viewing Amazon RDSDB instance status](accessing-monitoring.md#Overview.DBInstance.Status "accessing-monitoring.md#Overview.DBInstance.Status").
   - If you don't take a final snapshot, then no final snapshot exists that you can restore
     later. If you decide to restore your deleted DB instance, either retain
     automated backups or use an earlier manual snapshot to restore your
