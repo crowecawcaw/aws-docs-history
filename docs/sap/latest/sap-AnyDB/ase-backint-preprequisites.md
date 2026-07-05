@@ -62,6 +62,15 @@ For more information, see the example for [Bucket owner granting cross-account b
 
 For more information about managed and inline policies, see the [IAM User Guide](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md").
 
+###### Note
+
+###### AWS STS connectivity requirement
+
+AWS Backint Agent for SAP ASE validates credentials by calling AWS Security Token Service (AWS STS) during initialization.
+If your SAP ASE instance runs in a private subnet without internet access, make sure that your instance can reach the AWS STS endpoint.
+Use an interface virtual private cloud (VPC) endpoint (service name: `com.amazonaws.*<region>*.sts`) or a network address translation (NAT) gateway.
+For more information, see [Using AWS STS interface VPC endpoints](../../../IAM/latest/UserGuide/id_credentials_sts_vpce.md "../../../IAM/latest/UserGuide/id_credentials_sts_vpce.md").
+
 ## Amazon S3 Bucket
 
 In preparation for installation of the AWS Backint agent, identify or create an S3 bucket in the target Region where SAP ASE backups will be stored.
