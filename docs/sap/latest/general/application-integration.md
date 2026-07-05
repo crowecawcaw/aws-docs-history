@@ -2,7 +2,7 @@
 
 Deploy [Amazon API Gateway](../../../apigateway/latest/developerguide/welcome.md "../../../apigateway/latest/developerguide/welcome.md") to extract data out of SAP S/4HANA via `HTTP` API. API Gateway can consume data from IDOC, BAPI, and RFC. These need to be translated to a web service call. For more information, see [AWS blogs](https://aws.amazon.com/blogs/awsforsap/category/application-services/amazon-api-gateway-application-services/ "https://aws.amazon.com/blogs/awsforsap/category/application-services/amazon-api-gateway-application-services/"). The following image shows this scenario.
 
-![Data flow with Amazon API Gateway](images/data-integration.png)
+![Data flow with Amazon API Gateway.](images/data-integration.png)
 Data flow
 
 1. RISE with SAP VPC is connected to your AWS account not managed by SAP, via AWS Transit Gateway.

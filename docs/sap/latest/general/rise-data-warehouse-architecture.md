@@ -6,7 +6,7 @@ Business analysts, data engineers, data scientists, and decision-makers utilize 
 
 Data is stored in tables and columns within databases, organized by schemas. Data warehouses consolidate data from multiple sources, enabling historical data analysis and ensuring data quality, consistency, and accuracy. Separating analytics processing from transactional databases enhances the performance of both systems, supporting reports, dashboards, and analytics tools by efficiently storing data to minimize I/O and deliver rapid query results to numerous concurrent users.
 
-![Data Warehouse Architecture](images/rise-data-warehouse-architecture.png)
+![Data Warehouse Architecture.](images/rise-data-warehouse-architecture.png)
 Key Characteristics
 
 - Integrated: Consolidates data from disparate sources (e.g., CRM, ERP) into a unified schema, resolving inconsistencies in formats or naming conventions.
@@ -25,7 +25,7 @@ Key Characteristics
 - Metadata: Describes data origins, transformations, and relationships.
 - Access Tools: SQL clients, BI platforms, and machine learning interfaces.
 
-![Data Warehouse Layers](images/rise-data-warehouse-layers.png)
+![Data Warehouse Layers.](images/rise-data-warehouse-layers.png)
 Data warehouses utilize a layered architecture to organize data at different levels of granularity, which helps ensure consistency and flexibility. The most common data warehouse architecture layers are the source, staging, warehouse, and consumption layers. SAP systems also employ a layer-based architecture for data warehouses. In the context of building a SAP cloud data warehouse on AWS. the architecture involves several key layers and components for data acquisition, storage, transformation, and consumption.
 
 **Corporate Memory**

@@ -43,7 +43,7 @@ You implement this by deploying the Work Zone service in the primary region with
 
 TTL optimization directly impacts failover speed and DNS query volume. Short TTL values enable fast failover but increase DNS query traffic. The specific TTL value should align with the Recovery Point Objective (RPO) requirements. For detailed implementation steps, refer to the [SAP blog post Route Multi-Region Traffic to SAP Build Work Zone using Amazon Route 53](https://community.sap.com/t5/technology-blog-posts-by-sap/route-multi-region-traffic-to-sap-build-work-zone-standard-edition-using/ba-p/13561468 "https://community.sap.com/t5/technology-blog-posts-by-sap/route-multi-region-traffic-to-sap-build-work-zone-standard-edition-using/ba-p/13561468") and [this github repository](https://github.com/SAP-samples/btp-services-intelligent-routing/tree/launchpad_aws "https://github.com/SAP-samples/btp-services-intelligent-routing/tree/launchpad_aws").
 
-![Active-Passive Implementation](images/rise-jra-opsreliability-active-passive.png)
+![Active-Passive Implementation.](images/rise-jra-opsreliability-active-passive.png)
 
 **Active-Active Implementation**
 
@@ -53,7 +53,7 @@ Data consistency is maintained by configuring Aurora for "read local/write globa
 
 For implementation details, see [Distributed Resiliency of SAP CAP applications using Amazon Aurora with Amazon Route 53](https://community.sap.com/t5/-/-/m-p/13570134 "https://community.sap.com/t5/-/-/m-p/13570134") and [SAP CAP Application Dynamic Data Source Routing](https://community.sap.com/t5/-/-/m-p/13558920 "https://community.sap.com/t5/-/-/m-p/13558920"). You can also refer to this [github repository](https://github.com/SAP-samples/cap-distributed-resiliency/tree/Data-Source-Routing/source "https://github.com/SAP-samples/cap-distributed-resiliency/tree/Data-Source-Routing/source").
 
-![Active-Active Implementation](images/rise-jra-opsreliability-active-active.png)
+![Active-Active Implementation.](images/rise-jra-opsreliability-active-active.png)
 
 **Solution guidance and other considerations**
 

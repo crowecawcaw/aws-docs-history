@@ -14,7 +14,7 @@ Amazon GuardDuty monitors the following:
 - Automated Incident Response. GuardDuty can be integrated with AWS Lambda and AWS Security Hub to automate incident response workflows. Upon detecting a threat, these services can trigger automated remediation actions, such as isolating compromised resources or notifying security teams.
   Below is example architecture of GuardDuty monitoring CloudTrail trails of a RISE with SAP deployment on AWS
 
-![GuardDuty monitoring CloudTrail trails of a RISE with SAP deployment](images/rise-security-guardduty.png)
+![GuardDuty monitoring CloudTrail trails of a RISE with SAP deployment.](images/rise-security-guardduty.png)
 In the diagram above
 
 1. Data is written to S3 bucket for data lake/compliance reporting purposes.
@@ -23,14 +23,14 @@ In the diagram above
 4. GuardDuty detects suspicious activity and alerts administrators.
    Below is example architecture of GuardDuty monitoring DNS logs of a RISE with SAP deployment on AWS
 
-![GuardDuty monitoring DNS logs of a RISE with SAP deployment](images/rise-security-guardduty-dnslogs.png)
+![GuardDuty monitoring DNS logs of a RISE with SAP deployment.](images/rise-security-guardduty-dnslogs.png)
 In the diagram above
 
 1. A malicious actor introduces rogue DNS redirecting users to makeshift SAP systems.
 2. The rogue DNS entries are detected by GuardDuty and reported to administrators.
    Below is example architecture of GuardDuty monitoring VPC Flow Logs of RISE with SAP VPC
 
-![GuardDuty monitoring VPC Flow Logs of RISE with SAP VPC](images/rise-security-guardduty-vpcflowlogs.png)
+![GuardDuty monitoring VPC Flow Logs of RISE with SAP VPC.](images/rise-security-guardduty-vpcflowlogs.png)
 In the diagram above
 
 1. A malicious actor attempts to access SAP systems from VPC managed by customer peered to RISE VPC or scan ports.

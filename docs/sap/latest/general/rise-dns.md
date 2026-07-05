@@ -32,7 +32,7 @@ Conditional DNS Forwarding allows for selectively forwarding queries for specifi
 
 The reference architecture below outlines the components needed for this approach:
 
-![DNS Forwarding in RISE](images/rise-dns-forwarding.png)
+![DNS Forwarding in RISE.](images/rise-dns-forwarding.png)
 
 1. Network Connectivity: refer to Common Infrastructure Requirements
 2. Domain Delegation: refer to Common Infrastructure Requirements
@@ -63,7 +63,7 @@ Please consult your SAP Cloud Architect or your AWS Account Team for details on 
 
 The following diagram shows a reference architecture for integrating the RISE environment with your existing DNS landscape ( on-premises / AWS ) through zone transfers.
 
-![DNS Zone Transfer in RISE](images/rise-dns-zonetransfer.png)
+![DNS Zone Transfer in RISE.](images/rise-dns-zonetransfer.png)
 
 1. Network Connectivity: refer to Common Infrastructure Requirements
 2. Domain Delegation: refer to Common Infrastructure Requirements
@@ -97,7 +97,7 @@ There are 2 main scenarios:
 
 For customers who run the majority of their workloads in the cloud and operate their private DNS root zone on AWS with Route 53, you can delegate subdomains to external DNS servers. This includes delegating to both SAP DNS servers (e.g., sap.corp.com) and on-premises DNS servers (e.g., dc.corp.com).
 
-![DNS Zone Delegation with parent domain in route 53](images/rise-dns-zonedelegation01.png)
+![DNS Zone Delegation with parent domain in route 53.](images/rise-dns-zonedelegation01.png)
 
 1. Network Connectivity: refer to Common Infrastructure Requirements
 2. Domain Delegation: refer to Common Infrastructure Requirements
@@ -109,7 +109,7 @@ For customers who run the majority of their workloads in the cloud and operate t
 
 For customers who are in the beginning of their cloud journey and still maintain their root zone on-premises, DNS delegation provides an efficient way to integrate both SAP and AWS environments while maintaining DNS control on-premises.
 
-![DNS Zone Delegation with parent domain in on-premises](images/rise-dns-zonedelegation02.png)
+![DNS Zone Delegation with parent domain in on-premises.](images/rise-dns-zonedelegation02.png)
 
 1. Network Connectivity: refer to Common Infrastructure Requirements
 2. Domain Delegation: refer to Common Infrastructure Requirements

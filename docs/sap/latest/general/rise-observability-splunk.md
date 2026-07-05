@@ -13,7 +13,7 @@ Key Benefits
 
 Service Intelligence for SAP Solutions can be deployed in under an hour with the help of a simple ticket logged to SAP ECS. At its core, the solution utilizes Rhondos’s PowerConnect agents (ABAP and Java) for direct integration with SAP Cloud ERP private environments, while for SaaS and public cloud solutions, it deploys a dedicated AWS virtual machine running the PowerConnect Cloud component. Using PowerConnect to access SAP information in real- time and leveraging Splunk machine learning, artificial intelligence, advanced big data, and visualization capabilities unlocks unprecedented insight, understanding, and preventive actions.
 
-![RISE observability with Splunk](images/rise-observability-splunk.png)
+![RISE observability with Splunk.](images/rise-observability-splunk.png)
 Splunk Service Intelligence for SAP Solutions [product documentation](https://help.splunk.com/en/splunk-it-service-intelligence/extend-itsi-and-ite-work/service-intelligence-for-sap-solutions/2.4/overview/overview-of-splunk-service-intelligence-for-sap-solutions "https://help.splunk.com/en/splunk-it-service-intelligence/extend-itsi-and-ite-work/service-intelligence-for-sap-solutions/2.4/overview/overview-of-splunk-service-intelligence-for-sap-solutions") details comprehensive technical details along with installation and configuration steps.
 
 Disclaimer: Splunk, ITSI, and the Splunk logo are trademarks of the Splunk Inc, owned by Cisco Systems, Inc.. All other trademarks are the property of their respective owners.

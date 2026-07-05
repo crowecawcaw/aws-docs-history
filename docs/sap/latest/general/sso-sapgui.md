@@ -6,7 +6,7 @@ In order to achieve Single-Sign-On (SSO) for SAPGUI in RISE with SAP, we must us
 
 SAPGUI Single-Sign-On with X509 can be achieved with [SAP Secure Login Service on BTP](https://help.sap.com/docs/SAP%20SECURE%20LOGIN%20SERVICE?version=Cloud "https://help.sap.com/docs/SAP%20SECURE%20LOGIN%20SERVICE?version=Cloud"), the image below describes how the integration works.
 
-![SSO for SAPGUI Front-End](images/rise-security-sso-sapgui.png)
+![SSO for SAPGUI Front-End.](images/rise-security-sso-sapgui.png)
 
 **Authentication flow**
 

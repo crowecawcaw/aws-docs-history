@@ -12,7 +12,7 @@ Key Capabilities:
 
 PowerConnect ensures full compatibility and compliance with SAP standards. The solution can be deployed and configured in under 45 minutes per SAP system, enabling rapid time-to-value. Out of the box, PowerConnect can capture over 360 key SAP metrics across performance, security, and business process domains, and delivers over 1600 pre-defined use cases ready to consume in your chosen monitoring or observability platform, reducing implementation effort and accelerating insights.
 
-![RISE observability with Power Connect](images/rise-observability-powerconnect.png)
+![RISE observability with Power Connect.](images/rise-observability-powerconnect.png)
 Rhondos PowerConnect for SAP Solutions' [product documentation](https://docs.rhondos.com/powerconnect-for-sap-solutions "https://docs.rhondos.com/powerconnect-for-sap-solutions") details comprehensive technical details along with installation and configuration steps and it is available through [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-bdpl5zjkasukg "https://aws.amazon.com/marketplace/pp/prodview-bdpl5zjkasukg").
 
 Disclaimer: Rhondos, and PowerConnect are trademarks of the Rhondos AG. All other trademarks, names, and logos are the property of their respective owners.

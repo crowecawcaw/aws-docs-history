@@ -6,7 +6,7 @@ Deploy AWS SDK for SAP ABAP on RISE with SAP VPC to avail AWS services using the
 
 You can authenticate AWS SDK for SAP ABAP with IAM access key. The following image shows this scenario.
 
-![Data flow for SAP ABAP SDK](images/rise-abap.png)
+![Data flow for SAP ABAP SDK.](images/rise-abap.png)
 
 Data flow
 

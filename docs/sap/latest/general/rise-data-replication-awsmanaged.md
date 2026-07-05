@@ -1,6 +1,6 @@
 # Replicating data using AWS Services
 
-![Data replication using Managed Services](images/rise-data-replication-aws-services.png)
+![Data replication using Managed Services.](images/rise-data-replication-aws-services.png)
 
 **AWS Glue**
 

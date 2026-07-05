@@ -1,6 +1,6 @@
 # Replicating data using SAP services
 
-![Data replication using SAP Services](images/rise-data-replication-sap-services.png)
+![Data replication using SAP Services.](images/rise-data-replication-sap-services.png)
 
 **SAP BDC / Datasphere**
 

@@ -10,7 +10,7 @@ CloudFront VPC Origins is a feature that enhances security and streamlines opera
 
 CloudFront VPC Origins is deployed in the customer-managed AWS account, directing SAP users coming through the CloudFront to an internal, [AWS Application Load Balancer (ALB)](../../../elasticloadbalancing/latest/application/introduction.md "../../../elasticloadbalancing/latest/application/introduction.md"). The ALB routes Fiori traffic directly to the SAP systems hosted in the SAP RISE AWS account through the AWS Transit Gateway. The AWS Web Application Firewall (WAF) is optional but recommended to improve security posture.
 
-![Request routing with Amazon CloudFront](images/performance.png)
+![Request routing with Amazon CloudFront.](images/performance.png)
 Data flow
 
 1. User accesses SAP Fiori launchpad via Internet browser or mobile device
@@ -47,7 +47,7 @@ When you deploy RISE with SAP on AWS for a global roll-out, you can reduce the n
 
 [Accelerated Site-to-Site VPN connections](../../../vpn/latest/s2svpn/accelerated-vpn.md "../../../vpn/latest/s2svpn/accelerated-vpn.md") combines traditional [AWS Site-to-Site VPN](../../../vpn/latest/s2svpn/VPC_VPN.md "../../../vpn/latest/s2svpn/VPC_VPN.md") with AWS Global Accelerator to optimize traffic routing. It routes the traffic from on-premises network to an AWS edge location that is closest to customer gateway device, leveraging the AWS backbone. This will reduce latency by up to ~30%-60% compared to standard VPNs.
 
-![Accelerated Site-to-Site VPN](images/rise-accelerated-s2s-vpn.png)
+![Accelerated Site-to-Site VPN.](images/rise-accelerated-s2s-vpn.png)
 
 **Enhancing observability of RISE with SAP using AWS Internet Monitor**
 

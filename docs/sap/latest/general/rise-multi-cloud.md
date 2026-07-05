@@ -1,30 +1,73 @@
 # Connectivity patterns for multi-cloud
 
-In a complex connectivity scenario, you may need to integrate RISE with SAP setup with on-premises, AWS-hosted systems, and a variety of SaaS solutions and other cloud service providers.
+In complex multi-cloud scenarios, your RISE with SAP environment might need to connect with on-premises systems, AWS-hosted workloads, SaaS solutions, and other cloud service providers.
 
-Managing connectivity directly from the AWS environment decouples dependencies with on-premises networking infrastructure, improving availability and resiliency of the overall landscape.
+Managing connectivity directly from AWS removes dependencies on on-premises networking infrastructure, improving the availability and resiliency of your overall landscape.
 
-You can use public or private connectivity to connect multi-cloud with RISE.
+You can connect multi-cloud environments to RISE using either public or private connectivity.
 
-![Connectivity patterns for multi-cloud to RISE](images/rise-multi1.png)
+![Connectivity patterns for multi-cloud to RISE.](images/rise-multi1.png)
 
-**Public connectivity**
+## Public connectivity
 
-Connectivity is routed over the public internet. This pattern is typically used for connectivity from RISE with SAP to SaaS solutions that runs across multiple clouds. When building connectivity routed over the public internet, consider the following:
+Connectivity is routed over the internet. This pattern is typically used for connectivity from RISE with SAP to SaaS solutions that runs across multiple clouds. When building connectivity routed over the internet, consider the following:
 
 - ensure that all communication is encrypted
 - protect end-points by using AWS services, such as Elastic Load Balancers and AWS Shield
 - monitor endpoints using Amazon CloudWatch
 - ensure that traffic between two public IP addresses hosted on AWS is routed over the AWS network
 
-**Private connectivity**
+## Private connectivity
 
-The following three are the options to establish private connectivity between different cloud service providers:
+The following options are available to establish private connectivity between cloud service providers:
 
 - Site-to-site VPN encrypted tunnel routed over public internet
-- private interconnect using AWS Direct Connect in a managed infrastructure (use Azure ExpressRoute for Azure and Google Dedicated Interconnect for Google Cloud Platform)
-- private interconnect using an AWS Direct Connect in a facility with a multi-cloud connectivity provider
-  The following diagram describes the factors to choose a multi-cloud connectivity method.
+- Private interconnect using AWS Direct Connect in a managed infrastructure (use Azure ExpressRoute for Azure and Google Dedicated Interconnect for Google Cloud Platform)
+- Private interconnect using an AWS Direct Connect in a facility with a multi-cloud connectivity provider
+- Using AWS Interconnect Service to connect privately to other Cloud Providers (currently only Google Cloud)
 
-![Connectivity patterns for multi-cloud to RISE](images/rise-multi2.png)
+AWS Interconnect is a fully managed service providing direct private connectivity between AWS and other clouds (currently Google Cloud) without requiring physical routers or on-premises routing, with built-in Media Access Control Security (MACsec) encryption.
+
+To check which regions are supported, see [Region availability](../../../interconnect/latest/userguide/interconnect-region-availability.md "../../../interconnect/latest/userguide/interconnect-region-availability.md").
+
+## Example use-case 1: RISE on AWS to GCP BigQuery
+
+If you run SAP S/4HANA on RISE with AWS and use Google Cloud BigQuery for analytics and machine learning, you can benefit from real-time data replication over a private, high-speed connection that continuously streams data from the SAP application layer to the Google Cloud data warehouse without exposing it to the public internet.
+
+After you establish AWS Interconnect and deliver traffic from AWS RISE into GCP, complete the remaining connectivity configuration on the Google Cloud Platform side to ensure that data stays within the Google Cloud network.
+
+![Interconnect from RISE to GCP BigQuery.](images/rise-interconnect-aws-rise-gcp-big-query.png)
+
+## Example use-case 2: RISE on GCP to AWS services
+
+If you run SAP S/4HANA on RISE on Google Cloud, you can use the AWS SDK for SAP ABAP to natively consume AWS services, such as Amazon Bedrock, Amazon Textract, and Amazon S3, directly from your ABAP application layer. With this integration, they can extend their core business processes with intelligent cloud services that drive automation, document processing, and scalable data management.
+
+AWS Interconnect connects the Google Cloud RISE environment to an AWS VPC, where VPC endpoints (AWS PrivateLink) expose the required services. This ensures all traffic between the SAP system on Google Cloud and AWS remains on private network infrastructure without traversing the public internet, delivering low-latency, secure cross-cloud service consumption.
+
+Complete the necessary routing configuration on the Google Cloud side within GCP to direct traffic from the RISE environment toward AWS Interconnect.
+
+For more information, see [Custom VPC Endpoints in the AWS SDK for SAP ABAP](../../../sdk-for-sapabap/latest/developer-guide/custom-vpc-endpoints.md "../../../sdk-for-sapabap/latest/developer-guide/custom-vpc-endpoints.md").
+
+![Interconnect from RISE on GCP to cloud services.](images/rise-interconnect-gcp-rise-aws-sdk.png)
+
+AWS Interconnect is a fully managed service that provides private, high-speed connectivity between AWS and other cloud providers. You don’t need to configure physical routers, order cross-connects, or manage BGP peering. Unlike Site-to-Site VPN or self-managed Direct Connect, AWS Interconnect requires no colocation facilities. It enables Media Access Control Security (MACsec) Layer 2 encryption by default, delivering low latency, dedicated bandwidth, and built-in redundancy through pre-provisioned capacity pools between cloud provider points of presence (PoPs). This significantly reduces operational complexity. Performance and reliability exceed what internet-based VPN connections or self-managed Direct Connect implementations offer.
+
+The following table compares AWS Interconnect with traditional connectivity approaches.
+
+| Criteria               | AWS Interconnect                                                                                                                 | Traditional (VPN / Self-managed Direct Connect)                                                                                             |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Setup                  | Fully managed, turnkey. No physical routers, cross-connects, or BGP peering to configure.                                        | Requires ordering cross-connects, configuring routers, managing BGP sessions, and often contracting with colocation facilities.             |
+| Encryption             | MACsec (Layer 2) enabled by default, no manual tunnel or encryption setup needed.                                                | VPN requires IPSec tunnel configuration; Direct Connect requires optional MACsec setup by the customer.                                     |
+| Infrastructure         | AWS and the partner cloud pre-build large pools of capacity between PoPs, eliminating the need to maintain physical connections. | Customer must provision and maintain dedicated physical links or rely on colocation providers.                                              |
+| Performance            | Private, dedicated bandwidth with consistent low latency (no internet routing variability).                                      | VPN traverses the public internet (variable latency). Self-managed Direct Connect offers similar performance but with operational overhead. |
+| Colocation requirement | None required. Connections are established directly between cloud providers.                                                     | Typically requires presence in a colocation facility where both providers have a PoP.                                                       |
+| Complexity             | Minimal. A simplified provisioning process handles routing and physical connectivity.                                            | Significant. Teams must manage equipment, contracts, and networking configurations across providers.                                        |
+| Resilience             | Built-in redundancy across pre-provisioned capacity pools.                                                                       | Customer is responsible for designing redundancy (multiple connections, failover).                                                          |
+
+For more information, see [What is AWS Interconnect](../../../interconnect/latest/userguide/what-is-interconnect.md "../../../interconnect/latest/userguide/what-is-interconnect.md").
+
+The following diagram describes the factors to choose a multi-cloud connectivity method.
+
+![Connectivity patterns for multi-cloud to RISE.](images/rise-multi2.png)
+
 For more information, see [Designing private network connectivity between AWS and Microsoft Azure](https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/ "https://aws.amazon.com/blogs/modernizing-with-aws/designing-private-network-connectivity-aws-azure/").

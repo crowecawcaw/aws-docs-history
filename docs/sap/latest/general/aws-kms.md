@@ -14,7 +14,7 @@ This integration allows customers to manage and control the encryption keys used
 
 Below is the SAP KMS integration with AWS KMS - HYOK
 
-![The SAP KMS integration with KMS - HYOK](images/rise-security-hyok.png)
+![The SAP KMS integration with KMS - HYOK.](images/rise-security-hyok.png)
 In the diagram above:
 
 - Key is created in AWS KMS keystore

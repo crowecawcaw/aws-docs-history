@@ -24,7 +24,7 @@ In this scenario, the [overlay network](https://en.wikipedia.org/wiki/Overlay_ne
 
 **Pattern A-1: SD-WAN devices integration with AWS Transit Gateway and AWS Direct Connect with your AWS landing zone**
 
-![SD-WAN devices integration with Transit Gateway and Direct Connect with your landing zone](images/rise-pattern-a-1-sd-wan-tgw-dx-lz.png)
+![SD-WAN devices integration with Transit Gateway and Direct Connect with your landing zone.](images/rise-pattern-a-1-sd-wan-tgw-dx-lz.png)
 The preceding diagram illustrates a pattern of how you can extend and segment your SD-WAN traffic to AWS without adding extra infrastructure. You can create Transit Gateway connect attachments using an AWS Direct Connect connection as underlying transport in your AWS account.
 
 Outbound from RISE with SAP VPC:
@@ -38,7 +38,7 @@ Outbound from RISE with SAP VPC:
 
 **Pattern A-2: SD-WAN devices integration with AWS Transit Gateway and AWS Direct Connect with no AWS landing zone**
 
-![SD-WAN devices integration with Transit Gateway and Direct Connect with no landing zone](images/rise-pattern-a-2-sd-wan-tgw-dx-no-lz.png)
+![SD-WAN devices integration with Transit Gateway and Direct Connect with no landing zone.](images/rise-pattern-a-2-sd-wan-tgw-dx-no-lz.png)
 The preceding diagram illustrates a pattern of how you can extend and segment your SD-WAN traffic to AWS without adding extra infrastructure. In RISE with SAP, you can request SAP to create Transit Gateway connect attachments using a Direct Connect connection as underlying transport. Customers can leverage SAP-managed [Direct Connect gateway (DXGW)](../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md "../../../directconnect/latest/UserGuide/direct-connect-gateways-intro.md") if required.
 
 Outbound from RISE with SAP VPC:
@@ -56,11 +56,13 @@ In this scenario, the virtual appliances of the SD-WAN network are deployed in a
 
 Between on-premises and AWS, the [overlay network](https://en.wikipedia.org/wiki/Overlay_network "https://en.wikipedia.org/wiki/Overlay_network") is SD-WAN with GRE or IPSec tunnels with the headend/hub deployed within AWS, and the underlay transport could be Internet, MLPS, or Direct Connect. Following are the architecture patterns under this scenario:
 
-Note: Network patterns covered in the following sections are applicable only with your existing or a new landing zone setup on AWS. For SD-WAN appliances deployment and connectivity directly with AWS Account – managed by SAP, refer to Pattern A-2.
+###### Note
+
+Network patterns covered in the following sections are applicable only with your existing or a new landing zone setup on AWS. For SD-WAN appliances deployment and connectivity directly with AWS Account – managed by SAP, refer to Pattern A-2.
 
 **Pattern B-1: SD-WAN appliances in AWS integrated with AWS Transit Gateway Connect with your AWS landing zone**
 
-![SD-WAN appliances integrated with Transit Gateway and Direct Connect with your landing zone](images/rise-pattern-b-1-sd-wan-aws-tgw-dx-lz.png)
+![SD-WAN appliances integrated with Transit Gateway and Direct Connect with your landing zone.](images/rise-pattern-b-1-sd-wan-aws-tgw-dx-lz.png)
 The preceding diagram illustrates a pattern of integrating your SD-WAN network with Transit Gateway using [connect attachments](../../../vpc/latest/tgw/tgw-connect.md "../../../vpc/latest/tgw/tgw-connect.md") and placing (third-party) virtual appliances of the SD-WAN network in an Appliance VPC within AWS. It’s common to have SD-WAN edge appliances deployed at branch locations, and on-premises data center to create a full mesh topology.
 
 Outbound from RISE with SAP:
@@ -76,7 +78,7 @@ Outbound from RISE with SAP:
 
 **Pattern B-2: SD-WAN appliances in AWS integrated with AWS Site-to-Site VPN**
 
-![SD-WAN appliances integrated with Site-to-Site VPN](images/rise-pattern-b-2-sd-wan-s2svpn.png)
+![SD-WAN appliances integrated with Site-to-Site VPN.](images/rise-pattern-b-2-sd-wan-s2svpn.png)
 The diagram above illustrates a pattern of integrating your SD-WAN network with Transit Gateway using an AWS Site-Site VPN connection and placing (third party) virtual appliances of the SD-WAN network in an Appliance VPC within AWS. You may use this option when your third-party virtual appliance does not support GRE. It’s common to have SD-WAN edge appliances deployed at branch locations, and on-premises data center to create a full mesh topology.
 
 Outbound from RISE with SAP:

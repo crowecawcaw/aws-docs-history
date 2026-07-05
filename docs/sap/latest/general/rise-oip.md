@@ -23,4 +23,4 @@ When you are utilizing TGW, SAP’s default setup is to propagate routes only fo
 
 This routing configuration is a critical detail that customers should keep in mind during their SAP deployment, as it can significantly impact the efficiency of their network traffic flow from end-users and other external systems outside of RISE with SAP.
 
-![Overlay IP in RISE](images/rise-oip.png)
+![Overlay IP in RISE.](images/rise-oip.png)

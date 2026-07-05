@@ -34,7 +34,7 @@ To ensure seamless communication, all SSL (Secure Socket Layer) or TLS certifica
 
 The diagram below describes a basic SAP on AWS architecture that is adapted to align with the RISE with SAP SKU offering.
 
-![mTLS Architecture Diagram](images/rise-mtls-authentication.png)
+![mTLS Architecture Diagram.](images/rise-mtls-authentication.png)
 
 **mTLS Verify Mode**
 
@@ -125,6 +125,6 @@ Verified Access provides centralized policy management through [AWS Cedar Policy
 6. Add a Verified Access group-level access policy. AWS Verified Access policies allow you to define rules for accessing your SAP applications hosted in AWS. Refer to the following sample [statements](../../../verified-access/latest/ug/auth-policies-policy-statement-struct.md "../../../verified-access/latest/ug/auth-policies-policy-statement-struct.md") to derive one for your application as per your requirements.
 7. Test the connectivity to your application. You can now test connectivity to your application by entering your SAP application’s domain name into your web browser, for HTTP(S) based access such as SAP Fiori.
 
-![Verified Access for RISE](images/rise-verified-access.png)
+![Verified Access for RISE.](images/rise-verified-access.png)
 
 The preceding diagram describes on how AWS verified Access deployed and integrated with RISE with SAP

@@ -6,7 +6,7 @@ AWS IoT provides a comprehensive suite of services to connect, manage, and secur
 
 **AWS IoT with SAP**
 
-![IoT with SAP](images/rise-jra-iot-sap.png)
+![IoT with SAP.](images/rise-jra-iot-sap.png)
 The combination of AWS IoT services and SAP business applications creates a powerful platform for digital transformation, enabling organizations to implement smart solutions across various domains - from connected products to smart city applications. This integration helps organizations harness real-time data for improved operational visibility, enhanced customer experiences, and innovative business models, driving efficiency and accelerating innovation across the enterprise ecosystem.
 
 In [Smart Products & Services](https://aws.amazon.com/industrial/smart-products-and-services/ "https://aws.amazon.com/industrial/smart-products-and-services/") scenarios, AWS IoT services enable intelligent operations through [AWS IoT SiteWise](https://aws.amazon.com/iot-sitewise/ "https://aws.amazon.com/iot-sitewise/") and other services, delivering real-time insights that integrate seamlessly with SAP business modules. AWS IoT Device Management provides comprehensive monitoring across connected devices, with continuous data streams enriching SAP systems for informed decision-making. Edge computing capabilities through AWS IoT Greengrass ensure efficient data processing at the source, enabling rapid response times and optimal performance, particularly valuable for remote operations.
@@ -27,7 +27,7 @@ You can find out more of [Security in AWS IoT](../../../iot/latest/developerguid
 
 JRA architecture below shows the combination of AWS IoT services and SAP BTP services to build loosely coupled Edge-to-Business Process architectures.
 
-![JRA for Internet Of Things](images/rise-jra-iot.png)
+![JRA for Internet Of Things.](images/rise-jra-iot.png)
 
 **IoT events** - Edge locations can be environments like factories or shop floors where IoT devices such as cameras, PLCs, SCADA systems, IoT sensors or industrial assets collect data including temperature, vibration, and other metrics. The collected data is transmitted to AWS IoT services in the cloud using appropriate connectors running on edge runtime environments like AWS IoT Greengrass, with protocols specific to each device type.
 Customers have the option to sanitize data at the edge using AWS Edge computing services before transmission to the cloud. AWS IoT SiteWise Edge extends cloud capabilities to industrial edge environments, while AWS IoT Greengrass serves as a general-purpose edge framework. This edge processing helps reduce noise in data, improves data quality, and optimizes costs.
@@ -38,7 +38,7 @@ Customers have the option to sanitize data at the edge using AWS Edge computing 
 
 **Business Actions on RISE with SAP** - Finally, based on the business rules, appropriate SAP business processes are triggered on the RISE with SAP systems like creation of maintenance order for predictive maintenance or creation of a safety observation for EHS.
 
-![JRA for Internet Of Things and Genenerative AI](images/rise-jra-iot-genai.png)
+![JRA for Internet Of Things and Generative AI.](images/rise-jra-iot-genai.png)
 This is an alternative architecture to the one discussed in the previous section, with the following differences.
 
 **IoT events** – Same as Figure 1.
