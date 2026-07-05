@@ -1,23 +1,16 @@
 # Monitoring with content quality analysis in AWS Elemental MediaConnect
 
-You can use MediaConnect content quality analysis to monitor your source streams more
-effectively. This feature enables you to track specific audio and video metrics, helping
-you ensure that your content meets required quality standards. By monitoring these metrics, you can quickly identify anomalies in your
-streams, enabling you to promptly resolve issues and maintain content quality.
+You can use MediaConnect content quality analysis to monitor your source streams and
+router inputs more effectively. Use this feature to track specific audio and
+video metrics and ensure that your content meets required quality standards.
+By monitoring these metrics, you can quickly identify anomalies in your streams
+and promptly resolve issues to maintain content quality.
 
-When used alongside other MediaConnect monitoring tools, content quality analysis
-provides you with a comprehensive view of your stream's quality. This integrated
-monitoring approach enables you to implement proactive measures and ensure a smooth and
-reliable media delivery workflow.
-
-###### Contents
-
-- [Key points](#monitor-content-quality-analysis-key-points "#monitor-content-quality-analysis-key-points")
-
-  - [How content quality analysis works](#how-content-quality-analysis-works "#how-content-quality-analysis-works")
-  - [Considerations](#content-quality-analysis-considerations "#content-quality-analysis-considerations")
-
-- [Next steps](#content-quality-analysis-next-steps "#content-quality-analysis-next-steps")
+Content quality analysis is available for both MediaConnect flows and router inputs.
+When used alongside other MediaConnect monitoring tools, content quality analysis provides
+you with a comprehensive view of your stream's quality. With this integrated monitoring
+approach, you can implement proactive measures and ensure a smooth and reliable
+media delivery workflow.
 
 ## Key points
 
@@ -40,22 +33,38 @@ You can monitor for the following content quality issues:
 
 For each metric, you can set custom duration thresholds to fine-tune when
 alerts are triggered based on your specific needs. MediaConnect then monitors
-the status of the content within your source stream, posting warnings and alerts
-when issues occur in the areas you've chosen to monitor.
+the status of the content within your source stream or router input, posting
+warnings and alerts when issues occur in the areas you've chosen to
+monitor.
+
+You can enable content quality analysis for MediaConnect flows and router inputs.
 
 ### Considerations
 
-- Content quality analysis works with transport stream source flows
-  only. CDI flows and bridge flows aren't currently supported.
-- The content quality analysis feature only monitors the first video
-  stream and the first audio stream it encounters within a single
-  source.
-- Content quality analysis monitoring is limited to flows with 10
-  outputs or fewer. If a flow exceeds 10 outputs, MediaConnect automatically
-  disables content analysis for that flow.
-- This feature is available at no additional charge in all AWS Regions
-  where MediaConnect is available.
+Note the following when using content quality analysis.
+
+- MediaConnect monitors only the first video track and
+  the first audio track within the stream.
+- MediaConnect monitors only the first program within a multi-program transport stream (MPTS).
+
+###### Flows
+
+The following considerations apply to flows.
+
+- Content quality analysis is limited to flows with 10 outputs or
+  fewer. If a flow exceeds 10 outputs, MediaConnect automatically disables
+  content quality analysis for that flow.
+- Content quality analysis is not currently supported for CDI flows
+  and MediaConnect Gateway bridges.
+
+###### Router inputs
+
+The following considerations apply to router inputs.
+
+- Content quality analysis is automatically disabled when the aggregate
+  bitrate on a router input exceeds 400 Mbps. It is also disabled when
+  more than 10 router outputs are connected to the router.
 
 ## Next steps
 
-To get started with this feature, see [Enabling content quality analysis and configuring thresholds](enable-content-quality-analysis.md "enable-content-quality-analysis.md").
+To get started with this feature, see [Enabling content quality analysis](enable-content-quality-analysis.md "enable-content-quality-analysis.md").

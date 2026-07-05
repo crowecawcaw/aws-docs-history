@@ -27,3 +27,4 @@ following:
 - [MediaConnect output health event](monitoring-cloudwatch-events-output-health.md "monitoring-cloudwatch-events-output-health.md")
 - [MediaConnect output status change event](monitoring-cloudwatch-events-output-status-change.md "monitoring-cloudwatch-events-output-status-change.md")
 - [MediaConnect flow content quality event](monitoring-eventbridge-events-content-quality.md "monitoring-eventbridge-events-content-quality.md")
+- [MediaConnect router input content quality event](monitoring-eventbridge-events-router-input-content-quality.md "monitoring-eventbridge-events-router-input-content-quality.md")
