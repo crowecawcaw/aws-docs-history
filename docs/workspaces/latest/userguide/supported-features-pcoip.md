@@ -2,6 +2,13 @@
 
 ###### Note
 
+End of support notice: On October 31, 2027, AWS will end support for
+PCoIP-based WorkSpaces Personal. After October 31, 2027, you will no longer be able to
+access the WorkSpaces console or WorkSpaces resources using the PCoIP protocol. For more
+information, see [PCoIP-based WorkSpaces Personal end of support](../adminguide/workspaces-pcoip-end-of-support.md "../adminguide/workspaces-pcoip-end-of-support.md").
+
+###### Note
+
 Starting November 7, 2025, Amazon WorkSpaces PCoIP Web Access will no longer be open to new customers. After this date, the feature will only receive critical functional and security updates.
 
 For more information, see [WorkSpaces Web Access](amazon-workspaces-web-access.md "amazon-workspaces-web-access.md").

@@ -1,5 +1,12 @@
 # USB redirection for PCoIP WorkSpaces
 
+###### Note
+
+End of support notice: On October 31, 2027, AWS will end support for
+PCoIP-based WorkSpaces Personal. After October 31, 2027, you will no longer be able to
+access the WorkSpaces console or WorkSpaces resources using the PCoIP protocol. For more
+information, see [PCoIP-based WorkSpaces Personal end of support](../adminguide/workspaces-pcoip-end-of-support.md "../adminguide/workspaces-pcoip-end-of-support.md").
+
 USB is used to connect computers to devices, such as
 scanners, printers, external drives, and security keys. USB redirection enables access to
 local USB devices within your virtual desktop environment.
