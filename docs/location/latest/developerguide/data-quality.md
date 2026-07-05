@@ -2,7 +2,8 @@
 
 Amazon Location Service has extensive global coverage of map data. All Amazon Location Map data quality is
 categorized as Comprehensive, Good, or Fair per country. Map data is categorized
-separately for Routing, Place Addresses, and Place Points-of-Interest (POI) data.
+separately for Routing, Place Addresses, Place Points-of-Interest (POI), and
+Address Validation data.
 
 ## Maps Data Category Definitions
 
@@ -47,6 +48,17 @@ separately for Routing, Place Addresses, and Place Points-of-Interest (POI) data
   and major roads between cities.
 - **Unsupported** - No support for POIs within
   a country.
+
+## Address Validation Data Category Definitions
+
+- **Comprehensive** - Complete coverage of nearly all
+  addresses within a country, with standardization
+  and verification against postal authority reference data.
+- **Unsupported** - No support for data within a country.
+
+###### Note
+
+Address Validation data is separate from Place Address and POI data.
 
 ## Maps, Routes and Places : General Coverage
 
@@ -683,3 +695,12 @@ separately for Routing, Place Addresses, and Place Points-of-Interest (POI) data
 | Turkey         | TUR    | TR     | Parsed and inferred            |
 | United Kingdom | GBR    | GB     | Confirmed, Parsed and inferred |
 | United States  | USA    | US     | Parsed and inferred            |
+
+## Address Validation: Coverage
+
+| Country/Area   | ISO A3 | ISO A2 | Address Coverage | Position Coverage |
+| -------------- | ------ | ------ | ---------------- | ----------------- |
+| Australia      | AUS    | AU     | Comprehensive    | Comprehensive     |
+| Canada         | CAN    | CA     | Comprehensive    | Comprehensive     |
+| United Kingdom | GBR    | GB     | Comprehensive    | Unsupported       |
+| United States  | USA    | US     | Comprehensive    | Comprehensive     |
