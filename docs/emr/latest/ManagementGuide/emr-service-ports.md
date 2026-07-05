@@ -31,6 +31,7 @@ protocols and ports that are required to run your workloads.
 | LLAP daemon Web UI                               | No                  | 15002                      | hive.llap.daemon.web.port                   |
 | LLAP daemon output service                       | No                  | 15003                      | hive.llap.daemon.output.service.port        |
 | Oozie                                            |                     | Yes                        | 11000                                       |                           |
+| Presto (PrestoDB and Trino)                      | Coordinator Web UI  | Yes                        | 8889                                        | http-server.http.port     |
 | Tez                                              | Tez UI              | Yes                        | 8080                                        |                           |
 | YARN                                             | Shuffle             | Yes                        | 13562                                       | mapreduce.shuffle.port    |
 | Localizer RPC                                    | Yes                 | 8040                       | yarn.nodemanager.localizer.address          |

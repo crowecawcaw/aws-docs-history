@@ -103,6 +103,11 @@ settings** section of the Lake Formation console. Replace
 `123456789012` with your own AWS account
 ID.
 
+The following image shows the **External data filtering**
+section in the Lake Formation console.
+
+![The Lake Formation console External data filtering settings section.](images/lf-external-data-filtering.png)
+
 ## Step 4: Configure AWS Glue and Lake Formation grants for Amazon EMR runtime roles
 
 To continue with your setup of Lake Formation based access control with Amazon EMR runtime

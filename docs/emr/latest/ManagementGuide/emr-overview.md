@@ -36,6 +36,15 @@ The node types in Amazon EMR are as follows:
   components that only runs tasks and does not store data in HDFS. Task nodes
   are optional.
 
+When you create a cluster, you choose one of two configurations to organize
+your nodes: _instance groups_ or _instance
+fleets_. With instance groups, each group contains Amazon EC2 instances of
+the same type, and you can have multiple groups per node type (except primary).
+With instance fleets, each node type has a single fleet that can contain a mix of
+instance types, with target capacities for On-Demand and Spot Instances. This
+choice is permanent and can't be changed after cluster creation. For more
+information, see [Create an Amazon EMR cluster with instance fleets or uniform instance groups](emr-instance-group-configuration.md "emr-instance-group-configuration.md").
+
 ## Submitting work to a cluster
 
 When you run a cluster on Amazon EMR, you have several options as to how you specify
