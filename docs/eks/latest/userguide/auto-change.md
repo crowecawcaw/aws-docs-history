@@ -12,6 +12,41 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## June 30, 2026
+
+**Feature**: The EKS Auto Mode load balancer controller now supports features from AWS Load Balancer Controller v2.10, v2.11, and v2.12.
+
+From upstream v2.12.0:
+
+- Listener rule priority management — The controller can now explicitly set and reorder listener rule priorities, resolving ordering conflicts when multiple Ingress rules target the same listener
+
+From upstream v2.11.0:
+
+- Load Balancer Capacity Unit (LCU) Reservation — You can now reserve capacity units on both Application Load Balancers (ALBs) and Network Load Balancers (NLBs), ensuring predictable performance for workloads with known traffic patterns
+
+From upstream v2.10.0:
+
+- ALB Shield Advanced protection — ALB resources can now be protected with AWS Shield Advanced via the alb.ingress.kubernetes.io/shield-advanced-protection annotation
+- Bring your own custom TargetGroupBinding — You can now reference pre-existing target groups not created by the controller, enabling integration with externally managed infrastructure
+- UDP support for dual-stack NLB on IPv6 clusters — NLB Services on IPv6 clusters now support UDP protocol listeners
+- ALB HTTP and HTTPS listener attributes — Fine-grained control over listener-level attributes (for example, routing behavior, header modifications) via annotations
+
+### Update on managed policies
+
+AWS has updated AmazonEKSServiceRolePolicy and AmazonEKSLoadBalancingPolicy to support these new features.
+
+### Action required for customers using custom IAM policies
+
+If you are supplying your own custom IAM policy for the EKS Auto Mode cluster role instead of using the AWS-managed AmazonEKSLoadBalancingPolicy, you must ensure your policy includes the permissions listed above. Failure to update your custom policy will result in access denied errors when using the new features.
+
+To verify parity, compare your custom policy against the [latest version of AmazonEKSLoadBalancingPolicy](../../../aws-managed-policy/latest/reference/AmazonEKSLoadBalancingPolicy.md "../../../aws-managed-policy/latest/reference/AmazonEKSLoadBalancingPolicy.md").
+
+Specifically, ensure your policy includes:
+
+- elasticloadbalancing:ModifyCapacityReservation, elasticloadbalancing:ModifyIpPools, elasticloadbalancing:ModifyListenerAttributes, and elasticloadbalancing:SetRulePriorities
+- ec2:DescribeIpamPools and ec2:DescribeRouteTables
+- shield:CreateProtection, shield:DeleteProtection, and shield:TagResource
+
 ## June 9, 2026
 
 **Feature**: Added instance status check monitoring to EKS Auto Mode. The compute controller now polls EC2 `DescribeInstanceStatus` to detect scheduled maintenance events and instance or system status check failures, automatically replacing unhealthy nodes.

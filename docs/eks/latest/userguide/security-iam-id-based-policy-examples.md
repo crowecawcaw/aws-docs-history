@@ -21,6 +21,7 @@ For more information about working with the ConfigMap, see [Grant IAM users and 
 - [Create a local Kubernetes cluster on an Outpost](#policy-create-local-cluster "#policy-create-local-cluster")
 - [Update a Kubernetes cluster](#policy-example1 "#policy-example1")
 - [List or describe all clusters](#policy-example2 "#policy-example2")
+- [Cancel a cluster update (rollback)](#policy-cancel-update "#policy-cancel-update")
 
 ## Policy best practices
 
@@ -232,3 +233,40 @@ AWS CLI command.
     ]
 }
 ```
+
+## Cancel a cluster update (rollback)
+
+To allow users to cancel in-progress rollback operations, grant the `eks:CancelUpdate` action. You can scope this using resource ARN or tag-based conditions.
+
+**Resource ARN-based:**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": "eks:CancelUpdate",
+    "Resource": "arn:aws:eks:us-west-2:111122223333:cluster/my-cluster"
+  }]
+}
+```
+
+**Tag-based:**
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": "eks:CancelUpdate",
+    "Resource": "*",
+    "Condition": {
+      "StringEquals": {
+        "aws:ResourceTag/environment": "development"
+      }
+    }
+  }]
+}
+```
+
+For more information about the full cluster rollback process, see [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").

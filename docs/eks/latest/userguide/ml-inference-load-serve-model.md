@@ -157,11 +157,7 @@ In this section, you deploy vLLM as a Kubernetes Deployment to serve the model y
 
 This section uses [AWS Deep Learning Containers](https://github.com/aws/deep-learning-containers/tree/master "https://github.com/aws/deep-learning-containers/tree/master") (DLCs), which are Docker images preinstalled with deep learning frameworks and optimized for performance on AWS infrastructure. DLCs include security patches, validated framework versions, and optimized GPU driver configurations.
 
-This deployment uses the following AWS DLC for [vLLM 0.21.0](https://gallery.ecr.aws/deep-learning-containers/vllm "https://gallery.ecr.aws/deep-learning-containers/vllm") with SOCI support:
-
-```
-public.ecr.aws/deep-learning-containers/vllm:0.21.0-gpu-py312-cu130-ubuntu22.04-ec2-v1.0-soci
-```
+This deployment uses the following AWS DLC for [vLLM 0.21.0](https://gallery.ecr.aws/deep-learning-containers/vllm "https://gallery.ecr.aws/deep-learning-containers/vllm") with SOCI support: `public.ecr.aws/deep-learning-containers/vllm:0.21.0-gpu-py312-cu130-ubuntu22.04-ec2-v1.0-soci`.
 
 The image tag indicates vLLM 0.21.0 with GPU support, Python 3.12, CUDA 13.0, Ubuntu 22.04, optimized for EC2-based workloads, and SOCI-enabled for faster container startup.
 
@@ -207,7 +203,7 @@ spec:
         - "--tensor-parallel-size=1"
         - "--gpu-memory-utilization=0.9"
         - "--max-model-len=8192"
-        - "--max-num-seqs=1"
+        - "--max-num-seqs=128"
         - "--load-format=runai_streamer"
         - "--enforce-eager"
         - "--tokenizer_mode=mistral"
@@ -404,7 +400,13 @@ To access Grafana, start a port-forward to the Grafana service:
 kubectl port-forward svc/kube-prometheus-stack-grafana 3000:80 -n monitoring
 ```
 
-Open [http://localhost:3000](http://localhost:3000 "http://localhost:3000") in your browser and navigate to **Dashboards > GPU Monitoring > vLLM Metrics**.
+Open [http://localhost:3000](http://localhost:3000 "http://localhost:3000") in your browser and log in with username `admin` and the password from the following command:
+
+```
+kubectl --namespace monitoring get secrets kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 -d ; echo
+```
+
+Navigate to **Dashboards > GPU Monitoring > vLLM Metrics**.
 
 **vLLM Grafana dashboard**
 
@@ -462,6 +464,8 @@ spec:
           value: "False"
         - name: ENABLE_EVALUATION_ARENA_MODELS
           value: "False"
+        - name: RAG_EMBEDDING_ENGINE
+          value: ""
         volumeMounts:
         - name: webui-volume
           mountPath: /app/backend/data
@@ -499,19 +503,17 @@ Expected output:
 pod/open-webui-6cbfc9867f-jf9w9 condition met
 ```
 
-To access the application, set up port forwarding and open the application in your browser:
+To access the application, set up port forwarding:
 
 ```
-kubectl port-forward svc/open-webui 8080:80 &
-sleep 5
-echo "Open WebUI: http://localhost:8080"
+kubectl port-forward svc/open-webui 8080:80
 ```
 
 Open [http://localhost:8080](http://localhost:8080 "http://localhost:8080") in your browser.
 
 The chat interface appears where you can interact with the Ministral model.
 
-When you finish testing, stop the backgrounded port-forward processes by running `kill %1 %2` (or run `jobs` to list them and `kill %<jobspec>` for each).
+When you finish testing, stop the port-forward with kbd:[Ctrl+C].
 
 ![Screenshot of Open WebUI chat interface showing a conversation with the Ministral model](images/ml-inference-load-serve-model-chatui.png)
 

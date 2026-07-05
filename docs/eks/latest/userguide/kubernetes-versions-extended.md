@@ -8,6 +8,10 @@ Amazon EKS supports Kubernetes versions longer than they are supported upstream,
 
 This topic gives important changes to be aware of for each Kubernetes version in extended support. When upgrading, carefully review the changes that have occurred between the old and new versions for your cluster.
 
+###### Note
+
+If you roll back from a version under standard support to a version under extended support, extended support charges resume for that cluster.
+
 ## Kubernetes 1.32
 
 Kubernetes `1.32` is now available in Amazon EKS. For more information about Kubernetes `1.32`, see the [official release announcement](https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/ "https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/").

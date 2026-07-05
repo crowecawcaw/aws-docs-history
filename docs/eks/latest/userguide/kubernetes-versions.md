@@ -37,6 +37,10 @@ The following Kubernetes versions are currently available in Amazon EKS extended
 
 For important changes to be aware of for each version in extended support, see [Kubernetes versions extended support](kubernetes-versions-extended.md "kubernetes-versions-extended.md").
 
+## Version rollback
+
+Clusters upgraded through in-place upgrade can be rolled back to the previous minor version within 7 days of the upgrade completing. To roll back to a version in extended support, you must first change the cluster’s upgrade policy to `EXTENDED`. Clusters that were automatically upgraded at the end of extended support cannot be rolled back. For more information, see [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
+
 ## Amazon EKS Kubernetes release calendar
 
 The following table shows important release and support dates to consider for each Kubernetes version. Billing for extended support starts at the beginning of the day that the version reaches end of standard support, in the UTC+0 timezone. The dates in the following table use the UTC+0 timezone.

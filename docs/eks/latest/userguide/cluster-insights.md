@@ -10,11 +10,13 @@ Amazon EKS cluster insights provide detection of issues and recommendations to r
 
 - **Configuration insights**: Identifies misconfigurations in your EKS Hybrid Nodes setup that could impair functionality of your cluster or workloads.
 - **Upgrade insights**: Identifies issues that could impact your ability to upgrade to new versions of Kubernetes.
+- **Rollback readiness insights**: Identifies issues that could impact your ability to roll back to a previous Kubernetes version after an upgrade.
 
 ## Considerations
 
 - **Frequency**: Amazon EKS refreshes cluster insights every 24 hours, or you can manually refresh them to see the latest status. For example, you can manually refresh cluster insights after addressing an issue to see if the issue was resolved.
 - **Permissions**: Amazon EKS automatically creates a cluster access entry for cluster insights in every EKS cluster. This entry gives EKS permission to view information about your cluster. Amazon EKS uses this information to generate the insights. For more information, see [AmazonEKSClusterInsightsPolicy](access-policy-permissions.md#access-policy-permissions-AmazonEKSClusterInsightsPolicy "access-policy-permissions.md#access-policy-permissions-AmazonEKSClusterInsightsPolicy").
+- **Rollback readiness availability**: Rollback readiness insights are only available for clusters that have been upgraded within the last 7 days. After the 7-day rollback eligibility window expires, these insights are no longer generated for the cluster.
 
 ## Use cases
 
@@ -40,6 +42,20 @@ Amazon EKS upgrade insights speed up the testing and verification process for ne
 ### Configuration insights
 
 EKS cluster insights automatically scans Amazon EKS clusters with hybrid nodes to identify configuration issues impairing Kubernetes control plane-to-webhook communication, kubectl commands like exec and logs, and more. Configuration insights surface issues and provide remediation recommendations, accelerating the time to a fully functioning hybrid nodes setup.
+
+### Rollback readiness insights
+
+Rollback readiness insights are a specific type of insight checks within cluster insights. These checks return insights related to Kubernetes version rollback readiness. Amazon EKS runs rollback readiness insight checks on clusters that have been upgraded within the last 7 days. Rollback readiness insights are point-in-time checks—they reflect the cluster state at the time of evaluation, not continuously.
+
+After upgrading your cluster Kubernetes version, you can use the **Upgrade insights** tab of the observability dashboard in the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters") to review rollback readiness insights. If your cluster has identified issues, review them and make appropriate fixes. The issues include links to Amazon EKS and Kubernetes documentation. After fixing the issue, refresh cluster insights on-demand to fetch the latest insights. If all issues have been resolved, you can proceed with the rollback.
+
+Amazon EKS returns insights related to Kubernetes version rollback readiness under the `ROLLBACK_READINESS` category. Rollback readiness insights identify possible issues that could impact a Kubernetes cluster version rollback. This minimizes the effort that administrators spend preparing for rollbacks and increases the reliability of reverting to a previous version. Clusters are automatically scanned by Amazon EKS against a list of possible rollback-impacting issues, including API usage compatibility (which covers incompatibility checks during API version graduation where a previous API version is removed, new resources that do not exist in the desired version, and new field or enum changes), cluster health, kubelet and kube-proxy version skew, EKS managed add-on compatibility, and for Auto Mode clusters, disruption budget and annotation checks.
+
+###### Note
+
+Rollback readiness insights only check EKS-managed add-on versions. For self-managed add-ons, or if you have overridden the version of a managed add-on outside of the EKS add-on lifecycle, insights do not detect version incompatibilities. You are responsible for validating compatibility of those add-ons with the target version before rolling back.
+
+Insights with ERROR or UNKNOWN status block the rollback until the issue is resolved. You can use the `--force` flag to bypass insight checks if you choose to proceed at your own risk. Insights with WARNING status are advisory and do not prevent rollback. For more information, see [Rollback cluster to previous Kubernetes version](rollback-cluster.md "rollback-cluster.md").
 
 ## Get started
 
