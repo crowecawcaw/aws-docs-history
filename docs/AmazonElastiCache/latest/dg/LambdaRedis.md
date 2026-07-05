@@ -57,25 +57,22 @@ Copy the Endpoint Address shown in the output. You'll need this address when you
 
 2. Create an IAM policy document, as shown below. Save the policy to a file named _policy.json_.
 
-JSON
-
 ```
-`{
-"Version":"2012-10-17",
- "Statement": [
- {
-"Effect" : "Allow",
- "Action" : [
- "elasticache:Connect"
- ],
- "Resource" : [
- "arn:aws:elasticache:us-east-1:123456789012:serverlesscache:cache-01",
- "arn:aws:elasticache:us-east-1:123456789012:user:iam-user-01"
- ]
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "elasticache:Connect"
+            ],
+            "Resource": [
+                "arn:aws:elasticache:us-east-1:123456789012:serverlesscache:cache-01",
+                "arn:aws:elasticache:us-east-1:123456789012:user:iam-user-01"
+            ]
+        }
+    ]
+}
 ```
 
 3. Create an IAM role.

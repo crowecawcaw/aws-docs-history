@@ -24,36 +24,32 @@ To mitigate the impact caused by a sudden influx of connection and discovery req
 
 **Backoff logic sample 1: redis-py**
 
-redis-py has a built-in retry mechanism that retries one time immediately after a failure. This mechanism can be enabled through the `retry_on_timeout` argument supplied when creating a [Redis OSS](https://redis.readthedocs.io/en/stable/examples/connection_examples.html#redis.Redis "https://redis.readthedocs.io/en/stable/examples/connection_examples.html#redis.Redis") object.
-Here we demonstrate a custom retry mechanism with exponential backoff and jitter. We've submitted a pull request to natively implement exponential backoff in [redis-py (#1494)](https://github.com/andymccurdy/redis-py/pull/1494 "https://github.com/andymccurdy/redis-py/pull/1494").
-In the future it may not be necessary to implement manually.
+redis-py has a built-in retry mechanism that supports exponential backoff with jitter. If no `retry` parameter is provided,
+redis-py defaults to `ExponentialWithJitterBackoff` with 3 retries. You can customize the retry behavior through the
+`retry` and `retry_on_error` arguments when creating a
+[Redis](https://redis.readthedocs.io/en/stable/retry.html "https://redis.readthedocs.io/en/stable/retry.html") client.
 
 ```
-def run_with_backoff(function, retries=5):
-base_backoff = 0.1 # base 100ms backoff
-max_backoff = 10 # sleep for maximum 10 seconds
-tries = 0
-while True:
-try:
-  return function()
-except (ConnectionError, TimeoutError):
-  if tries >= retries:
-	raise
-  backoff = min(max_backoff, base_backoff * (pow(2, tries) + random.random()))
-  print(f"sleeping for {backoff:.2f}s")
-  sleep(backoff)
-  tries += 1
+from redis.backoff import ExponentialBackoff
+from redis.retry import Retry
+from redis.client import Redis
+from redis.exceptions import ConnectionError, TimeoutError, BusyLoadingError
+
+# Run 3 retries with exponential backoff strategy
+retry = Retry(ExponentialBackoff(), 3)
+
+# Redis client with retries
+client = Redis(
+    host="clustercfg.my-cluster.us-east-1.cache.amazonaws.com",
+    port=6379,
+    retry=retry,
+    retry_on_error=[BusyLoadingError, ConnectionError, TimeoutError],
+    ssl=True
+)
 ```
 
-You can then use the following code to set a value:
-
-```
-client = redis.Redis(connection_pool=redis.BlockingConnectionPool(host=HOST, max_connections=10))
-res = run_with_backoff(lambda: client.set("key", "value"))
-print(res)
-```
-
-Depending on your workload, you might want to change the base backoff value from 1 second to a few tens or hundreds of milliseconds for latency-sensitive workloads.
+For more information about retry configuration options, see [Retry Helpers](https://redis.readthedocs.io/en/stable/retry.html "https://redis.readthedocs.io/en/stable/retry.html")
+in the redis-py documentation.
 
 **Backoff logic sample 2: PHPRedis**
 

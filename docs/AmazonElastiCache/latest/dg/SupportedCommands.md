@@ -76,7 +76,7 @@ In a serverless cache, returns state about the single virtual “shard” expose
 
 - `CLUSTER KEYSLOT`
 
-Returns the hash slot for a key.
+Returns the hash slot for a key. In Valkey 9.1 and later, available in both cluster mode and standalone mode.
 
 [Learn more](https://valkey.io/commands/cluster-keyslot/ "https://valkey.io/commands/cluster-keyslot/")
 
@@ -103,7 +103,7 @@ In a serverless cache, returns state about the single virtual “shard” expose
 
 - `CLUSTER SHARDS`
 
-Returns the mapping of cluster slots to shards.
+Returns the mapping of cluster slots to shards. In Valkey 9.1 and later, includes an `availability-zone` field per node.
 In a serverless cache, returns state about the single virtual “shard” exposed to the client.
 
 [Learn more](https://valkey.io/commands/cluster-shards/ "https://valkey.io/commands/cluster-shards/")
@@ -114,6 +114,12 @@ Returns the mapping of cluster slots to nodes.
 In a serverless cache, returns state about the single virtual “shard” exposed to the client.
 
 [Learn more](https://valkey.io/commands/cluster-slots/ "https://valkey.io/commands/cluster-slots/")
+
+- `CLUSTERSCAN`
+
+Iterates over key names across all nodes in a cluster. Available in cluster-mode-enabled configurations.
+
+[Learn more](https://valkey.io/commands/clusterscan/ "https://valkey.io/commands/clusterscan/")
 
 - `CLUSTER SLOT-STATS`
 
@@ -509,7 +515,7 @@ Returns all values in a hash.
 
 - `HSETEX`
 
-Sets fields in a hash with per-field expiration times. Creates the key if it doesn't exist.
+Sets fields in a hash with per-field expiration times. Supports `NX` (set only if field does not exist) and `XX` (set only if field already exists) flags. Creates the key if it doesn't exist.
 
 [Learn more](https://valkey.io/commands/hsetex/ "https://valkey.io/commands/hsetex/")
 
@@ -1535,6 +1541,12 @@ Atomically creates or modifies the string values of one or more keys.
 Atomically modifies the string values of one or more keys only when all keys don't exist.
 
 [Learn more](https://valkey.io/commands/msetnx/ "https://valkey.io/commands/msetnx/")
+
+- `MSETEX`
+
+Atomically sets multiple keys with a shared expiration time.
+
+[Learn more](https://valkey.io/commands/msetex/ "https://valkey.io/commands/msetex/")
 
 - `PSETEX`
 

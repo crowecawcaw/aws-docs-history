@@ -2,6 +2,14 @@
 
 When upgrading to a new major Valkey version, review the following behavior changes that may affect your applications.
 
+## Valkey 9.1
+
+Valkey 9.1 introduces the following potentially breaking behavior change compared to Valkey 9.0:
+
+- `CLUSTER SHARDS` and `CLUSTER SLOTS` responses include a new availability-zone field per node. Clients that strictly parse these responses (like older go-redis versions) might reject the unexpected field. Most clients handle unknown fields gracefully. A fix has been provided for go-redis.
+
+For more information on the Valkey 9.1 release, see the [Valkey 9.1 release notes](https://github.com/valkey-io/valkey/releases/tag/9.1.0 "https://github.com/valkey-io/valkey/releases/tag/9.1.0").
+
 ## Valkey 9.0
 
 Valkey 9.0 introduces the following potentially breaking behavior changes compared to Valkey 8.x:

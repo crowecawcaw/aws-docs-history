@@ -103,25 +103,10 @@ If you're using ElastiCache for Redis OSS with redis-cli, consider switching to 
 
 1. Connect to your Amazon EC2 instance using the connection utility of your choice. For instructions on how to connect to an Amazon EC2 instance,
    see the [Amazon EC2 Getting Started Guide](../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md "../../../AWSEC2/latest/UserGuide/EC2_GetStarted.md").
-2. Download and install valkey-cli utility by running the appropriate command for your setup.
-
-**Amazon Linux 2023**
+2. Download and install the valkey-cli utility by running the following commands.
 
 ```
 sudo dnf install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
-wget -O valkey-8.0.0.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
-tar xvzf valkey-8.0.0.tar.gz
-cd valkey-8.0.0
-make valkey-cli BUILD_TLS=yes
-sudo install -m 755 src/valkey-cli /usr/local/bin/
-
-```
-
-**Amazon Linux 2**
-
-```
-sudo amazon-linux-extras install epel -y
-sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
 wget -O valkey-8.0.0.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
 tar xvzf valkey-8.0.0.tar.gz
 cd valkey-8.0.0

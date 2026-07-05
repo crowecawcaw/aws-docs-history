@@ -93,14 +93,14 @@ In addition to being able to apply your benefits within the cache node family an
 Valkey is priced at a 20% discount relative to Redis OSS, and with reserved node flexibility, you can use your Redis OSS reserved nodes to cover 20% more running Valkey nodes.
 
 To calculate
-the discounted rate, each ElastiCache node and engine combination has a normalization factor that’s
-measured in units. Reserved node units can be applied to any running node within the reserved node’s
+the discounted rate, each ElastiCache node and engine combination has a normalization factor that's
+measured in units. Reserved node units can be applied to any running node within the reserved node's
 instance family for a given engine. Redis OSS reserved nodes can additionally apply across engines
 to cover running Valkey nodes. Because Valkey is priced at a discount relative to Redis OSS and
 Memcached, its units for a given instance type are lower, which allows a Redis OSS reserved node to
 cover more Valkey nodes.
 
-As an example, let’s say you have purchased a reserved node for a cache.r7g.4xlarge for the Redis OSS engine (32 units) and are running one cache.r7g.4xlarge Redis OSS node (32 units). If you upgrade the node to Valkey, the normalization factor of the running node drops to 25.6 units, and your existing reserved node provides you with an additional 6.4 units to use against any other running Valkey or Redis OSS node within the cache.r7g family in the Region. You could use this to cover 25% of another cache.r7g.4xlarge Valkey node in the account (25.6 units), or 100% of a cache.r7g.xlarge Valkey node (6.4 units).
+As an example, let's say you have purchased a reserved node for a cache.r7g.4xlarge for the Redis OSS engine (32 units) and are running one cache.r7g.4xlarge Redis OSS node (32 units). If you upgrade the node to Valkey, the normalization factor of the running node drops to 25.6 units, and your existing reserved node provides you with an additional 6.4 units to use against any other running Valkey or Redis OSS node within the cache.r7g family in the Region. You could use this to cover 25% of another cache.r7g.4xlarge Valkey node in the account (25.6 units), or 100% of a cache.r7g.xlarge Valkey node (6.4 units).
 
 ### Comparing usage with normalized units
 

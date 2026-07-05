@@ -1,18 +1,14 @@
 # Connecting to ElastiCache (Valkey) or Amazon ElastiCache for Redis OSS with in-transit encryption using valkey-cli
 
-To access data from ElastiCache for Redis OSS caches enabled with in-transit encryption, you use clients that work with Secure Socket Layer (SSL). You can also use valkey-cli with TLS/SSL on Amazon Linux and Amazon Linux 2.
+To access data from ElastiCache for Redis OSS caches enabled with in-transit encryption, you use clients that work with Secure Socket Layer (SSL). You can also use valkey-cli with TLS on Amazon Linux 2023.
 If your client does not support TLS, you can use the `stunnel` command on your client host to create an SSL tunnel to the Redis OSS nodes.
 
 ## Encrypted connection with Linux
 
-To use valkey-cli to connect to a Valkey or Redis OSS cluster enabled with in-transit encryption on Amazon Linux 2 or Amazon Linux, follow these steps.
+To use valkey-cli to connect to a Valkey or Redis OSS cluster that has in-transit encryption enabled on Amazon Linux 2023, follow these steps.
 
 1. Download and compile the valkey-cli utility. This utility is included in the Valkey software distribution.
-2. At the command prompt of your EC2 instance, type the appropriate commands for the version of Linux you are using.
-
-**Amazon Linux 2023**
-
-If using Amazon Linux 2023, enter this:
+2. At the command prompt of your EC2 instance, enter the following commands to download and compile valkey-cli.
 
 ```
 sudo dnf install gcc jemalloc-devel openssl-devel tcl tcl-devel -y
@@ -23,42 +19,7 @@ make valkey-cli BUILD_TLS=yes
 sudo install -m 755 src/valkey-cli /usr/local/bin/
 ```
 
-**Amazon Linux 2**
-
-If using Amazon Linux 2, enter this:
-
-```
-sudo yum -y install openssl-devel gcc
-wget -O valkey-7.2.6.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/7.2.6.tar.gz
-tar xvzf valkey-7.2.6.tar.gz
-cd valkey-7.2.6
-make distclean
-make valkey-cli BUILD_TLS=yes
-sudo install -m 755 src/valkey-cli /usr/local/bin/
-```
-
-**Amazon Linux**
-
-If using Amazon Linux, enter this:
-
-```
-sudo yum install gcc jemalloc-devel openssl-devel tcl tcl-devel clang wget
-wget -O valkey-8.0.0.tar.gz https://github.com/valkey-io/valkey/archive/refs/tags/8.0.0.tar.gz
-tar xvzf valkey-8.0.0.tar.gz
-cd valkey-8.0.0
-make valkey-cli CC=clang BUILD_TLS=yes
-sudo install -m 755 src/valkey-cli /usr/local/bin/
-```
-
-On Amazon Linux, you may also need to run the following additional steps:
-
-```
-sudo yum install clang
-CC=clang make
-sudo make install
-```
-
-3. After you have downloaded and installed the valkey-cli utility, it is recommended that you run the optional `make-test` command.
+3. After you download and install the valkey-cli utility, run the optional `make-test` command.
 4. To connect to a cluster with encryption and authentication enabled, enter this command:
 
 ```

@@ -45,9 +45,8 @@ pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/ela
 The exception to this are China (Beijing) Region and China (Ningxia) regions,
 where replication can only occur between the two regions.
 
-- You can work with global datastores only in VPC clusters. For more information,
-  see [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md"). Global datastores aren't supported
-  when you use EC2-Classic. For more information, see [EC2-Classic](../../../AWSEC2/latest/UserGuide/ec2-classic-platform.md "../../../AWSEC2/latest/UserGuide/ec2-classic-platform.md") in the _Amazon EC2 User Guide._
+- Global datastores require clusters running in an Amazon VPC. For more information,
+  see [Access Patterns for Accessing an ElastiCache Cache in an Amazon VPC](elasticache-vpc-accessing.md "elasticache-vpc-accessing.md").
 
 ###### Note
 

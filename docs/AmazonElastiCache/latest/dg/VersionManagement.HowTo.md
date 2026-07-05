@@ -36,7 +36,7 @@ AWS CLI, or the ElastiCache API:
 
 ## How to upgrade from Redis OSS to Valkey
 
-Valkey is designed as a drop-in replacement for Redis OSS 7. You can upgrade from Redis OSS to Valkey using the Console, API, or CLI, by specifying the new engine and major engine version. All aspects of your application, including the endpoint DNS name, will remain unchanged, except that for node-based clusters, the underlying node IP addresses will change during the upgrade. You will not experience any downtime when upgrading from Redis OSS 5.0.6 or higher.
+Valkey is designed as a drop-in replacement for Redis OSS 7. You can upgrade from Redis OSS to Valkey using the Console, API, or CLI, by specifying the new engine and major engine version. All aspects of your application, including the endpoint DNS name, will remain unchanged, except that for node-based clusters, the underlying node IP addresses will change during the upgrade. You will experience minimal downtime when upgrading from Redis OSS 5.0.6 or higher. The cluster is available for reads during the entire upgrade and is available for writes for most of the upgrade duration, except during the failover operation which lasts a few seconds.
 
 ###### Note
 
@@ -136,7 +136,7 @@ If for any reason you wish to rollback your upgraded cluster, Amazon ElastiCache
 Valkey 7.2 cache to Redis OSS 7.1. You can perform a rollback using the same console, API, or CLI steps
 as an engine upgrade by specifying Redis OSS 7.1 as the target engine version. All aspects of your
 application, including the endpoint DNS name, will remain unchanged, except that for node-based clusters,
-the underlying node IP addresses will change during the rollback. You will not experience any downtime while rolling back.
+the underlying node IP addresses will change during the rollback. You will experience minimal downtime while rolling back. The cluster is available for reads during the entire rollback and is available for writes for most of the rollback duration, except during the failover operation which lasts a few seconds.
 
 Additionally, you can restore a snapshot created from your Valkey 7.2 cache as a Redis OSS 7.1 cache.
 When you restore from a snapshot, you can specify Redis OSS 7.1 as the target engine version. When

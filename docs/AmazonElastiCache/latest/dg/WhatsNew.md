@@ -1,7 +1,7 @@
 # ElastiCache Documentation history
 
 - **API version:** 2015-02-02
-- **Latest documentation update:** November 27, 2023
+- **Latest documentation update:** June 23, 2026
   The following table describes important changes in each release of the
   _ElastiCache User Guide_ after March 2018.
   For notification about updates to this documentation, you can subscribe to the RSS feed.

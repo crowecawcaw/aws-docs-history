@@ -9,6 +9,7 @@ The recommendations in this section were tested with Lettuce version 6.2.2.
 
 - [Example: Lettuce config for cluster mode, TLS enabled](BestPractices.Clients-lettuce-cme.md "BestPractices.Clients-lettuce-cme.md")
 - [Example: Lettuce config for cluster mode disabled, TLS enabled](BestPractices.Clients-lettuce-cmd.md "BestPractices.Clients-lettuce-cmd.md")
+- [Distributing reads to replicas (cluster mode disabled)](BestPractices.Clients-lettuce-cmd-readfrom.md "BestPractices.Clients-lettuce-cmd-readfrom.md")
   **Java DNS cache TTL**
 
 The Java virtual machine (JVM) caches DNS name lookups. When the JVM resolves a hostname to an IP address, it caches the IP address for a specified period of time, known as the
@@ -169,8 +170,10 @@ final ClusterTopologyRefreshOptions topologyOptions =
 
 **ClientResources**
 
-Configure [DnsResolver](https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#dnsResolver-io.lettuce.core.resource.DnsResolver- "https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#dnsResolver-io.lettuce.core.resource.DnsResolver-") with [DirContextDnsResolver](https://lettuce.io/core/release/api/io/lettuce/core/resource/DirContextDnsResolver.html "https://lettuce.io/core/release/api/io/lettuce/core/resource/DirContextDnsResolver.html"). The DNS resolver is based on Java's
-com.sun.jndi.dns.DnsContextFactory.
+Starting with Lettuce 6.7, Lettuce uses Netty's `DnsAddressResolverGroup`
+by default for non-blocking DNS resolution. You no longer need to configure a custom
+DNS resolver. If you are using Lettuce 6.6 or earlier, configure `DnsResolver` with
+`DirContextDnsResolver` to enable proper DNS-based node discovery.
 
 Configure [reconnectDelay](https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay- "https://lettuce.io/core/release/api/io/lettuce/core/resource/DefaultClientResources.Builder.html#reconnectDelay-io.lettuce.core.resource.Delay-") with exponential backoff and full jitter. Lettuce has
 built-in retry mechanisms based on the exponential backoff strategies.. For details,
@@ -180,7 +183,6 @@ logic sections of the [Best practices blog post](https://aws.amazon.com/blogs/da
 
 ```
 ClientResources clientResources = DefaultClientResources.builder()
-   .addressResolverGroup(new DirContextDnsResolver())
     .reconnectDelay(
         Delay.fullJitter(
             Duration.ofMillis(100),     // minimum 100 millisecond delay

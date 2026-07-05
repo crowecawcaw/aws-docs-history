@@ -135,6 +135,10 @@ For Redis OSS version 7.0 and above the following access string syntax is also s
   order they are defined. If a command matches either the user permissions or any selector, it is allowed. See [ACL selectors](https://valkey.io/topics/acl/ "https://valkey.io/topics/acl/") more information.
 - `clearselectors` – Delete all of the selectors attached to the user.
 
+For Valkey version 9.1 and above the following access string syntax is also supported:
+
+- `db=<id>[,<id>...]` – Restricts the user to specific numbered databases. The user can only run commands against the specified databases. Without this rule, a user has access to all databases.
+
 ## Applying RBAC to a Cache for ElastiCache for Valkey or Redis OSS
 
 To use ElastiCache for Valkey or Redis OSS RBAC, you take the following steps:

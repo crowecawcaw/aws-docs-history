@@ -36,85 +36,85 @@ basis.
 
 **General**
 
-| Instance type      | Minimum supported Memcached version | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) |
-| ------------------ | ----------------------------------- | ------------------------- | ---------------------- |
-| cache.m7g.large    |                                     | 0.937                     | 12.5                   |
-| cache.m7g.xlarge   |                                     | 1.876                     | 12.5                   |
-| cache.m7g.2xlarge  |                                     | 3.75                      | 15                     |
-| cache.m7g.4xlarge  |                                     | 7.5                       | 15                     |
-| cache.m7g.8xlarge  |                                     | 15                        | N/A                    |
-| cache.m7g.12xlarge |                                     | 22.5                      | N/A                    |
-| cache.m7g.16xlarge |                                     | 30                        | N/A                    |
-| cache.m6g.large    | 1.5.16                              | 0.75                      | 10.0                   |
-| cache.m6g.xlarge   | 1.5.16                              | 1.25                      | 10.0                   |
-| cache.m6g.2xlarge  | 1.5.16                              | 2.5                       | 10.0                   |
-| cache.m6g.4xlarge  | 1.5.16                              | 5.0                       | 10.0                   |
-| cache.m6g.8xlarge  | 1.5.16                              | 12                        | N/A                    |
-| cache.m6g.12xlarge | 1.5.16                              | 20                        | N/A                    |
-| cache.m6g.16xlarge | 1.5.16                              | 25                        | N/A                    |
-| cache.m5.large     | 1.5.16                              | 0.75                      | 10.0                   |
-| cache.m5.xlarge    | 1.5.16                              | 1.25                      | 10.0                   |
-| cache.m5.2xlarge   | 1.5.16                              | 2.5                       | 10.0                   |
-| cache.m5.4xlarge   | 1.5.16                              | 5.0                       | 10.0                   |
-| cache.m5.12xlarge  | 1.5.16                              | N/A                       | N/A                    |
-| cache.m5.24xlarge  | 1.5.16                              | N/A                       | N/A                    |
-| cache.m4.large     | 1.5.16                              | 0.45                      | 1.2                    |
-| cache.m4.xlarge    | 1.5.16                              | 0.75                      | 2.8                    |
-| cache.m4.2xlarge   | 1.5.16                              | 1.0                       | 10.0                   |
-| cache.m4.4xlarge   | 1.5.16                              | 2.0                       | 10.0                   |
-| cache.m4.10xlarge  | 1.5.16                              | 5.0                       | 10.0                   |
-| cache.t4g.micro    | 1.5.16                              | 0.064                     | 5.0                    |
-| cache.t4g.small    | 1.5.16                              | 0.128                     | 5.0                    |
-| cache.t4g.medium   | 1.5.16                              | 0.256                     | 5.0                    |
-| cache.t3.micro     | 1.5.16                              | 0.064                     | 5.0                    |
-| cache.t3.small     | 1.5.16                              | 0.128                     | 5.0                    |
-| cache.t3.medium    | 1.5.16                              | 0.256                     | 5.0                    |
-| cache.t2.micro     | 1.5.16                              | 0.064                     | 1.024                  |
-| cache.t2.small     | 1.5.16                              | 0.128                     | 1.024                  |
-| cache.t2.medium    | 1.5.16                              | 0.256                     | 1.024                  |
+| Instance type      | Minimum supported Memcached version | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) |
+| ------------------ | ----------------------------------- | ------------------------- | ---------------------- | ------------ |
+| cache.m7g.large    |                                     | 0.937                     | 12.5                   | 6.38         |
+| cache.m7g.xlarge   |                                     | 1.876                     | 12.5                   | 12.93        |
+| cache.m7g.2xlarge  |                                     | 3.75                      | 15                     | 26.04        |
+| cache.m7g.4xlarge  |                                     | 7.5                       | 15                     | 52.26        |
+| cache.m7g.8xlarge  |                                     | 15                        | N/A                    | 103.68       |
+| cache.m7g.12xlarge |                                     | 22.5                      | N/A                    | 157.12       |
+| cache.m7g.16xlarge |                                     | 30                        | N/A                    | 209.55       |
+| cache.m6g.large    | 1.5.16                              | 0.75                      | 10.0                   | 6.38         |
+| cache.m6g.xlarge   | 1.5.16                              | 1.25                      | 10.0                   | 12.93        |
+| cache.m6g.2xlarge  | 1.5.16                              | 2.5                       | 10.0                   | 26.04        |
+| cache.m6g.4xlarge  | 1.5.16                              | 5.0                       | 10.0                   | 52.26        |
+| cache.m6g.8xlarge  | 1.5.16                              | 12                        | N/A                    | 103.68       |
+| cache.m6g.12xlarge | 1.5.16                              | 20                        | N/A                    | 157.12       |
+| cache.m6g.16xlarge | 1.5.16                              | 25                        | N/A                    | 209.55       |
+| cache.m5.large     | 1.5.16                              | 0.75                      | 10.0                   | 6.38         |
+| cache.m5.xlarge    | 1.5.16                              | 1.25                      | 10.0                   | 12.93        |
+| cache.m5.2xlarge   | 1.5.16                              | 2.5                       | 10.0                   | 26.04        |
+| cache.m5.4xlarge   | 1.5.16                              | 5.0                       | 10.0                   | 52.26        |
+| cache.m5.12xlarge  | 1.5.16                              | N/A                       | N/A                    | 157.12       |
+| cache.m5.24xlarge  | 1.5.16                              | N/A                       | N/A                    | 314.32       |
+| cache.m4.large     | 1.5.16                              | 0.45                      | 1.2                    | 6.42         |
+| cache.m4.xlarge    | 1.5.16                              | 0.75                      | 2.8                    | 14.28        |
+| cache.m4.2xlarge   | 1.5.16                              | 1.0                       | 10.0                   | 29.70        |
+| cache.m4.4xlarge   | 1.5.16                              | 2.0                       | 10.0                   | 60.78        |
+| cache.m4.10xlarge  | 1.5.16                              | 5.0                       | 10.0                   | 154.64       |
+| cache.t4g.micro    | 1.5.16                              | 0.064                     | 5.0                    | 0.50         |
+| cache.t4g.small    | 1.5.16                              | 0.128                     | 5.0                    | 1.37         |
+| cache.t4g.medium   | 1.5.16                              | 0.256                     | 5.0                    | 3.09         |
+| cache.t3.micro     | 1.5.16                              | 0.064                     | 5.0                    | 0.50         |
+| cache.t3.small     | 1.5.16                              | 0.128                     | 5.0                    | 1.37         |
+| cache.t3.medium    | 1.5.16                              | 0.256                     | 5.0                    | 3.09         |
+| cache.t2.micro     | 1.5.16                              | 0.064                     | 1.024                  | 0.555        |
+| cache.t2.small     | 1.5.16                              | 0.128                     | 1.024                  | 1.55         |
+| cache.t2.medium    | 1.5.16                              | 0.256                     | 1.024                  | 3.22         |
 
 **Memory optimized for Memcached**
 
-| Instance type      | Minimum supported version | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) |
-| ------------------ | ------------------------- | ------------------------- | ---------------------- |
-| cache.r7g.large    |                           | 0.937                     | 12.5                   |
-| cache.r7g.xlarge   |                           | 1.876                     | 12.5                   |
-| cache.r7g.2xlarge  |                           | 3.75                      | 15                     |
-| cache.r7g.4xlarge  |                           | 7.5                       | 15                     |
-| cache.r7g.8xlarge  |                           | 15                        | N/A                    |
-| cache.r7g.12xlarge |                           | 22.5                      | N/A                    |
-| cache.r7g.16xlarge |                           | 30                        | N/A                    |
-| cache.r6g.large    | 1.5.16                    | 0.75                      | 10.0                   |
-| cache.r6g.xlarge   | 1.5.16                    | 1.25                      | 10.0                   |
-| cache.r6g.2xlarge  | 1.5.16                    | 2.5                       | 10.0                   |
-| cache.r6g.4xlarge  | 1.5.16                    | 5.0                       | 10.0                   |
-| cache.r6g.8xlarge  | 1.5.16                    | 12                        | N/A                    |
-| cache.r6g.12xlarge | 1.5.16                    | 20                        | N/A                    |
-| cache.r6g.16xlarge | 1.5.16                    | 25                        | N/A                    |
-| cache.r5.large     | 1.5.16                    | 0.75                      | 10.0                   |
-| cache.r5.xlarge    | 1.5.16                    | 1.25                      | 10.0                   |
-| cache.r5.2xlarge   | 1.5.16                    | 2.5                       | 10.0                   |
-| cache.r5.4xlarge   | 1.5.16                    | 5.0                       | 10.0                   |
-| cache.r5.12xlarge  | 1.5.16                    | 20                        | N/A                    |
-| cache.r5.24xlarge  | 1.5.16                    | 25                        | N/A                    |
-| cache.r4.large     | 1.5.16                    | 0.75                      | 10.0                   |
-| cache.r4.xlarge    | 1.5.16                    | 1.25                      | 10.0                   |
-| cache.r4.2xlarge   | 1.5.16                    | 2.5                       | 10.0                   |
-| cache.r4.4xlarge   | 1.5.16                    | 5.0                       | 10.0                   |
-| cache.r4.8xlarge   | 1.5.16                    | 12                        | N/A                    |
-| cache.r4.16xlarge  | 1.5.16                    | 25                        | N/A                    |
+| Instance type      | Minimum supported version | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) |
+| ------------------ | ------------------------- | ------------------------- | ---------------------- | ------------ |
+| cache.r7g.large    |                           | 0.937                     | 12.5                   | 13.07        |
+| cache.r7g.xlarge   |                           | 1.876                     | 12.5                   | 26.32        |
+| cache.r7g.2xlarge  |                           | 3.75                      | 15                     | 52.82        |
+| cache.r7g.4xlarge  |                           | 7.5                       | 15                     | 105.81       |
+| cache.r7g.8xlarge  |                           | 15                        | N/A                    | 209.55       |
+| cache.r7g.12xlarge |                           | 22.5                      | N/A                    | 317.77       |
+| cache.r7g.16xlarge |                           | 30                        | N/A                    | 419.09       |
+| cache.r6g.large    | 1.5.16                    | 0.75                      | 10.0                   | 13.07        |
+| cache.r6g.xlarge   | 1.5.16                    | 1.25                      | 10.0                   | 26.32        |
+| cache.r6g.2xlarge  | 1.5.16                    | 2.5                       | 10.0                   | 52.82        |
+| cache.r6g.4xlarge  | 1.5.16                    | 5.0                       | 10.0                   | 105.81       |
+| cache.r6g.8xlarge  | 1.5.16                    | 12                        | N/A                    | 209.55       |
+| cache.r6g.12xlarge | 1.5.16                    | 20                        | N/A                    | 317.77       |
+| cache.r6g.16xlarge | 1.5.16                    | 25                        | N/A                    | 419.09       |
+| cache.r5.large     | 1.5.16                    | 0.75                      | 10.0                   | 13.07        |
+| cache.r5.xlarge    | 1.5.16                    | 1.25                      | 10.0                   | 26.32        |
+| cache.r5.2xlarge   | 1.5.16                    | 2.5                       | 10.0                   | 52.82        |
+| cache.r5.4xlarge   | 1.5.16                    | 5.0                       | 10.0                   | 105.81       |
+| cache.r5.12xlarge  | 1.5.16                    | 20                        | N/A                    | 317.77       |
+| cache.r5.24xlarge  | 1.5.16                    | 25                        | N/A                    | 635.61       |
+| cache.r4.large     | 1.5.16                    | 0.75                      | 10.0                   | 12.30        |
+| cache.r4.xlarge    | 1.5.16                    | 1.25                      | 10.0                   | 25.05        |
+| cache.r4.2xlarge   | 1.5.16                    | 2.5                       | 10.0                   | 50.47        |
+| cache.r4.4xlarge   | 1.5.16                    | 5.0                       | 10.0                   | 101.38       |
+| cache.r4.8xlarge   | 1.5.16                    | 12                        | N/A                    | 203.26       |
+| cache.r4.16xlarge  | 1.5.16                    | 25                        | N/A                    | 407.00       |
 
 **Network optimized for Memcached**
 
-| Instance type       | Minimum supported version | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) |
-| ------------------- | ------------------------- | ------------------------- | ---------------------- |
-| cache.c7gn.large    | 1.6.6                     | 6.25                      | 30                     |
-| cache.c7gn.xlarge   | 1.6.6                     | 12.5                      | 40                     |
-| cache.c7gn.2xlarge  | 1.6.6                     | 25                        | 50                     |
-| cache.c7gn.4xlarge  | 1.6.6                     | 50                        | N/A                    |
-| cache.c7gn.8xlarge  | 1.6.6                     | 100                       | N/A                    |
-| cache.c7gn.12xlarge | 1.6.6                     | 150                       | N/A                    |
-| cache.c7gn.16xlarge | 1.6.6                     | 200                       | N/A                    |
+| Instance type       | Minimum supported version | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) |
+| ------------------- | ------------------------- | ------------------------- | ---------------------- | ------------ |
+| cache.c7gn.large    | 1.6.6                     | 6.25                      | 30                     | 3.09         |
+| cache.c7gn.xlarge   | 1.6.6                     | 12.5                      | 40                     | 6.38         |
+| cache.c7gn.2xlarge  | 1.6.6                     | 25                        | 50                     | 12.94        |
+| cache.c7gn.4xlarge  | 1.6.6                     | 50                        | N/A                    | 26.05        |
+| cache.c7gn.8xlarge  | 1.6.6                     | 100                       | N/A                    | 52.26        |
+| cache.c7gn.12xlarge | 1.6.6                     | 150                       | N/A                    | 78.56        |
+| cache.c7gn.16xlarge | 1.6.6                     | 200                       | N/A                    | 105.81       |
 
 ## Current Generation (Valkey or Redis OSS)
 
@@ -129,96 +129,96 @@ basis.
 
 **General**
 
-| Instance type      | Minimum supported Redis OSS version | Enhanced I/O with Redis OSS 5.0.6+ | TLS Offloading with Redis OSS 6.2.5+ | Enhanced I/O Multiplexing with Redis OSS 7.0.4+ | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) |
-| ------------------ | ----------------------------------- | ---------------------------------- | ------------------------------------ | ----------------------------------------------- | ------------------------- | ---------------------- |
-| cache.m7g.large    | 6.2                                 | N                                  | N                                    | N                                               | 0.937                     | 12.5                   |
-| cache.m7g.xlarge   | 6.2                                 | Y                                  | Y                                    | Y                                               | 1.876                     | 12.5                   |
-| cache.m7g.2xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 3.75                      | 15                     |
-| cache.m7g.4xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 7.5                       | 15                     |
-| cache.m7g.8xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 15                        | N/A                    |
-| cache.m7g.12xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 22.5                      | N/A                    |
-| cache.m7g.16xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 30                        | N/A                    |
-| cache.m6g.large    | 5.0.6                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   |
-| cache.m6g.xlarge   | 5.0.6                               | Y                                  | Y                                    | Y                                               | 1.25                      | 10.0                   |
-| cache.m6g.2xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   |
-| cache.m6g.4xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   |
-| cache.m6g.8xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    |
-| cache.m6g.12xlarge | 5.0.6                               | Y                                  | Y                                    | Y                                               | 20                        | N/A                    |
-| cache.m6g.16xlarge | 5.0.6                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    |
-| cache.m5.large     | 3.2.4                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   |
-| cache.m5.xlarge    | 3.2.4                               | Y                                  | N                                    | N                                               | 1.25                      | 10.0                   |
-| cache.m5.2xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   |
-| cache.m5.4xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   |
-| cache.m5.12xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    |
-| cache.m5.24xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    |
-| cache.m4.large     | 3.2.4                               | N                                  | N                                    | N                                               | 0.45                      | 1.2                    |
-| cache.m4.xlarge    | 3.2.4                               | Y                                  | N                                    | N                                               | 0.75                      | 2.8                    |
-| cache.m4.2xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 1.0                       | 10.0                   |
-| cache.m4.4xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 2.0                       | 10.0                   |
-| cache.m4.10xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   |
-| cache.t4g.micro    | 3.2.4                               | N                                  | N                                    | N                                               | 0.064                     | 5.0                    |
-| cache.t4g.small    | 5.0.6                               | N                                  | N                                    | N                                               | 0.128                     | 5.0                    |
-| cache.t4g.medium   | 5.0.6                               | N                                  | N                                    | N                                               | 0.256                     | 5.0                    |
-| cache.t3.micro     | 3.2.4                               | N                                  | N                                    | N                                               | 0.064                     | 5.0                    |
-| cache.t3.small     | 3.2.4                               | N                                  | N                                    | N                                               | 0.128                     | 5.0                    |
-| cache.t3.medium    | 3.2.4                               | N                                  | N                                    | N                                               | 0.256                     | 5.0                    |
-| cache.t2.micro     | 3.2.4                               | N                                  | N                                    | N                                               | 0.064                     | 1.024                  |
-| cache.t2.small     | 3.2.4                               | N                                  | N                                    | N                                               | 0.128                     | 1.024                  |
-| cache.t2.medium    | 3.2.4                               | N                                  | N                                    | N                                               | 0.256                     | 1.024                  |
+| Instance type      | Minimum supported Redis OSS version | Enhanced I/O with Redis OSS 5.0.6+ | TLS Offloading with Redis OSS 6.2.5+ | Enhanced I/O Multiplexing with Redis OSS 7.0.4+ | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) |
+| ------------------ | ----------------------------------- | ---------------------------------- | ------------------------------------ | ----------------------------------------------- | ------------------------- | ---------------------- | ------------ |
+| cache.m7g.large    | 6.2                                 | N                                  | N                                    | N                                               | 0.937                     | 12.5                   | 6.38         |
+| cache.m7g.xlarge   | 6.2                                 | Y                                  | Y                                    | Y                                               | 1.876                     | 12.5                   | 12.93        |
+| cache.m7g.2xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 3.75                      | 15                     | 26.04        |
+| cache.m7g.4xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 7.5                       | 15                     | 52.26        |
+| cache.m7g.8xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 15                        | N/A                    | 103.68       |
+| cache.m7g.12xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 22.5                      | N/A                    | 157.12       |
+| cache.m7g.16xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 30                        | N/A                    | 209.55       |
+| cache.m6g.large    | 5.0.6                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   | 6.38         |
+| cache.m6g.xlarge   | 5.0.6                               | Y                                  | Y                                    | Y                                               | 1.25                      | 10.0                   | 12.93        |
+| cache.m6g.2xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   | 26.04        |
+| cache.m6g.4xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   | 52.26        |
+| cache.m6g.8xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    | 103.68       |
+| cache.m6g.12xlarge | 5.0.6                               | Y                                  | Y                                    | Y                                               | 20                        | N/A                    | 157.12       |
+| cache.m6g.16xlarge | 5.0.6                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    | 209.55       |
+| cache.m5.large     | 3.2.4                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   | 6.38         |
+| cache.m5.xlarge    | 3.2.4                               | Y                                  | N                                    | N                                               | 1.25                      | 10.0                   | 12.93        |
+| cache.m5.2xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   | 26.04        |
+| cache.m5.4xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   | 52.26        |
+| cache.m5.12xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    | 157.12       |
+| cache.m5.24xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    | 314.32       |
+| cache.m4.large     | 3.2.4                               | N                                  | N                                    | N                                               | 0.45                      | 1.2                    | 6.42         |
+| cache.m4.xlarge    | 3.2.4                               | Y                                  | N                                    | N                                               | 0.75                      | 2.8                    | 14.28        |
+| cache.m4.2xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 1.0                       | 10.0                   | 29.70        |
+| cache.m4.4xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 2.0                       | 10.0                   | 60.78        |
+| cache.m4.10xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   | 154.64       |
+| cache.t4g.micro    | 3.2.4                               | N                                  | N                                    | N                                               | 0.064                     | 5.0                    | 0.50         |
+| cache.t4g.small    | 5.0.6                               | N                                  | N                                    | N                                               | 0.128                     | 5.0                    | 1.37         |
+| cache.t4g.medium   | 5.0.6                               | N                                  | N                                    | N                                               | 0.256                     | 5.0                    | 3.09         |
+| cache.t3.micro     | 3.2.4                               | N                                  | N                                    | N                                               | 0.064                     | 5.0                    | 0.50         |
+| cache.t3.small     | 3.2.4                               | N                                  | N                                    | N                                               | 0.128                     | 5.0                    | 1.37         |
+| cache.t3.medium    | 3.2.4                               | N                                  | N                                    | N                                               | 0.256                     | 5.0                    | 3.09         |
+| cache.t2.micro     | 3.2.4                               | N                                  | N                                    | N                                               | 0.064                     | 1.024                  | 0.555        |
+| cache.t2.small     | 3.2.4                               | N                                  | N                                    | N                                               | 0.128                     | 1.024                  | 1.55         |
+| cache.t2.medium    | 3.2.4                               | N                                  | N                                    | N                                               | 0.256                     | 1.024                  | 3.22         |
 
 **Memory optimized**
 
-| Instance type      | Minimum supported Redis OSS version | Enhanced I/O with Redis OSS 5.0.6+ | TLS Offloading with Redis OSS 6.2.5+ | Enhanced I/O Multiplexing with Redis OSS 7.0.4+ | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) |
-| ------------------ | ----------------------------------- | ---------------------------------- | ------------------------------------ | ----------------------------------------------- | ------------------------- | ---------------------- |
-| cache.r7g.large    | 6.2                                 | N                                  | N                                    | N                                               | 0.937                     | 12.5                   |
-| cache.r7g.xlarge   | 6.2                                 | Y                                  | Y                                    | Y                                               | 1.876                     | 12.5                   |
-| cache.r7g.2xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 3.75                      | 15                     |
-| cache.r7g.4xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 7.5                       | 15                     |
-| cache.r7g.8xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 15                        | N/A                    |
-| cache.r7g.12xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 22.5                      | N/A                    |
-| cache.r7g.16xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 30                        | N/A                    |
-| cache.r6g.large    | 5.0.6                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   |
-| cache.r6g.xlarge   | 5.0.6                               | Y                                  | Y                                    | Y                                               | 1.25                      | 10.0                   |
-| cache.r6g.2xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   |
-| cache.r6g.4xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   |
-| cache.r6g.8xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    |
-| cache.r6g.12xlarge | 5.0.6                               | Y                                  | Y                                    | Y                                               | 20                        | N/A                    |
-| cache.r6g.16xlarge | 5.0.6                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    |
-| cache.r5.large     | 3.2.4                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   |
-| cache.r5.xlarge    | 3.2.4                               | Y                                  | N                                    | N                                               | 1.25                      | 10.0                   |
-| cache.r5.2xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   |
-| cache.r5.4xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   |
-| cache.r5.12xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    |
-| cache.r5.24xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    |
-| cache.r4.large     | 3.2.4                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   |
-| cache.r4.xlarge    | 3.2.4                               | Y                                  | N                                    | N                                               | 1.25                      | 10.0                   |
-| cache.r4.2xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   |
-| cache.r4.4xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   |
-| cache.r4.8xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    |
-| cache.r4.16xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    |
+| Instance type      | Minimum supported Redis OSS version | Enhanced I/O with Redis OSS 5.0.6+ | TLS Offloading with Redis OSS 6.2.5+ | Enhanced I/O Multiplexing with Redis OSS 7.0.4+ | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) |
+| ------------------ | ----------------------------------- | ---------------------------------- | ------------------------------------ | ----------------------------------------------- | ------------------------- | ---------------------- | ------------ |
+| cache.r7g.large    | 6.2                                 | N                                  | N                                    | N                                               | 0.937                     | 12.5                   | 13.07        |
+| cache.r7g.xlarge   | 6.2                                 | Y                                  | Y                                    | Y                                               | 1.876                     | 12.5                   | 26.32        |
+| cache.r7g.2xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 3.75                      | 15                     | 52.82        |
+| cache.r7g.4xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 7.5                       | 15                     | 105.81       |
+| cache.r7g.8xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 15                        | N/A                    | 209.55       |
+| cache.r7g.12xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 22.5                      | N/A                    | 317.77       |
+| cache.r7g.16xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 30                        | N/A                    | 419.09       |
+| cache.r6g.large    | 5.0.6                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   | 13.07        |
+| cache.r6g.xlarge   | 5.0.6                               | Y                                  | Y                                    | Y                                               | 1.25                      | 10.0                   | 26.32        |
+| cache.r6g.2xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   | 52.82        |
+| cache.r6g.4xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   | 105.81       |
+| cache.r6g.8xlarge  | 5.0.6                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    | 209.55       |
+| cache.r6g.12xlarge | 5.0.6                               | Y                                  | Y                                    | Y                                               | 20                        | N/A                    | 317.77       |
+| cache.r6g.16xlarge | 5.0.6                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    | 419.09       |
+| cache.r5.large     | 3.2.4                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   | 13.07        |
+| cache.r5.xlarge    | 3.2.4                               | Y                                  | N                                    | N                                               | 1.25                      | 10.0                   | 26.32        |
+| cache.r5.2xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   | 52.82        |
+| cache.r5.4xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   | 105.81       |
+| cache.r5.12xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    | 317.77       |
+| cache.r5.24xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    | 635.61       |
+| cache.r4.large     | 3.2.4                               | N                                  | N                                    | N                                               | 0.75                      | 10.0                   | 12.30        |
+| cache.r4.xlarge    | 3.2.4                               | Y                                  | N                                    | N                                               | 1.25                      | 10.0                   | 25.05        |
+| cache.r4.2xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10.0                   | 50.47        |
+| cache.r4.4xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10.0                   | 101.38       |
+| cache.r4.8xlarge   | 3.2.4                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    | 203.26       |
+| cache.r4.16xlarge  | 3.2.4                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    | 407.00       |
 
 **Memory optimized with data tiering**
 
-| Instance type       | Minimum supported Redis OSS version | Enhanced I/O with Redis OSS 5.0.6+ | TLS Offloading with Redis OSS 6.2.5+ | Enhanced I/O Multiplexing with Redis OSS 7.0.4+ | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) |
-| ------------------- | ----------------------------------- | ---------------------------------- | ------------------------------------ | ----------------------------------------------- | ------------------------- | ---------------------- |
-| cache.r6gd.xlarge   | 6.2.0                               | Y                                  | N                                    | N                                               | 1.25                      | 10                     |
-| cache.r6gd.2xlarge  | 6.2.0                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10                     |
-| cache.r6gd.4xlarge  | 6.2.0                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10                     |
-| cache.r6gd.8xlarge  | 6.2.0                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    |
-| cache.r6gd.12xlarge | 6.2.0                               | Y                                  | Y                                    | Y                                               | 20                        | N/A                    |
-| cache.r6gd.16xlarge | 6.2.0                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    |
+| Instance type       | Minimum supported Redis OSS version | Enhanced I/O with Redis OSS 5.0.6+ | TLS Offloading with Redis OSS 6.2.5+ | Enhanced I/O Multiplexing with Redis OSS 7.0.4+ | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) | SSD (GiB) |
+| ------------------- | ----------------------------------- | ---------------------------------- | ------------------------------------ | ----------------------------------------------- | ------------------------- | ---------------------- | ------------ | --------- |
+| cache.r6gd.xlarge   | 6.2.0                               | Y                                  | N                                    | N                                               | 1.25                      | 10                     | 26.32        | 99.33     |
+| cache.r6gd.2xlarge  | 6.2.0                               | Y                                  | Y                                    | Y                                               | 2.5                       | 10                     | 52.82        | 199.07    |
+| cache.r6gd.4xlarge  | 6.2.0                               | Y                                  | Y                                    | Y                                               | 5.0                       | 10                     | 105.81       | 398.14    |
+| cache.r6gd.8xlarge  | 6.2.0                               | Y                                  | Y                                    | Y                                               | 12                        | N/A                    | 209.55       | 796.28    |
+| cache.r6gd.12xlarge | 6.2.0                               | Y                                  | Y                                    | Y                                               | 20                        | N/A                    | 317.77       | 1194.42   |
+| cache.r6gd.16xlarge | 6.2.0                               | Y                                  | Y                                    | Y                                               | 25                        | N/A                    | 419.09       | 1592.56   |
 
 **Network optimized**
 
-| Instance type       | Minimum supported Redis OSS version | Enhanced I/O with Redis OSS 5.0.6+ | TLS Offloading with Redis OSS 6.2.5+ | Enhanced I/O Multiplexing with Redis OSS 7.0.4+ | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) |
-| ------------------- | ----------------------------------- | ---------------------------------- | ------------------------------------ | ----------------------------------------------- | ------------------------- | ---------------------- |
-| cache.c7gn.large    | 6.2                                 | N                                  | N                                    | N                                               | 6.25                      | 30                     |
-| cache.c7gn.xlarge   | 6.2                                 | Y                                  | Y                                    | Y                                               | 12.5                      | 40                     |
-| cache.c7gn.2xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 25                        | 50                     |
-| cache.c7gn.4xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 50                        | N/A                    |
-| cache.c7gn.8xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 100                       | N/A                    |
-| cache.c7gn.12xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 150                       | N/A                    |
-| cache.c7gn.16xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 200                       | N/A                    |
+| Instance type       | Minimum supported Redis OSS version | Enhanced I/O with Redis OSS 5.0.6+ | TLS Offloading with Redis OSS 6.2.5+ | Enhanced I/O Multiplexing with Redis OSS 7.0.4+ | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) |
+| ------------------- | ----------------------------------- | ---------------------------------- | ------------------------------------ | ----------------------------------------------- | ------------------------- | ---------------------- | ------------ |
+| cache.c7gn.large    | 6.2                                 | N                                  | N                                    | N                                               | 6.25                      | 30                     | 3.09         |
+| cache.c7gn.xlarge   | 6.2                                 | Y                                  | Y                                    | Y                                               | 12.5                      | 40                     | 6.38         |
+| cache.c7gn.2xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 25                        | 50                     | 12.94        |
+| cache.c7gn.4xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 50                        | N/A                    | 26.05        |
+| cache.c7gn.8xlarge  | 6.2                                 | Y                                  | Y                                    | Y                                               | 100                       | N/A                    | 52.26        |
+| cache.c7gn.12xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 150                       | N/A                    | 78.56        |
+| cache.c7gn.16xlarge | 6.2                                 | Y                                  | Y                                    | Y                                               | 200                       | N/A                    | 105.81       |
 
 ## Supported node types by AWS Region
 
@@ -249,17 +249,17 @@ credits that a node can accrue and the number of vCPUs per node. In addition, it
 gives the baseline performance level as a percentage of a full core performance
 (using a single vCPU).
 
-| Node type  | CPU credits earned per hour | Maximum earned credits that can be<br>accrued\* | vCPUs | Baseline performance per vCPU | Memory (GiB) | Network performance |
-| ---------- | --------------------------- | ----------------------------------------------- | ----- | ----------------------------- | ------------ | ------------------- |
-| t4g.micro  | `12`                        | 288                                             | 2     | 10%                           | 0.5          | Up to 5 Gigabit     |
-| t4g.small  | `24`                        | 576                                             | 2     | 20%                           | 1.37         | Up to 5 Gigabit     |
-| t4g.medium | `24`                        | 576                                             | 2     | 20%                           | 3.09         | Up to 5 Gigabit     |
-| t3.micro   | `12`                        | 288                                             | 2     | 10%                           | 0.5          | Up to 5 Gigabit     |
-| t3.small   | `24`                        | 576                                             | 2     | 20%                           | 1.37         | Up to 5 Gigabit     |
-| t3.medium  | `24`                        | 576                                             | 2     | 20%                           | 3.09         | Up to 5 Gigabit     |
-| t2.micro   | `6`                         | 144                                             | 1     | 10%                           | 0.5          | Low to moderate     |
-| t2.small   | `12`                        | 288                                             | 1     | 20%                           | 1.55         | Low to moderate     |
-| t2.medium  | `24`                        | 576                                             | 2     | 20%                           | 3.22         | Low to moderate     |
+| Node type  | CPU credits earned per hour | Maximum earned credits that can be<br>accrued\* | vCPUs | Baseline performance per vCPU | Network performance | Memory (GiB) |
+| ---------- | --------------------------- | ----------------------------------------------- | ----- | ----------------------------- | ------------------- | ------------ |
+| t4g.micro  | `12`                        | 288                                             | 2     | 10%                           | Up to 5 Gigabit     | 0.5          |
+| t4g.small  | `24`                        | 576                                             | 2     | 20%                           | Up to 5 Gigabit     | 1.37         |
+| t4g.medium | `24`                        | 576                                             | 2     | 20%                           | Up to 5 Gigabit     | 3.09         |
+| t3.micro   | `12`                        | 288                                             | 2     | 10%                           | Up to 5 Gigabit     | 0.5          |
+| t3.small   | `24`                        | 576                                             | 2     | 20%                           | Up to 5 Gigabit     | 1.37         |
+| t3.medium  | `24`                        | 576                                             | 2     | 20%                           | Up to 5 Gigabit     | 3.09         |
+| t2.micro   | `6`                         | 144                                             | 1     | 10%                           | Low to moderate     | 0.5          |
+| t2.small   | `12`                        | 288                                             | 1     | 20%                           | Low to moderate     | 1.55         |
+| t2.medium  | `24`                        | 576                                             | 2     | 20%                           | Low to moderate     | 3.22         |
 
 \* The number of credits that can be accrued is equivalent to the number of credits
 that can be earned in a 24-hour period.
