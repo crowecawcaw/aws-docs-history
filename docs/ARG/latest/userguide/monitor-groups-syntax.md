@@ -1,5 +1,11 @@
 # Structure and syntax of Resource Groups lifecycle events
 
+###### Note
+
+AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups will no longer be open to new customers starting July 30, 2026.
+If you would like to use the feature, sign up prior to July 30, 2026. Existing customers can continue to use the service as normal. For more information,
+see [Group Lifecycle Events feature in AWS Resource Groups availability change](resource-groups-gle-availability-change.md "resource-groups-gle-availability-change.md").
+
 ###### Topics
 
 - [Structure of the detail field](monitor-groups-syntax-detail.md "monitor-groups-syntax-detail.md")

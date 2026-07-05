@@ -1,5 +1,11 @@
 # Structure of the `detail` field
 
+###### Note
+
+AWS Group Lifecycle Events (GLE) feature of AWS Resource Groups will no longer be open to new customers starting July 30, 2026.
+If you would like to use the feature, sign up prior to July 30, 2026. Existing customers can continue to use the service as normal. For more information,
+see [Group Lifecycle Events feature in AWS Resource Groups availability change](resource-groups-gle-availability-change.md "resource-groups-gle-availability-change.md").
+
 The `detail` field includes all of the Resource Groups service-specific details about
 a specific change. The `detail` field can take one of two forms, a group
 state change or membership change, based on the value of the `detail-type`
