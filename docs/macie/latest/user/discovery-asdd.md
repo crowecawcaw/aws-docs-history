@@ -26,7 +26,7 @@ analysis of individual S3 objects. Macie also updates statistics, inventory data
 information that it provides about your Amazon S3 data. For example, an interactive heat map on the
 console provides a visual representation of data sensitivity across your data estate:
 
-![The S3 buckets map. It shows different colored squares, one for each S3 bucket, grouped by account.](/images/macie/latest/user/images/scrn-s3-map-small.png)
+![The S3 buckets map. It shows different colored squares, one for each S3 bucket, grouped by account.](images/scrn-s3-map-small.png)
 These features are designed to help you evaluate data sensitivity across your Amazon S3 data
 estate, and drill down to investigate and assess individual accounts, buckets, and objects. They
 can also help you determine where to perform deeper, more immediate analysis by [running sensitive data discovery jobs](discovery-jobs.md "discovery-jobs.md"). Combined with information
