@@ -16,9 +16,13 @@ listener and configure rules. To allow traffic to flow from the service network 
 service, you must associate your service with the service network.
 
 There is an idle timeout and overall connection timeout for connections to targets.
-The idle connection timeout is 1 minute, after which we close the connection.
-The maximum duration is 10 minutes, after which we do not allow new streams over the
-connection and we begin the process of closing the existing streams.
+The idle connection timeout defaults to 60 seconds and is adjustable on a per-service
+basis using the `idleTimeoutSeconds` parameter in the [CreateService](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md") or
+[UpdateService](../APIReference/API_UpdateService.md "../APIReference/API_UpdateService.md") API.
+It applies to all listeners and target groups of that service. The valid range is 60 to
+600 seconds. VPC Lattice closes the connection after the idle timeout expires. The maximum
+connection duration is 10 minutes, after which VPC Lattice stops accepting new streams and
+closes existing streams. This maximum applies regardless of the idle timeout value.
 
 ###### Tasks
 
@@ -103,6 +107,14 @@ choose an AWS RAM resource share from **Resource shares**. To create a
 resource share, choose **Create a resource share in RAM console**. 9. To review your configuration and create the service, choose **Skip to
 review and create**. Otherwise, choose **Next** to
 define the routing configuration for your service.
+
+###### Note
+
+To configure a custom idle timeout for your service, use the AWS CLI
+or API. Specify the `idleTimeoutSeconds` parameter when you
+create or update the service. Default is 60 seconds with a range of
+60-600 seconds. For more information, see [CreateService](../APIReference/API_CreateService.md "../APIReference/API_CreateService.md")
+in the _Amazon VPC Lattice API Reference_.
 
 ## Step 2: Define routing
 

@@ -31,6 +31,12 @@ The following considerations apply to TLS listeners:
   Therefore, with a TLS listener, the following limitations exist:
 
   - Connection duration is limited to 10 minutes
+  - The configurable idle timeout for the service also
+    applies to TLS listener connections. If no data is transferred for
+    the duration of the idle timeout, VPC Lattice closes the connection.
+    You can adjust the idle timeout (60–600 seconds) using the
+    `idleTimeoutSeconds` parameter when you create or update
+    the service.
   - Auth policies are limited to anonymous principals
   - Lambda targets are not supported
 
