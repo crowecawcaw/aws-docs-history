@@ -1,10 +1,8 @@
 # Configure Amazon Quick subscriptions
 
-You can purchase standard user subscriptions to get discounted pricing on Amazon Quick.
-When you invite additional users to Quick, you're charged for those
-accounts on a month-by-month basis. If you have Enterprise edition, you have the option to
-take advantage of pay-per-session pricing for reader accounts. These are users who only view
-data dashboards, and don't need author or admin access.
+You can purchase user subscriptions to get discounted pricing on Amazon Quick. When you
+invite additional users to Quick, you're charged for those accounts on a
+month-by-month basis.
 
 To understand how Amazon Quick subscription names on the pricing page map to user roles in
 the admin console, see [Understanding Amazon Quick subscriptions and roles](../../../quicksuite/latest/userguide/user-types.md "../../../quicksuite/latest/userguide/user-types.md").
@@ -29,7 +27,7 @@ it entirely.
 - [Purchase subscriptions](#buy-subscriptions "#buy-subscriptions")
 - [Editing a subscription](#edit-subscriptions "#edit-subscriptions")
 - [Delete a subscription](#delete-subscriptions "#delete-subscriptions")
-- [Upgrading your Amazon Quick subscription from Standard edition to Enterprise edition](#upgrading-subscription "#upgrading-subscription")
+- [Upgrading or downgrading user subscriptions](#upgrading-subscription "#upgrading-subscription")
 
 ## Viewing current subscriptions
 
@@ -123,116 +121,57 @@ information on how these products are billed, see the following:
   In your billing statement, the costs are itemized under the appropriate product
   and not under Amazon Quick.
 
-## Upgrading your Amazon Quick subscription from Standard edition to Enterprise edition
+## Upgrading or downgrading user subscriptions
 
-You can upgrade from Amazon Quick Standard edition to Amazon Quick Enterprise edition. In Enterprise
-edition, Amazon Quick supports the following additional features:
+Amazon Quick Professional and Amazon Quick Enterprise are per-user subscriptions that
+you assign through group membership. To change a user's subscription, you move them
+between the groups that are mapped to Quick roles. The Reader Pro role
+corresponds to the Amazon Quick Professional subscription, and the Author Pro role
+corresponds to the Amazon Quick Enterprise subscription. For more information about how
+subscriptions map to roles, see [Understanding Amazon Quick subscriptions and roles](../../../quicksuite/latest/userguide/user-types.md "../../../quicksuite/latest/userguide/user-types.md").
 
-- Reader role with pay-per-session pricing; for more pricing details, see
-  following.
-- Email reports for offline delivery of insights.
-- Larger SPICE datasets with up to 500 million rows per
-  SPICE dataset.
-- Hourly refresh of SPICE data (using the Amazon Quick
-  console).
-- **ML Insights** to make the most of your data,
-  including the following:
+For a full comparison of the capabilities included with each subscription and current
+per-user pricing, see [Amazon Quick
+pricing](https://aws.amazon.com/quick/pricing/ "https://aws.amazon.com/quick/pricing/").
 
-  - Anomaly detection that can run on billions of rows of data on a
-    schedule.
-  - Contribution analysis to help you figure out key drivers.
-  - One-click forecasting.
-  - Customizable natural language narratives that you can use to add
-    business context to a dashboard.
-  - SageMaker AI integration.
+### Upgrading from Professional to Enterprise
 
-- **Embedded analytics** in applications and
-  portals:
+To upgrade a user from the Amazon Quick Professional subscription to the
+Amazon Quick Enterprise subscription, move the user to a group that is mapped to the
+Author Pro role. If you use IAM Identity Center or Active Directory, you make this
+change by updating the user's group membership in your identity provider. For the
+procedure, see [Changing a user's role](../../../quicksight/latest/user/updating-user-accounts-enterprise.md "../../../quicksight/latest/user/updating-user-accounts-enterprise.md").
 
-  - Embed dashboards with row level security.
-  - Namespaces with multitenant support for creating dashboards with
-    embedded analytics.
-  - Templates for repeatable dashboard creation and management.
-  - Capacity pricing for embedding.
+Users can also request an upgrade themselves when they encounter a feature or usage
+limit that requires the Enterprise subscription. Depending on your organization's
+settings, these requests can process automatically or require administrator approval.
+For more information, see [User-driven license upgrades](../../../quicksuite/latest/userguide/user-driven-upgrades.md "../../../quicksuite/latest/userguide/user-driven-upgrades.md").
 
-- **Security and governance**
+After the change takes effect, the user has immediate access to Enterprise
+capabilities. Changes to users or groups can take up to five minutes to propagate.
 
-  - Row-level security.
-  - Private virtual private cloud (VPC) support based on Amazon VPC.
-  - Folders for organization and sharing.
-  - Fine-grained access control over Amazon S3, Amazon Athena, and other AWS
-    services and resources.
-  - AWS Lake Formation support.
+### Downgrading from Enterprise to Professional
 
-- **User authentication and management
-  options**
-
-  - Integration with Microsoft Active Directory with support for Active
-    Directory groups.
-  - Group support for user management.
-
-To see a full comparison of Standard edition with Enterprise edition, see [Amazon Quick
-editions](https://aws.amazon.com/quicksight/resource-library/editions/ "https://aws.amazon.com/quicksight/resource-library/editions/").
-
-When you upgrade your account, your administrators and authors are billed at the Amazon Quick
-Enterprise edition rates. For pay-per-session
-pricing, you can add additional users as readers. Before you reprovision existing users
-as readers, you transfer or delete their resources, and then delete the users from your
-subscription.
-
-Users who are in the reader role can view and manipulate shared dashboards, and
-receive emailed updates. However, readers can't add or change data sources, datasets,
-analyses, visuals, or administrative settings. Billing for readers is significantly
-lower in cost than regular user pricing. It's based on 30-minute sessions, and it's
-capped at a maximum amount per month for each reader. Billing for upgrades is prorated
-for the month of the upgrade. Upgrades to users are also prorated. If you have an annual
-subscription to Standard edition, it's converted to Enterprise edition and stays in
-place for the remaining term.
-
-###### Warning
-
-Downgrading from Enterprise edition to Standard edition isn't currently possible
-due to the enhanced feature set available in Enterprise edition. To perform this
-downgrade, unsubscribe from Amazon Quick, and then start a new subscription. Also, you
-can't transfer users or assets between subscriptions.
-
-Upgrading to Enterprise edition to use Active Directory connectivity isn't
-supported. This is because of the differences in the user identity mechanisms
-between Amazon Quick password-based users and existing Active Directory users.
-
-However, you can upgrade to Enterprise and still use password-based users. If you
-want to upgrade and change how users sign in, you can unsubscribe and start a new
-subscription.
-
-Use the following procedure to upgrade to Enterprise edition. To perform the upgrade,
-you need administrative access to Amazon Quick, with security permissions to subscribe. The
-person performing the upgrade is usually an AWS administrator who is also an Amazon Quick
-administrator.
-
-###### To upgrade to enterprise edition
-
-1. Open the administrative settings page by clicking on your profile icon at top
-   right.
-2. At top left, choose **Upgrade now**.
-3. Be sure that you want to upgrade.
+To downgrade a user from the Amazon Quick Enterprise subscription to the
+Amazon Quick Professional subscription, move the user out of the group that is mapped
+to the Author Pro role and into a group that is mapped to the Reader Pro role. As
+with an upgrade, you make this change through your identity provider when you use
+IAM Identity Center or Active Directory. For the procedure, see [Changing a user's role](../../../quicksight/latest/user/updating-user-accounts-enterprise.md "../../../quicksight/latest/user/updating-user-accounts-enterprise.md").
 
 ###### Important
 
-You can't undo this action.
+If a user belongs to multiple groups that are mapped to different roles, they
+keep the subscription that grants the broadest level of access. To complete a
+downgrade, remove the user from every group that is mapped to the Author Pro
+role.
 
-Choose **Upgrade** to upgrade. The upgrade is
-instantaneous.
+After you downgrade a user, they lose access to the capabilities included only with
+the Amazon Quick Enterprise subscription. Before you downgrade, make sure any assets
+the user owns that you want to keep are transferred to another user. Changes to users
+or groups can take up to five minutes to propagate.
 
-Billing for the upgrade to your subscription is prorated for the month of
-upgrade. Upgrades to Amazon Quick users are also prorated. 4. (Optional) Downgrade users to readers:
+###### Note
 
-    * Before you start, make sure to transfer any assets your users own that
-     you want to keep.
-    * Delete the users and add them back to your subscription as readers.
-
-
-    If you're using Active Directory, delete the authors, move them
-     to the new reader group, then recreate them as readers in Amazon Quick.
-
-When you upgrade to Enterprise edition, your admin and author users retain
-their roles.
+For questions about billing adjustments or refunds related to a subscription
+change, contact [AWS
+Support](https://aws.amazon.com//contact-us/ "https://aws.amazon.com//contact-us/").

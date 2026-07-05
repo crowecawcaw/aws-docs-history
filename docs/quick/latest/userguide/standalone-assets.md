@@ -7,7 +7,7 @@ view, search, filter, and manage all assets across the account.
 
 ###### Note
 
-This section applies to Amazon Quick Free and Plus accounts created at [quick.aws.com](https://quick.aws.com "https://quick.aws.com"). For information about managing
+This section applies to Amazon Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick "https://aws.com/quick"). For information about managing
 resources in AWS Console–based accounts, see [Administering Amazon Quick](../../../quicksuite/latest/userguide/qsysadmin.md "../../../quicksuite/latest/userguide/qsysadmin.md").
 
 ###### Topics
@@ -23,7 +23,7 @@ resources in AWS Console–based accounts, see [Administering Amazon Quick](../.
 
 ###### To access the Assets page
 
-1. Sign in to Amazon Quick at [quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+1. Sign in to Amazon Quick at [aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 2. From the navigation panel, choose your
    username.
 3. Choose **Manage account**.

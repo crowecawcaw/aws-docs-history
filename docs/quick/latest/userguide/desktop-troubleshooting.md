@@ -145,18 +145,9 @@ If a scheduled task produces unexpected results, try the following steps.
 
 ## Managing agent hours consumption
 
-All desktop activity consumes agent hours. If you are monitoring or reducing
+If you are monitoring or reducing
 agent hours consumption, consider the following configurations.
 
-- **Local file indexing** – Consider
-  disabling semantic search and knowledge graph extraction for local
-  folders. For semantic search, Spaces in the web experience provides the
-  same capability through direct file upload or knowledge base integration
-  without consuming desktop agent hours.
-- **Activity feed frequency** –
-  Consider increasing the activity feed refresh interval beyond the
-  default. You can configure this in **Settings** > **Customization** > **Activity
-  Feed**.
 - **Scheduled tasks** – Consider
   reducing the number of tasks that run in the background. Each scheduled
   task execution consumes agent hours.
@@ -166,6 +157,20 @@ agent hours consumption, consider the following configurations.
   tasks. **Balanced** and **Smart** modes with higher thinking levels (Low,
   Medium, High) consume more agent hours per interaction. Match the
   response mode and thinking level to the complexity of the task.
+
+## Understanding session usage limits
+
+You can view your current session usage by selecting your profile in the
+bottom left area of the desktop application. The session usage limit is a
+service protection limit that distributes your monthly agent hours allocation
+over time rather than allowing the full allocation to be consumed at once.
+
+When you reach the session limit, the desktop application displays a message
+indicating that your session allocation has been used. The limit resets on a
+rolling window, recovering gradually over time.
+
+If you encounter this limit frequently, see
+[Managing agent hours consumption](#desktop-ts-agent-hours "#desktop-ts-agent-hours").
 
 ## MCP server issues
 

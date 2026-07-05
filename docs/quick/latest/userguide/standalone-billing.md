@@ -1,7 +1,7 @@
 # Plan and billing for Amazon Quick Free and Plus accounts
 
 This topic describes how to view and manage your plan and billing information for
-Amazon Quick Free and Plus accounts created at [quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+Amazon Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 
 ###### Note
 

@@ -1,7 +1,7 @@
 # Administering Amazon Quick (Free/Plus)
 
 This section covers administration for Amazon Quick Free and Plus accounts that you create at
-[quick.aws.com](https://quick.aws.com "https://quick.aws.com"). Free and Plus accounts use email or
+[aws.com/quick](https://aws.com/quick "https://aws.com/quick"). Free and Plus accounts use email or
 social login for authentication and don't require an AWS account. You can manage users,
 assets, billing, and account settings directly from the Amazon Quick web interface.
 

@@ -59,10 +59,11 @@ access to Quick.
 
 1. Open the [Quick
    console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
-2. Choose **Manage Quick**, and then choose
-   **Manage Users**.
-3. Choose **Manage role groups**.
-4. In the **Manage role groups** page, use the tables to add
+2. Choose your user name on the application bar and then choose
+   **Manage Account**.
+3. Choose **Manage Users**.
+4. Choose **Manage role groups**.
+5. In the **Manage role groups** page, use the tables to add
    or remove groups in IAM Identity Center or Active Directory from the Admin, User, or
    Reader roles in Quick.
 

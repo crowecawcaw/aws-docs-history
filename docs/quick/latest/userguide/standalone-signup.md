@@ -1,6 +1,6 @@
-# Signing up at quick.aws.com
+# Signing up at aws.com/quick
 
-Amazon Quick is available directly at [https://quick.aws.com](https://quick.aws.com "https://quick.aws.com") – no existing AWS account required. This page
+Amazon Quick is available directly at [https://aws.com/quick](https://aws.com/quick "https://aws.com/quick") – no existing AWS account required. This page
 walks you through creating a Amazon Quick Free or Plus account using your email address or
 social login credentials.
 
@@ -20,7 +20,7 @@ and availability](../../../quicksuite/latest/userguide/what-is.md#pricing "../..
 
 ## Who is this for?
 
-The direct signup at quick.aws.com is designed for:
+The direct signup at aws.com/quick is designed for:
 
 - **Individuals** who want to explore
   Amazon Quick without creating an AWS account.
@@ -36,7 +36,7 @@ directly.
 
 ## Sign-in options
 
-When you sign up at quick.aws.com, you can create your account using:
+When you sign up at aws.com/quick, you can create your account using:
 
 - **Email address** – Create an account
   with any email (covered in this guide).
@@ -56,11 +56,10 @@ process but use your existing credentials from the selected provider.
 
 ###### To sign up for a Amazon Quick Free or Plus account
 
-1. **Navigate to quick.aws.com.**
+1. **Navigate to aws.com/quick.**
 
-Open your web browser and go to [https://quick.aws.com](https://quick.aws.com "https://quick.aws.com"). You see the Amazon Quick landing page with
-options to **Sign in** or **Sign up for
-free**. 2. **Choose **Sign up for free**.**
+Open your web browser and go to [https://aws.com/quick](https://aws.com/quick "https://aws.com/quick"). You see the Amazon Quick landing page with
+an option to **Sign up for free**. 2. **Choose **Sign up for free**.**
 
 Choose **Sign up for free** to begin the account creation
 process. You are redirected to the AWS signup page. 3. **Enter your email address.**
@@ -173,7 +172,7 @@ and capabilities, see [Getting started with Amazon Quick](../../../quicksuite/la
 
 ## What happens behind the scenes
 
-When you sign up at quick.aws.com, Amazon Quick automatically:
+When you sign up at aws.com/quick, Amazon Quick automatically:
 
 1. Creates a **sign-in identity** linked to your
    email address – this is what you use to sign in to Amazon Quick.

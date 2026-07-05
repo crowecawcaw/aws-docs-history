@@ -55,9 +55,10 @@ Before you begin, verify that you have the following:
 
 ###### Important
 
-Amazon Quick on desktop is available in all supported Amazon Quick
-AWS Regions for Enterprise accounts. For a complete list of supported
-Regions, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs "regions.md#regions-qs").
+Amazon Quick on desktop is available for Enterprise accounts in
+AWS Regions that support the full Amazon Quick feature set. Regions
+that support Amazon Quick Sight capabilities only do not include desktop. For
+the full list, see [Supported AWS Regions for Amazon Quick](regions.md#regions-qs "regions.md#regions-qs").
 
 ## Step 1: Create an OIDC application in your identity provider
 

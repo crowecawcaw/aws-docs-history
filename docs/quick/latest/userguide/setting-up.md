@@ -3,11 +3,11 @@
 Amazon Quick offers two ways to get started, depending on your needs:
 
 - **Get started quickly** – If you're an
-  individual or small team and don't have an AWS account, see [Signing up at quick.aws.com](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md").
+  individual or small team and don't have an AWS account, see [Signing up at aws.com/quick](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md").
 - **Use Quick with your organization's AWS
   account** – If your organization already uses AWS services, see
   [Signing up through the AWS Console](../../../quicksuite/latest/userguide/signing-up.md "../../../quicksuite/latest/userguide/signing-up.md").
-  **Free and Plus accounts (quick.aws.com):** Sign up at [https://quick.aws.com](https://quick.aws.com "https://quick.aws.com") using an email address.
+  **Free and Plus accounts:** Sign up at [https://aws.com/quick](https://aws.com/quick "https://aws.com/quick") using an email address.
   Amazon Quick creates an account for you automatically using your email or social login
   credentials. Choose from Free, Free Trial Plus, or Paid Plus plan tiers. No
   AWS account or technical configuration is required.
@@ -25,7 +25,7 @@ AWS Management Console.
 ###### Topics
 
 - [Complete initial configuration tasks](#setting-up-create-iam-user "#setting-up-create-iam-user")
-- [Signing up at quick.aws.com](standalone-signup.md "standalone-signup.md")
+- [Signing up at aws.com/quick](standalone-signup.md "standalone-signup.md")
 - [Signing up through the AWS Console](signing-up.md "signing-up.md")
 - [Signing in to Amazon Quick](signing-in.md "signing-in.md")
 
@@ -34,8 +34,8 @@ AWS Management Console.
 ###### Note
 
 The following configuration tasks apply to AWS Console accounts only. If you
-are signing up at [quick.aws.com](https://quick.aws.com "https://quick.aws.com"), these
-steps are handled automatically. See [Signing up at quick.aws.com](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md") instead.
+are signing up for Free/Plus with email at [aws.com/quick](https://aws.com/quick "https://aws.com/quick"), these
+steps are handled automatically. See [Signing up at aws.com/quick](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md") instead.
 
 To use Amazon Quick you must first complete the following tasks:
 

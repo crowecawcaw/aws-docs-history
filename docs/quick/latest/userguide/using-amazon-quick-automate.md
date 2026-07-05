@@ -8,7 +8,7 @@ Amazon Quick Automate is an AI-powered application that creates sophisticated au
 
 Amazon Quick Automate is available only for Amazon Quick accounts provisioned through the AWS Management Console.
 It is not available for Free or Plus accounts created at
-[quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+[aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 
 Enterprises struggle to automate end-to-end business processes due to the growing complexity of their application ecosystems and the limitations of traditional automation tools. Amazon Quick Automate provides the easiest way for businesses to build, deploy, and continuously maintain workflow automations with the set of capabilities needed to support complex use cases that span multiple applications, data sources, and departments.
 

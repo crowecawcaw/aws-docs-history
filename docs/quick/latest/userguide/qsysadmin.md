@@ -5,7 +5,7 @@ created. This section covers administration for accounts provisioned through the
 including IAM Identity Center configuration, SPICE capacity management, security settings, and integration
 with other AWS services.
 
-If you created your account at [quick.aws.com](https://quick.aws.com "https://quick.aws.com"), see [Administering Amazon Quick (Free/Plus)](../../../quicksuite/latest/userguide/standalone-admin-guide.md "../../../quicksuite/latest/userguide/standalone-admin-guide.md") instead.
+If you created your account with email or social on [aws.com/quick](https://aws.com/quick "https://aws.com/quick"), see [Administering Amazon Quick (Free/Plus)](../../../quicksuite/latest/userguide/standalone-admin-guide.md "../../../quicksuite/latest/userguide/standalone-admin-guide.md") instead.
 
 ###### Note
 

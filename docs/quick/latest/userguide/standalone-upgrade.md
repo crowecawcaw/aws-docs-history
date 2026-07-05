@@ -7,7 +7,7 @@ payment method.
 
 ###### Note
 
-This page applies to Amazon Quick accounts created at [quick.aws.com](https://quick.aws.com "https://quick.aws.com"). For information about
+This page applies to Amazon Quick accounts created with email or social at [aws.com/quick](https://aws.com/quick "https://aws.com/quick"). For information about
 subscription management for Amazon Quick accessed through the AWS Management Console, see [Administering Amazon Quick](../../../quicksuite/latest/userguide/qsysadmin.md "../../../quicksuite/latest/userguide/qsysadmin.md").
 
 ###### Topics

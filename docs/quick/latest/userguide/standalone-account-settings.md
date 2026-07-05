@@ -1,7 +1,7 @@
 # Account settings for Amazon Quick Free and Plus accounts
 
 This topic describes how to view and manage account-level settings for Amazon Quick
-Free and Plus accounts created at [quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+Free and Plus accounts created at [aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 Account settings include your profile information, account details, and support
 access.
 

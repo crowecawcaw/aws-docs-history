@@ -11,14 +11,11 @@
 You can use the following tools for identity and access to
 Quick:
 
-- [IAM Identity Center](../../../quicksight/latest/user/sec-identity-management-identity-center.md "../../../quicksight/latest/user/sec-identity-management-identity-center.md") (Enterprise edition only)
-- [IAM federation](../../../quicksight/latest/user/security.md "../../../quicksight/latest/user/security.md") (Standard and Enterprise editions)
-- [AWS Directory Service for Microsoft Active Directory](../../../quicksight/latest/user/aws-directory-service.md "../../../quicksight/latest/user/aws-directory-service.md") (Enterprise edition
-  only)
-- [SAML-based single sign-on](../../../quicksuite/latest/userguide/iam-federation.md "../../../quicksuite/latest/userguide/iam-federation.md") (Standard and
-  Enterprise edition)
-- [Multifactor authentication (MFA)](../../../quicksight/latest/user/using-multi-factor-authentication-mfa.md "../../../quicksight/latest/user/using-multi-factor-authentication-mfa.md") (Standard
-  and Enterprise edition)
+- [IAM Identity Center](../../../quicksight/latest/user/sec-identity-management-identity-center.md "../../../quicksight/latest/user/sec-identity-management-identity-center.md")
+- [IAM federation](../../../quicksight/latest/user/security.md "../../../quicksight/latest/user/security.md")
+- [AWS Directory Service for Microsoft Active Directory](../../../quicksight/latest/user/aws-directory-service.md "../../../quicksight/latest/user/aws-directory-service.md")
+- [SAML-based single sign-on](../../../quicksuite/latest/userguide/iam-federation.md "../../../quicksuite/latest/userguide/iam-federation.md")
+- [Multifactor authentication (MFA)](../../../quicksight/latest/user/using-multi-factor-authentication-mfa.md "../../../quicksight/latest/user/using-multi-factor-authentication-mfa.md")
 
 ###### Note
 

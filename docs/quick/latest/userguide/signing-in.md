@@ -124,6 +124,6 @@ settings.
 
 ###### Note
 
-If you're not sure which type of account you have: if you signed up at [quick.aws.com](https://quick.aws.com "https://quick.aws.com") and use an email/password to sign
+If you're not sure which type of account you have: if you signed up at [aws.com/quick](https://aws.com/quick "https://aws.com/quick") and use an email/password to sign
 in, you have a Free or Plus account. If you sign in through the AWS Management Console or your
 organization's single sign-on portal, you have an AWS Console account.

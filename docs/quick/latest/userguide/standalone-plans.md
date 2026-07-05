@@ -1,13 +1,13 @@
 # Amazon Quick plans and pricing
 
-Amazon Quick accounts created at [quick.aws.com](https://quick.aws.com "https://quick.aws.com") are available in two plans: **Free** and **Plus**. New accounts
+Amazon Quick accounts created at [aws.com/quick](https://aws.com/quick "https://aws.com/quick") are available in two plans: **Free** and **Plus**. New accounts
 receive 30 days of Plus at no cost. For current pricing details, plan limits, and feature comparisons, see
 [Amazon Quick pricing](https://aws.amazon.com/quick/pricing/ "https://aws.amazon.com/quick/pricing/").
 
 ###### Note
 
 This page covers pricing for Amazon Quick Free and Plus accounts created at
-quick.aws.com. For pricing information about Amazon Quick accessed through the
+aws.com/quick. For pricing information about Amazon Quick accessed through the
 AWS Management Console, see [Amazon Quick
 pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/").
 
@@ -19,7 +19,7 @@ pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quic
 ## Compare plans
 
 Amazon Quick has two account types: Free and Plus accounts created at
-[quick.aws.com](https://quick.aws.com "https://quick.aws.com"), and Professional
+[aws.com/quick](https://aws.com/quick "https://aws.com/quick"), and Professional
 and Enterprise accounts provisioned through the AWS Management Console. Most features,
 including chat with AI agents, spaces, Amazon Quick Flows, Amazon Quick Research, Apps in Amazon Quick,
 extensions, and integrations, are available to both account types.

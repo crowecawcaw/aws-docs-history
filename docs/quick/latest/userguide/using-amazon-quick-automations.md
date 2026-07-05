@@ -16,8 +16,7 @@ of scale and complexity:
   expertise.
 - **Amazon Quick Automate** enables power users to
   orchestrate end-to-end business processes at enterprise scale. Amazon Quick Automate
-  is not available for Free or Plus accounts created at
-  [quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+  is not available for Free or Plus accounts.
 
 ## Choosing between Quick Flows and Quick Automate
 

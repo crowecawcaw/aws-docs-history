@@ -7,7 +7,7 @@ page.
 
 ###### Note
 
-This section applies to Amazon Quick Free and Plus accounts created at [quick.aws.com](https://quick.aws.com "https://quick.aws.com"). For information about managing
+This section applies to Amazon Quick Free and Plus accounts created at [aws.com/quick](https://aws.com/quick "https://aws.com/quick"). For information about managing
 users in AWS Console–based accounts, see [Managing user access inside Amazon Quick](../../../quicksuite/latest/userguide/managing-users.md "../../../quicksuite/latest/userguide/managing-users.md").
 
 ###### Topics
@@ -30,7 +30,7 @@ For more information about plans, see [Amazon Quick plans and pricing](../../../
 
 ###### To access the Users page
 
-1. Sign in to Amazon Quick at [quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+1. Sign in to Amazon Quick at [aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 2. From the navigation panel, choose your
    username.
 3. Choose **Manage account**.

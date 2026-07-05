@@ -66,7 +66,7 @@ in your control.
 
 To start using Amazon Quick, you have two options:
 
-1. **Sign up at [quick.aws.com](https://quick.aws.com "https://quick.aws.com")** –
+1. **Sign up at [aws.com/quick](https://aws.com/quick "https://aws.com/quick")** –
    Use your email or social credentials (Google, Apple, Amazon, GitHub). No
    AWS account required. Free and Plus plans available.
 2. **Provision through the AWS Management Console** –
@@ -75,7 +75,7 @@ To start using Amazon Quick, you have two options:
 
 ## Getting started
 
-To start using Quick immediately, sign up at [quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+To start using Quick immediately, sign up at [aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 
 If your organization uses AWS:
 

@@ -4,7 +4,7 @@
 
 This section covers signing up for Amazon Quick through the AWS Management Console for
 organizations that already use AWS. If you want to sign up without an
-AWS account, see [Signing up at quick.aws.com](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md") for a faster setup process using email
+AWS account, see [Signing up at aws.com/quick](../../../quicksuite/latest/userguide/standalone-signup.md "../../../quicksuite/latest/userguide/standalone-signup.md") for a faster setup process using email
 or social login. For a comparison of features available with each account type,
 see [Pricing and availability](../../../quicksuite/latest/userguide/what-is.md#pricing "../../../quicksuite/latest/userguide/what-is.md#pricing").
 

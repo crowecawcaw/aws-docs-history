@@ -1,10 +1,10 @@
 # Signing in to a Amazon Quick Free or Plus account
 
-If you created your Amazon Quick account at [quick.aws.com](https://quick.aws.com "https://quick.aws.com"), follow these steps to sign in.
+If you created your Amazon Quick account at [aws.com/quick](https://aws.com/quick "https://aws.com/quick"), follow these steps to sign in.
 
 ###### To sign in to a Amazon Quick Free or Plus account
 
-1. Navigate to [https://quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+1. Navigate to the [sign-in page](https://portal.aws.amazon.com/billing/signup/service?app=AmazonQuickSuite&tier=free&funnel=boost#/validation "https://portal.aws.amazon.com/billing/signup/service?app=AmazonQuickSuite&tier=free&funnel=boost#/validation").
 2. Choose **Sign in**.
 3. Enter the email address associated with your account.
 4. Enter your password.

@@ -1,7 +1,7 @@
 # Managing a Amazon Quick Free or Plus account
 
 Amazon Quick Free and Plus accounts – created through the direct signup process at
-[quick.aws.com](https://quick.aws.com "https://quick.aws.com") – include a built-in
+[aws.com/quick](https://aws.com/quick "https://aws.com/quick") – include a built-in
 administration interface for managing your account, users, assets, billing, and support.
 This interface is accessible directly within the Amazon Quick web application, without
 requiring access to the AWS Management Console.
@@ -21,7 +21,7 @@ using IAM, IAM Identity Center, and other AWS services.
 
 ## Account administration overview
 
-When you create a Amazon Quick Free or Plus account at quick.aws.com, the person who
+When you create a Amazon Quick Free or Plus account at aws.com/quick, the person who
 completes the signup process is automatically assigned the **administrator** role. As the account administrator, you have full access
 to all account management capabilities, including user management, asset oversight,
 plan and billing configuration, and support resources.
@@ -39,7 +39,7 @@ Free and Plus account administration is organized into the following sections:
 
 ###### To access account administration
 
-1. Sign in to Amazon Quick at [quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+1. Sign in to Amazon Quick at [aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 2. From the navigation panel, choose your username
    (displayed with your initials and name).
 3. From the profile menu, choose **Manage account**.
@@ -70,7 +70,7 @@ sections:
 The following table summarizes the key differences between Free and Plus account
 administration and AWS Console–based administration.
 
-| Feature               | Free or Plus account (quick.aws.com)                 | AWS Console account                             |
+| Feature               | Free or Plus account (aws.com/quick)                 | AWS Console account                             |
 | --------------------- | ---------------------------------------------------- | ----------------------------------------------- |
 | **Identity provider** | Email or social login                                | IAM Identity Center, IAM, or federated identity |
 | **Admin interface**   | Built-in Quick web UI (Manage Account<br>page)       | AWS Management Console                          |

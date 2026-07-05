@@ -48,8 +48,11 @@ method on the new account can be the same or different.
 
 Before you can delete your Amazon Quick account, make sure of the following:
 
-- You're signed in using the IAM account or AWS root account that was used
-  to create your Amazon Quick account.
+- You're signed in using an IAM user or role with administrator permissions
+  in Amazon Quick. We strongly recommend using an IAM identity instead of the
+  AWS root account. For more information about root user security best practices,
+  see [AWS account root
+  user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") in the _IAM User Guide_.
 - You understand that your AWS account is not deleted when you terminate your
   Amazon Quick account. To instead close your AWS account, see [Closing an AWS account](../../../awsaccountbilling/latest/aboutv2/close-account.md "../../../awsaccountbilling/latest/aboutv2/close-account.md").
 

@@ -94,7 +94,7 @@ account** screen with two sign-in options.
 2. On the sign-in screen, choose **Continue
    with** and select your preferred sign-in provider. Available
    providers include email, Amazon, Apple, Google, and GitHub.
-3. You are redirected to the quick.aws.com sign-in page. Enter your account
+3. You are redirected to the sign-in page. Enter your account
    credentials for the provider you selected.
 4. Complete any multi-factor authentication prompts.
 5. After authentication succeeds, the application loads the Home

@@ -10,7 +10,7 @@ decisions.
 
 Amazon Quick Sight is available only for Amazon Quick accounts provisioned through the AWS Management Console.
 It is not available for Free or Plus accounts created at
-[quick.aws.com](https://quick.aws.com "https://quick.aws.com").
+[aws.com/quick](https://aws.com/quick "https://aws.com/quick").
 
 This section covers the complete Amazon Quick Sight workflow, from initial data connection through
 final report sharing. You'll learn how to connect to various data sources, prepare and
