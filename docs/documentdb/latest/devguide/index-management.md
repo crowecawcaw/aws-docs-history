@@ -1,4 +1,4 @@
-# Index Management
+# Index management
 
 This section covers index management topics for Amazon DocumentDB.
 

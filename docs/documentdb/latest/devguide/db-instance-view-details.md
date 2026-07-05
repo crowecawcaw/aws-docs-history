@@ -87,7 +87,7 @@ For certain management features such as cluster and instance lifecycle managemen
 1. **List all Amazon DocumentDB instances.**
 
 The following AWS CLI code lists the details for all
-Amazon DocumentDB instances in a region.
+Amazon DocumentDB instances in a Region.
 
 For Linux, macOS, or Unix:
 

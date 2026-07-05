@@ -20,7 +20,7 @@ Planner v3 also supports new features and operators in Amazon DocumentDB 8.0 inc
 
 The following prerequisites apply to planner version 3.0:
 
-- Planner version 3.0 is available in all regions where engine version 8.0 is available.
+- Planner version 3.0 is available in all AWS Regions where engine version 8.0 is available.
 - Planner version 3.0 is the default query planner when engine version 8.0 is selected.
 
 ## Selecting planner version 3.0 as the default query planner
@@ -35,8 +35,8 @@ If you changed your default query planner in Amazon DocumentDB 8.0, and need to 
 
 For expected results, use the following best practices when applying planner version 3.0:
 
-- In a global cluster, select the same `plannerVersion` value (1.0 or 2.0 or 3.0) in the cluster parameter groups for both regions.
-  Note that selecting different planner versions in primary and secondary regions may cause inconsistent query behavior and performance.
+- In a global cluster, select the same `plannerVersion` value (1.0 or 2.0 or 3.0) in the cluster parameter groups for both Regions.
+  Note that selecting different planner versions in primary and secondary Regions may cause inconsistent query behavior and performance.
 - Updating to planner version 3.0 during a scheduled maintenance windows or during reduced traffic periods will be the least disruptive, as there may be increased error rates if the planner version is changed when workloads are actively running.
 
 ## Limitations

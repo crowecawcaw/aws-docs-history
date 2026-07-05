@@ -8,7 +8,7 @@ snapshots of your data as part of this continuous backup process.
 ###### Note
 
 These are service-managed Amazon S3 buckets and you will not have access to the backup files.
-If you want to control your own backups, follow the instructions on [Dumping, Restoring, Importing, and Exporting Data](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
+To control your own backups, see [Dumping, restoring, importing, and exporting data](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
 
 You can also retain backup data beyond the backup retention period by
 creating a manual snapshot of your cluster's data. The backup process does

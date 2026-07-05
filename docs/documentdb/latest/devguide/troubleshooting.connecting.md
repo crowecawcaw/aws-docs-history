@@ -34,7 +34,7 @@ This might be the case for several reasons:
 ###### Topics
 
 - [Connecting from public endpoints](#troubleshooting.cannot-connect.public-endpoints "#troubleshooting.cannot-connect.public-endpoints")
-- [Cross region connections](#troubleshooting.cannot-connect.different-regions "#troubleshooting.cannot-connect.different-regions")
+- [Cross-Region connections](#troubleshooting.cannot-connect.different-regions "#troubleshooting.cannot-connect.different-regions")
 - [Connecting from different Amazon VPCs](#troubleshooting.cannot-connect.different-vpcs "#troubleshooting.cannot-connect.different-vpcs")
 - [Security group blocks inbound connections](#troubleshooting.cannot-connect.inbound-not-allowed "#troubleshooting.cannot-connect.inbound-not-allowed")
 - [Java Mongo driver read preference issue](#troubleshooting-cannot-connect-java-mongo-issue "#troubleshooting-cannot-connect-java-mongo-issue")
@@ -56,13 +56,13 @@ To connect to an Amazon DocumentDB cluster from outside an Amazon VPC, you
 can use an SSH tunnel. For more information, see [Connecting to an Amazon DocumentDB cluster from outside an Amazon VPC](connect-from-outside-a-vpc.md "connect-from-outside-a-vpc.md").
 Additionally, if your development environment is in a different
 Amazon VPC, you can also use VPC Peering and connect to your Amazon DocumentDB
-cluster from another Amazon VPC in the same region or a different
-region.
+cluster from another Amazon VPC in the same Region or a different
+Region.
 
-### Cross region connections
+### Cross-Region connections
 
 **You are trying to connect to an Amazon DocumentDB
-cluster in another region.**
+cluster in another Region.**
 
 If you try to connect to an Amazon DocumentDB cluster from an Amazon EC2
 instance in a Region other than the cluster's Region—for

@@ -78,7 +78,7 @@ We recommend that you connect to your cluster using the cluster endpoint and in 
 
 The following endpoints are available from an Amazon DocumentDB cluster.
 
-### Cluster Endpoint
+### Cluster endpoint
 
 The _cluster endpoint_ connects to your cluster’s current primary instance. The cluster endpoint can be used for read and write operations. An Amazon DocumentDB cluster has exactly one cluster endpoint.
 
@@ -295,7 +295,7 @@ If your client or driver is not connecting to an Amazon DocumentDB cluster endpo
 
 Amazon DocumentDB does not support setting _tag sets_ as a read preference.
 
-###### Supported Read Preference Options
+###### Supported read preference options
 
 - **`primary`**—Specifying a `primary` read preference helps ensure that all reads are routed to the cluster’s primary instance. If the primary instance is unavailable, the read operation fails. A `primary` read preference yields read-after-write consistency and is appropriate for use cases that prioritize read-after-write consistency over high availability and read scaling.
 

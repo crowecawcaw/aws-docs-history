@@ -1,6 +1,6 @@
-# Text Indexes
+# Text indexes
 
-Text indexes are useful in searching for words or phrases in text fields within documents, allowing you to perform full-text search functionality. You can create single field text indexes or compound text indexes with more than one text field. However, you can only have one text index per collection. For more information, see the [Unlock the power of Amazon DocumentDB text search with real-world use cases](text-search.md "text-search.md").
+Text indexes are useful in searching for words or phrases in text fields within documents, allowing you to perform full-text search functionality. You can create single field text indexes or compound text indexes with more than one text field. However, you can only have one text index per collection. For more information, see [Performing text search with Amazon DocumentDB](text-search.md "text-search.md").
 
 ## Supported index properties
 
@@ -29,4 +29,4 @@ The `options` parameter is a JSON document that specifies the name of the index:
 }
 ```
 
-See [Index Properties](index-properties.md "index-properties.md") for examples of creating text indexes.
+See [Index properties](index-properties.md "index-properties.md") for examples of creating text indexes.

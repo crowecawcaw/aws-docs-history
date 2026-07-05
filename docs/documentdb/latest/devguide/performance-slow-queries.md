@@ -1,4 +1,4 @@
-# Query Running Slow
+# Query running slow
 
 ## Identification - Spot the problem
 

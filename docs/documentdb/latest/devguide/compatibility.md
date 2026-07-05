@@ -35,7 +35,7 @@ To see a full list of the new capabilities, see the [Release notes](release-note
 
 ### Get started with Amazon DocumentDB 8.0
 
-To get started with Amazon DocumentDB 8.0, see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
+To get started with Amazon DocumentDB 8.0, see the [Get started with Amazon DocumentDB](get-started-guide.md "get-started-guide.md").
 You can create a new Amazon DocumentDB 8.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation.
 When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
 
@@ -45,13 +45,13 @@ When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will defa
 You must explicitly specify the parameter `engineVersion = 8.0.0` to create a new Amazon DocumentDB 8.0 cluster or `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
 For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
-Amazon DocumentDB 5.0 and 8.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
+Amazon DocumentDB 5.0 and 8.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported AWS Regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
 For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/").
 
 ### Upgrade or migrate to Amazon DocumentDB 5.0 or 8.0
 
-You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 5.0 or Amazon DocumentDB 8.0 using the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [`mongodump`, `mongorestore`, `mongoimport`, and `mongoexport`](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
-For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
+You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 5.0 or Amazon DocumentDB 8.0 using the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [mongodump, mongorestore, mongoimport, and mongoexport](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
+For instructions on migrating, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
 
 ### Functional differences
 
@@ -108,14 +108,14 @@ You can upgrade to 5.0.1 from 5.0.0 using a minor version upgrade.
 For more information, see [Amazon DocumentDB minor version upgrade](docdb-minor-version-upgrade.md "docdb-minor-version-upgrade.md").
 
 - Enhanced aggregation capabilities with new operators (`$rand`, `$pow`, `$dateToParts`, `$dateFromParts`).
-- Active connections metric to monitor instances. The limits can be found at our [Amazon DocumentDB Quotas and limits](limits.md#limits.instance "limits.md#limits.instance") page.
+- Active connections metric to monitor instances. For more information, see [Instance limits](limits.md#limits.instance "limits.md#limits.instance").
 - Granular command-level performance metrics in CloudWatch for CRUD operations (`find`, `insert`, `findAndModify`, `update`, `delete`, `aggregate`, `count`, `distinct`, `getMore`, `abortTransaction`, `commitTransaction`), exposing `AvgDuration`, `P100Duration`, and `MaxConcurrent` dimensions for improved operational monitoring.
 - Amazon DocumentDB 5.0.1 only supports TLS 1.2 and higher for database connections.
 - Added `gcRuntimeStats`, `documentFragmentStats`, and breakup of collection level metrics into `storageSegmentBase` and `storageSegmentExtended` in `collstats` to surface more information into the overall health of the garbage collection process.
 
 ### Get started with Amazon DocumentDB 5.0
 
-To get started with Amazon DocumentDB 5.0, see the [Get Started Guide](get-started-guide.md "get-started-guide.md").
+To get started with Amazon DocumentDB 5.0, see the [Get started with Amazon DocumentDB](get-started-guide.md "get-started-guide.md").
 You can create a new Amazon DocumentDB 5.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation.
 When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 5.0 or higher.
 
@@ -125,13 +125,13 @@ When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will defa
 You must explicitly specify the parameter `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
 For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
-Amazon DocumentDB 5.0 and 8.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
+Amazon DocumentDB 5.0 and 8.0 supports the Amazon EC2 `r8g` Graviton4 processor and Graviton2 processors such as `r6g` and `t4.medium` instance types for your clusters and is available in all supported AWS Regions (see [Instances](what-is.md#what-is-db-instances "what-is.md#what-is-db-instances")).
 For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/").
 
 ### Upgrade or migrate to Amazon DocumentDB 5.0
 
-You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 5.0 using the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [`mongodump`, `mongorestore`, `mongoimport`, and `mongoexport`](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
-For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
+You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 5.0 using the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [mongodump, mongorestore, mongoimport, and mongoexport](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md").
+For instructions on migrating, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
 
 ### Functional differences
 
@@ -213,7 +213,7 @@ Amazon DocumentDB does not support every MongoDB 4.0 feature. When we built Amaz
 
 ### Get started with Amazon DocumentDB 4.0
 
-To get started with Amazon DocumentDB 4.0, see the [Get Started Guide](get-started-guide.md "get-started-guide.md"). You can create a new Amazon DocumentDB 4.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 4.0 or higher.
+To get started with Amazon DocumentDB 4.0, see the [Get started with Amazon DocumentDB](get-started-guide.md "get-started-guide.md"). You can create a new Amazon DocumentDB 4.0 cluster using the AWS Management Console or the AWS SDK, AWS CLI, or CloudFormation. When connecting to Amazon DocumentDB, it is required that you use a MongoDB driver or utility that is compatible with MongoDB 4.0 or higher.
 
 ###### Note
 
@@ -221,12 +221,12 @@ When using the AWS SDK, AWS CLI, or CloudFormation, the engine version will defa
 You must explicitly specify the parameter `engineVersion = 4.0.0` to create a new Amazon DocumentDB 4.0 cluster or `engineVersion = 3.6.0` to create a new Amazon DocumentDB 3.6 cluster.
 For a given Amazon DocumentDB cluster, you can determine the cluster version using the AWS CLI to call `describe-db-clusters` or use the Amazon DocumentDB management console to view the engine version number for a particular cluster.
 
-Amazon DocumentDB 4.0 supports `r5`, `r6g`, `t3.medium`, and `t4g.medium` instance types for your clusters and is available in all supported regions.
+Amazon DocumentDB 4.0 supports `r5`, `r6g`, `t3.medium`, and `t4g.medium` instance types for your clusters and is available in all supported AWS Regions.
 There is no additional cost for using Amazon DocumentDB 4.0. For more information on pricing, see [Amazon DocumentDB (with MongoDB compatibility) Pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/").
 
 ### Upgrade or migrate to Amazon DocumentDB 4.0
 
-You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 4.0 utilizing the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [`mongodump`, `mongorestore`, `mongoimport`, and `mongoexport`](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md"). Similarly, you can use the same tools to upgrade from Amazon DocumentDB 3.6 to Amazon DocumentDB 4.0. For instructions on how to migrate, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
+You can migrate from MongoDB 3.6 or MongoDB 4.0 to Amazon DocumentDB 4.0 using the [AWS DMS](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") or utilities like [mongodump, mongorestore, mongoimport, and mongoexport](backup_restore-dump_restore_import_export_data.md "backup_restore-dump_restore_import_export_data.md"). Similarly, you can use the same tools to upgrade from Amazon DocumentDB 3.6 to Amazon DocumentDB 4.0. For instructions on migrating, see [Upgrading your Amazon DocumentDB cluster using AWS Database Migration Service](docdb-migration.versions.md "docdb-migration.versions.md").
 
 ### Functional differences
 

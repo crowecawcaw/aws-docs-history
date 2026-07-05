@@ -35,7 +35,7 @@ JSON
 
 The policy includes a single statement that specifies the following permissions for the IAM user:
 
-- The policy allows the IAM user to create an instance using the [CreateDBInstance](../APIReference/API_CreateDBInstance.md "../APIReference/API_CreateDBInstance.md") action (this also applies to the
+- The policy allows the IAM user to create an instance using the [CreateDBInstance](../developerguide/api-reference.htmlAPI_CreateDBInstance.md "../developerguide/api-reference.htmlAPI_CreateDBInstance.md") action (this also applies to the
   [create-db-instance](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") AWS CLI operation and the AWS Management Console).
 - The `Resource` element specifies that the user can perform actions on or with resources. You specify resources using an Amazon Resource Name (ARN). This ARN includes the name of the service that the resource belongs to (`rds`), the AWS Region (`*` indicates any Region in this example), the user account number (`123456789012` is the user ID in this example), and the type of resource.
 

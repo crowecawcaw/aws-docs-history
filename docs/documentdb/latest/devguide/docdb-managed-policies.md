@@ -3,7 +3,7 @@
 To add permissions to users, groups, and roles, it is easier to use AWS managed policies than to write policies yourself.
 It takes time and expertise to [create IAM customer managed policies](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") that provide your team with only the permissions they need.
 To get started quickly, you can use our AWS managed policies.
-These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _AWS Identity and Access Management User Guide_.
+These policies cover common use cases and are available in your AWS account. For more information about AWS managed policies, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _IAM User Guide_.
 
 AWS services maintain and update AWS managed policies.
 You can't change the permissions in AWS managed policies.
@@ -15,7 +15,7 @@ Services do not remove permissions from an AWS managed policy, so policy updates
 Additionally, AWS supports managed policies for job functions that span multiple services.
 For example, the `ViewOnlyAccess` AWS managed policy provides read-only access to many AWS services and resources.
 When a service launches a new feature, AWS adds read-only permissions for new operations and resources.
-For a list and descriptions of job function policies, see [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _AWS Identity and Access Management User Guide_.
+For a list and descriptions of job function policies, see [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
 
 The following AWS managed policies, which you can attach to users in your account, are specific to Amazon DocumentDB:
 

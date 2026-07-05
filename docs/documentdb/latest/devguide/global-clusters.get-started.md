@@ -165,7 +165,7 @@ It takes several minutes to create the cluster. You can use the AWS Management C
 
 ###### Important
 
-When you use the AWS CLI to create an Amazon DocumentDB Regional cluster, no instances are created. Consequently, you must explicitly create a primary instance and any replica instances that you need. You can use either the console or AWS CLI to create the instances. For more information, see [Adding an Amazon DocumentDB instance to a cluster](db-instance-add.md "db-instance-add.md") and [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") in the Amazon DocumentDB API Reference.
+When you use the AWS CLI to create an Amazon DocumentDB Regional cluster, no instances are created. Consequently, you must explicitly create a primary instance and any replica instances that you need. You can use either the console or AWS CLI to create the instances. For more information, see [Adding an Amazon DocumentDB instance to a cluster](db-instance-add.md "db-instance-add.md") and [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md") in the _Amazon DocumentDB API Reference_.
 
 Once your Regional cluster is available, you can add a secondary cluster in another
 Region with the following instructions: [Adding an AWS Region to an Amazon DocumentDB global cluster](#global-clusters.add-region "#global-clusters.add-region"). When you add a Region, your Regional
@@ -177,7 +177,7 @@ A global cluster needs at least one secondary cluster in a different Region than
 primary cluster, and you can add up to 10 secondary clusters. Note that for each
 secondary cluster that you add, you must reduce the number of replicas allowed in the
 primary cluster by one. For example, if your global cluster has 10 secondary Regions,
-your primary cluster can have only 5 (rather than 15) replicas. For more information, see [Configuration requirements of an Amazon DocumentDB global cluster](global-clusters.get-started.md#global-clusters.config "global-clusters.get-started.md#global-clusters.config").
+your primary cluster can have only 5 (rather than 15) replicas. For more information, see [Configuration](#global-clusters.config "#global-clusters.config").
 
 1. Sign in to the AWS Management Console and open the Amazon DocumentDB console.
 2. In the navigation pane, choose **Clusters**.
@@ -192,10 +192,10 @@ that you can't choose a Region that already has a secondary cluster for the same
 global cluster. Also, it can't be the same Region as the primary cluster. If this
 is the first Region you are adding, you will also have to specify a global cluster identifier of your choice.
 
-![Choose a secondary region using the dropdown menu on the Add an AWS Region form.](images/global-clusters/quick-start/add-region-2.png) 6. Complete the remaining fields for the secondary cluster in the new Region, then
+![Choose a secondary Region using the dropdown menu on the Add an AWS Region form.](images/global-clusters/quick-start/add-region-2.png) 6. Complete the remaining fields for the secondary cluster in the new Region, then
 select **Create cluster**. After you finish adding the Region, you can see it in the list of **Clusters** in the AWS Management Console.
 
-![Final steps of adding a region to a cluster, showing the Configuration form, hourly cost estimate, and Create cluster button.](images/global-clusters/quick-start/select-add-region.png)
+![Final steps of adding a Region to a cluster, showing the Configuration form, hourly cost estimate, and Create cluster button.](images/global-clusters/quick-start/select-add-region.png)
 
 - Use the `create-db-cluster` CLI command with the name `(--global-cluster-identifier)` of your global cluster. For other parameters, do the following:
 

@@ -19,7 +19,7 @@ At times, you might need to look up your online store's inventory so that custom
 
 To query for documents, use the `find()` operation. The `find()` command has a single document parameter that defines the criteria to use in choosing the documents to return. The output from `find()` is a document formatted as a single line of text with no line breaks. To format the output document for easier reading, use `find().pretty()`. All the examples in this topic use `.pretty()` to format the output.
 
-The following code samples use the four documents you inserted into the `example` collection in the preceding two exercises — `insertOne()` and `insertMany()` that are located in the Adding Documents section of [Working with Documents](document-database-working-with-documents.md "document-database-working-with-documents.md").
+The following code samples use the four documents you inserted into the `example` collection in the preceding two exercises — `insertOne()` and `insertMany()` that are located in [Adding documents](document-database-working-with-documents.md#document-database-adding-documents "document-database-working-with-documents.md#document-database-adding-documents").
 
 ###### Topics
 
@@ -108,7 +108,7 @@ For a listing of supported query operators, see [Query and projection operators]
 
 ## Query plan
 
-### How Can I See the `executionStats` for a Query Plan?
+### How can I see the `executionStats` for a query plan?
 
 When determining why a query is executing slower than expected, it can be useful to understand what the `executionStats` are
 for the query plan. The `executionStats` provide the number of documents returned from a particular stage (`nReturned`), the amount of execution time spent at each stage (`executionTimeMillisEstimate`), and the amount of time it takes to generate a query plan (`planningTimeMillis`). You can determine the most time-intensive stages of your query to help focus your optimization efforts from the output of `executionStats`, as shown in the following query examples. The `executionStats` parameter does not currently support `update` and `delete` commands.

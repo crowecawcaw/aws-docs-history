@@ -37,7 +37,7 @@ Next, modify the change stream retention period based on how long you would like
 For example, if you expect your Amazon DocumentDB cluster migration using AWS DMS to take 12 hours, you should set the change stream retention to a value greater than 12 hours.
 The default retention period for your Amazon DocumentDB cluster is three hours.
 You can modify the change stream log retention duration for your Amazon DocumentDB cluster to be between one hour and seven days using the AWS Management Console or the AWS CLI.
-For more details, refer to [Modifying the Change Stream Log Retention Duration.](change_streams.md#change_streams-modifying_log_retention "change_streams.md#change_streams-modifying_log_retention")
+For more information, see [Modifying the change stream log retention duration](change_streams.md#change_streams-modifying_log_retention "change_streams.md#change_streams-modifying_log_retention").
 
 ## Step 3: Migrate your indexes
 

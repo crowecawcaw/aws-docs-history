@@ -6,7 +6,7 @@
 - [Performing a manual failover for an Amazon DocumentDB global cluster](#manual-failover "#manual-failover")
 - [Performing a switchover for an Amazon DocumentDB global cluster](#global-cluster-switchover "#global-cluster-switchover")
 - [Unblocking a global cluster switchover or failover](#unblocking-gc-so-fo "#unblocking-gc-so-fo")
-  By using a global cluster, you can recover from disasters such as region failures
+  By using a global cluster, you can recover from disasters such as Region failures
   quickly. Recovery from disaster is typically measured using values for RTO and RPO.
 
 - **Recovery time objective (RTO)** — The time it takes a
@@ -17,9 +17,9 @@
   in seconds.
 - To recover from an unplanned outage, you can perform a cross-region failover to
   one of the secondaries in your global cluster. When your global cluster has multiple
-  secondary regions, make sure that you detach all the secondary regions that you wish to promote as primaries.
-  Then, you promote one of those secondary regions to be the new primary AWS Region.
-  Finally, you create new clusters in each of the other secondary regions and attach those clusters to your global cluster.
+  secondary Regions, make sure that you detach all the secondary Regions that you wish to promote as primaries.
+  Then, you promote one of those secondary Regions to be the new primary AWS Region.
+  Finally, you create new clusters in each of the other secondary Regions and attach those clusters to your global cluster.
 
 ## Performing a managed failover for an Amazon DocumentDB global cluster
 
@@ -37,8 +37,8 @@ The old primary volume makes a best effort attempt to take a snapshot before syn
 You can only perform a managed cross-Region cluster failover on an Amazon DocumentDB global cluster if the primary and all secondary clusters have the same engine versions.
 If your engine versions are incompatible, you can perform the failover manually by following the steps in [Performing a manual failover for an Amazon DocumentDB global cluster](#manual-failover "#manual-failover").
 
-If the region's engine versions do not match, the failover will be blocked.
-Check for any pending upgrades and apply them to ensure all region's engine versions match and the global cluster failover is unblocked.
+If the Region's engine versions do not match, the failover will be blocked.
+Check for any pending upgrades and apply them to ensure all Region's engine versions match and the global cluster failover is unblocked.
 For more information, see [Unblocking a global cluster switchover or failover](#unblocking-gc-so-fo "#unblocking-gc-so-fo").
 
 To minimize data loss, we recommend that you do the following before using this feature:
@@ -109,7 +109,7 @@ The status of the primary cluster changes to "**Failing-over**".
 This condition should take approximately one minute.
 During this time, the status of the new primary cluster shows "**Modifying...**".
 Once the new primary is promoted, it will show "**Available**" and will be able to serve read and write transactions.
-The secondary regions including the old primary will show "**Resyncing...**" while it resynchronizes to the new primary.
+The secondary Regions including the old primary will show "**Resyncing...**" while it resynchronizes to the new primary.
 Similar to the new primary, it will only be able to serve transaction once the status changes to "**Available**". 7. When complete, the original primary cluster becomes the secondary cluster. The selected secondary cluster becomes the primary cluster.
 
 ![Image: Cluster table showing new primary cluster.](images/failover-complete.png)
@@ -174,7 +174,7 @@ To promote a secondary cluster:
 Removing a secondary cluster from a global cluster immediately stops the
 replication from the primary to this secondary and promotes it to standalone
 provisioned cluster with full read/write capabilities. Any other secondary
-cluster associated with the primary cluster in the region with the outage are
+cluster associated with the primary cluster in the Region with the outage are
 still available and can accept calls from your application. They also consume
 resources. Since you are recreating the global cluster, to avoid split-brain and
 other issues, remove the other secondary clusters before creating the new global
@@ -217,9 +217,9 @@ There are three common use cases for using switchovers:
 Switchovers are designed to be used on a healthy Amazon DocumentDB global cluster.
 To recover from an unplanned outage, follow the appropriate procedure in [Performing a manual failover for an Amazon DocumentDB global cluster](#manual-failover "#manual-failover").
 
-To perform a switchover, all secondary regions must be running the exact same engine version as the primary.
-If the region's engine versions do not match, the switchover will be blocked.
-Check for any pending upgrades and apply them to ensure all region's engine versions match and the global cluster switchover is unblocked.
+To perform a switchover, all secondary Regions must be running the exact same engine version as the primary.
+If the Region's engine versions do not match, the switchover will be blocked.
+Check for any pending upgrades and apply them to ensure all Region's engine versions match and the global cluster switchover is unblocked.
 For more information, see [Unblocking a global cluster switchover or failover](#unblocking-gc-so-fo "#unblocking-gc-so-fo").
 
 During a switchover, Amazon DocumentDB switches over your primary cluster to your chosen secondary Region while it maintains your global cluster's existing replication topology.
@@ -277,7 +277,7 @@ Using the AWS Management Console
 The status of the primary cluster changes to "**Switching-over**".
 This condition should take approximately three minutes.
 During this time, the status of all regional clusters show "**Modifying...**".
-Once the regions are synchronized and the new primary is promoted, it will show "**Available**" for all status fields and will be able to serve transactions. 7. When complete, the original primary cluster becomes the secondary cluster. The selected secondary cluster becomes the primary cluster.
+Once the Regions are synchronized and the new primary is promoted, it will show "**Available**" for all status fields and will be able to serve transactions. 7. When complete, the original primary cluster becomes the secondary cluster. The selected secondary cluster becomes the primary cluster.
 
 ![Image: Cluster table showing new primary cluster.](images/failover-complete.png)
 
@@ -317,7 +317,7 @@ Global cluster switchovers and failovers are blocked when not all regional clust
 If the versions do not match, you may see this error in response when calling a switchover or failover: **`The target DB cluster specified is running an engine version with a different patch level than the source DB cluster`**.
 We recommended routinely applying the latest engine versions to ensure you are running the latest updates to keep your global clusters in a healthy state.
 
-To resolve this error, update all secondary regions first, and then the primary region to the same engine version by applying any pending maintenance action items.
+To resolve this error, update all secondary Regions first, and then the primary Region to the same engine version by applying any pending maintenance action items.
 To view pending maintenance action items, and to apply any needed changes to correct the issue, perform the instructions in one of the following tabs:
 
 Using the AWS Management Console
@@ -348,7 +348,7 @@ Using the AWS CLI
 To unblock a global cluster switchover or failover, you must determine if there are any pending maintenance actions for the cluster and apply them.
 Follow these steps to view and apply maintenance actions first on the secondary clusters then on the primary cluster for your global cluster:
 
-1. Run the following on each secondary region's regional cluster first and then for the primary regions regional cluster.
+1. Run the following on each secondary Region's regional cluster first and then for the primary Regions regional cluster.
 2. Run the [`describe-pending-maintenance-actions`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/describe-pending-maintenance-actions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/docdb/describe-pending-maintenance-actions.html") CLI command with the `--resource-identifier` option to determine if any maintenance actions are available for your Amazon DocumentDB regional cluster.
 
 In the following examples, replace each `user input placeholder` with your cluster's information.
@@ -431,6 +431,6 @@ Using the Amazon DocumentDB API
 To unblock a global cluster switchover or failover, you must determine if there are any pending maintenance actions for the cluster and apply them.
 Use the following APIs to view and apply maintenance actions:
 
-1. Run the following on each secondary region's regional cluster first and then for the primary regions regional cluster.
-2. Call the [`PendingMaintenanceAction`](../APIReference/API_PendingMaintenanceAction.md "../APIReference/API_PendingMaintenanceAction.md") API to determine if any maintenance actions are available for your Amazon DocumentDB global cluster.
-3. Apply any changes by calling the [`ApplyPendingMaintenanceAction`](../APIReference/API_ApplyPendingMaintenanceAction.md "../APIReference/API_ApplyPendingMaintenanceAction.md") API.
+1. Run the following on each secondary Region's regional cluster first and then for the primary Regions regional cluster.
+2. Call the [PendingMaintenanceAction](../APIReference/API_PendingMaintenanceAction.md "../APIReference/API_PendingMaintenanceAction.md") API to determine if any maintenance actions are available for your Amazon DocumentDB global cluster.
+3. Apply any changes by calling the [ApplyPendingMaintenanceAction](../APIReference/API_ApplyPendingMaintenanceAction.md "../APIReference/API_ApplyPendingMaintenanceAction.md") API.

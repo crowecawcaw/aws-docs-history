@@ -1,4 +1,4 @@
-# Using Views in Amazon DocumentDB 8.0
+# Using views in Amazon DocumentDB 8.0
 
 - Amazon DocumentDB 8.0 now supports views. Views function as virtual collections that present data based on specified aggregation operations. When you create a view, you define a query that transforms data from one or more source collections.
   Amazon DocumentDB 8.0 executes this query each time the view is accessed, without consuming additional storage resources. Unlike standard collections, views in Amazon DocumentDB 8.0 do not store documents on disk, making them an efficient solution for presenting transformed or filtered data to applications.
@@ -20,7 +20,7 @@ Views in Amazon DocumentDB are read-only. Write operations on views will return 
 For optimal performance with large datasets, you can structure your view pipelines to maximize efficiency.
 For complex aggregation pipelines, it's recommended to use the $match stage as the first stage or early in the pipeline to reduce the number of documents subsequent stages need to process, thus improving query performance.
 
-## Best Practices
+## Best practices
 
 Some best practices to follow with Views are listed below.
 
@@ -30,7 +30,7 @@ Some best practices to follow with Views are listed below.
 - Query Optimization: Use the explain command to understand how your view queries are executed and optimize accordingly.
 - Alternatives for Views: Given the functional differences between Amazon DocumentDB and MongoDB views, consider using regular collections with scheduled updates as an alternative to views when encountering limitations.
 
-## Aggregator Operator Compatibility
+## Aggregator operator compatibility
 
 Amazon DocumentDB supports many aggregation operators in view definitions while continuing to expand compatibility. When using views, focus on these supported operators:
 
@@ -42,7 +42,7 @@ Amazon DocumentDB supports many aggregation operators in view definitions while 
 
 Some specialized operators like $currentOp, $replaceRoot, and $geoNear currently work in direct aggregation queries rather than view definitions.
 
-## Leveraging Indexes and Views
+## Leveraging indexes and views
 
 Views in Amazon DocumentDB 8.0 use the indexes of the underlying collection. As a result, you cannot create, drop, or rebuild indexes on a view directly. However, well-designed indexes on the source collection can significantly improve view query performance
 Below are some steps to optimize query performance on views:

@@ -125,7 +125,7 @@ acceptable from a cost and performance perspective.
 
 ## Working with indexes
 
-### Building Indexes
+### Building indexes
 
 When importing data into Amazon DocumentDB, you should create your indexes before importing
 large datasets. You can use the [Amazon DocumentDB Index Tool](https://github.com/awslabs/amazon-documentdb-tools "https://github.com/awslabs/amazon-documentdb-tools")
@@ -202,13 +202,11 @@ privilege.
 - Grant each IAM user the minimum set of permissions that are required to perform
   their duties.
 - Use IAM groups to effectively manage permissions for multiple users. For more
-  information about IAM, see the [IAM User
-  Guide](../../../IAM/latest/UserGuide/Welcome.md "../../../IAM/latest/UserGuide/Welcome.md"). For information about IAM best practices, see [IAM
-  Best Practices](../../../IAM/latest/UserGuide/IAMBestPractices.md "../../../IAM/latest/UserGuide/IAMBestPractices.md").
+  information about IAM, see the [IAM User Guide](../../../IAM/latest/UserGuide/Welcome.md "../../../IAM/latest/UserGuide/Welcome.md"). For information about IAM best practices, see [IAM
+  best practices](../../../IAM/latest/UserGuide/IAMBestPractices.md "../../../IAM/latest/UserGuide/IAMBestPractices.md") in the _IAM User Guide_.
 - Regularly rotate your IAM credentials.
-- Configure AWS Secrets Manager to automatically rotate the secrets
-  for Amazon DocumentDB. For more information, see [Rotating Your AWS Secrets Manager Secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") and [Rotating Secrets for Amazon DocumentDB](../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md "../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md") in the _AWS Secrets
-  Manager User Guide_.
+- Configure Secrets Manager to automatically rotate the secrets
+  for Amazon DocumentDB. For more information, see [Rotating your secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") and [Rotating secrets for Amazon DocumentDB](../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md "../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md") in the _AWS Secrets Manager User Guide_.
 - Grant each Amazon DocumentDB user the minimum set of permissions that are required to
   perform their duties. For more information, see [Database access using Role-Based Access Control](role_based_access_control.md "role_based_access_control.md").
 - Use Transport Layer Security (TLS) to encrypt your data in transit and AWS KMS to
@@ -432,7 +430,7 @@ As a best practice, we recommend that when migrating data to Amazon DocumentDB, 
 your indexes in Amazon DocumentDB before migrating the data. Creating the indexes first can reduce
 the overall time and increase the speed of the migration. To do this, you can use the
 Amazon DocumentDB [Index Tool](https://github.com/awslabs/amazon-documentdb-tools "https://github.com/awslabs/amazon-documentdb-tools").
-For more information on migrations, see the [Amazon DocumentDB migration guide](docdb-migration.md "docdb-migration.md").
+For more information on migrations, see the [Migrating to Amazon DocumentDB](docdb-migration.md "docdb-migration.md").
 
 We also recommend that before you migrate your production database, it is a best
 practice to fully test your application on Amazon DocumentDB, taking into consideration

@@ -23,8 +23,8 @@ If you don't already have an Amazon DocumentDB cluster, there are a number of wa
 ###### Note
 
 Amazon DocumentDB is a Virtual Private Cloud (VPC)-only service.
-If you are connecting from a local machine outside the cluster's VPC, you will need to create an SSH connection to an Amazon EC2 instance.
-In this case, launch your cluster using the instructions in [Connect with EC2](connect-ec2.md "connect-ec2.md"). See [Using an SSH Tunnel to Connect to Amazon DocumentDB](https://github.com/aws/amazon-documentdb-odbc-driver/blob/develop/src/markdown/setup/setup.md#using-an-ssh-tunnel-to-connect-to-amazon-documentdb "https://github.com/aws/amazon-documentdb-odbc-driver/blob/develop/src/markdown/setup/setup.md#using-an-ssh-tunnel-to-connect-to-amazon-documentdb") for more information on SSH tunneling and when you might need it.
+If you are connecting from a local machine outside the cluster's VPC, you need to create an SSH connection to an Amazon EC2 instance.
+For more information, see [Connect using Amazon EC2](connect-ec2.md "connect-ec2.md"). For more information on SSH tunneling, see [Using an SSH Tunnel to Connect to Amazon DocumentDB](https://github.com/aws/amazon-documentdb-odbc-driver/blob/develop/src/markdown/setup/setup.md#using-an-ssh-tunnel-to-connect-to-amazon-documentdb "https://github.com/aws/amazon-documentdb-odbc-driver/blob/develop/src/markdown/setup/setup.md#using-an-ssh-tunnel-to-connect-to-amazon-documentdb").
 
 **Step 2. JRE or JDK Installation**
 
@@ -41,7 +41,7 @@ Follow the installation guide.
 
 Amazon DocumentDB clusters are deployed within an Amazon Virtual Private Cloud (Amazon VPC).
 They can be accessed directly by Amazon EC2 instances or other AWS services that are deployed in the same Amazon VPC.
-Additionally, Amazon DocumentDB can be accessed by Amazon EC2 instances or other AWS services in different VPCs in the same AWS region or other regions via VPC peering.
+Additionally, Amazon DocumentDB can be accessed by Amazon EC2 instances or other AWS services in different VPCs in the same AWS Region or other Regions via VPC peering.
 
 However, suppose that your use case requires that you (or your application) access your Amazon DocumentDB resources from outside the cluster's VPC.
 This will be the case for most users not running their application on a VM in the same VPC as the Amazon DocumentDB cluster.

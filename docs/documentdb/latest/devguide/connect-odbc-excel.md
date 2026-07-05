@@ -1,7 +1,7 @@
 # Connect to Amazon DocumentDB from Microsoft Excel
 
 1. Ensure that the Amazon DocumentDB driver has been correctly installed and configured.
-   For additional information, refer to [Setting up the ODBC driver in Windows](connect-odbc-setup-windows.md "connect-odbc-setup-windows.md").
+   For more information, see [Setting up the Amazon DocumentDB ODBC driver in Windows](connect-odbc-setup-windows.md "connect-odbc-setup-windows.md").
 2. Launch Microsoft Excel.
 3. Navigate to **Data** > **Get Data** > **From Other Sources**.
 4. Choose **From ODBC**:

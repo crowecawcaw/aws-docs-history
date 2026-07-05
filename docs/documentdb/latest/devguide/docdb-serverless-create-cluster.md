@@ -5,7 +5,7 @@
 With Amazon DocumentDB serverless, your clusters are interchangeable with provisioned clusters.
 You can have clusters where some instances use serverless and some instances are provisioned.
 
-Verify that your desired region and engine version support DocumentDB serverless.
+Verify that your desired Region and engine version support DocumentDB serverless.
 See [Requirements and limitations for DocumentDB serverless](docdb-serverless-limitations.md "docdb-serverless-limitations.md").
 
 To create an Amazon DocumentDB cluster where you can add serverless instances, follow the same procedure as in [Creating an Amazon DocumentDB cluster](db-cluster-create.md "db-cluster-create.md").

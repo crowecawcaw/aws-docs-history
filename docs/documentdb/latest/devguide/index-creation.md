@@ -24,7 +24,7 @@ Parallel index build is supported on instances 2xlarge and above.
 - **Minimum workers** - The minimum number of workers you can configure is one. The default setting for index creation on instance-based clusters is two workers. However, you can reduce the number of workers to one by using the "worker threads" option. This will run the process with a single worker.
 - **Index compression** - Amazon DocumentDB doesn't support index compression. Data sizes for indexes might be larger than when you use other options.
 - **Indexing multiple collections** - Half the vCPUs on your database cluster's primary instance can be used for configured workers performing index creation on multiple collections.
-- **Index types** - See [Index Types](index-types.md "index-types.md") for the list of supported index types on Amazon DocumentDB.
+- **Index types** - See [Index types](index-types.md "index-types.md") for the list of supported index types on Amazon DocumentDB.
 
 ## Index build types
 

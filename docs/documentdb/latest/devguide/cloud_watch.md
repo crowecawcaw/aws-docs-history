@@ -15,7 +15,7 @@ using CloudWatch and alarms, see the [Amazon CloudWatch documentation](../../../
 - [Amazon DocumentDB metrics](#cloud_watch-metrics_list "#cloud_watch-metrics_list")
 - [Viewing CloudWatch data](#cloud_watch-view_data "#cloud_watch-view_data")
 - [Amazon DocumentDB dimensions](#cloud_watch-metrics_dimensions "#cloud_watch-metrics_dimensions")
-- [Monitoring Opcounter metrics](#cloud_watch-monitoring_opcounters "#cloud_watch-monitoring_opcounters")
+- [Monitoring opcounter metrics](#cloud_watch-monitoring_opcounters "#cloud_watch-monitoring_opcounters")
 - [Monitoring database connections](#cloud_watch-monitoring_connections "#cloud_watch-monitoring_connections")
 
 ## Amazon DocumentDB metrics
@@ -405,7 +405,7 @@ filtered by any of the dimensions in the following table.
 | `DBClusterIdentifier, Role` | Filters the data that you request for a<br>specific Amazon DocumentDB cluster, aggregating the metric by instance<br>role (WRITER/READER). For example, you can aggregate metrics<br>for all READER instances that belong to a cluster. |
 | `DBInstanceIdentifier`      | Filters the data that you request for a<br>specific database instance.                                                                                                                                                                  |
 
-## Monitoring Opcounter metrics
+## Monitoring opcounter metrics
 
 Opcounter metrics have a non-zero value (usually ~50) for idle
 clusters. This is because Amazon DocumentDB performs periodic health checks,

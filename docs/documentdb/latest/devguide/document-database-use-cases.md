@@ -1,4 +1,4 @@
-# Document database use Cases
+# Document database use cases
 
 Your use case drives whether you need a document database or some other type of database for managing your data. Document databases are useful for
 workloads that require a flexible schema for fast, iterative development. The following are some examples of use cases for which document databases can

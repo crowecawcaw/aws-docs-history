@@ -313,7 +313,7 @@ Read more: [Amazon DocumentDB minor version upgrade](docdb-minor-version-upgrade
 
 Instances occasionally need OS updates. Amazon DocumentDB updates the OS to improve performance and tighten security. OS updates leave the cluster engine version and instance class unchanged. Like engine patches, OS updates use the optional / required / forced lifecycle described at the top of this topic; unlike engine patches, an OS update can transition through these categories over time if you defer it. Apply OS updates as soon as they are available, and set your instance maintenance window to a time that fits your business.
 
-To get an event when a new optional update arrives, subscribe to `RDS-EVENT-0230` in the security patching event category. For details, see [Subscribing to Amazon DocumentDB Event Subscriptions](event-subscriptions.subscribe.md "event-subscriptions.subscribe.md"). After receiving a notification, you can self-apply the OS patch to each instance.
+To get an event when a new optional update arrives, subscribe to `RDS-EVENT-0230` in the security patching event category. For more information, see [Subscribing to Amazon DocumentDB events](event-subscriptions.subscribe.md "event-subscriptions.subscribe.md"). After receiving a notification, you can self-apply the OS patch to each instance.
 
 When patching a cluster, update reader instances first and the writer last. Avoid patching readers and the writer simultaneously—a failover during the patch can extend downtime. Maintenance on the primary instance triggers a failover, so run more than one instance per cluster to stay available. For details, see [Amazon DocumentDB Failover](failover.md "failover.md").
 

@@ -10,7 +10,7 @@ It also discusses how to determine if a particular index is being used in the qu
 - [Creating indexes](#creating-indexes "#creating-indexes")
 - [Dropping indexes](#dropping-indes "#dropping-indes")
 - [Determining index selection and providing index hint](#w2aac45b9b7c17c13 "#w2aac45b9b7c17c13")
-  Amazon DocumentDB support many types of indexes. For a comprehensive overview of all the supported indexes refer to this [blog post](https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/ "https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/").
+  Amazon DocumentDB supports many types of indexes. For a comprehensive overview of all the supported indexes, see [How to index on Amazon DocumentDB](https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/ "https://aws.amazon.com/blogs/database/how-to-index-on-amazon-documentdb-with-mongodb-compatibility/") on the AWS Database Blog.
 
 ## Creating indexes with Java
 

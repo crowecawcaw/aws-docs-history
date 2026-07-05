@@ -4,9 +4,9 @@
 
 ### Region availability
 
-The Amazon DocumentDB serverless instance type is available in the following regions:
+The Amazon DocumentDB serverless instance type is available in the following Regions:
 
-The following AWS CLI command can be used to verify the exact DocumentDB serverless instance options offered in a particular region:
+The following AWS CLI command can be used to verify the exact DocumentDB serverless instance options offered in a particular Region:
 
 ```
 aws docdb describe-orderable-db-instance-options \

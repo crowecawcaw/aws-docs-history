@@ -74,7 +74,7 @@ actions that you can use to allow or deny access in a policy. Include actions in
 
 For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon Relational Database Service (Amazon RDS).
 
-To see a list of RDS actions, see [Actions defined by Amazon Relational Database Service](../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions") in the _Service Authorization Reference_.
+To see a list of RDS actions, see [Actions defined by Amazon Relational Database Service](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions") in the _Service Authorization Reference_.
 
 To view policy actions for Amazon DocumentDB elastic clusters, see [Actions defined by Amazon DocumentDB elastic clusters](../../../service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-actions-as-permissions "../../../service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-actions-as-permissions") in the _Service Authorization Reference_.
 
@@ -115,11 +115,11 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon Relational Database Service (Amazon RDS).
 
 To view a list of RDS resource types and their ARNs, see
-[Resources defined by Amazon Relational Database Service](../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies "../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
+[Resources defined by Amazon Relational Database Service](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-resources-for-iam-policies") in the _Service Authorization Reference_. To learn with
 which actions you can specify the ARN of each resource, see
-[Actions defined by Amazon Relational Database Service](../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions").
+[Actions defined by Amazon Relational Database Service](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions").
 
-To view resource types for Amazon DocumentDB eleastic clusters, see [Resource types defined by Amazon DocumentDB elastic clusters](../../../en_us/service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-resources-for-iam-policies "../../../en_us/service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-resources-for-iam-policies") in the _Service Authorization Reference_.
+To view resource types for Amazon DocumentDB elastic clusters, see [Resource types defined by Amazon DocumentDB elastic clusters](../../../service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-resources-for-iam-policies") in the _Service Authorization Reference_.
 
 To view examples of Amazon DocumentDB identity-based policies, see [Identity-based policy examples for Amazon DocumentDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
@@ -142,11 +142,11 @@ _IAM User Guide_.
 
 For certain management features, Amazon DocumentDB uses operational technology that is shared with Amazon Relational Database Service (Amazon RDS).
 
-To see a list of RDS condition keys, see [Condition keys for Amazon Relational Database Service](../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-policy-keys "../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-policy-keys") in the
+To see a list of RDS condition keys, see [Condition keys for Amazon Relational Database Service](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-policy-keys "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-policy-keys") in the
 _Service Authorization Reference_. To learn with which actions and resources you
-can use a condition key, see [Actions defined by Amazon Relational Database Service](../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../en_us/service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions").
+can use a condition key, see [Actions defined by Amazon Relational Database Service](../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonrds.md#amazonrds-actions-as-permissions").
 
-To view condition keys for Amazon DocumentDB eleastic clusters, see [Condition keys for Amazon DocumentDB elastic clusters](../../../en_us/service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-policy-keys "../../../en_us/service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-policy-keys") in the _Service Authorization Reference_.
+To view condition keys for Amazon DocumentDB elastic clusters, see [Condition keys for Amazon DocumentDB elastic clusters](../../../service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-policy-keys "../../../service-authorization/latest/reference/list_amazondocumentdbelasticclusters.md#amazondocumentdbelasticclusters-policy-keys") in the _Service Authorization Reference_.
 
 To view examples of Amazon DocumentDB identity-based policies, see [Identity-based policy examples for Amazon DocumentDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 

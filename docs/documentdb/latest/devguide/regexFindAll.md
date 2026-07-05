@@ -84,7 +84,7 @@ db.users.aggregate([
 ]
 ```
 
-**Note:** If your query is using Amazon DocumentDB planner version 1, you must use a hint to utilize an index. Without a hint, the query may perform a collection scan. To check your planner version and learn more about using hints, see the [Amazon DocumentDB Query Planner documentation](https://docs.aws.amazon.com/documentdb/latest/devguide/query-planner.html).
+**Note:** If your query is using Amazon DocumentDB planner version 1, you must use a hint to utilize an index. Without a hint, the query may perform a collection scan. To check your planner version and learn more about using hints, see [Query planner v2](query-planner.md "query-planner.md").
 
 ## Code examples
 

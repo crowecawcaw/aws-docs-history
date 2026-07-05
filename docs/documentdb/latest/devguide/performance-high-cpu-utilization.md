@@ -30,11 +30,11 @@ After identifying the instance and timeline of the CPU spike, next is to diagnos
 
 ## Resolve - Fix the issue
 
-**Connection bursts**: If connection bursts are the cause of CPU spikes, consider reusing connections in your application or implementing connection pooling. For more information on optimizing high connections, see [Connection Issues with Amazon DocumentDB](performance-connection-issues.md "performance-connection-issues.md").
+**Connection bursts**: If connection bursts are the cause of CPU spikes, consider reusing connections in your application or implementing connection pooling. For more information on optimizing high connections, see [Connection issues with Amazon DocumentDB](performance-connection-issues.md "performance-connection-issues.md").
 
 **Query Distribution**: If the CPU spikes are caused by read queries on the primary instance, consider redirecting read operations to replica instances if your query results can be eventually consistent.
 
-**Query optimizations**: If a query or set of queries are causing the CPU to spike, consider optimizing the query such as adding an index if the query is not using one. For more information on optimizing a query, see [Query Running Slow](performance-slow-queries.md "performance-slow-queries.md").
+**Query optimizations**: If a query or set of queries are causing the CPU to spike, consider optimizing the query such as adding an index if the query is not using one. For more information on optimizing a query, see [Query running slow](performance-slow-queries.md "performance-slow-queries.md").
 
 **Instance Scaling**: If CPU utilization remains consistently high after optimization efforts, upgrade to a larger instance class with more CPU capacity to handle your workload requirements effectively.
 

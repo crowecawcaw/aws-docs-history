@@ -61,8 +61,8 @@ Amazon DocumentDB instances run only in the Amazon VPC environment. Amazon VPC g
 
 Before you can create Amazon DocumentDB instances, you must create a cluster to contain the instances.
 
-Not all instance classes are supported in every region. The following table shows which instance classes are supported
-in each region.
+Not all instance classes are supported in every AWS Region. The following table shows which instance classes are supported
+in each Region.
 
 ###### Note
 
@@ -106,14 +106,14 @@ Supported instance classes by Region| | Instance Classes |
 | AWS GovCloud (US-West) | Supported | Supported | Supported | Supported | | | Supported | Supported |
 | AWS GovCloud (US-East) | | Supported | Supported | Supported | | Supported | Supported | Supported |
 
-## Regions and availability zones
+## Regions and Availability Zones
 
-Regions and Availability Zones define the physical locations of your cluster and instances.
+AWS Regions and Availability Zones define the physical locations of your cluster and instances.
 
 ### Regions
 
 AWS Cloud computing resources are housed in highly available data center facilities in different areas of the world (for example, North America,
-Europe, or Asia). Each data center location is called a _Region_.
+Europe, or Asia). Each data center location is called an _AWS Region_.
 
 Each AWS Region is designed to be completely isolated from the other AWS Regions. Within each are multiple Availability Zones. By launching your nodes in different Availability Zones, you can achieve the greatest possible fault tolerance. The following diagram shows a high-level view of how AWS Regions and Availability Zones work.
 
@@ -195,7 +195,7 @@ For detailed information, see [Amazon DocumentDB pricing](https://aws.amazon.com
 ### Free trial
 
 You can try Amazon DocumentDB for free using the 1-month free trial.
-For more information, see Free trial in [Amazon DocumentDB pricing](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/") or see the [Amazon DocumentDB free trial FAQ](https://aws.amazon.com/documentdb/free-trial/ "https://aws.amazon.com/documentdb/free-trial/").
+For more information, see [Free trial](https://aws.amazon.com/documentdb/pricing/ "https://aws.amazon.com/documentdb/pricing/") on the Amazon DocumentDB pricing site, or see the [Amazon DocumentDB free trial FAQ](https://aws.amazon.com/documentdb/free-trial/ "https://aws.amazon.com/documentdb/free-trial/").
 
 ## Monitoring
 

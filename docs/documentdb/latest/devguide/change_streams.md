@@ -8,7 +8,7 @@ different use cases, including the following:
 - Change notification
 - Full-text search with Amazon OpenSearch Service (OpenSearch Service)
 - Analytics with Amazon Redshift
-  Applications can use change streams to subscribe to data changes on individual collections. Change streams events are ordered as they occur on the cluster and are stored for 3 hours (by default) after the event has been recorded. The retention period can be extended up to 7 days using the `change_stream_log_retention_duration` parameter. To modify the change stream retention period, see [Modifying the Change Stream Log Retention Duration](change_streams.md#change_streams-modifying_log_retention "change_streams.md#change_streams-modifying_log_retention") .
+  Applications can use change streams to subscribe to data changes on individual collections. Change streams events are ordered as they occur on the cluster and are stored for 3 hours (by default) after the event has been recorded. The retention period can be extended up to 7 days using the `change_stream_log_retention_duration` parameter. To modify the change stream retention period, see [Modifying the change stream log retention duration](#change_streams-modifying_log_retention "#change_streams-modifying_log_retention").
 
 ###### Topics
 
@@ -511,7 +511,7 @@ Using the AWS Management Console
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
+(![Menu button.](/images/documentdb/latest/devguide/images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the **Parameter groups** pane, choose the
 cluster parameter group that is associated with your cluster. To
 identify the cluster parameter group that is associated with your

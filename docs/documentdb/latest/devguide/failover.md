@@ -17,7 +17,7 @@ This topic only applies to original Amazon DocumentDB instance-based clusters. I
 Amazon DocumentDB provides you with failover tiers as a means to control which
 replica instance is promoted to primary when a failover occurs.
 
-###### Failover Tiers
+###### Failover tiers
 
 Each replica instance is associated with a failover tier (0–15). When a failover occurs due to maintenance or an unlikely hardware failure, the primary instance fails over to a replica with the highest priority (the lowest numbered tier). If multiple replicas have the same priority tier, the primary fails over to that tier's replica that is the closest in size to the previous primary.
 

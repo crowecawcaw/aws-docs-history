@@ -8,7 +8,7 @@ Currently, Amazon DocumentDB instances can be provisioned in up to three AZs. Ev
 
 For example: A cluster is created and Amazon DocumentDB choose AZs {1A, 1B, and 1C}. If you attempt to create an instance in AZ {1D} the API call will fail. However, if you choose to create an instance, without specifying the particular AZ, then Amazon DocumentDB will choose an AZ on your behalf. Amazon DocumentDB uses an algorithm to load balance the instances across AZs to help you achieve high availability. If three instances are provisioned, by default, they will be provisioned across three AZs and will not be provisioned all in a single AZ.
 
-Best Practices
+Best practices
 
 - Unless you have a specific reason, always create a subnet group with three subnets.
   This ensures that clusters with three or more instances will be able to achieve higher availability as instances will be provisioned across three AZs.

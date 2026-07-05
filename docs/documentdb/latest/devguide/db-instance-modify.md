@@ -31,7 +31,7 @@ changes:
 
 
 
-    	+ **Instance identifier** — Enter a name that is unique for all instances owned by your AWS account in the current region. The instance identifier must contain [1—63]
+    	+ **Instance identifier** — Enter a name that is unique for all instances owned by your AWS account in the current Region. The instance identifier must contain [1—63]
     	 alphanumeric characters or hyphens, have a letter as the first character, and cannot end with a hyphen or contain two consecutive hyphens.
     	+ **Instance class** — From the drop-down menu, select an instance class for your Amazon DocumentDB instance. For more information, see [Managing instance classes](db-instance-classes.md "db-instance-classes.md").
     * **Certificate

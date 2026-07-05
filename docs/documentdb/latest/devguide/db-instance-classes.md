@@ -12,7 +12,7 @@ For the specifications on these classes, see [Instance class specifications](#db
 
 - [Determining an instance class](#db-instance-class-determining "#db-instance-class-determining")
 - [Changing an instance's class](#db-instance-class-changing "#db-instance-class-changing")
-- [Supported instance classes by region](#db-instance-classes-by-region "#db-instance-classes-by-region")
+- [Supported instance classes by Region](#db-instance-classes-by-region "#db-instance-classes-by-region")
 - [Instance class specifications](#db-instance-class-specs "#db-instance-class-specs")
 
 ## Determining an instance class
@@ -139,7 +139,7 @@ For more information, see [Describing Amazon DocumentDB instances](db-instance-v
 You can change the instance class of your instance using the AWS Management Console or the AWS CLI. For
 more information, see [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md").
 
-## Supported instance classes by region
+## Supported instance classes by Region
 
 Amazon DocumentDB supports the following instance classes:
 

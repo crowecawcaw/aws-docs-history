@@ -126,6 +126,6 @@ deleting instances and clusters, see the following topics:
 - [Deleting an Amazon DocumentDB instance](db-instance-delete.md "db-instance-delete.md")
 - [Deleting an Amazon DocumentDB cluster](db-cluster-delete.md "db-cluster-delete.md")
 
-## Supported regions for Amazon DocumentDB service-linked roles
+## Supported Regions for Amazon DocumentDB service-linked roles
 
 Amazon DocumentDB supports using service-linked roles in all of the Regions where the service is available. For more information, see [https://docs.aws.amazon.com/documentdb/latest/devguide/regions-and-azs.html#regions-and-azs-availability](regions-and-azs.md#regions-and-azs-availability "regions-and-azs.md#regions-and-azs-availability").

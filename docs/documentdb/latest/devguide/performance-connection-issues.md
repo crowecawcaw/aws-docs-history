@@ -1,4 +1,4 @@
-# Connection Issues with Amazon DocumentDB
+# Connection issues with Amazon DocumentDB
 
 ## Identification - Spot the problem
 
@@ -200,7 +200,7 @@ Application changes should focus on implementing robust connection handling, com
 
 Architecture improvements might involve adopting Amazon DocumentDB Serverless for variable workloads, implementing sophisticated retry logic, and designing for fault tolerance. Consider restructuring application architecture to better handle connection management.
 
-## Best Practices
+## Best practices
 
 **Connection pools**
 
@@ -221,7 +221,7 @@ MongoClientSettings settings = MongoClientSettings.builder()
 
 ```
 
-For more information, see: [https://aws.amazon.com/blogs/database/building-resilient-applications-with-amazon-documentdb-with-mongodb-compatibility-part-1-client-configuration/](https://aws.amazon.com/blogs/database/building-resilient-applications-with-amazon-documentdb-with-mongodb-compatibility-part-1-client-configuration/ "https://aws.amazon.com/blogs/database/building-resilient-applications-with-amazon-documentdb-with-mongodb-compatibility-part-1-client-configuration/")
+For more information, see [Building resilient applications with Amazon DocumentDB – Part 1: Client configuration](https://aws.amazon.com/blogs/database/building-resilient-applications-with-amazon-documentdb-with-mongodb-compatibility-part-1-client-configuration/ "https://aws.amazon.com/blogs/database/building-resilient-applications-with-amazon-documentdb-with-mongodb-compatibility-part-1-client-configuration/").
 
 **Authentication overload**
 

@@ -27,9 +27,9 @@ AWS KMS stores the Customer Key (CK) which is used to encrypt Data Keys (DKs).
 Store the Customer Key in KMS to strengthen your security posture.
 The Data Key is the secondary key which is stored in an Amazon DocumentDB collection and is required to encrypt sensitive fields before storing the document in Amazon DocumentDB.
 The Customer Key encrypts the Data Key which in turn encrypts and decrypts your data.
-If you are using a global cluster, you can create a multi-region key that can be used by different service roles in different regions.
+If you are using a global cluster, you can create a multi-region key that can be used by different service roles in different Regions.
 
-For more information about the AWS Key Management Service, including how to create a key, see the [AWS Key Management Service Developer Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+For more information about the AWS Key Management Service, including how to create a key, see [AWS Key Management Service concepts](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the _AWS Key Management Service Developer Guide_.
 
 ### Step 2: Associate a role with the application
 

@@ -10,13 +10,13 @@ The current LTS release for Amazon DocumentDB is:
 
 To determine the version your cluster is on, see [How to check if my existing engine version 5.0.0 cluster is on LTS](#docdb-lts-check-version "#docdb-lts-check-version").
 
-For details about support timelines and release cycles for the LTS versions, see [Amazon DocumentDB engine version support dates](../developerguide/docdb-version-support-dates.md "../developerguide/docdb-version-support-dates.md"). Amazon DocumentDB will announce the next LTS version through standard communication channels.
+For more information about support timelines and release cycles for the LTS versions, see [Amazon DocumentDB engine version support dates](docdb-version-support-dates.md "docdb-version-support-dates.md"). Amazon DocumentDB will announce the next LTS version through standard communication channels.
 
 ###### Note
 
 An LTS release for Amazon DocumentDB 8.0 has not yet been designated. If you require LTS, use engine version 5.0.0 with Patch Version 3.0.17983 or later.
 
-## Who Should Use LTS
+## Who should use LTS
 
 Amazon DocumentDB LTS releases are designed for clusters with limited upgrade windows. LTS is ideal for production environments where database availability directly impacts business operations.
 
@@ -58,7 +58,7 @@ Output from this operation looks something like the following:
 
 To upgrade to an LTS cluster, follow these steps:
 
-1. In the Management Console, major version upgrade (MVU) your engine version 3.6.0 or 4.0.0 cluster to 5.0.0 following [Upgrading the Amazon DocumentDB engine version](../developerguide/docdb-mvu.md "../developerguide/docdb-mvu.md")
+1. In the Management Console, major version upgrade (MVU) your engine version 3.6.0 or 4.0.0 cluster to 5.0.0. For instructions on performing an MVU, see [Amazon DocumentDB in-place major version upgrade](docdb-mvu.md "docdb-mvu.md").
 2. Verify you're on engine version 5.0.0 after upgrade using the AWS CLI:
 
 ```
@@ -79,4 +79,4 @@ aws docdb describe-db-clusters \
     --query 'DBClusters[0].EngineVersion'
 ```
 
-2. If needed, upgrade your existing engine version 5.0.0 cluster following [Performing a patch update to a cluster's engine version](../developerguide/db-cluster-version-upgrade.md "../developerguide/db-cluster-version-upgrade.md")
+2. If needed, upgrade your existing engine version 5.0.0 cluster. For instructions on performing a patch update, see [Performing a patch update to a cluster's engine version](db-cluster-version-upgrade.md "db-cluster-version-upgrade.md").

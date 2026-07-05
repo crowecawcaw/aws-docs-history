@@ -33,7 +33,7 @@ For more information, see [Idle state (0.5 DCUs)](docdb-serverless-how-it-works.
 
 | Current Capacity (DCU) | Instance Memory (GiB) | Connections (all) | Cursor Limit | Open Transactions | Connections (active) |
 | ---------------------- | --------------------- | ----------------- | ------------ | ----------------- | -------------------- |
-| 1.5                    | 3                     | 7250              | 18           | 36                | 124                  |
+| 1.5                    | 3                     | 750               | 18           | 36                | 124                  |
 | 2                      | 4                     | 1000              | 24           | 48                | 173                  |
 | 4                      | 8                     | 2000              | 48           | 96                | 416                  |
 | 8                      | 16                    | 4000              | 96           | 192               | 1071                 |

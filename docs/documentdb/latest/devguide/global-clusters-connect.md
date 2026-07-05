@@ -13,7 +13,7 @@ or read from the cluster:
 
 How you connect to a global cluster depends on whether you need to write to the database
 or read from the database. For DDL, DML and read operations that you would like to serve
-from the primary region, you should connect to your primary cluster. We recommend that you
+from the primary Region, you should connect to your primary cluster. We recommend that you
 connect to your primary cluster using the cluster endpoint in replica set mode, with a read
 preference of `secondaryPreferred=true`. This will route write traffic to your
 primary cluster’s writer instance and read traffic to your primary cluster’s replica
@@ -24,4 +24,4 @@ We recommend that you connect to your secondary cluster using the cluster endpoi
 replica set mode. Since all instances are read-only replica instances, you should specify a
 read preference other than `primary` (for example, `secondary`,
 `secondaryPreferred`, or `nearest`). To minimize latency, choose whichever reader endpoint is in your
-region or the region closest to you.
+Region or the Region closest to you.

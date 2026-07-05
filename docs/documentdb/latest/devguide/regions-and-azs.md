@@ -1,4 +1,4 @@
-# Choosing regions and availability zones
+# Choosing Regions and Availability Zones
 
 Amazon cloud computing resources are hosted in multiple locations worldwide. These locations consist of AWS Regions and Availability Zones. Each
 _AWS Region_ is a separate geographic area. Each Region has multiple, isolated locations known as _Availability
@@ -66,4 +66,4 @@ Amazon DocumentDB is available in the following AWS Regions.
 
 By default, the time zone for an Amazon DocumentDB cluster is Universal Time Coordinated (UTC).
 
-For information on finding the connection endpoints for clusters and instances in a particular region, see [Understanding Amazon DocumentDB endpoints](endpoints.md "endpoints.md").
+For information on finding the connection endpoints for clusters and instances in a particular Region, see [Understanding Amazon DocumentDB endpoints](endpoints.md "endpoints.md").

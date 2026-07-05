@@ -30,7 +30,7 @@ These resources and subresources have unique Amazon Resource Names (ARNs) associ
 | Security group          | `arn:aws:rds:`region`:`account-id`:secgrp:`security-group-name``              |
 | Subnet group            | `arn:aws:rds:`region`:`account-id`:subgrp:`subnet-group-name``                |
 
-Amazon DocumentDB provides a set of operations to work with the Amazon DocumentDB resources. For a list of available operations, see [Actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md").
+Amazon DocumentDB provides a set of operations to work with the Amazon DocumentDB resources. For a list of available operations, see [Actions](../developerguide/api-reference.htmlAPI_Operations.md "../developerguide/api-reference.htmlAPI_Operations.md").
 
 ## Understanding resource ownership
 
@@ -122,4 +122,4 @@ For a table showing all of the Amazon DocumentDB API actions and the resources t
 
 When you grant permissions, you can use the IAM policy language to specify the conditions when a policy should take effect. For example, you might want a policy to be applied only after a specific date. For more information about specifying conditions in a policy language, see [Condition](../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition "../../../IAM/latest/UserGuide/reference_policies_elements.md#Condition") in the _IAM User Guide_.
 
-To express conditions, you use predefined condition keys. Amazon DocumentDB has no service-specific context keys that can be used in an IAM policy. For a list of global condition context keys that are available to all services, see [Available Keys for Conditions](../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys") in the _IAM User Guide_.
+To express conditions, you use predefined condition keys. Amazon DocumentDB has no service-specific context keys that can be used in an IAM policy. For a list of global condition context keys that are available to all services, see [Available global condition keys](../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys "../../../IAM/latest/UserGuide/reference_policies_elements.md#AvailableKeys") in the _IAM User Guide_.

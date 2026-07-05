@@ -143,7 +143,7 @@ Refer to [Using an OpenSearch Ingestion pipeline with Amazon DocumentDB](../../.
 The following limitations apply to the Amazon DocumentDB OpenSearch integration:
 
 - Only one Amazon DocumentDB collection as the source per pipeline is supported.
-- Cross-region data ingestion is not supported. Your Amazon DocumentDB cluster and OpenSearch domain must be in the same AWS region.
+- Cross-region data ingestion is not supported. Your Amazon DocumentDB cluster and OpenSearch domain must be in the same AWS Region.
 - Cross-account data ingestion is not supported. Your Amazon DocumentDB cluster and OpenSearch ingestion pipeline must be in the same AWS account.
 - Amazon DocumentDB elastic clusters are not supported. Only Amazon DocumentDB instance-based clusters are supported.
 - Ensure that the Amazon DocumentDB cluster has authentication enabled using AWS secrets. AWS secrets are the only supported authentication mechanism.

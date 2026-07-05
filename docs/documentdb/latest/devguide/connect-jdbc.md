@@ -19,14 +19,14 @@ For more detailed information, refer to the [Amazon DocumentDB JDBC Driver docum
 **Step 1. Create Amazon DocumentDB Cluster**
 
 If you do not have an Amazon DocumentDB cluster created, then create one using the
-instructions in the [Getting Started](get-started-guide.md "get-started-guide.md") section of the Amazon DocumentDB Developer Guide.
+instructions in the [Get started with Amazon DocumentDB](get-started-guide.md "get-started-guide.md").
 
 ###### Note
 
 Amazon DocumentDB is a Virtual Private Cloud (VPC) only service. If you are
 connecting from a local machine, outside the cluster's VPC, you will
 need to create an SSH connection to an Amazon EC2 instance. In this
-case, launch your cluster using the instructions in [Connect with EC2](connect-ec2.md "connect-ec2.md"). See [Using an SSH Tunnel to Connect to Amazon DocumentDB](https://github.com/aws/amazon-documentdb-jdbc-driver/blob/develop/src/markdown/setup/setup.md#using-an-ssh-tunnel-to-connect-to-amazon-documentdb "https://github.com/aws/amazon-documentdb-jdbc-driver/blob/develop/src/markdown/setup/setup.md#using-an-ssh-tunnel-to-connect-to-amazon-documentdb") for more
+case, launch your cluster using the instructions in [Connect using Amazon EC2](connect-ec2.md "connect-ec2.md"). See [Using an SSH Tunnel to Connect to Amazon DocumentDB](https://github.com/aws/amazon-documentdb-jdbc-driver/blob/develop/src/markdown/setup/setup.md#using-an-ssh-tunnel-to-connect-to-amazon-documentdb "https://github.com/aws/amazon-documentdb-jdbc-driver/blob/develop/src/markdown/setup/setup.md#using-an-ssh-tunnel-to-connect-to-amazon-documentdb") for more
 information on SSH tunneling and when you might need it.
 
 **Step 2. JRE or JDK Installation**

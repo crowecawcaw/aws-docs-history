@@ -1,4 +1,4 @@
-# Single Field Indexes
+# Single field indexes
 
 Single field indexes store information from any single field in a collection of documents. By default, all collections have an index on the `_id` field. You can add additional indexes to speed up important queries and operations.
 
@@ -48,4 +48,4 @@ The `options` parameter is a JSON document that specifies the options for the in
 }
 ```
 
-See [Index Properties](index-properties.md "index-properties.md") for examples of creating single field indexes.
+See [Index properties](index-properties.md "index-properties.md") for examples of creating single field indexes.

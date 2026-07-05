@@ -76,7 +76,7 @@ Amazon DocumentDB provides the following CAs to sign the DB server certificate f
 - **rds-ca-ecc384-g1**—Uses a certificate authority with ECC 384 private key algorithm and SHA384 signing algorithm.
   This CA supports automatic server certificate rotation.
   This is only supported on Amazon DocumentDB 4.0 and 5.0.
-- **rds-ca-rsa2048-g1**—Uses a certificate authority with RSA 2048 private key algorithm and SHA256 signing algorithm in most AWS regions.
+- **rds-ca-rsa2048-g1**—Uses a certificate authority with RSA 2048 private key algorithm and SHA256 signing algorithm in most AWS Regions.
   This CA supports automatic server certificate rotation.
 - **rds-ca-rsa4096-g1**—Uses a certificate authority with RSA 4096 private key algorithm and SHA384 signing algorithm. This CA supports automatic server certificate rotation.
 

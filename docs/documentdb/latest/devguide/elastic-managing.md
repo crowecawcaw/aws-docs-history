@@ -221,7 +221,7 @@ If you don't see the navigation pane on the left side of your screen, choose the
 ![Delete dialog box, with Delete button in the lower-right corner.](images/cluster-delete-dialog.png)
 
 It takes several minutes for the cluster to be deleted.
-To monitor the status of the cluster, see [Monitoring an Amazon DocumentDB Cluster's Status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md").
+To monitor the status of the cluster, see [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md").
 
 Using the AWS CLI
 To delete an elastic cluster using the AWS CLI, use the `delete-cluster` operation with the following parameters::
@@ -277,4 +277,4 @@ aws docdb-elastic delete-cluster ^
 The output of the `delete-cluster` operation is a display of the cluster you are deleting.
 
 It takes several minutes for the cluster to be deleted.
-To monitor the status of the cluster, see [Monitoring an Amazon DocumentDB Cluster's Status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md").
+To monitor the status of the cluster, see [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md").

@@ -66,7 +66,7 @@ If you encounter the following error message:
 
 ```
 
-For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _AWS Identity and Access Management User Guide_.
+For more information, see [Service-linked role permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the _IAM User Guide_.
 
 ### Creating a service-linked role for Amazon DocumentDB elastic clusters
 
@@ -77,7 +77,7 @@ When you create a DB instance, Amazon DocumentDB elastic clusters creates the se
 
 Amazon DocumentDB elastic clusters do not allow you to edit the `AWSServiceRoleForDocDB-Elastic` service-linked role.
 After you create a service-linked role, you cannot change the name of the role because various entities might reference the role.
-However, you can edit the description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _AWS Identity and Access Management User Guide_.
+However, you can edit the description of the role using IAM. For more information, see [Editing a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the _IAM User Guide_.
 
 #### Deleting a service-linked role for Amazon DocumentDB elastic clusters
 
@@ -120,4 +120,4 @@ To delete a cluster in the Amazon DocumentDB console:
 ###### Note
 
 You can use the IAM console, the IAM CLI, or the IAM API to delete the `AWSServiceRoleForDocDB-Elastic` service-linked role.
-For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _AWS Identity and Access Management User Guide_.
+For more information, see [Deleting a service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the _IAM User Guide_.

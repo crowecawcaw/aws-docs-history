@@ -16,7 +16,7 @@ In this case, you can create a new event source mapping and configure it with a 
 Lambda event source mappings process events at least once due to the distributed nature of its pollers.
 As a result, your Lambda function may receive duplicate events in rare situations.
 Follow best practices for working with AWS Lambda functions and build idempotent functions to avoid issues related to duplicate events.
-For more information see [Using AWS Lambda console with Amazon DocumentDB](../../../lambda/latest/dg/with-documentdb.md "../../../lambda/latest/dg/with-documentdb.md") in the _AWS Lambda Developer Guide_.
+For more information, see [Using AWS Lambda console with Amazon DocumentDB](../../../lambda/latest/dg/with-documentdb.md "../../../lambda/latest/dg/with-documentdb.md") in the _AWS Lambda Developer Guide_.
 
 As performance best practices, the Lambda function needs to be short lived.
 To avoid introducing unnecessary processing delays, it also should not execute complex logic.

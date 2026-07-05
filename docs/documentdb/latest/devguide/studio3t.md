@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-- If you don't already have an Amazon DocumentDB cluster using Amazon EC2 as a bastion/jump host, follow the instructions on how to [Connect with Amazon EC2](connect-ec2.md "connect-ec2.md").
+- If you don't already have an Amazon DocumentDB cluster using Amazon EC2 as a bastion/jump host, see [Connect using Amazon EC2](connect-ec2.md "connect-ec2.md").
 - If you don't have Studio 3T, [download and install it](https://studio3t.com/download "https://studio3t.com/download").
 
 ## Connect with Studio 3T
@@ -19,7 +19,7 @@
 
 ###### Note
 
-Can't find your cluster endpoint? Just follow the steps [here](db-instance-endpoint-find.md "db-instance-endpoint-find.md"). 4. Choose the **Authentication** tab and select **Legacy** in the drop down menu for **Authentication Mode**.
+To find your cluster endpoint, see [Finding an instance's endpoint](db-instance-endpoint-find.md "db-instance-endpoint-find.md"). 4. Choose the **Authentication** tab and select **Legacy** in the drop down menu for **Authentication Mode**.
 
 ![Authentication tab in the New Connection interface with legacy authentication mode selected and user name, password, and authentication DB information provided.](images/studio3t/studio3t-auth.png) 5. Input your username and credentials in the **User name** and **Password** fields. 6. Choose the **SSL** tab and check the box **Use SSL protocol to connect**.
 

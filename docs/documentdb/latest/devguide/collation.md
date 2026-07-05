@@ -1,4 +1,4 @@
-# Using Collation in Amazon DocumentDB 8.0
+# Using collation in Amazon DocumentDB 8.0
 
 Amazon DocumentDB 8.0 now supports collation. Collation allows you to configure language-specific rules for string comparison. With collation, you can specify rules for case-sensitive comparisons, or specify a language locale. Collation can be configured at the collection-level or index-level in DocumentDB 8.0.
 When you use collation in DocumentDB, internally a collation document is created with the following parameters.

@@ -136,7 +136,7 @@ the following:
 
 ###### Note
 
-Amazon DocumentDB supports FIPS 140-3 endpoints starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.
+Amazon DocumentDB supports FIPS 140-3 endpoints starting with Amazon DocumentDB 5.0 (engine version 3.0.3727) clusters in these Regions: ca-central-1, us-west-2, us-east-1, us-east-2, us-gov-east-1, us-gov-west-1.
 
 After determining the value of your `tls` parameter,
 continue connecting to your cluster by using one of the code

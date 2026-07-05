@@ -22,7 +22,7 @@ With this feature, Amazon DocumentDB 5.0 now offers the ability to select from t
 
 The following prerequisites apply to planner version 2.0:
 
-- Planner version 2.0 is available in all regions where engine version 5.0 is available.
+- Planner version 2.0 is available in all AWS Regions where engine version 5.0 is available.
 - To opt for using version 2.0 as the default query planner, your cluster needs to be on engine patch version 3.0.15902 or later of Amazon DocumentDB version 5.0.
   For steps to update to the latest engine version patch, see [Performing a patch update to a cluster's engine version](db-cluster-version-upgrade.md "db-cluster-version-upgrade.md").
 - To set planner version 2.0 as the default query planner, you need IAM permissions to update cluster parameter groups.
@@ -40,8 +40,8 @@ Use the following steps to select 2.0 as the default query planner from the cons
 
 For expected results, use the following best practices when applying planner version 2.0:
 
-- In a global cluster, select the same `plannerVersion` value (1.0 or 2.0) in the cluster parameter groups for both regions.
-  Note that selecting different planner versions in primary and secondary regions may cause inconsistent query behavior and performance.
+- In a global cluster, select the same `plannerVersion` value (1.0 or 2.0) in the cluster parameter groups for both Regions.
+  Note that selecting different planner versions in primary and secondary Regions may cause inconsistent query behavior and performance.
 - Updating to planner version 2.0 during a scheduled maintenance windows or during reduced traffic periods will be the least disruptive, as there may be increased error rates if the planner version is changed when workloads are actively running.
 - Planner version 2.0 works most optimally with MongoDB shell version 5.0.
 

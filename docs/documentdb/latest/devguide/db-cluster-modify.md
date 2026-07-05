@@ -55,7 +55,7 @@ For more information, see [Monitoring an Amazon DocumentDB cluster's status](mon
 
 Using the AWS CLI
 Use the `modify-db-cluster` operation to modify the
-specified cluster using the AWS CLI. For more information, see [`ModifyDBCluster`](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md")
+specified cluster using the AWS CLI. For more information, see [ModifyDBCluster](../APIReference/API_ModifyDBCluster.md "../APIReference/API_ModifyDBCluster.md")
 in the _Amazon DocumentDB API Reference_.
 
 ###### Parameters
@@ -110,7 +110,7 @@ Naming constraints:
     + First character must be a letter.
     + Cannot end with a hyphen or contain two consecutive
      hyphens.
-    + Must be unique for all clusters across Amazon RDS, Amazon Neptune, and Amazon DocumentDB per AWS account, per region.
+    + Must be unique for all clusters across Amazon RDS, Amazon Neptune, and Amazon DocumentDB per AWS account, per Region.
 
 - `--preferred-backup-window`—Optional.
   The daily time range during which automated backups are

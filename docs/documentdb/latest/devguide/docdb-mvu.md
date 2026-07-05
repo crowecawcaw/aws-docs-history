@@ -1,6 +1,6 @@
 # Amazon DocumentDB in-place major version upgrade
 
-You can perform an in-place major version upgrade (MVU) of your Amazon DocumentDB cluster while keeping the same endpoints, storage, and tags. Your applications continue to work without modifications. This feature is available at no additional cost in all regions where Amazon DocumentDB is available.
+You can perform an in-place major version upgrade (MVU) of your Amazon DocumentDB cluster while keeping the same endpoints, storage, and tags. Your applications continue to work without modifications. This feature is available at no additional cost in all AWS Regions where Amazon DocumentDB is available.
 
 ###### Important
 
@@ -20,11 +20,24 @@ Once upgraded, you cannot downgrade to a previous version. You can restore your 
 
 ## Supported upgrade paths
 
-| Source version        | Target version        |
-| --------------------- | --------------------- |
-| Amazon DocumentDB 3.6 | Amazon DocumentDB 5.0 |
-| Amazon DocumentDB 4.0 | Amazon DocumentDB 5.0 |
-| Amazon DocumentDB 5.0 | Amazon DocumentDB 8.0 |
+The following table lists every supported in-place major version upgrade path.
+You can select any published minor version on the target major as the target engine version.
+
+| Source major version                                | Target major version                                | Notes                                                                                                                                                           |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon DocumentDB 3.6                               | Amazon DocumentDB 5.0 (any published minor version) | See [Post-upgrade considerations for clusters upgraded from 3.6 or 4.0](#mvu-36-to-50-differences "#mvu-36-to-50-differences") for post-upgrade considerations. |
+| Amazon DocumentDB 4.0                               | Amazon DocumentDB 5.0 (any published minor version) | See [Post-upgrade considerations for clusters upgraded from 3.6 or 4.0](#mvu-36-to-50-differences "#mvu-36-to-50-differences") for post-upgrade considerations. |
+| Amazon DocumentDB 5.0 (any published minor version) | Amazon DocumentDB 8.0 (any published minor version) | See [What changes after upgrading from Amazon DocumentDB 5.0 to 8.0](#mvu-50-to-80-differences "#mvu-50-to-80-differences") for feature changes.                |
+
+To view the minor versions available in your AWS Region, use the AWS CLI command
+`aws docdb describe-db-engine-versions`. For a list of released minor versions,
+see [Release notes](release-notes.md "release-notes.md").
+
+###### Note
+
+Each MVU can target any published minor version on the destination major. For example, upgrading from Amazon DocumentDB 3.6 or 4.0 can go directly to the latest published 5.0 minor version; there is no requirement to first upgrade to 5.0.0 and then apply a minor version upgrade.
+
+To reach 8.0 from 3.6 or 4.0, perform two MVUs: first to a 5.0 minor version of your choice, then to an 8.0 minor version of your choice. There is no direct 3.6→8.0 or 4.0→8.0 MVU path.
 
 ###### Note
 
@@ -32,8 +45,11 @@ In-place MVU is not supported for global clusters or elastic clusters. To upgrad
 
 ## Prerequisites
 
-- **Instance type** — Amazon DocumentDB 4.0+ does not support db.r4 instances. Modify any `db.r4.*` instances to `db.r5.*` instances or newer before upgrading. See [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md") and [Supported instance classes by region](db-instance-classes.md#db-instance-classes-by-region "db-instance-classes.md#db-instance-classes-by-region").
-- **Burstable instances** — If your cluster uses burstable instance types (for example, `db.t3.medium` or `db.t4g.medium`), we strongly recommend scaling up the primary instance to at least `db.r5.large` or `db.r6g.large` before initiating the upgrade. Burstable instances may not have sufficient CPU and memory to complete the upgrade process, which can result in upgrade failures and extended cluster unavailability. You can scale back down after the upgrade completes.
+###### Important
+
+**Scale up burstable instances before upgrading.** If your cluster uses burstable instance types (for example, `db.t3.medium` or `db.t4g.medium`), we strongly recommend scaling up the primary instance to at least `db.r5.large` or `db.r6g.large` before initiating the upgrade. Burstable instances may not have sufficient CPU and memory to complete the upgrade process, which can result in upgrade failures and extended cluster unavailability. You can scale back down after the upgrade completes.
+
+- **Instance type** — Amazon DocumentDB 4.0+ does not support db.r4 instances. Modify any `db.r4.*` instances to `db.r5.*` instances or newer before upgrading. See [Modifying an Amazon DocumentDB instance](db-instance-modify.md "db-instance-modify.md") and [Supported instance classes by Region](db-instance-classes.md#db-instance-classes-by-region "db-instance-classes.md#db-instance-classes-by-region").
 - **OS patches** — Apply any pending OS maintenance actions on all instances before upgrading. See [Amazon DocumentDB operating system updates](db-instance-maintain.md#os-system-updates "db-instance-maintain.md#os-system-updates").
 
 ###### Note
@@ -154,7 +170,7 @@ After performing a major version upgrade from Amazon DocumentDB 5.0 to 8.0, the 
 - **Collation.** Amazon DocumentDB 8.0 supports [collation](collation.md "collation.md"). After the upgrade, new collections and their indexes, and new indexes on existing collections, have collation enabled by default.
 - **Text index.** New text indexes are created using Text Index V2, which uses an updated text search parser for improved MongoDB compatibility. Existing text indexes are not affected.
 - **Query planner version.** If you did not have a custom parameter group, a new default parameter group is created for Amazon DocumentDB 8.0 with Planner Version 3 automatically selected. With query planner version 3, [views](views.md "views.md") are also available.
-- **Compression.** Amazon DocumentDB 8.0 supports dictionary-based document compression using the Zstd algorithm. After the upgrade, new collections are created with Zstd compression enabled by default. Existing collections from 5.0 retain their compression settings. To take advantage of Zstd compression on existing collections, you can modify their compression settings. For more information, see [Dictionary-based compression](dict-compression.md "dict-compression.md").
+- **Compression.** Amazon DocumentDB 8.0 supports dictionary-based document compression using the Zstd algorithm. After the upgrade, new collections are created with Zstd compression enabled by default. Existing collections from 5.0 retain their compression settings. To take advantage of Zstd compression on existing collections, you can modify their compression settings. For more information, see [Managing dictionary-based compression in Amazon DocumentDB 8.0](dict-compression.md "dict-compression.md").
 - **Index rebuild.** If you are upgrading from Amazon DocumentDB 5.0 to Amazon DocumentDB 8.0, no index rebuild is needed.
 
 ###### Important

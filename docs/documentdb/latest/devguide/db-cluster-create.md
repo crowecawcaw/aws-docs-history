@@ -191,7 +191,7 @@ For more information, see [Amazon DocumentDB cluster storage configurations](db-
 8. Enable inbound connection for your cluster's security group.
 
 If you did not change the defaults settings for your cluster, you created a cluster using the default security group for the default VPC in the
-given region. To connect to Amazon DocumentDB, you must enable inbound connections on port 27017 (or the port of your choice) for your cluster’s security
+given Region. To connect to Amazon DocumentDB, you must enable inbound connections on port 27017 (or the port of your choice) for your cluster’s security
 group.
 
 **To add an inbound connection to your cluster's security group**
@@ -395,7 +395,7 @@ Also, `--engine-version` is an optional parameter that defaults to the latest ma
 
 ###### Note
 
-If a `db-subnet-group-name` or `vpc-security-group-id` is not specified, Amazon DocumentDB will use the default subnet group and Amazon VPC security group for the given region.
+If a `db-subnet-group-name` or `vpc-security-group-id` is not specified, Amazon DocumentDB will use the default subnet group and Amazon VPC security group for the given Region.
 
 For Linux, macOS, or Unix:
 
@@ -470,5 +470,5 @@ It takes several minutes to create the cluster. You can use the AWS Management C
 
 When you use the AWS CLI to create an Amazon DocumentDB cluster, no instances are created. Consequently, you must explicitly create a primary instance and any replica instances that you need. You can use either the console or AWS CLI to create the instances. For more information, see [Adding an Amazon DocumentDB instance to a cluster](db-instance-add.md "db-instance-add.md").
 
-For more information, see [`CreateDBCluster`](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md")
+For more information, see [CreateDBCluster](../APIReference/API_CreateDBCluster.md "../APIReference/API_CreateDBCluster.md")
 in the _Amazon DocumentDB API Reference_.

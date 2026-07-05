@@ -39,7 +39,7 @@ To use NVMe-backed instances of Amazon DocumentDB:
 - Create an Amazon DocumentDB cluster and add one of the NVMe-backed instance classes. For more information, see [Creating an Amazon DocumentDB cluster](db-cluster-create.md "db-cluster-create.md").
 - Alternatively, modify an existing Amazon DocumentDB cluster to use one of the NVMe-backed instance classes. For more information, see [Modifying an Amazon DocumentDB cluster](db-cluster-modify.md "db-cluster-modify.md").
 
-To check the availability of NVMe-backed instances across different AWS Regions, see [Supported instance classes by region](db-instance-classes.md#db-instance-classes-by-region "db-instance-classes.md#db-instance-classes-by-region").
+To check the availability of NVMe-backed instances across different AWS Regions, see [Supported instance classes by Region](db-instance-classes.md#db-instance-classes-by-region "db-instance-classes.md#db-instance-classes-by-region").
 
 If you want to switch back from an NVMe-backed instance to a regular instance, modify the database instance class of your Amazon DocumentDB instance to a similar instance class without the NVMe storage.
 For example, if your current instance class is 'db.r6gd.4xlarge', choose 'db.r6g.4xlarge' to switch back.

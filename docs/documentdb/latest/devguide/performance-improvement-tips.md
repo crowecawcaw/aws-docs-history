@@ -1,4 +1,4 @@
-# Performance Improvement Tips
+# Performance improvement tips
 
 This section provides five performance optimization strategies for Amazon DocumentDB to improve application efficiency and query execution.
 

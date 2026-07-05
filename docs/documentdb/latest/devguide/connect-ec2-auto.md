@@ -60,7 +60,7 @@ You must provide an Amazon EC2 key pair.
     	3. Choose the **Key pair type** and **Private key file format**.
     	4. Choose **Create key pair**.
 
-![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](/images/documentdb/latest/devguide/images/ec2/create-key-pair.png)
+![The Create key pair interface with fields for key pair name, type, and file format. The Create key pair button is in the lower-right corner.](images/ec2/create-key-pair.png)
 
 ###### Note
 
@@ -122,7 +122,7 @@ To install the mongo shell, you must first connect to your Amazon EC2 instance. 
 ![Instance summary for an Amazon EC2 instance. The Connect button is towards the upper-right corner.](images/ec2/ec2-instance-summary.png) 3. There are four tabbed options for your connection method: Amazon EC2 Instance Connect, Session Manager, SSH client, or EC2 serial console.
 You must choose one and follow its instructions. When complete, choose **Connect**.
 
-![Interface showing configuration options for the EC2 Instance Connect connection method.](/images/documentdb/latest/devguide/images/ec2/connect-options.png)
+![Interface showing configuration options for the EC2 Instance Connect connection method.](images/ec2/connect-options.png)
 
 ###### Note
 
@@ -220,7 +220,7 @@ Download the CA certificate for Amazon DocumentDB with the following code:
 
 ###### Note
 
-Transport Layer Security (TLS) is enabled by default for any new Amazon DocumentDB clusters. For more information, see [Managing Amazon DocumentDB cluster TLS settings](security.encryption.ssl.md "security.encryption.ssl.md").
+Transport Layer Security (TLS) is enabled by default for any new Amazon DocumentDB clusters. For more information, see [Encrypting data in transit](security.encryption.ssl.md "security.encryption.ssl.md").
 
 ### Step 6: Connect to your Amazon DocumentDB cluster
 
@@ -246,7 +246,7 @@ Make the following changes to it:
 
 3. Press enter in your terminal. You are now be prompted for your password. Enter your password. 4. When you enter your password and can see the `rs0 [direct: primary] <env-name>>` prompt, you are successfully connected to your Amazon DocumentDB cluster.
 
-Having problems connecting? See [Troubleshooting Amazon DocumentDB](troubleshooting.md "troubleshooting.md").
+To solve connection problems, see [Troubleshooting Amazon DocumentDB](troubleshooting.md "troubleshooting.md").
 
 ### Step 7: Insert and query data
 
@@ -345,7 +345,7 @@ Congratulations! You have successfully completed the Quick Start Guide to Amazon
 
 What’s next? Learn how to fully leverage this powerful database with some of its popular features:
 
-- [Managing Amazon DocumentDB](managing-documentdb.md "managing-documentdb.md")
+- [Managing Amazon DocumentDB resources](managing-documentdb.md "managing-documentdb.md")
 - [Scaling](operational_tasks.md "operational_tasks.md")
 - [Backing up and restoring](backup_restore.md "backup_restore.md")
 

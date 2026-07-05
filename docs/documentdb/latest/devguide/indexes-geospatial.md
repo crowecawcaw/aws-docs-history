@@ -1,4 +1,4 @@
-# Geospatial Indexes
+# Geospatial indexes
 
 Geospatial indexes are a specialized type of index designed to efficiently query and manage geospatial data stored within a collection of documents. Amazon DocumentDB supports 2dsphere indexes, which are specifically designed to handle geospatial data on a sphere (like the Earth). This allows for accurate calculations and queries based on spherical geometry.
 
@@ -34,4 +34,4 @@ The `options` parameter is a JSON document that specifies the options for the in
 }
 ```
 
-See [Index Properties](index-properties.md "index-properties.md") for examples of creating geospatial indexes.
+See [Index properties](index-properties.md "index-properties.md") for examples of creating geospatial indexes.

@@ -24,7 +24,7 @@ Performance Insights is only available for Amazon DocumentDB 3.6, 4.0, 5.0, and 
   **What are the limitations of Amazon DocumentDB Performance
   Insights?**
 
-- Performance Insights in the AWS GovCloud (US-East) and AWS GovCloud (US-West) regions are not available
+- Performance Insights in the AWS GovCloud (US-East) and AWS GovCloud (US-West) Regions are not available
 - Performance Insights for Amazon DocumentDB retains up to 7 days of performance
   data
 - Queries longer than 1,024 bytes are not aggregated in Performance Insights

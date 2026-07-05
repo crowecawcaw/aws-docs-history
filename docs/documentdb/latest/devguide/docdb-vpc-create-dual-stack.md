@@ -18,7 +18,7 @@ In this topic, you create the VPC for this scenario.
   Dual-stack mode enables connection over the IPv6 addressing protocol.
   For more information about IP addressing, see [Amazon DocumentDB IP addressing](vpc-clusters.md#vpc-docdb-ip-addressing "vpc-clusters.md#vpc-docdb-ip-addressing").
 
-Dual-stack network clusters are supported in most regions.
+Dual-stack network clusters are supported in most Regions.
 For more information see [Dual-stack mode Region and version availability](vpc-clusters.md#dual-stack-availability "vpc-clusters.md#dual-stack-availability").
 To see the limitations of dual-stack mode, see [Limitations for dual-stack network clusters](vpc-clusters.md#dual-stack-limitations "vpc-clusters.md#dual-stack-limitations").
 

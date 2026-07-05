@@ -19,7 +19,7 @@ Amazon DocumentDB cluster using the console.
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
+(![Menu button.](/images/documentdb/latest/devguide/images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. In the list of clusters, choose the name of the cluster
 that you want to see the details of. The information about
 the cluster is organized into the following groupings:
@@ -61,7 +61,7 @@ the cluster is organized into the following groupings:
 Using the AWS CLI
 To view the details of your Amazon DocumentDB clusters using the AWS CLI,
 use the `describe-db-clusters` command as shown in the
-following examples. For more information, see [`DescribeDBClusters`](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md")
+following examples. For more information, see [DescribeDBClusters](../APIReference/API_DescribeDBClusters.md "../APIReference/API_DescribeDBClusters.md")
 in the _Amazon DocumentDB Resource Management API Reference_.
 
 ###### Note
@@ -76,7 +76,7 @@ filter parameter returns only Amazon DocumentDB clusters.
 **Example 1: List all Amazon DocumentDB clusters**
 
 The following AWS CLI code lists the details for all Amazon DocumentDB
-clusters in a region.
+clusters in a Region.
 
 ```
 aws docdb describe-db-clusters --filter Name=engine,Values=docdb

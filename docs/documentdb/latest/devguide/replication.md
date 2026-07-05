@@ -38,7 +38,7 @@ In Amazon DocumentDB versions 5.0 and 8.0, replica instances don't restart when 
 
 ### High availability with global clusters
 
-For high availability across multiple AWS Regions, you can set up [Amazon DocumentDB global clusters](global-clusters.md "global-clusters.md"). Each global cluster spans multiple regions, enabling low latency global reads and disaster recovery from outages across an AWS Region. Amazon DocumentDB automatically handles replicating all data and updates from the primary region to each of the secondary regions.
+For high availability across multiple AWS Regions, you can set up [Amazon DocumentDB global clusters](global-clusters.md "global-clusters.md"). Each global cluster spans multiple Regions, enabling low latency global reads and disaster recovery from outages across Regions. Amazon DocumentDB automatically handles replicating all data and updates from the primary Region to each of the secondary Regions.
 
 ## Adding replicas
 

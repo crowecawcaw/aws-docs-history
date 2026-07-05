@@ -1,4 +1,4 @@
-# Query Plan Analysis
+# Query plan analysis
 
 Query plan analysis through explain plan provides essential insights into Amazon DocumentDB query performance. Query plan with executionStats reveals key metrics including:
 
@@ -91,13 +91,13 @@ Output from this operation looks something like the following:
 
 Below is a detailed analysis of a Amazon DocumentDB query execution plan, breaking down each component and its performance characteristics.
 
-## Overall Timing
+## Overall timing
 
 executionTimeMillis represents the total time taken by the query including planning time.
 
 planningTimeMillis represents the total planning time taken by the query.
 
-## Execution Stages
+## Execution stages
 
 It describes the step-by-step process Amazon DocumentDB uses to execute a query, showing how data flows through different operations.
 
@@ -114,7 +114,7 @@ It describes the step-by-step process Amazon DocumentDB uses to execute a query,
 
 ```
 
-### Common Stages in a Query Plan
+### Common stages in a query plan
 
 Below are the common execution stages in a query plan. Each stage returns executionTimeMillisEstimate (execution time) and nReturned (number of documents) metrics to help evaluate query performance at every stage.
 
@@ -196,7 +196,7 @@ for (let i = 0; i < 500000; i++) {
 
 ```
 
-#### Collection Scan (COLLSCAN)
+#### Collection scan (COLLSCAN)
 
 Without an index, Amazon DocumentDB performs a full collection scan.
 
@@ -233,7 +233,7 @@ Output:
 
 All 500,000 documents were examined to return 500 results. Creating an index on the number field improves this.
 
-#### Index Scan (IXSCAN)
+#### Index scan (IXSCAN)
 
 ```
 
@@ -275,7 +275,7 @@ Output:
 
 With the index, only 5,000 out of 500,000 documents were examined and fetched, matching the number returned. The index condition filtered out 495,000 documents that did not match the query.
 
-#### Index Scan with Residual Filter
+#### Index scan with residual filter
 
 ```
 

@@ -1,4 +1,4 @@
-# Migrate to Amazon DocumentDB using AWS Database Migration Service (DMS): Quick Start Guide
+# Migrate to Amazon DocumentDB using AWS Database Migration Service (DMS): quick start guide
 
 ###### Topics
 

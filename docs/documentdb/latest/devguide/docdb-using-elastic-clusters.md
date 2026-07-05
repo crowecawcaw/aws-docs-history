@@ -5,7 +5,7 @@ Elastic clusters also simplify how developers interact with Amazon DocumentDB by
 
 ###### Note
 
-Elastic clusters use a MongoDB 5.0-compatible wire protocol. They are not supported on Amazon DocumentDB engine version 8.0, and are not available in China regions or AWS GovCloud.
+Elastic clusters use a MongoDB 5.0-compatible wire protocol. They are not supported on Amazon DocumentDB engine version 8.0, and are not available in China Regions or AWS GovCloud.
 
 Amazon DocumentDB elastic clusters were created to:
 
@@ -17,7 +17,7 @@ Amazon DocumentDB elastic clusters were created to:
 
 - [Elastic cluster use cases](#elastic-use-cases "#elastic-use-cases")
 - [Advantages of elastic clusters](#elastic-advantages "#elastic-advantages")
-- [Elastic cluster region and version availability](#elastic-region-version "#elastic-region-version")
+- [Elastic cluster Region and version availability](#elastic-region-version "#elastic-region-version")
 - [Limitations](#elastic-limitations "#elastic-limitations")
 - [Amazon DocumentDB elastic clusters: how it works](elastic-how-it-works.md "elastic-how-it-works.md")
 - [Get started with Amazon DocumentDB elastic clusters](elastic-get-started.md "elastic-get-started.md")
@@ -29,7 +29,7 @@ Amazon DocumentDB elastic clusters were created to:
 ## Elastic cluster use cases
 
 Document databases are useful for workloads that require a flexible schema for fast, iterative development.
-For example Amazon DocumentDB use cases, see [Document database use Cases](document-database-use-cases.md "document-database-use-cases.md").
+For example Amazon DocumentDB use cases, see [Document database use cases](document-database-use-cases.md "document-database-use-cases.md").
 
 The following are some examples of use cases for which elastic clusters can provide significant advantages:
 
@@ -61,11 +61,11 @@ Amazon DocumentDB elastic clusters integrate with other AWS services in the same
   IAM authentication login for elastic clusters is not supported.
 - **Data management** — You can use AWS Glue to import and export data from/to other AWS services such as Amazon S3, Amazon Redshift and Amazon OpenSearch Service.
 
-## Elastic cluster region and version availability
+## Elastic cluster Region and version availability
 
 ### Region availability for elastic clusters
 
-The following table shows the AWS regions where Amazon DocumentDB elastic clusters are currently available and the endpoint for each region.
+The following table shows the AWS Regions where Amazon DocumentDB elastic clusters are currently available and the endpoint for each Region.
 
 | Region name               | Region           | Availability zones |
 | ------------------------- | ---------------- | ------------------ |

@@ -7,7 +7,7 @@ As an example of these recommendations, see the following:
 
 | Type         | Description                        | Recommendation                                                                                                                    | Additional information                                                                 |
 | ------------ | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| One instance | Cluster only contains one instance | Performance and availability: we recommend adding another instance with the same instance class in a different Availability Zone. | [Amazon DocumentDB High Availability and Replication](replication.md "replication.md") |
+| One instance | Cluster only contains one instance | Performance and availability: we recommend adding another instance with the same instance class in a different Availability Zone. | [Amazon DocumentDB high availability and replication](replication.md "replication.md") |
 
 Amazon DocumentDB generates recommendations for a resource when the resource is created or modified.
 Amazon DocumentDB also periodically scans your resources and generates recommendations.

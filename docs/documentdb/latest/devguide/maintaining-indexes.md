@@ -76,4 +76,4 @@ db.runCommand({ reIndex: "collection-name", index: "index-name", workers: number
 
 ```
 
-For information specific to managing indexes with Java see [Index management in Amazon DocumentDB with Java](index-management-java.md "index-management-java.md").
+For information specific to managing indexes with Java, see [Index management in Amazon DocumentDB with Java](index-management-java.md "index-management-java.md").

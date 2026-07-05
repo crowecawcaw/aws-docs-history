@@ -7,7 +7,7 @@ For certain management features, Amazon DocumentDB uses operational technology t
 ###### Topics
 
 - [Supported instance types](#limits-suported_instance_types "#limits-suported_instance_types")
-- [Supported regions](#limits-region_availability "#limits-region_availability")
+- [Supported Regions](#limits-region_availability "#limits-region_availability")
 - [Regional quotas](#limits-regional_quotas "#limits-regional_quotas")
 - [Aggregation limits](#limits-aggregation "#limits-aggregation")
 - [Cluster limits](#limits-cluster "#limits-cluster")
@@ -55,9 +55,9 @@ Amazon DocumentDB supports on-demand instances and the following instance types:
 
 For more information on the supported instance types and their specifications, see [Instance class specifications](db-instance-classes.md#db-instance-class-specs "db-instance-classes.md#db-instance-class-specs").
 
-## Supported regions
+## Supported Regions
 
-Amazon DocumentDB is available in the following AWS regions:
+Amazon DocumentDB is available in the following AWS Regions:
 
 | Region Name               | Region           | Availability Zones (compute) |
 | ------------------------- | ---------------- | ---------------------------- |
@@ -106,7 +106,7 @@ table contains regional limits that are shared among Amazon DocumentDB and Amazo
 
 The Amazon RDS shared technology described above only applies to Amazon DocumentDB instance-based clusters. Amazon DocumentDB elastic clusters do not share technology with Amazon RDS.
 
-The following limits apply to Amazon DocumentDB instance-based clusters and are per AWS account per region.
+The following limits apply to Amazon DocumentDB instance-based clusters and are per AWS account per Region.
 
 | Resource                         | AWS default limit |
 | -------------------------------- | ----------------- |
@@ -123,7 +123,7 @@ The following limits apply to Amazon DocumentDB instance-based clusters and are 
 | Tags per resource                | 50                |
 | VPC security groups per instance | 5                 |
 
-The following limits apply to Amazon DocumentDB elastic clusters and are per AWS account per region.
+The following limits apply to Amazon DocumentDB elastic clusters and are per AWS account per Region.
 
 | Resource                        | AWS default limit |
 | ------------------------------- | ----------------- |
@@ -334,9 +334,9 @@ The following table describes maximum limits in Amazon DocumentDB elastic cluste
 
 | Resource                                                               | Limit                                                                                                           |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Elastic clusters per region                                            | 20                                                                                                              |
-| vCPU summed across all elastic clusters per region                     | 1024                                                                                                            |
-| Manual cluster snapshots per region                                    | 20                                                                                                              |
+| Elastic clusters per Region                                            | 20                                                                                                              |
+| vCPU summed across all elastic clusters per Region                     | 1024                                                                                                            |
+| Manual cluster snapshots per Region                                    | 20                                                                                                              |
 | Shards per cluster                                                     | 32                                                                                                              |
 | Storage per cluster (when data is evenly distributed by shard-key)     | 4 PiB                                                                                                           |
 | Connections to cluster                                                 | The lower value of either 300,000 or the number of shards x the connection limit associated with vCPU per shard |

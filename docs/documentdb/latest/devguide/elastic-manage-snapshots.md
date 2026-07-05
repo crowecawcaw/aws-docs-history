@@ -228,7 +228,7 @@ aws docdb-elastic restore-cluster-from-snapshot ^
 
 ## Copying an elastic cluster snapshot
 
-In Amazon DocumentDB, you can copy manual and automatic elastic cluster snapshots within the same region and within the same account.
+In Amazon DocumentDB, you can copy manual and automatic elastic cluster snapshots within the same Region and within the same account.
 In this section we explain how to copy an elastic cluster snapshot, using either the AWS Management Console or AWS CLI.
 
 Using the AWS Management Console

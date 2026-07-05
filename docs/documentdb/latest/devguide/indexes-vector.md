@@ -51,4 +51,4 @@ The key parameter is a JSON document that specifies the field and vector index t
 }
 ```
 
-See [Index Properties](index-properties.md "index-properties.md") for examples of creating vector indexes.
+See [Index properties](index-properties.md "index-properties.md") for examples of creating vector indexes.

@@ -76,7 +76,7 @@ python3 detect-cardinality.py --uri <mongodb-uri>
 
 For more information, see [https://aws.amazon.com/blogs/database/detect-and-fix-low-cardinality-indexes-in-amazon-documentdb/](https://aws.amazon.com/blogs/database/detect-and-fix-low-cardinality-indexes-in-amazon-documentdb/ "https://aws.amazon.com/blogs/database/detect-and-fix-low-cardinality-indexes-in-amazon-documentdb/")
 
-## Remediation Strategies
+## Remediation strategies
 
 **1. Unused and redundant Index Removal**
 

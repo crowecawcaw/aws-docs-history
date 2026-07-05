@@ -1,4 +1,4 @@
-# Multi-key Indexes
+# Multi-key indexes
 
 For fields that have an array value, a multi-key index allows you to create an index key for each element in the array. Indexing an array creates an index entry for each element of the array.
 
@@ -57,4 +57,4 @@ db.collection.createIndex(
 )
 ```
 
-See [Index Properties](index-properties.md "index-properties.md") for examples of creating multi-key indexes.
+See [Index properties](index-properties.md "index-properties.md") for examples of creating multi-key indexes.

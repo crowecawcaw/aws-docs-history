@@ -60,10 +60,10 @@ This creates a `canvas_user` which has read permissions to the `sample-database-
 Your Canvas analysts can use this credential to access data in your Amazon DocumentDB cluster.
 Refer to [Database access using Role-Based Access Control](role_based_access_control.md "role_based_access_control.md") to learn more.
 
-## Available regions
+## Available Regions
 
-The no-code integration is available in regions where both Amazon DocumentDB and Amazon SageMaker AI Canvas are supported.
-The regions include:
+The no-code integration is available in Regions where both Amazon DocumentDB and Amazon SageMaker AI Canvas are supported.
+The Regions include:
 
 - us-east-1 (N. Virginia)
 - us-east-2 (Ohio)
@@ -76,4 +76,4 @@ The regions include:
 - eu-central-1 (Frankfurt)
 - eu-west-1 (Ireland)
 
-Refer to [Amazon SageMaker AI Canvas](../../../sagemaker/latest/dg/canvas.md "../../../sagemaker/latest/dg/canvas.md") in the _Amazon SageMaker AI Developer Guide_ for the latest region availability.
+Refer to [Amazon SageMaker AI Canvas](../../../sagemaker/latest/dg/canvas.md "../../../sagemaker/latest/dg/canvas.md") in the _Amazon SageMaker AI Developer Guide_ for the latest Region availability.

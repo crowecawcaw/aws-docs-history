@@ -1,4 +1,4 @@
-# Amazon DocumentDB Features and Configurations
+# Amazon DocumentDB features and configurations
 
 The following tables compare features, capabilities, and supported instance types across
 Amazon DocumentDB engine versions and elastic clusters. Use these tables to determine which engine version
@@ -11,18 +11,18 @@ Engine status by version| Feature / Capability | v3.6 | v4.0 | v5.0 | v8.0 |
 | Support status | EOL: Mar 2026 | Active | Active (LTS available) | Active (GA Nov 2025) |
 | Extended Support available | Yes (paid, until Mar 2029) | N/A | N/A | N/A |
 | LTS release available | No | No | Yes (v5.0 LTS) | No |
-| Elastic Clusters | No | No | Yes | No |
+| Elastic clusters | No | No | Yes | No |
 
 ## Cluster types
 
-Cluster types by version| Cluster Type | v3.6 | v4.0 | v5.0 | v8.0 | Elastic Clusters |
+Cluster types by version| Cluster Type | v3.6 | v4.0 | v5.0 | v8.0 | Elastic clusters |
 | --- | --- | --- | --- | --- | --- |
 | Instance-based cluster | Yes | Yes | Yes | Yes | Yes |
 | Serverless instances | No | No | Yes | Yes | No |
 
 ## Features
 
-Features and Configurations by Engine Version| Feature | v3.6 | v4.0 | v5.0 | v8.0 | Elastic Clusters |
+Features and configurations by engine version| Feature | v3.6 | v4.0 | v5.0 | v8.0 | Elastic clusters |
 | --- | --- | --- | --- | --- | --- |
 | Global clusters | No | Yes | Yes | Yes | No |
 | Multi-AZ (3 AZs) | Yes | Yes | Yes | Yes | Yes (per shard) |
@@ -60,7 +60,7 @@ Instance type support by version| Instance Type | v3.6 | v4.0 | v5.0 | v8.0 |
 
 ## AWS integrations
 
-AWS integration support by version| AWS Integration / Feature | v3.6 | v4.0 | v5.0 | v8.0 | Elastic Clusters |
+AWS integration support by version| AWS Integration / Feature | v3.6 | v4.0 | v5.0 | v8.0 | Elastic clusters |
 | --- | --- | --- | --- | --- | --- |
 | AWS Backup | Yes | Yes | Yes | Yes | No |
 | AWS Secrets Manager | Yes | Yes | Yes | Yes | No |

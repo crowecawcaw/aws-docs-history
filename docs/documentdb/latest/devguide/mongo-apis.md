@@ -30,7 +30,7 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ###### Topics
 
-- [Administrative Commands](#mongo-apis-dababase-administrative "#mongo-apis-dababase-administrative")
+- [Administrative commands](#mongo-apis-dababase-administrative "#mongo-apis-dababase-administrative")
 - [Aggregation](#mongo-apis-dababase-aggregation "#mongo-apis-dababase-aggregation")
 - [Authentication](#mongo-apis-dababase-authentication "#mongo-apis-dababase-authentication")
 - [Diagnostic commands](#mongo-apis-dababase-diagnostics "#mongo-apis-dababase-diagnostics")
@@ -40,7 +40,7 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 - [User management](#mongo-apis-dababase-user-management "#mongo-apis-dababase-user-management")
 - [Sharding commands](#mongo-apis-dababase-sharding "#mongo-apis-dababase-sharding")
 
-### Administrative Commands
+### Administrative commands
 
 | Command                     | 3.6     | 4.0     | 5.0     | 8.0     | Elastic cluster |
 | --------------------------- | ------- | ------- | ------- | ------- | --------------- |
@@ -205,7 +205,7 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 
 ###### Topics
 
-- [Array Operators](#mongo-apis-query-array-operators "#mongo-apis-query-array-operators")
+- [Array operators](#mongo-apis-query-array-operators "#mongo-apis-query-array-operators")
 - [Bitwise operators](#mongo-apis-query-bitwise-operators "#mongo-apis-query-bitwise-operators")
 - [Comment operator](#mongo-apis-query-comment-operator "#mongo-apis-query-comment-operator")
 - [Comparison operators](#mongo-apis-query-comparison-operators "#mongo-apis-query-comparison-operators")
@@ -214,7 +214,7 @@ features, and use case to the [Amazon DocumentDB service team](mailto:documentdb
 - [Logical operators](#mongo-apis-query-logical-operators "#mongo-apis-query-logical-operators")
 - [Projection operators](#mongo-apis-projection-operators "#mongo-apis-projection-operators")
 
-### Array Operators
+### Array operators
 
 | Command                                   | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster |
 | ----------------------------------------- | --- | --- | --- | --- | --------------- |

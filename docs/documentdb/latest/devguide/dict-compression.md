@@ -19,7 +19,7 @@ Some benefits of Zstd algorithm are:
 
 Dictionary-based compression is not supported on Amazon DocumentDB versions 3.6, 4.0, and 5.0.
 
-## Performance Considerations
+## Performance considerations
 
 Zstd compression involves the following trade-offs:
 

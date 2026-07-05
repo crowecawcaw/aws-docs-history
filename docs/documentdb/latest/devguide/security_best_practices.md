@@ -17,11 +17,11 @@ principle of least privilege.
 - Grant each user the minimum set of permissions that are
   required to perform their duties.
 - Use IAM groups to effectively manage permissions for multiple
-  users. For more information about IAM, see the [IAM User Guide](../../../IAM/latest/UserGuide/Welcome.md "../../../IAM/latest/UserGuide/Welcome.md").
-  For information about IAM best practices, see [IAM Best Practices](../../../IAM/latest/UserGuide/IAMBestPractices.md "../../../IAM/latest/UserGuide/IAMBestPractices.md").
+  users. For more information about IAM, see the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
+  For information about IAM best practices, see [IAM best practices](../../../IAM/latest/UserGuide/IAMBestPractices.md "../../../IAM/latest/UserGuide/IAMBestPractices.md") in the _IAM User Guide_.
 - Regularly rotate your IAM credentials.
-- Configure AWS Secrets Manager to automatically rotate the
-  secrets for Amazon DocumentDB. For more information, see [Rotating Your AWS Secrets Manager Secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") and [Rotating Secrets for Amazon DocumentDB](../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md "../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md") in the
+- Configure Secrets Manager to automatically rotate the
+  secrets for Amazon DocumentDB. For more information, see [Rotating your secrets](../../../secretsmanager/latest/userguide/rotating-secrets.md "../../../secretsmanager/latest/userguide/rotating-secrets.md") and [Rotating secrets for Amazon DocumentDB](../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md "../../../secretsmanager/latest/userguide/rotating-secrets-documentdb.md") in the
   _AWS Secrets Manager User Guide_.
 - Use Transport Layer Security (TLS) and encryption at rest to
   encrypt your data.

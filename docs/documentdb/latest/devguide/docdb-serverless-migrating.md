@@ -53,7 +53,7 @@ Continue adding instances until you have reached the desired number of new insta
 In this example, three new serverless instances are created. 8. Choose **Create**.
 
 It takes several minutes to create an instance. You can use the console or the AWS CLI to view the instance's status.
-For more information, see [Monitoring an Amazon DocumentDB Cluster's Status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md"). 9. Returning to the **Clusters** table, select the checkboxes of all three of the original provisioned instances. 10. Choose **Actions**, and then choose **Delete**.
+For more information, see [Monitoring an Amazon DocumentDB cluster's status](monitoring_docdb-cluster_status.md "monitoring_docdb-cluster_status.md"). 9. Returning to the **Clusters** table, select the checkboxes of all three of the original provisioned instances. 10. Choose **Actions**, and then choose **Delete**.
 
 During the deletion, a failover is automatically performed to promote one of the remaining instances to be the writer.
 After a few minutes, the delete process is completed. The existing cluster now contains three DocumentDB serverless instances (as defined in the **Size** column).

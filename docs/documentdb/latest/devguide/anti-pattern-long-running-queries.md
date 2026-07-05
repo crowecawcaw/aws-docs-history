@@ -1,4 +1,4 @@
-# Long Running Queries
+# Long running queries
 
 ## Overview
 
@@ -66,7 +66,7 @@ db.adminCommand({
 
 Lower MVCC IDs and extended garbage collection duration are not exclusively attributed to long-running queries. Write-intensive workloads on resource-constrained instances can also result in reduced MVCC ID availability and prolonged garbage collection cycles.
 
-## Remediation Strategies
+## Remediation strategies
 
 - Implement query time-outs in the application
 - Do not keep the cursors alive for longer durations

@@ -12,7 +12,7 @@ However, when working with large arrays or multiple array fields within a collec
 - **Memory Usage**: As the storage footprint is relatively large, these indexes have a corresponding footprint in memory, resulting in a larger working set.
 - **Write operations**: Multi-key indexes create overhead during the write operations. Each array element generates separate index entries, multiplying the work required to complete the write operation.
 
-## Remediation Strategies
+## Remediation strategies
 
 - Create multi-key index if it is necessary and limit the number of fields in the array.
 - Limit the number of multi key indexes on the collection
