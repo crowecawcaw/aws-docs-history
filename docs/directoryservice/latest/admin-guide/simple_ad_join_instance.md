@@ -1,5 +1,11 @@
 # Ways to join an Amazon EC2 instance to your Simple AD
 
+###### Important Notice
+
+AWS Directory Service Simple AD will no longer be open to new customers starting July 30, 2026. If you
+would like to use the service, please sign up prior to July 30, 2026. For capabilities similar
+to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md "simple-ad-availability-change.md").
+
 You can seamlessly join an Amazon EC2 instance to your Active Directory domain when the instance is
 launched. For more information, see [Joining an Amazon EC2 Windows instance to your AWS Managed Microsoft AD Active Directory](launching_instance.md "launching_instance.md"). You can also
 launch an EC2 instance and join it to an Active Directory domain directly from the Directory Service console with

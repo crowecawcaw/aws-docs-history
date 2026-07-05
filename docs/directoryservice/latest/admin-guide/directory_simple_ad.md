@@ -1,5 +1,11 @@
 # Simple AD
 
+###### Important Notice
+
+AWS Directory Service Simple AD will no longer be open to new customers starting July 30, 2026. If you
+would like to use the service, please sign up prior to July 30, 2026. For capabilities similar
+to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md "simple-ad-availability-change.md").
+
 Simple AD is a standalone managed directory that is powered by a Samba 4 Active Directory
 Compatible Server. It is available in two sizes.
 
@@ -45,6 +51,7 @@ Simple AD offers many advantages:
 
 ###### Topics
 
+- [Simple AD availability changes](simple-ad-availability-change.md "simple-ad-availability-change.md")
 - [Getting started with Simple AD](simple_ad_getting_started.md "simple_ad_getting_started.md")
 - [Best practices for Simple AD](simple_ad_best_practices.md "simple_ad_best_practices.md")
 - [Maintain your Simple AD directory](simple_ad_maintain.md "simple_ad_maintain.md")

@@ -1,5 +1,11 @@
 # Monitor your Simple AD directory
 
+###### Important Notice
+
+AWS Directory Service Simple AD will no longer be open to new customers starting July 30, 2026. If you
+would like to use the service, please sign up prior to July 30, 2026. For capabilities similar
+to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md "simple-ad-availability-change.md").
+
 You can get the most out of your Simple AD by learning more about the different
 Simple AD statuses and what they mean for your Simple AD. You can also use AWS services
 like Amazon Simple Notification Service to monitor your Simple AD. Amazon Simple Notification Service can send you notifications

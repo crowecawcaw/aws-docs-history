@@ -1,5 +1,11 @@
 # Simple AD quotas
 
+###### Important Notice
+
+AWS Directory Service Simple AD will no longer be open to new customers starting July 30, 2026. If you
+would like to use the service, please sign up prior to July 30, 2026. For capabilities similar
+to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md "simple-ad-availability-change.md").
+
 Generally, you should not add more than 500 users to a Small Simple AD directory and no
 more than 5,000 users to a Large Simple AD directory. For more flexible scaling options and
 additional Active Directory features, consider using AWS Directory Service for Microsoft Active Directory (Standard Edition or

@@ -1,5 +1,11 @@
 # Best practices for Simple AD
 
+###### Important Notice
+
+AWS Directory Service Simple AD will no longer be open to new customers starting July 30, 2026. If you
+would like to use the service, please sign up prior to July 30, 2026. For capabilities similar
+to Simple AD, explore AWS Managed Microsoft AD or AD Connector. For more information, see [Simple AD availability changes](simple-ad-availability-change.md "simple-ad-availability-change.md").
+
 Here are some suggestions and guidelines you should consider to avoid problems and get the
 most out of Simple AD.
 
