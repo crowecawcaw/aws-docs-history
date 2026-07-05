@@ -24,7 +24,7 @@ CloudFormation
 1. Log in to your **Data Collection** Account.
 2. Choose the Launch Stack button below to open the **pre-populated stack template** in your CloudFormation.
 
-[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Pricing-Change-Analysis-Dashboard&param_DashboardId=pricing-change-analysis-dashboard "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Pricing-Change-Analysis-Dashboard&param_DashboardId=pricing-change-analysis-dashboard") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and choose **Create stack**. 6. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 7. You can check the stack output for dashboard URLs.
+[![Launch Stack button](images/LaunchStack.svg)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Pricing-Change-Analysis-Dashboard&param_DashboardId=pricing-change-analysis "https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://aws-managed-cost-intelligence-dashboards.s3.amazonaws.com/cfn/cid-plugin.yml&stackName=Pricing-Change-Analysis-Dashboard&param_DashboardId=pricing-change-analysis") 3. You can change **Stack name** for your template if you wish. 4. Leave **Parameters** values as they are. 5. Review the configuration and choose **Create stack**. 6. You will see the stack will start in **CREATE\_IN\_PROGRESS**. Once complete, the stack will show **CREATE\_COMPLETE** 7. You can check the stack output for dashboard URLs.
 
 ###### Note
 
@@ -44,7 +44,7 @@ pip3 install --upgrade cid-cmd
 4. In your command-line interface run the following command to deploy the dashboard:
 
 ```
-cid-cmd deploy --dashboard-id pricing-change-analysis-dashboard
+cid-cmd deploy --dashboard-id pricing-change-analysis
 ```
 
 Please follow the instructions from the deployment wizard. More info about command line options are in the
@@ -59,7 +59,7 @@ released, you can update your dashboard by running the following command
 in your command-line interface:
 
 ```
-cid-cmd update --dashboard-id pricing-change-analysis-dashboard
+cid-cmd update --dashboard-id pricing-change-analysis
 ```
 
 ## Authors

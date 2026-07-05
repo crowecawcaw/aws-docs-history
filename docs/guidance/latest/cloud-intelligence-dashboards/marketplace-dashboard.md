@@ -17,7 +17,7 @@ AWS Marketplace investments effectively.
 
 The dashboard has five tabs:
 
-- **Spend Summary**:
+- [**Spend Summary**](https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace "https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace"):
 
   - AWS Marketplace Cumulative Spend by Seller
   - AWS Marketplace Cumulative Spend by Product
@@ -25,19 +25,19 @@ The dashboard has five tabs:
   - AWS Marketplace Spend and Usage by Seller Product
   - Marketplace Invoice Tracker
 
-- **Spend Deep Dive**:
+- [**Spend Deep Dive**](https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace&sheet=Spend%20Deep%20Dive "https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace&sheet=Spend%20Deep%20Dive"):
 
   - Spend by Product
   - Spend by AWS Account ID
   - Spend Mapping by Seller
   - Spend Details by Invoice
 
-- **Bedrock 3P Foundational Model (FM) Spend**
+- [**Bedrock 3P Foundational Model (FM) Spend**](https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace&sheet=Bedrock%203P%20FM%20Spend "https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace&sheet=Bedrock%203P%20FM%20Spend")
 
   - 3P FM Spend by Seller
   - Spend and Usage by FM Product
 
-- **Granted and Entitled Licenses**
+- [**Granted and Entitled Licenses**](https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace&sheet=Granted%20and%20Entitled%20Licenses "https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace&sheet=Granted%20and%20Entitled%20Licenses")
 
   - Upcoming Contract Expirations
   - Org View of Licenses
@@ -45,7 +45,7 @@ The dashboard has five tabs:
   - License Grant and Sharing Details
   - Product mapping to License Grants
 
-- **Marketplace Agreements**
+- [**Marketplace Agreements**](https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace&sheet=Marketplace%20Agreements "https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace&sheet=Marketplace%20Agreements")
 
   - Active Agreement Count by Deployment Status
   - Active Agreement Value by Deployment Status
@@ -58,16 +58,20 @@ The dashboard has five tabs:
 ## Demo Dashboard
 
 Get more familiar with the Dashboard using the live, interactive demo
-dashboard following this [Link]
-(https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace)
+dashboard following this [interactive demo dashboard](https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace "https://cid.workshops.aws.dev/demo?dashboard=aws-marketplace")
 
 ![Image of a AWS Marketplace SPG dashboard in Quick Sight](images/aws-marketplace-spg-pie.png)
 
 ## Prerequisites
 
 1. Deploy one or more of the foundational dashboards: [CUDOS, Cost Intelligence, or KPI Dashboard](cudos-cid-kpi.md "cudos-cid-kpi.md").
-2. (Optional, only for Licenses Page) Deploy the [Data Collection](data-collection-deployment.md "data-collection-deployment.md"), with module _Include Marketplace Licensing Collection_ parameter.
-3. (Optional, only for Agreements Page) Deploy the [Data Collection](data-collection-deployment.md "data-collection-deployment.md"), with module _Include Marketplace Data Collection Module_ parameter.
+2. (Optional, required for the [Granted and Entitled Licenses page](https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace&sheet=Granted%20and%20Entitled%20Licenses "https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace&sheet=Granted%20and%20Entitled%20Licenses")) Deploy the [Data Collection](data-collection-deployment.md "data-collection-deployment.md"), with the _Include Marketplace Licensing Collection_ module parameter set to **yes**. Then, in each payer account, complete the following steps:
+
+   1. Navigate to [Marketplace Settings](https://us-east-1.console.aws.amazon.com/marketplace/settings/license-manager-integration?region=us-east-1 "https://us-east-1.console.aws.amazon.com/marketplace/settings/license-manager-integration?region=us-east-1") to create integration for **AWS License Manager**. Choose **Enable trusted access across your organization** and **AWS Marketplace license management service-linked role for this account** and **Create Integration**.
+   2. Navigate to [AWS License Manager Get Started](https://us-east-1.console.aws.amazon.com/license-manager/home?region=us-east-1#/gettingStarted "https://us-east-1.console.aws.amazon.com/license-manager/home?region=us-east-1#/gettingStarted") and choose **Start using AWS License Manager**. Select **I grant AWS License Manager the required permissions** and choose **Grant permissions**.
+   3. Navigate to [AWS License Manager Settings](https://us-east-1.console.aws.amazon.com/license-manager/home?region=us-east-1#/settings/managedLicenses "https://us-east-1.console.aws.amazon.com/license-manager/home?region=us-east-1#/settings/managedLicenses") and choose **Link AWS Organizations accounts** under **Account Details**.
+
+3. (Optional, required for the [Marketplace Agreements page](https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace&sheet=Marketplace%20Agreements "https://cid.workshops.aws.dev/demo/?dashboard=aws-marketplace&sheet=Marketplace%20Agreements")) Deploy the [Data Collection](data-collection-deployment.md "data-collection-deployment.md"), with the _Include Marketplace Data Collection Module_ parameter set to **yes**.
 
 ## Deployment
 
@@ -246,6 +250,7 @@ Workshop](https://catalog.workshops.aws/aws-marketplace-buyer/en-US/costmanageme
 - Ramya Vijayaraghavan, Ex-Amazonian
 - Kaushik Raha, Principal Specialist, AWS Marketplace
 - Soumya Vanga, Solutions Architect, AWS Marketplace
+- Kamylla Prado, Solutions Architect, AWS Marketplace
 
 ## Feedback & Support
 
