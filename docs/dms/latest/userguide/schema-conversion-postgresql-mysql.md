@@ -1,11 +1,8 @@
-# Understanding PostgreSQL to MySQL conversion settings
+# PostgreSQL to MySQL conversion settings
 
-PostgreSQL to MySQL conversion settings in DMS Schema Conversion include the following:
+The PostgreSQL to MySQL conversion path has no pair-specific conversion settings.
+Only the common settings that apply to every conversion path are available, such as
+the severity level for action-item comments in converted SQL and the option to use
+generative AI for conversion.
 
-- **Comments in converted SQL code**: This
-  setting includes comments in the converted code for the action items of the
-  selected severity and higher. This setting supports the following values:
-
-  - Errors only
-  - Errors and warnings
-  - All messages
+To configure these common settings, see [Common conversion settings](schema-conversion-settings.md#schema-conversion-settings-common "schema-conversion-settings.md#schema-conversion-settings-common").

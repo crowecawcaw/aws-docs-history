@@ -1,106 +1,480 @@
-# Understanding Oracle to PostgreSQL conversion settings
+# Oracle to PostgreSQL conversion settings
 
-Oracle to PostgreSQL conversion settings in DMS Schema Conversion include the following:
+The following settings apply when the source is Oracle and the target is Amazon
+RDS for PostgreSQL or Amazon Aurora PostgreSQL. You can configure these settings
+using the AWS Management Console or the [ModifyConversionConfiguration](../APIReference/API_ModifyConversionConfiguration.md "../APIReference/API_ModifyConversionConfiguration.md") API operation.
 
-- To convert applicable database objects using generative AI, enable the
-  **Generative AI** setting. Objects
-  successfully converted using generative AI will be clearly identified with
-  **Action Item 5444**, which states: "This
-  conversion uses machine learning models that generate predictions based on
-  patterns in data. For more information, see [Converting database objects with generative AI](schema-conversion-convert.databaseobjects.md "schema-conversion-convert.databaseobjects.md").
+This topic covers settings specific to the Oracle to PostgreSQL conversion path.
+In addition to these settings, DMS Schema Conversion provides settings that apply to all source
+and target pairs, such as the severity level for action-item comments in converted
+SQL and the option to use generative AI for conversion. For those settings, see
+[Common conversion settings](schema-conversion-settings.md#schema-conversion-settings-common "schema-conversion-settings.md#schema-conversion-settings-common").
 
-  - You can convert schemas for different supported versions of your
-    target database, not just the latest version. To specify a version,
-    use the **Target engine version**
-    setting. Available conversion options will vary depending on the
-    engine version you select. Currently, PostgreSQL versions 14 and 15
-    are supported (they have identical settings). Note that using a
-    target engine version during schema conversion that differs from the
-    version specified in this setting may lead to compatibility issues
-    and errors when performing the Apply to the target operation.
+When you use the API or AWS CLI, specify conversion path settings under the
+section names `ORACLE_TO_POSTGRESQL`,
+`ORACLE_TO_POSTGRESQL_14`, or `ORACLE_TO_POSTGRESQL_15`.
+All three versioned sections accept the same keys. To find which section names your
+project uses, call [DescribeConversionConfiguration](../APIReference/API_DescribeConversionConfiguration.md "../APIReference/API_DescribeConversionConfiguration.md") first and update only the sections
+present in the response.
 
-- AWS DMS can convert Oracle materialized views to tables or materialized
-  views on PostgreSQL. For **Materialized views**, choose how
-  to convert your source materialized views.
-- Your source Oracle database can use the `ROWID` pseudocolumn.
-  PostgreSQL doesn't support similar functionality. DMS Schema Conversion can emulate the
-  `ROWID` pseudocolumn in the converted code using the
-  `bigint` or `character varying` data type. To do
-  so, choose **Use the bigint data type to emulate the ROWID
-  pseudocolumn** or **Use the character varying data type
-  to emulate the ROWID pseudocolumn** for **Row
-  ID**.
+Each setting shows the AWS Management Console label followed by the API and AWS CLI
+parameter name in parentheses. Use the parameter name when configuring settings
+with the API or AWS CLI. The settings are listed in the same order that they
+appear in the AWS Management Console.
 
-  - To convert NUMBER data type to the best fitting numeric data type,
-    depending on the precision and scale you can select Use the
-    optimized data type mapping for columns of the NUMBER data
-    type.
+**Target engine version**
+(`ORACLE_TO_POSTGRESQL_target_engine_version`)
 
-- If your source Oracle code doesn't use the `ROWID`
-  pseudocolumn, choose **Don't generate**. In this case, the
-  converted code works faster.
-- Your source Oracle code can include the `TO_CHAR`,
-  `TO_DATE`, and `TO_NUMBER` functions with
-  parameters that PostgreSQL doesn't support. By default, DMS Schema Conversion emulates
-  the usage of these parameters in the converted code.
+Choose the engine version for your target database. This setting is
+the PostgreSQL major version feature set that DMS Schema Conversion targets for
+conversion, and it determines which versioned settings section DMS Schema Conversion
+applies (`ORACLE_TO_POSTGRESQL_14` or
+`ORACLE_TO_POSTGRESQL_15`). The value `15` targets the features of
+PostgreSQL 15 and later versions, and `14` targets the
+features of PostgreSQL 14, so your target database can run a later
+version than the value you choose (for example, a value of
+`15` for a PostgreSQL 16 target). Unlike the other
+settings on this page, this setting isn't stored in a conversion path
+section. Instead, it's stored in the top-level `Conversion
+ version` section, as shown in the following example.
 
-You can use native PostgreSQL `TO_CHAR`, `TO_DATE`,
-and `TO_NUMBER` functions when your source Oracle code lacks
-parameters that are unsupported by PostgreSQL. In this case, the converted
-code works faster. To do so, select the following values:
+```
+{
+  "Conversion version": {
+    "ORACLE_TO_POSTGRESQL_target_engine_version": "15"
+  }
+}
+```
 
-    + **Use a native PostgreSQL TO\_CHAR
-     function**
-    + **Use a native PostgreSQL TO\_DATE
-     function**
-    + **Use a native PostgreSQL TO\_NUMBER
-     function**
+**Type:** String (`14` | `15`)
 
-- Your database and applications can run in different time zones. By
-  default, DMS Schema Conversion emulates time zones in the converted code. However, you
-  don't need this emulation when your database and applications use the same
-  time zone. In this case, select **Improve the performance of the
-  converted code where the database and applications use the same time
-  zone**.
-- To continue using sequences in your converted code, select
-  **Populate converted sequences with the last value generated on
-  the source side**.
-- In some cases, your source Oracle database might store only integer values
-  in the primary or foreign key columns of the `NUMBER` data type.
-  In these cases, AWS DMS can convert these columns to the `BIGINT`
-  data type. This approach improves the performance of your converted code. To
-  do so, select **Convert primary and foreign key columns of the
-  NUMBER data type to the BIGINT data type**. Make sure that your
-  source doesn't include floating point values in these columns to avoid data
-  loss.
-- To skip deactivated triggers and constraints in your source code, choose
-  **Convert only active triggers and
-  constraints**.
-- You can use DMS Schema Conversion to convert string variables that are called as
-  dynamic SQL. Your database code can change the values of these string
-  variables. To make sure that AWS DMS always converts the latest value of this
-  string variable, select **Convert the dynamic SQL code that is
-  created in called routines**.
-- PostgreSQL versions 10 and earlier don't support procedures. If you aren't
-  familiar with using procedures in PostgreSQL, AWS DMS can convert Oracle
-  procedures to PostgreSQL functions. To do so, select **Convert
-  procedures to functions**.
-- To see additional information about the occurred action items, you can add
-  specific functions to the extension pack. To do so, select **Add
-  extension pack functions that raise user-defined exceptions**.
-  Then choose severity levels to raise user-defined exceptions. Make sure that
-  you apply the extension pack schema after you convert your source database
-  objects. For more information about extension packs, see [Using extension packs](extension-pack.md "extension-pack.md").
-- Your source Oracle database can include constraints with the automatically
-  generated names. If your source code uses these names, make sure that you
-  select **Keep the names of system generated constraints**.
-  If your source code uses these constraints, but doesn't use their names,
-  clear this option to increase the conversion speed.
-- If your source and target databases run in different time zones, the
-  function that emulates the `SYSDATE` built-in Oracle function
-  returns different values compared to the source function. To make sure that
-  your source and target functions return the same values, choose
-  **Set the time zone of your source database**.
-- You can use the functions from the orafce extension in your converted
-  code. To do so, for **Orafce built-in routines**, select
-  the functions to use. For more information about orafce, see [orafce](https://github.com/orafce/orafce "https://github.com/orafce/orafce") on GitHub.
+**Default:**
+`15`
+
+**Materialized views**
+(`MaterializedViewConvert`)
+
+Specifies how DMS Schema Conversion converts Oracle materialized views on the
+target.
+
+| API/CLI value       | Result on target                                                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `TABLE`             | DMS Schema Conversion creates a regular table with the same<br>columns. Use this when you manage refresh manually or<br>with a replication tool. |
+| `MATERIALIZED_VIEW` | DMS Schema Conversion creates a PostgreSQL `MATERIALIZED<br>VIEW`. Use this when the target supports<br>`REFRESH MATERIALIZED VIEW`.             |
+
+**Type:** String (`TABLE` |
+`MATERIALIZED_VIEW`)
+
+**Default:**
+`TABLE`
+
+**Generate row id**
+(`GenerateRowId`)
+
+Your source Oracle database can use the `ROWID`
+pseudocolumn. PostgreSQL doesn't support similar functionality. This
+setting specifies whether DMS Schema Conversion emulates the `ROWID`
+pseudocolumn in the converted code, and which data type DMS Schema Conversion uses
+for emulation.
+
+| Console label                                                                | API/CLI value                       | Behavior                                                                                                                                                                                                     |
+| ---------------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Don't generate**                                                           | `false`                             | DMS Schema Conversion doesn't emulate the `ROWID`<br>pseudocolumn and leaves references as action items. Use<br>this when your source Oracle code doesn't use<br>`ROWID`. The converted code runs<br>faster. |
+| **Use the bigint data type to emulate the<br>ROWID pseudocolumn**            | `true`                              | DMS Schema Conversion emulates the `ROWID`<br>pseudocolumn in the converted code by using the<br>`bigint` data type.                                                                                         |
+| **Use the character varying data type to<br>emulate the ROWID pseudocolumn** | `GENERATE_AS_CHARACTER_DOMAIN_TYPE` | DMS Schema Conversion emulates the `ROWID`<br>pseudocolumn in the converted code by using the<br>`character varying` data type.                                                                              |
+
+**Type:** String (enum)
+
+**Default:**
+`false`
+
+###### Code
+
+Select the conversion settings that are specific to your source Oracle
+code.
+
+**Use the optimized data type mapping for columns of the NUMBER
+data type**
+(`UseOptimizedMappingForNumberConversion`)
+
+Specifies whether DMS Schema Conversion maps each Oracle `NUMBER` column
+to the best fitting numeric data type based on the precision and
+scale.
+
+- `true` — DMS Schema Conversion maps each `NUMBER`
+  column to the most specific PostgreSQL numeric type (for
+  example, `SMALLINT`, `INTEGER`, or
+  `BIGINT`) based on its precision and scale.
+- `false` — DMS Schema Conversion maps all `NUMBER`
+  columns to `NUMERIC`.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`true`
+
+**Use a native PostgreSQL TO\_CHAR function**
+(`ToCharFunctionOracle`)
+
+Specifies whether DMS Schema Conversion emulates the Oracle `TO_CHAR`
+function in the converted code.
+
+- `false` — DMS Schema Conversion emulates the Oracle
+  `TO_CHAR` behavior in the converted code.
+- `true` — DMS Schema Conversion converts `TO_CHAR` and
+  `TO_NCHAR` calls to the native PostgreSQL
+  `TO_CHAR` function. Select this to avoid
+  emulation when your format strings are compatible with
+  PostgreSQL.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Use a native PostgreSQL TO\_DATE function**
+(`ToDateFunctionOracle`)
+
+Specifies whether DMS Schema Conversion emulates the Oracle `TO_DATE`
+function in the converted code.
+
+- `false` — DMS Schema Conversion emulates the Oracle
+  `TO_DATE` behavior in the converted code.
+- `true` — DMS Schema Conversion converts `TO_DATE`
+  calls to the native PostgreSQL `TO_DATE`
+  function.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Use a native PostgreSQL TO\_NUMBER function**
+(`ToNumber`)
+
+Specifies whether DMS Schema Conversion emulates the Oracle `TO_NUMBER`
+function in the converted code.
+
+- `false` — DMS Schema Conversion emulates the Oracle
+  `TO_NUMBER` behavior in the converted
+  code.
+- `true` — DMS Schema Conversion converts `TO_NUMBER`
+  calls to the native PostgreSQL `TO_NUMBER`
+  function.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Improve the performance of the converted code where the
+database and applications use the same time zone**
+(`ToTimeZone`)
+
+Specifies whether DMS Schema Conversion emulates time zones in the converted
+code.
+
+- `true` — DMS Schema Conversion doesn't emulate time zones. Use
+  this when your database and applications use the same time zone.
+  The converted code runs faster.
+- `false` — DMS Schema Conversion emulates time zones in the
+  converted code.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Populate converted sequences with the last value generated on
+the source side** (`AlertSequenceRestart`)
+
+Specifies whether DMS Schema Conversion continues converted sequences from the
+last value generated on the source.
+
+- `true` — DMS Schema Conversion sets each converted sequence to
+  start from the last value generated on the source, so sequences
+  continue without conflicts.
+- `false` — DMS Schema Conversion starts converted sequences from
+  their default initial value.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Convert primary and foreign key columns of the NUMBER data type
+to the BIGINT data type**
+(`ConvertNumberToBigint`)
+
+Specifies whether DMS Schema Conversion converts primary key and foreign key
+columns of the `NUMBER` data type to `BIGINT`.
+Use with caution to avoid data loss if your source database stores
+floating-point numbers in these columns.
+
+- `true` — DMS Schema Conversion maps primary key and foreign key
+  `NUMBER` columns to `BIGINT`.
+- `false` — DMS Schema Conversion uses the standard numeric
+  mapping for these columns.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Convert only active triggers and constraints**
+(`IgnoreDisabledTriggersConstraints`)
+
+Specifies whether DMS Schema Conversion skips deactivated triggers and constraints
+during conversion.
+
+- `true` — DMS Schema Conversion converts only active triggers and
+  constraints and skips deactivated ones.
+- `false` — DMS Schema Conversion converts all triggers and
+  constraints, including deactivated ones.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Convert the dynamic SQL code that is created in called
+routines** (`ConvertOutputAsDynamic`)
+
+Specifies whether DMS Schema Conversion converts string variables that are
+referenced outside the routine as dynamic SQL.
+
+- `true` — DMS Schema Conversion converts string variables that
+  are referenced outside the routine as dynamic SQL.
+- `false` — DMS Schema Conversion doesn't convert these string
+  variables as dynamic SQL.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Convert procedures to functions**
+(`ConvertProceduresToFunction`)
+
+Specifies whether DMS Schema Conversion converts Oracle stored procedures to
+PostgreSQL void functions.
+
+- `true` — DMS Schema Conversion converts Oracle stored procedures
+  to PostgreSQL void functions.
+- `false` — DMS Schema Conversion converts Oracle stored
+  procedures to PostgreSQL procedures.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Keep the names of system generated constraints**
+(`ConvertSysConstraintNamesUsingOriginal`)
+
+Specifies whether DMS Schema Conversion keeps the original Oracle system-generated
+constraint names in the target. Use this option if your source Oracle
+code uses system-generated constraint names to create constraints with
+the same names in your target database.
+
+- `true` — DMS Schema Conversion keeps the original Oracle
+  system-generated constraint names in the target.
+- `false` — DMS Schema Conversion generates new constraint
+  names.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Set the time zone of your source database**
+(`UseDefaultTimeZoneForSysdateEmulation`)
+
+Specifies whether the function that emulates the Oracle
+`SYSDATE` function uses the time zone in
+`DefaultTimeZoneForSysdateEmulation`, so that the
+converted code returns the same values as your source database.
+
+- `true` — DMS Schema Conversion uses the time zone specified in
+  `DefaultTimeZoneForSysdateEmulation` for
+  `SYSDATE` emulation.
+- `false` — DMS Schema Conversion uses the default time zone for
+  `SYSDATE` emulation.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+`DefaultTimeZoneForSysdateEmulation`
+
+The time zone that DMS Schema Conversion uses when `SYSDATE` emulation
+is turned on with `UseDefaultTimeZoneForSysdateEmulation`.
+Specify a valid IANA time zone name, such as `UTC`,
+`America/New_York`, or `Europe/Berlin`. This
+value has no effect when
+`UseDefaultTimeZoneForSysdateEmulation` is
+`false`.
+
+**Type:** String (IANA time zone
+name)
+
+**Default:**
+`UTC`
+
+###### Note
+
+The AWS Management Console lists an additional option, **Add extension pack
+functions that raise user-defined exceptions**, between
+**Convert procedures to functions** and **Keep the
+names of system generated constraints**. This option is configured
+only in the AWS Management Console and isn't available through the API or AWS CLI. The
+related severity-level behavior is controlled by the
+`ShowSeverityLevelInSql` common setting. For more information,
+see [Common conversion settings](schema-conversion-settings.md#schema-conversion-settings-common "schema-conversion-settings.md#schema-conversion-settings-common").
+
+###### Orafce built-in routines
+
+Choose the Orafce built-in routines to use in the converted code. Orafce is a
+PostgreSQL extension that provides routines compatible with Oracle built-in
+functions. Each routine has a dedicated Boolean setting. When you set a routine to
+`true`, DMS Schema Conversion converts the matching Oracle built-in function to
+its Orafce routine. When you set it to `false`, DMS Schema Conversion leaves the
+function as an action item for manual review. To use these routines, the orafce
+extension must be available on your target database. All of these routines default
+to `false`. Set a routine to `true` only after you verify
+that the function's behavior in your usage is compatible with the Orafce
+routine.
+
+| Setting name                           | Oracle built-in function |
+| -------------------------------------- | ------------------------ |
+| `AddMonthsBuiltinFunctionOracle`       | `ADD_MONTHS`             |
+| `BitandBuiltinFunctionOracle`          | `BITAND`                 |
+| `CoshBuiltinFunctionOracle`            | `COSH`                   |
+| `DbmsAssertBuiltinFunctionOracle`      | `DBMS_ASSERT` package    |
+| `DbmsOutputBuiltinFunctionOracle`      | `DBMS_OUTPUT` package    |
+| `DbmsRandomBuiltinFunctionOracle`      | `DBMS_RANDOM` package    |
+| `DbtimezoneBuiltinFunctionOracle`      | `DBTIMEZONE`             |
+| `DecodeBuiltinFunctionOracle`          | `DECODE`                 |
+| `DumpBuiltinFunctionOracle`            | `DUMP`                   |
+| `InstrBuiltinFunctionOracle`           | `INSTR`                  |
+| `InstrbBuiltinFunctionOracle`          | `INSTRB`                 |
+| `LastDayBuiltinFunctionOracle`         | `LAST_DAY`               |
+| `LengthBuiltinFunctionOracle`          | `LENGTH`                 |
+| `LengthbBuiltinFunctionOracle`         | `LENGTHB`                |
+| `ListaggBuiltinFunctionOracle`         | `LISTAGG`                |
+| `LnnvlBuiltinFunctionOracle`           | `LNNVL`                  |
+| `LpadBuiltinFunctionOracle`            | `LPAD`                   |
+| `LtrimBuiltinFunctionOracle`           | `LTRIM`                  |
+| `MedianBuiltinFunctionOracle`          | `MEDIAN`                 |
+| `MonthsBetweenBuiltinFunctionOracle`   | `MONTHS_BETWEEN`         |
+| `NanvlBuiltinFunctionOracle`           | `NANVL`                  |
+| `NextDayBuiltinFunctionOracle`         | `NEXT_DAY`               |
+| `NlssortBuiltinFunctionOracle`         | `NLSSORT`                |
+| `Nvl2BuiltinFunctionOracle`            | `NVL2`                   |
+| `NvlBuiltinFunctionOracle`             | `NVL`                    |
+| `RoundDateFmtBuiltinFunctionOracle`    | `ROUND` (date)           |
+| `RoundNumberBuiltinFunctionOracle`     | `ROUND` (number)         |
+| `RpadBuiltinFunctionOracle`            | `RPAD`                   |
+| `RtrimBuiltinFunctionOracle`           | `RTRIM`                  |
+| `SessiontimezoneBuiltinFunctionOracle` | `SESSIONTIMEZONE`        |
+| `SinhBuiltinFunctionOracle`            | `SINH`                   |
+| `SubstrBuiltinFunctionOracle`          | `SUBSTR`                 |
+| `SubstrbBuiltinFunctionOracle`         | `SUBSTRB`                |
+| `SysdateBuiltinFunctionOracle`         | `SYSDATE`                |
+| `TanhBuiltinFunctionOracle`            | `TANH`                   |
+| `ToCharDatetimeBuiltinFunctionOracle`  | `TO_CHAR` (datetime)     |
+| `ToCharNumberBuiltinFunctionOracle`    | `TO_CHAR` (number)       |
+| `ToDateBuiltinFunctionOracle`          | `TO_DATE`                |
+| `ToMultiByteBuiltinFunctionOracle`     | `TO_MULTI_BYTE`          |
+| `ToNumberBuiltinFunctionOracle`        | `TO_NUMBER`              |
+| `ToSingleByteBuiltinFunctionOracle`    | `TO_SINGLE_BYTE`         |
+| `TruncDateBuiltinFunctionOracle`       | `TRUNC` (date)           |
+| `TruncNumberBuiltinFunctionOracle`     | `TRUNC` (number)         |
+
+Each routine is a separate Boolean key. The following example turns on the Orafce
+routines for the Oracle `ADD_MONTHS`, `NVL`, and
+`SUBSTR` functions. Add or remove keys to match the functions in your
+source code, and apply the same keys to each section name that your project
+uses.
+
+```
+{
+  "ORACLE_TO_POSTGRESQL_15": {
+    "AddMonthsBuiltinFunctionOracle": true,
+    "NvlBuiltinFunctionOracle": true,
+    "SubstrBuiltinFunctionOracle": true
+  }
+}
+```
+
+###### SQL code settings
+
+Configure how DMS Schema Conversion handles Oracle built-in objects that PostgreSQL doesn't
+support.
+
+**Convert unsupported built-in objects to stub
+objects** (`ConvUnsupportedBuiltinsToStubs`)
+
+Specifies whether DMS Schema Conversion substitutes unsupported built-in objects
+with stub objects.
+
+- `false` — DMS Schema Conversion leaves unsupported built-in
+  objects as action items in the assessment report.
+- `true` — DMS Schema Conversion replaces each unsupported
+  built-in object with a stub object that has the same signature.
+  The converted object compiles, so you can deploy and test the
+  rest of the schema before you address individual stubs.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`false`
+
+**Create stub objects in a separate schema**
+(`CreateStubsInSeparateSchema`)
+
+Specifies whether DMS Schema Conversion creates stub objects in a separate schema.
+This option appears in the AWS Management Console only when **Convert
+unsupported built-in objects to stub objects** is selected,
+and it takes effect only when that option is enabled.
+
+- `true` — DMS Schema Conversion creates stub objects in a
+  separate schema. This keeps your application schemas clean and
+  makes it easy to identify which stubs still need
+  implementation.
+- `false` — DMS Schema Conversion creates stub objects in the same
+  schema as the converted object.
+
+**Type:** Boolean (`true` | `false`)
+
+**Default:**
+`true`
+
+## Example: configure Oracle to PostgreSQL settings
+
+The following example keeps materialized views as PostgreSQL materialized
+views, emulates the `ROWID` pseudocolumn by using the
+`bigint` data type, and converts procedures to functions. Apply
+the same settings to each section name that your project uses (check the output
+of [DescribeConversionConfiguration](../APIReference/API_DescribeConversionConfiguration.md "../APIReference/API_DescribeConversionConfiguration.md") first).
+
+```
+{
+  "ORACLE_TO_POSTGRESQL_15": {
+    "MaterializedViewConvert": "MATERIALIZED_VIEW",
+    "GenerateRowId": "true",
+    "ConvertProceduresToFunction": true
+  },
+  "ORACLE_TO_POSTGRESQL_14": {
+    "MaterializedViewConvert": "MATERIALIZED_VIEW",
+    "GenerateRowId": "true",
+    "ConvertProceduresToFunction": true
+  },
+  "ORACLE_TO_POSTGRESQL": {
+    "MaterializedViewConvert": "MATERIALIZED_VIEW",
+    "GenerateRowId": "true",
+    "ConvertProceduresToFunction": true
+  }
+}
+```

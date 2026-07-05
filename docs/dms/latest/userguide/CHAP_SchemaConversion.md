@@ -46,8 +46,8 @@ Use the following topics to better understand how to use DMS Schema Conversion.
 - [Managing migration projects in DMS Schema Conversion](sc-migration-projects.md "sc-migration-projects.md")
 - [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md")
 - [Using DMS Schema Conversion](schema-conversion.md "schema-conversion.md")
+- [Using AI agents with DMS Schema Conversion](sc-genai-agents.md "sc-genai-agents.md")
 - [Using extension packs in DMS Schema Conversion](extension-pack.md "extension-pack.md")
-- [AWS IAM actions to API mapping for DMS Schema Conversion and Common Studio Framework (CSF)](schema-conversion-iam.mapping.md "schema-conversion-iam.mapping.md")
 
 ## Supported AWS Regions
 

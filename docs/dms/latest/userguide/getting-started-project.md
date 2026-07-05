@@ -16,11 +16,11 @@ source and target data providers, and your instance profile.
 5. For **Secret ID**, choose
    `sc-source-secret`.
 6. For **IAM role**, choose
-   `sc-secrets-manager-role`.
+   `sc-source-secret-role`.
 7. For **Target**, choose **Browse**, and then
    choose `sc-target`.
 8. For **Secret ID**, choose
    `sc-target-secret`.
 9. For **IAM role**, choose
-   `sc-secrets-manager-role`.
+   `sc-target-secret-role`.
 10. Choose **Create migration project**.

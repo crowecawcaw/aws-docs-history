@@ -19,12 +19,12 @@ an instance profile to use for each migration project that you create in AWS DMS
 
 To connect to Amazon RDS databases, use the subnet configuration appropriate for
 your RDS setup, whether public or private. For connecting to on-premises
-databases, If use a private subnet group and ensure that your network is
+databases, if you use a private subnet group, ensure that your network is
 configured to allow AWS DMS access to the source on-premises database through the
-NAT gateway's public IP address. For more information, see [Create a VPC based on Amazon VPC](set-up.md#set-up-vpc "set-up.md#set-up-vpc"). 7. (Optional) In you create a migration project for DMS Schema Conversion, then for
+NAT gateway's public IP address. For more information, see [Configure VPC, Amazon S3, and Secrets Manager](set-up.md#set-up-aws-resources "set-up.md#set-up-aws-resources"). 7. (Optional) If you create a migration project for DMS Schema Conversion, then for
 **Schema conversion settings - optional**, choose an Amazon S3 bucket
 to store information from your migration project. Then choose the AWS Identity and Access Management (IAM) role
-that provides access to this Amazon S3 bucket. For more information, see [Create an Amazon S3 bucket](set-up.md#set-up-s3-bucket "set-up.md#set-up-s3-bucket"). 8. Choose **Create instance profile**.
+that provides access to this Amazon S3 bucket. For more information, see [Configure VPC, Amazon S3, and Secrets Manager](set-up.md#set-up-aws-resources "set-up.md#set-up-aws-resources"). 8. Choose **Create instance profile**.
 After you create your instance profile, you can modify or delete it.
 
 ###### To modify an instance profile
