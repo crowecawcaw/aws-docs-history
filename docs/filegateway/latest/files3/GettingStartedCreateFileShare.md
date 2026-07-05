@@ -41,3 +41,4 @@ _AWS Identity and Access Management User Guide_.
 - [Encrypt objects stored by File Gateway in Amazon S3](encrypt-objects-stored-by-file-gateway-in-amazon-s3.md "encrypt-objects-stored-by-file-gateway-in-amazon-s3.md")
 - [Create an NFS file share](create-nfs-file-share.md "create-nfs-file-share.md")
 - [Create an SMB file share](create-smb-file-share.md "create-smb-file-share.md")
+- [Copy a file share](copy-file-share.md "copy-file-share.md")

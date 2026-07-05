@@ -234,11 +234,15 @@ for your hypervisor.
 4. Create new file shares for the new gateway with the same settings and
    configuration as the file shares that were configured on the old gateway. If
    necessary, refer to the information you saved in Step 2.
-5. Confirm that your new gateway is working correctly, then remap/cut-over your
-   clients from the old file shares to the new file shares in the manner that best
-   suits your environment.
-6. Confirm that your new gateway is working correctly, then delete the old
-   gateway from the Storage Gateway console.
+
+###### Note
+
+You can now copy file share configurations between gateways. For more
+information, see [Copy a file
+share](copy-file-share.md "copy-file-share.md"). 5. Confirm that your new gateway is working correctly, then remap/cut-over your
+clients from the old file shares to the new file shares in the manner that best
+suits your environment. 6. Confirm that your new gateway is working correctly, then delete the old
+gateway from the Storage Gateway console.
 
 ###### Important
 
