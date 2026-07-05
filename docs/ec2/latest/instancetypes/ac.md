@@ -291,9 +291,9 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | **Gr6f**           |
 | gr6f.4xlarge 1     | 10.0 / 25.0                       | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 30                         | ✓ Yes |
 | **G7**             |
-| g7.2xlarge         | Up to 60 Gigabit                  | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 64                         | ✓ Yes |
-| g7.4xlarge         | Up to 100 Gigabit                 | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
-| g7.8xlarge         | Up to 100 Gigabit                 | ✓ Yes | ✓ Yes | ✗ No        | 1             | 10                      | 64                         | ✓ Yes |
+| g7.2xlarge         | 60 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 64                         | ✓ Yes |
+| g7.4xlarge         | 60 Gigabit                        | ✗ No  | ✓ Yes | ✗ No        | 1             | 8                       | 64                         | ✓ Yes |
+| g7.8xlarge         | 80 Gigabit                        | ✓ Yes | ✓ Yes | ✗ No        | 1             | 10                      | 64                         | ✓ Yes |
 | g7.12xlarge        | 175 Gigabit                       | ✓ Yes | ✓ Yes | ✗ No        | 1             | 12                      | 64                         | ✓ Yes |
 | g7.24xlarge        | 350 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 1             | 24                      | 64                         | ✓ Yes |
 | g7.48xlarge        | 700 Gigabit                       | ✓ Yes | ✓ Yes | ✓ Yes       | 2             | 24                      | 64                         | ✓ Yes |
@@ -330,7 +330,7 @@ Linux operating systems. `p5.48xlarge` supports Linux operating systems only.
 | **P6-B300**        |
 | p6-b300.48xlarge   | 6400 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 17            | 68                      | 50                         | ✓ Yes |
 | **P6e-GB200**      |
-| p6e-gb200.36xlarge | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✗ No        | 17            | 39                      | 50                         | ✓ Yes |
+| p6e-gb200.36xlarge | 3200 Gigabit                      | ✓ Yes | ✓ Yes | ✓ Yes       | 17            | 39                      | 50                         | ✓ Yes |
 | **Trn1**           |
 | trn1.2xlarge 1     | 3.125 / 12.5                      | ✗ No  | ✓ Yes | ✗ No        | 1             | 4                       | 15                         | ✓ Yes |
 | trn1.32xlarge      | 8x 100 Gigabit                    | ✓ Yes | ✓ Yes | ✗ No        | 8             | 40                      | 50                         | ✓ Yes |
@@ -571,9 +571,9 @@ along with the aggregated IOPS performance with 4,096 byte block size at queue d
 | **Gr6f**           |
 | gr6f.4xlarge       | 1 x 450 GB             | NVMe SSD            | 125,000 / 40,000                   |                        | ✓ Yes          |
 | **G7**             |
-| g7.2xlarge         | 1 x 600 GB             | NVMe SSD            | 127,368 / 98,421                   |                        | ✓ Yes          |
-| g7.4xlarge         | 1 x 600 GB             | NVMe SSD            | 253,375 / 195,789                  |                        | ✓ Yes          |
-| g7.8xlarge         | 1 x 950 GB             | NVMe SSD            | 269,211 / 208,026                  |                        | ✓ Yes          |
+| g7.2xlarge         | 1 x 440 GB             | NVMe SSD            | 127,368 / 98,421                   |                        | ✓ Yes          |
+| g7.4xlarge         | 1 x 875 GB             | NVMe SSD            | 253,375 / 195,789                  |                        | ✓ Yes          |
+| g7.8xlarge         | 1 x 930 GB             | NVMe SSD            | 269,211 / 208,026                  |                        | ✓ Yes          |
 | g7.12xlarge        | 1 x 1900 GB            | NVMe SSD            | 550,000 / 425,000                  |                        | ✓ Yes          |
 | g7.24xlarge        | 1 x 3800 GB            | NVMe SSD            | 1,100,000 / 850,000                |                        | ✓ Yes          |
 | g7.48xlarge        | 2 x 3800 GB            | NVMe SSD            | 2,200,000 / 1,700,000              |                        | ✓ Yes          |
@@ -729,7 +729,7 @@ store volume TRIM support](../../../AWSEC2/latest/UserGuide/ssd-instance-store.m
 | **P6-B300**        |
 | p6-b300.48xlarge   | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **P6e-GB200**      |
-| p6e-gb200.36xlarge | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
+| p6e-gb200.36xlarge | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✓ Yes    | ✓ Yes          |
 | **Trn1**           |
 | trn1.2xlarge       | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
 | trn1.32xlarge      | ✓ Yes          | ✓ Yes                        | ✓ Yes                 | ✗ No        | ✗ No     | ✗ No           |
