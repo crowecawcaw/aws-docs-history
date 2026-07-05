@@ -9,6 +9,9 @@ To ensure that manual approval is required during plan execution, you input a ma
 approval step at a specific location in the workflow, and then configure the IAM role
 to specify who can approve the step.
 
+The IAM role used to create or update a plan with a manual approval execution block must have
+`iam:PassRole` permission for the manual approval role.
+
 ## Configuration
 
 To configure a manual approval execution block, enter the following values.
@@ -32,7 +35,7 @@ Then, choose **Save step.**
 By configuring a manual approval execution block, you can require an approval
 as part of your application recovery. For a manual execution block, Region switch does the following:
 
-- When Region switch runs a manual execution block, it pauses execution
+- When Region switch runs a manual approval execution block, it pauses execution
   and sets the plan's execution status to pending approval.
 - Anyone who has access to the role defined in the execution block can approve or decline
   execution of the step.
@@ -43,4 +46,9 @@ This block does not support ungraceful execution mode.
 
 ## What is evaluated as part of plan evaluation
 
-Region switch does not complete any evaluations for manual approval execution blocks.
+When Region switch evaluates your plan, Region switch performs several checks on your
+manual approval execution block configuration and permissions. Region switch verifies that the configured
+role is a valid ARN, that the role is for the same account that owns the plan, and that the role
+has `arc-region-switch:ApprovePlanExecutionStep` permission. If any of the checks fail,
+Region switch returns warning messages, which you can view in the console. Or, you can receive the validation
+warnings through or by using API operations.

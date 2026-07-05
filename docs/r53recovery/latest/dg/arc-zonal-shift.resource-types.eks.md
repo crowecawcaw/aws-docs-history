@@ -1,8 +1,8 @@
 # Amazon Elastic Kubernetes Service
 
 Amazon EKS provides features that enable you to make your applications more resilient to events such as the degraded health or the impairment of an Availability Zone.
-When you run your workloads in an Amazon EKS cluster, you can further improve your application environment’s fault tolerance and application recovery by using zonal shift
-or zonal autoshift.
+When you run your workloads in an Amazon EKS cluster, you can further improve fault tolerance and application recovery by using zonal shift
+or zonal autoshift. For more information, see [Learn about ARC Zonal Shift in Amazon EKS](../../../eks/latest/userguide/zone-shift.md "../../../eks/latest/userguide/zone-shift.md") in the _Amazon Elastic Kubernetes Service User Guide_.
 
 ## Using zonal shift with Amazon Elastic Kubernetes Service
 
@@ -50,7 +50,8 @@ ARC Zonal Shift in Amazon EKS](../../../eks/latest/userguide/zone-shift.md "../.
 
 ## How zonal shift works for Amazon Elastic Kubernetes Service
 
-During an Amazon EKS zonal shift, the following automatically takes place:
+During an Amazon EKS zonal shift, the following automatically takes place for all
+Amazon EKS clusters:
 
 - All the nodes in the impacted AZ are cordoned.
   This prevents the Kubernetes Scheduler from scheduling new Pods onto the nodes in the unhealthy AZ.
@@ -63,5 +64,17 @@ During an Amazon EKS zonal shift, the following automatically takes place:
   When a zonal shift is canceled or expires, the EndpointSlice controller updates the EndpointSlices to include the
   endpoints in the restored AZ.
 
-For more information, see the [AWS
-Containers blog](https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-amazon-application-recovery-controller/ "https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-amazon-application-recovery-controller/").
+If you are using EKS Auto Mode or self-managed Karpenter, the Karpenter
+controller also does the following during a zonal shift:
+
+- Stops provisioning new capacity in the impaired AZ by marking all
+  compute offerings in that zone as unavailable.
+- Stops voluntary disruption (consolidation and drift) on nodes in the
+  impaired AZ.
+- Prevents launch attempts for pods with strict scheduling requirements
+  (such as EBS volume affinity) that require the impaired AZ.
+- Resumes normal behavior when the zonal shift is canceled or
+  expires.
+
+For more information about Amazon EKS zonal shift, see the [AWS
+Containers blog](https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-amazon-application-recovery-controller/ "https://aws.amazon.com/blogs/containers/amazon-eks-now-supports-amazon-application-recovery-controller/") on the AWS website.
