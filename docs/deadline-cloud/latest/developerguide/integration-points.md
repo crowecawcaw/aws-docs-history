@@ -15,9 +15,22 @@ The integration points differ on three questions:
   the work, or in response to an event.
 - **Where you configure it** – in a workstation
   setting, a job bundle, a queue or fleet property, or your own AWS account.
-  The following table summarizes the integration points. Choose one based on the answers to
-  the preceding questions. The sections after the table describe each option and link to detailed
-  instructions.
+  The following diagram shows where each integration point runs during the job lifecycle.
+  Control flows from submission on the workstation, through worker execution, and into
+  event-driven automation in your AWS account.
+
+- **Workstation** – Submitter hooks and host
+  configuration scripts run once.
+- **Worker** – Queue, job, and step
+  environments use session-scoped enter and exit actions. Task execution runs your
+  work. Dependent steps run after the task completes.
+- **AWS account** – EventBridge events and CloudWatch
+  metrics and alarms respond asynchronously to state changes.
+
+![Job lifecycle integration points across workstation, worker, and cloud.](images/integration-points-diagram.png)
+The following table summarizes the integration points. Choose one based on the answers to
+the preceding questions. The sections after the table describe each option and link to detailed
+instructions.
 
 | Integration point                                 | Runs on     | Configured in                                        | When it runs                                                   | Use for                                                                                                                                         |
 | ------------------------------------------------- | ----------- | ---------------------------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
