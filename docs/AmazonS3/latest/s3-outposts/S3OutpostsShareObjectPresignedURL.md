@@ -187,7 +187,7 @@ import boto3
 ```
 
 For more information about using the SDK for Python (Boto3) to generate a presigned
-URL, see [Python](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.generate_presigned_url "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.generate_presigned_url") in the _AWS SDK for Python (Boto) API
+URL, see [Python](../../../boto3/latest/reference/services/s3.md#S3.Client.generate_presigned_url "../../../boto3/latest/reference/services/s3.md#S3.Client.generate_presigned_url") in the _AWS SDK for Python (Boto) API
 Reference_.
 
 The following example AWS CLI command generates a presigned URL for an S3 on Outposts
