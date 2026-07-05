@@ -13,7 +13,7 @@ Australia, you receive a bill from Amazon Web Services Australia Pty Ltd (AWS Au
 If your AWS account is based in Japan, you receive a bill from Amazon Web Services Japan G.K (AWS
 Japan). If your AWS account is based in India and your purchase is from a
 seller in India, you receive a bill from Amazon Web Services India Private Limited (AWS
-India). Otherwise, you receive a bill from AWS Inc.
+India). Otherwise, you receive a bill from Amazon Web Services, Inc.
 
 ###### Note
 
@@ -72,8 +72,8 @@ For help with troubleshooting, contact [Support](https://console.aws.amazon.com/
 
 ## Supported currencies
 
-The following lists include all existing supported currencies for AWS Inc., Amazon Web Services EMEA
-SARL, Amazon Web Services Australia, Amazon Web Services Korea, and Amazon Web Services Japan G.K.
+The following lists include all existing supported currencies for Amazon Web Services, Inc., Amazon Web Services EMEA
+SARL, Amazon Web Services Australia Pty Ltd, Amazon Web Services Korea LLC, and Amazon Web Services Japan G.K.
 
 ###### Note
 
@@ -81,13 +81,13 @@ The Indian rupee (INR) is supported for transactions between buyers in India and
 
 ###### Currency handling for AWS Marketplace transactions:
 
-Most AWS Marketplace purchases are priced in USD and billed by AWS Inc., regardless of your account location. However, you can choose to receive these USD invoices converted to your preferred local currency using exchange rates at the time of invoicing. Private offers in EUR, GBP, AUD, or JPY are an exception—these are invoiced directly in the offer currency with fixed exchange rates, overriding your preferred currency and payment profile settings.
+Most AWS Marketplace purchases are priced in USD and billed by Amazon Web Services, Inc., regardless of your account location. However, you can choose to receive these USD invoices converted to your preferred local currency using exchange rates at the time of invoicing. Private offers in EUR, GBP, AUD, or JPY are an exception—these are invoiced directly in the offer currency with fixed exchange rates, overriding your preferred currency and payment profile settings.
 
 AWS uses Bloomberg's daily foreign exchange rates to calculate currency conversions. For
 consolidated pay-as-you-go invoices, the rate from the last day of the month is used. You can
 find the specific exchange rate used on each invoice.
 
-**The supported currencies for Amazon Web Services are as
+**The supported currencies for Amazon Web Services, Inc. are as
 follows:**
 
 - Australian dollar (AUD)
@@ -117,22 +117,28 @@ follows:**
 - Swiss franc (CHF)
 - US dollar (USD)
 
-**The supported currencies for Amazon Web Services Australia are as
+**The supported currencies for Amazon Web Services Australia Pty Ltd are as
 follows:**
 
-- Australian Dollar (AUD)
-- US Dollar (USD)
+- Australian dollar (AUD)
+- US dollar (USD)
 
 **The supported currencies for Amazon Web Services Japan G.K. are as
 follows:**
 
-- Japanese Yen (JPY)
-- US Dollar (USD)
+- Japanese yen (JPY)
+- US dollar (USD)
+
+**The supported currencies for Amazon Web Services Korea LLC are as
+follows:**
+
+- Korean won (KRW)
+- US dollar (USD)
 
 **The supported currencies for Amazon Web Services India Private Limited are as
 follows:**
 
-- Indian Rupee (INR)
+- Indian rupee (INR)
 
 ## Changing your preferred currency
 
@@ -198,7 +204,7 @@ corresponding remittance instructions (**Account Name** listed under
 | --------------------------------- | ----------------------------- | ------------------------------ |
 | AWS Cloud services purchases      | Amazon Web Services EMEA SARL | Amazon Web Services EMEA SARL  |
 | Eligible AWS Marketplace seller   | Amazon Web Services EMEA SARL | Amazon Payments Europe, S.C.A. |
-| Ineligible AWS Marketplace seller | AWS Inc.                      | AWS                            |
+| Ineligible AWS Marketplace seller | Amazon Web Services, Inc.     | AWS                            |
 
 To request a bank letter for the remittance instructions, select **Billing or
 account support** and create an **Account and billing support**
