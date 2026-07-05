@@ -62,8 +62,11 @@ The security group attached to your compute nodes must allow the following ports
   instances.
 - 6818 – enable inbound and outbound connections to `slurmd` from
   `slurmctld` and from `slurmd` on node group instances
-- 60001–63000 – inbound and outbound connections between node group instances
-  to support `srun`
+- AWS PCS doesn't set a fixed `srun` port range by default, so
+  `srun` uses the operating system's ephemeral ports (on Linux, 32768–60999)
+  unless you pin it with the [SrunPortRange](https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange "https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange")
+  custom Slurm setting (for example, `SrunPortRange=60001-63000`) and allow that range
+  in your security group rules. See [Custom Slurm settings for AWS PCS clusters](slurm-custom-settings-cluster.md "slurm-custom-settings-cluster.md").
 - EFA traffic between node group instances. For more information, see [Prepare
   an EFA-enabled security group](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security "../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-security") in the _User Guide for Linux
   Instances_

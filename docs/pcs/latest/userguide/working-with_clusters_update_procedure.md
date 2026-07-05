@@ -18,6 +18,7 @@ AWS Management Console
 4. Choose **Edit**.
 5. On the Edit cluster page, modify the desired settings:
 
+   - Under **Cluster details**, select a new scheduler version from the **Scheduler** dropdown. For more information, see [Updating the scheduler version of a cluster in AWS PCS](working-with_clusters_version_update.md "working-with_clusters_version_update.md").
    - Under **Scheduler configuration**, update **Scale-down idle time** to control how long dynamic instances remain idle before automatic termination.
    - Modify **Prolog**, **Epilog**, and **Select-type parameters** settings as needed.
    - Enable, disable, or configure retention time for **managed accounting**.
@@ -56,6 +57,12 @@ aws pcs get-cluster --cluster-identifier `my-cluster`
    ```
    aws pcs update-cluster --cluster-identifier `my-cluster` \
    --slurm-configuration 'scaleDownIdleTimeInSeconds=`300`'
+   ```
+   - To update the scheduler version:
+
+   ```
+   aws pcs update-cluster --cluster-identifier `my-cluster` \
+   --scheduler version=`25.11`
    ```
 
 4. Monitor update progress by checking cluster status:

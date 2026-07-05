@@ -8,8 +8,9 @@ Updating AWS PCS clusters lets you adapt HPC infrastructure to new requirements 
 
 ## Supported configuration changes
 
-You can modify three main categories of settings:
+You can modify four main categories of settings:
 
+- **Scheduler version** - Update to a newer supported scheduler version. For more information, see [Updating the scheduler version of a cluster in AWS PCS](working-with_clusters_version_update.md "working-with_clusters_version_update.md").
 - **Accounting configuration** - Enable or disable managed accounting and configure retention settings.
 - **Scale-down behavior** - Adjust the `scaleDownIdleTime` parameter, which controls how long dynamic instances remain idle before AWS PCS automatically terminates them.
 - **Slurm custom settings** - Modify any of the supported Slurm settings that apply at the cluster level, including Prolog, Epilog, and SelectTypeParameters.
@@ -21,10 +22,9 @@ You cannot modify certain configurations after cluster creation. These include:
 - Security group configurations
 - VPC subnet selection
 - Cluster size
-- Slurm version
 - Cluster name
 
-These settings are foundational to the cluster's architecture and require creating a new cluster to modify them.
+These settings are foundational to the cluster's architecture and require creating a new cluster to modify them. To update the scheduler version, see [Updating the scheduler version of a cluster in AWS PCS](working-with_clusters_version_update.md "working-with_clusters_version_update.md").
 
 ## Prerequisites for cluster updates
 
@@ -52,5 +52,6 @@ Standard hourly charges for your AWS PCS cluster continue during update operatio
 ###### Topics
 
 - [Update an AWS PCS cluster](working-with_clusters_update_procedure.md "working-with_clusters_update_procedure.md")
+- [Updating the scheduler version of a cluster in AWS PCS](working-with_clusters_version_update.md "working-with_clusters_version_update.md")
 - [Frequently asked questions about updating clusters in AWS PCS](working-with_clusters_update_faq.md "working-with_clusters_update_faq.md")
 - [Troubleshooting AWS PCS cluster updates](working-with_clusters_update_troubleshooting.md "working-with_clusters_update_troubleshooting.md")

@@ -20,6 +20,22 @@ _AWS PrivateLink Guide_.
 AWS PCS supports making calls to all of its API actions through the interface
 endpoint.
 
+###### Dual-stack endpoint requirement
+
+By default, the AWS PCS agent connects to the dual-stack (IPv4 and IPv6) endpoint
+`pcs.`region`.api.aws`.
+This name must resolve to the private IP address of an interface VPC endpoint in your
+VPC. Replace `region` with the ID of the AWS Region, such
+as `us-east-1`.
+
+- If you use the Amazon-provided DNS, keep **Enable DNS name**
+  selected under **Additional settings** when you create the
+  endpoint, and make sure that DNS hostnames and DNS resolution are enabled for
+  the VPC.
+- If you use custom DNS, make sure that it can resolve
+  `pcs.`region`.api.aws`
+  to the endpoint.
+
 If your VPC doesn't have direct internet access, you must configure a VPC endpoint to enable
 your compute node group instances to call the AWS PCS
 [`RegisterComputeNodeGroupInstance`](../APIReference/API_RegisterComputeNodeGroupInstance.md "../APIReference/API_RegisterComputeNodeGroupInstance.md")
@@ -40,8 +56,8 @@ Replace `region` with the ID of the AWS Region to create the
 endpoint in, such as `us-east-1`.
 
 If you enable private DNS for the interface endpoint, you can make API requests to
-AWS PCS using its default Regional DNS name. For example,
-`pcs.us-east-1.amazonaws.com`.
+AWS PCS using its Regional DNS name. For example,
+`pcs.us-east-1.api.aws`.
 
 ## Create an endpoint policy for your interface endpoint
 

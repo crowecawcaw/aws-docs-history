@@ -173,8 +173,12 @@ compute node has the `pcs:RegisterComputeNodeGroupInstance` permission. For more
 ### Can't connect to AWS PCS endpoints
 
 If your compute nodes are in a private subnet, make sure that you have configured VPC
-endpoints for AWS PCS or that your subnet has a route to a NAT gateway for internet access.
-For more information, see the following:
+endpoints for AWS PCS. Alternatively, make sure that your subnet has a route to a NAT gateway for
+internet access. By default, the AWS PCS agent uses the dual-stack, non-FIPS endpoint
+`pcs.`region`.api.aws`. If you use
+custom DNS, make sure that it can resolve
+`pcs.`region`.api.aws` to the endpoint. For
+more information, see the following:
 
 - [Access
   an AWS service using an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon Virtual Private Cloud AWS PrivateLink_ guide.

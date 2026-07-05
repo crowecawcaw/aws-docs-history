@@ -35,7 +35,10 @@ considerations:
   register the customer cluster. For more information, see [DNS attributes for your VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc-dns.md") in the
   _Amazon VPC User Guide_.
 - The VPC might require VPC endpoints using AWS PrivateLink to be able to contact the
-  AWS PCS API. For more information, see [Connect your VPC to services using
+  AWS PCS API. By default, the AWS PCS agent uses the dual-stack, non-FIPS endpoint
+  `pcs.`region`.api.aws`. If you use a
+  custom DNS, you must manually add a record for this endpoint.
+  For more information, see [Connect your VPC to services using
   AWS PrivateLink](../../../vpc/latest/userguide/endpoint-services-overview.md "../../../vpc/latest/userguide/endpoint-services-overview.md") in the _Amazon VPC User Guide_.
 
 ###### Important

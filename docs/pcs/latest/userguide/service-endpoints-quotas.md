@@ -21,6 +21,12 @@ in the _AWS General Reference_.
 
 ## Service endpoints
 
+The `pcs.`region`.api.aws`
+endpoints are dual-stack. They support both IPv4 and IPv6. The
+`pcs.`region`.amazonaws.com`
+endpoints support IPv4 only. For more information about dual-stack endpoints, see [Dual-stack
+endpoints](../../../general/latest/gr/rande.md#dual-stack-endpoints "../../../general/latest/gr/rande.md#dual-stack-endpoints") in the _AWS General Reference_.
+
 | Region name               | Region         | Endpoint                                                                                                                               | Protocol |
 | ------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | US East (Ohio)            | us-east-2      | pcs.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.amazonaws.com<br>pcs-fips.us-east-2.api.aws<br>pcs.us-east-2.api.aws                 | HTTPS    |
