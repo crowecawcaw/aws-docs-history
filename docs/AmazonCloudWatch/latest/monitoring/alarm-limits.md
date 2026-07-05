@@ -49,6 +49,37 @@ limits:
 For more information on CloudWatch service quotas and limits, see [CloudWatch Metrics Insights service
 quotas](cloudwatch-metrics-insights-limits.md "cloudwatch-metrics-insights-limits.md").
 
+## Limits that apply to Log Alarms
+
+When working with CloudWatch Log Alarms, be aware of the following limits:
+
+| Resource                                    | Limit                                                                | Adjustable |
+| ------------------------------------------- | -------------------------------------------------------------------- | ---------- |
+| PutLogAlarm requests per second             | 3 (burst: 5)                                                         | No         |
+| Maximum Log Alarms per account              | ~1000 (limited by CloudWatch Logs AWS managed Scheduled Query quota) | No         |
+| Maximum contributors per query execution    | 500                                                                  | No         |
+| Maximum contributors tracked in ALARM       | 100                                                                  | No         |
+| Maximum fields in BY clause                 | 5                                                                    | No         |
+| Maximum log lines in SNS email notification | 50 (also limited by SNS notification payload limit of 256 KB)        | No         |
+
+- Alarms evaluating multiple contributors limit the number of contributors in
+  ALARM to 100.
+
+  - If there are fewer than 100 contributors in ALARM (for example 95), the
+    `StateReason` is "95 out of 100 contributors evaluated to
+    ALARM."
+  - If there are more than 100 contributors in ALARM (for example 105), the
+    `StateReason` is "100+ contributors evaluated to ALARM."
+  - If the volume of attributes is too large, the number of contributors in ALARM
+    can be limited to fewer than 100.
+
+- During alarm evaluation, the `EvaluationState` is set to
+  `PARTIAL_DATA` if the query returns more than 500 contributor
+  groups.
+- The total log lines included in a notification are limited by the requested count,
+  the total results available, and the SNS payload size limit. If the log lines exceed
+  the payload limit, fewer lines are included.
+
 ## Limits that apply to alarms based on PromQL queries
 
 When working with CloudWatch PromQL alarms, be aware of these functional

@@ -5,7 +5,7 @@ hosted applications to your on-premises destinations, and allows you to identify
 network performance degradation within minutes. Network Synthetic Monitor is fully managed by AWS, and doesn't require
 separate agents on monitored resources. Use Network Synthetic Monitor to
 visualize packet loss and latency of your hybrid network connections, and set alerts and thresholds.
-Then, based on this information, you can take action to improve your end users’ experience.
+Then, based on this information, you can take action to improve your end users' experience.
 
 Network Synthetic Monitor is intended for network operators and application developers who want real-time
 insights into network performance.
@@ -18,7 +18,7 @@ insights into network performance.
   network degradation within the AWS network with the network health indicator (NHI), which
   Network Synthetic Monitor writes to your Amazon CloudWatch account. The NHI metric is a binary value, based on a probabilistic score
   about whether network degradation is within AWS.
-- Network Synthetic Monitor provides a fully-managed agent approach to monitoring, so you don’t need to install
+- Network Synthetic Monitor provides a fully-managed agent approach to monitoring, so you don't need to install
   agents either on VPCs or on-premises. To get started, you just need to specify a VPC subnet and an
   on-premises IP address. You can establish a private connection between your VPC and Network Synthetic Monitor resources
   by using AWS PrivateLink. For more information, see [Using CloudWatch, CloudWatch Synthetics, and CloudWatch Network Monitoring with interface VPC endpoints](cloudwatch-and-interface-VPC.md "cloudwatch-and-interface-VPC.md").

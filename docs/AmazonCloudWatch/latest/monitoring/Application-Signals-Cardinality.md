@@ -101,7 +101,7 @@ Then inspect the CloudWatch agent logs (accessible by container `stdout` or EC2 
 
 #### Create your metric limiting policy
 
-If the default metric limiting configuration doesn’t address the cardinality for your service, you can
+If the default metric limiting configuration doesn't address the cardinality for your service, you can
 customize the metric limiter configuration. To do this, add a `limiter` section under
 the `logs/metrics_collected/application_signals` section in the CloudWatch Agent configuration file.
 

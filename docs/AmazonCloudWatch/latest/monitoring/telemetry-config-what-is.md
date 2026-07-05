@@ -24,6 +24,7 @@ CloudWatch telemetry configuration gives you two core capabilities:
 - Amazon Bedrock Agentcore Gateway
 - Amazon Bedrock Agentcore Memory
 - Amazon CloudFront Distribution
+- Amazon S3 Server Access Logs
 - Amazon MSK Cluster Metrics
 - OpenTelemetry Enrichment Metrics
 - Amazon Bedrock Agentcore Workload Identity

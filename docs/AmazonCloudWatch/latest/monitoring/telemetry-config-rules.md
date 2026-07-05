@@ -331,6 +331,15 @@ When enabling CloudFront Distribution logging:
 - CloudWatch does not enable log deliveries for CloudFront distributions that already are
   ingesting logs to CloudWatch Logs
 
+**Amazon S3 Server Access Logs**
+
+S3 server access logging has the following constraints:
+
+- Supports the LOGS telemetry type with log type
+  `S3_SERVER_ACCESS_LOGS` only.
+- Supports only CloudWatch Logs as the destination type.
+- Supports only tag-based selection criteria to target specific S3 buckets.
+
 **Amazon MSK Cluster Metrics**
 
 When enabling MSK Cluster metrics:

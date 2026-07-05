@@ -15,7 +15,7 @@ _in_ the cloud:
   apply to Network Synthetic Monitor, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - **Security in the cloud** – Your responsibility is
   determined by the AWS service that you use. You are also responsible for other factors
-  including the sensitivity of your data, your company’s requirements, and applicable laws and
+  including the sensitivity of your data, your company's requirements, and applicable laws and
   regulations.
   This documentation helps you understand how to apply the shared responsibility model when
   using Network Synthetic Monitor. The following topics show you how to configure Network Synthetic Monitor to meet your security

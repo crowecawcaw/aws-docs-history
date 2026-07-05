@@ -9,6 +9,11 @@ processors that support conditional processing and their specific parameters, se
 [CloudWatch pipelines processors](pipeline-processors.md "pipeline-processors.md"). For configuration examples, see
 [Common processor use cases](processor-examples.md "processor-examples.md").
 
+###### Note
+
+Conditional processing applies to log pipelines only. Metrics pipelines do not
+support the `when` parameter.
+
 ## Processor-level and entry-level conditions
 
 There are two levels at which you can apply a `when` condition,

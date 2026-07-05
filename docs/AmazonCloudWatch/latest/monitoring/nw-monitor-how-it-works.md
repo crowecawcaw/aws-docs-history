@@ -101,6 +101,6 @@ with the AWS network along your network paths.
 ## Support for IPv4 and IPv6 addresses
 
 Network Synthetic Monitor provides availability and performance metrics over IPv4 or IPv6 networks, and can
-monitor either IPv4 or IPv6 addresses from dual-stack VPCs. Network Synthetic Monitor doesn’t allow both IPv4
+monitor either IPv4 or IPv6 addresses from dual-stack VPCs. Network Synthetic Monitor doesn't allow both IPv4
 and IPv6 destinations to be configured in the same monitor; you can create separate
 monitors for IPv4-only and IPv6-only destinations.

@@ -1,7 +1,13 @@
 # Sinks
 
-Sinks define the destination where processed log data is sent. Each pipeline must have
-exactly one sink. Currently, only CloudWatch Logs sink is supported.
+Sinks define the destination where processed data is sent. Each pipeline must have
+exactly one sink. Logs pipelines use the `cloudwatch_logs` sink and metrics
+pipelines use the `cloudwatch_metrics` sink.
+
+## CloudWatch Logs sink (`cloudwatch_logs`)
+
+For logs pipelines, the `cloudwatch_logs` sink sends processed log events
+to a CloudWatch Logs log group.
 
 Sink behavior by source type| Source Type | Log Group Configuration | Behavior |
 | --- | --- | --- |
@@ -57,7 +63,7 @@ sink:
       include_original: {}
 ```
 
-## Requirements and limitations
+### Requirements and limitations
 
 Log group existence
 
@@ -103,3 +109,18 @@ For pipelines using the `cloudwatch_logs` source type:
 ###### Note
 
 Log events are subject to CloudWatch Logs quotas and limitations.
+
+## CloudWatch Metrics sink (`cloudwatch_metrics`)
+
+For metrics pipelines, the `cloudwatch_metrics` sink stores processed
+metrics in CloudWatch. Processed metrics are queryable via PromQL in Query Studio and
+fully compatible with CloudWatch Alarms, Anomaly Detection, and Dashboards.
+
+###### Configuration
+
+The `cloudwatch_metrics` sink has no parameters:
+
+```
+sink:
+  - cloudwatch_metrics: {}
+```

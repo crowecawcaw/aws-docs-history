@@ -14,6 +14,7 @@ source:
   github_auditlog:
     scope: "ORGANIZATION"
     organization: "<example-org-name>"
+    range: "P7D"
     authentication:
       personal_access_token: "${{aws_secrets:<secret-name>:token}}"
 ```
@@ -37,3 +38,9 @@ GitHub enterprise name.
 auth)
 
 Personal access token for GitHub API authentication.
+
+`range` (optional)
+
+The time range for log collection. Uses ISO 8601 duration format
+(for example, `P7D` for the last 7 days, `PT21H`
+for 21 hours). Default is 0 hours, and the maximum is 90 days.

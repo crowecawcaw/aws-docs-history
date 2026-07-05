@@ -6,13 +6,11 @@ Configure the Slack source with the following parameters:
 
 ```
 source:
-  slack_auditlog:
+  slack_auditlogs:
     authentication:
         api_token: "${{aws_secrets:slack-account-credentials:apiToken}}"
     # Provide the time range (e.g., P7D for the last 7 days)
-    backfill: "P7D"
-    # Prevent data loss by only considering logs to be processed successfully after they are received by the sink
-    acknowledgments: true
+    range: "P7D"
 ```
 
 ###### Parameters
@@ -30,19 +28,11 @@ AWS Secrets Manager using the
 `${{aws_secrets:<secret-name>:<key>}}`
 reference syntax.
 
-`acknowledgments` (optional)
+`range` (optional)
 
-Prevents data loss by only considering logs successfully processed after
-they are received by the sink. Accepts `true` or
-`false`. Default: `true`.
-
-`backfill` (optional)
-
-Defines how far back to backfill audit logs on first run (or after state
-reset). Uses ISO 8601 duration format (for example, `P7D` for
-the last 7 days, `PT12H` for 12 hours). Must be a positive
-duration or null; null disables backfill entirely. Slack's Audit Logs API
-retains at most 90 days of history. Default: `P90D`.
+The time range for log collection. Uses ISO 8601 duration format
+(for example, `P7D` for the last 7 days, `PT21H`
+for 21 hours). Default is 0 hours, and the maximum is 90 days.
 
 ###### Note
 

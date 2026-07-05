@@ -1,16 +1,23 @@
 # Creating pipelines
 
-The pipeline configuration wizard guides you through creating your data
+CloudWatch pipelines supports creating pipelines for both logs and metrics data. The following
+sections describe how to create each type of pipeline.
+
+## Creating a logs pipeline
+
+The pipeline configuration wizard guides you through creating your logs data
 pipeline.
 
 1. Under **General settings**, provide the data source details
    including source name and type. You can also specify pipeline tags and the name
    of your pipeline.
-2. Under **Destination**, specify the destination details. CloudWatch Logs
-   is the default destination.
+2. Under **Destination**, specify the destination details. For
+   logs pipelines, CloudWatch Logs is the only supported destination. For metrics
+   pipelines, CloudWatch Metrics is the only supported destination.
 3. Under **Processor**, add the desired processors and parsers.
    A parser is a required first step for certain data types. You can perform custom
-   parsing using processors like Grok or CSV. Processors that are not supported by the
+   parsing using processors like Grok or CSV. You can use the lookup processor to enrich
+   log events with data from an Amazon CloudWatch Logs lookup table. Processors that are not supported by the
    data type are disabled.
 
 To configure processors using natural language, enable the
@@ -52,3 +59,85 @@ Pipeline processor configurations are logged in AWS CloudTrail events for
 auditing and compliance purposes. To protect sensitive information, do not include
 passwords, API keys, or other sensitive information in processor
 configurations.
+
+## Creating a metrics pipeline
+
+You can create a metrics pipeline by using the CloudWatch console or the AWS CLI.
+With a metrics pipeline, you can process CloudWatch metrics data, apply transformations, and
+forward the processed metrics to CloudWatch.
+
+### To create a metrics pipeline (console)
+
+Use the following procedure to create a metrics pipeline in the CloudWatch
+console.
+
+1. Open the CloudWatch console and in the navigation pane, choose
+   **Ingestion**, **Pipelines**.
+2. Choose **Create pipeline**.
+3. For the source type, select **CloudWatch Metrics
+   (OTel)**.
+4. Configure the selection criteria to specify which metrics the pipeline
+   processes. Selection criteria use OTel attribute paths such as
+   `resource.attributes`, `metric.name`, and
+   `datapoint.attributes`. All criteria use AND semantics
+   (all must match).
+5. Under **Processor**, add up to 20 processors to
+   transform your metrics data.
+6. Under **Review and create**, review the pipeline
+   configuration and choose **Create pipeline**.
+
+### To create a metrics pipeline (AWS CLI)
+
+Use the `create-telemetry-pipeline` command to create a metrics
+pipeline from the AWS CLI.
+
+```
+aws observabilityadmin create-telemetry-pipeline \
+    --pipeline-configuration-body file://config.yaml
+```
+
+The following example shows a YAML configuration file that defines a metrics
+pipeline with a source, processor, and sink.
+
+```
+pipeline:
+  source:
+    cloudwatch_metrics:
+      format: otlp
+      selection_criteria:
+        - match_all:
+            - 'resource.attributes["service.name"] == "payment-service"'
+            - 'metric.name == "http.server.request.duration"'
+  processor:
+    - add_attributes:
+        attributes:
+          - key: resource.attributes["team"]
+            value: "platform-engineering"
+  sink:
+    - cloudwatch_metrics: {}
+```
+
+When the pipeline is created, it returns an ARN in the following format:
+
+```
+arn:aws:observabilityadmin:`region`:`accountId`:telemetry-pipeline/`pipelineID`
+```
+
+###### Note
+
+CloudWatch Metrics is the only supported destination for metrics
+pipelines.
+
+### Supported API operations
+
+The following table lists the API operations that you can use to manage
+metrics pipelines.
+
+| Operation                                | Description                                          |
+| ---------------------------------------- | ---------------------------------------------------- |
+| `CreateTelemetryPipeline`                | Creates a new metrics pipeline.                      |
+| `GetTelemetryPipeline`                   | Retrieves details about a specific metrics pipeline. |
+| `ListTelemetryPipelines`                 | Lists all metrics pipelines in your account.         |
+| `DeleteTelemetryPipeline`                | Deletes a metrics pipeline.                          |
+| `ValidateTelemetryPipelineConfiguration` | Validates a pipeline configuration before creation.  |
+| `UpdateTelemetryPipeline`                | Updates an existing metrics pipeline configuration.  |

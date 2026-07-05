@@ -1703,7 +1703,7 @@ Required: No
 Summary columns are a new property introduced with the table widget. These columns are a specific subset of summaries of your current table. For example, the
 `Sum` summary is a sum of all the rendered datapoints in its respective row. Summary columns are not that same concept as any CloudWatch metric statistic.
 
-The default is `[“MIN“, "MAX","SUM", "AVG"]`
+The default is `["MIN", "MAX","SUM", "AVG"]`
 
 Valid Values: `"MIN"` | `"MAX"`| `"SUM"`| `"AVG"`
 

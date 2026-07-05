@@ -9,6 +9,7 @@ Configure the Cisco Meraki source with the following parameters:
 source:
   cisco_meraki:
     organization_id: "<meraki-organization-ID>"
+    range: "P7D"
     authentication:
       api_key: "${{aws_secrets:<secret-name>:api_key}}"
 ```
@@ -26,6 +27,12 @@ or by calling `GET /organizations`.
 
 Cisco Meraki API key, stored as a key/value pair. From the preceding example,
 the name of the key will be `api_key`.
+
+`range` (optional)
+
+The time range for log collection. Uses ISO 8601 duration format
+(for example, `P7D` for the last 7 days, `PT21H`
+for 21 hours). Default is 0 hours, and the maximum is 90 days.
 
 ###### Note
 

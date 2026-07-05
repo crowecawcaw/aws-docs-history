@@ -87,3 +87,7 @@ When creating a pipeline for custom sources:
 
 - A parser must be the first processor in the pipeline if the data source is CloudWatch Logs
 - You can specify any supported processor for custom log pipelines
+
+###### Topics
+
+- [Configuring Custom S3 Bucket Sources](configuring-custom-s3-bucket-sources.md "configuring-custom-s3-bucket-sources.md")

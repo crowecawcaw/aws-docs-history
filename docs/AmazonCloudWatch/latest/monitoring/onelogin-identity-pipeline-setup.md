@@ -8,7 +8,6 @@ Configure the OneLogin Identity source with the following parameters:
 source:
   onelogin_identity:
     range: "P7D"
-    acknowledgments: true
     subdomain: "<your-subdomain>"
     authentication:
       oauth2:
@@ -17,10 +16,6 @@ source:
 ```
 
 ###### Parameters
-
-`acknowledgments` (required)
-
-Prevents data loss by only considering logs to be processed successfully after they are received by the sink. Set to `true` to enable.
 
 `range` (optional)
 

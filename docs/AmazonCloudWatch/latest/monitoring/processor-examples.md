@@ -1,6 +1,8 @@
 # Common processor use cases
 
-Here are common scenarios and example configurations for combining processors:
+Here are common scenarios and example configurations for combining processors.
+
+**Logs pipeline examples**
 
 ###### Example Standardize log formats and add metadata
 
@@ -98,4 +100,56 @@ processor:
   - delete_entries:
       with_keys: ["password", "api_key", "ssn"]
       when: "environment in {'prod', 'staging'}"
+```
+
+## Metrics pipeline examples
+
+The following examples show processor configurations for metrics pipelines. Metrics
+processors use OTTL path expressions to target attributes at different scopes.
+
+###### Example Add business context to metrics
+
+Add team ownership and environment tags to metric datapoints:
+
+```
+processor:
+  - add_attributes:
+      attributes:
+        - key: resource.attributes["team"]
+          value: "platform-engineering"
+        - key: resource.attributes["cost_center"]
+          value: "CC-1234"
+```
+
+###### Example Remove high-cardinality attributes
+
+Strip attributes that drive up storage costs. Does not apply to cumulative
+metrics or vended metrics — if any metrics in the selection criteria have
+unsupported temporality, the pipeline emits an
+`UnsupportedTemporality` warning metric that you can monitor in the
+`AWS/Observability Admin` namespace:
+
+```
+processor:
+  - delete_attributes:
+      with_keys:
+        - resource.attributes["host.id"]
+        - datapoint.attributes["http.request.id"]
+```
+
+###### Example Standardize naming conventions
+
+Rename metrics and attributes to align with OpenTelemetry semantic conventions.
+Does not apply to cumulative metrics or vended metrics:
+
+```
+processor:
+  - rename_metrics:
+      metrics:
+        - from: "cpu_usage_percent"
+          to: "system.cpu.utilization"
+  - rename_attributes:
+      attributes:
+        - from_key: resource.attributes["hostname"]
+          to_key: resource.attributes["host.name"]
 ```

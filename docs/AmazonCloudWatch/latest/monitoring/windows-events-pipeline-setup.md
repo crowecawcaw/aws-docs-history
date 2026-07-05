@@ -7,7 +7,7 @@ Configure the Microsoft Windows Event source with the following parameters:
 
 ```
 source:
-  microsoft_windows_event:
+  microsoft_windows:
     tenant_id: "<example-tenant-ID>"
     workspace_id: "<example-workspace-ID>"
     authentication:

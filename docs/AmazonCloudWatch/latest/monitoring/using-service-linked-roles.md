@@ -54,8 +54,14 @@ role permissions policy allows CloudWatch to complete the following actions:
 CloudWatch observability admin creates and uses a service-linked role named
 **AWSServiceRoleForObservabilityAdmin** – CloudWatch uses this
 service-linked role to support resource and telemetry config discovery for AWS
-Organizations. The role is created in all member accounts of the
-Organization.
+Organizations. When a management account creates an organization-level rule, the
+service-linked role is automatically created in all member accounts and the delegated
+administrator account in the organization. However, when a delegated administrator
+account creates an organization-level rule, the service-linked role is automatically
+created in all member accounts but is _not_ automatically created
+in the management account. If a delegated administrator account creates the
+organization-level rule, you must manually create the service-linked role in the
+management account.
 
 The **AWSServiceRoleForObservabilityAdmin** service-linked role
 trusts Observability Admin to assume the role. Observability Admin manages AWS
@@ -202,9 +208,9 @@ This policy grants permissions for:
 - Basic telemetry operations including describing VPCs, flow logs, log
   groups. It also includes permissions to enable logging configuration for EKS cluster logging,
   WAF put logging configuration, enabling NLB logs, Route53 Resolver query logging,
-  Amazon EC2 detailed monitoring, Security Hub, Bedrock Agentcore Gateway,
-  Bedrock Agentcore Memory, CloudFront Distribution, MSK Cluster,
-  OpenTelemetry Enrichment, and Bedrock Agentcore Workload Identity.
+  Amazon EC2 detailed monitoring, AWS Security Hub, Amazon Bedrock Agentcore Gateway,
+  Amazon Bedrock Agentcore Memory, Amazon CloudFront distribution, S3 bucket server access logs,
+  MSK Cluster, OpenTelemetry Enrichment, and Amazon Bedrock Agentcore Workload Identity.
 - Resource tagging operations with the
   `CloudWatchTelemetryRuleManaged` tag for tracking managed
   resources

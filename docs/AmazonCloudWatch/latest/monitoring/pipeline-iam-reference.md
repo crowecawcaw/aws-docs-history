@@ -5,13 +5,14 @@ source and integration method.
 
 The following table helps you identify which IAM sections apply to your use case.
 
-| Use case                                                                                                | Integration method                                                     | Source type in pipeline configuration                        | IAM sections you need                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[Third-party integrations (API Pull)](data-sources-third-party.md "data-sources-third-party.md")**    | Pipeline pulls from vendor API using stored credentials                | `microsoft_office365`, `okta_sso`,<br>`palo_alto_ngfw`, etc. | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Third-party sources (API Pull)](#third-party-api-pull "#third-party-api-pull") + [Resource policies](#resource-policies "#resource-policies")          |
-| **[Third-party integrations (S3 delivery)](data-sources-third-party.md "data-sources-third-party.md")** | Vendor delivers files to your S3 bucket                                | `s3`                                                         | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Third-party sources (S3 delivery)](#third-party-s3-delivery "#third-party-s3-delivery") + [Resource policies](#resource-policies "#resource-policies") |
-| **[Custom data from S3](data-sources-custom.md "data-sources-custom.md")**                              | Your applications write to S3, pipeline reads from bucket              | `s3`                                                         | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Custom data from S3](#custom-data-s3 "#custom-data-s3") + [Resource policies](#resource-policies "#resource-policies")                                 |
-| **[Custom data from CloudWatch Logs](data-sources-custom.md "data-sources-custom.md")**                 | Your applications log to a CloudWatch Logs log group                   | `cloudwatch_logs`                                            | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Custom data from CloudWatch Logs](#custom-data-cloudwatch-logs "#custom-data-cloudwatch-logs")                                                         |
-| **[Vended AWS service logs](data-sources-aws-services.md "data-sources-aws-services.md")**              | AWS services deliver logs to CloudWatch Logs (VPC Flow Logs, Route 53) | `cloudwatch_logs`                                            | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Vended AWS service logs](#vended-service-logs "#vended-service-logs")                                                                                  |
+| Use case                                                                                                                          | Integration method                                                     | Source type in pipeline configuration                        | IAM sections you need                                                                                                                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **[Third-party integrations (API Pull)](data-sources.md#data-sources-third-party "data-sources.md#data-sources-third-party")**    | Pipeline pulls from vendor API using stored credentials                | `microsoft_office365`, `okta_sso`,<br>`palo_alto_ngfw`, etc. | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Third-party sources (API Pull)](#third-party-api-pull "#third-party-api-pull") + [Resource policies](#resource-policies "#resource-policies")          |
+| **[Third-party integrations (S3 delivery)](data-sources.md#data-sources-third-party "data-sources.md#data-sources-third-party")** | Vendor delivers files to your S3 bucket                                | `s3`                                                         | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Third-party sources (S3 delivery)](#third-party-s3-delivery "#third-party-s3-delivery") + [Resource policies](#resource-policies "#resource-policies") |
+| **[Custom data from S3](data-sources.md#data-sources-custom "data-sources.md#data-sources-custom")**                              | Your applications write to S3, pipeline reads from bucket              | `s3`                                                         | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Custom data from S3](#custom-data-s3 "#custom-data-s3") + [Resource policies](#resource-policies "#resource-policies")                                 |
+| **[Custom data from CloudWatch Logs](data-sources.md#data-sources-custom "data-sources.md#data-sources-custom")**                 | Your applications log to a CloudWatch Logs log group                   | `cloudwatch_logs`                                            | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Custom data from CloudWatch Logs](#custom-data-cloudwatch-logs "#custom-data-cloudwatch-logs")                                                         |
+| **[Vended AWS service logs](data-sources.md#data-sources-aws-services "data-sources.md#data-sources-aws-services")**              | AWS services deliver logs to CloudWatch Logs (VPC Flow Logs, Route 53) | `cloudwatch_logs`                                            | [API caller permissions](#api-caller-permissions "#api-caller-permissions") + [Vended AWS service logs](#vended-service-logs "#vended-service-logs")                                                                                  |
+| **[CloudWatch Metrics (OTel)](data-sources.md#data-sources-metrics-otel "data-sources.md#data-sources-metrics-otel")**            | AWS services emit metrics via OTLP                                     | `cloudwatch_metrics`                                         | [Pipeline rule permissions for CloudWatch Metrics sources](#pipeline-rule-permissions-metrics "#pipeline-rule-permissions-metrics")                                                                                                   |
 
 ###### Note
 
@@ -93,6 +94,37 @@ permission is required for `CreateTelemetryPipeline` and
     ]
 }
 ```
+
+### Pipeline rule permissions for CloudWatch Metrics sources
+
+When you use `cloudwatch_metrics` as a source, you need
+permissions for pipeline rule operations. To create or update a pipeline,
+grant the `cloudwatch:PutPipelineRule` permission. To delete a
+pipeline, grant the `cloudwatch:DeletePipelineRule` permission.
+Metrics pipelines do not require `iam:PassRole` or CloudWatch Logs resource
+policies. You can scope these actions down to the
+`dataset/default` resource.
+
+###### Example IAM policy for CloudWatch metrics pipeline rules
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PipelineRuleForCloudWatchMetrics",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutPipelineRule",
+                "cloudwatch:DeletePipelineRule"
+            ],
+            "Resource": "arn:aws:cloudwatch:`your-region`:`your-account-id`:dataset/default"
+        }
+    ]
+}
+```
+
+**Reducing scope with condition keys**
 
 ## Source role policies
 
@@ -706,10 +738,19 @@ Replace the following placeholders:
 ## Pipeline condition keys
 
 CloudWatch pipelines supports IAM condition keys that let you restrict who can create pipelines
-and which accounts can assume source roles. Use these condition keys to enforce governance
+based on the source name and type. Use these condition keys to enforce governance
 policies across your organization.
 
-### CreateTelemetryPipeline conditions
+###### Available condition keys
+
+`observabilityadmin:SourceName`
+
+Restricts pipeline creation to specific source names. Applies to logs
+pipelines only.
+
+`observabilityadmin:SourceType`
+
+Restricts pipeline creation to specific source types.
 
 Use these condition keys in identity policies to control which pipelines
 a principal can create.
@@ -742,7 +783,7 @@ include `cloudwatch_logs`, `s3`,
 }
 ```
 
-### Source role trust policy conditions
+## Source role trust policy conditions
 
 Use these condition keys in the trust policy of your source role to restrict
 which account can assume the role. This prevents confused deputy attacks where

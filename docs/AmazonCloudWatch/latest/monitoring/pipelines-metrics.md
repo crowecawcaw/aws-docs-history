@@ -1,4 +1,4 @@
-# Monitoring Pipelines Using CloudWatch Metrics
+# Monitoring pipelines
 
 CloudWatch pipelines publishes metrics to Amazon CloudWatch in the `AWS/Observability Admin` namespace. You can use these metrics to monitor your pipelines' health, performance, and data flow.
 
@@ -10,82 +10,130 @@ The following tables list the available metrics for CloudWatch pipelines.
 
 Pipelines metrics are only emitted when the value is non-zero.
 
-### Core metrics
+### Pipeline health metrics
 
-| Metric                           | Description                                                     | Dimension                          | Unit  |
-| -------------------------------- | --------------------------------------------------------------- | ---------------------------------- | ----- |
-| `PipelineBytesIn`                | Volume of log records going into pipeline in uncompressed bytes | PipelineName                       | Bytes |
-| `PipelineBytesInByDataSource`    | Volume of incoming data with source/type breakdown              | PipelineName, DataSource, DataType | Bytes |
-| `PipelineBytesOut`               | Volume of data routed to destination                            | PipelineName                       | Bytes |
-| `PipelineBytesOutByDataSource`   | Volume of outgoing data with source/type breakdown              | PipelineName, DataSource, DataType | Bytes |
-| `PipelineRecordsIn`              | Number of records entering the pipeline                         | PipelineName                       | Count |
-| `PipelineRecordsInByDataSource`  | Number of incoming records with source/type breakdown           | PipelineName, DataSource, DataType | Count |
-| `PipelineRecordsOut`             | Number of records exiting the pipeline                          | PipelineName                       | Count |
-| `PipelineRecordsOutByDataSource` | Number of outgoing records with source/type breakdown           | PipelineName, DataSource, DataType | Count |
+The following metrics are emitted for all pipeline types (logs and metrics):
 
-### Error and warning metrics
+| Metric                          | Description                           | Dimension                 | Unit  |
+| ------------------------------- | ------------------------------------- | ------------------------- | ----- |
+| `PipelineErrors`                | Aggregate count of errors in pipeline | PipelineName              | Count |
+| `PipelineErrorsByErrorType`     | Detailed error counts by type         | PipelineName, ErrorType   | Count |
+| `PipelineWarnings`              | Number of warnings encountered        | PipelineName              | Count |
+| `PipelineWarningsByWarningType` | Detailed warnings by type             | PipelineName, WarningType | Count |
 
-| Metric                          | Description                                  | Dimension                                                  | Unit  |
-| ------------------------------- | -------------------------------------------- | ---------------------------------------------------------- | ----- |
-| `PipelineErrors`                | Aggregate count of errors in pipeline        | PipelineName                                               | Count |
-| `PipelineErrorsByErrorType`     | Detailed error counts by type                | PipelineName, ErrorSource, ErrorComponent, ErrorType       | Count |
-| `PipelineWarnings`              | Number of warnings encountered               | PipelineName                                               | Count |
-| `PipelineWarningsByWarningType` | Detailed warnings by type                    | PipelineName, WarningSource, WarningComponent, WarningType | Count |
-| `PipelineRecordsUnprocessed`    | Number of records that couldn't be processed | PipelineName, DataSource, DataType                         | Count |
+###### Note
+
+For logs pipelines, `PipelineErrorsByErrorType` includes additional
+dimensions (`ErrorSource`, `ErrorComponent`) and
+`PipelineWarningsByWarningType` includes additional dimensions
+(`WarningSource`, `WarningComponent`).
+
+### Logs pipeline metrics
+
+The following metrics are emitted for logs pipelines:
+
+| Metric                                   | Description                                                     | Dimension                          | Unit  |
+| ---------------------------------------- | --------------------------------------------------------------- | ---------------------------------- | ----- |
+| `PipelineBytesIn`                        | Volume of log records going into pipeline in uncompressed bytes | PipelineName                       | Bytes |
+| `PipelineBytesInByDataSource`            | Volume of incoming data with source/type breakdown              | PipelineName, DataSource, DataType | Bytes |
+| `PipelineBytesOut`                       | Volume of data routed to destination                            | PipelineName                       | Bytes |
+| `PipelineBytesOutByDataSource`           | Volume of outgoing data with source/type breakdown              | PipelineName, DataSource, DataType | Bytes |
+| `PipelineRecordsIn`                      | Number of records entering the pipeline                         | PipelineName                       | Count |
+| `PipelineRecordsInByDataSource`          | Number of incoming records with source/type breakdown           | PipelineName, DataSource, DataType | Count |
+| `PipelineRecordsOut`                     | Number of records exiting the pipeline                          | PipelineName                       | Count |
+| `PipelineRecordsOutByDataSource`         | Number of outgoing records with source/type breakdown           | PipelineName, DataSource, DataType | Count |
+| `PipelineRecordsUnprocessed`             | Number of records that couldn't be processed                    | PipelineName                       | Count |
+| `PipelineRecordsUnprocessedByDataSource` | Number of unprocessed records with source/type breakdown        | PipelineName, DataSource, DataType | Count |
+
+### Metrics pipeline metrics
+
+The following metrics are emitted for metrics pipelines:
+
+| Metric                          | Description                                                                                                                                                                                                                                                                                                                                                 | Dimension             | Unit  |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----- |
+| `PipelineDataPointsIn`          | Number of metric datapoints entering the pipeline (matched selection criteria)                                                                                                                                                                                                                                                                              | PipelineName, dataset | Count |
+| `PipelineDataPointsOut`         | Number of metric datapoints exiting the pipeline after processing                                                                                                                                                                                                                                                                                           | PipelineName, dataset | Count |
+| `PipelineDataPointsUnprocessed` | Number of metric datapoints that matched selection criteria but passed<br>through unchanged because all processors were skipped. For example, this occurs<br>when `UnsupportedTemporality` or `DestructiveOnVended`<br>restrictions apply. You can create an alarm on this metric to detect metrics in<br>your selection criteria that cannot be processed. | PipelineName, dataset | Count |
 
 ## Dimensions
 
 CloudWatch pipelines metrics use the following dimensions:
 
 **PipelineName**
-Name of the pipeline
-
-**DataSource**
-Source of the data (AWS service name or third-party source)
-
-**DataType**
-Type of data being processed
-
-**ErrorSource**
-Origin of the error (s3, aws.secrets, cloudwatch\_logs)
-
-**ErrorComponent**
-Component where error occurred (source, sink, extension)
+Name of the pipeline.
 
 **ErrorType**
-Type of error encountered
+Type of error encountered.
+
+**WarningType**
+Type of warning encountered.
+
+**DataSource (logs pipelines)**
+Source of the data (AWS service name or third-party source).
+
+**DataType (logs pipelines)**
+Type of data being processed.
+
+**ErrorSource (logs pipelines)**
+Origin of the error (s3, aws.secrets, cloudwatch\_logs).
+
+**ErrorComponent (logs pipelines)**
+Component where error occurred (source, sink, extension).
+
+**dataset (metrics pipelines)**
+The OTel metric dataset identifier. Currently always `default`.
 
 ## Error types
 
 The following error types are tracked in `PipelineErrorsByErrorType`:
 
-**`ACCESS_DENIED`**
-Permission-related failures
-
 **`ALL`**
-The total count of all errors on the pipeline
-
-**`RESOURCE_NOT_FOUND`**
-Specified resource doesn't exist
-
-**`SOURCE_READ_FAILURE`**
-Failures reading from source
+The total count of all errors on the pipeline.
 
 **`PARSE_FAILURE`**
-Data parsing errors
+Data parsing errors.
 
 **`PROCESSOR_ERRORS`**
-Processing operation failures
+Processing operation failures.
 
-**`PAYLOAD_SIZE_EXCEEDED`**
-Data size limit exceeded
+**`ACCESS_DENIED` (logs pipelines)**
+Permission-related failures.
+
+**`RESOURCE_NOT_FOUND` (logs pipelines)**
+Specified resource doesn't exist.
+
+**`SOURCE_READ_FAILURE` (logs pipelines)**
+Failures reading from source.
+
+**`PAYLOAD_SIZE_EXCEEDED` (logs pipelines)**
+Data size limit exceeded.
 
 ## Warning types
 
-The following warning type can occur on a pipeline:
+The following warning types can occur on a pipeline:
 
 **`THROTTLED`**
 Indicates that the volume of data being sent has exceeded existing rate limits, causing some data points or events to be dropped or delayed to protect the system and ensure stability.
+
+**`DestructiveOnVended` (metrics pipelines)**
+A destructive processor attempted to modify a vended metric
+(`instrumentation_scope.name` starting with `cloudwatch.aws/`).
+The pipeline skipped the operation and counted the affected datapoints in
+`PipelineDataPointsUnprocessed`.
+
+**`UnsupportedTemporality` (metrics pipelines)**
+A destructive processor attempted to modify a metric with cumulative
+aggregation temporality. The pipeline skipped the operation and passed the metric
+through unchanged. Cumulative temporality means the metric reports values accumulated
+since a fixed start time (as defined by the
+[OpenTelemetry
+metrics data model](https://opentelemetry.io/docs/specs/otel/metrics/data-model/#temporality "https://opentelemetry.io/docs/specs/otel/metrics/data-model/#temporality")). The pipeline counts the affected datapoints in
+`PipelineDataPointsUnprocessed`. Monitor this warning to identify metrics
+in your selection criteria that cannot be processed by destructive
+operations.
+
+**`UnknownOttlPath` (metrics pipelines)**
+Processor configuration references an unrecognized OTTL path — attribute operation skipped.
 
 ## Viewing metrics
 
