@@ -51,7 +51,7 @@ customer experience.
 
 Your data remains stored only in the Region where the investigation request
 originates. However, investigation data and summary results may be processed outside
-that Region. All data is transmitted encrypted across Amazon's secure network.
+that Region. All data is transmitted encrypted across the Amazon secure network.
 
 GuardDuty Investigation securely routes your inference requests to available compute
 resources within the geographic area where the request originated, as shown in the
@@ -330,7 +330,7 @@ return:
 
 Investigation risk levels| Risk level | Description |
 | --- | --- |
-| Info | Informational finding with no immediate risk to the environment. |
+| Info | Informational finding with no identified risk to the environment. |
 | Low | Minor risk that is unlikely to require immediate action. |
 | Medium | Moderate risk that you must review and might require remediation. |
 | High | Significant risk that requires prompt investigation and remediation. |

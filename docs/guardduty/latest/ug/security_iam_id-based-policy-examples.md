@@ -360,3 +360,42 @@ JSON
 }`
 
 ```
+
+The IAM resource ARN for a GuardDuty action matches that action's API resource path.
+Most actions map to the detector or a sub-resource. For example,
+`guardduty:GetDetector` uses `detector/detectorId`, and
+`guardduty:GetFilter` uses
+`detector/detectorId/filter/filterName`.
+
+Most findings and member actions append the operation name as a suffix on the
+resource path. The list operations are the exception:
+`guardduty:ListFindings` and `guardduty:ListMembers` use the base
+`findings` and `member` paths with no suffix. Include the full
+path when you scope a policy to these actions:
+
+- `guardduty:GetFindings` uses
+  `detector/detectorId/findings/get`
+- `guardduty:GetFindingsStatistics` uses
+  `detector/detectorId/findings/statistics`
+- `guardduty:ArchiveFindings` uses
+  `detector/detectorId/findings/archive`
+- `guardduty:GetMembers` uses
+  `detector/detectorId/member/get`
+- `guardduty:ListFindings` uses
+  `detector/detectorId/findings` (no suffix)
+- `guardduty:ListMembers` uses
+  `detector/detectorId/member` (no suffix)
+
+The following policy grants `guardduty:GetFindings` on a specific detector
+in the us-east-1 Region, using the full resource path:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [{
+    "Effect": "Allow",
+    "Action": "guardduty:GetFindings",
+    "Resource": "arn:aws:guardduty:us-east-1:111122223333:detector/`a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`/findings/get"
+  }]
+}
+```
