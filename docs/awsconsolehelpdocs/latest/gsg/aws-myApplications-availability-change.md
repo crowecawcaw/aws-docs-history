@@ -1,0 +1,32 @@
+# myApplications availability change
+
+###### Note
+
+Effective July 30, 2026, myApplications will no longer allow creation of new
+applications. For resource grouping capabilities, explore AWS Resource Groups.
+[Learn more](aws-myApplications-availability-change.md "aws-myApplications-availability-change.md").
+
+Effective July 30, 2026, myApplications will no longer allow creation of new
+applications or updates of existing applications. Existing users may continue to access
+and view their previously created applications. AWS will continue to address critical
+security patches and operational issues. No new features, integrations, or regional
+expansions will be released.
+
+## Alternative solutions
+
+We recommend using **AWS Resource Groups** –
+Tag-based collections of related AWS resources, available across the Console, CLI, and
+SDK. Suitable for customers who need a lightweight way to group and view resources.
+[Learn
+more](../../../ARG/latest/userguide/welcome.md "../../../ARG/latest/userguide/welcome.md").
+
+## Migration steps
+
+No action is required. Resources you previously associated with myApplications retain the
+`awsApplication` tag and remain accessible through tools like AWS Resource
+Groups. You can use this tag to locate and group your resources:
+
+- Tag key: `awsApplication`
+- Tag value: `arn:aws:resource-groups:`us-east-1`:`123456789012`:group/`applicationName`/`UniqueIdentifier``
+
+If you have additional questions, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support").

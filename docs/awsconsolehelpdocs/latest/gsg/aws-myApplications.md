@@ -1,5 +1,11 @@
 # What is myApplications in AWS Console Home?
 
+###### Note
+
+Effective July 30, 2026, myApplications will no longer allow creation of new
+applications. For resource grouping capabilities, explore AWS Resource Groups.
+[Learn more](aws-myApplications-availability-change.md "aws-myApplications-availability-change.md").
+
 myApplications is an extension of Console Home that helps you manage and monitor the cost, health, security posture, and performance of your applications on AWS. Applications allow you to group resources and metadata.
 You can access all applications in your account, key metrics across all applications, and an overview of cost, security, and operations metrics and insights from multiple service consoles from one view in the AWS Management Console. myApplications includes the following:
 
@@ -13,6 +19,7 @@ You can access all applications in your account, key metrics across all applicat
 - [Related services](#myApp-related-services "#myApp-related-services")
 - [Accessing myApplications](#myApp-access "#myApp-access")
 - [Pricing](#myApp-pricing "#myApp-pricing")
+- [myApplications availability change](aws-myApplications-availability-change.md "aws-myApplications-availability-change.md")
 - [Supported Regions for myApplications](supported-regions.md "supported-regions.md")
 - [Applications in myApplications](myApp-manage-apps.md "myApp-manage-apps.md")
 - [Resources in myApplications](myApp-manage-resources.md "myApp-manage-resources.md")
