@@ -100,7 +100,7 @@ following example shows how to make requests over IPv6 by using the AWS CLI.
 
 After you sign in to your Amazon ECR Public repository and tag your image, you can push and pull OCI
 containers and Docker images to and from Amazon ECR Public registries. The following examples
-demonstrate docker push and docker pull commands with both dual-stack endpoints.
+demonstrate docker push and Docker pull commands with both dual-stack endpoints.
 
 ###### Example Pushing docker images using IPv4 endpoint
 
@@ -112,12 +112,12 @@ demonstrate docker push and docker pull commands with both dual-stack endpoints.
 `docker push
  ecr-public.aws.com/<public-registry-alias>/my-repository:tag`
 
-###### Example Pulling docker images using IPv4 endpoint
+###### Example Pulling Docker images using IPv4 endpoint
 
 `docker pull
  public.ecr.aws/<public-registry-alias>/my-repository:tag`
 
-###### Example Pulling docker images using dual-stack endpoint
+###### Example Pulling Docker images using dual-stack endpoint
 
 `docker pull
  ecr-public.aws.com/<public-registry-alias>/my-repository:tag`

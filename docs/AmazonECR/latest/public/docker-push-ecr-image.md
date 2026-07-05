@@ -21,7 +21,7 @@ pushed to your repository. For more information, see [Pushing a multi-architectu
    more information, see [Registry authentication in Amazon ECR public](public-registry-auth.md "public-registry-auth.md").
 2. If your public repository does not exist in the registry you intend to push to
    yet, create it. For more information, see [Creating an Amazon ECR public repository to store images](public-repository-create.md "public-repository-create.md").
-3. Identify the image to push. Run the **docker images** command
+3. Identify the image to push. Run the **Docker images** command
    to list the images on your system.
 
 ```
