@@ -46,14 +46,6 @@ information, see [Templates to control repositories created during a pull throug
 
 Consider the following when using Amazon ECR pull through cache rules.
 
-- Creating pull through cache rules isn't supported in the following
-  Regions.
-
-  - China (Beijing) (`cn-north-1`)
-  - China (Ningxia) (`cn-northwest-1`)
-  - AWS GovCloud (US-East) (`us-gov-east-1`)
-  - AWS GovCloud (US-West) (`us-gov-west-1`)
-
 - AWS Lambda doesn't support pulling container images from Amazon ECR using a pull
   through cache rule.
 - When pulling images using pull through cache, the Amazon ECR FIPS service

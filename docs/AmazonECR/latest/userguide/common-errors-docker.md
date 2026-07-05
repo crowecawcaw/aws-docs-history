@@ -33,7 +33,7 @@ pull** is full, then the SHA-1 hash calculated on the local
 file may be different than the one calculated by Amazon ECR. Check that your
 local disk has enough remaining free space to store the Docker image you
 are pulling. You can also delete old images to make room for new ones.
-Use the **docker images** command to see a list of all
+Use the **Docker images** command to see a list of all
 locally downloaded Docker images, along with their sizes.
 
 Client cannot connect to the remote repository due to network error

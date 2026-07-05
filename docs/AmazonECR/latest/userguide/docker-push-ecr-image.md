@@ -40,7 +40,7 @@ AWS Command Line Interface](../../../cli/latest/userguide/install-cliv2.md "../.
 
 If you do not have a matching repository creation template defined, you will need to
 create a repository. For more information, see [Templates to control repositories created during a pull through cache, create on push, or replication action](repository-creation-templates.md "repository-creation-templates.md") or
-[Creating an Amazon ECR private repository to store images](repository-create.md "repository-create.md"). 3. Identify the local image to push. Run the **docker images**
+[Creating an Amazon ECR private repository to store images](repository-create.md "repository-create.md"). 3. Identify the local image to push. Run the **Docker images**
 command to list the container images on your system.
 
 ```

@@ -51,7 +51,12 @@ JSON
  "ecr:GetDownloadUrlForLayer",
  "ecr:GetImageCopyStatus"
  ],
- "Resource": "*"
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceAccount": "${aws:PrincipalAccount}"
+ }
+ }
  },
  {
  "Sid": "SecretsManager",

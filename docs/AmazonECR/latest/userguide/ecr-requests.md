@@ -110,7 +110,7 @@ endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/la
 
 After you sign in to your Amazon ECR repository and tag your image, you can push and pull
 OCI images and Docker images to and from Amazon ECR registries. The following examples
-demonstrate docker push and docker pull commands with both dual-stack endpoints.
+demonstrate docker push and Docker pull commands with both dual-stack endpoints.
 
 ###### Example Pushing docker images using IPv4 endpoint
 

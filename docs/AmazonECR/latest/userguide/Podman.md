@@ -28,7 +28,7 @@ Credential Helper](https://github.com/awslabs/amazon-ecr-credential-helper "http
 
 ###### Important
 
-Podman only partially supports the docker-creds-helper specification. Podman
+Podman only partially supports the Docker-creds-helper specification. Podman
 supports the `credHelpers` keyword in Docker configuration but does not
 support the `credsStore` keyword.
 
