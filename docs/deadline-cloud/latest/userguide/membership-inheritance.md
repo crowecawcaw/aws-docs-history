@@ -15,8 +15,8 @@ jobs to any queue in the farm.
 
 ## Queue and fleet-level membership
 
-You can also assign membership at the queue or fleet level for more granular access control.
-Queue-level and fleet-level membership only applies to that specific resource.
+You can assign membership at the queue or fleet level to grant access to specific
+resources. Queue-level and fleet-level membership applies only to that resource.
 
 For example, if you assign a user as a Manager on a specific queue, that user can edit jobs
 and manage access only for that queue, not for other queues in the farm.
@@ -27,12 +27,13 @@ the queues or fleets they have access to.
 
 ## Effective permissions
 
-When a user has membership at multiple levels, Deadline Cloud uses the highest access level. For example:
+When a user has membership at multiple levels, Deadline Cloud applies the highest access level.
+Lower-level assignments cannot reduce farm-level permissions. For example:
 
 - A user with Viewer access at the farm level and Manager access on a specific queue
   has Manager permissions on that queue and Viewer permissions on all other queues.
-- A user with Contributor access at the farm level and Owner access on a specific
-  fleet has Owner permissions on that fleet and Contributor permissions elsewhere.
+- A user with Owner access at the farm level retains Owner permissions on any queue,
+  even if that queue has a Viewer-level assignment.
 
 ###### Note
 
