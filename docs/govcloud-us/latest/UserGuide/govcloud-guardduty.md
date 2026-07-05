@@ -72,17 +72,17 @@ For more information, see [GuardDuty security agent release versions](../../../g
   - [Persistence:Kubernetes/AnomalousBehavior.WorkloadDeployed!ContainerWithSensitiveMount](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-workloaddeployed-containerwithsensitivemount "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-workloaddeployed-containerwithsensitivemount")
   - [Execution:Kubernetes/AnomalousBehavior.WorkloadDeployed](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#exec-kubernetes-anomalousbehavior-workloaddeployed "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#exec-kubernetes-anomalousbehavior-workloaddeployed")
   - [PrivilegeEscalation:Kubernetes/AnomalousBehavior.RoleCreated](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated")
-  - [Discovery:Kubernetes/AnomalousBehavior.PermissionChecked](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolecreated")
+  - [Discovery:Kubernetes/AnomalousBehavior.PermissionChecked](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#discovery-kubernetes-anomalousbehavior-permissionchecked "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#discovery-kubernetes-anomalousbehavior-permissionchecked")
 
 - In [Malware Protection for EC2](../../../guardduty/latest/ug/malware-protection.md "../../../guardduty/latest/ug/malware-protection.md"), the support for scanning instances with `productCode` as `marketplace` is not available. GuardDuty will skip the malware scan for such instances and log the skip reason as `UNSUPPORTED_PRODUCT_CODE_TYPE`.
 - In [Malware Protection for Backup](../../../guardduty/latest/ug/malware-protection-backup.md "../../../guardduty/latest/ug/malware-protection-backup.md"), the scanning of EC2 and EBS Recovery points is not available. In these cases GuardDuty will not perform a scan on the input recovery point resource.
 - Cross-region data transfer is not available.
+- Preview of [GuardDuty Investigation](../../../guardduty/latest/ug/guardduty-investigation.md "../../../guardduty/latest/ug/guardduty-investigation.md") and its associated APIs are not available in AWS GovCloud (US) Regions.
 - Member accounts invitation notifications through AWS Health Dashboard and email are not available.
 - In AWS GovCloud (US) Regions, AWS doesn’t use or store Customer Content processed by Amazon GuardDuty to develop and improve the service or technologies of AWS or its affiliates. Opt-out policies are currently not applicable to these Regions.
-- The [additional filterable fields](../../../guardduty/latest/ug/guardduty_filter-findings.md#filter_criteria "../../../guardduty/latest/ug/guardduty_filter-findings.md#filter_criteria") for suppression rules and filters are not available in AWS GovCloud (US) Regions. You can continue to use the console-supported fields.
 - The following IAM finding types are not available in the AWS GovCloud (US) Regions:
 
-  - {https---docs-aws-amazon-com-guardduty-latest-ug-guardduty\_finding-types-html-credentialaccess-iam-compromisedcredentials}[CredentialAccess:IAMUser/CompromisedCredentials]
+  - [CredentialAccess:IAMUser/CompromisedCredentials](../../../guardduty/latest/ug/guardduty_finding-types.md#credentialaccess-iam-compromisedcredentials "../../../guardduty/latest/ug/guardduty_finding-types.md#credentialaccess-iam-compromisedcredentials")
 
 ## Documentation
 

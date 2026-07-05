@@ -39,7 +39,7 @@ In the AWS GovCloud (US) Region the unused access analyzer runs in the us-gov-we
 
 **AWS Security Hub CSPM and Amazon Inspector**
 
-Security Hub leverages findings from AWS Security Hub CSPM (Cloud Security Posture Management) and Amazon Inspector. For information about the availability of these features in AWS GovCloud (US) Region, see the following:
+Security Hub uses findings from AWS Security Hub CSPM (Cloud Security Posture Management) and Amazon Inspector. For information about the availability of these features in AWS GovCloud (US) Region, see the following:
 
 - **AWS Security Hub CSPM** - For information about AWS Security Hub CSPM feature differences in AWS GovCloud (US) Region, including controls, see [AWS Security Hub CSPM in AWS GovCloud (US)](govcloud-ash.md "govcloud-ash.md") in the _AWS GovCloud (US) User Guide_.
 - **Amazon Inspector** - For information about Amazon Inspector feature differences in AWS GovCloud (US) Region, see [Amazon Inspector in AWS GovCloud (US)](govcloud-inspector.md "govcloud-inspector.md") in the _AWS GovCloud (US) User Guide_.

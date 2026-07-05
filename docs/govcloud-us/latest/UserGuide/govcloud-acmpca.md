@@ -20,12 +20,12 @@ The following differences apply to AWS Private CA:
 
 - The Amazon Resource Name (ARN) for a private certificate authority has a AWS GovCloud (US) pattern of `arn:aws-us-gov:acm-pca:<region>:<account-id>:certificate-authority/<CA-ID>`
 
-You can find this ARN on the **CA details** page in the {pca} console.
+You can find this ARN on the **CA details** page in the AWS Private CA console.
 
 - The ARN for a certificate issued by a private CA has a AWS GovCloud (US) pattern of `arn:aws-us-gov:acm-pca:<region>:<account-id>:certificate-authority/<CA-ID>/certificate/<CertificateID>`
 - The ARNs for certificate templates used with the `IssueCertificate` API action have a AWS GovCloud (US) pattern of `arn:aws-us-gov:acm-pca:::template/<TemplateName>/V1`
 
-For example, `arn:aws-us-gov:acm-pca:::template/EndEntityCertificate/V1`. For the complete list of available template names, see [Using certificate templates](../../../privateca/latest/userguide/UsingTemplates.md "../../../privateca/latest/userguide/UsingTemplates.md") in the {pcalong} User Guide.
+For example, `arn:aws-us-gov:acm-pca:::template/EndEntityCertificate/V1`. For the complete list of available template names, see [Using certificate templates](../../../privateca/latest/userguide/UsingTemplates.md "../../../privateca/latest/userguide/UsingTemplates.md") in the AWS Private Certificate Authority User Guide.
 
 ## Documentation
 

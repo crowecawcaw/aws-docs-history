@@ -5,9 +5,8 @@ AWS Parallel Computing Service (AWS PCS) is a managed service that makes it easi
 ## How AWS PCS differs
 
 The following differences apply to AWS PCS:
-\* Amazon EC2 interruptible Capacity Reservations are not available.
 
-- Amazon EC2 Capacity Blocks for ML are not available.
+- Amazon EC2 interruptible Capacity Reservations are not available.
 
 ## Documentation
 

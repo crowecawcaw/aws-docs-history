@@ -11,3 +11,7 @@ There are no differences for this service.
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - AWS suggests that customers do not enter export-controlled information in the AWS MDC order consultation form use case field.
+
+## Documentation
+
+- [AWS Modular Data Center](../../../mdc.md "../../../mdc.md")

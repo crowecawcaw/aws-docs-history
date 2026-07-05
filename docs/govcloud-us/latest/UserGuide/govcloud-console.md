@@ -27,3 +27,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Your user name is not permitted to contain export-controlled data.
 - All console data fields inherit the export restrictions for the specific service that is being accessed. See each service for details.
+
+## Documentation
+
+- [Getting Started with the AWS Management Console](../../../awsconsolehelpdocs/latest/gsg.md "../../../awsconsolehelpdocs/latest/gsg.md")
