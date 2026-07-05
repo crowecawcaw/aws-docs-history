@@ -295,7 +295,7 @@ fields. Expand a log line, and then choose the eye icon to show or hide fields.
 
 {{< docs-imagebox img="/img/docs/explore/parsed-fields-7-2.gif"
  max-width="800px" caption="Toggling detected fields in
-
+ Explore" >}}
 
 ## Tracing integration
 
