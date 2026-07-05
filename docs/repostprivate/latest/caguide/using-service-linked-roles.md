@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AWS re:Post Private. After June 30, 2027, you will
+no longer be able to access the re:Post Private console or re:Post Private resources.
+For more information, see [AWS re:Post Private end of support](../userguide/repost-private-end-of-support.md "../userguide/repost-private-end-of-support.md").
+
 # Using service-linked roles for re:Post Private
 
 AWS re:Post Private uses AWS Identity and Access Management (IAM) [service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that's

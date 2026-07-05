@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AWS re:Post Private. After June 30, 2027, you will
+no longer be able to access the re:Post Private console or re:Post Private resources.
+For more information, see [AWS re:Post Private end of support](../userguide/repost-private-end-of-support.md "../userguide/repost-private-end-of-support.md").
+
 # Create a new channel within your private re:Post
 
 You can create channels within your private re:Post for targeted content sharing, improved organization, enhanced privacy, and simplified permissions management. Channels are dedicated private spaces within your private re:Post and help you provide granual content access control. This feature allows you to manage access for specific users or groups by aligning with your organizational structure and business needs.

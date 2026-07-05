@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AWS re:Post Private. After June 30, 2027, you will
+no longer be able to access the re:Post Private console or re:Post Private resources.
+For more information, see [AWS re:Post Private end of support](../userguide/repost-private-end-of-support.md "../userguide/repost-private-end-of-support.md").
+
 # Onboard to re:Post Private through IAM Identity Center
 
 re:Post Private integrates with AWS IAM Identity Center to provide identity federation for your workforce. Through IAM Identity Center, users are redirected to their existing company directory to sign in with their existing credentials. Then, they're seamlessly signed in to their private re:Post. This makes sure that security settings such as password policies and two-factor
