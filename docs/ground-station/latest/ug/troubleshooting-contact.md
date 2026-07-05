@@ -71,13 +71,13 @@ ssh -L 8080:localhost:80 -o ProxyCommand="ssh -A -o 'ForwardAgent yes' -W %h:%p 
           Ec2-user 18787 18657  0 16:51 pts/0      00:00:00 grep –color=auto ddx
 ```
 
-If DataDefender is running, skip to [Step 4: Verify that your dataflow application stream is configured](#verify-that-your-dataflow-application-stream-is-configured "#verify-that-your-dataflow-application-stream-is-configured") Otherwise, continue to the next step. 3. Start DataDefender using the command show below.
+If DataDefender is running, skip to [Step 4: Verify that your dataflow application stream is configured](#verify-that-your-dataflow-application-stream-is-configured "#verify-that-your-dataflow-application-stream-is-configured") Otherwise, continue to the next step. 3. Start DataDefender using the command below.
 
 ```
-sudo service rtlogic-ddx start
+sudo systemctl start rtlogic-ddx
 ```
 
-If DataDefender is running after using the command, skip to [Step 4: Verify that your dataflow application stream is configured](#verify-that-your-dataflow-application-stream-is-configured "#verify-that-your-dataflow-application-stream-is-configured") Otherwise, continue to the next step. 4. Inspect the following files using the commands below to see if there were any errors while installing and configuring DataDefender.
+If DataDefender is running after using the command, skip to [Step 4: Verify that your dataflow application stream is configured](#verify-that-your-dataflow-application-stream-is-configured "#verify-that-your-dataflow-application-stream-is-configured"). Otherwise, continue to the next step. 4. Inspect the following files using the commands below to see if there were any errors while installing and configuring DataDefender.
 
 ```
 cat /var/log/user-data.log

@@ -532,10 +532,10 @@ The `AquaSnppJpss` template includes the following additional resources:
 
 * The option to select what software is installed in your instance and the AMI of your
   choice.
-  The software options include `DDX 2.6.2 Only` and `DDX 2.6.2 with qRadio
- 3.6.0`. If you want to use Wideband DigIF Data Delivery and the AWS Ground Station Agent, please
-  see [Public broadcast satellite utilizing AWS Ground Station Agent (wideband)](examples.pbs-agent.md "examples.pbs-agent.md"). These options will continue to expand as
-  additional software updates and features are released.
+  The software options include a dataflow endpoint application, with or without
+  software defined radio. To use Wideband DigIF Data Delivery and the AWS Ground Station Agent, see
+  [Public broadcast satellite utilizing AWS Ground Station Agent (wideband)](examples.pbs-agent.md "examples.pbs-agent.md"). These options
+  might change as additional software updates and features are released.
 
 - **Additional mission profiles**
 
