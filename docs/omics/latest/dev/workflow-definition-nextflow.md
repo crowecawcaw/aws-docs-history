@@ -15,6 +15,7 @@ the workflow.
 - [Use Nextflow profiles](#nextflow-profiles "#nextflow-profiles")
 - [Export workflow-level content](#exporting-workflow-content-nextflow "#exporting-workflow-content-nextflow")
 - [Export task content](#exporting-task-content-nextflow "#exporting-task-content-nextflow")
+- [Generate Nextflow execution reports](#nextflow-execution-reports "#nextflow-execution-reports")
 - [Specify the Nextflow syntax version](#nextflow-syntax-version "#nextflow-syntax-version")
 - [Using scratch storage efficiently in Nextflow](#nextflow-scratch-storage "#nextflow-scratch-storage")
 - [Nextflow v26.04 release notes](#nextflow-v26-release-notes "#nextflow-v26-release-notes")
@@ -440,6 +441,73 @@ output {
 
 For more information about workflow outputs, see [Workflow
 outputs](https://www.nextflow.io/docs/latest/workflow.html#workflow-output-def "https://www.nextflow.io/docs/latest/workflow.html#workflow-output-def") in the Nextflow documentation.
+
+## Generate Nextflow execution reports
+
+Nextflow can produce four built-in reports for each run: an execution report
+(`report`), a timeline (`timeline`), a trace file
+(`trace`), and a workflow diagram (`dag`). For HealthOmics to export
+these files to your run's Amazon S3 output location, configure each one to write its
+output under `/mnt/workflow/output/` in your `nextflow.config`
+file:
+
+```
+report {
+    enabled = true
+    file = '/mnt/workflow/output/report.html'
+    overwrite = true
+}
+
+timeline {
+    enabled = true
+    file = '/mnt/workflow/output/timeline.html'
+    overwrite = true
+}
+
+trace {
+    enabled = true
+    file = '/mnt/workflow/output/trace.txt'
+    overwrite = true
+}
+
+dag {
+    enabled = true
+    file = '/mnt/workflow/output/dag.html'
+    overwrite = true
+}
+```
+
+HealthOmics exports files written under `/mnt/workflow/output/` to the
+`output/` prefix in your run's Amazon S3 output location. For more
+information about this export path, see
+[Export workflow-level content](#exporting-workflow-content-nextflow "#exporting-workflow-content-nextflow"). Reports written outside
+`/mnt/workflow/output/` are not exported to your run's Amazon S3 output
+location.
+
+###### Task containers must include ps
+
+When the `report`, `timeline`, or `trace`
+report is enabled, Nextflow collects per-task metrics by invoking
+`ps` inside each task container. The container image that you specify
+with the `container` directive must include the `ps`
+command. On most Linux distributions, install it with the `procps`
+(Debian/Ubuntu) or `procps-ng` (Amazon Linux, Red Hat, Fedora)
+package. If a process does not declare a `container` directive,
+HealthOmics runs the task in a default container that already includes
+`ps`.
+
+###### Workflow diagram format
+
+The `dag` report supports several output formats, selected by the
+extension of `dag.file`. The HTML, Mermaid, and DOT formats are
+rendered directly by Nextflow and do not require additional tooling. The PDF,
+PNG, and SVG formats require Graphviz, which is not included in HealthOmics's Nextflow
+engine. If `dag.file` is set to a PDF, PNG, or SVG path, Nextflow logs
+a warning and writes the workflow diagram as a `.dot` source file in
+its place; the run still completes successfully. We recommend setting
+`dag.file` to a `.html`, `.mmd`, or
+`.dot` path to avoid the warning and produce the requested
+format.
 
 ## Specify the Nextflow syntax version
 
