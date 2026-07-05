@@ -1,5 +1,9 @@
 # Concepts
 
+###### Note
+
+The AWS IoT Device Defender detect feature will no longer be available to new customers starting August 31, 2026. If you would like to use the detect feature, sign up prior to August 31, 2026. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](dd-detect-availability-change.md "dd-detect-availability-change.md"). There is no change to AWS IoT Device Defender audit availability.
+
 **metric**
 
 AWS IoT Device Defender Detect uses metrics to detect anomalous behavior of devices. AWS IoT Device Defender Detect

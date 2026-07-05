@@ -1,5 +1,9 @@
 # Permissions
 
+###### Note
+
+The AWS IoT Device Defender detect feature will no longer be available to new customers starting August 31, 2026. If you would like to use the detect feature, sign up prior to August 31, 2026. To learn about alternatives to AWS IoT Device Defender detect, see [AWS IoT Device Defender detect feature availability change](dd-detect-availability-change.md "dd-detect-availability-change.md"). There is no change to AWS IoT Device Defender audit availability.
+
 This section contains information about how to set up the IAM roles and policies
 required to manage AWS IoT Device Defender Detect. For more information, see the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
 
