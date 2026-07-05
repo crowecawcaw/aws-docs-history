@@ -21,6 +21,7 @@ We currently have published guides for the following topics:
 - [Best Practices for Networking](networking.md "networking.md")
 - [Best Practices for Scalability](scalability.md "scalability.md")
 - [Best Practices for Cluster Upgrades](cluster-upgrades.md "cluster-upgrades.md")
+- [Best Practices for Cluster Version Rollback](rollback-cluster-upgrades.md "rollback-cluster-upgrades.md")
 - [Best Practices for Cost Optimization](cost-opt.md "cost-opt.md")
 - [Best Practices for Running Windows Containers](windows.md "windows.md")
 - [Best Practices for Hybrid Deployments](hybrid.md "hybrid.md")
