@@ -28,6 +28,8 @@ for AWS Marketplace sellers](../../../marketplace/latest/userguide/security-iam-
 - [AWS managed policy: AWSPartnerProServeToolsFullAccess](#security-iam-awsmanpol-AWSPartnerProServeToolsFullAccess "#security-iam-awsmanpol-AWSPartnerProServeToolsFullAccess")
 - [AWS managed policy: AWSPartnerProServeToolsOrganizationReaderIndividualContributor](#security-iam-awsmanpol-AWSPartnerProServeToolsOrganizationReaderIndividualContributor "#security-iam-awsmanpol-AWSPartnerProServeToolsOrganizationReaderIndividualContributor")
 - [AWS managed policy: AWSPartnerProServeToolsIndividualContributor](#security-iam-awsmanpol-AWSPartnerProServeToolsIndividualContributor "#security-iam-awsmanpol-AWSPartnerProServeToolsIndividualContributor")
+- [AWS managed policy: AWSPartnerCentralRevenueAttributionManagement](#security-iam-awsmanpol-AWSPartnerCentralRevenueAttributionManagement "#security-iam-awsmanpol-AWSPartnerCentralRevenueAttributionManagement")
+- [AWS managed policy: AWSRevenueAttributionManagement](#security-iam-awsmanpol-AWSRevenueAttributionManagement "#security-iam-awsmanpol-AWSRevenueAttributionManagement")
 - [AWS Partner Central updates to AWS managed policies](#security-iam-awsmanpol-updates "#security-iam-awsmanpol-updates")
 
 ## AWS managed policy: `AWSPartnerCentralFullAccess`
@@ -213,6 +215,46 @@ To view the permissions for this policy, see
 in the _AWS Managed Policy
 Reference_.
 
+## AWS managed policy: `AWSPartnerCentralRevenueAttributionManagement`
+
+You can attach the `AWSPartnerCentralRevenueAttributionManagement` policy
+to your IAM identities.
+
+This policy provides necessary access for revenue attribution management activities.
+It is intended for AWS accounts registered with AWS Partner Central.
+
+This policy grants access to the following capabilities:
+
+- Create, retrieve, update, and list Revenue Attribution resources and their
+  allocations.
+- Create, retrieve, and list Marketplace Revenue Share resources and their
+  allocations.
+- Tag and untag Revenue Attribution and Marketplace Revenue Share
+  resources.
+
+To view the permissions for this policy, see
+[AWSPartnerCentralRevenueAttributionManagement](../../../aws-managed-policy/latest/reference/AWSPartnerCentralRevenueAttributionManagement.md "../../../aws-managed-policy/latest/reference/AWSPartnerCentralRevenueAttributionManagement.md")
+in the _AWS Managed Policy
+Reference_.
+
+## AWS managed policy: `AWSRevenueAttributionManagement`
+
+You can attach the `AWSRevenueAttributionManagement` policy to your IAM
+identities.
+
+This policy provides necessary access for revenue attribution management activities.
+It is intended for AWS accounts who are not registered with AWS Partner Central.
+
+This policy grants access to the following capabilities:
+
+- Create, retrieve, update, and list Revenue Attribution resources.
+- Tag and untag Revenue Attribution resources.
+
+To view the permissions for this policy, see
+[AWSRevenueAttributionManagement](../../../aws-managed-policy/latest/reference/AWSRevenueAttributionManagement.md "../../../aws-managed-policy/latest/reference/AWSRevenueAttributionManagement.md")
+in the _AWS Managed Policy
+Reference_.
+
 ## AWS Partner Central updates to AWS managed policies
 
 View details about updates to AWS managed policies for AWS Partner Central since this
@@ -221,6 +263,8 @@ subscribe to the RSS feed on the AWS Partner Central [Document history for the A
 
 | Change                                                                                                                                                                                                                                                            | Description                                                                                                                                                                                                                                                  | Date              |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
+| [AWSPartnerCentralRevenueAttributionManagement](#security-iam-awsmanpol-AWSPartnerCentralRevenueAttributionManagement "#security-iam-awsmanpol-AWSPartnerCentralRevenueAttributionManagement") —<br>New policy                                                    | AWS Partner Central added a new policy to provide necessary access for revenue attribution management activities for partners.                                                                                                                               | June 30, 2026     |
+| [AWSRevenueAttributionManagement](#security-iam-awsmanpol-AWSRevenueAttributionManagement "#security-iam-awsmanpol-AWSRevenueAttributionManagement") —<br>New policy                                                                                              | AWS Partner Central added a new policy to provide necessary access for revenue attribution management activities for customers.                                                                                                                              | June 30, 2026     |
 | [AWSPartnerCentralOpportunityManagement](#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement "#security-iam-awsmanpol-AWSPartnerCentralOpportunityManagement") —<br>Update to an existing policy                                                       | AWS Partner Central updated a policy to add prospecting actions access.                                                                                                                                                                                      | June 16, 2026     |
 | [AWSPartnerProServeToolsFullAccess](#security-iam-awsmanpol-AWSPartnerProServeToolsFullAccess "#security-iam-awsmanpol-AWSPartnerProServeToolsFullAccess") —<br>New policy                                                                                        | AWS Partner Central added a new policy to grant full access to AWS ProServe Tools (A2T and MPA) via AWS Partner Central Single Sign-On with all assessment roles.                                                                                            | March 23, 2026    |
 | [AWSPartnerProServeToolsOrganizationReaderIndividualContributor](#security-iam-awsmanpol-AWSPartnerProServeToolsOrganizationReaderIndividualContributor "#security-iam-awsmanpol-AWSPartnerProServeToolsOrganizationReaderIndividualContributor") —<br>New policy | AWS Partner Central added a new policy to grant read access to organizational assessments in A2T and manage own assessments in both A2T and MPA.                                                                                                             | March 23, 2026    |
