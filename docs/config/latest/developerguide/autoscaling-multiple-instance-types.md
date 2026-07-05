@@ -8,7 +8,7 @@ Checks if an Amazon EC2 Auto Scaling group uses multiple instance types. The rul
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Mexico (Central) Region
 
 **Parameters:**
 

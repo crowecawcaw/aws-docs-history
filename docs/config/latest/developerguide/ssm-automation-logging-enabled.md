@@ -8,7 +8,7 @@ Checks if AWS Systems Manager Automation has Amazon CloudWatch logging enabled. 
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia) Region
 
 **Parameters:**
 

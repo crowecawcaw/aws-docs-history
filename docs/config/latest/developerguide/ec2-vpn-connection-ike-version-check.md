@@ -8,7 +8,7 @@ Checks if an Amazon EC2 VPN connection is configured to use only IKEv2 protocol.
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Middle East (Bahrain), China (Beijing), Asia Pacific (Thailand), Middle East (UAE), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Middle East (Bahrain), China (Beijing), Middle East (UAE), Asia Pacific (Malaysia), Canada West (Calgary), China (Ningxia) Region
 
 **Parameters:**
 

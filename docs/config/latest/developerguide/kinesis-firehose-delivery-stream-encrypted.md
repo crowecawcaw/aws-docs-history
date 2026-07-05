@@ -8,7 +8,7 @@ Checks if Amazon Kinesis Data Firehose delivery streams are encrypted at rest wi
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Asia Pacific (Thailand), Mexico (Central), Asia Pacific (Taipei), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), China (Ningxia) Region
 
 **Parameters:**
 
