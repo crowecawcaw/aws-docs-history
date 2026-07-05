@@ -1,3 +1,5 @@
+Amazon Q Business will no longer be open to new customers starting on July 31, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
 # How Amazon Q Business connector crawls Aurora (PostgreSQL) ACLs
 
 When you connect a database data source to Amazon Q Business, Amazon Q Business crawls user and group information from a column in the source table.

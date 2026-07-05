@@ -1,3 +1,5 @@
+Amazon Q Business will no longer be open to new customers starting on July 31, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
 # Connecting Microsoft Teams to Amazon Q Business
 
 You can connect Microsoft Teams to Amazon Q Business to index and search your team's messages, channel posts, and files. This connection enables your organization to find relevant information from Teams conversations and shared content through your Amazon Q web experience.

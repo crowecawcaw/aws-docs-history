@@ -1,3 +1,5 @@
+Amazon Q Business will no longer be open to new customers starting on July 31, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
 # Connecting using the Latest Microsoft Exchange Connector (Console)
 
 The latest Microsoft Exchange connector provides a simplified configuration experience with essential features. The following procedure shows how to connect Amazon Q Business to Microsoft Exchange using the latest connector.

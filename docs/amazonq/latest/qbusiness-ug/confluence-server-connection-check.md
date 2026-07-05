@@ -1,3 +1,5 @@
+Amazon Q Business will no longer be open to new customers starting on July 31, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
 # Checking Confluence (Server/Data Center) connectivity
 
 Before you sync your Confluence (Server/Data Center) data source connector after [configuring it](confluence-server-console.md "confluence-server-console.md"), we recommend you check the connection

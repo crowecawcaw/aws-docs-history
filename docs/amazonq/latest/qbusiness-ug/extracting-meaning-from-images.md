@@ -1,3 +1,5 @@
+Amazon Q Business will no longer be open to new customers starting on July 31, 2026. If you would like to use the service, please sign up prior to July 30. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
 # Extracting semantic meaning from embedded visual content with Amazon Q Business
 
 When Amazon Q Business processes your input files from a data source, it uses advanced image
