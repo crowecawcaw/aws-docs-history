@@ -44,13 +44,10 @@ budget Amazon Resource Name (ARN).
 ###### Topics
 
 - [Allow IAM users to view your billing information](#example-billing-view-billing-only "#example-billing-view-billing-only")
-- [Allow IAM users to view your billing information and carbon footprint report](#example-ccft-policy "#example-ccft-policy")
 - [Allow IAM users to access the reports console page](#example-billing-view-reports "#example-billing-view-reports")
 - [Deny IAM users access to the Billing and Cost Management consoles](#example-billing-deny-all "#example-billing-deny-all")
 - [Deny AWS Console cost and usage widget access for member accounts](#example-billing-deny-widget "#example-billing-deny-widget")
 - [Deny AWS Console cost and usage widget access for specific IAM users and roles](#example-billing-deny-ce "#example-billing-deny-ce")
-- [Allow IAM users to view your billing information, but deny access to carbon footprint report](#example-ccft-policy-deny "#example-ccft-policy-deny")
-- [Allow IAM users to access carbon footprint reporting, but deny access to billing information](#example-ccft-policy-allow "#example-ccft-policy-allow")
 - [Allow full access to AWS services but deny IAM users access to the Billing and Cost Management consoles](#ExampleAllowAllDenyBilling "#ExampleAllowAllDenyBilling")
 - [Allow IAM users to view the Billing and Cost Management consoles except for account settings](#example-billing-read-only "#example-billing-read-only")
 - [Allow IAM users to modify billing information](#example-billing-deny-modifybilling "#example-billing-deny-modifybilling")
@@ -101,44 +98,6 @@ JSON
  {
  "Effect": "Allow",
  "Action": "aws-portal:ViewBilling",
- "Resource": "*"
- }
- ]
-}`
-
-```
-
-## Allow IAM users to view your billing information and carbon footprint report
-
-To allow an IAM user to view both billing information and carbon footprint
-reporting, use a policy similar to the following example. This policy prevents users
-from accessing your password and account activity reports. This policy allows
-IAM users to view the following Billing and Cost Management console pages, without giving them access to
-the **Account Settings** or **Reports** console
-pages:
-
-- **Dashboard**
-- **Cost Explorer**
-- **Bills**
-- **Orders and invoices**
-- **Consolidated Billing**
-- **Preferences**
-- **Credits**
-- **Advance Payment**
-- **The AWS Customer Carbon Footprint Tool section of the AWS Cost and Usage Reports page**
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {"Effect": "Allow",
- "Action": "aws-portal:ViewBilling",
- "Resource": "*"
- },
- {"Effect": "Allow",
- "Action": "sustainability:GetCarbonFootprintSummary",
  "Resource": "*"
  }
  ]
@@ -226,55 +185,6 @@ JSON
  {
  "Effect": "Deny",
  "Action": "ce:*",
- "Resource": "*"
- }
- ]
-}`
-
-```
-
-## Allow IAM users to view your billing information, but deny access to carbon footprint report
-
-To allow an IAM user to both billing information in the Billing and Cost Management consoles, but
-doesn't allow access to the AWS Customer Carbon Footprint Tool. This tool is located in the AWS Cost and Usage Reports
-page.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {"Effect": "Allow",
- "Action": "aws-portal:ViewBilling",
- "Resource": "*"
- },
- {"Effect": "Deny",
- "Action": "sustainability:GetCarbonFootprintSummary",
- "Resource": "*"
- }
- ]
-}`
-
-```
-
-## Allow IAM users to access carbon footprint reporting, but deny access to billing information
-
-To allow an IAM users to access the AWS Customer Carbon Footprint Tool in the AWS Cost and Usage Reports page, but
-denies access to view billing information in the Billing and Cost Management consoles.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {"Effect": "Deny",
- "Action": "aws-portal:ViewBilling",
- "Resource": "*"
- },
- {"Effect": "Allow",
- "Action": "sustainability:GetCarbonFootprintSummary",
  "Resource": "*"
  }
  ]
