@@ -40,7 +40,7 @@ The discovery tool VM comes with a default login password "password" for user
 
 - Avoid disabling WinRM certificate check.
 - We recommend that you create a dedicated service account with minimal required permissions.
-- Avoid using domain administrator or local administrator accounts when Database (SQL Server) collection is not needed. Database collection recommends Local Administrator because it queries multiple WMI namespaces and uses elevated commands. For OS metrics without database discovery, a non-administrator account with Remote Management Users, Performance Monitor Users, and WMI read access to `root\cimv2` is sufficient. See [Required permissions for the discovery tool](discovery-tool-permissions.md "discovery-tool-permissions.md") for per-module details.
+- Avoid using domain administrator or local administrator accounts unless you need SQL Server collection. SQL Server collection requires Local Administrator access because it queries multiple WMI namespaces and uses elevated commands. For OS metrics without SQL Server discovery, a non-administrator account with Remote Management Users, Performance Monitor Users, and WMI read access to `root\cimv2` is sufficient. See [Required permissions for the discovery tool](discovery-tool-permissions.md "discovery-tool-permissions.md") for per-module details.
 
 **Hyper-V credentials**
 
@@ -49,26 +49,33 @@ The discovery tool VM comes with a default login password "password" for user
 - Hyper-V credentials support NTLM (HTTPS only) and Kerberos authentication.
 - The discovery tool stores credentials encrypted at rest by using SQLCipher.
 
+**Oracle credentials**
+
+- Use a dedicated read-only service account with only SELECT\_CATALOG\_ROLE. Do not use DBA, SYSDBA, or SYSOPER privileges.
+- The discovery tool performs only read operations and never writes to the Oracle database.
+- The discovery tool does not access Diagnostics Pack or Tuning Pack views, so no additional Oracle license is required.
+- Rotate the Oracle service account password regularly and update the credential in the discovery tool.
+
 ## Credential storage
 
 The discovery tool encrypts stored credentials at rest using a database encryption key. On systems with systemd 250 or later, this key is encrypted using systemd-creds. On older systems, the key is stored as a permission-protected file. In both cases, an attacker with root access to the discovery tool host could access the encryption key and decrypt stored credentials. Restrict access to the discovery tool host and treat it as a privileged system in your environment.
 
 ## Using Auto-Connect Feature With Caution
 
-The discovery tool uses two mechanisms to assign credentials to servers during _OS-level collection_: auto-connect and manual. OS-level collection includes the Network, Database, and OS metrics modules. These modules connect to individual servers from all sources, including VMware VMs, Hyper-V VMs, and imported servers.
+The discovery tool uses two mechanisms to assign credentials to servers during _OS-level collection_: auto-connect and manual. OS-level collection includes the Network, SQL Server, Oracle Database, and OS metrics modules. These modules connect to individual servers from all sources, including VMware VMs, Hyper-V VMs, and imported servers.
 
-**Manual**: a server can be manually associated with a specific credential. In this case, the discovery tool will use that credential only, failure or success. The user has to manually monitor collection status for that server and make adjustment.
+**Manual**: a server can be manually associated with a specific credential. In this case, the discovery tool uses that credential only, regardless of success or failure. You must manually monitor collection status for that server and make adjustments.
 
-**Auto-connect**: if no credential is manually associated with the server, the discovery tool will use auto-connect mechanism for that server. That means:
+**Auto-connect**: if no credential is manually associated with the server, the discovery tool uses the auto-connect mechanism for that server. That means:
 
-- at the start of each collection round, the discovery tool will get a list of credentials available for that server (based on OS types) and also configured to be "auto-connectable".
-- The discovery tool will then test all credentials against the server in a loop.
+- At the start of each collection round, the discovery tool gets a list of credentials available for that server (based on OS types) and also configured to be "auto-connectable".
+- The discovery tool then tests all credentials against the server in a loop.
 
-  - If a working credential is found, the collection round for the server is successful, the discovery tool remembers it and will try it first next time.
-  - If no working credential is found, the collection round for the server has failed
+  - If a working credential is found, the collection round for the server is successful. The discovery tool remembers it and tries it first next time.
+  - If no working credential is found, the collection round for the server has failed.
 
-    - Network module: the server will use a backoff schedule, starting next collection round in 3 min, 30 min, 2 hours, and 6 hours following each failure (similar to exponential backoff).
-    - Database collection: there is no retry. The discovery tool will make 1 attempt for each server every day.
+    - Network module: the server uses a backoff schedule, starting next collection round in 3 min, 30 min, 2 hours, and 6 hours following each failure (similar to exponential backoff).
+    - SQL Server collection: The discovery tool does not retry. It makes one attempt per server each day.
 
 **Impacts/Risks**:
 
@@ -92,9 +99,9 @@ Follow these guidelines:
 When you import servers by using a CSV file, consider the following security implications:
 
 - The CSV file might contain hostnames or IP addresses of internal servers. Treat it as sensitive data.
-- The `credential_name` column references preconfigured or to be configured credentials by friendly name. The CSV does not contain secrets.
+- The `os_credential_name` and `oracle_credential_name` columns reference preconfigured credentials by friendly name. The CSV does not contain secrets.
 - All-or-nothing validation: if any row in the CSV is invalid, the entire upload is rejected. This prevents partial imports that could create a confusing state.
-- Imported servers are immediately visible in the inventory and eligible for collection. Ensure that OS credentials are correctly scoped before you import.
+- Imported servers are immediately visible in the inventory and eligible for collection. Ensure that OS and Oracle credentials are correctly scoped before you import.
 
 ## Revoking Access Considerations
 

@@ -267,6 +267,15 @@ Disable automatic version checks and update notifications during command executi
 export ATX_DISABLE_UPDATE_CHECK=true
 ```
 
+**ATX\_GIT\_COMMITTER\_NAME and ATX\_GIT\_COMMITTER\_EMAIL**
+
+Configure the author identity used for the checkpoint commits that AWS Transform custom creates in your repository as it applies changes during a transformation. When these variables are not set, checkpoint commits are attributed to a default identity (`ATX Bot <checkpoint@atx.bot>`). Set both variables to attribute checkpoints to a specific author.
+
+```
+export ATX_GIT_COMMITTER_NAME="Jane Developer"
+export ATX_GIT_COMMITTER_EMAIL="jane@example.com"
+```
+
 ### Trust Settings
 
 Trust settings allow you to pre-approve specific tools and commands to execute without prompts. You can also require explicit permission for specific shell commands regardless of trust level. These settings are configured in the `~/.aws/atx/trust-settings.yaml` file.

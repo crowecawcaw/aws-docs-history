@@ -1,11 +1,11 @@
 # Migrate servers
 
-AWS Transform uses AWS Transform MGN (MGN) to rehost your VMware servers to Amazon EC2. The
+AWS Transform uses AWS Transform MGN (MGN) to rehost your servers to Amazon EC2. The
 migrate servers workflow guides you through setting up each migration wave,
 validating your server inventory, deploying replication agents, monitoring data
 replication, testing migrated instances, and performing final cutover. To read more
 about it, see [What is
-AWS Transform MGN?](../../../mgn/latest/ug/what-is-application-migration-service.md "../../../mgn/latest/ug/what-is-application-migration-service.md") in the _MGN User Guide_.
+AWS Transform MGN?](../../../mgn/latest/ug/what-is-mgn.md "../../../mgn/latest/ug/what-is-mgn.md") in the _MGN User Guide_.
 
 Server migration is organized by waves. Each wave represents a group of servers
 that are migrated together. For each wave, you complete the following phases:
@@ -47,6 +47,11 @@ resources and infrastructure in place to host your servers. You can use
 AWS Transform landing zone and network migration capabilities or any other tools
 for that.
 
+- **Supported operating systems** –
+  Source servers must run a supported operating system. For the full
+  list, see [Supported
+  operating systems](../../../mgn/latest/ug/Supported-Operating-Systems.md "../../../mgn/latest/ug/Supported-Operating-Systems.md") in the _MGN User
+  Guide_.
 - **Target accounts for migration** – The
   AWS account IDs where you need your servers to be migrated. You can
   use AWS Transform landing zone or any other tools to set up your

@@ -1,8 +1,8 @@
-# VMware migration jobs
+# Migration jobs
 
-To use AWS Transform for VMware migrations, you first need a workspace, which is a logical
+To use AWS Transform for migrations, you first need a workspace, which is a logical
 container in which you can create one or more transformation jobs. The sections in this
-topic describe how to get a workspace and how to create and start a VMware migration job
+topic describe how to get a workspace and how to create and start a migration job
 in it.
 
 ## Getting a workspace
@@ -25,7 +25,7 @@ transferring your data across AWS Regions. For more information, see [Connect ta
 
 ## Job types
 
-AWS Transform offers the following types of VMware migration jobs that you can choose
+AWS Transform offers the following types of migration jobs that you can choose
 from depending on your migration needs. In addition to these preset options, you can
 dynamically add or remove any step from your job at any time to customize your
 migration workflow.
@@ -73,16 +73,16 @@ Includes discovery, wave plan, and rehost.
 ## Creating and starting a job
 
 The first step of a migration project is to create an AWS Transform job. For
-VMware migration projects, you can choose different job types, depending on your
-goals. The following procedure describes how to create and start a new VMware
-migration job of any type. For information about the different job types, see [Job types](#vmware-job-types "#vmware-job-types").
+migration projects, you can choose different job types, depending on your
+goals. The following procedure describes how to create and start a new migration
+job of any type. For information about the different job types, see [Job types](#vmware-job-types "#vmware-job-types").
 
-###### To create and start a new VMware migration job
+###### To create and start a new migration job
 
 1. On your workspace landing page, choose **Create a job**.
-2. Choose the VMware migration option, and then specify the type of VMware
+2. Choose the migration option, and then specify the type of
    migration job that you want to create. For information about the steps
-   included in each of the four VMware migration job types, see [Job types](#vmware-job-types "#vmware-job-types").
+   included in each of the migration job types, see [Job types](#vmware-job-types "#vmware-job-types").
 3. After you answer all the chat questions, choose **Create
    job**.
 
@@ -94,7 +94,7 @@ AWS Transform has the following limitations:
   job will start again from the beginning and you will lose any progress you have
   made in the job. However, artifacts created in the job before restarting it will
   still be available.
-- You can specify one target AWS Region per VMware migration job. To migrate applications to different target Regions, create multiple VMware migration jobs.
+- You can specify one target AWS Region per migration job. To migrate applications to different target Regions, create multiple migration jobs.
 - Multi-account migration – Single region only – You can migrate to multiple accounts within a single AWS Region. For multi-region migrations, you must create separate projects for each target region.
 - Multi-account migration – One account per wave – Each migration wave can target only one account. Applications requiring different target accounts must be placed in separate waves.
 - Multi-account migration – AWS Organizations required – All target accounts must be part of an AWS Organization.

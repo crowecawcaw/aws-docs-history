@@ -21,7 +21,8 @@ The following steps describe how to install and use the discovery tool and work 
 
    1. Adjust OS credentials as needed.
 
-4. To generate a migration business case, upload the ZIP file to [Migration assessment](transform-app-assessments.md "transform-app-assessments.md"), or unzip it and upload MPA files from the _mpa\_exports_ directory. The export includes data from all configured sources and contains MPA files for VMware, Hyper-V, and imported servers.
+4. (Optional) Configure Oracle credentials to enable direct SQL collection, or use OS-level fallback detection through SSH or WinRM.
+5. To generate a migration business case, upload the .zip file to [Migration assessment](transform-app-assessments.md "transform-app-assessments.md"), or unzip it and upload MPA files from the _mpa\_exports_ directory. The export includes data from all configured sources and contains MPA files for VMware, Hyper-V, and imported servers.
 
 The discovery tool supports the following discovery paths:
 

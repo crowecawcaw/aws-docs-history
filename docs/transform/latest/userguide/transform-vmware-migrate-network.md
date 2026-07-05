@@ -27,6 +27,10 @@ The network mapping process requires that you upload a configuration file from y
 - **Hybrid networks that run both VMware and non-VMware workloads:** [AWS Transform discovery tool](discovery-tool.md "discovery-tool.md") or modelizeIT.
 - **Other file types:** If your configuration file is not one of the supported formats listed above, the file is converted automatically to a supported format. This conversion can take up to two hours based on the file size and complexity.
 
+###### Note
+
+The maximum supported source network file size is 70 MB.
+
 ###### Warning
 
 Download RVTools only from the official Dell site at [https://www.dell.com/en-us/shop/vmware/sl/rvtools](https://www.dell.com/en-us/shop/vmware/sl/rvtools "https://www.dell.com/en-us/shop/vmware/sl/rvtools"). Do not download RVTools from unofficial sources.

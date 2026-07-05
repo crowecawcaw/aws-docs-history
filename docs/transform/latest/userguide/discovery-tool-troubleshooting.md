@@ -176,6 +176,8 @@ If `kinit` succeeds but data collection still fails, check the following:
 
 If Kerberos authentication succeeds for some servers but fails for others, investigate the following areas:
 
+If your servers span multiple Active Directory domains, configure a separate Kerberos credential for each domain. Make sure that your `/etc/krb5.conf` file includes entries for all realms. Each domain requires its own credential with the correct `username@REALM` principal.
+
 Compare the WinRM configuration on a working server with a failing server. Run the following command on each server:
 
 ```
@@ -204,6 +206,53 @@ Use the following checklist to verify your Kerberos configuration before you sta
 - DNS resolution works for the KDC hostname.
 - Network connectivity to the KDC on port 88 is confirmed.
 - Network connectivity to target Windows servers on ports 5985 and 5986 is confirmed.
+- (Multi-domain) Each Active Directory domain has its own credential configured in the discovery tool, and `krb5.conf` contains `[realms]` and `[domain_realm]` entries for all domains.
+
+## Oracle Database troubleshooting
+
+To diagnose Oracle Database collection issues, such as missing data or errors, check the following.
+
+**Connection refused or timeout**
+
+Symptom: Oracle collection status shows a connection error for a server.
+
+To troubleshoot this issue, check the following:
+
+- Verify that the Oracle listener is running on the target host: `lsnrctl status`
+- Verify network connectivity from the discovery tool to the Oracle host on port 1521 (or your custom port): `nc -zv <oracle-host> 1521`
+- Verify that firewall rules allow inbound connections on the Oracle listener port.
+- Verify the service name by running `lsnrctl services` on the Oracle host. If the service name is incorrect, the Oracle listener rejects the connection.
+
+**Authentication failures (ORA-01017)**
+
+Symptom: Collection fails with an invalid username or password error.
+
+To troubleshoot this issue, check the following:
+
+- Verify that the Oracle service account exists and is not locked: `SELECT account_status FROM dba_users WHERE username = 'DISCOVERY_USER';`
+- Verify the password is correct by connecting manually: `sqlplus discovery_user/<password>@<host>:1521/<service_name>`
+- If the account is locked, unlock it: `ALTER USER discovery_user ACCOUNT UNLOCK;`
+
+**Insufficient privileges (ORA-01031)**
+
+Symptom: Connection succeeds but collection returns incomplete data.
+
+To troubleshoot this issue, check the following:
+
+- Verify that SELECT\_CATALOG\_ROLE is granted: `SELECT * FROM dba_role_privs WHERE grantee = 'DISCOVERY_USER';`
+- Grant the required role if missing: `GRANT SELECT_CATALOG_ROLE TO discovery_user;`
+
+**Manual credential shows error but auto-connect works**
+
+When you pin a credential manually to a server, the discovery tool does not fall back if the connection fails. Verify that the port and service name that you configured on the credential match the Oracle listener on that specific server. If the server has a non-standard port or service name, update the credential configuration accordingly.
+
+**OS-level fallback not detecting Oracle**
+
+If no database credentials are configured and the OS-level fallback does not detect Oracle:
+
+- Verify that SSH or WinRM OS credentials are configured and working for the server (check OS metrics collection status).
+- For Linux hosts, verify that `/etc/oratab` exists or that Oracle process monitor (`pmon`) processes are running.
+- For Windows hosts, verify that Oracle registry entries exist under `HKLM\SOFTWARE\Oracle` or that `oracle.exe` processes are running.
 
 ## SNMP Troubleshooting
 

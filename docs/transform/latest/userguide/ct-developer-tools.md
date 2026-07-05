@@ -35,32 +35,33 @@ workflows through conversational interaction:
 
 The following table summarizes all `atx ct` subcommands.
 
-| Subcommand                     | Description                                                                                 |
-| ------------------------------ | ------------------------------------------------------------------------------------------- |
-| `atx ct server`                | Start the continuous modernization server                                                   |
-| `atx ct status`                | View system status including sources, repositories, analyses, findings, and<br>remediations |
-| `atx ct source add`            | Add a source (GitHub, GitLab, Bitbucket, or local)                                          |
-| `atx ct source list`           | List configured sources                                                                     |
-| `atx ct source remove`         | Remove a source                                                                             |
-| `atx ct discovery scan`        | Discover repositories from a source                                                         |
-| `atx ct discovery status`      | Check discovery scan status                                                                 |
-| `atx ct repository list`       | List repositories with optional filters                                                     |
-| `atx ct repository get`        | Get a single repository                                                                     |
-| `atx ct repository update`     | Update repository labels                                                                    |
-| `atx ct repository delete`     | Delete a repository                                                                         |
-| `atx ct analysis run`          | Run an analysis on repositories                                                             |
-| `atx ct analysis get`          | Get analysis details                                                                        |
-| `atx ct analysis list`         | List analyses with optional status and type filters                                         |
-| `atx ct analysis cancel`       | Cancel a running analysis                                                                   |
-| `atx ct analysis delete`       | Delete an analysis                                                                          |
-| `atx ct findings list`         | List findings with filters for repo, source, severity, type, status, and<br>analysis        |
-| `atx ct findings get`          | Get a single finding                                                                        |
-| `atx ct findings update`       | Update finding status (open or dismissed)                                                   |
-| `atx ct findings batch-update` | Batch update multiple findings                                                              |
-| `atx ct findings delete`       | Delete a dismissed or obsolete finding                                                      |
-| `atx ct remediation create`    | Create a remediation from findings or a transformation definition                           |
-| `atx ct remediation list`      | List all remediations                                                                       |
-| `atx ct remediation status`    | Check remediation status and view PR/MR links                                               |
-| `atx ct remediation retry`     | Retry a failed remediation                                                                  |
-| `atx ct remediation delete`    | Delete a remediation                                                                        |
-| `atx ct setup security-agent`  | Provision or manage security agent infrastructure                                           |
+| Subcommand                     | Description                                                                                                                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `atx ct server`                | Start the continuous modernization server                                                                                                                                                         |
+| `atx ct status`                | View system status including sources, repositories, analyses, findings, and<br>remediations                                                                                                       |
+| `atx ct source add`            | Add a source (GitHub, GitLab, Bitbucket, or local)                                                                                                                                                |
+| `atx ct source list`           | List configured sources                                                                                                                                                                           |
+| `atx ct source remove`         | Remove a source                                                                                                                                                                                   |
+| `atx ct discovery scan`        | Discover repositories from a source                                                                                                                                                               |
+| `atx ct discovery status`      | Check discovery scan status                                                                                                                                                                       |
+| `atx ct repository list`       | List repositories with optional filters                                                                                                                                                           |
+| `atx ct repository get`        | Get a single repository                                                                                                                                                                           |
+| `atx ct repository update`     | Update repository labels                                                                                                                                                                          |
+| `atx ct repository delete`     | Delete a repository                                                                                                                                                                               |
+| `atx ct analysis run`          | Run an analysis on repositories                                                                                                                                                                   |
+| `atx ct analysis get`          | Get analysis details                                                                                                                                                                              |
+| `atx ct analysis list`         | List analyses with optional status and type filters                                                                                                                                               |
+| `atx ct analysis cancel`       | Cancel a running analysis                                                                                                                                                                         |
+| `atx ct analysis delete`       | Delete an analysis                                                                                                                                                                                |
+| `atx ct findings list`         | List findings with filters for repo, source, severity, type, status, and<br>analysis                                                                                                              |
+| `atx ct findings get`          | Get a single finding                                                                                                                                                                              |
+| `atx ct findings update`       | Update finding status (open or dismissed)                                                                                                                                                         |
+| `atx ct findings batch-update` | Batch update multiple findings                                                                                                                                                                    |
+| `atx ct findings delete`       | Delete a dismissed or obsolete finding                                                                                                                                                            |
+| `atx ct remediation create`    | Create a remediation from findings or a transformation definition                                                                                                                                 |
+| `atx ct remediation list`      | List all remediations                                                                                                                                                                             |
+| `atx ct remediation status`    | Check remediation status and view PR/MR links                                                                                                                                                     |
+| `atx ct remediation retry`     | Retry a failed remediation                                                                                                                                                                        |
+| `atx ct remediation delete`    | Delete a remediation                                                                                                                                                                              |
+| `atx ct setup security-agent`  | Provision or manage security agent infrastructure                                                                                                                                                 |
+| `atx ct schema`                | Print a machine-readable JSON manifest of the full `atx ct` command<br>surface — every command, option, and argument — so agents and automation can discover<br>the CLI without parsing help text |

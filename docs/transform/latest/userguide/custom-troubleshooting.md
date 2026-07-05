@@ -122,7 +122,7 @@ Please examine the [Log Locations](#custom-log-locations "#custom-log-locations"
 
 If you are using a VPN/Proxy server that leverages the `https_proxy` and `no_proxy` environment variables, consider adding the following values to your `no_proxy` environment variable value to bypass the proxy for the S3 and AWS Transform custom service endpoints, for example:
 
-`export no_proxy=.s3.amazonaws.com,.transform-custom.<region>.api.aws`
+`export no_proxy=.s3.amazonaws.com,transform-custom.<region>.api.aws`
 
 If you are using an [AWS PrivateLink for Amazon S3](../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md "../../../AmazonS3/latest/userguide/privatelink-interface-endpoints.md") in your VPC,
 this may have a policy defined to restrict S3 traffic. Please ensure your S3 VPC endpoint policy allows `GetObject` and `PutObject` operations for the AWS Transform

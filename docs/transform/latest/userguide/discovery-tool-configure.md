@@ -109,8 +109,40 @@ environment details.
 Kerberos is case-sensitive. The realm name must be in uppercase
 (for example, `EXAMPLE.COM`, not `example.com`). The
 domain name in the `[domain_realm]` section must be in
-lowercase. 3. Verify that you can obtain a Kerberos ticket by running the
-`kinit` command.
+lowercase.
+
+**Multiple Active Directory domains**
+
+The discovery tool supports multiple Kerberos credentials for different
+Active Directory domains. Each credential authenticates independently, so you
+can configure multiple credentials normally and isolation is automatic.
+
+If you have servers in multiple domains, add entries for each realm in your
+`/etc/krb5.conf` file:
+
+```
+[libdefaults]
+    default_realm = DEV.COMPANY.COM
+    dns_lookup_realm = false
+    dns_lookup_kdc = true
+
+[realms]
+    DEV.COMPANY.COM = {
+        kdc = dc01.dev.company.com
+    }
+    PROD.COMPANY.COM = {
+        kdc = dc01.prod.company.com
+    }
+
+[domain_realm]
+    .dev.company.com = DEV.COMPANY.COM
+    dev.company.com = DEV.COMPANY.COM
+    .prod.company.com = PROD.COMPANY.COM
+    prod.company.com = PROD.COMPANY.COM
+```
+
+3. Verify that you can obtain a Kerberos ticket by running the
+   `kinit` command.
 
 ```
 kinit username@REALM.COM
@@ -221,10 +253,11 @@ For Hyper-V failover clusters, you can add multiple hosts in the same cluster. T
 ## Import servers
 
 1. Navigate to the **Import servers** page from the Discovery tool homepage.
-2. Prepare a CSV file with the following columns: `hostname_or_ip` (required) and `credential_name` (optional).
+2. Prepare a CSV file with the following columns: `hostname_or_ip` (required), `os_credential_name` (optional), and `oracle_credential_name` (optional).
 
    - The `hostname_or_ip` value must be a valid IPv4 address or a fully qualified domain name (FQDN).
-   - The `credential_name` value, if provided, must match the friendly name of an OS credential that you already configured (SSH or WinRM).
+   - The `os_credential_name` value, if provided, must match the friendly name of an OS credential that you already configured (SSH, WinRM, or SNMP). Leave empty for servers where you have not yet configured an OS credential.
+   - The `oracle_credential_name` value, if provided, must match the friendly name of an Oracle credential that you already configured.
 
 3. Upload the CSV file. The tool validates all rows and rejects the file if any row is invalid.
 
@@ -300,13 +333,13 @@ WinRM authentication protocols Kerberos and NTLM are supported by the discovery 
 The discovery tool queries the following WMI namespaces. The WinRM account needs
 read access to each namespace relevant to your collection modules:
 
-| WMI namespace                                  | Used by                                                |
-| ---------------------------------------------- | ------------------------------------------------------ |
-| `root\cimv2`                                   | OS metrics, Hyper-V host metadata, database collection |
-| `root\virtualization\v2`                       | Hyper-V VM inventory                                   |
-| `root\StandardCIMV2`                           | Network collection                                     |
-| `root\Microsoft\SqlServer\ComputerManagement*` | Database collection (SQL Server)                       |
-| `root\Microsoft\SqlServer\ReportServer\*`      | Database collection (SSRS)                             |
+| WMI namespace                                  | Used by                                                  |
+| ---------------------------------------------- | -------------------------------------------------------- |
+| `root\cimv2`                                   | OS metrics, Hyper-V host metadata, SQL Server collection |
+| `root\virtualization\v2`                       | Hyper-V VM inventory                                     |
+| `root\StandardCIMV2`                           | Network collection                                       |
+| `root\Microsoft\SqlServer\ComputerManagement*` | SQL Server collection                                    |
+| `root\Microsoft\SqlServer\ReportServer\*`      | SQL Server collection (SSRS)                             |
 
 For network collection, ensure these conditions are met:
 
@@ -317,7 +350,7 @@ For network collection, ensure these conditions are met:
 - Create a dedicated service account with minimal required permissions
 - WMI namespace permissions are set up for Windows accounts with namespaces: `\\root\\standardcimv2`, `MSFT_NetTCPConnection` class
 
-For database (SQL Server) collection, a Windows account (local or domain) belonging to the **Local Administrator Group** is required due to complex WMI objects permission requirements.
+For SQL Server collection, a Windows account (local or domain) belonging to the **Local Administrator Group** is required because of complex WMI objects permission requirements.
 
 ### Set up SSH
 
@@ -356,6 +389,51 @@ The discovery tool requires access to:
 - `"1.3.6.1.2.1.6.13.1.1." (tcpConnState)`
 - `"1.3.6.1.2.1.6.19.1.8." (tcpConnectionProcess)`
 - `"1.3.6.1.2.1.25.4.2.1.2." (hrSWRunName)`
+
+## Configure Oracle database access
+
+Configure Oracle database access to collect detailed Oracle database metadata
+directly through SQL connections. Collected metadata includes CDB and PDB topology, feature
+usage, and installed options. This data helps you plan Oracle database migrations more
+accurately. You can collect Oracle Database 12c Release 1 (12.1) and later through
+direct SQL connections. OS-level fallback detection works with all Oracle
+versions.
+
+**Configure Oracle credentials in the discovery tool**
+
+1. On the **Discovery tool** page, in the sidebar, choose **Database access**.
+2. Choose **Add Oracle credential**.
+3. Provide the following information:
+
+   - **Friendly name** – A descriptive name for this credential (for example, `Oracle Production`).
+   - **Port** – The Oracle listener port (default 1521).
+   - **Service name** – The Oracle service name for the target database.
+   - **Username** – The Oracle service account username.
+   - **Password** – The Oracle service account password.
+   - **Auto-connect** – Turn on this option to try the credential against all servers in your inventory. Turn off this option to manually assign the credential to specific servers.
+
+4. To add more credentials (for example, for different Oracle environments), choose **Add Oracle credential** again.
+5. Choose **Save**.
+
+**Credential modes**
+
+When you configure Oracle credentials, you can choose between two modes:
+
+- **Manual** – Pin a credential to a
+  specific server. The discovery tool uses that credential exclusively for that server. If the connection
+  fails, no fallback occurs. Fix the credential configuration to resolve the
+  issue.
+- **Auto-connect** – The discovery tool
+  tries each auto-connect credential against every server in your inventory. When a
+  credential succeeds for a server, the discovery tool uses that credential for all
+  subsequent collection rounds.
+
+**Detection flow**
+
+When you configure Oracle credentials, the discovery tool first tries a direct SQL
+connection. If all database credentials fail, the tool falls back to OS-level detection
+through SSH or WinRM, so you can still discover Oracle installations without database
+access.
 
 ## Updating the discovery tool
 

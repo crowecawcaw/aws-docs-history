@@ -14,8 +14,6 @@ The containerization agent performs the following tasks:
    AWS Transform also replaces hardcoded values (such as database IP addresses or DNS names), identifies environment variables, detects volumes, and attempts to redirect logs to standard output.
 2. **Dockerfile generation** — Based on
    the analysis, AWS Transform generates a Dockerfile tailored to your application.
-   If an existing Dockerfile is present, AWS Transform can reuse it with
-   modifications, or generate a new one based on your preferences.
 3. **Container image build and test** —
    AWS Transform builds the container image and runs a test to verify that the
    Dockerfile produces a working image. If the build fails, AWS Transform

@@ -1,14 +1,14 @@
 # Release notes
 
-The following release notes cover the latest changes to [VMware migration](transform-app-vmware.md "transform-app-vmware.md").
+The following release notes cover the latest changes to [Migrations (including VMware)](transform-app-vmware.md "transform-app-vmware.md").
 For supported AWS Transform regions, see [Supported Regions](regions.md "regions.md"). For supported target
 regions, see the [account
 connector setup page](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
 
 ## June 2026
 
-- AWS Transform for VMware migrations now supports localization. You can change the display
-  language of the web application when working with VMware migration workflows. [Learn
+- AWS Transform for migrations now supports localization. You can change the display
+  language of the web application when working with migration workflows. [Learn
   more about language settings](transform-environment.md#transform-environment-language "transform-environment.md#transform-environment-language").
 - AWS Transform now allows you to configure your replication settings and launch settings for
   your migration. You can set the configuration per your target account or across specific
@@ -18,7 +18,7 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
   launch template. You can tag ENIs in your target account so they are available for use
   when instances are launched. [Learn
   more about network resource tagging](transform-vmware-migrate-servers.md#transform-vmware-ms-resource-tagging "transform-vmware-migrate-servers.md#transform-vmware-ms-resource-tagging").
-- AWS Transform for VMware migrations now supports all AWS commercial regions as migration
+- AWS Transform for migrations now supports all AWS commercial regions as migration
   targets, excluding Middle East (Bahrain) and Middle East (UAE). [Learn
   more about supported target regions](transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions "transform-vmware-connect-target-account.md#transform-vmware-cta-supported-regions").
 
@@ -64,7 +64,7 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 
 ## December 2025
 
-- Added a new [VMware migration experience](vmware-jobs.md "vmware-jobs.md") with
+- Added a new [migration experience](vmware-jobs.md "vmware-jobs.md") with
   redesigned workflow and improved usability. For more information, see [Accelerating
   VMware migration: AWS Transform's new experience](https://aws.amazon.com/blogs/migration-and-modernization/accelerating-vmware-migration-aws-transforms-new-experience/ "https://aws.amazon.com/blogs/migration-and-modernization/accelerating-vmware-migration-aws-transforms-new-experience/").
 - Added [Landing
@@ -103,8 +103,8 @@ connector setup page](transform-vmware-connect-target-account.md#transform-vmwar
 
 ## May 2025
 
-- Initial service launch of [VMware migration](transform-app-vmware.md "transform-app-vmware.md"), providing end-to-end
-  VMware to AWS migration capabilities including [discovery](transform-vmware-discover-source-data.md "transform-vmware-discover-source-data.md"),
+- Initial service launch of [Migrations (including VMware)](transform-app-vmware.md "transform-app-vmware.md"), providing end-to-end
+  migration capabilities including [discovery](transform-vmware-discover-source-data.md "transform-vmware-discover-source-data.md"),
   assessment, [migration
   planning](transform-vmware-review-groupings-and-waves.md "transform-vmware-review-groupings-and-waves.md"), network migration, and server rehost.
 - Supported migration execution in 12 [target

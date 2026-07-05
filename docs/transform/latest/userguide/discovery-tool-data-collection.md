@@ -9,14 +9,15 @@ After your initial discovery collection, the discovery tool continues to run on 
 
 The discovery tool also collects OS metrics through the following independent modules, each with its own staggered schedule:
 
-- Database discovery – once a day
 - Network metrics – every 15 seconds, might be less frequent for large environments
 - Server performance metrics – every 10 minutes (at :03, :13, :23, :33, :43, :53 UTC)
 - Storage performance metrics – every 10 minutes (at :07, :17, :27, :37, :47, :57 UTC)
+- Running processes – hourly (at :40 UTC)
 - Server provisioning data – daily (at 00:05 UTC)
 - Storage provisioning data – daily (at 00:35 UTC)
 - Network interfaces – daily (at 01:05 UTC)
-- Running processes – hourly (at :40 UTC)
+- SQL Server discovery – daily (at 03:05 UTC)
+- Oracle database discovery – daily (at 05:05 UTC)
 
 You can independently start, stop, or trigger each OS metrics module by using **Collect data now**.
 
@@ -62,18 +63,19 @@ The discovery tool stores up to 30 days of collected data. If you need data span
 
 Choose which data modules to include in the export. You can export all modules or select specific ones:
 
-| Module                     | Description                                    |
-| -------------------------- | ---------------------------------------------- |
-| VMware data                | Virtual machine inventory from vCenter servers |
-| Hyper-V data               | Virtual machine inventory from Hyper-V hosts   |
-| Network data               | Network connections between servers            |
-| Database data              | SQL Server database inventory                  |
-| Server inventory           | Server hardware and OS information             |
-| Server performance metrics | CPU, memory, and network utilization           |
-| Server storage performance | Disk IOPS and throughput                       |
-| Storage config             | Disk and volume configuration                  |
-| Network interfaces         | Network adapter details                        |
-| Process metrics            | Running processes                              |
+| Module                     | Description                                                               |
+| -------------------------- | ------------------------------------------------------------------------- |
+| VMware data                | Virtual machine inventory from vCenter servers                            |
+| Hyper-V data               | Virtual machine inventory from Hyper-V hosts                              |
+| Network data               | Network connections between servers                                       |
+| Server inventory           | Server hardware and OS information                                        |
+| Server performance metrics | CPU, memory, and network utilization                                      |
+| Server storage performance | Disk IOPS and throughput                                                  |
+| Storage config             | Disk and volume configuration                                             |
+| Network interfaces         | Network adapter details                                                   |
+| Process metrics            | Running processes                                                         |
+| SQL Server data            | SQL Server database inventory                                             |
+| Oracle Database data       | Oracle database inventory – CDBs, PDBs, features, options, and components |
 
 If you don't select any modules, the discovery tool exports all available data.
 
@@ -85,7 +87,7 @@ The discovery tool gathers comprehensive data across VMware, Hyper-V, OS metrics
 
 This table describes the VMware virtual machine information collected by the discovery tool:
 
-| Name                                        | Type    | Category       | Sample Value                                      |
+| Name                                        | Type    | Category       | Sample value                                      |
 | ------------------------------------------- | ------- | -------------- | ------------------------------------------------- |
 | vm\_name                                    | String  | VM Info        | "w2k22-snmpd-v2-en-us-mssql-2022-testcase4-1"     |
 | vm\_id                                      | String  | VM Info        | "vm-30920"                                        |
@@ -106,7 +108,7 @@ This table describes the VMware virtual machine information collected by the dis
 
 This table describes the Hyper-V virtual machine information collected by the discovery tool:
 
-| Name              | Type    | Category | Sample Value                           |
+| Name              | Type    | Category | Sample value                           |
 | ----------------- | ------- | -------- | -------------------------------------- |
 | vm\_name          | String  | VM Info  | "win2022-hyperv-test-01"               |
 | vm\_id            | String  | VM Info  | "a1b2c3d4-e5f6-7890-abcd-ef1234567890" |
@@ -128,15 +130,13 @@ Imported servers are not auto-discovered. They are imported through a CSV file. 
 
 ## Discovery tool's OS-related data
 
-### OS metrics data collection
+The discovery tool collects server inventory, performance, storage, network interface, and process data through SSH (Linux) and WinRM (Windows). The following tables describe the data points collected.
 
-The discovery tool collects OS-level metrics from servers through SSH (Linux) and WinRM (Windows). Data is collected across six sub-modules and exported into six CSV files.
-
-#### Server inventory (server\_inventory.csv)
+### Server inventory (server\_inventory.csv)
 
 Combines server provisioning (hardware and OS configuration) with aggregated storage performance. Collected every 24 hours.
 
-| Name                                | Type    | Category            | Sample Value                           |
+| Name                                | Type    | Category            | Sample value                           |
 | ----------------------------------- | ------- | ------------------- | -------------------------------------- |
 | server\_id                          | String  | Server Info         | "vm-web-server-01"                     |
 | server\_name                        | String  | Server Info         | "web-server-01"                        |
@@ -174,11 +174,11 @@ Combines server provisioning (hardware and OS configuration) with aggregated sto
 | disk\_total\_throughput\_avg\_mbps  | Float   | Storage Performance | 2.0                                    |
 | disk\_total\_throughput\_peak\_mbps | Float   | Storage Performance | 42.5                                   |
 
-#### Server performance metrics (server\_performance\_metrics.csv)
+### Server performance metrics (server\_performance\_metrics.csv)
 
 CPU, memory, and network throughput utilization. Sampled every 10 minutes, aggregated over 30 days.
 
-| Name                           | Type    | Category    | Sample Value       |
+| Name                           | Type    | Category    | Sample value       |
 | ------------------------------ | ------- | ----------- | ------------------ |
 | server\_id                     | String  | Server Info | "vm-web-server-01" |
 | data\_source                   | String  | Server Info | "OS"               |
@@ -195,11 +195,11 @@ CPU, memory, and network throughput utilization. Sampled every 10 minutes, aggre
 | network\_total\_avg\_mbps      | Float   | Network     | 0.83               |
 | network\_total\_peak\_mbps     | Float   | Network     | 21.0               |
 
-#### Storage performance (server\_storage\_performance.csv)
+### Storage performance (server\_storage\_performance.csv)
 
 Per-volume disk I/O and space utilization. Sampled every 10 minutes, aggregated over 30 days.
 
-| Name                                | Type   | Category        | Sample Value       |
+| Name                                | Type   | Category        | Sample value       |
 | ----------------------------------- | ------ | --------------- | ------------------ |
 | server\_id                          | String | Server Info     | "vm-web-server-01" |
 | data\_source                        | String | Server Info     | "OS"               |
@@ -222,11 +222,11 @@ Per-volume disk I/O and space utilization. Sampled every 10 minutes, aggregated 
 | disk\_total\_throughput\_avg\_mbps  | Float  | Disk Throughput | 2.0                |
 | disk\_total\_throughput\_peak\_mbps | Float  | Disk Throughput | 42.5               |
 
-#### Storage configuration (storage\_config.csv)
+### Storage configuration (storage\_config.csv)
 
 Physical disk hardware details. Collected every 24 hours.
 
-| Name                  | Type   | Category    | Sample Value         |
+| Name                  | Type   | Category    | Sample value         |
 | --------------------- | ------ | ----------- | -------------------- |
 | server\_id            | String | Server Info | "vm-web-server-01"   |
 | disk\_controller\_id  | String | Disk Info   | "/dev/sda"           |
@@ -237,11 +237,11 @@ Physical disk hardware details. Collected every 24 hours.
 | disk\_interface\_type | String | Disk Info   | "SCSI"               |
 | disk\_protocol        | String | Disk Info   | "LSI Logic SAS"      |
 
-#### Network interfaces (network\_interfaces.csv)
+### Network interfaces (network\_interfaces.csv)
 
 Network adapter configuration. Collected every 24 hours.
 
-| Name                   | Type    | Category       | Sample Value               |
+| Name                   | Type    | Category       | Sample value               |
 | ---------------------- | ------- | -------------- | -------------------------- |
 | server\_id             | String  | Server Info    | "vm-web-server-01"         |
 | interface\_name        | String  | Interface Info | "eth0"                     |
@@ -263,11 +263,11 @@ Network adapter configuration. Collected every 24 hours.
 | vlan\_id               | Integer | Interface Info | 100                        |
 | is\_primary            | Boolean | Interface Info | true                       |
 
-#### Running processes (process\_metrics.csv)
+### Running processes (process\_metrics.csv)
 
 Snapshot of running processes. Collected every hour, deduplicated over 30 days.
 
-| Name                   | Type    | Category     | Sample Value        |
+| Name                   | Type    | Category     | Sample value        |
 | ---------------------- | ------- | ------------ | ------------------- |
 | server\_id             | String  | Server Info  | "vm-web-server-01"  |
 | process\_name          | String  | Process Info | "sshd"              |
@@ -297,12 +297,20 @@ mapping and migration wave planning.
 
 These data points are collected for each connection:
 
-- Source IP, port, process ID, and process name
-- Target IP, port, process ID, and process name
-- State (ESTABLISHED and TIME\_WAIT)
-- Transport protocol (TCP)
-- IP version (IPv4)
-- Count (number of times this unique connection was observed)
+| Name                | Type    | Category   | Sample value   |
+| ------------------- | ------- | ---------- | -------------- |
+| Source IP           | String  | Connection | "192.168.1.10" |
+| Source port         | Integer | Connection | 49152          |
+| Source process ID   | Integer | Process    | 1234           |
+| Source process name | String  | Process    | "java"         |
+| Target IP           | String  | Connection | "192.168.1.20" |
+| Target port         | Integer | Connection | 5432           |
+| Target process ID   | Integer | Process    | 5678           |
+| Target process name | String  | Process    | "postgres"     |
+| State               | String  | Connection | "ESTABLISHED"  |
+| Transport protocol  | String  | Connection | "TCP"          |
+| IP version          | String  | Connection | "IPv4"         |
+| Count               | Integer | Connection | 42             |
 
 ###### Tip
 
@@ -329,19 +337,19 @@ Private address connections appear only in the full CSV export (inside the ZIP f
 
 This setting persists across restarts. You can start or stop private address collection at any time. Previously collected private address data is exported regardless of the current setting.
 
-### Database collection
+### SQL Server collection
 
-The Database collection module gathers database (SQL Server) information from Windows servers across all configured sources, including VMware, Hyper-V, and imported servers. The module uses the WinRM protocol to remotely connect to each Windows server and run PowerShell queries to get information about all installed SQL Server services (components) on the server by using WMI namespaces, registry, and file properties.
+The SQL Server collection module gathers SQL Server information from Windows servers across all configured sources, including VMware, Hyper-V, and imported servers. The module uses WinRM to remotely connect to each Windows server and run PowerShell queries. It collects information about all installed SQL Server services (components) by using WMI namespaces, registry, and file properties.
 
 A SQL Server component is a specific service or feature instance installed as part of
 a SQL Server deployment on a Windows server. The discovery tool collects Database
 Engine, Analysis Services, Reporting Services, and Integration Services.
 
-#### Database data collection
+#### SQL Server data collection
 
-The Database collection module gathers SQL Server component information. This table describes key database data points collected:
+The SQL Server collection module gathers SQL Server component information. This table describes key data points collected:
 
-| Name                 | Type    | Category      | Sample Value                                     |
+| Name                 | Type    | Category      | Sample value                                     |
 | -------------------- | ------- | ------------- | ------------------------------------------------ |
 | Engine Type          | String  | Component     | sql\_server                                      |
 | Is Engine Component  | Boolean | Component     | Y                                                |
@@ -359,3 +367,126 @@ The Database collection module gathers SQL Server component information. This ta
 ###### Note
 
 Full format includes all service types. MPA format includes only database engine components. Not all fields are available depending on the SQL service type and configuration.
+
+### Oracle Database collection
+
+With Oracle Database collection, you can discover Oracle database instances across all configured sources, including VMware, Hyper-V, and imported servers. The module collects the following data:
+
+- Container database (CDB) and pluggable database (PDB) enumeration
+- Version and edition
+- Installed options
+- Feature usage statistics
+- Component inventory (DBA\_REGISTRY)
+- Datafile sizing
+- Topology flags (RAC, Data Guard, and multitenant architecture)
+
+**Database-connected (SQL)**
+
+When you configure Oracle credentials, the discovery tool connects directly to the Oracle database using the read-only service account. This provides full SQL-level collection including PDB details, feature usage, and installed options. All CSV files contain complete data.
+
+**OS-level fallback**
+
+If you have not configured database credentials, or if the connection fails, the discovery tool uses SSH or WinRM to detect Oracle installations. It discovers Oracle homes, listeners, patches, version, and edition without database access. For OS-detected hosts, the exported CDB CSV contains instance name, host name, version, and edition. The PDB, features, options, and components CSV files contain no rows.
+
+The Oracle collection produces the following CSV files in the export ZIP. Each table describes the data points collected per file.
+
+#### CDB data (oracle\_data\_cdbs\_full.csv)
+
+One row per CDB instance. This table describes the CDB data points collected:
+
+| Name                  | Type    | Category      | Sample value             | Source   |
+| --------------------- | ------- | ------------- | ------------------------ | -------- |
+| Instance Name         | String  | Identity      | "ORCL"                   | SQL, OS  |
+| Host Name             | String  | Identity      | "oracledb01.example.com" | SQL, OS  |
+| DB Name               | String  | Identity      | "ORCL"                   | SQL only |
+| DB Unique Name        | String  | Identity      | "ORCL\_PRIMARY"          | SQL only |
+| DBID                  | Integer | Identity      | 1234567890               | SQL only |
+| Version               | String  | Version       | "19.0.0.0"               | SQL, OS  |
+| Version Full          | String  | Version       | "19.21.0.0.0"            | SQL only |
+| Edition               | String  | Version       | "Enterprise Edition"     | SQL, OS  |
+| Database Type         | String  | Configuration | "SINGLE"                 | SQL only |
+| Database Role         | String  | Configuration | "PRIMARY"                | SQL only |
+| Open Mode             | String  | Configuration | "READ WRITE"             | SQL only |
+| Log Mode              | String  | Configuration | "ARCHIVELOG"             | SQL only |
+| Platform              | String  | Configuration | "Linux x86 64-bit"       | SQL only |
+| CDB Flag              | String  | Configuration | "YES"                    | SQL only |
+| Is RAC                | String  | Topology      | "YES" or "NO"            | SQL only |
+| Is Data Guard Standby | String  | Topology      | "YES" or "NO"            | SQL only |
+| Protection Mode       | String  | Topology      | "MAXIMUM PERFORMANCE"    | SQL only |
+| Data Guard Broker     | String  | Topology      | "ENABLED"                | SQL only |
+| NLS Characterset      | String  | Configuration | "AL32UTF8"               | SQL only |
+| PDB Count             | Integer | Sizing        | 3                        | SQL only |
+| Flashback On          | String  | Configuration | "YES"                    | SQL only |
+| Detection Path        | String  | Metadata      | "phase2" or "phase1b"    | SQL, OS  |
+
+#### PDB data (oracle\_data\_pdbs\_full.csv)
+
+One row per PDB (pluggable database). This table describes the PDB data points collected:
+
+###### Note
+
+PDB data requires Oracle database credentials (SQL connection). OS-level fallback does not populate this CSV.
+
+| Name                       | Type    | Category      | Sample value   | Source   |
+| -------------------------- | ------- | ------------- | -------------- | -------- |
+| CDB Instance Name          | String  | Identity      | "ORCL"         | SQL only |
+| PDB Name                   | String  | Identity      | "APPPDB1"      | SQL only |
+| Open Mode                  | String  | Status        | "READ WRITE"   | SQL only |
+| Lifecycle Status           | String  | Status        | "NORMAL"       | SQL only |
+| Tablespace Count           | Integer | Sizing        | 5              | SQL only |
+| Datafile Count             | Integer | Sizing        | 12             | SQL only |
+| Total Size Bytes           | Integer | Sizing        | 5368709120     | SQL only |
+| User Schema Count          | Integer | Sizing        | 8              | SQL only |
+| DB Link Count              | Integer | Connectivity  | 2              | SQL only |
+| Components Installed       | String  | Configuration | "APEX;JVM;XML" | SQL only |
+| Encrypted Tablespace Count | Integer | Security      | 1              | SQL only |
+
+#### Feature usage data (oracle\_data\_features\_full.csv)
+
+One row per feature usage entry from DBA\_FEATURE\_USAGE\_STATISTICS. This table describes the feature usage data points collected:
+
+###### Note
+
+Feature usage data requires Oracle database credentials (SQL connection). OS-level fallback does not populate this CSV.
+
+| Name              | Type     | Category | Sample value          | Source   |
+| ----------------- | -------- | -------- | --------------------- | -------- |
+| CDB Instance Name | String   | Identity | "ORCL"                | SQL only |
+| Name              | String   | Feature  | "Partitioning (user)" | SQL only |
+| Detected Usages   | Integer  | Usage    | 42                    | SQL only |
+| Currently Used    | String   | Usage    | "TRUE"                | SQL only |
+| First Usage Date  | DateTime | Usage    | "2024-01-15T00:00:00" | SQL only |
+| Last Usage Date   | DateTime | Usage    | "2026-06-01T00:00:00" | SQL only |
+
+#### Options data (oracle\_data\_options\_full.csv)
+
+One row per V$OPTION entry per CDB. This table describes the installed options data points collected:
+
+###### Note
+
+Options data requires Oracle database credentials (SQL connection). OS-level fallback does not populate this CSV.
+
+| Name              | Type    | Category | Sample value         | Source   |
+| ----------------- | ------- | -------- | -------------------- | -------- |
+| CDB Instance Name | String  | Identity | "ORCL"               | SQL only |
+| Option Name       | String  | Option   | "Advanced Analytics" | SQL only |
+| Is Installed      | String  | Option   | "TRUE"               | SQL only |
+| Container ID      | Integer | Option   | 0                    | SQL only |
+
+#### Components data (oracle\_data\_components\_full.csv)
+
+One row per DBA\_REGISTRY component. This table describes the component data points collected:
+
+###### Note
+
+Components data requires Oracle database credentials (SQL connection). OS-level fallback does not populate this CSV.
+
+| Name              | Type   | Category  | Sample value                 | Source   |
+| ----------------- | ------ | --------- | ---------------------------- | -------- |
+| CDB Instance Name | String | Identity  | "ORCL"                       | SQL only |
+| PDB Name          | String | Identity  | "APPPDB1"                    | SQL only |
+| Component ID      | String | Component | "APEX"                       | SQL only |
+| Component Name    | String | Component | "Oracle Application Express" | SQL only |
+| Version           | String | Component | "22.1.0.15.0"                | SQL only |
+| Status            | String | Component | "VALID"                      | SQL only |
+| Schema            | String | Component | "APEX\_220100"               | SQL only |

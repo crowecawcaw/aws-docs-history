@@ -9,6 +9,13 @@ images, publish to Amazon Elastic Container Registry (Amazon ECR), and deploy to
 This brings containerization into the same workflow you use to plan and execute
 rehost migrations.
 
+###### Note
+
+Source code containerization is designed for applications that are not yet
+containerized. It requires access to your application source code and does not
+support migrating existing containerized workloads. To migrate existing containers
+to AWS, use standard deployment methods for Amazon Elastic Container Service or Amazon Elastic Kubernetes Service.
+
 ## Capabilities and key features
 
 AWS Transform offers the following capabilities for containerizing your
@@ -42,7 +49,7 @@ You access source code containerization by creating a VMware migration job. With
 the job, you can run containerization as a standalone workflow, or as part of an
 end-to-end migration when a wave's migration strategy is set to
 _containerize_. For more information about VMware migration, see
-[VMware migration](transform-app-vmware.md "transform-app-vmware.md").
+[Migrations (including VMware)](transform-app-vmware.md "transform-app-vmware.md").
 
 ## Prerequisites
 
@@ -103,7 +110,7 @@ containerization.
   _containerize_ migration strategy assigned to one or more
   waves. The containerization workflow runs as part of the migration for those
   waves. For more information about VMware migration, see
-  [VMware migration](transform-app-vmware.md "transform-app-vmware.md").
+  [Migrations (including VMware)](transform-app-vmware.md "transform-app-vmware.md").
 
 ###### To start a containerization job
 

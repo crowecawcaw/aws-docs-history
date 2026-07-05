@@ -290,6 +290,9 @@ artifacts in the following formats:
 
 - **[AWS Cloud Development Kit (AWS CDK)](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")** – TypeScript project for
   programmatic infrastructure deployment.
+- **HashiCorp Terraform** – Generates
+  HashiCorp Configuration Language (HCL) templates for managing landing
+  zone resources.
 - **Landing Zone Accelerator (LZA)** –
   Configuration YAML files based on LZA Universal Configuration version
   1.1.0. These enterprise-ready templates work with the Landing Zone

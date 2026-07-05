@@ -121,4 +121,6 @@ Migration planning is an interactive and iterative workflow. You can go back and
     deploy to Amazon Elastic Container Service or Amazon Elastic Kubernetes Service). When you assign a wave the strategy
     _containerize_, AWS Transform runs the source code
     containerization workflow for that wave during migration execution. For more
-    information, see [Source code containerization](transform-containers.md "transform-containers.md").
+    information, see [Source code containerization](transform-containers.md "transform-containers.md"). To get
+    AWS-recommended strategies across the 7Rs framework before you assign them, see
+    [Migration strategy (7Rs) recommendations](transform-vmware-r-strategy-report.md "transform-vmware-r-strategy-report.md").

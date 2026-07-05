@@ -77,25 +77,95 @@ ways:
 
 ## Set up a connector
 
-AWS Transform uses a connector to access resources in your account that are required for mainframe modernization functions. Your connector is automatically configured with the first job you run in the workspace. Depending on the job plan you choose, AWS Transform guides you to create your connector.
+AWS Transform uses a connector to access resources in your account required for mainframe modernization functions. Your connector is automatically configured with the first job you run in the workspace. Depending on the job plan you choose, AWS Transform guides you to create your connector.
 
 ### Mainframe reimagine connector
 
-The mainframe reimagine connector is for jobs running the assess and reimagine workflow. It uses an S3 bucket to access and store transformation resources, and an Amazon Neptune cluster to store extracted artifacts. The Neptune cluster serves as the unified knowledge graph that stores all extracted artifacts about your job, and the knowledge graph answers all questions in the AWS Transform chat interface.
+The mainframe reimagine connector is for jobs running the assess and reimagine workflows. It uses an S3 bucket to access and store transformation resources, as well as an Amazon Neptune cluster to store extracted artifacts. The Neptune cluster serves as the unified knowledge graph that stores all extracted artifacts about your job, and the knowledge graph answers all questions in the AWS Transform chat interface.
 
-You must deploy the Amazon Neptune cluster in a VPC where AWS Transform can create elastic network interfaces (ENIs) in the VPC, load data from S3 into Neptune, and query the graph. Provide the following details when you configure your connector:
+Deploy the Amazon Neptune cluster in a VPC where AWS Transform can create elastic network interfaces (ENIs). These are the network connections that allow AWS Transform to securely communicate with Neptune in your VPC to load data and query your knowledge graph.
 
-- **S3 bucket ARN** – The S3 bucket ARN identifies the bucket that stores all transformation resources.
-- **Neptune cluster ARN and resource ID** – We recommend an Amazon Neptune Serverless cluster with scaling from 1–128 NCUs.
-- **Subnets and security group** – AWS Transform requires a subnet and security group with access to the Neptune cluster and to the internet to reach AWS Transform APIs.
+#### AWS CloudFormation
 
-We recommend using the following CloudFormation template to create the resources required for your mainframe reimagine connector. Use the same S3 bucket that you plan to use for the connector when you run the template. The Outputs tab of the CloudFormation template includes the details you need to configure the connector.
+We recommend using the following CloudFormation template to create the resources required for your mainframe reimagine connector. Use the same S3 bucket that you plan to use for the connector when running the CloudFormation template. For more information about using CloudFormation templates, see [Working with templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md").
 
-[Download the CloudFormation template](https://d3lxw3eiclnnkx.cloudfront.net/neptune-kg-setup.yaml "https://d3lxw3eiclnnkx.cloudfront.net/neptune-kg-setup.yaml").
+To download the CloudFormation template, choose [neptune-kg-setup.yaml](https://d3lxw3eiclnnkx.cloudfront.net/neptune-kg-setup.yaml "https://d3lxw3eiclnnkx.cloudfront.net/neptune-kg-setup.yaml").
+
+The template accepts the following parameters:
+
+- **BucketName** – Required. S3 bucket name for Neptune bulk loader access. You must use the same S3 bucket that you plan to use in your AWS Transform connector.
+- **KmsKeyId** – Optional. KMS key for Neptune encryption. Accepts key ID, ARN, alias name, or alias ARN. Defaults to the AWS managed key if omitted.
+
+Provide the following details when you configure your connector:
+
+- S3 bucket ARN
+- Neptune cluster ARN
+- Neptune cluster resource ID
+- Application subnet IDs
+- Application security group ID
+- Neptune S3 bulk loader role ARN
+
+###### Important
+
+The Outputs tab of the CloudFormation template includes the details you need to provide to AWS Transform when configuring the connector.
+
+#### Custom configuration
+
+If you prefer to use an existing VPC or other tools to create the required infrastructure, your environment must meet the following requirements:
+
+##### Neptune cluster
+
+- Amazon Neptune Serverless with engine version 1.4.5.1 or later
+
+  - IAM authentication enabled
+  - Storage encryption enabled (AWS managed key or customer-managed KMS key)
+
+- Serverless scaling configuration (recommended: 1–128 NCUs)
+- (Recommended) Read replica in a second Availability Zone for high availability and improved read performance
+
+##### Networking
+
+- A VPC with DNS support and DNS hostnames enabled
+- At least two subnets in separate Availability Zones. AWS Transform creates ENIs in these subnets to access the Neptune cluster, which can reside in the same subnets or in dedicated subnets. Size subnets at /20 to accommodate VPC endpoint and application ENIs.
+- Network connectivity from the subnets to the following AWS services through VPC interface endpoints (AWS PrivateLink):
+
+  - AWS Transform Agents API – Coordinates the mainframe modernization jobs
+  - Amazon Bedrock Runtime – Invokes foundation models for analysis and reasoning
+  - Amazon Relational Database Service (Amazon RDS) – Neptune cluster management
+  - Amazon Elastic Compute Cloud (Amazon EC2) – Management of ENIs
+  - Amazon CloudWatch – Metrics for AWS Transform observability
+
+- An S3 gateway endpoint attached to the route tables associated with your subnets. AWS Transform uses this endpoint to load data from the S3 bucket to the Neptune cluster.
+
+##### Security groups
+
+Security groups are attached to ENIs, not subnets. Even when AWS Transform ENIs and Neptune reside in the same subnet, separate security groups control access between them.
+
+- A security group (attached to ENIs created by AWS Transform) that allows:
+
+  - Outbound TCP 8182 to the Neptune security group
+  - Outbound TCP 443 to reach VPC endpoints
+
+- A security group (attached to the Neptune cluster) that allows:
+
+  - Inbound TCP 8182 from the application security group
+
+- A VPC endpoint security group (attached to the interface endpoint ENIs) that allows:
+
+  - Inbound TCP 443 from the application security group
+
+##### IAM
+
+- An IAM role with a trust policy for `rds.amazonaws.com` that grants `s3:GetObject`, `s3:ListBucket`, and `s3:GetBucketLocation` on your S3 bucket
+- This role must be associated with the Neptune cluster for bulk loading knowledge graph data
+
+The following diagram shows the recommended architecture.
+
+![Architecture diagram showing the customer VPC with Neptune subnet, application subnet, AWS PrivateLink connections, and AWS service integrations for the mainframe reimagine connector.](images/2026-06-Neptune-Infra.png)
 
 ### S3 connector
 
-For jobs with a custom job plan, AWS Transform can use an S3 connector. The S3 connector uses an S3 bucket to access and store transformation resources, and an S3 vector bucket for indexed output.
+For jobs with a custom plan, AWS Transform can use an S3 connector. The S3 connector uses an S3 bucket to access and store transformation resources, and an S3 vector bucket for indexed output.
 
 ###### Important
 
@@ -107,7 +177,7 @@ In Regions where S3 vector buckets are available, AWS Transform will store searc
 
 #### S3 bucket CORS permissions
 
-When setting up your S3 bucket to view artifacts in AWS Transform, you need to add this policy to the S3 bucket's CORS permission. If this policy is not set up correctly, you might not be able to use the inline viewing or file comparison functionalities of AWS Transform.
+After your connector is configured, add the following CORS policy to your S3 bucket so you can view and compare artifacts directly in the AWS Transform console. If this policy is not set up correctly, you might not be able to use the inline viewing or file comparison functionalities of AWS Transform.
 
 ```
 [
@@ -124,7 +194,8 @@ When setting up your S3 bucket to view artifacts in AWS Transform, you need to a
               "https://*.transform.ap-southeast-2.on.aws",
               "https://*.transform.ca-central-1.on.aws",
               "https://*.transform.eu-west-2.on.aws",
-              "https://*.transform.us-east-1.on.aws"
+              "https://*.transform.us-east-1.on.aws",
+              "https://*.transform.sa-east-1.on.aws"
         ],
         "ExposeHeaders": [],
         "MaxAgeSeconds": 0

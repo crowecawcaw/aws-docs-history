@@ -75,7 +75,7 @@ The following languages are supported:
 
 The following workflows support localization:
 
-- [VMware migration](transform-app-vmware.md "transform-app-vmware.md")
+- [Migrations (including VMware)](transform-app-vmware.md "transform-app-vmware.md")
 
 ###### Note
 
