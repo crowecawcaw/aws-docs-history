@@ -63,6 +63,8 @@ The following release notes include information for Amazon EMR release 8.0.0 (em
 ### Known issues and limitations
 
 - Spark Connect secure endpoint with Native FGAC support is not available in this release.
+- Native Fine-grained Access Control (FGAC) is not available for Iceberg tables that use the VARIANT data type.
+- Glue Managed Compaction is not supported on Iceberg tables that use the VARIANT data type.
 - AL2023 ships Python 3.9 as the system Python, but it is not supported for PySpark workloads.
 - The maximum number of steps you can add or cancel per request is 100.
 

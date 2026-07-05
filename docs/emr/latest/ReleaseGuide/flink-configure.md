@@ -62,7 +62,7 @@ sudo chmod 755 /usr/lib/flink/lib/flink-connector-hive_2.12-1.15.2.jar
 
 ```
 
-![](images/hive.png)
+![AWS Glue Data Catalog configuration for Apache Flink on Amazon EMR.](images/flink-glue-emr.png)
 
 ## Configure Flink with a configuration file
 
