@@ -71,7 +71,7 @@ An example CLI command for `describe-global-table`:
 
 ```
 aws dynamodb describe-global-table \
---table-name users \
+--global-table-name users \
 --region us-east-2
 ```
 

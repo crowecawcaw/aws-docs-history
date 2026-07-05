@@ -72,7 +72,9 @@ item type uses only the columns relevant to it.
 ## DynamoDB Json
 
 A file in DynamoDB JSON format can consist of multiple Item objects. Each individual object
-is in DynamoDB’s standard marshalled JSON format, and newlines are used as item delimiters. As an added
+is in DynamoDB’s standard marshalled JSON format, and newlines are used as item delimiters. This is the
+[JSON Lines](https://jsonlines.org/ "https://jsonlines.org/") (JSONL) format: one JSON object per line, with no
+enclosing array and no commas between items. As an added
 feature, exports from point in time are supported as an import source by default.
 
 ###### Note

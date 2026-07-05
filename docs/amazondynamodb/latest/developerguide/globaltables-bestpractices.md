@@ -47,6 +47,18 @@ the resource type are:
 4. Import the new global table as a new `AWS::DynamoDB::GlobalTable`
    resource to the stack.
 
+###### Note
+
+When you add a replica in a new Region to a global table, the provisioned capacity
+settings of the source Region – including auto scaling maximum capacity –
+are applied to the new replica when it is created, regardless of the capacity values
+specified in your CloudFormation template. If the source Region's maximum capacity exceeds the
+table-level throughput quota in the destination Region, replica creation fails with
+an error similar to `insufficient TableMaxReadCapacityUnits limits`. After
+the replica is created, you can adjust its read capacity settings independently;
+those adjustments aren't transferred to the other Regions. For more information about
+table-level throughput quotas for global tables, see [Global tables](ServiceQuotas.md#gt-limits-throughput "ServiceQuotas.md#gt-limits-throughput").
+
 ## Backups and Point-in-Time Recovery
 
 Enabling automated backups and Point-in-Time Recovery (PITR) for one replica in a

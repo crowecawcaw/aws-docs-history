@@ -1157,8 +1157,8 @@ responsiveness.
 The AWS SDK for Java 2.x uses the native support for non-blocking I/O. The AWS SDK for Java 1.x had
 to simulate non-blocking I/O.
 
-The synchronous methods return before a response is available, so you need a way to
-get the response when it's ready. The asynchronous methods in the AWS SDK for Java return a
+The asynchronous methods return before a response is available, so you need a way to
+get the response when it's ready. These methods in the AWS SDK for Java return a
 [`CompletableFuture`](https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/CompletableFuture.html "https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/CompletableFuture.html") object that contains the results of the
 asynchronous operation in the future. When you call `get()` or
 `join()` on these `CompletableFuture` objects, your code
@@ -1327,7 +1327,7 @@ The SDK for Java 2.x supports the following retry modes:
   same random pick multiplied by four, and so on. Each wait is capped at 20
   seconds. This mode performs retries on more detected failure conditions than
   the `legacy` mode. For DynamoDB, it performs up to three total max
-  attempts unless you override with [numRetries](#numRetries "#numRetries").
+  attempts unless you override with [the maximum number of attempts](#numRetries "#numRetries").
 - `adaptive`
   –
   Builds on `standard` mode and dynamically limits the rate of
@@ -1338,60 +1338,62 @@ The SDK for Java 2.x supports the following retry modes:
 You can find an expanded definition of these retry modes in the [Retry
 behavior](../../../sdkref/latest/guide/feature-retry-behavior.md "../../../sdkref/latest/guide/feature-retry-behavior.md") topic in the _AWS SDKs and Tools Reference Guide_.
 
-#### Retry policies
+#### Retry strategies
 
-All `RetryMode` configurations have a [`RetryPolicy`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/RetryPolicy.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/RetryPolicy.html"), which is built based on one or more
-[`RetryCondition`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/conditions/RetryCondition.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/conditions/RetryCondition.html") configurations. The [`TokenBucketRetryCondition`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/conditions/TokenBucketRetryCondition.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/conditions/TokenBucketRetryCondition.html") is especially important
-to the retry behavior of the DynamoDB SDK client implementation. This condition
-limits the number of retries that the SDK makes using a token bucket algorithm.
-Depending on the selected retry mode, throttling exceptions may or may not
-subtract tokens from the `TokenBucket`.
+Each retry mode is implemented by a retry _strategy_. The
+retry strategy API (the `software.amazon.awssdk.retries` package)
+supersedes the older retry _policy_ API
+(`RetryPolicy` and `RetryCondition` in
+`software.amazon.awssdk.core.retry`). Existing
+`RetryPolicy` configurations continue to work—the SDK adapts
+them to a retry strategy—but new code should use a [`RetryStrategy`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/api/RetryStrategy.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/api/RetryStrategy.html"). The AWS SDK for Java 2.x provides
+three built-in strategies:
+
+- [`StandardRetryStrategy`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/StandardRetryStrategy.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/StandardRetryStrategy.html") – The
+  recommended strategy for most use cases.
+- [`LegacyRetryStrategy`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/LegacyRetryStrategy.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/LegacyRetryStrategy.html") – The default
+  strategy when you don't specify one. It treats throttling and
+  non-throttling exceptions differently.
+- [`AdaptiveRetryStrategy`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/AdaptiveRetryStrategy.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/AdaptiveRetryStrategy.html") – For
+  resource-constrained use cases. It adds a client-side rate limiter and
+  assumes the client works against a single resource.
+
+For more information, see [Configure
+retry behavior in the AWS SDK for Java 2.x](../../../sdk-for-java/latest/developer-guide/retry-strategy.md "../../../sdk-for-java/latest/developer-guide/retry-strategy.md").
 
 When a client encounters a retryable error, such as a throttling exception or a
 temporary server error, then the SDK automatically retries the request. You can
-control how many times and how quickly these retries happen.
+control how many times and how quickly these retries happen by customizing the retry
+strategy with the following:
 
-When configuring a client, you can provide a `RetryPolicy` that
-supports the following parameters:
+- `maxAttempts`
+  – The maximum number of attempts (the first attempt plus retries)
+  before a request is considered to be failed. For DynamoDB clients, the default
+  is 8 attempts for all strategies.
+- `backoffStrategy` – A [`BackoffStrategy`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/api/BackoffStrategy.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/retries/api/BackoffStrategy.html") that determines the delay
+  between retries. The standard strategy uses
+  `BackoffStrategy.exponentialDelay` with a base delay of 100 ms
+  and a maximum delay of 20 seconds.
+- `retryOnException` – Adds exception types to the set
+  that triggers a retry, in addition to the SDK's default set of retryable
+  exceptions.
 
-- `numRetries`
-  – The maximum number of retries that should be applied before a
-  request is considered to be failed. The default value is 8 regardless of the
-  retry mode that you use.
-
-###### Warning
-
-Make sure that you change this default value after due
-consideration.
-
-- `backoffStrategy` – The [`BackoffStrategy`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/backoff/BackoffStrategy.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/backoff/BackoffStrategy.html") to apply to the retries, with
-  [`FullJitterBackoffStrategy`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/backoff/FullJitterBackoffStrategy.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/backoff/FullJitterBackoffStrategy.html") being the default
-  strategy. This strategy performs an exponential delay between additional
-  retries based on the current number or retries, a base delay, and a maximum
-  backoff time. It then adds jitter to provide a bit of randomness. The base
-  delay used in the exponential delay is 25 ms regardless of the retry
-  mode.
-- `retryCondition` – The [`RetryCondition`](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/conditions/RetryCondition.html "https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/core/retry/conditions/RetryCondition.html") determines whether to retry a
-  request at all. By default, it retries a specific set of HTTP status codes
-  and exceptions that it believes are retryable. For most situations, the
-  default configuration should be sufficient.
-
-The following code provides an alternative retry policy. It specifies a total of
-five retries (six total requests). The first retry should occur after a delay of
-approximately 100ms, with each additional retry doubling that time exponentially, up
-to a maximum delay of one second.
+The following code configures a DynamoDB client with a standard retry strategy
+customized to a maximum of six attempts (the first attempt plus five retries) and an
+exponential backoff that starts at 100 ms and is capped at one second.
 
 ```
+BackoffStrategy backoffStrategy =
+    BackoffStrategy.exponentialDelay(Duration.ofMillis(100), Duration.ofSeconds(1));
+
+StandardRetryStrategy retryStrategy = AwsRetryStrategy.standardRetryStrategy()
+    .toBuilder()
+    .maxAttempts(6)
+    .backoffStrategy(backoffStrategy)
+    .build();
+
 DynamoDbClient client = DynamoDbClient.builder()
-    .overrideConfiguration(ClientOverrideConfiguration.builder()
-        .retryPolicy(RetryPolicy.builder()
-            .backoffStrategy(FullJitterBackoffStrategy.builder()
-                .baseDelay(Duration.ofMillis(100))
-                .maxBackoffTime(Duration.ofSeconds(1))
-                .build())
-            .numRetries(5)
-            .build())
-        .build())
+    .overrideConfiguration(o -> o.retryStrategy(retryStrategy))
     .build();
 
 ```

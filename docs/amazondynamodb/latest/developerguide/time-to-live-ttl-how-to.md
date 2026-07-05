@@ -34,6 +34,18 @@ provided along with the expiration time.
 After TTL is enabled, the TTL attribute is marked **TTL** when you view items on the DynamoDB console. You can view the date
 and time that an item expires by hovering your pointer over the attribute.
 
+###### Note
+
+`UpdateTimeToLive` is not idempotent. If TTL is already enabled, or
+if you call `UpdateTimeToLive` more than once for the same table
+within a one-hour window, the operation returns a
+`ValidationException` (HTTP 400) instead of succeeding silently.
+Enabling TTL with a different attribute name while TTL is already active also
+returns a `ValidationException`. Handle this exception in your calling
+code rather than assuming the call always succeeds. For example, you can treat a
+"TimeToLive is already enabled" error as confirmation that the setting is already
+in place.
+
 Python
 You can enable TTL with code, using the [UpdateTimeToLive](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/client/update_time_to_live.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb/client/update_time_to_live.html") operation.
 

@@ -108,7 +108,7 @@ If the table or bucket you're exporting to is encrypted with customer managed ke
 KMS key's policies must give DynamoDB permission to use it. This permission is given
 through the IAM User/Role that triggers the export job. For more information on
 encryption including best practices, see [How DynamoDB uses
-AWS KMS](../../../kms/latest/developerguide/services-dynamodb.md "../../../kms/latest/developerguide/services-dynamodb.md") and [Using a custom KMS key](encryption.howitworks.md#managed-key-customer-managed "encryption.howitworks.md#managed-key-customer-managed").
+AWS KMS](encryption.howitworks.md "encryption.howitworks.md") and [Using a custom KMS key](encryption.howitworks.md#managed-key-customer-managed "encryption.howitworks.md#managed-key-customer-managed").
 
 ## Requesting an export using the AWS Management Console
 

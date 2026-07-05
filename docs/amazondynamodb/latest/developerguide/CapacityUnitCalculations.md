@@ -25,6 +25,14 @@ estimate attribute sizes:
   `List` or `Map` is _(number of UTF-8-encoded bytes of attribute name) + (3 bytes)_.
 - Each `List` or `Map` element also requires 1 byte of
   overhead.
+- A set (string set, number set, or binary set) does not require any additional
+  overhead beyond the sizes of its elements. The size of a set is _(number of UTF-8-encoded bytes of attribute name) + sum (size of each
+  element value)_. Each element value is sized according to its
+  type, using the same rules as the corresponding scalar type, but without an
+  attribute name: a string element is _(number of UTF-8-encoded
+  bytes)_, a number element is _(1 byte per two significant
+  digits) + (1 byte)_, and a binary element is _(number of
+  raw bytes)_.
 
 ###### Note
 
@@ -35,7 +43,7 @@ RCU/WCUs you use.
 For storage billing purposes, each item includes a per-item storage overhead that
 depends on the features you have enabled.
 
-- All items in DynamoDB require 100 bytes of storage overhead for indexing.
+- All items in DynamoDB require 100 bytes of storage overhead per item.
 - Some DynamoDB features (global tables, transactions, change data capture for
   Kinesis Data Streams with DynamoDB) require additional storage overhead to account for
   system-created attributes resulting from enabling those features. For example,

@@ -42,9 +42,10 @@ table. Update operations for GSIs are billed using the following units:
   provides one write per second for up to 1 KB
 
 Replicated write units (rWCUs and rWRUs) are priced the same as single-Region
-write units (WCUs and WRUs). Cross-Region data transfer fees apply for global tables
-as data is replicated across Regions. Replicated write (rWCU or rWRU) charges are
-incurred in every Region containing a replica table for the global table.
+write units (WCUs and WRUs). Replicated write (rWCU or rWRU) charges are
+incurred in every Region containing a replica table for the global table. DynamoDB
+does not charge cross-Region data transfer fees for replicating data between the
+Regions of a global table.
 
 Read operations from single-Region tables and from replica tables use the
 following units::
@@ -66,8 +67,8 @@ mode configured with a witness don't incur replicated write unit costs
 
 Let's walk through a multi-day example scenario to see how global table write
 request billing works in practice (note that this example only considers write
-requests, and does not include the table restore and cross-Region data transfer
-charges that would be incurred in the example):
+requests, and does not include the table restore charges that would be incurred
+when adding a replica in the example):
 
 **Day 1 - Single-Region table:** You have a
 single-Region on-demand DynamoDB table named Table\_A in the us-west-2 Region. You

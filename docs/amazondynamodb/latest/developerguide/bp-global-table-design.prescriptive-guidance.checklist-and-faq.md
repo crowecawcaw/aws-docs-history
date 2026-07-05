@@ -59,7 +59,8 @@ For more information, see the AWS blog post [Build resilient applications with A
   write capacity units (rWCUs, for provisioned tables) or replicated write request units
   (rWRUs, for on-demand tables). rWCUs and rWRUs are priced the same as WGUs and WRUs.
 - rWCU and rWRU changes are incurred in every Region where the item is written
-  directly or written through replication. Cross-Region data transfer fees apply.
+  directly or written through replication. DynamoDB does not charge cross-Region data
+  transfer fees for this replication.
 - Writing to a global secondary index (GSI) is considered a local write operation and
   uses regular write units.
 - There is no reserved capacity available for rWCUs or rWRUs at this time. Purchasing
@@ -67,7 +68,7 @@ For more information, see the AWS blog post [Build resilient applications with A
   units.
 - When you add a new Region to a global table, DynamoDB bootstraps the new Region
   automatically and charges you as if it were a table restore, based on the GB size of the
-  table. It also charges cross-Region data transfer fees.
+  table.
 
 **Which Regions does global tables support?**
 
@@ -174,4 +175,5 @@ The answer depends on the purpose of the backup.
   then import the global table as a new resource to the stack. For more information, see
   the [AWS
   GitHub repository](https://github.com/aws-samples/amazon-dynamodb-table-to-global-table-cdk "https://github.com/aws-samples/amazon-dynamodb-table-to-global-table-cdk").
-- Cross-account replication is not supported at this time.
+- You can use CloudFormation (and the AWS CDK) to configure multi-account (cross-account)
+  global tables. For more information, see [DynamoDB multi-account global tables](globaltables-MultiAccount.md "globaltables-MultiAccount.md").

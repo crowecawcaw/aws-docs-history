@@ -107,6 +107,16 @@ the [UpdateTable](../APIReference/API_UpdateTable.md "../APIReference/API_Update
 process of switching keys is seamless and does not require downtime or degrade
 service.
 
+###### Note
+
+When you specify a KMS key by using a key alias, DynamoDB resolves the alias to the
+underlying KMS key ID at the time you set it and associates that KMS key with the
+table. If you later change the alias to point to a different KMS key, the table
+continues to use the originally resolved KMS key; updating the alias does not change
+the KMS key that protects the table. To protect the table with a different
+KMS key, change the table's encryption key directly in the DynamoDB console or by using
+the [UpdateTable](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md") operation.
+
 ###### Important
 
 DynamoDB supports only [symmetric KMS keys](../../../kms/latest/developerguide/concepts.md#symmetric-cmks "../../../kms/latest/developerguide/concepts.md#symmetric-cmks").

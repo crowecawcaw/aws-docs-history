@@ -63,11 +63,13 @@ aws iam create-role --role-name Cognito_DynamoPoolUnauth \
 --assume-role-policy-document file://PathToFile/myCognitoPolicy.json --output json
 ```
 
-4. Grant the `Cognito_DynamoPoolUnauth` role full access to DynamoDB by
-   attaching a managed policy (`AmazonDynamoDBFullAccess`).
+4. Grant the `Cognito_DynamoPoolUnauth` role read-only access to DynamoDB by
+   attaching a managed policy (`AmazonDynamoDBReadOnlyAccess`). Because this role is
+   assumed by unauthenticated users, follow the principle of least privilege and grant only the
+   permissions the role actually needs.
 
 ```
-aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess \
+aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess \
 --role-name Cognito_DynamoPoolUnauth
 ```
 

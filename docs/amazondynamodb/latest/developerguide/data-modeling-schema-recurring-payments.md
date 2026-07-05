@@ -135,7 +135,7 @@ table below:
 ## Recurring payments final schema
 
 Here are the final schema designs. To download this schema design as a JSON file, see
-[DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ReocurringPayments/ReocurringPaymentsSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/ReocurringPayments/ReocurringPaymentsSchema.json") on GitHub.
+[DynamoDB Examples](https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/RecurringPayments/RecurringPaymentsSchema.json "https://github.com/aws-samples/aws-dynamodb-examples/blob/master/schema_design/SchemaExamples/RecurringPayments/RecurringPaymentsSchema.json") on GitHub.
 
 **Base table**
 

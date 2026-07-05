@@ -33,7 +33,7 @@ You can calculate the number of shards (`number_of_shards`) that your
 Kinesis data stream needs by using the input values in the following formula:
 
 ```
-number_of_shards = ceiling( max( ((write_throughput * (4+percentage_of_updates) * average_record_size_in_bytes) / 1024 / 1024), (write_throughput/1000)), 1)
+number_of_shards = ceiling( max( ((write_throughput * (4+percentage_of_updates) * average_record_size_in_bytes) / 1024 / 1024), (write_throughput/1000), 1) )
 
 ```
 
@@ -45,7 +45,7 @@ shards (`number_of_shards`) to accommodate your DynamoDB streaming
 throughput:
 
 ```
-ceiling( max( ((1040 * (4+25/100) * 800)/ 1024 / 1024), (1040/1000)), 1).
+ceiling( max( ((1040 * (4+25/100) * 800)/ 1024 / 1024), (1040/1000), 1) ).
 ```
 
 Consider the following before using the formula to calculate the number of

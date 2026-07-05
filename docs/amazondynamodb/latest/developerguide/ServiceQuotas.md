@@ -182,11 +182,21 @@ through AWS Support. If any of the following apply to you, please see [https://a
 - If you are adding a replica or replicas to one destination Region within a
   24-hour period with a combined total greater than 10TB, you must request a
   service quota increase for your add replica data backfill quota.
-- If you encounter an error similar to the following:
+- The table-level write throughput limit must be the same in every Region
+  that has a replica. If you raise the table-level write throughput limit above
+  the default in one Region, request a matching quota increase in every other
+  replica Region before you add a replica. Otherwise, replica creation may fail
+  with an error similar to the following:
 
   - Cannot create a replica of table 'example\_table' in region
     'example\_region\_A' because its exceeds your current account limit in
     region 'example\_region\_B'.
+    If you receive this error, make sure your table-level write throughput
+    limits match across all Regions where you are adding a replica. You can
+    adjust these limits yourself through the Service Quotas console. For the table-level
+    write throughput quota, see [Read/write throughput](#default-limits-throughput-capacity-modes "#default-limits-throughput-capacity-modes"). If all Regions
+    match and you still receive the error, contact AWS Support at [https://aws.amazon.com/support](https://aws.amazon.com/support "https://aws.amazon.com/support"), because
+    additional allow-listing might be required.
 
 ## Secondary indexes
 

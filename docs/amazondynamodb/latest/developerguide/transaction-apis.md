@@ -306,6 +306,13 @@ reads or writes of every item in the transaction: one to prepare the transaction
 commit the transaction. The two underlying read/write operations are visible in your
 Amazon CloudWatch metrics.
 
+This capacity is consumed even when a transaction does not succeed. A
+`TransactWriteItems` or `TransactGetItems` call that is canceled —
+for example, because a condition in a `ConditionCheck` or other operation
+evaluates to false (a `ConditionalCheckFailed` cancellation reason) — still
+consumes the underlying read or write capacity for the items it attempted, in the same way
+a successful transaction does.
+
 Plan for the additional reads and writes that are required by transactional APIs when
 you are provisioning capacity to your tables. For example, suppose that your application
 runs one transaction per second, and each transaction writes three 500-byte items in your

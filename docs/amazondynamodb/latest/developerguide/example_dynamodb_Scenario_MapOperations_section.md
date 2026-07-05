@@ -48,23 +48,30 @@ import java.util.Map;
         String mapKey,
         AttributeValue value) {
 
-        // Create an empty map to use if the map doesn't exist
-        Map<String, AttributeValue> emptyMap = new HashMap<>();
-        AttributeValue emptyMapValue = AttributeValue.builder().m(emptyMap).build();
+        // A single UpdateExpression can't reference both a map and a path inside
+        // that same map (for example "#mapName" and "#mapName.#mapKey"): DynamoDB
+        // rejects overlapping document paths with a ValidationException. Instead,
+        // perform the update in two steps.
 
-        // Define the update parameters
+        // Step 1: create the map with an empty value if it doesn't already exist.
+        dynamoDbClient.updateItem(UpdateItemRequest.builder()
+            .tableName(tableName)
+            .key(key)
+            .updateExpression("SET #mapName = if_not_exists(#mapName, :emptyMap)")
+            .expressionAttributeNames(Map.of("#mapName", mapName))
+            .expressionAttributeValues(Map.of(
+                ":emptyMap", AttributeValue.builder().m(new HashMap<>()).build()))
+            .build());
+
+        // Step 2: set the key within the now-guaranteed-to-exist map.
         UpdateItemRequest request = UpdateItemRequest.builder()
             .tableName(tableName)
             .key(key)
-            .updateExpression("SET #mapName = if_not_exists(#mapName, :emptyMap), #mapName.#mapKey = :value")
+            .updateExpression("SET #mapName.#mapKey = :value")
             .expressionAttributeNames(Map.of(
                 "#mapName", mapName,
                 "#mapKey", mapKey))
-            .expressionAttributeValues(Map.of(
-                ":value",
-                value,
-                ":emptyMap",
-                AttributeValue.builder().m(new HashMap<>()).build()))
+            .expressionAttributeValues(Map.of(":value", value))
             .returnValues("UPDATED_NEW")
             .build();
 
@@ -441,13 +448,27 @@ async function updateMapAttributeWithIfNotExists(
   const client = new DynamoDBClient(config);
   const docClient = DynamoDBDocumentClient.from(client);
 
-  // Define the update parameters using SET with if_not_exists
+  // A single UpdateExpression can't reference both a map and a path inside that
+  // same map (for example `${mapName}` and `${mapName}.${mapKey}`): DynamoDB
+  // rejects overlapping document paths with a ValidationException. Instead,
+  // perform the update in two steps.
+
+  // Step 1: create the map with an empty value if it doesn't already exist.
+  await docClient.send(new UpdateCommand({
+    TableName: tableName,
+    Key: key,
+    UpdateExpression: `SET ${mapName} = if_not_exists(${mapName}, :emptyMap)`,
+    ExpressionAttributeValues: {
+      ":emptyMap": {}
+    }
+  }));
+
+  // Step 2: set the key within the now-guaranteed-to-exist map.
   const params = {
     TableName: tableName,
     Key: key,
-    UpdateExpression: `SET ${mapName} = if_not_exists(${mapName}, :emptyMap), ${mapName}.${mapKey} = :value`,
+    UpdateExpression: `SET ${mapName}.${mapKey} = :value`,
     ExpressionAttributeValues: {
-      ":emptyMap": {},
       ":value": value
     },
     ReturnValues: "UPDATED_NEW"

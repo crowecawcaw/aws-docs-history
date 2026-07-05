@@ -305,7 +305,7 @@ Common error scenarios:
 ## Additional resources
 
 - [langgraph-checkpoint-aws on PyPI](https://pypi.org/project/langgraph-checkpoint-aws/ "https://pypi.org/project/langgraph-checkpoint-aws/")
-- [langgraph-checkpoint-aws on GitHub](https://github.com/langchain-ai/langchain-aws/blob/main/libs/langgraph-checkpoint-aws/docs/dynamodb/DynamoDBSaver.md "https://github.com/langchain-ai/langchain-aws/blob/main/libs/langgraph-checkpoint-aws/docs/dynamodb/DynamoDBSaver.md")
+- [langgraph-checkpoint-aws on GitHub](https://github.com/langchain-ai/langchain-aws/tree/main/libs/langgraph-checkpoint-aws "https://github.com/langchain-ai/langchain-aws/tree/main/libs/langgraph-checkpoint-aws")
 - [LangGraph
   documentation](https://langchain-ai.github.io/langgraph/ "https://langchain-ai.github.io/langgraph/")
 - [DynamoDB best

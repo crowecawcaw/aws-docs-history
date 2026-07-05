@@ -55,9 +55,11 @@ created on the restored table. You must manually set the following on the restor
 - Auto scaling policies
 - AWS Identity and Access Management policies
 - Amazon CloudWatch Events metrics and alarms
+- CloudWatch Contributor Insights settings
 - Tags
 - Stream settings
 - Time to Live (TTL) settings
+- Deletion protection settings
 - Point-in-time recovery settings
 
 The time it takes you to restore a table varies based on multiple factors and isn't always

@@ -56,7 +56,7 @@ You'll need to use expression attribute names in place of the actual name if:
 ```
 aws dynamodb get-item \
     --table-name ProductCatalog \
-    --key '"Id": { "N": "123" } \
+    --key '{"Id": { "N": "123" }}' \
     --projection-expression "Description, RelatedItems[0], ProductReviews.FiveStar"
 ```
 

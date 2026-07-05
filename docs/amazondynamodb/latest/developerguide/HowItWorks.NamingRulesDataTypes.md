@@ -108,6 +108,13 @@ way to do this is by using epoch time—the number of seconds since
 00:00:00 UTC on 1 January 1970. For example, the epoch time
 `1437136300` represents 12:31:40 PM UTC on 17 July 2015.
 
+Storing a timestamp as a number uses less storage than the equivalent ISO
+8601 string—a difference that can add up across tables with millions or
+billions of items. When stored as epoch seconds, a number can also be used
+with the DynamoDB Time to Live (TTL) feature to automatically delete expired
+items. Alternatively, you can store date and time values as strings in ISO
+8601 format, which are human-readable. For more information, see [Using time to live (TTL) in DynamoDB](TTL.md "TTL.md").
+
 For more information, see [http://en.wikipedia.org/wiki/Unix\_time](http://en.wikipedia.org/wiki/Unix_time "http://en.wikipedia.org/wiki/Unix_time").
 
 #### String

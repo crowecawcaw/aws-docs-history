@@ -41,11 +41,11 @@ backup](https://aws.amazon.com/blogs/database/a-serverless-solution-to-schedule-
 
 If you're using the console, any backups created using AWS Backup are listed on the
 **Backups** tab with the **Backup type** set to
-`AWS`.
+`AWS_BACKUP`.
 
 ###### Note
 
-You can't delete backups marked with a **Backup type** of AWS
+You can't delete backups marked with a **Backup type** of `AWS_BACKUP`
 using the DynamoDB console. To manage these backups, use the AWS Backup console.
 
 To learn how to perform a backup, see [Backing up a DynamoDB table](Backup.Tutorial.md "Backup.Tutorial.md").

@@ -27,6 +27,25 @@ action keyword can appear only once.
 Within each clause, there are one or more actions separated by commas. Each action
 represents a data modification.
 
+###### Note
+
+When an update expression contains multiple actions, DynamoDB evaluates every action
+against the item's attribute values _as they were before the update_.
+The actions aren't applied one after another from left to right, so an action's
+right-hand operand always refers to the pre-update value of an attribute—even if
+another action in the same expression also modifies that attribute.
+
+For example, suppose an item is `{"id": "1", "a": 1, "b": 2, "c": 3}` and
+you run the following update expression:
+
+```
+REMOVE a SET b = a, c = b
+```
+
+The result is `{"id": "1", "b": 1, "c": 2}`. Both `b = a` and
+`c = b` use the original values of `a` and `b`
+(`1` and `2`), and `a` is removed.
+
 The examples in this section are based on the `ProductCatalog` item shown in
 [Using projection expressions in DynamoDB](Expressions.ProjectionExpressions.md "Expressions.ProjectionExpressions.md").
 

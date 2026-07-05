@@ -553,6 +553,22 @@ network error occurs, and you don't know whether the request was successful. Bec
 this conditional write is idempotent, you can retry the same `UpdateItem`
 request, and DynamoDB updates the item only if the `Price` is currently 20.
 
+### Returning the item attributes of a failed conditional write
+
+When a conditional `PutItem`, `UpdateItem`, or
+`DeleteItem` operation fails its condition, it returns a
+`ConditionalCheckFailedException`. By default, this exception does not
+include the attributes of the item that caused the condition to evaluate to
+false.
+
+To have DynamoDB return those attributes, set the
+`ReturnValuesOnConditionCheckFailure` parameter to
+`ALL_OLD`. When the condition fails, the
+`ConditionalCheckFailedException` then includes the existing item's
+attribute values. This lets you inspect the current state of the item—for
+example, to determine which value caused the write to fail—without issuing a
+separate read request. The default value is `NONE`.
+
 ### Capacity units consumed by conditional writes
 
 If a `ConditionExpression` evaluates to false during a conditional

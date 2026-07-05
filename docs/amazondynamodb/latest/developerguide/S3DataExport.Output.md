@@ -312,7 +312,7 @@ amzn-s3-demo-bucket/DestinationPrefix
     │   ...
 ```
 
-In you export files, each item’s output includes a timestamp that represents
+In your export files, each item’s output includes a timestamp that represents
 when that item was updated in your table and a data structure that indicates if
 it was an `insert`, `update`, or `delete`
 operation. The timestamp is based on an internal system clock and can vary from

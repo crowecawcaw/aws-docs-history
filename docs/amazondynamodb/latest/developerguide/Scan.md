@@ -12,6 +12,13 @@ A single `Scan` request can retrieve a maximum of 1 MB of data.
 Optionally, DynamoDB can apply a filter expression to this data, narrowing the results before
 they are returned to the user.
 
+###### Note
+
+A `Scan` returns items in an order determined by how the table or secondary index
+stores them internally. Partition key values are returned in an arbitrary order that is
+not sorted. Within a single partition key value, items are returned in ascending (ASC)
+order by sort key value.
+
 ###### Topics
 
 - [Filter expressions for scan](#Scan.FilterExpression "#Scan.FilterExpression")

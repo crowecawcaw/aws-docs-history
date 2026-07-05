@@ -65,7 +65,7 @@ creation.
 
 ## Key facts about MREC
 
-- Global tables that use MRSC also employ an active-active replication model. From the
+- Global tables that use MREC also employ an active-active replication model. From the
   perspective of DynamoDB, the table in each Region has equal standing to accept read and write
   requests. After receiving a write request, the local replica table replicates the write
   operation to other participating remote Regions in the background.

@@ -27,7 +27,7 @@ and enhance the user experience across three data patterns: application data, bu
 data, and user data. Some examples of these data patterns are as follows:
 
 - Storage of application data, such as chat message history, through
-  integrations with [LangChain](https://js.langchain.com/v0.1/docs/integrations/chat_memory/dynamodb/ "https://js.langchain.com/v0.1/docs/integrations/chat_memory/dynamodb/"), [LlamaIndex](https://docs.llamaindex.ai/en/stable/examples/docstore/DynamoDBDocstoreDemo/ "https://docs.llamaindex.ai/en/stable/examples/docstore/DynamoDBDocstoreDemo/"), or a custom code. This context enhances the user
+  integrations with [LangChain](https://js.langchain.com/v0.1/docs/integrations/chat_memory/dynamodb/ "https://js.langchain.com/v0.1/docs/integrations/chat_memory/dynamodb/"), [LlamaIndex](https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/ "https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/"), or a custom code. This context enhances the user
   experience by allowing the model to _converse_ back and forth
   with the user.
 - Creation of a customized user experience by leveraging business data, such as

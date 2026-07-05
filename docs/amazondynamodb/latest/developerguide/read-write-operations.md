@@ -121,6 +121,14 @@ units:
   writes two items of sizes 500-byte and 3.5 KB, DynamoDB calculates the size as
   5 KB (1 KB + 4 KB). DynamoDB doesn’t calculate the size as 4 KB (500 bytes +
   3.5 KB).
+- [TransactWriteItems](../APIReference/API_TransactWriteItems.md "../APIReference/API_TransactWriteItems.md"): Groups multiple write actions
+  (`Put`, `Update`, `Delete`, and
+  `ConditionCheck`) into a single all-or-nothing transaction.
+  DynamoDB performs two underlying writes for each item — one to prepare the
+  transaction and one to commit it — so a transactional write of an item up to
+  1 KB consumes two write units. This capacity is consumed even when the
+  transaction is canceled (for example, because a condition check fails). For
+  more information, see [Capacity management for transactions](transaction-apis.md#transaction-capacity-handling "transaction-apis.md#transaction-capacity-handling").
 
 For `PutItem`, `UpdateItem`, and `DeleteItem`
 operations, DynamoDB rounds the item size up to the next 1 KB. For example, if you put

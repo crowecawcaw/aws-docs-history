@@ -147,8 +147,8 @@ If you add a table replica to create or extend a global table in new Regions, Dy
 charges for a table restore in the added Regions per gigabyte of data restored. Restored
 Data is charged as REG-RestoreDataSize-Bytes. Please refer to
 [Backup and restore for DynamoDB](Backup-and-Restore.md "Backup-and-Restore.md")
-for details. Cross-Region replication and adding replicas to tables that contain data
-also incur charges for data transfer out.
+for details. DynamoDB does not charge cross-Region data transfer fees for replicating data
+between the Regions of a global table.
 
 When you select on-demand capacity mode for your DynamoDB global tables, you pay only
 for the resources your application uses on each replica table.

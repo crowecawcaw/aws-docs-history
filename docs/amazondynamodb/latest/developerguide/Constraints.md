@@ -245,11 +245,37 @@ the sum of the lengths of all `ExpressionAttributeNames` and
 
 ### Operators and operands
 
-The maximum number of operators or functions allowed in an
-`UpdateExpression` is 300. For example, the
-_UpdateExpression_
-`SET a = :val1 + :val2 + :val3` contains two "`+`"
-operators.
+The maximum number of operators or functions allowed in a single expression is 300. This limit applies to all expression types, including
+`ConditionExpression`, `FilterExpression`, and
+`UpdateExpression`.
+
+Each of the following counts as one operator toward this limit:
+
+- A comparator in a condition or filter expression, for example
+  `=`, `<>`, `<`,
+  `<=`, `>`, or `>=`.
+- A logical keyword (`AND`, `OR`, `NOT`) or
+  the `BETWEEN` or `IN` keyword.
+- A function, for example `attribute_exists`,
+  `begins_with`, `contains`, or `size`.
+- An arithmetic operator (`+` or `-`) in an
+  `UpdateExpression`.
+
+In an `UpdateExpression`, the `=` in a `SET`
+action is assignment syntax and is _not_ counted as an operator.
+In a condition or filter expression, the `=` comparator
+_is_ counted. For example, the filter expression `#a = :val
+ OR #b = :val` contains three operators (two `=` comparators and
+one `OR`), whereas the update expression `SET Price = Price +
+ :val` contains one operator (the `+`).
+
+###### Note
+
+When an expression exceeds the 300-operator limit, DynamoDB returns a
+`ValidationException` with a message in the form `The expression
+ contains too many operators; operator count: 301`. The reported count
+is always `301` and does not reflect the actual number of operators in
+the expression.
 
 The maximum number of operands for the `IN` comparator is 100.
 

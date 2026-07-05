@@ -103,7 +103,7 @@ JSON
  "Sid": "1111",
  "Effect": "Allow",
  "Principal": {
- "AWS": "arn:aws:iam::`111122223333`:user/`role-name`"
+ "AWS": "arn:aws:iam::`111122223333`:user/`username`"
  },
  "Action": "dynamodb:*",
  "Resource": [
@@ -266,6 +266,20 @@ endpoint, for example `vpce-1a2b3c4d`.
 
 ###### Important
 
+A resource-based policy that contains only a `Deny` statement with
+`"Principal": "*"` denies access to every principal, including your own
+ability to update or delete the policy later. If you attach a policy that would lock you
+out in this way, DynamoDB rejects it with the following error: _The
+new resource policy will not allow you to update the resource policy in the
+future._ Adding a separate `Allow` statement does not resolve this,
+because an explicit `Deny` always overrides an `Allow`. To deny
+access to everyone except a specific VPC endpoint while retaining the ability to manage
+the policy, exempt the administering principal from the `Deny` statement by
+adding an `ArnNotEquals` condition on `aws:PrincipalArn`, as shown
+in the following example.
+
+###### Important
+
 When you use DAX with DynamoDB tables that have IP-based resource policies in IPv6-only
 environments, you must configure additional access rules. If your resource policy
 restricts access to the IPv4 address space `0.0.0.0/0` on tables, you must
@@ -289,6 +303,9 @@ JSON
  "Condition": {
  "StringNotEquals":{
  "aws:sourceVpce":"`vpce-1a2b3c4d`"
+ },
+ "ArnNotEquals":{
+ "aws:PrincipalArn":"`arn:aws:iam::123456789012:role/AdminRole`"
  }
  }
  }

@@ -856,9 +856,28 @@ resolves during a retry, your application continues without seeing the
 error, and you may notice increased client-side perceived latency. If the
 error persists after all retries, it propagates to your application code.
 
+###### Note
+
+The HTTP 500 errors that AWS FIS injects during a fault injection experiment
+are also counted in `SystemErrors`, in addition to being counted
+in `FaultInjectionServiceInducedErrors`. As a result, alarms on
+`SystemErrors` fire while an experiment is running. To
+distinguish experiment-induced errors from organic service errors, compare
+`SystemErrors` with
+`FaultInjectionServiceInducedErrors` for the same period.
+
 Units: `Count`
 
 Dimensions: `TableName, Operation`
+
+###### Note
+
+DynamoDB publishes `SystemErrors` only on the
+`TableName` and `Operation` dimension pair. It does not
+publish this metric on `TableName` alone. A CloudWatch alarm that
+specifies only the `TableName` dimension never matches data and
+remains in the `INSUFFICIENT_DATA` state, so specify both
+`TableName` and `Operation`.
 
 Valid Statistics:
 
@@ -1205,6 +1224,14 @@ Valid Statistics:
 The requests to DynamoDB that generate a simulated HTTP 500 status code during the specified
 time period and during the catchup as a result of AWS FIS experiment.
 
+###### Note
+
+These errors are a subset of the `SystemErrors` metric: each
+error that AWS FIS injects is counted in both
+`FaultInjectionServiceInducedErrors` and `SystemErrors`.
+Use this metric to identify how much of `SystemErrors` is due to a
+fault injection experiment rather than to organic service errors.
+
 Units: `Count`
 
 Dimensions: `TableName`, `Operation`
@@ -1228,8 +1255,9 @@ along any of the dimensions in the table below.
 - [OperationType](#w2aac41c15c13b9c13 "#w2aac41c15c13b9c13")
 - [Verb](#w2aac41c15c13b9c15 "#w2aac41c15c13b9c15")
 - [ReceivingRegion](#w2aac41c15c13b9c17 "#w2aac41c15c13b9c17")
-- [StreamLabel](#w2aac41c15c13b9c19 "#w2aac41c15c13b9c19")
-- [TableName](#w2aac41c15c13b9c21 "#w2aac41c15c13b9c21")
+- [Source](#w2aac41c15c13b9c19 "#w2aac41c15c13b9c19")
+- [StreamLabel](#w2aac41c15c13b9c21 "#w2aac41c15c13b9c21")
+- [TableName](#w2aac41c15c13b9c23 "#w2aac41c15c13b9c23")
 
 ### DelegatedOperation
 
@@ -1291,6 +1319,25 @@ This dimension is emitted for the `ExecuteStatement` operation.
 
 This dimension limits the data to a particular AWS region. It is used with
 metrics originating from replica tables within a DynamoDB global table.
+
+### Source
+
+DynamoDB emits this dimension for the `ConsumedWriteCapacityUnits` metric
+and lets you distinguish what drives the write capacity consumption. It can have one
+of the following values:
+
+`Customer`
+
+Write capacity consumed by writes that you make directly to the table
+(including writes to a replica table in a global table).
+
+`GlobalTable`
+
+Write capacity consumed by global table replication writes that DynamoDB
+applies to a replica table to keep the replicas in sync.
+
+Use this dimension to separate your own write consumption from global table
+replication consumption, for example when planning capacity.
 
 ### StreamLabel
 

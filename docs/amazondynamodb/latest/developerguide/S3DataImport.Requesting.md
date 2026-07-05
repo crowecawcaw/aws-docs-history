@@ -66,12 +66,17 @@ JSON
  "Action": [
  "logs:CreateLogGroup",
  "logs:CreateLogStream",
- "logs:DescribeLogGroups",
  "logs:DescribeLogStreams",
  "logs:PutLogEvents",
  "logs:PutRetentionPolicy"
  ],
  "Resource": "arn:aws:logs:us-east-1:`111122223333`:log-group/aws-dynamodb/*"
+ },
+ {
+ "Sid": "AllowDescribeLogGroups",
+ "Effect": "Allow",
+ "Action": "logs:DescribeLogGroups",
+ "Resource": "*"
  },
  {
  "Sid": "AllowDynamoDBListImports",

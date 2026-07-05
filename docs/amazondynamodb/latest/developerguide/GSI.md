@@ -406,6 +406,10 @@ The cost of writing an item to a global secondary index depends on several facto
   in the index key schema, but does not change the value of any indexed key
   attribute, one write is required to update the values of the projected
   attributes into the index.
+- If an update to the table changes only attributes that are neither index
+  key attributes nor projected into the index, the index entry is unchanged,
+  so no write capacity is consumed for that index. The base table is still
+  charged for the write.
 
 All of these factors assume that the size of each item in the index is less than
 or equal to the 1 KB item size for calculating write capacity units. Larger

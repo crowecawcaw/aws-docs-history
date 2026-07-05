@@ -49,6 +49,15 @@ AWS CLI `--page-size` parameter limits the number of items per page. The
 `--debug` parameter prints low-level information about requests and
 responses.
 
+###### Note
+
+Automatic pagination is the default behavior in both AWS CLI version 1 and version
+2, so a single command returns all matching items. If you instead need to paginate
+yourself, use the `--no-paginate` option to return only the first page
+(the response then includes `LastEvaluatedKey` when more items remain),
+or use `--max-items` to limit the number of items returned and get a
+`NextToken` value for retrieving the next page.
+
 If you run the example, the first response from DynamoDB looks similar to the
 following.
 

@@ -67,9 +67,9 @@ JSON
 
 ```
 
-## Example: Allow PartiQL for DynamoDB insert statements on an index
+## Example: Allow PartiQL for DynamoDB select statements on an index
 
-The following IAM policy grants permissions to run the `insert`
+The following IAM policy grants permissions to run the `select`
 statement on a specific index.
 
 JSON
@@ -81,7 +81,7 @@ JSON
  {
  "Effect":"Allow",
  "Action":[
- "dynamodb:PartiQLInsert"
+ "dynamodb:PartiQLSelect"
  ],
  "Resource":[
  "arn:aws:dynamodb:us-west-2:123456789012:table/Music/index/index1"

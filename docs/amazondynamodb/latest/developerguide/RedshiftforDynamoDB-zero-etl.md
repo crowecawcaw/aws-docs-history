@@ -232,7 +232,7 @@ using your KMS key.
 
 ```
 {
-    "Sid": "Statement to allow Amazon Redshift service to perform Decrypt operation on the source DynamoDB Table",
+    "Sid": "AllowRedshiftDecryptSourceTable",
     "Effect": "Allow",
     "Principal": {
         "Service": [

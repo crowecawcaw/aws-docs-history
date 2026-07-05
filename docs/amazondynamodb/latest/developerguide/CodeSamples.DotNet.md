@@ -64,7 +64,10 @@ the AWS SDK for .NET.
 The SDK for .NET requires that you provide AWS credentials to your application at
 runtime. The code examples in this guide assume that you are using the SDK Store to
 manage your AWS credentials file, as described in [Using the SDK
-store](../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md#sdk-store "../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md#sdk-store") in the _AWS SDK for .NET Developer Guide_.
+store](../../../sdk-for-net/latest/developer-guide/sdk-store.md "../../../sdk-for-net/latest/developer-guide/sdk-store.md") in the _AWS SDK for .NET Developer Guide_. The SDK Store holds
+manually managed short-term or long-term credentials, which is no longer a
+recommended practice. For the recommended way to configure access, see [Configure AWS access using IAM Identity
+Center](../../../sdk-for-net/latest/developer-guide/creds-idc.md "../../../sdk-for-net/latest/developer-guide/creds-idc.md") in the _AWS SDK for .NET Developer Guide_.
 
 The Toolkit for Visual Studio supports multiple sets of credentials from any number of accounts. Each
 set is referred to as a _profile_. Visual Studio adds entries to

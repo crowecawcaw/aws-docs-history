@@ -91,7 +91,6 @@ first retrieve the ImportArn from the output and describe-import using this comm
 
 ```
 aws dynamodb describe-import --import-arn arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658528578619-c4d4e311
-}
 ```
 
 Example output:
@@ -169,15 +168,15 @@ Example CloudWatch error log:
 ```
 aws logs get-log-events —log-group-name /aws-dynamodb/imports —log-stream-name 01658528578619-c4d4e311/error
 {
-"events": [
-{
-"timestamp": 1658528745319,
-"message": "{\"itemS3Pointer\":{\"bucket\":\"my-import-source\",\"key\":\"import-test.csv\",\"itemIndex\":0},\"importArn\":\"arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658528578619-c4d4e311\",\"errorMessages\":[\"One or more parameter values were invalid: Missing the key pk in the item\"]}",
-"ingestionTime": 1658528745414
-}
-],
-"nextForwardToken": "f/36986426953797707963335499204463414460239026137054642176/s",
-"nextBackwardToken": "b/36986426953797707963335499204463414460239026137054642176/s"
+    "events": [
+        {
+            "timestamp": 1658528745319,
+            "message": "{\"itemS3Pointer\":{\"bucket\":\"my-import-source\",\"key\":\"import-test.csv\",\"itemIndex\":0},\"importArn\":\"arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658528578619-c4d4e311\",\"errorMessages\":[\"One or more parameter values were invalid: Missing the key pk in the item\"]}",
+            "ingestionTime": 1658528745414
+        }
+    ],
+    "nextForwardToken": "f/36986426953797707963335499204463414460239026137054642176/s",
+    "nextBackwardToken": "b/36986426953797707963335499204463414460239026137054642176/s"
 }
 ```
 
@@ -212,45 +211,45 @@ Example describe import:
 ```
 aws dynamodb —endpoint-url $ENDPOINT describe-import —import-arn "arn:aws:dynamodb:us-east-1:531234567890:table/target-table/import/01658530687105-e6035287"
 {
-"ImportTableDescription": {
-"ImportArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658530687105-e6035287",
-"ImportStatus": "FAILED",
-"TableArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table",
-"TableId": "e1215a82-b8d1-45a8-b2e2-14b9dd8eb99c",
-"ClientToken": "3048e16a-069b-47a6-9dfb-9c259fd2fb6f",
-"S3BucketSource": {
-"S3BucketOwner": "531234567890",
-"S3Bucket": "BUCKET_DOES_NOT_EXIST",
-"S3KeyPrefix": "import-test"
-},
-"ErrorCount": 0,
-"CloudWatchLogGroupArn": "arn:aws:logs:us-east-1:ACCOUNT:log-group:/aws-dynamodb/imports:*",
-"InputFormat": "CSV",
-"InputCompressionType": "NONE",
-"TableCreationParameters": {
-"TableName": "target-table",
-"AttributeDefinitions": [
-{
-"AttributeName": "pk",
-"AttributeType": "S"
-}
-],
-"KeySchema": [
-{
-"AttributeName": "pk",
-"KeyType": "HASH"
-}
-],
-"BillingMode": "PAY_PER_REQUEST"
-},
-"StartTime": 1658530687.105,
-"EndTime": 1658530701.873,
-"ProcessedSizeBytes": 0,
-"ProcessedItemCount": 0,
-"ImportedItemCount": 0,
-"FailureCode": "S3NoSuchBucket",
-"FailureMessage": "The specified bucket does not exist (Service: Amazon S3; Status Code: 404; Error Code: NoSuchBucket; Request ID: Q4W6QYYFDWY6WAKH; S3 Extended Request ID: ObqSlLeIMJpQqHLRX2C5Sy7n+8g6iGPwy7ixg7eEeTuEkg/+chU/JF+RbliWytMlkUlUcuCLTrI=; Proxy: null)"
-}
+    "ImportTableDescription": {
+        "ImportArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table/import/01658530687105-e6035287",
+        "ImportStatus": "FAILED",
+        "TableArn": "arn:aws:dynamodb:us-east-1:ACCOUNT:table/target-table",
+        "TableId": "e1215a82-b8d1-45a8-b2e2-14b9dd8eb99c",
+        "ClientToken": "3048e16a-069b-47a6-9dfb-9c259fd2fb6f",
+        "S3BucketSource": {
+            "S3BucketOwner": "531234567890",
+            "S3Bucket": "BUCKET_DOES_NOT_EXIST",
+            "S3KeyPrefix": "import-test"
+        },
+        "ErrorCount": 0,
+        "CloudWatchLogGroupArn": "arn:aws:logs:us-east-1:ACCOUNT:log-group:/aws-dynamodb/imports:*",
+        "InputFormat": "CSV",
+        "InputCompressionType": "NONE",
+        "TableCreationParameters": {
+            "TableName": "target-table",
+            "AttributeDefinitions": [
+                {
+                    "AttributeName": "pk",
+                    "AttributeType": "S"
+                }
+            ],
+            "KeySchema": [
+                {
+                    "AttributeName": "pk",
+                    "KeyType": "HASH"
+                }
+            ],
+            "BillingMode": "PAY_PER_REQUEST"
+        },
+        "StartTime": 1658530687.105,
+        "EndTime": 1658530701.873,
+        "ProcessedSizeBytes": 0,
+        "ProcessedItemCount": 0,
+        "ImportedItemCount": 0,
+        "FailureCode": "S3NoSuchBucket",
+        "FailureMessage": "The specified bucket does not exist (Service: Amazon S3; Status Code: 404; Error Code: NoSuchBucket; Request ID: Q4W6QYYFDWY6WAKH; S3 Extended Request ID: ObqSlLeIMJpQqHLRX2C5Sy7n+8g6iGPwy7ixg7eEeTuEkg/+chU/JF+RbliWytMlkUlUcuCLTrI=; Proxy: null)"
+    }
 }
 ```
 

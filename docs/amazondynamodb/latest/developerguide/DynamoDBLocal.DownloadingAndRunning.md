@@ -41,7 +41,7 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 If you're using Windows PowerShell, be sure to enclose the
 parameter name or the entire name and value like this:
 
-`java -D"java.library.path=./DynamoDBLocal_lib" -jar
+`java "-Djava.library.path=./DynamoDBLocal_lib" -jar
  DynamoDBLocal.jar`
 
 DynamoDB processes incoming requests until you stop it. To stop
@@ -115,7 +115,6 @@ If you want your application and DynamoDB local to be in separate
 containers, use the following yaml file.
 
 ```
-version: '3.8'
 services:
  dynamodb-local:
    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
@@ -151,7 +150,6 @@ To use with your own application image, replace the
 application.
 
 ```
-version: '3.8'
 services:
  dynamodb-local:
    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"

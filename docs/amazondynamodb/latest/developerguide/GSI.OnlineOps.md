@@ -59,12 +59,14 @@ before adding new indexes to operationally important tables.
 - Consider enabling CloudWatch Contributor Insights on your base table and
   indexes. This will give you valuable insight into your traffic
   distribution.
-- Watch `WriteThrottleEvents`, `ThrottledRequests`, and
-  `OnlineIndexPercentageProgress` CloudWatch metrics throughout the
-  process. Adjust the provisioned write capacity as required to complete the
-  backfill in a reasonable time without any significant throttling effects on
-  your ongoing operations. `OnlineIndexConsumedWriteCapacity` and
-  `OnlineThrottleEvents` are expected to show 0 during index backfill.
+- Monitor the `OnlineIndexPercentageProgress` CloudWatch metric
+  to track the progress of the index build, and watch your base table's
+  `WriteThrottleEvents` and `ThrottledRequests` metrics
+  for throttling that affects your ongoing application traffic. Increasing the
+  index's provisioned write capacity does not reduce the time it takes to build
+  the index. The `OnlineIndexConsumedWriteCapacity` and
+  `OnlineIndexThrottleEvents` metrics show 0 during the
+  backfill.
 - Be prepared to cancel the index creation if you experience operational
   impact due to write throttling.
 
@@ -164,8 +166,9 @@ is set to `CREATING`, and the `Backfilling`
 attribute is true. Use the `DescribeTable` operation to
 retrieve the status of a table and all of its secondary indexes.
 
-While the index is backfilling, you cannot delete its parent table.
-However, you can still delete the index or modify the provisioned
+While the index is backfilling, you cannot delete its parent table,
+and you cannot add or delete other indexes on the table. However, you can
+still delete the index that is being built, or modify the provisioned
 throughput of the table and any of its global secondary indexes.
 
 ###### Note

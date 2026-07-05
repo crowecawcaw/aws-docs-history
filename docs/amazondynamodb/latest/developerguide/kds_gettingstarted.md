@@ -262,3 +262,14 @@ aws dynamodb update-kinesis-streaming-destination --table-name enable_test_table
 5. Read from the stream and deserialize the stream content.
 6. Confirm that the `ApproximateCreationDateTime` of the writes have
    the desired precision.
+
+###### Note
+
+Disabling streaming to a Kinesis data stream is an asynchronous operation. After
+you disable the destination (by calling
+`DisableKinesisStreamingDestination` or disabling it from the
+console), DynamoDB can continue to send in-flight records to the data stream for a
+short time until the change fully propagates. Take this brief overlap into account
+when you stop streaming, and use
+`describe-kinesis-streaming-destination` to confirm that the
+destination status has changed to `DISABLED`.

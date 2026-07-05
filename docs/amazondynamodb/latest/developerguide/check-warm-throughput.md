@@ -11,9 +11,10 @@ console:
 2. In the left navigation pane, choose Tables.
 3. On the **Tables** page, choose your
    desired table.
-4. Select **Additional settings** to
-   view your current warm throughput value. This value is shown as read
-   units per second and write units per second.
+4. On your table's details page, view your current warm throughput
+   value in the **Warm throughput** field.
+   This value is shown as read units per second and write units per
+   second.
    The following AWS CLI example shows you how to check your DynamoDB table's warm
    throughput.
 

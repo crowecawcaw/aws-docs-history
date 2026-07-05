@@ -42,6 +42,13 @@ DynamoDB stream are not supported.
 DynamoDB also supports [global tables](GlobalTables.md "GlobalTables.md") for
 multi-active and multi-Region replication. A global table is composed of multiple
 replica tables in different AWS Regions. Any change made to any item in any
-replica table is replicated to all the other replicas within the same global table,
-typically within a second, and are eventually consistent. For more information, see
-[Consistency modes](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes").
+replica table is replicated to all the other replicas within the same global
+table.
+
+Global tables support two consistency modes. With multi-Region eventual
+consistency (MREC), the default mode, item changes are replicated to the other
+replicas typically within a second and are eventually consistent across Regions.
+With multi-Region strong consistency (MRSC), item changes are synchronously
+replicated to another Region before the write returns, and strongly consistent read
+operations on any replica always return the latest version of an item. For more
+information, see [Consistency modes](V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes "V2globaltables_HowItWorks.md#V2globaltables_HowItWorks.consistency-modes").

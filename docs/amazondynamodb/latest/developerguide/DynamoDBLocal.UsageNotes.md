@@ -15,8 +15,6 @@ locally, you should be aware of the following:
 - If you use the `-inMemory` option, DynamoDB doesn't write any
   database files at all. Instead, all data is written to memory, and the data
   is not saved when you terminate DynamoDB.
-- If you use the `-inMemory` option, the `-sharedDb`
-  option is also required.
 - If you use the `-optimizeDbBeforeStartup` option, you must
   also specify the `-dbPath` parameter so that DynamoDB can find its
   database file.
