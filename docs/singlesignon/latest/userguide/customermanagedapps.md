@@ -31,3 +31,4 @@ If it does, see the [baseline KMS key policy](baseline-KMS-key-policy.md "baseli
 
 - [Single sign-on access to SAML 2.0 and OAuth 2.0 applications](customermanagedapps-saml2-oauth2.md "customermanagedapps-saml2-oauth2.md")
 - [Setting up customer managed SAML 2.0 applications](customermanagedapps-saml2-setup.md "customermanagedapps-saml2-setup.md")
+- [Enable AWS account access for customer managed applications](enable-account-access-customer-managed-apps.md "enable-account-access-customer-managed-apps.md")

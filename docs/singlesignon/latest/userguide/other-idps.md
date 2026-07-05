@@ -13,6 +13,11 @@ IAM Identity Center implements the following standards-based protocols for ident
     `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`).
   - The value of the nameID field in assertions must be an RFC 2822 ([https://tools.ietf.org/html/rfc2822](https://tools.ietf.org/html/rfc2822 "https://tools.ietf.org/html/rfc2822")) addr-spec compliant
     (“`name@domain.com`”) string ([https://tools.ietf.org/html/rfc2822#section-3.4.1](https://tools.ietf.org/html/rfc2822#section-3.4.1 "https://tools.ietf.org/html/rfc2822#section-3.4.1")).
+  - The SAML assertion's `Subject` `NameID` value must
+    exactly match the **Username** of a user provisioned in IAM Identity Center.
+    Sign-in fails if IAM Identity Center cannot match the `NameID` to a
+    **Username**, even when the external IdP authenticates the user
+    successfully.
   - The metadata file cannot be over 75000 characters.
   - The metadata must contain an entityId, X509 certificate, and SingleSignOnService
     as part of the sign-in URL.

@@ -5,9 +5,8 @@ a management or delegated administrator account. To increase a quota, see [Reque
 
 ###### Note
 
-We recommend using the AWS
-CLI and APIs to administer IAM Identity Center if you have more than 50,000 users, 10,000 groups, or
-500 permission sets. For more information about the CLI, see [Integrating AWS CLI with IAM Identity Center](integrating-aws-cli.md "integrating-aws-cli.md"). For more
+We recommend using the AWS CLI and APIs to centrally administer IAM Identity Center if you have more than 50,000 users, 10,000 groups,
+500 permission sets, or 3,000 applications. For more information about the CLI, see [Integrating AWS CLI with IAM Identity Center](integrating-aws-cli.md "integrating-aws-cli.md"). For more
 information about APIs, see [Welcome to
 the IAM Identity Center API Reference](../APIReference/welcome.md "../APIReference/welcome.md").
 

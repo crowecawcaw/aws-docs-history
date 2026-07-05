@@ -46,6 +46,10 @@ to your IdP.
   outbound SAML subject attribute to the user name attribute. If the third-party
   application needs a routable email address, you must provide the email attribute to
   your IdP.
+- For SCIM-provisioned users, make sure the attribute your IdP sends as the SAML
+  `Subject` `NameID` is the same attribute you map to
+  **Username** in your SCIM configuration. If they differ, sign-in
+  fails.
 - SCIM provisioning and update intervals are controlled by your identity provider.
   Changes to users and groups in your identity provider are only reflected in IAM Identity Center
   after your identity provider sends those changes to IAM Identity Center. Check with your identity

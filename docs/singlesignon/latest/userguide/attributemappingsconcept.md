@@ -103,7 +103,6 @@ supported and that can be mapped to user attributes in IAM Identity Center.
 | `${samaccountname}`                                 |
 | `${description}`                                    |
 | `${objectguid}`                                     |
-| `${objectsid}`                                      |
 | `${givenname}`                                      |
 | `${sn}`                                             |
 | `${initials}`                                       |
@@ -114,7 +113,6 @@ supported and that can be mapped to user attributes in IAM Identity Center.
 | `${proxyaddresses[?type == "SMTP"].value}`          |
 | `${proxyaddresses[?type == "smtp"].value}`          |
 | `${useraccountcontrol}`                             |
-| `${associateddomain}`                               |
 
 ###### Considerations
 
