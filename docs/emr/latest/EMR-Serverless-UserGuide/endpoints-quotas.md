@@ -17,10 +17,14 @@ EMR Serverless service endpoints| Region name | Region | Endpoint | Protocol |
 | US West (Oregon) | `us-west-2` | `emr-serverless.us-west-2.amazonaws.com`<br>`emr-serverless-fips.us-west-2.amazonaws.com` | HTTPS |
 | Africa (Cape Town) | `af-south-1` | `emr-serverless.af-south-1.amazonaws.com` | HTTPS |
 | Asia Pacific (Hong Kong) | `ap-east-1` | `emr-serverless.ap-east-1.amazonaws.com` | HTTPS |
+| Asia Pacific (Taipei) | `ap-east-2` | `emr-serverless.ap-east-2.amazonaws.com` | HTTPS |
 | Asia Pacific (Jakarta) | `ap-southeast-3` | `emr-serverless.ap-southeast-3.amazonaws.com` | HTTPS |
 | Asia Pacific (Melbourne) | `ap-southeast-4` | `emr-serverless.ap-southeast-4.amazonaws.com` | HTTPS |
 | Asia Pacific (Malaysia) | `ap-southeast-5` | `emr-serverless.ap-southeast-5.amazonaws.com` | HTTPS |
+| Asia Pacific (New Zealand) | `ap-southeast-6` | `emr-serverless.ap-southeast-6.amazonaws.com` | HTTPS |
+| Asia Pacific (Thailand) | `ap-southeast-7` | `emr-serverless.ap-southeast-7.amazonaws.com` | HTTPS |
 | Asia Pacific (Mumbai) | `ap-south-1` | `emr-serverless.ap-south-1.amazonaws.com` | HTTPS |
+| Asia Pacific (Hyderabad) | `ap-south-2` | `emr-serverless.ap-south-2.amazonaws.com` | HTTPS |
 | Asia Pacific (Osaka) | `ap-northeast-3` | `emr-serverless.ap-northeast-3.amazonaws.com` | HTTPS |
 | Asia Pacific (Seoul) | `ap-northeast-2` | `emr-serverless.ap-northeast-2.amazonaws.com` | HTTPS |
 | Asia Pacific (Singapore) | `ap-southeast-1` | `emr-serverless.ap-southeast-1.amazonaws.com` | HTTPS |
@@ -39,6 +43,7 @@ EMR Serverless service endpoints| Region name | Region | Endpoint | Protocol |
 | Israel (Tel Aviv) | `il-central-1` | `emr-serverless.il-central-1.amazonaws.com` | HTTPS |
 | Middle East (Bahrain) | `me-south-1` | `emr-serverless.me-south-1.amazonaws.com` | HTTPS |
 | Middle East (UAE) | `me-central-1` | `emr-serverless.me-central-1.amazonaws.com` | HTTPS |
+| Mexico (Central) | `mx-central-1` | `emr-serverless.mx-central-1.amazonaws.com` | HTTPS |
 | South America (São Paulo) | `sa-east-1` | `emr-serverless.sa-east-1.amazonaws.com` | HTTPS |
 | China (Beijing) | `cn-north-1` (limited to the following Availability Zones:<br>`cnn1-az1`, `cnn1-az2`) | `emr-serverless.cn-north-1.amazonaws.com.cn` | HTTPS |
 | AWS GovCloud (US-East) | `us-gov-east-1` | `emr-serverless.us-gov-east-1.amazonaws.com` | HTTPS |
