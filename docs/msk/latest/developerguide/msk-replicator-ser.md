@@ -25,6 +25,6 @@ The service execution role must have a trust policy that allows the `kafka.amazo
 }
 ```
 
-If you want to restrict `kafka-cluster:WriteData` permission, refer to the _Create authorization policies_ section of [How IAM access control for Amazon MSK works](iam-access-control.md#how-to-use-iam-access-control "iam-access-control.md#how-to-use-iam-access-control"). You need to add `kafka-cluster:WriteDataIdempotently` permission to both the source and target cluster.
+If you reuse a service execution role between multiple MSK Replicators, they share the same Kafka per-principal throughput quotas (bytes per second and request rate). If you want to maintain separate throughput quotas per Replicator, use separate service execution roles.
 
-If you reuse a service execution role between multiple MSK Replicators, they are all subject to the same Kafka quotas. If you want to maintain separate quotas per Replicator, use separate service execution roles.
+For more information about the permissions that the service execution role requires for each replicator feature, see [Service execution role permissions reference](msk-replicator-permissions-reference.md "msk-replicator-permissions-reference.md").
