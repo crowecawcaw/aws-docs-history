@@ -40,5 +40,5 @@ instance is automatically moved into its reserved capacity.
 - [Add Capacity Reservation to group](add-to-group.md "add-to-group.md")
 - [Remove Capacity Reservation from group](remove-from-group.md "remove-from-group.md")
 - [Delete group](delete-group.md "delete-group.md")
-- [Using Capacity Reservation in cluster placement groups
+- [Using Capacity Reservation in placement groups
   with a Capacity Reservation group](using-cpg-odcr-crg.md "using-cpg-odcr-crg.md")

@@ -302,14 +302,14 @@ support EFA on your instance.
    version, use the following command.
 
 ```
-`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.48.0.tar.gz
+`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.49.0.tar.gz
 ```
 
 3. Extract the files from the compressed `.tar.gz` file, delete the tarball, and navigate
    into the extracted directory.
 
 ```
-`$` tar -xf aws-efa-installer-1.48.0.tar.gz && rm -rf aws-efa-installer-1.48.0.tar.gz && cd aws-efa-installer
+`$` tar -xf aws-efa-installer-1.49.0.tar.gz && rm -rf aws-efa-installer-1.49.0.tar.gz && cd aws-efa-installer
 ```
 
 4. (_Optional_) Verify individual package signatures during installation.

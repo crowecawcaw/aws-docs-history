@@ -204,9 +204,9 @@ must reboot it as the final step.
 
         1. To install the `ebsnvme-id` tool,
          specify `InstallEBSNVMeIdTool
-         ‘Yes’`.
+         'Yes'`.
         2. If you don't want to install the tool, specify
-         `InstallEBSNVMeIdTool ‘No’`.
+         `InstallEBSNVMeIdTool 'No'`.
 
 
         If you don't specify

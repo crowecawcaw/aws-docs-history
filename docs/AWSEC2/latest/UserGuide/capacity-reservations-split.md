@@ -39,14 +39,14 @@ split.
 The following considerations apply when splitting off capacity from one
 reservation to a new one:
 
-- The used capacity can only be split for Capacity Reservations with “open” instance
+- The used capacity can only be split for Capacity Reservations with "open" instance
   eligibility that are not shared with any account.
 - When you split the used capacity, the eligible instances are randomly
   selected. You cannot specify which running instances are split. If a
   sufficient number of eligible instances are not found to fulfill the split
   quantity, the split operation will fail.
 - The maximum quantity of instances to split from an existing reservation is
-  the size of the reservation minus one. For example, if your reservation’s
+  the size of the reservation minus one. For example, if your reservation's
   total capacity is 5 instances, you can split a maximum of 4 instances into a
   new reservation.
 - **Future-dated Capacity Reservations** – You can't

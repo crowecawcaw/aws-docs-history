@@ -192,6 +192,10 @@ Nitro v6 (EFA v4)
 | c8ib.96xlarge              | Yes               | Yes                |
 | c8ib.metal-48xl            | Yes               | Yes                |
 | c8ib.metal-96xl            | Yes               | Yes                |
+| c9g.48xlarge               | Yes               | Yes                |
+| c9g.metal-48xl             | Yes               | Yes                |
+| c9gd.48xlarge              | Yes               | Yes                |
+| c9gd.metal-48xl            | Yes               | Yes                |
 | Memory Optimized           |
 | r8a.48xlarge               | Yes               | Yes                |
 | r8a.metal-48xl             | Yes               | Yes                |
@@ -487,7 +491,7 @@ shows the supported operating systems.
 | RHEL 8, 9, and 10                      | ✓                                   | ✓                                     |
 | Debian 11, 12, and 13                  | ✓                                   | ✓                                     |
 | Rocky Linux 8 and 9                    | ✓                                   | ✓                                     |
-| Ubuntu 22.04 and 24.04                 | ✓                                   | ✓                                     |
+| Ubuntu 22.04, 24.04, and 26.04         | ✓                                   | ✓                                     |
 | SUSE Linux Enterprise 15 SP2 and later | ✓                                   | ✓                                     |
 
 ###### Note

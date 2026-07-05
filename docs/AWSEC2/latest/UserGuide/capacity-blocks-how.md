@@ -10,11 +10,6 @@ You can reserve a Capacity Block with the following specifications:
   For Amazon EC2 UltraServers, each UltraServer corresponds to one Capacity Block. You can request multiple
   UltraServers through a single request.
 
-You can use Capacity Blocks to reserve `p6-b200`, `p5`, `p5e`,
-`p5en`, `p4d`, `p4de`, `trn1`, and
-`trn2` instances. You can purchase the following UltraServer types through
-Capacity Blocks: `P6e-GB200` and `Trn2` (in preview).
-
 To reserve a Capacity Block, you start by specifying your capacity needs, including the instance
 type or UltraServer type, the number of instances or UltraServers, amount of time, earliest start date,
 and latest end date that you need. Then, you can see an available Capacity Block offering that meets

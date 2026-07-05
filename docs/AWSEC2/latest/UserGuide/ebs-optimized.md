@@ -476,7 +476,7 @@ these instances.
 
 ###### Note
 
-C8a, C8g, C8gd, C8i, C8id, C8i-flex instance types support configurable bandwidth weightings. With these instance types, you can optimize
+C8a, C8g, C8gd, C8i, C8id, C8i-flex, C9g, C9gd instance types support configurable bandwidth weightings. With these instance types, you can optimize
 an instance's bandwidth for either networking performance or Amazon EBS performance. The following table shows the
 default Amazon EBS bandwidth performance for these instance types. For more information,
 see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighting.md "configure-bandwidth-weighting.md").
@@ -778,6 +778,28 @@ see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighti
 | c8ib.96xlarge 2     | 300000                    | 37500.0                  | 1440000                                 |
 | c8ib.metal-48xl 2   | 150000                    | 18750.0                  | 720000                                  |
 | c8ib.metal-96xl 2   | 300000                    | 37500.0                  | 1440000                                 |
+| c9g.medium 1        | 380                       | 12000                    | 47.50                                   | 1500.00                                | 2500                       | 48000                     |
+| c9g.large 1         | 760                       | 12000                    | 95.00                                   | 1500.00                                | 3600                       | 48000                     |
+| c9g.xlarge 1        | 1500                      | 12000                    | 187.50                                  | 1500.00                                | 6000                       | 48000                     |
+| c9g.2xlarge 1       | 3000                      | 12000                    | 375.00                                  | 1500.00                                | 12000                      | 48000                     |
+| c9g.4xlarge 1       | 6000                      | 12000                    | 750.00                                  | 1500.00                                | 24000                      | 48000                     |
+| c9g.8xlarge 2       | 12000                     | 1500.0                   | 48000                                   |
+| c9g.12xlarge 2      | 18000                     | 2250.0                   | 72000                                   |
+| c9g.16xlarge 2      | 24000                     | 3000.0                   | 96000                                   |
+| c9g.24xlarge 2      | 36000                     | 4500.0                   | 144000                                  |
+| c9g.48xlarge 2      | 72000                     | 9000.0                   | 288000                                  |
+| c9g.metal-48xl 2    | 72000                     | 9000.0                   | 288000                                  |
+| c9gd.medium 1       | 380                       | 12000                    | 47.50                                   | 1500.00                                | 2500                       | 48000                     |
+| c9gd.large 1        | 760                       | 12000                    | 95.00                                   | 1500.00                                | 3600                       | 48000                     |
+| c9gd.xlarge 1       | 1500                      | 12000                    | 187.50                                  | 1500.00                                | 6000                       | 48000                     |
+| c9gd.2xlarge 1      | 3000                      | 12000                    | 375.00                                  | 1500.00                                | 12000                      | 48000                     |
+| c9gd.4xlarge 1      | 6000                      | 12000                    | 750.00                                  | 1500.00                                | 24000                      | 48000                     |
+| c9gd.8xlarge 2      | 12000                     | 1500.0                   | 48000                                   |
+| c9gd.12xlarge 2     | 18000                     | 2250.0                   | 72000                                   |
+| c9gd.16xlarge 2     | 24000                     | 3000.0                   | 96000                                   |
+| c9gd.24xlarge 2     | 36000                     | 4500.0                   | 144000                                  |
+| c9gd.48xlarge 2     | 72000                     | 9000.0                   | 288000                                  |
+| c9gd.metal-48xl 2   | 72000                     | 9000.0                   | 288000                                  |
 
 1 These instances can sustain the maximum performance for 30 minutes
 at least once every 24 hours, after which they revert to their baseline performance.

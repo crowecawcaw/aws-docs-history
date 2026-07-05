@@ -389,6 +389,30 @@ single network card. For more information, see [Network cards](using-eni.md#netw
 | `c8ib.96xlarge`     | 32                               | 128                              | 1536 \*                         |
 | `c8ib.metal-48xl`   | 32                               | 128                              | 768                             |
 | `c8ib.metal-96xl`   | 32                               | 128                              | 1536 \*                         |
+| **C9g**             |
+| `c9g.medium`        | 1                                | 1                                | 2                               |
+| `c9g.large`         | 2                                | 2                                | 6                               |
+| `c9g.xlarge`        | 4                                | 4                                | 16                              |
+| `c9g.2xlarge`       | 8                                | 8                                | 32                              |
+| `c9g.4xlarge`       | 8                                | 16                               | 64                              |
+| `c9g.8xlarge`       | 8                                | 32                               | 128                             |
+| `c9g.12xlarge`      | 16                               | 64                               | 192                             |
+| `c9g.16xlarge`      | 16                               | 64                               | 256                             |
+| `c9g.24xlarge`      | 16                               | 128                              | 384                             |
+| `c9g.48xlarge`      | 32                               | 128                              | 768                             |
+| `c9g.metal-48xl`    | 32                               | 128                              | 768                             |
+| **C9gd**            |
+| `c9gd.medium`       | 1                                | 1                                | 2                               |
+| `c9gd.large`        | 2                                | 2                                | 6                               |
+| `c9gd.xlarge`       | 4                                | 4                                | 16                              |
+| `c9gd.2xlarge`      | 8                                | 8                                | 32                              |
+| `c9gd.4xlarge`      | 8                                | 16                               | 64                              |
+| `c9gd.8xlarge`      | 8                                | 32                               | 128                             |
+| `c9gd.12xlarge`     | 16                               | 64                               | 192                             |
+| `c9gd.16xlarge`     | 16                               | 64                               | 256                             |
+| `c9gd.24xlarge`     | 16                               | 128                              | 384                             |
+| `c9gd.48xlarge`     | 32                               | 128                              | 768                             |
+| `c9gd.metal-48xl`   | 32                               | 128                              | 768                             |
 
 ###### Note
 

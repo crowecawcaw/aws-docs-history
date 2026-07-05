@@ -8,6 +8,7 @@ placement strategies.
 - [Cluster placement groups](#placement-groups-cluster "#placement-groups-cluster")
 - [Partition placement groups](#placement-groups-partition "#placement-groups-partition")
 - [Spread placement groups](#placement-groups-spread "#placement-groups-spread")
+- [Precision time placement groups](#placement-groups-precision-time "#placement-groups-precision-time")
 
 ## Cluster placement groups
 
@@ -30,6 +31,12 @@ provide the lowest latency and the highest packet-per-second network performance
 your placement group, choose an instance type that supports enhanced networking. For
 more information, see [Enhanced
 Networking](enhanced-networking.md "enhanced-networking.md").
+
+You can ensure that instances launched in a cluster placement group are placed
+on hardware with precision time capabilities by specifying a parent precision time
+placement group when you create the cluster placement group. Use the
+`--parent-group-id` parameter when you create the cluster placement
+group to establish this relationship.
 
 We recommend that you launch your instances in the following way:
 
@@ -209,3 +216,43 @@ The following rules apply to spread placement groups:
   spread placement group can hold as many instances as you have racks in your
   Outpost deployment.
 - Capacity Reservations do not reserve capacity in a spread placement group.
+
+## Precision time placement groups
+
+A precision time placement group places instances on supported hardware with direct
+access to high-precision time sources in AWS infrastructure. Instances launched in a
+precision time placement group can access the enhanced Amazon Time Sync Service, which provides
+higher-accuracy local time sources compared to the standard local NTP endpoint available
+to all Amazon EC2 instances.
+
+Precision time placement groups are recommended for applications that require
+microsecond-accurate clock synchronization, such as distributed databases requiring
+transaction ordering and consistency, financial services requiring precise timestamping,
+and distributed systems that order events using local clock readings.
+
+Instances in a precision time placement group benefit from the following:
+
+- An enhanced local NTP time source with improved accuracy, available to all
+  supported operating systems without additional configuration.
+- Access to a PTP Hardware Clock (PHC) device for microsecond-accurate
+  synchronization (Linux instances only).
+- Hardware packet timestamping for nanosecond-resolution network measurements
+  (Linux instances only).
+
+For information about configuring your instance to use the enhanced time sources,
+see [Set the time reference on your EC2 instance to use the local Amazon Time Sync Service](configure-ec2-ntp.md "configure-ec2-ntp.md").
+
+The following rules apply to precision time placement groups:
+
+###### Rules and limitations
+
+- For the current list of supported instance families, see
+  [Set the time reference on your EC2 instance to use the local Amazon Time Sync Service](configure-ec2-ntp.md "configure-ec2-ntp.md").
+- If you start or launch an instance in a precision time placement group
+  and there is insufficient hardware to provide access to the enhanced
+  Amazon Time Sync Service, the request fails. Try again later or try a different Availability
+  Zone.
+- You cannot delete a precision time placement group that is a parent of a
+  cluster placement group.
+- There is no additional charge for using precision time placement
+  groups.

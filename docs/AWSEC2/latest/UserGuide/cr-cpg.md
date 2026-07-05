@@ -1,27 +1,39 @@
-# Use Capacity Reservations with cluster placement groups
+# Use Capacity Reservations with placement groups
 
-You can create Capacity Reservations in a cluster placement group to reserve Amazon EC2 compute capacity
-for your workloads. Cluster placement groups offer the benefit of low network latency
-and high network throughput.
+You can create Capacity Reservations in a placement group to reserve Amazon EC2 compute capacity
+for your workloads.
 
-Creating a Capacity Reservation in a cluster placement group ensures that you have access to compute
-capacity in your cluster placement groups when you need it, for as long as you need it.
-This is ideal for reserving capacity for high-performance (HPC) workloads that require
-compute scaling. It allows you to scale your cluster down while ensuring that the
+Creating a Capacity Reservation in a placement group ensures that you have access to compute
+capacity in your placement groups when you need it, for as long as you need it.
+This allows you to scale down while ensuring that the
 capacity remains available for your use so that you can scale back up when needed.
 
-After you create a Capacity Reservation in a cluster placement group, you can share it with other AWS
-accounts. For more information, see [Sharing Capacity Reservations in cluster placement groups](#cpg-cr-sharing "#cpg-cr-sharing").
+After you create a Capacity Reservation in a placement group, you can share it with other AWS
+accounts. For more information, see [Sharing Capacity Reservations in placement groups](#cpg-cr-sharing "#cpg-cr-sharing").
+
+## Supported placement strategies
+
+You can create Capacity Reservations in placement groups that use the following strategies:
+
+- Cluster
+- Precision Time
+
+###### Note
+
+Spread and Partition placement groups do not support Capacity Reservations.
+
+For information about supported instance types, available Regions, and placement
+strategies, see [Placement groups for your Amazon EC2 instances](placement-groups.md "placement-groups.md").
 
 ###### Topics
 
 - [Limitations](#cr-cpg-limitations "#cr-cpg-limitations")
-- [Work with Capacity Reservations in cluster placement groups](#work-with-crs-cpgs "#work-with-crs-cpgs")
-- [Sharing Capacity Reservations in cluster placement groups](#cpg-cr-sharing "#cpg-cr-sharing")
+- [Work with Capacity Reservations in placement groups](#work-with-crs-cpgs "#work-with-crs-cpgs")
+- [Sharing Capacity Reservations in placement groups](#cpg-cr-sharing "#cpg-cr-sharing")
 
 ## Limitations
 
-Keep the following in mind when creating Capacity Reservations in cluster placement groups:
+Keep the following in mind when creating Capacity Reservations in placement groups:
 
 - If an existing Capacity Reservation is not in a placement group, you can't modify the Capacity Reservation
   to reserve capacity in a placement group. To reserve capacity in a placement
@@ -32,37 +44,37 @@ Keep the following in mind when creating Capacity Reservations in cluster placem
   an existing Capacity Reservation in the placement group, or by creating additional Capacity Reservations in
   the placement group. However, you increase your chances of getting an
   insufficient capacity error.
-- You can share Capacity Reservations only from the cluster placement group that you own. You cannot share
-  Capacity Reservations from a cluster placement group that you do not own.
-- You can't delete a cluster placement group that has `active`
-  Capacity Reservations. You must cancel all Capacity Reservations in the cluster placement group before you
+- You can share Capacity Reservations only from the placement group that you own. You cannot share
+  Capacity Reservations from a placement group that you do not own.
+- You can't delete a placement group that has `active`
+  Capacity Reservations. You must cancel all Capacity Reservations in the placement group before you
   can delete it.
 
-## Work with Capacity Reservations in cluster placement groups
+## Work with Capacity Reservations in placement groups
 
-To start using Capacity Reservations with cluster placement groups, perform the following
+To start using Capacity Reservations with placement groups, perform the following
 steps.
 
 ###### Note
 
-If you want to create a Capacity Reservation in an existing cluster placement group, skip Step 1. Then for
-Steps 2 and 3, specify the ARN of the existing cluster placement group.
+If you want to create a Capacity Reservation in an existing placement group, skip Step 1. Then for
+Steps 2 and 3, specify the ARN of the existing placement group.
 
 ###### Tasks
 
-- [Step 1: (Conditional) Create a cluster placement group for use with a Capacity Reservation](#create-cpg "#create-cpg")
-- [Step 2: Create a Capacity Reservation in a cluster placement group](#create-cr-in-cpg "#create-cr-in-cpg")
-- [Step 3: Launch instances into Capacity Reservations in a cluster placement group](#launch-instance-into-cpg "#launch-instance-into-cpg")
+- [Step 1: (Conditional) Create a placement group for use with a Capacity Reservation](#create-cpg "#create-cpg")
+- [Step 2: Create a Capacity Reservation in a placement group](#create-cr-in-cpg "#create-cr-in-cpg")
+- [Step 3: Launch instances into Capacity Reservations in a placement group](#launch-instance-into-cpg "#launch-instance-into-cpg")
 
-### Step 1: (_Conditional_) Create a cluster placement group for use with a Capacity Reservation
+### Step 1: (_Conditional_) Create a placement group for use with a Capacity Reservation
 
-Perform this step only if you need to create a new cluster placement group. To
-use an existing cluster placement group, skip this step and then for Steps 2 and
-3, use the ARN of that cluster placement group.
+Perform this step only if you need to create a new placement group. To
+use an existing placement group, skip this step and then for Steps 2 and
+3, use the ARN of that placement group.
 
 Console
 
-###### To create a cluster placement group
+###### To create a placement group
 
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
@@ -72,23 +84,23 @@ Console
 3. For **Name**, specify a descriptive name
    for the placement group.
 4. For **Placement strategy**, choose
-   **Cluster**.
+   the placement strategy.
 5. Choose **Create group**.
 6. In the **Placement groups** table, in the
    **Group ARN** column, make a note of
-   the ARN of the cluster placement group that you created.
+   the ARN of the placement group that you created.
    You'll need it for the next step.
 
 AWS CLI
 
-###### To create a cluster placement group
+###### To create a placement group
 
 Use the [create-placement-group](../../../cli/latest/reference/ec2/create-placement-group.md "../../../cli/latest/reference/ec2/create-placement-group.md") command.
 
 ```
 aws ec2 create-placement-group \
     --group-name `MyPG` \
-    --strategy cluster
+    --strategy `strategy`
 ```
 
 Make a note of the placement group ARN returned in the
@@ -96,39 +108,39 @@ output, because you'll need it for the next step.
 
 PowerShell
 
-###### To create a cluster placement group
+###### To create a placement group
 
 Use the [New-EC2PlacementGroup](../../../powershell/latest/reference/items/New-EC2PlacementGroup.md "../../../powershell/latest/reference/items/New-EC2PlacementGroup.md") cmdlet.
 
 ```
 New-EC2PlacementGroup `
     -GroupName `my-placement-group` `
-    -Strategy "cluster"
+    -Strategy `strategy`
 ```
 
 Make a note of the placement group ARN returned in the output,
 because you'll need it for the next step.
 
-### Step 2: Create a Capacity Reservation in a cluster placement group
+### Step 2: Create a Capacity Reservation in a placement group
 
-You create a Capacity Reservation in a cluster placement group in the same way that you create any Capacity Reservation.
-However, you must also specify the ARN of the cluster placement group in which
+You create a Capacity Reservation in a placement group in the same way that you create any Capacity Reservation.
+However, you must also specify the ARN of the placement group in which
 to create the Capacity Reservation.
 
 ###### Considerations
 
-- The specified cluster placement group must be in the
-  `available` state. If the cluster placement group is in
+- The specified placement group must be in the
+  `available` state. If the placement group is in
   the `pending`, `deleting`, or `deleted`
   state, the request fails.
-- The Capacity Reservation and the cluster placement group must be in the same
+- The Capacity Reservation and the placement group must be in the same
   Availability Zone. If the request to create the Capacity Reservation specifies an
-  Availability Zone that is different from that of the cluster placement
+  Availability Zone that is different from that of the placement
   group, the request fails.
 - You can create Capacity Reservations only for instance types that are supported by
-  cluster placement groups. If you specify an unsupported instance type,
+  placement groups. If you specify an unsupported instance type,
   the request fails.
-- If you create an `open` Capacity Reservation in a cluster placement group
+- If you create an `open` Capacity Reservation in a placement group
   and there are existing running instances that have matching attributes
   (placement group ARN, instance type, Availability Zone, platform, and
   tenancy), those instances automatically run in the Capacity Reservation.
@@ -156,7 +168,7 @@ Console
    Availability Zone, Tenancy, quantity, and end date as
    needed.
 4. For **Placement group**, select the ARN
-   of the cluster placement group in which to create the
+   of the placement group in which to create the
    Capacity Reservation.
 5. Choose **Create**.
 
@@ -168,7 +180,7 @@ AWS CLI
 
 Use the [create-capacity-reservation](../../../cli/latest/reference/ec2/create-capacity-reservation.md "../../../cli/latest/reference/ec2/create-capacity-reservation.md") command. For
 `--placement-group-arn`, specify the ARN of the
-cluster placement group in which to create the Capacity Reservation.
+placement group in which to create the Capacity Reservation.
 
 ```
 aws ec2 create-capacity-reservation \
@@ -185,7 +197,7 @@ PowerShell
 
 Use the [Add-EC2CapacityReservation](../../../powershell/latest/reference/items/Add-EC2CapacityReservation.md "../../../powershell/latest/reference/items/Add-EC2CapacityReservation.md")
 cmdlet. For `-PlacementGroupArn`, specify the ARN of the
-cluster placement group in which to create the Capacity Reservation.
+placement group in which to create the Capacity Reservation.
 
 ```
 Add-EC2CapacityReservation `
@@ -196,14 +208,14 @@ Add-EC2CapacityReservation `
     -PlacementGroupArn "`placement_group_arn`"
 ```
 
-### Step 3: Launch instances into Capacity Reservations in a cluster placement group
+### Step 3: Launch instances into Capacity Reservations in a placement group
 
-You can launch an instance into a Capacity Reservation that is in a cluster placement group with one of
+You can launch an instance into a Capacity Reservation that is in a placement group with one of
 the following options:
 
-- _Specifying the ARN of the cluster placement group in which to launch the
-  instance_ – When you provide the ARN of a cluster placement group,
-  Amazon EC2 launches the instance into that cluster placement group. You can use one of the
+- _Specifying the ARN of the placement group in which to launch the
+  instance_ – When you provide the ARN of a placement group,
+  Amazon EC2 launches the instance into that placement group. You can use one of the
   following methods:
 
   - _Specifying `open`_ – You do not have
@@ -212,23 +224,23 @@ the following options:
     and tenancy) that match a Capacity Reservation in the specified placement group, the instance
     automatically runs in the Capacity Reservation.
   - _Specifying a Capacity Reservation_ – If the Capacity Reservation accepts only targeted
-    instance launches, you must specify the target Capacity Reservation in addition to the cluster
+    instance launches, you must specify the target Capacity Reservation in addition to the
     placement group in the request.
   - _Specifying a Capacity Reservation group_ – For more information,
-    see [Using Capacity Reservation in cluster placement groups with a Capacity Reservation
+    see [Using Capacity Reservation in placement groups with a Capacity Reservation
     group](using-cpg-odcr-crg.md "using-cpg-odcr-crg.md").
 
 - _Specifying only a Capacity Reservation group_ – For more
   information, see [Using Capacity Reservation in
-  cluster placement groups with a Capacity Reservation group](using-cpg-odcr-crg.md "using-cpg-odcr-crg.md").
+  placement groups with a Capacity Reservation group](using-cpg-odcr-crg.md "using-cpg-odcr-crg.md").
 - _Specifying only a Capacity Reservation_ – You can launch instances into
-  a Capacity Reservation in a cluster placement group.
+  a Capacity Reservation in a placement group.
 
 ###### Note
 
 When you launch instances by specifying only a Capacity Reservation or only a Capacity Reservation group, the instances
-are launched into the Capacity Reservations that are created in the cluster placement group, but the
-instances are not directly attached to the cluster placement group.
+are launched into the Capacity Reservations that are created in the placement group, but the
+instances are not directly attached to the placement group.
 
 Console
 
@@ -242,7 +254,7 @@ Console
    following:
 
    1. For **Placement group**, select
-      the cluster placement group in which to launch the
+      the placement group in which to launch the
       instance.
    2. For **Capacity Reservation**, choose one of the
       following options depending on the configuration of
@@ -250,7 +262,7 @@ Console
 
       - **Open** – To launch
         the instances into any `open` Capacity Reservation in
-        the cluster placement group that has matching
+        the placement group that has matching
         attributes and sufficient capacity.
       - **Target by ID** – To
         launch the instances into a Capacity Reservation that accepts only
@@ -283,7 +295,7 @@ aws ec2 run-instances \
     --key-name `key_pair_name` \
     --subnet-id `subnet-0abcdef1234567890` \
     --capacity-reservation-specification CapacityReservationTarget={CapacityReservationId=`capacity_reservation_id`} \
-    --placement "GroupName=`cluster_placement_group_name`"
+    --placement "GroupName=`placement_group_name`"
 ```
 
 PowerShell
@@ -302,25 +314,25 @@ New-EC2Instance `
     -KeyName `key_pair_name` `
     -SubnetId `subnet-0abcdef1234567890` `
     -CapacityReservationTarget_CapacityReservationId `capacity_reservation_id` `
-    -Placement_GroupName `cluster_placement_group_name`
+    -Placement_GroupName `placement_group_name`
 ```
 
-## Sharing Capacity Reservations in cluster placement groups
+## Sharing Capacity Reservations in placement groups
 
-You can share Capacity Reservations in cluster placement groups by either sharing only the Capacity Reservations, or by
-sharing both the Capacity Reservations and the cluster placement group in which they were created.
+You can share Capacity Reservations in placement groups by either sharing only the Capacity Reservations, or by
+sharing both the Capacity Reservations and the placement group in which they were created.
 
 By sharing only the Capacity Reservation, you give consumer accounts access to that Capacity Reservation only. Consumer
-accounts have no visibility or access to the cluster placement group in which the Capacity Reservation is
+accounts have no visibility or access to the placement group in which the Capacity Reservation is
 created. This gives you fine-grained control over consumer account access. Consumer accounts
-can't view any information about the cluster placement group, including its ARN.
+can't view any information about the placement group, including its ARN.
 
-When you share the cluster placement group and the Capacity Reservation, the cluster placement group is
+When you share the placement group and the Capacity Reservation, the placement group is
 visible and accessible to consumer accounts. They can launch instances and create their own
 Capacity Reservations in it.
 
 For more information, see the following resources.
 
-- [Launch instances into Capacity Reservations in a cluster placement group](#launch-instance-into-cpg "#launch-instance-into-cpg")
+- [Launch instances into Capacity Reservations in a placement group](#launch-instance-into-cpg "#launch-instance-into-cpg")
 - [Shared Capacity Reservations](capacity-reservation-sharing.md "capacity-reservation-sharing.md")
 - [Shared placement groups](share-placement-group.md "share-placement-group.md")

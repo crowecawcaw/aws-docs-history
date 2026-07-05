@@ -47,7 +47,7 @@ amzn-s3-demo-bucket.s3.amazonaws.com/my-prefix/111122223333.2023-12-09-07.001.b9
 For more information about bucket names, see [Bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md") in the _Amazon S3 User Guide_.
 
 The Spot Instance data feed files are tab-delimited. Each line in the data file corresponds
-to one instance hour and contains the fields listed in the following table.
+to one clock hour of instance usage and contains the fields listed in the following table.
 
 | Field         | Description                                                                                                                                                                                                                                                  |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

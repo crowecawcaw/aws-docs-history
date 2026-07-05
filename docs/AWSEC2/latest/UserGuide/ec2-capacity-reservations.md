@@ -68,7 +68,7 @@ Capacity Reservations that you create and manage.
 - [Move capacity between Capacity Reservations](capacity-reservations-move.md "capacity-reservations-move.md")
 - [Split off capacity from an existing Capacity Reservation](capacity-reservations-split.md "capacity-reservations-split.md")
 - [Cancel a Capacity Reservation](capacity-reservations-release.md "capacity-reservations-release.md")
-- [Use Capacity Reservations with cluster placement groups](cr-cpg.md "cr-cpg.md")
+- [Use Capacity Reservations with placement groups](cr-cpg.md "cr-cpg.md")
 - [Capacity Reservation groups](create-cr-group.md "create-cr-group.md")
 - [Capacity Reservations in Local Zones](capacity-reservations-localzones.md "capacity-reservations-localzones.md")
 - [Capacity Reservations in Wavelength Zones](capacity-reservations-wavelengthzones.md "capacity-reservations-wavelengthzones.md")

@@ -488,7 +488,7 @@ MPI stack that is required to support EFA on your instance.
 You can also get the latest version by replacing the version number with `latest` in the preceding command.
 
 ```
-`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.48.0.tar.gz
+`$` curl -O https://efa-installer.amazonaws.com/aws-efa-installer-1.49.0.tar.gz
 ```
 
 3. (_Optional_) Verify the authenticity and integrity of the EFA tarball (`.tar.gz`) file.
@@ -528,7 +528,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 
 
     ```
-    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer-1.48.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.48.0.tar.gz.sig
+    `$` wget https://efa-installer.amazonaws.com/aws-efa-installer-1.49.0.tar.gz.sig && gpg --verify ./aws-efa-installer-1.49.0.tar.gz.sig
     ```
 
     The following shows example output.
@@ -550,7 +550,7 @@ Alternatively, if you prefer to verify the tarball file by using an MD5 or SHA25
 the extracted directory.
 
 ```
-`$` tar -xf aws-efa-installer-1.48.0.tar.gz && cd aws-efa-installer
+`$` tar -xf aws-efa-installer-1.49.0.tar.gz && cd aws-efa-installer
 ```
 
 5. (_Optional_) Verify individual package signatures during installation.
@@ -869,7 +869,7 @@ AMI and the EFA-enabled security group that you created earlier.
   low-latency group in a single Availability Zone.
 - To ensure that capacity is available as you scale your cluster’s instances, you
   can create a Capacity Reservation for your cluster placement group. For more information, see
-  [Use Capacity Reservations with cluster placement groups](cr-cpg.md "cr-cpg.md").
+  [Use Capacity Reservations with placement groups](cr-cpg.md "cr-cpg.md").
 
 New console
 

@@ -59,7 +59,7 @@ Console
    5. (_Optional_) **Placement
       group ARN** — The ARN of the cluster
       placement group in which to create the Capacity Reservation. For more
-      information, see [Use Capacity Reservations with cluster placement groups](cr-cpg.md "cr-cpg.md").
+      information, see [Use Capacity Reservations with placement groups](cr-cpg.md "cr-cpg.md").
    6. **Total instance count** — The
       number of instances for which to reserve capacity. If
       you specify a quantity that exceeds your remaining On-Demand Instance

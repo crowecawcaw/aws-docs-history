@@ -18,6 +18,8 @@ following placement strategies:
   Cassandra, and Kafka.
 - **Spread** – Strictly places a small group of instances
   across distinct underlying hardware to reduce correlated failures.
+- **Precision time** – Places instances on supported hardware
+  with direct access to high-precision time sources in AWS infrastructure.
   Placement groups are optional. If you don't launch your instances into a placement group,
   EC2 tries to place the instances in such a way that all of your instances are spread out
   across the underlying hardware to minimize correlated failures.

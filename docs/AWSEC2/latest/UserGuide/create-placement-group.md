@@ -21,8 +21,9 @@ Console
    group.
 5. For **Placement strategy**, choose the
    placement strategy for the group: **Cluster**,
-   **Spread**, or
-   **Partition**.
+   **Spread**,
+   **Partition**, or
+   **Precision time**.
 
    1. If you chose **Spread**, for
       **Spread level**, choose
@@ -31,6 +32,10 @@ Console
    2. If you chose **Partition**, for
       **Number of partitions**, enter the
       number of partitions for the group.
+   3. If you chose **Cluster**, you can
+      optionally specify a parent precision time placement group to
+      ensure that instances in the cluster placement group launch on
+      precision time capable hardware.
 
 6. (Optional) To add a tag, under **Tags**,
    choose **Add new tag**, and then enter a key and
@@ -54,6 +59,19 @@ aws ec2 create-placement-group \
     --tag-specifications 'ResourceType=placement-group,Tags={Key=`purpose`,Value=`production`}'
 ```
 
+###### To create a cluster placement group with a precision time placement group parent
+
+The following example creates a cluster placement group that
+specifies a parent precision time placement group using the
+`--parent-group-id` parameter.
+
+```
+aws ec2 create-placement-group \
+    --group-name `my-cluster` \
+    --strategy cluster \
+    --parent-group-id `pg-0aaa1111111111111`
+```
+
 ###### To create a partition placement group
 
 The following example creates a placement group that uses
@@ -65,6 +83,17 @@ aws ec2 create-placement-group \
     --group-name `HDFS-Group-A` \
     --strategy partition \
     --partition-count `5`
+```
+
+###### To create a precision time placement group
+
+The following example creates a placement group that uses
+the `precision-time` placement strategy.
+
+```
+aws ec2 create-placement-group \
+    --group-name `my-precision-time-pg` \
+    --strategy precision-time
 ```
 
 PowerShell
@@ -80,6 +109,19 @@ New-EC2PlacementGroup `
     -Strategy cluster
 ```
 
+###### To create a cluster placement group with a precision time placement group parent
+
+The following example creates a cluster placement group that
+specifies a parent precision time placement group using the
+`-ParentGroupId` parameter.
+
+```
+New-EC2PlacementGroup `
+    -GroupName `my-placement-group` `
+    -Strategy cluster `
+    -ParentGroupId `pg-0aaa1111111111111`
+```
+
 ###### To create a partition placement group
 
 The following example creates a partition placement group.
@@ -89,4 +131,14 @@ New-EC2PlacementGroup `
     -GroupName `my-placement-group` `
     -Strategy partition `
     -PartitionCount `5`
+```
+
+###### To create a precision time placement group
+
+The following example creates a precision time placement group.
+
+```
+New-EC2PlacementGroup `
+    -GroupName `my-precision-time-pg` `
+    -Strategy precision-time
 ```

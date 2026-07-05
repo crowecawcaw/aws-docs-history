@@ -5,7 +5,7 @@ role that is linked directly to Capacity Reservation Fleet. Service-linked roles
 by Capacity Reservation Fleet and include all the permissions that the service requires to call
 other AWS services on your behalf.
 
-A service-linked role makes setting up Capacity Reservation Fleet easier because you don’t have
+A service-linked role makes setting up Capacity Reservation Fleet easier because you don't have
 to manually add the necessary permissions. Capacity Reservation Fleet defines the permissions of
 its service-linked roles, and unless defined otherwise, only Capacity Reservation Fleet can
 assume its roles. The defined permissions include the trust policy and the
@@ -58,7 +58,7 @@ _IAM User Guide_.
 ## Delete a service-linked role for Capacity Reservation Fleet
 
 If you no longer need to use a feature or service that requires a
-service-linked role, we recommend that you delete that role. That way you don’t
+service-linked role, we recommend that you delete that role. That way you don't
 have an unused entity that is not actively monitored or maintained. However, you
 must delete the resources for your service-linked role before you can manually
 delete it.

@@ -6,6 +6,7 @@ EC2 Instance Connect:
 
 - [Install EC2 Instance Connect](#eic-prereqs-install-eic-on-instance "#eic-prereqs-install-eic-on-instance")
 - [Ensure network connectivity](#eic-prereqs-network-access "#eic-prereqs-network-access")
+- [Allow outbound traffic to the EC2 Instance Connect proxy](#eic-prereqs-browser-network "#eic-prereqs-browser-network")
 - [Allow inbound SSH traffic](#ec2-instance-connect-setup-security-group "#ec2-instance-connect-setup-security-group")
 - [Grant permissions](#eic-prereqs-grant-permissions "#eic-prereqs-grant-permissions")
 - [Install an SSH client on your local computer](#eic-prereqs-install-ssh-client "#eic-prereqs-install-ssh-client")
@@ -41,6 +42,22 @@ configure the network access as described above, you can consider EC2 Instance C
 an alternative to EC2 Instance Connect. With EC2 Instance Connect Endpoint, you can connect to an instance
 using SSH or RDP even if the instance does not have a public IPv4 or IPv6 address.
 For more information, see [Connect to your Linux instance using the Amazon EC2 console](connect-using-eice.md#connect-using-the-ec2-console "connect-using-eice.md#connect-using-the-ec2-console").
+
+## Allow outbound traffic to the EC2 Instance Connect proxy
+
+When you connect to an instance using the Amazon EC2 console, your browser
+establishes a WebSocket connection on port 443 to the EC2 Instance Connect proxy
+service at the following Region-specific endpoint:
+
+- `prod.`region`.oneclickv2-proxy.ec2.aws.dev`
+
+For example, for the US East (N. Virginia) Region, the endpoint is
+`prod.us-east-1.oneclickv2-proxy.ec2.aws.dev`.
+
+###### Note
+
+Your browser must be able to reach this endpoint. If a firewall or VPN
+blocks the connection, the connection fails.
 
 ## Allow inbound SSH traffic
 

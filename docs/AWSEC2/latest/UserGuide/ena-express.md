@@ -397,6 +397,18 @@ Compute optimized
 | `c8ib.96xlarge`   | x86\_64      |
 | `c8ib.metal-48xl` | x86\_64      |
 | `c8ib.metal-96xl` | x86\_64      |
+| `c9g.8xlarge`     | arm64        |
+| `c9g.12xlarge`    | arm64        |
+| `c9g.16xlarge`    | arm64        |
+| `c9g.24xlarge`    | arm64        |
+| `c9g.48xlarge`    | arm64        |
+| `c9g.metal-48xl`  | arm64        |
+| `c9gd.8xlarge`    | arm64        |
+| `c9gd.12xlarge`   | arm64        |
+| `c9gd.16xlarge`   | arm64        |
+| `c9gd.24xlarge`   | arm64        |
+| `c9gd.48xlarge`   | arm64        |
+| `c9gd.metal-48xl` | arm64        |
 
 Memory optimized
 
@@ -583,23 +595,24 @@ Memory optimized
 
 Accelerated computing
 
-| Instance type      | Architecture |
-| ------------------ | ------------ |
-| `g6.48xlarge`      | x86\_64      |
-| `g6e.12xlarge`     | x86\_64      |
-| `g6e.24xlarge`     | x86\_64      |
-| `g6e.48xlarge`     | x86\_64      |
-| `g7.24xlarge`      | x86\_64      |
-| `g7.48xlarge`      | x86\_64      |
-| `g7e.12xlarge`     | x86\_64      |
-| `g7e.24xlarge`     | x86\_64      |
-| `g7e.48xlarge`     | x86\_64      |
-| `p5.4xlarge`       | x86\_64      |
-| `p5.48xlarge`      | x86\_64      |
-| `p5e.48xlarge`     | x86\_64      |
-| `p5en.48xlarge`    | x86\_64      |
-| `p6-b200.48xlarge` | x86\_64      |
-| `p6-b300.48xlarge` | x86\_64      |
+| Instance type        | Architecture |
+| -------------------- | ------------ |
+| `g6.48xlarge`        | x86\_64      |
+| `g6e.12xlarge`       | x86\_64      |
+| `g6e.24xlarge`       | x86\_64      |
+| `g6e.48xlarge`       | x86\_64      |
+| `g7.24xlarge`        | x86\_64      |
+| `g7.48xlarge`        | x86\_64      |
+| `g7e.12xlarge`       | x86\_64      |
+| `g7e.24xlarge`       | x86\_64      |
+| `g7e.48xlarge`       | x86\_64      |
+| `p5.4xlarge`         | x86\_64      |
+| `p5.48xlarge`        | x86\_64      |
+| `p5e.48xlarge`       | x86\_64      |
+| `p5en.48xlarge`      | x86\_64      |
+| `p6-b200.48xlarge`   | x86\_64      |
+| `p6-b300.48xlarge`   | x86\_64      |
+| `p6e-gb200.36xlarge` | arm64        |
 
 Storage optimized
 

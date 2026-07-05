@@ -1,47 +1,54 @@
 # Set the time reference on your EC2 instance to use the local Amazon Time Sync Service
 
-The local Amazon Time Sync Service either uses the Network Time Protocol (NTP), or provides a local
-Precision Time Protocol (PTP) hardware clock on [supported instances](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements"). The PTP
-hardware clock supports either an NTP connection (Linux and Windows instances), or a
-direct PTP connection (Linux instances only). The NTP and direct PTP connections use the
-same highly accurate time source, but the direct PTP connection is more accurate than
-the NTP connection. The NTP connection to the Amazon Time Sync Service supports leap smearing while the
-PTP connection to the PTP hardware clock does not smear time. For more information, see
-[Leap seconds](set-time.md#leap-seconds "set-time.md#leap-seconds").
+The Amazon Time Sync Service provides several methods for your Amazon EC2 instance to synchronize to a local time source.
+First, any Amazon EC2 instance can reach a local time source over the Network Time Protocol (NTP).
+In addition, the enhanced Amazon Time Sync Service offers higher-accuracy local time sources to
+[supported Amazon EC2 instances](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements").
+Launch your supported instance in a placement group with the `precision-time` strategy to reach a
+higher-accuracy NTP source. Finally, Linux instances launched in a precision time placement group have
+access to a PTP Hardware Clock (PHC) device and the ability to retrieve hardware packet timestamps.
 
-Your instances can access the local Amazon Time Sync Service as follows:
+Any Amazon EC2 instance has access to the local NTP source. You can reach the NTP source over a
+link-local IP address, which restricts this traffic to within your VPC without the need for specific VPC
+configuration changes. Your AMI might already have configured your clock synchronization daemon to use the local
+NTP source by default. This NTP source is available over the following IP addresses:
 
-- Through NTP at the following IP address endpoints:
+- IPv4: `169.254.169.123`
+- IPv6: `fd00:ec2::123` (Only accessible on [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type").)
 
-  - IPv4: `169.254.169.123`
-  - IPv6: `fd00:ec2::123` (Only accessible on [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type").)
+[Supported Amazon EC2 instances](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements")
+have access to the enhanced Amazon Time Sync Service. To access the enhanced Amazon Time Sync Service, launch a supported
+instance in a placement group with the `precision-time` strategy. You do not
+need to configure your instance to benefit from this improvement if you use the NTP
+link-local IP addresses. Any operating system can use this enhancement. You can verify
+that you benefit from the enhanced NTP source by using your NTP client of choice.
 
-- (Linux only) Through a direct PTP connection to connect to a local PTP
-  hardware clock:
-
-  - `PHC0`
-    Amazon Linux AMIs, Windows AMIs, and most partner AMIs configure your instance to use the NTP
-    IPv4 endpoint by default. This is the recommended setting for most customer workloads.
-    No further configuration is required for instances launched from these AMIs unless you
-    want to use the IPv6 endpoint or connect directly to the PTP hardware clock.
-
-NTP and PTP connections do not require any VPC configuration changes, and your
-instance does not require access to the internet.
+Linux-based AMIs, running on supported instance families, have the additional option
+to source time from a PHC device. The ENA driver makes this device available. Both enhanced NTP
+source and PHC device use the same highly accurate time source. Access to the PHC time
+source is optimized, leading to a more accurate synchronization of your Amazon EC2 instance.
 
 ###### Considerations
 
-- There is a 1024 packet per second (PPS) limit to services that use [link-local](using-instance-addressing.md#link-local-addresses "using-instance-addressing.md#link-local-addresses") addresses. This limit includes the aggregate of [Route 53 Resolver DNS Queries](../../../vpc/latest/userguide/AmazonDNS-concepts.md#vpc-dns-limits "../../../vpc/latest/userguide/AmazonDNS-concepts.md#vpc-dns-limits"), [Instance Metadata Service (IMDS)](instancedata-data-retrieval.md "instancedata-data-retrieval.md") requests, Amazon Time Service Network Time Protocol (NTP) requests, and [Windows Licensing Service (for Microsoft Windows based instances)](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") requests.
-- Only Linux instances can use a _direct PTP
-  connection_ to connect to the local PTP hardware clock. Windows
-  instances use NTP to connect to the local PTP hardware clock.
+- The NTP time source offers a leap smearing view of the UTC timescale,
+  while the PHC does not smear time. For more information, see [Leap seconds](set-time.md#leap-seconds "set-time.md#leap-seconds").
+- Only Linux instances have access to the local PTP hardware clock. Windows instances must use
+  NTP to access the enhanced Amazon Time Sync Service.
+- There is a 1024 packet per second (PPS) limit to services that use
+  [link-local](using-instance-addressing.md#link-local-addresses "using-instance-addressing.md#link-local-addresses") addresses. This limit
+  includes the aggregate of [Route 53
+  Resolver DNS Queries](../../../vpc/latest/userguide/AmazonDNS-concepts.md#vpc-dns-limits "../../../vpc/latest/userguide/AmazonDNS-concepts.md#vpc-dns-limits"), [Instance Metadata Service (IMDS)](instancedata-data-retrieval.md "instancedata-data-retrieval.md") requests,
+  Amazon Time Sync Service Network Time Protocol (NTP) requests, and [Windows Licensing Service (for Microsoft
+  Windows based instances)](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") requests.
 
 ###### Contents
 
-- [Connect to the IPv4 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv4 "#configure-amazon-time-service-IPv4")
-- [Connect to the IPv6 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv6 "#configure-amazon-time-service-IPv6")
-- [Connect to the PTP hardware clock](#connect-to-the-ptp-hardware-clock "#connect-to-the-ptp-hardware-clock")
+- [Access the IPv4 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv4 "#configure-amazon-time-service-IPv4")
+- [Access the IPv6 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv6 "#configure-amazon-time-service-IPv6")
+- [Access the enhanced Amazon Time Sync Service](#enhanced-amazon-time-sync-service "#enhanced-amazon-time-sync-service")
+- [Access the PTP Hardware Clock (PHC)](#connect-to-the-ptp-hardware-clock "#connect-to-the-ptp-hardware-clock")
 
-## Connect to the IPv4 endpoint of the Amazon Time Sync Service
+## Access the IPv4 endpoint of the Amazon Time Sync Service
 
 Your AMI might already have configured the Amazon Time Sync Service by default. Otherwise, use
 the following procedures to configure your instance to use the local Amazon Time Sync Service
@@ -61,8 +68,11 @@ Run the following command. In the output, the line that starts with
 `^*` indicates the preferred time source.
 
 ```
-`chronyc sources -v | grep -F ^*`
-^* 169.254.169.123               3   4   377    14    +12us[+9653ns] +/-  290us
+`[ec2-user ~]$` `chronyc sources -v | grep -F ^*`
+```
+
+```
+^* 169.254.169.123               3   4   377    13  -4325ns[-9201ns] +/-  401us
 ```
 
 ###### To configure chrony to connect to the IPv4 endpoint on older versions of Amazon Linux 2
@@ -139,16 +149,16 @@ In the output, `^*` indicates the preferred time source.
 ```
 Reference ID    : A9FEA97B (169.254.169.123)
 Stratum         : 4
-Ref time (UTC)  : Wed Nov 22 13:18:34 2017
-System time     : 0.000000626 seconds slow of NTP time
-Last offset     : +0.002852759 seconds
-RMS offset      : 0.002852759 seconds
-Frequency       : 1.187 ppm fast
-Residual freq   : +0.020 ppm
-Skew            : 24.388 ppm
-Root delay      : 0.000504752 seconds
-Root dispersion : 0.001112565 seconds
-Update interval : 64.4 seconds
+Ref time (UTC)  : Wed May 06 00:39:14 2026
+System time     : 0.000002191 seconds fast of NTP time
+Last offset     : +0.000002164 seconds
+RMS offset      : 0.000082968 seconds
+Frequency       : 3.710 ppm slow
+Residual freq   : +0.002 ppm
+Skew            : 0.504 ppm
+Root delay      : 0.000362541 seconds
+Root dispersion : 0.000225028 seconds
+Update interval : 16.1 seconds
 Leap status     : Normal
 ```
 
@@ -209,18 +219,18 @@ In the output, the line starting with `^*` indicates the preferred time source.
 ```
 
 ```
-Reference ID    : 169.254.169.123 (169.254.169.123)
+Reference ID    : A9FEA97B (169.254.169.123)
 Stratum         : 4
-Ref time (UTC)  : Wed Nov 29 07:41:57 2017
-System time     : 0.000000011 seconds slow of NTP time
-Last offset     : +0.000041659 seconds
-RMS offset      : 0.000041659 seconds
-Frequency       : 10.141 ppm slow
-Residual freq   : +7.557 ppm
-Skew            : 2.329 ppm
-Root delay      : 0.000544 seconds
-Root dispersion : 0.000631 seconds
-Update interval : 2.0 seconds
+Ref time (UTC)  : Wed May 06 00:39:14 2026
+System time     : 0.000002191 seconds fast of NTP time
+Last offset     : +0.000002164 seconds
+RMS offset      : 0.000082968 seconds
+Frequency       : 3.710 ppm slow
+Residual freq   : +0.002 ppm
+Skew            : 0.504 ppm
+Root delay      : 0.000362541 seconds
+Root dispersion : 0.000225028 seconds
+Update interval : 16.1 seconds
 Leap status     : Normal
 ```
 
@@ -336,9 +346,9 @@ instead of 900 seconds.
 | HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | InputProvider       | 1                                                                       |
 | HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | SpecialPollInterval | 900 (Windows Server 2016, 2019, and 2022) or 1024 (Windows Server 2025) |
 
-## Connect to the IPv6 endpoint of the Amazon Time Sync Service
+## Access the IPv6 endpoint of the Amazon Time Sync Service
 
-This section explains how the steps described in [Connect to the IPv4 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv4 "#configure-amazon-time-service-IPv4") differ if you are
+This section explains how the steps described in [Access the IPv4 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv4 "#configure-amazon-time-service-IPv4") differ if you are
 configuring your instance to use the local Amazon Time Sync Service through the IPv6 endpoint. It
 doesn't explain the entire Amazon Time Sync Service configuration process.
 
@@ -388,59 +398,231 @@ w32tm /query /configuration
 In the output, verify that `NtpServer` displays the
 `fd00:ec2::123` IPv6 endpoint.
 
-## Connect to the PTP hardware clock
+## Access the enhanced Amazon Time Sync Service
 
-The PTP hardware clock is part of the [AWS Nitro System](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md"),
-so it is directly accessible on [supported bare metal and virtualized EC2 instances](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements") without using any
-customer resources.
+The enhanced Amazon Time Sync Service offers higher accuracy local time sources to supported Amazon EC2 instances. Instances launched in a placement group with a `precision-time` strategy can access these local sources.
+We recommend precision time placement groups for applications that require more accurate time from
+either the link-local NTP source, or a PTP Hardware Clock (PHC) device on a Linux instance. When you launch
+instances into a precision time placement group, AWS places them on supported hardware with direct
+access to high-precision time sources in AWS infrastructure.
 
-The NTP endpoints for the PTP hardware clock are the same as those for the regular
-Amazon Time Sync Service. If your instance has a PTP hardware clock and you configured the NTP
-connection (to either the IPv4 or IPv6 endpoint), your instance time is
-automatically sourced from the PTP hardware clock over NTP.
+###### Key benefits
 
-For Linux instances, you can configure a _direct_
-PTP connection, which will give you more accurate time than the NTP connection.
-Windows instances only support an NTP connection to the PTP hardware clock.
+- **Improved NTP source by default** —
+  Your instance has immediate access to an enhanced local NTP time source, if
+  you use the NTP link-local IP addresses as described in the preceding section.
+- **Microsecond-accurate clock synchronization** —
+  Configure your Amazon EC2 Linux instance to use a PTP Hardware Clock device and achieve
+  microsecond-accurate clock synchronization.
+- **Simplified deployment** —
+  Single placement strategy ensures all instances have precision time capabilities.
+- **Hardware packet timestamping** —
+  Access low-level packet timestamps for network measurements.
+- **No additional cost** —
+  Precision time placement groups are available at no extra charge.
+
+###### Rules and limitations
+
+- Precision time placement groups are available in all AWS Commercial Regions.
+- Precision time placement groups support the following Gen7 and later Amazon EC2 instance families:
+
+  - **General purpose**:
+    M7a, M7g, M7g-flex, M7gd, M7i, M7i-flex, M8a, M8g, M8g-flex
+  - **Compute optimized**:
+    C7a, C7gd, C7i, C7i-flex, C8g, C8g-flex, C8gd
+  - **Memory optimized**:
+    R7a, R7g, R7i, R7id, R8g, X8adez, X8adz-3tb, X8adz-6tb, X8adzs, X8aedez, X8aedz-3tb, X8aedz-6tb, X8aez, X8az, X8g, X8ge
+  - **Storage optimized**:
+    I8g, I8ge
+
+- If you start or launch an instance in a precision time placement group and there is insufficient
+  hardware to give access to the enhanced Amazon Time Sync Service, the request fails.
+- If you stop an instance in a precision time placement group and then start it again, it still
+  runs in the placement group. However, the start might fail if there is insufficient hardware to
+  give access to the enhanced Amazon Time Sync Service.
+- Amazon EC2 continuously adds hardware that supports the enhanced Amazon Time Sync Service. If your request fails due to
+  insufficient capacity, try again later or try a different Availability Zone. For more information,
+  see [Troubleshoot Amazon EC2 instance launch issues](troubleshooting-launch.md "troubleshooting-launch.md").
+- Rules and limitations of placement groups apply. For more information,
+  see [Placement groups for your Amazon EC2 instances](placement-groups.md "placement-groups.md")
+
+### Create a precision time placement group
+
+You can create a precision time placement group using the AWS CLI, AWS
+Management Console, or AWS SDKs, by specifying the
+`precision-time` strategy.
+
+###### Using AWS CLI
+
+Run the following command:
+
+```
+`aws ec2 create-placement-group \
+ --group-name `my-precision-time-pg` \
+ --strategy precision-time`
+```
+
+The command returns a placement group ARN that you use when creating
+capacity reservations, and a group name or group ID that you use when
+launching instances and linking placement groups.
+
+### Launch an instance
+
+After you create a precision time placement group, specify it when
+launching instances to access the enhanced Amazon Time Sync Service:
+
+```
+`aws ec2 run-instances \
+ --image-id `ami-0abcdef1234567890` \
+ --instance-type `r7g.2xlarge` \
+ --placement GroupId=`pg-0aaa1111111111111``
+```
+
+### Verify access to the enhanced Amazon Time Sync Service
+
+After you launch your instance in a precision time placement group,
+you benefit from an enhanced NTP time source.
+
+For example, if you use the chronyd daemon on your instance, you can verify
+that the NTP time source is now referred to as a Stratum 1 and has improved
+clock accuracy metrics:
+
+```
+`[ec2-user ~]$` `chronyc sources`
+```
+
+```
+MS Name/IP address         Stratum Poll Reach LastRx Last sample
+===============================================================================
+^* 169.254.169.123               1   4   377     3  +3477ns[+4689ns] +/-   91us
+```
+
+Verify the time synchronization metrics that are reported by
+`chrony`.
+
+```
+`[ec2-user ~]$` `chronyc tracking`
+```
+
+```
+Reference ID    : A9FEA97B (169.254.169.123)
+Stratum         : 2
+Ref time (UTC)  : Wed May 06 01:33:43 2026
+System time     : 0.000000276 seconds fast of NTP time
+Last offset     : +0.000000331 seconds
+RMS offset      : 0.000001929 seconds
+Frequency       : 2.870 ppm fast
+Residual freq   : +0.000 ppm
+Skew            : 0.031 ppm
+Root delay      : 0.000107584 seconds
+Root dispersion : 0.000036476 seconds
+Update interval : 16.2 seconds
+Leap status     : Normal
+```
+
+## Access the PTP Hardware Clock (PHC)
+
+The PTP Hardware Clock (PHC) is part of the
+[AWS Nitro System](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md"). It is directly accessible
+on [supported bare metal and virtualized Amazon EC2 instances](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements")
+launched in a precision time placement group. The PHC device is currently accessible on Linux instances only.
+The following sections describe how to set up and verify the PHC device on your Linux instance.
 
 ### Requirements
 
-The PTP hardware clock is available on an instance when the following
-requirements are met:
+- ENA driver version 2.10.0 or later installed on a supported operating system.
+- An Amazon EC2 instance running Linux. For more information about supported operating systems, see the driver
+  [prerequisites](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#prerequisites "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#prerequisites")
+  on _GitHub_.
+- An Amazon EC2 instance launched in a precision time placement group (see
+  [Access the enhanced Amazon Time Sync Service](#enhanced-amazon-time-sync-service "#enhanced-amazon-time-sync-service")).
 
-- Supported AWS Regions: US East (N. Virginia), US East (Ohio),
+###### Note
+
+The enhanced Amazon Time Sync Service and the PHC device remain accessible without a precision time placement group in the
+following regions and for the specific instance families. For the best experience, we recommend
+launching Amazon EC2 instances in precision placement groups instead.
+
+- Legacy access supported AWS Regions: US East (N. Virginia), US East (Ohio),
   Asia Pacific (Malaysia), Asia Pacific (Thailand),
   Asia Pacific (Tokyo), and Europe (Stockholm)
-- Supported Local Zones: US East (New York City)
-- Supported instance families:
+- Legacy access supported Local Zones: US East (New York City)
+- Legacy access supported instance families:
 
   - **General purpose:** M7a, M7g, M7i
   - **Memory optimized:** R7a, R7g, R7i
   - **Storage optimized:** I8g, I8ge
 
-- (Linux only) ENA driver version 2.10.0 or later installed on a
-  supported operating system. For more information about supported
-  operating systems, see the driver [prerequisites](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#prerequisites "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#prerequisites") on _GitHub_.
+### Compile and enable the ENA driver with PHC support
 
-This section describes how to configure your Linux instance to use the
-local Amazon Time Sync Service through the PTP hardware clock using a direct PTP connection.
-It requires adding a server entry for the PTP hardware clock in the
-`chrony` configuration file.
+Always review the most recent instructions from the latest Elastic Network Adapter (ENA) driver
+version in the [ENA driver documentation](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#ptp-hardware-clock-phc "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#ptp-hardware-clock-phc")
+on _GitHub_ for information specific to your operating system. The following is an overview of steps for Amazon Linux.
 
-###### To configure a direct PTP connection to the PTP hardware clock (Linux instances only)
+Before you begin, ensure your instance meets the [Requirements](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements").
 
-1. **Install prerequisites**
+###### To compile and enable the ENA driver with PHC support
 
-Connect to your Linux instance and do the following:
+1. Install prerequisites.
 
-    1. Install the Linux kernel driver for Elastic Network
-     Adapter (ENA) version 2.10.0 or later.
-    2. Enable the PTP hardware clock.For the installation instructions, see [Linux kernel driver for Elastic Network Adapter (ENA)
+```
+`[ec2-user ~]$` `sudo yum update`
+`[ec2-user ~]$` `sudo yum install kernel-devel-$(uname -r) git`
+`[ec2-user ~]$` `sudo reboot`
+```
 
-family](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#linux-kernel-driver-for-elastic-network-adapter-ena-family "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#linux-kernel-driver-for-elastic-network-adapter-ena-family") on _GitHub_. 2. **Verify ENA PTP device**
+2. Load the required ptp module.
 
-Verify that the ENA PTP hardware clock device shows up on your
-instance.
+```
+`[ec2-user ~]$` `sudo modprobe ptp`
+```
+
+3. Retrieve the latest ENA driver version (version 2.10.0 or later).
+
+```
+`[ec2-user ~]$` `git clone https://github.com/amzn/amzn-drivers.git /tmp/amzn-drivers`
+```
+
+4. Build the ENA driver `ena.ko` with PHC support.
+
+```
+`[ec2-user ~]$` `cd /tmp/amzn-drivers/kernel/linux/ena`
+`[ec2-user ~]$` `ENA_PHC_INCLUDE=1 make`
+```
+
+5. Reload the ENA driver and enable the PHC device.
+
+```
+`[ec2-user ~]$` `sudo rmmod ena && sudo insmod ena.ko phc_enable=1`
+```
+
+6. Validate the loaded ENA driver has PHC support.
+
+```
+`[ec2-user ~]$` `modinfo ena | grep -E "phc_enable"`
+```
+
+```
+parm:           phc_enable:Enable PHC.
+```
+
+7. Validate the PHC support is enabled with the ENA driver.
+
+```
+`[ec2-user ~]$` `cat /sys/module/ena/parameters/phc_enable`
+```
+
+```
+1
+```
+
+For instructions to install the driver and activate the phc\_enable option upon reboot, see the
+[ENA driver README](https://github.com/amzn/amzn-drivers/blob/master/kernel/linux/ena/README.rst "https://github.com/amzn/amzn-drivers/blob/master/kernel/linux/ena/README.rst")
+on _GitHub_.
+
+### Verify the PTP device configuration
+
+Verify that the ENA PTP hardware clock device shows up on your instance.
 
 ```
 `[ec2-user ~]$` `for file in /sys/class/ptp/*; do echo -n "$file: "; cat "$file/clock_name"; done`
@@ -454,11 +636,11 @@ Expected output
 
 Where:
 
-    * ``index`` is the
-     kernel-registered PTP hardware clock index.
-    * ``PCI slot`` is the
-     ENA ethernet controller PCI slot. This is the same slot as
-     shown in `lspci | grep ENA`.
+- `index` is the
+  kernel-registered PTP hardware clock index.
+- `PCI slot` is the
+  ENA ethernet controller PCI slot. This is the same slot as
+  shown in `lspci | grep ENA`.
 
 Example output
 
@@ -468,7 +650,9 @@ Example output
 
 If `ena-ptp-`<PCI slot>``
 is not in the output, the ENA driver was not correctly installed.
-Review step 1 in this procedure for installing the driver. 3. **Configure PTP symlink**
+Review the steps in [Compile and enable the ENA driver with PHC support](#compile-enable-ena-driver-phc "#compile-enable-ena-driver-phc").
+
+### Configure PTP symlink
 
 PTP devices are typically named `/dev/ptp0`,
 `/dev/ptp1`, and so on, with their index depending on
@@ -481,7 +665,7 @@ creates the `/dev/ptp_ena` symlink, pointing to the
 correct `/dev/ptp` entry associated with the ENA
 host.
 
-First check if the symlink is present by running the following
+First, check if the symlink is present by running the following
 command.
 
 ```
@@ -497,73 +681,87 @@ lrwxrwxrwx 1 root root      4 Jan 31 2025 /dev/ptp_ena -> ptp0
 
 Where:
 
-    * `/dev/ptp`<index>``
-     is the path to the PTP device.
-    * `/dev/ptp_ena` is the constant symlink,
-     which points to the same PTP device.
+- `/dev/ptp`<index>``
+  is the path to the PTP device.
+- `/dev/ptp_ena` is the constant symlink,
+  which points to the same PTP device.
 
- 
+If the `/dev/ptp_ena` symlink is present, skip to
+[Configure the chronyd daemon to use the PHC device](#configure-chronyd-phc "#configure-chronyd-phc"). If it's missing, do the following:
 
-If the `/dev/ptp_ena` symlink is present, skip to Step
-4 in this procedure. If it's missing, do the following:
+###### To create the PTP symlink
 
-    1. Add the following `udev` rule.
+1. Add the following `udev` rule.
 
+```
+`[ec2-user ~]$` `echo "SUBSYSTEM==\"ptp\", ATTR{clock_name}==\"ena-ptp-*\", SYMLINK += \"ptp_ena\"" | sudo tee -a /etc/udev/rules.d/53-ec2-network-interfaces.rules`
+```
 
+2. Reload the `udev` rule, either by rebooting the
+   instance, or by running the following command.
 
-    ```
-    `[ec2-user ~]$` `echo "SUBSYSTEM==\"ptp\", ATTR{clock_name}==\"ena-ptp-*\", SYMLINK += \"ptp_ena\"" | sudo tee -a /etc/udev/rules.d/53-ec2-network-interfaces.rules`
-    ```
-    2. Reload the `udev` rule, either by rebooting the
-     instance, or by running the following command.
+```
+`[ec2-user ~]$` `sudo udevadm control --reload-rules && sudo udevadm trigger`
+```
 
+### Configure the chronyd daemon to use the PHC device
 
+The chronyd clock synchronization daemon must be configured to use the PHC device as an additional time source, using the `/dev/ptp_ena` symlink to identify the device.
 
-    ```
-    `[ec2-user ~]$` `sudo udevadm control --reload-rules && udevadm trigger`
-    ```
+###### To configure the chronyd daemon to use the PHC device
 
-4. **Configure chrony**
+1. Edit `/etc/chrony.conf` using a text editor and add the following line:
 
-chrony must be configured to use the `/dev/ptp_ena`
-symlink instead of directly referencing
-/`dev/ptp`<index>``.
+```
+refclock PHC /dev/ptp_ena poll 0 delay 0.000010 prefer
+```
 
-    1. Edit `/etc/chrony.conf` using a text editor and
-     add the following line anywhere in the file.
+2. Restart chrony.
 
+```
+`[ec2-user ~]$` `sudo systemctl restart chronyd`
+```
 
-
-    ```
-    refclock PHC /dev/ptp_ena poll 0 delay 0.000010 prefer
-    ```
-    2. Restart chrony.
-
-
-
-    ```
-    `[ec2-user ~]$` `sudo systemctl restart chronyd`
-    ```
-
-5. **Verify chrony
-configuration**
-
-Verify that chrony is using the PTP hardware clock to synchronize
-the time on this instance.
+3. Verify that chrony is using the PTP hardware clock. The PHC0 device must be the preferred
+   time source with a Stratum 0 value. The local NTP time source (if configured) must have a
+   Stratum 1 value.
 
 ```
 `[ec2-user ~]$` `chronyc sources`
 ```
 
-Expected output
-
 ```
 MS Name/IP address         Stratum Poll Reach LastRx Last sample
 ===============================================================================
-#* PHC0                          0   0    377    1   +2ns[ +1ns] +/-   5031ns
+#* PHC0                          0   0   377     0   +184ns[ +198ns] +/- 5032ns
+^- 169.254.169.123               1   4   377     8    -18us[  -18us] +/-  115us
 ```
 
-In the output that's returned, `*` indicates the
-preferred time source. `PHC0` corresponds to the PTP
-hardware clock. You might need to wait a few seconds after
-restarting chrony for the asterisk to appear.
+### Verify hardware packet timestamping
+
+The ENA driver loaded with the PHC support provides access to hardware packet timestamping. You
+can verify support for this functionality by using the
+`ethtool -T `interface`` command.
+
+For more information about using hardware packet timestamping, see the
+[packet timestamping Linux documentation](https://www.kernel.org/doc/html/latest/networking/timestamping.html "https://www.kernel.org/doc/html/latest/networking/timestamping.html").
+
+```
+`[ec2-user ~]$` `sudo ethtool -T `ens5``
+```
+
+```
+Time stamping parameters for ens5:
+Capabilities:
+        software-transmit
+        hardware-receive
+        software-receive
+        software-system-clock
+PTP Hardware Clock: 0
+Hardware Transmit Timestamp Modes: none
+Hardware Receive Filter Modes:
+        none
+        all
+```
+
+If the output shows `hardware-receive` in the Capabilities list, hardware packet timestamping is available on your instance.

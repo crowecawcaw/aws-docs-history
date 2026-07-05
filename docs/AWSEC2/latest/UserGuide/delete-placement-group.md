@@ -5,6 +5,9 @@ Before you can delete a placement group, it must contain no instances. You can
 terminate the instances, move them to another placement group, or remove them
 from the placement group.
 
+You cannot delete a placement group that is a parent of a cluster placement group.
+Delete the cluster placement groups first.
+
 Console
 
 ###### To delete a placement group

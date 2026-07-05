@@ -4,29 +4,53 @@ Attestation is a process that allows your instance to prove its state and identi
 you enable AMD SEV-SNP for your instance, you can request an AMD SEV-SNP attestation report from
 the underlying processor. The AMD SEV-SNP attestation report contains a cryptographic hash,
 called the launch measurement, of the initial guest memory contents and initial vCPU state.
-The attestation report is signed with a VLEK signature that chains back to an AMD root of
-trust. You can use the launch measurement included in the attestation report to validate that
-the instance is running in a genuine AMD environment and to validate the initial boot code
-that was used to launch the instance.
+The attestation report is signed with a VCEK signature (on Dedicated Hosts) or a VLEK signature
+(on shared tenancy) that chains back to an AMD root of trust. You can use the launch
+measurement included in the attestation report to validate that the instance is running in a
+genuine AMD environment and to validate the initial boot code that was used to launch the
+instance.
 
 ###### Prerequisite
 
 Launch an instance that is enabled for AMD SEV-SNP. For more information, see
 [Enable AMD SEV-SNP for an EC2 instance](snp-work-launch.md "snp-work-launch.md").
 
-###### Steps
+###### Contents
 
-- [Step 1: Get the attestation report](#snp-att-get-report "#snp-att-get-report")
-- [Step 2: Validate the attestation report signature](#snp-att-validate-signature "#snp-att-validate-signature")
+- [Attestation for instances on Dedicated Hosts](#snp-att-dedicated-hosts "#snp-att-dedicated-hosts")
+- [Attestation for instances on shared tenancy](#snp-att-shared-tenancy "#snp-att-shared-tenancy")
 
-## Step 1: Get the attestation report
+## Attestation for instances on Dedicated Hosts
 
-In this step, you install and build the `snpguest` utility, and then
-use it to request the AMD SEV-SNP attestation report and certificates.
+Dedicated Hosts use a Versioned Chip Endorsement Key (VCEK), a unique per-chip signing
+key, to sign the attestation report. You must validate the chain of trust from the VCEK
+certificate back to AMD's root of trust.
+
+###### Note
+
+The currently supported processor model is `milan`.
+
+###### Prerequisites
+
+An instance running on an AMD SEV-SNP enabled Dedicated Host with Git, Cargo, and
+Perl installed.
+
+### Step 1: Build the snpguest utility
+
+In this step, you install and build the `snpguest` utility, which you use
+to generate the attestation report, fetch the required certificates, and validate the
+attestation report.
 
 1. Connect to your instance.
-2. Run the following commands to build the `snpguest` utility
-   from the [snpguest repository](https://github.com/virtee/snpguest "https://github.com/virtee/snpguest").
+2. Verify the prerequisites are installed.
+
+```
+`$` perl --version; cargo --version; git --version
+```
+
+3. Run the following commands to build the `snpguest` utility from the
+   [snpguest
+   repository](https://github.com/virtee/snpguest "https://github.com/virtee/snpguest").
 
 ```
 `$` git clone https://github.com/virtee/snpguest.git
@@ -35,42 +59,146 @@ use it to request the AMD SEV-SNP attestation report and certificates.
 `$` cd target/release
 ```
 
-3. Generate a request for the attestation report. The utility requests the attestation
-   report from the host, and writes it to a binary file with the provided request data.
+### Step 2: Generate the attestation report
 
-The following example creates a random request string, and uses it as the request file
-(`request-file.txt`). When the command returns the attestation report it's
-stored in the file path that you specify (`report.bin`). In this case, the
-utility stores the report in the current directory.
+Generate a request for the attestation report. The `snpguest` utility
+requests the attestation report from the AMD Secure Processor via the host, and writes
+it to a binary file. The following example creates a random request nonce and stores the
+report in `report.bin`.
 
 ```
 `$` ./snpguest report `report.bin` `request-file.txt` --random
 ```
 
-4. Request the certificates from host memory, and store them as PEM files. The
-   following example stores the files in the same directory as the `snpguest`
-   utility. If certificates already exist in the specified directory, those certificates are
-   overwritten.
+### Step 3: Fetch and validate the VCEK certificate chain
+
+The attestation report is signed by the VCEK, which is unique to the AMD chip on
+your Dedicated Host. You must validate the chain of trust from the VCEK back to AMD's root of
+trust.
+
+1. Fetch the VCEK certificate from the AMD Key Distribution Service (KDS). The
+   certificate is identified by the chip ID and TCB version from the attestation
+   report.
+
+```
+`$` ./snpguest fetch vcek pem ./ ./report.bin --processor-model milan
+```
+
+2. Fetch the AMD root certificates (AMD Root Key (ARK) and AMD SEV Key (ASK))
+   that form the chain of trust.
+
+```
+`$` ./snpguest fetch ca PEM ./ milan --endorser vcek
+```
+
+3. Verify the certificate chain.
+
+```
+`$` ./snpguest verify certs ./
+```
+
+The following is example output.
+
+```
+The AMD ARK was self-signed!
+The AMD ASK was signed by the AMD ARK!
+The VCEK was signed by the AMD ASK!
+```
+
+**Optional:** For additional transparency, you can
+independently verify the chain by downloading the certificates directly from AMD and
+using `openssl`.
+
+```
+`$` curl --proto '=https' --tlsv1.2 -sSf https://kdsintf.amd.com/vcek/v1/Milan/cert_chain -o ./cert_chain.pem
+`$` openssl verify --CAfile ./cert_chain.pem vcek.pem
+```
+
+The following is example output.
+
+```
+vcek.pem: OK
+```
+
+### Step 4: Validate the attestation report signature
+
+Verify that the attestation report was signed by the VCEK certificate. This confirms
+that the report was generated on genuine AMD hardware and has not been tampered
+with.
+
+```
+`$` ./snpguest verify attestation ./ report.bin
+```
+
+The following is example output.
+
+```
+Reported TCB Boot Loader from certificate matches the attestation report.
+Reported TCB TEE from certificate matches the attestation report.
+Reported TCB SNP from certificate matches the attestation report.
+Reported TCB Microcode from certificate matches the attestation report.
+VEK signed the Attestation Report!
+```
+
+The TCB (Trusted Computing Base) version fields confirm that the firmware versions in
+the certificate match those reported in the attestation report. The final line confirms
+the VCEK signed the report.
+
+## Attestation for instances on shared tenancy
+
+Shared tenancy instances use a Versioned Loaded Endorsement Key (VLEK), which is issued
+by AMD for AWS. You must validate the chain of trust from the VLEK certificate back to
+AMD's root of trust.
+
+### Step 1: Build the snpguest utility
+
+In this step, you install and build the `snpguest` utility, which you use
+to generate the attestation report, fetch the required certificates, and validate the
+attestation report.
+
+1. Connect to your instance.
+2. Run the following commands to build the `snpguest` utility from the
+   [snpguest
+   repository](https://github.com/virtee/snpguest "https://github.com/virtee/snpguest").
+
+```
+`$` git clone https://github.com/virtee/snpguest.git
+`$` cd snpguest
+`$` cargo build -r
+`$` cd target/release
+```
+
+### Step 2: Generate the attestation report
+
+Generate a request for the attestation report. The `snpguest` utility
+requests the attestation report from the host, and writes it to a binary file. The
+following example creates a random request nonce and stores the report in
+`report.bin`.
+
+```
+`$` ./snpguest report `report.bin` `request-file.txt` --random
+```
+
+Request the certificates from host memory, and store them as PEM files.
 
 ```
 `$` ./snpguest certificates PEM `./`
 ```
 
-## Step 2: Validate the attestation report signature
+### Step 3: Fetch and validate the VLEK certificate chain
 
-The attestation report is signed with a certificate, called the Versioned Loaded Endorsement
-Key (VLEK), which is issued by AMD for AWS. In this step, you can validate that the VLEK
-certificate is issued by AMD, and that the attestation report is signed by that VLEK certificate.
+The attestation report is signed by the VLEK, which is issued by AMD for AWS. You
+must validate the chain of trust from the VLEK back to AMD's root of trust.
 
-1. Download the VLEK root of trust certificates from the official AMD website to the
-   current directory.
+1. Download the VLEK root of trust certificates from the official AMD Key
+   Distribution Service to the current directory.
 
 ```
 `$` sudo curl --proto '=https' --tlsv1.2 -sSf https://kdsintf.amd.com/vlek/v1/Milan/cert_chain -o ./cert_chain.pem
 ```
 
-2. Use `openssl` to validate that the VLEK certificate is signed by the AMD root
-   of trust certificates.
+2. Use `openssl` to validate that the VLEK certificate is signed by the
+   AMD root of trust certificates.
 
 ```
 `$` sudo openssl verify --CAfile ./cert_chain.pem vlek.pem
@@ -82,8 +210,11 @@ The following is example output.
 vlek.pem: OK
 ```
 
-3. Use the `snpguest` utility to validate that the attestation report is signed
-   by the VLEK certificate.
+### Step 4: Validate the attestation report signature
+
+Verify that the attestation report was signed by the VLEK certificate. This confirms
+that the report was generated on genuine AMD hardware and has not been tampered
+with.
 
 ```
 `$` ./snpguest verify attestation ./ report.bin

@@ -74,6 +74,16 @@ the browser-based client](connect-to-serial-console.md#sc-connect-browser-based-
 not support WebSocket, connect to the serial console [using
 your own key and an SSH client.](connect-to-serial-console.md#sc-connect-SSH "connect-to-serial-console.md#sc-connect-SSH")
 
+The browser-based client connects on port 443 to the EC2 Instance Connect proxy endpoint
+for your Region:
+
+- `prod.`region`.oneclickv2-proxy.ec2.aws.dev`
+
+###### Note
+
+Your browser must be able to reach this endpoint. If a firewall or VPN
+blocks the connection, the connection fails.
+
 ## Instance state
 
 Must be `running`.
