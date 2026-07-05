@@ -28,7 +28,7 @@ resource tags, see [Add tags to resources in Connect Customer](tagging.md "taggi
 
 An access control tag is similar to a resource tag in that it uses the same
 _Key:value_ structure. However, the distinction with an
-access control tag is that it introduces authorization controls that limit a user’s
+access control tag is that it introduces authorization controls that limit a user's
 access, to only specified resources containing resource tags with identical
 _Key:value_ pairs. Access control tags are defined within
 security profiles, by first selecting the resource (routing profile, queue, users,
@@ -55,7 +55,7 @@ add two access control tags like `Department:X` and
 `Country:Y`, the user would only be able to see resources containing
 both tags.
 
-Users can be assigned a maximum of three security profiles
+Users can be assigned a maximum of seven security profiles
 that contain access control tags. When multiple security profiles containing access
 control tags are assigned to a single user, the tag-based access controls become
 less restrictive. For example, if a user had one security profile with an access

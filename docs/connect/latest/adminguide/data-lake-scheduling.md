@@ -478,15 +478,17 @@ shared:
 | entity\_arn                            | string    | Yes         | Arn of the forecast group or demand group                                                                                                                                              |
 | channel                                | string    | Yes         | Denotes the media channel like Voice, chat. If the row contains metrics that are not channel level, then it's populated as ALL                                                         |
 | interval\_start\_timestamp             | timestamp | No          | Timestamp denoting the start of the interval                                                                                                                                           |
-| required\_agent\_count                 | float     | Yes         | Denotes the forecasted agents count                                                                                                                                                    |
-| scheduled\_agent\_count                | float     | Yes         | Denotes the schedule agents count                                                                                                                                                      |
+| required\_agent\_count                 | float     | Yes         | Denotes the required agents count                                                                                                                                                      |
+| scheduled\_agent\_count                | float     | Yes         | Denotes the scheduled agents count                                                                                                                                                     |
 | scheduled\_occupancy                   | float     | Yes         | Denotes the occupancy percentage                                                                                                                                                       |
-| scheduled\_service\_level\_percentage  | float     | Yes         | Denotes the schedule service level percentage                                                                                                                                          |
+| scheduled\_service\_level\_percentage  | float     | Yes         | Denotes the projected service level percentage based on scheduled headcount                                                                                                            |
 | service\_level\_seconds                | integer   | Yes         | Denotes the service level seconds                                                                                                                                                      |
-| scheduled\_average\_speed\_of\_answer  | float     | Yes         | Denotes the average speed of answer                                                                                                                                                    |
+| scheduled\_average\_speed\_of\_answer  | float     | Yes         | Denotes the projected average speed of answer in seconds based on scheduled headcount                                                                                                  |
 | is\_deleted                            | boolean   | Yes         | Denotes whether the metric is deleted                                                                                                                                                  |
 | last\_updated\_timestamp               | timestamp | Yes         | The Timestamp when the metric record was created.                                                                                                                                      |
 | data\_lake\_last\_processed\_timestamp | timestamp | Yes         | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |
+| projected\_average\_time\_to\_complete | float     | Yes         | Denotes the average time to complete in hours                                                                                                                                          |
+| projected\_backlog                     | integer   | Yes         | Denotes the backlog items                                                                                                                                                              |
 
 ## Schedule goals
 
@@ -516,10 +518,11 @@ shared:
 | end\_date\_timestamp                   | timestamp | Yes         | Timestamp denoting end of the goal                                                                                                                                                     |
 | goal\_service\_level\_percentage       | float     | Yes         | Denotes the goal service level percentage                                                                                                                                              |
 | goal\_service\_level\_seconds          | integer   | Yes         | Denotes the service level seconds                                                                                                                                                      |
-| goal\_average\_speed\_of\_answer       | float     | Yes         | Denotes the average speed of answer                                                                                                                                                    |
+| goal\_average\_speed\_of\_answer       | float     | Yes         | Denotes the average speed of answer in seconds                                                                                                                                         |
 | is\_deleted                            | boolean   | Yes         | Denotes whether the goal is deleted                                                                                                                                                    |
 | last\_updated\_timestamp               | timestamp | Yes         | The Timestamp when the goals record was created.                                                                                                                                       |
 | data\_lake\_last\_processed\_timestamp | timestamp | Yes         | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. |
+| goal\_average\_time\_to\_complete      | float     | Yes         | Denotes the average time to complete in hours.                                                                                                                                         |
 
 ## Shift rotation patterns
 

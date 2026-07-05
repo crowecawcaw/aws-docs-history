@@ -4,6 +4,15 @@ Connect Customer screen recording is supported in Windows and Chrome OS. This pa
 download and installation instructions for the screen recording application in each
 operating system, and the minimum system requirements for the agent devices.
 
+###### Important
+
+To use [Rule-based redaction
+for screen recordings](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md"), you must install
+Connect Customer Client Application version 3.0.2 or later. Rule-based redaction also requires the Connect Customer browser
+extension on every browser that agents use during recorded contacts. For deployment
+instructions, see [Deploy the browser
+extension](deploy-browser-extension.md "deploy-browser-extension.md").
+
 ###### Contents
 
 - [Windows](#windows-client "#windows-client")
@@ -13,11 +22,11 @@ operating system, and the minimum system requirements for the agent devices.
 
 ### Version information
 
-- Version: v2.0.3 (latest)
-- Release date: January 16 2025
-- Download link: [AmazonConnectClientWin-v2.0.3](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v2.0.3.zip "https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v2.0.3.zip")
-- Release note: This version supports AWS GovCloud (US) customers and has
-  security improvements.
+- Version: v3.0.2 (latest)
+- Release date: June 30, 2026
+- Download link: [AmazonConnectClientWin-v3.0.2](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.2.zip "https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.2.zip")
+- Release note: This version adds support for rule-based redaction of
+  agent screen recordings.
 
 The above link downloads the
 **AmazonConnectClientWin-[version].zip** file. The zip file

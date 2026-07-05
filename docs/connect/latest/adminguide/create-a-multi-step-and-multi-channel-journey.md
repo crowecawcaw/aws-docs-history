@@ -1,4 +1,4 @@
-# Create a multi-step and multi-channel journey
+# Visual Journey Builder
 
 On the Outbound Campaigns page, you will have two options to create an outbound campaigns:
 Visual Journey Builder for multi-channel and multi-steps using an intuitive drag-and-drop canvas,
@@ -18,7 +18,7 @@ or Guided Campaign Builder to create a single-channel with step-by-step guidance
    **Voice setup** option to define the details.
 7. You can choose Agent assisted voice or automated voice and complete the channel
    configuration. Please refer to details on
-   [Outbound campaigns channel configurations](how-to-create-campaigns.md#create-campaigns-channel-configurations "how-to-create-campaigns.md#create-campaigns-channel-configurations").
+   [Outbound campaigns channel configurations](guided-campaign-builder.md#create-campaigns-channel-configurations "guided-campaign-builder.md#create-campaigns-channel-configurations").
 
 ## Delivery guardrails
 
@@ -136,7 +136,18 @@ the channel. Add a **Name** for the exception. This name is only for information
 does not affect the running of the journey. Select the
 **Date range** for the exception.
 
-### Schedule journey
+### Review and publish
+
+Take a moment to review your journey before publishing.
+
+###### Important
+
+These settings cannot be changed once your journey has been published.
+
+Once you have reviewed your journey, choose
+**Publish** to schedule your journey.
+
+#### Schedule journey
 
 Specify when you want your journey to begin:
 
@@ -145,65 +156,24 @@ Specify when you want your journey to begin:
   begin.
 - **Expiry Date and Time**: The date and time at which Connect Customer
   Outbound campaigns should end the journey. An expired journey appears with a
-  **Completed** status a few moments after expiry time.
+  **Completed**
+  status a few moments after expiry time. The start and end times of a journey that starts now
+  or a journey that starts later are based on your local time zone.
 
-The start and end times of a journey are based on your local time zone.
+#### Repeats
 
-#### Refresh (optional)
-
-If you want your journey to periodically re-evaluate the segment to find newly eligible
-profiles and enroll them, select the **Refresh** checkbox.
-
-When refresh is enabled, the following settings become available:
-
-**Refresh frequency**: How often the segment is checked for
-new or updated profiles. Specify a numeric value and select a time unit
-(**hours** or **days**). The minimum refresh frequency
-is 1 hour. For example, if you schedule your journey to start at 7:00 AM EST and set a
-refresh frequency of 1 hour, the segment is re-evaluated every hour starting at 7:00 AM
-EST.
+If you want your journey to repeat running, select the **Repeats** radio
+button and choose a **Frequency**. Connect Customer Outbound campaigns will then refresh
+profiles in the segment specified for this journey at the same frequency you select. For
+example, if you schedule your journey to start at 7:03AM EST and use a Daily Frequency, then
+profiles will be refreshed in the segment daily at 7:03AM EST.
 
 ###### Important
 
-- A recipient may be active only in a journey once at any given time. So if they are
-  still waiting to exit the journey when the next Segment Snapshot is created, and are a
-  member of that Snapshot, they are **NOT** allowed to enter
-  the journey as a part of the second Snapshot.
-- If a recipient is a part of a segment Snapshot and is not currently in the journey,
-  they are allowed to enter, regardless of whether they have previously gone through the
-  journey.
+A recipient may be active only in a journey once at any given time. So if they are still
+waiting to exit the journey when the next Segment Snapshot is created, and are a member of
+that Snapshot, they are **NOT** allowed to enter the journey as a part of the second Snapshot. If
+a recipient is a part of a segment Snapshot and is not currently in the journey, they are
+allowed to enter, regardless of whether they have previously gone through the journey.
 
-**Entry limits**: Entry limits control how many times and how
-often the same profile can enter the journey. By default, profiles can enter the journey
-unlimited times with no interval restriction. To customize entry limits, select the
-**Customize entry limits** checkbox.
-
-The following entry limit fields are available:
-
-- **Entry limit**: The maximum number of times the same
-  profile can enter the journey. Set to 0 for unlimited entries.
-- **Entry interval limit**: The minimum time that must pass
-  before a profile can enter the journey again. Specify a numeric value and select a time
-  unit (hours or days). Set to 0 for no minimum interval. If the entry interval limit is
-  shorter than the refresh frequency, the refresh frequency takes precedence.
-
-**Example**: Consider a journey that targets profiles whose
-subscription expires within 7 days. With a refresh frequency of 1 hour, an entry limit of 3,
-and an entry interval of 3 hours:
-
-- The segment is re-evaluated every hour.
-- Each profile can enter the journey up to 3 times.
-- A profile won't enter again for at least 3 hours, even though the journey refreshes
-  hourly.
-
-### Review and publish
-
-Take a moment to review your journey before publishing. The Review page displays a
-summary of all journey settings, including the schedule and refresh configuration.
-
-###### Important
-
-These settings cannot be changed once your journey has been published.
-
-Once you have reviewed your journey, choose
-**Publish** to publish your journey.
+Choose **Publish** to schedule your journey.

@@ -5,6 +5,10 @@
 To enable consolidated contact search for your ACGR
 instance, please reach out to [AWS Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
 
+###### Note
+
+Supported Regions: US East (N. Virginia), US West (Oregon), Europe (Frankfurt), and Europe (London).
+
 ###### Important
 
 When you onboard to this feature, your Connect Customer alias will be updated to a new

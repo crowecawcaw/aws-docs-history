@@ -129,8 +129,8 @@ The following table lists the agent attributes available in Connect Customer.
 | Attribute        | Description                                                                 | Type   | JSONPath Reference |
 | ---------------- | --------------------------------------------------------------------------- | ------ | ------------------ |
 | Agent User name  | The user name an agent uses to log in to Connect Customer.                  | System | $.Agent.UserName   |
-| Agent First name | The agent’s first name as entered in their Connect Customer user account.   | System | $.Agent.FirstName  |
-| Agent Last name  | The agent’s last name as entered in their Connect Customer user<br>account. | System | $.Agent.LastName   |
+| Agent First name | The agent's first name as entered in their Connect Customer user account.   | System | $.Agent.FirstName  |
+| Agent Last name  | The agent's last name as entered in their Connect Customer user<br>account. | System | $.Agent.LastName   |
 | Agent ARN        | The ARN of the agent.                                                       | System | $.Agent.ARN        |
 
 ###### Note

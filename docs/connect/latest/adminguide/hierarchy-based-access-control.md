@@ -79,7 +79,7 @@ profile or a child hierarchy group.
 ## Configuration limitations
 
 Granular access control is configured on a security profile. Users can be
-assigned a maximum of two security profiles that enforce granular access control. In
+assigned a maximum of seven security profiles that enforce granular access control. In
 this case, the permissions become less restrictive and act as a union of both
 permission sets.
 
@@ -90,7 +90,7 @@ and hierarchy-based access control are configured as part of the same security
 profile, both conditions will need to be met. In this case, the user can only manage
 users that belong to the same hierarchy and who are tagged with a given tag. 
 
-A user can have more than two security profiles, as long as those additional
+A user can have more than seven security profiles, as long as those additional
 security profiles do not enforce granular access control. If multiple security
 profiles are present with overlapping resource permissions, the security profile
 without hierarchy-based access control is enforced over the one with hierarchy-based
@@ -149,7 +149,7 @@ settings.
      connect), which the user already has access to.
 
 - Be thoughtful about the permissions granted on parent resources since
-  users could be disassociated without their supervisor’s knowledge.
+  users could be disassociated without their supervisor's knowledge.
 - Disable access to the following functionality when you apply
   hierarchy-based access controls in the Connect Customer admin website.
 

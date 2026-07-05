@@ -92,7 +92,7 @@ after multiple retry attempts.
 | `AUTOMATED_SUBMISSION_FAILED` | Automated contact evaluation submission failed because some of<br>the questions could not be answered. Please verify the evaluation<br>form and/or the Connect Customer rule configurations. |
 | `ANALYSIS_FILE_ERROR`         | Automated contact evaluation submission failed due to an error<br>when searching/retrieving/parsing the analysis file.                                                                       |
 | `INTERNAL_SERVER_ERROR`       | Automated contact evaluation submission failed due to an internal<br>server error. Please expect delayed processing.                                                                         |
-| `QUOTA_EXCEEDED_ERROR`        | Automated contact evaluation submission failed because the<br>remaining quota for using Gen AI to automatically answer evaluation<br>questions for the contact is insufficient.              |
+| `QUOTA_EXCEEDED_ERROR`        | Automated contact evaluation submission failed because the<br>remaining quota for using generative AI to automatically answer evaluation<br>questions for the contact is insufficient.       |
 
 ### Evaluation S3 export errors
 

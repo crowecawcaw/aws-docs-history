@@ -23,6 +23,8 @@ diagram that shows the network calls between different components, see
 - [Enable screen recording](enable-sr.md "enable-sr.md")
 - [Review agent screen
   recordings](review-screen-recordings.md "review-screen-recordings.md")
+- [Rule-based redaction
+  for screen recordings](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md")
 - [Download log files for the screen
   recording app](troubleshoot-sr.md "troubleshoot-sr.md")
 - [Use Amazon EventBridge events to track screen recording status](track-screen-recording-status.md "track-screen-recording-status.md")

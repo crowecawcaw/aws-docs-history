@@ -46,7 +46,7 @@ attachments.
 
 ###### Note
 
-Currently, Connect Customer doesn’t support S3 buckets with [Object Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/latest/userguide/object-lock.md")
+Currently, Connect Customer doesn't support S3 buckets with [Object Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/latest/userguide/object-lock.md")
 enabled.
 
 The attachments feature uses two Amazon S3 locations: a staging location

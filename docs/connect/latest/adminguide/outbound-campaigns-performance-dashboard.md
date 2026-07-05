@@ -1,10 +1,10 @@
 # Outbound campaigns performance dashboard
 
 You can use the outbound campaigns performance dashboard to understand the performance
-of your outbound campaigns across your email, SMS, and telephony delivery modes. You can
-view and compare campaigns performance over a configurable period of time using key
-metrics such as delivery attempts, delivered rate, human answered rate, campaign contact
-abandoned rate, spam, bounces and more.
+of your outbound campaigns across your email, SMS, telephony, WhatsApp, and web
+notification delivery modes. You can view and compare campaigns performance over a
+configurable period of time using key metrics such as delivery attempts, delivered rate,
+human answered rate, campaign contact abandoned rate, spam, bounces and more.
 
 ###### Contents
 
@@ -63,6 +63,14 @@ The following image shows an example chart for a WhatsApp campaign.
 
 The widget must be manually added to your dashboard. Refer to [Add or remove widgets on a dashboard](dashboard-customize-widgets.md#dashboard-add-widgets "dashboard-customize-widgets.md#dashboard-add-widgets"), then locate the `WhatsApp campaign performance` widget under the Campaign section.
 
+The following image shows an example chart for a web notification campaign.
+
+![The web notification campaign performance overview chart showing metrics including send attempts, web notification delivered rate, engaged, chat started, and chat engaged counts.](images/dashboard-oc-webnotification-metrics.png)
+
+###### Note
+
+The widget must be manually added to your dashboard. Refer to [Add or remove widgets on a dashboard](dashboard-customize-widgets.md#dashboard-add-widgets "dashboard-customize-widgets.md#dashboard-add-widgets"), then locate the `Web notification campaign performance` widget under the Campaign section.
+
 The charts include the following metrics:
 
 - **Delivery attempts**: The count of outbound campaign
@@ -87,8 +95,8 @@ The charts include the following metrics:
   campaign contacts dialed per minute by the Connect Customer dialer.
 - **Send attempts**: The count of outbound campaign send
   requests sent by Connect Customer for delivery. A campaign send request represents an
-  attempt made to reach out to an recipient by email, SMS, or a telephony
-  dial.
+  attempt made to reach out to a recipient by email, SMS, telephony,
+  WhatsApp, or web notification.
 - **Delivered rate**: The percentage of delivered and
   successful messages over the total number of outbound campaign send
   attempts.
@@ -96,6 +104,16 @@ The charts include the following metrics:
   the mobile carrier.
 - **Complaint**: The count of email messages reported as
   spam or unsolicited email by the recipients.
+- **Web notification delivered rate**: The percentage of
+  web notifications successfully delivered over the total number of outbound
+  campaign send attempts.
+- **Web notification engaged**: The count of web
+  notifications that the recipient clicked.
+- **Web notification chat started**: The count of chats
+  that the recipient started from a web notification.
+- **Web notification chat engaged**: The count of chats
+  started from a web notification in which the recipient sent a message or
+  event.
 
 ###### Note
 
@@ -148,7 +166,7 @@ filter.
 
 ## Delivery classification stacked bar charts
 
-The Telephony, SMS, Email, and WhatsApp classification by campaign charts drill down into
+The Telephony, SMS, Email, WhatsApp, and web notification classification by campaign charts drill down into
 the delivery outcomes of each delivery attempt for each campaign delivery mode. The
 charts show the count of each delivery classification across a campaign.
 
@@ -229,6 +247,23 @@ The following image shows a sample WhatsApp classification stacked bar chart.
 
 The widget must be manually added to your dashboard. Refer to [Add or remove widgets on a dashboard](dashboard-customize-widgets.md#dashboard-add-widgets "dashboard-customize-widgets.md#dashboard-add-widgets"), then locate the `WhatsApp classification by campaign` widget under the Campaign section.
 
+### Web notification classification stacked bar chart
+
+The web notification classifications displayed include the following delivery outcomes:
+
+- Delivered
+- Any remaining classifications grouped under Other
+
+For the full list of available web notification events, see `campaign_event_type` in the [Outbound campaign events](data-lake-outbound-campaigns-data.md#data-lake-oc-events "data-lake-outbound-campaigns-data.md#data-lake-oc-events") table.
+
+The following image shows a sample web notification classification stacked bar chart.
+
+![The web notification classification stacked bar chart showing delivery outcomes by campaign.](images/dashboard-oc-webnotification-classification.png)
+
+###### Note
+
+The widget must be manually added to your dashboard. Refer to [Add or remove widgets on a dashboard](dashboard-customize-widgets.md#dashboard-add-widgets "dashboard-customize-widgets.md#dashboard-add-widgets"), then locate the `Web notification classification by campaign` widget under the Campaign section.
+
 ## Campaign metrics by recipients table
 
 A detailed view of recipient-level outbound campaigns metrics over the selected
@@ -276,8 +311,8 @@ This table includes the following metrics.
 
 - **Campaign send attempts**: The count of outbound
   campaign send requests sent by Connect Customer for delivery. A campaign send request
-  represents an attempt made to reach out to an recipient using email, SMS, or
-  a telephony dial.
+  represents an attempt made to reach out to a recipient using email, SMS,
+  telephony, WhatsApp, or web notification.
 - **Human answered**: The count of outbound campaign calls
   that were connected to a live customer. This metric is only available with
   answering machine detection enabled.
@@ -314,7 +349,12 @@ This table includes the following metrics.
 - **SMS spam**: The count of sms messages identified as
   spam by the mobile carrier.
 - **WhatsApp delivered**: The count of WhatsApp messages delivered.
-- **Read**: The count of WhatsApp messages opened by the recipients.
+- **WhatsApp read**: The count of WhatsApp messages opened by the recipients.
+- **Web notification delivered**: The count of web notifications received and shown on the website.
+- **Web notification engaged**: The count of web notifications that the recipient clicked.
+- **Web notification dismissed**: The count of web notifications that the recipient dismissed or closed.
+- **Web notification chat started**: The count of chats that the recipient started from a web notification.
+- **Web notification chat engaged**: The count of chats started from a web notification in which the recipient sent a message or event.
 - **Email delivered**: The count of email messages
   delivered.
 - **Email complaint**: The count of email messages reported
@@ -339,10 +379,12 @@ dashboard:
   You can restrict access through the Dashboard permissions pertaining to a
   security profile.
 - Data for this dashboard is available starting from June 25, 2024 0:00:00
-  GMT for the Telephony delivery mode and November 6, 2024 0:00:00 GMT for the
-  Email and SMS delivery modes. This may impact dashboard functionalities such
-  as monthly benchmarks where data won't be available before June 25, 2024
-  0:00:00 GMT or November 6, 2024 0:00:00 GMT for comparison.
+  GMT for the Telephony delivery mode, November 6, 2024 0:00:00 GMT for the
+  Email and SMS delivery modes, December 2, 2025 0:00:00 GMT for the WhatsApp
+  delivery mode, and May 28, 2026 0:00:00 GMT for the web notification
+  delivery mode. This may impact dashboard functionalities such as monthly
+  benchmarks where data won't be available before these dates for
+  comparison.
 - Saved reports before November 6, 2024 0:00:00 GMT could contain stale data
   due to newly added feature enhancements. To ensure you have accurate data
   from the latest features, we recommend replacing any saved dashboards with

@@ -187,9 +187,9 @@ questions:
 
 ###### Note
 
-If Gen AI-powered automation is enabled on a question that is conditionally
-enabled, then the use of Gen AI on that question counts towards the usage limit
-of questions that can be evaluated on a contact using Gen AI. It counts even if
+If generative AI-powered automation is enabled on a question that is conditionally
+enabled, then the use of generative AI on that question counts towards the usage limit
+of questions that can be evaluated on a contact using generative AI. It counts even if
 the question was conditionally disabled.
 
 For the default limit of the **Number of evaluation questions that can

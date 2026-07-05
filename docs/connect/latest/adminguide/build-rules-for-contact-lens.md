@@ -121,7 +121,7 @@ conditions:
      how long until they sent the first greeting message. This will
      help you to identify when an agent took too long to engage with
      the customer.
-    * **Potential disconnect issue**: Build rules that check for any technical issues (such as network connectivity, device problems). You can use this to exclude contacts from automated agent performance evaluations, where there were connectivity issues out of the agent’s control.
+    * **Potential disconnect issue**: Build rules that check for any technical issues (such as network connectivity, device problems). You can use this to exclude contacts from automated agent performance evaluations, where there were connectivity issues out of the agent's control.
     * **Queues**: Build rules that run on a subset of queues or check if the contact was not queued. Often organizations use queues to indicate a line of business, topic, or domain. For example, you could build rules specifically for your sales queues, tracking the impact of a recent marketing campaign, or, alternatively, rules for your customer support queues, tracking overall sentiment. For self-service interactions, you can check if the contact was never queued, potentially indicating successful self-service with an AI agent.
 
 

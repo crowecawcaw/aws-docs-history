@@ -57,3 +57,7 @@ For additional troubleshooting steps, including how to collect log files
 from the Connect Customer Client Application and shared worker, see
 [Download the Connect Customer Client Application log
 files for troubleshooting](troubleshoot-sr.md "troubleshoot-sr.md").
+
+## Related information
+
+For help with rule-based redaction issues, see [Troubleshoot rule-based redaction](troubleshoot-sr.md#troubleshoot-rule-based-redaction "troubleshoot-sr.md#troubleshoot-rule-based-redaction").

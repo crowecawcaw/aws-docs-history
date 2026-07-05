@@ -412,7 +412,7 @@ Connect Customer Outbound Campaigns now supports WhatsApp, expanding on the What
 
 Previously, Outbound Campaigns supported SMS, email, and voice channels, while WhatsApp was available only for customers to initiate conversations with your agents. With WhatsApp support in Outbound Campaigns, you can now proactively reach customers through an additional messaging platform while maintaining a unified campaign management experience. You can personalize WhatsApp messages using real-time customer data, track delivery and engagement metrics, and manage communication frequency and timing to ensure compliance. This expansion provides greater flexibility to connect with customers on their preferred platforms while streamlining your omnichannel outreach strategy.
 
-For more information, see [Create an outbound campaign in Connect Customer](how-to-create-campaigns.md "how-to-create-campaigns.md").
+For more information, see [Create an outbound campaign using the console](how-to-create-campaigns.md "how-to-create-campaigns.md").
 
 ## November 2025 Updates
 

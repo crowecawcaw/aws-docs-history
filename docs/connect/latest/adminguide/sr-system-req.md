@@ -28,35 +28,66 @@ recommended resource availability for each concurrent session.
 
 ## Network requirements
 
-- **Port used for screen recording**: The
-  Connect Customer Client Application communicates with the CCP through a local websocket on port 5431
-  (on Windows) and 25431 (on Chrome OS).
-- **URLs to add to your firewall allowlist**:
-  To ensure smooth screen recording functionality, add the following URL
-  patterns to your allowlist:
+### URLs to add to your firewall allow list
 
-  - From CCP:
-    `connect-recording-staging-*.s3.dualstack.your-region-name.amazonaws.com`.
-    If you prefer to not use wild cards, the list of endpoints is
-    available at
-    https://screenrecording.connect.aws/config/connect-recording-endpoint-allowlist.json.
-    This list may be updated in the future. Refer to the
-    `createDate` at the top of the file to check for
-    updates.
-  - From screen recording client application:
-    `https://your-connect-instance-alias.my.connect.aws/taps/client/auth`
+To ensure smooth screen recording functionality, add the following URL
+patterns to your allow list.
 
-- **Sequence diagram**: The following sequence
-  diagram shows the network calls between different components involved in
-  screen recording.
+#### Client App authentication
+
+`https://your-connect-instance-alias.my.connect.aws/taps/client/auth`
+
+#### Screen recording upload (from CCP)
+
+We recommend the wildcard
+`connect-recording-staging-*.s3.dualstack.your-region-name.amazonaws.com`
+
+If you prefer not to use wildcards, the full list of endpoints is available
+at [https://screenrecording.connect.aws/config/connect-recording-endpoint-allowlist.json](https://screenrecording.connect.aws/config/connect-recording-endpoint-allowlist.json "https://screenrecording.connect.aws/config/connect-recording-endpoint-allowlist.json")
+
+This list may be updated in the future. Refer to the
+`createDate` field at the top of the file to check for
+updates.
+
+#### Browser extension updates (required for rule-based redaction)
+
+If you use [rule-based redaction](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md"), the agent's browser must be able to
+download and update the Connect Customer browser extension. Allow outbound HTTPS to the
+following.
+
+We recommend the wildcard
+`https://screenrecording.connect.aws/*`, which covers all
+current and future extension paths for both browsers.
+
+If you prefer not to use wildcards, allow these specific URLs:
+
+| Browser                          | URL                                                                                                           |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Google Chrome and Microsoft Edge | `https://screenrecording.connect.aws/chromeos/amazon-connect-extension/releases/updates.xml`                  |
+| Google Chrome and Microsoft Edge | `https://screenrecording.connect.aws/chromeos/amazon-connect-extension/releases/amazon-connect-extension.crx` |
+| Mozilla Firefox                  | `https://screenrecording.connect.aws/firefox/amazon-connect-extension/releases/updates.json`                  |
+| Mozilla Firefox                  | `https://screenrecording.connect.aws/firefox/amazon-connect-extension/releases/amazon-connect-extension.xpi`  |
+
+For extension identifiers and deployment instructions, see [Deploy the browser
+extension](deploy-browser-extension.md "deploy-browser-extension.md").
+
+### Port used for screen recording
+
+The Connect Customer Client Application communicates with the CCP through a local websocket on port 5431
+(on Windows) and 25431 (on Chrome OS).
+
+### Sequence diagram
+
+The following sequence diagram shows the network calls between different
+components involved in screen recording.
 
 ![A sequence diagram shows the network calls between different components involved in screen recording.](images/sequence-diagram.png)
 
-    + In Windows, the Connect Customer Client is the combination of the
-     Amazon.Connect.Client.Service background process and
-     Amazon.Connect.Client.RecordingSession.
-    + In ChromeOS, the Connect Customer Client is the combination of Isolated Web
-     App and Browser extension.
+- In Windows, the Connect Customer Client is the combination of the
+  Amazon.Connect.Client.Service background process and
+  Amazon.Connect.Client.RecordingSession.
+- In ChromeOS, the Connect Customer Client is the combination of Isolated Web App
+  and Browser extension.
 
 ## Browser enterprise policy for local network access
 
@@ -90,3 +121,35 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Edge\LoopbackNetworkAllowedForUrls" /v
 For more details on this browser change, see [New permission
 prompt for Local Network Access](https://developer.chrome.com/blog/local-network-access "https://developer.chrome.com/blog/local-network-access") in the Chrome developer
 documentation.
+
+## Requirements for rule-based redaction
+
+If you use [Rule-based redaction
+for screen recordings](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md"), agent workstations
+must meet the following additional requirements.
+
+- **Browser** – One of the
+  following:
+
+  - Google Chrome 120 or later
+  - Microsoft Edge 120 or later
+  - Mozilla Firefox 120 or later
+    Browsers other than Chrome, Edge, and Firefox do not report URLs to the
+    Connect Customer Client Application, so URL rules cannot match pages in those browsers. You can still
+    match windows in those browsers by using window title rules based on the
+    browser's window title.
+
+- **Connect Customer Client Application** – Version 3.0.2 or later.
+  See [Connect Customer Client Application](amazon-connect-client-app.md "amazon-connect-client-app.md").
+- **Connect Customer browser extension** – Version
+  2.1.0 or later. The extension must be installed and enabled on every browser
+  that agents use during recorded contacts. See [Deploy the browser
+  extension](deploy-browser-extension.md "deploy-browser-extension.md").
+- **Chrome 147 local network access policy**
+  – If agents use Chrome version 147 or later, configure the
+  **LocalNetworkAccessAllowedForUrls** enterprise policy to
+  allow local network access from the Connect Customer CCP origin to 127.0.0.1:5431. For
+  details, see [Browser enterprise policy for local network access](#browser-enterprise-policy "#browser-enterprise-policy").
+
+Display scaling from 100% through 200% is supported on single-monitor and
+multi-monitor workstations.

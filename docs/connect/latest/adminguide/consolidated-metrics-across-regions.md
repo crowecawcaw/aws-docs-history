@@ -5,6 +5,10 @@
 To enable consolidated agent and contact metrics for your ACGR
 instance, please reach out to [AWS Support](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home").
 
+###### Note
+
+Supported Regions: US East (N. Virginia), US West (Oregon), Asia Pacific (Tokyo), Asia Pacific (Osaka), Europe (Frankfurt), and Europe (London).
+
 When you view metrics in Connect Customer, you see a consolidated view of agent and contact
 metrics across all your paired Regions, regardless of which Region you are currently
 logged into.

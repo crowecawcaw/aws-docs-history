@@ -1,7 +1,7 @@
 # Set your status to "Available" in the Contact Control Panel (CCP)
 
 As a call center agent, set an **Available** status when
-you’re ready to handle contacts.
+you're ready to handle contacts.
 
 Connect Customer uses information in the agent's [routing
 profile](routing-profiles.md "routing-profiles.md") to determine which contacts to route to them.

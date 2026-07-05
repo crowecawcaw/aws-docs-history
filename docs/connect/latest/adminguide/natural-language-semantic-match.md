@@ -5,7 +5,7 @@ Within a Contact Lens
 specify a **Natural language - semantic match** condition that
 uses generative AI to find contacts that match a natural language statement.
 Natural language - Semantic match is used when you want to match contacts with
-context-specific criteria (for example, the customer’s issue was resolved during
+context-specific criteria (for example, the customer's issue was resolved during
 the call) or when there are too many possible words or phrases to use the
 **Words or phrases** conditions.
 
@@ -77,10 +77,10 @@ The following list details how to best use semantic-match:
 - The customer requested a subsequent interaction.
 - The customer asked the agent to repeat information, indicating a
   lack of understanding.
-- The customer asked to talk to the agent’s manager.
+- The customer asked to talk to the agent's manager.
 - The agent asked the customer for additional information or
   validation before providing a definitive answer.
 - The agent offered multiple payment options
 - The agent assured the customer that their call was important and
   requested additional waiting time.
-- The agent resolved all of the customer’s issues.
+- The agent resolved all of the customer's issues.

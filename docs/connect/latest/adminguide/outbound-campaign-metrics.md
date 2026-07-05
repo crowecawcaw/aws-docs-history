@@ -114,7 +114,7 @@ The possible values for X are from 1 to 604800 inclusive.
 
 This metric counts the outbound campaign
 interactions after a successful delivery attempt.
-Example interactions include `Open`, `Click`, and `Compliant`.
+Example interactions include `Open`, `Click`, and `Complaint`.
 
 **Metric type**: Integer
 
@@ -129,8 +129,10 @@ Example interactions include `Open`, `Click`, and `Compliant`.
 
 **Notes**:
 
-- This metric is available only for outbound campaigns that use the email delivery mode.
-- Data for this metric is available starting from November 6, 2024 0:00:00 GMT.
+- This metric is available only for outbound campaigns that use the email, WhatsApp, and web notification delivery modes.
+- For more details on the interaction event values, see campaign\_event\_type under [Outbound Campaign Events](data-lake.md#campaign-events "data-lake.md#campaign-events") in the Data Lake documentation.
+- Data for this metric is available starting from November 6, 2024 0:00:00 GMT for the Email delivery mode,
+  December 2, 2025 0:00:00 GMT for the WhatsApp delivery mode, and May 28, 2026 0:00:00 GMT for the web notification delivery mode.
 
 ## Campaign progress rate
 
@@ -160,7 +162,7 @@ recipients attempted for delivery, out of the total number of recipients targete
 
 This metric counts the outbound campaign
 send requests sent by Connect Customer for delivery.
-A campaign send request represents a send attempt made to reach out to an recipient using email, SMS, or telephony delivery mode.
+A campaign send request represents a send attempt made to reach out to a recipient using the email, SMS, telephony, WhatsApp, or web notification delivery mode.
 
 **Metric type**: Integer
 
@@ -206,8 +208,8 @@ This metric measures the count of outbound campaign send attempts that were excl
 ## Delivery attempts
 
 This metric measures the delivery outcome of a campaign outreach attempt.
-The count of outbound campaign contact outcomes from the Connect Customer dialer, or the count of outbound campaign email
-or SMS message outcomes that were successfully sent to Connect Customer to be delivered.
+The count of outbound campaign contact outcomes from the Connect Customer dialer, or the count of outbound campaign email,
+SMS, WhatsApp, or web notification message outcomes that were successfully sent to Connect Customer to be delivered.
 
 **Metric type**: Integer
 
@@ -227,16 +229,17 @@ or SMS message outcomes that were successfully sent to Connect Customer to be de
 - For details about telephony disposition definitions, see DisconnectReason
   for outbound campaigns and AnsweringMachineDetectionStatus in the
   [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
-  For details about email and SMS disposition definitions, see campaign\_event\_type
+- For details about email, SMS, WhatsApp, and web notification disposition definitions, see campaign\_event\_type
   in the [Outbound campaign events](data-lake-outbound-campaigns-data.md#data-lake-oc-events "data-lake-outbound-campaigns-data.md#data-lake-oc-events") table.
-- Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode and
-  November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes.
+- Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode,
+  November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes, December 2, 2025 0:00:00 GMT for the WhatsApp delivery mode,
+  and May 28, 2026 0:00:00 GMT for the web notification delivery mode.
 
 ## Delivery attempt disposition rate
 
 This metric measures the percentage of each delivery outcome from a campaign outreach.
 The percent of call classification by answering machine detection or disconnect reason from outbound campaign contacts executed by the Connect Customer dialer,
-or the percent of outbound campaign email or SMS message outcomes that was successfully sent to Connect Customer to be delivered.
+or the percent of outbound campaign email, SMS, WhatsApp, or web notification message outcomes that were successfully sent to Connect Customer to be delivered.
 
 **Metric type**: Percent
 
@@ -254,8 +257,14 @@ or the percent of outbound campaign email or SMS message outcomes that was succe
 
 - Dispositions for the agent assisted voice and automated
   voice delivery modes are available with answering machine detection enabled.
-- Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode and
-  November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes.
+- For details about telephony disposition definitions, see DisconnectReason
+  for outbound campaigns and AnsweringMachineDetectionStatus in the
+  [ContactTraceRecord](ctr-data-model.md#ctr-ContactTraceRecord "ctr-data-model.md#ctr-ContactTraceRecord").
+- For details about email, SMS, WhatsApp, and web notification disposition definitions, see campaign\_event\_type
+  in the [Outbound campaign events](data-lake-outbound-campaigns-data.md#data-lake-oc-events "data-lake-outbound-campaigns-data.md#data-lake-oc-events") table.
+- Data for this metric is available starting from June 25, 2024 0:00:00 GMT for the Telephony delivery mode,
+  November 6, 2024 0:00:00 GMT for the Email and SMS delivery modes, December 2, 2025 0:00:00 GMT for the WhatsApp delivery mode,
+  and May 28, 2026 0:00:00 GMT for the web notification delivery mode.
 
 ## Human answered
 

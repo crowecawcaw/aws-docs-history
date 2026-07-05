@@ -80,7 +80,7 @@ Remove Sunday and Saturday from the schedule.
 
 Select **+ Add more time** at the bottom of the Operational
 hours section to create more rows, then set the hour ranges within each day. For
-example, if Saturday the hours are 8-11 then 1-5:
+example, if Saturday the hours are 8-11 then 12-5:
 
 ![Lunch breaks in a contact center schedule.](images/hours-of-operation-lunch.png)
 

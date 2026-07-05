@@ -11,6 +11,7 @@ and install the Connect Customer Client Application, and perform key configurati
   Connect Customer Client Application](#install-sr-step2 "#install-sr-step2")
 - [Step 3: Configure the Set recording and analytics behavior block](#configure-recording-block "#configure-recording-block")
 - [Configuration tips](#tips-sr "#tips-sr")
+- [Next steps](#next-steps-sr "#next-steps-sr")
 
 ## Step 1: Enable screen recording for your instance
 
@@ -78,3 +79,10 @@ Connect Customer Client Application for your operating system.
   you to use screen recording for some but not all contacts.
 - You may want to use the [SuspendContactRecording](../APIReference/API_SuspendContactRecording.md "../APIReference/API_SuspendContactRecording.md") and [ResumeContactRecording](../APIReference/API_ResumeContactRecording.md "../APIReference/API_ResumeContactRecording.md") APIs to prevent sensitive information
   from being captured in the screen recording.
+
+## Next steps
+
+To hide sensitive content such as payment entry pages or unapproved applications
+from agent screen recordings based on URL patterns, add rule-based redaction to your
+contact flows. See [Rule-based redaction
+for screen recordings](rule-based-redaction-screen-recording.md "rule-based-redaction-screen-recording.md").

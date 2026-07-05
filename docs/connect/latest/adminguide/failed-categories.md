@@ -31,7 +31,7 @@ evaluated during contact analysis:
 These failed categories only exist from rules with the semantic match
 condition. The two possible reasons are:
 
-1. **Quota exceeded**: Your Gen AI actions
+1. **Quota exceeded**: Your generative AI actions
    limit was exceeded for that time span. You can request a quota increase
    through AWS Support.
 2. **Failed safety guidelines**: Category

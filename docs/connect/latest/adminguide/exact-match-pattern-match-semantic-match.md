@@ -116,7 +116,7 @@ Semantic matching is supported only for post-call/chat analysis.
   "politeness." It includes two intents: "greetings" and "goodbye". We
   recommend separating these intents into two cards:
 
-  - Card 1: "How are you today" and "How’s everything going".
+  - Card 1: "How are you today" and "How's everything going".
     They are semantically similar greetings.
   - Card 2: "Thanks for contacting us" and "Thank you for
     being our customer." They are semantically similar
