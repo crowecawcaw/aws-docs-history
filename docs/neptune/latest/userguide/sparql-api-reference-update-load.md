@@ -81,7 +81,7 @@ curl https://`(a Neptune endpoint URL)`:8182/sparql \
                            into graph `(named graph)`'
 ```
 
-For more information, see [Authenticating Requests: Using Query Parameters](../../../AmazonS3/latest/API/sigv4-query-string-auth.md "../../../AmazonS3/latest/API/sigv4-query-string-auth.md"). The [Boto3 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-presigned-urls.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-presigned-urls.html")
+For more information, see [Authenticating Requests: Using Query Parameters](../../../AmazonS3/latest/API/sigv4-query-string-auth.md "../../../AmazonS3/latest/API/sigv4-query-string-auth.md"). The [Boto3 documentation](../../../boto3/latest/guide/quickstart.htmlguide/s3-presigned-urls.md "../../../boto3/latest/guide/quickstart.htmlguide/s3-presigned-urls.md")
 shows how to use a Python script to generate a presigned URL.
 
 Also, the content type of the files to be loaded must be set correctly.
