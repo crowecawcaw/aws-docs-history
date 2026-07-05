@@ -20,6 +20,21 @@ The integration addresses two operational challenges:
    across multiple VPCs and accounts solely for DNS inspection. This helps to reduce both cost and
    operational complexity while maintaining the same threat efficacy.
 
+###### Preview availability
+
+Partner managed DNS threat protection with Palo Alto Networks is in public
+preview. During the preview, you can use it only in the following
+AWS Regions:
+
+- US East (Ohio)
+- US West (N. California)
+- Africa (Cape Town)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Singapore)
+- Asia Pacific (Tokyo)
+- Europe (Frankfurt)
+- Europe (London)
+
 ###### Prerequisites
 
 Before you can use partner managed DNS threat protection with Palo Alto Networks, you must have the following:
