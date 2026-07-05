@@ -92,7 +92,7 @@ following:
 
 
 
-    ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](images/s3-export-7.png)
+    ![Support options interface with "Solve now" and "Contact us" buttons, and recommendations.](/images/Monitron/latest/user-guide/images/s3-export-7.png)
     2. In **Contact us**, choose your
      **Preferred contact language** and
      preferred method of contact.
