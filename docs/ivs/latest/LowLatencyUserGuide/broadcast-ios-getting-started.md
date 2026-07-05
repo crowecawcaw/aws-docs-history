@@ -11,7 +11,7 @@ your project.)
 
 ### Recommended: Integrate the Broadcast SDK (Swift Package Manager)
 
-1. Download the Package.swift file from [https://broadcast.live-video.net/1.43.0/Package.swift](https://broadcast.live-video.net/1.43.0/Package.swift "https://broadcast.live-video.net/1.43.0/Package.swift").
+1. Download the Package.swift file from [https://broadcast.live-video.net/1.44.0/Package.swift](https://broadcast.live-video.net/1.44.0/Package.swift "https://broadcast.live-video.net/1.44.0/Package.swift").
 2. In your project, create a new directory named AmazonIVSBroadcast and
    add it to version control.
 3. Place the downloaded Package.swift file in the new directory.
@@ -28,7 +28,7 @@ your project.)
 
 ### Alternate Approach: Install the Framework Manually
 
-1. Download the latest version from [https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast.xcframework.zip").
+1. Download the latest version from [https://broadcast.live-video.net/1.44.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.44.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.44.0/AmazonIVSBroadcast.xcframework.zip").
 2. Extract the contents of the archive.
    `AmazonIVSBroadcast.xcframework` contains the SDK for
    both device and simulator.
