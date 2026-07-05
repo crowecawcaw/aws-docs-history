@@ -24,7 +24,7 @@ Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande
 
    - [AWS CLI](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
    - [AWS SDK for Java](../../../sdk-for-java/latest/developer-guide.md "../../../sdk-for-java/latest/developer-guide.md")
-   - [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html")
+   - [AWS SDK for Python (Boto3)](../../../boto3/latest/guide/quickstart.htmlindex.md "../../../boto3/latest/guide/quickstart.htmlindex.md")
 
 2. Create an access key for the user that you created in [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").
 
