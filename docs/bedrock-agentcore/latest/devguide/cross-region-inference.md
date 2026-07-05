@@ -43,10 +43,12 @@ Effective 4/30, Policy in AgentCore supports global cross-region inference from 
 
 Customers with data residency or compliance requirements should assess whether global cross-region inference fits their compliance framework, because requests may be processed in any global commercial AWS Region.
 
-| Source AWS Region                     |
-| ------------------------------------- |
-| Canada (Central) (ca-central-1)       |
-| South America (São Paulo) (sa-east-1) |
+| Source AWS Region                        |
+| ---------------------------------------- |
+| Asia Pacific (Malaysia) (ap-southeast-5) |
+| Asia Pacific (Thailand) (ap-southeast-7) |
+| Canada (Central) (ca-central-1)          |
+| South America (São Paulo) (sa-east-1)    |
 
 ## Supported Regions for AgentCore Evaluations cross-region inference
 

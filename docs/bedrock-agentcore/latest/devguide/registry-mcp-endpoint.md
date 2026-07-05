@@ -1,5 +1,9 @@
 # Using the Registry MCP endpoint
 
+###### Upcoming namespace migration
+
+AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Migration from public preview FAQ](registry-faq.md "registry-faq.md").
+
 ## Overview
 
 Each registry exposes an MCP-compatible endpoint following [2025-11-25 specification](https://modelcontextprotocol.io/specification/2025-11-25 "https://modelcontextprotocol.io/specification/2025-11-25") . The endpoint supports tool listing and tool invocation for searching registry records.

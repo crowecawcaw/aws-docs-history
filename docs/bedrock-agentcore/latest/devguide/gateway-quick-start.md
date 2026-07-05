@@ -89,7 +89,7 @@ Interactive
 
 ![Gateway wizard: enter name](images/tui/gateway-add-name.png) 3. Select the authorizer type. For this quickstart, choose **NONE** :
 
-![Gateway wizard: select NONE authorizer](images/tui/gateway-add-auth-none.png) 4. Configure advanced options or accept the defaults:
+![Gateway wizard: select NONE authorizer](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-add-auth-none.png) 4. Configure advanced options or accept the defaults:
 
 ![Gateway wizard: advanced configuration](images/tui/gateway-add-advanced.png) 5. Review the configuration and press **Enter** to confirm:
 
@@ -97,7 +97,7 @@ Interactive
 
 Next, select **add** again and choose **Gateway Target** to add a Lambda function target: 6. Enter the target name. 7. Select **Lambda function** as the target type:
 
-![Gateway target wizard: select Lambda function](/images/bedrock-agentcore/latest/devguide/images/tui/gateway-target-type-lambda.png) 8. Enter the Lambda ARN and tool schema file path, then confirm.
+![Gateway target wizard: select Lambda function](images/tui/gateway-target-type-lambda.png) 8. Enter the Lambda ARN and tool schema file path, then confirm.
 
 To use JWT-based authorization instead, specify `--authorizer-type CUSTOM_JWT` with your OAuth discovery URL:
 

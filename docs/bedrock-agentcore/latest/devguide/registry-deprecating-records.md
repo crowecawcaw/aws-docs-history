@@ -1,5 +1,9 @@
 # Deprecating registry records
 
+###### Upcoming namespace migration
+
+AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Migration from public preview FAQ](registry-faq.md "registry-faq.md").
+
 ## Overview
 
 Deprecation of a Registry Record removes the record from being discoverable in the Search Results (via SearchRegistryRecords API) as well as the Registry’s MCP endpoint. Deprecated is a Terminal State and once a record is in this state, it cannot be edited or transitioned to any other state. The Record can still be found via ListRegistryRecords and GetRegistryRecord APIs for auditing purposes, but cannot be un-deprecated.

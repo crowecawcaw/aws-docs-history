@@ -18,7 +18,7 @@ Before starting, make sure you have:
 - **AWS Account** with credentials configured ( `aws configure` ) with model access enabled to the Foundation Model you would like to use.
 - **Python 3.10+** installed
 - **Enable transaction search** on Amazon CloudWatch. Only once, first-time users must enable [CloudWatch Transaction Search](../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md "../../../AmazonCloudWatch/latest/monitoring/Enable-TransactionSearch.md") to view Bedrock Amazon Bedrock AgentCore spans and traces
-- **(Non-runtime agents only) Add the OpenTelemetry library** – Include `aws-opentelemetry-distro` (ADOT) in your requirements.txt file. If you deploy using the AgentCore CLI, the runtime automatically instruments your agent and this step is not required.
+- **(Non-runtime agents only) Add the OpenTelemetry library** – Include `aws-opentelemetry-distro` (ADOT) in your requirements.txt file. If you host your agent on AWS Lambda, use the [AWS Lambda Layer for OpenTelemetry](https://aws-otel.github.io/docs/getting-started/lambda "https://aws-otel.github.io/docs/getting-started/lambda") on the AWS Distro for OpenTelemetry website instead.
 - **(Non-runtime agents only)** Make sure that your framework is configured to emit traces (for example, `strands-agents[otel]` package). You may sometimes need to include your agent framework’s auto-instrumentor (for example, `opentelemetry-instrumentation-langchain` ).
 
 Amazon Bedrock AgentCore Observability offers two ways to configure monitoring to match different infrastructure needs:
@@ -162,7 +162,7 @@ print(json.loads(response['response'].read()))
 
 For agents running outside of the Amazon Bedrock AgentCore runtime, you can deliver the same monitoring capabilities for agents deployed on your own infrastructure. This allows consistent observability regardless of where your agents run. Use the following steps to configure the environment variables needed to observe your agents.
 
-For a complete example, refer to this [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb")
+For a complete example, see the [Agents on Amazon EKS sample](https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agents-hosted-outside-runtime/agents-on-eks "https://github.com/awslabs/agentcore-samples/tree/main/03-integrations/agents-hosted-outside-runtime/agents-on-eks") on the GitHub website.
 
 ### Configure AWS environment variables
 
@@ -188,6 +188,9 @@ export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf # Configures export protocol
 export  OTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=<YOUR-LOG-GROUP>,x-aws-log-stream=<YOUR-LOG-STREAM>,x-aws-metric-namespace=<YOUR-NAMESPACE>
 # Directs logs to CloudWatch groups
 export OTEL_RESOURCE_ATTRIBUTES=service.name=<YOUR-AGENT-NAME> # Identifies your agent in observability data
+export OTEL_AWS_APPLICATION_SIGNALS_ENABLED=false # AWS Lambda Layer for OpenTelemetry only: disables Application Signals
+export OTEL_LOGS_EXPORTER=otlp # AWS Lambda Layer for OpenTelemetry only: exports logs over OTLP
+export OTEL_METRICS_EXPORTER=awsemf # AWS Lambda Layer for OpenTelemetry only: exports metrics as CloudWatch EMF
 ```
 
 Replace `<YOUR-AGENT-NAME>` with a unique name to identify this agent in the GenAI Observability dashboard and logs.
@@ -231,16 +234,24 @@ print(response)
 
 ### Run your agent with automatic instrumentation command
 
-With aws-opentelemetry-distro in your requirements.txt, the `opentelemetry-instrument` command will:
+With `aws-opentelemetry-distro` in your requirements.txt, the `opentelemetry-instrument` command will:
 
 - Load your OTEL configuration from your environment variables
-- Automatically instrument Strands, Amazon Bedrock calls, agent tool and databases, and other requests made by agent
+- Automatically instrument Strands, Amazon Bedrock calls, agent tools and databases, and other requests made by the agent
 - Send traces to CloudWatch
 - Enable you to visualize the agent’s decision-making process in the GenAI Observability dashboard
+
+Use the following command to run your agent with automatic instrumentation:
 
 ```
 opentelemetry-instrument python agent.py
 ```
+
+If you host your agent on AWS Lambda, use the [AWS Lambda Layer for OpenTelemetry](https://aws-otel.github.io/docs/getting-started/lambda "https://aws-otel.github.io/docs/getting-started/lambda") on the AWS Distro for OpenTelemetry website. Add the layer to your function, and then set the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to `/opt/otel-instrument`. The layer then auto-instruments your function. With this approach, you don’t need to add the `aws-opentelemetry-distro` package or run the `opentelemetry-instrument` command described earlier.
+
+###### ADOT Collector not supported for agent observability
+
+The ADOT Collector is not supported for agent observability. To send telemetry from an agent hosted outside of AgentCore runtime, you must use either the ADOT SDK or the AWS Lambda Layer for OpenTelemetry.
 
 You can now view your traces, sessions and metrics on GenAI Observability Dashboard on Amazon CloudWatch with the value of **YOUR-AGENT-NAME** that you configured in your [environment variables](#configure-opentelemetry-environment-variables "#configure-opentelemetry-environment-variables").
 
@@ -249,12 +260,6 @@ To correlate traces across multiple agent runs, you can associate a session ID w
 ```
 from opentelemetry import baggage, context
 ctx = baggage.set_baggage("session.id", session_id)
-```
-
-Run the session-enabled version following command, complete implementation provided in the [notebook](https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb "https://github.com/awslabs/amazon-bedrock-agentcore-samples/blob/main/01-tutorials/06-AgentCore-observability/02-Agent-not-hosted-on-runtime/Strands/Strands_Observability.ipynb") :
-
-```
-opentelemetry-instrument python strands_travel_agent_with_session.py --session-id "user-session-123"
 ```
 
 ## Step 4: Observe your agent with GenAI observability on Amazon CloudWatch

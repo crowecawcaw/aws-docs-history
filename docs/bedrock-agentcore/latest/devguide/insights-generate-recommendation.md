@@ -16,6 +16,31 @@ Recommendation generation is currently supported only for `Builtin.Insight.Failu
 
 Provide your current system prompt and reference the batch evaluation that contains the traces:
 
+###### Example
+
+AgentCore CLI
+Generate a recommendation from a completed insights run:
+
+```
+agentcore run recommendation --from-insights <id> --type system-prompt --bundle-name my_bundle --json
+```
+
+Or reference a batch evaluation ARN directly:
+
+```
+agentcore run recommendation --batch-evaluation-arn <arn> --type system-prompt --bundle-name my_bundle --json
+```
+
+Interactive
+
+1. Run `agentcore` to open the TUI, then select **run** and choose **Recommendation**:
+
+![Run menu: select Recommendation](images/tui/insights-run-select.png)
+
+The wizard guides you through selecting a trace source (insights run or batch evaluation ARN), recommendation type, and config bundle.
+
+AWS SDK (boto3)
+
 ```
 import boto3
 import uuid

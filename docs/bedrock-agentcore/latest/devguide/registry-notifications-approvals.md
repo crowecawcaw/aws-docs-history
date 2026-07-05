@@ -1,5 +1,9 @@
 # Notifications for pending approvals
 
+###### Upcoming namespace migration
+
+AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Migration from public preview FAQ](registry-faq.md "registry-faq.md").
+
 ## Event details
 
 - **Source:**

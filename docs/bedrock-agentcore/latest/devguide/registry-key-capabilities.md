@@ -1,5 +1,9 @@
 # Key capabilities
 
+###### Upcoming namespace migration
+
+AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Migration from public preview FAQ](registry-faq.md "registry-faq.md").
+
 ## Flexible resource types
 
 Add records of any type with a flexible structure and custom metadata. AWS Agent Registry directly supports MCP servers, agents, and skills. For MCP Server and Agent records, AWS Agent Registry validates your definitions against the MCP and A2A protocol schemas respectively, ensuring correctness before records are published. You can also register any kind of custom resource — such as agents conforming to protocols other than A2A, APIs, Lambda functions, knowledge bases, or databases — by defining your own metadata schema. This means AWS Agent Registry can serve as a unified catalog for all discoverable resources in your organization, regardless of the underlying technology.

@@ -12,6 +12,38 @@ Create an online evaluation configuration with insights and a clustering schedul
 
 ## Create the configuration
 
+###### Example
+
+AgentCore CLI
+
+```
+agentcore add online-insights --name my_agent_insights --runtime MyAgent --insights Builtin.Insight.FailureAnalysis --sampling-rate 100 --clustering-frequency DAILY --enable-on-create --json
+```
+
+Then deploy via CloudFormation:
+
+```
+agentcore deploy -y --json
+```
+
+Interactive
+
+1. Run `agentcore` to open the TUI, then select **add** and choose **Online Insights**:
+
+![Insights wizard: select agent to monitor](images/tui/insights-add-agent.png) 2. Select the insights to enable:
+
+![Insights wizard: select insights](images/tui/insights-add-insights.png) 3. Set the sampling rate:
+
+![Insights wizard: set sampling rate](images/tui/insights-add-sampling-rate.png) 4. Choose clustering frequencies:
+
+![Insights wizard: select clustering frequency](images/tui/insights-add-clustering.png) 5. Enter a config name:
+
+![Insights wizard: enter config name](images/tui/insights-add-name.png) 6. Review the configuration and press Enter to confirm:
+
+![Insights wizard: review configuration](images/tui/insights-add-confirm.png)
+
+AWS SDK (boto3)
+
 ```
 import boto3
 
@@ -46,7 +78,7 @@ print(f"Created config: {config_id}")
 
 This tells the service to:
 
-- Sample sessions at the configured rate (100% in this example — adjust `samplingPercentage` to analyze a subset of traffic).
+- Sample sessions at the configured rate (100% in this example — adjust `--sampling-rate` or `samplingPercentage` to analyze a subset of traffic).
 - Run failure analysis and user intent extraction on each sampled session.
 - Trigger a clustering report daily.
 
@@ -101,6 +133,28 @@ for eval_summary in evaluations.get("batchEvaluations", []):
 
 ## Manage the configuration
 
+###### Example
+
+AgentCore CLI
+Pause:
+
+```
+agentcore pause online-insights my_agent_insights --json
+```
+
+Resume:
+
+```
+agentcore resume online-insights my_agent_insights --json
+```
+
+Remove:
+
+```
+agentcore remove online-insights --name my_agent_insights --yes --json
+```
+
+AWS SDK (boto3)
 Pause or resume:
 
 ```

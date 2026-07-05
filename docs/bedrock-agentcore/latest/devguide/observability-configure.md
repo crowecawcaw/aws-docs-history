@@ -161,6 +161,12 @@ You can also invoke your agent with additional headers for additional observabil
 
 To enable observability for agents hosted outside of the AgentCore runtime, first follow the steps in the previous sections to enable CloudWatch Transaction Search and add the ADOT SDK to your code.
 
+If you host your agent on AWS Lambda, use the [AWS Lambda Layer for OpenTelemetry](https://aws-otel.github.io/docs/getting-started/lambda "https://aws-otel.github.io/docs/getting-started/lambda") on the AWS Distro for OpenTelemetry website. Add the layer to your function, and then set the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to `/opt/otel-instrument`. The layer then auto-instruments your function. With this approach, you don’t need to add the `aws-opentelemetry-distro` package or run the `opentelemetry-instrument` command described earlier.
+
+###### ADOT Collector not supported for agent observability
+
+The ADOT Collector is not supported for agent observability. To send telemetry from an agent hosted outside of AgentCore runtime, you must use either the ADOT SDK or the AWS Lambda Layer for OpenTelemetry.
+
 For agents running outside of the AgentCore runtime, you also need to create an agent log-group which you include in your environment variables.
 
 Configure your AWS environment variables, and then set your Open Telemetry environment variables as shown in the following.
@@ -185,6 +191,9 @@ OTEL_RESOURCE_ATTRIBUTES=service.name=<agent-name>,aws.log.group.names=/aws/bedr
 OTEL_EXPORTER_OTLP_LOGS_HEADERS=x-aws-log-group=/aws/bedrock-agentcore/runtimes/<agent-id>,x-aws-log-stream=runtime-logs,x-aws-metric-namespace=bedrock-agentcore
 OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
 OTEL_TRACES_EXPORTER=otlp
+OTEL_AWS_APPLICATION_SIGNALS_ENABLED=false # AWS Lambda Layer for OpenTelemetry only: disables Application Signals
+OTEL_LOGS_EXPORTER=otlp # AWS Lambda Layer for OpenTelemetry only: exports logs over OTLP
+OTEL_METRICS_EXPORTER=awsemf # AWS Lambda Layer for OpenTelemetry only: exports metrics as CloudWatch EMF
 ```
 
 Replace `<agent-name>` with your agent’s name and `<agent-id>` with a unique identifier for your agent.

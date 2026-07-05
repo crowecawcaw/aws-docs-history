@@ -14,6 +14,40 @@ Use `StartBatchEvaluation` to run an on-demand insights analysis over your agent
 
 ## Start the analysis
 
+###### Example
+
+AgentCore CLI
+
+```
+agentcore run insights --runtime MyAgent --insights Builtin.Insight.FailureAnalysis --lookback-days 7 --json
+```
+
+The CLI is async by default — it prints the job ID and exits. Use `--wait` to block until the job completes:
+
+```
+agentcore run insights --runtime MyAgent --insights Builtin.Insight.FailureAnalysis --lookback-days 7 --wait --json
+```
+
+If you have an online evaluation config already deployed, you can inherit its settings:
+
+```
+agentcore run insights --online-eval-config-arn <arn> --json
+```
+
+Interactive
+
+1. Run `agentcore` to open the TUI, then select **run** and choose **Insights**:
+
+![Run menu: select Insights](images/tui/insights-run-select.png) 2. Choose the session source:
+
+![Run Insights wizard: select session source](images/tui/insights-run-source.png) 3. Select the insights to run:
+
+![Run Insights wizard: select insights](images/tui/insights-run-insights.png)
+
+Continue through the remaining wizard steps (sessions, lookback period, name) and confirm.
+
+AWS SDK (boto3)
+
 ```
 import boto3
 import uuid
@@ -56,6 +90,23 @@ You can also:
 - Analyze specific sessions by ID using `filterConfig.sessionIds`
 
 ## Poll for results
+
+###### Example
+
+AgentCore CLI
+List all insights jobs:
+
+```
+agentcore view insights --json
+```
+
+View detail for a specific job:
+
+```
+agentcore view insights <id> --json
+```
+
+AWS SDK (boto3)
 
 ```
 import time

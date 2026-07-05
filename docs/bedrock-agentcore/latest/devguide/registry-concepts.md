@@ -1,5 +1,9 @@
 # Concepts and terminology
 
+###### Upcoming namespace migration
+
+AWS Agent Registry is currently in public preview under the bedrock-agentcore namespace. Starting August 6, 2026, the service moves to the agent-registry namespace. If you use AWS Agent Registry, you must update your endpoints, IAM policies, SDK clients, CLI scripts, and registry data. For more information about migrating from public preview, see [Migration from public preview FAQ](registry-faq.md "registry-faq.md").
+
 ## Registry
 
 A registry is a centralized catalog that you create in your AWS account to organize and manage resources. Each registry has a name, a description, an authorization configuration that controls how consumers access the search and MCP APIs, and an approval configuration that determines whether records require manual review before becoming discoverable.
