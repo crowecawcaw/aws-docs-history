@@ -56,6 +56,12 @@ rack, including clearance.
 - Elevation – The elevation of the room where
   the rack is installed must be below 10,005 feet (3,050 meters).
 
+###### Note
+
+All compute racks in a multi-rack logical Outpost must be located within 100 meters
+of the Outpost network rack. This is a physical connectivity requirement. All racks must
+be on the same floor in the same building.
+
 ## Network rack requirements
 
 An Outposts network rack acts as a network aggregation point for one or more Outpost
