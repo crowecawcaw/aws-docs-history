@@ -12,6 +12,14 @@ identity priority order, and automatic SMS fallback, see
 on managing AWS RCS Agents, see
 [Managing RCS agents](rcs-agents.md "rcs-agents.md").
 
+###### Note
+
+This page describes sending text messages over RCS and SMS with the
+`SendTextMessage` API. To send rich RCS content, such as rich cards,
+carousels, media files, and interactive suggestions, use the `SendRcsMessage`
+API instead. For a comparison of the two API actions and guidance on which to choose,
+see [Choosing between SendTextMessage and SendRcsMessage](rcs-rich-messaging.md#rcs-rich-messaging-choosing "rcs-rich-messaging.md#rcs-rich-messaging-choosing").
+
 ###### Topics
 
 - [Sending patterns](#rcs-send-message-patterns "#rcs-send-message-patterns")

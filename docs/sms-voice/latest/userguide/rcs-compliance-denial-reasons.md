@@ -6,7 +6,7 @@ all RCS registration denial reasons and the recommended action for each.
 
 RCS registration denial reasons| Denial reason | Description | Recommended action |
 | --- | --- | --- |
-| `REQUIRES_OFFLINE_REVIEW` | This registration requires manual offline review. | Create a support case in the AWS Support Center.<br>Choose the RCS Agent assistance category and include your<br>registration ID. See<br>[Get more information through Support for registration issues](registrations-request-support.md "registrations-request-support.md"). |
+| `REQUIRES_OFFLINE_REVIEW` | This registration requires manual offline review. | Create a support case in the AWS Support Center.<br>Choose the RCS Agent assistance category and include your<br>registration ID. See<br>[Get help with registration issues through Support](registrations-request-support.md "registrations-request-support.md"). |
 | `CANNOT_UPDATE_REGISTRATION` | Certain RCS agent fields cannot be modified on an<br>existing registration. | Create a new testing registration with the corrected<br>fields. |
 | `IMAGE_URL_INACCESSIBLE` | The image URL provided is not publicly accessible. | Provide a URL that can be accessed without<br>authentication. Update the registration and resubmit. |
 | `IMAGE_FORMAT_INVALID` | The image must be in JPEG or PNG format. | Upload an image in the correct format and resubmit. |

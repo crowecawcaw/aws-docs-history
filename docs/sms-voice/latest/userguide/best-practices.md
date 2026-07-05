@@ -3,6 +3,12 @@
 For the best results for creating and sending messages, we recommend that you perform the
 following best practices.
 
+###### Note
+
+For best practices specific to RCS rich messaging, including conversational design,
+suggestion strategy, rich card and carousel design, media optimization, message expiration,
+SMS or MMS fallback, and monitoring, see [RCS best practices](rcs-best-practices.md "rcs-best-practices.md").
+
 ###### Topics
 
 - [SMS and MMS best practices](#best-practices-sms "#best-practices-sms")

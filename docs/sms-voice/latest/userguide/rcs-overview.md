@@ -78,7 +78,8 @@ RCS compared to SMS| Feature | RCS | SMS |
 | --- | --- | --- |
 | Brand identity | Verified brand name, logo, colors, and badge | Phone number or sender ID only |
 | Delivery confirmation | Device-level delivery receipts: the recipient's device reports back directly, confirming actual delivery. You are only billed for confirmed deliveries. | Carrier-level confirmation: the carrier network acknowledges receipt, but this does not guarantee the message reached the device. You are billed when the carrier accepts the message. |
-| Message content | Text messages | Text messages, MMS for media |
+| Message content | Text messages, plus rich content (rich cards, carousels, media files, and interactive suggestions), in all countries where RCS is supported. | Text messages, MMS for media |
+| Rich media and interactivity | Rich cards, carousels, image, video, audio, and PDF files, and interactive suggestions (suggested replies and actions). Available in all countries where RCS is supported, with the `SendRcsMessage` API. | MMS media only. No interactive elements. |
 | Device support | Android devices with RCS enabled, iPhone with iOS 18 or later | All mobile devices |
 | Supported countries | 22 countries including the United States, Canada, United Kingdom, Germany, France, Brazil, and more | Over 200 countries and regions |
 
@@ -121,13 +122,29 @@ AWS End User Messaging.
 
 ## Supported RCS capabilities
 
-The initial launch of RCS in AWS End User Messaging supports text-only messaging in
-22 countries. You can send and receive plain text RCS messages using the same
-`SendTextMessage` API that you use for SMS.
+RCS in AWS End User Messaging supports both text and rich, interactive messaging in all countries
+where RCS is supported. You send and receive plain text RCS messages using the same
+`SendTextMessage` API that you use for SMS. To send rich content such as
+rich cards, carousels, media files, and suggestions, use the
+`SendRcsMessage` API. For more information, see [Sending rich RCS messages](rcs-rich-messaging.md "rcs-rich-messaging.md").
+
+###### Important
+
+RCS messaging with `SendRcsMessage`, including rich cards, carousels,
+file messages, suggestions, per-message SMS or MMS fallback, and message
+expiration, works in all countries where RCS is supported.
 
 RCS in AWS End User Messaging currently supports the following:
 
 - Sending and receiving text messages through RCS
+- Sending rich content with the `SendRcsMessage` API, including rich
+  cards, carousels, and file messages (image, video, audio, and PDF), in all
+  countries where RCS is supported
+- Interactive suggestions (suggested replies and actions) on any message
+  type
+- Per-message SMS or MMS fallback and message expiration (time-to-live)
+- Receiving inbound RCS media, and message events such as delivery, read, and
+  suggestion-tap (postback) events
 - Verified brand identity (logo, name, colors, and verified badge)
 - Delivery receipts (DLRs)
 - Automatic SMS fallback with pool-based sending

@@ -57,4 +57,4 @@ In the preceding example, do the following:
 ###### Topics
 
 - [Understanding rejection reasons](understanding-rejection-reasons.md "understanding-rejection-reasons.md")
-- [Get more information on registration issues](registrations-request-support.md "registrations-request-support.md")
+- [Get help with registration issues](registrations-request-support.md "registrations-request-support.md")

@@ -51,10 +51,10 @@ The two-way RCS messaging flow works as follows:
    message payload and process it according to your application
    logic.
 
-RCS in AWS End User Messaging currently supports inbound text messages. If a customer
-sends a media message (such as an image or video) to your AWS RCS Agent, the
-message is logged with an IGNORED status. Your application does not receive
-media messages through the SNS topic.
+In addition to text messages, customers can send media (images, videos, audio files,
+and documents) to your AWS RCS Agent. When you configure inbound media storage, AWS End User Messaging
+saves the media to your Amazon S3 bucket and publishes a notification to your SNS topic
+with the file location and metadata. For more information, see [Receiving inbound RCS media](rcs-inbound-media.md "rcs-inbound-media.md").
 
 ## Configuring your two-way messaging destination
 
@@ -242,14 +242,19 @@ Inbound RCS message payload fields| Field | Description |
 
 ## Supported message types
 
-RCS in AWS End User Messaging currently supports receiving inbound text messages. When a
-customer sends a text message to your AWS RCS Agent, the message is delivered
-to your configured Amazon SNS topic for processing.
+AWS End User Messaging supports the following inbound RCS message types. When a customer sends a
+message to your AWS RCS Agent, AWS End User Messaging delivers a notification to your configured Amazon
+SNS topic for processing.
 
-If a customer sends a media message (such as an image, video, or file) to
-your AWS RCS Agent, AWS End User Messaging logs the message with an IGNORED status. Media
-messages are not delivered to your SNS topic and are not processed by your
-application. No error is returned to the sender.
+- **Text messages**. The message text is delivered
+  in the SNS notification body.
+- **Media messages** (images, videos, audio files,
+  and documents). When you configure inbound media storage, AWS End User Messaging saves the media
+  file to your Amazon S3 bucket and includes the S3 location in the SNS
+  notification. For more information, see [Receiving inbound RCS media](rcs-inbound-media.md "rcs-inbound-media.md").
+- **Location shares and suggestion responses**.
+  When a customer shares a location or chooses a suggestion, the content is delivered
+  directly in the SNS notification body.
 
 ## Keyword management for RCS
 

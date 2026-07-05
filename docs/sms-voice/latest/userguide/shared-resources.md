@@ -17,6 +17,17 @@ shared with you.
 
 ###### Important
 
+Shared resources (phone numbers, sender IDs, pools, and opt-out lists) accessed via
+AWS RAM can only be used with the AWS End User Messaging SMS API (for example, the [SendTextMessage](../../../cli/latest/reference/pinpoint-sms-voice-v2/send-text-message.md "../../../cli/latest/reference/pinpoint-sms-voice-v2/send-text-message.md") action). They are not supported with:
+
+- Amazon SNS (`Publish` API for SMS)
+- Amazon Pinpoint (`SendMessages` API)
+- The AWS End User Messaging SMS console
+  To send from a shared resource, use the AWS CLI or an with the full Amazon
+  Resource Name (ARN) of the resource in the `SendTextMessage` API call.
+
+###### Important
+
 Sharing origination identities with other AWS accounts does not grant those accounts
 permission to send messages to China. Each AWS account must be individually allowlisted
 for sending to China, regardless of whether the origination identity is owned or shared
@@ -83,7 +94,9 @@ the AWS CLI.
 
 ###### Note
 
-Shared resources can only be used through the AWS CLI or [AWS End User Messaging SMS and Voice v2 API](../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md "../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md"). To use a shared resource you must use the full Amazon Resource Name (ARN).
+Shared resources can only be used through the AWS CLI or [AWS End User Messaging SMS and Voice v2 API](../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md "../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md"). You must use the full Amazon Resource Name (ARN)
+of the shared resource. Sending via Amazon SNS, Amazon Pinpoint, or the AWS End User Messaging SMS
+console is not supported for shared resources.
 
 To view resources shared with your account you must use the AWS CLI or the [AWS RAM
 console](https://console.aws.amazon.com/ram "https://console.aws.amazon.com/ram").

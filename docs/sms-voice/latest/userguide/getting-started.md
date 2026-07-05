@@ -26,6 +26,12 @@ If you want to send OTP or verification messages without managing phone numbers,
 you can use Notify. Notify lets you send templated messages using AWS-managed origination
 identities. For more information, see [What is AWS End User Messaging Notify?](notify.md "notify.md").
 
+###### Tip
+
+To send rich, interactive messages over RCS (Rich Communication Services), including
+rich cards, carousels, media files, and interactive suggestions, set up an RCS agent and use the
+`SendRcsMessage` API action. For more information, see [Getting started with RCS](rcs-getting-started.md "rcs-getting-started.md") and [Sending rich RCS messages](rcs-rich-messaging.md "rcs-rich-messaging.md").
+
 ###### Topics
 
 - [First time user tutorial](getting-started-tutorial.md "getting-started-tutorial.md")

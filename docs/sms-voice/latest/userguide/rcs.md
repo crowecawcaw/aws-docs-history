@@ -17,6 +17,7 @@ AWS End User Messaging can automatically fall back to SMS.
 - [Testing RCS messages](rcs-testing.md "rcs-testing.md")
 - [RCS to SMS fallback using phone pools](rcs-sms-fallback.md "rcs-sms-fallback.md")
 - [Sending RCS messages](rcs-send-message.md "rcs-send-message.md")
+- [Rich RCS messages](rcs-rich-messaging.md "rcs-rich-messaging.md")
 - [Receiving inbound RCS messages](rcs-inbound.md "rcs-inbound.md")
 - [Launching RCS in countries](rcs-country-launch.md "rcs-country-launch.md")
 - [RCS CloudWatch metrics and monitoring](rcs-monitoring.md "rcs-monitoring.md")

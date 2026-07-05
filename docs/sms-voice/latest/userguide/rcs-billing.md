@@ -15,8 +15,10 @@ delivered, not for the failed RCS attempt.
 
 - [Billing overview](#rcs-billing-overview "#rcs-billing-overview")
 - [United States pricing model](#rcs-billing-us-pricing "#rcs-billing-us-pricing")
-- [Canada pricing model](#rcs-billing-ca-pricing "#rcs-billing-ca-pricing")
+- [Pricing for countries outside the United States](#rcs-billing-row-pricing "#rcs-billing-row-pricing")
+- [Conversational pricing](#rcs-billing-conversational "#rcs-billing-conversational")
 - [Registration fees](#rcs-billing-registration-fees "#rcs-billing-registration-fees")
+- [RCS message spending limits](#rcs-billing-spend-limits "#rcs-billing-spend-limits")
 - [Double-delivery billing](#rcs-billing-double-delivery "#rcs-billing-double-delivery")
 - [Content violation fees](#rcs-billing-content-violations "#rcs-billing-content-violations")
 - [Bill transparency](#rcs-billing-transparency "#rcs-billing-transparency")
@@ -68,9 +70,10 @@ For current per-segment rates, see
 [AWS End User Messaging
 Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
 
-## Canada pricing model
+## Pricing for countries outside the United States
 
-RCS messaging in Canada uses two message types:
+For all countries outside the United States (including Canada), RCS messaging
+uses two message types:
 
 **RCS Basic**
 
@@ -83,8 +86,8 @@ as multiple segments. This differs from the United States, where Rich
 RCS messages exceeding 160 characters are metered per 160-character
 segment similar to SMS.
 
-Each outbound or inbound RCS message in Canada has two cost components: a
-message transport fee and a carrier pass-through fee.
+Each outbound or inbound RCS message in these countries has two cost components:
+a message transport fee and a carrier pass-through fee.
 
 ###### Note
 
@@ -92,6 +95,57 @@ RCS messages are charged only for delivered messages. This differs from SMS,
 which charges for requested messages.
 
 For current rates, see
+[AWS End User Messaging
+Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
+
+## Conversational pricing
+
+For supported countries outside the United States, you can register an RCS agent to
+use **conversational pricing**. With conversational
+pricing, AWS End User Messaging charges a single session fee for all messages exchanged with a recipient
+during a 24-hour conversation session, instead of charging for each message
+individually. Conversational pricing is not available in the United States.
+
+You choose the billing model when you register your RCS agent. Set the agent's billing
+category to conversational or non-conversational in the console, or set the
+`billingCategory` parameter to `CONVERSATIONAL` or
+`NON_CONVERSATIONAL` when you register the agent with the API. This setting
+applies to all traffic from that agent.
+
+**Conversation session**
+
+A fixed 24-hour window that begins when a conversation starts between your
+agent and a recipient. A single session fee covers all outbound and inbound
+messages exchanged during the window. The window does not extend when you
+send more messages. After it expires, the next interaction starts a new
+session.
+
+**How a conversation starts**
+
+A conversation starts in one of two ways. When your agent sends the first
+message and the recipient replies within 24 hours, the conversation is
+business-initiated. When the recipient sends the first message and your
+agent responds, the conversation is user-initiated.
+
+At send time, AWS End User Messaging cannot determine whether a message will become part of a
+conversation, so billing for messages from a conversational agent works as
+follows:
+
+- If a conversation starts within 24 hours of the message, the session fee
+  covers the message and AWS End User Messaging does not charge for it individually.
+- If no conversation starts within 24 hours, AWS End User Messaging charges for the message
+  individually after the 24-hour period ends.
+- After a conversation session ends, this per-message behavior resumes until a
+  new conversation starts.
+
+When a message is part of an active conversation session, its delivery event reports
+a `totalMessagePrice` and `totalCarrierFee` of `0.0`
+and includes a `conversationSessionFee` field with the one-time session fee.
+AWS End User Messaging also sends a `CONVERSATION_STARTED` event when a session begins. For
+details on these events and fields, see [RCS message events](rcs-events.md "rcs-events.md").
+
+Conversational pricing is available in a specific set of countries outside the United
+States. For the list of supported countries and current session fees, see
 [AWS End User Messaging
 Pricing](https://aws.amazon.com//end-user-messaging/pricing/ "https://aws.amazon.com//end-user-messaging/pricing/").
 
@@ -132,6 +186,39 @@ provider and are not eligible for AWS volume discounts.
 Registration fees appear as separate line items on your AWS bill. For
 details on how charges are categorized, review your AWS Cost and Usage
 Report.
+
+## RCS message spending limits
+
+AWS End User Messaging applies a monthly spending limit to RCS messaging, separate from your SMS,
+MMS, and voice spending limits. This limit caps the amount, in US dollars, that you
+can spend sending RCS messages each month.
+
+**Maximum limit**
+
+The maximum monthly RCS spend that AWS allows for your account. To
+raise it, request a spending limit increase. For more information, see
+[Requesting an RCS spending limit increase](#rcs-billing-spend-limit-increase "#rcs-billing-spend-limit-increase").
+
+**Spend limit override**
+
+An optional limit that you set at or below the maximum limit to control
+your own RCS spending. Use the `SetRcsMessageSpendLimitOverride`
+operation to set the monthly override, and
+`DeleteRcsMessageSpendLimitOverride` to remove it. Removing the
+override resets your enforced limit to the maximum limit. When you reach
+the enforced limit, AWS End User Messaging stops sending RCS messages until you raise the
+override or the next month begins.
+
+You can adjust the override up or down at any time without contacting Support, as
+long as it stays at or below your maximum limit. To set billing alarms for your
+spending, see [Monitoring SMS, MMS, and voice spending activity with AWS End User Messaging SMS](monitor-spending.md "monitor-spending.md").
+
+### Requesting an RCS spending limit increase
+
+To raise your maximum monthly RCS spending limit, request a spending limit
+increase as described in [Quotas for AWS End User Messaging SMS](quotas.md "quotas.md").
+Requests above the amount that can be approved automatically are routed to
+AWS Support for review.
 
 ## Double-delivery billing
 

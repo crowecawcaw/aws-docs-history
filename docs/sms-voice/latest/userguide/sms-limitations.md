@@ -1,4 +1,4 @@
-# SMS and MMS limits and restrictions
+# Messaging limits and restrictions
 
 The SMS protocol is subject to several limitations and restrictions. For example, there are
 technical limitations that limit the length of each SMS message and MMS has limitations on the
@@ -13,6 +13,7 @@ and restrictions. As a best practice, you should also implement the techniques d
 
 - [SMS character limits](sms-limitations-character.md "sms-limitations-character.md")
 - [MMS file types, size and character limits](mms-limitations-character.md "mms-limitations-character.md")
+- [RCS limits and restrictions](sms-limitations-rcs.md "sms-limitations-rcs.md")
 - [Message Parts per Second (MPS)
   limits](sms-limitations-mps.md "sms-limitations-mps.md")
 - [Message routes](#channels-sms-limitations-routes "#channels-sms-limitations-routes")

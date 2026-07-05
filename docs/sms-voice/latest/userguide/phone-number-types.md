@@ -31,6 +31,7 @@ SMS and/or voice capabilities, a two-way number, and estimate monthly messages.
 - [10 digit long code (10DLC)](#phone-number-types-10dlc "#phone-number-types-10dlc")
 - [Short codes](#phone-number-types-short-code "#phone-number-types-short-code")
 - [Toll-free number (TFN)](#phone-number-types-tfn "#phone-number-types-tfn")
+- [AWS RCS Agent](#phone-number-types-rcs-agent "#phone-number-types-rcs-agent")
 - [General considerations for choosing an origination identity](#phone-number-types-choosing-general "#phone-number-types-choosing-general")
 - [Choosing an origination identity
   for one-way messaging use cases](#phone-number-types-choosing-oneway "#phone-number-types-choosing-oneway")
@@ -164,11 +165,32 @@ Toll-free numbers are typically used for transactional messaging, such as regist
 confirmation or for sending one-time passwords and only used within the US. They can be
 used for voice, SMS and MMS messaging. Average throughput is three message parts per
 second (MPS); however, this throughput is affected by character encoding. For more
-information about how character encoding affects message parts, see [SMS and MMS limits and restrictions](sms-limitations.md "sms-limitations.md").
+information about how character encoding affects message parts, see [Messaging limits and restrictions](sms-limitations.md "sms-limitations.md").
 
 US mobile carriers require that you register your toll-free number before live
 messaging will be enabled, see [Registrations](registrations.md "registrations.md"). When using or registering a toll-free number, it's
 best to follow the guidelines in the Best Practices section for [Prohibited message content](best-practices.md#best-practices-sms-message-content "best-practices.md#best-practices-sms-message-content").
+
+## AWS RCS Agent
+
+An AWS RCS Agent is the origination identity that you use to send RCS (Rich
+Communication Services) messages. An RCS agent represents your brand in the recipient's
+messaging app, including your brand name, logo, and color. To send RCS messages, your
+agent must be registered and in the _Active_ state. For information
+about creating and managing agents, see [Getting started with RCS](rcs-getting-started.md "rcs-getting-started.md").
+
+You can use an RCS agent as the origination identity in two ways:
+
+- Specify the agent directly to send rich RCS content (text, files, rich cards,
+  carousels, and suggestions) with the `SendRcsMessage` API action. For
+  more information, see [Sending rich RCS messages](rcs-rich-messaging.md "rcs-rich-messaging.md").
+- Add the agent to a phone pool that also contains an SMS-capable identity. When
+  you send with `SendTextMessage`, the pool delivers over RCS to
+  capable devices and falls back to SMS automatically. For more information, see
+  [RCS to SMS fallback using phone pools](rcs-sms-fallback.md "rcs-sms-fallback.md").
+
+You can use RCS messaging with `SendRcsMessage` in all countries where
+RCS is supported. For more information, see [What is RCS?](rcs-overview.md "rcs-overview.md").
 
 ## General considerations for choosing an origination identity
 
