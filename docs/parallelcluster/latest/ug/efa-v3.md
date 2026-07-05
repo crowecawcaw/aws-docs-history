@@ -29,9 +29,19 @@ ptrace protection](../../../AWSEC2/latest/UserGuide/efa-start.md#efa-start-ptrac
 Starting in AWS ParallelCluster 3.15.0, when EFA is enabled, AWS ParallelCluster automatically configures EFA-only
 network interfaces to separate EFA traffic from IP traffic. This maximizes EFA bandwidth while minimizing IP address
 consumption. AWS ParallelCluster determines the optimal configuration based on the capabilities of the instance type.
+Therefore, EFA-enabled compute nodes are launched with more than one network interface, even when they use a
+single-network-card instance type, provided that instance type supports more than one network interface.
 
 This default configuration is recommended for most workloads, including tightly-coupled HPC and distributed
 AI/ML training.
+
+###### Note
+
+Amazon EC2 does not auto-assign a public IP address to an instance launched with more than one network interface.
+EFA-enabled compute nodes launch with multiple network interfaces. These compute nodes fail to bootstrap if they
+rely on an auto-assigned public IP for internet access (a public subnet with no NAT gateway). Place these compute
+nodes in a private subnet with a [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") and set [AssignPublicIp](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-AssignPublicIp "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-Networking-AssignPublicIp") to
+`false`. This requirement previously applied only to instance types with multiple network cards.
 
 ## Customizing EFA network interfaces
 

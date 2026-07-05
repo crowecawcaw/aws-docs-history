@@ -1030,6 +1030,19 @@ public access to the cluster compute nodes. In this case, set
 addresses, see [Assign a public IPv4 address during instance launch](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#public-ip-addresses "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#public-ip-addresses") in the
 _Amazon EC2 User Guide for Linux Instances_.
 
+###### Note
+
+Starting with AWS ParallelCluster version 3.15.0, this requirement also applies
+when you enable [Efa](#yaml-Scheduling-SlurmQueues-ComputeResources-Efa "#yaml-Scheduling-SlurmQueues-ComputeResources-Efa") on a
+single-network-card instance type that supports more than one network interface.
+AWS ParallelCluster launches these compute nodes with two network interfaces (a
+primary interface plus a dedicated `efa-only` interface), so Amazon EC2
+does not auto-assign a public IP to them. For these queues, set
+`AssignPublicIp` to `false` and use a [NAT
+gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") (or place the compute nodes in a private subnet) to provide
+public access. For more information, see [Elastic Fabric
+Adapter](efa-v3.md "efa-v3.md").
+
 [Update policy: If this setting is
 changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3 "using-pcluster-update-cluster-v3.md#update-policy-fail-v3")
 
@@ -1319,6 +1332,13 @@ only be assigned to instances that are launched with a single network interface.
 For more information, see [Assign a public IPv4 address during instance launch](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#public-ip-addresses "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#public-ip-addresses") in the
 _Amazon EC2 User Guide for Linux Instances_.
 
+###### Note
+
+Starting with AWS ParallelCluster version 3.15.0, this requirement also applies
+when you enable [Efa](#yaml-Scheduling-SlurmQueues-ComputeResources-Efa "#yaml-Scheduling-SlurmQueues-ComputeResources-Efa") on a
+single-network-card instance type that supports more than one network interface.
+For more information, see [Elastic Fabric Adapter](efa-v3.md "efa-v3.md").
+
 [Update policy: The compute
 fleet must be stopped for this setting to be changed for an update.](using-pcluster-update-cluster-v3.md#update-policy-compute-fleet-v3 "using-pcluster-update-cluster-v3.md#update-policy-compute-fleet-v3")
 
@@ -1399,6 +1419,14 @@ subnet as described in [AWS ParallelCluster using two subnets](network-configura
 can only be assigned to instances launched with a single network interface.
 For more information, see [Assign a public IPv4 address during instance launch](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#public-ip-addresses "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#public-ip-addresses") in the
 _Amazon EC2 User Guide for Linux Instances_.
+
+###### Note
+
+Starting with AWS ParallelCluster version 3.15.0, this requirement also
+applies when you enable [Efa](#yaml-Scheduling-SlurmQueues-ComputeResources-Efa "#yaml-Scheduling-SlurmQueues-ComputeResources-Efa") on a
+single-network-card instance type that supports more than one network
+interface. For more information, see [Elastic Fabric
+Adapter](efa-v3.md "efa-v3.md").
 
 [Update policy: The compute
 fleet must be stopped for this setting to be changed for an update.](using-pcluster-update-cluster-v3.md#update-policy-compute-fleet-v3 "using-pcluster-update-cluster-v3.md#update-policy-compute-fleet-v3")

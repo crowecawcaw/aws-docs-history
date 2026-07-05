@@ -25,6 +25,13 @@ to get internet access. To achieve this, do the following:
   single network interface. For more information on IP addresses, see [Assign
   a public IPv4 address during instance launch](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#public-ip-addresses "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#public-ip-addresses") in the _Amazon EC2 User Guide
   for Linux Instances_.
+- Starting with AWS ParallelCluster version 3.15.0, this requirement also applies when you
+  enable [Efa](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa") on a
+  single-network-card instance type that supports more than one network interface.
+  AWS ParallelCluster launches these compute nodes with multiple network interfaces, and
+  AWS public IPs can only be assigned to instances launched with a single network
+  interface. Use a private subnet with a [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") for these compute
+  nodes instead, as described in [AWS ParallelCluster using two subnets](network-configuration-v3-two-subnets.md "network-configuration-v3-two-subnets.md").
   For more information, see [Enabling
   internet access](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#vpc-igw-internet-access "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#vpc-igw-internet-access") in _Amazon VPC User Guide_.
 
