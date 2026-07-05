@@ -15,6 +15,7 @@ You can use AWS WAF to create the following associations between protection pack
   - AWS AppSync GraphQL API
   - Amazon Cognito user pool
   - AWS App Runner service
+  - Amazon Bedrock AgentCore Gateway
   - AWS Verified Access instance
   - AWS Amplify
 

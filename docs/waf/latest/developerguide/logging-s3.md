@@ -321,8 +321,8 @@ include the `Condition` parameters shown with the
 `s3:GetBucketAcl` permission set in the preceding bucket
 policy. To make this simpler, instead of creating a new
 `Statement`, you can directly update the
-`AWSLogDeliveryAclCheck` to be `“Action”:
- [“s3:GetBucketAcl”, “s3:ListBucket”]`.
+`AWSLogDeliveryAclCheck` to be `"Action":
+ ["s3:GetBucketAcl", "s3:ListBucket"]`.
 
 ## Permissions for using AWS Key Management Service with a KMS key
 

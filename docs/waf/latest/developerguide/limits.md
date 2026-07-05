@@ -16,24 +16,25 @@ these quotas individually. The quotas are not cumulative across Regions.
 AWS WAF has default quotas on the maximum number of entities you can have per account. You
 can [request an increase](https://console.aws.amazon.com/servicequotas/home/services/wafv2/quotas "https://console.aws.amazon.com/servicequotas/home/services/wafv2/quotas") in these quotas.
 
-| Resource                                                                                  | Default quota per account per Region |
-| ----------------------------------------------------------------------------------------- | ------------------------------------ |
-| Maximum number of protection packs (web ACLs)                                             | 100                                  |
-| Maximum number of rule groups                                                             | 100                                  |
-| Maximum number of IP sets                                                                 | 100                                  |
-| Maximum number of requests per second per protection pack (web ACL)                       | 100,000                              |
-| Maximum number of custom request headers per protection pack (web ACL) or rule group      | 100                                  |
-| Maximum number of custom response headers per protection pack (web ACL) or rule group     | 100                                  |
-| Maximum number of custom response bodies per protection pack (web ACL) or rule group      | 50                                   |
-| Maximum number of token domains in a protection pack (web ACL) token domain list          | 10                                   |
-| Maximum number of regex pattern sets                                                      | 10                                   |
-| Maximum number of Application Load Balancer associations per protection pack (web ACL)    | 100                                  |
-| Maximum number of Amazon API Gateway REST API associations per protection pack (web ACL)  | 100                                  |
-| Maximum number of Amazon Cognito user pool associations per protection pack (web ACL)     | 100                                  |
-| Maximum number of AWS AppSync GraphQL API associations per protection pack (web ACL)      | 100                                  |
-| Maximum number of AWS App Runner service associations per protection pack (web ACL)       | 100                                  |
-| Maximum number of AWS Verified Access instance associations per protection pack (web ACL) | 100                                  |
-| Maximum number of AWS Amplify associations per protection pack (web ACL)                  | 100                                  |
+| Resource                                                                                      | Default quota per account per Region |
+| --------------------------------------------------------------------------------------------- | ------------------------------------ |
+| Maximum number of protection packs (web ACLs)                                                 | 100                                  |
+| Maximum number of rule groups                                                                 | 100                                  |
+| Maximum number of IP sets                                                                     | 100                                  |
+| Maximum number of requests per second per protection pack (web ACL)                           | 100,000                              |
+| Maximum number of custom request headers per protection pack (web ACL) or rule group          | 100                                  |
+| Maximum number of custom response headers per protection pack (web ACL) or rule group         | 100                                  |
+| Maximum number of custom response bodies per protection pack (web ACL) or rule group          | 50                                   |
+| Maximum number of token domains in a protection pack (web ACL) token domain list              | 10                                   |
+| Maximum number of regex pattern sets                                                          | 10                                   |
+| Maximum number of Application Load Balancer associations per protection pack (web ACL)        | 100                                  |
+| Maximum number of Amazon API Gateway REST API associations per protection pack (web ACL)      | 100                                  |
+| Maximum number of Amazon Cognito user pool associations per protection pack (web ACL)         | 100                                  |
+| Maximum number of AWS AppSync GraphQL API associations per protection pack (web ACL)          | 100                                  |
+| Maximum number of AWS App Runner service associations per protection pack (web ACL)           | 100                                  |
+| Maximum number of AWS Verified Access instance associations per protection pack (web ACL)     | 100                                  |
+| Maximum number of AWS Amplify associations per protection pack (web ACL)                      | 100                                  |
+| Maximum number of Amazon Bedrock AgentCore Gateway associations per protection pack (web ACL) | 100                                  |
 
 The maximum requests per second (RPS) allowed for AWS WAF on CloudFront is set by CloudFront and
 described in the [CloudFront Developer Guide](../../../AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.md "../../../AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.md").
@@ -56,6 +57,7 @@ quotas can't be changed.
 | Maximum number of characters in each regex pattern                                                                                                                                         | 200                          |
 | Maximum number of unique regex patterns per regex pattern set                                                                                                                              | 10                           |
 | Maximum size of a web request body that can be inspected for Application Load Balancer and AWS AppSync protections                                                                         | 8 KB                         |
+| Maximum size of a web request body that can be inspected for Amazon Bedrock AgentCore Gateway protections                                                                                  | 16 KB                        |
 | Maximum size of a web request body that can be inspected for CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access<br>protections\*\*                                   | 64 KB                        |
 | Maximum number of text transformations per rule statement                                                                                                                                  | 10                           |
 | Maximum size of the custom response body content for a single custom response<br>definition                                                                                                | 4 KB                         |

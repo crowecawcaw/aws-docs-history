@@ -11,6 +11,7 @@ only forwards the contents that are within the limit to AWS WAF for inspection.
 
 - For Application Load Balancer and AWS AppSync, the limit is fixed at
   8 KB (8,192 bytes).
+- For Amazon Bedrock AgentCore Gateway, the limit is fixed at 16 KB.
 - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is
   16 KB (16,384 bytes), and you can increase the limit for
   any of the resource types by increments of 16 KB, up to 64 KB. The setting

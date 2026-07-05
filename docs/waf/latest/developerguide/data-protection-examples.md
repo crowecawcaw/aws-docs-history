@@ -118,7 +118,7 @@ Webacl Config
            }
 ```
 
-Example DataProtection substitution: Log entry with Single Query Argument “hoppy” protected
+Example DataProtection substitution: Log entry with Single Query Argument "hoppy" protected
 
 ```
 {
@@ -197,7 +197,7 @@ Webacl config
            }
 ```
 
-Example of retaining data in RuleMatchDetails: Log entry with single `Header` “hoppy” protected but the value is retained only in `RuleMatchDetails`.
+Example of retaining data in RuleMatchDetails: Log entry with single `Header` "hoppy" protected but the value is retained only in `RuleMatchDetails`.
 
 ```
 {
@@ -290,7 +290,7 @@ Example of retaining data in RuleMatchDetails: Log entry with single `Header` �
            }
 ```
 
-Example Retaining data in rateBasedRuleList: Log entry with the Single `Header` “hoppy” protected but the value is retained only in `rateBasedRuleList`
+Example Retaining data in rateBasedRuleList: Log entry with the Single `Header` "hoppy" protected but the value is retained only in `rateBasedRuleList`
 
 ```
 {

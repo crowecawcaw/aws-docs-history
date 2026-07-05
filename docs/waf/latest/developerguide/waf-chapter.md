@@ -15,6 +15,7 @@ resource types:
 - AWS AppSync GraphQL API
 - Amazon Cognito user pool
 - AWS App Runner service
+- Amazon Bedrock AgentCore Gateway
 - AWS Verified Access instance
 - AWS Amplify
   AWS WAF lets you control access to your content. Based on criteria that you specify,

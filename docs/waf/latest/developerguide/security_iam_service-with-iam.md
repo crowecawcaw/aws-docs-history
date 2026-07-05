@@ -347,6 +347,33 @@ ACL.
 }
 ```
 
+###### Amazon Bedrock AgentCore Gateway
+
+Requires permission to call the `bedrock-agentcore:GatewayAssociateWebACL` action on the Bedrock AgentCore Gateway resource type and to call AWS WAF `AssociateWebACL` for a web ACL.
+
+```
+{
+  "Sid": "AssociateWebACL1",
+  "Effect": "Allow",
+  "Action": [
+    "wafv2:AssociateWebACL"
+  ],
+  "Resource": [
+    "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+  ]
+},
+{
+  "Sid": "AssociateWebACL2",
+  "Effect": "Allow",
+  "Action": [
+    "bedrock-agentcore:GatewayAssociateWebACL"
+  ],
+  "Resource": [
+    "arn:aws:bedrock-agentcore:*:`account-id`:gateway/*"
+  ]
+}
+```
+
 ###### AWS Verified Access instance
 
 Requires permission to call the
@@ -542,6 +569,31 @@ the App Runner service resource type and to call AWS WAF `DisassociateWebACL`.
     "Resource": [
         "arn:aws:apprunner:*:`account-id`:service/*/*"
     ]
+}
+```
+
+###### Amazon Bedrock AgentCore Gateway
+
+Requires permission to call the `bedrock-agentcore:GatewayDisassociateWebACL` action on the Bedrock AgentCore Gateway resource type and to call AWS WAF `DisassociateWebACL`.
+
+```
+{
+  "Sid": "DisassociateWebACL",
+  "Effect": "Allow",
+  "Action": [
+    "wafv2:DisassociateWebACL"
+  ],
+  "Resource": "*"
+},
+{
+  "Sid": "DisassociateWebACL2",
+  "Effect": "Allow",
+  "Action": [
+    "bedrock-agentcore:GatewayDisassociateWebACL"
+  ],
+  "Resource": [
+    "arn:aws:bedrock-agentcore:*:`account-id`:gateway/*"
+  ]
 }
 ```
 
@@ -774,6 +826,34 @@ action on the App Runner service resource type and to call AWS WAF
 }
 ```
 
+###### Amazon Bedrock AgentCore Gateway
+
+Requires permission to call the `bedrock-agentcore:GatewayGetWebACLForResource` action on the Bedrock AgentCore Gateway resource type and to call AWS WAF `GetWebACLForResource` and `GetWebACL` for a web ACL.
+
+```
+{
+  "Sid": "GetWebACLForResource1",
+  "Effect": "Allow",
+  "Action": [
+    "wafv2:GetWebACLForResource",
+    "wafv2:GetWebACL"
+  ],
+  "Resource": [
+    "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+  ]
+},
+{
+  "Sid": "GetWebACLForResource2",
+  "Effect": "Allow",
+  "Action": [
+    "bedrock-agentcore:GatewayGetWebACLForResource"
+  ],
+  "Resource": [
+    "arn:aws:bedrock-agentcore:*:`account-id`:gateway/*"
+  ]
+}
+```
+
 ###### AWS Verified Access instance
 
 Requires permission to call the
@@ -989,6 +1069,31 @@ resource type and to call AWS WAF `ListResourcesForWebACL`.
 }
 ```
 
+###### Amazon Bedrock AgentCore Gateway
+
+Requires permission to call the `bedrock-agentcore:GatewayListResourcesForWebACL` action and to call AWS WAF `ListResourcesForWebACL` for a web ACL.
+
+```
+{
+  "Sid": "ListResourcesForWebACL",
+  "Effect": "Allow",
+  "Action": [
+    "wafv2:ListResourcesForWebACL"
+  ],
+  "Resource": [
+    "arn:aws:wafv2:`region`:`account-id`:regional/webacl/*/*"
+  ]
+},
+{
+  "Sid": "ListResourcesForWebACL2",
+  "Effect": "Allow",
+  "Action": [
+    "bedrock-agentcore:GatewayListResourcesForWebACL"
+  ],
+  "Resource": "*"
+}
+```
+
 ###### AWS Verified Access instance
 
 Requires permission to call the
@@ -1058,7 +1163,7 @@ resources:
 - `scope`: Set the scope to `global` for use
   with an Amazon CloudFront distribution or `regional` for use with any of the
   regional resources that AWS WAF supports. The regional resources are
-  an Amazon API Gateway REST API, an Application Load Balancer, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, and an AWS Verified Access instance.
+  an Amazon API Gateway REST API, an Application Load Balancer, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, an Amazon Bedrock AgentCore Gateway, and an AWS Verified Access instance.
 - `resource-type`: Specify one of the following values:
   `webacl`, `rulegroup`, `ipset`,
   `regexpatternset`, or `managedruleset`.

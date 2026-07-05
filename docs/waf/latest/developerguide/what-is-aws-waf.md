@@ -32,6 +32,7 @@ resource types:
 - AWS AppSync GraphQL API
 - Amazon Cognito user pool
 - AWS App Runner service
+- Amazon Bedrock AgentCore Gateway
 - AWS Verified Access instance
 - AWS Amplify
 
@@ -43,7 +44,7 @@ status code (Forbidden), or with a custom response.
 At the simplest level, AWS WAF lets you choose one of the following behaviors:
 
 - **Allow all requests except the ones that you
-  specify** – This is useful when you want Amazon CloudFront, Amazon API Gateway, Application Load Balancer, AWS AppSync, Amazon Cognito, AWS App Runner, or AWS Verified Access to
+  specify** – This is useful when you want Amazon CloudFront, Amazon API Gateway, Application Load Balancer, AWS AppSync, Amazon Cognito, AWS App Runner, Amazon Bedrock AgentCore Gateway, or AWS Verified Access to
   serve content for a public website, but you also want to block requests from
   attackers.
 - **Block all requests except the ones that you

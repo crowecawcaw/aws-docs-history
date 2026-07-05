@@ -59,6 +59,10 @@ primary security groups:
   group policy. By default, the number of security groups allowed in a policy
   is one, but you can submit a request to increase it. For information, see
   [AWS Firewall Manager quotas](fms-limits.md "fms-limits.md").
+- Primary security groups must contain at least one ingress or egress
+  rule. If you remove all rules from a primary security group, Firewall Manager
+  continues to manage replica security groups based on the last version of
+  the primary security groups that had rules.
 
 ###### Policy rules settings
 

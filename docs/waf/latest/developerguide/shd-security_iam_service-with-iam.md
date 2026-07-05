@@ -179,7 +179,7 @@ resources:
 - `scope`: Set the scope to `global` for use
   with an Amazon CloudFront distribution or `regional` for use with any of the
   regional resources that AWS WAF supports. The regional resources are
-  an Amazon API Gateway REST API, an Application Load Balancer, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, and an AWS Verified Access instance.
+  an Amazon API Gateway REST API, an Application Load Balancer, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, an Amazon Bedrock AgentCore Gateway, and an AWS Verified Access instance.
 - `resource-type`: Specify one of the following values:
   `attack` for events or attacks, `protection` for protections.
 - `resource-name`: Specify the name that you gave the

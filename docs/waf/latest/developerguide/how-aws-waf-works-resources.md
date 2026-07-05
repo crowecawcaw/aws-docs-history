@@ -37,6 +37,7 @@ You can use AWS WAF to protect the following regional resource types:
 - AWS AppSync GraphQL API
 - Amazon Cognito user pool
 - AWS App Runner service
+- Amazon Bedrock AgentCore Gateway
 - AWS Verified Access instance
 - AWS Amplify
   You can only associate a protection pack (web ACL) to an Application Load Balancer that's within AWS Regions. For example, you

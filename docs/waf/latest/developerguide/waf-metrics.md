@@ -78,7 +78,7 @@ AWS WAF core dimensions| Dimension | Description |
 | `Resource` | The Amazon Resource Name (ARN) of the protected resource.<br>This dimension does not include App Runner resource<br>ARNs. |
 | `Country` | The country of origin of the request. This is the<br>two-character designation from the International<br>Organization for Standardization (ISO) 3166 standard. For<br>example, US for the United States and UA for Ukraine.<br>If a request has an `X-Forwarded-For` header,<br>AWS WAF uses that to determine this setting. Otherwise, AWS WAF<br>uses the country of the client IP. This determination is<br>independent of any logic you use in your rules to determine<br>country of origin. AWS WAF determines the locations of the IPs<br>using MaxMind GeoIP databases. |
 | `Attack` | The type of attack that AWS WAF identified in the request,<br>based on the rules and rule groups that you use in your web<br>ACL.<br>Your rules and the rules in the baseline AWS managed<br>rule groups can identify attack types. For example,<br>cross-site scripting (XSS) rule matches identify XSS attack<br>types, and rate-based rules identify volumetric attack<br>types. The attack type usually indicates the type of rule<br>that terminated the web request evaluation. |
-| `Device` | The device type of the client that sent the request,<br>obtained from the web request’s `user-agent`<br>header. |
+| `Device` | The device type of the client that sent the request,<br>obtained from the web request's `user-agent`<br>header. |
 | `LoadBalancerArn` | The Amazon Resource Name (ARN) of the load balancer. |
 | `LoadBalancerArnAvailabilityZone` | The combination of the load balancer ARN and the Availability Zone. |
 | `ManagedRuleGroup` | The metric name of the `ManagedRuleGroup`. |
