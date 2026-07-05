@@ -130,7 +130,7 @@ This corresponds to the ethernet adapters, or interfaces attached to ENIs, that 
 
 **Format:** String Array
 
-- Values: ethernet adapter names (can find them by running `ifconfig`)
+- Values: ethernet adapter names (can find them by running `ip link show`)
 
 Example:
 

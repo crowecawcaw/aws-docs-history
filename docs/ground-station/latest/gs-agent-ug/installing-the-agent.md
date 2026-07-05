@@ -45,7 +45,14 @@ You should have an application (e.g. SDR) receiving the data over a UDP socket a
 
 ### Step 2: Create EC2 instance
 
-The following AMIs are supported:
+The following AMIs are supported. Choose an AMI that matches the operating system you intend to run; the AWS Ground Station Agent AMIs come with the agent pre-installed (recommended).
+
+###### Amazon Linux 2023 (recommended)
+
+1. AWS Ground Station AMI - `groundstation-al2023-gs-agent-ami-*` where \* is the date the AMI was built - comes with agent installed (recommended).
+2. A stock Amazon Linux 2023 AMI - `al2023-ami-*-x86_64`.
+
+###### Amazon Linux 2
 
 1. AWS Ground Station AMI - `groundstation-al2-gs-agent-ami-*` where \* is the date the AMI was built - comes with agent installed (recommended).
 2. `amzn2-ami-kernel-5.10-hvm-x86_64-gp2`.
@@ -58,13 +65,30 @@ Steps in this section must be completed if you did **not** choose the AWS Ground
 
 #### Download agent
 
-The AWS Ground Station Agent is available from region specific S3 buckets and can be downloaded onto supported EC2 instances using the AWS command line (CLI). We recommend always downloading from the `latest` path to ensure you are running the most current version of the agent. The download path is `s3://groundstation-wb-digif-software-${AWS::Region}/aws-groundstation-agent/latest/amazon_linux_2_x86_64/aws-groundstation-agent.rpm` where ${AWS::Region} refers to one of the supported [AWS Ground Station Console and Data Delivery Regions](../ug/aws-ground-station-antenna-locations.md "../ug/aws-ground-station-antenna-locations.md").
+The AWS Ground Station Agent is available from region specific S3 buckets and can be downloaded onto supported EC2 instances using the AWS command line (CLI). We recommend always downloading from the `latest` path to ensure you are running the most current version of the agent. The download path is `s3://groundstation-wb-digif-software-${AWS::Region}/aws-groundstation-agent/latest/${OS_PATH}/aws-groundstation-agent.rpm`, where `${AWS::Region}` is one of the supported [AWS Ground Station Console and Data Delivery Regions](../ug/aws-ground-station-antenna-locations.md "../ug/aws-ground-station-antenna-locations.md").
+
+The RPM is operating-system specific. Set `${OS_PATH}` to the value that matches the operating system your instance is running:
+
+- Amazon Linux 2023: `amazon_linux_2023_x86_64`
+- Amazon Linux 2: `amazon_linux_2_x86_64`
+
+If you are unsure which operating system your instance is running, run `cat /etc/os-release`. Installing the RPM built for the wrong operating system will fail because the two builds are not binary-compatible.
 
 ###### Note
 
 Always use the `latest` path rather than hard-coding a specific version number in your download scripts. Using the `latest` path ensures your instances automatically receive security patches and bug fixes when they are provisioned.
 
 Example: Download the latest rpm version from AWS region us-east-2 locally to the /tmp folder.
+
+Amazon Linux 2023:
+
+```
+
+aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/latest/amazon_linux_2023_x86_64/aws-groundstation-agent.rpm /tmp
+
+```
+
+Amazon Linux 2:
 
 ```
 
@@ -74,11 +98,21 @@ aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-
 
 If you need to download a specific version of the AWS Ground Station Agent for troubleshooting or rollback purposes, you can download it from the version specific folder in the S3 bucket. This is not recommended for normal operations.
 
-Example: Download version 1.0.2716.0 of the rpm from AWS region us-east-2 locally to the /tmp folder.
+Example: Download version 1.0.5953.0 of the rpm from AWS region us-east-2 locally to the /tmp folder.
+
+Amazon Linux 2023:
 
 ```
 
-aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/1.0.2716.0/amazon_linux_2_x86_64/aws-groundstation-agent.rpm /tmp
+aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/1.0.5953.0/amazon_linux_2023_x86_64/aws-groundstation-agent.rpm /tmp
+
+```
+
+Amazon Linux 2:
+
+```
+
+aws s3 --region us-east-2 cp s3://groundstation-wb-digif-software-us-east-2/aws-groundstation-agent/1.0.5953.0/amazon_linux_2_x86_64/aws-groundstation-agent.rpm /tmp
 
 ```
 

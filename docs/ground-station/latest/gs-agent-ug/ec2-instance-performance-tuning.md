@@ -12,13 +12,26 @@ Remember to reboot your instance after applying any tuning(s).
 - [Tune hardware interrupts and receive queues - impacts CPU and network](#tune-hardware-interrupts "#tune-hardware-interrupts")
 - [Tune Rx interrupt coalescing - impacts network](#tune-rx-interrupts "#tune-rx-interrupts")
 - [Tune Rx ring buffer - impacts network](#tune-rx-ring-buffer "#tune-rx-ring-buffer")
-- [Tune CPU C-State - impacts CPU](#tune-cpu-c-state "#tune-cpu-c-state")
+- [Set kernel boot parameters (CPU C-State and interface naming) - impacts CPU and network](#tune-cpu-c-state "#tune-cpu-c-state")
 - [Reserve ingress ports - impacts network](#reserve-ingress-ports "#reserve-ingress-ports")
 - [Reboot](#reboot "#reboot")
 
 ## Tune hardware interrupts and receive queues - impacts CPU and network
 
 This section configures CPU core usage of systemd, SMP IRQs, Receive Packet Steering (RPS) and Receive Flow Steering (RFS). See [Appendix: Recommended parameters for interrupt/RPS tune](#recommended-parameters "#recommended-parameters") for a set of recommended settings based on the instance type you are using.
+
+###### Important
+
+**Amazon Linux 2023 only:** Install and enable the cron daemon before continuing.
+
+```
+
+sudo dnf install -y cronie
+sudo systemctl enable --now crond
+
+```
+
+This section and the two that follow it add `@reboot` crontab entries, which require a running cron daemon to take effect on each boot. On Amazon Linux 2023, the cron daemon is **not** installed by default, so without the commands above these entries are written but never run. On Amazon Linux 2, the cron daemon is already installed and enabled; no action is needed.
 
 1. Pin systemd processes away from agent CPU cores.
 2. Route hardware interrupt requests away from agent CPU cores.
@@ -80,17 +93,21 @@ echo "@reboot sudo ethtool -G ${interface} rx 16384 >>/var/log/user-data.log 2>&
 - If setting up a `c6i` family instance, command needs to be modified to set the ring buffer to `8192`,
   instead of `16384`.
 
-## Tune CPU C-State - impacts CPU
+## Set kernel boot parameters (CPU C-State and interface naming) - impacts CPU and network
 
-Set the CPU C-state to prevent idling which can cause lost packets during the start of a contact. Requires instance reboot.
+These kernel boot parameters prevent CPU idling by setting `intel_idle.max_cstate=1 processor.max_cstate=1 max_cstate=1`. CPU idling can cause lost packets at the start of a contact. The parameters also include `net.ifnames=0 biosdevname=0`, which rename the receiver's network interface to `eth0`. Like the other tuning steps in this chapter, these parameters take effect at the reboot described in [Reboot](#reboot "#reboot"). You can apply them in any order relative to the other sections.
+
+Use `grubby` to set the kernel arguments. This works on both Amazon Linux 2023 (UEFI) and Amazon Linux 2 because `grubby` manages the bootloader configuration directly on both.
+
+```
+
+sudo grubby --update-kernel=ALL --args="console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 intel_idle.max_cstate=1 processor.max_cstate=1 max_cstate=1"
 
 ```
 
-echo "GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty0 console=ttyS0,115200n8 net.ifnames=0 biosdevname=0 nvme_core.io_timeout=4294967295 intel_idle.max_cstate=1 processor.max_cstate=1 max_cstate=1\"" >/etc/default/grub
-echo "GRUB_TIMEOUT=0" >>/etc/default/grub
-grub2-mkconfig -o /boot/grub2/grub.cfg
+###### Note
 
-```
+The `net.ifnames=0` argument renames the network interface to `eth0` on the next boot. The other tuning sections and the agent configuration target `eth0`, so applying these parameters and rebooting is the recommended path. If you choose not to apply these parameters, the interface keeps its default name (for example, `ens5` on Amazon Linux 2023). In that case, substitute the actual interface name — found by running `ip link show` — everywhere this guide uses `eth0`.
 
 ## Reserve ingress ports - impacts network
 

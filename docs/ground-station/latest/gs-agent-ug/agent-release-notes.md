@@ -2,9 +2,31 @@
 
 ## Latest Agent Version
 
+### Version 1.0.5953.0
+
+Release Date: 06/29/2026
+
+AL2023 RPM Checksums:
+
+- SHA256: `083eaf4da2095250ab901251446c67b764a574a3cee34c7d2c6d41aa5790ae16`
+- MD5: `76fedce9de360cbb0464986214bcfbc1`
+
+AL2 RPM Checksums:
+
+- SHA256: `f2905ff0da26473669ac2d3c096b04c8e423166be3e5b1dcf39912a2f6002915`
+- MD5: `c178f0d7f1ad86e0717c7fac2c6edaf2`
+
+Changes:
+
+- Add support for Amazon Linux 2023
+
+## Deprecated Agent Versions
+
 ### Version 1.0.4382.0
 
 Release Date: 11/18/2025
+
+End of Support Date: 06/30/2026
 
 RPM Checksums:
 
@@ -15,11 +37,11 @@ Changes:
 
 - Update client retry behavior when server indicates overload.
 
-## Deprecated Agent Versions
-
 ### Version 1.0.3555.0
 
 Release Date: 03/27/2024
+
+End of Support Date: 06/30/2026
 
 RPM Checksums:
 

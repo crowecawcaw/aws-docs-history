@@ -188,9 +188,9 @@ Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
 Installed Packages
 Name        : aws-groundstation-agent
 Arch        : x86_64
-Version     : 1.0.2677.0
+Version     : 1.0.5953.0
 Release     : 1
-Size        : 51 M
+Size        : XX M
 Repo        : installed
 Summary     : Client software for AWS Ground Station
 URL         : https://aws.amazon.com/ground-station/

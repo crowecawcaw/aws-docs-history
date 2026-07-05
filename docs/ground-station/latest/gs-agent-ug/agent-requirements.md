@@ -43,6 +43,9 @@ For example CloudFormation EC2 Data Delivery templates with these resources prec
 
 ## Supported operating system
 
-Amazon Linux 2 with 5.10+ kernel.
+The AWS Ground Station Agent supports the following operating systems:
+
+- Amazon Linux 2023 (kernel 6.12) (recommended)
+- Amazon Linux 2 (kernel 5.10)
 
 Supported instances types are listed in [Select Amazon EC2 instance and reserve CPU cores for your architecture](agent-instance-selection.md "agent-instance-selection.md")
