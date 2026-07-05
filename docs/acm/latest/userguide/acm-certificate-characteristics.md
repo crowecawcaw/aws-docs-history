@@ -106,6 +106,10 @@ An asterisk (\*) represents one or more alphanumeric characters, a question
 mark (?) represents a single alphanumeric character, and a hash mark (#)
 represents a numeral.
 
+###### Note
+
+For revocation information for ACME certificates, see [Revocation](acm-acme.md#acm-acme-revocation "acm-acme.md#acm-acme-revocation").
+
 **Key algorithms**
 
 Certificates must specify an algorithm and key size. ACM supports these

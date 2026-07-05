@@ -9,6 +9,7 @@ deleted.
 - You cannot delete an ACM certificate that is being used by another AWS
   service. To delete a certificate that is in use, you must first remove the
   certificate association. This is done using the console or CLI _for the associated service_.
+- You can delete only _expired_ certificates issued through ACME (certificates with a `CertificateKeyPairOrigin` of `ACME`). An ACME certificate remains in your account until one year after it expires, when ACM automatically removes it.
 - Deleting a certificate issued by a private certificate authority (CA) has
   no effect on the CA. You will continue to be charged for the CA until it is
   deleted. For more information, see [Deleting Your Private CA](../../../privateca/latest/userguide/PCADeleteCA.md "../../../privateca/latest/userguide/PCADeleteCA.md") in the _AWS Private Certificate Authority User Guide_.

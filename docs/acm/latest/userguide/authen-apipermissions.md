@@ -28,9 +28,12 @@ ACM API operations and permissions| ACM API Operations | Required Permissions (A
 | [ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReference/API_ImportCertificate.md") | `acm:ImportCertificate` | `arn:aws:acm:`region`:`account`:certificate/*`<br>or<br>`*` |
 | [ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md") | `acm:ListCertificates` | `*` |
 | [ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md") | `acm:ListTagsForCertificate` | `arn:aws:acm:`region`:`account`:certificate/`certificate_ID`` |
+| [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") | `acm:ListTagsForResource` | `arn:aws:acm:`region`:`account`:`resource-type`/`resource_ID`` |
 | [PutAccountConfiguration](../APIReference/API_PutAccountConfiguration.md "../APIReference/API_PutAccountConfiguration.md") | `acm:PutAccountConfiguration` | `*` |
 | [RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md") | `acm:RemoveTagsFromCertificate` | `arn:aws:acm:`region`:`account`:certificate/`certificate_ID`` |
 | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | `acm:RequestCertificate` | `arn:aws:acm:`region`:`account`:certificate/*`<br>or<br>`*` |
 | [ResendValidationEmail](../APIReference/API_ResendValidationEmail.md "../APIReference/API_ResendValidationEmail.md") | `acm:ResendValidationEmail` | `arn:aws:acm:`region`:`account`:certificate/`certificate_ID`` |
 | [SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md") | `acm:SearchCertificates` | `*` |
+| [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") | `acm:TagResource` | `arn:aws:acm:`region`:`account`:`resource-type`/`resource_ID`` |
+| [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") | `acm:UntagResource` | `arn:aws:acm:`region`:`account`:`resource-type`/`resource_ID`` |
 | [UpdateCertificateOptions](../APIReference/API_UpdateCertificateOptions.md "../APIReference/API_UpdateCertificateOptions.md") | `acm:UpdateCertificateOptions` | `arn:aws:acm:`region`:`account`:certificate/`certificate_ID`` |

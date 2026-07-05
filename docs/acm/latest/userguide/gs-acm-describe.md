@@ -189,7 +189,14 @@ The command returns information similar to the following:
                 "DomainName": "www.example.com"
             }
         ],
-        "Subject": "CN=example.com"
+        "Subject": "CN=example.com",
+        "CertificateKeyPairOrigin": "AWS_MANAGED"
     }
 }
 ```
+
+###### Note
+
+For certificates issued through ACME, `CertificateKeyPairOrigin`
+is `ACME`, and the output also includes `AcmeEndpointArn` and
+`AcmeAccountId`.

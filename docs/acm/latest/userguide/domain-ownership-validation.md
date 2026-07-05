@@ -16,6 +16,14 @@ cannot validate resources in an Amazon VPC
 zone](../../../vpc/latest/userguide/vpc-dns.md#vpc-private-hosted-zones "../../../vpc/latest/userguide/vpc-dns.md#vpc-private-hosted-zones") or any other private domain. For more information, see
 [Troubleshoot certificate validation](certificate-validation.md "certificate-validation.md").
 
+###### Note
+
+If you use ACME certificate automation, domain validation is handled
+differently. ACME domain validations are persistent resources configured by PKI
+administrators that pre-authorize domains for certificate issuance. ACME clients do
+not perform live validation challenges. For more information, see
+[ACME domain validation](acm-acme-domain-validation.md "acm-acme-domain-validation.md").
+
 We recommend using DNS validation over email validation for the following reasons:
 
 - If you use Amazon Route 53 to manage your public DNS records, you can update your

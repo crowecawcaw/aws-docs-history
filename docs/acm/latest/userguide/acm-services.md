@@ -5,12 +5,18 @@ directly.
 
 ###### Note
 
-Public ACM certificates can be installed on Amazon EC2 instances that are connected to a
-[Nitro Enclave](#acm-nitro-enclave "#acm-nitro-enclave"). You can also [export a public certificate](export-public-certificate.md "export-public-certificate.md")
-to use on any Amazon EC2 instance. For information about
-setting up a standalone web server on an Amazon EC2 instance not connected to a Nitro Enclave, see [Tutorial: Install a LAMP web server
-on Amazon Linux 2](../../../AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.md "../../../AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.md") or [Tutorial:
-Install a LAMP web server with the Amazon Linux AMI](../../../AWSEC2/latest/UserGuide/install-LAMP.md "../../../AWSEC2/latest/UserGuide/install-LAMP.md").
+To automate public certificate issuance and renewal outside integrated services such
+as on Amazon EC2 instances, use the ACME protocol. For more information,
+see [ACME certificate automation](acm-acme.md "acm-acme.md"). Alternatively, if you cannot use
+ACME, you can automate exportable certificates issued from ACM through
+[AWS Workload Credentials Provider](acm-certificate-automation.md "acm-certificate-automation.md").
+
+###### Note
+
+ACME certificates (certificates with `CertificateKeyPairOrigin` of
+`ACME`) cannot be used with AWS integrated services. To use certificates with the
+services listed below, use ACM-managed certificates with a key pair origin of
+`AWS_MANAGED` or `CUSTOMER_PROVIDED`.
 
 ACM certificates are supported by the following services:
 
@@ -132,8 +138,10 @@ Nitro Enclaves](../../../enclaves/latest/user/nitro-enclave-refapp.md "../../../
 
 ###### Note
 
-You cannot associate ACM certificates with an EC2 instance that is not connected
-to a Nitro Enclave.
+For publicly trusted certificates on Amazon EC2 instances, we recommend the ACME protocol,
+which automates certificate issuance and renewal directly on the instance, including
+instances that are not connected to a Nitro Enclave. For more information, see [ACME certificate automation](acm-acme.md "acm-acme.md"). Associating an ACM-managed certificate
+directly with an Amazon EC2 instance requires a Nitro Enclave.
 
 **AWS CloudFormation**
 

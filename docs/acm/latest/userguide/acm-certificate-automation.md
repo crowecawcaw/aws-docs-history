@@ -5,6 +5,12 @@ exported from ACM. The provider periodically retrieves certificates and their pr
 keys, writes them to configured paths, and optionally runs a command to reload dependent
 services such as web servers.
 
+###### Tip
+
+For publicly trusted certificates, you can instead use the ACME protocol to automate
+issuance and renewal directly on your hosts with industry-standard ACME clients,
+without exporting certificates from ACM. For more information, see [ACME certificate automation](acm-acme.md "acm-acme.md").
+
 You can use the Workload Credentials Provider with the following compute
 environments:
 

@@ -13,23 +13,65 @@ identity information helps you determine the following:
   For more information, see the [CloudTrail
   userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
 
-The following sections provide example logs for the supported API
-operations.
+ACM records management events and data events in CloudTrail.
+
+**Management events**
 
 - [Adding tags to a certificate (AddTagsToCertificate)](#ct-acm-addtags "#ct-acm-addtags")
+- [Changing an ACME account key (ChangeAccountKey)](#ct-acme-changeaccountkey "#ct-acme-changeaccountkey")
+- [Creating an ACME domain validation (CreateAcmeDomainValidation)](#ct-acme-createacmedomainvalidation "#ct-acme-createacmedomainvalidation")
+- [Creating an ACME endpoint (CreateAcmeEndpoint)](#ct-acme-createacmeendpoint "#ct-acme-createacmeendpoint")
+- [Creating an ACME external account binding (CreateAcmeExternalAccountBinding)](#ct-acme-createacmeexternalaccountbinding "#ct-acme-createacmeexternalaccountbinding")
+- [Deleting an ACME domain validation (DeleteAcmeDomainValidation)](#ct-acme-deleteacmedomainvalidation "#ct-acme-deleteacmedomainvalidation")
+- [Deleting an ACME endpoint (DeleteAcmeEndpoint)](#ct-acme-deleteacmeendpoint "#ct-acme-deleteacmeendpoint")
+- [Deleting an ACME external account binding (DeleteAcmeExternalAccountBinding)](#ct-acme-deleteacmeexternalaccountbinding "#ct-acme-deleteacmeexternalaccountbinding")
 - [Deleting a certificate (DeleteCertificate)](#ct-acm-delete "#ct-acm-delete")
+- [Describing an ACME account (DescribeAcmeAccount)](#ct-acme-describeacmeaccount "#ct-acme-describeacmeaccount")
+- [Describing an ACME domain validation (DescribeAcmeDomainValidation)](#ct-acme-describeacmedomainvalidation "#ct-acme-describeacmedomainvalidation")
+- [Describing an ACME endpoint (DescribeAcmeEndpoint)](#ct-acme-describeacmeendpoint "#ct-acme-describeacmeendpoint")
+- [Describing an ACME external account binding (DescribeAcmeExternalAccountBinding)](#ct-acme-describeacmeexternalaccountbinding "#ct-acme-describeacmeexternalaccountbinding")
 - [Describing a certificate (DescribeCertificate)](#ct-acm-describe "#ct-acm-describe")
 - [Exporting a certificate (ExportCertificate)](#ct-acm-export "#ct-acm-export")
+- [Retrieving external account binding credentials (GetAcmeExternalAccountBindingCredentials)](#ct-acme-getacmeexternalaccountbindingcredentials "#ct-acme-getacmeexternalaccountbindingcredentials")
+- [Retrieving a certificate (GetCertificate)](#ct-acm-get "#ct-acm-get")
 - [Import a certificate (ImportCertificate)](#ct-acm-import "#ct-acm-import")
+- [Listing ACME accounts (ListAcmeAccounts)](#ct-acme-listacmeaccounts "#ct-acme-listacmeaccounts")
+- [Listing ACME domain validations (ListAcmeDomainValidations)](#ct-acme-listacmedomainvalidations "#ct-acme-listacmedomainvalidations")
+- [Listing ACME endpoints (ListAcmeEndpoints)](#ct-acme-listacmeendpoints "#ct-acme-listacmeendpoints")
+- [Listing ACME external account bindings (ListAcmeExternalAccountBindings)](#ct-acme-listacmeexternalaccountbindings "#ct-acme-listacmeexternalaccountbindings")
 - [Listing certificates (ListCertificates)](#ct-acm-list "#ct-acm-list")
 - [Listing tags for a certificate (ListTagsForCertificate)](#ct-acm-listtags "#ct-acm-listtags")
+- [Listing tags for a resource (ListTagsForResource)](#ct-acm-listtagsforresource "#ct-acm-listtagsforresource")
+- [Managing an ACME account (ManageAccount)](#ct-acme-manageaccount "#ct-acme-manageaccount")
+- [Registering an ACME account (NewAccount)](#ct-acme-newaccount "#ct-acme-newaccount")
 - [Removing tags from a certificate (RemoveTagsFromCertificate)](#ct-acm-removetag "#ct-acm-removetag")
 - [Requesting a certificate (RequestCertificate)](#ct-acm-request "#ct-acm-request")
 - [Resending validation email (ResendValidationEmail)](#ct-acm-resendmail "#ct-acm-resendmail")
-- [Retrieving a certificate (GetCertificate)](#ct-acm-get "#ct-acm-get")
+- [Revoking an ACME account (RevokeAcmeAccount)](#ct-acme-revokeacmeaccount "#ct-acme-revokeacmeaccount")
+- [Revoking an ACME external account binding (RevokeAcmeExternalAccountBinding)](#ct-acme-revokeacmeexternalaccountbinding "#ct-acme-revokeacmeexternalaccountbinding")
+- [Revoke a certificate (RevokeCertificate)](#ct-acm-revoke "#ct-acm-revoke")
 - [Searching certificates (SearchCertificates)](#ct-acm-search "#ct-acm-search")
+- [Tagging a resource (TagResource)](#ct-acm-tagresource "#ct-acm-tagresource")
+- [Removing tags from a resource (UntagResource)](#ct-acm-untagresource "#ct-acm-untagresource")
+- [Updating an ACME domain validation (UpdateAcmeDomainValidation)](#ct-acme-updateacmedomainvalidation "#ct-acme-updateacmedomainvalidation")
+- [Updating an ACME endpoint (UpdateAcmeEndpoint)](#ct-acme-updateacmeendpoint "#ct-acme-updateacmeendpoint")
+  **Data events**
 
-## Adding tags to a certificate ([AddTagsToCertificate](../APIReference/API_AddTagsToCertificate.md "../APIReference/API_AddTagsToCertificate.md"))
+- [Finalizing an order (FinalizeOrder)](#ct-acme-finalizeorder "#ct-acme-finalizeorder")
+- [Downloading a certificate (GetCertificate)](#ct-acme-getcertificate "#ct-acme-getcertificate")
+- [Retrieving the directory (GetDirectory)](#ct-acme-getdirectory "#ct-acme-getdirectory")
+- [Retrieving an order (GetOrder)](#ct-acme-getorder "#ct-acme-getorder")
+- [Listing orders (ListOrders)](#ct-acme-listorders "#ct-acme-listorders")
+- [Managing an authorization (ManageAuthorization)](#ct-acme-manageauthorization "#ct-acme-manageauthorization")
+- [Requesting a nonce (NewNonce)](#ct-acme-newnonce "#ct-acme-newnonce")
+- [Creating an order (NewOrder)](#ct-acme-neworder "#ct-acme-neworder")
+- [Revoking a certificate (RevokeCertificate)](#ct-acme-revokecertificate "#ct-acme-revokecertificate")
+
+## Management events
+
+ACM logs the following operations as CloudTrail management events. Management events are logged by default.
+
+### Adding tags to a certificate ([AddTagsToCertificate](../APIReference/API_AddTagsToCertificate.md "../APIReference/API_AddTagsToCertificate.md"))
 
 The following CloudTrail example shows the results of a call to the [AddTagsToCertificate](../APIReference/API_AddTagsToCertificate.md "../APIReference/API_AddTagsToCertificate.md") API.
 
@@ -72,7 +114,461 @@ The following CloudTrail example shows the results of a call to the [AddTagsToCe
 }
 ```
 
-## Deleting a certificate ([DeleteCertificate](../APIReference/API_DeleteCertificate.md "../APIReference/API_DeleteCertificate.md"))
+### Changing an ACME account key ([ChangeAccountKey](../APIReference/API_ChangeAccountKey.md "../APIReference/API_ChangeAccountKey.md"))
+
+The following CloudTrail example shows a log entry for the
+`ChangeAccountKey` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:29:57Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "ChangeAccountKey",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "innerJws": "EXAMPLE"
+  },
+  "responseElements": {
+    "location": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acct/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "status": "valid",
+    "orders": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acct/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222/orders"
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Creating an ACME domain validation ([CreateAcmeDomainValidation](../APIReference/API_CreateAcmeDomainValidation.md "../APIReference/API_CreateAcmeDomainValidation.md"))
+
+The following CloudTrail example shows a log entry for the
+`CreateAcmeDomainValidation` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:45Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "CreateAcmeDomainValidation",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "idempotencyToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "domainName": "example.com",
+    "prevalidationOptions": {
+      "dnsPrevalidation": {
+        "domainScope": {
+          "exactDomain": "ENABLED"
+        },
+        "hostedZoneId": "Z00443972VKAL6HT44MI"
+      }
+    }
+  },
+  "responseElements": {
+    "acmeDomainValidationArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-domain-validation/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    },
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeDomainValidation",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-domain-validation/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Creating an ACME endpoint ([CreateAcmeEndpoint](../APIReference/API_CreateAcmeEndpoint.md "../APIReference/API_CreateAcmeEndpoint.md"))
+
+The following CloudTrail example shows a log entry for the
+`CreateAcmeEndpoint` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:45Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "CreateAcmeEndpoint",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "idempotencyToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "authorizationBehavior": "PRE_APPROVED",
+    "certificateAuthority": {
+      "publicCertificateAuthority": {
+      }
+    }
+  },
+  "responseElements": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Creating an ACME external account binding ([CreateAcmeExternalAccountBinding](../APIReference/API_CreateAcmeExternalAccountBinding.md "../APIReference/API_CreateAcmeExternalAccountBinding.md"))
+
+The following CloudTrail example shows a log entry for the
+`CreateAcmeExternalAccountBinding` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:45Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "CreateAcmeExternalAccountBinding",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "idempotencyToken": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "roleArn": "arn:aws:iam::123456789012:role/example-role",
+    "expiration": {
+      "value": 1,
+      "type": "DAYS"
+    }
+  },
+  "responseElements": {
+    "externalAccountBinding": {
+      "acmeExternalAccountBindingArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+      "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+      "roleArn": "arn:aws:iam::123456789012:role/example-role",
+      "expiresAt": "2026-06-11T20:28:45Z"
+    }
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    },
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeExternalAccountBinding",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Deleting an ACME domain validation ([DeleteAcmeDomainValidation](../APIReference/API_DeleteAcmeDomainValidation.md "../APIReference/API_DeleteAcmeDomainValidation.md"))
+
+The following CloudTrail example shows a log entry for the
+`DeleteAcmeDomainValidation` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:45Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "DeleteAcmeDomainValidation",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeDomainValidationArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-domain-validation/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeDomainValidation",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-domain-validation/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Deleting an ACME endpoint ([DeleteAcmeEndpoint](../APIReference/API_DeleteAcmeEndpoint.md "../APIReference/API_DeleteAcmeEndpoint.md"))
+
+The following CloudTrail example shows a log entry for the
+`DeleteAcmeEndpoint` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:45Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "DeleteAcmeEndpoint",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Deleting an ACME external account binding ([DeleteAcmeExternalAccountBinding](../APIReference/API_DeleteAcmeExternalAccountBinding.md "../APIReference/API_DeleteAcmeExternalAccountBinding.md"))
+
+The following CloudTrail example shows a log entry for the
+`DeleteAcmeExternalAccountBinding` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:45Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "DeleteAcmeExternalAccountBinding",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeExternalAccountBindingArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeExternalAccountBinding",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Deleting a certificate ([DeleteCertificate](../APIReference/API_DeleteCertificate.md "../APIReference/API_DeleteCertificate.md"))
 
 The following CloudTrail example shows the results of a call to the [DeleteCertificate](../APIReference/API_DeleteCertificate.md "../APIReference/API_DeleteCertificate.md") API.
 
@@ -109,7 +605,248 @@ The following CloudTrail example shows the results of a call to the [DeleteCerti
 }
 ```
 
-## Describing a certificate ([DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIReference/API_DescribeCertificate.md"))
+### Describing an ACME account ([DescribeAcmeAccount](../APIReference/API_DescribeAcmeAccount.md "../APIReference/API_DescribeAcmeAccount.md"))
+
+The following CloudTrail example shows a log entry for the
+`DescribeAcmeAccount` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:46Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "DescribeAcmeAccount",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountUrl": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acct/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Describing an ACME domain validation ([DescribeAcmeDomainValidation](../APIReference/API_DescribeAcmeDomainValidation.md "../APIReference/API_DescribeAcmeDomainValidation.md"))
+
+The following CloudTrail example shows a log entry for the
+`DescribeAcmeDomainValidation` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:29:37Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "DescribeAcmeDomainValidation",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeDomainValidationArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-domain-validation/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeDomainValidation",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-domain-validation/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Describing an ACME endpoint ([DescribeAcmeEndpoint](../APIReference/API_DescribeAcmeEndpoint.md "../APIReference/API_DescribeAcmeEndpoint.md"))
+
+The following CloudTrail example shows a log entry for the
+`DescribeAcmeEndpoint` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:45Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "DescribeAcmeEndpoint",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Describing an ACME external account binding ([DescribeAcmeExternalAccountBinding](../APIReference/API_DescribeAcmeExternalAccountBinding.md "../APIReference/API_DescribeAcmeExternalAccountBinding.md"))
+
+The following CloudTrail example shows a log entry for the
+`DescribeAcmeExternalAccountBinding` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:29:06Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "DescribeAcmeExternalAccountBinding",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeExternalAccountBindingArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeExternalAccountBinding",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Describing a certificate ([DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIReference/API_DescribeCertificate.md"))
 
 The following CloudTrail example shows the results of a call to the [DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIReference/API_DescribeCertificate.md")
 API.
@@ -153,7 +890,7 @@ the [DescribeCertificate](../APIReference/API_DescribeCertificate.md "../APIRefe
 }
 ```
 
-## Exporting a certificate ([ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md"))
+### Exporting a certificate ([ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md"))
 
 The following CloudTrail example shows the results of a call to the [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md") API.
 
@@ -223,7 +960,115 @@ The following CloudTrail example shows the results of a call to the [ExportCerti
 
 ```
 
-## Import a certificate ([ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReference/API_ImportCertificate.md"))
+### Retrieving external account binding credentials ([GetAcmeExternalAccountBindingCredentials](../APIReference/API_GetAcmeExternalAccountBindingCredentials.md "../APIReference/API_GetAcmeExternalAccountBindingCredentials.md"))
+
+The following CloudTrail example shows a log entry for the
+`GetAcmeExternalAccountBindingCredentials` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:29:26Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "GetAcmeExternalAccountBindingCredentials",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeExternalAccountBindingArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeExternalAccountBinding",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Retrieving a certificate ([GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md"))
+
+The following CloudTrail example shows the results of a call to the [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md") API.
+
+```
+{
+
+   "Records":[
+      {
+         "eventVersion":"1.04",
+         "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AIDACKCEVSQ6C2EXAMPLE",
+            "arn":"arn:aws:iam::123456789012:user/Alice",
+            "accountId":"123456789012",
+            "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+            "userName":"Alice"
+         },
+         "eventTime":"2016-03-18T00:00:41Z",
+         "eventSource":"acm.amazonaws.com",
+         "eventName":"GetCertificate",
+         "awsRegion":"us-east-1",
+         "sourceIPAddress":"192.0.2.0",
+         "userAgent":"aws-cli/1.9.15",
+         "requestParameters":{
+            "certificateArn":"arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
+         },
+         "responseElements":{
+            "certificateChain":
+
+            "-----BEGIN CERTIFICATE-----
+            `Base64-encoded certificate chain`
+            -----END CERTIFICATE-----",
+            "certificate":
+            "-----BEGIN CERTIFICATE-----
+            `Base64-encoded certificate`
+            -----END CERTIFICATE-----"
+
+         },
+         "requestID":"744dd891-ec9c-11e5-ac34-d1e4dfe1a11b",
+         "eventID":"7aa4f909-00dd-478a-9a00-b2709bcad2bb",
+         "eventType":"AwsApiCall",
+         "recipientAccountId":"123456789012"
+      }
+   ]
+}
+```
+
+### Import a certificate ([ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReference/API_ImportCertificate.md"))
 
 The following example shows the CloudTrail log entry that records a call to the
 ACM [ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReference/API_ImportCertificate.md") API operation.
@@ -308,7 +1153,238 @@ ACM [ImportCertificate](../APIReference/API_ImportCertificate.md "../APIReferenc
 }
 ```
 
-## Listing certificates ([ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md"))
+### Listing ACME accounts ([ListAcmeAccounts](../APIReference/API_ListAcmeAccounts.md "../APIReference/API_ListAcmeAccounts.md"))
+
+The following CloudTrail example shows a log entry for the
+`ListAcmeAccounts` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:29:37Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "ListAcmeAccounts",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Listing ACME domain validations ([ListAcmeDomainValidations](../APIReference/API_ListAcmeDomainValidations.md "../APIReference/API_ListAcmeDomainValidations.md"))
+
+The following CloudTrail example shows a log entry for the
+`ListAcmeDomainValidations` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:29:57Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "ListAcmeDomainValidations",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Listing ACME endpoints ([ListAcmeEndpoints](../APIReference/API_ListAcmeEndpoints.md "../APIReference/API_ListAcmeEndpoints.md"))
+
+The following CloudTrail example shows a log entry for the
+`ListAcmeEndpoints` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:56Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "ListAcmeEndpoints",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": null,
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Listing ACME external account bindings ([ListAcmeExternalAccountBindings](../APIReference/API_ListAcmeExternalAccountBindings.md "../APIReference/API_ListAcmeExternalAccountBindings.md"))
+
+The following CloudTrail example shows a log entry for the
+`ListAcmeExternalAccountBindings` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:29:15Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "ListAcmeExternalAccountBindings",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Listing certificates ([ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md"))
 
 The following CloudTrail example shows the results of a call to the [ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md") API.
 
@@ -354,7 +1430,7 @@ API.
 }
 ```
 
-## Listing tags for a certificate ([ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md"))
+### Listing tags for a certificate ([ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md"))
 
 The following CloudTrail example shows the results of a call to the [ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md") API.
 
@@ -396,7 +1472,159 @@ AWS Command Line Interface, or the [ListTagsForCertificate](../APIReference/API_
 }
 ```
 
-## Removing tags from a certificate ([RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md"))
+### Listing tags for a resource ([ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md"))
+
+The following example shows a CloudTrail log entry for the [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") API.
+
+The CloudTrail log for the `ListTagsForResource` operation does not
+display tags in the response elements.
+
+```
+{
+         "eventVersion":"1.04",
+         "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AIDACKCEVSQ6C2EXAMPLE",
+            "arn":"arn:aws:iam::123456789012:user/Alice",
+            "accountId":"123456789012",
+            "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+            "userName":"Alice"
+         },
+         "eventTime":"2026-01-15T20:43:00Z",
+         "eventSource":"acm.amazonaws.com",
+         "eventName":"ListTagsForResource",
+         "awsRegion":"us-east-1",
+         "sourceIPAddress":"192.0.2.0",
+         "userAgent":"aws-cli/2.0",
+         "requestParameters":{
+            "resourceArn":"arn:aws:acm:us-east-1:123456789012:acme-endpoint/ep-abc123"
+         },
+         "responseElements":null,
+         "requestID":"fedcba98-7654-3210-fedc-ba9876543212",
+         "eventID":"12345678-1234-1234-1234-123456789014",
+         "eventType":"AwsApiCall",
+         "recipientAccountId":"123456789012"
+}
+```
+
+### Managing an ACME account ([ManageAccount](../APIReference/API_ManageAccount.md "../APIReference/API_ManageAccount.md"))
+
+The following CloudTrail example shows a log entry for the
+`ManageAccount` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:30:40Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "ManageAccount",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": {
+    "location": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acct/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "status": "valid",
+    "contact": "HIDDEN_DUE_TO_SECURITY_REASONS",
+    "orders": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acct/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222/orders"
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Registering an ACME account ([NewAccount](../APIReference/API_NewAccount.md "../APIReference/API_NewAccount.md"))
+
+The following CloudTrail example shows a log entry for the
+`NewAccount` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:30:39Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "NewAccount",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "contact": "HIDDEN_DUE_TO_SECURITY_REASONS",
+    "externalAccountBinding": {
+      "jwsProtected": "EXAMPLE",
+      "payload": "EXAMPLE",
+      "signature": "EXAMPLE"
+    }
+  },
+  "responseElements": {
+    "location": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acct/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "status": "valid",
+    "contact": "HIDDEN_DUE_TO_SECURITY_REASONS",
+    "orders": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acct/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222/orders",
+    "externalAccountBinding": {
+      "jwsProtected": "EXAMPLE",
+      "payload": "EXAMPLE",
+      "signature": "EXAMPLE"
+    },
+    "statusCode": 201
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Removing tags from a certificate ([RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md"))
 
 The following CloudTrail example shows the results of a call to the [RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md") API.
 
@@ -438,7 +1666,7 @@ The following CloudTrail example shows the results of a call to the [RemoveTagsF
 }
 ```
 
-## Requesting a certificate ([RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md"))
+### Requesting a certificate ([RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md"))
 
 The following CloudTrail example shows the results of a call to the [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md")
 API.
@@ -488,7 +1716,166 @@ API.
 }
 ```
 
-## Revoke a certificate ([RevokeCertificate](../APIReference/API_RevokeCertificate.md "../APIReference/API_RevokeCertificate.md"))
+### Resending validation email ([ResendValidationEmail](../APIReference/API_ResendValidationEmail.md "../APIReference/API_ResendValidationEmail.md"))
+
+The following CloudTrail example shows the results of a call to the [ResendValidationEmail](../APIReference/API_ResendValidationEmail.md "../APIReference/API_ResendValidationEmail.md") API.
+
+```
+{
+   "Records":[
+      {
+         "eventVersion":"1.04",
+         "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AIDACKCEVSQ6C2EXAMPLE",
+            "arn":"arn:aws:iam::123456789012:user/Alice",
+            "accountId":"123456789012",
+            "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+            "userName":"Alice"
+         },
+         "eventTime":"2016-03-17T23:58:25Z",
+         "eventSource":"acm.amazonaws.com",
+         "eventName":"ResendValidationEmail",
+         "awsRegion":"us-east-1",
+         "sourceIPAddress":"192.0.2.0",
+         "userAgent":"aws-cli/1.9.15",
+         "requestParameters":{
+            "domain":"example.com",
+            "certificateArn":"arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
+            "validationDomain":"example.com"
+         },
+         "responseElements":null,
+         "requestID":"23760b88-ec9c-11e5-b6f4-cb861a6f0a28",
+         "eventID":"41c11b06-ca91-4c1c-8c61-af349ea8bab8",
+         "eventType":"AwsApiCall",
+         "recipientAccountId":"123456789012"
+      }
+   ]
+}
+```
+
+### Revoking an ACME account ([RevokeAcmeAccount](../APIReference/API_RevokeAcmeAccount.md "../APIReference/API_RevokeAcmeAccount.md"))
+
+The following CloudTrail example shows a log entry for the
+`RevokeAcmeAccount` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:46Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "RevokeAcmeAccount",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountUrl": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acct/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Revoking an ACME external account binding ([RevokeAcmeExternalAccountBinding](../APIReference/API_RevokeAcmeExternalAccountBinding.md "../APIReference/API_RevokeAcmeExternalAccountBinding.md"))
+
+The following CloudTrail example shows a log entry for the
+`RevokeAcmeExternalAccountBinding` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:56Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "RevokeAcmeExternalAccountBinding",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeExternalAccountBindingArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeExternalAccountBinding",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-external-account-binding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Revoke a certificate ([RevokeCertificate](../APIReference/API_RevokeCertificate.md "../APIReference/API_RevokeCertificate.md"))
 
 The following CloudTrail example shows the results of a call to the [RevokeCertificate](../APIReference/API_RevokeCertificate.md "../APIReference/API_RevokeCertificate.md") API.
 
@@ -544,93 +1931,7 @@ The following CloudTrail example shows the results of a call to the [RevokeCerti
 }
 ```
 
-## Resending validation email ([ResendValidationEmail](../APIReference/API_ResendValidationEmail.md "../APIReference/API_ResendValidationEmail.md"))
-
-The following CloudTrail example shows the results of a call to the [ResendValidationEmail](../APIReference/API_ResendValidationEmail.md "../APIReference/API_ResendValidationEmail.md") API.
-
-```
-{
-   "Records":[
-      {
-         "eventVersion":"1.04",
-         "userIdentity":{
-            "type":"IAMUser",
-            "principalId":"AIDACKCEVSQ6C2EXAMPLE",
-            "arn":"arn:aws:iam::123456789012:user/Alice",
-            "accountId":"123456789012",
-            "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
-            "userName":"Alice"
-         },
-         "eventTime":"2016-03-17T23:58:25Z",
-         "eventSource":"acm.amazonaws.com",
-         "eventName":"ResendValidationEmail",
-         "awsRegion":"us-east-1",
-         "sourceIPAddress":"192.0.2.0",
-         "userAgent":"aws-cli/1.9.15",
-         "requestParameters":{
-            "domain":"example.com",
-            "certificateArn":"arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012",
-            "validationDomain":"example.com"
-         },
-         "responseElements":null,
-         "requestID":"23760b88-ec9c-11e5-b6f4-cb861a6f0a28",
-         "eventID":"41c11b06-ca91-4c1c-8c61-af349ea8bab8",
-         "eventType":"AwsApiCall",
-         "recipientAccountId":"123456789012"
-      }
-   ]
-}
-```
-
-## Retrieving a certificate ([GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md"))
-
-The following CloudTrail example shows the results of a call to the [GetCertificate](../APIReference/API_GetCertificate.md "../APIReference/API_GetCertificate.md") API.
-
-```
-{
-
-   "Records":[
-      {
-         "eventVersion":"1.04",
-         "userIdentity":{
-            "type":"IAMUser",
-            "principalId":"AIDACKCEVSQ6C2EXAMPLE",
-            "arn":"arn:aws:iam::123456789012:user/Alice",
-            "accountId":"123456789012",
-            "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
-            "userName":"Alice"
-         },
-         "eventTime":"2016-03-18T00:00:41Z",
-         "eventSource":"acm.amazonaws.com",
-         "eventName":"GetCertificate",
-         "awsRegion":"us-east-1",
-         "sourceIPAddress":"192.0.2.0",
-         "userAgent":"aws-cli/1.9.15",
-         "requestParameters":{
-            "certificateArn":"arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
-         },
-         "responseElements":{
-            "certificateChain":
-
-            "-----BEGIN CERTIFICATE-----
-            `Base64-encoded certificate chain`
-            -----END CERTIFICATE-----",
-            "certificate":
-            "-----BEGIN CERTIFICATE-----
-            `Base64-encoded certificate`
-            -----END CERTIFICATE-----"
-
-         },
-         "requestID":"744dd891-ec9c-11e5-ac34-d1e4dfe1a11b",
-         "eventID":"7aa4f909-00dd-478a-9a00-b2709bcad2bb",
-         "eventType":"AwsApiCall",
-         "recipientAccountId":"123456789012"
-      }
-   ]
-}
-```
-
-## Searching certificates ([SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md"))
+### Searching certificates ([SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md"))
 
 The following CloudTrail example shows the results of a call to the [SearchCertificates](../APIReference/API_SearchCertificates.md "../APIReference/API_SearchCertificates.md") API.
 
@@ -667,5 +1968,695 @@ The following CloudTrail example shows the results of a call to the [SearchCerti
          "recipientAccountId":"123456789012"
       }
    ]
+}
+```
+
+### Tagging a resource ([TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md"))
+
+The following example shows a CloudTrail log entry for the [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") API.
+
+```
+{
+         "eventVersion":"1.04",
+         "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AIDACKCEVSQ6C2EXAMPLE",
+            "arn":"arn:aws:iam::123456789012:user/Alice",
+            "accountId":"123456789012",
+            "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+            "userName":"Alice"
+         },
+         "eventTime":"2026-01-15T20:41:00Z",
+         "eventSource":"acm.amazonaws.com",
+         "eventName":"TagResource",
+         "awsRegion":"us-east-1",
+         "sourceIPAddress":"192.0.2.0",
+         "userAgent":"aws-cli/2.0",
+         "requestParameters":{
+            "resourceArn":"arn:aws:acm:us-east-1:123456789012:acme-endpoint/ep-abc123",
+            "tags":[
+               {
+                  "key":"Environment",
+                  "value":"Production"
+               }
+            ]
+         },
+         "responseElements":null,
+         "requestID":"fedcba98-7654-3210-fedc-ba9876543210",
+         "eventID":"12345678-1234-1234-1234-123456789012",
+         "eventType":"AwsApiCall",
+         "recipientAccountId":"123456789012"
+}
+```
+
+### Removing tags from a resource ([UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md"))
+
+The following example shows a CloudTrail log entry for the [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") API.
+
+```
+{
+         "eventVersion":"1.04",
+         "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AIDACKCEVSQ6C2EXAMPLE",
+            "arn":"arn:aws:iam::123456789012:user/Alice",
+            "accountId":"123456789012",
+            "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+            "userName":"Alice"
+         },
+         "eventTime":"2026-01-15T20:42:00Z",
+         "eventSource":"acm.amazonaws.com",
+         "eventName":"UntagResource",
+         "awsRegion":"us-east-1",
+         "sourceIPAddress":"192.0.2.0",
+         "userAgent":"aws-cli/2.0",
+         "requestParameters":{
+            "resourceArn":"arn:aws:acm:us-east-1:123456789012:acme-endpoint/ep-abc123",
+            "tagKeys":["Environment"]
+         },
+         "responseElements":null,
+         "requestID":"fedcba98-7654-3210-fedc-ba9876543211",
+         "eventID":"12345678-1234-1234-1234-123456789013",
+         "eventType":"AwsApiCall",
+         "recipientAccountId":"123456789012"
+}
+```
+
+### Updating an ACME domain validation ([UpdateAcmeDomainValidation](../APIReference/API_UpdateAcmeDomainValidation.md "../APIReference/API_UpdateAcmeDomainValidation.md"))
+
+The following CloudTrail example shows a log entry for the
+`UpdateAcmeDomainValidation` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:29:46Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "UpdateAcmeDomainValidation",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeDomainValidationArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-domain-validation/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeDomainValidation",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/acme-domain-validation/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+### Updating an ACME endpoint ([UpdateAcmeEndpoint](../APIReference/API_UpdateAcmeEndpoint.md "../APIReference/API_UpdateAcmeEndpoint.md"))
+
+The following CloudTrail example shows a log entry for the
+`UpdateAcmeEndpoint` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:28:43Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-06-10T20:28:56Z",
+  "eventSource": "acm.amazonaws.com",
+  "eventName": "UpdateAcmeEndpoint",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "acmeEndpointArn": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme.us-east-1.api.aws"
+  }
+}
+```
+
+## Data events
+
+ACM logs the following ACME protocol operations as CloudTrail data events. Unlike management events, data events are not logged by default. To record them, configure data event logging in your CloudTrail trail or event data store.
+
+### Finalizing an order (FinalizeOrder)
+
+The following CloudTrail example shows a data event log entry for the
+`FinalizeOrder` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:29:27Z",
+        "mfaAuthenticated": "false"
+      },
+      "sourceIdentity": "acm-acme-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    },
+    "invokedBy": "acm-acme.amazonaws.com"
+  },
+  "eventTime": "2026-06-10T20:29:27Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "FinalizeOrder",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "acm-acme.amazonaws.com",
+  "userAgent": "acm-acme.amazonaws.com",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "orderId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "csr": "EXAMPLE"
+  },
+  "responseElements": {
+    "status": "processing",
+    "expires": "2026-06-17T20:29:27Z",
+    "identifiers": [
+      {
+        "type": "dns",
+        "value": "example.example.com"
+      }
+    ],
+    "authorizations": [
+      "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/authz/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333"
+    ],
+    "finalize": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/order/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222/finalize",
+    "location": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/order/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "statusCode": 200
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data"
+}
+```
+
+### Downloading a certificate (GetCertificate)
+
+The following CloudTrail example shows a data event log entry for the
+`GetCertificate` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:29:56Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "GetCertificate",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "certId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE77777"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Retrieving the directory (GetDirectory)
+
+The following CloudTrail example shows a data event log entry for the
+`GetDirectory` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:30:39Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "GetDirectory",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Retrieving an order (GetOrder)
+
+The following CloudTrail example shows a data event log entry for the
+`GetOrder` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:30:38Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "GetOrder",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "orderId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Listing orders (ListOrders)
+
+The following CloudTrail example shows a data event log entry for the
+`ListOrders` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:29:57Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "ListOrders",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "accountId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE88888"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Managing an authorization (ManageAuthorization)
+
+The following CloudTrail example shows a data event log entry for the
+`ManageAuthorization` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:30:40Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "ManageAuthorization",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "authorizationId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE99999"
+  },
+  "responseElements": {
+    "location": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/authz/a1b2c3d4-5678-90ab-cdef-EXAMPLE99999",
+    "status": "valid",
+    "expires": "2026-06-17T20:30:40Z",
+    "identifier": {
+      "type": "dns",
+      "value": "example.example.com"
+    },
+    "challenges": []
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Requesting a nonce (NewNonce)
+
+The following CloudTrail example shows a data event log entry for the
+`NewNonce` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:30:39Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "NewNonce",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Creating an order (NewOrder)
+
+The following CloudTrail example shows a data event log entry for the
+`NewOrder` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "Unknown",
+    "principalId": "anonymous",
+    "arn": "anonymous",
+    "accountId": "123456789012",
+    "userName": "anonymous"
+  },
+  "eventTime": "2026-06-10T20:29:26Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "NewOrder",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/2.0",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "identifiers": [
+      {
+        "type": "dns",
+        "value": "example.example.com"
+      }
+    ]
+  },
+  "responseElements": {
+    "status": "ready",
+    "expires": "2026-06-17T20:29:26Z",
+    "identifiers": [
+      {
+        "type": "dns",
+        "value": "example.example.com"
+      }
+    ],
+    "authorizations": [
+      "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/authz/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333"
+    ],
+    "finalize": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/order/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222/finalize",
+    "location": "https://acm-acme-enroll.us-east-1.api.aws/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/order/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "statusCode": 201
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "acm-acme-enroll.us-east-1.api.aws"
+  }
+}
+```
+
+### Revoking a certificate (RevokeCertificate)
+
+The following CloudTrail example shows a data event log entry for the
+`RevokeCertificate` operation.
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAEXAMPLEID:example-session",
+    "arn": "arn:aws:sts::123456789012:assumed-role/example-role/example-session",
+    "accountId": "123456789012",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAEXAMPLEID",
+        "arn": "arn:aws:iam::123456789012:role/example-role",
+        "accountId": "123456789012",
+        "userName": "example-role"
+      },
+      "attributes": {
+        "creationDate": "2026-06-10T20:30:37Z",
+        "mfaAuthenticated": "false"
+      },
+      "sourceIdentity": "acm-acme-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    },
+    "invokedBy": "acm-acme.amazonaws.com"
+  },
+  "eventTime": "2026-06-10T20:30:37Z",
+  "eventSource": "acm-acme.amazonaws.com",
+  "eventName": "RevokeCertificate",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "acm-acme.amazonaws.com",
+  "userAgent": "acm-acme.amazonaws.com",
+  "requestParameters": {
+    "serverUuid": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "certificate": "EXAMPLE"
+  },
+  "responseElements": null,
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE44444",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::CertificateManager::AcmeEndpoint",
+      "ARN": "arn:aws:acm:us-east-1:123456789012:acme-endpoint/a1b2c3d4-5678-90ab-cdef-EXAMPLE66666"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data"
 }
 ```

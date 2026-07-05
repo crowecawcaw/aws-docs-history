@@ -16,6 +16,7 @@ use with no additional charge.
 - [AWS managed policies for AWS Certificate Manager](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
 - [Use condition keys with ACM](acm-conditions.md "acm-conditions.md")
 - [Use a service-linked role (SLR) with ACM](acm-slr.md "acm-slr.md")
+- [IAM for ACME certificate automation](security-iam-acme.md "security-iam-acme.md")
 - [Troubleshooting AWS Certificate Manager identity and access](security_iam_troubleshoot.md "security_iam_troubleshoot.md")
 
 ## Audience

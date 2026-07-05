@@ -23,6 +23,12 @@ used outside AWS Cloud. For more information, see [AWS Certificate Manager expor
 new ACM public certificate and enable exportable to be able to export the
 public certificate.
 
+###### Tip
+
+If you need public certificates for customer-managed infrastructure (such as
+on-premises servers or Kubernetes clusters) and want to use industry-standard ACME
+clients, see [ACME certificate automation](acm-acme.md "acm-acme.md").
+
 The following sections discuss how to request, export, and revoke a public ACM
 certificate.
 

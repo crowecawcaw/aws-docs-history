@@ -34,7 +34,12 @@ events have the following structure.
   ],
   "detail": {
     "DaysToExpiry": 31,
-    "CommonName": "example.com"
+    "CommonName": "example.com",
+    "FirstSubjectAlternativeName": "example.com",
+    "ValidityInDays": 90,
+    "CertificateKeyPairOrigin": "AWS_MANAGED" | "ACME" | "CUSTOMER_PROVIDED",
+    "AcmeAccountId": "`acme_account_id`",
+    "AcmeEndpointArn": "arn:aws:acm:`region`:`account`:acme-endpoint/`endpoint_ID`"
   }
 }
 ```
@@ -66,6 +71,11 @@ following structure.
      "detail": {
         "CertificateType" : "AMAZON_ISSUED" | "PRIVATE",
         "CommonName": "example.com",
+        "FirstSubjectAlternativeName": "example.com",
+        "ValidityInDays": 90,
+        "CertificateKeyPairOrigin": "AWS_MANAGED" | "ACME" | "CUSTOMER_PROVIDED",
+        "AcmeAccountId": "`acme_account_id`",
+        "AcmeEndpointArn": "arn:aws:acm:`region`:`account`:acme-endpoint/`endpoint_ID`",
         "DomainValidationMethod" : "EMAIL" | "DNS",
         "CertificateCreatedDate" : "2018-12-22T18:43:48Z",
         "CertificateExpirationDate" : "2019-12-22T18:43:48Z",
@@ -102,6 +112,11 @@ following structure.
        “Action” : "ISSUANCE" | "RENEWAL" | "IMPORT" | "REIMPORT",
        "CertificateType" : "AMAZON_ISSUED" | "PRIVATE" | "IMPORTED",
        "CommonName": "example.com",
+       "FirstSubjectAlternativeName": "example.com",
+       "ValidityInDays": 90,
+       "CertificateKeyPairOrigin": "AWS_MANAGED" | "ACME" | "CUSTOMER_PROVIDED",
+       "AcmeAccountId": "`acme_account_id`",
+       "AcmeEndpointArn": "arn:aws:acm:`region`:`account`:acme-endpoint/`endpoint_ID`",
        "DomainValidationMethod" : "EMAIL" | "DNS",
        "CertificateCreatedDate" : "2019-12-22T18:43:48Z",
        "CertificateExpirationDate" : "2019-12-22T18:43:48Z",
@@ -146,6 +161,9 @@ events have the following structure.
     "detail": {
        "CertificateType" : "AMAZON_ISSUED" | "PRIVATE",
        "CommonName": "example.com",
+       "FirstSubjectAlternativeName": "example.com",
+       "ValidityInDays": 90,
+       "CertificateKeyPairOrigin": "AWS_MANAGED",
        "DomainValidationMethod" : "EMAIL" | "DNS",
        "RenewalStatusReason" : "CAA_ERROR" | "PENDING_DOMAIN_VALIDATION" | "NO_AVAILABLE_CONTACTS" | "ADDITIONAL_VERIFICATION_REQUIRED" | "DOMAIN_NOT_ALLOWED" | "INVALID_PUBLIC_DOMAIN" | "DOMAIN_VALIDATION_DENIED" | "PCA_LIMIT_EXCEEDED" | "PCA_INVALID_ARN" | "PCA_INVALID_STATE" | "PCA_REQUEST_FAILED" | "PCA_NAME_CONSTRAINTS_VALIDATION" | "PCA_RESOURCE_NOT_FOUND" | "PCA_INVALID_ARGS" | "PCA_INVALID_DURATION" | "PCA_ACCESS_DENIED" | "SLR_NOT_FOUND" | "OTHER",
        "DaysToExpiry": 30,
@@ -184,6 +202,11 @@ following structure.
   "detail": {
     "CertificateType" : "AMAZON_ISSUED" | "PRIVATE",
     "CommonName": "example.com",
+    "FirstSubjectAlternativeName": "example.com",
+    "ValidityInDays": 90,
+    "CertificateKeyPairOrigin": "AWS_MANAGED" | "ACME" | "CUSTOMER_PROVIDED",
+    "AcmeAccountId": "`acme_account_id`",
+    "AcmeEndpointArn": "arn:aws:acm:`region`:`account`:acme-endpoint/`endpoint_ID`",
     "CertificateExpirationDate" : "2019-12-22T18:43:48Z",
     "Exportable": TRUE | FALSE
   }

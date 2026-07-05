@@ -4,6 +4,7 @@ This section provides definitions of concepts used by AWS Certificate Manager.
 
 ###### Topics
 
+- [Automated Certificate Management Environment (ACME)](#concept-acme "#concept-acme")
 - [ACM Certificate](#concept-acm-cert "#concept-acm-cert")
 - [ACM Root CAs](#ACM-root-CAs "#ACM-root-CAs")
 - [Apex Domain](#concept-apex "#concept-apex")
@@ -23,6 +24,20 @@ This section provides definitions of concepts used by AWS Certificate Manager.
 - [Symmetric Key Cryptography](#concept-symmetric "#concept-symmetric")
 - [Transport Layer Security (TLS)](#concept-tls "#concept-tls")
 - [Trust](#concept-trust "#concept-trust")
+- [Wildcard Certificate](#concept-wildcard "#concept-wildcard")
+
+## Automated Certificate Management Environment (ACME)
+
+The Automated Certificate Management Environment (ACME) is a protocol defined in RFC 8555 for automating
+certificate issuance and lifecycle management through machine-to-machine
+communication between certificate requesters (called ACME clients) and
+Certificate Authorities. ACME eliminates manual steps in certificate
+provisioning by enabling clients such as Certbot and cert-manager to request,
+validate, and install certificates without human intervention.
+
+ACM provides a managed ACME server implementation for automating public
+certificate issuance on customer-managed infrastructure. For more information, see
+[ACME certificate automation](acm-acme.md "acm-acme.md").
 
 ## ACM Certificate
 
@@ -403,3 +418,13 @@ as a certificate authority (CA), validates the identity of the website and issue
 signed digital certificate to the website's operator. The browser can then check the
 digital signature to validate the identity of the website. If validation is
 successful, the browser displays a lock icon in the address bar.
+
+## Wildcard Certificate
+
+A wildcard certificate secures multiple subdomains at the same level by using an
+asterisk (`*`) in the leftmost position of the domain name. For example, a
+certificate for `*.example.com` protects `login.example.com`
+and `test.example.com`. A wildcard protects only one subdomain level: it
+does not protect the [apex domain](#concept-dn "#concept-dn")
+`example.com`, or multi-level subdomains such as
+`test.login.example.com`.

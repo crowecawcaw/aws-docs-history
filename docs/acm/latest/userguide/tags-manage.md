@@ -85,3 +85,22 @@ the API.
 - [ListTagsForCertificate](../APIReference/API_ListTagsForCertificate.md "../APIReference/API_ListTagsForCertificate.md")
 
 - [RemoveTagsFromCertificate](../APIReference/API_RemoveTagsFromCertificate.md "../APIReference/API_RemoveTagsFromCertificate.md")
+
+###### Note
+
+The certificate-specific tagging APIs above (`AddTagsToCertificate`,
+`ListTagsForCertificate`, `RemoveTagsFromCertificate`)
+apply only to `certificate` resource types. For all other ACM
+resource types (such as ACME endpoints, ACME external account bindings, and ACME
+domain validations), use the following APIs:
+
+- [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md")
+- [ListTagsForResource](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md")
+- [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md")
+
+###### Note
+
+Calling `TagResource`, `UntagResource`, or
+`ListTagsForResource` with a `certificate`-typed ARN
+returns a `ValidationException`. Use the certificate-specific
+APIs for certificate resources.

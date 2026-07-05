@@ -2,6 +2,10 @@
 
 You can use AWS Certificate Manager exportable public certificates with AWS Controllers for Kubernetes (ACK) to issue and export public TLS certificates from ACM to your Kubernetes workloads. This integration enables you to secure Amazon Elastic Kubernetes Service (Amazon EKS) pods and terminate TLS at your Kubernetes Ingress. To get started, see the [ACM Controller for Kubernetes](https://github.com/aws-controllers-k8s/acm-controller "https://github.com/aws-controllers-k8s/acm-controller") on GitHub.
 
+###### Tip
+
+If you use [cert-manager](https://cert-manager.io/ "https://cert-manager.io/") or another industry-standard ACME client in your Kubernetes cluster, you can automate certificate issuance from ACM through the ACME protocol instead. In this approach, the ACME client generates and holds the private key. For more information, see [ACME certificate automation](acm-acme.md "acm-acme.md").
+
 AWS Controllers for Kubernetes (ACK) extends the Kubernetes API to manage AWS resources using native Kubernetes manifests. The ACK service controller for ACM provides automated certificate lifecycle management within your Kubernetes workflow. When you create an ACM Certificate resource in Kubernetes, the ACK controller performs the following actions:
 
 1. Requests a certificate from ACM, which generates the certificate signing request (CSR).

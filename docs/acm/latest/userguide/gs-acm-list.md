@@ -10,7 +10,7 @@ NOT logical operators.
 
 The [ListCertificates](../APIReference/API_ListCertificates.md "../APIReference/API_ListCertificates.md")
 operation still exists for basic listing with limited filtering options such as key
-type, key usage, and certificate status.
+type, key usage, certificate status, and certificate key pair origin.
 
 ###### Filter categories
 
@@ -26,9 +26,15 @@ You can filter certificates using the following categories:
   common name and DNS filters together with an OR operator.
 - **ACM metadata** – Filter by status,
   type, in-use, exported, export option, managed-by, validation method, renewal
-  status, or renewal eligibility.
-  String filters support the CONTAINS and EQUALS comparison operators. You can combine
-  multiple filters using AND, OR, and NOT logical operators.
+  status, renewal eligibility, certificate key pair origin, ACME endpoint,
+  or ACME account.
+  The certificate key pair origin filter accepts the values
+  `AWS_MANAGED`, `CUSTOMER_PROVIDED`, and `ACME`.
+  Certificates issued through ACME are returned only when you set the certificate
+  key pair origin filter to `ACME`.
+
+String filters support the CONTAINS and EQUALS comparison operators. You can combine
+multiple filters using AND, OR, and NOT logical operators.
 
 ###### Sorting
 
@@ -182,7 +188,8 @@ The command returns information similar to the following:
                     "RenewalEligibility": "ELIGIBLE",
                     "Status": "ISSUED",
                     "Type": "AMAZON_ISSUED",
-                    "ValidationMethod": "DNS"
+                    "ValidationMethod": "DNS",
+                    "CertificateKeyPairOrigin": "AWS_MANAGED"
                 }
             }
         }

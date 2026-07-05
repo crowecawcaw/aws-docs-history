@@ -4,6 +4,12 @@ The following procedures walks you through how you can export an ACM public
 certificate in the ACM console. Alternatively, you can use the [`export-certificate`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/acm/export-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/acm/export-certificate.html") AWS CLI or [ExportCertificate](../APIReference/API_ExportCertificate.md "../APIReference/API_ExportCertificate.md")
 API action.
 
+###### Tip
+
+If you need public certificates for customer-managed infrastructure (such as
+on-premises servers or Kubernetes clusters) and want to use industry-standard ACME
+clients to automate issuance and renewal, see [ACME certificate automation](acm-acme.md "acm-acme.md").
+
 ###### Note
 
 ACM public certificates created prior to June 17, 2025 cannot be exported.

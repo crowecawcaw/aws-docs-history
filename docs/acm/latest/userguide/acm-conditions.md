@@ -19,6 +19,7 @@ ACM API operations and supported conditions| Condition Key | Supported ACM API O
 | `acm:KeyAlgorithm` | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | String | Filter requests based on ACM [key algorithm and size](acm-certificate.md#algorithms "acm-certificate.md#algorithms") |
 | `acm:CertificateTransparencyLogging` | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | String (`ENABLED`, `DISABLED`) | Deprecated. This condition will continue to be enforced but [certificate transparency logging](acm-concepts.md#concept-transparency "acm-concepts.md#concept-transparency") is always enabled for public certificates and cannot be disabled. |
 | `acm:CertificateAuthority` | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") | ARN | Filter requests based on [certificate authorities](acm-concepts.md#concept-ca "acm-concepts.md#concept-ca") in the ACM request |
+| `acm:CertificateKeyPairOrigin` | [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md"), [AddTagsToCertificate](../APIReference/API_AddTagsToCertificate.md "../APIReference/API_AddTagsToCertificate.md"), [RevokeCertificate](../APIReference/API_RevokeCertificate.md "../APIReference/API_RevokeCertificate.md") | String (`AWS_MANAGED`, `ACME`, `CUSTOMER_PROVIDED`) | Filter requests based on the certificate's key pair origin. For `RequestCertificate`, the value is always `AWS_MANAGED`. When requesting certificates through an ACME client, the value is `ACME`. For `AddTagsToCertificate` and `RevokeCertificate`, the value is read from the existing certificate. |
 
 ## Example 1: Restricting validation method
 
@@ -204,4 +205,28 @@ JSON
  }
 }`
 
+```
+
+## Example 6: Restricting actions by certificate key pair origin
+
+The following policy allows tagging only on ACME certificates. This is useful when
+you want to restrict tagging operations to certificates issued through the ACME
+protocol.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "acm:AddTagsToCertificate",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "acm:CertificateKeyPairOrigin": "ACME"
+        }
+      }
+    }
+  ]
+}
 ```

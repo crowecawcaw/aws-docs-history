@@ -21,8 +21,16 @@ considerations:
   API.
 - NOT ELIGIBLE if [imported](import-certificate.md "import-certificate.md").
 - NOT ELIGIBLE if already expired.
-  Additionally, the following [Punycode](https://datatracker.ietf.org/doc/html/rfc3492 "https://datatracker.ietf.org/doc/html/rfc3492") requirements relating to [Internationalized Domain
-  Names](https://www.icann.org/resources/pages/idn-2012-02-25-en "https://www.icann.org/resources/pages/idn-2012-02-25-en") must be fulfilled:
+
+###### Note
+
+Certificates issued through ACME certificate automation are not eligible
+for ACM managed renewal. Renewal of ACME certificates is managed by the
+ACME client. For more information, see
+[Issuing certificates through ACME](acm-acme-issuance.md "acm-acme-issuance.md").
+
+Additionally, the following [Punycode](https://datatracker.ietf.org/doc/html/rfc3492 "https://datatracker.ietf.org/doc/html/rfc3492") requirements relating to [Internationalized Domain
+Names](https://www.icann.org/resources/pages/idn-2012-02-25-en "https://www.icann.org/resources/pages/idn-2012-02-25-en") must be fulfilled:
 
 1. Domain names beginning with the pattern "<character><character>--" must
    match "xn--".

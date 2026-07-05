@@ -12,5 +12,6 @@ Center](https://aws.amazon.com/premiumsupport/knowledge-center/ "https://aws.ama
 - [Troubleshoot certificate requests](troubleshooting-cert-requests.md "troubleshooting-cert-requests.md")
 - [Troubleshoot certificate validation](certificate-validation.md "certificate-validation.md")
 - [Troubleshoot managed certificate renewal](troubleshooting-renewal.md "troubleshooting-renewal.md")
+- [Troubleshoot ACME certificate automation](troubleshooting-acme.md "troubleshooting-acme.md")
 - [Troubleshoot other problems](misc-problems.md "misc-problems.md")
 - [Handling exceptions](exceptions.md "exceptions.md")

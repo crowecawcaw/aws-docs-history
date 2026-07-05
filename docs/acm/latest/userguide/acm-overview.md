@@ -11,16 +11,19 @@ PKI.
 
 ###### Note
 
-ACM is not intended for use with a stand-alone web server. If you want to set up a
-stand-alone secure server on an Amazon EC2 instance, the following tutorial has instructions:
-[Configure SSL/TLS on Amazon Linux 2023](../../../AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2023.md "../../../AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2023.md").
+You can use ACM certificates with stand-alone web servers and other
+customer-managed infrastructure, including Amazon EC2 instances. For publicly trusted web
+certificates on these servers, use the ACME protocol to automate issuance and renewal
+directly on your hosts. See [ACME certificate automation](acm-acme.md "acm-acme.md"). For
+private PKI scenarios, the following tutorial has instructions for setting up a secure
+server on an Amazon EC2 instance: [Configure SSL/TLS on Amazon Linux 2023](../../../AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2023.md "../../../AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2023.md").
 
 ###### Topics
 
 - [Supported Regions](#acm-regions "#acm-regions")
 - [Pricing for AWS Certificate Manager](#acm-billing "#acm-billing")
 - [AWS Certificate Manager concepts](acm-concepts.md "acm-concepts.md")
-- [What is the right AWS certificate service for my needs?](service-options.md "service-options.md")
+- [Choosing how to issue certificates with AWS](service-options.md "service-options.md")
 
 ## Supported Regions
 
