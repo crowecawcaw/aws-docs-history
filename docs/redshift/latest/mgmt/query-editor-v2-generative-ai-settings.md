@@ -1,6 +1,7 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
-Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
+We will start enforcing it in phases. For more information on the details of Python end of life
+and migration options, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
 
 # Updating generative SQL settings as an administrator
 
@@ -15,7 +16,7 @@ For more information about managed policies, see
 1. Choose the ![Settings](images/qev2-cog.png)
    **Settings** icon to show a menu of the different settings screens.
 2. Then choose the
-   ![Generative SQL settings](/images/redshift/latest/mgmt/images/qev2-amazon-q.png)
+   ![Generative SQL settings](images/qev2-amazon-q.png)
    Generative SQL settings icon to show the **Q generative SQL settings** page.
 3. Select **Q generative SQL settings** to turn on the generative SQL capability for users in the account.
 

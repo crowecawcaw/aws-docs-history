@@ -1,6 +1,7 @@
-Amazon Redshift will no longer support the creation of new Python UDFs starting Patch 198.
-Existing Python UDFs will continue to function until June 30, 2026. For more information, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
+We will start enforcing it in phases. For more information on the details of Python end of life
+and migration options, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
 
 # Creating destination databases in Amazon Redshift
 
@@ -33,7 +34,7 @@ Amazon Redshift console
    **Integration ID** and **Data warehouse name**
    are pre-populated.
 
-For Aurora PostgreSQL, RDS for PostgreSQL, or RDS for Oracle sources, enter the **Source named database**
+For Aurora PostgreSQL, RDS for PostgreSQL, RDS for Oracle, or Oracle Database@AWS sources, enter the **Source named database**
 that you specified when creating your zero-ETL integration. In these cases, you can map a maximum of 100
 source databases to Amazon Redshift databases. 6. Choose **Create database**.
 
@@ -63,8 +64,8 @@ command.
 CREATE DATABASE `destination_db_name` FROM INTEGRATION '`integration_id`';
 ```
 
-For Aurora PostgreSQL sources, you must also include a reference to the named
-database within the cluster that you specified when you created the integration. For
+For Aurora PostgreSQL, RDS for PostgreSQL, RDS for Oracle, or Oracle Database@AWS sources, you must also include a reference to the named
+database within the source instance or cluster that you specified when you created the integration. For
 example:
 
 ```
