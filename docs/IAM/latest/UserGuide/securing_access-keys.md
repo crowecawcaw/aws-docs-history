@@ -198,7 +198,7 @@ to use access keys:
   _AWS SDK for .NET Developer Guide_
 - [Providing Credentials to the SDK](../../../aws-sdk-php/v2/guide/credentials.md "../../../aws-sdk-php/v2/guide/credentials.md") in the
   _AWS SDK for PHP Developer Guide_
-- [Configuration](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#configuration "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html#configuration") in the Boto 3 (AWS SDK for Python)
+- [Configuration](../../../boto3/latest/guide/quickstart.htmlguide/quickstart.md#configuration "../../../boto3/latest/guide/quickstart.htmlguide/quickstart.md#configuration") in the Boto 3 (AWS SDK for Python)
   documentation
 - [Using AWS
   Credentials](../../../powershell/latest/userguide/specifying-your-aws-credentials.md "../../../powershell/latest/userguide/specifying-your-aws-credentials.md") in the _AWS Tools for Windows PowerShell User Guide_
