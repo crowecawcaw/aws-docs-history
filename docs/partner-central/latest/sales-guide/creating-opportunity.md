@@ -31,6 +31,13 @@ Partners can now use deal sizing when creating opportunities to receive AI-power
    - For **Opportunity Type**, if there are existing contracts between the end customer and partner with the potential for incremental revenue, choose **Expansion**. Choose **Flat Renewal** if no potential for incremental revenue exists. If you select **Expansion** or **Flat Renewal**, you can enter an optional parent opportunity ID.
    - AWS Training Partners (ATPs) should enter **Training** for **Use Case**, and enter AWS revenue from AWS training kits for **Estimated AWS Monthly Recurring Revenue** on the next step as part of deal sizing.
    - Enter a future date for **Target Close Date**. Do not submit opportunities with **Launched** or **Closed Won** status.
+   - In the **AWS Marketplace products and solutions** section, associate one or more of your solutions and/or one or more AWS Marketplace products to the opportunity.
+     To associate solutions or AWS Marketplace products from an AWS Account connected via
+     [Subsidiary account connection](../getting-started/account-linking.md "../getting-started/account-linking.md"), enter the corresponding ARNs in the **Enter solution ARNs manually** or **Enter AWS Marketplace product ARNs manually** fields.
+
+   ###### Note
+
+   You are required to associate at least one solution or AWS Marketplace product to create an opportunity. Only solutions in "Limited" or "Public" status can be associated to an Opportunity.
    - If you select **Yes: Sourced from marketing activity**, make sure you select **Yes** or **No** for **Marketing development funds**.
 
 5. Enter APN program details and choose **Next**.
