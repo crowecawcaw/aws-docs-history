@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Use AMS SSP to provision AWS App Mesh in your AMS account
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS App Mesh capabilities directly in your AMS managed account. AWS App Mesh provides application level networking to make it easy for your services to

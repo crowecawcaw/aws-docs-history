@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Use AMS SSP to provision Amazon Bedrock in your AMS account
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Bedrock capabilities directly in your AMS managed account. Amazon Bedrock is a fully managed service that makes high-performing foundation models (FMs) from leading AI startups and AWS available for your use through a unified API. You can choose from a wide range of foundation models to find the model that is best suited for your use case. Amazon Bedrock also offers a broad set of capabilities to build generative AI applications with security, privacy, and responsible AI. Using Amazon Bedrock, you can easily experiment with and evaluate top foundation models for your use cases, privately customize them with your data using techniques such as fine-tuning and Retrieval Augmented Generation (RAG), and build agents that execute tasks using your enterprise systems and data sources.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Create change types
 
 Create change types are matched version-to-version with the Update change types. That is, the change type

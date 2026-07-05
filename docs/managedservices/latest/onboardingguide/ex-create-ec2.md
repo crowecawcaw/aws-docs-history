@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # EC2 instances: Creating
 
 You can use the AMS console or API/CLI to create an Amazon EC2 and an Amazon EC2 with additional volumes.

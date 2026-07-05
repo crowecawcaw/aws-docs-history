@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Reporting an incident
 
 Use the AMS console to report an incident. It's important to create a new incident for each new issue or question.
@@ -77,6 +82,6 @@ Click **Load More** if there is more correspondence than will fit on one page.
 
 Don't forget to rate the communication!
 
-![](/images/managedservices/latest/onboardingguide/images/guiSRcorrespond.png)
+![](images/guiSRcorrespond.png)
 
 Your incident displays on the **Incidents** list page.

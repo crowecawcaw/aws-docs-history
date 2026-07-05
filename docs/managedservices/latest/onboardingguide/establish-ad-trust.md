@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Establish an Active Directory (AD) trust
 
 Before you begin to establish an Active Directory (AD) trust for your AWS Managed Services (AMS) account, make sure that the appropriate firewall ports are open.

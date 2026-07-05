@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Use AMS SSP to provision AWS Well-Architected Tool in your AMS account
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Well-Architected Tool capabilities directly in your AMS managed account. The AWS Well-Architected Tool helps you review the state of your workloads and compares them to the latest AWS architectural best practices.

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Use AMS SSP to provision Amazon FSx for OpenZFS in your AMS account
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon FSx for OpenZFS capabilities directly in your AMS managed account. FSx for OpenZFS is a fully managed file storage service that makes it easy to move data residing in on-premises ZFS or other

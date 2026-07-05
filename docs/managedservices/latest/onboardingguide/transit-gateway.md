@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Use AMS SSP to provision AWS Transit Gateway in your AMS account
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Transit Gateway capabilities directly in your AMS managed account. AWS Transit Gateway is a service that enables you to connect your Amazon Virtual Private Cloud (VPCs) and your

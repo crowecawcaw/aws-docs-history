@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Find backup settings in AMS
 
 Backups and snapshots are managed by AMS through the native [AWS Backup](https://aws.amazon.com/backup/ "https://aws.amazon.com/backup/") service.

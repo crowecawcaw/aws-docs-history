@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Subscribe to AWS Marketplace for EPS
 
 Recent changes to AMS endpoint security (EPS) require you to subscribe to TrendMicro Deep Security through the AWS Marketplace and accept the software terms.

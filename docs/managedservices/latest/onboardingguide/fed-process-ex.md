@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
 # Federation process example
 
 This example uses Active Directory Federation Services (AD FS); however, any technology that supports AWS Identity and Access Management Federation is supported. For more information on AWS supported IAM federation, see
