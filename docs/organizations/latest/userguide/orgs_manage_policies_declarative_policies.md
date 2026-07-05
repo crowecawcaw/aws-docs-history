@@ -9,7 +9,7 @@ Declarative policies allow you to centrally declare and enforce your desired con
 for a given AWS service at scale across an organization. Once attached, the configuration
 is always maintained when the service adds new features or APIs. Use declarative policies to
 prevent noncompliant actions. For example, you can block public internet access to Amazon VPC
-resources across your organization.
+resources, or enforce encryption in transit for VPC traffic, across your organization.
 
 The key benefits of using declarative policies are:
 

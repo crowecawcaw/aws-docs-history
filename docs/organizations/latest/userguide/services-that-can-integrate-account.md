@@ -130,6 +130,11 @@ your account details.
 Only a user or role in the Organizations management account can configure a member account
 as a delegated administrator for Account Management in the organization
 
+###### Note
+
+You can designate only one member account as a delegated administrator for
+Account Management in your organization.
+
 For general instructions on how to configure a delegation policy, see [Create a resource-based delegation policy with AWS Organizations](orgs-policy-delegate.md "orgs-policy-delegate.md").
 
 AWS CLI, AWS API

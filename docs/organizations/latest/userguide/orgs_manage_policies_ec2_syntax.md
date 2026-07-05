@@ -51,6 +51,7 @@ save space.
 - Allowed Images Settings
 - Instance Metadata
 - Snapshot Block Public Access
+- VPC Encryption Controls
 
 VPC Block Public Access
 **Policy effect**
@@ -535,3 +536,119 @@ in scope. This list is not exhaustive:
 
 - `EnableSnapshotBlockPublicAccess`
 - `DisableSnapshotBlockPublicAccess`
+
+VPC Encryption Controls
+
+###### Policy effect
+
+Controls whether Amazon VPC encryption controls are enabled and in which mode
+for the VPCs in accounts that are in scope of the policy. For more information, see
+[VPC Encryption
+Controls](../../../vpc/latest/userguide/vpc-encryption-controls.md "../../../vpc/latest/userguide/vpc-encryption-controls.md") in the _Amazon VPC User Guide_.
+
+###### Policy contents
+
+```
+{
+  "ec2_attributes": {
+    "vpc_encryption_control": {
+      "mode": {
+        "@@assign": "attempt_enforce"
+      },
+      "exclusions": {
+        "@@assign": ["internet_gateway", "nat_gateway", "vpc_lattice"]
+      }
+    }
+  }
+}
+```
+
+The following are the available fields for this attribute:
+
+- `"mode"` (required): The Amazon VPC encryption controls
+  mode to apply to all accounts and VPCs in scope.
+
+  - `"unmanaged"`: Amazon VPC encryption controls
+    is turned off. If you detach the policy, the service
+    rolls back the account-level Amazon VPC encryption controls
+    to its previous state. The VPCs themselves may or may
+    not successfully go back to the previous state—see
+    Considerations.
+  - `"attempt_monitor"`: All in-scope VPCs attempt
+    to move to monitor mode. Monitor mode audits the encryption
+    status of traffic flows and identifies resources that allow
+    unencrypted traffic. A VPC with no encryption controls
+    moves to monitor; a VPC already in monitor stays in
+    monitor; a VPC in enforce attempts to move to monitor;
+    New VPCs are created in monitor mode.
+  - `"attempt_enforce"`: All in-scope VPCs attempt
+    to move to enforce mode, which ensures the VPC only allows
+    services that always encrypt traffic in transit. A VPC with
+    encryption controls off moves to monitor first, then
+    attempts enforce automatically when this mode is enabled at
+    the account or organization level; a VPC in monitor mode
+    attempts to migrate to enforce; a VPC already in enforce
+    stays in enforce; New VPCs are created in enforce mode
+    with any resource type exclusions defined at the
+    organization or account level.
+
+- `"exclusions"` (optional): Per-Region map of
+  excludable resource types that can be excluded from
+  Amazon VPC encryption controls.
+
+  - `internet_gateway`
+  - `nat_gateway`
+  - `vpc_lattice`
+  - `vpc_peering`
+  - `lambda`
+  - `egress_only_internet_gateway`
+  - `elastic_file_system`
+  - `virtual_private_gateway`
+
+###### Considerations
+
+- When transitioning to enforce via account or organization-level
+  `attempt_enforce`, the service places VPCs in
+  monitor mode first, then automatically transitions them to enforce.
+  The transition to enforce fails if the VPC contains non-compliant
+  resources that are not covered by an exclusion; those VPCs remain
+  in monitor mode with an enforce-failed state. Remediate those
+  resources or add exclusions first.
+- If you detach the policy, the encryption control configuration
+  at the account level rolls back to its previous state before the
+  policy was attached.
+- If you use this attribute in an EC2 policy, VPC owners of
+  in-scope VPCs will not be able to use the following commands
+  at the VPC level (list not exhaustive):
+
+  - `ModifyVpcEncryptionControl`
+  - `DeleteVpcEncryptionControl`
+  - `CreateVpcEncryptionControl`
+
+- If the transition to either mode fails, use
+  `DescribeVpcEncryptionControls` to find all the VPCs
+  that failed the transition, and then use
+  `GetVpcResourcesBlockingEncryptionEnforcement` to find
+  the violating resources within the VPCs.
+- The order of precedence for exclusions is organization, then OU,
+  then account, then VPC. An organization-level exclusion takes
+  precedence over an account-level exclusion, which takes precedence
+  over a VPC-level exclusion.
+
+###### Best practices
+
+- **Monitor before enforce.** Always
+  run `attempt_monitor` org-wide and use the account
+  status report to confirm VPCs don't have non-excludable resources
+  before moving to `attempt_enforce`.
+- **Stage enforcement with
+  exclusions.** Use per-Region
+  `exclusions` for resources that do not support
+  encryption in transit (for example, IGW, NAT gateway, Amazon VPC
+  Lattice).
+- **Understand precedence.** Org mode
+  and exclusions override account and VPC settings; plan rollouts
+  top-down.
+- **Plan for peering.** Delete VPC
+  peering exclusions before attempting to move enforce-mode VPCs back
+  to monitor.

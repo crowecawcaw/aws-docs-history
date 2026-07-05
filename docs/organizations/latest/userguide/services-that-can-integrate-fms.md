@@ -24,6 +24,14 @@ Firewall Manager and Organizations, or if you remove the member account from the
 
 - `AWSServiceRoleForFMS`
 
+When you enable trusted access for AWS Firewall Manager, the
+`AWSServiceRoleForFMS` service-linked role is automatically created in
+every member account in the organization. This includes accounts that join the
+organization later, either by invitation or by being created in the organization.
+
+Standalone accounts and accounts in a different organization don't receive this role
+and can't be managed by Firewall Manager.
+
 ## Service principals used by the service-linked roles
 
 The service-linked role in the previous section can be

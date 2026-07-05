@@ -5,6 +5,21 @@ your organization and add a statement that specifies which member accounts can p
 actions on policies. You can add multiple statements in the policy to denote a different
 set of permissions to member accounts.
 
+###### Important
+
+Effective June 30, 2026, AWS Organizations no longer permits
+`NotAction` and `NotResource` elements in resource-based
+delegation policies. These elements are incompatible with the delegation allowlist
+model and can grant unintended access to organization management actions. Any
+attempt to create or update a delegation policy that contains
+`NotAction` or `NotResource` after this date is rejected
+with an error.
+
+Existing stored policies continue to function without interruption. Review
+your delegation policies and replace `NotAction` with an explicit
+`Action` list, and `NotResource` with an explicit
+`Resource` list.
+
 ###### Minimum permissions
 
 To create the resource-based delegation policy, you need permissions to
