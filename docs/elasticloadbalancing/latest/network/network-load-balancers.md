@@ -95,6 +95,22 @@ value between 60-6000 seconds. Clients or targets can use TCP keepalive packets 
 the idle timeout. Keepalive packets sent to maintain TLS connections can't contain data or
 payload.
 
+###### ENI connection tracking timeout mismatch
+
+If you configure a TCP idle timeout value higher than 350 seconds,
+ensure that your target instances' ENI connection tracking idle timeout
+(`TcpEstablishedTimeout`) is set to a value equal to or
+greater than the Network Load Balancer idle timeout. On sixth-generation Nitro
+instances (Nitro V6+), the default ENI connection tracking timeout is
+350 seconds. If the Network Load Balancer idle timeout exceeds the target's connection
+tracking timeout, the target's network interface may drop the
+connection tracking entry while the load balancer still considers the
+connection active, resulting in dropped packets on the connection. You
+can configure your target's connection tracking timeout using
+`ModifyNetworkInterfaceAttribute`. For more information, see
+[Best
+Practices for TCP Connection Management on EC2](https://aws.amazon.com/blogs/networking-and-content-delivery/best-practices-for-tcp-connection-management-on-ec2/ "https://aws.amazon.com/blogs/networking-and-content-delivery/best-practices-for-tcp-connection-management-on-ec2/").
+
 The connection idle timeout for TLS listeners is 350 seconds and can't be modified.
 When a TLS listener receives a TCP keepalive packet from either a client or a target,
 the load balancer generates TCP keepalive packets and sends them to both the front-end
