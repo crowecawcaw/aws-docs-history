@@ -36,6 +36,8 @@ Now that you configured differential privacy, you are ready to:
   query)
 - [Collaborations](working-with-collaborations.md "working-with-collaborations.md") (if you're the
   collaboration creator)
+- [Use differential privacy with
+  intermediate tables](working-with-intermediate-tables.md "working-with-intermediate-tables.md")
 
 ## Viewing differential privacy usage logs
 

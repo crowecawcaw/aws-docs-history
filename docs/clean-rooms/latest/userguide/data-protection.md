@@ -337,3 +337,138 @@ JSON
 ```
 
 Clean Rooms ML does not support specifying service encryption context or source context in customer managed key policies. Encryption context used by the service internally is visible to customers in CloudTrail.
+
+## Encryption for intermediate tables
+
+When using intermediate tables within AWS Clean Rooms, the service encrypts all data stored at rest
+with AWS Key Management Service (AWS KMS). By default, the service encrypts intermediate table data with a service-managed
+key. If
+you choose to provide your own KMS key, the service encrypts your intermediate table at rest
+with that key. This uses server-side encryption with AWS KMS keys (SSE-KMS).
+
+AWS Clean Rooms uses key policies and service principals to access customer managed keys for intermediate
+tables. The service encrypts intermediate table data at write time when the table is populated,
+and decrypts the data transparently when the intermediate table is used in a subsequent
+analysis.
+
+The KMS key ARN is provided at intermediate table creation time and applies to all
+versions of the table. You can update the KMS key using the **Edit**
+action on the intermediate table details page. The new key takes effect on the next populate
+– each version is encrypted with the key that was specified at the time of
+population.
+
+###### Note
+
+Deleting an intermediate table does not require any AWS KMS operations. The encrypted data
+in Amazon S3 is deleted by the managed storage service.
+
+**Required AWS KMS permissions for intermediate tables**
+
+To use your customer managed key with intermediate tables, the following API operations must be
+permitted in the key policy:
+
+- `kms:DescribeKey` – Validates the key state when you create or
+  update an intermediate table.
+- `kms:GenerateDataKey` – Encrypts intermediate table data when the
+  table is populated. Amazon S3 calls AWS KMS on behalf of the service to generate data keys for
+  SSE-KMS encryption.
+- `kms:Decrypt` – Decrypts intermediate table data when the table is
+  referenced in a subsequent analysis. Amazon S3 calls AWS KMS on behalf of the service to decrypt
+  the data transparently.
+
+**Key policy example for intermediate tables**
+
+The following is an example key policy for using a customer managed key with intermediate
+tables:
+
+```
+`{
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Allow Clean Rooms to encrypt and decrypt intermediate table data",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "cleanrooms.amazonaws.com"
+ },
+ "Action": [
+ "kms:GenerateDataKey",
+ "kms:Decrypt"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringLike": {
+ "kms:EncryptionContext:aws:cleanrooms:intermediateTableArn": "arn:aws:cleanrooms:`us-east-1`:`666666666666`:membership/`membership-id`/intermediatetable/`intermediate-table-id`"
+ },
+ "ForAnyValue:ArnEquals": {
+ "aws:SourceArn": [
+ "arn:aws:cleanrooms:`us-east-1`:`666666666666`:membership/`member-1-membership-id`",
+ "arn:aws:cleanrooms:`us-east-1`::membership/`member-2-membership-id`"
+ ]
+ }
+ }
+ },
+ {
+ "Sid": "Allow Clean Rooms to describe key",
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "cleanrooms.amazonaws.com"
+ },
+ "Action": [
+ "kms:DescribeKey"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Sid": "Allow caller to validate key via Clean Rooms",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`666666666666`:role/`ExampleRole`"
+ },
+ "Action": [
+ "kms:DescribeKey",
+ "kms:GenerateDataKey",
+ "kms:Decrypt"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "kms:ViaService": "cleanrooms.`us-east-1`.amazonaws.com",
+ "kms:CallerAccount": "`666666666666`"
+ }
+ }
+ }
+ ]
+}`
+```
+
+The first statement grants the AWS Clean Rooms service principal access for encrypting data during
+population and decrypting data during analysis. The
+`kms:EncryptionContext:aws:cleanrooms:intermediateTableArn` condition restricts
+which intermediate tables can use the key. The `aws:SourceArn` condition provides
+confused deputy protection by restricting access to specific membership ARNs in your
+collaboration.
+
+The second statement allows the service to describe the key for validation
+purposes.
+
+The third statement allows a specific IAM role in the customer's account to perform key
+validation through AWS Clean Rooms. The permitted actions are DescribeKey, GenerateDataKey, and Decrypt.
+Access is scoped using `kms:ViaService` and `kms:CallerAccount`
+conditions. This role is typically the IAM role that you use to interact with
+AWS Clean Rooms.
+
+**Encryption context**
+
+AWS Clean Rooms uses the following encryption context when encrypting intermediate table data:
+
+```
+`{
+ "aws:cleanrooms:intermediateTableArn": "`arn:aws:cleanrooms:us-east-1:123456789012:membership/membership-id/intermediatetable/intermediate-table-id`"
+}`
+```
+
+Every AWS KMS operation is logged in CloudTrail with the intermediate table ARN, providing a clear
+audit trail of which resource triggered each encrypt or decrypt call. You can use the
+`kms:EncryptionContext` condition key in your key policy to restrict which
+intermediate tables can use the key.

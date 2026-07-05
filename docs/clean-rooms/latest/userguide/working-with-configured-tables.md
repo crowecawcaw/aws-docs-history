@@ -40,3 +40,4 @@ The following diagram summarizes how to work with event data in AWS Clean Rooms.
 - [Configured table disallowed columns](disallowed-columns.md "disallowed-columns.md")
 - [Editing configured table associations](edit-config-table-assoc.md "edit-config-table-assoc.md")
 - [Disassociating configured tables](disassociate-config-table.md "disassociate-config-table.md")
+- [Deleting a configured table](delete-config-table.md "delete-config-table.md")

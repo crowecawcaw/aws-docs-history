@@ -12,6 +12,11 @@ For example, if your ID namespace association was used as a SOURCE in three diff
 mapping tables, then all the data from these ID mapping tables will be deleted when you
 disassociate your ID namespace association.
 
+Disassociating an ID namespace association also causes all dependent intermediate tables
+(and their descendants) to become unusable with a status of
+`BASE_TABLE_REMOVED`. The stored data in those intermediate tables is removed
+and storage-based billing stops. For more information, see [Deleting an intermediate table](delete-intermediate-table.md "delete-intermediate-table.md").
+
 ###### To disassociate an ID namespace association
 
 1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms/](https://console.aws.amazon.com/cleanrooms/ "https://console.aws.amazon.com/cleanrooms/").

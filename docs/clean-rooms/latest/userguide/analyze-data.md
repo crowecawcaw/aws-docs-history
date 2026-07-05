@@ -19,3 +19,4 @@ jobs.
 
 - [Running SQL queries](running-sql-queries.md "running-sql-queries.md")
 - [Running PySpark jobs](run-jobs.md "run-jobs.md")
+- [Using an intermediate table in analyses](use-intermediate-table.md "use-intermediate-table.md")

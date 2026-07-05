@@ -7,6 +7,11 @@ action prevents the member who can query from querying the table.
 
 Deleting a mapping table permanently removes any populated data.
 
+Deleting an ID mapping table also causes all dependent intermediate tables (and their
+descendants) to become unusable with a status of `BASE_TABLE_REMOVED`. The stored
+data in those intermediate tables is removed and storage-based billing stops. For more
+information, see [Deleting an intermediate table](delete-intermediate-table.md "delete-intermediate-table.md").
+
 ###### To delete an ID mapping table
 
 1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you haven't yet done so).

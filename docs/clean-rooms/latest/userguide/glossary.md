@@ -36,6 +36,11 @@ _AWS Clean Rooms SQL Reference_.
 
 Analysis templates only work with the [custom analysis rule](analysis-rules-custom.md "analysis-rules-custom.md").
 
+## Base table
+
+Any configured table, ID mapping table, or other intermediate table that is used in the
+analysis to populate an intermediate table.
+
 ## C3R encryption client
 
 The Cryptographic Computing for Clean Rooms (C3R) encryption client.
@@ -182,6 +187,12 @@ mapping workflow](#glossary-id-mapping-workflow "#glossary-id-mapping-workflow")
 
 An association of an ID namespace resource that helps you discover inputs into their [ID
 mapping workflow](#glossary-id-mapping-workflow "#glossary-id-mapping-workflow").
+
+## Intermediate table
+
+A collaboration-scoped resource in AWS Clean Rooms that caches analysis results within a
+collaboration for reuse in subsequent analyses. Intermediate tables store data in AWS
+managed storage and are not exported outside the collaboration.
 
 ## Job
 
