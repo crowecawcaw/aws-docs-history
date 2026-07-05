@@ -228,6 +228,7 @@ Supported OSs include:
 - 2019
 - 2022
 - 2025
+- Windows 11
 
 **Linux**
 

@@ -18,8 +18,10 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
   - Oracle Linux 9.7 and 10.1
   - CentOS Stream 10
 
-- Added no-rescan upon reboot support for Windows Server 2025, CentOS Stream 9,
-  and CentOS Stream 10. [Learn more](Agent-Related-FAQ.md#agent-no-rescan "Agent-Related-FAQ.md#agent-no-rescan").
+- Added no-rescan upon reboot support for Windows Server 2025, Windows 11,
+  CentOS Stream 9, and CentOS Stream 10. For more information, see
+  [Supported operating systems for no-rescan upon
+  reboot](Agent-Related-FAQ.md#agent-no-rescan "Agent-Related-FAQ.md#agent-no-rescan").
 - You can now update the user-provided ID for a source server. For more
   information, see [Edit server](add-server-server-page.md#server-edit-main "add-server-server-page.md#server-edit-main").
 - You can now delete a source server from the service. For more

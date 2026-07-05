@@ -124,8 +124,6 @@ Allowlist these buckets:
 
 ```
 
-https://aws-mgn-clients-<region>.s3.<region>.amazonaws.com/
-https://aws-mgn-clients-hashes-<region>.s3.<region>.amazonaws.com/
 https://aws-mgn-internal-<region>.s3.<region>.amazonaws.com/
 https://aws-mgn-internal-hashes-<region>.s3.<region>.amazonaws.com/
 https://aws-application-migration-service-<region>.s3.<region>.amazonaws.com/
@@ -166,11 +164,6 @@ JSON
  },
  "Action": "s3:GetObject",
  "Resource": [
- "arn:aws:s3:::aws-mgn-clients-us-east-1/*",
- "arn:aws:s3:::aws-mgn-clients-hashes-us-east-1/*",
- "arn:aws:s3:::aws-mgn-clients-us-east-1/*",
- "arn:aws:s3:::aws-mgn-clients-us-east-1/*",
- "arn:aws:s3:::aws-mgn-clients-hashes-us-east-1/*",
  "arn:aws:s3:::aws-mgn-internal-us-east-1/*",
  "arn:aws:s3:::aws-mgn-internal-hashes-us-east-1/*",
  "arn:aws:s3:::aws-application-migration-service-us-east-1/*",
