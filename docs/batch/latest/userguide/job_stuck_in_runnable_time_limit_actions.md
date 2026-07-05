@@ -35,7 +35,6 @@ The following `statusReason` values support `jobStateTimeLimitActions`:
 - `CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY`
 - `MISCONFIGURATION:COMPUTE_ENVIRONMENT_MAX_RESOURCE`
 - `MISCONFIGURATION:JOB_RESOURCE_REQUIREMENT`
-- `MISCONFIGURATION:EC2_INSTANCE_CONFIGURATION_UNSUPPORTED`
   The following `statusReason` values do not support
   `jobStateTimeLimitActions` and require manual investigation:
 
