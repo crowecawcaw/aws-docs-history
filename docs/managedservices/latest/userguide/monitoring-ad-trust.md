@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Single-Account Landing Zone proactive monitoring of Active Directory Trust in AMS
 
 AMS single-account landing zone (SALZ) monitors the status of the one-way trust(s) between the

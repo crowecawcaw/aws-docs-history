@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Alerts from baseline monitoring in AMS
 
 Learn about AMS monitoring defaults. For more information, see
@@ -29,8 +34,6 @@ The EC2 instance alert `Non-root volume usage` is **DISABLED** by default. If yo
 Alerts from baseline monitoring| Service | Security alert | Alert name and trigger condition | Notes |
 | --- | --- | --- | --- |
 | For starred (**\***) alerts, AMS<br>proactively assesses impact and remediates when possible; if remediation is not<br>possible, AMS creates an incident. Where automation fails to correct the issue, AMS informs<br>you of the incident case and an AMS engineer is engaged. In addition, these alerts can be sent<br>directly to your email (if you have opted in to the Direct-Customer-Alerts SNS topic). |
-| Application Load Balancer (ALB) instance | No | RejectedConnectionCount<br>sum > 0 for 1 min, 5 consecutive times. | CloudWatch alarm if the number of connections that were rejected because the load balancer reached its maximum. |
-| Application Load Balancer (ALB) target | No | TargetConnectionErrorCount<br>sum > 0 for 1 min, 5 consecutive times. | CloudWatch alarm if number of connections were unsuccessfully established between the<br>load balancer and the registered instances. |
 | Amazon EC2 instance – Windows | No | SecureChannelFailure<br>> 0.0 for 10 out of the last 15 data points. | CloudWatch alarm on Windows instances to alert when Secure a Channel connection has failed. |
 | Aurora instance | No | CPUUtilization<br>> 85% for 5 mins, 2 consecutive times. | CloudWatch alarm. |
 | AWS Backup | Yes | DeleteRecoveryPoint<br>An unexpected IAM role principal or IAM user principal has deleted an AWS Backup recovery point. | CloudWatch event. Emitted when a backup recovery point is deleted. |

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Runtime checks for AMS Automated IAM Provisioning in AMS
 
 Automated IAM Provisioning leverages checks from AWS Identity and Access Management Access Analyzer, and performs additional checks and validations against the AMS boundary policy. AMS defined the additional checks and validations based on IAM best practices, experience operating customer workload in the cloud, and the collective AMS IAM manual evaluation experience.

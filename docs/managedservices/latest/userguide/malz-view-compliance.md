@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Multi-Account Landing Zone viewing the compliance status of your AWS Config Rules
 
 AMS multi-account landing zone utilizes the AWS Config aggregator service to create a centralized view of compliance across all your accounts.

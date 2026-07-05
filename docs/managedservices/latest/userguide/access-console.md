@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Accessing the AWS Management console and the AMS console
 
 During onboarding, you're provided a login to the AWS Management console (with limited privileges: you can write to the AMS console, and

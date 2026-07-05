@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Using CloudWatch Application Insights for .Net and SQL server in AMS
 
 You can use Amazon CloudWatch Application Insights to set up the monitors for your AWS Managed Services (AMS) application resources to continuously analyze data for signs of problems with your

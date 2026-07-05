@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Compute Optimizer recommendations supported by Trusted Remediator
 
 The following table lists the supported Compute Optimizer recommendations, SSM automation documents, preconfigured parameters, and the expected outcome of the automation documents.

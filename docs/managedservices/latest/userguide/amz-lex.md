@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Use AMS SSP to provision Amazon Lex in your AMS account
 
 Use AMS Self-Service Provisioning (SSP) mode to access Amazon Lex capabilities directly in your AMS managed account. Amazon Lex is a service for building conversational interfaces into any application

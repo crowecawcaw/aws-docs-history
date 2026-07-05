@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Onboarding to AMS Automated IAM Provisioning in AMS
 
 To use the new change types, first enable AMS Automated IAM Provisioning by submitting an RFC using the following change type:

@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Use AMS SSP to provision AWS Systems Manager Automation in your AMS account
 
 Use AMS Self-Service Provisioning (SSP) mode to access AWS Systems Manager Automation capabilities directly in your AMS managed account. AWS Systems Manager Automation simplifies common maintenance and deployment tasks of Amazon Elastic Compute Cloud instances and other AWS resources

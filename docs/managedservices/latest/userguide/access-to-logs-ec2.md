@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Amazon Elastic Compute Cloud (Amazon EC2) - system level logs
 
 Instance logs are collected by a CloudWatch Logs agent running on the instance and can be accessed through a

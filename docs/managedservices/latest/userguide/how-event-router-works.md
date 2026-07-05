@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Using Amazon EventBridge Managed Rules in AMS
 
 AMS Advanced uses Amazon EventBridge Managed Rules. A Managed Rule is a unique type of rule that is directly linked to AMS.

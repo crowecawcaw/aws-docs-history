@@ -1,3 +1,8 @@
+End of support notice: On June 30, 2027, AWS
+will end support for AMS Advanced. After June 30, 2027, you will
+no longer be able to access the AMS Advanced console or AMS Advanced resources.
+For more information, see [AMS Advanced end of support](SunsetPlan.md "SunsetPlan.md").
+
 # Find AMI IDs, AMS
 
 An Amazon Machine Image, or AMI, is a template for Amazon EC2 instances, created from an Amazon EC2 instance. AWS provides updated AMIs (with patches,
