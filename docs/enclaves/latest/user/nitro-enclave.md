@@ -125,6 +125,8 @@ Nitro Enclaves has the following requirements:
   | C8in            | All instance types, **except**: `c8in.large`  | `c8in.metal-48xl` | `c8in.metal-96xl` |
   | C8ine           | All instance types, **except**: `c8ine.large` |
   | C8ib            | All instance types, **except**: `c8ib.large`  | `c8ib.metal-48xl` | `c8ib.metal-96xl` |
+  | C9g             | All instance types, **except**: `c9g.medium`  | `c9g.metal-48xl`  |
+  | C9gd            | All instance types, **except**: `c9gd.medium` | `c9gd.metal-48xl` |
 
   Memory optimized
 
@@ -207,6 +209,7 @@ Nitro Enclaves has the following requirements:
   | P5e             | All instance types.                          |
   | P5en            | All instance types.                          |
   | P6-B300         | All instance types.                          |
+  | P6e-GB200       | All instance types.                          |
   | Trn2            | All instance types.                          |
   | Trn2u           | All instance types.                          |
 
