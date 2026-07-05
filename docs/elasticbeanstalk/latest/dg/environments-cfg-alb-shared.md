@@ -204,7 +204,7 @@ traffic on a different path.
 `443`. For **Protocol**, select `HTTPS`. Under **Health check**, for
 **Path** enter `/admin`.
 
-![Application Load Balancer configuration example - adding admin process](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition-https-admin.png) 4. _Add a rule for admin traffic._ For **Name**, enter `admin`. For **Listener
+![Application Load Balancer configuration example - adding admin process](images/aeb-config-alb-process-definition-https-admin.png) 4. _Add a rule for admin traffic._ For **Name**, enter `admin`. For **Listener
 port**, enter `443`. For **Match conditions**, add a **PathPattern** with the value
 `/admin/*`. For **Process**, select `admin`.
 

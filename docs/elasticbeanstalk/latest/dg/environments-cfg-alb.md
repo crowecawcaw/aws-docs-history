@@ -156,7 +156,7 @@ dialog box opens.
 Use these settings to define the process: its **Name**, and the **Port** and **Protocol** on
 which it listens to requests.
 
-![Application Load Balancer process settings for name, port, and protocol](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition.png)
+![Application Load Balancer process settings for name, port, and protocol](images/aeb-config-alb-process-definition.png)
 
 #### Health check
 
@@ -261,7 +261,7 @@ You can now see your additional listener on the list.
 **Edit**. For **Port**, type `443`. For **Protocol**, select
 `HTTPS`.
 
-![Application Load Balancer configuration example - configuring default process to HTTPS](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-process-definition-https.png) 4. _Add an admin process._ For **Name**, type `admin`. For **Port**, type
+![Application Load Balancer configuration example - configuring default process to HTTPS](images/aeb-config-alb-process-definition-https.png) 4. _Add an admin process._ For **Name**, type `admin`. For **Port**, type
 `443`. For **Protocol**, select `HTTPS`. Under **Health check**, for
 **Path** type `/admin`.
 
@@ -269,7 +269,7 @@ You can now see your additional listener on the list.
 port**, type `443`. For **Match conditions**, add a **PathPattern** with the value
 `/admin/*`. For **Process**, select `admin`.
 
-![Application Load Balancer configuration example - adding admin rule](/images/elasticbeanstalk/latest/dg/images/aeb-config-alb-rule-https-admin.png)
+![Application Load Balancer configuration example - adding admin rule](images/aeb-config-alb-rule-https-admin.png)
 
 ## Configuring an Application Load Balancer using the EB CLI
 
