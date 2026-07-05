@@ -1,19 +1,11 @@
-# Deleting Amazon S3 log files
+# Managing log retention
 
-An Amazon S3 bucket with server access logging enabled can accumulate many server log objects
-over time. Your application might need these access logs for a specific period after they are
-created, and after that, you might want to delete them. You can use Amazon S3 Lifecycle
-configuration to set rules so that Amazon S3 automatically queues these objects for deletion at the
-end of their life.
+An Amazon S3 bucket with server access logging enabled can accumulate many server log
+objects over time. You can use Amazon S3 Lifecycle configuration to set rules so that Amazon S3
+automatically deletes log objects after a specified period. If you specified a prefix in
+your logging configuration, you can scope the lifecycle rule to that prefix. For example,
+if your log objects have the prefix `logs/`, you can create a lifecycle rule to
+delete all objects with that prefix after a specified number of days. For more information,
+see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md").
 
-You can define a lifecycle configuration for a subset of objects in your S3 bucket by
-using a shared prefix. If you specified a prefix in your server access logging configuration,
-you can set a lifecycle configuration rule to delete log objects that have that prefix.
-
-For example, suppose that your log objects have the prefix `logs/`. You can set
-a lifecycle configuration rule to delete all objects in the bucket that have the prefix
-`logs/` after a specified period of time.
-
-For more information about lifecycle configuration, see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md").
-
-For general information about server access logging, see [Logging requests with server access logging](ServerLogs.md "ServerLogs.md").
+For logs delivered to CloudWatch Logs, see [Managing log retention](sal-cw-retention.md "sal-cw-retention.md").

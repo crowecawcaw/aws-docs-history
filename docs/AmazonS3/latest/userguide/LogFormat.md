@@ -9,6 +9,11 @@ bucket. You can use server access logs for the following purposes:
   This section describes the format and other details about Amazon S3 server access log
   files.
 
+###### Note
+
+This page covers the space-delimited text format used for logs delivered to an Amazon S3
+general purpose bucket. For the structured JSON format used in Amazon CloudWatch Logs, see [Log format in CloudWatch Logs](sal-cw-log-format.md "sal-cw-log-format.md").
+
 Server access log files consist of a sequence of newline-delimited log records. Each log
 record represents one request and consists of space-delimited fields.
 

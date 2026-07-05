@@ -5,6 +5,12 @@ bucket. Server access logs are useful for many applications. For example, access
 can be useful in security and access audits. This information can also help you learn about your
 customer base and understand your Amazon S3 bill.
 
+###### Note
+
+This page covers delivering server access logs to an Amazon S3 general purpose bucket. You can
+also deliver logs to Amazon CloudWatch Logs for structured querying, cross-account aggregation, and
+optional mirroring to S3 Tables. For more information, see [Delivering server access logs to CloudWatch Logs](sal-cw-enabling.md "sal-cw-enabling.md").
+
 By default, Amazon S3 doesn't collect server access logs. When you enable logging, Amazon S3 delivers
 access logs for a source bucket to a destination bucket (also known as a _target bucket_) that you choose. The destination bucket must be in the same
 AWS Region and AWS account as the source bucket.
@@ -25,7 +31,7 @@ the time and date that the request was processed. For more information about log
   logs delivered to any bucket that you own that is in the same Region as the source bucket,
   including the source bucket itself. However, delivering logs to the source bucket will
   cause an infinite loop of logs and is not recommended. For simpler log management, we
-  recommend that you save access logs in a different bucket. For more information, see [How do I enable log delivery?](ServerLogs.md#server-access-logging-overview "ServerLogs.md#server-access-logging-overview")
+  recommend that you save access logs in a different bucket.
 - S3 buckets that have S3 Object Lock enabled can't be used as destination buckets for
   server access logs. Your destination bucket must not have a default retention period
   configuration.
@@ -244,8 +250,7 @@ policy, see [Grant permissions to the logging service principal by using a bucke
 You can view the logs in the destination bucket.
 After
 you enable server access logging, it might take a few hours before the logs are
-delivered to the target bucket. For more information about how and when logs are
-delivered, see [How are logs delivered?](ServerLogs.md#how-logs-delivered "ServerLogs.md#how-logs-delivered")
+delivered to the target bucket.
 For
 more information, see [Viewing the properties for an S3 general purpose bucket](view-bucket-properties.md "view-bucket-properties.md").
 
@@ -809,8 +814,7 @@ request elements) in the following ways:
 ###### Example– `logging.json` with the log object key format set to S3 event time
 
 The following `logging.json` file changes the log object
-key format to S3 event time. For more information about setting the log object key
-format, see [How do I enable log delivery?](ServerLogs.md#server-access-logging-overview "ServerLogs.md#server-access-logging-overview")
+key format to S3 event time.
 
 ```
 

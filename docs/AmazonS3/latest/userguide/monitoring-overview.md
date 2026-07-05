@@ -59,7 +59,9 @@ your environment.
 
 Server access logs provide detailed records about requests that are made to a
 bucket. Server access logs are useful for many applications. For example, access
-log information can be useful in security and access audits. For more
+log information can be useful in security and access audits. You can deliver
+logs to Amazon CloudWatch Logs for structured querying and cross-account aggregation, or to
+an Amazon S3 general purpose bucket in text format at no charge. For more
 information, see [Logging requests with server access logging](ServerLogs.md "ServerLogs.md").
 
 **AWS Trusted Advisor**

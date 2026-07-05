@@ -44,8 +44,7 @@ destination
 bucket are the same, additional logs are created for the logs that are written to
 the bucket, which can increase your storage bill. These extra logs about logs can
 also make it difficult to find the particular logs that you're looking for. For
-simpler log management, we recommend saving access logs in a different bucket. For
-more information, see [How do I enable log delivery?](ServerLogs.md#server-access-logging-overview "ServerLogs.md#server-access-logging-overview").
+simpler log management, we recommend saving access logs in a different bucket.
 
 Error: **`The target bucket for logging does not exist`**
 
