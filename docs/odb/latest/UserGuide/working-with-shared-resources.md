@@ -43,7 +43,7 @@ Exadata VM clusters, Autonomous VM clusters, or ODB peerings on this infrastruct
 
 ###### Note
 
-When using a resource that is shared to you, instead of only specifying the resource ID, you must specifying the Amazon Resource Name (ARN).
+When using a resource that is shared to you, instead of only specifying the resource ID, you must specify the Amazon Resource Name (ARN).
 
 1. Open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/ "https://console.aws.amazon.com/odb/").
 2. In the navigation pane, choose **Exadata VM clusters** or

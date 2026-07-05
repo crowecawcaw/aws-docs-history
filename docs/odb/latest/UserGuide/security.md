@@ -23,7 +23,7 @@ You can manage access to your Oracle Database@AWS resources. The method you use 
 depends on what type of task you need to perform with Oracle Database@AWS:
 
 - Use AWS Identity and Access Management (IAM) policies to assign permissions that determine who is allowed to manage Oracle Database@AWS resources.
-  For example, you can use IAM to determine who is allowed to create, describe, modify, and delete Exadata infrastucture, VM clusters
+  For example, you can use IAM to determine who is allowed to create, describe, modify, and delete Exadata infrastructure, VM clusters
   or tag resources.
 - Use the security features of your Oracle database engine to control who can log in to the databases on a DB instance.
   These features work just as if the database was on your local network.

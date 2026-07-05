@@ -59,12 +59,13 @@ You can use Oracle Database@AWS in the following AWS Regions:
 
 **North America**
 
-| Region name           | Region code    | Availability Zones     |
-| --------------------- | -------------- | ---------------------- |
-| US East (N. Virginia) | `us-east-1`    | `use1-az4`, `use1-az6` |
-| US East (Ohio)        | `us-east-2`    | `use2-az1`, `use2-az2` |
-| US West (Oregon)      | `us-west-2`    | `usw2-az3`, `usw2-az4` |
-| Canada (Central)      | `ca-central-1` | `cac1-az1`, `cac1-az4` |
+| Region name             | Region code    | Availability Zones     |
+| ----------------------- | -------------- | ---------------------- |
+| Canada (Central)        | `ca-central-1` | `cac1-az1`, `cac1-az4` |
+| US East (N. Virginia)   | `us-east-1`    | `use1-az4`, `use1-az6` |
+| US East (Ohio)          | `us-east-2`    | `use2-az1`, `use2-az2` |
+| US West (N. California) | `us-west-1`    | `usw1-az1`             |
+| US West (Oregon)        | `us-west-2`    | `usw2-az3`, `usw2-az4` |
 
 **Europe**
 
@@ -72,6 +73,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | ------------------ | -------------- | ---------------------- |
 | Europe (Frankfurt) | `eu-central-1` | `euc1-az1`, `euc1-az2` |
 | Europe (Zurich)    | `eu-central-2` | `euc2-az1`, `euc2-az3` |
+| Europe (Stockholm) | `eu-north-1`   | `eun1-az2`             |
 | Europe (Milan)     | `eu-south-1`   | `eus1-az3`             |
 | Europe (Spain)     | `eu-south-2`   | `eus2-az1`, `eus2-az3` |
 | Europe (Ireland)   | `eu-west-1`    | `euw1-az1`, `euw1-az3` |
@@ -121,7 +123,7 @@ aws ec2 describe-availability-zones \
 
 Plan carefully for IP address space in Oracle Database@AWS. Consider the IP address consumption based
 on the number of VM clusters, including the number of VMs per cluster that you can provision into the
-ODB network. For more information, see [ODB Network Design](https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws-network-odb-network.htm "https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws-network-odb-network.htm") in the Oracle Cloud Infrastructure cocumentation.
+ODB network. For more information, see [ODB Network Design](https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws-network-odb-network.htm "https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws-network-odb-network.htm") in the Oracle Cloud Infrastructure documentation.
 
 ###### Topics
 
@@ -335,7 +337,7 @@ Each Exadata X9M database server supports 126 OCPUs. Each Exadata X11M database 
 supports 760 ECPUs. The total compute count changes as you change the number of servers. For
 more information about OCPUs and ECPUs, see [Compute Models in Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/autonomous-compute-models.html#GUID-7F4EE72A-ABE7-4FC9-B4BE-86802D9AD05A "https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/autonomous-compute-models.html#GUID-7F4EE72A-ABE7-4FC9-B4BE-86802D9AD05A") in the Oracle documentation. 8. For **Storage servers**, leave the default of 3 or move the slider to
 choose up to 64 servers. To specify more than 3, request a limit increase from OCI. Each X9M storage server provides 64 TB.
-Each X11m storage server provides 80 TB. The total TB of storage changes as you change the number of
+Each X11M storage server provides 80 TB. The total TB of storage changes as you change the number of
 servers. Then choose **Next**. 9. For **Maintenance window**, configure when system maintenance can occur:
 
     1. For **Scheduling preference**, select one of the following options:
@@ -450,7 +452,7 @@ Exadata VM cluster
    ###### Note
 
    The **Host domain name** is fixed as
-   **oraclevcn.com**. 3. For **SCAN listener port (TCP/IP)**, enter a port number that for TCP
+   **oraclevcn.com**. 3. For **SCAN listener port (TCP/IP)**, enter a port number for TCP
    access to the single client access name (SCAN) listener. The default port is
    **1521**. Or you can enter a custom SCAN port in the range
    **1024–8999**, excluding the following port numbers:

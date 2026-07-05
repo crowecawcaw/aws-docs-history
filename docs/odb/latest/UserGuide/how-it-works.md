@@ -76,12 +76,13 @@ You can use Oracle Database@AWS in the following AWS Regions:
 
 **North America**
 
-| Region name           | Region code    | Availability Zones     |
-| --------------------- | -------------- | ---------------------- |
-| US East (N. Virginia) | `us-east-1`    | `use1-az4`, `use1-az6` |
-| US East (Ohio)        | `us-east-2`    | `use2-az1`, `use2-az2` |
-| US West (Oregon)      | `us-west-2`    | `usw2-az3`, `usw2-az4` |
-| Canada (Central)      | `ca-central-1` | `cac1-az1`, `cac1-az4` |
+| Region name             | Region code    | Availability Zones     |
+| ----------------------- | -------------- | ---------------------- |
+| Canada (Central)        | `ca-central-1` | `cac1-az1`, `cac1-az4` |
+| US East (N. Virginia)   | `us-east-1`    | `use1-az4`, `use1-az6` |
+| US East (Ohio)          | `us-east-2`    | `use2-az1`, `use2-az2` |
+| US West (N. California) | `us-west-1`    | `usw1-az1`             |
+| US West (Oregon)        | `us-west-2`    | `usw2-az3`, `usw2-az4` |
 
 **Europe**
 
@@ -89,6 +90,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | ------------------ | -------------- | ---------------------- |
 | Europe (Frankfurt) | `eu-central-1` | `euc1-az1`, `euc1-az2` |
 | Europe (Zurich)    | `eu-central-2` | `euc2-az1`, `euc2-az3` |
+| Europe (Stockholm) | `eu-north-1`   | `eun1-az2`             |
 | Europe (Milan)     | `eu-south-1`   | `eus1-az3`             |
 | Europe (Spain)     | `eu-south-2`   | `eus2-az1`, `eus2-az3` |
 | Europe (Ireland)   | `eu-west-1`    | `euw1-az1`, `euw1-az3` |
@@ -161,7 +163,7 @@ existing AWS infrastructure, create one or more peering connections (up to 45) b
 ## ODB peering
 
 _ODB peering_ is a user-created network connection that enables
-traffic to be routed privately between an Amazon VPC and an ODB networkAfter peering, an Amazon EC2 instance within the VPC can communicate with an
+traffic to be routed privately between an Amazon VPC and an ODB network. After peering, an Amazon EC2 instance within the VPC can communicate with an
 Oracle Exadata database in the ODB network as if they were within the same network.
 
 ###### Note
@@ -314,7 +316,7 @@ Key differences from Autonomous Database on Dedicated Exadata Infrastructure:
 
 ## Oracle Exadata databases
 
-Oracle Exadata is an engineered system that provide a high-performance platform for running
+Oracle Exadata is an engineered system that provides a high-performance platform for running
 Oracle databases. With Oracle Database@AWS, you use the AWS console to create the Oracle Exadata infrastructure and VM clusters
 that host the Exadata databases. You then use OCI APIs to create and manage the Oracle databases.
 For more information, see [Step 4: Create Oracle Exadata databases in Oracle Cloud Infrastructure](getting-started.md#getting-started-db "getting-started.md#getting-started-db").

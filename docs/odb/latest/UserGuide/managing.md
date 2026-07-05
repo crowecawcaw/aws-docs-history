@@ -55,7 +55,7 @@ ODB network that is currently in use by a VM cluster.
 You can delete an Exadata VM cluster or Autonomous VM cluster. This section assumes that you have already
 created a VM cluster in [Step 3: Create an Exadata VM cluster or Autonomous VM cluster in Oracle Database@AWS](getting-started.md#getting-started-vm "getting-started.md#getting-started-vm").
 
-###### To delete an VM cluster
+###### To delete a VM cluster
 
 1. Sign in to the AWS Management Console and open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/ "https://console.aws.amazon.com/odb/").
 2. From the left pane, choose **Exadata VM clusters** or **Autonomous

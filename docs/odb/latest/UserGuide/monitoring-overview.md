@@ -5,7 +5,7 @@ performance of Oracle Database@AWS and your other AWS solutions. AWS provides th
 tools to watch Oracle Database@AWS, report when something is wrong, and take automatic actions when
 appropriate:
 
-- _Amazon CloudWatch_ monitors your AWS resources and and the applications you
+- _Amazon CloudWatch_ monitors your AWS resources and the applications you
   run on AWS in real time. You can collect and track metrics, create customized dashboards,
   and set alarms that notify you or take actions when a specified metric reaches a threshold
   that you specify. For example, you can have CloudWatch track CPU usage or other metrics of your

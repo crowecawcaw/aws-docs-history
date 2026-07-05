@@ -1,7 +1,7 @@
 # Configuring ODB peering to an Amazon VPC in Oracle Database@AWS
 
 _ODB peering_ is a user-created network connection that enables
-traffic to be routed privately between an Amazon VPC and an ODB networkAfter you create a peering connection using the console, CLI, or API,
+traffic to be routed privately between an Amazon VPC and an ODB network. After you create a peering connection using the console, CLI, or API,
 make sure to update your VPC route tables and configure DNS resolution. For a conceptual overview
 of ODB peering, see [ODB peering](how-it-works.md#how-it-works.peering "how-it-works.md#how-it-works.peering"). When creating the ODB peering connection, you can opt for implicit network route management to skip [Configuring VPC route tables for ODB peering](#configure-routes "#configure-routes").
 To enact this feature as part of the Peering Connection workflow, specify the VPC (or underlying subnet) Route Table to which a managed route should be added.
@@ -297,7 +297,7 @@ console.
    1. For **IP address**, specify the IP address of the DNS listener IP on
       your ODB network.
    2. For **Port**, specify **53**. This is the port that
-      the resolver use for DNS queries.
+      the resolver uses for DNS queries.
 
    ###### Note
 
@@ -312,7 +312,7 @@ console.
 
 ### Testing your DNS configuration in Oracle Database@AWS
 
-After you have creating your outbound endpoint and resolver rule, test to make sure that
+After you have created your outbound endpoint and resolver rule, test to make sure that
 the DNS resolves correctly. Using an Amazon EC2 instance in your application VPC, perform a DNS
 resolution as follows:
 
@@ -372,7 +372,7 @@ Before implementing this architecture, consider the following:
 - CIDR blocks must not overlap between the ODB network and peered VPCs to avoid routing conflicts.
 - A VPC can establish multiple peering connections to different ODB networks, but only one peering connection to each ODB network.
 - Supernet CIDR blocks that encompass multiple existing subnets are not supported in peered configurations.
-- The error message "security rules per network security group count limit exceeded" indicates that you have reached your NSG rule limit on OCI. To fix this issue, you raise the quota limit from the OCI console to increase your NSG rule limit (limit-name: securityrules-per-networksecuritygroup-count). This limit request is auto approved.Once your NSG rules are increased, you can add more ODB peering.
+- The error message "security rules per network security group count limit exceeded" indicates that you have reached your NSG rule limit on OCI. To fix this issue, you raise the quota limit from the OCI console to increase your NSG rule limit (limit-name: securityrules-per-networksecuritygroup-count). This limit request is auto approved. Once your NSG rules are increased, you can add more ODB peering.
 - ODB networks in US East (N. Virginia) and US West (Oregon) created before February 7, 2026, require a network upgrade before adding more than 1 ODB peering. To upgrade, you need to fully recreate your ODB network. Deletion of ODB network requires you to delete all Exadata VMs but does not require you to delete or recreate your Exadata Infrastructure.
 
 ### Prerequisites
@@ -406,7 +406,7 @@ ODB network.
 The following diagram shows a transit gateway that is connected to two VPCs and one
 on-premises network.
 
-![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](images/ODB-tgw.png)
+![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](/images/odb/latest/UserGuide/images/ODB-tgw.png)
 
 In the preceding diagram, one VPC is peered to an ODB network. In this configuration, the ODB network
 can route traffic to all VPCs attached to the transit gateway. The route table for each VPC

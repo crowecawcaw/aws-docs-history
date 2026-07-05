@@ -36,7 +36,7 @@ using AWS RAM. This allows the trusted account to create VM clusters on your Exa
 2. Choose **Create resource share**.
 3. For **Name**, enter a descriptive name for your
    resource share.
-4. Under **Select resource type**, either of the
+4. Under **Select resource type**, choose either of the
    following resources:
 
    - **Oracle Database@AWS ODB network**
