@@ -28,7 +28,7 @@ In Figure 2, this is represented with the requested operation in the dotted box 
 
 For more information, see [How Multi-party approval works](how-it-works.md "how-it-works.md"). To get started, see [Set up Multi-party approval](setting-up.md "setting-up.md").
 
-![Workflow diagram showing request approval process between AWS Management Console and Approval Portal.](/images/mpa/latest/userguide/images/how-it-works.png)
+![Workflow diagram showing request approval process between AWS Management Console and Approval Portal.](images/how-it-works.png)
 
 _Figure 2: Diagram depicting how Multi-party approval works. You can also use the AWS CLI & AWS SDKs instead of the AWS Management Console._
 
