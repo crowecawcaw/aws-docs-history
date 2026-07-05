@@ -19,7 +19,7 @@ Terraform Open Source products and provisioned products to the External product 
 The steps in the following tutorial will help you get started with a Terraform product in AWS Service Catalog.
 
 As the catalog administrator, you work in a central administrator
-account (hub account). Both Terrafrm Community Edition and Terraform Cloud products require a Terraform provisioning
+account (hub account). Both Terraform Community Edition and Terraform Cloud products require a Terraform provisioning
 engine, which you can learn more about in [Provisioning engine for Terraform Community Edition (External product type)](getstarted-terraform-engine.md#getstarted-terraform-engine-os "getstarted-terraform-engine.md#getstarted-terraform-engine-os") and
 [Provisioning engine for Terraform Cloud](getstarted-terraform-engine.md#getstarted-terraform-engine-cloud "getstarted-terraform-engine.md#getstarted-terraform-engine-cloud").
 

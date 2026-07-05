@@ -73,6 +73,17 @@ You cannot re-share products from a portfolio that has been imported or shared.
 Portfolio imports must occur in the same region between the management and dependent
 accounts.
 
+###### Note
+
+AWS Service Catalog processes portfolio share operations one at a time for each management account.
+Before you invoke `CreatePortfolioShare`, `UpdatePortfolioShare`, or
+`DeletePortfolioShare`, make sure that no other share operation is in progress in
+that account. Otherwise, the operation returns `InvalidStateException`. This limit
+applies to all portfolios in the account, not just the portfolio that you are modifying. To
+check the status of a share operation, use `DescribePortfolioShareStatus`. For more
+information, see [CreatePortfolioShare](../dg/API_CreatePortfolioShare.md "../dg/API_CreatePortfolioShare.md") in
+the _AWS Service Catalog API Reference_.
+
 ## Relationship Between Shared and Imported Portfolios
 
 This table summarizes the relationship between an imported portfolio and a shared
