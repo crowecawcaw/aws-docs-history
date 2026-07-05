@@ -34,6 +34,34 @@ When creating multiple jobs within the same workflow run, use the same number of
 overrides for each job or assign each job a custom label, such as `job1` or
 `job2`.
 
+Assigning each job its own unique custom label is the most reliable option. It
+ensures that no job's set of labels is a subset of another job's. When every job carries
+a label that no other job has, GitHub matches each job only to the runner created for
+it, regardless of how many other overrides each job uses. In the following workflow,
+each job has a unique label (`job1` and `job2`). Although
+**Job 2** has an extra `instance-size:medium` override,
+**Job 1** can no longer be matched to the runner created for
+**Job 2**, so neither job becomes stuck:
+
+```
+name: Hello World
+on: [push]
+jobs:
+  job1:
+    runs-on:
+      - codebuild-myProject-${{ github.run_id }}-${{ github.run_attempt }}
+      - job1
+    steps:
+      - run: echo "Hello from Job 1!"
+  job2:
+    runs-on:
+      - codebuild-myProject-${{ github.run_id }}-${{ github.run_attempt }}
+      - instance-size:medium
+      - job2
+    steps:
+      - run: echo "Hello from Job 2!"
+```
+
 If the error persists, use the following instructions to debug the issue.
 
 1. Open the GitHub console at

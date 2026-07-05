@@ -2,8 +2,41 @@
 
 In your GitHub Actions workflow YAML, you can provide a variety of label overrides that
 modify your self-hosted runner build. Any builds not recognized by CodeBuild will be ignored but
-will not fail your webhook request. For example, the following workflow YAML includes overrides
-for image, instance size, fleet, and the buildspec:
+will not fail your webhook request. The following workflow YAML defines two jobs:
+`job1` uses overrides for image, instance size, fleet, and the buildspec, and
+`job2` uses only an image override. Give each job a unique label
+(`job1` and `job2`) so that GitHub routes each job to the runner
+created for it:
+
+```
+name: Hello World
+on: [push]
+jobs:
+  job1:
+    runs-on:
+      - codebuild-myProject-${{ github.run_id }}-${{ github.run_attempt }}
+      - image:arm-3.0
+      - instance-size:small
+      - fleet:myFleet
+      - buildspec-override:true
+      - job1
+    steps:
+      - run: echo "Hello from Job 1!"
+  job2:
+    runs-on:
+      - codebuild-myProject-${{ github.run_id }}-${{ github.run_attempt }}
+      - image:linux-5.0
+      - job2
+    steps:
+      - run: echo "Hello from Job 2!"
+```
+
+You can also use a matrix strategy to run a single job across multiple configurations.
+The expansions of a single matrix job always have the same number of labels, so the
+runner matching issue does not affect them. However, if a workflow run
+contains more than one matrix job, give each matrix job its own unique custom label (for
+example, `matrix-job-1` and `matrix-job-2`) so that GitHub does not
+match a job to a runner created for a different matrix job:
 
 ```
 name: Hello World
@@ -12,10 +45,11 @@ jobs:
   Hello-World-Job:
     runs-on:
       - codebuild-myProject-${{ github.run_id }}-${{ github.run_attempt }}
-        image:${{ matrix.os }}
-        instance-size:${{ matrix.size }}
-        fleet:myFleet
-        buildspec-override:true
+      - image:${{ matrix.os }}
+      - instance-size:${{ matrix.size }}
+      - fleet:myFleet
+      - buildspec-override:true
+      - matrix-job-1
     strategy:
       matrix:
         include:
@@ -67,10 +101,33 @@ If your workflow job is hanging on GitHub, see
 - Example: `buildspec-override:true`
 - Allows the build to run buildspec commands in the `INSTALL`, `PRE_BUILD`, and
   `POST_BUILD` phases if set to `true`.
+  `<unique-label>` (recommended when a workflow run has multiple jobs)
 
-## Single label override (legacy)
+- Example: `job1`
+- A custom label that you define and that no other job in the same workflow run
+  uses. Assigning each job a unique label ensures that GitHub routes each job only to
+  the runner that was created for it. Without it, when jobs in the same workflow run
+  have different numbers of label overrides, a job with fewer labels can be picked up
+  by a runner created for a job with more labels, which leaves the second job without
+  a runner. For more information, see [Troubleshoot the webhook](action-runner-troubleshoot-webhook.md "action-runner-troubleshoot-webhook.md").
+
+## Single label override
 
 CodeBuild allows you to provide multiple overrides in a single label using the following:
+
+###### Note
+
+Because all overrides are combined into a single label, each job's runner
+registers with exactly one label. This means the multiple-job runner matching
+issue described in [Troubleshoot the webhook](action-runner-troubleshoot-webhook.md "action-runner-troubleshoot-webhook.md") cannot occur with this
+format, even without a unique label on each job. Use the single-label
+format if you prefer this behavior and your jobs need only overrides that
+it supports. Do not use it when you need an override that it does not support.
+For example, custom images (including images in a private registry) can
+only be specified by using the
+`image:custom-`<environment-type>`-`<custom-image-identifier>``
+label format. For those overrides, use the separate-label format described
+earlier in this topic.
 
 - To override your environment settings for an Amazon EC2/Lambda compute build, use the following syntax:
 
