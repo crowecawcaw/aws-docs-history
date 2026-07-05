@@ -161,14 +161,16 @@ the internet is not calculated toward the data transfer allowance for your insta
 
 ## How does my data transfer allowance work with object storage?
 
-You can consume your data transfer allowance by transferring data into and out of
-Lightsail object storage, except for the following.
+You can consume your data transfer allowance by transferring data out of
+Lightsail object storage. The following do not consume your data transfer allowance.
 
 - Data transferred into Lightsail object storage from the internet
 - Data transfer between Lightsail object storage resources
 - Data transferred out from Lightsail object storage to another Lightsail resource
   in the same AWS Region (including to a resource in a different AWS account, but in
-  the same AWS Region)
+  the same AWS Region). For example, downloading an object from a bucket to a Lightsail
+  instance in the same Region is free, but downloading to an instance in a different
+  Region will consume your data transfer allowance.
 - Data transferred out from Lightsail object storage to a Lightsail CDN
   distribution
 

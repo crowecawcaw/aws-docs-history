@@ -87,7 +87,7 @@ this guide.
    make note of the public IP address of your instance. The public IP address is
    also displayed in the header section of your instance management page.
 
-![Public IP address of an instance](/images/lightsail/latest/userguide/images/quick-start-public-ip.png) 2. Browse to the public IP address of your instance, for example by going to
+![Public IP address of an instance](images/quick-start-public-ip.png) 2. Browse to the public IP address of your instance, for example by going to
 `http://203.0.113.0`.
 
 The home page of your Joomla! website should appear. 3. Choose **Manage** in the bottom right corner of your Joomla!
@@ -283,7 +283,7 @@ public IP address of the instance from which you are using the
 `bncert` tool to enable HTTPS on the instance. This confirms that
 you own the domain, and serves as the validation for your certificate.
 
-![Entering the primary and alternate domain names](/images/lightsail/latest/userguide/images/bncert-domain-names.png) 9. The `bncert` tool will ask you how you want your website's
+![Entering the primary and alternate domain names](images/bncert-domain-names.png) 9. The `bncert` tool will ask you how you want your website's
 redirection to be configured. These are the options available:
 
     * **Enable HTTP to HTTPS redirection** -
@@ -322,7 +322,7 @@ press **Enter** to confirm and continue.
 ![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
 press **Enter**.
 
-![Associating your email address with your Let's Encrypt certificate](/images/lightsail/latest/userguide/images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
+![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
 **Enter** to accept the agreement and continue.
 
 ![Review the Let's Encrypt subscriber agreement](images/bncert-lets-ecrypt-agreement.png)

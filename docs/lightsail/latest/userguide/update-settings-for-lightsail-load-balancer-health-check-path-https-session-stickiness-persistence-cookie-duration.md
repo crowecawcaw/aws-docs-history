@@ -14,7 +14,7 @@ load balancer. Attaching an instance starts the health checking process, and you
 **Passed** or **Failed** message on the load balancer
 management page.
 
-![Health check status indicator](/images/lightsail/latest/userguide/images/target-instances-health-check-passed.png)
+![Health check status indicator](images/target-instances-health-check-passed.png)
 
 You can also customize your health check path. For example, if your home page loads slowly
 or has a lot of images on it, you can configure Lightsail to check a different page that
