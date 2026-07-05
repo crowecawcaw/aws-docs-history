@@ -75,7 +75,7 @@ These tokens can only be used once to connect to the tunnel. If you misplace the
 tokens or the tunnel gets disconnected, you can generate and send new tokens to your
 remote device for reconnecting to the tunnel.
 
-![Source and destination access tokens for creating a secure tunnel connection, with instructions on rotating and resending tokens if needed.](/images/iot/latest/developerguide/images/tunnel-success.png)
+![Source and destination access tokens for creating a secure tunnel connection, with instructions on rotating and resending tokens if needed.](images/tunnel-success.png)
 
 ###### To open a tunnel using the API
 
