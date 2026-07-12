@@ -63,6 +63,16 @@ patterns, identify potential DDoS attacks, and track relay performance. Metrics 
 packets and bytes in/out, throttled traffic, and player sessions. For the complete
 list of player gateway metrics, see [DDoS protection (player gateway) metrics](monitoring-cloudwatch.md#gamelift-metrics-fleet-playergateway "monitoring-cloudwatch.md#gamelift-metrics-fleet-playergateway").
 
+## Player gateway limits
+
+To protect your game servers from traffic abuse, player gateway enforces a rate limit on
+UDP traffic for each player. With a valid player gateway token, player gateway limits
+each player token to 100 packets per second (pps). The relay network throttles traffic
+that exceeds this limit, and the traffic does not reach the game server.
+
+This per-player rate limit helps prevent individual players from overwhelming game
+servers with excessive traffic, whether because of misconfigured clients or malicious intent.
+
 ## IPv4 and IPv6 compatibility
 
 Game clients communicate using IPv4. Player gateway uses IPv6 to communicate with game servers. Amazon GameLift Servers automatically handles the translation between IPv4 and IPv6 based on your fleet configuration.
