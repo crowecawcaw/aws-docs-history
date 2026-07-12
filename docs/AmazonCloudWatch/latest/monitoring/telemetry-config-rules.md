@@ -219,6 +219,13 @@ When creating flow logs:
 - You can use <vpc-id>, <account-id> macros to split log groups.
 - CloudWatch does not create flow logs for VPCs that already are ingesting logs to CloudWatch
   Logs
+- When you enable automatic configuration updates on a rule, CloudWatch monitors the flow
+  logs it created and remediates configuration drift. Drift occurs when the log format,
+  traffic type, maximum aggregation interval, or destination log group name pattern of a
+  rule-managed flow log no longer matches the rule. To remediate, CloudWatch creates a new flow
+  log with the correct configuration and then deletes the outdated one.
+- Automatic configuration updates apply only to Amazon VPC Flow Logs. CloudWatch never modifies
+  or deletes flow logs that you created.
 
 **Amazon EKS Control Plane Logs**
 

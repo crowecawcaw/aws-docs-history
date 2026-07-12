@@ -34,7 +34,7 @@ tab. You can then choose between a line graph, stacked area chart, number displa
 gauge, bar chart, or pie chart. 7. Choose the **Graphed metrics** tab. 8. (Optional) To change the statistic used in the graph, choose the new statistic in
 the **Statistic** column next to the metric name.
 
-For more information about CloudWatch statistics, see [Available statistics](Statistics-definitions.md "Statistics-definitions.md"). For more
+For more information about CloudWatch statistics, see [CloudWatch statistics definitions](Statistics-definitions.md "Statistics-definitions.md"). For more
 information about the **p*xx*** percentile statistics, see
 [Percentiles](cloudwatch_concepts.md#Percentiles "cloudwatch_concepts.md#Percentiles"). 9. (Optional) To add an anomaly detection band that shows expected values for the
 metric, choose the anomaly detection icon under **Actions** next to

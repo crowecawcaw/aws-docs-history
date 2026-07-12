@@ -88,11 +88,11 @@ Use the AWS CLI or AWS SDK to create instrumentation configurations programmatic
 The location defines where in your code the instrumentation is applied. The required fields
 differ by language:
 
-| Language                 | Required Fields                                             | Optional Fields                                                                                                                                                     |
-| ------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Java                     | `CodeUnit` (package), `ClassName`, `MethodName`, `FilePath` | `LineNumber`                                                                                                                                                        |
-| Python                   | `CodeUnit` (module), `MethodName`, `FilePath`               | `LineNumber`, `ClassName`                                                                                                                                           |
-| JavaScript or TypeScript | `FilePath`, `LineNumber`                                    | None. Only line-level breakpoints are supported. Probes and function-level<br>breakpoints are not supported. TypeScript is supported when source maps are provided. |
+| Language                 | Required Fields                                             | Optional Fields                                                                                                                                                    |
+| ------------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Java                     | `CodeUnit` (package), `ClassName`, `MethodName`, `FilePath` | `LineNumber`                                                                                                                                                       |
+| Python                   | `CodeUnit` (module), `MethodName`, `FilePath`               | `LineNumber`, `ClassName`                                                                                                                                          |
+| JavaScript or TypeScript | `FilePath`, `LineNumber`                                    | None. Only line-level breakpoints are supported. Probes and function-level<br>breakpoints are not supported. TypeScript is supported when you provide source maps. |
 
 #### Configure what data to capture
 

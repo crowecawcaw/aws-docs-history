@@ -232,7 +232,7 @@ by your custom data or provided by other AWS services to CloudWatch. Aggregation
 the namespace, metric name, dimensions, and the data point unit of measure, within the time
 period you specify.
 
-For detailed definitions of the statistics supported by CloudWatch, see [Available statistics](Statistics-definitions.md "Statistics-definitions.md").
+For detailed definitions of the statistics supported by CloudWatch, see [CloudWatch statistics definitions](Statistics-definitions.md "Statistics-definitions.md").
 
 ## Units
 
@@ -364,7 +364,7 @@ The following AWS services include metrics that support percentile statistics.
 - Amazon RDS
 
 CloudWatch also supports trimmed mean and other performance statistics, which can have a
-similar use as percentiles. For more information, see [Available statistics](Statistics-definitions.md "Statistics-definitions.md").
+similar use as percentiles. For more information, see [CloudWatch statistics definitions](Statistics-definitions.md "Statistics-definitions.md").
 
 ## Alarms
 

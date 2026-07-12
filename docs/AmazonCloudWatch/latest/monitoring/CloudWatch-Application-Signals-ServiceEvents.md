@@ -153,8 +153,7 @@ configuration required:
   breaches)
 - Error metrics (per-exception-type error counts per
   operation)
-- Deployment events (always emitted; enriched when deployment metadata
-  is provided)
+- Deployment events (always emitted; enriched when you provide deployment metadata)
 - Function instrumentation (enabled by default, but produces no
   metrics until you configure packages to instrument)
 

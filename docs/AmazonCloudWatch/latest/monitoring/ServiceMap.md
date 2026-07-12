@@ -228,7 +228,7 @@ Track change events across your application with Application Signals' automatic 
 
 Discover critical insights through Application Signals' audit findings. The service analyzes your applications to report significant observations and potential problems, simplifying root cause analysis. These automated findings consolidate relevant traces, eliminating the need to navigate through multiple clicks. The audit system helps teams quickly identify issues and their underlying causes, enabling faster problem resolution.
 
-For services running on Amazon Bedrock, Application Signals automatically monitors GenAI token usage patterns. The audit system detects anomalies in input and output token consumption, comparing current usage against historical baselines. When token usage exceeds normal patterns, audit findings provide detailed analysis including token consumption trends, cost implications, and recommendations for optimization. This helps teams identify inefficient prompts, unexpected token spikes, and opportunities to reduce GenAI operational costs.
+For services running on Amazon Bedrock, Application Signals automatically monitors generative AI token usage patterns. The audit system detects anomalies in input and output token consumption, comparing current usage against historical baselines. When token usage exceeds normal patterns, audit findings provide detailed analysis including token consumption trends, cost implications, and recommendations for optimization. This helps teams identify inefficient prompts, unexpected token spikes, and opportunities to reduce generative AI operational costs.
 
 ### Cross-Account Observability on Application Map
 

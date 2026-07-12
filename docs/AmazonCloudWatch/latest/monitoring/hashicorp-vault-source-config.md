@@ -13,7 +13,7 @@ HashiCorp Vault integration uses Amazon S3 and Amazon SQS to ingest log data int
 
 ## Log forwarding setup
 
-HashiCorp Vault audit logs can be forwarded to Amazon S3 using the Vault file audit device combined with Fluent Bit. Vault supports three audit device types: **file**, **socket**, and **syslog**. The **file** audit device is recommended for highest reliability.
+HashiCorp Vault audit logs can be forwarded to Amazon S3 using the Vault file audit device combined with Fluent Bit. Vault supports three audit device types: **file**, **socket**, and **syslog**. We recommend the **file** audit device for highest reliability.
 
 ## Instructions to setup Amazon S3 and Amazon SQS
 

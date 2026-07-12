@@ -88,7 +88,7 @@ Streaming additional statistics incurs more charges. For more information,
 see [Statistics that can be streamed](CloudWatch-metric-streams-statistics.md "CloudWatch-metric-streams-statistics.md").
 
 For definitions of the additional statistics, see
-[Available statistics](Statistics-definitions.md "Statistics-definitions.md"). 10. (Optional) Customize the name of the new metric stream under
+[CloudWatch statistics definitions](Statistics-definitions.md "Statistics-definitions.md"). 10. (Optional) Customize the name of the new metric stream under
 **Metric stream name**. 11. Choose **Create metric stream**.
 
 ## AWS CLI or AWS API

@@ -14,13 +14,13 @@ CloudWatch generative AI observability enables you to:
 - Assess AI application quality and accuracy at scale through automated monitoring, reducing manual review requirements by capturing model outputs, response quality metrics, and end-user interactions
 - Monitor model invocations, Agents (managed, self-hosted, and third-party),
   knowledge bases, guardrails, and tools
-- Progress from agent experimentation to production of innovative GenAI applications
+- Progress from agent experimentation to production of innovative generative AI applications
   while ensuring superior quality, performance, and reliability. For more information,
   see [What is Amazon
   Bedrock AgentCore?](../../../bedrock-agentcore/latest/devguide/what-is-genesis.md "../../../bedrock-agentcore/latest/devguide/what-is-genesis.md")
 - Identify source of errors quickly using end-to-end prompt tracing, curated
   metrics, and logs
-- Troubleshoot issues across your entire GenAI application and underlying
+- Troubleshoot issues across your entire generative AI application and underlying
   infrastructure, leveraging existing CloudWatch observability tools such as [Application Signals](CloudWatch-Application-Monitoring-Sections.md "CloudWatch-Application-Monitoring-Sections.md"), [Alarms](CloudWatch_Alarms.md "CloudWatch_Alarms.md"), [Dashboards](CloudWatch_Dashboards.md "CloudWatch_Dashboards.md"), [Sensitive data protection](../logs/cloudwatch-logs-data-protection-policies.md "../logs/cloudwatch-logs-data-protection-policies.md"), and [Logs
   Insights](../logs/AnalyzingLogData.md "../logs/AnalyzingLogData.md")
 - Access prompt traces while using Amazon Bedrock, and send structured traces of

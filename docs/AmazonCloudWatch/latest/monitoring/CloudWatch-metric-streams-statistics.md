@@ -3,7 +3,7 @@
 Metric streams always include the following statistics: `Minimum`, `Maximum`,
 `SampleCount`, and `Sum`. You can also choose to include the following additional statistics in a metric stream. This choice is on a
 per-metric basis. For more information about these statistics,
-see [Available statistics](Statistics-definitions.md "Statistics-definitions.md").
+see [CloudWatch statistics definitions](Statistics-definitions.md "Statistics-definitions.md").
 
 - Percentile values such as p95 or p99 (For streams with either JSON or OpenTelemetry format)
 - Trimmed mean (Only for streams with the JSON format)

@@ -36,7 +36,7 @@ Additionally, correlated trace spans at the same level help provide a comprehens
 
 ## OpenTelemetry GenAI attributes support
 
-Application Signals generates the following GenAI attributes for Amazon Bedrock API calls with OpenTelemetry semantic convention.
+Application Signals generates the following generative AI attributes for Amazon Bedrock API calls with OpenTelemetry semantic convention.
 These attributes help analyze model usage, cost, and response quality, and can be leveraged through [Transaction Search](CloudWatch-Transaction-Search.md "CloudWatch-Transaction-Search.md") for deeper insights.
 
 - gen\_ai.system
@@ -48,10 +48,10 @@ These attributes help analyze model usage, cost, and response quality, and can b
 - gen\_ai.usage.output\_tokens
 - gen\_ai.response.finish\_reasons
 
-![GenAI attributes using Application Signals.](images/AppSignalsAIExample_1.png)
+![Generative AI attributes using Application Signals.](images/AppSignalsAIExample_1.png)
 
 For example, your can leverage the analytic capability from Transaction Search to compare the token usage and cost across different LLM models for the same prompt, enabling cost-efficient model selection.
 
-![GenAI attributes using Application Signals.](images/AppSignalsAIExample_2.png)
+![Generative AI attributes using Application Signals.](images/AppSignalsAIExample_2.png)
 
 For more information, see [Improve Amazon Bedrock Observability with CloudWatch Application Signals](https://aws.amazon.com/blogs/mt/improve-amazon-bedrock-observability-with-amazon-cloudwatch-appsignals/ "https://aws.amazon.com/blogs/mt/improve-amazon-bedrock-observability-with-amazon-cloudwatch-appsignals/").
