@@ -46,6 +46,29 @@ complete, copy the current versions in a subsequent job.
 
 For more guidance on restoring deleted objects, see [How can I retrieve an Amazon S3 object that was deleted in a versioning-enabled bucket?](https://repost.aws/knowledge-center/s3-undelete-configuration "https://repost.aws/knowledge-center/s3-undelete-configuration") in the AWS re:Post Knowledge Center.
 
+You can restore a previous version of an object using the Amazon S3 console by deleting
+the current version. Deleting the current version makes the previous version the new
+current version.
+
+###### To restore a previous version by deleting the current version
+
+1. Sign in to the AWS Management Console and open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. In the **Buckets** list, choose the name of the bucket that
+   contains the object.
+3. In the **Objects** list, choose the name of the object.
+4. Choose **Versions**.
+
+Amazon S3 shows all the versions for the object. 5. Select the check box next to the **Version ID** of the current
+(latest) version that you want to delete. 6. Choose **Delete**. 7. In the **Delete objects** dialog box, enter
+`permanently delete`, and then choose
+**Delete objects**.
+
+After you delete the current version, the previous version becomes the
+current version.
+
+###### To download a previous version
+
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the **Buckets** list, choose the name of the bucket that
@@ -59,11 +82,32 @@ save the object.
 You also can view, download, and delete object versions in the object overview panel. For
 more information, see [Viewing object properties in the Amazon S3 console](view-object-properties.md "view-object-properties.md").
 
+###### Note
+
+To copy a previous version in place (making it the new current version), use the
+AWS CLI or AWS SDKs — this approach isn't available in the Amazon S3 console. For an
+example, see the AWS CLI tab.
+
 ###### Important
 
 You can undelete an object only if it was deleted as the latest (current) version. You
 can't undelete a previous version of an object that was deleted. For more information,
 see [Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md").
+
+To restore a previous version by copying it in place, use the
+`copy-object` command. For the `--copy-source`
+parameter, specify the version ID of the previous version that you want
+to restore:
+
+```
+aws s3api copy-object \
+    --bucket `amzn-s3-demo-bucket` \
+    --key `my-object.jpg` \
+    --copy-source `amzn-s3-demo-bucket`/`my-object.jpg`?versionId=`previous-version-id`
+```
+
+This creates a new current version of the object with the content from
+the specified previous version. Amazon S3 preserves all existing versions.
 
 For information about using other AWS SDKs, see the [AWS Developer Center](https://aws.amazon.com/code/ "https://aws.amazon.com/code/").
 

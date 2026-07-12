@@ -33,6 +33,8 @@ S3 Vectors AWS Regions and endpoints| Region Name | Region | Endpoint | Protocol
 | Asia Pacific (Taipei) | ap-east-2 | s3vectors.ap-east-2.api.aws | HTTPS | 4 |
 | Asia Pacific (Thailand) | ap-southeast-7 | s3vectors.ap-southeast-7.api.aws | HTTPS | 4 |
 | Asia Pacific (Tokyo) | ap-northeast-1 | s3vectors.ap-northeast-1.api.aws | HTTPS | 4 |
+| AWS GovCloud (US-East) | us-gov-east-1 | s3vectors.us-gov-east-1.api.aws | HTTPS | 4 |
+| AWS GovCloud (US-West) | us-gov-west-1 | s3vectors.us-gov-west-1.api.aws | HTTPS | 4 |
 | Canada (Central) | ca-central-1 | s3vectors.ca-central-1.api.aws | HTTPS | 4 |
 | Canada West (Calgary) | ca-west-1 | s3vectors.ca-west-1.api.aws | HTTPS | 4 |
 | Europe (Frankfurt) | eu-central-1 | s3vectors.eu-central-1.api.aws | HTTPS | 4 |

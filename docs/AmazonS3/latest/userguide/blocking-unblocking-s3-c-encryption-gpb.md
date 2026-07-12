@@ -75,7 +75,7 @@ aws s3api put-bucket-encryption \
   --bucket amzn-s3-demo-bucket \
   --server-side-encryption-configuration '{
     "Rules": [{
-      "BlockEncryptionTypes": {
+      "BlockedEncryptionTypes": {
         "EncryptionType": "SSE-C"
       }
     }]
@@ -89,7 +89,7 @@ aws s3api put-bucket-encryption \
   --bucket amzn-s3-demo-bucket \
   --server-side-encryption-configuration '{
     "Rules": [{
-      "BlockEncryptionTypes": {
+      "BlockedEncryptionTypes": {
         "EncryptionType": "NONE"
       }
     }]
@@ -181,6 +181,6 @@ s3.put_bucket_encryption(
 )
 ```
 
-For information about the Amazon S3 REST API support for blocking or unblocking SSE-C encryption for a general purpose bucket, see the following section in the _Amazon Simple Storage Service API Reference_:
+For information about the Amazon S3 REST API support for blocking or unblocking SSE-C encryption for a general purpose bucket, see the following section in the [Amazon Simple Storage Service API Reference](../API/Welcome.md "../API/Welcome.md"):
 
 - [BlockedEncryptionTypes](../API/API_BlockedEncryptionTypes.md "../API/API_BlockedEncryptionTypes.md") data type used in the [ServerSideEncryptionRule](../API/API_ServerSideEncryptionRule.md "../API/API_ServerSideEncryptionRule.md") data type of the [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md") and [GetBucketEncryption](../API/API_GetBucketEncryption.md "../API/API_GetBucketEncryption.md") API operations.

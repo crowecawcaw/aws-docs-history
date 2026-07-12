@@ -21,7 +21,7 @@ more information, see [What is S3 Express One
 Zone?](s3-express-one-zone.md "s3-express-one-zone.md") and [How is S3 Express One Zone
 different?](s3-express-differences.md "s3-express-differences.md").
 
-![This is an S3 Express One Zone workflow diagram.](images/s3-express-one-zone.png)
+![This is an S3 Express One Zone workflow diagram.](/images/AmazonS3/latest/userguide/images/s3-express-one-zone.png)
 
 ###### Objective
 

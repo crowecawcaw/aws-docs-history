@@ -44,6 +44,8 @@ Zones.
 | `aps1-az3`            |
 | Asia Pacific (Tokyo)  | `ap-northeast-1` | `apne1-az1`          |
 | `apne1-az4`           |
+| Europe (Frankfurt)    | `eu-central-1`   | `euc1-az1`           |
+| `euc1-az2`            |
 | Europe (Ireland)      | `eu-west-1`      | `euw1-az1`           |
 | `euw1-az3`            |
 | Europe (Stockholm)    | `eu-north-1`     | `eun1-az1`           |

@@ -103,7 +103,9 @@ To change the storage class of an object in the console:
 
 To change the storage class of an existing object, use the following methods.
 
-This example request uses the `PutObject` command to set the storage class for an existing object to S3 Intelligent-Tiering:
+To change the storage class of an existing object, you make a copy of the object to the same
+location with a new storage class using the `CopyObject` operation.
+The following example request copies an object to itself with the storage class changed to S3 Intelligent-Tiering:
 
 ```
 
@@ -111,9 +113,8 @@ PUT /my-image.jpg HTTP/1.1
 Host: ``amzn-s3-demo-bucket1``.s3.`Region`.amazonaws.com
 Date: Wed, 12 Oct 2009 17:50:00 GMT
 Authorization: authorization string
-Content-Type: image/jpeg
-Content-Length: 11434
-Expect: 100-continue
+x-amz-copy-source: /``amzn-s3-demo-bucket1``/my-image.jpg
+x-amz-metadata-directive: COPY
 x-amz-storage-class: INTELLIGENT_TIERING
 
 ```
