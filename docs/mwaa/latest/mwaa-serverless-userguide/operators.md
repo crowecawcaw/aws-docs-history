@@ -68,6 +68,10 @@ Amazon MWAA Serverless currently supports a specific set of [Apache Airflow oper
 - `GlueCatalogPartitionSensor`: Waits for a partition to show up in the AWS Glue catalog.
 - `GlueCrawlerOperator`: Creates, updates, and triggers an AWS Glue crawler.
 - `GlueCrawlerSensor`: Waits for an AWS Glue crawler to reach a given status.
+- `GlueCatalogCreateDatabaseOperator`: Creates a database in the AWS Glue catalog.
+- `GlueCatalogCreateTableOperator`: Creates a table in the AWS Glue catalog.
+- `GlueCatalogDeleteDatabaseOperator`: Deletes a database from the AWS Glue catalog.
+- `GlueCatalogDeleteTableOperator`: Deletes a table from the AWS Glue catalog.
 
 - `BatchCreateComputeEnvironmentOperator`: Creates an AWS Batch compute environment.
 - `BatchOperator`: Runs a job on AWS Batch.
@@ -133,6 +137,9 @@ Amazon MWAA Serverless currently supports a specific set of [Apache Airflow oper
 - `BedrockProvisionModelThroughputCompletedSensor`: Polls the provisioned model throughput job until it reaches a terminal state; fails if the job fails.
 - `BedrockRaGOperator`: Queries a knowledge base and generates responses based on the retrieved results with source citations.
 - `BedrockRetrieveOperator`: Queries a knowledge base and retrieve results with source citations.
+- `BedrockCreateGuardrailOperator`: Creates an Amazon Bedrock guardrail to block harmful content and enforce responsible AI policies.
+- `BedrockCreateGuardrailVersionOperator`: Creates a version of an existing Amazon Bedrock guardrail.
+- `BedrockDeleteGuardrailOperator`: Deletes an Amazon Bedrock guardrail.
 - `ComprehendCreateDocumentClassifierCompletedSensor`: Polls the state of the document classifier until it reaches a completed state; fails if the job fails.
 - `ComprehendCreateDocumentClassifierOperator`: Creates an Amazon Comprehend document classifier that can categorize documents.
 - `ComprehendStartPiiEntitiesDetectionJobCompletedSensor`: Polls the state of the PII entities detection job until it reaches a completed state; fails if the job fails.
@@ -189,3 +196,16 @@ Amazon MWAA Serverless currently supports a specific set of [Apache Airflow oper
 - `S3PutBucketTaggingOperator`: Puts tagging for an Amazon S3 bucket.
 - `S3KeySensor`: Waits for one or multiple keys (a file-like instance on Amazon S3) to be present in an Amazon S3 bucket.
 - `S3KeysUnchangedSensor`: Returns `True` if `inactivity_period` has passed with no increase in the number of objects that match the prefix.
+- `S3TablesCreateNamespaceOperator`: Creates a namespace in an Amazon S3 Tables table bucket.
+- `S3TablesCreateTableBucketOperator`: Creates an Amazon S3 Tables table bucket.
+- `S3TablesCreateTableOperator`: Creates a table in an Amazon S3 Tables table bucket.
+- `S3TablesDeleteNamespaceOperator`: Deletes a namespace from an Amazon S3 Tables table bucket.
+- `S3TablesDeleteTableBucketOperator`: Deletes an Amazon S3 Tables table bucket.
+- `S3TablesDeleteTableOperator`: Deletes a table from an Amazon S3 Tables table bucket.
+- `S3VectorsCreateIndexOperator`: Creates a vector index in an Amazon S3 Vectors vector bucket.
+- `S3VectorsCreateVectorBucketOperator`: Creates an Amazon S3 Vectors vector bucket.
+- `S3VectorsDeleteIndexOperator`: Deletes a vector index from an Amazon S3 Vectors vector bucket.
+- `S3VectorsDeleteVectorBucketOperator`: Deletes an Amazon S3 Vectors vector bucket.
+
+- `MwaaServerlessCreateWorkflowOperator`: Creates a workflow in Amazon MWAA Serverless.
+- `MwaaServerlessStartWorkflowRunOperator`: Starts a workflow run in Amazon MWAA Serverless.
