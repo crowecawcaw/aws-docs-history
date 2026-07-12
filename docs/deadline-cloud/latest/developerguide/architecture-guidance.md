@@ -247,3 +247,12 @@ End users benefit from:
 This integration pattern enables software vendors to provide enterprise-grade rendering capabilities to their entire user base while maintaining a simple, consumer-friendly experience that feels native to their application.
 
 ![Diagram showing how B2C users might use Deadline Cloud.](images/architecture-b2c-customer.png)
+
+### Hybrid render farm
+
+A studio that already runs a render farm on-premises can add cloud capacity to process peak
+workloads without buying more hardware. In a hybrid farm, your on-premises workers run as a
+customer-managed fleet, your cloud workers run as a service-managed fleet or a customer-managed
+fleet of Amazon EC2 instances, and both fleets share a queue. Because the setup differs across fleet
+types, you plan for job distribution, application environments, licensing, and asset access so
+that one queue works everywhere. For more information, see [Extend your on-premises render farm to the cloud](hybrid-rendering.md "hybrid-rendering.md").

@@ -19,6 +19,7 @@ running the job.
 
 - [Getting an application from a conda channel](#provide-applications-get-application "#provide-applications-get-application")
 - [Use a different package manager](#provide-applications-other-package "#provide-applications-other-package")
+- [Use pip for Python-only packages](#provide-applications-pip "#provide-applications-pip")
 
 ## Getting an application from a conda channel
 
@@ -117,3 +118,70 @@ The example assumes that you have a customer-managed fleet that uses a shared fi
 system for the Rez packages.
 
 For the latest version of the example, see [rez\_queue\_env.yaml](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml "https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/queue_environments/rez_queue_env.yaml") in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
+
+## Use pip for Python-only packages
+
+If the applications or libraries your jobs need are pure Python packages available on
+PyPI, you can use pip and the Python standard library `venv` module instead of
+conda or Rez. This approach works well when a package isn't published to a
+conda channel, or when you want a smaller virtual environment than conda creates. Unlike
+conda and Rez, pip and `venv` are included with Python itself, so
+worker hosts only need a `python3` interpreter on the `PATH`. Deadline Cloud
+service-managed fleets provide one.
+
+The [Pip queue environment for Deadline Cloud](examples-queue-env-pip.md "examples-queue-env-pip.md") creates a Python virtual environment in the
+session working directory when a job sets the `PipPackages` parameter, installs
+the requested packages into it with pip, and activates it so that the job's steps run with
+those packages available. Because the environment is created in the session working
+directory, Deadline Cloud cleans it up automatically when the session ends, and you don't need to
+write cleanup logic of your own. If a job doesn't set `PipPackages`, the queue
+environment does nothing, so you can add it to a queue that also runs jobs that don't use
+it.
+
+To install packages from a private index such as an [AWS CodeArtifact](../../../codeartifact/latest/ug/welcome.md "../../../codeartifact/latest/ug/welcome.md") repository instead of the
+public PyPI index, set the `PipIndexUrl` and `PipExtraIndexUrls`
+parameters that the queue environment provides.
+
+If you'd rather not configure a queue environment, you can define the same pip
+environment inline in a job bundle instead. For an example of each approach, see the
+[pip\_package\_job](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/pip_package_job "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/pip_package_job") and [pip\_self\_contained\_job](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/pip_self_contained_job "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/pip_self_contained_job") job bundles in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
+
+For production queues, pin package versions in the `PipPackages` parameter
+value instead of installing the latest release each time. Version pinning gives you
+reproducible environments and avoids unexpected breakages when a package publishes a new
+version. If a job depends on matching submitter and adaptor versions, pin both to the same
+release.
+
+If your customer-managed fleet workers run jobs for more than one digital content
+creation (DCC) application, and you install Deadline Cloud adaptors with pip, install each adaptor
+into its own virtual environment. Installing multiple adaptors together in the same virtual
+environment can cause pip to resolve a shared dependency to a version that conflicts with one
+of the adaptors.
+
+Worker hosts need network access to a package source, such as PyPI or a private mirror,
+to install packages when a session starts. If your customer-managed fleet workers run in a
+private subnet without internet access, use a VPC endpoint to your package source, a private
+pip mirror, or install the packages into your worker AMI instead.
+
+The following table summarizes the trade-offs of each package manager to help you choose
+which one to use.
+
+| Package manager | Best for                                                               | Trade-offs                                                                                    |
+| --------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Conda (default) | DCC applications, complex native dependencies, cross-platform packages | Larger environments; packages must be published to a conda channel                            |
+| Rez             | Studio pipelines with existing Rez infrastructure                      | Requires Rez installed on worker hosts and a shared file system for<br>the package repository |
+| Pip             | Python-only packages, PyPI-hosted libraries, lightweight installs      | Limited to Python packages; no native dependency resolution                                   |
+
+After you choose a queue environment, attach it to your queue. You can either add the YAML
+template from the **Queue environments** tab for your queue in the Deadline Cloud
+console, or use the [deadline:CreateQueueEnvironment](../APIReference/API_CreateQueueEnvironment.md "../APIReference/API_CreateQueueEnvironment.md") operation. For console instructions, see [Create a queue environment](../userguide/create-queue-environment.md "../userguide/create-queue-environment.md") in the _AWS Deadline Cloud User Guide_. To
+attach a queue environment with the AWS CLI:
+
+```
+aws deadline create-queue-environment \
+    --farm-id `FARM_ID` \
+    --queue-id `QUEUE_ID` \
+    --priority 1 \
+    --template-type YAML \
+    --template file://`queue-environment.yaml`
+```

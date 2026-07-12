@@ -18,5 +18,22 @@ Wraps the task command through a job environment.
 
 Runs a background daemon process alongside the task.
 
+[pip\_self\_contained\_job](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/pip_self_contained_job "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/pip_self_contained_job")
+
+Defines a job environment that creates a Python virtual
+environment with `pip` and adds it to the
+`PATH` for the job's steps, with no queue environment
+required. Runs on any Linux worker with `python3`
+available, including Deadline Cloud service-managed fleet workers.
+
+[pip\_package\_job](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/pip_package_job "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/pip_package_job")
+
+Provides the job's Python dependencies through the
+[Pip queue environment for Deadline Cloud](examples-queue-env-pip.md "examples-queue-env-pip.md") instead of a job
+environment. The job only sets the `PipPackages`
+parameter that the queue environment reads. Use this style to
+define the pip environment once and share it across many jobs on a
+queue.
+
 For more queue-level environment examples, see
 [Queue environment examples for Deadline Cloud](examples-queue-environments.md "examples-queue-environments.md").

@@ -32,4 +32,5 @@ aws deadline create-queue-environment \
 - [Inline conda queue environments for Deadline Cloud customer-managed fleets](examples-queue-env-conda-inline.md "examples-queue-env-conda-inline.md")
 - [py-rattler conda queue environment for Deadline Cloud](examples-queue-env-conda-pyrattler.md "examples-queue-env-conda-pyrattler.md")
 - [Rez queue environment for Deadline Cloud customer-managed fleets](examples-queue-env-rez.md "examples-queue-env-rez.md")
+- [Pip queue environment for Deadline Cloud](examples-queue-env-pip.md "examples-queue-env-pip.md")
 - [Disconnect Deadline Cloud usage-based licensing with a queue environment](examples-queue-env-disconnect-ubl.md "examples-queue-env-disconnect-ubl.md")

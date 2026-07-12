@@ -62,8 +62,9 @@ For details, see [Host configuration script examples for Deadline Cloud](example
 Queue environments provide software applications to your jobs. The repository
 includes several conda-based queue environments with different performance
 trade-offs, a Rez-based queue environment for customer-managed fleets that have
-a shared file system, and a queue environment that disconnects usage-based
-licensing so you can use a custom license server.
+a shared file system, a pip-based queue environment for Python-only packages,
+and a queue environment that disconnects usage-based licensing so you can use
+a custom license server.
 
 For details, see [Queue environment examples for Deadline Cloud](examples-queue-environments.md "examples-queue-environments.md").
 
