@@ -54,7 +54,9 @@ available only if you have never launched a WorkSpace. Alternatively, see [Creat
 
 ###### Note
 
-This quick setup option and tutorial does not apply to WorkSpaces Pools.
+As of July 30, 2026, new customers cannot directly create new Simple AD directories.
+If you use WorkSpaces Personal Quick Setup, which creates and uses a Simple AD directory,
+you are not affected by the guidance for [Simple AD availability changes](../../../directoryservice/latest/admin-guide/simple-ad-availability-change.md "../../../directoryservice/latest/admin-guide/simple-ad-availability-change.md").
 
 ###### Note
 

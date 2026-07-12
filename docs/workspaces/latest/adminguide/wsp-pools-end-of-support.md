@@ -46,7 +46,7 @@ Applications?](../../../appstream2/latest/developerguide/what-is-appstream.md ".
 
 ## Migrate from WorkSpaces Pools to WorkSpaces Applications
 
-To prepare for the end of support, customers should complete the following steps
+To prepare for the end of support, you should complete the following steps
 before December 31, 2027.
 
 If you created a custom image for WorkSpaces Pools, you can import that image into WorkSpaces

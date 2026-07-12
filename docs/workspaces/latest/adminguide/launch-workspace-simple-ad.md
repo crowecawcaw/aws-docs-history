@@ -5,6 +5,8 @@ that use the other options, see [Create a directory for WorkSpaces Personal](lau
 
 ###### Note
 
+- New customer onboarding to Simple AD is not permitted after July 30, 2026. For more information, see
+  [Simple AD availability changes](../../../directoryservice/latest/admin-guide/simple-ad-availability-change.md "../../../directoryservice/latest/admin-guide/simple-ad-availability-change.md").
 - Simple AD is not available in every AWS Region. Verify the supported Regions and
   [select a Region](../../../awsconsolehelpdocs/latest/gsg/getting-started.md#select-region "../../../awsconsolehelpdocs/latest/gsg/getting-started.md#select-region") for your Simple AD directory. For more information about the
   supported Regions for Simple AD, see

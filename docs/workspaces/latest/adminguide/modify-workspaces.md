@@ -204,15 +204,14 @@ using your existing WorkSpace without using the WorkSpace migration feature. Thi
 to use DCV and maintain your root volume without
 re-creating existing PCoIP WorkSpaces during the migration process.
 
-- You can only modify your protocol if your WorkSpace was created with PCoIP bundles.
-- Before you modify the protocol to DCV, ensure that your WorkSpace meets the
+- You can only modify the protocol for Windows WorkSpaces that were created with PCoIP bundles.
+- Before you modify the protocol to DCV, make sure that your WorkSpace meets the
   following requirements for a DCV WorkSpace.
 
-  - Your WorkSpaces client supports DCV
-  - The region where your WorkSpace is deployed supports DCV
-  - The IP address and port requirements for DCV are open. For more information,
+  - Your WorkSpaces client supports DCV.
+  - The necessary network requirements for DCV are configured. For more information,
     see [IP address and port requirements for WorkSpaces](workspaces-port-requirements.md "workspaces-port-requirements.md").
-  - Ensure your current bundle is available with DCV.
+  - Your current bundle is available with DCV.
 
 ###### Note
 
@@ -234,18 +233,15 @@ The console provides a guided experience to change the protocol of a WorkSpace f
 ###### Note
 
 - During protocol modification, session provisioning is blocked. End users who attempt to connect will receive an error message indicating the WorkSpace is being modified.
-- In case of a protocol modification failure, the WorkSpace Status will show as _Modify Protocol Failed_. You can view all the WorkSpaces that failed during protocol modification by either selecting the _View failed WorkSpaces_ button in the console banner or by using the filters with combination of `PROTOCOL` and `UPDATE_FAILED`.
-- Before protocol modification begins, a checkpoint snapshot of the WorkSpace is automatically taken. In case of a protocol modification failure, you can restore the WorkSpace to this pre-modification state to ensure no data is lost. To restore, use the [Restore WorkSpace](restore-workspace.md "restore-workspace.md") action.
-- After the WorkSpace has been restored to the checkpoint snapshot, try the Modify Protocol action again. If the failure persists, contact AWS Support.
+- If protocol modification fails, the WorkSpace status shows as _Modify Protocol Failed_. To view WorkSpaces that failed, choose _View failed WorkSpaces_ in the console banner. You can also filter the list by `PROTOCOL` and `UPDATE_FAILED`.
+- Before protocol modification begins, Amazon WorkSpaces automatically takes a checkpoint snapshot of the WorkSpace. If the modification fails, the WorkSpace is automatically restored to its pre-modification checkpoint snapshot to ensure no data is lost.
+- After the WorkSpace is automatically restored, try the Modify Protocol action again. If the failure persists, contact AWS Support.
 - After successful protocol modification, another WorkSpace snapshot is taken ensuring that the Restore WorkSpace action restores to the updated protocol.
 
 ###### To change the protocol of a WorkSpace using the CLI
 
-1. [Optional] Reboot your WorkSpace and wait until it's in the `AVAILABLE` state before
-   modifying the protocol.
-2. [Optional] Use the `describe-workspaces` command to list the
-   WorkSpace properties. Ensure that it's in the `AVAILABLE` state and its
-   current `Protocol` is accurate.
+1. (Optional) Reboot your WorkSpace before modifying the protocol.
+2. (Optional) Use the `describe-workspaces` command to list the WorkSpace properties. Verify that its current `Protocols` property is accurate. The WorkSpace can be in either the `AVAILABLE` or `STOPPED` state.
 3. Use the `modify-workspace-properties` command and modify the
    `Protocols` property from `PCOIP` to `DCV`, or the other way around.
 
@@ -259,10 +255,9 @@ aws workspaces modify-workspace-properties
 
 The `Protocols` property is case-sensitive. Ensure that you use `PCOIP`
 or `WSP`. The input parameter for DCV (WSP) is `WSP`. 4. After you run the command, it can take up to 40 minutes for the WorkSpace to
-complete the protocol modification workflow. 5. Use the `describe-workspaces` command again to list the WorkSpace
-properties and verify that it's in an `AVAILABLE` state and the current
-`Protocols` property has been changed to the correct
-protocol.
+complete the protocol modification workflow. 5. Use the `describe-workspaces` command again. Verify that the
+WorkSpace is not in the `UNHEALTHY` state and that the
+`Protocols` property shows the correct protocol.
 
 ###### Note
 
@@ -270,6 +265,6 @@ protocol.
      The **Launch Bundle** description will not change.
     * During protocol modification, session provisioning is blocked. End users who attempt to connect will receive an error message indicating the WorkSpace is being modified.
     * Protocol modification has failed if the WorkSpace is in an `UNHEALTHY` State with `RESOURCE: PROTOCOL` and `STATE: UPDATE_FAILED`.
-    * Before protocol modification begins, a checkpoint snapshot of the WorkSpace is automatically taken. In case of a protocol modification failure, you can restore the WorkSpace to this pre-modification state to ensure no data is lost. To restore, use the [`restore-workspace`](../../../cli/latest/reference/workspaces/restore-workspace.md "../../../cli/latest/reference/workspaces/restore-workspace.md") command. See [Restore WorkSpaces](restore-workspace.md "restore-workspace.md") documentation for details.
-    * After the WorkSpace has been restored to the checkpoint snapshot, try the `modify-workspace-properties` command again. If the failure persists, contact AWS Support.
+    * Before protocol modification begins, Amazon WorkSpaces automatically takes a checkpoint snapshot of the WorkSpace. If the modification fails, the WorkSpace is automatically restored to its pre-modification checkpoint snapshot to ensure no data is lost.
+    * After the WorkSpace is automatically restored, try the `modify-workspace-properties` command again. If the failure persists, contact AWS Support.
     * After successful protocol modification, another WorkSpace snapshot is taken ensuring that the Restore WorkSpace action restores to the updated protocol.

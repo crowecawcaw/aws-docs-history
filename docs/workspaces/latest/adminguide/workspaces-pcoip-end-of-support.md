@@ -92,12 +92,12 @@ can do this using the Modify protocol feature.
 You can also modify the protocol using the AWS CLI or API. For more
 information, see [Modify protocols](modify-workspaces.md#modify_protocols "modify-workspaces.md#modify_protocols") in the Amazon WorkSpaces Personal Administration Guide.
 
-###### Rollback and error recovery
+###### Error recovery
 
 Every migration takes a pre-migration snapshot. In a rare scenario, if
 migration fails, the system automatically retries. If the retry also fails, the
-WorkSpace can roll back to the pre-migration snapshot with PCoIP protocol using
-the Restore WorkSpace feature. A WorkSpace that has already been migrated to DCV
+WorkSpace is automatically restored to the pre-migration snapshot with the PCoIP
+protocol to ensure no data is lost. A WorkSpace that has already been migrated to DCV
 can revert to PCoIP using the AWS CLI or API if needed.
 
 ### Pathway 2: WorkSpaces on an OS at or near end-of-life
