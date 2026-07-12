@@ -2,7 +2,7 @@
 
 The topics in this section describe installation instructions for Amazon Corretto 21 on the Windows
 operating system. Windows builds are supported on versions 10 and later,
-Server 2016, Server 2019, and Server 2022.
+Server 2016, Server 2019, Server 2022, and Server 2025.
 
 ###### Topics
 
