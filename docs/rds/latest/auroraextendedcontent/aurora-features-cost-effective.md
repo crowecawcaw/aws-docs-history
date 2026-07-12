@@ -1,0 +1,69 @@
+# Cost-effective
+
+###### Topics
+
+- [Pay only for what you use](#aurora-features-pay-for-use "#aurora-features-pay-for-use")
+- [AWS Free Tier](#aurora-features-free-tier "#aurora-features-free-tier")
+- [Price predictability](#aurora-features-price-predictability "#aurora-features-price-predictability")
+- [Optimize I/O costs](#aurora-features-optimize-io "#aurora-features-optimize-io")
+- [Optimized reads](#aurora-features-optimized-reads-cost "#aurora-features-optimized-reads-cost")
+
+## Pay only for what you use
+
+Aurora requires no upfront commitment. You pay an hourly charge for each instance that you launch, and when
+you're finished with an Aurora DB instance, you can delete it. You do not need to overprovision storage as a
+safety margin, and you only pay for the storage you actually consume. Additional information is available on
+the [Aurora pricing](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/") page.
+
+## AWS Free Tier
+
+New AWS customers can get started with Aurora PostgreSQL serverless at no cost through the [AWS Free
+Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/"). You receive $100 in credits at sign-up with the opportunity to earn an additional $100 for a total of
+$200 to use across eligible AWS services, including Aurora, for up to 12 months.
+
+The Free plan gives you access to Aurora PostgreSQL serverless instances with up to 4 ACUs and 1 GiB of
+storage per cluster. You can upgrade to the Paid plan at any time to scale up to 256 ACUs and 256 TiB of
+storage. You can also access Aurora PostgreSQL serverless directly through the [Vercel Marketplace](https://vercel.com/marketplace/aws "https://vercel.com/marketplace/aws") using only an
+email address with the same $100 in free credits applied automatically.
+
+## Price predictability
+
+Aurora offers the flexibility to optimize your database spend by choosing between two configuration options
+– Aurora I/O-Optimized and Aurora Standard – based on your price-performance and price-predictability needs,
+regardless of the I/O consumption of your application. Neither option requires upfront I/O or storage
+provisioning and both can scale I/O to support your most demanding applications. You can switch between
+configurations using the [RDS Management Console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"), AWS CLI, or AWS SDK.
+
+## Optimize I/O costs
+
+Aurora was designed to eliminate unnecessary I/O operations to reduce costs and ensure resources are
+available for serving read/write traffic. Every database page read operation counts as one I/O (8 KB in Aurora
+PostgreSQL and 16 KB in Aurora MySQL). Write I/O operations are counted in 4 KB units and are only consumed
+when pushing transaction log records to the storage layer for the purpose of making writes durable. For
+example, a transaction log record that is 1,024 bytes counts as one I/O operation. However, concurrent write
+operations whose transaction log is less than 4 KB can be batched together by the Aurora database engine to
+optimize I/O consumption. Unlike traditional database engines, Aurora never pushes modified database pages to
+the storage layer, resulting in further I/O consumption savings.
+
+You can monitor how many I/O operations your Aurora instance is using "Billed read operations" and "Billed
+write operations" metrics in the monitoring section of the [RDS Management Console](https://console.aws.amazon.com/rds/home "https://console.aws.amazon.com/rds/home").
+
+You are charged for read and write I/O operations when you configure your database clusters to the Aurora
+Standard configuration. You are not charged for read and write I/O operations when you configure your database
+clusters to Aurora I/O-Optimized. Additional information on the pricing of I/O operations is available on
+[Aurora pricing](https://aws.amazon.com/rds/aurora/pricing/ "https://aws.amazon.com/rds/aurora/pricing/") page.
+
+## Optimized reads
+
+With [optimized reads](../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md "../../../AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.optimized.reads.md") for Aurora PostgreSQL, you have more flexibility to grow your datasets without the need
+to frequently upsize their database instances to obtain larger memory capacity. Optimized reads deliver up to
+8x improved query latency and up to 30% cost savings for latency-sensitive applications with large working
+sets, using performance enhancements such as tiered caching and temporary objects.
+
+Tiered caching delivers up to 8x improved query latency and up to 30% cost savings for read-heavy,
+I/O-intensive applications such as operational dashboards, anomaly detection, and vector-based similarity
+searches. These benefits are realized as caching data is automatically evicted from the in-memory database
+buffer cache onto local storage to speed up subsequent access of that data. In addition, temporary objects
+achieve faster query processing by placing temporary tables generated by Aurora PostgreSQL on local storage,
+improving the performance of queries involving sorts, hash aggregations, high-load joins, and other
+data-intensive operations.
