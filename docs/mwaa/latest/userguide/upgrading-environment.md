@@ -1,6 +1,10 @@
 # Changing the Apache Airflow version
 
-Amazon MWAA supports minor version upgrades and downgrades. This means you can update your environment from version `x.**4**.z` to `x.**5**.z` or from `x.**5**.z` to `x.**4**.z`. To perform a major version upgrade, for example from version `**2**.y.z` to `**3**.y.z`, you must first perform a minor upgrade to the latest Airflow 2 version. Alternatively, to perform a major upgrade for Airflow `2.10.3` and below, you must create a new environment and migrate your resources. You can also downgrade from Airflow version `**3**.y.z` to Airflow version `2.11.x`. For more information about upgrading to a new major version of Apache Airflow, refer to [Migrating to a new Amazon MWAA environment](../migrationguide/migrating-to-new-mwaa.md "../migrationguide/migrating-to-new-mwaa.md") in the _Amazon MWAA Migration Guide_.
+Amazon MWAA supports minor and major version upgrades and downgrades.
+
+A minor version upgrade means you can update your environment from version `x.**4**.z` to `x.**5**.z` or from `x.**5**.z` to `x.**4**.z`.
+
+To perform a major version upgrade, for example from version `**2**.y.z` to `**3**.y.z`, you must first perform a minor upgrade to the latest Airflow `2.11.x` version followed by upgrade to `3.x`. Alternatively, to perform a major upgrade from Airflow `2.10.3` and below, you need to create a new environment and migrate your resources. You can also downgrade from Airflow version `**3**.y.z` to Airflow version `2.11.x`. For more information about upgrading to a new major version of Apache Airflow, see [Migrating to a new Amazon MWAA environment](../migrationguide/migrating-to-new-mwaa.md "../migrationguide/migrating-to-new-mwaa.md").
 
 During the upgrade or downgrade process, Amazon MWAA captures a snapshot of your environment metadata, upgrades or downgrades the workers, schedulers, the web server to the new Apache Airflow version, and finally restores the metadata database using the snapshot.
 
@@ -50,4 +54,4 @@ When you apply changes, your environment begins the upgrade or downgrade procedu
 
 In a successful upgrade or downgrade scenario, the status will be `UPDATING`, then `CREATING_SNAPSHOT` as Amazon MWAA captures a backup of your metadata. Finally, the status will return first to `UPDATING`, then to `AVAILABLE` when the procedure is done.
 
-If the environment fails to updrade or downgrade, your environment status will be `ROLLING_BACK`. If the rollback is successful, the status will first present `UPDATE_FAILED`, indicating that the update failed but the environment is available. If the rollback fails, the status will be `UNAVAILABLE`, indicating that you cannot access the environment.
+If the environment fails to upgrade or downgrade, your environment status will be `ROLLING_BACK`. If the rollback is successful, the status will first present `UPDATE_FAILED`, indicating that the update failed but the environment is available. If the rollback fails, the status will be `UNAVAILABLE`, indicating that you cannot access the environment.

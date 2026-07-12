@@ -35,21 +35,18 @@ The following IAM policy allows read-write access using the AWS-managed
 6. Choose **Attach policy**.
 
 If you do not want to use an AWS-managed permission policy, you can directly update your environment's execution role to allow any level of access to your
-Secrets Manager resources. For example, the following policy statement grants read access to all secrets you create in a specific AWS Region in Secrets Manager.
+Secrets Manager resources. The following JSON policy grants read access to all secrets in a specific AWS Region. Replace `us-east-1` with your Region, and replace `111122223333` with your AWS account ID:
 
-JSON
+###### Example – IAM policy for Secrets Manager read access
 
 ```
 `{
- "Version":"2012-10-17",
+ "Version": "2012-10-17",
  "Statement": [
  {
  "Effect": "Allow",
  "Action": [
- "secretsmanager:GetResourcePolicy",
- "secretsmanager:GetSecretValue",
- "secretsmanager:DescribeSecret",
- "secretsmanager:ListSecretVersionIds"
+ "secretsmanager:GetSecretValue"
  ],
  "Resource": "arn:aws:secretsmanager:`us-east-1`:`111122223333`:secret:*"
  },
@@ -60,8 +57,15 @@ JSON
  }
  ]
 }`
-
 ```
+
+###### Wildcard resource for ListSecrets
+
+The preceding policy grants `ListSecrets` access to all secrets (`"Resource": "*"`). `ListSecrets` does not support resource-level permissions, so the wildcard is required. If you use this policy in production, any principal that assumes this role can list every secret in your account. Restrict the role's trust policy and other permissions to limit the scope of access.
+
+###### Optional: DescribeSecret permission
+
+If your provider version checks for secret existence before retrieval, add `secretsmanager:DescribeSecret`. This permission might also reduce `ResourceNotFoundException` errors in your logs.
 
 ## Step two: Create the Secrets Manager backend as an Apache Airflow configuration option
 

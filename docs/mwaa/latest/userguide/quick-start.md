@@ -276,9 +276,9 @@ Resources:
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: "mwaa-security-group"
-      GroupDescription: "Security group with a self-referencing inbound rule."
       VpcId: !Ref VPC
+      GroupDescription: !Sub "Security Group for Amazon MWAA Environment ${AWS::StackName}-MwaaEnvironment"
+      GroupName: !Sub "airflow-security-group-${AWS::StackName}-MwaaEnvironment"
 
   SecurityGroupIngress:
     Type: AWS::EC2::SecurityGroupIngress
@@ -339,7 +339,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: 2012-10-17&TCX5-2025-waiver;
+        Version: 2012-10-17
         Statement:
           - Effect: Allow
             Principal:
@@ -357,7 +357,7 @@ Resources:
       Roles:
         - !Ref MwaaExecutionRole
       PolicyDocument:
-        Version: 2012-10-17&TCX5-2025-waiver;
+        Version: 2012-10-17
         Statement:
           - Effect: Allow
             Action: airflow:PublishMetrics

@@ -17,5 +17,6 @@ Security is a shared responsibility between AWS and you (the customer). The [sha
 - [Compliance Validation](compliance-validation.md "compliance-validation.md")
 - [Resilience](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure Security](infrastructure-security.md "infrastructure-security.md")
+- [AWS PrivateLink](security-privatelink.md "security-privatelink.md")
 - [Configuration and Vulnerability Analysis](configuration-vulnerability-analysis.md "configuration-vulnerability-analysis.md")
 - [Best practices](security-best-practices.md "security-best-practices.md")
