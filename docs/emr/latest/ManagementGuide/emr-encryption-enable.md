@@ -216,6 +216,23 @@ In-transit encryption certificates| File name | Required/optional | Details |
 | certificateChain.pem | Required | Certificate chain |
 | trustedCertificates.pem | Optional | We recommend that you provide a certificate that isn't signed<br>by the the Java default trusted root certification authority (CA) or an intermediate CA<br>that can link to the Java default trusted root CA. We don't recommend that you use public CAs<br>when you use wildcard certificates or when you disable hostname verification. |
 
+###### Note
+
+Amazon EMR requires private keys without passphrases. Amazon EMR doesn't support
+passphrase-protected private keys (both PBES1 and PBES2 formats). Amazon EMR
+services start automatically, so no user is available to provide a
+passphrase. If you use a passphrase-protected private key, the cluster
+fails to start with an error similar to `Failed to read the private
+ key from /emr/instance-controller/emr-encryption/privateKey.pem`.
+
+To remove a passphrase from an existing private key, run the following
+command. Then, reconfigure your security configuration to use the
+updated key file.
+
+```
+openssl rsa -in encrypted_privateKey.pem -out privateKey.pem
+```
+
 You likely want to configure the private key PEM file to be a wildcard
 certificate that enables access to the Amazon VPC domain in which your cluster
 instances reside. For example, if your cluster resides in us-east-1 (N.

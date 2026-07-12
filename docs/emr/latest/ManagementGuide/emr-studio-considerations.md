@@ -15,8 +15,12 @@ Consider the following when you work with EMR Studio:
   - US West (Oregon) (us-west-2)
   - Africa (Cape Town) (af-south-1)
   - Asia Pacific (Hong Kong) (ap-east-1)
+  - Asia Pacific (Taipei) (ap-east-2)\*
   - Asia Pacific (Jakarta) (ap-southeast-3)\*
   - Asia Pacific (Melbourne) (ap-southeast-4)\*
+  - Asia Pacific (Malaysia) (ap-southeast-5)\*
+  - Asia Pacific (New Zealand) (ap-southeast-6)\*
+  - Asia Pacific (Thailand) (ap-southeast-7)\*
   - Asia Pacific (Mumbai) (ap-south-1)
   - Asia Pacific (Osaka) (ap-northeast-3)\*
   - Asia Pacific (Seoul) (ap-northeast-2)
@@ -34,6 +38,7 @@ Consider the following when you work with EMR Studio:
   - Europe (Zurich) (eu-central-2)\*
   - Israel (Tel Aviv) (il-central-1)\*
   - Middle East (UAE) (me-central-1)\*
+  - Mexico (Central) (mx-central-1)\*
   - South America (São Paulo) (sa-east-1)
   - AWS GovCloud (US-East) (gov-us-east-1)
   - AWS GovCloud (US-West) (gov-us-west-1)

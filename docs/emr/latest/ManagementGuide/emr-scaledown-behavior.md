@@ -43,6 +43,17 @@ When graceful decommissioning occurs, there can be data loss. Be sure to back up
 It is possible that HDFS data can be permanently lost during the graceful replacement of an unhealthy core
 instance. We recommend that you always back up your data.
 
+###### Important
+
+If you set
+`yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs` to
+`-1`, Amazon EMR disables the graceful decommission timeout and
+decommissions the node immediately without waiting for YARN tasks to
+complete. This differs from open-source YARN, where
+`-1` means an indefinite wait for graceful termination. To allow more
+time for tasks to complete before decommissioning, set a high positive timeout value
+(for example, `86400` for 24 hours).
+
 This time is set using a property in the `YARN-site` configuration
 classification. Using Amazon EMR release 5.12.0 and higher, specify the
 `YARN.resourcemanager.nodemanager-graceful-decommission-timeout-secs`
