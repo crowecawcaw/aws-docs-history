@@ -4,6 +4,7 @@ This section contains the release history for the AWS Partner Customer Relations
 
 ###### Topics
 
+- [Version 3.19 (June 23, 2026)](#3.19 "#3.19")
 - [Version 3.18 (April 16, 2026)](#3.18 "#3.18")
 - [Version 3.17 (March 31, 2026)](#3.17 "#3.17")
 - [Version 3.16 (February 26, 2026)](#3.16 "#3.16")
@@ -25,6 +26,21 @@ This section contains the release history for the AWS Partner Customer Relations
 - [Version 1.6 (January 13, 2023)](#1.6 "#1.6")
 - [Version 1.5 (January 13, 2023)](#1.5 "#1.5")
 - [Version 1.4 (December 7, 2022)](#1.4 "#1.4")
+
+## Version 3.19 (June 23, 2026)
+
+AWS Partner CRM Connector version 3.19 contains the following feature and
+bug fix.
+
+### New features
+
+**AWS next steps visibility on opportunities**
+
+- The **ACE Opportunity** page now includes a read-only **AWS Next Step** field. This field shows the AWS seller's next steps that AWS Partner Central provides. It appears separately from your own **Next Step** field. You no longer need to leave Salesforce to see what AWS recommends on an opportunity.
+
+### Bug fixes
+
+- Fixed an issue where the connector created an opportunity on the AWS side but did not save the identifier back to Salesforce. This left the record unlinked, so you could not refresh, submit, or manage it. The connector now always writes the AWS opportunity identifier back to Salesforce after it creates the opportunity.
 
 ## Version 3.18 (April 16, 2026)
 
