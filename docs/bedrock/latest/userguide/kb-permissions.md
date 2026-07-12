@@ -618,6 +618,44 @@ If you use customer-managed AWS KMS keys with BDA, also attach the following pol
 }
 ```
 
+### Multimodal storage destination permissions
+
+When you configure a multimodal storage destination bucket for your knowledge base, attach the following JSON IAM policy. Replace `amzn-s3-demo-bucket` with the name of your multimodal storage bucket and `account-id` with your AWS account ID. This policy grants your knowledge base read, write, and delete permissions for parsed multimodal content in Amazon S3:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3MultimodalStorageListStatement",
+            "Effect": "Allow",
+            "Action": ["s3:ListBucket"],
+            "Resource": ["arn:aws:s3:::`amzn-s3-demo-bucket`"],
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "`account-id`"
+                }
+            }
+        },
+        {
+            "Sid": "S3MultimodalStorageObjectStatement",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": ["arn:aws:s3:::`amzn-s3-demo-bucket`/*"],
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceAccount": "`account-id`"
+                }
+            }
+        }
+    ]
+}
+```
+
 ## Permissions to access your Amazon Kendra GenAI index
 
 If you created an Amazon Kendra GenAI index for your knowledge base, then attach the

@@ -201,10 +201,10 @@ will be filtered.
 
 ## Calling contextual grounding check with Invoke APIs
 
-To mark the grounding source and query within the input, we provide 2 tags that
-work the same way as input tags. These tags are
+To mark the grounding source and query within the input, use the following tags
+that work the same way as input tags. These tags are
 `amazon-bedrock-guardrails-groundingSource_xyz` and
-`amazon-bedrock-guardrails-query_xyz` assuming the tag suffix is xyz.
+`amazon-bedrock-guardrails-query_xyz`, where `xyz` is the tag suffix.
 For example:
 
 ```
@@ -225,12 +225,36 @@ Note that the model response is required to perform the contextual grounding
 checks and so the checks will only be performed on output and not on the
 prompt.
 
-These tags can be used alongside the guardContent tags. If no guardContent tags
-are used, then the guardrail will default to applying all the configured policies on
-the entire input, including the grounding source and query. If the guardContent tags
-are used, then the contextual grounding check policy will investigate just the
-grounding source, query, and response, while the remaining policies will investigate
-the content within the guardContent tags.
+These tags can be used alongside the `guardContent` tags. Content
+inside `groundingSource` and `query` tags is excluded from
+policy evaluations other than contextual grounding (word filters, topic filters,
+content filters, sensitive information detection).
+
+The behavior of the remaining policies depends on whether you use
+`guardContent` tags:
+
+- **Without `guardContent`
+  tags** – Other policies use default behavior: System prompts
+  are not investigated, and messages are investigated.
+- **With `guardContent`
+  tags** – Other policies investigate only the content within
+  the `guardContent` tags. Content outside any tag (untagged text)
+  and content inside `groundingSource` or `query` tags is
+  skipped.
+
+To have grounding source or query content also evaluated by the remaining
+policies, nest the contextual grounding tag inside a `guardContent` tag:
+
+```
+<amazon-bedrock-guardrails-guardContent_xyz><amazon-bedrock-guardrails-groundingSource_xyz>London is the capital of UK. Tokyo is the capital of Japan.</amazon-bedrock-guardrails-groundingSource_xyz></amazon-bedrock-guardrails-guardContent_xyz>
+
+<amazon-bedrock-guardrails-query_xyz>What is the capital of Japan?</amazon-bedrock-guardrails-query_xyz>
+
+```
+
+In this example, the grounding source content is both used as the contextual
+grounding reference source and evaluated by other policies because it is also
+wrapped in a `guardContent` tag.
 
 ## Calling contextual grounding check with Converse APIs
 
@@ -268,10 +292,30 @@ Note that the model response is required to perform the contextual grounding
 checks and so the checks will only be performed on output and not on the
 prompt.
 
-The contextual grounding check policy always investigates only the grounding source, query, and response — regardless of whether `guardContent` is used. The behavior of the _remaining_ policies depends on whether you use `guardContent`:
+The behavior of policies other than contextual grounding depends on the
+qualifiers assigned to each `guardContent` block:
 
-- **Without `guardContent`** – Other policies use default behavior: system prompts are not investigated, and messages are investigated.
-- **With `guardContent`** – Other policies investigate only the content marked with `guardContent`. All unmarked content is skipped.
+- `["grounding_source"]` – Content is used as the
+  contextual grounding reference source only. It is not evaluated by other
+  policies.
+- `["query"]` – Content is used as the contextual
+  grounding user query only. It is not evaluated by other policies.
+- `["guard_content"]` – Content is evaluated by the
+  contextual grounding check (as content to guard) and by all other
+  policies.
+- No qualifier (unqualified) – Content is evaluated by the
+  contextual grounding check (as content to guard) and by all other
+  policies.
+- `["grounding_source", "guard_content"]` – Content
+  serves both roles: used as contextual grounding reference source and
+  evaluated by other policies.
+- `["query", "guard_content"]` – Content serves both
+  roles: used as contextual grounding query and evaluated by other
+  policies.
+
+If you want your grounding source or query content to also be evaluated by other
+guardrail policies, add `guard_content` to the qualifiers list alongside
+the contextual grounding qualifier.
 
 ## Calling contextual grounding check with ApplyGuardrail API
 
@@ -314,11 +358,31 @@ Note that the model response is required to perform the contextual grounding
 checks and so the checks will only be performed on output and not on the
 prompt.
 
-If none of the content blocks are marked with the guard\_content qualifier, then
-the contextual grounding checks policy will investigate just the grounding source,
-query, and response. The remaining policies will follow the default investigation
-behavior: system prompt defaults to not getting investigated and messages defaults
-to getting investigated. If, however, a content block is marked with the
-guard\_content qualifier, then the contextual grounding checks policy will
-investigate just the grounding source, query, and response, while the remaining
-policies will investigate the content marked with the guardContent tags.
+### How qualifiers affect policy evaluation
+
+Content blocks with `grounding_source` or `query`
+qualifiers are evaluated only by the contextual grounding check. These blocks are
+excluded from all other guardrail policy evaluations (word filters, topic filters,
+content filters, sensitive information detection, and prompt attack detection).
+
+To have a content block evaluated by both the contextual grounding check and
+other guardrail policies, use both qualifiers together. For example, specify
+`["grounding_source", "guard_content"]` to mark a content block as a
+grounding source that is also subject to all other configured policies.
+
+For policies other than contextual grounding to evaluate content, at least one
+content block must be unqualified or explicitly qualified with
+`guard_content`. A content block is unqualified when it has no
+`qualifiers` field.
+
+The following table summarizes how each qualifier combination affects policy
+evaluation.
+
+| Qualifier                               | Contextual grounding check | Other guardrail policies |
+| --------------------------------------- | -------------------------- | ------------------------ |
+| `grounding_source`                      | Evaluated (as reference)   | Not evaluated            |
+| `query`                                 | Evaluated (as query)       | Not evaluated            |
+| `guard_content`                         | Evaluated (as response)    | Evaluated                |
+| No qualifier (unqualified)              | Evaluated (as response)    | Evaluated                |
+| `["grounding_source", "guard_content"]` | Evaluated (as reference)   | Evaluated                |
+| `["query", "guard_content"]`            | Evaluated (as query)       | Evaluated                |

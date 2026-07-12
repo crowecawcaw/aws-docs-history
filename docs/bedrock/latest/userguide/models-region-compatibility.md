@@ -371,6 +371,8 @@ Claude Opus 4| Region | In-Region | Geo | Global |
 | `us-west-2` (Oregon) | | | |
 | `ca-central-1` (Canada) | | | |
 | `ca-west-1` (Calgary) | | | |
+| `us-gov-west-1` (GovCloud West) | | | |
+| `us-gov-east-1` (GovCloud East) | | | |
 | `eu-central-1` (Frankfurt) | | | |
 | `eu-central-2` (Zurich) | | | |
 | `eu-north-1` (Stockholm) | | | |

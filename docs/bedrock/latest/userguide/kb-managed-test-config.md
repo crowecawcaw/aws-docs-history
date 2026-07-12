@@ -201,7 +201,7 @@ is `"entertainment"` by adding the following filter:
   between any two filter groups and select
   **OR**.
 
-![Change the logical operation between filter groups.](/images/bedrock/latest/userguide/images/kb/filter-group-logical.png)
+![Change the logical operation between filter groups.](images/kb/filter-group-logical.png)
 
 - To edit a filter, select it, modify the filtering operation,
   and choose **Apply**.
@@ -216,7 +216,7 @@ is `"entertainment"` by adding the following filter:
 ) next to the group. To remove a filter, choose the
 delete icon (
 
-![Close or cancel icon represented by an "X" symbol.](/images/bedrock/latest/userguide/images/icons/close.png)
+![Close or cancel icon represented by an "X" symbol.](images/icons/close.png)
 
 ) next to the filter.
 
@@ -229,7 +229,7 @@ whose genre is `"cooking"` or
 `"sports"` and whose author starts with
 `"C"`.
 
-![Example filter configuration.](/images/bedrock/latest/userguide/images/kb/filter-example.png)
+![Example filter configuration.](images/kb/filter-example.png)
 
 APIWhen you make a [Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") or [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") request, include a `retrievalConfiguration` field, mapped to a [KnowledgeBaseRetrievalConfiguration](../APIReference/API_agent-runtime_KnowledgeBaseRetrievalConfiguration.md "../APIReference/API_agent-runtime_KnowledgeBaseRetrievalConfiguration.md") object. To see the location of this field, refer to the [Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") and [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") request bodies in the API reference.
 

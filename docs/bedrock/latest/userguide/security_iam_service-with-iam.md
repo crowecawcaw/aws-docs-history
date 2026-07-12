@@ -6,7 +6,7 @@ available to use with Amazon Bedrock.
 IAM features you can use with Amazon Bedrock| IAM feature | Amazon Bedrock support |
 | --- | --- |
 | [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | No |
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | Yes |
 | [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
 | [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
 | [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
@@ -46,17 +46,37 @@ To view examples of Amazon Bedrock identity-based policies, see [Identity-based 
 
 **Supports resource-based policies:**
 
-No
+Yes
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are
-IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service
-administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions
-a specified principal can perform on that resource and under what conditions. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals
-can include accounts, users, roles, federated users, or AWS services.
+Resource-based policies are JSON policy documents that you attach to a resource.
+Examples of resource-based policies are IAM _role trust
+policies_ and Amazon S3 _bucket
+policies_. In services that support resource-based policies, service
+administrators can use them to control access to a specific resource. For the resource
+where the policy is attached, the policy defines what actions a specified principal can
+perform on that resource and under what conditions. You must [specify a
+principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals can include accounts, users,
+roles, federated users, or AWS services.
 
-To enable cross-account access, you can specify an entire account or IAM entities
-in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
+To enable cross-account access, you can specify an entire account or IAM entities in
+another account as the principal in a resource-based policy. Adding a cross-account
+principal to a resource-based policy is only half of establishing the trust relationship.
+When the principal and the resource are in different AWS accounts, an IAM
+administrator in the trusted account must also grant the principal entity (user or role)
+permission to access the resource. They grant permission by attaching an identity-based
+policy to the entity. However, if a resource-based policy grants access to a principal
+in the same account, no additional identity-based policy is required. For more
+information, see [Cross account
+resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
 _IAM User Guide_.
+
+Amazon Bedrock supports resource-based policies for guardrails and guardrail inference
+profiles. You can attach a resource-based policy to a guardrail or guardrail inference
+profile to define which principals can perform actions on those resources. Resource-based
+policies are recommended for use with account-level enforced guardrails, and are required
+for use of organization-level enforced guardrails.
+
+For more information, see [Using resource-based policies for guardrails](guardrails-resource-based-policies.md "guardrails-resource-based-policies.md").
 
 ## Policy actions for Amazon Bedrock
 
