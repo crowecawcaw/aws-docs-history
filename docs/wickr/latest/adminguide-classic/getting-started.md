@@ -119,8 +119,8 @@ following information in your email:
 - Your Wickr company ID. You specify a company ID for your Wickr network when you
   configure SSO. For more information, see [Configure SSO in AWS Wickr](configure-sso.md "configure-sso.md").
 - The email address they should use to sign up.
-- The URL to download the Wickr client. Users can download the Wickr clients from the
-  AWS Wickr downloads page at [https://aws.amazon.com/wickr/download/](https://aws.amazon.com/wickr/download/ "https://aws.amazon.com/wickr/download/").
+- The URL to download the Wickr client. You can download the Wickr
+  client from the AWS Wickr downloads page at [https://aws.amazon.com/wickr/download/](https://aws.amazon.com/wickr/download/ "https://aws.amazon.com/wickr/download/").
 
 ###### Note
 
