@@ -67,6 +67,7 @@ With batch runs, you can:
     [Batch-level failures](#batch-level-failures "#batch-level-failures") for
     details.
   - `RUNS_DELETING` — Runs in the batch are being deleted.
+  - `RUNS_DELETE_FAILED` — Some or all runs in the batch failed to delete.
   - `RUNS_DELETED` — All runs in the batch have been deleted.
 
 - **Submission status** — The submission outcome for an individual
@@ -861,7 +862,7 @@ aws omics delete-batch --batch-id `7123456`
 ###### Important
 
 - **DeleteBatch** requires the batch to be in a terminal state
-  (`PROCESSED`, `FAILED`, `CANCELLED`, or
+  (`PROCESSED`, `FAILED`, `CANCELLED`, `RUNS_DELETE_FAILED`, or
   `RUNS_DELETED`).
 - **DeleteBatch** does not delete the individual runs. Use
   **DeleteRunBatch** first if you want to remove the runs as well.
